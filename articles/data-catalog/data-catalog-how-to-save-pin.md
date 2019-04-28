@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: df3220ddb80ebc329ed6b0024ca4eefd2bdfb321
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60002022"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61002067"
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Guardar pesquisas e afixar recursos de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução

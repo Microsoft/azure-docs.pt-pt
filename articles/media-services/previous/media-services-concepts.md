@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 3b7b821227478d8c6b5859f24c50407f9eb213fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61235285"
 ---
 # <a name="azure-media-services-concepts"></a>Conceitos de serviços de multimédia do Azure 
 
@@ -105,7 +105,7 @@ Os Media Services suportam os seguintes codificadores a pedido que são descrito
 
 Para obter informações sobre codificadores suportados, consulte [codificadores](media-services-encode-asset.md).
 
-## <a name="live-streaming"></a>Transmissão em Direto
+## <a name="live-streaming"></a>Transmissão em Fluxo em Direto
 Nos serviços de multimédia do Azure, um canal representa um pipeline de processamento de conteúdo de transmissão em fluxo em direto. Um canal recebe transmissões em direto de entrada em uma das seguintes formas:
 
 * Um codificador em direto no local envia múltipla RTMP ou transmissão em fluxo uniforme (MP4 fragmentado) para o canal. Pode utilizar os seguintes codificadores em direto que múltipla transmissão em fluxo uniforme de saída: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os seguintes codificadores em direto transmitem RTMP: Codificadores Adobe Flash Live Encoder, Telestream Wirecast, Teradek, Haivision e Tricaster. Passam as transmissões em fluxo através de canais, sem qualquer outra transcodificação e codificação. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.

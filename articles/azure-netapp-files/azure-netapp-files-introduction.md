@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 03/28/2018
 ms.author: b-juche
 ms.openlocfilehash: d7eb73c8fb4573084ba0a213282fdb71e14ff5fa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61086339"
 ---
 # <a name="introduction-to-azure-netapp-files"></a>Introdução ao Azure NetApp Files
 O serviço Azure NetApp Files é um serviço de armazenamento de ficheiros com tráfego limitado, de elevado desempenho e de nível empresarial. O Azure NetApp Files suporta qualquer tipo de carga de trabalho e, por predefinição, possui uma elevada disponibilidade. Pode selecionar níveis de desempenho e de serviço garantidos e configurar a instantâneos através do serviço. 

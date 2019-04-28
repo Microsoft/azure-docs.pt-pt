@@ -10,13 +10,13 @@ ms.service: iot-hub
 services: iot-hub
 manager: briz
 ms.openlocfilehash: 6dadd746bccd028a2b81a980d99ab47ec9e6e2a3
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320687"
 ---
-# <a name="what-is-azure-iot-hub"></a>O que é o Hub IoT do Azure?
+# <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 
 O Hub IoT é um serviço gerido, alojado na cloud, que atua como um centro de mensagens para assegurar a comunicação bidirecional entre a aplicação IoT e os dispositivos que esta gere. Pode utilizar o Hub IoT do Azure para criar soluções de IoT com comunicações fiáveis e seguras entre milhões de dispositivos IoT e um back-end de solução alojado na cloud. Pode ligar praticamente qualquer dispositivo ao Hub IoT.
 
@@ -82,7 +82,7 @@ Pode gerir os dispositivos ligados ao Hub IoT com uma matriz de funcionalidade i
 
 Existe um [Contrato de Nível de Serviço para o Hub IoT](https://azure.microsoft.com/support/legal/sla/iot-hub/) de 99,9%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/) completo explica a disponibilidade garantida do Azure em termos globais.
 
-## <a name="connect-your-devices"></a>Ligue os seus dispositivos
+## <a name="connect-your-devices"></a>Ligar os dispositivos
 
 Utilize as bibliotecas do [Azure IoT Device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) para criar aplicações que são executadas nos seus dispositivos e que interagem com o Hub IoT. As plataformas suportadas incluem múltiplas distribuições do Linux, Windows e sistemas operativos em tempo real. As linguagens suportadas incluem:
 

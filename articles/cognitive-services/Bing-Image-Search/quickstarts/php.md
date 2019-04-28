@@ -13,11 +13,11 @@ ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: c1f67fe01708f110c121f1acc5baf6d6998fe463
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256962"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60915961"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Início rápido: Procure imagens usando a API de REST de pesquisa de imagens do Bing e o PHP
 

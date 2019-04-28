@@ -8,11 +8,11 @@ ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
 ms.openlocfilehash: 6c858514c29a040539516f42e024f1633c2512a7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776535"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60905831"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Criar uma configuração do Terraform do Azure
 
@@ -112,7 +112,7 @@ resource "azurerm_container_group" "vote-aci" {
     image  = "microsoft/azure-vote-front:cosmosdb"
     cpu    = "0.5"
     memory = "1.5"
-    ports  = {
+    ports {
       port     = 80
       protocol = "TCP"
     }

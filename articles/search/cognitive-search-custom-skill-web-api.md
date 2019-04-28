@@ -12,11 +12,11 @@ ms.date: 01/31/2019
 ms.author: luisca
 ms.custom: seojan2018
 ms.openlocfilehash: 1fcb12fc2cfae98376210e1924a670cce444f4f2
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757671"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61343346"
 ---
 # <a name="custom-web-api-skill"></a>Habilidade de Web API personalizada
 

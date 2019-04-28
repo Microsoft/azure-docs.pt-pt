@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: f3d1fb393138aeb590bc0645d6abe93652a52a5b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052586"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61247558"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparar o ambiente de teste e desenvolvimento para o IoT Edge
 
@@ -60,7 +60,7 @@ Os modelos de módulo para alguns idiomas e serviços têm os pré-requisitos ne
 | C# | [.NET core 2.1 SDK](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Kit de desenvolvimento Sudeste do Java 10](https://aka.ms/azure-jdks) <li> [Defina a variável de ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Gerador de módulo de node. js do IoT Edge do Azure](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
-| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [PIP](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutteru](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
+| Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Cookiecutter](https://cookiecutter.readthedocs.io/en/latest/installation.html) <li> [Git](https://git-scm.com/) </ul> |
 
 ### <a name="visual-studio-2017-extension"></a>Extensão do Visual Studio 2017
 
@@ -83,9 +83,9 @@ Apenas o runtime do IoT Edge é suportado para implementações de produção, m
 | Ferramenta | Também conhecido como | Plataformas suportadas | Melhor para |
 | ---- | ------------- | ------------------- | --------- |
 | Ferramenta de desenvolvimento IoT EdgeHub  | iotedgehubdev | Windows, Linux, MacOS | Simular um dispositivo para depurar módulos. |
-| Contentor de desenvolvimento do IoT Edge | Microsoft/iotedgedev | Windows, Linux, MacOS | Desenvolvendo sem instalação de dependências. |
+| Contentor de desenvolvimento do IoT Edge | microsoft/iotedgedev | Windows, Linux, MacOS | Desenvolvendo sem instalação de dependências. |
 | Runtime do IoT Edge num contentor | iotedgec | Windows, Linux, MacOS, ARM | Testes num dispositivo que pode não suportar o tempo de execução. |
-| Contentor de dispositivo do IoT Edge | toolboc/azure-iot-edge-dispositivo-container | Windows, Linux, MacOS, ARM | Um cenário de teste com vários dispositivos de IoT Edge em escala. |
+| Contentor de dispositivo do IoT Edge | toolboc/azure-iot-edge-device-container | Windows, Linux, MacOS, ARM | Um cenário de teste com vários dispositivos de IoT Edge em escala. |
 
 ### <a name="iot-edgehub-dev-tool"></a>Ferramenta de desenvolvimento IoT EdgeHub
 

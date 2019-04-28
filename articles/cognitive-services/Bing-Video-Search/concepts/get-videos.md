@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: aahi
 ms.openlocfilehash: 08e8050fde6d2cf6249826911117dad9f595b6e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60995688"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Procurar vídeos com a API de pesquisa de vídeos do Bing
 

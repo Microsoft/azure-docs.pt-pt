@@ -5,27 +5,29 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 5c8f70ff76da458fcc1433226a51012fb7ccd18e
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61004004"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
 Este artigo ajuda-o a compreender melhor os dados que estão incluídos no Azure Cost Management. E explica a frequência com que dados são processados, recolhidos, mostrado e fechados. A faturação para utilização do Azure mensal. No entanto, o seu tipo de subscrição do Azure determina quando o seu mês de faturação termina. A frequência com que o Cost Management recebe a utilização de dados variam com base em diferentes fatores. Esses fatores incluem o tempo que demora a processar os dados e a frequência com que os serviços do Azure emitem utilização ao sistema de faturação.
 
+Gestão de custos inclui toda a utilização e compras, incluindo as reservas e ofertas de terceiros para contas do Enterprise Agreement (EA). Contas de contrato de cliente da Microsoft (MCA) e as subscrições pay as you go incluem apenas a utilização dos serviços do Azure e do Marketplace. Suporte e de outros custos não estão incluídos. Os custos são estimativas, até que uma nota fiscal é gerada e não fatorar em créditos.
+
 ## <a name="supported-microsoft-offers"></a>Suporte oferecidos pela Microsoft
 
 As seguintes informações são apresentadas suportado atualmente [o Microsoft Azure oferece](https://azure.microsoft.com/support/legal/offer-details/) no Azure Cost Management.  Uma oferta do Azure é o tipo de subscrição do Azure que tem.
 
-| Categoria  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
+| Category  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
 | --- | --- | --- | --- |
 | **O Azure Alemanha** | [Pay as you go do Azure Alemanha](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
@@ -49,7 +51,7 @@ As seguintes informações são apresentadas suportado atualmente [o Microsoft A
 
 A tabela seguinte mostra as ofertas não suportadas.
 
-| Categoria  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
+| Category  | **Nome da oferta** | **ID de quota** | **Número da oferta** |
 | --- | --- | --- | --- |
 | **Fornecedor de soluções cloud (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Fornecedor de soluções cloud (CSP)** | O Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
@@ -86,6 +88,7 @@ As tabelas seguintes mostram os dados que incluiu ou não está no Cost Manageme
 |   | Créditos - para obter mais informações, consulte [termos explicados de nota fiscal](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> utilização do serviço do azure é baseada em reserva e negociado os preços.
+
 <sup>2</sup> utilização da oferta do marketplace não está disponível para pay as you go, MSDN, e o Visual Studio oferece neste momento.
 
 **metadados**
@@ -113,7 +116,7 @@ Subscrições pay as you go – se o mês de faturação termina a 15 de Maio, e
 
 ### <a name="rerated-data"></a>Dados rerated
 
-Se utilizar o [APIs de gestão de custos](https://aka.ms/costmgmt/docs), PowerBI ou do portal do Azure para obter dados, esperar que as taxas do período de faturação atual para obter novamente classificados e, consequentemente, alterar, até que a nota fiscal seja fechada.
+Se utilizar o [APIs de gestão de custos](https://aka.ms/costmgmt/docs), Power BI ou o portal do Azure para obter dados, esperar que as taxas do período de faturação atual para obter novamente classificados e, consequentemente, alterar, até que a nota fiscal seja fechada.
 
 ## <a name="usage-data-update-frequency-varies"></a>Varia de frequência de atualização de dados de utilização
 

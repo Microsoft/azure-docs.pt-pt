@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
 ms.openlocfilehash: a1caec1cd0c05fbc306b1a19c88fbe469be7fa6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881754"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60913862"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-nodejs"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento com node. js
 

@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f0591b47ce7ba6837f300088c856c0098fb66710
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124339"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60998829"
 ---
 # <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>Erros de B2B e soluções para o Azure Logic Apps
 
@@ -145,7 +145,7 @@ Por exemplo:
 
 |   |   | 
 |---|---|
-| Descrição do erro | InvalidTemplate. Não é possível expressões de linguagem de modelo de processo nas entradas de "Flat_File_Decoding" de ação na linha "1" e coluna '1902': ' necessária propriedade "content" espera um valor, mas tem nulo. Caminho '.'. |
+| Descrição do erro | InvalidTemplate. Não é possível processar expressões de linguagem de modelo em ação 'Flat_File_Decoding' entradas na linha "1" e coluna "1902": ' Necessária propriedade "content" espera um valor, mas tem nulo. Caminho '.'. |
 | Ação do utilizador | Este erro indica que a mensagem de entrada não contém um corpo. |
 |   |   | 
 

@@ -11,11 +11,11 @@ ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885462"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61082945"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Documentação de orientação para uso tabelas replicadas no Azure SQL Data Warehouse
 Este artigo fornece recomendações para a criação de tabelas replicadas no seu esquema do SQL Data Warehouse. Utilize estas recomendações para melhorar o desempenho de consulta, reduzindo a complexidade de movimento e a consulta de dados.

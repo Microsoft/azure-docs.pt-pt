@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: yegu
 ms.openlocfilehash: 6757a038a945bf153cb62662bee8c715c87baf19
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237745"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60829825"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Introdução à Cache do Azure para o escalão Premium da Redis
 A Cache de Redis do Azure é uma cache distribuída e gerida que ajuda a criar aplicações altamente escaláveis e reativas ao fornecer um acesso extremamente rápido aos seus dados. 

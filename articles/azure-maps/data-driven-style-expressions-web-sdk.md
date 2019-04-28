@@ -10,11 +10,11 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60904980"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressões de estilo condicionada por dados (Web SDK)
 
@@ -83,11 +83,11 @@ As expressões de dados fornecem acesso aos dados de propriedade num recurso.
 |------------|-------------|-------------|
 | `['at', number, array]` | objeto | Obtém um item de uma matriz. |
 | `['geometry-type']` | string | Obtém o tipo de geometria da funcionalidade: Ponto, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | valor | Obtém o valor da propriedade a partir das propriedades do recurso atual. Devolve um valor nulo se a propriedade pedida está em falta. |
-| `['get', string, object]` | valor | Obtém o valor da propriedade das propriedades do objeto fornecido. Devolve um valor nulo se a propriedade pedida está em falta. |
+| `['get', string]` | value | Obtém o valor da propriedade a partir das propriedades do recurso atual. Devolve um valor nulo se a propriedade pedida está em falta. |
+| `['get', string, object]` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Devolve um valor nulo se a propriedade pedida está em falta. |
 | `['has', string]` | boolean | Determina se as propriedades de um recurso tem a propriedade especificada. |
 | `['has', string, object]` | boolean | Determina se as propriedades do objeto tem a propriedade especificada. |
-| `['id']` | valor | Obtém de ID a funcionalidade se ele tiver um. |
+| `['id']` | value | Obtém de ID a funcionalidade se ele tiver um. |
 | `['length', string | array]` | número | Obtém o comprimento de uma cadeia ou matriz. |
 
 **Exemplos**

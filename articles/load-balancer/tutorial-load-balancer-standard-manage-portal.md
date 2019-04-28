@@ -16,11 +16,11 @@ ms.date: 03/11/2019
 ms.author: kumud
 ms.custom: seodec18
 ms.openlocfilehash: 78266e447d1ddf6daf5a9b0ad9172ab6470bf0c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61320847"
 ---
 # <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutorial: Balanceamento de carga de tráfego da internet para VMs com o portal do Azure
 
@@ -88,7 +88,7 @@ Para permitir que o Balanceador de carga monitorizar o estado da sua aplicação
     | Name | Introduza *myHealthProbe*. |
     | Protocolo | Selecione **HTTP**. |
     | Porta | Enter *80*.|
-    | Intervalo | Introduza *15* para o número de **intervalo** em segundos, entre tentativas da sonda. |
+    | Interval | Introduza *15* para o número de **intervalo** em segundos, entre tentativas da sonda. |
     | Limiar com funcionamento incorreto | Selecione *2* para o número de **limiar de mau estado de funcionamento** ou falhas consecutivas da sonda que devem ocorrer antes de uma VM é considerada em mau estado de funcionamento.|
     | Sonda de estado de funcionamento | Selecione *myHealthProbe*. |
     
@@ -128,7 +128,7 @@ Nesta secção, criar uma rede virtual, crie três máquinas virtuais para o con
     | Espaço de endereços | Enter *10.1.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
     | Grupo de recursos | Selecione o recurso existente - *myResourceGroupSLB*. |
-    | Localização | Selecione **Europa Ocidental**.|
+    | Location | Selecione **Europa Ocidental**.|
     | Sub-rede - nome | Introduza *myBackendSubnet*. |
     | Sub-rede - Intervalo de endereços | Enter *10.1.0.0/24*. |
     

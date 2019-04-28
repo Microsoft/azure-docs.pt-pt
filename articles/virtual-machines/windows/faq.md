@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.author: cynthn
 ms.openlocfilehash: 65d4326763ef9754159e94c9426f3aee69f80ffd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253368"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61095664"
 ---
 # <a name="frequently-asked-question-about-windows-virtual-machines"></a>Perguntas frequentes sobre o máquinas de virtuais do Windows
 Este artigo aborda algumas perguntas comuns sobre as máquinas de virtuais do Windows criadas no Azure com o modelo de implementação do Resource Manager. Para a versão do Linux deste tópico, consulte [pergunta mais frequente sobre máquinas virtuais do Linux](../linux/faq.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -33,7 +33,7 @@ Determinadas versões do Windows 7, Windows 8.1 e Windows 10 estão disponíveis
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
 Cada disco de dados pode ser até 4 TB (4095 GB). O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-Managed Disks do Azure são as disco recomendado ofertas de armazenamento para utilização com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Os Managed Disks oferecem dois tipos de opções de armazenamento duráveis: Managed Disks Premium e Standard. Para obter informações sobre preços, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
+Managed Disks do Azure são as disco recomendado ofertas de armazenamento para utilização com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Managed Disks oferta dois tipos de opções de armazenamento duráveis: Discos geridos Premium e Standard. Para obter informações sobre preços, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
 
 Contas de armazenamento do Azure também podem fornecer armazenamento para o disco do sistema operativo e qualquer discos de dados. Cada disco é um ficheiro .vhd armazenado como um blob de páginas. Para detalhes de preços, veja [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -92,9 +92,9 @@ Não são permitidos nomes de utilizador seguintes:
         <td style="text-align:center">1</td><td style="text-align:center">123</td><td style="text-align:center">a</td><td style="text-align:center">actuser</td>
     </tr>
     <tr>
-        <td style="text-align:center">ADM</td><td style="text-align:center">administrador</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
+        <td style="text-align:center">adm</td><td style="text-align:center">admin</td><td style="text-align:center">admin1</td><td style="text-align:center">admin2</td>
     </tr>   <tr>
-        <td style="text-align:center">Administrador</td><td style="text-align:center">aspnet</td><td style="text-align:center">cópia de segurança</td><td style="text-align:center">consola</td>
+        <td style="text-align:center">administrador</td><td style="text-align:center">aspnet</td><td style="text-align:center">cópia de segurança</td><td style="text-align:center">consola</td>
     </tr>
     <tr>
         <td style="text-align:center">David </td><td style="text-align:center">convidado</td><td style="text-align:center">John</td><td style="text-align:center">proprietário</td>
@@ -106,10 +106,10 @@ Não são permitidos nomes de utilizador seguintes:
         <td style="text-align:center">support_388945a0</td><td style="text-align:center">sys.</td><td style="text-align:center">test</td><td style="text-align:center">test1</td>
     </tr>
     <tr>
-        <td style="text-align:center">TEST2</td><td style="text-align:center">test3</td><td style="text-align:center">Utilizador</td><td style="text-align:center">Utilizador1</td>
+        <td style="text-align:center">test2</td><td style="text-align:center">test3</td><td style="text-align:center">Utilizador</td><td style="text-align:center">Utilizador1</td>
     </tr>
     <tr>
-        <td style="text-align:center">Utilizador2</td><td style="text-align:center">usuário3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
+        <td style="text-align:center">user2</td><td style="text-align:center">user3</td><td style="text-align:center">user4</td><td style="text-align:center">user5</td>
     </tr>
 </table>
 
@@ -132,7 +132,7 @@ As palavras-passe seguintes não são permitidas:
         <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>Word $$ de Pa</td>
+        <td>Pa$$word</td>
         <td>pass@word1</td>
         <td>Palavra-passe!</td>
         <td>Password1</td>

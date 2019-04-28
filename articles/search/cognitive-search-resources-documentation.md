@@ -11,11 +11,11 @@ ms.date: 05/04/2018
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 609b5d990cffce10733f6fc82e6b1032ad0f06bb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60951803"
 ---
 # <a name="documentation-resources-for-cognitive-search-workloads"></a>Recursos de documentação para cargas de trabalho de pesquisa cognitiva
 
@@ -25,7 +25,7 @@ Os seguintes artigos são a documentação completa de pesquisa cognitiva.
 
 ## <a name="getting-started"></a>Introdução
 + [O que é a pesquisa cognitiva?](cognitive-search-concept-intro.md)
-+ [Início rápido: Experimentar a pesquisa cognitiva no portal](cognitive-search-quickstart-blob.md)
++ [Quickstart: Experimentar a pesquisa cognitiva no portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Saiba a APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
 + [Exemplo: criar uma competência personalizada](cognitive-search-create-custom-skill-example.md)
 

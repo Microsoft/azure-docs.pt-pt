@@ -9,11 +9,11 @@ ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58803013"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61023765"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Início rápido: Criar um servidor - Portal
 

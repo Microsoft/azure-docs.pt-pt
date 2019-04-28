@@ -9,12 +9,12 @@ ms.author: jonfan
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: f27e82e780917e00625ef6a14ab8317d1f5b8ae8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f813cb5d8d5c442fc17f126c3a2ff6de7b0bdde1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124804"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61323111"
 ---
 # <a name="migrate-from-biztalk-services-to-azure-logic-apps"></a>Migrar dos serviços BizTalk para o Azure Logic Apps
 
@@ -38,7 +38,7 @@ Esta tabela mapeia funcionalidades dos serviços BizTalk para aplicações lógi
 | Conector          | Conector             | Enviar e receber dados   |
 | Bridge             | Aplicação Lógica             | Processador de pipeline           |
 | Validar o estágio     | Ação de validação de XML | Validar um documento XML com um esquema | 
-| Enriqueça fase       | Tokens de dados           | Promover propriedades em mensagens ou para decisões de encaminhamento |
+| Enriqueça fase       | Data Tokens           | Promover propriedades em mensagens ou para decisões de encaminhamento |
 | Transformar fase    | Transformar a ação      | Converter mensagens XML de um formato para outro |
 | Descodificar fase       | Ação de descodificação de ficheiro simples | Converter de arquivo simples em XML |
 | Codificar o estágio       | Ação de codificação de ficheiro simples | Converter a partir de XML a um ficheiro simples |
@@ -106,7 +106,7 @@ No processamento de serviços do BizTalk, o estágio de Enrich Adiciona propried
 
 Serviços BizTalk permitem-lhe [executar código personalizado](https://msdn.microsoft.com/library/azure/dn232389.aspx) que é carregado em seus próprios assemblies. Esta funcionalidade é implementada pela [IMessageInspector](https://msdn.microsoft.com/library/microsoft.biztalk.services.imessageinspector) interface. Cada fase na ponte inclui duas propriedades (no Inspetor de introduzir e no Inspetor de saída) que fornecem o tipo de .NET que criou, que implementa essa interface. Código personalizado permite-lhe efetuar o processamento mais complexo nos dados e permite-lhe reutilizar o código existente em assemblies que executam a lógica de negócios comum. 
 
-O Logic Apps fornece duas formas principais de executar código personalizado: as funções do Azure e API Apps. As funções do Azure podem ser criadas e chamadas a partir de aplicações lógicas. Ver [adicionar e executar código personalizado para o logic apps através das funções do Azure](../logic-apps/logic-apps-azure-functions.md). Utilize as aplicações API, parte do serviço de aplicações do Azure, para criar seus próprios acionadores e ações. Saiba mais sobre [criar uma API personalizada para utilizar com o Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
+O Logic Apps fornece duas formas principais de executar código personalizado: As funções do Azure e aplicações API. As funções do Azure podem ser criadas e chamadas a partir de aplicações lógicas. Ver [adicionar e executar código personalizado para o logic apps através das funções do Azure](../logic-apps/logic-apps-azure-functions.md). Utilize as aplicações API, parte do serviço de aplicações do Azure, para criar seus próprios acionadores e ações. Saiba mais sobre [criar uma API personalizada para utilizar com o Logic Apps](../logic-apps/logic-apps-create-api-app.md). 
 
 Se tiver o código personalizado em assemblies que chamar dos serviços BizTalk, pode mover este código para as funções do Azure ou criar APIs personalizadas com aplicações API, consoante o que esteja implementando. Por exemplo, se tiver o código que encapsula outro serviço para o qual o Logic Apps não tem um conector, em seguida, criar uma aplicação API e utilizar as ações que a aplicação API fornece na sua aplicação lógica. Se tiver funções auxiliares ou bibliotecas, em seguida, as funções do Azure é provavelmente a melhor opção.
 

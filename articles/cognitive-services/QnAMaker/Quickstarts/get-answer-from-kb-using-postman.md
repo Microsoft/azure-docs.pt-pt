@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: diberry
 ms.openlocfilehash: 24bd6731faa9788dc336db199aa9776813e7348f
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683448"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60914861"
 ---
 # <a name="quickstart-get-an-answer-from-knowledge-base-using-postman"></a>Início rápido: Receber uma resposta da base de dados de conhecimento com o Postman
 

@@ -9,11 +9,11 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000645"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61003717"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gerir recursos de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução

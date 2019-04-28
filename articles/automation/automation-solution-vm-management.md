@@ -10,11 +10,11 @@ ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762944"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61306872"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -249,7 +249,7 @@ A automatização cria dois tipos de registos na área de trabalho do Log Analyt
 |Propriedade | Descrição|
 |----------|----------|
 |Autor da chamada |  Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados.|
-|Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs.|
+|Category | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs.|
 |CorrelationId | GUID que é o ID de correlação do trabalho do runbook.|
 |JobId | GUID que é o ID do trabalho do runbook.|
 |operationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho.|
@@ -270,7 +270,7 @@ A automatização cria dois tipos de registos na área de trabalho do Log Analyt
 |Propriedade | Descrição|
 |----------|----------|
 |Autor da chamada |  Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados.|
-|Categoria | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams.|
+|Category | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams.|
 |JobId | GUID que é o ID do trabalho do runbook.|
 |operationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho.|
 |ResourceGroup | Especifica o nome do grupo de recursos do trabalho do runbook.|

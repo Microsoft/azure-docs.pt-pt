@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a7666ada6c4535010297415eac8b0bd9e5226d9e
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974472"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094217"
 ---
 <a name="retrieve-operations"></a>Obter operações
 ===================
@@ -40,10 +40,10 @@ Obtém todas as operações na oferta de ou para obter uma determinada operaçã
 
 |  **Nome**          |      **Descrição**                                                                                           | **Tipo de dados** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  Identificador do publicador, por exemplo `Contoso`                                                                   |  Cadeia       |
-|  offerId           |  Identificador da oferta                                                                                              |  Cadeia       |
-|  operationId       |  GUID que identifica exclusivamente a operação sobre a oferta. OperationId poderá ser recuperada por meio desta API e também é devolvido no cabeçalho de HTTP de resposta para qualquer operação de longa execução, tais como o [publicar oferta](./cloud-partner-portal-api-publish-offer.md) API.  |   GUID   |
-|  filteredStatus    | Parâmetro de consulta opcional utilizado para filtrar por Estado (por exemplo `running`) na coleção devolvida por esta API.  |   Cadeia |
+|  publisherId       |  Identificador do publicador, por exemplo `Contoso`                                                                   |  String       |
+|  IDoferta           |  Identificador da oferta                                                                                              |  String       |
+|  operationId       |  GUID que identifica exclusivamente a operação sobre a oferta. OperationId poderá ser recuperada por meio desta API e também é devolvido no cabeçalho de HTTP de resposta para qualquer operação de longa execução, tais como o [publicar oferta](./cloud-partner-portal-api-publish-offer.md) API.  |   Guid   |
+|  filteredStatus    | Parâmetro de consulta opcional utilizado para filtrar por Estado (por exemplo `running`) na coleção devolvida por esta API.  |   String |
 |  versão de API       | Versão mais recente da API                                                                                           |    Date      |
 |  |  |  |
 

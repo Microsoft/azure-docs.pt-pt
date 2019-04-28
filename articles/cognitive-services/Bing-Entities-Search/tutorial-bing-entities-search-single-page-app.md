@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 02/01/2019
 ms.author: aahi
 ms.openlocfilehash: fe1e56d2975c219a56d41102c728b7873f9f4f62
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918265"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 

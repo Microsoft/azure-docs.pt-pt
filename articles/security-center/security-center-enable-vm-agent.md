@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: 12934ad53050d16b89dd5b4175ca19a24d1ec4d9
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118195"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60916298"
 ---
 # <a name="enable-vm-agent-in-azure-security-center"></a>Ativar o agente VM no Centro de segurança do Azure
 O agente da VM tem de estar instalado em máquinas virtuais (VMs) para [ativar a recolha de dados](security-center-enable-data-collection.md).  Centro de segurança do Azure permite-lhe ver qual as VMs requerem o agente da VM e recomendará que ativar o agente da VM nessas VMS.

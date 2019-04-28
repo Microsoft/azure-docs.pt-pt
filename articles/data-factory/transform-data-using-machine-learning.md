@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: aaf1d72a0c9c56e7d140fb615caf014507ebf263
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840567"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60928078"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Crie pipelines previsíveis utilizando o Azure Machine Learning e Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -127,7 +127,7 @@ O fragmento JSON seguinte define uma atividade de execução de lote do Azure Ma
 | Propriedade          | Descrição                              | Necessário |
 | :---------------- | :--------------------------------------- | :------- |
 | nome              | Nome da atividade no pipeline     | Sim      |
-| descrição       | Texto que descreve o que faz a atividade.  | Não       |
+| description       | Texto que descreve o que faz a atividade.  | Não       |
 | tipo              | Para a atividade de U-SQL do Data Lake Analytics, é o tipo de atividade **AzureMLBatchExecution**. | Sim      |
 | linkedServiceName | Serviço ligado do serviços ligados para o Azure Machine Learning. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo. | Sim      |
 | webServiceInputs  | Chaves, pares de valor, mapear os nomes das entradas de serviço Web do Azure Machine Learning. Tem de corresponder os parâmetros de entrada definidos no publicados do Azure Machine Learning Web Service. O valor é um par de propriedades de serviços ligados do armazenamento do Azure e o caminho do ficheiro, especificar as localizações de Blob de entrada. | Não       |

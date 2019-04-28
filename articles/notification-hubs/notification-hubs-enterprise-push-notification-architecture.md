@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 938801148b175456553865b54d59271021811401
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60873397"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação de arquitetura das notificações push empresariais
 
@@ -54,7 +54,7 @@ A parte principal neste diagrama da arquitetura é o Azure Service Bus, que forn
 1. A separação entre o destinatário (aplicação/Serviço móvel através do Hub de notificação) e o remetente (sistemas de back-end) permite que os sistemas de back-end adicional a ser integrados com o mínimo de alterações.
 1. Ele também torna o cenário de várias aplicações móveis que está a ser capaz de receber eventos de um ou mais sistemas de back-end.  
 
-## <a name="sample"></a>Sample
+## <a name="sample"></a>Exemplo
 
 ### <a name="prerequisites"></a>Pré-requisitos
 

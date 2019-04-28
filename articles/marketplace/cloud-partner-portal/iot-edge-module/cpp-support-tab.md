@@ -15,15 +15,15 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9926c9a0443eb5220e7689dfc6e49e4b8d661d65
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49431545"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909857"
 ---
 # <a name="iot-edge-module-support-tab"></a>Guia de suporte de módulo do IoT Edge
 
-Utilize o **suportar** separador da **nova oferta** página para fornecer técnicas e de utilizador recursos de suporte para a sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de suporte: **contacto de engenharia**, **suporte ao cliente**, e **Urls de suporte**. Um asterisco (*) acrescentado ao nome do campo indica que é obrigatório.
+Utilize o **suportar** separador da **nova oferta** página para fornecer técnicas e de utilizador recursos de suporte para a sua oferta.  As seguintes áreas de entrada são fornecidas no formulário de suporte: **Contacto de engenharia**, **suporte ao cliente**, e **suporta Urls**. Um asterisco (*) acrescentado ao nome do campo indica que é obrigatório.
 
 ![Guia de suporte do formulário de nova oferta para os módulos do IoT Edge](./media/iot-edge-module-support-tab.png)
 

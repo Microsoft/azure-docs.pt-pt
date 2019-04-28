@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/29/2018
 ms.author: jeconnoc
 ms.openlocfilehash: 844fef9a87c1db06c6415c59d4be26caf928382b
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789473"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432916"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introdução à monitorização do serviço Cloud
 
@@ -64,7 +64,7 @@ Em seguida, navegue para o **conta de armazenamento (clássico)** recursos. Sele
 
 Existem dois ficheiros de configuração tem de alterar para diagnóstico avançado esteja ativada **servicedefinition. Csdef** e **serviceconfiguration. Cscfg**.
 
-### <a name="servicedefinitioncsdef"></a>Servicedefinition. Csdef
+### <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
 
 Na **servicedefinition. Csdef** do ficheiro, adicione uma nova definição denominada `Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString` para cada função que utiliza o diagnóstico avançado. O Visual Studio adiciona este valor para o ficheiro ao criar um novo projeto. No caso de ele está em falta, pode adicioná-lo agora. 
 

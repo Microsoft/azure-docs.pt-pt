@@ -8,11 +8,11 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59793222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61038625"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a base de dados do Azure para regras de firewall da MariaDB com a CLI do Azure
 Regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma base de dados do Azure para MariaDB Server de um endereço IP específico ou um intervalo de endereços IP. Usando o convenientes comandos da CLI do Azure, pode criar, atualizar, eliminar, lista e Mostrar regras de firewall para gerir o seu servidor. Para uma descrição geral da base de dados do Azure para MariaDB firewalls, consulte [base de dados do Azure para MariaDB regras de firewall de servidor](./concepts-firewall-rules.md).
@@ -27,7 +27,7 @@ Regras de rede (VNet) virtual também podem ser utilizadas para proteger o acess
 O **az mariadb server firewall-rule** comando é utilizado a partir da CLI do Azure para criar, eliminar, listar, mostrar e atualizar regras de firewall.
 
 Comandos:
-- **Criar**: Crie uma regra de firewall do servidor de Azure MariaDB.
+- **criar**: Crie uma regra de firewall do servidor de Azure MariaDB.
 - **delete**: Elimine uma regra de firewall do servidor de Azure MariaDB.
 - **list**: Liste as regras de firewall do servidor de Azure MariaDB.
 - **Mostrar**: Mostre os detalhes de um servidor de Azure MariaDB regra de firewall.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881788"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346348"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Eliminar a atividade de Azure Data Factory
 
@@ -115,7 +115,7 @@ Existem dois locais onde pode ver e monitorizar os resultados da atividade de el
 
 ### <a name="sample-log-file-of-the-delete-activity"></a>Ficheiro de registo de exemplo da atividade de eliminação
 
-| Name | Categoria | Estado | Erro |
+| Name | Category | Estado | Erro |
 |:--- |:--- |:--- |:--- |
 | test1/yyy.json | Ficheiro | Eliminada |  |
 | test2/hello789.txt | Ficheiro | Eliminada |  |

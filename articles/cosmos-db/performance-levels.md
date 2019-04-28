@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
 ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60928291"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Extinguir os níveis de desempenho S1, S2 e S3
 
@@ -45,8 +45,8 @@ A tabela seguinte compara as opções de armazenamento e débito disponíveis em
 
 |   |Coleção particionada|Coleção de partição única|S1|S2|S3|
 |---|---|---|---|---|---|
-|Débito máximo|Ilimitado|10 mil RU/s|250 RU/s|1 mil RU/s|2.5 mil RU/s|
-|Débito mínimo|2.5 mil RU/s|400 RU/s|250 RU/s|1 mil RU/s|2.5 mil RU/s|
+|Débito máximo|Ilimitado|10K RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
+|Débito mínimo|2.5 K RU/s|400 RU/s|250 RU/s|1 K RU/s|2.5 K RU/s|
 |Armazenamento máximo|Ilimitado|10 GB|10 GB|10 GB|10 GB|
 |Preço (mensal)|Débito: us $6 / 100 RU/s<br><br>Armazenamento: US $ 0,25/GB|Débito: us $6 / 100 RU/s<br><br>Armazenamento: US $ 0,25/GB|$25 USD|US $50 USD|US $100 USD|
 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rkarlin
 ms.openlocfilehash: bec9be627937913c268d65bb6cdadcf68c7a3fb4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60909218"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gerir os dados de utilizador encontrados numa investigação do Centro de segurança do Azure
 Este artigo fornece informações sobre como gerir os dados de utilizador encontrados na funcionalidade de investigação do Centro de segurança do Azure. Investigação de dados é armazenada no [registos do Azure Monitor](../log-analytics/log-analytics-overview.md) e expostos no Centro de segurança. Gestão de dados de utilizador inclui a capacidade de eliminar ou exportar dados.

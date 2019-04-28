@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
 ms.openlocfilehash: d4b8fd6ccb3fc7cb2627d4bd3e103239181e4d9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60831066"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Como configurar o suporte de rede Virtual para uma Cache do Azure Premium para Redis
 A Cache de Redis do Azure tem ofertas de cache diferente, que fornecem flexibilidade na escolha de tamanho de cache e funcionalidades, incluindo as funcionalidades do escalão Premium, tais como clustering, persistência e suporte de rede virtual. Uma VNet é uma rede privada na cloud. Quando uma Cache do Azure para a instância de Redis está configurada com uma VNet, não é publicamente endereçável e só pode ser acedida a partir de máquinas virtuais e aplicações dentro da VNet. Este artigo descreve como configurar o suporte de rede virtual para uma Cache do Azure de premium para a instância de Redis.
@@ -110,7 +110,7 @@ Existem sete requisitos de porta de saída.
 - Três das portas encaminham o tráfego para pontos finais do Azure, manutenção de armazenamento do Azure e o DNS do Azure.
 - Os intervalos de portas restantes e para as comunicações internas de sub-rede de Redis. Não existem regras NSG de sub-rede são necessárias para as comunicações internas de sub-rede de Redis.
 
-| Porta (s) | Direção | Protocolo de transporte | Objetivo | Local IP | IP remoto |
+| Porta (s) | Direction | Protocolo de transporte | Objetivo | Local IP | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Saída |TCP |Redis dependências no Azure armazenamento/PKI (Internet) | (Redis sub-rede) |* |
 | 53 |Saída |TCP/UDP |Redis dependências no DNS (Internet/VNet) | (Redis sub-rede) |* |
@@ -126,7 +126,7 @@ Existem sete requisitos de porta de saída.
 
 Existem oito requisitos de intervalo de porta de entrada. Pedidos de entrada destes intervalos são a entrada de outros serviços hospedados na mesma VNET ou interno para as comunicações de sub-rede de Redis.
 
-| Porta (s) | Direção | Protocolo de transporte | Objetivo | Local IP | IP remoto |
+| Porta (s) | Direction | Protocolo de transporte | Objetivo | Local IP | IP remoto |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Entrada |TCP |Comunicação do cliente com Redis, balanceamento de carga do Azure | (Redis sub-rede) | (Redis sub-rede), rede Virtual, o Balanceador de carga do Azure |
 | 8443 |Entrada |TCP |Comunicações internas para Redis | (Redis sub-rede) |(Redis sub-rede) |

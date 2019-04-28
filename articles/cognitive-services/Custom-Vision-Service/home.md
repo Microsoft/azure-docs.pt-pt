@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/21/2019
 ms.author: pafarley
 ms.openlocfilehash: 50935aca20af931eec63717921ef7a73267d2373
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350475"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60996647"
 ---
 # <a name="what-is-azure-custom-vision"></a>O que é a Visão Personalizada do Azure?
 

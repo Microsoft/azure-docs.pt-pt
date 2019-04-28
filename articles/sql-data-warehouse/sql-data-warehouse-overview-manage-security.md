@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 179925fc7411a1ccf3de02d7b6298cc66f93bc66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58175722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61126945"
 ---
 # <a name="secure-a-database-in-sql-data-warehouse"></a>Proteger uma base de dados no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ SQL Data Warehouse utiliza regras de firewall ao nível do servidor. Não suport
 
 Ligações para o SQL Data Warehouse são criptografadas por padrão.  Modificação de definições de ligação para desativar a encriptação são ignoradas.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. Atualmente, o SQL Data Warehouse suporta autenticação do SQL Server com um nome de utilizador e palavra-passe e com o Azure Active Directory. 
 
 Quando criou o servidor lógico para a sua base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Com estas credenciais, pode autenticar qualquer base de dados nesse servidor como o proprietário da base de dados, ou "dbo" através da autenticação do SQL Server.

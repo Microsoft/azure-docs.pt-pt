@@ -15,13 +15,13 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810774"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093986"
 ---
-<a name="retrieve-offer-status"></a>Obter o estado da oferta 
+<a name="retrieve-offer-status"></a>Obter estado da oferta 
 =====================
 
 Obtém o estado atual da oferta.
@@ -33,8 +33,8 @@ Obtém o estado atual da oferta.
 
 |  **Nome**       |   **Descrição**                            |  **Tipo de dados** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | Identificador do publicador, por exemplo `Contoso`  |     Cadeia     |
-|  offerId        | GUID que identifica exclusivamente a oferta      |     Cadeia     |
+|  publisherId    | Identificador do publicador, por exemplo `Contoso`  |     String     |
+|  IDoferta        | GUID que identifica exclusivamente a oferta      |     String     |
 |  versão de API    | Versão mais recente da API                        |     Date       |
 |  |  |
 
@@ -42,7 +42,7 @@ Obtém o estado atual da oferta.
 <a name="header"></a>Cabeçalho
 ------
 
-|  Nome           |  Valor               |
+|  Name           |  Value               |
 |  -------------  | -------------------  |
 |  Content-Type   |  `application/json`  |
 |  Autorização  | `Bearer YOUR_TOKEN`  |
@@ -137,7 +137,7 @@ Obtém o estado atual da oferta.
 |  estimatedTimeFrame   | Estimativa de tempo que é necessário para concluir este passo, em formato amigável                       |
 |  ID                   | Identificador do passo                                                                         |
 |  stepName             | Nome do passo                                                                               |
-|  descrição          | Descrição do passo                                                                        |
+|  description          | Descrição do passo                                                                        |
 |  status               | Estado do passo. Para obter a lista de valores possíveis, consulte [passo estado](#step-status) abaixo.    |
 |  mensagens             | Matriz de mensagens relacionadas para o passo                                                          |
 |  processPercentage    | Porcentagem de conclusão do passo                                                              |

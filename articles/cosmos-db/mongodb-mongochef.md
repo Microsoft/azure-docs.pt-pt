@@ -5,16 +5,17 @@ description: Saiba como ligar ao Cosmos DB com o Studio 3T e a API do Azure Cosm
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 12/26/2018
-author: sivethe
-ms.author: sivethe
+origin.date: 12/26/2018
+ms.date: 03/18/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.custom: seodec18
 ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449381"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61332046"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Ligar à conta do Cosmos utilizar o Studio 3T
 
@@ -113,3 +114,5 @@ Para criar uma base de dados, uma coleção e documentos, utilizar o Studio 3T, 
 
 - Saiba como [utilizar Robo 3T](mongodb-robomongo.md) com a API do Azure Cosmos DB para o MongoDB.
 - Explorar o MongoDB [amostras](mongodb-samples.md) com a API do Azure Cosmos DB para o MongoDB.
+
+<!-- Update_Description: update meta properties, wording update -->

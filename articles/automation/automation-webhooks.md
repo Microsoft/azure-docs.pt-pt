@@ -10,11 +10,11 @@ ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 153bb0304102906f7be64ae55dd0e0f6bb8d7146
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224900"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61305025"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Iniciar um runbook da automatização do Azure com um webhook
 
@@ -35,7 +35,7 @@ A tabela seguinte descreve as propriedades que devem ser configuradas para um we
 | Name |Pode fornecer qualquer nome que pretende para um webhook, uma vez que isso não é exposto ao cliente. É utilizado apenas para si para identificar o runbook na automatização do Azure. <br> Como melhor prática, deve dar o webhook um nome relacionado com o cliente que o utiliza. |
 | do IdP |O URL do webhook é o endereço exclusivo que um cliente chama-se com um HTTP POST para iniciar o runbook associado para o webhook. É gerado automaticamente quando cria o webhook. Não é possível especificar um URL personalizado. <br> <br> O URL contém um token de segurança que permite que o runbook seja invocado por um sistema de terceiros sem autenticação adicional. Por esse motivo, deve ser tratada como uma palavra-passe. Por motivos de segurança, apenas pode ver o URL no portal do Azure no momento que o webhook for criado. Anote o URL numa localização segura para utilização futura. |
 | Data de validade |Como um certificado, cada webhook tem uma data de expiração nesse momento que já não pode ser utilizado. Esta data de expiração pode ser modificada depois do webhook for criado, desde que o webhook não está expirado. |
-| Ativado |Um webhook está ativado por predefinição, quando é criado. Se definido como desativado, nenhum cliente pode utilizá-lo. Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
+| Enabled |Um webhook está ativado por predefinição, quando é criado. Se definido como desativado, nenhum cliente pode utilizá-lo. Pode definir o **ativado** propriedade ao criar o webhook ou em qualquer altura uma vez é criada. |
 
 ### <a name="parameters"></a>Parâmetros
 
@@ -110,7 +110,7 @@ http://<Webhook Server>/token?=<Token Value>
 
 O cliente recebe um dos seguintes códigos de retornados da solicitação POST.
 
-| Código | Texto | Descrição |
+| Código | Text | Descrição |
 |:--- |:--- |:--- |
 | 202 |Aceite |O pedido foi aceite e o runbook com êxito foi colocado em fila. |
 | 400 |Pedido Inválido |O pedido não foi aceite para um dos seguintes motivos: <ul> <li>O webhook expirou.</li> <li>O webhook está desativado.</li> <li>O token no URL é inválido.</li>  </ul> |

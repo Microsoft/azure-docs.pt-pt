@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: alinast
 ms.openlocfilehash: e93811a56f934a95dde45633c4fb64312b3696df
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60924810"
 ---
 # <a name="egress-and-endpoints"></a>Saída e os pontos finais
 
@@ -47,16 +47,16 @@ Eventos são enviados por objetos de IoT (por exemplo, dispositivos e sensores) 
 }
 ```
 
-| Atributo | Tipo | Descrição |
+| Atributo | Type | Descrição |
 | --- | --- | --- |
-| ID | cadeia | Identificador exclusivo para o evento. |
-| assunto | cadeia | Caminho definidos pelo publicador para o assunto de evento. |
+| ID | string | Identificador exclusivo para o evento. |
+| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
 | dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
-| eventType | cadeia | Um dos tipos de eventos registrados para esta origem de evento. |
-| eventTime | cadeia | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
-| dataVersion | cadeia | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | cadeia | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
-| tópico | cadeia | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
+| eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
+| eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
+| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
 
 Para obter mais informações sobre o esquema de eventos do Event Grid:
 
@@ -122,7 +122,7 @@ Os formatos de evento para cada tipo de evento são descritos com mais detalhe n
 }
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -153,7 +153,7 @@ Os formatos de evento para cada tipo de evento são descritos com mais detalhe n
 }
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -188,7 +188,7 @@ Os formatos de evento para cada tipo de evento são descritos com mais detalhe n
 }
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -223,7 +223,7 @@ Os formatos de evento para cada tipo de evento são descritos com mais detalhe n
 }
 ```
 
-| Valor | Substituir |
+| Value | Substituir |
 | --- | --- |
 | YOUR_TOPIC_NAME | O nome do seu tópico personalizado |
 
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substituir |
+    | Value | Substituir |
     | --- | --- |
     | YOUR_NAMESPACE | O espaço de nomes do seu ponto final |
     | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substituir |
+    | Value | Substituir |
     | --- | --- |
     | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar|
     | YOUR_SECONDARY_KEY | A cadeia de ligação secundária utilizada para autenticar |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substituir |
+    | Value | Substituir |
     | --- | --- |
     | YOUR_NAMESPACE | O espaço de nomes do seu ponto final |
     | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | Valor | Substituir |
+    | Value | Substituir |
     | --- | --- |
     | YOUR_NAMESPACE | O espaço de nomes do seu ponto final |
     | YOUR_PRIMARY_KEY | A cadeia de ligação primária utilizada para autenticar |

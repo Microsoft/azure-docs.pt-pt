@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785583"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60904145"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço com o serviço de pesquisa do Azure Maps
 
@@ -58,7 +58,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
     ![Pesquisa difusa](./media/how-to-search-for-address/fuzzy_search_params.png)
 
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |
@@ -72,7 +72,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
 5. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | countrySet | EUA |
   
@@ -84,7 +84,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
     ![Pesquisa difusa](./media/how-to-search-for-address/fuzzy_search_latlon.png)
   
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | LAT | 47.620525 |
     | lon | -122.349274 |
@@ -108,7 +108,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
     ![Pesquisa de endereço](./media/how-to-search-for-address/address_search_params.png)
   
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |
@@ -125,7 +125,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
 6. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | typeahead | true |
 
@@ -149,7 +149,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
     ![Inverter os parâmetros de pesquisa de endereço](./media/how-to-search-for-address/reverse_address_search_params.png)
   
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |
@@ -161,7 +161,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
 5. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | número | true |
 
@@ -169,7 +169,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
 6. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | returnSpeedLimit | true |
   
@@ -177,7 +177,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
 7. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | returnRoadUse | true |
 
@@ -185,7 +185,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
 
 8. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 
-    | Chave | Valor |
+    | Chave | Value |
     |-----|------------|
     | roadUse | true |
 
@@ -207,7 +207,7 @@ Pode passar um endereço completo ou parcial para o endereço de pesquisa API e 
   
 3. Clique em **Params**e introduza a seguinte chave / valor pares para utilizar como parâmetros de consulta ou o caminho no URL do pedido:
   
-    | Chave | Valor |
+    | Chave | Value |
     |------------------|-------------------------|
     | versão de API | 1.0 |
     | subscription-key | \<a chave do Azure Maps\> |

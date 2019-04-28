@@ -1,8 +1,8 @@
 ---
 title: H264 taxa de bits única 4x3 SD Media Encoder Standard configuração predefinida - Azure | Documentos da Microsoft
 description: O tópico fornece uma visão geral do **h264 taxa de bits única 4x3 SD** predefinido de tarefa.
-author: Juliako
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
-ms.author: juliako
+origin.date: 03/19/2019
+ms.date: 04/01/2019
+ms.author: v-jay
 ms.openlocfilehash: a1359bacdf6735ca49e22d7c7b6d0014d56f1735
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258249"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61129479"
 ---
-# <a name="h264-single-bitrate-4x3-sd"></a>H264 taxa de bits Única 4x3 SD
+# <a name="h264-single-bitrate-4x3-sd"></a>H264 Taxa de Bits Única 4x3 SD
 `Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Este tópico mostra o `H264 Single Bitrate 4x3 SD` predefinidos no formato XML e JSON.  

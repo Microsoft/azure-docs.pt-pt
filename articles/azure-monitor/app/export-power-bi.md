@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
 ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260065"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60900398"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed do Power BI do Application Insights
 [Power BI](https://www.powerbi.com/) é um conjunto de ferramentas de negócio que o ajuda a analisar dados e partilhar informações. Dashboards avançados estão disponíveis em todos os dispositivos. Pode combinar dados de várias origens, incluindo consultas de análise de [do Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).

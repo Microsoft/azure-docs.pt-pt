@@ -1,6 +1,6 @@
 ---
-title: Terminologia de API Management do Azure | Microsoft Docs
-description: Este artigo fornece definições para os termos de licenciamento que são específicos para a API Management.
+title: Terminologia de gestão de API do Azure | Documentos da Microsoft
+description: Este artigo apresenta as definições para os termos que são específicos da gestão de API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -11,25 +11,26 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: apimpm
-ms.openlocfilehash: 81cf34cacdfe37e25d6b745304ab0879245fd8da
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: b99ca444532799d21850058eae0e3f40ed871135
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61074059"
 ---
 # <a name="terminology"></a>Terminologia
 
-Este artigo fornece definições para os termos de licenciamento que são específicos para gestão de API (APIM).
+Este artigo apresenta as definições para os termos que são específicos para gestão de API (APIM).
 
-## <a name="term-definitions"></a>Definições de termo
+## <a name="term-definitions"></a>Definições do termo
 
-* **API de back-end** -serviço de um HTTP que implementa a API e as suas operações. 
-* **API de front-end**/**APIM API** -uma API de APIM não alojar APIs, cria fachadas para as suas APIs para personalizar a fachada consoante as suas necessidades sem afetar o back end de API. Para obter mais informações, consulte [importação e publicar uma API](import-and-publish.md).
-* **Produto APIM** -um produto contém uma ou mais APIs, bem como uma quota de utilização e os termos de utilização. Pode incluir um número de APIs e oferecem-las para os programadores através do portal do programador. Para obter mais informações, consulte [criar e publicar um produto](api-management-howto-add-products.md).
-* **Operação de APIM API** -cada APIM API representa um conjunto de operações disponíveis para os programadores. Cada API APIM contém uma referência para o serviço de back-end que implementa a API e as respetivo operações efetuam o mapeamento para as operações implementadas pelo serviço de back-end. Para obter mais informações, consulte [respostas de Mock API](mock-api-responses.md).
-* **Versão** - por vezes, que pretende publicar novos ou diferentes API funcionalidades a alguns utilizadores, enquanto outros pretendem stick com a API atualmente funciona para os mesmos. Para obter mais informações, consulte [publicar várias versões da sua API](api-management-get-started-publish-versions.md).
-* **Revisão** - quando a API está pronto para ir e começa a ser utilizado pelos programadores, que, normalmente, tem de asseguramos na realização de alterações para essa API e ao mesmo tempo para não prejudicam os chamadores da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. Para obter mais informações, consulte [utilizar revisões](api-management-get-started-revise-api.md).
-* **Portal do programador** -os seus clientes (programadores) devem utilizar o portal do programador para aceder o APIs. O portal do programador pode ser personalizado. Para obter mais informações, consulte [personalizar o portal do programador](api-management-customize-styles.md).
+* **API de back-end** -serviço de um HTTP que implementa a API e as respetivas operações. 
+* **API de front-end**/**API de APIM** -uma API de APIM não aloje APIs, ele cria fachadas para as suas APIs para personalizar a fachada consoante as suas necessidades, sem tocar o back end de API. Para obter mais informações, consulte [importar e publicar uma API](import-and-publish.md).
+* **Produto APIM** -um produto contém uma ou mais APIs, bem como uma quota de utilização e os termos de utilização. Pode incluir uma série de APIs e disponibilizá-las para os programadores através do portal do programador. Para obter mais informações, consulte [criar e publicar um produto](api-management-howto-add-products.md).
+* **Operação de API de APIM** -API de APIM cada representa um conjunto de operações disponíveis para desenvolvedores. Cada API de APIM contém uma referência para o serviço de back-end que implementa a API e as respetivo operações efetuam o mapeamento para as operações implementadas pelo serviço de back-end. Para obter mais informações, consulte [respostas de API de simular](mock-api-responses.md).
+* **Versão** – às vezes deseja publicar novos ou funcionalidades de API diferente para alguns usuários, enquanto outras pessoas querem ficar com a API que trabalha atualmente para eles. Para obter mais informações, consulte [publicar várias versões da sua API](api-management-get-started-publish-versions.md).
+* **Revisão** - quando a sua API está tudo pronto e começa a ser utilizado pelos programadores, normalmente, precisa ter cuidado ao fazer alterações a essa API e ao mesmo tempo para não interromper os autores de chamadas da API. É também útil dar a conhecer aos programadores as alterações que efetuou. Para obter mais informações, consulte [utilizar revisões](api-management-get-started-revise-api.md).
+* **Portal do programador** -os seus clientes (desenvolvedores) devem utilizar o portal do programador para aceder às suas APIs. O portal do programador pode ser personalizado. Para obter mais informações, consulte [personalizar o portal do programador](api-management-customize-styles.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

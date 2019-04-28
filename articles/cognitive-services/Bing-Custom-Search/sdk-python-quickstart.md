@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: aahi
 ms.openlocfilehash: c4c5059bc57ea33357145f6b119456dc6c5bdb7b
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571895"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60946646"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>Início rápido: Chamar o ponto final de pesquisa personalizada do Bing através do SDK Python 
 

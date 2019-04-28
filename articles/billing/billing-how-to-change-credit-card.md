@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 3/13/2019
 ms.author: banders
 ms.openlocfilehash: b910cb3061b1451ea80b9843e2aa4047a784548f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876873"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60918835"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito para o Azure
 
@@ -35,12 +35,12 @@ No portal do Azure, pode adicionar um novo cartão de crédito, atualizar um car
 ## <a name="add-a-new-credit-or-debit-card-to-an-azure-subscription"></a>Adicionar um novo cartão de crédito ou débito para uma subscrição do Azure
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como o administrador de conta.
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selecione a subscrição que pretende adicionar o cartão de crédito ou débito para.
-1. Selecione **métodos de pagamento**.
+1. Selecione **Métodos de pagamento**.
 
     ![Captura de ecrã que mostra a opção de métodos de pagamento de gerir selecionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -60,11 +60,11 @@ Se obtiver um erro depois de adicionar o cartão de crédito, consulte [recusado
 Se for renovado seu cartão de crédito e o número permanece o mesmo, atualize os detalhes de cartão de crédito existente como a data de expiração. Se as alterações de número de cartão de crédito porque o cartão é perdido, roubado ou expirado, siga os passos a [adicionar um cartão de crédito como um método de pagamento](#addcard) secção. Não precisa de atualizar o CVV.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como o administrador de conta.
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa](./media/billing-how-to-change-credit-card/search.png)
 
-1. Selecione **métodos de pagamento**.
+1. Selecione **Métodos de pagamento**.
 
     ![Captura de ecrã que mostra a opção de métodos de pagamento de gerir selecionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
@@ -80,12 +80,12 @@ Se for renovado seu cartão de crédito e o número permanece o mesmo, atualize 
 Se tiver mais do que uma das suas subscrições do mesmo método de pagamento ativo, em seguida, alterando o método de pagamento ativo em qualquer um destas subscrições também atualiza o método de pagamento ativo nos outros.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como o administrador de conta.
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
     ![Captura de ecrã que mostra a pesquisa](./media/billing-how-to-change-credit-card/search.png)
 
 1. Selecione a subscrição que pretende adicionar o cartão de crédito ou débito para.
-1. Selecione **métodos de pagamento**.
+1. Selecione **Métodos de pagamento**.
 
     ![Captura de ecrã que mostra a opção de métodos de pagamento de gerir selecionada.](./media/billing-how-to-change-credit-card/payment-methods-blade-x.png)
 
