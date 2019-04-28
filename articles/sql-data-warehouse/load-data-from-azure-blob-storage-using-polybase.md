@@ -11,11 +11,11 @@ ms.date: 03/27/2019
 ms.author: mlee3gsd
 ms.reviewer: igorstan
 ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620194"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61079059"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados de táxis de Nova Iorque ao Azure SQL Data Warehouse
 
@@ -150,7 +150,7 @@ Esta secção utiliza o [SQL Server Management Studio](/sql/ssms/download-sql-se
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de dados | Este valor é obrigatório |
     | Nome do servidor | O nome de servidor completamente qualificado | O nome deve ser semelhante ao seguinte: **mynewserver-20180430.database.windows.net**. |
-    | Authentication | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
+    | Autenticação | Autenticação do SQL Server | A Autenticação do SQL é o único tipo de autenticação que configurámos neste tutorial. |
     | Iniciar sessão | A conta de administrador do servidor | Esta é a conta que especificou quando criou o servidor. |
     | Palavra-passe | A palavra-passe da sua conta de administrador do servidor | Esta é a palavra-passe que especificou quando criou o servidor. |
 

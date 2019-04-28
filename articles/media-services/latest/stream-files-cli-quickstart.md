@@ -14,11 +14,11 @@ ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
 ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466911"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Início rápido: Transmitir ficheiros de vídeo - CLI
 

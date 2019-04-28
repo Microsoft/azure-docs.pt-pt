@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: dineshm
 ms.subservice: common
 ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014902"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483456"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Listar recursos de armazenamento do Azure em C++
 Operações de listagem são fundamentais para muitos cenários de desenvolvimento com o armazenamento do Azure. Este artigo descreve a forma mais eficiente enumerar objetos no armazenamento do Azure com a listagem APIs fornecidas na biblioteca de cliente de armazenamento do Microsoft Azure para C++.

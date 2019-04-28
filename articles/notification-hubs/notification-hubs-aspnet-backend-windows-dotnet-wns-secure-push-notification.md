@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
 ms.openlocfilehash: cf23ef5df3bdcaad23841da111fa06cc36b4cd57
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475684"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459243"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>Notificações push em segurança de Hubs de notificação do Azure
 

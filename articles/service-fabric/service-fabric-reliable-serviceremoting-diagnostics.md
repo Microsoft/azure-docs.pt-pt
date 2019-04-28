@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 06/29/2017
 ms.author: suchiagicha
 ms.openlocfilehash: e4c698dc5aa8a07d09835adeac39db6ee35f720c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666159"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123183"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitorização de desempenho para Reliable Service Remoting
 O tempo de execução fiável ServiceRemoting emite [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Estes fornecem informações sobre como o ServiceRemoting está a funcionar e ajudar a resolver problemas e monitorização do desempenho.
@@ -28,7 +28,7 @@ O tempo de execução fiável ServiceRemoting emite [contadores de desempenho](h
 ## <a name="performance-counters"></a>Contadores de desempenho
 O tempo de execução fiável ServiceRemoting define as categorias de contador de desempenho seguintes:
 
-| Categoria | Descrição |
+| Category | Descrição |
 | --- | --- |
 | Serviço do Service Fabric |Contadores específicos do Azure Service Fabric Service Remoting, por exemplo, média de tempo que demora a processar o pedido |
 | Método de Serviço do Service Fabric |Contadores específicos de métodos implementados pelo serviço de comunicação remota do Service Fabric, por exemplo, a frequência com que um método de serviço é invocado |

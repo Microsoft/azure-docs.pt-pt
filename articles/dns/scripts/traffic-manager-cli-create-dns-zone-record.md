@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: victorh
 ms.openlocfilehash: 59ec8d4f93b18469818c9ead2e965679e41360ae
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694657"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61059489"
 ---
 # <a name="azure-cli-script-example-create-a-dns-zone-and-record"></a>Exemplo do script da CLI do Azure: Criar uma zona e registo DNS
 

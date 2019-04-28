@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598689"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61448383"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Tutorial: Detetar problemas com dispositivos ligados à sua solução de monitorização
 
@@ -51,7 +51,7 @@ Para ver apenas as regras que se aplicam a dispositivos de arrefecimento, apliqu
 
 Para criar uma regra que gera um aviso quando a pressão num dispositivo de arrefecimento ultrapassa 150 PSI, clique em **Nova regra**. Utilize os seguintes valores para criar a regra:
 
-| Definição          | Valor                                 |
+| Definição          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Aviso do sistema de arrefecimento                       |
 | Descrição      | A pressão do sistema de arrefecimento excedeu 150 PSI |
@@ -74,7 +74,7 @@ Pode ver quando a regra está acionada na página **Regras** ou na página **Das
 
 Para criar uma regra com várias condições que gera um alerta crítico quando, nos últimos cinco minutos para um dispositivo de arrefecimento, a humidade média é superior a 80% e a temperatura média é superior a 75 graus fahrenheit, clique em **Nova regra**. Utilize os seguintes valores para criar a regra:
 
-| Definição          | Valor                                 |
+| Definição          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Nome da regra        | Humidade de arrefecimento e temp essenciais    |
 | Descrição      | A humidade e a temperatura são essenciais |
@@ -90,7 +90,7 @@ Para criar uma regra com várias condições que gera um alerta crítico quando,
 
 Para adicionar a segunda condição, clique em "+Adicionar condição". Utilize os seguintes valores para a nova condição:
 
-| Definição          | Valor                                 |
+| Definição          | Value                                 |
 | ---------------- | ------------------------------------- |
 | Condição 2 Campo| temperatura                           |
 | Condição 2 operador | Maior que                      |

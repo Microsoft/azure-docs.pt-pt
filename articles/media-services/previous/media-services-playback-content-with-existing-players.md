@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: c96710d6dcca9f5ef99b3a02a0bc875d433f814d
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257436"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463424"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com leitores existentes
 Serviços de multimédia do Azure suporta muitos formatos de transmissão em fluxo populares, tais como a transmissão em fluxo uniforme, HTTP Live Streaming e MPEG-Dash. Este tópico de pontos de para os leitores existentes que pode usar para testar transmissões em fluxo.

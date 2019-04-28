@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: a20c79acce8c9dc9051651a0473fd07b8e62f5de
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960350"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126907"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Permitir sincronização offline para a sua aplicação móvel Android
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -93,7 +93,7 @@ Quando pressiona o botão, inicia uma nova tarefa em segundo plano. Em primeiro 
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 * [Sincronização de Dados Offline em Aplicações Móveis do Azure]
-* [Cloud Cover: Sincronização Offline nos serviços móveis do Azure] \(Nota: o vídeo está nos serviços móveis, mas a sincronização offline funciona de forma semelhante, em aplicações móveis do Azure\)
+* [Cloud Cover: Sincronização offline nos serviços móveis do Azure] \(Nota: o vídeo está nos serviços móveis, mas a sincronização offline funciona de forma semelhante, em aplicações móveis do Azure\)
 
 <!-- URLs. -->
 
@@ -101,6 +101,6 @@ Quando pressiona o botão, inicia uma nova tarefa em segundo plano. Em primeiro 
 
 [Criar uma aplicação Android]: app-service-mobile-android-get-started.md
 
-[Cloud Cover: Sincronização Offline nos serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[Cloud Cover: Sincronização offline nos serviços móveis do Azure]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 

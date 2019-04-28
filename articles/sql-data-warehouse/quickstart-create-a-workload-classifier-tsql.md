@@ -11,11 +11,11 @@ ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475376"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Início rápido: Criar um classificador de carga de trabalho com o T-SQL (pré-visualização)
 

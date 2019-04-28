@@ -1,19 +1,18 @@
 ---
 title: Utilizar ScaleR e SparkR com o Azure HDInsight
 description: Utilizar ScaleR e SparkR com os serviços de ML no HDInsight
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/19/2017
-ms.openlocfilehash: c92a55ec1d56b83457167fc2db0bd7897a447852
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: MT
+ms.openlocfilehash: 78ea29b9b37c55a588a44f8d4b69486b89ee2fee
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974850"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761363"
 ---
 # <a name="combine-scaler-and-sparkr-in-hdinsight"></a>Combinar ScaleR e SparkR no HDInsight
 

@@ -12,11 +12,11 @@ ms.author: cakarst
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: a8cb3714d11994b36991e56df7fc0f97d08c89ff
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791376"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61075287"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Melhores práticas de carregamento de dados para o Azure SQL Data Warehouse
 

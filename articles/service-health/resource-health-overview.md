@@ -8,17 +8,17 @@ ms.service: service-health
 ms.workload: Supportability
 ms.date: 11/16/2018
 ms.openlocfilehash: d2a77e831290aa1ee0fcb6d4addf8f6e90786d52
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858914"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119858"
 ---
 # <a name="azure-resource-health-overview"></a>Descrição geral do Estado de funcionamento de recursos do Azure
  
 Estado de funcionamento de recursos do Azure ajuda-o a diagnosticar e obter suporte quando um problema de serviço do Azure afeta os seus recursos. Informa-o sobre o estado de funcionamento atual e anterior dos seus recursos. E fornece suporte técnico para o ajudar a atenuar os problemas.
 
-Enquanto [estado do Azure](https://status.azure.com) informa-sobre os problemas de serviço que afetam um vasto leque de clientes do Azure, o estado de funcionamento do recurso dá-lhe um dashboard personalizado do Estado de funcionamento dos seus recursos. Estado de funcionamento do recurso mostra todos os tempos de seus recursos anteriormente indisponíveis no passado devido a problemas de serviço do Azure. Em seguida, é simples de compreender se um SLA foi violado. 
+Enquanto [estado do Azure](https://status.azure.com) informa-sobre os problemas de serviço que afetam um vasto leque de clientes do Azure, o estado de funcionamento do recurso dá-lhe um dashboard personalizado do Estado de funcionamento dos seus recursos. O Resource Health mostra-lhe sempre que os recursos estiveram indisponíveis anteriormente devido a problemas do serviço Azure. Em seguida, é simples de compreender se um SLA foi violado. 
 
 ## <a name="resource-definition-and-health-assessment"></a>Avaliação de estado de funcionamento e a definição do recurso
 Um recurso é uma instância específica de um serviço do Azure: por exemplo, uma máquina virtual, uma aplicação web ou uma base de dados SQL.
@@ -35,7 +35,7 @@ Estado **disponível** significa que o serviço ainda não detetou quaisquer eve
 
 ![Estado de "Disponível" para uma máquina virtual com uma notificação de "Resolvido recentemente"](./media/resource-health-overview/Available.png)
 
-### <a name="unavailable"></a>Não disponível
+### <a name="unavailable"></a>Indisponível
 Estado **indisponível** significa que o serviço detetou uma plataforma em curso ou um evento de plataforma de não que afeta o estado de funcionamento do recurso.
 
 #### <a name="platform-events"></a>Eventos de plataforma

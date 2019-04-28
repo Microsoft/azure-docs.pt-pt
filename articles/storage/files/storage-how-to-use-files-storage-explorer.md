@@ -2,18 +2,18 @@
 title: Início rápido para gerir partilhas de ficheiros do Azure com o Explorador de Armazenamento do Azure
 description: Utilize este início rápido para saber como utilizar o Explorador de Armazenamento do Azure para gerir Ficheiros do Azure.
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: quickstart
 ms.date: 10/18/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 931098d688e39490aa0aadaa8ade8405e5ba8a12
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: bf87704a8055b5725178c846df71ed4d873417e3
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452248"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763405"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-with-azure-storage-explorer"></a>Início rápido: Criar e gerir partilhas de ficheiros do Azure com o Explorador de armazenamento do Azure
 Este guia orienta-o pelas noções básicas de utilizar [partilhas de ficheiros do Azure](storage-files-introduction.md) com o Explorador de Armazenamento do Azure. As partilhas de ficheiros do Azure são como outras partilhas de ficheiros, mas armazenadas na cloud e apoiadas pela plataforma do Azure. As partilhas de ficheiros do Azure suportam o protocolo SMB padrão do setor e permite a partilha de ficheiros entre várias máquinas, aplicações e instâncias. 

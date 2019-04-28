@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: b7fccf0655502d2bd023e7ac7f950c8be72e0076
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cae0a8ebcaae241554cfd1e4affddf7e905e4621
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652227"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125372"
 ---
 # <a name="technical-deep-dive-on-platform-supported-migration-from-classic-to-azure-resource-manager"></a>Análise detalhada técnica sobre a migração suportada por plataforma de clássico para o Azure Resource Manager
 
-Vamos dar uma descrição profunda sobre a migração do modelo de implementação clássica do Azure para o modelo de implementação Azure Resource Manager. Vamos ver recursos num nível de funcionalidade e recursos para ajudar a compreender como a plataforma do Azure efetua a migração de recursos entre os dois modelos de implementação. Para obter mais informações, leia o artigo de anúncio de serviço: [migração suportada por plataforma de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Vamos dar uma descrição profunda sobre a migração do modelo de implementação clássica do Azure para o modelo de implementação Azure Resource Manager. Vamos ver recursos num nível de funcionalidade e recursos para ajudar a compreender como a plataforma do Azure efetua a migração de recursos entre os dois modelos de implementação. Para obter mais informações, leia o artigo de anúncio de serviço: [Migração suportada por plataforma de recursos de IaaS do clássico para o Azure Resource Manager](migration-classic-resource-manager-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-migration-deep-dive](../../../includes/virtual-machines-common-classic-resource-manager-migration-deep-dive.md)]
 

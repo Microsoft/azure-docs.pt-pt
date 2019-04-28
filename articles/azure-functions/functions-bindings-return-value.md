@@ -8,14 +8,15 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 01/14/2019
-ms.author: cshoe
+origin.date: 01/14/2019
+ms.date: 03/04/2019
+ms.author: v-junlch
 ms.openlocfilehash: 4ccfe192eaea94cb9b199bd3c6f0bdacf1685519
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56739916"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437723"
 ---
 # <a name="using-the-azure-function-return-value"></a>Utilizar o valor de retorno da função do Azure
 
@@ -23,8 +24,8 @@ Este artigo explica como o trabalho de valores de retorno dentro de uma função
 
 Em idiomas que têm um valor de retorno, é possível vincular uma função [enlace de saída](./functions-triggers-bindings.md#binding-direction) para o valor de retorno:
 
-* No c# biblioteca de classes, aplica o atributo de enlace de saída para o valor de retorno do método.
-* Em outros idiomas, defina o `name` propriedade na *Function* para `$return`.
+- No c# biblioteca de classes, aplica o atributo de enlace de saída para o valor de retorno do método.
+- Em outros idiomas, defina o `name` propriedade na *Function* para `$return`.
 
 Se existirem vários enlaces de saída, utilize o valor de retorno para apenas um deles.
 
@@ -32,11 +33,11 @@ No c# e de script c#, maneiras alternativas de enviar dados para um enlace de sa
 
 Veja o exemplo de idioma específico, que mostra a utilização de valor de retorno:
 
-* [C#](#c-example)
-* [Script do c# (.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
+- [C#](#c-example)
+- [Script do c# (.csx)](#c-script-example)
+- [F#](#f-example)
+- [JavaScript](#javascript-example)
+- [Python](#python-example)
 
 ## <a name="c-example"></a>Exemplo do c#
 
@@ -169,3 +170,4 @@ def main(input: azure.functions.InputStream) -> str:
 
 > [!div class="nextstepaction"]
 > [Lidar com erros de ligação de funções do Azure](./functions-bindings-errors.md)
+

@@ -9,14 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 06/20/2018
-ms.author: apimpm
+origin.date: 06/20/2018
+ms.date: 12/31/2018
+ms.author: v-yiso
 ms.openlocfilehash: a01e50debf11daf2f1163a56726f5574f7e3e379
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62123472"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Dimensionar automaticamente uma instância de gestão de API do Azure  
 
@@ -71,7 +72,7 @@ Siga os passos abaixo para configurar o dimensionamento automático para um serv
 
    Por exemplo, uma regra de aumento horizontal poderia acionar uma adição de uma unidade de API Management do Azure, quando a métrica de capacidade média durante os últimos 30 minutos excede 80%. A tabela abaixo fornece uma configuração para esta regra.
 
-    | Parâmetro             | Valor             | Notas                                                                                                                                                                                                                                                                           |
+    | Parâmetro             | Value             | Notas                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origem métrica         | Recurso atual  | Defina a regra com base nas métricas de recurso de API Management do Azure atuais.                                                                                                                                                                                                     |
     | *Critérios*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -98,7 +99,7 @@ Siga os passos abaixo para configurar o dimensionamento automático para um serv
 
     Por exemplo, uma regra de dimensionamento poderia acionar uma remoção de uma unidade de API Management do Azure, quando a métrica de capacidade média durante os últimos 30 minutos foi inferior a 35%. A tabela abaixo fornece uma configuração para esta regra.
 
-    | Parâmetro             | Valor             | Notas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parâmetro             | Value             | Notas                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origem métrica         | Recurso atual  | Defina a regra com base nas métricas de recurso de API Management do Azure atuais.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Critérios*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -128,4 +129,4 @@ Siga os passos abaixo para configurar o dimensionamento automático para um serv
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ [Como implementar uma instância de serviço de gestão de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md)
++ [Como implementar uma instância de serviço da Gestão de API do Azure em várias regiões do Azure](api-management-howto-deploy-multi-region.md)

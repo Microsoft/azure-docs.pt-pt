@@ -17,11 +17,11 @@ ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc
 ms.openlocfilehash: 3c818a7459a54b01cfdaa7315aff8e4194d3849c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670699"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61475631"
 ---
 # <a name="create-a-vm-with-iis-using-dsc"></a>Criar uma VM com o IIS através do DSC
 

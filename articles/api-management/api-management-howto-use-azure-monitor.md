@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
 ms.openlocfilehash: c3148adc42cb4f899a87d894909eedff4c798575
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680252"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127434"
 ---
 # <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
 
@@ -189,11 +189,11 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 | durationMs | inteiro | Número de milissegundos a partir do momento em que o gateway recebeu o pedido até ao momento em que a resposta é enviada integralmente |
 | callerIpAddress | string | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
 | correlationId | string | Identificador de pedido http exclusivo atribuído pela Gestão de API |
-| location | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
+| localização | string | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
 | httpStatusCodeCategory | string | Categoria do código de estado de resposta de http: Bem-sucedida (301 ou menos ou 304 ou 307), não autorizado (401, 403, 429), errado (400, entre 500 e 600), outros |
 | resourceId | string | ID do recurso de gestão de API /SUBSCRIPTIONS/\<subscrição > /RESOURCEGROUPS/\<grupo de recursos >/fornecedores/MICROSOFT. APIMANAGEMENT/SERVICE/\<nome > |
 | properties | objeto | Propriedades do pedido atual |
-| method | string | Método HTTP do pedido a receber |
+| método | string | Método HTTP do pedido a receber |
 | url | string | URL do pedido a receber |
 | clientProtocol | string | Versão do protocolo HTTP do pedido a receber |
 | responseCode | número inteiro | Código de estado da resposta  HTTP enviada para um cliente |
@@ -213,7 +213,7 @@ Atualmente, a Gestão de API disponibiliza registos de diagnósticos (batches cr
 | userId | string | Identificador da entidade de utilizador do pedido atual | 
 | apimSubscriptionId | string | Identificador da entidade de subscrição do pedido atual | 
 | backendId | string | Identificador da entidade de back-end do pedido atual | 
-| lastError | objeto | Último erro de processamento de pedido | 
+| LastError | objeto | Último erro de processamento de pedido | 
 | elapsed | inteiro | Número de milissegundos decorridos desde que o Gateway recebeu o pedido até ao momento em que o erro ocorreu | 
 | source | string | Nome da política ou processador interno provocou o erro | 
 | scope | string | Âmbito do documento da política que contém a política que provocou o erro | 

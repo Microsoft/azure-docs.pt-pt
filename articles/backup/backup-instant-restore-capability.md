@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/23/2019
 ms.author: sogup
-ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c375eac0de3dd89986421f8c6628d0a13784a60d
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794782"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733878"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Obter o melhor de cópia de segurança e restaurar o desempenho com capacidade de Azure cópia de segurança instantâneas restaurar
 
@@ -24,7 +24,7 @@ O novo modelo para restaurar instantâneas fornece os seguintes aprimoramentos d
 
 * Capacidade de utilizar instantâneos tirados como parte de uma tarefa de cópia de segurança que está disponível para recuperação sem aguardar a transferência de dados para o cofre para concluir. Reduz o tempo de espera para instantâneos copiar para o cofre, antes de acionar o restauro.
 * Reduz os tempos de backup e restauração, guardam instantâneos localmente, por dois dias por predefinição. Esse valor de retenção de instantâneo do padrão é configurável para qualquer valor entre 1 a 5 dias.
-* Disco suporta tamanhos até 4 TB. O Azure Backup não suporta discos repartidos. Redimensionamento do disco não é recomendado pela cópia de segurança do Azure.
+* Disco suporta tamanhos até 4 TB. Redimensionamento do disco não é recomendado pela cópia de segurança do Azure.
 * Suporta discos de Standard SSD, juntamente com os discos Standard HDD e os discos de Premium SSD.
 *   Capacidade de utilizar contas de armazenamento originais uma VM não gerida (por disco), ao restaurar. Esta capacidade existe mesmo quando a VM tem discos que são distribuídos em contas de armazenamento. Ela acelera as operações de restauro para uma grande variedade de configurações de VM.
 
@@ -47,15 +47,15 @@ Por predefinição, os instantâneos são retidos durante dois dias. Esta funcio
 * Os instantâneos são armazenados juntamente com os discos para aumentar a criação do ponto de recuperação e para acelerar as operações de restauro. Como resultado, verá os custos de armazenamento que correspondem aos instantâneos tirados durante este período.
 * Instantâneos incrementais são armazenados como blobs de páginas. Todos os utilizadores com discos não geridos são cobrados para instantâneos armazenados na sua conta de armazenamento local. Uma vez que as coleções de ponto de restauro utilizadas pelas cópias de segurança de VM geridos utilizam instantâneos de blob ao nível do armazenamento subjacente, para discos geridos, verá os custos correspondentes aos preços de instantâneo de blob e são incrementais.
 * Para contas de armazenamento premium, os instantâneos tirados para contagem de pontos de recuperação imediata para o limite de 10 TB de espaço em atribuído.
-* Tem uma capacidade para configurar a retenção de instantâneo com base nas necessidades de restauro. Dependendo do requisito, pode definir o período de retenção do instantâneo para um mínimo de um dia no painel da política de cópia de segurança, conforme explicado abaixo. Isto pode ajudar a poupar no custo para a retenção de instantâneo se não efetuar restauros com frequência.
-* Esta é uma atualização direcional um, uma vez atualizada para o restauro imediato, não pode voltar atrás.
+* Tem uma capacidade para configurar a retenção de instantâneo com base nas necessidades de restauro. Dependendo do requisito, pode definir o período de retenção do instantâneo para um mínimo de um dia no painel da política de cópia de segurança, conforme explicado abaixo. Isto irá ajudá-lo a economizar para retenção de instantâneo, se não efetuar restauros com frequência.
+* É uma atualização direcional um, uma vez atualizada para o restauro imediato, não pode voltar atrás.
 
 >[!NOTE]
 >Com esta instantâneas restaurar atualização, o período de retenção de instantâneo de todos os clientes (**novos e existentes incluídos**) será definido como um valor predefinido de dois dias. No entanto, pode definir a duração de acordo com seus requisitos para qualquer valor entre 1 a 5 dias.
 
 ## <a name="cost-impact"></a>Impacto de custo
 
-Os instantâneos incrementais são armazenados na conta de armazenamento da VM, que são utilizados para a recuperação instantânea. Instantâneo incremental significa que o espaço ocupado por um instantâneo é igual para o espaço ocupado por páginas que são escritas depois do instantâneo foi criado. A faturação é ainda para o por GB ocupado por instantâneo e o preço por GB de espaço utilizado é a mesmo, conforme mencionado na [página de preços](https://azure.microsoft.com/pricing/details/managed-disks/).
+Os instantâneos incrementais são armazenados na conta de armazenamento de VMs, que é utilizada para a recuperação instantânea. Instantâneo incremental significa que o espaço ocupado por um instantâneo é igual para o espaço ocupado por páginas que são escritas depois do instantâneo foi criado. A faturação é ainda para o por GB ocupado por instantâneo e o preço por GB de espaço utilizado é a mesmo, conforme mencionado na [página de preços](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 >[!NOTE]
 > Retenção de instantâneo é fixa para 5 dias para políticas de semanais.

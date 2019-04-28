@@ -1,47 +1,63 @@
 ---
-title: Dimensionar automaticamente um conjunto de dimensionamento no Azure com o Ansible
-description: Saiba como utilizar o Ansible para dimensionar um conjunto de dimensionamento com o dimensionamento automático no Azure
-ms.service: azure
+title: Tutorial - dimensionamento de máquinas virtuais de dimensionamento automático define no Azure com o Ansible | Documentos da Microsoft
+description: Saiba como utilizar o Ansible para dimensionar conjuntos de dimensionamento de máquinas virtuais com o dimensionamento automático no Azure
 keywords: ansible, azure, devops, bash, playbook, dimensionamento, dimensionamento automático, máquina virtual, o conjunto de dimensionamento de máquina virtual, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/10/2018
-ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: a5cba405e75994ac97a60d3d73839e2a3d670451
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792434"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763962"
 ---
-# <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Dimensionar automaticamente um conjunto de dimensionamento no Azure com o Ansible
-O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o seu conjunto de dimensionamento de máquinas virtuais (VMSS) no Azure, tal como faria em qualquer outro recurso do Azure. 
+# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Conjuntos de dimensionamento de máquina virtual de dimensionamento automático no Azure com o Ansible
 
-Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste artigo, irá criar uma definição de dimensionamento automático e associá-la a um conjunto de dimensionamento de máquina virtual existente. Na definição de dimensionamento automático, pode configurar uma regra para ampliar ou reduzir horizontalmente conforme desejado.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+O recurso de ajustar automaticamente o número de instâncias VM é chamado [dimensionamento automático](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). A vantagem do dimensionamento automático é o que reduz os custos de gestão para monitorizar e otimizar o desempenho da sua aplicação. Dimensionamento automático pode ser configurado em resposta ao pedido ou com base numa agenda definida. A utilização do Ansible, pode especificar as regras de dimensionamento automático que definem o desempenho aceitável para uma experiência de cliente positivo.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Definir um perfil de dimensionamento automático
+> * Dimensionamento automático com base numa agenda periódica
+> * Dimensionamento automático com base no desempenho da aplicação
+> * Obter as informações de definições de dimensionamento automático 
+> * Desativar uma definição de dimensionamento automático
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- Um conjunto de dimensionamento de máquina virtual do Azure existente. -Se não tiver um, [conjuntos de dimensionamento de máquina virtual de criar no Azure com o Ansible](https://docs.microsoft.com/azure/ansible/ansible-create-configure-vmss).
 
-> [!Note]
-> O Ansible 2.7 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 
-## <a name="auto-scale-based-on-a-schedule"></a>Dimensionamento automático com base numa agenda   
+## <a name="autoscale-based-on-a-schedule"></a>Dimensionamento automático com base numa agenda
+
 Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem-lhe controlar o custo por não continuamente a criar instâncias de VM e o balanceamento de um desempenho aceitável com um número mínimo de instâncias que permanecem num evento de dimensionamento. 
 
-Pode reduzir horizontalmente e dimensionar horizontalmente em conjuntos de dimensionamento de Máquina Virtual por um agendamento periódico, ou por uma data específica. Esta secção apresenta um playbook de Ansible de exemplo que cria uma definição de dimensionamento automático aumenta o número de instâncias de VM para três conjuntos de dimensionamento no 10:00 de todas as segundas-feiras, fuso horário do Pacífico. 
+Ansible permite-lhe dimensionar seus conjuntos de dimensionamento numa data específica ou uma agenda periódica.
+
+O código do playbook nesta secção aumenta o número de instâncias VM a três às 10:00 sempre de segunda.
+
+Guarde o manual de procedimentos seguinte como `vmss-auto-scale.yml`:
 
 ```yml
 ---
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks: 
-    - name: Create auto scaling
+    - name: Create autoscaling
       azure_rm_autoscale:
          resource_group: "{{ resource_group }}"
          name: "{{ name }}"
@@ -65,23 +81,31 @@ Pode reduzir horizontalmente e dimensionar horizontalmente em conjuntos de dimen
               - '10'
 ```
 
-Guardar este manual de comunicação social como *vmss-auto-scale.yml*. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
 ```
 
-## <a name="auto-scale-based-on-performance-data"></a>Dimensionamento automático com base nos dados de desempenho
-Se a exigência da aplicação aumenta, a carga nas instâncias de VM no seu dimensionamento define aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. Controla as métricas a monitorizar, como a CPU ou o disco, quando a carga da aplicação tem de cumprir um determinado limiar, e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
+## <a name="autoscale-based-on-performance-data"></a>Dimensionamento automático com base nos dados de desempenho
 
-Pode reduzir horizontalmente e dimensionar horizontalmente em conjuntos de dimensionamento de Máquina Virtual com base nos limiares de métricas de desempenho, por uma agenda periódica ou por uma data específica. Esta secção apresenta um playbook de Ansible de exemplo que verifica a carga de trabalho nos últimos 10 minutos no 18:00 de todas as segundas-feiras, fuso horário do Pacífico e aumenta horizontalmente o número de instâncias VM em seus conjuntos de dimensionamento para quatro ou é reduzido horizontalmente uma instância, de acordo com a percentagem de CPU métricas. 
+Se a exigência da aplicação aumenta, a carga nas instâncias de VM no seu dimensionamento define aumenta. Se este aumento de carga for consistente, em vez de ser apenas uma breve exigência, pode configurar regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento. Quando estas instâncias de VM forem criadas e as aplicações forem implementadas, o conjunto de dimensionamento começa a distribuir o tráfego pelas mesmas através do balanceador de carga. Ansible permite-lhe controlar que métricas para monitorizar, como a utilização da CPU, utilização do disco e tempo de carregamento da aplicação. Pode reduzir horizontalmente e horizontalmente no dimensionamento conjuntos de dimensionamento de desempenho com base nos limiares de métricas, por uma agenda periódica ou por uma data específica. 
+
+O código do playbook nesta secção verifica se a carga de trabalho de CPU anteriores de 10 minutos às 9:00 18 sempre de segunda. 
+
+Com base nas métricas de percentagem de CPU, o playbook faz uma das seguintes ações:
+
+- Aumenta horizontalmente o número de instâncias de VM para quatro
+- Aumenta o número de instâncias VM para um de
+
+Guarde o manual de procedimentos seguinte como `vmss-auto-scale-metrics.yml`:
 
 ```yml
 ---
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks:
   - name: Get facts of the resource group
@@ -89,11 +113,11 @@ Pode reduzir horizontalmente e dimensionar horizontalmente em conjuntos de dimen
       name: "{{ resource_group }}"
     register: rg
 
-  - name: Get VMSS resource uri
+  - name: Get scale set resource uri
     set_fact:
       vmss_id: "{{ rg.ansible_facts.azure_resourcegroups[0].id }}/providers/Microsoft.Compute/virtualMachineScaleSets/{{ vmss_name }}"
     
-  - name: Create auto scaling
+  - name: Create autoscaling
     azure_rm_autoscale:
       resource_group: "{{ resource_group }}"
       name: "{{ name }}"
@@ -151,14 +175,17 @@ Pode reduzir horizontalmente e dimensionar horizontalmente em conjuntos de dimen
             value: '1'
 ```
 
-Guardar este manual de comunicação social como *vmss-auto-dimensionamento-metrics.yml*. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
 ```
 
-## <a name="get-information-for-existing-autoscale-settings"></a>Obter informações para as definições de dimensionamento automático existente
-Pode obter detalhes de qualquer definição de dimensionamento automático através de *azure_rm_autoscale_facts* módulo com o playbook da seguinte forma:
+## <a name="get-autoscale-settings-information"></a>Obtenha informações de definições de dimensionamento automático 
+
+O código do playbook nesta secção utiliza o `azure_rm_autoscale_facts` módulo para obter os detalhes da definição de dimensionamento automático.
+
+Guarde o manual de procedimentos seguinte como `vmss-auto-scale-get-settings.yml`:
 
 ```yml
 - hosts: localhost
@@ -166,7 +193,7 @@ Pode obter detalhes de qualquer definição de dimensionamento automático atrav
     resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
-    - name: Retrieve auto scale settings information
+    - name: Retrieve autoscale settings information
       azure_rm_autoscale_facts:
         resource_group: "{{ resource_group }}"
         name: "{{ name }}"
@@ -176,8 +203,19 @@ Pode obter detalhes de qualquer definição de dimensionamento automático atrav
         var: autoscale_query.autoscales[0]
 ```
 
-## <a name="disable-the-autoscale-settings"></a>Desative as definições de dimensionamento automático
-Pode desativar a definição de dimensionamento automático, alterando `enabled: true` para `enabled: false`, ou eliminar as definições de dimensionamento automático com o playbook da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
+
+```bash
+ansible-playbook vmss-auto-scale-get-settings.yml
+```
+
+## <a name="disable-autoscale-settings"></a>Desativar as definições de dimensionamento automático
+
+Existem duas formas de desativar as definições de dimensionamento automático. É uma forma alterar o `enabled` chave de `true` para `false`. A segunda maneira é eliminar a definição.
+
+O código do playbook nesta secção elimina a definição de dimensionamento automático. 
+
+Guarde o manual de procedimentos seguinte como `vmss-auto-scale-delete-setting.yml`:
 
 ```yml
 - hosts: localhost
@@ -185,13 +223,20 @@ Pode desativar a definição de dimensionamento automático, alterando `enabled:
     resource_group: myResourceGroup
     name: autoscalesetting
   tasks: 
-    - name: Delete auto scaling
+    - name: Delete autoscaling
       azure_rm_autoscale:
          resource_group: "{{ resource_group }}"
          name: "{{ name }}"
          state: absent
 ```
 
+Executar o playbook com o `ansible-playbook` comando:
+
+```bash
+vmss-auto-scale-delete-setting.yml
+```
+
 ## <a name="next-steps"></a>Passos Seguintes
+
 > [!div class="nextstepaction"] 
-> [Define o playbook de exemplo do Ansible para dimensionamento de máquinas virtuais](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Tutorial: Os conjuntos de imagem personalizada de atualização de dimensionamento de máquina virtual do Azure com o Ansible](./ansible-vmss-update-image.md)

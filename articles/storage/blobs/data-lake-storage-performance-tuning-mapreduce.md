@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
 ms.openlocfilehash: 1df7765f4f006d3d79f867fbf23929f6b9b0cf08
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127162"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o MapReduce no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
 

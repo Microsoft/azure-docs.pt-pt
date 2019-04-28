@@ -1,22 +1,22 @@
 ---
 title: Início rápido com o Azure Application Insights | Microsoft Docs
-description: Disponibiliza instruções para configurar rapidamente uma aplicação móvel para monitorização com o Application Insights e o App Center
+description: Fornece instruções para configurar rapidamente a uma aplicação móvel para monitorização com o Application Insights e o App Center
 services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/11/2018
+ms.date: 04/22/2019
 ms.service: application-insights
 ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6f0a59d2b0954c9847219ad1ac8b2fa805767084
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: MT
+ms.openlocfilehash: 67ddedbaca88d46e706c9a143100b215a0d16a90
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54081397"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126872"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Começar a analisar a sua aplicação móvel com o App Center e o Application Insights
 
@@ -67,14 +67,14 @@ Para confirmar que os eventos personalizados estão a ser recebidos, aceda ao se
 
 Quando a aplicação estiver a enviar eventos personalizados e o App Center a recebê-los, tem de criar um recurso do Application Insights para o App Center no portal do Azure:
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Selecione **Criar um recurso** > **Ferramentas de Gestão**  > **Application Insights**.
 
     ![Adicionar recurso do Application Insights](./media/mobile-center-quickstart/add-b.png)
 
     É apresentada uma caixa de configuração. Utilize a tabela abaixo para preencher os campos de entrada.
 
-    | Definições        |  Valor           | Descrição  |
+    | Definições        |  Value           | Descrição  |
    | ------------- |:-------------|:-----|
    | **Nome**      | Um valor exclusivo globalmente, como “aminhaAplicação-iOS” | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação do App Center | Tipo de aplicação que está a monitorizar |
@@ -87,7 +87,9 @@ Se a sua aplicação suportar várias plataformas (iOS, Android, etc.), é melho
 
 ## <a name="export-to-application-insights"></a>Exportar para o Application Insights
 
-No recurso novo do Application Insights, na página **Descrição Geral** da secção **Essenciais** na parte superior, copie a chave de instrumentação do mesmo.
+No seu novo recurso do Application Insights sobre o **descrição geral** página. Copie a chave de instrumentação do seu recurso.
+
+   ![Botão Analytics no Application Insights](./media/mobile-center-quickstart/overview-01.png)
 
 Na instância do App Center da aplicação:
 
@@ -108,7 +110,7 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
 
 1. **Consulte a telemetria dos eventos personalizados.** Na página **Descrição Geral** do Application Insights, escolha **Analytics**. 
 
-   ![Botão Analytics no Application Insights](./media/mobile-center-quickstart/analytics.png)
+   ![Botão Analytics no Application Insights](./media/mobile-center-quickstart/analytics-001.png)
 
    É aberto o portal Analytics do Application Insights associado ao seu recurso do Application Insights. O portal Analytics permite-lhe consultar diretamente os seus dados com a linguagem de consultas do Log Analytics, pelo que pode fazer perguntas arbitrariamente complexas sobre a sua aplicação e os seus utilizadores.
    
@@ -121,7 +123,7 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
    | order by dcount_user_Id desc 
    ```
 
-   ![Portal Analytics](./media/mobile-center-quickstart/analytics-portal.png)
+   ![Portal Analytics](./media/mobile-center-quickstart/analytics-portal-001.png)
 
    1. Clique em qualquer parte da consulta no editor de texto para selecioná-la.
    2. Em seguida, clique em **Ir** para executar a consulta. 
@@ -131,17 +133,17 @@ O Application Insights pode consultar, segmentar, filtrar e analisar a telemetri
 
 2. **Segmentar e filtrar a telemetria dos eventos personalizados.** Na página **Descrição Geral** do Application Insights, escolha **Utilizadores**, no índice.
 
-   ![Ícone da ferramenta Utilizadores](./media/mobile-center-quickstart/users-icon.png)
+   ![Ícone da ferramenta Utilizadores](./media/mobile-center-quickstart/users-icon-001.png)
 
    A ferramenta Utilizadores mostra o número de utilizadores da aplicação que clicaram em determinados botões, visitaram certos ecrãs ou realizaram outra ação qualquer que esteja a acompanhar como evento através do SDK do App Center. Se estiver à procura de uma forma de segmentar e filtrar os eventos do App Center, a ferramenta Utilizadores é uma excelente escolha.
 
-   ![Ferramenta Utilizadores](./media/mobile-center-quickstart/users.png) 
+   ![Ferramenta Utilizadores](./media/mobile-center-quickstart/users-001.png) 
 
    Por exemplo, segmente a sua utilização por geografia ao escolher **País ou Região**, no menu pendente **Dividir por**.
 
 3. **Analise os padrões de conversão, retenção e navegação na sua aplicação.** Na página **Descrição Geral** do Application Insights, escolha **Fluxos de Utilizador**, no índice.
 
-   ![Ferramenta Fluxos de Utilizador](./media/mobile-center-quickstart/user-flows.png)
+   ![Ferramenta Fluxos de Utilizador](./media/mobile-center-quickstart/user-flows-001.png)
 
    A ferramenta Fluxos de Utilizador visualiza os eventos que os utilizadores enviam após algum evento inicial. É útil para obter uma visão geral da forma como os utilizadores navegam pela aplicação. Também pode revelar os locais onde muitos utilizadores a abandonam ou repetem as mesmas ações repetidamente.
 

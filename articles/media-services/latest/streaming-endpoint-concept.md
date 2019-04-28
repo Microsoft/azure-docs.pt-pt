@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999455"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125428"
 ---
 # <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo
 
@@ -149,6 +149,10 @@ Integração da CDN está ativada em todos os centros de dados do Azure, exceto 
 ### <a name="determine-if-dns-change-has-been-made"></a>Determinar se foi efetuada qualquer alteração DNS
 
 Pode determinar se a alteração de DNS foi efetuada num ponto final de transmissão em fluxo (o tráfego estiver sendo direcionado para a CDN do Azure) utilizando https://www.digwebinterface.com. Se os resultados tem nomes de domínio azureedge.net nos resultados, o tráfego é agora que está sendo apontado para a CDN.
+
+## <a name="provide-feedback"></a>Enviar comentários
+
+Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

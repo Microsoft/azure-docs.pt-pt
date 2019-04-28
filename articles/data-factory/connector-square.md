@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317736"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462365"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados do quadrado com o Azure Data Factory (pré-visualização)
 
@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para o serviço ligado quadrado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo tem de ser definida como: **Quadrado** | Sim |
+| type | A propriedade de tipo tem de ser definida como: **Quadrado** | Sim |
 | anfitrião | O URL da instância do quadrado. (ou seja, mystore.mysquare.com)  | Sim |
 | clientId | O ID de cliente associado à sua aplicação quadrada.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação quadrada. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
@@ -81,7 +81,7 @@ Para copiar dados do quadrado, defina a propriedade de tipo de conjunto de dados
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados deve ser definida como: **SquareObject** | Sim |
+| type | A propriedade de tipo do conjunto de dados deve ser definida como: **SquareObject** | Sim |
 | tableName | Nome da tabela. | Não (se for especificada "consulta" na origem de atividade) |
 
 **Exemplo**
@@ -110,7 +110,7 @@ Para copiar dados do quadrado, defina o tipo de origem na atividade de cópia pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SquareSource** | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SquareSource** | Sim |
 | consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

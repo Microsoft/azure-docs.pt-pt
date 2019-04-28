@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
-ms.openlocfilehash: 39eea84cc9301263381533e03e8f783e0a73ea19
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999965"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127009"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementar o OpenShift Container Platform no Azure
 
@@ -251,7 +251,7 @@ Diferentes versões podem ter diferentes parâmetros, pelo que deve verificar os
 
 | Propriedade | Descrição | Opções válidas | Valor Predefinido |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | URL para artefactos (json, scripts, etc.) |  |  https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | URL para artefactos (json, scripts, etc.) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | Região do Azure para implementar recursos |  |  |
 | `masterVmSize` | Tamanho da VM principal. Selecionar a partir de um dos tamanhos de VM permitidos listados no ficheiro azuredeploy. JSON |  | Standard_E2s_v3 |
 | `infraVmSize` | Tamanho da infra-estrutura VM. Selecionar a partir de um dos tamanhos de VM permitidos listados no ficheiro azuredeploy. JSON |  | Standard_D4s_v3 |

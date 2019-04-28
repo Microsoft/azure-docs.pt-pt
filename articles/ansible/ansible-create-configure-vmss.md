@@ -1,280 +1,319 @@
 ---
-title: Criar conjuntos de dimensionamento de máquinas virtuais no Azure utilizando o Ansible
-description: Aprenda a utilizar o Ansible para criar e configurar um conjunto de dimensionamento de máquinas virtuais no Azure
-ms.service: azure
+title: Tutorial - configurar conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible | Documentos da Microsoft
+description: Saiba como utilizar o Ansible para criar e configurar os conjuntos de dimensionamento de máquinas virtuais no Azure
 keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 13829d114f38f9a4cc490f46bb8c4b560b58e774
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097894"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764420"
 ---
-# <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Criar conjuntos de dimensionamento de máquinas virtuais no Azure utilizando o Ansible
-O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Pode utilizar o Ansible para gerir o seu conjunto de dimensionamento de máquinas virtuais (VMSS) no Azure, tal como faria em qualquer outro recurso do Azure. Este artigo mostra-lhe como utilizar o Ansible para criar e dimensionar um conjunto de dimensionamento de máquinas virtuais. 
+# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Configurar conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
+
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Configurar os recursos para uma VM
+> * Configurar um conjunto de dimensionamento
+> * Dimensionar o conjunto, aumentando as instâncias da VM de dimensionamento 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> O Ansible 2.6 é necessário para executar os manuais de procedimentos de exemplo neste tutorial. 
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-vmss"></a>Criar um VMSS
-Esta secção apresenta um manual de procedimentos do Ansible de exemplo que define os seguintes recursos:
-- **Grupo de recursos** no qual todos os seus recursos vão ser implementados
-- **Rede virtual** no espaço de endereços: 10.0.0.0/16
-- **Sub-rede** dentro da rede virtual
-- **Endereço IP público** que lhe permite aceder aos recursos na internet
-- **Grupo de segurança de rede** que controla o fluxo de tráfego de rede que entra e sai do seu conjunto de dimensionamento de máquinas virtuais
-- **Balanceador de carga** que distribui o tráfego por um conjunto de VMs definidas através das regras do balanceador de carga
-- **Conjunto de dimensionamento de máquinas virtuais** que utiliza todos os recursos criados
+## <a name="configure-a-scale-set"></a>Configurar um conjunto de dimensionamento
 
-Introduza a sua própria palavra-passe para o *admin_password* valor.
+O código do playbook nesta secção define os seguintes recursos:
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-      vmss_lb_name: myVMSSlb
-      location: eastus
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-      - name: Create a resource group
-        azure_rm_resourcegroup:
-          name: "{{ resource_group }}"
-          location: "{{ location }}"
-      - name: Create virtual network
-        azure_rm_virtualnetwork:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefixes: "10.0.0.0/16"
-      - name: Add subnet
-        azure_rm_subnet:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefix: "10.0.1.0/24"
-          virtual_network: "{{ vmss_name }}"
-      - name: Create public IP address
-        azure_rm_publicipaddress:
-          resource_group: "{{ resource_group }}"
-          allocation_method: Static
-          name: "{{ vmss_name }}"
-      - name: Create Network Security Group that allows SSH
-        azure_rm_securitygroup:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          rules:
-            - name: SSH
-              protocol: Tcp
-              destination_port_range: 22
-              access: Allow
-              priority: 1001
-              direction: Inbound
+* **Grupo de recursos** na qual todos os seus recursos vão ser implementados.
+* **Rede virtual** no espaço de endereços: 10.0.0.0/16
+* **Sub-rede** dentro da rede virtual
+* **Endereço IP público** que lhe permite aceder aos recursos na internet
+* **Grupo de segurança de rede** que controla o fluxo de tráfego de rede de entrada e saída de seu conjunto de dimensionamento
+* **Balanceador de carga** que distribui o tráfego por um conjunto de VMs definidas através das regras do balanceador de carga
+* **Conjunto de dimensionamento de máquinas virtuais** que utiliza todos os recursos criados
 
-      - name: Create a load balancer
-        azure_rm_loadbalancer:
-          name: "{{ vmss_lb_name }}"
-          location: "{{ location }}"
-          resource_group: "{{ resource_group }}"
-          public_ip: "{{ vmss_name }}"
-          probe_protocol: Tcp
-          probe_port: 8080
-          probe_interval: 10
-          probe_fail_count: 3
-          protocol: Tcp
-          load_distribution: Default
-          frontend_port: 80
-          backend_port: 8080
-          idle_timeout: 4
-          natpool_frontend_port_start: 50000
-          natpool_frontend_port_end: 50040
-          natpool_backend_port: 22
-          natpool_protocol: Tcp
+Existem duas formas de obter o playbook de exemplo:
 
-      - name: Create VMSS
-        azure_rm_virtualmachine_scaleset:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          vm_size: Standard_DS1_v2
-          admin_username: "{{ admin_username }}"
-          admin_password: "{{ admin_password }}"
-          ssh_password_enabled: true
-          capacity: 2
-          virtual_network_name: "{{ vmss_name }}"
-          subnet_name: "{{ vmss_name }}"
-          upgrade_policy: Manual
-          tier: Standard
-          managed_disk_type: Standard_LRS
-          os_disk_caching: ReadWrite
-          image:
-            offer: UbuntuServer
-            publisher: Canonical
-            sku: 16.04-LTS
-            version: latest
-          load_balancer: "{{ vmss_lb_name }}"
-          data_disks:
-            - lun: 0
-              disk_size_gb: 20
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-            - lun: 1
-              disk_size_gb: 30
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-  ```
+* [Transferir o manual de comunicação social](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) e guardá-lo para `vmss-create.yml`.
+* Crie um novo ficheiro designado `vmss-create.yml` e copie no seguinte conteúdo:
 
-Para criar o ambiente de conjunto de dimensionamento de máquinas virtuais com o Ansible, guarde o manual de procedimentos anterior como `vmss-create.yml` ou [transfira o manual de procedimentos do Ansible de exemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+    vmss_lb_name: myScaleSetLb
+    location: eastus
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefixes: "10.0.0.0/16"
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefix: "10.0.1.0/24"
+        virtual_network: "{{ vmss_name }}"
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Static
+        name: "{{ vmss_name }}"
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 1001
+            direction: Inbound
 
-Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+    - name: Create a load balancer
+      azure_rm_loadbalancer:
+        name: "{{ vmss_lb_name }}"
+        location: "{{ location }}"
+        resource_group: "{{ resource_group }}"
+        public_ip: "{{ vmss_name }}"
+        probe_protocol: Tcp
+        probe_port: 8080
+        probe_interval: 10
+        probe_fail_count: 3
+        protocol: Tcp
+        load_distribution: Default
+        frontend_port: 80
+        backend_port: 8080
+        idle_timeout: 4
+        natpool_frontend_port_start: 50000
+        natpool_frontend_port_end: 50040
+        natpool_backend_port: 22
+        natpool_protocol: Tcp
 
-  ```bash
-  ansible-playbook vmss-create.yml
-  ```
+    - name: Create Scale Set
+      azure_rm_virtualmachinescaleset:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        vm_size: Standard_DS1_v2
+        admin_username: "{{ admin_username }}"
+        admin_password: "{{ admin_password }}"
+        ssh_password_enabled: true
+        capacity: 2
+        virtual_network_name: "{{ vmss_name }}"
+        subnet_name: "{{ vmss_name }}"
+        upgrade_policy: Manual
+        tier: Standard
+        managed_disk_type: Standard_LRS
+        os_disk_caching: ReadWrite
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 16.04-LTS
+          version: latest
+        load_balancer: "{{ vmss_lb_name }}"
+        data_disks:
+          - lun: 0
+            disk_size_gb: 20
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+          - lun: 1
+            disk_size_gb: 30
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+```
 
-Depois de executar o manual de procedimentos, um resultado semelhante ao seguinte exemplo mostra que o conjunto de dimensionamento de máquinas virtuais foi criado com êxito:
+Antes de executar o playbook, consulte as seguintes notas de:
 
-  ```Output
-  PLAY [localhost] ***********************************************************
+* Na `vars` secção, substitua o `{{ admin_password }}` marcador de posição pela sua própria palavra-passe.
 
-  TASK [Gathering Facts] *****************************************************
-  ok: [localhost]
+Executar o playbook com o `ansible-playbook` comando:
 
-  TASK [Create a resource group] ****************************************************************************
-  changed: [localhost]
+```bash
+ansible-playbook vmss-create.yml
+```
 
-  TASK [Create virtual network] ****************************************************************************
-  changed: [localhost]
+Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
 
-  TASK [Add subnet] **********************************************************
-  changed: [localhost]
+```Output
+PLAY [localhost] 
 
-  TASK [Create public IP address] ****************************************************************************
-  changed: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  TASK [Create Network Security Group that allows SSH] ****************************************************************************
-  changed: [localhost]
+TASK [Create a resource group] 
+changed: [localhost]
 
-  TASK [Create a load balancer] ****************************************************************************
-  changed: [localhost]
+TASK [Create virtual network] 
+changed: [localhost]
 
-  TASK [Create VMSS] *********************************************************
-  changed: [localhost]
+TASK [Add subnet] 
+changed: [localhost]
 
-  PLAY RECAP *****************************************************************
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
+TASK [Create public IP address] 
+changed: [localhost]
 
-  ```
+TASK [Create Network Security Group that allows SSH] 
+changed: [localhost]
 
-## <a name="scale-out-a-vmss"></a>Aumentar horizontalmente um VMSS
-O conjunto de dimensionamento de máquinas de virtuais criada tem duas instâncias. Se navegar para o conjunto de dimensionamento no portal do Azure, verá **Standard_DS1_v2 (2 instâncias)**. Também pode utilizar o [Azure Cloud Shell](https://shell.azure.com/) executando o seguinte comando no Cloud Shell:
+TASK [Create a load balancer] 
+changed: [localhost]
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+TASK [Create Scale Set] 
+changed: [localhost]
 
-Verá resultados semelhantes à saída seguinte:
+PLAY RECAP 
+localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
-  ```bash
-  {
-    "capacity": 2,
-  }
-  ```
+```
 
-Agora, vamos dimensionar de duas instâncias para três instâncias. O seguinte código de manual de procedimentos do Ansible obtém informações sobre o dimensionamento de máquinas virtuais e altera a sua capacidade de duas a três. 
+## <a name="view-the-number-of-vm-instances"></a>Ver o número de instâncias de VM
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-    tasks: 
-      - name: Get scaleset info
-        azure_rm_virtualmachine_scaleset_facts:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          format: curated
-        register: output_scaleset
+O [configurado o conjunto de dimensionamento](#configure-a-scale-set) atualmente tem duas instâncias. Os passos seguintes são utilizados para confirmar esse valor:
 
-      - name: Dump scaleset info
-        debug:
-          var: output_scaleset
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-      - name: Modify scaleset (change the capacity to 3)
-        set_fact:
-          body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
+1. Navegue para o conjunto de dimensionamento que configurou.
 
-      - name: Update something in that VMSS
-        azure_rm_virtualmachine_scaleset: "{{ body }}"
-  ```
+1. Verá o nome com o número de instâncias do conjunto de parênteses de dimensionamento: `Standard_DS1_v2 (2 instances)`
 
-Para aumentar horizontalmente o ambiente de conjunto de dimensionamento de máquinas virtuais que criou, guarde o manual de procedimentos anterior como `vmss-scale-out.yml` ou [transfira o manual de procedimentos do Ansible de exemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml). 
+1. Também pode verificar o número de instâncias com o [Azure Cloud Shell](https://shell.azure.com/) executando o seguinte comando:
 
-O seguinte comando irá executar o manual de procedimentos:
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
 
-  ```bash
-  ansible-playbook vmss-scale-out.yml
-  ```
+    Os resultados da execução do comando da CLI do Azure no Cloud Shell mostram que existem agora três instâncias: 
 
-O resultado da execução do manual de procedimentos do Ansible mostra que o conjunto de dimensionamento de máquinas virtuais foi dimensionado horizontalmente com êxito:
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
-  ```Output
-  PLAY [localhost] **********************************************************
+## <a name="scale-out-a-scale-set"></a>Aumentar horizontalmente um conjunto de dimensionamento
 
-  TASK [Gathering Facts] ****************************************************
-  ok: [localhost]
+O código do playbook nesta secção obtém informação sobre o conjunto de dimensionamento e altera a sua capacidade de duas a três.
 
-  TASK [Get scaleset info] ***************************************************************************
-  ok: [localhost]
+Existem duas formas de obter o playbook de exemplo:
 
-  TASK [Dump scaleset info] ***************************************************************************
-  ok: [localhost] => {
-      "output_scaleset": {
-          "ansible_facts": {
-              "azure_vmss": [
-                  {
-                      ......
-                  }
-              ]
-          },
-          "changed": false,
-          "failed": false
-      }
-  }
+* [Transferir o manual de comunicação social](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) e guardá-lo para `vmss-scale-out.yml`.
+* Crie um novo ficheiro designado `vmss-scale-out.yml` e copie no seguinte conteúdo:
 
-  TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] ***************************************************************************
-  ok: [localhost]
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+  tasks: 
+    - name: Get scaleset info
+      azure_rm_virtualmachine_scaleset_facts:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        format: curated
+      register: output_scaleset
 
-  TASK [Update something in that VMSS] ***************************************************************************
-  changed: [localhost]
+    - name: Dump scaleset info
+      debug:
+        var: output_scaleset
 
-  PLAY RECAP ****************************************************************
-  localhost                  : ok=5    changed=1    unreachable=0    failed=0
-  ```
+    - name: Modify scaleset (change the capacity to 3)
+      set_fact:
+        body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
 
-Se navegar para o conjunto de dimensionamento de máquinas virtuais que configurou no portal do Azure, verá **Standard_DS1_v2 (3 instâncias)**. Também pode verificar a alteração com o [Azure Cloud Shell](https://shell.azure.com/), executando o seguinte comando:
+    - name: Update something in that scale set
+      azure_rm_virtualmachinescaleset: "{{ body }}"
+```
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+Executar o playbook com o `ansible-playbook` comando:
 
-O resultado da execução do comando no Cloud Shell mostra que existem agora três instâncias. 
+```bash
+ansible-playbook vmss-scale-out.yml
+```
 
-  ```bash
-  {
-    "capacity": 3,
-  }
-  ```
+Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
+ok: [localhost]
+
+TASK [Get scaleset info] 
+ok: [localhost]
+
+TASK [Dump scaleset info] 
+ok: [localhost] => {
+    "output_scaleset": {
+        "ansible_facts": {
+            "azure_vmss": [
+                {
+                    ......
+                }
+            ]
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+
+TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] 
+ok: [localhost]
+
+TASK [Update something in that scale set] 
+changed: [localhost]
+
+PLAY RECAP 
+localhost                  : ok=5    changed=1    unreachable=0    failed=0
+```
+
+## <a name="verify-the-results"></a>Verificar os resultados
+
+Verificar os resultados do seu trabalho através do portal do Azure:
+
+1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Navegue para o conjunto de dimensionamento que configurou.
+
+1. Verá o nome com o número de instâncias do conjunto de parênteses de dimensionamento: `Standard_DS1_v2 (3 instances)` 
+
+1. Também pode verificar a alteração com o [Azure Cloud Shell](https://shell.azure.com/), executando o seguinte comando:
+
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
+
+    Os resultados da execução do comando da CLI do Azure no Cloud Shell mostram que existem agora três instâncias: 
+
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 > [!div class="nextstepaction"] 
-> [Implementar aplicações em conjuntos de dimensionamento de máquina virtual com o Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-> 
-> [Dimensionar automaticamente um conjunto de dimensionamento com o Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Tutorial: Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible](./ansible-deploy-app-vmss.md)

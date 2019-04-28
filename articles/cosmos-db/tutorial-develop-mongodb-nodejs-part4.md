@@ -12,11 +12,11 @@ ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
 ms.openlocfilehash: 8320204f75e583dae0449f83e7c38f6638371c2a
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035127"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130403"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Criar uma aplicação Angular com API do Azure Cosmos DB para o MongoDB - criar uma conta do Cosmos
 

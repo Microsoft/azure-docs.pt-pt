@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 2af346b2c9fa5c46593aa9421c3a762bda78dc2f
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: e943dbff71fdbd98773587c8ac5a62dd081b49a2
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59610309"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62739571"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico
 Neste início rápido, utilize o portal do Azure para criar um tópico do Service Bus e, em seguida, criar subscrições para esse tópico. 
@@ -34,7 +34,7 @@ Tópicos do Service Bus e as subscrições permitem-lhe dimensionar para process
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para saber como enviar mensagens para um tópico e reiceve essas mensagens por meio de uma subscrição, veja o seguinte artigo: selecione a linguagem de programação no índice. 
+Para saber como enviar mensagens para um tópico e receber essas mensagens por meio de uma subscrição, veja o seguinte artigo: selecione a linguagem de programação no índice. 
 
 > [!div class="nextstepaction"]
 > [Publicar e subscrever as mensagens](service-bus-dotnet-how-to-use-topics-subscriptions.md)

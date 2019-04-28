@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: dwgeo
 ms.openlocfilehash: 71925a1ee67956df45901950b2a59fa4c1b458a7
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58260092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463230"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam tokens para o serviço de entrega de chave de serviços de multimédia do Azure
 Os clientes costumam perguntar como um jogador pode passar tokens para o serviço de entrega de chave de serviços de multimédia do Azure para efeitos de verificação para que o jogador pode obter a chave. Serviços de multimédia suportam o simple web tokens (SWT) e formatos de JSON Web Token (JWT). Autenticação de token é aplicada a qualquer tipo de chave, independentemente de utilizar a encriptação comum ou encriptação de envelope Advanced Encryption Standard (AES) no sistema.

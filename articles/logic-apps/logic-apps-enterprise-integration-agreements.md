@@ -1,6 +1,6 @@
 ---
-title: Contratos para comunicação de B2B - Azure Logic Apps | Documentos da Microsoft
-description: Criar contratos para B2B comerciais a comunicação de parceiro com o Azure Logic Apps e o Enterprise Integration Pack
+title: Criar e gerir contratos de parceiros comerciais - Azure Logic Apps
+description: Criar e gerir os contratos entre parceiros comerciais com o Azure Logic Apps e o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,67 +9,100 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 447ffb8e-3e91-4403-872b-2f496495899d
-ms.date: 06/29/2016
-ms.openlocfilehash: 09bee10649e2bc0d745e42b8aa13ae9c21df35aa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: MT
+ms.date: 04/05/2019
+ms.openlocfilehash: 26d653b873e959f0804e0456ed87ee68c39413e5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128832"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63761327"
 ---
-# <a name="partner-agreements-for-b2b-communication-with-azure-logic-apps-and-enterprise-integration-pack"></a>Contratos de parceiros para a comunicação de B2B com Azure Logic Apps e o Enterprise Integration Pack
+# <a name="create-and-manage-trading-partner-agreements-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Criar e gerir contratos de parceiros comerciais com o Azure Logic Apps e o Enterprise Integration Pack
 
-Contratos de permitir que as entidades comerciais comunicar de forma totalmente integrada utilizando protocolos padrão da indústria e são o alicerce para comunicação do empresa-empresa (B2B). Ao ativar os cenários B2B para aplicações lógicas com o Enterprise Integration Pack, um contrato é uma organização de comunicações entre parceiros comerciais de B2B. O presente contrato é com base nas comunicações que os parceiros desejam estabelecer e é o protocolo ou específico de transporte.
+R [parceiro comercial](../logic-apps/logic-apps-enterprise-integration-partners.md) 
+*contrato* ajuda as organizações e empresas comunicar de forma totalmente integrada entre si, definindo o protocolo de norma da indústria específico a utilizar ao trocar mensagens empresa-empresa (B2B). Os contratos de apresentam benefícios comuns, por exemplo:
 
-Integração empresarial oferece suporte a esses padrões de protocolo ou de transporte:
+* Permitem às organizações trocar informações com um formato bem conhecido.
+* Melhore a eficiência ao conduzir transações B2B.
+* São fáceis de criar, gerir e utilizar para criar soluções de integração de enterprise.
 
-* [AS2](logic-apps-enterprise-integration-as2.md)
-* [X12](logic-apps-enterprise-integration-x12.md)
-* [EDIFACT](logic-apps-enterprise-integration-edifact.md)
+Este artigo mostra como criar um AS2, EDIFACT e X12 contrato que pode usar ao criar soluções de integração para cenários B2B de enterprise utilizando as [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md) e [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Depois de criar um contrato, em seguida, pode utilizar o AS2, EDIFACT e X12 conectores para a troca de mensagens B2B.
 
-## <a name="why-use-agreements"></a>Por que usar contratos
+## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui estão alguns benefícios comuns ao usar contratos de:
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [Inscreva-se uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-* Permite que as diferentes organizações e empresas de trocar informações num formato bem conhecido.
-* Melhora a eficiência ao conduzir transações B2B
-* Fácil de criar, gerir e utilizar ao criar aplicações de integração de enterprise
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) para armazenar seu contrato e outros artefactos de B2B. Esta conta de integração tem de estar associada a sua subscrição do Azure.
 
-## <a name="how-to-create-agreements"></a>Como criar contratos
+* Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que já tenha criado na sua conta de integração. Um contrato requer um parceiro do anfitrião e um parceiro convidado. Ambos os parceiros têm de utilizar o mesmo qualificador de "identidade de negócio" como o contrato que pretende criar, por exemplo, AS2, X 12 ou EDIFACT.
 
-* [Crie um contrato de AS2](logic-apps-enterprise-integration-as2.md)
-* [Criar um X12 contrato](logic-apps-enterprise-integration-x12.md)
-* [Crie um contrato EDIFACT](logic-apps-enterprise-integration-edifact.md)
+* Opcional: A aplicação lógica em que pretende utilizar o seu contrato e um acionador que inicia o fluxo de trabalho da sua aplicação lógica. Apenas criar a sua conta de integração e artefactos de B2B, não terá uma aplicação lógica. No entanto, antes da aplicação lógica pode utilizar os artefactos de B2B na sua conta de integração, deve vincular sua conta de integração à sua aplicação lógica. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="how-to-use-an-agreement"></a>Como utilizar um contrato
+## <a name="create-agreements"></a>Criar contratos
 
-Pode criar [aplicações lógicas](logic-apps-overview.md "Saiba mais sobre o Logic apps") com as capacidades B2B utilizando um contrato que criou.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+No menu principal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza "integração" como o filtro. Nos resultados, selecione este recurso: **Contas de integração**
 
-## <a name="how-to-edit-an-agreement"></a>Como editar um contrato
+   ![Localize a conta de integração](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
-Pode editar qualquer contrato através dos seguintes passos:
+1. Sob **contas de integração**, selecione a conta de integração em que pretende criar o contrato.
 
-1. Selecione a conta de integração com o contrato que pretende atualizar.
+   ![Selecione onde pretende criar o contrato de conta de integração](./media/logic-apps-enterprise-integration-agreements/select-integration-account.png)
 
-2. Escolha o **contratos** mosaico.
+1. No painel da direita, em **componentes**, escolha a **contratos** mosaico.
 
-3. Sobre o **contratos** painel, selecione o contrato.
+   ![Escolha "Contratos"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
 
-4. Escolher **editar**. Faça as alterações.
+1. Sob **contratos**, escolha **Add**. Na **adicionar** painel, fornecem informações sobre o seu contrato, por exemplo:
 
-5. Para guardar as alterações, escolha **OK**.
+   ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-## <a name="how-to-delete-an-agreement"></a>Como eliminar um contrato
+   | Propriedade | Necessário | Value | Descrição |
+   |----------|----------|-------|-------------|
+   | **Nome** | Sim | <*agreement-name*> | O nome do contrato por |
+   | **Tipo de contrato** | Sim | **AS2**, **X12**, ou **EDIFACT** | O tipo de protocolo para o seu contrato. Quando cria o ficheiro de contrato, o conteúdo desse arquivo tem de corresponder ao tipo de contrato. | |  
+   | **Parceiro do anfitrião** | Sim | <*host-partner-name*> | O parceiro do anfitrião representa a organização que especifica o contrato |
+   | **Host Identity** | Sim | <*host-partner-identifier*> | Identificador do parceiro anfitrião |
+   | **Parceiro convidado** | Sim | <*guest-partner-name*> | O parceiro convidado representa a organização que está negociando com o parceiro do anfitrião |
+   | **Identidade do convidado** | Sim | <*guest-partner-identifier*> | Identificador do parceiro convidado |
+   | **Receber definições** | Varia | Varia | Estas propriedades especificam como lidar com todas as mensagens de entrada recebidas pelo contrato. Para obter mais informações, consulte o tipo do respetivo contrato: <p>- [Definições de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Definições de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Definições da mensagem X12](logic-apps-enterprise-integration-x12.md) |
+   | **Definições de envio** | Varia | Varia | Estas propriedades especificam como lidar com todas as mensagens de saída enviadas pelo contrato. Para obter mais informações, consulte o tipo do respetivo contrato: <p>- [Definições de mensagem AS2](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [Definições de mensagem EDIFACT](logic-apps-enterprise-integration-edifact.md) <br>- [Definições da mensagem X12](logic-apps-enterprise-integration-x12.md) |
+   |||||
 
-Pode eliminar qualquer contrato através dos seguintes passos:
+1. Quando terminar a criação de seu contrato, no **Add** página, selecione **OK**e retornar à sua conta de integração.
 
-1. Selecione a conta de integração com o contrato que pretende eliminar.
-2. Escolha o **contratos** mosaico.
-3. Sobre o **contratos** painel, selecione o contrato.
-4. Escolher **eliminar**.
-5. Confirme que pretende eliminar o contrato selecionado.
+   O **contratos** lista mostra agora o seu novo contrato.
 
-    O painel de contratos já não mostra o contrato foi eliminado.
+## <a name="edit-agreements"></a>Editar contratos
+
+1. Na [portal do Azure](https://portal.azure.com), no menu principal do Azure, selecione **todos os serviços**.
+
+1. Na caixa de pesquisa, introduza "integração" como o filtro. Nos resultados, selecione este recurso: **Contas de integração**
+
+1. Sob **contas de integração**, selecione a conta de integração com o contrato que pretende editar.
+
+1. No painel da direita, em **componentes**, escolha a **contratos** mosaico.
+
+1. Sob **contratos**, selecione o seu contrato e escolha **editar**.
+
+1. Fazer e, em seguida, guarde as alterações.
+
+## <a name="delete-agreements"></a>Eliminar contratos
+
+1. Na [portal do Azure](https://portal.azure.com), no menu principal do Azure, selecione **todos os serviços**.
+
+1. Na caixa de pesquisa, introduza "integração" como o filtro. Nos resultados, selecione este recurso: **Contas de integração**
+
+1. Sob **contas de integração**, selecione a conta de integração com o contrato que pretende eliminar.
+
+1. No painel da direita, em **componentes**, escolha a **contratos** mosaico.
+
+1. Sob **contratos**, selecione o seu contrato e escolha **eliminar**.
+
+1. Confirme que pretende eliminar o contrato selecionado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Crie um contrato de AS2](logic-apps-enterprise-integration-as2.md)
+
+* [Trocar mensagens AS2](logic-apps-enterprise-integration-as2.md)
+* [Trocar mensagens EDIFACT](logic-apps-enterprise-integration-edifact.md)
+* [Trocar mensagens X12](logic-apps-enterprise-integration-x12.md)

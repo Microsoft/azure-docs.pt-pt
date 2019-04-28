@@ -2,18 +2,18 @@
 title: Introdução aos Ficheiros do Azure | Microsoft Docs
 description: Uma descrição geral dos Ficheiros do Azure, um serviço que lhe permite criar e utilizar partilhas de ficheiros de rede na cloud com o protocolo SMB padrão da indústria.
 services: storage
-author: RenaShahMSFT
+author: roygara
 ms.service: storage
 ms.topic: overview
 ms.date: 07/19/2018
-ms.author: renash
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 647b1723136edd23f3e58f1c225c9226714d4d97
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: MT
+ms.openlocfilehash: 6e8e2843ad8e00b1fe334200b9b1a5c8a7c2c5df
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466902"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766446"
 ---
 # <a name="what-is-azure-files"></a>O que são os Ficheiros do Azure?
 Os Ficheiros do Azure oferecem partilhas de ficheiros completamente geridas na cloud que são acessíveis através do [protocolo SMB (Server Message Block) norma da indústria](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). As partilhas de ficheiros do Azure podem ser montadas em simultâneo por implementações na cloud ou no local do Windows, Linux e macOS. Além disso, as partilhas de ficheiros do Azure podem ser colocadas em cache em Servidores Windows com o Azure File Sync para acesso rápido perto do local onde os dados estão a ser utilizados.

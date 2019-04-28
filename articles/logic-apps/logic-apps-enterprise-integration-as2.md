@@ -1,6 +1,6 @@
 ---
-title: Nas mensagens AS2 para a integração empresarial de B2B - Azure Logic Apps | Documentos da Microsoft
-description: Trocar mensagens AS2 para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
+title: Nas mensagens AS2 para a integração empresarial de B2B - Azure Logic Apps
+description: Trocar mensagens AS2 no Azure Logic Apps com o Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,170 +8,122 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
-ms.date: 06/08/2017
-ms.openlocfilehash: 3413b235d9202530eb1a3129637e3746bbe6585b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: b494f6524e5105a95bc8a24a6fa2521abcca3f7b
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872582"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760271"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trocar mensagens AS2 para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
 
-Antes de pode trocar mensagens AS2 para o Azure Logic Apps, tem de criar um contrato de AS2 e armazenar esse contrato na sua conta de integração. Eis os passos para saber como criar um contrato de AS2.
+Para trabalhar com mensagens AS2 no Azure Logic Apps, pode utilizar o conector AS2, que fornece os acionadores e ações para a gestão de comunicação de AS2. Por exemplo, para estabelecer a segurança e fiabilidade ao transmitir mensagens, pode utilizar estas ações:
 
-## <a name="before-you-start"></a>Antes de começar
+* [**Codificar em mensagem AS2** ação](#encode) para fornecer encriptação, assinatura digital e as confirmações por meio de notificações de disposição de mensagem (MDN), que ajudar a suportar não-repúdio. Por exemplo, esta ação aplica-se os cabeçalhos de AS2/HTTP e executa estas tarefas quando configurado:
 
-Eis os itens que precisa:
+  * Sinais de mensagens de saída.
+  * Encripta as mensagens de saída.
+  * Compacta a mensagem.
+  * Transmite o nome do ficheiro no cabeçalho de MIME.
 
-* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) que já definida e associada à sua subscrição do Azure
-* Pelo menos dois [parceiros](logic-apps-enterprise-integration-partners.md) que já definidas na sua conta de integração e configurado com o qualificador de AS2 em **identidades de negócio**
+* [**Descodificar mensagem AS2** ação](#decode) para fornecer a descriptografia, assinatura digital e as confirmações por meio de notificações de disposição de mensagem (MDN). Por exemplo, esta ação executa estas tarefas: 
 
-> [!NOTE]
-> Quando cria um contrato, o conteúdo do ficheiro do contrato tem de corresponder ao tipo de contrato.    
+  * Processa cabeçalhos de AS2/HTTP.
+  * Reconcilia MDNs recebidos com as mensagens de saída originais.
+  * Atualizações e correlaciona os registos na base de dados não-repúdio.
+  * Grava os registros para relatórios de estado de AS2.
+  * Conteúdo do payload de saídas como codificada em base64.
+  * Determina se MDNs são necessárias. Com base em AS2 contrato, determina se o devem ser MDNs síncronos ou assíncronos.
+  * Gera MDNs síncronos ou assíncronos com base no contrato de AS2.
+  * Define as propriedades e os tokens de correlação de MDNs.
 
-Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md) e [adicionar parceiros](logic-apps-enterprise-integration-partners.md), pode criar um contrato de AS2 ao seguir estes passos.
+  Esta ação também executa estas tarefas quando configurado:
 
-## <a name="create-an-as2-agreement"></a>Crie um contrato de AS2
+  * Verifica a assinatura.
+  * Desencripta as mensagens.
+  * Descomprime a mensagem. 
+  * Verifique e não permitir duplicados de ID de mensagem.
 
-1.  Inicie sessão no [portal do Azure](https://portal.azure.com "portal do Azure").  
+Este artigo mostra como adicionar a codificação de AS2 e decodificação de ações a uma aplicação lógica existente.
 
-2. No menu principal do Azure, selecione **todos os serviços**. Na caixa de pesquisa, introduza "integração" e, em seguida, selecione **contas de integração**.
+## <a name="prerequisites"></a>Pré-requisitos
 
-   ![Localize a conta de integração](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [Inscreva-se uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-   > [!TIP]
-   > Se não vir **todos os serviços**, poderá ter de expandir o menu pela primeira vez. Na parte superior do menu fechado, selecione **Mostrar etiquetas de texto**.
+* A aplicação de lógica de em que pretende utilizar o conector AS2 e um acionador que inicia o fluxo de trabalho da sua aplicação lógica. O conector AS2 fornece apenas ações, acionadores não. Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-3. Sob **contas de integração**, selecione a conta de integração em que pretende criar o contrato.
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) que tem associados à subscrição do Azure e associado à aplicação lógica que planeia utilizar o conector AS2. Ambos os sua lógica aplicação e a integração conta tem de existir na mesma localização ou região do Azure.
 
-   ![Selecione onde pretende criar o contrato de conta de integração](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+* Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que já definiu na sua conta de integração usando o qualificador de identidade de AS2.
 
-4. Escolha o **contratos** mosaico. Se não tiver um mosaico de contratos, adicione primeiro o mosaico.
+* Antes de poder utilizar o conector AS2, tem de criar um AS2 [contrato](../logic-apps/logic-apps-enterprise-integration-agreements.md) entre seus parceiros comerciais e um arquivo desse contrato na sua conta de integração.
 
-    ![Escolha o que mosaico "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+* Se usar [do Azure Key Vault](../key-vault/key-vault-overview.md) para a gestão de certificados, verifique que as suas chaves do cofre permitem a **Encrypt** e **desencriptar** operações. Caso contrário, a codificação e decodificação de ações falharem.
 
-5. Sob **contratos**, escolha **Add**.
+  No portal do Azure, aceda ao seu Cofre de chaves, ver a sua chave de cofre **permitido operações**e confirme que o **Encrypt** e **desencriptar** operações estão selecionadas.
 
-    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
+  ![Verifique as operações do Cofre de chaves](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
 
-6. Sob **Add**, introduza um **nome** para seu contrato. Para **tipo de contrato**, selecione **AS2**. Selecione o **parceiro do anfitrião**, **identidade do anfitrião**, **parceiro convidado**, e **identidade do convidado** para seu contrato.
+<a name="encode"></a>
 
-    ![Fornecer detalhes do contrato](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
+## <a name="encode-as2-messages"></a>Codificar nas mensagens AS2
 
-    | Propriedade | Descrição |
-    | --- | --- |
-    | Name |Nome do contrato |
-    | Tipo de Contrato | Deve ser AS2 |
-    | Parceiro do Anfitrião |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro do anfitrião representa a organização que configura o contrato. |
-    | Identidade do Anfitrião |Um identificador para o parceiro do anfitrião |
-    | Parceiro Convidado |Tem de um contrato de parceiro de um anfitrião e convidado. O parceiro convidado representa a organização que está negociando com o parceiro do anfitrião. |
-    | Identidade do Convidado |Um identificador para o parceiro convidado |
-    | Definições de Receção |Estas propriedades aplicam-se a todas as mensagens recebidas por um contrato. |
-    | Definições de Envio |Estas propriedades aplicam-se a todas as mensagens enviadas por um contrato. |
+1. Se ainda não o fez, no [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica.
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>Configurar a forma como seus identificadores de contrato receberam mensagens
+1. No designer, adicione uma nova ação à sua aplicação lógica. 
 
-Agora que definiu as propriedades de contrato, é possível configurar como o presente contrato identifica e processa mensagens de entrada recebidas do seu parceiro por meio do presente contrato.
+1. Sob **escolher uma ação** e a pesquisa de caixa, escolha **todos os**. Na caixa de pesquisa, introduza "codificar as2" e selecione a ação: **Codificar em mensagem AS2**.
 
-1.  Sob **Add**, selecione **receber definições**.
-Configure estas propriedades com base no seu contrato com o parceiro que troca mensagens com. Para obter descrições de propriedade, consulte a tabela nesta secção.
+   ![Selecione "Codificar em mensagem AS2"](./media/logic-apps-enterprise-integration-as2/select-as2-encode.png)
 
-    ![Configurar "Receber definições"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
+1. Se não tiver uma ligação existente à sua conta de integração, lhe for pedido para criar essa conexão agora. Nome da sua ligação, selecione a conta de integração que pretende ligar e escolha **criar**.
 
-2. Opcionalmente, pode substituir as propriedades de mensagens de entrada, selecionando **substituir propriedades da mensagem**.
+   ![Criar ligação para a conta de integração](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
+ 
+1. Agora fornecem informações para estas propriedades:
 
-3. Para exigir que todas as mensagens recebidas sejam assinados, selecione **deve ser assinada a mensagem**. Partir do **certificado** , selecione um existente [certificado público do parceiro convidado](../logic-apps/logic-apps-enterprise-integration-certificates.md) para validar a assinatura as mensagens. Ou criar o certificado, se não tiver uma.
+   | Propriedade | Descrição |
+   |----------|-------------|
+   | **AS2-do** | O identificador para o remetente da mensagem como especificado pelo seu contrato de AS2 |
+   | **AS2-para** | O identificador para o destinatário da mensagem como especificado pelo seu contrato de AS2 |
+   | **body** | O payload de mensagem |
+   |||
 
-4.  Para exigir que todas as mensagens recebidas sejam encriptados, selecione **mensagem deve ser encriptada**. Partir do **certificado** , selecione um existente [certificado privado do parceiro anfitrião](../logic-apps/logic-apps-enterprise-integration-certificates.md) para desencriptar mensagens de entrada. Ou criar o certificado, se não tiver uma.
+   Por exemplo:
 
-5. Para exigir que as mensagens para ser comprimido, selecione **mensagem deve ser comprimida**.
+   ![Propriedades da mensagem de codificação](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
 
-6. Para enviar uma notificação de disposição de mensagem síncrona (MDN) para as mensagens recebidas, selecione **enviar MDN**.
+<a name="decode"></a>
 
-7. Para enviar MDNs assinados para as mensagens recebidas, selecione **enviar MDN assinado**.
+## <a name="decode-as2-messages"></a>Descodificar nas mensagens AS2
 
-8. Para enviar MDNs assíncronas para as mensagens recebidas, selecione **enviar MDN assíncrono**.
+1. Se ainda não o fez, no [portal do Azure](https://portal.azure.com), abra a aplicação lógica no Estruturador da aplicação lógica.
 
-9. Depois de terminar, certifique-se de guardar as definições ao escolher **OK**.
+1. No designer, adicione uma nova ação à sua aplicação lógica. 
 
-Agora o seu contrato está pronto para lidar com mensagens de entrada que está em conformidade com as definições selecionadas.
+1. Sob **escolher uma ação** e a pesquisa de caixa, escolha **todos os**. Na caixa de pesquisa, introduza "descodificação as2" e selecione a ação: **Descodificar mensagem AS2**
 
-| Propriedade | Descrição |
-| --- | --- |
-| Substituir propriedades da mensagem |Indica que as propriedades nas mensagens recebidas podem ser substituídas. |
-| A mensagem deve estar assinada |Requer que as mensagens sejam assinados digitalmente. Configure o certificado público do parceiro convidado para verificação da assinatura.  |
-| A mensagem deve ser encriptada |Requer que as mensagens sejam encriptados. Mensagens criptografadas não são rejeitadas. Configure o certificado privado de parceiro de anfitrião para desencriptar as mensagens.  |
-| A mensagem deve ser comprimida |Necessita de mensagens para ser comprimido. Mensagens de compressão não são rejeitadas. |
-| Texto MDN |A predefinição disposição notificação de mensagem (MDN) a serem enviados para o remetente da mensagem. |
-| Enviar MDN |Requer MDNs a serem enviados. |
-| Enviar MDN assinado |Requer MDNs sejam assinados. |
-| Algoritmo MIC |Selecione o algoritmo a utilizar para assinar mensagens. |
-| Enviar MDN assíncrono | Requer mensagens sejam enviadas de forma assíncrona. |
-| do IdP | Especifique o URL para onde enviar os MDNs. |
+   ![Selecione "Mensagem AS2 Decodificação"](media/logic-apps-enterprise-integration-as2/select-as2-decode.png)
 
-## <a name="configure-how-your-agreement-sends-messages"></a>Configurar a forma como o seu contrato envia mensagens
+1. Se não tiver uma ligação existente à sua conta de integração, lhe for pedido para criar essa conexão agora. Nome da sua ligação, selecione a conta de integração que pretende ligar e escolha **criar**.
 
-É possível configurar como o presente contrato identifica e processa mensagens de saída que envia para os seus parceiros através do presente contrato.
+   ![Criar ligação para a conta de integração](./media/logic-apps-enterprise-integration-as2/as2-create-connection.png)  
 
-1.  Sob **Add**, selecione **enviar definições**.
-Configure estas propriedades com base no seu contrato com o parceiro que troca mensagens com. Para obter descrições de propriedade, consulte a tabela nesta secção.
+1. Para **corpo** e **cabeçalhos**, selecione esses valores de saídas de Acionador ou ação anteriores.
 
-    ![Defina as propriedades de "Enviar definições"](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
+   Por exemplo, suponha que a aplicação lógica recebe mensagens por meio de um acionador de pedido. Pode selecionar as saídas nesse disparador.
 
-2. Para enviar mensagens assinadas para o seu parceiro, selecione **ativar a assinatura da mensagem**. Para além de assinatura de mensagens, o **algoritmo MIC** lista, selecione a *certificado privado de parceiro anfitrião algoritmo MIC*. E, no **certificado** , selecione um existente [certificado privado do parceiro anfitrião](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+   ![Selecione corpo e cabeçalhos de pedido de saídas](media/logic-apps-enterprise-integration-as2/as2-message-decoding-details.png) 
 
-3. Para enviar mensagens criptografadas para o parceiro, selecione **ativar a encriptação de mensagens**. Para encriptar as mensagens no **algoritmo de encriptação** lista, selecione a *algoritmo de certificado público de parceiro convidado*.
-E, no **certificado** , selecione um existente [certificado público do parceiro convidado](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+## <a name="sample"></a>Exemplo
 
-4. Para comprimir a mensagem, selecione **ativar a compressão de mensagem**.
+Para experimentar a implantação de um cenário de AS2 de exemplo e a aplicação lógica totalmente operacional, consulte a [AS2 modelo da aplicação lógica e cenário](https://azure.microsoft.com/documentation/templates/201-logic-app-as2-send-receive/).
 
-5. Para desdobrar o cabeçalho de tipo de conteúdo HTTP para uma única linha, selecione **cabeçalhos HTTP Desdobrar**.
+## <a name="connector-reference"></a>Referência do conector
 
-6. Para receber MDNs síncronos para as mensagens enviadas, selecione **pedir MDN**.
-
-7. Para receber MDNs assinados para as mensagens enviadas, selecione **pedir MDN assinado**.
-
-8. Para receber MDNs assíncronas para as mensagens enviadas, selecione **pedir MDN assíncrono**. Se selecionar esta opção, introduza o URL para onde enviar os MDNs.
-
-9. Para exigir a não rejeição de receção, selecione **ativar NRR**.  
-
-10. Para especificar o formato de algoritmo a utilizar o MIC ou assinatura nos cabeçalhos de saída da mensagem AS2 ou MDN, selecione **formato do algoritmo SHA2**.  
-
-11. Depois de terminar, certifique-se de guardar as definições ao escolher **OK**.
-
-Agora o seu contrato está pronto para lidar com mensagens de saída que estão em conformidade com as definições selecionadas.
-
-| Propriedade | Descrição |
-| --- | --- |
-| Ativar assinatura de mensagens |Requer que todas as mensagens que são enviadas do contrato sejam assinados. |
-| Algoritmo MIC |O algoritmo a utilizar para assinar mensagens. Configura o certificado de privada de parceiro do anfitrião algoritmo MIC para as mensagens de assinatura. |
-| Certificado |Selecione o certificado a utilizar para assinar mensagens. Configura o certificado privado de parceiro de anfitrião para as mensagens de assinatura. |
-| Ativar encriptação de mensagens |Necessita de encriptação de todas as mensagens que são enviadas do presente contrato. Configura o algoritmo de certificado público de parceiro convidado para encriptar as mensagens. |
-| Algoritmo de Encriptação |O algoritmo de encriptação a utilizar para encriptação de mensagens. Configura o certificado público do parceiro convidado para encriptar as mensagens. |
-| Certificado |O certificado a utilizar para encriptar mensagens. Configura o certificado de privada do parceiro convidado para encriptar as mensagens. |
-| Ativar compressão de mensagens |Requer a compressão de todas as mensagens que são enviadas do presente contrato. |
-| Desdobrar cabeçalhos HTTP |Coloca o cabeçalho de tipo de conteúdo HTTP numa única linha. |
-| Pedir MDN |Requer um MDN para todas as mensagens que são enviadas do presente contrato. |
-| Pedir MDN assinado |Requer MDNs todos os que são enviados para o presente contrato sejam assinados. |
-| Pedir MDN assíncrono |Requer MDNs assíncronas sejam enviados para o presente contrato. |
-| do IdP |Especifique o URL para onde enviar os MDNs. |
-| Ativar NRR |Requer a não rejeição de receção (NRR), um atributo de comunicação que fornece uma evidência que os dados foram recebidos conforme abordado. |
-| Formato do Algoritmo SHA2 |Selecione o formato de algoritmo a utilizar o MIC ou assinatura nos cabeçalhos de saída da mensagem AS2 ou MDN |
-
-## <a name="find-your-created-agreement"></a>Encontrar o contrato criado
-
-1. Depois de concluir a configuração de todas as suas propriedades de contrato, no **Add** página, selecione **OK** para concluir a criação de seu contrato e retornar à sua conta de integração.
-
-    Agora seu contrato recentemente adicionado é apresentado no seu **contratos** lista.
-
-2. Também pode ver os contratos de na sua descrição de geral de conta de integração. No seu menu de conta de integração, escolha **descrição geral**, em seguida, selecione a **contratos** mosaico. 
-
-   ![Escolha "Contratos" mosaico para ver todos os contratos](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
-
-## <a name="view-the-swagger"></a>Ver o swagger
-Consulte a [detalhes de swagger](/connectors/as2/). 
+Para obter detalhes técnicos, como disparadores, ações e limites, conforme descrito pelo OpenAPI do conector (anteriormente Swagger) de ficheiros, consulte a [página de referência do conector](/connectors/as2/).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
+
+Saiba mais sobre o [Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md)

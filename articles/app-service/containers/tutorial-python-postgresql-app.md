@@ -13,11 +13,11 @@ ms.date: 03/27/2019
 ms.author: beverst;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b3d262a33ecbc35ada278019ee0998486bc92efe
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678926"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130199"
 ---
 # <a name="build-a-python-and-postgresql-app-in-azure-app-service"></a>Criar uma aplicação Python e PostgreSQL no serviço de aplicações do Azure
 

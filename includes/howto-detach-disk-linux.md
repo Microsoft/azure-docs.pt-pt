@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 94f662cea5f20485659a7b93549b758fdd7770f6
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61476273"
 ---
 Quando já não precisar de um disco de dados que esteja ligado a uma máquina virtual (VM), pode desligá-lo facilmente. Quando desligar um disco da VM, o disco não é removido do armazenamento. Se pretender voltar a utilizar os dados existentes no disco, pode voltar a ligá-lo à mesma VM ou a outra.  
 

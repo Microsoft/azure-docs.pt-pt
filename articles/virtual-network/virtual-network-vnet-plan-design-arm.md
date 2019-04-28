@@ -3,8 +3,8 @@ title: Planear as redes virtuais do Azure | Documentos da Microsoft
 description: Saiba como planear para redes virtuais com base nos seus requisitos de localização, a conectividade e a isolamento.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 3a4a9aea-7608-4d2e-bb3c-40de2e537200
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339521"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61034744"
 ---
 # <a name="plan-virtual-networks"></a>Planear as redes virtuais
 
@@ -37,7 +37,7 @@ Todos os recursos do Azure são criados numa região do Azure e subscrição. S�
 - Tem requisitos de residência, de soberania, de conformidade ou de resiliência de dados? Se assim for, escolher a região que se alinha os requisitos de é essencial. Para obter mais informações, consulte [geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 - Precisa resiliência em zonas de disponibilidade do Azure na mesma região do Azure para os recursos a que implementar? Pode implementar recursos, como as máquinas virtuais (VM) em diferentes zonas de disponibilidade dentro da mesma rede virtual. Nem todas as regiões do Azure suportam zonas de disponibilidade no entanto. Para saber mais sobre as zonas de disponibilidade e as regiões que suportam-las, veja [zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-## <a name="subscriptions"></a>Subscrições
+## <a name="subscriptions"></a>Subscriptions
 
 Pode implementar redes virtuais tantos conforme necessário em cada subscrição, até a [limite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Algumas organizações têm subscrições diferentes para diferentes departamentos, por exemplo. Para obter mais informações e considerações em torno de subscrições, veja [governação de subscrições](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 

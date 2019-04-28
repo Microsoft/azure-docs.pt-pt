@@ -9,11 +9,11 @@ services: iot-accelerators
 ms.date: 05/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: b07e21131d9560a49d99644525835ac5ee3bac9e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606797"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61442244"
 ---
 # <a name="integrate-sim-data-in-the-remote-monitoring-solution"></a>Integrar dados SIM na solução de monitorização remota
 
@@ -37,7 +37,7 @@ Esta funcionalidade adicional de monitorização remota está atualmente em pré
 2. Telefónica ativa a sua conta.
 3. Se ainda não é um cliente Telefónica e deseja aproveitar isso ou outros serviços de IoT conectividade Cloud pronto, visite [site do Telefónica](https://iot.telefonica.com/) e selecione a opção **conectividade**.
 
-### <a name="telefnica-sim-setup"></a>Configuração telefónica SIM
+### <a name="telefnica-sim-setup"></a>Telefónica SIM setup
 Associação de ID de dispositivo do telefónica SIM & duplo do Azure baseia-se a propriedade de "alias" Telefónica IoT SIM. 
 
 Navegue para [Portal de plataforma de conectividade de IoT Telefónica](https://m2m-movistar-es.telefonica.com/) > inventário SIM > selecione sua SIM e atualizar cada SIM "alias" com o seu deviceID pretendida do duplo. Esta tarefa também pode ser feita no modo em massa (consulte a manuais do usuário de plataformas de conectividade de IoT Telefónica).

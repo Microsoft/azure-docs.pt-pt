@@ -10,11 +10,11 @@ author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
 ms.openlocfilehash: 3603455674485a505a7dbc969554a881947940ae
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130539"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos com Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]

@@ -12,11 +12,11 @@ ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
 ms.openlocfilehash: c7f7a8c65717acd5a19e92b7e0437dc4b8628909
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55867091"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62103630"
 ---
 # <a name="what-is-project-personality-chat"></a>O que é a Conversa de Personalidade do Projeto?
 

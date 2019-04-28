@@ -2,7 +2,6 @@
 title: 'Início rápido: Criar clusters do Apache Hadoop com o Resource Manager e consultar dados com o Apache Hive - Azure HDInsight'
 description: Saiba como criar clusters do HDInsight e consultar dados com o Hive.
 keywords: guia de introdução do hadoop, hadoop linux, início rápido do hadoop, introdução do hive, início rápido do hive
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
-ms.openlocfilehash: 220549c4ac3b6db584654b2c8bf27d9b4519b54a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: f192c0bcd11aacde90992e06c2736e1412f85505
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129370"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager
 

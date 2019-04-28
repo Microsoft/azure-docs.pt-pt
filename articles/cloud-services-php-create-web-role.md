@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.openlocfilehash: 83834104dd73e4381947903196ad35c3497b64a1
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425681"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60337566"
 ---
 # <a name="create-php-web-and-worker-roles"></a>Criar funções de Web PHP e de trabalho
 
@@ -26,13 +26,13 @@ ms.locfileid: "52425681"
 
 Este guia irá mostrar como criar funções de web ou de trabalho PHP num ambiente de desenvolvimento do Windows, escolha uma versão específica do PHP entre as versões "internas" disponíveis, alterar a configuração do PHP, ativar extensões e, por fim, implementar no Azure. Também descreve como configurar uma função web ou de trabalho para utilizar um runtime PHP (com e extensões de configuração personalizada) que fornece.
 
-O Azure fornece três modelos para executar aplicações de computação: serviço de aplicações do Azure, máquinas virtuais do Azure e serviços Cloud do Azure. Todos os três modelos suportam o PHP. Os serviços cloud, incluindo funções web e de trabalho, proporcionam *plataforma como serviço (PaaS)*. Num serviço cloud, uma função da web fornece um servidor de web de serviços de informação Internet (IIS) dedicado para alojar aplicações web de front-end. Uma função de trabalho pode executar tarefas assíncronas, longa ou perpétuas, independentes da interação do utilizador ou de uma entrada.
+O Azure fornece três modelos de computação para executar aplicações: Serviço de aplicações do Azure, máquinas virtuais do Azure e serviços Cloud do Azure. Todos os três modelos suportam o PHP. Os serviços cloud, incluindo funções web e de trabalho, proporcionam *plataforma como serviço (PaaS)*. Num serviço cloud, uma função da web fornece um servidor de web de serviços de informação Internet (IIS) dedicado para alojar aplicações web de front-end. Uma função de trabalho pode executar tarefas assíncronas, longa ou perpétuas, independentes da interação do utilizador ou de uma entrada.
 
 Para obter mais informações sobre estas opções, consulte [computação fornecidas pelo Azure de opções de hospedagem](cloud-services/cloud-services-choose-me.md).
 
 ## <a name="download-the-azure-sdk-for-php"></a>Transfira o Azure SDK para PHP
 
-O [Azure SDK para PHP](php-download-sdk.md) é composta por vários componentes. Este artigo irá utilizar dois deles: Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados através do Microsoft Web Platform Installer. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
+O [Azure SDK para PHP](php-download-sdk.md) é composta por vários componentes. Este artigo irá utilizar dois deles: O Azure PowerShell e os emuladores do Azure. Esses dois componentes podem ser instalados através do Microsoft Web Platform Installer. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview).
 
 ## <a name="create-a-cloud-services-project"></a>Criar um projeto de serviços Cloud
 

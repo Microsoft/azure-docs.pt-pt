@@ -3,22 +3,23 @@ title: Tarefa de configuração predefinida para o indexador de multimédia do A
 description: Este tópico apresenta uma visão geral das tarefas de configuração predefinida para o indexador de multimédia do Azure.
 services: media-services
 documentationcenter: ''
-author: Asolanki
-manager: femila
+author: WenJason
+manager: digimobile
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: adsolank;juliako;
+origin.date: 02/08/2019
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 8ce3ea3847e4c8c022f17375676d8415372dec85
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991640"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466311"
 ---
 # <a name="task-preset-for-azure-media-indexer"></a>Tarefa de configuração predefinida para o indexador de multimédia do Azure 
 

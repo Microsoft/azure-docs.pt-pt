@@ -16,13 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
 ms.openlocfilehash: bddc83d55c8909412f7f935a4324a6f316a82cd7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238170"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129558"
 ---
-# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar grupos de disponibilidade Always On em máquinas de virtuais do Azure automaticamente: Resource Manager
+# <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configure grupos de disponibilidade Always On em máquinas de virtuais do Azure automaticamente: Resource Manager
 
 Este tutorial mostra-lhe como criar um grupo de disponibilidade do SQL Server que utiliza as máquinas virtuais do Azure Resource Manager. O tutorial utiliza os painéis do Azure para configurar um modelo. Pode rever as predefinições, escreva as definições necessárias e atualizar os painéis no portal, à medida que pode percorrer neste tutorial.
 
@@ -93,8 +93,8 @@ Sobre o **definições de domínio e de rede** painel, reveja os valores predefi
 
 * **Nome de domínio de raiz de floresta** é o nome de domínio para o domínio do Active Directory que aloja o cluster. Para o tutorial, utilize **contoso.com**.
 * **Nome de rede virtual** é o nome de rede para a rede virtual do Azure. Para o tutorial, utilize **autohaVNET**.
-* **Nome de sub-rede do controlador de domínio** é o nome de uma parte da rede virtual que aloja o controlador de domínio. Uso **subnet-1**. Esta sub-rede utiliza o prefixo de endereço **10.0.0.0/24**.
-* **Nome de sub-rede do SQL Server** é o nome de uma parte da rede virtual que aloja os servidores que execução do SQL Server e o ficheiro de testemunho de partilha. Uso **sub-rede 2**. Esta sub-rede utiliza o prefixo de endereço **10.0.1.0/26**.
+* **Nome de sub-rede do controlador de domínio** é o nome de uma parte da rede virtual que aloja o controlador de domínio. Use **subnet-1**. Esta sub-rede utiliza o prefixo de endereço **10.0.0.0/24**.
+* **Nome de sub-rede do SQL Server** é o nome de uma parte da rede virtual que aloja os servidores que execução do SQL Server e o ficheiro de testemunho de partilha. Use **subnet-2**. Esta sub-rede utiliza o prefixo de endereço **10.0.1.0/26**.
 
 Para saber mais sobre as redes virtuais no Azure, veja [descrição geral de rede Virtual](../../../virtual-network/virtual-networks-overview.md).  
 
@@ -115,7 +115,7 @@ No **as definições do grupo de disponibilidade**, reveja os valores predefinid
 
 Se necessário, pode alterar esses valores. Neste tutorial, utilize os valores predefinidos.  
 
-![definições do grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
+![Definições do grupo de disponibilidade](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups/3-availabilitygroup.png)
 
 Clique em **OK**.
 

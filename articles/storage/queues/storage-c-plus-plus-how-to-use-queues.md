@@ -11,11 +11,11 @@ ms.date: 05/11/2017
 ms.author: cbrooksmsft
 ms.subservice: queues
 ms.openlocfilehash: 08c865e5383e4095a22aa6c10c8b181f916d1d30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999416"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62109003"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Como utilizar o armazenamento de filas do C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]

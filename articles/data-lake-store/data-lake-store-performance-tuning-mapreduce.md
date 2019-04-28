@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: b661499786057a3083f79684dfd12c85266b7b5c
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b9e5d034db4711384d2ac8a1083da5c93ea11900
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437247"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Guia para o MapReduce no HDInsight e Azure Data Lake Storage Gen1 de sintonização de desempenho
 
@@ -73,7 +73,7 @@ Digamos que tenha atualmente um composto por 8 D14 nós de cluster e pretender e
 **Passo 3: Determinar a memória de Total YARN**
 
     total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
-**Passo 4: Calcular n. º de contentores YARN**
+**Passo 4: Calcular o n. º de contentores YARN**
 
     # of YARN containers = 768GB of available memory / 3 GB of memory =   256
 

@@ -10,11 +10,11 @@ author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
 ms.openlocfilehash: 69d2eb1627d42c12a0af024bf1c80e787ed5eca7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044506"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130486"
 ---
 # <a name="azure-table-storage-overview"></a>Descrição geral do armazenamento de tabelas do Azure
 

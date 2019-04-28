@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
 ms.openlocfilehash: 9acb2d7db1d8cb30fb853b79e9627a1b50da2aaa
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466889"
 ---
 # <a name="cli-example-upload-a-local-file-to-a-container"></a>Exemplo da CLI: Carregar um ficheiro local para um contentor 
 

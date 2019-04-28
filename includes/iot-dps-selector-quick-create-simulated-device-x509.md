@@ -8,12 +8,12 @@ ms.date: 02/07/2018
 ms.topic: include
 ms.service: iot-dps
 ms.custom: include file
-ms.openlocfilehash: dfba682f6653a85c3612965f501228cc0706d43c
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
-ms.translationtype: HT
+ms.openlocfilehash: 43355aac18b71f55ce157f7e275e2efd9106acac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29402658"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60364017"
 ---
 > [!div class="op_single_selector"]
 > * [C](../articles/iot-dps/quick-create-simulated-device-x509.md)

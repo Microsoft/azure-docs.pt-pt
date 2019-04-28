@@ -12,11 +12,11 @@ ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
 ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125644"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Criar a sua primeira função alojada no Linux com as Ferramentas Base e a CLI do Azure (pré-visualização)
 

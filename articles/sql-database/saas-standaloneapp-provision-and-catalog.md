@@ -13,11 +13,11 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 09/24/2018
 ms.openlocfilehash: 28deb9b7ba15744b9bd3d273d02db4398d2b2ef3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896947"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484595"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Aprovisionar e catalogar novos inquilinos usando o aplicativo por inquilino padrão SaaS
 

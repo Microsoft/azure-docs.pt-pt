@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58862425"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61358408"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e implementar um agente de segurança no seu dispositivo IoT
 

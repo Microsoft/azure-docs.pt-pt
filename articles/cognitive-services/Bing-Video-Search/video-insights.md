@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: b024d61c3542293202f0b409b8b3e520a75168c0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61431808"
 ---
 # <a name="get-insights-about-a-video"></a>Obtenha informações sobre um vídeo
 

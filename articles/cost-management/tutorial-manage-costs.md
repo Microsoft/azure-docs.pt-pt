@@ -11,11 +11,11 @@ ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
 ms.openlocfilehash: df4994475bf10fa902a2902b69b231821601d33b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58174346"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130033"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Gerir os custos através do Cloudyn
 

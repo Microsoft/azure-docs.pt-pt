@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59543898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121678"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Criar uma aplicação ASP.NET Core no serviço de aplicações no Linux
 

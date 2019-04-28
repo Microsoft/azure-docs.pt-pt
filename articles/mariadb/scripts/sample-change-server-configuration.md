@@ -9,11 +9,11 @@ ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
 ms.openlocfilehash: 514f2fe7e8c2b94e175bc6f6fb0cec8ea3d0c9c6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547427"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125887"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Listar e atualizar configurações de uma base de dados do Azure para o servidor de MariaDB com a CLI do Azure
 Este script da CLI de exemplo lista todos os parâmetros de configuração disponíveis, bem como os respetivos valores permitidos para base de dados do Azure para o servidor da MariaDB e define a *innodb_lock_wait_timeout* como um valor que é diferente da predefinição um.
@@ -36,10 +36,10 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | **Comando** | **Notas** |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [Criar servidor do AZ mariadb](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor de MariaDB que aloja as bases de dados. |
-| [lista de configuração de servidor do AZ mariadb](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) | Lista as configurações de uma base de dados do Azure para MariaDB server. |
-| [conjunto de configurações de servidor do AZ mariadb](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) | Atualize a configuração de uma base de dados do Azure para MariaDB server. |
-| [programa de configuração de servidor do AZ mariadb](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show) | Mostre a configuração de uma base de dados do Azure para MariaDB server. |
+| [az mariadb server create](/cli/azure/mariadb/server#az-mariadb-server-create) | Cria um servidor de MariaDB que aloja as bases de dados. |
+| [az mariadb server configuration list](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-list) | Lista as configurações de uma base de dados do Azure para MariaDB server. |
+| [az mariadb server configuration set](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-set) | Atualize a configuração de uma base de dados do Azure para MariaDB server. |
+| [az mariadb server configuration show](/cli/azure/mariadb/server/configuration#az-mariadb-server-configuration-show) | Mostre a configuração de uma base de dados do Azure para MariaDB server. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Passos Seguintes

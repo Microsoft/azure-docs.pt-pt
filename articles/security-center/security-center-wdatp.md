@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: ee5ed8871ea5c021ad8c87e35f45e42ad641a324
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75ca1401f72e00454dc3355d31c8b8ea64669a72
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124180"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129132"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>O Windows Defender proteção avançada contra ameaças no Centro de segurança do Azure
 

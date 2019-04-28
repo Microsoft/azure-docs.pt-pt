@@ -4,17 +4,19 @@ description: Saiba como a API de Tabela do Azure Cosmos DB e as Tabelas de Armaz
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
-ms.date: 11/15/2017
-author: wmengmsft
-ms.author: wmeng
+origin.date: 11/15/2017
+ms.date: 04/15/2019
+author: rockboyfor
+ms.author: v-yeche
 ms.reviewer: sngun
 ms.openlocfilehash: 1570417cb1c3aa9ec32d12d9209d4c712b50511d
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522303"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62130335"
 ---
+<!--Verify sucessfully-->
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Programar com a API de Tabela do Azure Cosmos DB e o armazenamento de Tabelas do Azure
 
 A API de Tabela do Azure Cosmos DB e o armazenamento de Tabelas do Azure partilham o mesmo modelo de dados de tabela e expõem as mesmas operações para criar, eliminar, atualizar e consultar através dos SDKs. 
@@ -33,7 +35,6 @@ Neste momento, a [API de Tabela do Azure Cosmos DB](table-introduction.md) tem q
 
 * [SDK node. js](table-sdk-nodejs.md): Este SDK do Armazenamento do Azure tem capacidade para ligar a contas do Azure Cosmos BD através da API de Tabela.
 
-
 Estão disponíveis informações adicionais sobre como trabalhar com a API de tabela no [FAQ: Desenvolver com a API de tabela](faq.md#table) artigo.
 
 ## <a name="developing-with-azure-table-storage"></a>Programar com o armazenamento de Tabelas do Azure
@@ -49,10 +50,5 @@ O armazenamento de Tabelas do Azure tem estes SDKs disponíveis para programaç�
 - [Biblioteca de Cliente das Tabelas de Armazenamento do Azure para Ruby](https://github.com/azure/azure-storage-ruby/tree/master/table). Este projeto fornece um pacote Ruby que torna mais fácil aceder aos serviços de Tabela de armazenamento do Azure.
 - [Biblioteca de Cliente PHP das Tabelas de Armazenamento do Azure](https://github.com/Azure/azure-storage-php/tree/master/azure-storage-table). Este projeto fornece uma biblioteca de cliente PHP que torna mais fácil aceder aos serviços de Tabela de armazenamento do Azure.
 
-
-   
-
-
-
-
-
+<!--Update_Description: new articles on table support -->
+<!--ms.date: 03/18/2019-->

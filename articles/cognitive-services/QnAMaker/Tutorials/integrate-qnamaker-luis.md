@@ -12,11 +12,11 @@ ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: fa79f519c8f3eb8baeaab04870f22a1cfefa59ab
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884329"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61431352"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Utilizar o bot com a ferramenta QnA Maker e o LUIS para distribuir a sua base de dados de conhecimento
 À medida que sua base de dados de conhecimento do QnA Maker cresce grandes, torna-se difícil mantê-lo como um único monolítico definido e há a necessidade de dividir a base de dados de conhecimento em partes lógicas menores.

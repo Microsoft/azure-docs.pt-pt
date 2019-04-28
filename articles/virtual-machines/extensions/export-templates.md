@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: roiyz
 ms.openlocfilehash: f56cfeeede393dbdb9632ea4120d3a81e89f3f7c
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484054"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportar grupos de recursos que contêm as extensões de VM
 
@@ -39,10 +39,10 @@ As seguintes extensões podem ser exportadas com a funcionalidade de script de a
 | Cópia de segurança Acronis | Agente do Windows o Datadog | Aplicação de patches para Linux do SO | Linux de instantâneo VM
 | Cópia de segurança Acronis Linux | Extensão do docker | Agente de puppet |
 | Informações de BG | Extensão DSC | Informações do site 24x7 Apm |
-| BMC CTM agente Linux | A Dynatrace Linux | 24x7 Linux servidor do site |
-| Windows de agente CTM de BMC | A Dynatrace Windows | 24x7 Windows servidor do site |
+| BMC CTM agente Linux | Dynatrace Linux | 24x7 Linux servidor do site |
+| Windows de agente CTM de BMC | Dynatrace Windows | 24x7 Windows servidor do site |
 | Cliente do chef | Defender de aplicação de segurança HPE | DSA Micro de tendência |
-| Script Personalizado | Antimalware de IaaS | Trend Micro DSA Linux |
+| Script Personalizado | IaaS Antimalware | Trend Micro DSA Linux |
 | Extensão de Script Personalizado | Diagnóstico de IaaS | Acesso VM para Linux |
 | Script personalizado para Linux | Cliente de Chef do Linux | Acesso VM para Linux |
 | Agente do Linux o Datadog | Diagnóstico do Linux | Instantâneo de VM |

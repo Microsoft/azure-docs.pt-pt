@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 21fcc6ae09718ffbb22e1d438926586dd3cde71d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61465665"
 ---
 # <a name="how-to-deliver-an-asset-by-download"></a>Como: Entregar um recurso por transferência  
 Este artigo discute as opções para fornecer recursos de suporte de dados carregados nos serviços de multimédia. Pode entregar conteúdo de serviços de multimédia em vários cenários de aplicativos. Depois de codificação, baixe os ativos de mídia gerado ou aceder-lhes com um localizador de transmissão em fluxo. Para melhor desempenho e escalabilidade, também pode publicar conteúdo através de uma rede de entrega de conteúdos (CDN).

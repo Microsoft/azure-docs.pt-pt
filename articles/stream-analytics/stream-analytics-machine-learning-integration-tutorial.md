@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
 ms.openlocfilehash: b06fec8ab726f48e1937bae4cfbdbd9842788d0a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109312"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61480813"
 ---
 # <a name="performing-sentiment-analysis-by-using-azure-stream-analytics-and-azure-machine-learning"></a>Executar análise de sentimentos com o Azure Stream Analytics e o Azure Machine Learning
 Este artigo descreve como configurar rapidamente a uma tarefa Azure Stream Analytics simples que integra o Azure Machine Learning. Utilize um modelo de análise de sentimentos de Machine Learning a partir da galeria do Cortana Intelligence para analisar dados de texto de transmissão em fluxo e determinar a classificação de sentimento em tempo real. Utilizar o Cortana Intelligence Suite permite-lhe realizar esta tarefa sem se preocupar sobre a complexidade da criação de um modelo de análise de sentimentos.

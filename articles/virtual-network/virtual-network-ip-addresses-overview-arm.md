@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Saiba mais sobre os endereços IP públicos e privados no Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: jdial
-ms.openlocfilehash: 929c8808721140d5275cba4bcf3fbaa567f961e0
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.author: kumud
+ms.openlocfilehash: 69fd70fc45f734f8267db6d770d09b14f3a071f5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652030"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108149"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -78,6 +79,9 @@ Os endereços IP de SKU Standard:
  
 > [!NOTE]
 > Falha de comunicação de entrada com um recurso de SKU padrão até que crie e associe uma [grupo de segurança de rede](security-overview.md#network-security-groups) e permitir explicitamente o tráfego de entrada desejado.
+
+> [!NOTE]
+> Só estão disponíveis endereços IP públicos com o SKU básico ao usar [instância de serviço de metadados IMDS](../virtual-machines/windows/instance-metadata-service.md). Standard SKU não é suportado.
 
 ### <a name="allocation-method"></a>Método de alocação
 
@@ -180,7 +184,7 @@ A tabela seguinte mostra a propriedade específica através da qual os endereço
 | Load balancer |Configuração de front-end |Sim |Sim |
 | Gateway de aplicação |Configuração de front-end |Sim |Sim |
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>Limits
 Os limites impostos no endereçamento IP estão indicados no conjunto completo de [limites para redes](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. Os limites são por região e por subscrição. Pode [contactar o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites predefinidos até aos limites máximos, com base nas necessidades da sua atividade.
 
 ## <a name="pricing"></a>Preços

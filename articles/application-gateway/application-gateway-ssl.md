@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: victorh
 ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001787"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122205"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurar um gateway de aplicação para descarga de SSL com o modelo de implementação clássica
 
@@ -100,8 +100,8 @@ Uma configuração de gateway de aplicação é composta por vários valores. Os
 Os valores são:
 
 * **Agrupamento de servidores de back-end**: A lista de endereços IP dos servidores de back-end. Os endereços IP listados devem pertencer à sub-rede da rede virtual ou devem ser um endereço IP ou VIP público.
-* **As definições do agrupamento de servidores de back-end**: cada conjunto tem definições como a porta, protocolo e a afinidade com base no cookie. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
-* **Porta de front-end**: esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
+* **As definições do agrupamento de servidores de back-end**: Cada conjunto tem definições como a porta, protocolo e a afinidade com base no cookie. Estas definições estão associadas a um conjunto e são aplicadas a todos os servidores do referido conjunto.
+* **Porta de front-end**: Esta porta é a porta pública aberta no gateway de aplicação. O tráfego chega a esta porta, sendo posteriormente redirecionado para um dos servidores de back-end.
 * **Serviço de escuta**: O serviço de escuta possui uma porta de front-end, um protocolo (Http ou Https; estes valores diferenciam maiúsculas de minúsculas) e o nome do certificado SSL (se configurar a descarga de SSL).
 * **Regra**: A regra vincula o serviço de escuta e o conjunto de servidores de back-end e define para que conjunto de servidores de back-end para direcionar o tráfego para quando chegar a um determinado serviço de escuta. Atualmente, apenas é suportada a regra *básica*. A regra *básica* refere-se à distribuição de carga round robin.
 
@@ -109,7 +109,7 @@ Os valores são:
 
 Para a configuração de certificados SSL, o protocolo em **HttpListener** deverá passar para **Https** (sensível às maiúsculas e minúsculas). Adicionar a **SslCert** elemento **HttpListener** com o valor definido para o mesmo nome utilizado no [certificados SSL carregar](#upload-ssl-certificates) secção. A porta de front-end deve ser atualizada para **443**.
 
-**Para ativar a afinidade com base no cookie**: pode configurar um gateway de aplicação para se certificar de que um pedido de uma sessão de cliente é sempre direcionado para a mesma VM no web farm. Para tal, inserir um cookie de sessão que permite ao gateway direcionar adequadamente o tráfego. Para ativar a afinidade com base em cookies, defina **CookieBasedAffinity** como **Ativado** no elemento **BackendHttpSettings**.
+**Para ativar a afinidade com base no cookie**: Pode configurar um gateway de aplicação para se certificar de que um pedido de uma sessão de cliente é sempre direcionado para a mesma VM no web farm. Para tal, inserir um cookie de sessão que permite ao gateway direcionar adequadamente o tráfego. Para ativar a afinidade com base em cookies, defina **CookieBasedAffinity** como **Ativado** no elemento **BackendHttpSettings**.
 
 Pode construir sua configuração através da criação de um objeto de configuração ou utilizando um ficheiro XML de configuração.
 Para construir sua configuração utilizando um ficheiro XML de configuração, introduza o seguinte exemplo:

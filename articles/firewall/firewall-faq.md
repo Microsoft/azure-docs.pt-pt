@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 5e009d5659a503fe8168f21a26939acff9944f2f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997568"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125260"
 ---
 # <a name="azure-firewall-faq"></a>FAQ de Firewall do Azure
 
@@ -40,7 +40,7 @@ A vantagem desse modelo é a capacidade de forma centralizada exercer controlo n
 
 ## <a name="how-can-i-install-the-azure-firewall"></a>Como posso instalar o Firewall do Azure?
 
-Pode configurar Firewall do Azure com o portal do Azure, PowerShell, REST API, ou com os modelos. Consulte [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](/articles/firewall/tutorial-firewall-deploy-portal.md) para obter instruções passo a passo.
+Pode configurar Firewall do Azure com o portal do Azure, PowerShell, REST API, ou com os modelos. Consulte [Tutorial: Implementar e configurar a Firewall do Azure no portal do Azure](tutorial-firewall-deploy-portal.md) para obter instruções passo a passo.
 
 ## <a name="what-are-some-azure-firewall-concepts"></a>Quais são alguns conceitos de Firewall do Azure?
 
@@ -58,7 +58,7 @@ Firewall do Azure suporta a filtragem de entrada e saída. Proteção de entrada
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Os serviços de registo e análise são suportados pela Firewall do Azure?
 
-Firewall do Azure está integrado com o Azure Monitor para visualizar e analisar os registos de firewall. Os registos podem ser enviados para o Log Analytics, o armazenamento do Azure ou os Hubs de eventos. Eles podem ser analisados no Log Analytics ou por diferentes ferramentas como o Excel e Power BI. Para obter mais informações, consulte [Tutorial: Monitorize registos de Firewall do Azure](/articles/firewall/tutorial-diagnostics.md).
+Firewall do Azure está integrado com o Azure Monitor para visualizar e analisar os registos de firewall. Os registos podem ser enviados para o Log Analytics, o armazenamento do Azure ou os Hubs de eventos. Eles podem ser analisados no Log Analytics ou por diferentes ferramentas como o Excel e Power BI. Para obter mais informações, consulte [Tutorial: Monitorize registos de Firewall do Azure](tutorial-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Como Firewall do Azure funciona forma diferente de serviços existentes como NVAs no marketplace?
 
@@ -109,7 +109,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## <a name="what-are-the-known-service-limits"></a>Quais são os limites de serviço conhecidas?
 
-Para os limites do serviço de Firewall do Azure, consulte [subscrição do Azure e limites do serviço, quotas e restrições](/articles/azure-subscription-service-limits.md#azure-firewall-limits).
+Para os limites do serviço de Firewall do Azure, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>Pode a Firewall do Azure numa rede virtual de hub para a frente e filtrar o tráfego de rede entre duas redes virtuais do spoke?
 
@@ -135,7 +135,7 @@ Sim. O firewall, sub-rede, VNet e o endereço IP público, que todos têm de est
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar DNAT para tráfego de rede de entrada, é também necessário configurar uma regra de rede correspondente para permitir que o tráfego?
 
-Não. Regras NAT implicitamente adicione uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](/articles/firewall/rule-processing.md).
+Não. Regras NAT implicitamente adicione uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam num destino de regra de aplicação FQDN carateres universais?
 

@@ -10,11 +10,11 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225829"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61483473"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
 

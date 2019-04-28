@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.openlocfilehash: 2466edb3d14ebbe9296fad087fce432b83005437
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58187698"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463689"
 ---
-# <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 taxa de bits Múltiplas 4K Audio 5.1
+# <a name="h264-multiple-bitrate-4k-audio-51"></a>H264 Taxas de Bits Múltiplas 4K Audio 5.1
 `Media Encoder Standard` Define um conjunto de codificação configurações predefinidas que pode utilizar durante a criação de tarefas de codificação. Pode utilizar um `preset name` para especificar em que formato gostaria de codificar o ficheiro de suporte de dados. Em alternativa, pode criar seu próprio JSON ou XML com base em suas configurações predefinidas (usando a codificação UTF-8 ou UTF-16. Em seguida, transmite o personalizado predefinido para o codificador. Para obter a lista de todos os nomes predefinidos suportados por este `Media Encoder Standard` codificador, consulte [predefinições de tarefas para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
  Este tópico mostra o `H264 Multiple Bitrate 4K Audio 5.1` predefinidos no formato XML e JSON.  

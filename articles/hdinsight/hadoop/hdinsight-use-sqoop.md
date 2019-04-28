@@ -8,11 +8,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/12/2019
 ms.openlocfilehash: 6764d8d812789c9f54fa59e10b2a3e416e583a9c
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129404"
 ---
 # <a name="use-apache-sqoop-with-hadoop-in-hdinsight"></a>Utilizar o Apache Sqoop com o Hadoop no HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -76,11 +76,11 @@ O cluster, base de dados SQL e outros objetos são criados através do portal do
 
 2. Introduza as seguintes propriedades:
 
-    |Campo |Valor |
+    |Campo |Value |
     |---|---|
     |Subscrição |Selecione a sua subscrição do Azure na lista pendente.|
     |Grupo de recursos |Selecione o grupo de recursos na lista pendente ou criar um novo|
-    |Localização |Selecione uma região na lista pendente.|
+    |Location |Selecione uma região na lista pendente.|
     |Nome do Cluster |Introduza um nome para o cluster do Hadoop. Utilize apenas a letra minúscula.|
     |Nome de Utilizador de Início de Sessão do Cluster |Mantenha o valor pré-preenchidos `admin`.|
     |Palavra-passe de Início de Sessão do Cluster |Introduza uma palavra-passe.|
@@ -91,7 +91,7 @@ O cluster, base de dados SQL e outros objetos são criados através do portal do
     |localização de _artifacts | Utilize o valor predefinido, a menos que desejar usar seu próprio ficheiro bacpac numa localização diferente.|
     |Token de Sas de localização de _artifacts |Deixe em branco.|
     |Nome de ficheiro Bacpac |Utilize o valor predefinido, a menos que queira utilizar o seu próprio ficheiro bacpac.|
-    |Localização |Utilize o valor predefinido.|
+    |Location |Utilize o valor predefinido.|
 
     O nome do servidor SQL do Azure será `<ClusterName>dbserver`. O nome de base de dados será `<ClusterName>db`. O nome de conta do storage predefinida será `e6qhezrh2pdqu`.
 

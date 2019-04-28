@@ -6,18 +6,22 @@ author: sachdevaswati
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 649e50634d901ab48f1cb36c39d7331401c0cc51
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791898"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733553"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>FAQ sobre bases de dados do SQL Server em execução numa cópia de segurança de VM do Azure
 
 Este artigo responde a perguntas comuns sobre cópias de bases de dados do SQL Server funcionando em máquinas virtuais do Azure (VMs) e que utilizam o [Azure Backup](backup-overview.md) serviço.
+
+## <a name="can-i-use-azure-backup-for-iaas-vm-as-well-as-sql-server-on-the-same-machine"></a>Posso utilizar o Azure backup para VM do IaaS, bem como o SQL Server na mesma máquina?
+Sim, pode ter tanto a cópia de segurança VM, como a cópia de segurança do SQL na mesma VM. Neste caso, vamos internamente acionar apenas de cópia cópia de segurança completa na VM para não truncar os logs.
+
 
 ## <a name="does-the-solution-retry-or-auto-heal-the-backups"></a>A solução Repita ou autorrecuperação as cópias de segurança?
 
@@ -45,7 +49,8 @@ Sim. Pode limitar a taxa em que a política de cópia de segurança é executado
   `{"DefaultBackupTasksThreshold": 5}`
 
 3. Guardar as alterações e feche o ficheiro.
-4. Na instância do SQL Server, abra **Gerenciador de tarefas**. Reinicie o **AzureWLBackupCoordinatorSvc** serviço.
+4. Na instância do SQL Server, abra **Gerenciador de tarefas**. Reinicie o **AzureWLBackupCoordinatorSvc** serviço.<br/> <br/>
+ Embora ajude a este método se a aplicação de cópia de segurança está a consumir muitos recursos, o SQL Server [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) é uma forma mais genérica de especificar limites na quantidade de CPU, e/s física e memória que podem receber pedidos de aplicações Utilize.
 
 > [!NOTE]
 > A experiência do Usuário ainda pode ir em frente e agendar cópias de segurança tantos em qualquer momento, no entanto, será processado numa janela deslizante de, digamos, 5, de acordo com o exemplo acima.

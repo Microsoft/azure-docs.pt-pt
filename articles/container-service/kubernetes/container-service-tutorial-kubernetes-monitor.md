@@ -10,11 +10,11 @@ ms.date: 04/05/2018
 ms.author: iainfou
 ms.custom: mvc
 ms.openlocfilehash: 6f95aa701228730682c0122dc1fd46d8a2537ce1
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001601"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473254"
 ---
 # <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(PRETERIDO) Monitorizar um cluster de Kubernetes com o Log Analytics
 

@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: rogarana
 ms.subservice: common
 ms.openlocfilehash: e3e0e9ae4a1939aad9ab2ae42a1b51b1b00e2462
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101489"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Azure Storage desempenho metas de escalabilidade e para contas de armazenamento
 

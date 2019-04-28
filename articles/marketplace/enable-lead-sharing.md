@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3fea858f23c6b271a117f2edcc749e0c6b737e27
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159998"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62121083"
 ---
 # <a name="enable-lead-sharing"></a>Ativar a partilha de oportunidades potenciais
 Garantir que a gestão de oportunidades potenciais está ativado para a listagem na [do Azure Marketplace](https://azuremarketplace.microsoft.com) ou [Microsoft AppSource](https://appsource.microsoft.com) podem ajudar a receber informações de contacto para o seguinte público:
@@ -45,7 +45,7 @@ Suas oportunidades potenciais demonstram interesse dos clientes em listagens de 
 
 | Loja | Listagem |
 |:--- |:--- |
-| AppSource | <table> <tr><td>Aplicação</td></tr> <tr><td>Serviços de consultoria</td></tr> </table> |
+| AppSource | <table> <tr><td>Aplicação</td></tr> <tr><td>Serviços de Consultoria</td></tr> </table> |
 | Azure Marketplace | <table> <tr><td>Oferta</td></tr> <tr><td>Tecnologia</td></tr> </table> |
 
 Deve ter um processo no local para dar seguimento às suas oportunidades potenciais, conforme descrito na tabela a seguir:

@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 39e2071a62d6a1f6ee050f862856815048e50430
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382641"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128301"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configurar e utilizar o emulador de armazenamento com o Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]

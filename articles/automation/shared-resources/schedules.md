@@ -10,11 +10,11 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59008651"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128809"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Agendar um runbook na Automatização do Azure
 

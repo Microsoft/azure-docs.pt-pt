@@ -1,7 +1,6 @@
 ---
 title: Analisar registos de Web sites com bibliotecas de Python no Spark - Azure
 description: Este bloco de notas demonstra como analisar dados de registo utilizando uma biblioteca personalizada com o Spark no HDInsight do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: f8b479f55ea5ee22ae2510fad6279cac0aaa9c0d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: MT
+ms.openlocfilehash: bef71f210e015dc10cd6f5c0c655d0d3beee3655
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608805"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124446"
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-apache-spark-cluster-on-hdinsight"></a>Analisar registos de sites com uma biblioteca de Python personalizada com o cluster do Apache Spark no HDInsight
 

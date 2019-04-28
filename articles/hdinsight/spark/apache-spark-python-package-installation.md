@@ -1,7 +1,6 @@
 ---
 title: Ação de script - pacotes de instalar o Python com o Jupyter no Azure HDInsight
 description: Instruções passo a passo sobre como utilizar a ação de script para configurar disponíveis da blocos de notas do Jupyter com clusters do Spark do HDInsight para utilizar pacotes externos python.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: hrasheed
-ms.openlocfilehash: 8bc44949d804349de37796a2695edbdc64693edf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 876037e0e8e795ca98ddd3adf74dd0a304192a35
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518682"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097917"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilize a ação de Script para instalar pacotes de Python externos para blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -65,7 +64,7 @@ Existem dois tipos de componentes de código-fonte aberto que estão disponívei
 4. Introduza os seguintes valores para o **submeter ação de script** janela:  
 
 
-    |Parâmetro | Valor |
+    |Parâmetro | Value |
     |---|---|
     |Tipo de script | Selecione **- personalizado** na lista pendente.|
     |Name |Introduza `tensorflow` na caixa de texto.|

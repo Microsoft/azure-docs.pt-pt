@@ -1,6 +1,6 @@
 ---
-title: Elemento de IU StorageAccountSelector do Azure | Microsoft Docs
-description: Descreve o elemento de IU Microsoft.Storage.StorageAccountSelector para o portal do Azure.
+title: Elemento de interface do Usuário de StorageAccountSelector do Azure | Documentos da Microsoft
+description: Descreve o elemento de interface do Usuário de Microsoft.Storage.StorageAccountSelector para o portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5de536a562d234a4c463c862aedffc7c7ca5228d
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: c6d4ef50645902aecd57ceb9fc48b7d99bf22d53
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112291"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104871"
 ---
-# <a name="microsoftstoragestorageaccountselector-ui-element"></a>Elemento de IU Microsoft.Storage.StorageAccountSelector
-Um controlo para selecionar uma conta de armazenamento novo ou existente.
+# <a name="microsoftstoragestorageaccountselector-ui-element"></a>Elemento de interface do Usuário de Microsoft.Storage.StorageAccountSelector
+Um controlo para selecionar uma conta de armazenamento nova ou existente.
 
-## <a name="ui-sample"></a>Exemplo de IU
+## <a name="ui-sample"></a>Exemplo de interface do Usuário
 
 O controlo mostra o valor predefinido.
 
 ![Microsoft.Storage.StorageAccountSelector](./media/managed-application-elements/microsoft.storage.storageaccountselector.png)
 
-O controlo permite ao utilizador criar uma nova conta de armazenamento ou selecione uma conta de armazenamento existente.
+O controle permite que o utilizador para criar uma nova conta de armazenamento ou selecione uma conta de armazenamento existente.
 
-![Microsoft.Storage.StorageAccountSelector novo](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
+![Microsoft.Storage.StorageAccountSelector new](./media/managed-application-elements/microsoft.storage.storageaccountselector-new.png)
 
 ## <a name="schema"></a>Esquema
 
@@ -57,10 +57,10 @@ O controlo permite ao utilizador criar uma nova conta de armazenamento ou seleci
 ```
 
 ## <a name="remarks"></a>Observações
-- Se for especificado, `defaultValue.name` está a ser validado automaticamente exclusividade. Se o nome da conta de armazenamento não for exclusivo, o utilizador tem de especificar um nome diferente ou escolher uma conta de armazenamento existente.
+- Se for especificado, `defaultValue.name` é validado automaticamente exclusividade. Se o nome da conta de armazenamento não for exclusivo, o utilizador tem de especificar um nome diferente ou escolha uma conta de armazenamento existente.
 - O valor predefinido para `defaultValue.type` é **Premium_LRS**.
-- Qualquer tipo que não foram especificado no `constraints.allowedTypes` está oculto e qualquer tipo que não foram especificadas no `constraints.excludedTypes` é apresentado. `constraints.allowedTypes` e `constraints.excludedTypes` são opcionais, mas não podem ser utilizados em simultâneo.
-- Se `options.hideExisting` é **verdadeiro**, o utilizador não é possível escolher uma conta de armazenamento existente. O valor predefinido é **falso**.
+- Qualquer tipo não especificado nas `constraints.allowedTypes` está oculta e qualquer tipo não especificado no `constraints.excludedTypes` é mostrado. `constraints.allowedTypes` e `constraints.excludedTypes` são ambos opcionais, mas não pode ser utilizada em simultâneo.
+- Se `options.hideExisting` é **true**, o utilizador não é possível escolher uma conta de armazenamento existente. O valor predefinido é **false**.
 
 ## <a name="sample-output"></a>Resultado da amostra
 
@@ -74,5 +74,5 @@ O controlo permite ao utilizador criar uma nova conta de armazenamento ou seleci
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para uma introdução ao criar as definições de IU, consulte [introdução CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição de propriedades comuns de elementos de IU, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).

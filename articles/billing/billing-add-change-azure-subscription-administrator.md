@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
 ms.openlocfilehash: 6cc965f8e775e02e9dec9f610516739a9a2c1936
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448012"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127722"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Adicionar ou alterar os administradores de subscrição do Azure
 
@@ -70,7 +70,7 @@ Para tornar um utilizador administrador de uma subscrição do Azure, atribuí-l
 * [O que é o controlo de acesso baseado em funções (RBAC)?](../role-based-access-control/overview.md)
 * [Compreender as diferentes funções no Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [How to: Associar ou adicionar uma subscrição do Azure ao Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Permissões de função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+* [Administrator role permissions in Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) (Permissões de cargos de administrador no Azure Active Directory)
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 

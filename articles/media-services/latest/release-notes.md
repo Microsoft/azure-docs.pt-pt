@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 09f9731f78093354f324f263899519bc5d31fa5d
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266992"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760772"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão da v3 de serviços de multimédia do Azure
 
@@ -33,6 +33,10 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize o [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, ou um dos SDKs suportados.
 
 Para obter mais informações, consulte [orientações de migração para mover de serviços de multimédia v2 para v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="april-2019"></a>Abril de 2019
+
+[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) foi adicionado ao pré-visualizando analisador incorporada.
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -200,6 +204,10 @@ As seguintes funcionalidades estão incluídas no SDK do .NET:
 ### <a name="known-issues"></a>Problemas conhecidos
 
 * Quando submeter uma tarefa, pode especificar para ingerir o vídeo de origem utilizar HTTPS URLs, SAS URLs ou caminhos para ficheiros localizados no armazenamento de Blobs do Azure. Atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
+
+## <a name="provide-feedback"></a>Enviar comentários
+
+Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
