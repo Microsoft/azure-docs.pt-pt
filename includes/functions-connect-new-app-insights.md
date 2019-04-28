@@ -9,11 +9,11 @@ ms.date: 04/06/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: b6cafcfe6c892cd43f056458fe3586da834c2fd1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497357"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60403885"
 ---
 Funções torna simples para adicionar a integração do Application Insights para uma aplicação de funções a partir da [portal do Azure].
 

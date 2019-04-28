@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: d3dfe51ce65aa24cf3d0a4d1fa4b6a9cd203b7e4
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57249168"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370932"
 ---
 Verifique o tipo de contrato para determinar se tem acesso a uma conta de cobrança para um contrato de cliente da Microsoft.
 
 1. Inicie sessão no [portal do Azure]( http://portal.azure.com).
 
-2. Pesquisar nos **custo Management + faturação**.
+2. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã que mostra a pesquisa de portal do Azure](./media/billing-check-mca/billing-search-cost-management-billing.png)
 

@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49960236"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60543813"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Criar cópias de segurança do Azure discos VM não geridos com instantâneos incrementais
 ## <a name="overview"></a>Descrição geral
@@ -58,7 +58,7 @@ Fornecidas que as seguintes condições são cumpridas,
 * O blob foi criado em 1 de Janeiro 2016 ou posterior.
 * O blob não foi substituído com [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) ou [Blob de cópia](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre os dois instantâneos.
 
-**Tenha em atenção**: esta funcionalidade está disponível para Premium e Blobs de páginas Standard do Azure.
+**Nota**: Esta funcionalidade está disponível para Blobs de páginas do Azure Standard e Premium.
 
 Quando tem uma estratégia de cópia de segurança personalizada, utilizando instantâneos de, copiar os instantâneos de uma conta de armazenamento para outro pode ser lento e pode consumir muito espaço de armazenamento. Em vez de copiar o instantâneo de todo a uma conta de armazenamento de cópia de segurança, pode escrever a diferença entre os instantâneos consecutivas para um blob de página de cópia de segurança. Dessa forma, o tempo de cópia e o espaço para armazenar cópias de segurança é substancialmente reduzido.
 

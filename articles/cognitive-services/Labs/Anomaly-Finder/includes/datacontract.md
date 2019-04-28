@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 3cc0e521e43f6855397a19fe34fce99da3e20494
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228860"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60408323"
 ---
 Com o [API do localizador de anomalias](https://labs.cognitive.microsoft.com/en-us/project-anomaly-finder), pode carregar dados de séries de tempo no formato JSON para o ponto final da API e, em seguida, leia o resultado da resposta da API. Pode carregar os dados de séries de tempo, cada ponto de dados inclui:  
 * Timestamp - o carimbo de hora para o ponto de dados. Certifique-se de que utiliza uma cadeia de hora de data UTC, por exemplo, "2017-08-01T00:00:00Z"

@@ -5,15 +5,16 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 03/30/2018
-ms.author: spelluru
+origin.date: 03/30/2018
+ms.date: 04/08/2019
+ms.author: v-biyu
 ms.custom: include file
 ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58405606"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60560686"
 ---
 Nesta secção, irá enviar notícias de última hora como notificações de modelo etiquetadas a partir da aplicação de consola .NET. 
 
@@ -51,7 +52,7 @@ Nesta secção, irá enviar notícias de última hora como notificações de mod
 
         // Send the notification as a template notification. All template registrations that contain
         // "messageParam" and the proper tags will receive the notifications.
-        // This includes APNS, GCM, WNS, and MPNS template registrations.
+        // This includes APNS, WNS, and MPNS template registrations.
 
         Dictionary<string, string> templateParams = new Dictionary<string, string>();
 

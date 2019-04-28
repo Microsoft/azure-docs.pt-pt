@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
 ms.openlocfilehash: 17e298d88f83716063472ce7947ba95f24dba1d1
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60164620"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61342421"
 ---
 Agora que criou sua primeira função, vamos adicionar um enlace de saída para a função que escreve uma mensagem numa fila de armazenamento.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387966"
 ---
 Diagnosticar problemas com um serviço cloud do Microsoft Azure requer a recolher ficheiros de registo do serviço em máquinas virtuais à medida que os problemas ocorrem. Pode usar a AzureLogCollector extensão sob demanda para efetuar única coleção de registos a partir de um ou mais VMs de serviço de nuvem (a partir de funções da web e funções de trabalho) e transferir os ficheiros recolhidos para uma conta de armazenamento do Azure – tudo sem logon remotamente a quaisquer as VMS.
 

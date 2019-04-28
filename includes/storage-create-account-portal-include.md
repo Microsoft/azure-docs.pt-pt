@@ -9,11 +9,11 @@ ms.date: 09/18/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3b770c3e51b17fa5d70abb03360e17e1073974d8
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51222157"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392328"
 ---
 Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, siga estes passos:
 
@@ -28,7 +28,7 @@ Para criar uma conta de armazenamento para fins gerais v2 no portal do Azure, si
 1. Selecione uma localização para a sua conta de armazenamento ou utilize a localização predefinida.
 1. Deixe os outros campos definidos para os respetivos valores predefinidos:
 
-   |Campo  |Valor  |
+   |Campo  |Value  |
    |---------|---------|
    |Modelo de implementação     |Resource Manager         |
    |Desempenho     |Standard         |

@@ -9,11 +9,11 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 7e4760990229433b2ea40fadd0d17de0b52fcb36
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53795925"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60534114"
 ---
 A tabela seguinte descreve as funções que estão disponíveis no duplos Digital do Azure:
 
@@ -24,7 +24,7 @@ A tabela seguinte descreve as funções que estão disponíveis no duplos Digita
 | Administrador de Dispositivos | *CRIE*, *ler*, *ATUALIZAÇÃO*, e *eliminar* permissão para dispositivos e os objetos relacionados com o dispositivo. *LER* permissão para espaços. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
 | Chave de administrador | *CRIE*, *ler*, *ATUALIZAÇÃO*, e *eliminar* permissão para chaves de acesso. *LER* permissão para espaços. | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
 | Administrador de token |  *Leia* e *ATUALIZAÇÃO* permissão para chaves de acesso. *LER* permissão para espaços. | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
-| Utilizador |  *LER* objetos relacionados com permissão para espaços, sensores e utilizadores, que inclui suas correspondente. | b1ffdb77-c635-4E7E-ad25-948237d85b30 |
+| Utilizador |  *LER* objetos relacionados com permissão para espaços, sensores e utilizadores, que inclui suas correspondente. | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | Especialista de suporte |  *LER* permissão para tudo, exceto as chaves de acesso. | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Instalador do dispositivo | *Leia* e *ATUALIZAÇÃO* objetos relacionados com permissão para dispositivos e sensores, que inclui suas correspondente. *LER* permissão para espaços. | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| Dispositivo de gateway | *CRIAR* permissão para sensores. *LER* objetos relacionados com permissão para dispositivos e sensores, que inclui suas correspondente. | d4c69766-e9bd-4e61-BFC1-d8b6e686c7a8 |
+| Dispositivo de gateway | *CRIAR* permissão para sensores. *LER* objetos relacionados com permissão para dispositivos e sensores, que inclui suas correspondente. | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |

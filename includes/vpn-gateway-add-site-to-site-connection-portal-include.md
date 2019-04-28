@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444310"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60407793"
 ---
 1. Navegue até à página e abra-a para o seu gateway de rede virtual. Existem múltiplas formas de efetuar este procedimento. Pode navegar até ao gateway "VNet1GW" acedendo a **TestVNet1 -> Descrição geral -> Dispositivos ligados -> VNet1GW**.
 2. Na página VNet1GW, clique em **Ligações**. No topo da página Ligações, clique em **+Adicionar** para abrir a página **Adicionar ligação**.
