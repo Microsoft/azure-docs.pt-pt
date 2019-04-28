@@ -13,11 +13,11 @@ ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61093969"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de registo no Azure Monitor
 Monitor do Azure é um serviço de dados de grande escala que serve a milhares de envio de cada mês de terabytes de dados a um ritmo cada vez maior de clientes. Muitas vezes, há perguntas sobre o tempo que demora para dados de registo para ficarão disponíveis assim que são recolhido. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -30,7 +30,7 @@ Latência refere-se para o tempo que dados são criados no sistema monitorizado 
 O tempo de ingestão total para um determinado conjunto de dados pode ser dividido nas seguintes áreas de alto nível. 
 
 - Hora do agente - tempo para detetar um evento, reuni-los e, em seguida, enviar para o ponto de ingestão de Monitor do Azure como um registro de log. Na maioria dos casos, esse processo é manipulado por um agente.
-- Hora de pipeline - o tempo para o pipeline de ingestão processar o registo de registo. Isto inclui as propriedades do evento de análise e potencialmente adicionar informações calculadas.
+- Tempo do pipeline – o tempo que o pipeline de ingestão demora a processar o registo. Isto inclui as propriedades do evento de análise e potencialmente adicionar informações calculadas.
 - Tempo de indexação – o tempo gasto para ingerir um registro de log no arquivo de macrodados do Azure Monitor.
 
 Obter detalhes sobre a latência de diferente introduzida neste processo estão descritos abaixo.

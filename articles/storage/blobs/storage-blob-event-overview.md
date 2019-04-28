@@ -9,11 +9,11 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.openlocfilehash: 4bc683908646a5c05fee14f721e2c26482518947
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61427633"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagir a eventos de armazenamento de BLOBs
 
@@ -43,24 +43,24 @@ Eventos de armazenamento de BLOBs contenham todas as informações que necessár
 
 > |Propriedade|Tipo|Descrição|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
-> |tópico|cadeia|Id do Azure Resource Manager completo da conta de armazenamento que emite o evento.|
-> |assunto|cadeia|O caminho relativo do recurso para o objeto que é o assunto do evento, usando o mesmo do Azure Resource Manager formato expandida que utilizamos para descrever as contas de armazenamento, serviços e contentores do RBAC do Azure.  Este formato inclui um nome de blob de preservação de caso.|
-> |eventTime|cadeia|Data/hora que o evento foi gerado, no formato ISO 8601|
-> |eventType|cadeia|"Microsoft.Storage.BlobCreated" ou "Microsoft.Storage.BlobDeleted"|
-> |Id|cadeia|Identificador exclusivo, se este evento|
-> |dataVersion|cadeia|A versão do esquema do objeto de dados.|
-> |metadataVersion|cadeia|A versão do esquema das propriedades de nível superior.|
+> |tópico|string|Id do Azure Resource Manager completo da conta de armazenamento que emite o evento.|
+> |assunto|string|O caminho relativo do recurso para o objeto que é o assunto do evento, usando o mesmo do Azure Resource Manager formato expandida que utilizamos para descrever as contas de armazenamento, serviços e contentores do RBAC do Azure.  Este formato inclui um nome de blob de preservação de caso.|
+> |eventTime|string|Data/hora que o evento foi gerado, no formato ISO 8601|
+> |eventType|string|"Microsoft.Storage.BlobCreated" ou "Microsoft.Storage.BlobDeleted"|
+> |Id|string|Identificador exclusivo, se este evento|
+> |dataVersion|string|A versão do esquema do objeto de dados.|
+> |metadataVersion|string|A versão do esquema das propriedades de nível superior.|
 > |dados|objeto|Recolha de dados de eventos específico do armazenamento de BLOBs|
-> |data.contentType|cadeia|O tipo de conteúdo do blob, como seria retornado no cabeçalho de tipo de conteúdo do blob|
+> |data.contentType|string|O tipo de conteúdo do blob, como seria retornado no cabeçalho de tipo de conteúdo do blob|
 > |data.contentLength|número|O tamanho do blob como no número inteiro que representa um número de bytes, como seria retornado no cabeçalho Content-Length de blob.  Enviado com o evento de BlobCreated, mas não com BlobDeleted.|
-> |data.url|cadeia|O url do objeto que é o assunto do evento|
-> |data.eTag|cadeia|A etag do objeto quando este evento disparado.  Não está disponível para o evento de BlobDeleted.|
-> |data.api|cadeia|O nome da operação de api que disparou o evento. Para eventos de BlobCreated, este valor é "PutBlob", "PutBlockList" ou "CopyBlob". Para eventos de BlobDeleted, este valor é "DeleteBlob". Estes valores são os mesmos nomes de api que estão presentes nos registos de diagnóstico do armazenamento do Azure. Ver [registados operações e mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |data.sequencer|cadeia|Um valor de cadeia opaca que representa a sequência lógica de eventos para qualquer nome de determinado blob.  Os utilizadores podem utilizar a comparação de cadeias de caracteres padrão para compreender a sequência relativa de dois eventos sobre o mesmo nome de blob.|
-> |data.requestId|cadeia|Id do pedido geradas pelo serviço para a operação de API de armazenamento. Pode ser utilizado para correlacionar ao armazenamento do Azure registos com o campo de "cabeçalho de id de pedido" nos registos de diagnóstico e é devolvido de iniciar a chamada de API no cabeçalho "x-ms-pedido-id". Ver [formato de registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.clientRequestId|cadeia|Id do pedido fornecido pelo cliente para o armazenamento de operação de API. Pode ser utilizado para correlacionar para registos de diagnóstico de armazenamento do Azure com o campo de "client-request-id" nos registos e pode ser fornecida nos pedidos de cliente com o cabeçalho "x-ms-client-request-id". Ver [formato de registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+> |data.url|string|O url do objeto que é o assunto do evento|
+> |data.eTag|string|A etag do objeto quando este evento disparado.  Não está disponível para o evento de BlobDeleted.|
+> |data.api|string|O nome da operação de api que disparou o evento. Para eventos de BlobCreated, este valor é "PutBlob", "PutBlockList" ou "CopyBlob". Para eventos de BlobDeleted, este valor é "DeleteBlob". Estes valores são os mesmos nomes de api que estão presentes nos registos de diagnóstico do armazenamento do Azure. Ver [registados operações e mensagens de estado](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+> |data.sequencer|string|Um valor de cadeia opaca que representa a sequência lógica de eventos para qualquer nome de determinado blob.  Os utilizadores podem utilizar a comparação de cadeias de caracteres padrão para compreender a sequência relativa de dois eventos sobre o mesmo nome de blob.|
+> |data.requestId|string|Id do pedido geradas pelo serviço para a operação de API de armazenamento. Pode ser utilizado para correlacionar ao armazenamento do Azure registos com o campo de "cabeçalho de id de pedido" nos registos de diagnóstico e é devolvido de iniciar a chamada de API no cabeçalho "x-ms-pedido-id". Ver [formato de registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
+> |data.clientRequestId|string|Id do pedido fornecido pelo cliente para o armazenamento de operação de API. Pode ser utilizado para correlacionar para registos de diagnóstico de armazenamento do Azure com o campo de "client-request-id" nos registos e pode ser fornecida nos pedidos de cliente com o cabeçalho "x-ms-client-request-id". Ver [formato de registo](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 > |data.storageDiagnostics|objeto|Dados de diagnóstico, ocasionalmente, incluídos pelo serviço de armazenamento do Azure. Quando estiver presente, deve ser ignorado pelos consumidores de eventos.|
-|data.blobType|cadeia|O tipo de blob. Valores válidos são "BlockBlob" ou "PageBlob".| 
+|data.blobType|string|O tipo de blob. Valores válidos são "BlockBlob" ou "PageBlob".| 
 
 Eis um exemplo de um evento de BlobCreated:
 ```json

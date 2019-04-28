@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.openlocfilehash: 837235e04ce190a4481e1f19789d8e9ff9cb7578
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259247"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61131584"
 ---
 # <a name="media-encoder-standard-schema"></a>Esquema Media Encoder Standard
 Este artigo descreve alguns dos elementos e tipos do esquema XML no qual [predefine Media Encoder Standard](media-services-mes-presets-overview.md) baseiam-se. O artigo apresenta a explicação de elementos e os respetivos valores válidos.  

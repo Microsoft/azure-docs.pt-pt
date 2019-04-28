@@ -2,18 +2,18 @@
 title: Programar para os ficheiros do Azure com o C++ | Documentos da Microsoft
 description: Saiba como desenvolver aplicativos de C++ e serviços que utilizam ficheiros do Azure para armazenar dados de ficheiros.
 services: storage
-author: renashahmsft
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 09/19/2017
-ms.author: renashahmsft
+ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 3432794c6b6d2323392f0b56b364400d05b10afc
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 424db4435c569475f9463894b5364fc22190689a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649713"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766350"
 ---
 # <a name="develop-for-azure-files-with-c"></a>Programar para os ficheiros do Azure com C++
 

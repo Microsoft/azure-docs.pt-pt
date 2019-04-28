@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 0ae9e7fa76c8ecbb724cf0f494e648df989dff30
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55726672"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478696"
 ---
 # <a name="enumerating-jobs-in-the-azure-importexport-service"></a>Enumerar tarefas no serviço importar/exportar do Azure
 Para enumerar todas as tarefas numa subscrição, chamar o [lista de tarefas](/rest/api/storageimportexport/jobs) operação. `List Jobs` Devolve uma lista de tarefas, bem como os seguintes atributos:

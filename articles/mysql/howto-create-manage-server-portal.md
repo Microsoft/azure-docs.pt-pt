@@ -7,11 +7,11 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 6d6f24475497382dd9e04d3335fb89d6f0bdd514
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57528683"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61459523"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-server-using-azure-portal"></a>Criar e gerir a base de dados do Azure para o servidor MySQL com o portal do Azure
 Este tópico descreve como pode criar rapidamente uma nova base de dados do Azure para o servidor MySQL. Também inclui informações sobre como gerir o servidor com o portal do Azure. Gestão de servidor inclui a visualização de detalhes do servidor e bases de dados, repor a palavra-passe, dimensionar os recursos e a eliminação do servidor.
@@ -90,7 +90,7 @@ Depois do novo servidor tenha sido provisionado, o utilizador tem várias opçõ
 
 1. Do servidor **descrição geral**, clique nas **eliminar** botão para abrir o pedido de confirmação de eliminação.
 
-    ![eliminar](./media/howto-create-manage-server-portal/delete.png)
+    ![delete](./media/howto-create-manage-server-portal/delete.png)
 
 2. Escreva o nome do servidor na caixa de entrada dupla confirmação.
 
@@ -106,7 +106,7 @@ Do servidor **descrição geral**, desloque para baixo até ver a base de dados 
 ## <a name="show-details-of-an-azure-database-for-mysql-server"></a>Mostrar detalhes de uma base de dados do Azure para o servidor MySQL
 Clique em **propriedades**, localizado em **definições** para ver informações detalhadas sobre o servidor.
 
-![propriedades](./media/howto-create-manage-server-portal/properties.png)
+![properties](./media/howto-create-manage-server-portal/properties.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

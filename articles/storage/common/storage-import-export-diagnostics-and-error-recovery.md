@@ -9,11 +9,11 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: 306b94fbe23e0ae92dcd59f7a87b7bb58ef7c3b6
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454662"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61478815"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Recuperação de diagnósticos e erros para tarefas de importação/exportação do Azure
 Para cada unidade de processamento, o serviço importar/exportar do Azure cria um registo de erros na conta de armazenamento associados. Também pode ativar o registo verboso, definindo a `LogLevel` propriedade para `Verbose` ao chamar os [colocar tarefa](/rest/api/storageimportexport/jobs) ou [propriedades da tarefa de atualização](/rest/api/storageimportexport/jobs) operações.

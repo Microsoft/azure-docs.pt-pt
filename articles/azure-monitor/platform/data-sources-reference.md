@@ -9,11 +9,11 @@ ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848532"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61364521"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Consumir dados de monitorização do Azure
 
@@ -23,7 +23,7 @@ Nas plataformas do Azure, estamos a juntar dados de monitorização num único l
 
 ## <a name="options-for-data-consumption"></a>Opções para consumo de dados
 
-| Tipo de dados | Categoria | Serviços suportados | Métodos de acesso |
+| Tipo de dados | Category | Serviços suportados | Métodos de acesso |
 | --- | --- | --- | --- |
 | Métricas de nível de plataforma do Azure Monitor | Métricas | [Ver lista aqui](metrics-supported.md) | <ul><li>**REST API:** [API de métricas de Monitor do Azure](https://docs.microsoft.com/rest/api/monitor/metrics)</li><li>**Hub de eventos ou blob de armazenamento:** [Definições de diagnóstico](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | Computação (por exemplo, o métricas de SO convidado contadores de desempenho) | Métricas | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) e máquinas virtuais do Linux (v2), [serviços Cloud](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [do Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Tabela de armazenamento ou um blob:** [Diagnóstico do Windows ou Linux do Azure](diagnostics-extension-to-storage.md)</li><li>**Hub de eventos:** [Diagnóstico do Windows Azure](diagnostics-extension-stream-event-hubs.md)</li></ul> |

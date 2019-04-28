@@ -1,6 +1,6 @@
 ---
-title: Opções de cópia de segurança de descrição geral para VMs do Windows Azure | Microsoft Docs
-description: Opções de cópia de segurança de descrição geral de máquinas virtuais do Azure Windows.
+title: Opções de cópia de segurança de descrição geral das VMs do Windows do Azure | Documentos da Microsoft
+description: Opções de cópia de segurança de descrição geral para máquinas de virtuais do Windows Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/13/2017
 ms.author: cynthn
-ms.openlocfilehash: ec3bd5666e6282554e3d242f8ff56019ee41011b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: b8f63d2a0f69f1eb1b8a1b9c645b1a0bcb3d9469
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30915223"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456313"
 ---
-# <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de cópia de segurança e restauro de máquinas virtuais do Azure
-Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. Existem várias opções de cópia de segurança disponíveis para as VMs, consoante o caso de utilização.
+# <a name="backup-and-restore-options-for-virtual-machines-in-azure"></a>Opções de cópia de segurança e restauro para máquinas virtuais no Azure
+Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. Existem várias opções de cópia de segurança disponíveis para as VMs, dependendo de seus casos de utilização.
 
 [!INCLUDE [virtual-machines-common-backup-recovery](../../../includes/virtual-machines-common-backup-recovery.md)]

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
 ms.openlocfilehash: c6fc363a7ab9de215647e371a9d3c846f8688bd5
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548722"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61466328"
 ---
 # <a name="widevine-license-template-overview"></a>Descrição geral do modelo de licença do Widevine 
 
@@ -60,7 +60,7 @@ Um pedido de licença do Widevine é formatado como uma mensagem JSON.
 
 ## <a name="json-message"></a>Mensagem JSON
 
-| Name | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | payload |Cadeia de caracteres codificada em Base64 |O pedido de licença enviado por um cliente. |
 | content_id |Cadeia de caracteres codificada em Base64 |Identificador utilizado para derivar o ID de chave e o conteúdo chave para cada content_key_specs.track_type. |
@@ -78,7 +78,7 @@ Se existir uma política já existente, não é necessário especificar qualquer
 
 Cada valor de content_key_specs tem de ser especificado para todas as faixas, independentemente da opção de use_policy_overrides_exclusively. 
 
-| Name | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | content_key_specs. track_type |string |Um nome de tipo de controle. Se content_key_specs é especificado no pedido de licença, certifique-se de especificar que todos os tipos de controlar explicitamente. Falha ao fazer isso resulta em falha para reproduzir após 10 segundos. |
 | content_key_specs  <br/> security_level |uint32 |Define os requisitos da robustez do cliente para a reprodução. <br/> -É necessária a criptografia de caixa branca baseada em software. <br/> -Criptografia de software e um Decodificador oculto são necessários. <br/> -As operações de criptografia e material de chave devem ser executadas dentro de um ambiente de execução de confiança de hardware de segurança. <br/> -A criptografia e a decodificação de conteúdo tem de ser efetuadas dentro de um ambiente de execução de confiança de hardware de segurança.  <br/> -A criptografia, decodificar e manipulação de todos os de suporte de dados (comprimidos e descomprimidos) deve ser tratados dentro de um ambiente de execução de confiança de hardware de segurança. |
@@ -87,7 +87,7 @@ Cada valor de content_key_specs tem de ser especificado para todas as faixas, in
 | content_key_specs.key_id |Binário de cadeia de caracteres codificada em Base64, 16 bytes |Identificador exclusivo para a chave. |
 
 ## <a name="policy-overrides"></a>Substituições de diretiva
-| Name | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | policy_overrides&#46;can_play |Booleano, VERDADEIRO ou FALSO |Indica que a reprodução do conteúdo é permitida. A predefinição é falso. |
 | policy_overrides&#46;can_persist |Booleano, VERDADEIRO ou FALSO |Indica que a licença pode ser persistentes para o armazenamento não volátil para utilização offline. A predefinição é falso. |
@@ -102,7 +102,7 @@ Cada valor de content_key_specs tem de ser especificado para todas as faixas, in
 | policy_overrides&#46;renew_with_usage |Booleano, VERDADEIRO ou FALSO |Indica que a licença é enviada para a renovação quando inicia de utilização. Este campo é utilizado apenas se can_renew for verdadeira. |
 
 ## <a name="session-initialization"></a>Inicialização de sessão
-| Name | Valor | Descrição |
+| Name | Value | Descrição |
 | --- | --- | --- |
 | provider_session_token |Cadeia de caracteres codificada em Base64 |Este token de sessão é passado de volta na licença e se existe na renovações subseqüentes. O token de sessão não persiste além sessões. |
 | provider_client_token |Cadeia de caracteres codificada em Base64 |Token de cliente para enviar novamente na resposta da licença. Se o pedido de licença contém um token de cliente, este valor é ignorado. O token de cliente persiste para além de sessões de licença. |

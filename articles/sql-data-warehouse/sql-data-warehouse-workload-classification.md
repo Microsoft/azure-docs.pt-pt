@@ -11,11 +11,11 @@ ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617755"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474832"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>Classificação de carga de trabalho do armazém de dados SQL (pré-visualização)
 

@@ -12,11 +12,11 @@ ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58074800"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61384972"
 ---
 # <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Início rápido: Pesquisa de notícias usando C# e a API de REST de pesquisa do Bing notícias
 

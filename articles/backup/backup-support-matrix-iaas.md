@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/24/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: aacfe725310b3c8e4785e24b80728f0e60694814
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496100"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62733972"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -168,7 +168,7 @@ Redimensionar disco numa VM protegida | Suportado.
 Armazenamento partilhado| Não é recomendada para o backup das VMs com o Volume de partilhado de Cluster (CSV) ou o servidor de ficheiros de escalamento horizontal. Gravadores CSV são provável que falhem durante a cópia de segurança. No restauro, discos de CSV volumes podem não acontecer-up.
 
 > [!NOTE]
-> O Azure Backup não suporta discos repartidos. Redimensionamento do disco não é recomendado pela cópia de segurança do Azure.
+> Redimensionamento do disco não é recomendado pela cópia de segurança do Azure.
 
 
 ## <a name="vm-network-support"></a>Suporte de rede VM

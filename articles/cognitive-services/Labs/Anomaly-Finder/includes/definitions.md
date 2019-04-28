@@ -11,11 +11,11 @@ ms.date: 04/13/2018
 ms.author: chliang
 ms.custom: include file
 ms.openlocfilehash: 5ad589c4adb60369f81979e214935f73d9eb0755
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228921"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60309538"
 ---
 <a name="definitions"></a>
 ## <a name="definitions"></a>Definições
@@ -50,7 +50,7 @@ ms.locfileid: "55228921"
 |**LowerMargin**  <br>*Opcional*|(ExpectedValue - LowerMargin) determina o limite inferior que o ponto de dados ainda é considerado como normal. Se os pontos de dados de entrada são ordenados por timestamp ascendente, o índice da matriz pode ser utilizado para mapear o valor esperado e o valor original.|matriz de < número (double) >|
 |**Período**  <br>*Opcional*|O período em que a API utilizada para detetar os pontos de anomalias.|número (número de vírgula flutuante)|
 |**UpperMargin**  <br>*Opcional*|A soma de ExpectedValue e UpperMargin determina o limite superior que o ponto de dados ainda é considerado como normal. Se os pontos de dados de entrada são ordenados por timestamp ascendente, o índice da matriz pode ser utilizado para mapear o valor esperado e o valor original.|matriz de < número (double) >|
-|**WarningText**  <br>*Opcional*|Se os pontos de dados de entrada fornecidos não estão a seguir a regra que requer que a API e os dados podem ainda ser detectados pela API, a API irá analisar os dados e acrescentar as informações de aviso neste campo.|cadeia|
+|**WarningText**  <br>*Opcional*|Se os pontos de dados de entrada fornecidos não estão a seguir a regra que requer que a API e os dados podem ainda ser detectados pela API, a API irá analisar os dados e acrescentar as informações de aviso neste campo.|string|
 
 
 

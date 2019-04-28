@@ -13,11 +13,11 @@ ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
 ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081224"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484394"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir esquema de uma aplicação SaaS com o padrão de base de dados por inquilino com a base de dados do Azure SQL
  

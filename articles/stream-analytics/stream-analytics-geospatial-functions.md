@@ -9,11 +9,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.openlocfilehash: ad789a597da759b9a2d58138c7ed441389a12adb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61479988"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introdução às funções geoespaciais de Stream Analytics
 
@@ -27,7 +27,7 @@ Exemplos de cenários que podem se beneficiar funções geoespaciais incluem:
 * Perímetro geográfico
 * Controlo de telefone em todos os sites de célula
 
-Linguagem de consulta do Stream Analytics tem sete funções geoespaciais incorporadas: **CreateLineString**, **Createpoint(0.0**, **CreatePolygon**, **ST_DISTANCE** , **ST_OVERLAPS**, **ST_INTERSECTS**, e **ST_WITHIN**.
+Linguagem de consulta do Stream Analytics tem sete funções geoespaciais incorporadas: **CreateLineString**, **Createpoint(0.0**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_ Intersetar-**, e **ST_WITHIN**.
 
 ## <a name="createlinestring"></a>CreateLineString
 

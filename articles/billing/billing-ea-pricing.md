@@ -16,11 +16,11 @@ ms.date: 02/22/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: d4c64433089f14d845cea8be9adf0ef13675cfd1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892477"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127638"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Veja e transfira os preços do Azure da sua organização
 
@@ -51,7 +51,7 @@ Tem de ser o proprietário de perfil de faturação, Contribuidor, leitor ou Ger
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Transferir as folhas de preços para o período de faturação atual
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Na **descrição geral** painel, encontra os links de download abaixo os encargos do mês até à data.
 1. Selecione **folha de preços do Azure**.
@@ -60,7 +60,7 @@ Tem de ser o proprietário de perfil de faturação, Contribuidor, leitor ou Ger
 ### <a name="download-price-sheets-for-billed-charges"></a>Transferir as folhas de preços para os custos de faturação
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Pesquisar nos **custo Management + faturação**.
+1. Faça uma pesquisa em **Gestão de Custos + Faturação**.
 1. Selecione um perfil de faturação. Consoante o acesso, poderá ter de selecionar primeiro uma conta de cobrança.
 1. Selecione **Faturas**.
 1. Na grelha de nota fiscal, localize a linha da nota fiscal correspondente à folha de preços que pretende transferir.

@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
 ms.openlocfilehash: 342c7903e58a5c3bc41278152630187fa0c63b7b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425051"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62119152"
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicações multi-inquilino no Azure
 Uma aplicação multi-inquilino é um recurso compartilhado, que permite que os utilizadores separados, ou "inquilinos" ver a aplicação que foi seus próprios. Um cenário típico que presta-se a uma aplicação multi-inquilino é aquele em que todos os utilizadores da aplicação podem pretender personalizar a experiência do usuário, mas têm os mesmos requisitos de negócios básico. Exemplos de aplicações multi-inquilino grandes são do Office 365, Outlook.com e visualstudio.com.
@@ -28,16 +28,16 @@ Da perspectiva de um fornecedor de aplicações, os benefícios da arquitetura "
 
 O seguinte fornece uma lista dos requisitos do ponto de vista de um fornecedor e objetivos mais importantes.
 
-* **Aprovisionamento**: tem de ser capaz de aprovisionar novos inquilinos para a aplicação.  Para aplicações multi-inquilino com um grande número de inquilinos, é normalmente necessário automatizar este processo, permitindo que o provisionamento de autoatendimento.
-* **Facilidade de manutenção**: tem de ser capaz de atualizar a aplicação e efetuar outras tarefas de manutenção, enquanto vários inquilinos estão a utilizar.
-* **Monitorização**: tem de ser capaz de monitorizar a aplicação em todos os momentos para identificar quaisquer problemas e para resolver o problema. Isto inclui como cada inquilino está a utilizar a aplicação de monitorização.
+* **Aprovisionamento**: Tem de ser capaz de aprovisionar novos inquilinos para a aplicação.  Para aplicações multi-inquilino com um grande número de inquilinos, é normalmente necessário automatizar este processo, permitindo que o provisionamento de autoatendimento.
+* **Facilidade de manutenção**: Tem de ser capaz de atualizar a aplicação e efetuar outras tarefas de manutenção, enquanto vários inquilinos estão a utilizar.
+* **Monitorização**: Tem de ser capaz de monitorizar a aplicação em todos os momentos para identificar quaisquer problemas e para resolver o problema. Isto inclui como cada inquilino está a utilizar a aplicação de monitorização.
 
 Uma aplicação multi-inquilino corretamente implementada proporciona as seguintes vantagens para os utilizadores.
 
-* **Isolamento**: as atividades de inquilinos individuais não afetam a utilização da aplicação por outros inquilinos. Os inquilinos não é possível aceder a dados uns dos outros. Parece-se ao inquilino como se eles têm a utilização exclusiva do aplicativo.
-* **Disponibilidade**: inquilinos individuais querem que o aplicativo esteja sempre disponível, talvez com garantias definidas num SLA. Novamente, as atividades de outros inquilinos não devem afetar a disponibilidade da aplicação.
+* **Isolamento**: As atividades de inquilinos individuais não afetam a utilização da aplicação por outros inquilinos. Os inquilinos não é possível aceder a dados uns dos outros. Parece-se ao inquilino como se eles têm a utilização exclusiva do aplicativo.
+* **Disponibilidade**: Os inquilinos individuais querem que o aplicativo esteja sempre disponível, talvez com garantias definidas num SLA. Novamente, as atividades de outros inquilinos não devem afetar a disponibilidade da aplicação.
 * **Escalabilidade**: O aplicativo é dimensionado para satisfazer a procura de inquilinos individuais. A presença e ações de outros inquilinos não devem afetar o desempenho do aplicativo.
-* **Os custos**: os custos são mais baixos do que executar uma aplicação de dedicado de inquilino único, como vários inquilinos permite que a partilha de recursos.
+* **Os custos**: Os custos são mais baixos do que a execução de um aplicativo de inquilino único dedicado porque vários inquilinos permitem a partilha de recursos.
 * **Capacidade de personalização**. A capacidade de personalizar a aplicação para um inquilino individual de várias formas, como adição ou remoção de recursos, alterar cores e logotipos ou até mesmo adicionar seu próprio código ou script.
 
 Em suma, embora haja várias considerações que deve levar em conta para fornecer um serviço altamente dimensionável, há também um número dos objetivos e requisitos que são comuns a muitas aplicações multi-inquilino. Algumas podem não ser relevantes em cenários específicos e a importância dos requisitos e metas individuais serão diferentes em cada cenário. Como um fornecedor da aplicação multi-inquilino, também terá objetivos e requisitos, como, dos inquilinos objetivos e requisitos, rentabilidade, faturação, vários níveis de serviço, aprovisionamento, capacidade de manutenção de monitorização e automatização de reunião.

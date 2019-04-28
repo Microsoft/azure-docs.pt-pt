@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357003"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61420475"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Utilize o PowerShell para criar uma base de dados do SQL do Azure de instância gerida
 

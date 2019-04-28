@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: milanga;juliako;
 ms.openlocfilehash: e0b083cba575f4d1c0eb19afb76fca29431ae75e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259107"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61463536"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Detetar movimentos com análise de multimédia do Azure
 ## <a name="overview"></a>Descrição geral
@@ -94,14 +94,14 @@ A tabela seguinte descreve os elementos do ficheiro de saída JSON.
 
 | Elemento | Descrição |
 | --- | --- |
-| Versão |Refere-se para a versão da API de vídeo. A versão atual é 2. |
+| Version |Refere-se para a versão da API de vídeo. A versão atual é 2. |
 | Escala temporal |"Ticks" por segundo do vídeo. |
-| Desvio |O desvio de tempo para os carimbos de data / no "ticks". Na versão 1.0 de APIs de vídeo, ela sempre será 0. No futuro cenários que suportamos, pode alterar este valor. |
+| Offset |O desvio de tempo para os carimbos de data / no "ticks". Na versão 1.0 de APIs de vídeo, ela sempre será 0. No futuro cenários que suportamos, pode alterar este valor. |
 | Taxa de fotogramas |Fotogramas por segundo do vídeo. |
 | Largura, Altura |Refere-se para a largura e altura do vídeo em pixéis. |
 | Iniciar |O carimbo de hora de início em "ticks". |
 | Duração |O comprimento do evento, em "ticks". |
-| Intervalo |O intervalo de cada entrada no evento, em "ticks". |
+| Interval |O intervalo de cada entrada no evento, em "ticks". |
 | Eventos |Cada fragmento de evento contém o motion detetado dentro desse período de tempo. |
 | Type |Na versão atual, isso é sempre "2" para o movimento genérico. Isto dá a etiqueta as APIs de vídeo a flexibilidade para categorizar o motion em futuras versões. |
 | RegionID |Tal como explicado anteriormente, isso será sempre 0 nesta versão. Esta etiqueta proporciona a flexibilidade para localizar o movimento em várias regiões em futuras versões de API de vídeo. |

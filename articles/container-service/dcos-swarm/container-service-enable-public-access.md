@@ -10,11 +10,11 @@ ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
 ms.openlocfilehash: 3e4ba15fa1925ca40ad7760acbd14331fbdd1343
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996604"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61457387"
 ---
 # <a name="deprecated-enable-public-access-to-an-azure-container-service-application"></a>(PRETERIDO) Ativar o acesso público a uma aplicação do Azure Container Service
 
@@ -37,11 +37,11 @@ Em primeiro lugar, é necessário abrir a porta que queremos.
    
    | Campo | Descrição |
    | --- | --- |
-   | Nome |Um nome descritivo da sonda. |
+   | Name |Um nome descritivo da sonda. |
    | Porta |A porta do contentor para testar. |
    | Caminho |(Quando estiver no modo HTTP) O caminho relativo do site para a sonda. HTTPS não suportado. |
-   | Intervalo |A quantidade de tempo entre a sonda tenta, em segundos. |
-   | Limiar de mau estado de funcionamento |Número de sonda consecutiva tenta antes de considerar o contentor de mau estado de funcionamento. |
+   | Interval |A quantidade de tempo entre a sonda tenta, em segundos. |
+   | Limiar com funcionamento incorreto |Número de sonda consecutiva tenta antes de considerar o contentor de mau estado de funcionamento. |
 6. De volta às propriedades do Balanceador de carga do agente, clique em **regras de balanceamento de carga** e, em seguida **Add**.
    
     ![Regras do Balanceador de carga de serviço de contentor do Azure](./media/container-service-enable-public-access/add-balancer-rule.png)
@@ -49,12 +49,12 @@ Em primeiro lugar, é necessário abrir a porta que queremos.
    
    | Campo | Descrição |
    | --- | --- |
-   | Nome |Um nome descritivo do Balanceador de carga. |
+   | Name |Um nome descritivo do Balanceador de carga. |
    | Porta |A porta de entrada pública. |
    | Porta back-end |A porta interna público do contentor para encaminhar o tráfego para. |
    | Conjunto back-end |Os contentores neste conjunto será o destino para este Balanceador de carga. |
    | Sonda |A sonda utilizada para determinar se um destino na **conjunto back-end** está em bom estado. |
-   | Persistência da sessão |Determina como o tráfego de um cliente deve ser tratado durante a sessão.<br><br>**Nenhum**: solicitações sucessivas do mesmo cliente podem ser processadas por qualquer contentor.<br>**Cliente IP**: solicitações sucessivas do mesmo IP de cliente são processadas pelo mesmo contentor.<br>**Cliente IP e protocolo**: solicitações sucessivas da mesma combinação de IP e protocolo de cliente são processadas pelo mesmo contentor. |
+   | Persistência da sessão |Determina como o tráfego de um cliente deve ser tratado durante a sessão.<br><br>**Nenhum**: Solicitações sucessivas do mesmo cliente podem ser processadas por qualquer contentor.<br>**Cliente IP**: Solicitações sucessivas do mesmo IP de cliente são processadas pelo mesmo contentor.<br>**Cliente IP e protocolo**: Solicitações sucessivas da mesma combinação de IP e protocolo de cliente são processadas pelo mesmo contentor. |
    | Tempo limite de inatividade |(Apenas para o TCP) Em minutos, o tempo para manter um cliente TCP/HTTP abrir sem depender *keep-alive* mensagens. |
 
 ## <a name="add-a-security-rule-portal"></a>Adicionar uma regra de segurança (portal)
@@ -72,7 +72,7 @@ Em seguida, precisamos de adicionar uma regra de segurança que encaminha o trá
    
    | Campo | Descrição |
    | --- | --- |
-   | Nome |Um nome descritivo da regra de firewall. |
+   | Name |Um nome descritivo da regra de firewall. |
    | Prioridade |Classificação de prioridade para a regra. Menor o número maior será a prioridade. |
    | Origem |Restringir o intervalo de endereços IP recebido para ser permitido ou negado por esta regra. Uso **qualquer** não especificar uma restrição. |
    | Serviço |Selecione um conjunto de serviços predefinidos, que esta regra de segurança destina-se. Caso contrário, utilize **personalizado** para criar seus próprios. |

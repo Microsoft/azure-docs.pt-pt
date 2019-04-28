@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 7f1352b018fe9ea46b0f0824ba53ee0204c7dc7c
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 711f6395959b3718ca0a094a03c07c4381892104
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60005524"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762853"
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta secção fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](api-management-howto-policies.md).  
@@ -53,7 +53,7 @@ Esta secção fornece uma referência para as seguintes políticas de gestão de
 -   [Políticas de autenticação](api-management-authentication-policies.md#AuthenticationPolicies)  
     -   [Autenticar com o Basic](api-management-authentication-policies.md#Basic) -autenticar com um serviço de back-end usando a autenticação básica.  
     -   [Autenticar com o certificado de cliente](api-management-authentication-policies.md#ClientCertificate) -autenticar com um serviço de back-end com certificados de cliente.  
-    -   [Autenticar com a identidade gerida](api-management-authentication-policies.md#ManagedIdentity) -autenticar com um serviço de back-end com certificados de cliente.  
+    -   [Autenticar com a identidade gerida](api-management-authentication-policies.md#ManagedIdentity) -autenticar com um serviço de back-end com um [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).  
 -   [Caching policies (Políticas de colocação em cache)](api-management-caching-policies.md#CachingPolicies)  
     -   [Obter a partir do cache](api-management-caching-policies.md#GetFromCache) -realizar o cache de procurar e devolver uma resposta em cache válida quando disponível.  
     -   [Store à cache](api-management-caching-policies.md#StoreToCache) -armazena em cache a resposta, de acordo com a configuração de controlo de cache especificado.  

@@ -10,17 +10,17 @@ ms.custom: mvc
 ms.date: 10/25/2018
 ms.author: troyhop
 ms.openlocfilehash: 302b863e7ad7d6df286adf53342356f279ab92d2
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450587"
 ---
 # <a name="tutorial-create-a-custom-simulated-device"></a>Tutorial: Criar um dispositivo simulado personalizado
 
 Neste tutorial, vai utilizar a Simulação de Dispositivos para criar um dispositivo simulado personalizado e utilizá-lo em simulações. Para começar a utilizar a Simulação de Dispositivos, pode utilizar um dos dispositivos simulados de exemplo incluídos. Também pode seguir as indicações neste artigo e criar dispositivos simulados personalizados. Para obter mais opções de personalização, veja [Create an advanced device model](iot-accelerators-device-simulation-advanced-device.md) (Criar um modelo de dispositivos avançado).
 
-Neste tutorial, vai:
+Neste tutorial:
 
 >[!div class="checklist"]
 > * Ver uma lista dos seus modelos de dispositivos simulados
@@ -60,11 +60,11 @@ Neste tutorial, vai criar um frigorífico simulado que envia dados de temperatur
 
 Preencha o formulário com as informações seguintes:
 
-| Definição             | Valor                                                |
+| Definição             | Value                                                |
 | ------------------- | ---------------------------------------------------- |
 | Nome do modelo de dispositivo   | Frigorífico                                         |
 | Descrição do modelo   | Frigorífico com sensores de temperatura e humidade |
-| Versão             | 1.0                                                  |
+| Version             | 1.0                                                  |
 
 > [!NOTE]
 > O nome do modelo de dispositivo tem de ser exclusivo.
@@ -96,7 +96,7 @@ Pode eliminar qualquer modelo de dispositivo personalizado. Para eliminar um mod
 
 ![Eliminar modelo de dispositivo](media/iot-accelerators-device-simulation-create-custom-device/deletedevice.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Passos Seguintes
 
 Neste tutorial, aprendeu a criar, clonar e eliminar modelos de dispositivos personalizados. Para obter mais informações sobre os modelos de dispositivos, veja o artigo de instruções abaixo:
 

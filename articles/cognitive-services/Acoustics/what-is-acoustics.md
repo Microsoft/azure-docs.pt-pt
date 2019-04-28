@@ -11,11 +11,11 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313622"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61432454"
 ---
 # <a name="what-is-project-acoustics"></a>O que é o Projeto Acoustics?
 Projeto Acoustics são um motor de acoustics de onda para experiências interativas 3D. Modela a efeitos de onda, como de efeitos diffraction, portaling e reverberação em bastidores complexos sem a necessidade de marcação de zona manual. Ele também inclui o motor de jogos e integração de áudio de middleware. Filosofia dos Acoustics do projeto é semelhante à iluminação estática: Inserir detalhadas física offline para fornecer uma linha de base física e utilize um runtime leve com controles de design expressiva para atingir os seus objetivos artísticos.

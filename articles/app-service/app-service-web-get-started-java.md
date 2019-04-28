@@ -12,19 +12,19 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/26/2018
+ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
-ms.openlocfilehash: 3af585ede27536dfb644dd374e54183c3539d585
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60007360"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760029"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar a primeira aplicação Web Java no Azure
 
-O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este guia de introdução mostra como implementar uma aplicação Web Java no Serviço de Aplicações com o [IDE do Eclipse para Programadores de Java EE](https://www.eclipse.org/).
+Serviço de aplicações do Azure fornece um serviço de alojamento na web altamente dimensionável e com correção automática. Este guia de introdução mostra como implementar uma aplicação web Java no serviço de aplicações com o IDE do Eclipse para programadores de Java EE.
 
 > [!IMPORTANT]
 > Serviço de aplicações do Azure no Linux também é uma opção para alojar aplicações web de Java nativamente no Linux com ofertas de Tomcat, Java SE e WildFly geridas. Se estiver interessado em Introdução ao serviço de aplicações no Linux, veja [início rápido: Criar uma aplicação Java no serviço de aplicações no Linux](containers/quickstart-java.md).

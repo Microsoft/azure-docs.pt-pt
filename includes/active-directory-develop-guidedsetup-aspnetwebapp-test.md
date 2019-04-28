@@ -15,11 +15,11 @@ ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528551"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298214"
 ---
 ## <a name="test-your-code"></a>Testar o seu código
 
@@ -43,11 +43,11 @@ Para ver as afirmações do utilizador, selecione a ligação para navegar para 
 
 Depois que navega para a vista de controlador, deverá ver uma tabela que contém as propriedades básicas para o utilizador:
 
-|Propriedade |Valor |Descrição |
+|Propriedade |Value |Descrição |
 |---|---|---|
 |**Nome** |Nome completo do utilizador | O utilizador do primeiro e último nome.
 |**Nome de Utilizador** |user<span>@domain.com</span> | O nome de utilizador que é utilizado para identificar o utilizador.
-|**Assunto** |Requerente |Uma cadeia que identifica unicamente o usuário na web.|
+|**Assunto** |Subject |Uma cadeia que identifica unicamente o usuário na web.|
 |**ID do inquilino** |Guid | R **guid** que representa exclusivamente a organização do utilizador do Azure AD.|
 
 Além disso, deverá ver uma tabela de todas as afirmações que estão no pedido de autenticação. Para obter mais informações, consulte a [lista de declarações que estão num Token de ID do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

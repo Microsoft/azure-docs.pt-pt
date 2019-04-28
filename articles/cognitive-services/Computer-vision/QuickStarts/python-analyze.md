@@ -12,11 +12,11 @@ ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: fddf853b90297cb75ffbd7c74cf81dd368370aa1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011219"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61346917"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Analisar uma imagem remota usando a REST API e Python em de imagem digitalizada
 

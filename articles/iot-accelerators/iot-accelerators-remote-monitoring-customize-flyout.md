@@ -3,17 +3,18 @@ title: Adicionar um submenu para a solução de monitorização remota da interf
 description: Este artigo mostra-lhe como adicionar uma nova lista de opções numa página da web de acelerador de solução da interface do Usuário da monitorização remota.
 author: dominicbetts
 manager: timlt
-ms.author: dobett
+ms.author: v-yiso
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/05/2018
+origin.date: 10/05/2018
+ms.date: 11/26/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167431"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61447119"
 ---
 # <a name="add-a-custom-flyout-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adicionar uma lista de opções personalizada para monitorização remota solution accelerator da IU da web
 
@@ -39,7 +40,7 @@ Antes de continuar, deve de concluir os passos nos seguintes artigos:
 - [Adicionar um serviço personalizado para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-service.md)
 - [Adicionar uma grade personalizada para monitorização remota solution accelerator da IU da web](iot-accelerators-remote-monitoring-customize-grid.md)
 
-## <a name="add-a-flyout"></a>Adicionar um submenu
+## <a name="add-a-flyout"></a>Adicionar uma lista de opções
 
 Para adicionar um submenu para a IU da web, terá de adicionar os ficheiros de origem que definem o submenu e modificar alguns ficheiros existentes para tornar a IU da web em consideração o novo componente.
 
@@ -49,11 +50,11 @@ Para começar, o **src/instruções/componentes/páginas/pageWithFlyout/flyouts/
 
 **exampleFlyout.container.js**
 
-[!code-javascript[Example flyout container](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.container.js?name=flyoutcontainer "Example flyout container")]
+
 
 **exampleFlyout.js**
 
-[!code-javascript[Example flyout](~/remote-monitoring-webui/src/walkthrough/components/pages/pageWithFlyout/flyouts/exampleFlyout/exampleFlyout.js?name=flyout "Example flyout")]
+
 
 Copiar o **passo a passo/src/componentes/pageWithFlyout/páginas/flyouts** pasta para o **src/componentes/páginas/exemplo** pasta.
 

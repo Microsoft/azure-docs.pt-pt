@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735908"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61485192"
 ---
 ## <a name="using-vm-extensions"></a>Utilizar extensões VM
 Extensões de VM do Azure implementar a comportamentos ou recursos que o ajudam a outros programas funcionam em VMs do Azure (por exemplo, o **WebDeployForVSDevTest** extensão permite que o Visual Studio para Web Deploy soluções na sua VM do Azure) ou indique o capacidade para interagir com a VM para oferecer suporte a alguns outros comportamentos (por exemplo, pode utilizar as extensões de acesso à VM de clientes de PowerShell, CLI do Azure e REST para repor ou modificar os valores de acesso remoto na sua VM do Azure).

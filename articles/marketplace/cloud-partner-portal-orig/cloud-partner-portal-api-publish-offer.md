@@ -15,11 +15,11 @@ ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
 ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48810948"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61094371"
 ---
 <a name="publish-an-offer"></a>Publicar uma oferta
 ================
@@ -33,8 +33,8 @@ Inicia o processo de publicação para a oferta especificado. Esta chamada é um
 
 |  **Nome**      |    **Descrição**                               |  **Tipo de dados** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | Identificador do publicador, por exemplo `contoso`      |   Cadeia       |
-|  offerId       | Identificador da oferta                                 |   Cadeia       |
+|  publisherId   | Identificador do publicador, por exemplo `contoso`      |   String       |
+|  IDoferta       | Identificador da oferta                                 |   String       |
 |  versão de API   | Versão mais recente da API                        |   Date         |
 |  |  |
 

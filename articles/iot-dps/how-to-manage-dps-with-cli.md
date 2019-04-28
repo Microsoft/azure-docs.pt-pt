@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: cfbebf8570ee044698b0f4e0abdd58370b04f759
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 59d2277bd99fac1e8357c1b0d7336ca7451bf8dc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992869"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122876"
 ---
 # <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Como utilizar a CLI do Azure e a extensão de IoT para gerir o serviço de aprovisionamento de dispositivos do IoT Hub
 

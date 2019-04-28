@@ -1,6 +1,6 @@
 ---
-title: Atualizar recursos no Azure geridos aplicações | Microsoft Docs
-description: Descreve como trabalhar nos recursos de geridos no grupo de recursos para um Azure aplicações geridas.
+title: Atualizar recursos no Azure aplicações geridas | Documentos da Microsoft
+description: Descreve como trabalhar nos recursos gerenciados da aplicação gerida pelo grupo de recursos para do Azure.
 services: managed-applications
 author: tfitzmac
 manager: timlt
@@ -10,48 +10,48 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7c2b38055771dae458e4a3a56c2c98231335ae03
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34304975"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61043457"
 ---
-# <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Trabalhar com recursos a geridos em aplicações geridas do grupo de recursos do Azure
+# <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Trabalhar com recursos gerenciados na aplicação gerida pelo grupo de recursos do Azure
 
-Este artigo descreve como atualizar recursos que são implementados como parte de uma aplicação gerida. Como o publicador de uma aplicação gerida, terá acesso aos recursos no grupo de recursos geridos. Para atualizar estes recursos, tem de localizar o grupo de recursos geridos associado uma aplicação gerida e aceder o recursos nesse grupo de recursos.
+Este artigo descreve como atualizar os recursos que são implementados como parte de um aplicativo gerenciado. Como o Editor de um aplicativo gerenciado, terá acesso aos recursos no grupo de recursos gerido. Para atualizar estes recursos, terá de encontrar o grupo de recursos gerido associado um aplicativo gerenciado e aceder ao recurso nesse grupo de recursos.
 
-Este artigo pressupõe que implementou a aplicação gerida no [geridos aplicação Web (IaaS) com os serviços de gestão do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) projeto de exemplo. Que aplicações geridas incluem um **Standard_D1_v2** máquina virtual. Se não tiver implementado essa aplicação gerida, ainda pode utilizar este artigo para se familiarizar com os passos para atualizar um grupo de recursos geridos.
+Este artigo pressupõe que implementou a aplicação gerida no [Managed Web Application (IaaS) com os serviços de gestão do Azure](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) projeto de exemplo. Se a aplicação gerida inclui um **Standard_D1_v2** máquina virtual. Se não tiver implementado nesse aplicativo gerenciado, pode usar este artigo para se familiarizar com os passos para atualizar um grupo de recursos gerido.
 
-A imagem seguinte mostra as aplicações geridas implementadas.
+A imagem seguinte mostra a aplicação gerida implementada.
 
-![Aplicações geridas implementadas](./media/update-managed-resources/deployed.png)
+![Aplicação gerida implementada](./media/update-managed-resources/deployed.png)
 
-Neste artigo, utilizar a CLI do Azure para:
+Neste artigo, utilize o CLI do Azure para:
 
 * Identificar a aplicação gerida
-* Identificar o grupo de recursos geridos
-* Identificar os recursos de máquina virtual no grupo de recursos geridos
-* Altere o tamanho da VM (à um tamanho mais pequeno, se não utilizados ou superior para suportar mais carga)
-* Atribuir uma política para o grupo de recursos geridos pelo localizações permitidas
+* Identificar o grupo de recursos gerido
+* Identificar o recurso ou recursos de máquina virtual no grupo de recursos gerido
+* Alterar o tamanho da VM (seja para um tamanho mais pequeno, se não utilizado, ou uma maior para dar suporte a mais carga)
+* Atribuir uma política para o grupo de recursos gerido que especifica as localizações permitidas
 
-## <a name="get-managed-application-and-managed-resource-group"></a>Obter aplicações geridas e grupo de recursos geridos
+## <a name="get-managed-application-and-managed-resource-group"></a>Obter a aplicação gerida e grupo de recursos gerido
 
-Para obter as aplicações geridas num grupo de recursos, utilize:
+Para obter os aplicativos gerenciados num grupo de recursos, utilize:
 
 ```azurecli-interactive
 az managedapp list --query "[?contains(resourceGroup,'DemoApp')]"
 ```
 
-Para obter o ID do grupo de recursos geridos, utilize:
+Para obter o ID do grupo de recursos gerido, utilize:
 
 ```azurecli-interactive
 az managedapp list --query "[?contains(resourceGroup,'DemoApp')].{ managedResourceGroup:managedResourceGroupId }"
 ```
 
-## <a name="resize-vms-in-managed-resource-group"></a>Redimensionar VMs no grupo de recursos geridos
+## <a name="resize-vms-in-managed-resource-group"></a>Redimensionar VMs no grupo de recursos gerido
 
-Para ver as máquinas virtuais no grupo de recursos geridos, forneça o nome do grupo de recursos geridos.
+Para ver as máquinas virtuais no grupo de recursos gerido, forneça o nome do grupo de recursos gerido.
 
 ```azurecli-interactive
 az vm list -g DemoApp6zkevchqk7sfq --query "[].{VMName:name,OSType:storageProfile.osDisk.osType,VMSize:hardwareProfile.vmSize}"
@@ -63,13 +63,13 @@ Para atualizar o tamanho das VMs, utilize:
 az vm resize --size Standard_D2_v2 --ids $(az vm list -g DemoApp6zkevchqk7sfq --query "[].id" -o tsv)
 ```
 
-Após a conclusão da operação, certifique-se de que a aplicação está em execução no v2 D2 padrão.
+Depois de concluída a operação, certifique-se de que a aplicação está em execução no Standard D2 v2.
 
-![Aplicações geridas utilizando D2 padrão v2](./media/update-managed-resources/upgraded.png)
+![Aplicação gerida com a Standard D2 v2](./media/update-managed-resources/upgraded.png)
 
-## <a name="apply-policy-to-managed-resource-group"></a>Aplicar a política de grupo de recursos geridos
+## <a name="apply-policy-to-managed-resource-group"></a>Aplicar a política de grupo de recursos gerido
 
-O grupo de recursos geridos e atribuição de uma política, obter esse âmbito. A política **e56962a6-4747-49cd-b67b-bf8b01975c4c** uma política incorporadas para especificar localizações permitidas.
+O grupo de recursos gerido e a atribuição de uma política, obter esse âmbito. A política **e56962a6-4747-49cd-b67b-bf8b01975c4c** é uma política incorporada para especificar localizações permitidas.
 
 ```azurecli-interactive
 managedGroup=$(az managedapp show --name <app-name> --resource-group DemoApp --query managedResourceGroupId --output tsv)
@@ -84,7 +84,7 @@ az policy assignment create --name locationAssignment --policy e56962a6-4747-49c
                         }'
 ```
 
-Para ver localizações permitidas, utilize:
+Para ver as localizações permitidas, utilize:
 
 ```azurecli-interactive
 az policy assignment show --name locationAssignment --scope $managedGroup --query parameters.listofallowedLocations.value
@@ -97,4 +97,4 @@ A atribuição de política é apresentada no portal.
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Para obter uma introdução às aplicações geridas, veja [Descrição geral das aplicações geridas](overview.md).
-* Para projetos de exemplo, consulte [projetos de exemplo para o Azure geridos aplicações](sample-projects.md).
+* Para projetos de exemplo, consulte [aplicativos gerenciados de projetos de exemplo para o Azure](sample-projects.md).

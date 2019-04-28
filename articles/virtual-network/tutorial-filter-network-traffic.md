@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Neste tutorial, vai aprender a filtrar o tráfego de rede para uma sub-rede, com um grupo de segurança de rede, através do Portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
+author: KumudD
 tags: azure-resource-manager
 Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ms.service: virtual-network
@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
-ms.author: jdial
+ms.author: kumud
 ms.openlocfilehash: caf9b91d5b98d028d7c9e971df30ad1f6ec448ad
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019032"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61456777"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede através do Portal do Azure
 
@@ -51,7 +51,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
     | Espaço de endereços           | 10.0.0.0/16                                        |
     | Subscrição            | Selecione a sua subscrição.                          |
     | Grupo de recursos          | Selecione **Criar novo** e introduza *myResourceGroup*. |
-    | Localização                | Selecione **E.U.A. Leste**.                                |
+    | Location                | Selecione **E.U.A. Leste**.                                |
     | Nome da Sub-rede            | mySubnet                                           |
     | Sub-rede - Intervalo de endereços  | 10.0.0.0/24                                        |
 
@@ -65,19 +65,19 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
 
     | Definição        | Valor                                                         |
     | ---            | ---                                                           |
-    | Nome           | myAsgWebServers                                               |
+    | Name           | myAsgWebServers                                               |
     | Subscrição   | Selecione a sua subscrição.                                     |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Localização       | EUA Leste                                                       |
+    | Location       | EUA Leste                                                       |
 
 4. Conclua o passo 3 novamente, com os seguintes valores:
 
     | Definição        | Valor                                                         |
     | ---            | ---                                                           |
-    | Nome           | myAsgMgmtServers                                              |
+    | Name           | myAsgMgmtServers                                              |
     | Subscrição   | Selecione a sua subscrição.                                     |
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione **myResourceGroup**. |
-    | Localização       | EUA Leste                                                       |
+    | Location       | EUA Leste                                                       |
 
 ## <a name="create-a-network-security-group"></a>Criar um grupo de segurança de rede
 
@@ -87,10 +87,10 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
 
     |Definição|Valor|
     |---|---|
-    |Nome|myNsg|
+    |Name|myNsg|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos | Selecione **Utilizar existente** e, em seguida, selecione *myResourceGroup*.|
-    |Localização|EUA Leste|
+    |Location|EUA Leste|
 
 ## <a name="associate-network-security-group-to-subnet"></a>Associar o grupo de segurança de rede à sub-rede
 
@@ -109,22 +109,22 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
 
 2. Crie uma regra de segurança que permita que as portas 80 e 443 para o grupo de segurança de aplicações **myAsgWebServers**. Em **Adicionar regra de segurança de entrada**, introduza ou selecione os seguintes valores, aceite as restantes predefinições e, em seguida, selecione **Adicionar**:
 
-    | Definição                 | Valor                                                                                                           |
+    | Definição                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgWebServers** para **Grupo de segurança de aplicações**.  |
     | Intervalos de portas de destino | Introduza 80.443                                                                                                    |
     | Protocolo                | Selecione TCP                                                                                                      |
-    | Nome                    | Allow-Web-All                                                                                                   |
+    | Name                    | Allow-Web-All                                                                                                   |
 
 3. Conclua o passo 2 novamente, com os seguintes valores:
 
-    | Definição                 | Valor                                                                                                           |
+    | Definição                 | Value                                                                                                           |
     | ---------               | ---------                                                                                                       |
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgMgmtServers** para **Grupo de segurança de aplicações**. |
     | Intervalos de portas de destino | Introduza 3389                                                                                                      |
     | Protocolo                | Selecione TCP                                                                                                      |
     | Prioridade                | Introduza 110                                                                                                       |
-    | Nome                    | Allow-RDP-All                                                                                                   |
+    | Name                    | Allow-RDP-All                                                                                                   |
 
     Neste tutorial, o RDP (porta 3389) está exposto à Internet para a VM atribuída ao grupo de segurança de aplicações *myAsgMgmtServers*. Em ambientes de produção, em vez de expor a porta 3389 à Internet, recomenda-se que ligue aos recursos do Azure que quer gerir com uma VPN ou da ligação de rede privada.
 
@@ -144,12 +144,12 @@ Crie duas VMs na rede virtual.
 
     |Definição|Valor|
     |---|---|
-    |Nome|myVmWeb|
+    |Name|myVmWeb|
     |Nome de utilizador| Introduza um nome de utilizador à sua escolha.|
     |Palavra-passe| Introduza uma palavra-passe à sua escolha. A palavra-passe tem de ter, pelo menos, 12 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscrição| Selecione a sua subscrição.|
     |Grupo de recursos| Selecione **Utilizar existente** e selecione **myResourceGroup**.|
-    |Localização| Selecione **E.U.A. Leste**|
+    |Location| Selecione **E.U.A. Leste**|
 
 4. Escolha um tamanho para a VM e selecione **Selecionar**.
 5. Em **Definições**, selecione os seguintes valores, aceite as restantes predefinições e, em seguida, selecione **OK**:

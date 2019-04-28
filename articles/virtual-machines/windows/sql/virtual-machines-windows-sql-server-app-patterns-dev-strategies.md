@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
 ms.openlocfilehash: 988acec8d7044afe87523637e46c9a4deb92b55e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61477737"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Padrões de Aplicação e Estratégias de Desenvolvimento para o SQL Server em Máquinas Virtuais do Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -34,7 +34,7 @@ Para cada padrão de aplicativo, encontrará um cenário no local, sua solução
 
 **Contribuintes técnicos:** Luis Carlos Vargas Herring, Madhan Arumugam Ramakrishnan
 
-**Revisores técnicos:** Corey Sanders, Drew McDaniel, Narayan Annamalai, Nir Mashkowski, Sanjay Mishra, Coriani ros, Stefan Schackow, Tim Hickey, Tim Wieman, Xin Jin
+**Revisores técnicos:** Corey Sanders, Drew McDaniel, Narayan Annamalai, Nir Mashkowski, Sanjay Mishra, Silvano Coriani, Stefan Schackow, Tim Hickey, Tim Wieman, Xin Jin
 
 ## <a name="introduction"></a>Introdução
 Pode desenvolver vários tipos de aplicações de n camadas, separando os componentes de camadas do aplicativo diferente em computadores diferentes, bem como em componentes separados. Por exemplo, pode colocar o aplicativo cliente e componentes numa máquina, a camada web front-end e componentes de camada de acesso de dados em outra máquina e uma camada de banco de dados back-end em outra máquina de regras de negócio. Esse tipo de estruturar o ajuda a isolar cada camada uns dos outros. Se mudar de onde vêm dados, não precisa de alterar a aplicação de cliente ou da web, mas apenas os componentes de camada de acesso dados.

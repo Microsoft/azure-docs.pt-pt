@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61481868"
 ---
 # <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Criar e gerir um pacote de suporte para a série StorSimple 8000
 
@@ -121,7 +121,7 @@ Para editar um pacote de suporte antes de o carregar no site da Microsoft Suppor
         Supply values for the following parameters:EncryptionPassphrase: ****
 9. Anote a frase de acesso novo, para que pode partilhá-lo com o Microsoft Support quando solicitado.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: Editar arquivos num pacote de suporte num compartilhamento protegido por palavra-passe
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exemplo: Edição de arquivos num pacote de suporte num compartilhamento protegido por palavra-passe
 
 O exemplo seguinte mostra como desencriptar, editar e criptografar novamente um pacote de suporte.
 

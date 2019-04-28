@@ -10,12 +10,12 @@ ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 08a1980a8855fc119a5066e058e9bb4d2df6646e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0bdf47991435a9a28a4db12f3aa89478b18bb9f1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61020265"
 ---
 # <a name="what-is-the-cloudyn-service"></a>O que é o serviço do Cloudyn?
 

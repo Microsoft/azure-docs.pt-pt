@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: pbutlerm
 ms.openlocfilehash: e40e83e16ab2bfd43c3bb5fa38e52a778694e90e
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979935"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61473115"
 ---
 # <a name="containers"></a>Contentores
 

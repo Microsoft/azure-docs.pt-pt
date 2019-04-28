@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 46413c53fc296782aa635d6dcd7b297db3a837a0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8fd0df182a2e23db64a52ad0040287bf13b114d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960418"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61474281"
 ---
 # <a name="common-azure-classic-cli-commands-on-linux-and-mac"></a>Comuns clássicos comandos da CLI Azure no Linux e Mac
 [!INCLUDE [virtual-machines-common-cli-manage-nodejs](../../../includes/virtual-machines-common-cli-manage-nodejs.md)]

@@ -8,11 +8,11 @@ ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: f38b8879a16a5f61b2a31cc7fc2989e2fa228e7a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280728"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61333507"
 ---
 # <a name="sample---allow-multiple-name-patterns"></a>Exemplo - permitir que vários padrões de nome
 
