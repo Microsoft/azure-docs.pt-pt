@@ -13,12 +13,12 @@ ms.topic: overview
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 447518d2189a3b2723edc7c7db74ccc8435b71b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 88a49c9c124c5399749d2b60595d7f5c7ec77b20
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62117997"
 ---
 # <a name="what-is-azure-dedicated-hsm"></a>O que é o Azure Dedicated HSM?
 

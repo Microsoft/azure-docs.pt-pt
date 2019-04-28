@@ -2,19 +2,18 @@
 title: Executar consultas do Apache Hive com o SDK .NET do HDInsight - Azure
 description: Aprenda a submeter tarefas do Apache Hadoop para o Azure HDInsight Apache Hadoop com o SDK de .NET do HDInsight.
 ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 31e759baa4f5e7b220eabf2bb9ffcc5cc011a354
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 947e797842000e4da2f9e22077bc32c24d6c6a74
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200468"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095389"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas do Apache Hive com o HDInsight .NET SDK
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

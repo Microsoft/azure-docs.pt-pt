@@ -1,34 +1,52 @@
 ---
-title: Dimensionar aplicações web do serviço de aplicações do Azure com o Ansible
-description: Saiba como utilizar o Ansible para criar uma aplicação Web com o runtime de contentor Java 8 e Tomcat no Serviço de Aplicações no Linux
-ms.service: azure
+title: Tutorial – dimensionar aplicações no serviço de aplicações do Azure com o Ansible | Documentos da Microsoft
+description: Saiba como aumentar verticalmente uma aplicação no App Service do Azure
 keywords: ansible, azure, devops, bash, playbook, serviço de aplicações do Azure, aplicação Web, dimensionamento, o Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.date: 04/22/2019
+ms.openlocfilehash: 213c4e086db8b40fdec26ce9fb3e0be5ad055cbc
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792281"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764307"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Dimensionar aplicações web do serviço de aplicações do Azure com o Ansible
-[Aplicações de Web do serviço de aplicações do Azure](https://docs.microsoft.com/azure/app-service/overview) (ou apenas aplicativos da Web) anfitriões e aplicações web, REST APIs, back-end móvel. Pode desenvolver no seu idioma favorito&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP ou Python.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutorial: Aplicações de escala no serviço de aplicações do Azure com o Ansible
 
-O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Este artigo mostra-lhe como utilizar o Ansible para dimensionar a sua aplicação no serviço de aplicações do Azure.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Obtenha os factos de um plano de serviço de aplicações existente
+> * Aumentar verticalmente o plano do serviço de aplicações para S2 com três funções de trabalho
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Aplicações de Web do serviço de aplicações do Azure** -se ainda não tiver uma aplicação de web do serviço de aplicações do Azure, pode [criar aplicações web do Azure com o Ansible](ansible-create-configure-azure-web-apps.md).
 
-## <a name="scale-up-an-app-in-app-service"></a>Aumentar verticalmente uma aplicação no serviço de aplicações
-Pode aumentar verticalmente ao alterar o escalão de preço do plano do serviço de aplicações que qual pertence a sua aplicação. Esta secção apresenta um playbook de Ansible de exemplo que define a seguinte operação:
-- Obtenha os factos de um plano de serviço de aplicações existente
-- Atualizar o plano do serviço de aplicações para S2 com três funções de trabalho
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- **Aplicação de serviço de aplicações do Azure** – se não tiver uma aplicação de serviço de aplicações do Azure [configurar uma aplicação no serviço de aplicações do Azure com o Ansible](ansible-create-configure-azure-web-apps.md).
+
+## <a name="scale-up-an-app"></a>Aumentar verticalmente uma aplicação
+
+Existem dois fluxos de trabalho de dimensionamento: *aumentar verticalmente* e *aumentar horizontalmente*.
+
+**Aumente verticalmente:** Para aumentar verticalmente significa adquirir mais recursos. Esses recursos incluem a CPU, memória, espaço em disco, VMs e muito mais. Aumentar verticalmente uma aplicação ao alterar o escalão de preço do plano do serviço de aplicações a que pertence a aplicação. 
+**Aumente horizontalmente:** Para aumentar horizontalmente significa para aumentar o número de instâncias VM que executam a aplicação. Dependendo do seu plano de serviço de aplicações, escalão de preço, pode aumentar horizontalmente até 20 instâncias. [Dimensionamento automático](/azure/azure-monitor/platform/autoscale-get-started) permite-lhe dimensionar automaticamente com base em regras predefinidas e agendas de contagem de instâncias.
+
+O código de playbook nesta secção define a seguinte operação:
+
+* Obtenha os factos de um plano de serviço de aplicações existente
+* Atualizar o plano do serviço de aplicações para S2 com três funções de trabalho
+
+Guarde o manual de procedimentos seguinte como `webapp_scaleup.yml`:
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Pode aumentar verticalmente ao alterar o escalão de preço do plano do serviço
       var: facts.appserviceplans[0].sku
 ```
 
-Guardar este manual de comunicação social como *webapp_scaleup.yml*.
+Executar o playbook com o `ansible-playbook` comando:
 
-Para executar o manual de procedimentos, utilize o comando **ansible-playbook** da seguinte forma:
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Depois de executar o playbook, o resultado semelhante ao seguinte exemplo mostra que o plano do serviço de aplicações tem sido atualizado com êxito para S2 com três funções de trabalho:
-```Output
-PLAY [localhost] **************************************************************
+Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 > [!div class="nextstepaction"] 
-> [Ansible no Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible no Azure](/azure/ansible/)

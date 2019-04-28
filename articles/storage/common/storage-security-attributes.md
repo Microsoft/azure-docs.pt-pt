@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 33765d57f1a0e5788011b2d9d9c2f57d06713ddb
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 8fa43998d0b10eddacdc9e0dd512295559814255
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680694"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62101968"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Atributos de segurança comuns do armazenamento do Azure
 
@@ -28,7 +28,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim |  |
 | Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim | Suporte a mecanismos de HTTPS/TLS padrão.  Os usuários também podem criptografar dados antes de ser transmitido para o serviço. |
-| A manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | Ver [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
+| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | Ver [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Encriptação de nível de coluna (Serviços de dados do Azure)| N/A |  |
 | Chamadas de API encriptadas| Sim |  |
 
@@ -37,9 +37,9 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Suporte de ponto final de serviço| Sim |  |
-| suporte de Injeção de vNET| N/A |  |
-| Isolamento de rede / suporte de firewall| Sim | |
-| Suporte para protocolo de túnel forçado | N/A |  |
+| suporte de injeção de vNET| N/A |  |
+| Isolamento de rede e o suporte de firewall| Sim | |
+| Suporte de encapsulamento de forçado| N/A |  |
 
 ## <a name="detection"></a>Deteção
 
@@ -47,20 +47,20 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Métricas do Azure Monitor disponíveis agora, registos de partida da pré-visualização |
 
-## <a name="iam-support"></a>Suporte IAM
+## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Gestão de acesso - autenticação| Sim | O Azure Active Directory, chave partilhada, o token de acesso partilhado. |
-| Gestão de acesso - autorização| Sim | Autorização de suporte através do RBAC, POSIX ACLs e os Tokens SAS |
+| Autenticação| Sim | O Azure Active Directory, chave partilhada, o token de acesso partilhado. |
+| Autorização| Sim | Autorização de suporte através do RBAC, POSIX ACLs e os Tokens SAS |
 
 
 ## <a name="audit-trail"></a>Registo de Auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Planear a gestão/controlo e auditoria do registo | Sim | Registo de atividades do Gestor de recursos do Azure |
-| Registo e auditoria do plano de dados| Sim | Os registos de diagnóstico do serviço e o registo do Azure Monitor partida pré-visualização  |
+| Auditoria e registo de plano de controlo e gestão | Sim | Registo de atividades do Gestor de recursos do Azure |
+| Auditoria e registo de plano de dados| Sim | Os registos de diagnóstico do serviço e o registo do Azure Monitor partida pré-visualização  |
 
 ## <a name="configuration-management"></a>Gestão da Configuração
 

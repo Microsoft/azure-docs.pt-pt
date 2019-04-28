@@ -2,19 +2,20 @@
 title: Falhe novamente Azure VMs replicadas para uma região secundária do Azure para recuperação após desastre com o serviço Azure Site Recovery.
 description: Saiba como efetuar a ativação de VMs de volta do Azure com o serviço Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: rockboyfor
+manager: digimobile
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
-ms.author: raynew
+origin.date: 03/18/2019
+ms.date: 04/22/2019
+ms.author: v-yeche
 ms.custom: mvc
 ms.openlocfilehash: c8ce05e644ad556542314b17151b808586734824
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315322"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118184"
 ---
 # <a name="fail-back-azure-vms-between-azure-regions"></a>Efetuar a ativação de VMs de volta do Azure entre regiões do Azure
 
@@ -68,3 +69,6 @@ Depois das VMs são novamente protegidas, pode efetuar a ativação pós-falha p
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Saiba mais](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) sobre o fluxo de nova proteção.
+
+<!--Update_Description: new articles on azure to azure tutorial failback -->
+<!--ms.date: 04/22/2019-->

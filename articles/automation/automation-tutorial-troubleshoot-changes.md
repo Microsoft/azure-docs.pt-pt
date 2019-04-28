@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
 ms.openlocfilehash: 77dda5f113a10f0bfb59457b1059563c58db0dde
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816949"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116639"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Resolver problemas relacionados com alterações no seu ambiente
 
@@ -101,7 +101,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a definição foi aplicada        |
+|Enabled     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Chave do Registo do Windows   | O caminho para verificar o ficheiro, por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -114,7 +114,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a definição foi aplicada        |
+|Enabled     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\\\\*.txt"<br>Também pode utilizar variáveis de ambiente, tais como "%winDir%\System32\\\*.*"         |
@@ -129,7 +129,7 @@ Na janela **Configuração da Área de Trabalho**, adicione as chaves do Registo
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a definição foi aplicada        |
+|Enabled     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "/etc/*.conf"       |

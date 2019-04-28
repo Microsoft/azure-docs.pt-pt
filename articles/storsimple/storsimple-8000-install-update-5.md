@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: d6e17c7609fd41b8f4457edda373f6882a1a9d2b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d86e77ef0148c0fac3dfa31153364de153b094ef
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698715"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62126754"
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalar atualização 5 do seu dispositivo StorSimple
 
@@ -76,28 +76,28 @@ O método de correção envolve os seguintes três passos:
 
 Tem de transferir e instalar as seguintes correções na ordem determinada e as pastas sugeridas:
 
-| Ordem | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
 | --- | --- | --- | --- | --- | --- |
-| 1. |KB4037264 |Atualização de software<br> Transferir ambos _HcsSoftwareUpdate.exe_ e _CisMSDAgent.exe_ |Regular <br></br>Não disruptivas |~ 25 minutos |FirstOrderUpdate|
+| 1. |KB4037264 |Atualização de software<br> Transferir ambos _HcsSoftwareUpdate.exe_ e _CisMSDAgent.exe_ |Normal <br></br>Não disruptivas |~ 25 minutos |FirstOrderUpdate|
 
 Se atualizar a partir de um dispositivo a executar a atualização 4, só tem de instalar as atualizações cumulativas do sistema operacional como atualizações de segunda ordem.
 
-| Ordem | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
 | --- | --- | --- | --- | --- | --- |
-| 2A. |KB4025336 |Pacote de atualizações cumulativas do SO <br> Baixe a versão do Windows Server 2012 R2 |Regular <br></br>Não disruptivas |- |SecondOrderUpdate|
+| 2A. |KB4025336 |Pacote de atualizações cumulativas do SO <br> Baixe a versão do Windows Server 2012 R2 |Normal <br></br>Não disruptivas |- |SecondOrderUpdate|
 
 Se instalar a partir de um dispositivo a executar a atualização 3 ou anterior, instale o seguinte para além das atualizações cumulativas.
 
-| Ordem | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de instalação |Instalar numa pasta|
 | --- | --- | --- | --- | --- | --- |
-| 2B. |KB4011841 <br> KB4011842 |Driver de LSI e atualizações de firmware <br> Atualização de firmware USM (versão 3.38) |Regular <br></br>Não disruptivas |~ 3 horas <br> (inclui 2A. + 2B. + 2 C.)|SecondOrderUpdate|
-| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacote de atualizações de segurança do SO <br> Baixe a versão do Windows Server 2012 R2 |Regular <br></br>Não disruptivas |- |SecondOrderUpdate|
-| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Baixe a versão do Windows Server 2012 R2 |Regular <br></br>Não disruptivas |- |SecondOrderUpdate|
+| 2B. |KB4011841 <br> KB4011842 |Driver de LSI e atualizações de firmware <br> Atualização de firmware USM (versão 3.38) |Normal <br></br>Não disruptivas |~ 3 horas <br> (inclui 2A. + 2B. + 2C.)|SecondOrderUpdate|
+| 2C. |KB3139398 <br> KB3142030 <br> KB3108381 <br> KB3153704 <br> KB3174644 <br> KB3139914   |Pacote de atualizações de segurança do SO <br> Baixe a versão do Windows Server 2012 R2 |Normal <br></br>Não disruptivas |- |SecondOrderUpdate|
+| 2D. |KB3146621 <br> KB3103616 <br> KB3121261 <br> KB3123538 |Pacote de atualizações do SO <br> Baixe a versão do Windows Server 2012 R2 |Normal <br></br>Não disruptivas |- |SecondOrderUpdate|
 
 
 Também poderá instalar atualizações de firmware do disco na parte superior de todas as atualizações mostradas nas tabelas anteriores. Pode verificar se tem as atualizações de firmware do disco ao executar o `Get-HcsFirmwareVersion` cmdlet. Se estiver a executar estas versões de firmware: `XMGJ`, `XGEG`, `KZ50`, `F6C2`, `VR08`, `N003`, `0107`, em seguida, não é necessário instalar estas atualizações.
 
-| Ordem | KB | Descrição | Tipo de atualização | Hora de instalação | Instalar numa pasta|
+| Encomenda | KB | Descrição | Tipo de atualização | Hora de instalação | Instalar numa pasta|
 | --- | --- | --- | --- | --- | --- |
 | 3. |KB4037263 |Firmware do disco |Manutenção <br></br>Problemáticos |~ 30 minutos | ThirdOrderUpdate |
 

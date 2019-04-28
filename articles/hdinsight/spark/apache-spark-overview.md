@@ -1,7 +1,6 @@
 ---
 title: O que é o Apache Spark - Azure HDInsight
 description: Este artigo disponibiliza uma introdução ao Spark no HDInsight e os diferentes cenários em que pode utilizar o cluster do Spark no HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: overview
 ms.date: 01/28/2019
 ms.author: hrasheed
-ms.openlocfilehash: 264faaf0168d1604668e3358b1d99bc169d7e2f0
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: MT
+ms.openlocfilehash: ab349018705f173f1b138b854e0773ef3f996f1c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985177"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097314"
 ---
 # <a name="what-is-apache-spark-in-azure-hdinsight"></a>O que é o Apache Spark no Azure HDInsight
 
@@ -93,7 +92,7 @@ Os clusters do Spark no HDInsight permitem os cenários-chave seguintes:
 
 Pode utilizar os seguintes artigos para saber mais sobre o Apache Spark no HDInsight:
 
-- [Início rápido: Criar um cluster do Apache Spark no HDInsight e executar a consulta interativa com o Jupyter](./apache-spark-jupyter-spark-sql-use-portal.md)
+- [Quickstart: Criar um cluster do Apache Spark no HDInsight e executar a consulta interativa com o Jupyter](./apache-spark-jupyter-spark-sql-use-portal.md)
 - [Tutorial: Executar uma tarefa de Apache Spark com o Jupyter](./apache-spark-load-data-run-query.md)
 - [Tutorial: Analisar dados com ferramentas de BI](./apache-spark-use-bi-tools.md)
 - [Tutorial: Machine learning utilizando o Apache Spark](./apache-spark-ipython-notebook-machine-learning.md)

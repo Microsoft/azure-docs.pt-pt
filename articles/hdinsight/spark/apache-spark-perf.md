@@ -1,7 +1,6 @@
 ---
 title: Otimizar tarefas do Spark para um desempenho - Azure HDInsight
 description: Mostra as estratégias comuns para um melhor desempenho de clusters do Spark.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283074"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098884"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Otimizar tarefas do Apache Spark
 

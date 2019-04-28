@@ -1,19 +1,18 @@
 ---
 title: Expandir o HDInsight com a rede Virtual - Azure
 description: Saiba como utilizar a rede Virtual do Azure para ligar o HDInsight para outros recursos de nuvem ou recursos no seu datacenter
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
-ms.openlocfilehash: a2d06cdbcc6ce995c55c858cb7a50a93ef6b3fb1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: f97c07c522dfb22818aca84d41d30c023f564d84
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58883569"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097342"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 
@@ -259,7 +258,7 @@ Se utilizar grupos de segurança de rede, tem de permitir o tráfego dos serviç
 
 1. Sempre têm de permitir tráfego a partir os seguintes endereços IP:
 
-    | Endereço IP de origem | Porta de destino | Direção |
+    | Endereço IP de origem | Porta de destino | Direction |
     | ---- | ----- | ----- |
     | 168.61.49.99 | 443 | Entrada |
     | 23.99.5.239 | 443 | Entrada |
@@ -271,7 +270,7 @@ Se utilizar grupos de segurança de rede, tem de permitir o tráfego dos serviç
     > [!IMPORTANT]  
     > Se a região do Azure que está a utilizar não estiver listada, em seguida, apenas use os quatro endereços IP do passo 1.
 
-    | País | Região | Endereços IP de origem permitidos | Permissão de porta de destino | Direção |
+    | País | Região | Endereços IP de origem permitidos | Permissão de porta de destino | Direction |
     | ---- | ---- | ---- | ---- | ----- |
     | Ásia | Ásia Oriental | 23.102.235.122</br>52.175.38.134 | 443 | Entrada |
     | &nbsp; | Sudeste Asiático | 13.76.245.160</br>13.76.136.249 | 443 | Entrada |

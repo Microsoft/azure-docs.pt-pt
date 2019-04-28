@@ -4,21 +4,21 @@ description: Utilizar um dispositivo Azure IoT Edge como gateway transparente qu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/29/2018
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 722ee6197b467454818026c960e1ce0e5b39efb4
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699018"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766317"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como gateway transparente
 
-Este artigo fornece instruções detalhadas para a configuração de dispositivos do IoT Edge para funcionar como gateway transparente para outros dispositivos comunicar com IoT Hub. Neste artigo, o termo *gateway do IoT Edge* refere-se a um dispositivo IoT Edge utilizado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo do IoT Edge pode ser utilizado como um gateway](./iot-edge-as-gateway.md), que fornece uma descrição geral conceptual.
+Este artigo fornece instruções detalhadas para a configuração de dispositivos do IoT Edge para funcionar como gateway transparente para outros dispositivos comunicar com IoT Hub. Neste artigo, o termo *gateway do IoT Edge* refere-se a um dispositivo IoT Edge utilizado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo do IoT Edge pode ser utilizado como um gateway](./iot-edge-as-gateway.md).
 
 >[!NOTE]
 >Atualmente:
@@ -26,21 +26,21 @@ Este artigo fornece instruções detalhadas para a configuração de dispositivo
 > * Dispositivos com capacidade de borda não é possível ligar aos gateways de IoT Edge. 
 > * Dispositivos jusante não é possível utilizar o carregamento de ficheiros.
 
-Para um dispositivo funcionar como um gateway, ele precisa ser capaz de se liguem a dispositivos de downstream. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para configurar ligações seguras entre dispositivos. Neste caso, estamos está a permitir que um dispositivo downstream ligar a um dispositivo IoT Edge que atua como um gateway transparente. Para manter a segurança razoável, o dispositivo de downstream deve confirmar a identidade do dispositivo de limite, uma vez que apenas pretende que os dispositivos se liguem ao seus gateways e não um gateway potencialmente malicioso.
+Para um dispositivo funcionar como um gateway, ele precisa ser capaz de se liguem a dispositivos de downstream. O Azure IoT Edge permite-lhe utilizar uma infraestrutura de chaves públicas (PKI) para configurar ligações seguras entre dispositivos. Neste caso, estamos está a permitir que um dispositivo downstream ligar a um dispositivo IoT Edge que atua como um gateway transparente. Para manter a segurança razoável, o dispositivo de downstream deve confirmar a identidade do dispositivo IoT Edge. Pretende que os seus dispositivos a ligar apenas os gateways, não os gateways potencialmente maliciosos.
 
 Um dispositivo de downstream pode ser qualquer aplicação ou a plataforma que têm uma identidade criada com o [IoT Hub do Azure](https://docs.microsoft.com/azure/iot-hub) serviço em nuvem. Em muitos casos, estas aplicações se utilizar o [do Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). Para todos os fins práticos, um dispositivo de downstream ainda pode ser uma aplicação em execução no dispositivo de gateway do IoT Edge em si. 
 
-Pode criar qualquer infraestrutura de certificado que permite a confiança necessária para a sua topologia de gateway de dispositivo. Neste artigo, partimos do princípio a mesma configuração de certificado que pretende utilizar para ativar [segurança de AC X.509](../iot-hub/iot-hub-x509ca-overview.md) no IoT Hub, que envolve um certificado X.509 de AC associado a um hub de IoT específico (o IoT hub proprietário AC) e uma série de certificados, sessão iniciada com esta AC e uma autoridade de certificação para o dispositivo de limite.
+Pode criar qualquer infraestrutura de certificado que permite a confiança necessária para a sua topologia de gateway de dispositivo. Neste artigo, partimos do princípio a mesma configuração de certificado que pretende utilizar para ativar [segurança de AC X.509](../iot-hub/iot-hub-x509ca-overview.md) no IoT Hub, que envolve um certificado X.509 de AC associado a um hub de IoT específico (o IoT hub proprietário AC) e uma série de certificados, sessão iniciada com esta AC e uma autoridade de certificação para o dispositivo do IoT Edge.
 
 ![Configurar o certificado do gateway](./media/how-to-create-transparent-gateway/gateway-setup.png)
 
-O gateway apresenta o respetivo certificado de AC de dispositivo do Edge no dispositivo jusante durante a inicialização da ligação. O dispositivo de downstream verifica para se certificar de que o certificado de AC de dispositivo do Edge está assinado pelo certificado de AC de proprietário. Este processo permite ao dispositivo downstream confirmar se que o gateway é proveniente de uma origem fidedigna.
+O gateway apresenta o IoT Edge certificado de AC de dispositivo para o dispositivo jusante durante a inicialização da ligação. O dispositivo de downstream verifica para se certificar de que o certificado de AC de dispositivo do IoT Edge é assinado pelo certificado de AC proprietário. Este processo permite ao dispositivo downstream confirmar se que o gateway é proveniente de uma origem fidedigna.
 
 Os seguintes passos guiá-lo pelo processo de criação dos certificados e instalá-los nos locais corretos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Um dispositivo Azure IoT Edge para configurar como um gateway. Pode utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo IoT Edge com os passos para os seguintes sistemas operativos:
+Um dispositivo Azure IoT Edge para configurar como um gateway. Utilize os passos de instalação do IoT Edge para os seguintes sistemas operativos:
 * [Windows](./how-to-install-iot-edge-windows.md)
 * [Linux x64](./how-to-install-iot-edge-linux.md)
 * [ARM32 do Linux](./how-to-install-iot-edge-linux-arm.md)
@@ -52,7 +52,7 @@ Pode utilizar qualquer máquina para gerar os certificados e, em seguida, copie 
 
 ## <a name="generate-certificates-with-windows"></a>Gerar certificados com o Windows
 
-Utilize os passos nesta secção para gerar certificados de teste num dispositivo Windows. Pode gerar os certificados no seu dispositivo IoT Edge em si, ou utilizar uma máquina separada e copie os certificados finais para qualquer dispositivo IoT Edge com qualquer sistema operativo suportado. 
+Utilize os passos nesta secção para gerar certificados de teste num dispositivo Windows. Pode utilizar estes passos para gerar os certificados num dispositivo Windows IoT Edge. Em alternativa, pode gerar os certificados no seu computador de desenvolvimento do Windows e, em seguida, copiá-los a qualquer dispositivo IoT Edge. 
 
 Os certificados gerados nesta secção destinam-se para finalidades de teste. 
 
@@ -133,13 +133,13 @@ Nesta secção, crie três certificados e, em seguida, ligá-los numa cadeia. Co
       New-CACertsCertChain rsa
       ```
 
-2. Crie o certificado de AC de dispositivo do Edge e a chave privada com o seguinte comando. Forneça um nome para o dispositivo de gateway, que será utilizado para nomes aos ficheiros e durante a geração do certificado. 
+2. Crie o IoT Edge e chave privada de certificado de AC de dispositivo com o seguinte comando. Forneça um nome para o dispositivo de gateway, que será utilizado para nomes aos ficheiros e durante a geração do certificado. 
 
    ```powershell
    New-CACertsEdgeDevice "<gateway name>"
    ```
 
-3. Crie uma cadeia de certificados a partir do certificado de AC de proprietário, certificado intermédio e certificado de AC de dispositivo de periferia com o seguinte comando. 
+3. Crie uma cadeia de certificados a partir do certificado de AC de proprietário, certificado intermédio e certificado de AC do dispositivo IoT Edge com o seguinte comando. 
 
    ```powershell
    Write-CACertsCertificatesForEdgeDevice "<gateway name>"
@@ -193,7 +193,7 @@ Nesta secção, crie três certificados e, em seguida, ligá-los numa cadeia. Pe
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2. Crie o certificado de AC de dispositivo do Edge e a chave privada com o seguinte comando. Forneça um nome para o dispositivo de gateway, que será utilizado para nomes aos ficheiros e durante a geração do certificado. 
+2. Crie o IoT Edge e chave privada de certificado de AC de dispositivo com o seguinte comando. Forneça um nome para o dispositivo de gateway, que será utilizado para nomes aos ficheiros e durante a geração do certificado. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"
@@ -203,7 +203,7 @@ Nesta secção, crie três certificados e, em seguida, ligá-los numa cadeia. Pe
    * `<WRKDIR>/certs/new-edge-device.*`
    * `<WRKDIR>/private/new-edge-device.key.pem`
 
-3. Criar uma cadeia de certificados chamada **novo-edge-dispositivo-full-chain.cert.pem** do certificado de AC de proprietário, o certificado intermédio e o certificado de AC do dispositivo do Edge.
+3. Criar uma cadeia de certificados chamada **novo-edge-dispositivo-full-chain.cert.pem** do certificado de AC de proprietário, o certificado intermédio e o certificado de AC do dispositivo do IoT Edge.
 
    ```bash
    cat ./certs/new-edge-device.cert.pem ./certs/azure-iot-test-only.intermediate.cert.pem ./certs/azure-iot-test-only.root.ca.cert.pem > ./certs/new-edge-device-full-chain.cert.pem
@@ -215,7 +215,7 @@ Agora que fez uma cadeia de certificados, terá de instalá-lo no dispositivo de
 
 1. Copie os seguintes ficheiros da  *\<WRKDIR >*. Salvá-los em qualquer lugar no seu dispositivo IoT Edge. Faremos referência para o diretório de destino no seu dispositivo IoT Edge como  *\<CERTDIR >*. 
 
-   Se gerar os certificados no próprio dispositivo Edge, pode ignorar este passo e utilizar o caminho para o diretório de trabalho.
+   Se gerar os certificados no próprio dispositivo IoT Edge, pode ignorar este passo e utilizar o caminho para o diretório de trabalho.
 
    * Certificado de acesso condicional de dispositivo-  `<WRKDIR>\certs\new-edge-device-full-chain.cert.pem`
    * Chave privada de AC de dispositivo- `<WRKDIR>\private\new-edge-device.key.pem`
@@ -228,16 +228,28 @@ Agora que fez uma cadeia de certificados, terá de instalá-lo no dispositivo de
 
 3. Definir o **certificado** propriedades no ficheiro config.yaml para o caminho onde colocou os ficheiros de certificado e chave no dispositivo IoT Edge.
 
-```yaml
-certificates:
-  device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
-  trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
-```
+   * Windows:
+
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>\\certs\\new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>\\private\\new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>\\certs\\azure-iot-test-only.root.ca.cert.pem"
+      ```
+   
+   * Linux: 
+      ```yaml
+      certificates:
+        device_ca_cert: "<CERTDIR>/certs/new-edge-device-full-chain.cert.pem"
+        device_ca_pk: "<CERTDIR>/private/new-edge-device.key.pem"
+        trusted_ca_certs: "<CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem"
+      ```
+
+4. Em dispositivos de Linux, certifique-se de que o usuário **iotedge** tem permissões de leitura para o diretório que contém os certificados. 
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>Implementar EdgeHub para o gateway
 
-Ao instalar o IoT Edge num dispositivo, o módulo de apenas um sistema é iniciado automaticamente: o agente do Edge. Para o seu dispositivo funcionar como um gateway, terá de ambos os módulos do sistema. Se não tiver implementado quaisquer módulos para o seu dispositivo de gateway antes, crie uma implementação para o seu dispositivo iniciar o módulo de sistema segundo, o hub do Edge. A implementação terá um aspeto vazia porque não adicionar quaisquer módulos no assistente, mas irá implementar ambos os módulos do sistema. 
+Ao instalar o IoT Edge num dispositivo, o módulo de apenas um sistema é iniciado automaticamente: o agente do IoT Edge. Para o seu dispositivo funcionar como um gateway, terá de ambos os módulos do sistema. Se não tiver implementado quaisquer módulos para o seu dispositivo de gateway antes, crie uma implementação para o seu dispositivo iniciar o módulo de sistema segundo, o hub IoT Edge. A implementação terá um aspeto vazia porque não adicionar quaisquer módulos no assistente, mas irá implementar ambos os módulos do sistema. 
 
 Pode verificar quais os módulos estão em execução num dispositivo com o comando `iotedge list`.
 
@@ -265,7 +277,7 @@ Pode verificar quais os módulos estão em execução num dispositivo com o coma
 
 Dispositivos do IoT Edge padrão não tem qualquer conectividade de entrada para a função, porque todas as comunicações com o IoT Hub é feita por meio de conexões de saída. No entanto, os dispositivos de gateway são diferentes porque precisam de ser capaz de receber mensagens a partir dos seus dispositivos de downstream.
 
-Para um cenário de gateway funcione, pelo menos um dos protocolos com suporte do hub IoT Edge tem de estar aberto para tráfego de entrada dos dispositivos de downstream. Os portocols suportados são MQTT, AMQP e HTTPS.
+Para um cenário de gateway funcione, pelo menos um dos protocolos com suporte do hub IoT Edge tem de estar aberto para tráfego de entrada dos dispositivos de downstream. Os protocolos suportados são MQTT, AMQP e HTTPS.
 
 | Porta | Protocolo |
 | ---- | -------- |
@@ -274,7 +286,7 @@ Para um cenário de gateway funcione, pelo menos um dos protocolos com suporte d
 | 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Encaminhar mensagens a partir de dispositivos de downstream
-O runtime do IoT Edge pode encaminhar mensagens enviadas a partir de dispositivos downstream, assim como as mensagens enviadas por módulos. Isto permite-lhe efetuar análises num módulo em execução no gateway antes de enviar quaisquer dados para a cloud. 
+O runtime do IoT Edge pode encaminhar mensagens enviadas a partir de dispositivos downstream, assim como as mensagens enviadas por módulos. Esta funcionalidade permite-lhe efetuar análises num módulo em execução no gateway antes de enviar quaisquer dados para a cloud. 
 
 Atualmente, a maneira que rotear as mensagens enviadas pelos dispositivos downstream é diferenciá-los de mensagens enviadas por módulos. As mensagens enviadas por todos os módulos de contenham uma propriedade de sistema chamada **connectionModuleId** mas não as mensagens enviadas pelos dispositivos downstream. Pode utilizar a cláusula WHERE da rota para excluir todas as mensagens que contêm essa propriedade de sistema. 
 

@@ -16,11 +16,11 @@ ms.date: 01/30/2019
 ms.author: aljo,suhuruli
 ms.custom: mvc
 ms.openlocfilehash: 183f27d752b99c04a711d8141db512c77b9848f9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664884"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122358"
 ---
 # <a name="quickstart-deploy-linux-containers-to-service-fabric"></a>Início rápido: Implementar contentores do Linux no Service Fabric
 

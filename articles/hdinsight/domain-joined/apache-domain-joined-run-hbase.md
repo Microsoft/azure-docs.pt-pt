@@ -1,18 +1,17 @@
 ---
 title: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package - Azure
 description: Saiba como configurar políticas do Apache Ranger para o HBase no HDInsight do Azure com o Enterprise Security Package.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 1421b142fbca83d2de46f52f8390d0c25f22780c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 61d3256ca169952ab3dda76914293a06a044d6eb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117290"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62113158"
 ---
 # <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package (pré-visualização)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f7a14e975a5ca3aee5588f55f43b28081c100074
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358170"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763900"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Melhores práticas para utilizar o serviço de pesquisa de mapas do Azure
 
@@ -132,9 +132,9 @@ O `language` parâmetro permite-lhe definir em qual pesquisa de idioma devem ser
 
 ### <a name="predictive-mode-auto-suggest"></a>Modo preditivo (Sugestão automática)
 
-Para localizar mais correspondências para consultas parciais, `typeHead` parâmetro deve ser definido como 'true'. A consulta será interpretada como uma entrada parcial e a pesquisa entrará no modo de previsão. Caso contrário, o serviço supor que foi transmitidas em todas as informações relevantes.
+Para localizar mais correspondências para consultas parciais, `typeahead` parâmetro deve ser definido como 'true'. A consulta será interpretada como uma entrada parcial e a pesquisa entrará no modo de previsão. Caso contrário, o serviço supor que foi transmitidas em todas as informações relevantes.
 
-No exemplo de consulta abaixo, pode ver que o serviço de endereço de pesquisa é consultada para "Microsoft" com o `typehead` parâmetro definido como **true**. Se observar a resposta, pode ver que o serviço de pesquisa interpretado a consulta como parcial consulta e resposta contém resultados de consulta de sugeridas automática.
+No exemplo de consulta abaixo, pode ver que o serviço de endereço de pesquisa é consultada para "Microsoft" com o `typeahead` parâmetro definido como **true**. Se observar a resposta, pode ver que o serviço de pesquisa interpretado a consulta como parcial consulta e resposta contém resultados de consulta de sugeridas automática.
 
 **Consulta de exemplo:**
 

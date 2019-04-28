@@ -5,15 +5,15 @@ services: storage
 author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
+ms.date: 04/23/2019
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: MT
+ms.openlocfilehash: d9055b0c0decbeca0bb43969af4e854c396c3bb6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506130"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764225"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Eliminação de forma recuperável para blobs de armazenamento do Azure
 O armazenamento do Azure agora oferece a eliminação de forma recuperável para objetos de blob, para que mais facilmente podem recuperar seus dados quando incorretamente é modificada ou eliminada por uma aplicação ou outro utilizador da conta de armazenamento.
@@ -278,6 +278,9 @@ blockBlob.StartCopy(copySource);
 Se é provável que os seus dados acidentalmente são modificados ou eliminados por uma aplicação ou outro utilizador da conta de armazenamento, recomendamos que Ativando a eliminação de forma recuperável. Eliminação de forma recuperável é uma parte de uma estratégia de proteção de dados e pode ajudar a evitar perda de dados acidentais.
 
 ## <a name="faq"></a>FAQ
+**Existem implicam considerações especiais para utilizar a eliminação de forma recuperável?**  
+Ativar eliminação de forma recuperável para dados frequentemente substituídas poderá resultar em encargos de capacidade de armazenamento maiores e maior latência quando lista os blobs. Pode mitigar isso ao armazenar os dados com frequência substituídos numa conta de armazenamento separada com eliminação de forma recuperável desativada. 
+
 **Para quais tipos de armazenamento posso utilizar eliminação de forma recuperável?**  
 Atualmente, a eliminação de forma recuperável só está disponível para armazenamento de blob (objeto).
 

@@ -16,11 +16,11 @@ ms.date: 05/15/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1e5dc81b8e4f761eb6288832b0e82e4484e0214f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: MT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176225"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108582"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-softeon-wms"></a>Tutorial: Integração do Active Directory do Azure com o Softeon WMS
 

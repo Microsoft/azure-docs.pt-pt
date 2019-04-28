@@ -7,11 +7,11 @@ ms.service: data-catalog
 ms.topic: tutorial
 ms.date: 04/08/2019
 ms.openlocfilehash: 91f7967915fd19ae47ca207913f979aa56fcd27f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011712"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116702"
 ---
 # <a name="tutorial-register-data-assets-in-azure-data-catalog"></a>Tutorial: Registar recursos de dados no Catálogo de Dados do Azure
 

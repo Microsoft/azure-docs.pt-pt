@@ -1,15 +1,10 @@
 ---
-author: ecfan
-ms.service: logic-apps
-ms.topic: include
-ms.date: 11/03/2016
-ms.author: estfan
 ms.openlocfilehash: 65f1e6d2489775a17ba2dacef0623706364fffab
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091773"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62108986"
 ---
 ### <a name="prerequisites"></a>Pré-requisitos
 * Uma [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) conta  

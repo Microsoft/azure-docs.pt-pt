@@ -1,7 +1,6 @@
 ---
 title: Migrar clusters do Apache Hadoop no local para o Azure HDInsight - motivação e benefícios
 description: Aprenda a motivação e os benefícios para migrar clusters do Hadoop no local para Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 73a2f0754cafaa5da09ebd437ecd62813296ffd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: MT
+ms.openlocfilehash: b45fb5cbfbef334b40ccadecd32f65fa9a59a610
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890084"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62095545"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrar clusters do Apache Hadoop no local para o Azure HDInsight - motivação e benefícios
 

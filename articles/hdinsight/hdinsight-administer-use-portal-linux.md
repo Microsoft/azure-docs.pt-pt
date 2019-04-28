@@ -1,7 +1,6 @@
 ---
 title: Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure
 description: Saiba como criar e gerir clusters do HDInsight com o portal do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 80c27d588bb8b4c60ae8432fbd3a2ac3d2db1394
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 003aeadba1f4683af40f390d40dd3bbe32e02a83
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58802665"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096367"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure
 
@@ -107,7 +106,7 @@ Partir do [home page do cluster](#homePage), em **definições** selecione **pro
 |Data de criação|A data em que o cluster foi implementado.|
 |Sistema operativo|Qualquer um dos **Windows** ou **Linux**.|
 |Type|Hadoop, HBase, Storm, Spark.|
-|Versão|Ver [versões do HDInsight](hdinsight-component-versioning.md).|
+|Version|Ver [versões do HDInsight](hdinsight-component-versioning.md).|
 |Subscrição|Nome da subscrição.|
 |Origem de dados predefinida|O sistema de ficheiros de cluster predefinido.|
 |Tamanho de nós de trabalho|O tamanho da VM selecionado de nós de trabalho.|
@@ -265,7 +264,7 @@ A palavra-passe é alterada em todos os nós do cluster.
 4. Partir do **ações de Script** painel, selecione **submeter novo**. 
 5. Partir do **submeter ação de script** painel, introduza as seguintes informações:
 
-   | Campo | Valor |
+   | Campo | Value |
    | --- | --- |
    | Tipo de script | Selecione **- personalizado** na lista pendente.|
    | Name |"Alterar ssh palavra-passe" |

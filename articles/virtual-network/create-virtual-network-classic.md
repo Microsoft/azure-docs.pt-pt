@@ -17,11 +17,11 @@ ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
 ms.openlocfilehash: e40648ef47b108050486d43eefdb1564786c053e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098121"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Criar uma rede virtual (clássica) com várias sub-redes
 
@@ -47,7 +47,7 @@ Pode criar uma rede virtual (clássico) com o [portal do Azure](#portal), o [int
 
     |Definição|Valor|
     |---|---|
-    |Nome|myVnet|
+    |Name|myVnet|
     |Espaço de endereços|10.0.0.0/16|
     |Nome da sub-rede|Público|
     |Intervalo de endereços da sub-rede|10.0.0.0/24|
@@ -98,7 +98,7 @@ Pode criar uma rede virtual (clássico) com o [portal do Azure](#portal), o [int
     azure network vnet show --vnet myVnet
     ```
 
-7. **Opcional**: pode querer eliminar os recursos que criou quando terminar este tutorial, para que não a incorrer em custos de utilização:
+7. **Opcional**: Pode querer eliminar os recursos que criou quando terminar este tutorial, para que não a incorrer em custos de utilização:
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ Pode criar uma rede virtual (clássico) com o [portal do Azure](#portal), o [int
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **Opcional**: pode querer eliminar os recursos que criou quando terminar este tutorial, para que não a incorrer em custos de utilização. Para eliminar a rede virtual, concluído os passos 4 a 6 novamente, este tempo, remover os **VirtualNetworkSite** elemento que adicionou no passo 5.
+8. **Opcional**: Pode querer eliminar os recursos que criou quando terminar este tutorial, para que não a incorrer em custos de utilização. Para eliminar a rede virtual, concluído os passos 4 a 6 novamente, este tempo, remover os **VirtualNetworkSite** elemento que adicionou no passo 5.
  
 > [!NOTE]
 > Apesar de não é possível especificar um grupo de recursos para criar uma rede virtual (clássica) com o PowerShell, o Azure cria a rede virtual no grupo de recursos chamado *sistema de rede padrão*.

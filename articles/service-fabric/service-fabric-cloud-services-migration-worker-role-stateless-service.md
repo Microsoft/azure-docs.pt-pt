@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.openlocfilehash: 10fb44b0e76282ad78e7687beaa2e50e819e5cd9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667723"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62110014"
 ---
 # <a name="guide-to-converting-web-and-worker-roles-to-service-fabric-stateless-services"></a>Guia de conversão de Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric
 Este artigo descreve como migrar a sua Cloud dos serviços Web e funções de trabalho para serviços sem monitoração de estado do Service Fabric. Este é o mais simples caminho de migração dos serviços Cloud para o Service Fabric para aplicativos cuja arquitetura geral vai manter-se mais ou menos o mesmo.

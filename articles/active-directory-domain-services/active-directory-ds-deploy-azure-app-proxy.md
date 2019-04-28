@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
 ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099632"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104138"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Implementar o Proxy de aplicações do Azure AD num domínio gerido do Azure AD Domain Services
 Proxy de aplicações do Azure Active Directory (AD) ajuda-o a oferecer suporte a funcionários remotos ao publicar aplicações no local para ser acedido através da internet. Com o Azure AD Domain Services, pode agora migração lift-and-shift aplicações legadas em execução no local para serviços de infraestrutura do Azure. Em seguida, pode publicar esses aplicativos usando o Proxy de aplicações do Azure AD, para fornecer acesso remoto seguro aos utilizadores na sua organização.
@@ -49,7 +49,7 @@ Execute os seguintes passos para ativar o Proxy de aplicação do Azure AD para 
     ![Selecione o diretório do Azure AD](./media/app-proxy/app-proxy-enable-start.png)
 3. Clique em **proxy de aplicações**. Se não tiver uma subscrição do Azure AD básico ou do Azure AD Premium, verá uma opção para ativar uma versão de avaliação. Botão de alternar **ativar o Proxy de aplicações?** para **ativar** e clique em **guardar**.
 
-    ![Ativar o Proxy da aplicação](./media/app-proxy/app-proxy-enable-proxy-blade.png)
+    ![Ativar Proxy de aplicações](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. Para transferir o conector, clique nas **conector** botão.
 
     ![Transferir conector](./media/app-proxy/app-proxy-enabled-download-connector.png)

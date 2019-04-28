@@ -2,7 +2,6 @@
 title: Ferramentas do HDInsight do Azure - utilizar o Visual Studio Code para Hive, LLAP ou PySpark | Documentos da Microsoft
 description: Saiba como utilizar o Azure HDInsight Tools para Visual Studio Code para criar e submeter consultas e scripts.
 Keywords: Visual Studio Code, ferramentas do Azure HDInsight, Hive, Python, PySpark, Spark, HDInsight, Hadoop, LLAP, interativas do Hive, Interactive Query
-services: HDInsight
 documentationcenter: ''
 author: hrasheed-msft
 ms.author: hrasheed
@@ -10,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
-ms.openlocfilehash: 71e12e661c704af028ac4dc48f255bdee980619c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098342"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 
@@ -307,7 +306,7 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
     **POST /batches**   
     Corpo do Pedido
 
-    | nome | descrição | tipo | 
+    | nome | description | tipo | 
     | :- | :- | :- | 
     | ficheiro | Ficheiro que contém o aplicativo para executar | caminho (obrigatório) | 
     | proxyUser | Utilizador representar ao executar a tarefa | string | 
@@ -329,7 +328,7 @@ Enviar um ficheiro, observe que a pasta de .vscode foi adicionada automaticament
     Corpo da Resposta   
     O objeto criado do Batch.
 
-    | nome | descrição | tipo | 
+    | nome | description | tipo | 
     | :- | :- | :- | 
     | ID | O id de sessão | int | 
     | appId | O id de aplicação desta sessão |  String |

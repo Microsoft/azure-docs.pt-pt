@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 12/31/2018
 ms.author: raynew
 ms.openlocfilehash: a6be2fbbf946f13213f95b8876cfdddfa2ffbe67
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098172"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar a recuperação após desastre para o Azure para servidores físicos no local
 

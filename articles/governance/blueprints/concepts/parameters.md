@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59279980"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63767003"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 
@@ -169,7 +169,7 @@ Criando **parâmetros estáticos** num artefato é semelhante, mas que assume um
 
 ### <a name="dynamic-parameters"></a>Parâmetros dinâmicos
 
-O oposto de um parâmetro estático é um **parâmetro dinâmico**. Este parâmetro não está definido no esquema, mas em vez disso, é definido durante a cada atribuição do esquema. O exemplo de grupo de recursos, a utilização de um **parâmetro dinâmico** faz sentido para o nome do grupo de recursos. Ele fornece um nome diferente para cada atribuição do esquema.
+O oposto de um parâmetro estático é um **parâmetro dinâmico**. Este parâmetro não está definido no esquema, mas em vez disso, é definido durante a cada atribuição do esquema. O exemplo de grupo de recursos, a utilização de um **parâmetro dinâmico** faz sentido para o nome do grupo de recursos. Ele fornece um nome diferente para cada atribuição do esquema. Para obter uma lista de funções de esquema, consulte a [esquema funções](../reference/blueprint-functions.md) referência.
 
 #### <a name="setting-dynamic-parameters-in-the-portal"></a>Definir parâmetros dinâmicos no portal
 
@@ -185,9 +185,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Este parâme
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definir parâmetros dinâmicos a partir da API REST
 
-A definição **parâmetros dinâmicos** durante a atribuição é feito ao introduzir o valor diretamente.
-Em vez de usar uma função, como `parameters()`, o valor fornecido é uma cadeia de caracteres apropriada.
-Artefactos para um grupo de recursos são definidos com um "nome de modelo," **name**, e **localização** propriedades. Todos os outros parâmetros para artefactos incluídos são definidos em **parâmetros** com um **\<nome\>** e **valor** par de chaves. Se o esquema estiver configurado para um parâmetro dinâmico, que não foi fornecido durante a atribuição, a atribuição irá falhar.
+A definição **parâmetros dinâmicos** durante a atribuição é feito ao introduzir o valor diretamente. Em vez de usar uma função, como [parameters()](../reference/blueprint-functions.md#parameters), o valor fornecido é uma cadeia de caracteres apropriada. Artefactos para um grupo de recursos são definidos com um "nome de modelo," **name**, e **localização** propriedades. Todos os outros parâmetros para artefactos incluídos são definidos em **parâmetros** com um **\<nome\>** e **valor** par de chaves. Se o esquema estiver configurado para um parâmetro dinâmico, que não foi fornecido durante a atribuição, a atribuição irá falhar.
 
 - URI da API REST
 
@@ -240,6 +238,7 @@ Artefactos para um grupo de recursos são definidos com um "nome de modelo," **n
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+- Ver a lista de [esquema funções](../reference/blueprint-functions.md).
 - Saiba mais sobre o [ciclo de vida de um esquema](lifecycle.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).

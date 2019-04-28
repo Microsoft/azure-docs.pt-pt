@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tulasim
-ms.openlocfilehash: c18ededc428b215720f8a6a6857a2eabd93bff8b
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683615"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765660"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API de GenerateAnswer e metadados
 
@@ -83,6 +83,7 @@ O corpo JSON tem várias definições:
 |`question`|obrigatório|string|Uma pergunta do utilizador sejam enviados para a sua base de dados de conhecimento.|
 |`top`|opcional|inteiro|O número de resultados classificados a incluir na saída. O valor predefinido é 1.|
 |`userId`|opcional|string|Um ID exclusivo para identificar o utilizador. Este ID será registado nos logs de bate-papo.|
+|`scoreThreshold`|opcional|inteiro|Apenas respostas com pontuação de confiança acima deste limiar vão ser devolvidas. O valor predefinido é 0.|
 |`isTest`|opcional|boolean|Se definido como true, devolve resultados de `testkb` índice de pesquisa, em vez de índice publicado.|
 |`strictFilters`|opcional|string|Se for especificado, informa ao QnA Maker para devolver apenas as respostas que tenham os metadados especificados. Utilize `none` para indicar a resposta não deve ter nenhum filtro de metadados. |
 
@@ -93,6 +94,7 @@ Um exemplo de corpo JSON é semelhante a:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
+    "scoreThreshold": 20,
     "strictFilters": [
     {
         "name": "category",

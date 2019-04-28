@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5c098c6c22b079d586c0bd808df9af4a737c17a8
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521857"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62096249"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utilizar o DNS do Azure para fornecer definições de domínio personalizado para um serviço do Azure
 
@@ -38,7 +38,7 @@ Tenha em atenção o atual url no **domínios personalizados** painel, este ende
 
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
 |Name     | myfunctionapp        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
@@ -63,7 +63,7 @@ Navegue para **Networking** > **endereço IP público**, selecione o recurso de 
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
 |Name     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Type     | A        | Utilize um registo, como o recurso é um endereço IP.        |
@@ -90,7 +90,7 @@ Tenha em atenção o atual url no **domínios personalizados** painel, este ende
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
 |Name     | mywebserver        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias. Se o recurso utilizado um endereço IP, seria usado um registo.        |
@@ -124,7 +124,7 @@ Navegue para **armazenamento** > **contas de armazenamento**, selecione a sua co
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
 |Name     | asverify.mystorageaccount        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |
@@ -152,7 +152,7 @@ Selecione o ponto final que está a trabalhar e clique em **+ domínio personali
 
 Navegue para a zona DNS e clique em **+ conjunto de registos**. Preencha as seguintes informações sobre o **adicionar conjunto de registos** painel e clique em **OK** para criá-lo.
 
-|Propriedade  |Valor  |Descrição  |
+|Propriedade  |Value  |Descrição  |
 |---------|---------|---------|
 |Name     | cdnverify.mycdnendpoint        | Este valor, juntamente com a etiqueta de nome de domínio é o FQDN para o nome de domínio personalizado.        |
 |Type     | CNAME        | Utilize um registo CNAME está a utilizar um alias.        |

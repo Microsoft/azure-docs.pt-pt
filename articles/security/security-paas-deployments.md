@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/05/2019
 ms.author: terrylan
 ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107451"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -111,7 +111,7 @@ A tabela seguinte lista as ameaças STRIDE e fornece algumas mitigações de exe
 
 | Ameaças | Propriedade de segurança | Possíveis mitigações de plataforma do Azure |
 | --- | --- | --- |
-| Spoofing | Authentication | Exigir ligações HTTPS. |
+| Spoofing | Autenticação | Exigir ligações HTTPS. |
 | Adulteração | Integridade | Valide certificados SSL. |
 | Rejeição | Não repudiação | Ativar o Azure [monitorização e diagnóstico](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Divulgação de informações | Confidencialidade | Encriptar dados confidenciais Inativos utilizando [certificados de serviço](https://docs.microsoft.com/rest/api/appservice/certificates). |

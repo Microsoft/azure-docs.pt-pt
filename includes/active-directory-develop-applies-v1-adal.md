@@ -15,13 +15,13 @@ ms.date: 08/26/2018
 ms.author: andret
 ms.custom: include file
 ms.openlocfilehash: d6a58ae06749ec5ddc92e098d88a0817d1ff1b40
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843564"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298559"
 ---
 |   |
 |---|
-| **Aplica-se a:**<br><ul><li>Ponto final de versão 1.0 do Azure AD<li>O Azure Active Directory Authentication Library (ADAL)</ul> |
+| **Aplica-se a:**<br><ul><li>Ponto final do Azure AD v1.0<li>O Azure Active Directory Authentication Library (ADAL)</ul> |
 |   |

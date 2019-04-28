@@ -12,11 +12,11 @@ ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
 ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230664"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104991"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Monitorizar e gerir o Twitter através do Azure Logic Apps
 
@@ -70,15 +70,15 @@ Pode usar acionadores que obtém as respostas da sua conta do Twitter e disponib
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Acionador do twitter: quando um novo tweet é publicado
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Acionador do twitter: Quando um novo tweet é publicado
 
 Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando o acionador detetar um novo tweet, por exemplo, com o hashtag, #Seattle. Por exemplo, quando são encontrados esses tweets, pode adicionar um ficheiro com o conteúdo dos tweets no armazenamento, como uma conta do Dropbox ao utilizar o conector da Dropbox. 
 
 Opcionalmente, pode incluir uma condição que tweets elegíveis deverão ser provenientes de utilizadores com, pelo menos, um número especificado de seguidores.
 
-**Exemplo de Enterprise**: pode utilizar este acionador para monitorizar tweets sobre a sua empresa e carregar o conteúdo dos tweets numa base de dados SQL.
+**Exemplo de Enterprise**: Pode utilizar este acionador para monitorizar tweets sobre a sua empresa e carregar o conteúdo dos tweets numa base de dados SQL.
 
-### <a name="twitter-action-post-a-tweet"></a>Ação do twitter: publicar um tweet
+### <a name="twitter-action-post-a-tweet"></a>Ação de twitter: Publicar um tweet
 
 Esta ação publica um tweet, mas pode configurar a ação para que o tweet contém o conteúdo de tweets encontrados pelo acionador descrito anteriormente. 
 

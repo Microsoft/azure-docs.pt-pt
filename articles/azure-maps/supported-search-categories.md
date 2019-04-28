@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437350"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763563"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorias de suporte do Azure Maps
 
@@ -105,7 +105,7 @@ Ao efetuar uma [pesquisa de categoria](https://docs.microsoft.com/rest/api/maps/
 | REPARAÇÃO\_INSTALAÇÕES | bodyshops, serviços de tyre (tire), lojas de reparação, lojas de substituição de vidro do carro, reparação de carro gerais de manutenção, instalação de venda de acessórios de carro, o reparo motociclo, o serviço de reparação de camião, reparar instalação |
 | PESQUISA\_INSTALAÇÕES | recurso de pesquisa |
 | RESIDÊNCIA\_ACCOMMODATION | Comunidade de extinção, townhouse complexa, complexo de flats/apartamento, património de complexos, residencial condominium, accommodation residencial |
-| RESTAURANTE | Alemão, creole Cajun, Holandês, salas de banquet, bistro, Israel, eslovaco, Jamaican, vegetariano, seafood, vietnamita, Maltês, Sichuan, welsh, chinês, japonês, Argelino, Californian, fusion, Shandong, barra salad, Savoy um, espanhol, Birr, Taiwanês, doughnuts, iraniano, Canadá, América, norueguês, francês, Hunan, Polynesian, afghan, escolha, oriental, Suíça, erotic, crêperie, Surinamese, Egyptian, húngaro, Nepalese, barbecue, pot de acesso frequente, o hambúrguer, Mediterrâneo, América Latina, tapas, British, México, Guangdong, asiático (outro), buffet, internacional de Mongol, estragado, mussels, tailandês, Bolívar, Rumanian, galinha, letrinhas, limpo, a casa steak, a barra de yogurt/Juice (suco), italiano, coreano, Cypriot, Bósnio, boliviano, Dominicana, Bélgica, tunisino, Gaélico, Inglês, Pakistani, checo, havaiano, Maghrib, Tibetano, Abu Dhabi, intermédia leste, chileno, Xangai, polonês, Filipino, Sudanese, Armênio, Birmanês, português (Brasil), Scandinavian, búlgaro, alma comida, colombiano, Jewish, pizza, Sicilian, orgânica, grego, basco, Uruguaio, cafeterias, finlandês, Centro-Africana, Corso, Síria, Caribe, Dongbei, russo, grill, retire, fast-food, pub irlandês, da Austrália, comida, fondue, Lebanese, indonésio, dinamarquês, Provençal, teppanyaki, território continental Rupia da Mauritânia, Ocidental, Novo, Riel, dicas, sueco, macrobiotic, sorvete parlor, Slavic, turco, Argentinean, como, exóticos, português, Luxembourgian, Maroko, restaurante de sanduíche, nos EUA, |
+| RESTAURANTE | Alemão, creole Cajun, Holandês, salas de banquet, bistro, Israel, eslovaco, Jamaican, vegetariano, seafood, vietnamita, Maltês, Sichuan, welsh, chinês, japonês, Argelino, Californian, fusion, Shandong, barra salad, Savoy um, espanhol, Birr, Taiwanês, doughnuts, iraniano, Canadá, América, norueguês, francês, Hunan, Polynesian, afghan, escolha, asiático, Suíça, erotic, crêperie, Surinamese, Egyptian, húngaro, Nepalese, barbecue, pot de acesso frequente, o hambúrguer, Mediterrâneo, América Latina, tapas, British, México, Guangdong, asiático (outro), buffet, internacional de Mongol, estragado, mussels, tailandês, Bolívar, Rumanian, galinha, letrinhas, limpo, a casa steak, a barra de yogurt/Juice (suco), italiano, coreano, Cypriot, Bósnio, boliviano, Dominicana, Bélgica, tunisino, Gaélico, Inglês, Pakistani, checo, havaiano, Maghrib, Tibetano, Abu Dhabi, intermédia leste, chileno, Xangai, polonês, Filipino, Sudanese, Armênio, Birmanês, português (Brasil), Scandinavian, búlgaro, alma comida, colombiano, Jewish, pizza, Sicilian, orgânica, grego, basco, Uruguaio, cafeterias, finlandês, Centro-Africana, Corso, Síria, Caribe, Dongbei, russo, grill, retire, fast-food, pub irlandês, da Austrália, comida, fondue, Lebanese, indonésio, dinamarquês, Provençal, teppanyaki, território continental Rupia da Mauritânia, Ocidental, Novo, Riel, dicas, sueco, macrobiotic, sorvete parlor, Slavic, turco, Argentinean, como, exóticos, português, Luxembourgian, Maroko, restaurante de sanduíche, nos EUA, |
 | RESTAURANT\_AREA | área de restaurante |
 | REST\_AREA | área de REST, interrompendo a local |
 | SCENIC\_PANORAMIC\_VISTA | exibição scenic/Panorâmica, ponto de observação |

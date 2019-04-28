@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f6db40a35c289fa0870ac4c9e5e55b773c84f4f4
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679232"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63765754"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Atributos comuns de segurança para o Azure Service Fabric
 
@@ -28,7 +28,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim | O cliente possui o cluster e o conjunto no qual o cluster é criado de dimensionamento de máquina virtual. Encriptação de disco do Azure pode ser ativada no conjunto de dimensionamento de máquina virtual. |
 | Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim |  |
-| A manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | O cliente possui o cluster e o conjunto no qual o cluster é criado de dimensionamento de máquina virtual. Encriptação de disco do Azure pode ser ativada no conjunto de dimensionamento de máquina virtual. |
+| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | O cliente possui o cluster e o conjunto no qual o cluster é criado de dimensionamento de máquina virtual. Encriptação de disco do Azure pode ser ativada no conjunto de dimensionamento de máquina virtual. |
 | Encriptação de nível de coluna (Serviços de dados do Azure)| N/A |  |
 | Chamadas de API encriptadas| Sim | Chamadas de API do Service Fabric são feitas através do Gestor de recursos do Azure. Um válido JSON web tokens (JWT) é necessário. |
 
@@ -37,9 +37,9 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Suporte de ponto final de serviço| Sim |  |
-| suporte de Injeção de vNET| Sim |  |
-| Isolamento de rede / suporte de firewall| Sim | Utilizar grupos de segurança de rede (NSG). |
-| Suporte para protocolo de túnel forçado | Sim | Redes do Azure fornecem um túnel forçado. |
+| suporte de injeção de vNET| Sim |  |
+| Isolamento de rede e o suporte de firewall| Sim | Utilizar grupos de segurança de rede (NSG). |
+| Suporte de encapsulamento de forçado| Sim | Redes do Azure fornecem um túnel forçado. |
 
 ## <a name="detection"></a>Deteção
 
@@ -47,23 +47,23 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Usando o suporte de terceiros e de suporte de monitorização do Azure. |
 
-## <a name="iam-support"></a>Suporte IAM
+## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Gestão de acesso - autenticação| Sim | A autenticação é através do Azure Active Directory. |
-| Gestão de acesso - autorização| Sim | Gestão identidades e acessos (IAM) para chamadas via SFRP. Chamadas diretamente para o ponto de final de cluster suporta duas funções: Utilizador e administrador. O cliente pode mapear as APIs para cada função. |
+| Autenticação| Sim | A autenticação é através do Azure Active Directory. |
+| Autorização| Sim | Gestão identidades e acessos (IAM) para chamadas via SFRP. Chamadas diretamente para o ponto de final de cluster suporta duas funções: Utilizador e administrador. O cliente pode mapear as APIs para cada função. |
 
 
 ## <a name="audit-trail"></a>Registo de Auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Planear a gestão/controlo e auditoria do registo| Sim | Todas as operações do painel de controle executadas através de processos de auditoria e aprovações. |
-| Registo e auditoria do plano de dados| N/A | Cliente é o proprietário do cluster.  |
+| Auditoria e registo de plano de controlo e gestão| Sim | Todas as operações do painel de controle executadas através de processos de auditoria e aprovações. |
+| Auditoria e registo de plano de dados| N/A | Cliente é o proprietário do cluster.  |
 
 ## <a name="configuration-management"></a>Gestão da Configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | A configuração do serviço é uma versão e implementados com o Azure implementar. O código (aplicação ou tempo de execução) tem a mesma versão de através da compilação do Azure.
+| Suporte de gestão de configuração (controle de versão de configuração, etc.)| Sim | |

@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ms.openlocfilehash: 5a7c16e6ac565d1660fee02cb7df178344b195e7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254405"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122928"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao Azure Blob storage e o Visual Studio ligados (projetos de trabalho Web) de serviços
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -28,7 +28,7 @@ Este artigo fornece c# exemplos de código que mostram como acionar um processo 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Como acionar uma função, quando um blob é criado ou atualizado
 Esta secção mostra como utilizar o **BlobTrigger** atributo.
 
- **Nota:** o SDK do WebJobs analisa os ficheiros de registo para ver para blobs de novos ou alterados. Este processo é inerentemente lento; uma função pode não obter acionada por até vários minutos ou mais depois de criar o blob.  Se a sua aplicação precisa para processar blobs imediatamente, o método recomendado é criar uma mensagem de fila quando criar o blob e utilizar o **QueueTrigger** atributo em vez do **BlobTrigger** atributo na função que processa o blob.
+ **Nota:** O SDK do WebJobs analisa os ficheiros de registo para ver para blobs de novos ou alterados. Este processo é inerentemente lento; uma função pode não obter acionada por até vários minutos ou mais depois de criar o blob.  Se a sua aplicação precisa para processar blobs imediatamente, o método recomendado é criar uma mensagem de fila quando criar o blob e utilizar o **QueueTrigger** atributo em vez do **BlobTrigger** atributo na função que processa o blob.
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Marcador de posição única para o nome do blob com a extensão
 O código de exemplo seguinte copia os blobs de texto que aparecem na *entrada* contentor para o *saída* contentor:
@@ -193,7 +193,7 @@ O SDK de WebJobs torna-se de que não existem **BlobTrigger** função é chamad
 
 Os recibos de BLOBs são armazenados num contentor com o nome *anfitriões de webjobs do azure* na conta de armazenamento do Azure especificada pela cadeia de ligação de AzureWebJobsStorage. Um recibo de blob tem as seguintes informações:
 
-* A função que foi chamada para o blob ("*{nome do trabalho Web}*. Funções. *{Nome da função}*", por exemplo:"WebJob1.Functions.CopyBlob")
+* A função que foi chamada para o blob ("*{nome do trabalho Web}*. Funções. *{Nome da função}*", por exemplo: "WebJob1.Functions.CopyBlob")
 * O nome do contentor
 * O tipo de blob ("BlockBlob" ou "PageBlob")
 * O nome do blob
@@ -207,7 +207,7 @@ Para obter informações sobre como lidar com acionado por uma mensagem de fila 
 Tópicos relacionados esse artigo incluem o seguinte:
 
 * Funções de Async
-* Várias instâncias
+* Múltiplas instâncias
 * Encerramento correto
 * Utilizar atributos do SDK do WebJobs no corpo de uma função
 * Defina as cadeias de ligação do SDK no código.

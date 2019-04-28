@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 522dddde4994bb019e6547fcd18465b201f048d8
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: c2803ba598895834bb197f4a06ff0635354fcaca
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401732"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759974"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-data-box-edge"></a>Desenvolver um C# módulo do IoT Edge para mover ficheiros no limite da caixa de dados
 
@@ -36,7 +36,7 @@ O dispositivo do Edge de caixa de dados pode implementar e executar os módulos 
 2. O gerador de eventos do ficheiro cria um evento de ficheiro para cada ficheiro escrito para a partilha local. Os eventos de arquivo também são gerados quando um ficheiro é modificado. Os eventos de ficheiro, em seguida, são enviados para o Hub do IoT Edge (no runtime do IoT Edge).
 3. O módulo personalizado do IoT Edge processa o evento de arquivo para criar um objeto de evento de ficheiro que também contém um caminho relativo para o ficheiro. O módulo gera um caminho absoluto através do caminho de ficheiro relativo e copia o ficheiro da partilha de local para a partilha de cloud. O módulo, em seguida, elimina o ficheiro da partilha local.
 
-![Como funciona o módulo do Azure IoT Edge no limite da caixa de dados](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![Como funciona o módulo do Azure IoT Edge no limite da caixa de dados](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Depois do ficheiro está no compartilhamento de cloud, ele automaticamente é carregado para a sua conta de armazenamento do Azure.
 

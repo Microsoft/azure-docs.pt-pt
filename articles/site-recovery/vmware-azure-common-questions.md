@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/18/2019
+ms.date: 04/23/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62125564"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -245,11 +245,15 @@ Sim, mas tenha em atenção que a máquina física só pode ser falha volta a um
 
 No cofre dos serviços de recuperação, clique em **servidores de configuração** na **infraestrutura do Site Recovery** > **gerir**. Em seguida, em **servidores**, selecione **chave de registo do Download** para transferir o ficheiro de credenciais do cofre.
 
+## <a name="process-server"></a>Process Server
 
+### <a name="unable-to-select-process-server-during-enable-replication"></a>Não é possível selecionar o servidor de processos durante a ativar a replicação
 
+Da versão 9.24, são feitas melhorias para fornecer [orientação no produto](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre quando configurar um servidor de processos de escalamento horizontal. Isso é para evitar a limitação do servidor de processo e evitar a utilização do servidor de processos de mau estado de funcionamento.
 
+### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>O que devo fazer para obter o estado de funcionamento exata do servidor de processos?
 
-
+Atualizar componentes do Site Recovery para o [versões mais recentes](service-updates-how-to.md#links-to-currently-supported-update-rollups) (pelo menos 9.24 ou superior).
 
 ## <a name="failover-and-failback"></a>Ativação pós-falha e reativação pós-falha
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>Posso utilizar o servidor de processos no local para a reativação pós-falha?

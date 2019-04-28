@@ -7,14 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.author: maxluk
-ms.openlocfilehash: 8c37093b5369d2390942bc00c1531248bc4424c8
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
-ms.translationtype: MT
+orgin.date: 02/05/2018
+ms.date: 04/01/2019
+ms.author: v-yiso
+ms.openlocfilehash: 0e9d87e5b344b7091a2a0cf41d6f7fa3484dfcf3
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098580"
 ---
 # <a name="overview-of-apache-spark-structured-streaming"></a>Descrição geral do Apache Spark transmissão em fluxo estruturada
 
@@ -24,9 +25,9 @@ Aplicações de transmissão em fluxo estruturadas serem executadas em clusters 
 
 A transmissão em fluxo estruturada cria uma consulta de execução longa durante o qual aplicar operações para os dados de entrada, como seleção, projeção, agregação, janelas e associar o pacote de dados de transmissão em fluxo com referência DataFrames. Em seguida, enviar os resultados para armazenamento de ficheiros (Blobs de armazenamento do Azure ou armazenamento do Data Lake) ou para qualquer arquivo de dados com o código personalizado (por exemplo, a base de dados SQL ou o Power BI). A transmissão em fluxo estruturada também fornece a saída para a consola de depuração localmente e para uma tabela em memória para que possa ver os dados gerados para depuração no HDInsight. 
 
-![Transmissão em fluxo estruturada de Stream processar com o HDInsight e o Spark](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
+![Transmissão em fluxo estruturada de Stream processar com o HDInsight e o Spark ](./media/apache-spark-structured-streaming-overview/hdinsight-spark-structured-streaming.png)
 
-> [!NOTE]  
+> [!NOTE]
 > A transmissão estruturada do Spark é substituir o Spark Streaming (DStreams). Daqui em diante, transmissão em fluxo estruturada receberá aprimoramentos e manutenção, enquanto DStreams estará no modo de manutenção apenas. A transmissão em fluxo estruturada não está atualmente como recursos completos como DStreams para as origens e sinks que ele oferece suporte de imediato, portanto, avalie os requisitos para escolher o Spark apropriado a opção de processamento de fluxo. 
 
 ## <a name="streams-as-tables"></a>Fluxos como tabelas

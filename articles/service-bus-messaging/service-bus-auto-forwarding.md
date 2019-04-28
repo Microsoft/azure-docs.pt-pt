@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 85ab5e3bb963ee692e5b70af3eb90cc68cec361f
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
-ms.translationtype: MT
+ms.openlocfilehash: 86fa7f62230c0ae0530b67ff2384942c876083d4
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593391"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098597"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Encadeamento de entidades do Service Bus com autoforwarding
 
@@ -47,6 +47,10 @@ Também pode utilizar autoforwarding desassociar remetentes de mensagens dos des
 
 Se a Alice está em férias, seu pessoal fila, em vez do tópico ERP, é preenchida. Neste cenário, uma vez que um representante de vendas não recebeu quaisquer mensagens, nenhum dos tópicos de ERP nunca atingir quota.
 
+> [!NOTE]
+> Quando autoforwarding está configurada, o valor para AutoDeleteOnIdle no destino é automaticamente definido para o valor máximo do tipo de dados.
+> Isso é feito para garantir que existe sempre um destino para encaminhar a mensagem a.
+
 ## <a name="autoforwarding-considerations"></a>Considerações de Autoforwarding
 
 Se a entidade de destino acumula demasiadas mensagens e excede a quota, ou a entidade de destino está desativada, a entidade de origem adiciona as mensagens para seus [fila de mensagens não entregues](service-bus-dead-letter-queues.md) até que haja espaço no destino (ou a entidade seja ativado novamente). Essas mensagens continuam a live na fila de mensagens não entregues, para que deve receber explicitamente e processá-las a partir da fila de mensagens não entregues.
@@ -67,7 +71,7 @@ Para obter informações detalhadas sobre autoforwarding, consulte os seguintes 
 
 Para saber mais sobre as melhorias de desempenho do Service Bus, consulte 
 
-* [Melhores práticas para melhoramentos do desempenho através de mensagens do Service Bus](service-bus-performance-improvements.md)
+* [Melhores práticas para uma melhoria do desempenho com as Mensagens do Service Bus](service-bus-performance-improvements.md)
 * [Entidades de mensagens particionadas][Partitioned messaging entities].
 
 [QueueDescription.ForwardTo]: /dotnet/api/microsoft.servicebus.messaging.queuedescription.forwardto#Microsoft_ServiceBus_Messaging_QueueDescription_ForwardTo

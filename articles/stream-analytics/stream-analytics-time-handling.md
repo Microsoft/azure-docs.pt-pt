@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.openlocfilehash: 2a59a81b0894cbf58c5d3ab5a5569f4749b64b00
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543292"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760838"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Compreender a manipulação de tempo no Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Para melhor quadro de discussão, vamos definir alguns conceitos em segundo plan
 
 - **Tempo de processamento**: A hora quando o evento atinja o sistema de processamento e for observado. Por exemplo, quando um sensor de portagens incidir vê o sistema de computador e o carro demora alguns minutos a processar os dados.
 
-- **Limite de tamanho**: Um marcador de tempo do evento que indica todos os eventos até que ponto foi entrada para o processador de transmissão em fluxo. As marcas d'água deixar que o sistema indicam o progresso claro na ingestão de eventos. Pela natureza de fluxos, os dados de eventos recebidos nunca deixa de, pelo que as marcas d'água indicam o progresso até um certo ponto no fluxo.
+- **Limite de tamanho**: Um marcador de tempo do evento que indica até que ponto os eventos tiverem sido ingressed para o processador de transmissão em fluxo. As marcas d'água deixar que o sistema indicam o progresso claro na ingestão de eventos. Pela natureza de fluxos, os dados de eventos recebidos nunca deixa de, pelo que as marcas d'água indicam o progresso até um certo ponto no fluxo.
 
    O conceito de marca d'água é importante. As marcas d'água permitem o Stream Analytics para determinar quando o sistema pode produzir completa e correta e resultados repetíveis que não precisam ser retraí-la. O processamento pode ser feito de forma garantida é previsível e repetível. Por exemplo, se um recontar precisa ser feito para alguma condição de tratamento de erros, as marcas d'água são pontos seguro de início e fim.
 

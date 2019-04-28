@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cac267be026d0e472db9a7a321f5fff6ab3e917
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: fd8e380ad68b86b9ffd0f1e40efde8bdadfb19c5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434777"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763307"
 ---
 # <a name="delegate-a-subnet-to-azure-netapp-files"></a>Delegar uma sub-rede para os Azure NetApp Files 
 
@@ -30,7 +30,7 @@ Deve delegar uma sub-rede para ficheiros de NetApp do Azure.   Quando cria um vo
 * Cada rede Virtual do Azure (Vnet), apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.
 * Não é possível designar um grupo de segurança de rede ou a sub-rede do delegado de ponto de extremidade de serviço. Isso faz com que a delegação de sub-rede efetuar a ativação.
 * Acesso a um volume a partir de uma rede virtual em modo de peering globalmente não é atualmente suportado.
-* Criando [rotas personalizadas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) na sub-redes VM com o endereço de prefixo (destino) a uma sub-rede de delegado ao serviço ficheiros do Azure NetApp não é suportado e tem impacto sobre a conectividade de VMS.
+* Criando [rotas personalizadas definidas pelo utilizador](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#custom-routes) na sub-redes VM com o endereço de prefixo (destino) a uma sub-rede de delegado ao serviço ficheiros do Azure NetApp é suportado. Se o fizer, irá afetar a conectividade de VMS.
 
 ## <a name="steps"></a>Passos 
 1.  Vá para o **redes virtuais** painel do portal do Azure e selecione a rede virtual que pretende utilizar para os ficheiros do Azure NetApp.    

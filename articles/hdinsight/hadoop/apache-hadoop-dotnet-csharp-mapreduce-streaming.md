@@ -1,7 +1,6 @@
 ---
 title: Utilizar c# com o MapReduce do Hadoop no HDInsight - Azure
 description: Saiba como utilizar C# para criar soluções de MapReduce com o Apache Hadoop no HDInsight do Azure.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
@@ -9,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0c3525b73560d3edee5bffa7a391fcedeaaa1e48
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: b06f19736c4d50ab7d246a5c71da04ada95b6f98
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545099"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122052"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Utilize C# com o MapReduce de transmissão em fluxo no Apache Hadoop no HDInsight
 

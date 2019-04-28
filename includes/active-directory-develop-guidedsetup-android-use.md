@@ -15,11 +15,11 @@ ms.date: 09/13/2018
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: a0724cd743a841808d8aa7e5061ddfdaaac9a13c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203749"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250651"
 ---
 ## <a name="use-msal-to-get-a-token"></a>Utilizar a MSAL para obter um token
 

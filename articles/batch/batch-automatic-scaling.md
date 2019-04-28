@@ -16,11 +16,11 @@ ms.date: 06/20/2017
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: fdc2cd8f2218d50aa49d6b4eab2800eb6c92d9c9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869097"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62118116"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula de dimensionamento automática para dimensionar nós de computação de um conjunto do Batch
 
@@ -126,7 +126,7 @@ Esses tipos são suportados numa fórmula:
 * double
 * doubleVec
 * doubleVecList
-* cadeia
+* string
 * Timestamp – timestamp é uma estrutura composta que contém os seguintes membros:
 
   * ano
@@ -160,8 +160,8 @@ Estas operações são permitidas sobre os tipos que estão listados na secção
 | doubleVec *operador* doubleVec |+, -, *, / |doubleVec |
 | TimeInterval *operador* duplo |*, / |timeinterval |
 | TimeInterval *operador* timeinterval |+, - |timeinterval |
-| TimeInterval *operador* timestamp |+ |carimbo de data/hora |
-| Timestamp *operador* timeinterval |+ |carimbo de data/hora |
+| TimeInterval *operador* timestamp |+ |timestamp |
+| Timestamp *operador* timeinterval |+ |timestamp |
 | Timestamp *operador* timestamp |- |timeinterval |
 | *operador*duplo |-, ! |double |
 | *operator*timeinterval |- |timeinterval |
@@ -195,7 +195,7 @@ Estes predefinidos **funções** estão disponíveis para utilização na defini
 | std(doubleVecList) |double |Devolve o desvio-padrão de exemplo dos valores no doubleVecList. |
 | stop() | |Deixa de avaliação da expressão dimensionamento automático. |
 | sum(doubleVecList) |double |Devolve a soma de todos os componentes do doubleVecList. |
-| time(string dateTime="") |carimbo de data/hora |Devolve o carimbo de hora da hora atual se não existem parâmetros são transmitidos ou o carimbo de data / hora da cadeia de caracteres dateTime se ela é passada. Formatos suportados dateTime são W3C DTF e RFC 1123. |
+| time(string dateTime="") |timestamp |Devolve o carimbo de hora da hora atual se não existem parâmetros são transmitidos ou o carimbo de data / hora da cadeia de caracteres dateTime se ela é passada. Formatos suportados dateTime são W3C DTF e RFC 1123. |
 | VAL (v doubleVec, double i) |double |Devolve o valor do elemento que se encontra localização i em vetor v, com um índice de início de zero. |
 
 Algumas das funções que são descritas na tabela anterior podem aceitar uma lista como um argumento. A lista separada por vírgulas é qualquer combinação dos *duplo* e *doubleVec*. Por exemplo:

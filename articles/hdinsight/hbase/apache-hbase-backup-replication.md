@@ -1,7 +1,6 @@
 ---
 title: Configurar a cópia de segurança do Apache HBase e o Apache Phoenix e replicação - Azure HDInsight
 description: Configure a cópia de segurança e replicação HBase e Phoenix.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -9,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: d182d23bf4b3f4dc1ed42a737e8fe8b753c035ae
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: MT
+ms.openlocfilehash: e60aef7b1848197f41f96a1b5f5414bb0c8f4a15
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340743"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62114530"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>Configurar a cópia de segurança e a replicação para o Apache HBase e o Apache Phoenix no HDInsight
 

@@ -2,7 +2,6 @@
 title: Como monitorizar a disponibilidade do cluster com os registos do Ambari e o Azure Monitor
 description: Saiba como utilizar Ambari e registos do Azure Monitor para monitorizar o estado de funcionamento do cluster e a disponibilidade.
 keywords: monitorização, ambari, monitor, do log analytics, alerta, disponibilidade, estado de funcionamento
-services: hdinsight
 ms.reviewer: jasonh
 author: tylerfox
 ms.service: hdinsight
@@ -10,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: tyfox
-ms.openlocfilehash: 9bf0c0f45007f81312ac08230d571b727220bcd9
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 459de569916af14b0efea0ff08b92e5c93ed2369
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671491"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097054"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Como monitorizar a disponibilidade do cluster com os registos do Ambari e o Azure Monitor
 

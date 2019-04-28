@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/21/2019
 ms.author: juliako
-ms.openlocfilehash: 8f8af438d4034fc945a717fee0b720e3fe13cf56
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: a4c643ecff5c33ec19c607da6ef8db41cfeb90c6
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352005"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63762809"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analisar ficheiros de áudio e vídeos
 
@@ -33,8 +33,9 @@ Serviços de multimédia suportam atualmente pré-visualizando o analisador inte
 
 |**Nome da configuração predefinida**|**Cenário**|**Detalhes**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio única que contém a voz num único idioma. Pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região". Idiomas suportados são do inglês (en-US e en-GB), Espanhol ("es-ES" e "es-MX"), francês ("fr-FR"), Italiano ("it-IT"), japonês ('ja-JP"), português ("pt-BR"), chinês ("zh-CN"), alemão ("de-DE"), Árabe ("ar-por exemplo,"), russo ('ru-RU"), Híndi ("hi-IN" ) e coreano ('ko-KR').<br/><br/> Se o idioma não está especificado ou definido como deteção de idioma de nulo, automática irá escolher o primeiro idioma detetado e processar com o idioma selecionado para a duração do ficheiro. A funcionalidade de deteção de idioma automática suporta, atualmente, inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não suporta atualmente dinamicamente a alternância entre linguagens após o primeiro idioma é detetado. A funcionalidade de deteção de idioma automática funciona melhor com gravações de áudio com fala claramente discerníveis. Se a deteção de idioma automática não conseguir encontrar o idioma, a transcrição irá reverter para inglês.|
-|**VideoAnalyzerPreset**|Análise de áudio e vídeo|Extrai informações (metadados avançados) de áudio e vídeo e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações de áudio ao processar um ficheiro de vídeo. Para obter mais informações, consulte [analisar vídeo](analyze-videos-tutorial-with-api.md).|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|Análise de áudio|A configuração predefinida de aplica-se um conjunto predefinido de operações de análise baseada em IA, incluindo a transcrição de voz. Atualmente, a configuração predefinida suporta o processamento de conteúdo com uma faixa de áudio única que contém a voz num único idioma. Pode especificar o idioma para o payload de áudio na entrada com o formato de BCP 47 de "etiqueta de idioma-região". Idiomas suportados são do inglês (en-US e en-GB), Espanhol ("es-ES" e "es-MX"), francês ("fr-FR"), Italiano ("it-IT"), japonês ('ja-JP"), português ("pt-BR"), chinês ("zh-CN"), alemão ("de-DE"), Árabe ("ar-por exemplo,"), russo ('ru-RU"), Híndi ("hi-IN" ) e coreano ('ko-KR').<br/><br/> Se o idioma não está especificado ou definido como deteção de idioma de nulo, automática irá escolher o primeiro idioma detetado e processar com o idioma selecionado para a duração do ficheiro. A funcionalidade de deteção de idioma automática suporta, atualmente, inglês, chinês, francês, alemão, italiano, japonês, espanhol, russo e português. Ele não suporta atualmente dinamicamente a alternância entre linguagens após o primeiro idioma é detetado. A funcionalidade de deteção de idioma automática funciona melhor com gravações de áudio com fala claramente discerníveis. Se a deteção de idioma automática não conseguir encontrar o idioma, a transcrição irá reverter para inglês.|
+|[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|Análise de áudio e vídeo|Extrai informações (metadados avançados) de áudio e vídeo e produz um ficheiro de formato JSON. Pode especificar se pretende apenas extrair informações de áudio ao processar um ficheiro de vídeo. Para obter mais informações, consulte [analisar vídeo](analyze-videos-tutorial-with-api.md).|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)||Descreve as definições a utilizar ao analisar um vídeo para detetar rostos presentes.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
@@ -147,7 +148,7 @@ Exemplo:
 |ID|O ID do rosto.|
 |nome|O nome de face. Pode ser ' desconhecido n º 0", uma celebridade identificada ou uma pessoa de preparação do cliente.|
 |confiança|A confiança de identificação de face.|
-|descrição|Uma descrição da celebridade. |
+|description|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura do que enfrentam.|
 |knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
 |referenceId|Se for uma celebridade do Bing, o ID do Bing.|
@@ -437,4 +438,4 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 ```
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Tutorial: Analisar vídeos com os serviços de multimédia do Azure](analyze-videos-tutorial-with-api.md)
+[Tutorial: Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md) (Tutorial: analisar vídeos com os Serviços de Multimédia do Azure)
