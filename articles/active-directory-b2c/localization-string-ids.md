@@ -3,7 +3,7 @@ title: Localização de cadeias de caracteres IDs - Azure Active Directory B2C |
 description: Especifique os IDs para uma definição de conteúdo com o Id api.signuporsignin numa política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: cbc96f7f7c5f8020472708caaead3faff7a26673
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609222"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405737"
 ---
 # <a name="localization-string-ids"></a>Cadeia de caracteres de localização IDs
 
