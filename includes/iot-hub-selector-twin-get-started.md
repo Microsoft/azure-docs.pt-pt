@@ -1,15 +1,10 @@
 ---
-author: wesmc7777
-ms.author: wesmc
-ms.service: iot-hub
-ms.topic: include
-ms.date: 10/26/2018
 ms.openlocfilehash: 72ccad94301e053d8103ca949d41202e58d9f5bb
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011667"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60780525"
 ---
 > [!div class="op_single_selector"]
 > * [Node.js](../articles/iot-hub/iot-hub-node-node-twin-getstarted.md)
@@ -24,11 +19,8 @@ Os dispositivos duplos são documentos JSON que armazenam informações de estad
 Utilize dispositivos duplos para:
 
 * Store metadados do dispositivo da sua solução de back-end.
-
 * Comunicar informações de estado atual como recursos disponíveis e condições (por exemplo, o método de conectividade utilizado) da sua aplicação de dispositivo.
-
 * Sincronize o estado dos fluxos de execução longa (por exemplo, atualizações de firmware e configuração) entre uma aplicação de dispositivo e uma aplicação de back-end.
-
 * Consulte os metadados do dispositivo, a configuração ou o estado.
 
 Dispositivos duplos são concebidos para sincronização e para consultar as configurações de dispositivos e condições. Podem encontrar mais informações sobre quando utilizar dispositivos duplos no [compreender os dispositivos duplos](../articles/iot-hub/iot-hub-devguide-device-twins.md).
@@ -36,9 +28,7 @@ Dispositivos duplos são concebidos para sincronização e para consultar as con
 Dispositivos duplos são armazenados num IoT hub e contenham:
 
 * *etiquetas*, metadados do dispositivo acessível apenas pelo back-end da solução;
-
 * *propriedades pretendidas*, objetos JSON modificáveis pela solução de back-end e observable pela aplicação do dispositivo; e
-
 * *Propriedades comunicadas*, objetos JSON modificáveis pela aplicação de dispositivo e legíveis pelo back-end da solução. Etiquetas e propriedades não podem conter matrizes, mas objetos podem ser aninhados.
 
 ![Funcionalidade de que mostra imagens do dispositivo duplo](./media/iot-hub-selector-twin-get-started/twin.png)
@@ -50,5 +40,14 @@ Consulte a [compreender os dispositivos duplos](../articles/iot-hub/iot-hub-devg
 Este tutorial mostrar-lhe como:
 
 * Criar uma aplicação de back-end que adiciona *etiquetas* para um dispositivo duplo e uma aplicação de dispositivo simulado que comunica o respetivo canal de conectividade como um *comunicado propriedade* no dispositivo duplo.
-
 * Consultar os dispositivos da sua aplicação de back-end a utilizar os filtros nas etiquetas e propriedades que criou anteriormente.
+
+<!-- images -->
+[img-twin]: media/iot-hub-selector-twin-get-started/twin.png
+
+<!-- links -->
+[lnk-query]: ../articles/iot-hub/iot-hub-devguide-query-language.md
+[lnk-twins]: ../articles/iot-hub/iot-hub-devguide-device-twins.md
+[lnk-d2c]: ../articles/iot-hub/iot-hub-devguide-messaging.md#device-to-cloud-messages
+[lnk-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md

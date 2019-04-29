@@ -2,14 +2,15 @@
 author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: wesmc
+origin.date: 11/09/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: e5166934c4f7e1ecc917d2a5afcbb26ea9a637a2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53108979"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60607749"
 ---
 ## <a name="clean-up-deployment"></a>Limpar a implementação 
 
@@ -18,3 +19,5 @@ Depois de executar o script de exemplo, o comando de seguir pode ser utilizado p
 ```azurecli
 az group delete --name contosoGroup
 ```
+
+<!-- ms.date: 12/25/2018 -->

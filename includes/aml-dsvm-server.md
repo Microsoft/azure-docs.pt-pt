@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 01/25/2019
 ms.openlocfilehash: 12d1576c3bfbf96c0445fcd2a6f0bc37d6a68f11
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55302204"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753470"
 ---
 1. Concluir o [guia de início rápido do Azure Machine Learning Python](../articles/machine-learning/service/quickstart-create-workspace-with-python.md) para criar uma área de trabalho.  Fique à vontade ignorar a **utilizar o bloco de notas** secção se desejar.
 1. Clone o [repositório do GitHub](https://aka.ms/aml-notebooks).

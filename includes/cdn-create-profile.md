@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/24/2018
 ms.author: cfowler
 ms.custom: include file
-ms.openlocfilehash: e431e7c45dc2cb41db5b9fa762abc908cc76b375
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: c58b226c0f3bd63cb2a54bd3d8c91eb750a26f0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34665295"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60684662"
 ---
 ## <a name="create-a-new-cdn-profile"></a>Criar um novo perfil da CDN
 
@@ -31,7 +31,7 @@ Um perfil da CDN é um contentor de pontos finais da CDN e especifica um escalã
 
 3. Nas definições do perfil da CDN, utilize os valores especificados na tabela seguinte:
    
-    | Definição  | Valor |
+    | Definição  | Value |
     | -------- | ----- |
     | **Nome** | Introduza *my-cdn-perfil-123* como nome do perfil. Este nome deve ser globalmente exclusivo; se já estiver a ser utilizado, poderá introduzir um diferente. |
     | **Subscrição** | Selecione uma subscrição do Azure na lista pendente. |

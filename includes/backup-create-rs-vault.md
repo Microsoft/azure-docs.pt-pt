@@ -10,11 +10,11 @@ ms.date: 10/18/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 74fe531c07aa871b06b5d0773f7e8fb0ade80be4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946220"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60850777"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 Um cofre dos serviços de recuperação é uma entidade que armazena as cópias de segurança e os pontos de recuperação criados ao longo do tempo. O Cofre dos serviços de recuperação também contém as políticas de cópia de segurança que estão associadas a máquinas virtuais protegidas.
@@ -41,10 +41,10 @@ Para criar um cofre dos Serviços de Recuperação:
 
     ![Configurar o Cofre dos serviços de recuperação](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Nome**: introduza um nome amigável para identificar o cofre. O nome tem de ser exclusivo para a subscrição do Azure. Especifique um nome que tem, pelo menos, dois, mas não mais de 50 carateres. O nome deve começar com uma letra e consistir apenas de letras, números e hífenes.
+   - **Nome**: Introduza um nome amigável para identificar o cofre. O nome tem de ser exclusivo para a subscrição do Azure. Especifique um nome que tem, pelo menos, dois, mas não mais de 50 carateres. O nome deve começar com uma letra e consistir apenas de letras, números e hífenes.
    - **Subscrição**: Escolha a subscrição a utilizar. Se for um membro de apenas uma subscrição, verá esse nome. Se não tiver a certeza de que subscrição utilizar, utilize a assinatura padrão (sugerida). Existem várias opções apenas se for seu trabalho ou a conta da instituição de ensino está associada a mais do que uma subscrição do Azure.
-   - **Grupo de recursos**: utilizar um grupo de recursos existente ou crie um novo. Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **utilizar existente**e, em seguida, selecione um recurso a partir da caixa de lista pendente. Para criar um novo grupo de recursos, selecione **criar novo** e introduza o nome. Para obter informações completas sobre grupos de recursos, consulte [descrição geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
-   - **Localização**: selecione a região geográfica do cofre. Para criar um cofre para proteger máquinas virtuais, o Cofre **tem** ser na mesma região que as máquinas virtuais.
+   - **Grupo de recursos**: Utilizar um grupo de recursos existente ou criar um novo. Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **utilizar existente**e, em seguida, selecione um recurso a partir da caixa de lista pendente. Para criar um novo grupo de recursos, selecione **criar novo** e introduza o nome. Para obter informações completas sobre grupos de recursos, consulte [descrição geral do Azure Resource Manager](../articles/azure-resource-manager/resource-group-overview.md).
+   - **Localização**: Selecione a região geográfica do cofre. Para criar um cofre para proteger máquinas virtuais, o Cofre **tem** ser na mesma região que as máquinas virtuais.
 
       > [!IMPORTANT]
       > Se não tiver a certeza de que a localização da sua VM, feche a caixa de diálogo. Vá para a lista de máquinas virtuais no portal. Se tiver máquinas virtuais em várias regiões, crie um cofre dos serviços de recuperação em cada região. Crie o Cofre na primeira localização antes de criar o cofre para outra localização. Não é necessário especificar contas de armazenamento para armazenar os dados de cópia de segurança. O Cofre dos serviços de recuperação e o serviço de cópia de segurança do Azure processam que automaticamente.

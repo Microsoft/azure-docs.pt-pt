@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: pafarley
 ms.openlocfilehash: d5d1d744b064bc015bf2a4d708f4b227e6d68e5c
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56323375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60605654"
 ---
 ## <a name="get-the-training-and-prediction-keys"></a>Obter as chaves de preparação e de predição
 

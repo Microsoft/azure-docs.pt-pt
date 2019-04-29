@@ -1,15 +1,16 @@
 ---
 author: diberry
-ms.author: diberry
+ms.author: v-junlch
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/25/2019
+origin.date: 03/25/2019
+ms.date: 04/23/2019
 ms.openlocfilehash: 94e95864d8bac2d6dc0ff690a2a8f53bd2db5a40
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60598897"
 ---
 ## <a name="validate-container-is-running"></a>Validar o contentor está em execução 
 
@@ -22,3 +23,4 @@ Existem várias formas para validar o contentor está em execução:
 |`http://localhost:5000/swagger`|O contentor fornece um conjunto completo de documentação para os pontos finais, bem como um `Try it now` funcionalidade. Esta funcionalidade permite-lhe introduzir as definições num formulário HTML baseada na web e fazer a consulta sem ter de escrever qualquer código. Depois da consulta de volta, um exemplo de comando CURL é fornecida para demonstrar os cabeçalhos HTTP e corpo formato necessário. |
 
 ![Home page do contentor](./media/cognitive-services-containers-api-documentation/container-webpage.png)
+

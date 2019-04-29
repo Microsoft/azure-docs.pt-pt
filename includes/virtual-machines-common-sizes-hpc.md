@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 16e2a9cfbd9f08428fddade290117b27bc3401f7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: MT
+ms.openlocfilehash: a8f0e61a953a2e2471e49d571063f6202b7ab76d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60540498"
 ---
 Máquinas de virtuais de série H do Azure são as mais recentes da computação de que VMS com o objetivo de processar cargas de trabalho, como o processamento em lotes, análise, modelação molecular e dinâmicas de fluidos de alto desempenho. Essas 8 e 16 VMs de vCPU são criadas com o Intel Haswell E5 2667 V3 processador tecnologia com memória DDR4 e armazenamento temporário baseado em SSD. 
 
@@ -25,9 +25,9 @@ Além do poder de CPU substancial, a série H oferece diversas opções para fun
 
 ACU: 290-300
 
-Armazenamento Premium: Não suportado
+Armazenamento Premium:  Não suportado
 
-Cache de armazenamento Premium: Não suportado
+Cache de armazenamento Premium:  Não suportado
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do disco: IOPS | NICs máximos |
 | --- | --- | --- | --- | --- | --- | --- |

@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 12/21/2018
 ms.author: diberry
 ms.openlocfilehash: 589569ac1f7b3ff44880062cee235c3aa4375011
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738920"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60597467"
 ---
 1. Inicie sessão no portal do LUIS com o URL de [https://www.luis.ai](https://www.luis.ai). 
 

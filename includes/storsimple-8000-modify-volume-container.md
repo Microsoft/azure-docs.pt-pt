@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 4cffbb1aaa438bac08ec77f576b32a901abacabd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889334"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60724724"
 ---
 > [!NOTE] 
 > Não é possível modificar as definições de encriptação e as credenciais da conta de armazenamento associadas a um contentor de volumes depois de criado.

@@ -9,11 +9,11 @@ ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125026"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60626608"
 ---
 # <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança de Internet das coisas (IoT)
 
@@ -171,13 +171,13 @@ Em cada uma das categorias descritas na arquitetura do IoT do Azure, neste exemp
 
 **(S) de spoofing**: Um invasor pode extrair um dispositivo, seja no software ou o nível de hardware e, em seguida, acesso que está a ser utilizado o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de material de chave criptográfica. Uma ilustração de bom é controles remotos que pode ativar quaisquer programas de TV e que são as ferramentas de prankster populares.
 
-**Negação de serviço (D)**: Um dispositivo pode ser composto sem capacidade de funcionar ou comunicar interferindo com frequências de rádio ou cabos de cutting. Por exemplo, uma câmara de vigilância que tinha a conexão de rede ou de energia intencionalmente knocked não é possível reportar dados, de todo.
+**Negação de serviço (D)**: É possível incapacitar o funcionamento ou as comunicações de um dispositivo ao interferir com as frequências de rádio ou através do corte de cabos. Por exemplo, uma câmara de vigilância cuja alimentação ou ligação de rede tenha sido intencionalmente desligada não consegue comunicar dados de todo.
 
-**Adulteração (T)**: Um invasor pode parcial ou totalmente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém o material de chave estavam disponíveis para o programa ilícito. Por exemplo, um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
+**Adulteração (T)**: Um atacante pode substituir, parcial ou totalmente, o software em execução no dispositivo, o que pode potencialmente permitir ao software de substituição tirar partido da identidade genuína do dispositivo, caso os materiais chave ou os recursos criptográficos que os contêm tenham estado à mercê do programa ilícito. Por exemplo, um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
 
 **Divulgação de informações (I)**: Se o dispositivo está a executar software manipulado, esse software manipulado poderia potencialmente originar fugas de dados para partes não autorizadas. Por exemplo, um atacante pode tirar partido do material de chave extraída para injetar em si o caminho de comunicação entre o dispositivo e um gateway de campo ou controlador ou gateway de nuvem para siphon desativar informações.
 
-**Elevação de privilégios (E)**: Um dispositivo que faz a função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
+**Elevação de privilégios (E)**: Um dispositivo com uma função específica pode ser forçado a executar outras ações. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
 
 | **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
 | --- | --- | --- | --- | --- |
@@ -192,9 +192,9 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 **Spoofing**: Um invasor pode extrair um dispositivo, seja no software ou o nível de hardware e, em seguida, acesso que está a ser utilizado o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de material de chave criptográfica.
 
-**Negação de serviço**: Um dispositivo pode ser composto sem capacidade de funcionar ou comunicar interferindo com frequências de rádio ou cabos de cutting. Por exemplo, uma câmara de vigilância que tinha a conexão de rede ou de energia intencionalmente knocked não é possível reportar dados, de todo.
+**Negação de serviço**: É possível incapacitar o funcionamento ou as comunicações de um dispositivo ao interferir com as frequências de rádio ou através do corte de cabos. Por exemplo, uma câmara de vigilância cuja alimentação ou ligação de rede tenha sido intencionalmente desligada não consegue comunicar dados de todo.
 
-**Adulteração**: Um invasor pode parcial ou totalmente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém o material de chave estavam disponíveis para o programa ilícito.
+**Adulteração**: Um atacante pode substituir, parcial ou totalmente, o software em execução no dispositivo, o que pode potencialmente permitir ao software de substituição tirar partido da identidade genuína do dispositivo, caso os materiais chave ou os recursos criptográficos que os contêm tenham estado à mercê do programa ilícito.
 
 **Adulteração**: Uma câmara de vigilância que está a mostrar uma imagem de visível espectro de um corredor vazio pode ter o objetivo de uma fotografia de um corredor desse tipo. Pode comunicar-se um sensor fumaça ou fire de alguém que contém um mais sob a mesma. Em ambos os casos, o dispositivo pode ser tecnicamente totalmente confiável para o sistema, mas comunica informações manipuladas.
 
@@ -210,7 +210,7 @@ Aqui estão alguns exemplos de ameaças nesta categoria:
 
 **Adulteração**: O dispositivo pode ser reconfigurado para funcionar num Estado desconhecido para o sistema de controle (fora de parâmetros de calibração conhecidos) e, portanto, fornecer dados que podem ser mal interpretados
 
-**Elevação de privilégios**: Um dispositivo que faz a função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
+**Elevação de privilégios**: Um dispositivo com uma função específica pode ser forçado a executar outras ações. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
 
 **Negação de serviço**: O dispositivo pode ser transformado num Estado em que a comunicação não é possível.
 

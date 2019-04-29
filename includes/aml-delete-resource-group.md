@@ -9,11 +9,11 @@ author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
 ms.openlocfilehash: 6af620f54acb3bf782f05b81f12aca2103cddf47
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654933"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60753899"
 ---
 >[!IMPORTANT]
 >Os recursos que criou podem ser utilizados como pré-requisitos para outros tutoriais e artigos de procedimentos do serviço do Azure Machine Learning. 

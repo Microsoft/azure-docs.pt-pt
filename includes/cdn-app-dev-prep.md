@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/21/2018
 ms.author: mazha
 ms.openlocfilehash: 7f80c8f1773cfeb8ddfb222d068a5c6571c2e5c7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331337"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60564240"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de escrever o código de gerenciamento de CDN, tem de fazer uma preparação para permitir que o código interagir com o Azure Resource Manager. Para fazer esta preparação, terá de:
@@ -32,7 +32,7 @@ Antes de escrever o código de gerenciamento de CDN, tem de fazer uma preparaç�
     ![O grupo de recursos de atribuição de nomes](./media/cdn-app-dev-prep/cdn-subscription-id-include.png)
 
 ### <a name="creating-the-azure-ad-application-and-applying-permissions"></a>Criar aplicação do Azure AD e aplicar permissões
-Existem duas abordagens para autenticação de aplicação com o Azure Active Directory: utilizadores individuais ou um principal de serviço. Um principal de serviço é semelhante a uma conta de serviço no Windows.  Em vez de conceder permissões para interagir com os perfis CDN de um utilizador específico, em vez disso, são concedidas permissões ao principal de serviço.  Principais de serviço são normalmente utilizados para processos automatizados, não interativo.  Embora este tutorial é escrever uma aplicação de consola interativa, vamos nos concentrar na abordagem de principal de serviço.
+Existem duas abordagens para autenticação de aplicação com o Azure Active Directory: Utilizadores individuais ou um principal de serviço. Um principal de serviço é semelhante a uma conta de serviço no Windows.  Em vez de conceder permissões para interagir com os perfis CDN de um utilizador específico, em vez disso, são concedidas permissões ao principal de serviço.  Principais de serviço são normalmente utilizados para processos automatizados, não interativo.  Embora este tutorial é escrever uma aplicação de consola interativa, vamos nos concentrar na abordagem de principal de serviço.
 
 Criar um principal de serviço consiste em várias etapas, incluindo a criação de uma aplicação do Azure Active Directory.  Para criá-lo, vamos [siga este tutorial](../articles/active-directory/develop/howto-create-service-principal-portal.md).
 

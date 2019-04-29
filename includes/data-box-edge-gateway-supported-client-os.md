@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: alkohli
 ms.openlocfilehash: 674ca630aa41d930ad7d7cfebccbe9b44351b68c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58431611"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60754689"
 ---
 Aqui está uma lista de sistemas operativos suportados para os clientes ou anfitriões ligados para o seu dispositivo. Estas versões de sistema operacional foram testadas internamente.
 

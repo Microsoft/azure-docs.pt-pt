@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: sttramer
 ms.openlocfilehash: ebdfadcb70cc9788a3d18fa99261412506889764
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54899371"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60821461"
 ---
 Para executar este exemplo, confirme que tem instalada a versão mais recente da [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Para começar, execute `az login` para criar uma ligação ao Azure.
 
