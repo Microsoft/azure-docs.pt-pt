@@ -11,11 +11,11 @@ ms.date: 02/06/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 59f36595e0b6cc8b9d9ea0669c9ecb5be1e74b42
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441394"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61304153"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerir uma máquina virtual do Azure com a recolha de inventário
 
@@ -62,7 +62,7 @@ As tabelas seguintes fornecem informações sobre cada propriedade que pode ser 
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a definição foi aplicada        |
+|Enabled     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Chave do Registo do Windows   | O caminho para verificar o ficheiro, por exemplo: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
@@ -71,7 +71,7 @@ As tabelas seguintes fornecem informações sobre cada propriedade que pode ser 
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a definição foi aplicada        |
+|Enabled     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "c:\temp\myfile.txt"
@@ -80,7 +80,7 @@ As tabelas seguintes fornecem informações sobre cada propriedade que pode ser 
 
 |Propriedade  |Descrição  |
 |---------|---------|
-|Ativado     | Determina se a definição foi aplicada        |
+|Enabled     | Determina se a definição foi aplicada        |
 |Nome do Item     | Nome amigável do ficheiro a ser monitorizado        |
 |Grupo     | Um nome de grupo para agrupar ficheiros logicamente        |
 |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo: "/etc/*.conf"       |
