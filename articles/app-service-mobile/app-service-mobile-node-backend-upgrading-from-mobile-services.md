@@ -14,12 +14,12 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 5a74097521cc7dceea2c47f78c1dbb2f17e292aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e54ed6c526182cea57e2d40f356ad9236510d82c
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726685"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128071"
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Atualizar o seu serviço móvel do Azure de node. js existente para o serviço de aplicações
 Serviço de aplicações móveis é uma nova forma de compilação de aplicações móveis com o Microsoft Azure. Para obter mais informações, consulte [O que são Aplicações Móveis?].

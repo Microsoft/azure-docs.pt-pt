@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: crdun
 ms.openlocfilehash: 8c1c52790065015977add7e32a06063057b24dad
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445913"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128154"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Adicionar autenticação à sua aplicação iOS
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -77,7 +77,7 @@ No Xcode, prima **executar** para iniciar a aplicação. Uma exceção ocorre po
     }
     ```
 
-    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista de permissões] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
 
     Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 
@@ -163,7 +163,7 @@ No Xcode, prima **executar** para iniciar a aplicação. Uma exceção ocorre po
     }
     ```
 
-    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista de permissões] [ 1] na sua aplicação.
+    Alteração *google* ao *microsoftaccount*, *twitter*, *facebook*, ou *windowsazureactivedirectory* se não estiver a utilizar o Google como o fornecedor de identidade. Se usar o Facebook, deve [domínios de Facebook da lista branca] [ 1] na sua aplicação.
 
     Substitua a **urlScheme** com um nome exclusivo para a sua aplicação.  O urlScheme deve ser o mesmo que o protocolo de esquema de URL que especificou na **permitido URLs de redirecionamento externo** campo no portal do Azure. O urlScheme é utilizada pelo retorno de chamada de autenticação para mudar para a sua aplicação depois do pedido de autenticação está concluído.
 

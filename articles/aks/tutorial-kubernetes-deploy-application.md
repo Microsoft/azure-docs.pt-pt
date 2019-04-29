@@ -9,11 +9,11 @@ ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
 ms.openlocfilehash: dc3d4f0b2658c82a50f58d976a47607dead1abce
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149534"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61031275"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Executar aplicações no Azure Kubernetes Service (AKS)
 

@@ -11,11 +11,11 @@ ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
 ms.openlocfilehash: f6a678e03818f1e1f2182b3b0dfab221d415dc72
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698268"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62107284"
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor com as Funções do Azure
 

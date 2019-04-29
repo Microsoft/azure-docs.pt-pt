@@ -14,12 +14,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: crdun
-ms.openlocfilehash: 557f6f6a6d4925ec167760455dfc67449582c05c
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 352e64664e6796fb4e0a7941de91ef4045076aed
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811675"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62104612"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações push à sua aplicação Android
 
@@ -68,7 +68,7 @@ Nesta secção, atualizar a sua aplicação Android do cliente para processar as
 
 O próximo passo é instalar serviços do Google Play. Firebase Cloud Messaging tem alguns requisitos de nível de API mínimos para desenvolvimento e teste, o que o **minSdkVersion** propriedade no manifesto têm de cumprir.
 
-Se estiver a testar com um dispositivo mais antigo, consulte [adicionar Firebase à sua projeto Android] para determinar como baixa pode definir este valor e defini-la corretamente.
+Se estiver a testar com um dispositivo mais antigo, consulte [Adicionar Firebase ao seu projeto Android] para determinar como baixa pode definir este valor e defini-la corretamente.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Adicionar Firebase Cloud Messaging para o projeto
 
@@ -93,4 +93,4 @@ Agora que concluiu este tutorial, considere continuar em uma das seguintes tutor
 
 <!-- URLs -->
 [Início rápido do Android]: app-service-mobile-android-get-started.md
-[adicionar Firebase à sua projeto Android]:https://firebase.google.com/docs/android/setup
+[Adicionar Firebase ao seu projeto Android]:https://firebase.google.com/docs/android/setup

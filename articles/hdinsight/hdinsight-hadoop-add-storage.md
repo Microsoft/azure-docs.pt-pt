@@ -1,19 +1,18 @@
 ---
 title: Adicionar contas de armazenamento do Azure adicionais ao HDInsight
 description: Saiba como adicionar contas de armazenamento do Azure adicionais a um cluster do HDInsight existente.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 54d7a0bf0474db4a9f9d74a1f694f10ef1be91cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 6b9577bcf8b527abb0cb7b8720ed83ec8321655b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792278"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62098727"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar mais contas de armazenamento ao HDInsight
 

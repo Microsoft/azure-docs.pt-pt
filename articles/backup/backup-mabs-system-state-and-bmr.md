@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: raynew
 ms.openlocfilehash: 35ab150670cdc27efcedca233928e0c2184aeca6
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880102"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62116180"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Criar cópias de segurança do Estado do sistema e restaurar para bare-metal com o Azure Backup Server
 
 O Azure Backup Server cria uma cópia de segurança do Estado do sistema e fornece proteção de recuperação bare-metal (BMR).
 
-*   **Cópia de segurança de estado de sistema**: cria cópias de segurança de ficheiros do sistema operativo, para que possa recuperar quando um computador é iniciado, mas os arquivos de sistema e do Registro são perdidos. Uma cópia de segurança do Estado do sistema inclui:
-    * Membro de domínio: ficheiros de arranque, base de dados de registo de classe COM+, registo
+*   **Cópia de segurança de estado de sistema**: Faz backup de arquivos de sistema operacional, para que possa recuperar quando um computador é iniciado, mas os arquivos de sistema e do Registro são perdidos. Uma cópia de segurança do Estado do sistema inclui:
+    * Membro de domínio: Ficheiros de arranque, base de dados de registo de classe COM+, registo
     * Controlador de domínio: Windows Server Active Directory (NTDS), ficheiros de arranque, base de dados de registo de classe COM+, registo, volume de sistema (SYSVOL)
-    * Computador que executa serviços de cluster: metadados do servidor de Cluster
-    * Computador que executa serviços de certificados: dados de certificado
-* **Cópia de segurança bare-metal**: cria cópias de segurança de ficheiros do sistema operativo e todos os dados em volumes críticos (exceto os dados de utilizador). Por definição, uma cópia de segurança de BMR inclui uma cópia de segurança do Estado do sistema. Fornece proteção quando um computador não é iniciado e for necessário recuperar tudo.
+    * Computador que executa serviços de cluster: Metadados do servidor de cluster
+    * Computador que executa serviços de certificados: Dados de certificado
+* **Cópia de segurança bare-metal**: Faz uma cópia de segurança de ficheiros de sistema operativo e todos os dados em volumes críticos (exceto os dados de utilizador). Por definição, uma cópia de segurança de BMR inclui uma cópia de segurança do Estado do sistema. Fornece proteção quando um computador não é iniciado e for necessário recuperar tudo.
 
 A tabela seguinte resume o que pode criar cópias de segurança e recuperar. Para obter informações detalhadas sobre as versões de aplicações que podem ser protegidos com o estado do sistema e a BMR, consulte [o que faz o servidor de cópia de segurança do Azure backup?](backup-mabs-protection-matrix.md).
 

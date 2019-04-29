@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: b6f93cc3c35ab18ecd50ccd6b3090985497baabf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121775"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122460"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como uso iOS biblioteca de cliente para aplicações móveis do Azure
 
@@ -51,7 +51,7 @@ Para aceder a um back-end de aplicações móveis do Azure no seu projeto, crie 
 MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let client = MSClient(applicationURLString: "AppUrl")
@@ -67,7 +67,7 @@ Para atualizar ou aceder a dados, crie uma referência para a tabela de back-end
 MSTable *table = [client tableWithName:@"TodoItem"];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let table = client.tableWithName("TodoItem")
@@ -91,7 +91,7 @@ Para criar uma consulta de base de dados, consultar o `MSTable` objeto. A seguin
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.readWithCompletion { (result, error) in
@@ -128,7 +128,7 @@ NSPredicate * predicate = [NSPredicate predicateWithFormat:@"complete == NO"];
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 // Create a predicate that finds items where complete is false
@@ -156,7 +156,7 @@ MSQuery *query = [table query];
 MSQuery *query = [table queryWithPredicate: [NSPredicate predicateWithFormat:@"complete == NO"]];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let query = table.query()
@@ -194,7 +194,7 @@ Para ordenar os resultados, vamos examinar um exemplo. Para ordenar por campo 't
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 query.orderByAscending("text")
@@ -220,7 +220,7 @@ Para limitar os campos a serem retornados numa consulta, especifique os nomes do
 query.selectFields = @[@"text", @"complete"];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 query.selectFields = ["text", "complete"]
@@ -237,7 +237,7 @@ query.parameters = @{
 };
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
@@ -269,7 +269,7 @@ Se aumentar o tamanho da página de cliente, também deve aumentar o tamanho da 
                            }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let pullSettings = MSPullSettings(pageSize: 3)
@@ -301,7 +301,7 @@ NSDictionary *newItem = @{@"id": @"custom-id", @"text": @"my new item", @"comple
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let newItem = ["id": "custom-id", "text": "my new item", "complete": false]
@@ -332,7 +332,7 @@ NSMutableDictionary *newItem = [oldItem mutableCopy]; // oldItem is NSDictionary
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 if let newItem = oldItem.mutableCopy() as? NSMutableDictionary {
@@ -361,7 +361,7 @@ Em alternativa, forneça o ID de linha e do campo atualizado:
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
@@ -391,7 +391,7 @@ Para eliminar um item, invocar `delete` com o item:
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.delete(newItem as [NSObject: AnyObject]) { (itemId, error) in
@@ -417,7 +417,7 @@ Em alternativa, elimine, fornecendo um ID de linha:
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
@@ -454,7 +454,7 @@ Para chamar uma API personalizada, chamar `MSClient.invokeAPI`. O pedido e respo
             }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 client.invokeAPI("sendEmail",
@@ -486,7 +486,7 @@ Para registar modelos, passe modelos com o seu **client.push registerDeviceToken
 }];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 client.push?.registerDeviceToken(NSData(), template: iOSTemplate, completion: { (error) in
@@ -504,7 +504,7 @@ Os modelos são do tipo NSDictionary e podem conter vários modelos no seguinte 
 NSDictionary *iOSTemplate = @{ @"templateName": @{ @"body": @{ @"aps": @{ @"alert": @"$(message)" } } } };
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
@@ -524,7 +524,7 @@ O ficheiro [ `<WindowsAzureMobileServices/MSError.h>` ] [ 6] define as constante
 NSDictionary *serverItem = [error.userInfo objectForKey:MSErrorServerItemKey];
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 let serverItem = error.userInfo[MSErrorServerItemKey]
@@ -538,7 +538,7 @@ Além disso, o arquivo define constantes para cada código de erro:
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 if (error.code == MSErrorPreconditionFailed) {
@@ -603,7 +603,7 @@ Pode utilizar o Active Directory Authentication Library (ADAL) para iniciar sess
 }
 ```
 
-**SWIFT**:
+**Swift**:
 
 ```swift
 // add the following imports to your bridging header:
@@ -686,7 +686,7 @@ Pode utilizar o SDK do Facebook para iOS para inscrever-se os utilizadores na su
     }
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     // Add the following imports to your bridging header:
@@ -737,7 +737,7 @@ Pode utilizar recursos de infraestrutura para iOS para inscrever-se os utilizado
     }
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     import Fabric
@@ -774,7 +774,7 @@ Pode utilizar recursos de infraestrutura para iOS para inscrever-se os utilizado
     }
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     import TwitterKit
@@ -812,7 +812,7 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
     }];
     ```
 
-    **SWIFT**:
+    **Swift**:
 
     ```swift
     let payload: [String: String] = ["id_token": user.authentication.idToken, "authorization_code": user.serverAuthCode]
@@ -829,7 +829,7 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
     [GIDSignIn sharedInstance].serverClientID = @"SERVER_CLIENT_ID";
     ```
 
-     **SWIFT**:
+     **Swift**:
 
     ```swift
     GIDSignIn.sharedInstance().serverClientID = "SERVER_CLIENT_ID"
@@ -850,7 +850,7 @@ Pode utilizar o SDK de início de sessão do Google para iOS para inscrever-se o
     }
     ```
 
-   **SWIFT**:
+   **Swift**:
 
     ```swift
     // ...

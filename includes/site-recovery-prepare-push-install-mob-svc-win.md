@@ -1,15 +1,10 @@
 ---
-author: rayne-wiselman
-ms.service: site-recovery
-ms.topic: include
-ms.date: 10/26/2018
-ms.author: raynew
 ms.openlocfilehash: ffc9b09c72ef1bf5180a0d626908d09b6fdd41ca
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51019293"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122798"
 ---
 ### <a name="prepare-for-a-push-installation-on-a-windows-computer"></a>Preparar para uma instalação de push num computador Windows
 
@@ -18,7 +13,7 @@ ms.locfileid: "51019293"
 
    > [!NOTE]
    > Se não usar uma conta de domínio, desative o controlo de acesso de utilizador remoto no computador local. Para desativar o controlo de acesso de utilizador remoto, na chave do Registro HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System, adicione um DWORD novo: **LocalAccountTokenFilterPolicy**. Defina o valor como **1**. Para executar esta tarefa no prompt de comando, execute o seguinte comando:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+   > `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
    >
    >
 1. Na Firewall do Windows no computador que pretende proteger, selecione **permitir uma aplicação ou funcionalidade através da Firewall**. Ativar **de ficheiros e partilha de impressoras** e **Windows Management Instrumentation (WMI)**. Para computadores que pertençam a um domínio, pode configurar as definições de firewall utilizando um objeto de diretiva de grupo (GPO).
@@ -36,3 +31,5 @@ ms.locfileid: "51019293"
     d. Adicione a conta que criou.
 
     e. Introduza as credenciais que utiliza para ativar a replicação para um computador.
+<!--Update_Description: wording update-->
+<!--ms.date: 09/17/2018-->

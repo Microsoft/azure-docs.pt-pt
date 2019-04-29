@@ -13,11 +13,11 @@ ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
 ms.openlocfilehash: cbe4dbd2ae741f4225cfdc628c31508956cbb95c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59490538"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61354556"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Criar a sua primeira função com o Visual Studio Code
 

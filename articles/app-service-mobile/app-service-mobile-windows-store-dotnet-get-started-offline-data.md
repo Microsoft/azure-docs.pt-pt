@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 69ee9e7101a2b7337e1e42ff5ae09954fbfd50b2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62128054"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Ativar a sincronização offline da aplicação do Windows
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

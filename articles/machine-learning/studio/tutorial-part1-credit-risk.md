@@ -11,11 +11,11 @@ ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
 ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904512"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61461194"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Prever o risco de crédito - Azure Machine Learning Studio
 

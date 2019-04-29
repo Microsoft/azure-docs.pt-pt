@@ -12,11 +12,11 @@ ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 6c0951eb6ad3b7651da97e1a49c5edf5ab55a199
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209579"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61044353"
 ---
 # <a name="copy-data-to-and-from-azure-blob-storage-using-azcopy"></a>Copiar dados de e para armazenamento de Blobs do Azure com o AzCopy
 O AzCopy é um utilitário de linha de comandos concebido para carregar, transferir e copiar dados de e para o blob, ficheiro e armazenamento de tabelas do Microsoft Azure.

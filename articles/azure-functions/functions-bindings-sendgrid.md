@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
 ms.openlocfilehash: 663283c4dff16194dea78afbf5dd393f1fa833b1
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823812"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61437964"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Enlaces do SendGrid de funções do Azure
 
@@ -255,7 +255,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**|| Necessário - tem de ser definido como `sendGrid`.|
+|**tipo**|| Necessário - tem de ser definido como `sendGrid`.|
 |**direção**|| Necessário - tem de ser definido como `out`.|
 |**name**|| Necessário - o nome da variável no código de função para a pedido ou corpo do pedido. Este valor é ```$return``` quando existe apenas um valor de retorno. |
 |**apiKey**|**ApiKey**| O nome de uma definição de aplicação que contém a chave de API. Se não conjunto, a definição de aplicação predefinido o nome é "AzureWebJobsSendGridApiKey".|
@@ -288,7 +288,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
-|from|n/d|Endereço de e-mail do remetente em todas as funções.| 
+|de|n/d|Endereço de e-mail do remetente em todas as funções.| 
 
 
 ## <a name="next-steps"></a>Passos Seguintes

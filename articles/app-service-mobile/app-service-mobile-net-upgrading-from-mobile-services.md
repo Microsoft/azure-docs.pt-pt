@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: f5ffc795e6469971d1eaf335d6683f94d05f0807
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278623"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122443"
 ---
 # <a name="upgrade-your-existing-net-azure-mobile-service-to-app-service"></a>Atualizar o seu serviço móvel do Azure de .NET existente para o serviço de aplicações
 Serviço de aplicações móveis é uma nova forma de compilação de aplicações móveis com o Microsoft Azure. Para obter mais informações, consulte [O que são Aplicações Móveis?].
@@ -122,7 +122,7 @@ app.UseAppServiceAuthentication(config);
 
 Existem alterações adicionais relacionadas à autenticação que são abordadas na secção autenticação completo abaixo.
 
-### <a name="working-with-data"></a>Trabalhar com dados
+### <a name="working-with-data"></a>Trabalhar com Dados
 Nos serviços móveis, o nome de aplicação móvel serviu-se como o nome do esquema padrão na configuração da Entity Framework.
 
 Para se certificar de que tem o mesmo esquema a ser referenciado como antes, utilize o seguinte para definir o esquema no DbContext para a sua aplicação:
@@ -160,12 +160,12 @@ Se uma aplicação de cliente é atualizada a partir dos serviços móveis para 
 
 No iOS, deve alterar o esquema de dados principais para as entidades de dados de acordo com o seguinte. Tenha em atenção que as propriedades `createdAt`, `updatedAt` e `version` deixará de ter um `ms_` prefixo:
 
-| Atributo | Tipo | Nota |
+| Atributo | Type | Nota |
 | --- | --- | --- |
 | ID |Cadeia de caracteres, marcada como necessária |chave primária no arquivo remoto |
 | createdAt |Date |(opcional) é mapeado para a propriedade de sistema createdAt |
 | updatedAt |Date |(opcional) é mapeado para a propriedade de sistema updatedAt |
-| versão |Cadeia |(opcional) usado para detectar conflitos, mapas para a versão |
+| versão |String |(opcional) usado para detectar conflitos, mapas para a versão |
 
 #### <a name="querying-system-properties"></a>Consultar as propriedades do sistema
 Em Mobile Services do Azure, as propriedades do sistema não são enviadas por predefinição, mas apenas quando eles são solicitados usando-se a cadeia de consulta `__systemProperties`. Por outro lado, no sistema de aplicações móveis do Azure propriedades são **sempre selecionado** , uma vez que eles fazem parte do modelo de objeto do SDK de servidor.
