@@ -68,7 +68,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 | Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| tipo | A propriedade de tipo deve ser definida como **AzureSearchIndex**.| Sim |
+| type | A propriedade de tipo deve ser definida como **AzureSearchIndex**.| Sim |
 | indexName | Nome do índice da Azure Search. Fábrica de dados não cria o índice. O índice tem de existir no Azure Search. | Sim |
 
 
