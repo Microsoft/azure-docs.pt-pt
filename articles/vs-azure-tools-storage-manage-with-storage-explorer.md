@@ -2,24 +2,18 @@
 title: Introdução ao Explorador de armazenamento | Documentos da Microsoft
 description: Gerir recursos de armazenamento do Azure com o Explorador de armazenamento
 services: storage
-documentationcenter: na
 author: cawaMS
-manager: paulyuk
-editor: ''
-ms.assetid: 1ed0f096-494d-49c4-ab71-f4164ee19ec8
 ms.service: storage
 ms.devlang: multiple
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/17/2017
+ms.date: 04/22/2019
 ms.author: cawa
-ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3db1d638aa1e0d8488c310593a593465c2b9b336
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459431"
+ms.locfileid: "62128284"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Explorador de armazenamento
 
@@ -115,7 +109,9 @@ Além disso, pode trabalhar com contas de armazenamento no Azure global e nacion
 
 Com o Explorador de armazenamento, pode trabalhar com armazenamento local utilizando um emulador. Essa abordagem permite que pode simular a trabalhar com o armazenamento do Azure sem ter necessariamente uma conta de armazenamento implementada no Azure.
 
-A partir da versão 1.1.0, emulador de armazenamento local é suportado em todas as plataformas. Explorador de armazenamento, pode ligar-se a qualquer serviço emulado ouvir seus pontos de extremidade de armazenamento local padrão.
+A partir da versão 1.1.0, Explorador de armazenamento suporta a utilização de um emulador de armazenamento local em todas as plataformas. Explorador de armazenamento, pode ligar-se a qualquer serviço emulado ouvir seus pontos de extremidade de armazenamento local padrão.
+
+O [emulador de armazenamento do Azure](storage/common/storage-use-emulator.md) atualmente é executado apenas no Windows. Para aqueles que estejam Considerando um emulador de armazenamento para Linux, uma opção é a Comunidade do emulador de armazenamento do código-fonte aberto, mantida [Azurite](https://github.com/azure/azurite).
 
 > [!NOTE]
 > Suporte para funcionalidades e serviços de armazenamento pode variar bastante, dependendo de sua escolha do emulador de. Certifique-se de que o emulador suporta os serviços e funcionalidades que pretende trabalhar com.

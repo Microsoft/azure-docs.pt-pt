@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 01/30/2019
 ms.author: manayar
 ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564005"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60620177"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Define o aprovisionamento de extensão de sequência no dimensionamento de máquinas virtuais
 Extensões de máquina virtual do Azure fornecem capacidades, como a configuração de pós-implementação e gestão, monitorização, segurança e muito mais. Implementações de produção, normalmente, utilizem uma combinação de várias extensões configurado para as instâncias VM para alcançar resultados desejados.

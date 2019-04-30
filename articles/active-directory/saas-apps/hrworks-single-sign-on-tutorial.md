@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 06a10cab81b1253658f505b3cd3f2c520ef9cea8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60275538"
+ms.locfileid: "62123776"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Integração do Active Directory do Azure com HRworks início de sessão único
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD início de sessão único com HRworks início de sess
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://login.hrworks.de/?companyId=<companyId>&directssologin=true`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de HRworks único início de sessão no cliente](mailto:nadja.sommerfeld@hrworks.de) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de HRworks único início de sessão no cliente](mailto:support@hrworks.de) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 

@@ -15,11 +15,11 @@ ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699052"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714579"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do Service Bus - comparação e contraste
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas disponibilizadas atualmente pelo Microsoft Azure: Filas de armazenamento e filas do Service Bus. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
@@ -174,7 +174,7 @@ Esta secção descreve as funcionalidades de autenticação e autorização supo
 
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
-| Authentication |**Chave simétrica** |**Chave simétrica** |
+| Autenticação |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado através de tokens SAS. |SAS |
 | Federação do fornecedor de identidade |**Não** |**Sim** |
 

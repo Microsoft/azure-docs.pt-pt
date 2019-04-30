@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: f8fb036eaca35e41d89b0a9610ebcd68e65f40f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e21f3eed7e631c974d34f148b85843b055deaf60
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343383"
+ms.locfileid: "62123970"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utilizar o Apache Hive como uma ferramenta de extração, transformação e carregamento (ETL)
 

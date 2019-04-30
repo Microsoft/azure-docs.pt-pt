@@ -1,5 +1,5 @@
 ---
-title: Como configurar o serviço ficheiros NetApp do Azure e criar um volume | Documentos da Microsoft
+title: Como configurar o serviço ficheiros NetApp do Azure e criar um volume NFS | Documentos da Microsoft
 description: Descreve como configurar o serviço ficheiros NetApp do Azure e criar um volume rapidamente.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 634f23cf3161fff09f21c79fd8300cb269dcc5b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454494"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759845"
 ---
-# <a name="set-up-azure-netapp-files-and-create-a-volume"></a>Configurar o Azure NetApp Files e criar um volume 
+# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Como configurar o serviço ficheiros NetApp do Azure e criar um volume NFS 
 
 Este artigo mostra-lhe como configurar o serviço ficheiros NetApp do Azure e criar um volume rapidamente. 
 
@@ -88,7 +88,7 @@ Tem de ser parte do programa de pré-visualização pública e na lista de permi
 
 5. Clique em **OK**.
 
-## <a name="create-a-volume-for-azure-netapp-files"></a>Criar um volume para o Azure NetApp Files
+## <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para ficheiros de NetApp do Azure
 
 1. No painel de gestão do Azure NetApp ficheiros da sua conta de NetApp, clique em **Volumes**.
 
@@ -100,7 +100,6 @@ Tem de ser parte do programa de pré-visualização pública e na lista de permi
 
 3. Criar uma janela de Volume, fornecem informações para o volume: 
    1. Introduza **myvol1** como o nome do volume. 
-   2. Introduza **myfilepath1** como o caminho do ficheiro que será utilizado para criar o caminho de exportação para o volume.
    3. Selecione o conjunto de capacidade (**mypool1**).
    4. Utilize o valor predefinido para a quota. 
    5. Numa rede virtual, clique em **criar novo** para criar um novo Azure virtual network (Vnet).  Em seguida, preencha as seguintes informações:
@@ -116,7 +115,13 @@ Tem de ser parte do programa de pré-visualização pública e na lista de permi
 
       ![Criar a janela de rede virtual](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Clique em **Rever + criar**.
+4. Clique em **protocolo**, em seguida, selecione **NFS** como o tipo de protocolo para o volume.   
+
+    Introduza **myfilepath1** como o caminho do ficheiro que será utilizado para criar o caminho de exportação para o volume. 
+
+    ![Especifique o protocolo NFS para o início rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+
+5. Clique em **Rever + criar**.
 
     ![Reveja e criar a janela](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)  
 

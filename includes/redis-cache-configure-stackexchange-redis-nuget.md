@@ -2,14 +2,15 @@
 author: wesmc7777
 ms.service: redis-cache
 ms.topic: include
-ms.date: 11/09/2018
-ms.author: wesmc
+origin.date: 11/09/2018
+ms.date: 12/25/2018
+ms.author: v-junlch
 ms.openlocfilehash: 8ebf5ddfa118e0aeadeab0c00a981871a4b5708e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53430024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60830297"
 ---
 As aplicações .NET podem utilizar o cliente de cache **StackExchange.Redis**, que poderá ser configurado no Visual Studio com um pacote NuGet que simplifica a configuração das aplicações cliente de cache. 
 
@@ -20,7 +21,7 @@ As aplicações .NET podem utilizar o cliente de cache **StackExchange.Redis**, 
 
 Para configurar uma aplicação cliente no Visual Studio com o pacote NuGet StackExchange.Redis, clique com o botão direito do rato no projeto em **Explorador de Soluções** e escolha **Gerir Pacotes NuGet**. 
 
-![Gerir pacotes NuGet](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
+![Gerir pacotes NuGet](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-manage-nuget-menu.png)
 
 Introduza **StackExchange.Redis** ou **StackExchange.Redis.StrongName** na caixa de texto de pesquisa, selecione a versão pretendida apresentada nos resultados e clique em **Instalar**.
 
@@ -29,7 +30,7 @@ Introduza **StackExchange.Redis** ou **StackExchange.Redis.StrongName** na caixa
 >
 >
 
-![Pacote NuGet StackExchange.Redis](media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
+![Pacote NuGet StackExchange.Redis](./media/redis-cache-configure-stackexchange-redis-nuget/redis-cache-stackexchange-redis.png)
 
 O pacote NuGet transfere e adiciona as referências de assemblagem necessárias para a sua aplicação de cliente acessar o Cache do Azure para Redis com a Cache de StackExchange.Azure para cliente do Redis.
 
@@ -43,3 +44,5 @@ Também é possível instalar o pacote de StackExchange.Redis NuGet clicando em 
 ```
 Install-Package StackExchange.Redis
 ```
+
+<!-- ms.date: 12/25/2018 -->

@@ -1,14 +1,12 @@
 ---
-ms.openlocfilehash: a1a57cbcd9284489e00bf36b25baf7e04fbea9e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55adc512447160b409af0002a72ec2473409d796
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306806"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759503"
 ---
 # <a name="contributing-to-microsoft-azure-documentation"></a>Contribuir para documentação do Microsoft Azure
-
-> Entre 5 e 9 de março de 2019, o repositório MicrosoftDocs/azure-docs vai passar por uma Migração do seu motor atual de Markdown para o motor de markdown [Markdig](https://github.com/lunet-io/markdig). Durante este período, vamos desativar a capacidade de suspender a intercalação de pedidos pull públicos para poder concluir a migração.
 
 Obrigado por reservar um tempo para contribuir para documentação do Microsoft Azure.
 

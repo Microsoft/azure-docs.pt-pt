@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: cb52956afe085c076f0a9a7c2d6810f3def32e3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4cd419e06ba44b16d24f36e937002dce5196622
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325787"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63763338"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Localize e elimine desanexados discos geridos e não geridos do Azure
 

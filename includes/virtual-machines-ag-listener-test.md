@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: d579e7a4fd83c1a0ce335e0b2357dcbafb217398
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226886"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097714"
 ---
 Neste passo, vai testar o serviço de escuta do grupo de disponibilidade, utilizando uma aplicação cliente que está em execução na mesma rede.
 
@@ -29,3 +30,4 @@ Um exemplo é para ligar ao serviço de escuta, a partir de uma das VMs na mesma
 
 Ao testar o serviço de escuta, certifique-se de que a ativação pós-falha o grupo de disponibilidade para se certificar de que os clientes podem ligar para o serviço de escuta em ativações pós-falha.
 
+<!-- Update_Description: update meta properties -->

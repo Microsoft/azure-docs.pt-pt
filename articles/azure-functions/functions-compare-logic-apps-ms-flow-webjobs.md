@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b91763d4f59bc5fdd8363f97e5780cee368a40
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306416"
+ms.locfileid: "62104328"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>O que são o Microsoft Flow, Logic Apps, funções e WebJobs?
 
@@ -119,8 +119,8 @@ A integração entre o Microsoft Flow, Logic Apps e as funções continua a melh
 
 Pode obter mais informações sobre serviços de integração utilizando as ligações seguintes:
 
-* [Tirar partido das Funções do Azure e do Serviço de Aplicações do Azure para cenários de integração por Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrações Simplificadas por Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Tirar partido das Funções do Azure e do Serviço de Aplicações do Azure para cenários de integração por Christopher Anderson](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrações Simplificadas por Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast de aplicações em direto de lógica](https://aka.ms/logicappslive)
 * [Microsoft Flow perguntas mais frequentes](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 

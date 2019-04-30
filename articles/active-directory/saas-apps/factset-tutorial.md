@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad0c1ac2ce39fd919cb82ce2bdb0841edf9c777
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9fa951e50a38b8bc63cc4e26ef54c013531bd7d
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278940"
+ms.locfileid: "62098492"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-factset"></a>Tutorial: Integração do Active Directory do Azure com FactSet
 
@@ -105,12 +105,12 @@ Para configurar o Azure AD início de sessão único com FactSet, execute os seg
 
     ![FactSet domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://login.factset.com/services/auth-test?idpid=<GUID>`
+    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://login.factset.com`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente FactSet](mailto:support@factset.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte o seu representante de conta de FactSet obter esses valores. Se não sabe quem é o seu representante de FactSet, pode encontrar ajuda sobre o [página de números de suporte de FactSet](https://www.factset.com/support-numbers). Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD início de sessão único com FactSet, execute os seg
 
 ### <a name="configure-factset-single-sign-on"></a>Configurar FactSet Single Sign-On
 
-Para configurar o início de sessão único num **FactSet** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de FactSet](mailto:support@factset.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **FactSet** lado, terá de enviar o transferido **XML de metadados de Federação** e URLs copiados adequados partir do portal do Azure para indivíduos FactSet suporte estão em contato com. Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -183,7 +183,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-factset-test-user"></a>Criar utilizador de teste FactSet
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no FactSet. Trabalhar com [equipa de suporte de FactSet](mailto:support@factset.com) para adicionar os utilizadores na plataforma FactSet. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no FactSet. Trabalhe com seus representantes de suporte de conta FactSet para adicionar os utilizadores na plataforma FactSet. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

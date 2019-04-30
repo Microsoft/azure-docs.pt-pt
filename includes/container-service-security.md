@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: 39bb75a6f834789f91cb590ffebb72f45624eb25
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213158"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60953177"
 ---
 # <a name="deprecated-securing-docker-containers-in-azure-container-service"></a>(PRETERIDO) Proteger contentores do Docker no Azure Container Service
 

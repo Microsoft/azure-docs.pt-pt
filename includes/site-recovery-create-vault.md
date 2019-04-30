@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
 ms.openlocfilehash: 62bb01b39f33f801f1eb43d128083cff7e16830a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62124147"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
 2. Clique em **criar um recurso** > **monitorização + gestão** > **cópia de segurança e recuperação de Site**.

@@ -9,11 +9,11 @@ ms.date: 08/20/2018
 ms.author: anshan
 ms.custom: include file
 ms.openlocfilehash: c9daa86bf36b260001d9969385b9e8a98a8ac0cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125137"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61443247"
 ---
 ## <a name="grant-data-access"></a>Conceder acesso a dados
 

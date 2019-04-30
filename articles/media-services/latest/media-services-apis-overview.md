@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5ae7563892cb4792f5c329b2850d7b88d37c0e7d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a336f7faae24517aa4e29c991886107c6a82d2b5
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322377"
+ms.locfileid: "62103912"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvimento com os serviços de multimédia de v3 APIs
 
@@ -87,6 +87,10 @@ Serviços de multimédia têm as seguintes operações de longa execução:
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtragem, ordenação, paginação de entidades de serviços de multimédia
 
 Consulte [filtragem, ordenação, a paginação de entidades de serviços de multimédia do Azure](entities-overview.md)
+
+## <a name="provide-feedback"></a>Enviar comentários
+
+Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

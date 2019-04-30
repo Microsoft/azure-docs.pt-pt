@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f87573e23f2c0f48e54b6f03289969aab930e15c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9b7a807693aa039f068cf4025dc730bba4bc7bd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299180"
+ms.locfileid: "62105076"
 ---
 # <a name="quickstart-build-a-net-web-api-that-integrates-with-azure-ad-for-authentication-and-authorization"></a>Início rápido: Criar uma API que se integra com o Azure AD para autenticação e autorização de web do .NET
 
@@ -91,7 +91,11 @@ Para validar os pedidos e tokens recebidos, terá de configurar a aplicação pa
     }
     ```
 
-4. Abra o ficheiro `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(…)`. Os parâmetros fornecidos em `WindowsAzureActiveDirectoryBearerAuthenticationOptions` irão servir como coordenadas para a aplicação comunicar com o Azure AD.
+4. Abra o ficheiro `App_Start\Startup.Auth.cs` e implemente o método `ConfigureAuth(…)`. Os parâmetros fornecidos em `WindowsAzureActiveDirectoryBearerAuthenticationOptions` irão servir como coordenadas para a aplicação comunicar com o Azure AD. Para usá-las precisará usar classes a `System.IdentityModel.Tokens` espaço de nomes.
+
+    ```csharp
+    using System.IdentityModel.Tokens;
+    ```
 
     ```csharp
     public void ConfigureAuth(IAppBuilder app)
@@ -99,8 +103,11 @@ Para validar os pedidos e tokens recebidos, terá de configurar a aplicação pa
         app.UseWindowsAzureActiveDirectoryBearerAuthentication(
             new WindowsAzureActiveDirectoryBearerAuthenticationOptions
             {
-                Audience = ConfigurationManager.AppSettings["ida:Audience"],
-                Tenant = ConfigurationManager.AppSettings["ida:Tenant"]
+                 Tenant = ConfigurationManager.AppSettings["ida:Tenant"],
+                 TokenValidationParameters = new TokenValidationParameters
+                 {
+                    ValidAudience = ConfigurationManager.AppSettings["ida:Audience"]
+                 }
             });
     }
     ```

@@ -1,15 +1,16 @@
 ---
-author: cynthn
+author: rockboyfor
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: cynthn
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: e128f3c67a41322d9c25a8d6941e937729760bf4
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227076"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62097698"
 ---
 Neste passo, vai criar uma regra de firewall para abrir a porta de sonda para o endpoint com balanceamento de carga (59999, conforme especificado anteriormente) e outra regra para abrir a porta de serviço de escuta do grupo de disponibilidade. Uma vez que criou o ponto final com balanceamento de carga nas VMs que contêm as réplicas do grupo de disponibilidade, terá de abrir a porta de sonda e a porta do serviço de escuta nas respetivas VMs.
 
@@ -29,3 +30,4 @@ Neste passo, vai criar uma regra de firewall para abrir a porta de sonda para o 
 
 8. Repita os passos anteriores para a porta de serviço de escuta do grupo de disponibilidade (conforme especificado anteriormente no parâmetro $EndpointPort do script) e, em seguida, especifique um nome de regra adequada, tal como **sempre no serviço de escuta de porta**.
 
+<!-- Update_Description: update meta properties -->

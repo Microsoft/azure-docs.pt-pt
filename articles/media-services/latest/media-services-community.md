@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: ff5d6aef48542ee18f6de91ddc418c0fcab70ece
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a3c02c1f14c37317a03cb6ebe63bcddc92f3253
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322446"
+ms.locfileid: "62117013"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Multimédia do Azure  
 
@@ -54,11 +54,9 @@ A tabela seguinte apresenta uma lista de correio eletrónico de equipes de recur
 
 | Funcionalidade | Email |
 | --- | --- |
-| Análise de multimédia do Azure |amsanalytics@microsoft.com |
 | Media Player do Azure |ampinfo@microsoft.com |
 | Explorador de multimédia do Azure |amse@microsoft.com |
 | Designer de fluxo de trabalho |mepd@microsoft.com |
-| Transmissão em fluxo do ficheiro e empacotamento |amsstreaming@microsoft.com |
 | Em tempo real de transmissão em fluxo e empacotamento |amslived@microsoft.com |
 
 ## <a name="next-steps"></a>Passos Seguintes

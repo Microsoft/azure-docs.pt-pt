@@ -18,11 +18,11 @@ ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 04490abb8b7f3f4c39e4134a314429e190db5174
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540793"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60714086"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instale a elevada disponibilidade do SAP NetWeaver numa partilha de ficheiros e de cluster ativação pós-falha de Windows para instâncias do SAP ASCS/SCS no Azure
 
@@ -435,7 +435,7 @@ _**Figura 1**: Saída de SAPScripts.psm1_
 2. Inicie sessão como \<sid > utilizador adm, e, em seguida, inicie a ferramenta de Regedit.exe.
 3. Aceda a **HKEY_CURRENT_USER** > **ambiente**e, em seguida, Atualize as variáveis para o novo valor:
 
-| Variável | Valor |
+| Variável | Value |
 | --- | --- |
 | RSEC_SSFS_DATAPATH | \\\\**sapglobal**\sapmnt\PR1\SYS\global\security\rsecssfs\data |
 | RSEC_SSFS_KEYPATH | \\\\**sapglobal**\sapmnt\PR1\SYS\global\security\rsecssfs\key |

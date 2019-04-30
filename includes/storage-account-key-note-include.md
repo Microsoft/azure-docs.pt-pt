@@ -9,11 +9,11 @@ ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 3cfdca99c91dc54a711801d92aa0da91fb9703e4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247093"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61484255"
 ---
 > [!IMPORTANT]
 > A chave da conta de armazenamento é semelhante à palavra-passe de raiz da conta de armazenamento. Tenha sempre o cuidado de proteger a chave da conta. Evite distribuí-la a outros utilizadores, pré-programá-la ou guardá-la num texto simples em qualquer lugar que seja acessível a outras pessoas. Regenere a chave da conta através do portal do Azure se considerar que poderá ter sido comprometida.

@@ -9,11 +9,11 @@ ms.date: 06/22/2018
 ms.author: twooley
 ms.custom: include file
 ms.openlocfilehash: 5d7d54c120929edda8e1edaff9758f4650dd29d5
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49312415"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61462396"
 ---
 | Categoria | Arquivo de dados | 
 | :-------- | :----------- | 

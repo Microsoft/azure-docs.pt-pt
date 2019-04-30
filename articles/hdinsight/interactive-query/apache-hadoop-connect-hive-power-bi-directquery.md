@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: d9639a4a116e06e17005ebddbb26379882491b33
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 657f8df959ccda5d51748ef5fbfc2e280f7d2c2e
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483787"
+ms.locfileid: "62126584"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualizar dados de Interactive Query Apache Hive com o Microsoft Power BI através da consulta direta no Azure HDInsight
 
