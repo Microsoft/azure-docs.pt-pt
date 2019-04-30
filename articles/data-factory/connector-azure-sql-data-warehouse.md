@@ -537,8 +537,8 @@ A tabela seguinte fornece exemplos de como especificar a **tableName** proprieda
 | Esquema da BD | Nome da tabela | **tableName** propriedade JSON |
 | --- | --- | --- |
 | dbo | MyTable | MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
-| dbo1 | MyTable | dbo1. MyTable ou [dbo1]. [MyTable] |
-| dbo | My.Table | [My.Table] ou [dbo]. [My.Table] |
+| dbo1 | MyTable | dbo1. MyTable ou [dbo1].[MyTable] |
+| dbo | My.Table | [My.Table] ou [dbo].[My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |
 
 Se vir o seguinte erro, o problema poderá ser o valor especificado para o **tableName** propriedade. Consulte a tabela anterior para a maneira correta de especificar valores para o **tableName** propriedade JSON.

@@ -10,7 +10,7 @@ ms.date: 01/11/2019
 ms.author: annayak
 ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60864341"

@@ -10,7 +10,7 @@ ms.date: 2/04/2019
 ms.author: msangapu-msft
 ms.openlocfilehash: 40aa032654d81c947e2c31e9d93954ee050f78a2
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60849953"

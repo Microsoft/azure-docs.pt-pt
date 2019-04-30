@@ -15,7 +15,7 @@ ms.date: 03/28/2019
 ms.author: cephalin
 ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60850236"
