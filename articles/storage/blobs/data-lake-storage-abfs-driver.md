@@ -2,9 +2,10 @@
 title: O driver de sistema de ficheiros do Azure Blob para a geração 2 de armazenamento do Azure Data Lake
 description: O driver de sistema de ficheiros do ABFS Hadoop
 services: storage
-author: jamesbak
+author: normesta
 ms.topic: conceptual
-ms.author: jamesbak
+ms.author: normesta
+ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2

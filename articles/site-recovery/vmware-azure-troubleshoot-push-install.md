@@ -9,7 +9,7 @@ ms.author: ramamill
 ms.date: 02/27/2019
 ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60564684"

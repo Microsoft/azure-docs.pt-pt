@@ -2,15 +2,9 @@
 title: Guia de publicação oferta de aplicação gerida de aplicações do Azure
 description: Este artigo descreve os requisitos para publicar uma aplicação gerida no Marketplace
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
 manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi

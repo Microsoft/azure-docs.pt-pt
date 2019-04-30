@@ -16,7 +16,7 @@ ms.date: 04/03/2019
 ms.author: jegeib
 ms.openlocfilehash: 502c1e8a422eb9e74586e5a6820d5b12ec4ae2a4
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60610626"

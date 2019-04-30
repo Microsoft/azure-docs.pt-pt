@@ -7,7 +7,7 @@ manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 07/31/2018
-ms.date: 09/10/2018
+ms.date: 04/29/2019
 ms.author: v-yeche
 ms.openlocfilehash: 9b0f785a6a43f984708645084a8a8036326d3d24
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a

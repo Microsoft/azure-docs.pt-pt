@@ -10,7 +10,7 @@ ms.topic: article
 ms.component: data-lake-storage-gen2
 ms.openlocfilehash: d0908e9edce8efb7a378ee04b6076b61cae2d2bf
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60708684"

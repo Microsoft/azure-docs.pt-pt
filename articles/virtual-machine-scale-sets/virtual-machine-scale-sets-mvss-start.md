@@ -17,7 +17,7 @@ ms.date: 06/01/2017
 ms.author: manayar
 ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60805574"

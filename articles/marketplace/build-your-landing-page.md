@@ -2,15 +2,9 @@
 title: Criar a sua página de destino no Azure Marketplace | Azure
 description: Saiba como criar uma página de aterrissagem no Microsoft AppSource e do Azure Marketplace para editores de aplicações e serviços.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
