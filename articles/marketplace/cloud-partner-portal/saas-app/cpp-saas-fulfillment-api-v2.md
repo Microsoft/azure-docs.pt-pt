@@ -43,7 +43,7 @@ Quando um cliente inicia uma compra, o ISV recebe essas informações num AuthCo
 
 ![Chamadas de API para o aprovisionamento de um serviço SaaS.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Aprovisionado
+#### <a name="provisioned"></a>Aprovisionada
 
 Este estado é o estado estável de um serviço aprovisionado.
 

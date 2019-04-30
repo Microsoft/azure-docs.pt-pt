@@ -16,7 +16,7 @@ ms.date: 02/01/2019
 ms.author: magattus
 ms.openlocfilehash: 53002fba9883d4ae0276ee1d91e915587f89177b
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60627586"

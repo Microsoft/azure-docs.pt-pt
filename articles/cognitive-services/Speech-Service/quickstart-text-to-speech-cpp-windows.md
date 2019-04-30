@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 4/03/2019
 ms.author: yinhew
-ms.openlocfilehash: 732816ce10836d5828e7f325a3eb3fe31627d4f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d818f8a8fc813d3da5eea4d8ef9cd2f4fd18bb53
+ms.sourcegitcommit: 1aab8b764d767d86fbf262bda34996189d00c7bb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620162"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "64402653"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-windows-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Windows com o SDK de voz
 
