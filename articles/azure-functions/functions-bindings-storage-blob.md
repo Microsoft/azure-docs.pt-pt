@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e67737e26edfee94a5a4d740d6c575817c66ff0
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306871"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63766188"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -426,7 +426,7 @@ Arquivos de funções do Azure de BLOBs num contentor com o nome do Editor *anfi
 * O nome do blob
 * O ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-Para forçar o reprocessamento de um blob, elimine o recebimento de BLOBs para esse blob a partir da *anfitriões de webjobs do azure* contentor manualmente.
+Para forçar o reprocessamento de um blob, elimine o recebimento de BLOBs para esse blob a partir da *anfitriões de webjobs do azure* contentor manualmente. Embora o reprocessamento pode não ocorrer imediatamente, é garantida ocorra posteriormente no tempo.
 
 ## <a name="trigger---poison-blobs"></a>Acionador - blobs não processáveis
 
@@ -450,9 +450,13 @@ As funções JavaScript e Java carregar o blob inteiro na memória, e C# funçõ
 
 ## <a name="trigger---polling"></a>Acionar - consulta
 
-Se o contentor de BLOBs a ser monitorizado contém mais de 10 000 blobs (em todos os contentores), as verificações de tempo de execução de funções ficheiros para deteção de blobs novas ou alteradas de registo. Este processo pode resultar em atrasos. Uma função pode não obter acionada por até vários minutos ou mais depois de criar o blob. Além disso, [registos de armazenamento são criados num "melhor esforço"](/rest/api/storageservices/About-Storage-Analytics-Logging) base. Não há nenhuma garantia que todos os eventos são capturados. Em algumas condições, os registos podem ser perdidos.
+Se o contentor de BLOBs a ser monitorizado contém mais de 10 000 blobs (em todos os contentores), as verificações de tempo de execução de funções ficheiros para deteção de blobs novas ou alteradas de registo. Este processo pode resultar em atrasos. Uma função pode não obter acionada por até vários minutos ou mais depois de criar o blob.
 
-Se necessitar de processamento de blob mais rápida ou mais fiáveis, considere criar um [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando cria o blob. Em seguida, utilizar um [acionador de fila](functions-bindings-storage-queue.md) em vez de um acionador de blob para processar o blob. Outra opção consiste em utilizar o Event Grid; Veja o tutorial [automatizar o redimensionamento de imagens com o Event Grid carregadas](../event-grid/resize-images-on-storage-blob-upload-event.md).
+> [!WARNING]
+> Além disso, [registos de armazenamento são criados num "melhor esforço"](/rest/api/storageservices/About-Storage-Analytics-Logging) base. Não há nenhuma garantia que todos os eventos são capturados. Em algumas condições, os registos podem ser perdidos.
+> 
+> Se necessitar de processamento de blob mais rápida ou mais fiáveis, considere criar um [mensagem de fila](../storage/queues/storage-dotnet-how-to-use-queues.md) quando cria o blob. Em seguida, utilizar um [acionador de fila](functions-bindings-storage-queue.md) em vez de um acionador de blob para processar o blob. Outra opção consiste em utilizar o Event Grid; Veja o tutorial [automatizar o redimensionamento de imagens com o Event Grid carregadas](../event-grid/resize-images-on-storage-blob-upload-event.md).
+>
 
 ## <a name="input"></a>Input
 

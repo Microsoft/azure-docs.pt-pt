@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60336801"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63760585"
 ---
 # <a name="translator-text-api-30-translate"></a>Texto do Translator API 3.0: Translate
 
@@ -42,11 +42,11 @@ Parâmetros de pedido passados na seqüência de consulta são:
   </tr>
   <tr>
     <td>de</td>
-    <td><em>O parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando [idiomas suportados](./v3-0-languages.md) usando o <code>translation</code> âmbito. Se o <code>from</code> parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem.</td>
+    <td><em>O parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando <a href="./v3-0-languages.md">idiomas suportados</a> usando o <code>translation</code> âmbito. Se o <code>from</code> parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem.</td>
   </tr>
   <tr>
     <td>para</td>
-    <td><em>Parâmetro necessário</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o [idiomas suportados](./v3-0-languages.md) incluído no <code>translation</code> âmbito. Por exemplo, utilizar <code>to=de</code> para efetuar a conversão para o alemão.<br/>É possível converter para vários idiomas em simultâneo, repetindo o parâmetro na cadeia de consulta. Por exemplo, utilizar <code>to=de&to=it</code> para efetuar a conversão para o alemão e italiano.</td>
+    <td><em>Parâmetro necessário</em>.<br/>Especifica o idioma do texto de saída. O idioma de destino tem de ser o <a href="./v3-0-languages.md">idiomas suportados</a> incluído no <code>translation</code> âmbito. Por exemplo, utilizar <code>to=de</code> para efetuar a conversão para o alemão.<br/>É possível converter para vários idiomas em simultâneo, repetindo o parâmetro na cadeia de consulta. Por exemplo, utilizar <code>to=de&to=it</code> para efetuar a conversão para o alemão e italiano.</td>
   </tr>
   <tr>
     <td>textType</td>
@@ -54,15 +54,15 @@ Parâmetros de pedido passados na seqüência de consulta são:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>O parâmetro opcional</em>.<br/>Uma cadeia que especifica a categoria (domínio) da tradução. Este parâmetro é utilizado para obter as traduções de um sistema personalizado criado com [Translator personalizado](../customization.md). Adicione o ID de categoria do seu projeto personalizado Translator para este parâmetro para utilizar o seu sistema personalizado implementado. Valor predefinido é: <code>general</code>.</td>
+    <td><em>O parâmetro opcional</em>.<br/>Uma cadeia que especifica a categoria (domínio) da tradução. Este parâmetro é utilizado para obter as traduções de um sistema personalizado criado com <a href="../customization.md">Translator personalizado</a>. Adicione o ID de categoria do seu projeto personalizado Translator para este parâmetro para utilizar o seu sistema personalizado implementado. Valor predefinido é: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>
-    <td><em>O parâmetro opcional</em>.<br/>Especifica como profanities devem ser tratados de traduções. Os valores possíveis são: <code>NoAction</code> (predefinição), <code>Marked</code> ou <code>Deleted</code>. Para compreender as maneiras de tratar a linguagem inapropriada, veja [processamento de linguagem inapropriada](#handle-profanity).</td>
+    <td><em>O parâmetro opcional</em>.<br/>Especifica como profanities devem ser tratados de traduções. Os valores possíveis são: <code>NoAction</code> (predefinição), <code>Marked</code> ou <code>Deleted</code>. Para compreender as maneiras de tratar a linguagem inapropriada, veja <a href="#handle-profanity">processamento de linguagem inapropriada</a>.</td>
   </tr>
   <tr>
     <td>profanityMarker</td>
-    <td><em>O parâmetro opcional</em>.<br/>Especifica como profanities devem ser marcados em traduções. Os valores possíveis são: <code>Asterisk</code> (predefinição) ou <code>Tag</code>. Para compreender as maneiras de tratar a linguagem inapropriada, veja [processamento de linguagem inapropriada](#handle-profanity).</td>
+    <td><em>O parâmetro opcional</em>.<br/>Especifica como profanities devem ser marcados em traduções. Os valores possíveis são: <code>Asterisk</code> (predefinição) ou <code>Tag</code>. Para compreender as maneiras de tratar a linguagem inapropriada, veja <a href="#handle-profanity">processamento de linguagem inapropriada</a>.</td>
   </tr>
   <tr>
     <td>includeAlignment</td>

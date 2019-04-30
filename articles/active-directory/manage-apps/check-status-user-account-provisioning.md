@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a6d1684c4bc0031978fb5e76548a3112b0f1ef2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e293eb555269a1f8beeeccd74000358abe1ef5c8
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442021"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63759756"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Tutorial: Relatórios sobre o aprovisionamento de contas de utilizadores automático
 
@@ -43,7 +43,7 @@ Este artigo utiliza os seguintes termos definidos abaixo:
 
 * **Sistema de origem** -o repositório de utilizadores que sincroniza a partir do serviço de aprovisionamento do AD do Azure. O Azure Active Directory é o sistema de origem para a maioria dos conectores de aprovisionamento previamente integradas, no entanto, existem algumas exceções (exemplo: Workday sincronização de entrada).
 
-* **Sistema de destino** -o repositório de utilizadores que sincroniza os para o Azure AD que o serviço de aprovisionamento. Normalmente, se trata de uma aplicação SaaS (exemplos: Salesforce, ServiceNow, Google Apps, o Dropbox for Business), mas em alguns casos, pode ser um sistema no local como o Active Directory (exemplo: Workday sincronização de entrada para o Active Directory).
+* **Sistema de destino** -o repositório de utilizadores que sincroniza os para o Azure AD que o serviço de aprovisionamento. Normalmente, se trata de uma aplicação SaaS (exemplos: Salesforce, ServiceNow, G Suite, o Dropbox for Business), mas em alguns casos, pode ser um sistema no local como o Active Directory (exemplo: Workday sincronização de entrada para o Active Directory).
 
 
 ## <a name="getting-provisioning-reports-from-the-azure-management-portal"></a>Obter relatórios a partir do portal de gestão do Azure de aprovisionamento

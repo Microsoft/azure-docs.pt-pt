@@ -9,11 +9,11 @@ ms.date: 01/25/2019
 ms.author: v-krghan
 ms.custom: include file
 ms.openlocfilehash: 79fcadc75876af39d65dcfce88dac6802d55efd4
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59630553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61450807"
 ---
 ## <a name="download-the-source-code"></a>Baixe o código-fonte
 

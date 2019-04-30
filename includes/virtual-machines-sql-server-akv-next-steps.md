@@ -1,15 +1,16 @@
 ---
-author: rothja
+author: rockboyfor
 ms.service: virtual-machines-sql
 ms.topic: include
-ms.date: 10/26/2018
-ms.author: jroth
+origin.date: 10/26/2018
+ms.date: 11/26/2018
+ms.author: v-yeche
 ms.openlocfilehash: 22f16a7382cb0fe1f3fe2a6ef5e7c00a6989623c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62129616"
 ---
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -17,7 +18,7 @@ Depois de ativar a integração do Azure Key Vault, pode ativar a encriptação 
 
 Existem várias formas de criptografia que pode tirar partido de:
 
-* [Encriptação de dados transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
+* [Encriptação de Dados Transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx)
 * [Cópias de segurança encriptadas](https://msdn.microsoft.com/library/dn449489.aspx)
 * [Encriptação de nível de coluna (CLE)](https://msdn.microsoft.com/library/ms173744.aspx)
 
@@ -38,11 +39,9 @@ CREATE CREDENTIAL sysadmin_ekm_cred
     SECRET = '<<SECRET>>'
 FOR CRYPTOGRAPHIC PROVIDER AzureKeyVault_EKM_Prov;
 
-
 --Map the credential to a SQL login that has sysadmin permissions. This allows the SQL login to access the key vault when creating the asymmetric key in the next step.
 ALTER LOGIN [SQL_Login]
 ADD CREDENTIAL sysadmin_ekm_cred;
-
 
 CREATE ASYMMETRIC KEY CONTOSO_KEY
 FROM PROVIDER [AzureKeyVault_EKM_Prov]
@@ -50,7 +49,7 @@ WITH PROVIDER_KEY_NAME = 'KeyName_in_KeyVault',  --The key name here requires th
 CREATION_DISPOSITION = OPEN_EXISTING;
 ```
 
-### <a name="transparent-data-encryption-tde"></a>Encriptação de dados transparente (TDE)
+### <a name="transparent-data-encryption-tde"></a>Encriptação de Dados Transparente (TDE)
 
 1. Criar um início de sessão do SQL Server a ser utilizada pelo motor de base de dados para TDE, em seguida, adicionar a credencial a ele.
 
@@ -147,3 +146,5 @@ CLOSE SYMMETRIC KEY DATA_ENCRYPTION_KEY;
 Para obter mais informações sobre como utilizar estas funcionalidades de encriptação, consulte [usando EKM com recursos de criptografia do SQL Server](https://msdn.microsoft.com/library/dn198405.aspx#UsesOfEKM).
 
 Tenha em atenção que os passos neste artigo pressupõem que já tem o SQL Server em execução numa máquina virtual do Azure. Caso contrário, veja [aprovisionar uma máquina virtual do SQL Server no Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md). Para outras diretrizes sobre como executar o SQL Server em VMs do Azure, consulte [SQL Server em Descrição geral de máquinas virtuais do Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md).
+
+<!--Update_Description: wording update, update link-->

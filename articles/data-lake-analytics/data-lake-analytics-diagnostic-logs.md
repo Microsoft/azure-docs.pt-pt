@@ -9,11 +9,11 @@ ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959140"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60616514"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Aceder a registos de diagnóstico para o Azure Data Lake Analytics
 
@@ -127,15 +127,15 @@ Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blo
 
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |O período de tempo (em UTC) do registo |
+| time |String |O período de tempo (em UTC) do registo |
 | resourceId |String |O identificador do recurso que demorou a operação de colocar em |
-| categoria |String |A categoria de registo. Por exemplo, **pedidos**. |
+| category |String |A categoria de registo. Por exemplo, **pedidos**. |
 | operationName |String |Nome da operação que é registado. Por exemplo, GetAggregatedJobHistory. |
 | resultType |String |O estado da operação, por exemplo, 200. |
 | callerIpAddress |String |O endereço IP do cliente que efetua o pedido |
 | correlationId |String |O identificador do registo. Este valor pode ser utilizado para agrupar um conjunto de entradas de registo relacionados. |
 | identidade |Object |A identidade que gerou o registo |
-| propriedades |JSON |Veja a secção seguinte (esquema de propriedades de registo de pedido) para obter detalhes |
+| properties |JSON |Veja a secção seguinte (esquema de propriedades de registo de pedido) para obter detalhes |
 
 #### <a name="request-log-properties-schema"></a>Esquema de propriedades de registo de pedido
 
@@ -146,7 +146,7 @@ Aqui está uma entrada de exemplo no registo de pedido de formato JSON. Cada blo
 | RequestContentLength |int |O comprimento do conteúdo da solicitação HTTP |
 | ClientRequestId |String |O identificador que identifica exclusivamente este pedido |
 | StartTime |String |O tempo em que o servidor recebeu o pedido |
-| endTime |String |O tempo em que o servidor enviou uma resposta |
+| EndTime |String |O tempo em que o servidor enviou uma resposta |
 
 ### <a name="audit-logs"></a>Registos de auditoria
 
@@ -179,14 +179,14 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
 
 | Name | Tipo | Descrição |
 | --- | --- | --- |
-| hora |String |O período de tempo (em UTC) do registo |
+| time |String |O período de tempo (em UTC) do registo |
 | resourceId |String |O identificador do recurso que demorou a operação de colocar em |
-| categoria |String |A categoria de registo. Por exemplo, **auditoria**. |
+| category |String |A categoria de registo. Por exemplo, **auditoria**. |
 | operationName |String |Nome da operação que é registado. Por exemplo, JobSubmitted. |
 | resultType |String |Subestado para o estado da tarefa (Oeprationname). |
 | resultSignature |String |Detalhes adicionais sobre o estado da tarefa (Oeprationname). |
 | identidade |String |O utilizador que a operação pedida. Por exemplo, susan@contoso.com. |
-| propriedades |JSON |Veja a secção seguinte (esquema de propriedades de registo de auditoria) para obter detalhes |
+| properties |JSON |Veja a secção seguinte (esquema de propriedades de registo de auditoria) para obter detalhes |
 
 > [!NOTE]
 > **resultType** e **resultSignature** fornecem informações sobre o resultado de uma operação e conter apenas um valor se uma operação for concluída. Por exemplo, o que contêm apenas um valor quando **operationName** contém um valor de **JobStarted** ou **JobEnded**.
@@ -202,7 +202,7 @@ Aqui está uma entrada de exemplo no log de auditoria de formato JSON. Cada blob
 | JobRunTime |String |O tempo de execução usado para processar a tarefa |
 | SubmitTime |String |O tempo (em UTC) que a tarefa foi submetida |
 | StartTime |String |O tempo que a tarefa iniciou a execução após o envio (em UTC) |
-| endTime |String |O tempo que a tarefa foi concluída |
+| EndTime |String |O tempo que a tarefa foi concluída |
 | Paralelismo |String |O número de unidades do Data Lake Analytics requerido para esta tarefa durante a submissão |
 
 > [!NOTE]

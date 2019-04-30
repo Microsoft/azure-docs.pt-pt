@@ -6,24 +6,24 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 03/19/2019
+ms.date: 04/23/2019
 ms.author: raynew
-ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f69c2ea334109a42d63b85cb71de0deb7174beab
+ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527754"
+ms.locfileid: "62736448"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
-Bases de dados do SQL Server são cargas de trabalho críticas que exigem um objetivo de ponto de recuperação (RPO) e a retenção de longa duração. Pode criar cópias de segurança bases de dados do SQL Server em execução em VMs do Azure utilizando [cópia de segurança do Azure](backup-overview.md).
+Bases de dados do SQL Server são cargas de trabalho críticas que exigem um objetivo de ponto de recuperação (RPO) e a retenção de longa duração. Pode fazer backup de bancos de dados do SQL Server em execução em VMs do Azure utilizando [Azure Backup](backup-overview.md).
 
 ## <a name="backup-process"></a>Processo de cópia de segurança
 
 Esta solução tira partido das APIs de nativas de SQL para efetuar cópias de segurança das bases de dados SQL.
 
-* Depois de especificar a VM do SQL Server que pretende proteger e consultar para as bases de dados no departamento de TI, o serviço de cópia de segurança do Azure irá instalar uma extensão de cópia de segurança da carga de trabalho na VM com o nome `AzureBackupWindowsWorkload`  extensão.
+* Depois de especificar a VM do SQL Server que pretende proteger e consultar para as bases de dados no mesmo, o serviço de cópia de segurança do Azure irá instalar uma extensão de cópia de segurança da carga de trabalho na VM com o nome `AzureBackupWindowsWorkload`  extensão.
 * Esta extensão é constituído por um coordenador e um plug-in do SQL. Embora o coordenador é responsável por acionar fluxos de trabalho para várias operações como configurar a cópia de segurança, cópia de segurança e restauro, o plug-in é responsável por fluxo de dados real.
 * Para poder detetar as bases de dados nesta VM, o Azure Backup cria a conta `NT SERVICE\AzureWLBackupPluginSvc`. Esta conta é utilizada para cópia de segurança e restauro e necessita de permissões de administrador do sistema do SQL. Tira partido de cópia de segurança do Azure a `NT AUTHORITY\SYSTEM` de conta para deteção/consulta de base de dados, para que esta conta tem de ser um início de sessão público no SQL. Se não criar a VM do SQL Server no Azure Marketplace, poderá receber um erro **UserErrorSQLNoSysadminMembership**. Se isto ocorrer [siga estas instruções](backup-azure-sql-database.md).
 * Assim que o acionador de configurar a proteção em bases de dados selecionadas, o serviço de cópia de segurança configura o coordenador com as agendas de cópia de segurança e outros detalhes da política, que a extensão coloca em cache localmente na VM 
@@ -35,7 +35,7 @@ Esta solução tira partido das APIs de nativas de SQL para efetuar cópias de s
 
 ## <a name="before-you-start"></a>Antes de começar
 
-Antes de começar, verifique o seguinte:
+Antes de começar, verifique se o abaixo:
 
 1. Certifique-se de que tem uma instância do SQL Server em execução no Azure. Pode [rapidamente a criar uma instância do SQL Server](../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md) no marketplace.
 2. Reveja os [consideração de funcionalidades](#feature-consideration-and-limitations) e [suporte a cenários](#scenario-support).
@@ -54,20 +54,27 @@ Antes de começar, verifique o seguinte:
 ## <a name="feature-consideration-and-limitations"></a>Funcionalidade considerações e limitações
 
 - Cópia de segurança do SQL Server pode ser configurada no portal do Azure ou **PowerShell**. Não suportamos a CLI.
+- A solução é suportada em ambos os tipos de [implementações](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) -VMs do Azure Resource Manager e as VMs clássicas.
 - VM com o SQL Server necessita de conectividade de internet para acessar os endereços IP públicos do Azure.
 - SQL Server **instância de Cluster de ativação pós-falha (FCI)** e SQL Server sempre na instância de Cluster de ativação pós-falha não são suportadas.
-- Operações de cópia de segurança e restauro de bases de dados de espelhamento e instantâneos de base de dados não são suportadas.
-- Com mais de um soluções de cópia de segurança a cópia de segurança do SQL Server autónomo instância ou SQL sempre no grupo de disponibilidade pode levar a falhas de cópia de segurança; Evite impedidos de o fazer.
-- Fazer backup de dois nós de um grupo de disponibilidade individualmente com as soluções idêntica ou diferentes, também pode levar a falhas de cópia de segurança. Cópia de segurança do Azure pode detetar e proteger todos os nós que estão na mesma região que o cofre. Se o SQL Server sempre no grupo de disponibilidade se estende por várias regiões do Azure, configure a cópia de segurança da região que tem o nó principal. Cópia de segurança do Azure pode detetar e proteger todas as bases de dados no grupo de disponibilidade, de acordo com sua preferência de cópia de segurança.  
+- Criar cópias de segurança e as operações de restauro de bases de dados de espelhamento e instantâneos de base de dados não são suportadas.
+- Utilizar mais do que um soluções de cópia de segurança para criar cópias de segurança do SQL Server autónomo instância ou SQL sempre no grupo de disponibilidade pode levar a falhas de cópia de segurança; Evite impedidos de o fazer.
+- Fazer backup de dois nós de um grupo de disponibilidade individualmente com as soluções idêntica ou diferentes, também pode levar a falhas de cópia de segurança.
 - Tipos de cópia de segurança completa apenas de cópia para e do Azure Backup suporta apenas completa **só de leitura** bases de dados
 - Não não possível proteger bases de dados com grande número de ficheiros. É o número máximo de ficheiros suportado **~ 1000**.  
 - Pode fazer até **~ 2000** bases de dados do SQL Server num cofre. Pode criar vários cofres no caso de ter um maior número de bases de dados.
 - Pode configurar a cópia de segurança para até **50** bases de dados em um ir; esta restrição ajuda a otimizar cargas de cópia de segurança.
 - Damos suporte a bancos de dados até **2TB** tamanho; para tamanhos maiores do que isso, podem surgir problemas de desempenho.
-- Para ter uma idéia de como o número de bases de dados podem ser protegidos por servidor, é necessário considerar fatores como a largura de banda, tamanho da VM, frequência de cópia de segurança, tamanho da base de dados, etc. Estamos a trabalhar num Planeador de implementações que ajuda a calcular estes número próprio. Podemos estarão publicando-lo em breve.
+- Para ter uma idéia de como o número de bases de dados podem ser protegidos por servidor, é necessário considerar fatores como a largura de banda, tamanho da VM, frequência de cópia de segurança, tamanho da base de dados, etc. Estamos a trabalhar num Planeador de implementações que pode ajudar a calcular que esses números em o proprietário. Podemos estarão publicando-lo em breve.
 - Em caso de grupos de disponibilidade, os backups são feitos de diferentes nós com base em alguns fatores. O comportamento de cópia de segurança de um grupo de disponibilidade é resumido abaixo.
 
-### <a name="backup-behavior-in-case-of-always-on-availability-groups"></a>Comportamento de cópia de segurança em caso de sempre em grupos de disponibilidade
+### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Criar cópias de segurança comportamento em caso de sempre em grupos de disponibilidade
+
+Recomenda-se que a cópia de segurança está configurada em apenas um nó de um AG. Cópia de segurança sempre deve ser configurada na mesma região que o nó principal. Em outras palavras, sempre tem o nó primário esteja presente na região em que estiver a configurar a cópia de segurança. Se todos os nós do AG estão na mesma região em que a cópia de segurança está configurada, não há qualquer preocupação.
+
+**Para AG entre regiões**
+- Independentemente da preferência de cópia de segurança, as cópias de segurança não ocorrerá de nós que não estão na mesma região em que a cópia de segurança está configurada. Isto acontece porque as cópias de segurança entre regiões não são suportadas. Se tiver apenas 2 nós e o nó secundário está em outra região. Neste caso, as cópias de segurança continuarão a ser efetuadas a partir do nó principal (a menos que seja de sua preferência de cópia de segurança 'apenas para o secundário').
+- Se ocorrer uma ativação pós-falha para uma região diferente em que a cópia de segurança está configurada, as cópias de segurança falha em nós na região com ativação pós-falha.
 
 Consoante a preferência de cópia de segurança e os tipos de cópias de segurança (completa/diferencial/registo/apenas de cópia completos), as cópias de segurança são extraídas de um determinado nó (primária/secundária).
 
@@ -109,7 +116,7 @@ Apenas de cópia completa |  Secundária
 
 ## <a name="fix-sql-sysadmin-permissions"></a>Corrigir permissões de administrador do sistema do SQL
 
-  Se precisa corrigir as permissões devido uma **UserErrorSQLNoSysadminMembership** erro, efetue o seguinte procedimento:
+  Se precisa corrigir as permissões devido **UserErrorSQLNoSysadminMembership** erro, execute os passos abaixo:
 
   1. Utilize uma conta com permissões de administrador do sistema do SQL Server para iniciar sessão para o SQL Server Management Studio (SSMS). A menos que precise permissões especiais, autenticação do Windows deverá funcionar.
   2. No SQL Server, abra a **inícios de sessão/segurança** pasta.

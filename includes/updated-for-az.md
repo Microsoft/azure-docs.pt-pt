@@ -9,7 +9,7 @@ ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188352"
+ms.locfileid: "62091946"
 ---
 > [!NOTE]
 > Este artigo foi atualizado para utilizar o módulo Azure PowerShell Az novo. Pode continuar a utilizar o módulo de AzureRM, que vai continuar a receber correções de erros até que, pelo menos, Dezembro de 2020.

@@ -7,18 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 86b9609d5141798be40f53aab8b18897484bbef8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c403d809aa1fc6cdbb0555eef414f79b02ab5a8a
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467583"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764121"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar o Azure Active Directory com o serviço de Kubernetes do Azure com a CLI do Azure
 
 O Azure Kubernetes Service (AKS) pode ser configurado para utilizar o Azure Active Directory (AD) para autenticação de utilizador. Nesta configuração, pode iniciar sessão num cluster do AKS com um token de autenticação do Azure AD. Operadores de cluster também podem configurar o controlo de acesso baseado em função do Kubernetes (RBAC) com base na associação de grupo de identidade ou o diretório de um utilizador.
 
 Este artigo mostra-lhe como criar necessários componentes do Azure AD, em seguida, implementar um cluster do Azure AD habilitado e criar uma função RBAC básica do cluster do AKS. Também pode [concluir estes passos no portal do Azure][azure-ad-portal].
+
+Para o script de exemplo completo utilizado neste artigo, consulte [exemplos da CLI do Azure - integração de AKS com o Azure AD][complete-script].
 
 As seguintes limitações aplicam-se:
 

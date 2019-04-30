@@ -6,15 +6,16 @@ author: ggailey777
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/17/2019
-ms.author: glenga
+origin.date: 03/17/2019
+ms.date: 03/25/2019
+ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: db7753f3d4319cd8f93b39880fe40c8f757f03c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133616"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61036297"
 ---
 |Idioma                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|
@@ -30,3 +31,4 @@ ms.locfileid: "58133616"
 |PowerShell          |Experimental|N/A|
 
 Para obter informações sobre alterações planejadas para suporte de idiomas, consulte [mapa do Azure](https://azure.microsoft.com/roadmap/?tag=functions).
+

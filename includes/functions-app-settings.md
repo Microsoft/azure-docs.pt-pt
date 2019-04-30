@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 08/15/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 0e865465b6566e290dd59d061385510e7c0a2d46
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: a8ef570674e2abea3337e5278810d583c7b721a6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61032429"
 ---
 Há várias maneiras que pode adicionar, atualizar e eliminar definições da aplicação de funções:
 

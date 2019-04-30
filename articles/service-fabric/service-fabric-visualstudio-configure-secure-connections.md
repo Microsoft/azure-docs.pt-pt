@@ -15,11 +15,11 @@ ms.workload: multiple
 ms.date: 8/04/2017
 ms.author: cawa
 ms.openlocfilehash: 8d76a2144234591792359ed8dd4a0779e6a2fc5c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058464"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60628301"
 ---
 # <a name="configure-secure-connections-to-a-service-fabric-cluster-from-visual-studio"></a>Configurar ligações seguras a um cluster do Service Fabric a partir do Visual Studio
 Saiba como utilizar o Visual Studio para aceder de forma segura um cluster do Azure Service Fabric com as políticas de controlo de acesso configuradas.
@@ -44,7 +44,7 @@ O **publicar a aplicação do Service Fabric** caixa de diálogo valida automati
 3. Escolha o **publicar...**  comando no menu de atalho do projeto para abrir o **publicar a aplicação do Azure** caixa de diálogo e, em seguida, selecione o cluster de destino. A ferramenta automaticamente resolve a ligação e guarda os parâmetros de ligação segura no perfil de publicação.
 4. Opcional: Pode editar o perfil de publicação para especificar uma ligação de cluster seguro.
    
-   Uma vez que estiver a editar manualmente o ficheiro XML do perfil de publicação para especificar as informações do certificado, certifique-se de que tenha em atenção o nome de arquivo de certificados, armazene a localização e o thumbprint do certificado. Terá de fornecer estes valores para o arquivo do certificado, atribua um nome e localização do arquivo. Ver [como: obter o Thumbprint de um certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para obter mais informações.
+   Uma vez que estiver a editar manualmente o ficheiro XML do perfil de publicação para especificar as informações do certificado, certifique-se de que tenha em atenção o nome de arquivo de certificados, armazene a localização e o thumbprint do certificado. Terá de fornecer estes valores para o arquivo do certificado, atribua um nome e localização do arquivo. Consulte [como: Obtenha o Thumbprint de um certificado](https://msdn.microsoft.com/library/ms734695\(v=vs.110\).aspx) para obter mais informações.
    
    Pode utilizar o *ClusterConnectionParameters* parâmetros para especificar os parâmetros do PowerShell para utilizar quando ligar ao cluster do Service Fabric. Parâmetros válidos são qualquer um que serão aceites pelo cmdlet Connect-ServiceFabricCluster. Ver [Connect-ServiceFabricCluster](https://docs.microsoft.com/powershell/module/servicefabric/connect-servicefabriccluster) para obter uma lista de parâmetros.
    

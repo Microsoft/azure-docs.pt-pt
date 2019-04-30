@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76d8bb816bdf229d13a49fa61337899a8bf29ecd
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
-ms.locfileid: "60338555"
+ms.locfileid: "62098291"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimento de ativação pós-falha de recuperação após desastre
 
@@ -35,34 +35,20 @@ Existem dois casos a serem consideradas ao fazer failover para o site de DR:
 >[!NOTE]
 >As etapas a seguir precisam ser executadas na unidade instância grande do HANA, que representa a unidade de DR. 
  
-Para restaurar para os instantâneos de armazenamento replicado mais recente, execute os seguintes passos: 
+Para restaurar para os instantâneos de armazenamento mais recente replicado, execute os passos conforme indicado na secção **'Executar total DR ativação pós-falha - azure_hana_dr_failover'** do documento [Microsoft instantâneo ferramentas para o SAP HANA no Azure ](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
-1. Encerre a instância de não produção do HANA na unidade de recuperação após desastre de instâncias grandes do HANA que estiver a executar. Isto acontece porque existe uma instância de produção de HANA Inativas pré-instalado.
-1. Certifique-se de que não existem processos de SAP HANA estão em execução. Utilize o seguinte comando para esta verificação: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. A saída deve mostrar-lhe a **hdbdaemon** processos no estado parado e outros processos HANA num Estado em execução ou iniciado.
-1. Na unidade de instância grande do HANA do site de DR, execute o script *azure_hana_dr_failover.pl*. O script pede para um SID de HANA SAP para serem restaurados. Quando solicitado, digite um ou o único SID do SAP HANA que foram replicadas e é mantida na *HANABackupCustomerDetails.txt* ficheiro na unidade instância grande do HANA no site de DR. 
+Se pretender ter várias instâncias do SAP HANA a ativação pós-falha, terá de executar o comando azure_hana_dr_failover várias vezes. Quando solicitado, introduza o SID do HANA SAP que pretende efetuar a ativação pós-falha e a restaurar. 
 
-      Se pretender ter várias instâncias do SAP HANA a ativação pós-falha, terá de executar o script várias vezes. Quando solicitado, introduza o SID do HANA SAP que pretende efetuar a ativação pós-falha e a restaurar. Após a conclusão, o script mostra uma lista de pontos de montagem dos volumes que são adicionados à unidade de instância grande do HANA. Esta lista inclui os volumes de DR restaurados.
 
-1. Monte os volumes de recuperação após desastre restaurada utilizando comandos de sistema operativo Linux para a unidade de instância grande do HANA no site de recuperação após desastre. 
-1. Inicie a instância de produção do SAP HANA Inativas.
-1. Se optar por copiar registos de cópia de segurança de registo de transações para reduzir o tempo RPO, terá de unir essas cópias de segurança do registo de transação para o diretório de logbackups montado recentemente DR/hana /. Não substitua as cópias de segurança existentes. Copie as cópias de segurança mais recente não tem sido replicadas com a replicação mais recentes de um instantâneo de armazenamento.
-1. Também pode restaurar ficheiros únicos fora os instantâneos que tem sido replicados para o volume de /hana/shared/PRD na região do Azure de DR. 
-
-Também pode testar a ativação pós-falha de DR sem afetar a relação de replicação real. Para efetuar uma ativação pós-falha de teste, siga os passos anteriores, 1 e 2 e, em seguida, continuar com o seguinte passo 3.
+Também pode testar a ativação pós-falha de DR sem afetar a relação de replicação real. Para efetuar uma ativação pós-falha de teste, siga os passos em **'Executar um teste de ativação pós-falha de DR - azure_hana_test_dr_failover'** do documento [Microsoft instantâneo ferramentas para o SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf). 
 
 >[!IMPORTANT]
->Fazer *não* executar quaisquer transações de produção na instância que criou no site através do processo de DR **uma ativação pós-falha de teste** com o script que introduziu no passo 3. Esse comando cria um conjunto de volumes que não têm qualquer relação para o site primário. Como resultado, é a sincronização de volta para o site primário *não* possíveis. 
+>Fazer *não* executar quaisquer transações de produção na instância que criou no site através do processo de DR **uma ativação pós-falha de teste**. Azure_hana_test_dr_failover esse comando cria um conjunto de volumes que não têm qualquer relação para o site primário. Como resultado, é a sincronização de volta para o site primário *não* possíveis. 
 
-Passo 3 para o teste de ativação pós-falha:
+Se pretender ter várias instâncias do SAP HANA para testar, terá de executar o script várias vezes. Quando solicitado, escreva SID SAP HANA de instância que pretende testar ativação pós-falha. 
 
-Na unidade de instância grande do HANA do site de DR, execute o script **azure_hana_test_dr_failover.pl**. Esse script é *não* a parar a relação de replicação entre o site primário e o site de DR. Em vez disso, este script é clonagem de volumes de armazenamento de DR. Depois do processo de clonagem tiver êxito, os volumes clonados são restaurados para o estado do instantâneo mais recente e, em seguida, montados para a unidade de DR. O script pede para um SID de HANA SAP para serem restaurados. Escreva o único ou de um SID do SAP HANA que foram replicadas e é mantida na *HANABackupCustomerDetails.txt* ficheiro na unidade instância grande do HANA no site de DR. 
-
-Se pretender ter várias instâncias do SAP HANA para testar, terá de executar o script várias vezes. Quando solicitado, escreva SID SAP HANA de instância que pretende testar ativação pós-falha. Após a conclusão, o script mostra uma lista de pontos de montagem dos volumes que são adicionados à unidade de instância grande do HANA. Esta lista inclui os volumes de DR clonados.
-
-Continue para o passo 4.
-
-   >[!NOTE]
-   >Se precisar de fazer a ativação pós-falha para o site de DR para resgatar a alguns dados que foi eliminados há horas e tem dos volumes de DR para ser definido como um instantâneo anterior, este procedimento aplica-se. 
+>[!NOTE]
+>Se precisar de fazer a ativação pós-falha para o site de DR para resgatar a alguns dados que foi eliminados há horas e tem dos volumes de DR para ser definido como um instantâneo anterior, este procedimento aplica-se. 
 
 1. Encerre a instância de não produção do HANA na unidade de recuperação após desastre de instâncias grandes do HANA que estiver a executar. Isto acontece porque existe uma instância de produção de HANA Inativas pré-instalado.
 1. Certifique-se de que não existem processos de SAP HANA estão em execução. Utilize o seguinte comando para esta verificação: `/usr/sap/hostctrl/exe/sapcontrol –nr <HANA instance number> - function GetProcessList`. A saída deve mostrar-lhe a **hdbdaemon** processos no estado parado e outros processos HANA num Estado em execução ou iniciado.
@@ -121,34 +107,8 @@ Esta é a seqüência de etapas a serem executadas:
 
 ## <a name="monitor-disaster-recovery-replication"></a>Monitorizar a replicação de recuperação após desastre
 
-Pode monitorizar o estado de seu progresso de replicação de armazenamento ao executar o script `azure_hana_replication_status.pl`. Este script deve ser executado a partir de uma unidade em execução na localização de recuperação após desastre a funcionar conforme esperado. O script funciona independentemente se a replicação está ativa. O script pode ser executado para cada unidade de instância grande do HANA do seu inquilino na localização de recuperação após desastre. Ele não pode ser usado para obter detalhes sobre o volume de arranque.
+Pode monitorizar o estado de seu progresso de replicação de armazenamento ao executar o script `azure_hana_replication_status`. Este comando deve ser executado a partir de uma unidade em execução na localização de recuperação após desastre a funcionar conforme esperado. O comando funciona independentemente se a replicação está ativa. O comando pode ser executado para cada unidade de instância grande do HANA do seu inquilino na localização de recuperação após desastre. Ele não pode ser usado para obter detalhes sobre o volume de arranque. Para obter detalhes sobre o comando e o respetivo resultado ler **'Obter estado de replicação de DR - azure_hana_replication_status'** do documento [Microsoft instantâneo ferramentas para o SAP HANA no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.0/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.0.pdf).
 
-Chame o script com este comando:
-```
-./azure_hana_replication_status.pl
-```
 
-A saída é dividida, consoante o volume, nas seguintes secções:  
-
-- Estado da ligação
-- Atividade de replicação atual
-- Instantâneo mais recente replicado 
-- Tamanho do instantâneo mais recente
-- Tempo de latência atual entre os instantâneos (entre a última replicação de instantâneo concluído e agora)
-
-O estado da ligação é apresentado como **Active Directory** , a menos que a ligação entre locais está inativo ou existe um evento de ativação pós-falha em curso. A atividade de replicação endereços independentemente de quaisquer dados está atualmente a ser replicados ou está inativos, ou se outras atividades são a acontecer à ligação. O último instantâneo replicado apenas deve aparecer como `snapmirror…`. O tamanho do último instantâneo, em seguida, é apresentado. Por fim, o tempo de atraso é mostrado. O tempo de atraso representa o tempo da replicação agendada para quando concluída a replicação. Um tempo de atraso pode ser maior do que uma hora para a replicação de dados, especialmente na replicação inicial, apesar dos replicação foi iniciada. O tempo de latência continua a aumentar até que seja concluída a replicação contínua.
-
-Segue-se um exemplo da saída:
-
-```
-hana_data_hm3_mnt00002_t020_dp
--------------------------------------------------
-Link Status: Broken-Off
-Current Replication Activity: Idle
-Latest Snapshot Replicated: snapmirror.c169b434-75c0-11e6-9903-00a098a13ceb_2154095454.2017-04-21_051515
-Size of Latest Snapshot Replicated: 244KB
-Current Lag Time between snapshots: -   ***Less than 90 minutes is acceptable***
-```
-
-**Passos seguintes?**
-- Consultar [monitorização e resolução de problemas do lado do HANA](hana-monitor-troubleshoot.md).
+## <a name="next-steps"></a>Passos Seguintes
+- Consulte a [monitorização e resolução de problemas do lado do HANA](hana-monitor-troubleshoot.md).

@@ -1,6 +1,6 @@
 ---
 title: GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver | Documentos da Microsoft
-description: GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
+description: GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
@@ -16,13 +16,13 @@ ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
 ms.openlocfilehash: 484a0043b9b5eefa5491dee75e87244d1c001620
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342328"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60711281"
 ---
-# <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS em VMs do Azure no Red Hat Enterprise Linux para SAP NetWeaver
+# <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md

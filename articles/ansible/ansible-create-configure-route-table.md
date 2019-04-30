@@ -1,34 +1,42 @@
 ---
-title: Criar, alterar ou eliminar uma tabela de rota do Azure com o Ansible
-description: Saiba como utilizar o Ansible para criar, alterar ou eliminar uma tabela de rotas com o Ansible
-ms.service: azure
+title: Tutorial - configurar tabelas de rota do Azure com o Ansible | Documentos da Microsoft
+description: Saiba como criar, alterar e eliminar tabelas de rota do Azure com o Ansible
 keywords: ansible, azure, devops, bash, playbook, funcionamento em rede, rota, tabela de rotas
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/17/2018
-ms.openlocfilehash: 025a8182d32a7d0d00a48795c848d356eb1c3d4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/22/2019
+ms.openlocfilehash: 3d20a7bb98ba266850baa0512f5b767f8b649767
+ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396823"
+ms.lasthandoff: 04/24/2019
+ms.locfileid: "63764481"
 ---
-# <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Criar, alterar ou eliminar uma tabela de rota do Azure com o Ansible
-O Azure automaticamente encaminha o tráfego entre sub-redes do Azure, redes virtuais e redes no local. Se pretender alterar qualquer um dos encaminhamento predefinido no Azure, fazê-lo através da criação de um [tabela de rotas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutorial: Configurar tabelas de rota do Azure com o Ansible
 
-O Ansible permite-lhe automatizar a implementação e a configuração de recursos no seu ambiente. Este artigo mostra-lhe como criar, alterar ou eliminar uma tabela de rota do Azure e anexar a tabela de rotas a uma sub-rede também. 
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
+
+O Azure automaticamente encaminha o tráfego entre sub-redes do Azure, redes virtuais e redes no local. Se precisar de mais controlo sobre o encaminhamento de seu ambiente, pode criar uma [tabela de rotas](/azure/virtual-network/virtual-networks-udr-overview). 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> Criar uma tabela de rotas criar uma rede virtual e uma sub-rede associar uma tabela de rotas uma sub-rede Disassociate uma tabela de rotas de sub-rede criar e eliminam encaminha uma tabela de rotas eliminar uma tabela de rotas de consulta
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- **Subscrição do Azure** - se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.7 é necessário para executar os seguinte playbooks de exemplo neste tutorial.
+- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>Criar uma tabela de rotas
-Esta secção apresenta um playbook de Ansible de exemplo que cria uma tabela de rotas. Existe um limite para quantas tabelas de rotas que pode criar por subscrição e localização do Azure. Para obter mais detalhes, veja [Limites do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+
+O código do playbook nesta secção cria uma tabela de rotas. Para obter informações sobre os limites de tabela de rotas, consulte [limites do Azure](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+
+Guarde o manual de procedimentos seguinte como `route_table_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -42,16 +50,35 @@ Esta secção apresenta um playbook de Ansible de exemplo que cria uma tabela de
         resource_group: "{{ resource_group }}"
 ```
 
-Guardar este manual de comunicação social como `route_table_create.yml`. Para executar o manual de procedimentos, utilize o comando **ansible-playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook route_table_create.yml
 ```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associar uma tabela de rotas a uma sub-rede
-Uma sub-rede pode ter zero ou uma tabela de rotas associada a ele. Uma tabela de rotas pode ser associada a zero ou várias sub-redes. Uma vez que as tabelas de rotas não foram associadas redes virtuais, tem de associar uma tabela de rotas para cada sub-rede que pretende que a tabela de rotas associada. Sai da sub-rede todo o tráfego é encaminhado com base nas rotas que criou em tabelas de rota [predefinido rotas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default), e as rotas são propagadas de uma rede no local, se a rede virtual está ligada a um (de gateway de rede virtual do Azure ExpressRoute ou VPN, se utilizar o BGP com um gateway de VPN). Só pode associar uma tabela de rotas às sub-redes nas redes virtuais existentes na mesma localização do Azure e subscrição como a tabela de rotas.
 
-Esta secção apresenta um playbook de Ansible de exemplo que cria uma rede virtual e uma sub-rede, em seguida, associa uma tabela de rotas à sub-rede.
+O código do playbook nesta secção:
+
+* Cria uma rede virtual
+* Cria uma sub-rede dentro da rede virtual
+* Associa uma tabela de rotas à sub-rede
+
+Tabelas de rotas não estão associadas às redes virtuais. Em vez disso, a tabelas de rotas estão associadas com a sub-rede de uma rede virtual.
+
+A tabela virtual de rede e a rota tem coexistir na mesma localização do Azure e subscrição.
+
+Sub-redes e tabelas de rotas têm uma relação um-para-muitos. Uma sub-rede pode ser definida com nenhuma tabela de rotas associada ou tabela de uma rota. Tabelas de rotas podem ser associadas a nenhum, uma ou várias sub-redes. 
+
+O tráfego da sub-rede é encaminhado com base em:
+
+- rotas definidas dentro de tabelas de rotas
+- [Rotas predefinidas](/azure/virtual-network/virtual-networks-udr-overview#default)
+- rotas propagar-se de uma rede no local
+
+A rede virtual tem de estar ligada a um gateway de rede virtual do Azure. O gateway pode ser VPN ou ExpressRoute, se utilizar o BGP com um gateway de VPN.
+
+Guarde o manual de procedimentos seguinte como `route_table_associate.yml`:
 
 ```yml
 - hosts: localhost
@@ -80,14 +107,19 @@ Esta secção apresenta um playbook de Ansible de exemplo que cria uma rede virt
         route_table: "{ route_table_name }"
 ```
 
-Guardar este manual de comunicação social como `route_table_associate.yml`. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook route_table_associate.yml
 ```
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Desassociar a uma tabela de rotas de sub-rede
-Quando desassociar a uma tabela de rotas de sub-rede, apenas tem de definir o `route_table` numa sub-rede para `None`. Segue-se um manual de comunicação do ansible de exemplo. 
+
+O código do playbook nesta secção dissociates uma tabela de rotas de sub-rede.
+
+Quando a desassociar a uma tabela de rotas de sub-rede, definir o `route_table` para a sub-rede para `None`. 
+
+Guarde o manual de procedimentos seguinte como `route_table_dissociate.yml`:
 
 ```yml
 - hosts: localhost
@@ -104,14 +136,17 @@ Quando desassociar a uma tabela de rotas de sub-rede, apenas tem de definir o `r
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-Guardar este manual de comunicação social como `route_table_dissociate.yml`. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook route_table_dissociate.yml
 ```
 
 ## <a name="create-a-route"></a>Criar uma rota
-Esta secção apresenta um playbook de Ansible de exemplo que cria uma rota na tabela de rotas. Ele define `virtual_network_gateway` como `next_hop_type` e `10.1.0.0/16` como `address_prefix`. O prefixo não pode ser duplicado em mais de uma rota na tabela de rotas, embora o prefixo pode ser dentro de outro prefixo. Para saber mais sobre como o Azure seleciona rotas e uma descrição detalhada de todos os tipos de salto seguintes, veja [descrição geral do encaminhamento](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+
+O código do playbook nesta secção uma rota dentro de uma tabela de rotas. 
+
+Guarde o manual de procedimentos seguinte como `route_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -128,14 +163,23 @@ Esta secção apresenta um playbook de Ansible de exemplo que cria uma rota na t
         address_prefix: "10.1.0.0/16"
         route_table_name: "{{ route_table_name }}"
 ```
-Guardar este manual de comunicação social como `route_create.yml`. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+
+Antes de executar o playbook, consulte as seguintes notas de:
+
+* `virtual_network_gateway` é definido como `next_hop_type`. Para obter mais informações sobre como o Azure seleciona as rotas, consulte [descrição geral do encaminhamento](/azure/virtual-network/virtual-networks-udr-overview).
+* `address_prefix` é definido como `10.1.0.0/16`. O prefixo não pode ser duplicado na tabela de rotas.
+
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook route_create.yml
 ```
 
 ## <a name="delete-a-route"></a>Eliminar uma rota
-Esta secção apresenta um playbook de Ansible de exemplo elimina uma rota de uma tabela de rotas.
+
+O código do playbook nesta secção elimina uma rota de uma tabela de rotas.
+
+Guarde o manual de procedimentos seguinte como `route_delete.yml`:
 
 ```yml
 - hosts: localhost
@@ -152,15 +196,17 @@ Esta secção apresenta um playbook de Ansible de exemplo elimina uma rota de um
         state: absent
 ```
 
-Guardar este manual de comunicação social como `route_delete.yml`. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook route_delete.yml
 ```
 
-## <a name="get-information-of-a-route-table"></a>Obtenha informações de uma tabela de rotas
-Pode ver os detalhes de um route_table por meio de com o nome de módulo de Ansible `azure_rm_routetable_facts`. O módulo de fatos retornará as informações da tabela de rotas com todas as rotas ligadas ao mesmo.
-Segue-se um manual de comunicação do ansible de exemplo. 
+## <a name="get-route-table-information"></a>Obter informações da tabela de rota
+
+O código de playbook nesta secção utiliza o módulo do Ansible `azure_rm_routetable_facts` para obter informações da tabela de rota.
+
+Guarde o manual de procedimentos seguinte como `route_table_facts.yml`:
 
 ```yml
 - hosts: localhost
@@ -178,16 +224,21 @@ Segue-se um manual de comunicação do ansible de exemplo.
          var: query.route_tables[0]
 ```
 
-Guardar este manual de comunicação social como `route_table_facts.yml`. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook route_table_facts.yml
 ```
 
 ## <a name="delete-a-route-table"></a>Eliminar uma tabela de rotas
-Se uma tabela de rotas associada a quaisquer sub-redes, não pode ser eliminada. [Desassociar](#dissociate-a-route-table-from-a-subnet) uma tabela de rotas de todas as sub-redes antes de tentar eliminá-lo.
 
-É possível eliminar a tabela de rotas, juntamente com todas as rotas. Segue-se um manual de comunicação do ansible de exemplo. 
+O código do playbook nesta secção uma tabela de rotas.
+
+Quando uma tabela de rotas é eliminada, todas suas rotas também são eliminadas.
+
+Não é possível eliminar uma tabela de rotas, se ele está associada uma sub-rede. [Desassociar a tabela de rotas de quaisquer sub-redes](#dissociate-a-route-table-from-a-subnet) antes de tentar eliminar a tabela de rotas. 
+
+Guarde o manual de procedimentos seguinte como `route_table_delete.yml`:
 
 ```yml
 - hosts: localhost
@@ -202,7 +253,7 @@ Se uma tabela de rotas associada a quaisquer sub-redes, não pode ser eliminada.
         state: absent
 ```
 
-Guardar este manual de comunicação social como `route_table_delete.yml`. Para executar o manual de procedimentos do Ansible, utilize o comando **ansible playbook** da seguinte forma:
+Executar o playbook com o `ansible-playbook` comando:
 
 ```bash
 ansible-playbook route_table_delete.yml
@@ -210,4 +261,4 @@ ansible-playbook route_table_delete.yml
 
 ## <a name="next-steps"></a>Passos Seguintes
 > [!div class="nextstepaction"] 
-> [Ansible no Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible no Azure](/azure/ansible/)
