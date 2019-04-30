@@ -13,7 +13,7 @@ ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: ceda22394aab27f27740bb999b36e2cc46a6bd06
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61126922"

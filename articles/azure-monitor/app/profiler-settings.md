@@ -14,7 +14,7 @@ ms.date: 08/06/2018
 ms.author: cweining
 ms.openlocfilehash: 9603c45443c6339a127f977600eeff2ba57a283f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61228237"

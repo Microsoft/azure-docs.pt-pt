@@ -27,7 +27,7 @@ Regras de rede (VNet) virtual também podem ser utilizadas para proteger o acess
 O **az mariadb server firewall-rule** comando é utilizado a partir da CLI do Azure para criar, eliminar, listar, mostrar e atualizar regras de firewall.
 
 Comandos:
-- **criar**: Crie uma regra de firewall do servidor de Azure MariaDB.
+- **Criar**: Crie uma regra de firewall do servidor de Azure MariaDB.
 - **delete**: Elimine uma regra de firewall do servidor de Azure MariaDB.
 - **list**: Liste as regras de firewall do servidor de Azure MariaDB.
 - **Mostrar**: Mostre os detalhes de um servidor de Azure MariaDB regra de firewall.
