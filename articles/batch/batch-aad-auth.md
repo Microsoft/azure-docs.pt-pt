@@ -17,7 +17,7 @@ ms.date: 04/18/2018
 ms.author: lahugh
 ms.openlocfilehash: 4ecee0e4f01da329e44c0f65b2c204520f2da87f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60722427"

@@ -10,7 +10,7 @@ services: azure-maps
 manager: ''
 ms.openlocfilehash: ef62ec78bc7fc01bd2e6dd7c5561b15be85540d2
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60768806"

@@ -2,12 +2,13 @@
 title: Azure Data Lake Gen2 Hive o desempenho do armazenamento diretrizes de ajuste | Documentos da Microsoft
 description: Azure Data Lake Gen2 Hive o desempenho do armazenamento diretrizes de ajuste
 services: storage
-author: swums
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: stewu
+ms.author: normesta
+ms.reviewer: stewu
 ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT

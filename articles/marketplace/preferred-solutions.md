@@ -2,15 +2,8 @@
 title: O Azure Marketplace e AppSource preferencial soluções
 description: Visão geral das soluções preferenciais dentro do Marketplace e como eles estão selecionados
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
-manager: ''
-editor: ''
-ms.assetid: e8d228c8-f9e8-4a80-9319-7b94d41c43a6
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: ellacroi

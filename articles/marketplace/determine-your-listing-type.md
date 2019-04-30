@@ -2,15 +2,9 @@
 title: Determinar sua publicação opção no Azure Marketplace | Azure
 description: Este artigo descreve os critérios de qualificação e, de publicação de requisitos de parceiros, que tentar entender como publicar aplicações no Azure Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi

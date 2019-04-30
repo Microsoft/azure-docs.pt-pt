@@ -10,7 +10,7 @@ ms.date: 11/27/2018
 ms.author: asgang
 ms.openlocfilehash: c8b5cf840b8cb5eec2a993cfe35c8a8a7ac904fb
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60791380"

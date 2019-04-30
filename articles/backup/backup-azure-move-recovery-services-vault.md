@@ -10,7 +10,7 @@ ms.date: 04/08/2019
 ms.author: sogup
 ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60699840"

@@ -9,7 +9,7 @@ ms.date: 01/29/2019
 ms.workload: Supportability
 ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60620832"

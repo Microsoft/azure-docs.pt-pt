@@ -2,15 +2,9 @@
 title: Ativar uma listagem de Microsoft AppSource e do Azure Marketplace utilizando o Azure Active Directory | Azure
 description: Ative um tipo de lista com o Azure Active Directory no Azure Marketplace e AppSource para editores de aplicações e serviços.
 services: Azure, AppSource, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: qianw211
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211

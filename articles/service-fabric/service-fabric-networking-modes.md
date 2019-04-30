@@ -16,7 +16,7 @@ ms.date: 2/23/2018
 ms.author: aljo, subramar
 ms.openlocfilehash: 6f14b3184cabd1dfd84f04260f6b8c831037cbcf
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60718160"

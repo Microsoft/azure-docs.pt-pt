@@ -2,15 +2,8 @@
 title: Guia para o Azure Marketplace de publicação de oferta de máquina virtual
 description: Este artigo descreve os requisitos para publicar uma máquina virtual e uma versão de avaliação gratuita de software para ser implementadas a partir do Marketplace.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: ellacroi
-manager: nunoc
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi

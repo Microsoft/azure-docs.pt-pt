@@ -17,7 +17,7 @@ ms.date: 04/09/2018
 ms.author: cynthn;davberg
 ms.openlocfilehash: 43d0ab6552847df7f1f2a8599dcc7cb9a8fcb57b
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60844079"

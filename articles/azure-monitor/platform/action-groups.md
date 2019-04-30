@@ -10,7 +10,7 @@ ms.author: dukek
 ms.subservice: alerts
 ms.openlocfilehash: 3d06024b7fa4356d4ad0e8b52c45c2ead62ef784
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60778381"

@@ -13,7 +13,7 @@ ms.date: 04/22/2019
 ms.author: v-jay
 ms.openlocfilehash: 815ee569f0919f32b38b7b7cdf848be184b7aea8
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60808971"
