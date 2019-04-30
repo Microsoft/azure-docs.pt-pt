@@ -12,7 +12,7 @@ ms.date: 04/16/2019
 ms.author: jingwang
 ms.openlocfilehash: ac1299c78b0631255b826fb376ac8a5fe147b05a
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61259913"

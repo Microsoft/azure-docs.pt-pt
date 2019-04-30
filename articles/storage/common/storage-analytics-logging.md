@@ -10,7 +10,7 @@ ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61483507"

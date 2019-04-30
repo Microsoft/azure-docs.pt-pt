@@ -13,7 +13,7 @@ ms.author: v-jay
 ms.reviewer: igorstan
 ms.openlocfilehash: 5cf4ac0e0950e7b6ab6345476501931a9cb46b27
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61474016"

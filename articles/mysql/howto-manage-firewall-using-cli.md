@@ -27,7 +27,7 @@ Regras de rede (VNet) virtual também podem ser utilizadas para proteger o acess
 O **az mysql server firewall-rule** comando é utilizado a partir da CLI do Azure para criar, eliminar, listar, mostrar e atualizar regras de firewall.
 
 Comandos:
-- **criar**: Crie uma regra de firewall do servidor MySQL do Azure.
+- **Criar**: Crie uma regra de firewall do servidor MySQL do Azure.
 - **delete**: Elimine uma regra de firewall do servidor MySQL do Azure.
 - **list**: Liste as regras de firewall do servidor MySQL do Azure.
 - **Mostrar**: Mostre os detalhes de um servidor MySQL do Azure a regra de firewall.

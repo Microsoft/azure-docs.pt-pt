@@ -11,7 +11,7 @@ ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61290071"

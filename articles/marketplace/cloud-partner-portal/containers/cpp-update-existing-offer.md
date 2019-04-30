@@ -16,7 +16,7 @@ ms.date: 11/01/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 2b568717b6656fb9ae15e9a6dbd27441689c4372
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61472711"
