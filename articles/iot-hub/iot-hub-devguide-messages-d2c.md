@@ -10,7 +10,7 @@ ms.date: 08/13/2018
 ms.author: asrastog
 ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61364520"
