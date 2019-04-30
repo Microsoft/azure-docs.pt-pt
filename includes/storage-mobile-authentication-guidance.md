@@ -5,17 +5,17 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62122739"
 ---
 ## <a name="configure-your-application-to-access-azure-storage"></a>Configurar a sua aplicação para aceder ao armazenamento do Azure
 Existem duas formas de autenticar a sua aplicação para aceder aos serviços de armazenamento:
 
-* Chave partilhada: Utilização Shared Key para apenas para fins de teste
-* Assinatura de acesso partilhada (SAS): Utilizar SAS para aplicações de produção
+* Chave partilhada: Utilizar a chave partilhada para apenas para fins de teste
+* Assinatura de acesso partilhado (SAS): Utilizar a SAS para aplicações de produção
 
 ### <a name="shared-key"></a>Chave Partilhada
 Autenticação de chave partilhada significa que seu aplicativo irá utilizar o nome da conta e a chave de conta para aceder aos serviços de armazenamento. Para efeitos de rapidamente que mostram como utilizar esta biblioteca, usaremos a autenticação de chave partilhada neste introdução ao.
@@ -49,5 +49,5 @@ O exemplo seguinte mostra como utilizar o Explorador de armazenamento do Microso
    
    `"SharedAccessSignature=sv=2015-04-05&ss=b&srt=sco&sp=rw&se=2016-07-21T18%3A00%3A00Z&sig=3ABdLOJZosCp0o491T%2BqZGKIhafF1nlM3MzESDDD3Gg%3D;BlobEndpoint=https://youraccount.blob.core.windows.net"`
 
-Como pode ver, ao utilizar uma SAS, não está expondo a chave da conta na sua aplicação. Pode saber mais sobre SAS e melhores práticas para utilizar a SAS por dar uma olhada [assinaturas de acesso partilhado: compreender o modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Como pode ver, ao utilizar uma SAS, não está expondo a chave da conta na sua aplicação. Pode saber mais sobre SAS e melhores práticas para utilizar a SAS por dar uma olhada em [assinaturas de acesso partilhado: Compreender o modelo SAS](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md).
 

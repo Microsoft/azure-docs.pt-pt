@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 4fc314ba7913a8707e464dc66f650e810a192ac6
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "62127942"
 ---
 > [!div class="op_single_selector"]
 > * [Android](../articles/app-service-mobile/app-service-mobile-android-get-started-push.md)
