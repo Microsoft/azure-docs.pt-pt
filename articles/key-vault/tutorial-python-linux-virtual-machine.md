@@ -2,22 +2,19 @@
 title: Tutorial - utilizar uma máquina virtual Linux e uma aplicação Python para armazenar segredos no Azure Key Vault | Documentos da Microsoft
 description: Neste tutorial, saiba como configurar uma aplicação Python ao ler um segredo do Cofre de chaves do Azure.
 services: key-vault
-documentationcenter: ''
-author: prashanthyv
+author: mbaldwin
 manager: rajvijan
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
 ms.openlocfilehash: b7077653ec959f99491cecd71573c091772448f4
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749635"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60461065"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Utilizar uma VM do Linux e uma aplicação de Python para armazenar segredos no Azure Key Vault
 
@@ -28,7 +25,7 @@ Neste tutorial, vai configurar uma aplicação web do Azure para ler as informa�
 > [!div class="checklist"]
 > * Criar um cofre de chaves
 > * Store um segredo no Cofre de chaves
-> * Criar uma Máquina Virtual do Linux
+> * Criar uma máquina virtual do Linux
 > * Ativar uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para a máquina virtual
 > * Conceder as permissões necessárias para a aplicação de consola para ler dados a partir do Cofre de chaves
 > * Obter um segredo a partir do seu Cofre de chaves
@@ -98,7 +95,7 @@ Escreva os seguintes comandos para criar um segredo no cofre de chaves designado
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
-## <a name="create-a-linux-virtual-machine"></a>Criar uma Máquina Virtual do Linux
+## <a name="create-a-linux-virtual-machine"></a>Criar uma máquina virtual do Linux
 
 Criar uma VM com o `az vm create` comando.
 

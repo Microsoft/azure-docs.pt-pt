@@ -16,7 +16,7 @@ ms.date: 04/10/2019
 ms.author: damaerte
 ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60614333"

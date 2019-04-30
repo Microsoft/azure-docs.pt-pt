@@ -10,7 +10,7 @@ ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60730838"
