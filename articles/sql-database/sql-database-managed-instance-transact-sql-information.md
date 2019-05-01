@@ -14,7 +14,7 @@ ms.date: 03/13/2019
 ms.custom: seoapril2019
 ms.openlocfilehash: 5f476aa571ba2827cbe6f4e4f258545b5e9d3ba1
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62106362"
