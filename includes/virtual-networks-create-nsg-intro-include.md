@@ -11,7 +11,7 @@ ms.author: v-yeche
 ms.custom: include file
 ms.openlocfilehash: 20ecc0e30c774c2f237238937ab1c6c1dcd4003f
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60309986"
