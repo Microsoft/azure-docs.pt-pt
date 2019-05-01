@@ -16,7 +16,7 @@ ms.date: 02/01/2019
 ms.author: terrylan
 ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62120897"
