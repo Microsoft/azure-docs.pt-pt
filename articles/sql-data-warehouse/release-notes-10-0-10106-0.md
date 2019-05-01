@@ -12,7 +12,7 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.openlocfilehash: 10d703ad613a340a0f99c4d5dd8f4c748ff3e6bd
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61475104"
