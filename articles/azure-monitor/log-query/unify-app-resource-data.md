@@ -107,7 +107,7 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | AvailabilityMessage | message |
 | AvailabilityRunLocation | localização |
 | AvailabilityTestId | ID |
-| AvailabilityTestName | nome |
+| AvailabilityTestName | name |
 | AvailabilityTimestamp | timestamp |
 | Browser | client_browser |
 | Localidade | client_city |
@@ -116,7 +116,7 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | País | client_CountryOrRegion | 
 | CustomEventCount | itemCount | 
 | CustomEventDimensions | customDimensions |
-| CustomEventName | nome | 
+| CustomEventName | name | 
 | DeviceModel | client_Model | 
 | DeviceType | client_Type | 
 | ExceptionCount | itemCount | 
@@ -128,12 +128,12 @@ A tabela seguinte mostra as diferenças de esquema entre o Log Analytics e Appli
 | SO | client_OS | 
 | PageViewCount | itemCount |
 | PageViewDuration | duração | 
-| PageViewName | nome | 
+| PageViewName | name | 
 | ParentOperationID | operation_Id | 
 | RequestCount | itemCount | 
 | RequestDuration | duração | 
 | RequestID | ID | 
-| RequestName | nome | 
+| RequestName | name | 
 | RequestSuccess | exito | 
 | ResponseCode | resultCode | 
 | Função | cloud_RoleName |
