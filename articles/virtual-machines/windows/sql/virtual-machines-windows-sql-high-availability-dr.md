@@ -17,7 +17,7 @@ ms.date: 06/27/2017
 ms.author: mikeray
 ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61478370"
