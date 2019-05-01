@@ -8,7 +8,7 @@ ms.date: 04/08/2019
 ms.author: thweiss
 ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "61046323"
