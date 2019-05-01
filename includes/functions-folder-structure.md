@@ -12,7 +12,7 @@ ms.author: v-junlch
 ms.custom: include file
 ms.openlocfilehash: 27dc1b1315a8e33b8ac13b34d4a86ad0343388b4
 ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "60731248"
