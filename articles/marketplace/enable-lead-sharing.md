@@ -2,21 +2,15 @@
 title: Líder de ativar a partilha no Azure Marketplace | Azure
 description: Saiba como ativar a partilha de oportunidades potenciais para o Azure Marketplace e AppSource, os publicadores de aplicações e serviços.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
 ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62121083"
