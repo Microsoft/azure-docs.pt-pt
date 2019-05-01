@@ -18,7 +18,7 @@ ms.date: 11/30/2018
 ms.author: v-junlch
 ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
 ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/23/2019
 ms.locfileid: "62108032"
