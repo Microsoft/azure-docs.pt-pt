@@ -32,8 +32,8 @@ Service Fabric expõe um conjunto de eventos de plataforma para o informar de at
 Na versão 6.4, foi introduzido o SyslogConsumer para enviar os eventos de plataforma do Service Fabric para Syslog para clusters do Linux. Depois de ativar, irão fluir automaticamente syslog que podem ser recolhidos e enviados pelo agente de análise do registo de eventos.
 
 Cada evento do Syslog tem 4 componentes
-* Função
-* Identidade
+* Recurso
+* identidade
 * Mensagem
 * Gravidade
 

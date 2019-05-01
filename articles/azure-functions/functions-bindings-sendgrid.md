@@ -262,7 +262,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**to**|**Para**| endereço de e-mail do destinatário. |
 |**from**|**De**| endereço de e-mail do remetente. |
 |**subject**|**Assunto**| o assunto do e-mail. |
-|**text**|**Text** (Texto)| o conteúdo de e-mail. |
+|**text**|**Texto**| o conteúdo de e-mail. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
