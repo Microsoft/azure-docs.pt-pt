@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: 6bf61e2afd96e3923938ac4f815d34ae08f7c618
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371296"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694229"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Ligar um ID de parceiro a suas contas do Azure
 

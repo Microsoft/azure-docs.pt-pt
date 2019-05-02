@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c42867ff7aea2210f20a2cd2adb5c067b8f36c80
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484221"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926506"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para o Armazenamento do Microsoft Azure
 
@@ -23,7 +23,7 @@ Alertas de segurança são acionados quando ocorrerem de anomalias na atividade.
 
 > [!NOTE]
 > * Proteção avançada contra ameaças do armazenamento do Azure está atualmente disponível apenas para o armazenamento de Blobs.
-> * Para obter detalhes, incluindo uma versão de avaliação gratuita de 30 dias, de preços, consulte a [Centro de segurança do Azure página de preços]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
+> * Para obter detalhes, incluindo uma versão de avaliação gratuita de 30 dias, de preços, consulte a [Centro de segurança do Azure página de preços]( https://azure.microsoft.com/pricing/details/security-center/).
 > * ATP para a funcionalidade de armazenamento do Azure não está atualmente disponível nas regiões de cloud soberana e do Azure government.
 
 Proteção avançada contra ameaças do armazenamento do Azure ingere os registos de diagnóstico de leitura, escrita e pedidos de eliminação para o armazenamento de BLOBs para a deteção de ameaças. Para investigar os alertas de proteção avançada contra ameaças, pode ver a atividade de armazenamento relacionados com o registo de análise de armazenamento. Para obter mais informações, consulte como [configurar o registo de análise de armazenamento](storage-monitor-storage-account.md#configure-logging).

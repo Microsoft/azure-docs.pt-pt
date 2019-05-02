@@ -1,22 +1,22 @@
 ---
-title: 'Perguntas mais comuns: Recuperação após desastre do Azure para o Azure com o Azure Site Recovery | Documentos da Microsoft'
-description: Este artigo resume as perguntas mais comuns ao configurar a recuperação após desastre de VMs do Azure para outra região do Azure com o Azure Site Recovery
+title: Perguntas comuns sobre recuperação de desastre do Azure para o Azure com o Azure Site Recovery
+description: Este artigo responde a perguntas comuns sobre a recuperação após desastre de VMs do Azure para outra região do Azure com o Azure Site Recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/29/2019
+ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: asgan
+ms.openlocfilehash: 1a13bda37c5bfac4efe6bd6109cb1dfcd5f7d2a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790877"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925675"
 ---
-# <a name="common-questions-azure-to-azure-replication"></a>Perguntas mais comuns: Replicação do Azure para o Azure
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas mais comuns: Recuperação após desastre do Azure para o Azure
 
-Este artigo fornece respostas a perguntas comuns sobre a implementação de recuperação após desastre (DR) de VMs do Azure para outra região do Azure com o Azure Site Recovery. Se tiver questões depois de ler este artigo, publique o [fórum dos serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Este artigo fornece respostas a perguntas comuns sobre a recuperação após desastre de VMs do Azure para outra região do Azure, utilizando [recuperação de Site](site-recovery-overview.md). 
 
 
 ## <a name="general"></a>Geral
@@ -28,15 +28,15 @@ Todas as instâncias protegidas pelo Azure Site Recovery são gratuitas nos prim
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, terei quaisquer outros custos com o Azure?
 Sim, embora o Azure Site Recovery seja gratuito durante os primeiros 31 dias de uma instância protegida, pode incorrer em custos de Armazenamento do Azure, de transações de armazenamento e de transferência de dados. Uma máquina virtual recuperada também pode ter custos de computação do Azure. Obter detalhes completos sobre os preços [aqui](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="what-are-the-best-practices-for-configuring-site-recovery-on-azure-vms"></a>Quais são as melhores práticas para configuração da recuperação de Site em VMs do Azure?
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Onde posso encontrar as práticas recomendadas para recuperação após desastre de VM do Azure? 
 1. [Compreender a arquitetura do Azure para o Azure](azure-to-azure-architecture.md)
 2. [Reveja as configurações suportadas e não suportadas](azure-to-azure-support-matrix.md)
 3. [Configurar a recuperação após desastre para VMs do Azure](azure-to-azure-how-to-enable-replication.md)
 4. [Executar uma ativação pós-falha de teste](azure-to-azure-tutorial-dr-drill.md)
 5. [Ativação pós-falha e reativação pós-falha para a região primária](azure-to-azure-tutorial-failover-failback.md)
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Como é capacidade garantida na região de destino para VMs do Azure?
-A equipa do Azure Site Recovery (ASR) funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente, numa tentativa de se certificar de que as VMs protegidas por ASR para o desastre recovery com êxito de ser implementado na região de recuperação (DR) após desastre, Sempre que são iniciadas operações de ativação pós-falha do ASR.
+### <a name="how-is-capacity-guaranteed-in-the-target-region"></a>Como é garantida capacidade na região de destino?
+A equipe do Site Recovery funciona com a equipe de gerenciamento de capacidade do Azure para planear a capacidade de infra-estrutura suficiente, e ajudar a garantir que as VMs protegidas pelo Site Recovery para com êxito será região de destino implementado quando a ativação pós-falha é iniciada.
 
 ## <a name="replication"></a>Replicação
 
@@ -54,6 +54,16 @@ Sim, pode [replicar VMs de afixadas por zona](https://azure.microsoft.com/blog/d
 
 Sim, pode excluir discos no momento da proteção com o PowerShell. Para obter mais informações, consulte [artigo](azure-to-azure-exclude-disks.md)
 
+### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>Pode adicionar novos discos para VMs replicadas e ativar a replicação para eles?
+
+Sim, isto é suportado para VMs do Azure com discos geridos. Quando adiciona um novo disco a uma VM do Azure que está ativada para replicação, o estado de funcionamento de replicação para a VM mostra um aviso, com uma especificação de nota que um ou mais discos na VM estão disponíveis para proteção. Pode ativar a replicação para discos adicionados.
+- Se ativar a proteção para os discos adicionados, o aviso desaparecerá depois da replicação inicial.
+- Se optar por não ativar a replicação para o disco, pode optar por ignorar o aviso.
+- Quando realizar a ativação pós-falha numa VM à qual adicionar um disco e ativar a replicação para, pontos de replicação irão mostrar os discos que estão disponíveis para recuperação. Por exemplo, se uma VM tiver um único disco e adicionar um novo modelo, os pontos de replicação que foram criados antes de adicionar o disco irão mostrar que o ponto de replicação é composta por "1 de 2 discos".
+
+Site Recovery não suporta "frequente remover" de um disco de uma VM replicada. Se remover um disco da VM, terá de desativar e, em seguida, volte a ativar replicação para a VM.
+
+
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência posso replicar para o Azure?
 A replicação é contínua quando está a replicar VMs do Azure para outra região do Azure. Para obter mais informações, consulte a [arquitetura de replicação do Azure para o Azure](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-architecture#replication-process).
 
@@ -69,7 +79,7 @@ Não, recuperação de sites não necessita de conectividade à internet. Mas re
 
 ### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>Pode replicar o aplicativo ter o grupo de recursos separado para camadas separadas?
 Sim, pode replicar o aplicativo e manter a configuração da recuperação após desastre no grupo de recursos separado demasiado.
-Por exemplo, se tiver um aplicativo com cada camadas de aplicação, db e web no grupo de recursos separados, em seguida, ter de clicar no [Assistente de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) três vezes por para proteger todas as camadas. ASR irá replicar esses três camadas em três grupo de recursos diferente.
+Por exemplo, se tiver um aplicativo com cada camadas de aplicação, db e web no grupo de recursos separados, em seguida, ter de clicar no [Assistente de replicação](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) três vezes por para proteger todas as camadas. Recuperação de sites irá replicar esses três camadas em três grupos de recursos diferentes.
 
 ## <a name="replication-policy"></a>Política de replicação
 
@@ -147,8 +157,8 @@ Como é exigente em termos de CPU, a ativar a consistência multi-VM pode afetar
 
 ## <a name="failover"></a>Ativação pós-falha
 
-### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>Como é capacidade garantida na região de destino para VMs do Azure?
-A equipa do Azure Site Recovery (ASR) funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente, numa tentativa de se certificar de que as VMs protegidas por ASR para o desastre recovery com êxito de ser implementado na região de recuperação (DR) após desastre, Sempre que são iniciadas operações de ativação pós-falha do ASR.
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Como é capacidade garantida na região de destino para VMs do Azure?
+A equipe do Site Recovery funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente ajudar a garantir que ativado para a recuperação após desastre de VMs será implementada com êxito na região de destino quando a ativação pós-falha é iniciada.
 
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
 
@@ -156,15 +166,19 @@ A ativação pós-falha não é automática. Iniciar ativações pós-falha com 
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>Pode manter um endereço IP público após a ativação pós-falha?
 
-O endereço IP público da aplicação de produção *não podem ser mantidas na ativação pós-falha*. Cargas de trabalho colocadas como parte do processo de ativação pós-falha deve ser atribuído um recurso IP público do Azure que está disponível na região de destino. Pode efetuar este passo manualmente ou automatizá-lo por meio de um plano de recuperação. Para atribuir um endereço IP público através de um plano de recuperação, veja [configurar endereços IP públicos após a ativação pós-falha](https://docs.microsoft.com/azure/site-recovery/concepts-public-ip-address-with-site-recovery#public-ip-address-assignment-using-recovery-plan).  
+Não é possível manter o endereço IP público da aplicação de produção após a ativação pós-falha.
+- Cargas de trabalho colocadas como parte do processo de ativação pós-falha deve ser atribuído um recurso IP público do Azure que está disponível na região de destino.
+- Pode fazê-lo manualmente ou automatizá-lo com um plano de recuperação.
+- Saiba como [configurar endereços IP públicos após a ativação pós-falha](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).  
 
 ### <a name="can-i-retain-a-private-ip-address-during-failover"></a>Pode manter um endereço IP privado durante a ativação pós-falha?
-Sim, pode manter um endereço IP privado. Por predefinição, ao ativar a DR para as VMs do Azure, o Site Recovery cria os recursos de destino com base nas definições de recursos de origem. Para as VMs do Azure configurada com endereços IP estáticos, o Site Recovery tenta aprovisionar o mesmo endereço IP da VM, de destino se não está em utilização. Para manter o endereço IP privado em diferentes condições, consulte [endereços IP de manter durante a ativação pós-falha](site-recovery-retain-ip-azure-vm-failover.md).
+Sim, pode manter um endereço IP privado. Por predefinição, quando ativar a recuperação após desastre para VMs do Azure, o Site Recovery cria os recursos de destino com base nas definições de recursos de origem. -Para VMs do Azure configuradas com endereços IP estáticos, o Site Recovery tenta aprovisionar o mesmo endereço IP da VM, de destino se não está em utilização.
+Saiba mais sobre [retendo os endereços IP durante a ativação pós-falha](site-recovery-retain-ip-azure-vm-failover.md).
 
-### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Após a ativação pós-falha, o servidor não tem o mesmo endereço IP da VM de origem. Por que ele está atribuído um novo endereço IP?
+### <a name="after-failover-why-is-the-server-assigned-a-new-ip-address"></a>Após a ativação pós-falha, por que motivo está o servidor atribuído um novo endereço IP?
 
 Recuperação de site tenta fornecer o endereço IP no momento da ativação pós-falha. Se outra máquina virtual está a demorar esse endereço, o Site Recovery define o endereço IP disponível seguinte como o destino.
-Para obter uma explicação completa de como o Site Recovery trata endereçamento de mensagens em fila, consulte [configurar o mapeamento da rede e endereçamento IP para redes virtuais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms).
+Saiba mais sobre [configurar o mapeamento da rede e endereçamento de IP para VNets](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>O que são **mais recente (RPO mais baixo)** pontos de recuperação?
 O **mais recente (RPO mais baixo)** opção processa primeiro todos os dados que tenham sido enviados para o serviço Site Recovery, para criar um ponto de recuperação para cada VM antes de realizar a ativação pós-falha para o mesmo. Esta opção fornece o objetivo de ponto de recuperação (RPO), mais baixo, porque a VM criada após a ativação pós-falha tem todos os dados replicados para o Site Recovery quando a ativação pós-falha foi acionada.
@@ -175,10 +189,10 @@ Sim. Recuperação de site processa todos os dados pendentes antes de efetuar a 
 ### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>O que faz a **processado mais recentemente** opção na recuperação aponta significam?
 O **processada pela última vez** esse Site Recovery processados do ponto de falha de opção ao longo de todas as VMs no plano para a recuperação mais recente. Para ver o ponto para uma VM específica de recuperação mais recente, verifique **pontos de recuperação mais recentes** nas definições de VM. Esta opção proporciona um RTO baixo, porque não é despendido tempo a processar dados não processados.
 
-### <a name="if-im-replicating-between-two-azure-regions-what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Se estiver a replicar entre duas regiões do Azure, o que acontece se minha região primária sofre uma falha inesperada?
+### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>O que acontece se minha região primária sofre uma falha inesperada?
 Pode acionar uma ativação pós-falha após a falha. Recuperação de sites não necessita de conectividade da região primária para efetuar a ativação pós-falha.
 
-### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>O que é um RTO de uma ativação pós-falha de máquinas virtuais?
+### <a name="what-is-a-rto-of-a-vm-failover-"></a>O que é um RTO de uma ativação pós-falha da VM?
 Site Recovery tem um [RTO SLA de 2 horas](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). No entanto, a maioria das vezes, a recuperação de Site a ativação pós-falha máquinas virtuais em minutos. Pode calcular o RTO indo para a ativação pós-falha de tarefas que mostra o tempo que levou para criar a VM. Para a recuperação planear RTO, consulte abaixo de secção.
 
 ## <a name="recovery-plans"></a>Planos de recuperação
@@ -214,25 +228,27 @@ Não. Quando [efetuar a ativação pós-falha](https://docs.microsoft.com/azure/
 Depende da situação. Por exemplo, se a região de origem VM existir, apenas as alterações entre o disco de origem e o disco de destino são sincronizadas. Recuperação de site calcula os diferenciais ao comparar os discos e, em seguida, transferir os dados. Este processo normalmente demora algumas horas. Para obter mais informações sobre o que acontece durante a nova proteção, consulte [Reproteção efetuar a ativação pós-falha de VMs do Azure para a região primária]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo isso take para a reativação pós-falha?
-Após a nova proteção, a quantidade de tempo para a reativação pós-falha é, normalmente, semelhante a hora de ativação pós-falha da região primária para uma região secundária.
+Depois de nova proteção, a quantidade de tempo para a reativação pós-falha é, geralmente, semelhante ao tempo que era necessário para a ativação pós-falha da região primária para uma região secundária.
 
 ## <a name="capacity"></a>Capacidade
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Como é capacidade garantida na região de destino para VMs do Azure?
-A equipa do Azure Site Recovery (ASR) funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente, numa tentativa de se certificar de que as VMs protegidas por ASR para o desastre recovery com êxito de ser implementado na região de recuperação (DR) após desastre, Sempre que são iniciadas operações de ativação pós-falha do ASR.
+A equipe do Site Recovery funciona com a equipa de gestão de capacidade do Azure para planear a capacidade de infra-estrutura suficiente ajudar a garantir que as VMs ativadas para recuperação após desastre será com êxito implementada na região de destino quando a ativação pós-falha é iniciada.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery funciona com as instâncias reservadas?
-Sim, pode comprar [reservar instâncias](https://azure.microsoft.com/pricing/reserved-vm-instances/) a DR região e as operações de ativação pós-falha do ASR utilizará-los. </br> Nenhuma configuração adicional é necessária dos clientes.
+Sim, pode comprar [reservar instâncias](https://azure.microsoft.com/pricing/reserved-vm-instances/) na região de recuperação de desastres e recuperação de Site operações de ativação pós-falha irão utilizá-los. </br> Não é necessária nenhuma configuração adicional.
 
 
 ## <a name="security"></a>Segurança
+
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Os dados de replicação são enviados para o serviço de Recuperação de Sites?
-Não, recuperação de sites não interceta os dados replicados, e ele não tem quaisquer informações sobre o que está em execução nas suas máquinas virtuais. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.  
+Não, a recuperação de sites não interceta os dados replicados e não tem quaisquer informações sobre o que está em execução nas suas VMs. Apenas os metadados necessários para orquestrar a replicação e a ativação pós-falha são enviados para o serviço de Recuperação de Sites.  
 Site Recovery é ISO 27001:2013, 27018, HIPAA, DPA certified e está no processo de SOC2 e FedRAMP JAB.
 
 ### <a name="does-site-recovery-encrypt-replication"></a>A Recuperação de Sites faz encriptação de replicação?
-Sim, ambas as encriptação em trânsito e [encriptação no Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) são suportados.
+Sim, ambas as encriptação em trânsito e [encriptação em repouso no Azure](https://docs.microsoft.com/azure/storage/storage-service-encryption) são suportados.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Revisão](azure-to-azure-support-matrix.md) dar suporte aos requisitos.
 * [Configurar](azure-to-azure-tutorial-enable-replication.md) replicação do Azure para o Azure.
+- Se tiver questões depois de ler este artigo, publique o [fórum dos serviços de recuperação do Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).

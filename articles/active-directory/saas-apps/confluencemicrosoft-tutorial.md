@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/10/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44f0c99a66088aeb54ba061308fefb111610d4dc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 45c9268495ed42ca67f815615b441986cf03332f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501234"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Tutorial: Integração do Active Directory do Azure com confluência SAML SSO pela Microsoft
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="description"></a>Descrição:
 
-Utilize a sua conta do Microsoft Azure Active Directory com o servidor de confluência Atlassian para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD para início de sessão na aplicação confluência. Este plug-in utiliza SAML 2.0 para a Federação.
+Utilize a sua conta do Microsoft Azure Active Directory com o servidor de confluência Atlassian para ativar o início de sessão único. Desta forma todos os seus utilizadores da organização podem utilizar as credenciais do Azure AD para iniciar sessão na aplicação confluência. Este plug-in utiliza SAML 2.0 para a Federação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -80,7 +80,7 @@ A partir de agora, os seguintes versões do confluência são suportadas:
 - Confluência: 6.12.0
 
 > [!NOTE]
-> Tenha em atenção que confluência também oferece suporte a Linux Ubuntu 16.04 de versão
+> Tenha em atenção que os nossos Plug-in do confluência também funciona no Ubuntu 16.04 de versão
 
 ## <a name="scenario-description"></a>Descrição do cenário
 

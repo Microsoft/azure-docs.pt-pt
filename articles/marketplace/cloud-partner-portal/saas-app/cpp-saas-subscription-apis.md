@@ -1,25 +1,18 @@
 ---
-title: Venda de SaaS através do Azure — APIs | Documentos da Microsoft
+title: Venda de SaaS através de APIs do Azure | O Azure Marketplace
 description: Explica como criar uma oferta SaaS através de APIs do marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: d6ab18d68d6508a18f0b36ab5a39e15fa7c0555a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a76fb2989320c64ad85b0f41f17798e2d9c743e1
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594495"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941949"
 ---
 # <a name="saas-sell-through-azure---apis"></a>Venda de SaaS através do Azure - APIs
 

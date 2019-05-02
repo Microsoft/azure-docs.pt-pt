@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cf012a452d1e43134d955e03ccf34e153b1282ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60253829"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680800"
 ---
 # <a name="common-security-attributes-for-azure-backup"></a>Atributos comuns de segurança para o Azure Backup
 
@@ -27,7 +27,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim | A utilizar a encriptação do serviço de armazenamento para as contas de armazenamento. |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Não | Através de HTTPS. |
+| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Não | Através de HTTPS. |
 | Manipulação de chave de encriptação (CMK, BYOK, etc.)| Não |  |
 | Encriptação de nível de coluna (Serviços de dados do Azure)| Não |  |
 | Chamadas de API encriptadas| Sim |  |
@@ -37,7 +37,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Suporte de ponto final de serviço| Não |  |
-| suporte de injeção de vNET| Não |  |
+| Suporte de injeção de VNet| Não |  |
 | Isolamento de rede e o suporte de firewall| Sim | O túnel forçado é suportado para cópia de segurança VM. O túnel forçado não é suportado para cargas de trabalho em execução em VMs. |
 | Suporte de encapsulamento de forçado| Não |  |
 

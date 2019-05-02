@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: bc859dc1e33abfee765a8f5b0f2a65bc24b7c2dc
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 8b446e3cfd3efc7d6f4c125747630cd3241fa804
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226951"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573935"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge do portal do Azure para um dispositivo de Windows - pré-visualização
 
@@ -226,34 +226,21 @@ Também pode ver as mensagens de chegar ao seu hub IoT utilizando o [extensão d
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos do Azure que criou e remover o runtime do IoT Edge do seu dispositivo.
-
-### <a name="delete-azure-resources"></a>Eliminar recursos do Azure
+Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos do Azure que criou para evitar encargos.
 
 Se tiver criado a sua máquina virtual e o hub IoT num novo grupo de recursos, pode eliminar esse grupo e todos os recursos associados. Verifique novamente o conteúdo do grupo de recursos para ter certeza de que existem 's nada que quer manter. Se não quiser eliminar todo o grupo, pode eliminar recursos individuais em vez disso.
 
 Remova o grupo de **IoTEdgeResources**.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>Remover o runtime do IoT Edge
-
-Se quiser remover as instalações do seu dispositivo, utilize os comandos seguintes.  
-
-Remova o runtime do IoT Edge. Se pretender reinstalar o IoT Edge, omitir os `-DeleteConfig` e `-DeleteMobyDataRoot` parâmetros, para que pode reinstalar com a mesma configuração que acabou de configurar.
-
-   ```powershell
-   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 Neste início rápido, criou um dispositivo IoT Edge e utilizou a interface de cloud do Azure IoT Edge para implementar o código no dispositivo. Agora tem um dispositivo de teste a gerar dados não processados sobre o seu ambiente.
 
-Pode continuar para qualquer um dos outros tutoriais para saber mais sobre como o Azure IoT Edge o pode ajudar a transformar estes dados em informações empresariais no Edge.
+A próxima etapa é configurar o ambiente de desenvolvimento local para que possa começar a criar módulos que executam a lógica de negócio de IoT Edge. 
 
 > [!div class="nextstepaction"]
-> [Filtrar os dados de sensores com uma Função do Azure](tutorial-deploy-function.md)
+> [Comece a desenvolver módulos do IoT Edge para dispositivos Windows](tutorial-develop-for-windows.md)

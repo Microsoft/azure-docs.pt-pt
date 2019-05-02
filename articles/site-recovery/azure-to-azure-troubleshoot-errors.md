@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60789901"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699084"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
@@ -221,7 +221,17 @@ Certifique-se de que os discos de dados foram inicializados e, em seguida, repit
 
 Se o problema persistir, contacte o suporte.
 
+## <a name="one-or-more-disks-are-available-for-protectionerror-code-153039"></a>Um ou mais discos estão disponíveis para proteção (código de erro 153039)
+- **Causa possível** </br>
+  - Se um ou mais discos foram recentemente adicionados à máquina virtual após a proteção. 
+  - Se um ou mais discos foram inicializados mais tarde após a proteção da máquina virtual.
 
+### <a name="fix-the-problem"></a>Corrigir o problema
+Pode optar por proteger os discos ou ignorar o aviso para tornar o estado de replicação da VM em bom estado novamente.</br>
+1. Para proteger o disco (s). Navegue para itens replicados > VM > discos > clique no disco não protegido > ativar replicação.
+ ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
+2. Para ignorar o aviso. Aceda aos itens de replicado > VM > clique no alerta dispensar na seção de visão geral.
+![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Não é possível ver a VM do Azure para seleção em "ativar replicação"
 
  **Fazer com que 1:  Grupo de recursos e a Máquina Virtual de origem estão numa localização diferente** <br>

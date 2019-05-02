@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8793f6f4d135d6099541d24aa5f5cfc0b6c21b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ec87bdadc0e7f77cdeebb16403758026fd956c30
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61290071"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939861"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-search"></a>Como criar um filtro de faceta no Azure Search 
 
@@ -35,7 +35,7 @@ Navegação por facetas a e pretender mais detalham? Ver [como implementar a nav
 
 ## <a name="choose-fields"></a>Escolha os campos
 
-Facetas podem ser calculadas ao longo de campos de valor único, bem como coleções. Campos que funcionam melhor no painel de navegação por facetas tem a cardinalidade baixa: um pequeno número de valores distintos que repetem em toda a documentos no corpo (por exemplo, uma lista de cores, países ou nomes de marca). 
+Facetas podem ser calculadas ao longo de campos de valor único, bem como coleções. Campos que funcionam melhor no painel de navegação por facetas tem a cardinalidade baixa: um pequeno número de valores distintos que repetem em toda a documentos no corpo (por exemplo, uma lista de cores, países/regiões ou nomes de marca). 
 
 Facetamento é ativado numa base de campo por campo ao criar o índice, definindo os seguintes atributos como TRUE: `filterable`, `facetable`. Apenas os campos filtráveis podem ser facetados.
 

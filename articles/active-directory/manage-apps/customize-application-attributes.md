@@ -16,11 +16,11 @@ ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759766"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712859"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários
 Microsoft Azure AD fornece suporte para aprovisionamento de utilizadores para aplicações de SaaS de terceiros, como o Salesforce, o G Suite e outras pessoas. Se ativar o aprovisionamento de utilizadores para uma aplicação SaaS de terceiros, o portal do Azure controla os valores de atributo através de mapeamentos de atributos.

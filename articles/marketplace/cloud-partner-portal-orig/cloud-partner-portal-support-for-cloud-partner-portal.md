@@ -1,25 +1,18 @@
 ---
-title: Suporte para o Portal de parceiros da Cloud | Documentos da Microsoft
+title: Suporte para o Portal de parceiros da Cloud | O Azure Marketplace
 description: Obtenha suporte no Portal de parceiros de nuvem.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 54ceb8768ed641beac8ab812a9d90936c4c911f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 35a5a4c4cfdbfa26ea00f0f4d76f91f9f76a1ca5
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398405"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935362"
 ---
 # <a name="get-support-for-cloud-partner-portal"></a>Obter suporte para o Portal de parceiros da Cloud
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 06f1a2b33b177cf667fc2d3c5932f7ff117d2bdc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4169a288ba85a7a7d83f77a8de8f6a4ef9bf0eac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201308"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700409"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 

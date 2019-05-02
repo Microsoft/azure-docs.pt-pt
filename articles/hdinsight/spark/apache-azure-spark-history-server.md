@@ -9,11 +9,11 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.openlocfilehash: 716c60cf5155bf0583b2d602e8f46f8ba7c1cfcd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124548"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726814"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Utilizar servidor expandida de histórico do Apache Spark para depurar e diagnosticar aplicações Apache Spark
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: fc05c5c5917667d4bd9c869c9370ac952893ab26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68d16a7e25e6f9a294dee1f077d53aa4551cda5e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456212"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924796"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -38,7 +38,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ### <a name="new"></a>Novo
 
 * Agora pode alterar o proprietário e o grupo proprietário ao gerir o acesso para um contentor de geração 2 do ADLS, ficheiro ou pasta.
-* No Windows, a atualização Explorador de armazenamento a partir de dentro do produto é agora uma instalação incremental. Isso deve resultar numa experiência de atualização mais rápida. Se preferir uma instalação limpa, então pode baixar o [instalador](https://azure.microsoft.com/en-us/features/storage-explorer/) por conta própria e, em seguida, instale manualmente. #1089
+* No Windows, a atualização Explorador de armazenamento a partir de dentro do produto é agora uma instalação incremental. Isso deve resultar numa experiência de atualização mais rápida. Se preferir uma instalação limpa, então pode baixar o [instalador](https://azure.microsoft.com/features/storage-explorer/) por conta própria e, em seguida, instale manualmente. #1089
 
 ### <a name="preview-features"></a>Funcionalidades de Pré-visualização
 
@@ -59,7 +59,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 
 ### <a name="known-issues"></a>Problemas Conhecidos
 
-* Ao utilizar o RBAC, o Explorador de armazenamento requer algumas permissões de camada de gestão para poder aceder aos seus recursos de armazenamento. Consulte a [guia de resolução de problemas](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
+* Ao utilizar o RBAC, o Explorador de armazenamento requer algumas permissões de camada de gestão para poder aceder aos seus recursos de armazenamento. Consulte a [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting) para obter mais informações.
 * A tentar aceder a Blobs de geração 2 do ADLS quando, por trás de um proxy poderá falhar.
 * A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Ver #537 para obter mais informações.
 * A desanexar a partir de um recurso ligado através do URI de SAS, por exemplo, um contentor de BLOBs, pode fazer com que um erro que impede outros anexos de aparecer corretamente. Para contornar este problema, apenas Atualize o nó do grupo. Para obter mais informações, consulte #537.

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f5ec5a64f1de39cd0d196242fb1a93669dbab15d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849409"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681848"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gerir e monitorizar backup de bancos de dados do SQL Server
 
@@ -31,7 +31,7 @@ Cópia de segurança do Azure mostra todas as tarefas manualmente acionadas no *
 > O **tarefas de cópia de segurança** portal não mostra as tarefas de cópia de segurança agendadas. Utilize SQL Server Management Studio para monitorizar tarefas de cópia de segurança agendadas, conforme descrito na secção seguinte.
 >
 
-Para obter detalhes sobre os cenários de monitorização, aceda a [monitorização no Portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitorização com o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
+Para obter detalhes sobre os cenários de monitorização, aceda a [monitorização no portal do Azure](backup-azure-monitoring-built-in-monitor.md) e [monitorização com o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).  
 
 
 ## <a name="view-backup-alerts"></a>Ver alertas de cópia de segurança
@@ -129,9 +129,9 @@ Depois de desativar a proteção, mas antes de eliminar o cofre, anular o regist
 
 3. Na **servidores protegidos**, selecione o servidor ao anular o registo. Para eliminar o cofre, tem de anular o registo de todos os servidores.
 
-4. O servidor protegido com o botão direito e selecione **eliminar**.
+4. O servidor protegido com o botão direito e selecione **Unregister**.
 
-   ![Selecione Delete](./media/backup-azure-sql-database/delete-protected-server.png)
+   ![Selecione Delete](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>Voltar a registar a extensão na VM do SQL Server
 

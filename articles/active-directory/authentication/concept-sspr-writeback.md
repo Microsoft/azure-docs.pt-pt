@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 78889cb3c04b9854a4cebb27c35488d5142ad3a7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415009"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694850"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
@@ -85,9 +85,6 @@ Quando um hash de palavra-passe ou federado sincronizados utilizador tenta repor
    * A ligação de objeto de conector do Active Directory para a MV tem de ter a regra de sincronização `Microsoft.InfromADUserAccountEnabled.xxx` na ligação.
    
    Quando chega a chamada da cloud, o motor de sincronização utiliza a **cloudAnchor** atributo para procurar o objeto de espaço conector do Azure Active Directory. Em seguida, segue-se a ligação para o objeto de MV e, em seguida, segue-se a ligação para o objeto do Active Directory. Como pode haver vários objetos do Active Directory (multifloresta) para o mesmo utilizador, o motor de sincronização depende o `Microsoft.InfromADUserAccountEnabled.xxx` ligação para a escolha correta.
-
-   > [!Note]
-   > Como resultado, essa lógica de palavra-passe de repetição de escrita para trabalhar do Azure AD Connect tem de ser capaz de comunicar com o emulador do controlador (PDC) de domínio primário. Se precisar de ativar esta opção manualmente, pode ligar o Azure AD Connect para o emulador PDC. Com o botão direito a **propriedades** do conector de sincronização do Active Directory e, em seguida, selecione **configurar partições de diretório**. A partir daí, procure o **definições de ligação do controlador de domínio** secção e selecione a caixa intitulada **utilizar apenas controladores de domínio preferencial**. Mesmo que o controlador de domínio preferencial não for um emulador PDC, o Azure AD Connect tenta se conectar com o PDC para repetição de escrita de palavra-passe.
 
 1. Depois que o usuário é encontrada a conta, é feita uma tentativa para repor a palavra-passe diretamente na floresta do Active Directory adequada.
 1. Se a operação de definição de palavra-passe for bem-sucedida, o utilizador é informado da que palavra-passe foi alterada.

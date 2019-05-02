@@ -1,20 +1,19 @@
 ---
 title: O que é o Backup do Azure?
-description: Fornece uma descrição geral do serviço de cópia de segurança do Azure e como implementá-la como parte da sua estratégia de recuperação (BCDR) de desastre e continuidade empresariais.
-services: backup
+description: Fornece uma descrição geral do serviço de cópia de segurança do Azure e como contribui para a sua estratégia de recuperação (BCDR) de desastre e continuidade empresariais.
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: overview
-ms.date: 04/05/2019
+ms.date: 04/24/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bd90d315fd5590a8bd862a1a3397cf8c254fccc8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254687"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714280"
 ---
 # <a name="what-is-azure-backup"></a>O que é o Backup do Azure?
 
@@ -31,11 +30,7 @@ O Azure Backup fornece estas principais vantagens:
 - **Obter a transferência de dados ilimitada**: O Azure Backup não limita a quantidade de dados de entrada ou saídas de transferência ou cobra por dados que são transferidos.
     - Os dados de saída são os dados transferidos a partir de um cofre dos Serviços de Recuperação durante uma operação de restauro.
     - Se efetuar uma cópia de segurança inicial offline usando o serviço importar/exportar do Azure para importar grandes quantidades de dados, há um custo associado a dados de entrada.  [Saiba mais](backup-azure-backup-import-export.md).
-- **Manter os dados seguros**:
-    - No local, os dados em trânsito são encriptados na máquina no local utilizando AES256. Os dados transmitidos estão protegidos por HTTPS entre o armazenamento e cópia de segurança. O protocolo iSCSI protege os dados transmitidos entre a cópia de segurança e a máquina do usuário. Túnel seguro é utilizado para proteger o canal de iSCSI.
-    - No local para o Azure backup, dados no Azure são encriptados quando Inativos utilizando a frase de acesso que fornece ao configurar a cópia de segurança. A frase de acesso ou a chave nunca é transmitida ou armazenada no Azure. Se for necessário restaurar quaisquer dados, é o único a ter a frase de acesso ou a chave de encriptação.
-    - Para as VMs do Azure, os dados são encriptados utilizando encriptação de serviço de armazenamento (SSE) na reposição. Cópia de segurança encripta automaticamente dados antes de os armazenar. O armazenamento do Azure descriptografa os dados antes de recuperá-lo.
-    - Cópia de segurança também suporta VMs do Azure encriptadas com a encriptação de disco do Azure (ADE). [Saiba mais](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
+- **Manter os dados seguros**: O Azure Backup fornece soluções para proteger os dados em trânsito e em inatividade.
 - **Obter cópias de segurança consistente com a aplicação**: Uma cópia de segurança consistentes com aplicações significa que um ponto de recuperação tem todos os dados necessários para restaurar a cópia de segurança. O Azure Backup fornece cópias de segurança consistentes com as aplicações, o que garante que não são necessárias correções adicionais para restaurar os dados. Restaurar dados consistentes com as aplicações reduz o tempo de restauro, permitindo-lhe voltar rapidamente a um estado de execução.
 - **Manter os dados de curtos e longo prazo**: Pode utilizar cofres dos serviços de recuperação para a retenção de dados de curto e longo prazo. O Azure não limita o período de tempo durante o qual os dados podem permanecer num cofre dos Serviços de Recuperação. Puderem mantê-lo para o tempo que pretender. O Azure Backup tem um limite de 9999 pontos de recuperação por instância protegida. [Saiba mais](backup-introduction-to-azure-backup.md#backup-and-retention)sobre como este limite afeta a suas necessidades de cópia de segurança.
 - **Gestão de armazenamento automática** - os ambientes híbridos necessitam frequentemente de armazenamento heterogéneo - alguns no local e outros na nuvem. Com o Azure Backup, não existe nenhum custo para a utilização de dispositivos de armazenamento no local. O Azure Backup atribui automaticamente e gere o armazenamento de cópia de segurança e utiliza um modelo de pay-as que use, para que só paga o armazenamento que consumir. [Saiba mais](https://azure.microsoft.com/pricing/details/backup) sobre os preços.
@@ -100,20 +95,26 @@ Saiba mais sobre [funciona como cópia de segurança](backup-architecture.md#arc
 --- | ---
 **Fazer cópia de segurança de VMs do Azure** | Nenhum agente necessário. Extensão VM do Azure para cópia de segurança está instalado na VM do Azure ao executar a primeira cópia de segurança de VM do Azure.<br/><br/> Suporte para o suporte do Windows e Linux.
 **Cópia de segurança de máquinas do Windows no local** | Transferir, instalar e executar o agente de MARS diretamente na máquina.
-**VMs de cópia de segurança do Azure com o agente MARS** | Transferir, instalar e executar o agente de MARS diretamente na máquina. O agente de MARS pode ser executado em conjunto com a extensão de cópia de segurança.
+**Fazer cópias de segurança de VMs do Azure com o agente MARS** | Transferir, instalar e executar o agente de MARS diretamente na máquina. O agente de MARS pode ser executado em conjunto com a extensão de cópia de segurança.
 **Cópia de segurança de máquinas no local e VMs do Azure para o DPM/MABS** | O agente de proteção do DPM ou MABS é executado nas máquinas que pretende proteger. O agente de MARS é executado no servidor do DPM/MABS para criar cópias de segurança para o Azure.
 
 ## <a name="which-backup-agent-should-i-use"></a>O agente de cópia de segurança devo utilizar?
 
 **Cópia de segurança** | **Solução** | **Limitação**
 --- | --- | ---
-**Eu quero fazer cópias de segurança de uma VM inteira do Azure** | Ative cópia de segurança para a VM. A extensão de cópia de segurança serão automaticamente configurada no Windows ou VM do Linux do Azure. | VM inteira é uma cópia de segurança <br/><br/> Para VMs do Windows, a cópia de segurança é consistente com a aplicação. para Linux, a cópia de segurança é consistente com ficheiros. Se precisar com suporte para a aplicação para VMs do Linux tem de configurar esta com scripts personalizados.
+**Eu quero fazer cópias de segurança de uma VM inteira do Azure** | Ative cópia de segurança para a VM. A extensão de cópia de segurança serão automaticamente configurada no Windows ou VM do Linux do Azure. | VM inteira é uma cópia de segurança <br/><br/> Para VMs do Windows, a cópia de segurança é consistente com a aplicação. para Linux, a cópia de segurança é consistente com ficheiros. Se precisar de suporte para aplicações para VMs do Linux, terá de configurar esta opção com scripts personalizados.
 **Eu quero fazer cópias de segurança de ficheiros/pastas específicas numa VM do Azure** | Implemente o agente de MARS na VM.
 **Desejo fazer diretamente a máquinas do Windows no local** | Instale o agente de MARS na máquina. | Pode fazer backup de arquivos, pastas e estado do sistema para o Azure. As cópias de segurança não têm consciência de aplicação.
-**Quero diretamente fazer cópias de segurança de máquinas do Linux no local** | Precisa implantar o DPM ou MABS para criar cópias de segurança para o Azure. | Cópia de segurança do anfitrião Linux não é suportada, pode apenas cópia de segurança convidado máquina Linux alojada no Hyper-V ou VMWare.
+**Quero diretamente fazer cópias de segurança de máquinas do Linux no local** | Precisa implantar o DPM ou MABS para criar cópias de segurança para o Azure. | Cópia de segurança do anfitrião Linux não é suportada, só pode criar uma máquina de convidado de Linux alojados no Hyper-V ou VMWare.
 **Eu quero fazer cópias de segurança de aplicações em execução no local** | Para cópias de segurança de aplicação com suporte para máquinas têm de ser protegidas pelo DPM ou MABS.
 **Quero granulares e flexíveis cópia de segurança e recuperação definições para as VMs do Azure** | Protege VMs do Azure com o MABS/DPM em execução no Azure para flexibilidade adicional de agendamento de cópia de segurança e total flexibilidade para proteger e restaurar ficheiros, pastas, volumes, aplicações e estado do sistema.
 
+## <a name="how-does-azure-backup-work-with-encryption"></a>Como funciona a cópia de segurança do Azure com a encriptação?
+
+**Encriptação** | **Criar cópias de segurança no local** | **Fazer cópia de segurança de VMs do Azure** | **Criar cópias de segurança SQL em VMs do Azure**
+--- | --- | --- | ---
+Encriptação inativa<br/> (Encriptação de dados em que é persistido ou estão armazenados) | Frase de acesso de cliente especificado é utilizado para encriptar dados | Azure [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) é utilizado para encriptar dados armazenados no cofre.<br/><br/> Cópia de segurança encripta automaticamente dados antes de os armazenar. O armazenamento do Azure descriptografa os dados antes de recuperá-lo. Utilização de chaves geridas pelo cliente para o SSE não é atualmente suportada.<br/><br/> Pode fazer backup de VMs que utilizam [encriptação de disco do Azure (ADE)](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview) para encriptar o SO e discos de dados. O Azure Backup suporta VMs encriptadas com a BEK-apenas e com os dois BEK e [KEK](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/). Reveja os [limitações](backup-azure-vms-encryption.md#encryption-support). | O Azure Backup suporta a cópia de segurança de bases de dados do SQL Server ou o servidor com [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) ativada. Cópia de segurança oferece suporte a TDE com chaves geridas pelo Azure ou com chaves geridas pelo cliente (BYOK).<br/><br/> Cópia de segurança não executa qualquer criptografia do SQL como parte do processo de cópia de segurança.
+Encriptação em trânsito<br/> (Encriptação de dados a mover de uma localização para outra) | Os dados são encriptados utilizando AES256 e enviadas para o Cofre no Azure através de HTTPS | No Azure, os dados entre o armazenamento do Azure e o Cofre está protegido por HTTPS. Estes dados permanecem na rede backbone do Azure.<br/><br/> Para a recuperação de ficheiros, o iSCSI protege os dados transmitidos entre o Cofre e a VM do Azure. Túnel seguro protege o canal de iSCSI. | No Azure, os dados entre o armazenamento do Azure e o Cofre está protegido por HTTPS.<br/><br/> Recuperação de ficheiros não é relevante para o SQL.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

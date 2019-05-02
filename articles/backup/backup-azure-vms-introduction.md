@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1e80b2083a2fce90259ac0634d9e7f796f459fcd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 93be913182db56941c346ef0cad47f70c0d614c9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880967"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706844"
 ---
 # <a name="about-azure-vm-backup"></a>Acerca das cópias de segurança de VMs do Azure
 
@@ -31,10 +31,14 @@ Eis como cópia de segurança do Azure é concluída uma cópia de segurança pa
     - Por predefinição, a cópia de segurança permite cópias de segurança completas do VSS.
     - Se a cópia de segurança não é possível tirar um instantâneo consistente com a aplicação, em seguida, demora um instantâneo consistente com ficheiros do armazenamento subjacente (porque não escritas das aplicações ocorrem enquanto a VM está parada).
 1. Para VMs do Linux, a cópia de segurança demora uma cópia de segurança consistente com ficheiros. Para instantâneos consistentes com a aplicação, terá de personalizar os scripts de pré/pós.
-1. Depois de cópia de segurança tira o instantâneo, transfere os dados para o cofre. 
+1. Depois de cópia de segurança tira o instantâneo, transfere os dados para o cofre.
     - A cópia de segurança está otimizada fazendo o backup de cada disco VM em paralelo.
     - Para cada disco que é a cópia de segurança, cópia de segurança do Azure lê os blocos no disco e identifica e transfere apenas os blocos de dados alterados (o delta) desde a cópia de segurança anterior.
     - Dados de instantâneos podem não ser imediatamente copiados para o cofre. Poderá demorar algumas horas em períodos de pico. Tempo total de cópia de segurança para uma VM será inferior a 24 horas para políticas de cópia de segurança diárias.
+ 1. Alterações efetuadas a uma VM do Windows após a cópia de segurança do Azure está ativada na mesma são:
+    -   Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660 está instalado na VM
+    -   Tipo de arranque do serviço de cópia sombra de volumes (VSS) mudou para automático de manual
+    -   Serviço Windows IaaSVmProvider é adicionado
 
 1. Quando a transferência de dados estiver concluída, o instantâneo é removido e é criado um ponto de recuperação.
 
@@ -57,7 +61,7 @@ BEKs são também uma cópia de segurança. Então, se o BEKs são perdidos, os 
 
 ## <a name="snapshot-creation"></a>Criação do instantâneo
 
-O Azure Backup tira instantâneos de acordo com a agenda de cópia de segurança. 
+O Azure Backup tira instantâneos de acordo com a agenda de cópia de segurança.
 
 - **VMs do Windows:** Para VMs do Windows, o serviço de cópia de segurança coordena com o VSS para criar um instantâneo consistente com a aplicação dos discos da VM.
 
@@ -82,7 +86,7 @@ A tabela seguinte explica os diferentes tipos de consistência do instantâneo:
 **Consistente com o ficheiro de sistema** | Cópias de segurança do sistema de ficheiros fornecem consistência através de um instantâneo de todos os ficheiros ao mesmo tempo.<br/><br/> | Quando estiver a recuperar uma VM com um instantâneo consistente do sistema de ficheiros, a VM arranca. Não existe danos em dados ou perda. As aplicações necessitam implementar seu próprio mecanismo de "correção de segurança" para se certificar de que os dados restaurados são consistentes. | Windows: Alguns dos escritores VSS falhou <br/><br/> Linux: A predefinição (se os scripts de pré/pós não são configurados ou falhados)
 **Crash-consistent** | Instantâneos consistentes com falhas ocorrem, normalmente, se uma VM do Azure for encerrado no momento da cópia de segurança. Apenas os dados que já existe no disco no momento da cópia de segurança são capturados e uma cópia de segurança.<br/><br/> Um ponto de recuperação consistentes com falhas não garante a consistência de dados para o sistema operativo ou a aplicação. | Embora não há garantias, normalmente, arranca a VM e, em seguida, inicia uma verificação de disco para corrigir erros de corrupção. Quaisquer dados na memória ou operações de escrita que não foram transferidas para o disco antes da falha são perdidos. Aplicações implementam a verificação de seus próprios dados. Por exemplo, uma aplicação de base de dados pode utilizar os logs de transação para a verificação. Se o registo de transações tem entradas que não estão na base de dados, o software de base de dados agrega as transações até que os dados são consistentes. | VM está num Estado de encerramento
 
-## <a name="backup-and-restore-considerations"></a>Considerações sobre a cópia de segurança e restauro 
+## <a name="backup-and-restore-considerations"></a>Considerações sobre a cópia de segurança e restauro
 
 **Consideração** | **Detalhes**
 --- | ---
@@ -99,8 +103,8 @@ A tabela seguinte explica os diferentes tipos de consistência do instantâneo:
 Esses cenários comuns podem afetar o tempo de cópia de segurança total:
 
 - **Adicionar um novo disco a uma VM do Azure protegidos:** Se uma VM está em cópia de segurança incremental e é adicionado um novo disco, irá aumentar o tempo de cópia de segurança. O tempo de cópia de segurança total pode durar mais de 24 horas por causa da replicação inicial do novo disco, juntamente com a replicação de diferenças de discos existentes.
-- **Discos fragmentados:** Operações de cópia de segurança são mais rápidas, quando as alterações de disco sejam contíguas. Se as alterações são distribuídas e fragmentadas num disco, a cópia de segurança será mais lenta. 
-- **Alterações de disco:** Se os discos que estão passando por cópia de segurança incremental de protegidos têm uma diária de alterações de mais de 200 GB, cópia de segurança pode demorar muito tempo (mais de oito horas) para concluir. 
+- **Discos fragmentados:** Operações de cópia de segurança são mais rápidas, quando as alterações de disco sejam contíguas. Se as alterações são distribuídas e fragmentadas num disco, a cópia de segurança será mais lenta.
+- **Alterações de disco:** Se os discos que estão passando por cópia de segurança incremental de protegidos têm uma diária de alterações de mais de 200 GB, cópia de segurança pode demorar muito tempo (mais de oito horas) para concluir.
 - **Versões de cópia de segurança:** A versão mais recente da cópia de segurança (conhecida como a versão de restaurar instantânea) usa um processo mais otimizado de comparação de soma de verificação para identificar as alterações. Mas se estiver usando a restaurar instantânea e eliminou um instantâneo de cópia de segurança, a cópia de segurança muda para comparação de soma de verificação. Neste caso, a operação de cópia de segurança irá exceder 24 horas (ou falha).
 
 ## <a name="best-practices"></a>Melhores práticas

@@ -2,17 +2,17 @@
 title: Descrição geral da configuração de Gateway de aplicação do Azure
 description: Este artigo descreve como configurar os componentes do Gateway de aplicação do Azure
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 4/30/2019
 ms.author: absha
-ms.openlocfilehash: 4b8e04babfffaf49d3719d8a7e90af16598814f4
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 5bfd1f930c190e717e435856f424f0cdf80deb2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998911"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946816"
 ---
 # <a name="application-gateway-configuration-overview"></a>Descrição geral de configuração do Gateway de aplicação
 
@@ -71,7 +71,7 @@ Para este cenário, utilize NSGs na sub-rede de Gateway de aplicação. Coloca a
 
 Para o SKU de v1, as rotas definidas pelo utilizador (UDRs) são suportadas na sub-rede de Gateway de aplicação, desde que não alteram a comunicação de ponto-a-ponto de solicitação/resposta. Por exemplo, pode configurar um UDR na sub-rede de Gateway de aplicação para apontar para um dispositivo de firewall para a inspeção de pacotes. Mas deve certificar-se de que o pacote pode contactar o destino pretendido após a inspeção. Falha ao fazer isso pode resultar em sonda de estado de funcionamento incorreta ou o comportamento de encaminhamento de tráfego. Isto inclui as rotas aprendidas ou rotas predefinidas que 0.0.0.0/0 que sejam propagadas pelos gateways VPN ou ExpressRoute do Azure na rede virtual.
 
-Para o SKU de v2, as UDRs não são suportadas na sub-rede de Gateway de aplicação. Para obter mais informações, consulte [dimensionamento automático e a redundância de zona para o Gateway de aplicação](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+Para o SKU de v2, as UDRs não são suportadas na sub-rede de Gateway de aplicação. Para obter mais informações, consulte [SKU do Gateway de aplicação do Azure v2](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
 > Utilizar as UDRs na sub-rede de Gateway de aplicação faz com que o estado de funcionamento no [vista de estado de funcionamento do back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) a aparecer como "Desconhecido". Também faz com que a geração de registos do Gateway de aplicação e métricas para efetuar a ativação. Recomendamos que não use as UDRs na sub-rede de Gateway de aplicação para que pode ver o estado de funcionamento do back-end, registos e métricas.
@@ -84,7 +84,7 @@ Um IP público não é necessário para um ponto final interno não exposto à i
 
 Apenas 1 endereço IP público ou 1 endereço IP privado é suportado. Escolha o IP de front-end ao criar o gateway de aplicação.
 
-- Para um IP público, pode criar um novo endereço IP público ou utilizar um IP público existente na mesma localização que o gateway de aplicação. Se criar um novo IP público, o tipo de endereço IP que selecionou (estático ou dinâmico) não é possível alterar mais tarde. Para obter mais informações, consulte [estático vs. o endereço IP público dinâmico](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
+- Para um IP público, pode criar um novo endereço IP público ou utilizar um IP público existente na mesma localização que o gateway de aplicação. Se criar um novo IP público, o tipo de endereço IP que selecionou (estático ou dinâmico) não é possível alterar mais tarde. Para obter mais informações, consulte [estático vs. o endereço IP público dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip-address).
 
 - Para um IP privado, pode especificar um endereço IP privado da sub-rede em que o gateway de aplicação é criado. Se não for especificada, é selecionado automaticamente um endereço IP arbitrário da sub-rede. Para obter mais informações, consulte [criar um gateway de aplicação com um balanceador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 

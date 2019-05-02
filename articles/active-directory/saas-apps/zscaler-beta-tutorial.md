@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 56b846ae-a1e7-45ae-a79d-992a87f075ba
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b09e14bfee700750192c5a007cbb3140fd49d137
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7770cd5b12a14e69c00d93b1b518e5007afd9c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885492"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64693717"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>Tutorial: Integração do Active Directory do Azure com a versão Beta do Zscaler
 
@@ -38,7 +39,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com o Zscaler Beta, precisa do seguinte:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * Versão Beta do Zscaler início de sessão único de subscrição ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -111,11 +112,11 @@ Para configurar o Azure AD início de sessão único com o Zscaler Beta, execute
     > [!NOTE]
     > O valor não é real. Atualize o valor com o UR real do início de sessão. Contacte [equipa de suporte de cliente do Zscaler Beta](https://www.zscaler.com/company/contact) para obter o valor.
 
-5. Aplicativos Zscaler Beta espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+5. Aplicativos Zscaler Beta espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
+6. Além dos acima, o aplicativo Zscaler Beta espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
     
     | Name | Atributo de origem | 
     | ---------------| --------------- |
@@ -152,15 +153,23 @@ Para configurar o Azure AD início de sessão único com o Zscaler Beta, execute
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
 ### <a name="configure-zscaler-beta-single-sign-on"></a>Configurar Zscaler Beta início de sessão único
 
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Zscaler Beta como administrador.
+1. Para automatizar a configuração no Zscaler Beta, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-2. Aceda a **administração > autenticação > definições de autenticação** e execute os seguintes passos:
+    ![Extensão My apps](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão para o navegador, clique em **configuração Zscaler Beta** irá direcioná-lo para o aplicativo Zscaler Beta. A partir daí, forneça as credenciais de administrador a iniciar sessão em Zscaler Beta. A extensão do browser irá configurar o aplicativo para e automatizar passos 3 a 6 automaticamente.
+
+    ![Configuração do programa de configuração](common/setup-sso.png)
+
+3. Se desejar configurar manualmente o Zscaler Beta, abra uma nova janela de browser e inicie sessão no site da sua empresa Zscaler Beta como administrador e execute os seguintes passos:
+
+4. Aceda a **administração > autenticação > definições de autenticação** e execute os seguintes passos:
    
     ![Administração](./media/zscaler-beta-tutorial/ic800206.png "administração")
 
@@ -168,7 +177,7 @@ Para configurar o Azure AD início de sessão único com o Zscaler Beta, execute
 
     b. Clique em **configurar SAML**.
 
-3. Sobre o **SAML editar** janela, execute os seguintes passos: e clique em Guardar.  
+5. Sobre o **SAML editar** janela, execute os seguintes passos: e clique em Guardar.  
             
     ![Gerir utilizadores e de autenticação](./media/zscaler-beta-tutorial/ic800208.png "gerir utilizadores e de autenticação")
     
@@ -188,7 +197,7 @@ Para configurar o Azure AD início de sessão único com o Zscaler Beta, execute
 
     h. Clique em **Guardar**.
 
-4. Sobre o **configurar a autenticação de utilizador** caixa de diálogo página, execute os seguintes passos:
+6. Sobre o **configurar a autenticação de utilizador** caixa de diálogo página, execute os seguintes passos:
 
     ![Administração](./media/zscaler-beta-tutorial/ic800207.png)
 
@@ -245,8 +254,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 

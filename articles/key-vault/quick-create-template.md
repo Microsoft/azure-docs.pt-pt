@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/04/2019
 ms.author: jgao
-ms.openlocfilehash: 4b774e5b0a5c64a9af9a5a54ba264c6226558a24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777750"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715997"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Início rápido: Definir e obter um segredo a partir do Azure Key Vault com o modelo do Resource Manager
 

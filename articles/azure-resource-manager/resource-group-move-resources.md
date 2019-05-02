@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
+ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: dfe2a103005cc48860c7bbeb3036afe94ff3a559
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239164"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64698480"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -222,6 +222,22 @@ Ao mover uma aplicação Web _entre subscrições_, as seguintes limitações ap
 - Todos os recursos de serviço de aplicações no grupo de recursos tem de ser movidos em conjunto.
 - Recursos de serviço de aplicações só podem ser movidos do grupo de recursos em que foram originalmente criados. Se um recurso de serviço de aplicações não se encontra no respetivo grupo de recursos original, ele tem ser movido para o grupo de recursos original primeiro e, em seguida, podem ser movida entre subscrições.
 
+Se não sabe o grupo de recursos original, pode encontrá-lo por meio de diagnóstico. Para a sua aplicação web, selecione **diagnosticar e resolver problemas**. Em seguida, selecione **configuração e gestão**.
+
+![Selecione o diagnóstico](./media/resource-group-move-resources/select-diagnostics.png)
+
+Selecione **opções de migração**.
+
+![Selecione as opções de migração](./media/resource-group-move-resources/select-migration.png)
+
+Selecione a opção para obter os passos recomendados mover a aplicação web.
+
+![Selecione os passos recomendados](./media/resource-group-move-resources/recommended-steps.png)
+
+Ver as ações recomendadas antes de mover os recursos. As informações incluem o grupo de recursos original para a aplicação web.
+
+![Recomendações](./media/resource-group-move-resources/recommendations.png)
+
 ### <a name="app-service-certificate-limitations"></a>Limitações de certificado do serviço de aplicações
 
 Pode mover o seu certificado de serviço de aplicações para um novo grupo de recursos ou subscrição. Se o certificado de serviço de aplicações estiver vinculado a uma aplicação web, tem de seguir alguns passos antes de mover os recursos para uma nova subscrição. Elimine o enlace SSL e certificado privado da aplicação web antes de mover os recursos. O certificado de serviço de aplicações não precisa de ser eliminada, apenas o certificado privado na aplicação web.
@@ -251,7 +267,7 @@ Quando mover recursos para uma nova subscrição, aplicam-se as seguintes restri
 * A subscrição de destino não tem de ter outros recursos clássicos.
 * A mudança só pode ser pedida através da API REST separado para move clássico. Os comandos de movimentação do Gestor de recursos padrão não funcionam quando mover recursos clássicos para uma nova subscrição.
 
-Para mover recursos clássicos para uma nova subscrição, utilize as operações REST que são específicas para recursos clássicos. Para utilizar o REST, execute os seguintes passos:
+Para mover recursos clássicos para uma nova subscrição, utilize as operações REST que são específicas para recursos clássicos. Para utilizar o REST, siga os passos abaixo:
 
 1. Verifique se a subscrição de origem pode participar de uma movimentação entre subscrições. Utilize a seguinte operação:
 

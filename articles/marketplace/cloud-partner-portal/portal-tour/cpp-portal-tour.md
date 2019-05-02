@@ -1,25 +1,18 @@
 ---
-title: Tour de Portal de parceiro de Cloud do Azure | Documentos da Microsoft
-description: .
+title: Tour de Portal de parceiro de Cloud do Azure | O Azure Marketplace
+description: Descrição geral da experiência do usuário do Portal de parceiro de Cloud para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/08/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 01b93a667fef8c56d6b7c78e8c6346357a2ff36c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527494"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943419"
 ---
 # <a name="cloud-partner-portal-tour"></a>Tour de Portal de parceiro de cloud
 

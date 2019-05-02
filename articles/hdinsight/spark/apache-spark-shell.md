@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.openlocfilehash: 9044ed3ad9cf9ffa2f54d130bb50b37df121b86f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116078"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696809"
 ---
 # <a name="run-apache-spark-from-the-spark-shell"></a>Execute o Apache Spark a partir da Shell do Spark
 

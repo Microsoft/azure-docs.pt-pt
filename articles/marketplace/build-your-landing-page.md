@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: cf7216d5634adf42c2e3435b122dcff58446821a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b3f987ff54a4b5eeeb1034d1e99302d0d6d43d6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625317"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935593"
 ---
 # <a name="build-your-landing-page"></a>Criar a sua página de destino
 

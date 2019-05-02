@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61032456"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924793"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para as VMs do Azure
 
@@ -304,7 +304,7 @@ Funcionamento em rede acelerado foi concebido para melhorar o desempenho de rede
 
 Máquinas virtuais do Azure têm, pelo menos, uma interface de rede ligada aos mesmos. Pode ter vários. A largura de banda atribuída a uma máquina virtual é a soma de todo o tráfego de saída em todas as interfaces de rede ligadas à máquina. Em outras palavras, a largura de banda atribuída numa base por-virtual machine, independentemente de quantas interfaces de rede estão ligados à máquina.
 
-Débito de saída esperado e o número de interfaces de rede suportadas por cada tamanho de VM são detalhados em [máquinas de virtuais de tamanhos para Windows no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Para ver o débito máximo, selecione um tipo, como **fins gerais**e, em seguida, localize a secção sobre a série de tamanho da página resultante (por exemplo, "série Dv2"). Para cada série, existe uma tabela que fornece especificações de rede na última coluna, que é intitulada "NICs. Máx. / esperado de largura de banda de rede (Mbps)."
+Débito de saída esperado e o número de interfaces de rede suportadas por cada tamanho de VM são detalhados em [máquinas de virtuais de tamanhos para Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). Para ver o débito máximo, selecione um tipo, como **fins gerais**e, em seguida, localize a secção sobre a série de tamanho da página resultante (por exemplo, "série Dv2"). Para cada série, existe uma tabela que fornece especificações de rede na última coluna, que é intitulada "NICs. Máx. / esperado de largura de banda de rede (Mbps)."
 
 O limite de débito aplicam-se à máquina virtual. Débito não é afetado por esses fatores:
 
@@ -388,4 +388,4 @@ Ainda assim, esses tipos de pacotes estão indicações de que a taxa de transfe
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu sobre a otimização de desempenho de TCP/IP para as VMs do Azure, pode querer ler sobre outras considerações sobre [Planear redes virtuais](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [Saiba mais sobre como ligar e configurar redes virtuais ](https://docs.microsoft.com/en-us/azure/virtual-network/).
+Agora que aprendeu sobre a otimização de desempenho de TCP/IP para as VMs do Azure, pode querer ler sobre outras considerações sobre [Planear redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm) ou [Saiba mais sobre como ligar e configurar redes virtuais ](https://docs.microsoft.com/azure/virtual-network/).

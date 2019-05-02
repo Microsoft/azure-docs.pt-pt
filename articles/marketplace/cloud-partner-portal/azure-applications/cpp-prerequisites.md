@@ -1,25 +1,18 @@
 ---
-title: Pré-requisitos da oferta do aplicativo do Azure | Documentos da Microsoft
+title: Pré-requisitos da oferta do aplicativo do Azure | O Azure Marketplace
 description: Os pré-requisitos para a publicação de uma aplicação do Azure oferecem no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
-ms.openlocfilehash: df127eec662f8598246f276ef9b1608ae3021512
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 296f843f9d09b57e12e867700f456126eca128b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744929"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942886"
 ---
 # <a name="azure-application-prerequisites"></a>Pré-requisitos de aplicação do Azure
 
@@ -36,7 +29,7 @@ Os requisitos técnicos incluem os seguintes itens:
 * Modelos de início rápido do Azure.<br> Para obter mais informações, consulte:
 
   * [Modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates/). Implemente recursos do Azure através do Gestor de Recursos do Azure com modelos fornecidos pela comunidade para produzir mais. O Gestor de Recursos do Azure permite utilizar modelos declarativos para aprovisionar as suas aplicações. Num único modelo, pode implementar vários serviços, bem como as respetivas dependências. Pode utilizar o mesmo modelo para implementar repetidamente a sua aplicação durante cada fase do ciclo de vida da aplicação.
-  * [GitHub: Modelos de início rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Este repositório contém todos os os atualmente disponíveis do Azure Resource Manager modelos contribuídos pela Comunidade. Um índice pesquisável modelo seja mantido no https://azure.microsoft.com/en-us/documentation/templates/.
+  * [GitHub: Modelos de início rápido do Azure Resource Manager](https://github.com/azure/azure-quickstart-templates). Este repositório contém todos os os atualmente disponíveis do Azure Resource Manager modelos contribuídos pela Comunidade. Um índice pesquisável modelo seja mantido no https://azure.microsoft.com/documentation/templates/.
 * Criar definição de interface do Usuário<br>
 Para obter mais informações, consulte [interface de utilizador do portal do Azure de criar para seu aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). Este artigo apresenta os principais conceitos do ficheiro Createuidefinition. O portal do Azure utiliza este ficheiro para gerar a interface do usuário para a criação de um aplicativo gerenciado.
 
@@ -50,7 +43,7 @@ Os requisitos comerciais incluem as seguinte obrigações de procedimentos, cont
 >[!NOTE]
 >Deve utilizar a mesma conta de registo do Microsoft Developer Center para iniciar sessão no Portal de parceiros de nuvem. Deve ter apenas uma conta Microsoft para as ofertas do Azure Marketplace. Esta conta não deve ser específica de ofertas ou serviços individuais.
 
-* A sua empresa (ou respetiva subsidiária) tem de ser num destino de venda--país suportado pelo Azure Marketplace. Para obter uma lista atual nestes países, consulte [políticas de participação do Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+* A sua empresa (ou respetiva subsidiária) tem de ser um destino de venda-de-país/região suportada pelo Azure Marketplace. Para obter uma lista atual destes países/regiões, consulte [políticas de participação do Microsoft Azure Marketplace](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 * Seu produto têm de estar licenciado de forma que seja compatível com modelos de faturação suportados pelo Azure Marketplace. Para obter mais informações, consulte [opções de faturação](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) no Azure Marketplace.
 * É responsável por disponibilizar suporte técnico aos clientes de forma que sejam comercialmente razoável. Esse suporte pode ser gratuito, pago ou por meio de abordagens de Comunidade.
 * É responsável pelo licenciamento do software e as dependências de software de terceiros.

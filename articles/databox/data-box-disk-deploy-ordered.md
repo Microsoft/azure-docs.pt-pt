@@ -1,5 +1,5 @@
 ---
-title: Tutorial para encomendar o Microsoft Azure Data Box Disk | Microsoft Docs
+title: Tutorial para a ordem de disco do Azure Data Box | Documentos da Microsoft
 description: Utilize este tutorial para saber como inscrever-se e encomendar um disco do Azure Data Box Disk para importar dados para o Azure.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: ad11dba43e7e1561a74e04cd4f05b26569cc10d9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123285"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924922"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicite um disco de caixa de dados do Azure
 

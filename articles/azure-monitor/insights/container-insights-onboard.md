@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: b5ba9a0abe8ec0f72cfaf42c747616e733fb3f32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101160"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702857"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Como integrar o Azure Monitor para contentores  
 

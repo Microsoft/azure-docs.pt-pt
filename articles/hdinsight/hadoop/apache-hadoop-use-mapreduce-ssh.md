@@ -1,28 +1,19 @@
 ---
 title: Ligação de MapReduce e o SSH com o Apache Hadoop no HDInsight - Azure
 description: Saiba como utilizar o SSH para executar tarefas de MapReduce com o Apache Hadoop no HDInsight.
-services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlunb
-editor: cgronlun
-tags: azure-portal
-ms.assetid: 844678ba-1e1f-4fda-b9ef-34df4035d547
+author: hrasheed-msft
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: big-data
-origin.date: 04/10/2018
-ms.date: 01/14/2019
-ms.author: v-yiso
+ms.date: 04/10/2018
+ms.author: hrasheed
 ms.openlocfilehash: 3448a5e89f6930a5bdcb7d0d77b92576e58fc90b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129387"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687301"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>Utilizar o MapReduce com o Apache Hadoop no HDInsight com SSH
 
@@ -47,13 +38,13 @@ Aprenda a submeter tarefas de MapReduce de uma ligação de Secure Shell (SSH) p
 Ligar ao cluster através de SSH. Por exemplo, o comando seguinte liga a um cluster com o nome **myhdinsight** como o **sshuser** conta:
 
 ```bash
-ssh sshuser@myhdinsight-ssh.azurehdinsight.cn
+ssh sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Se utilizar uma chave de certificado para autenticação SSH**, poderá ter de especificar a localização da chave privada no seu sistema de cliente, por exemplo:
 
 ```bash
-ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.cn
+ssh -i ~/mykey.key sshuser@myhdinsight-ssh.azurehdinsight.net
 ```
 
 **Se utilizar uma palavra-passe para autenticação SSH**, tem de fornecer a palavra-passe quando lhe for pedido.
@@ -88,7 +79,7 @@ Para obter mais informações sobre como utilizar o SSH com HDInsight, consulte 
 
     Este comando apresenta dois ficheiros, `_SUCCESS` e `part-r-00000`. O `part-r-00000` ficheiro contém a saída para esta tarefa.
 
-    > [!NOTE]
+    > [!NOTE]  
     > Algumas tarefas de MapReduce podem dividir os resultados em vários **parte-r-# # #** ficheiros. Se assim for, utilize o # # # sufixo para indicar a ordem dos ficheiros.
 
 4. Para ver o resultado, utilize o seguinte comando:

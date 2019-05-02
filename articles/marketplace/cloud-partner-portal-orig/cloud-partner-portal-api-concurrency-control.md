@@ -1,28 +1,20 @@
 ---
-title: Controlo de simultaneidade | Documentos da Microsoft
+title: Controlo de simultaneidade | O Azure Marketplace
 description: Estratégias de controle de simultaneidade para o Portal do Cloud Partner publicar APIs.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ecf0bb6ac7fc77e804c9fc8d62aba52810de5640
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 8cdcfd84a2f3bd4f920b97392255237db173cbf9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625011"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935607"
 ---
-<a name="concurrency-control"></a>Controlo de Simultaneidade
-===================
+# <a name="concurrency-control"></a>Controlo de Simultaneidade
 
 Todas as chamadas para o Portal de parceiro de Cloud publicar APIs tem de especificar explicitamente que estratégia de controlo de simultaneidade a utilizar. Falha ao fornecer o **If-Match** cabeçalho resultará numa resposta de erro de HTTP 400. Oferecemos duas estratégias para controlo de simultaneidade.
 

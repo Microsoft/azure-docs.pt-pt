@@ -1,5 +1,5 @@
 ---
-title: Acesso de dispositivo do Edge de caixa de dados do Microsoft Azure, power e modo de conectividade | Documentos da Microsoft
+title: Acesso de dispositivo do Edge de caixa de dados do Azure, power e modo de conectividade | Documentos da Microsoft
 description: Descreve como gerir o acesso, energia e modo de conectividade para o dispositivo de limite de caixa de dados do Azure que ajuda a transferir dados para o Azure
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5fbe8f3eb05ac60918e488c68869c3fe44051a3f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757336"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924355"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gerir o acesso, energia e modo de conectividade para sua caixa de dados do Azure Edge
 

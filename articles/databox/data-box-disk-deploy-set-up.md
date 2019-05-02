@@ -1,5 +1,5 @@
 ---
-title: Configurar o Microsoft Azure Data Box Disk | Microsoft Docs
+title: Tutorial para descompactar, ligar e desbloquear o disco do Azure Data Box | Documentos da Microsoft
 description: Utilize este tutorial para aprender a configurar o Azure Data Box Disk
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ee1150dd146be1f022134ffe6df3ca2fbf84f867
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 34d62df989da80c84bad92a90fc2253c416a4924
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123268"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939657"
 ---
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Tutorial: Descompactar, ligar e desbloquear o disco do Azure Data Box
 
@@ -208,12 +208,12 @@ Siga os seguintes passos para ligar e desbloquear os discos.
 
     Escreva o seguinte comando.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    ' sudo. / DataBoxDiskUnlock_x86_64 /PassKey:'<Your passkey from Azure portal>'          
 
     A saída de exemplo é apresentada abaixo. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 

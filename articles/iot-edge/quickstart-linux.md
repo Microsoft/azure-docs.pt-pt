@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5c790d39ea471a599e8a6b46004b3e350834c318
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758665"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573966"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge num dispositivo de Linux
 
@@ -119,7 +119,7 @@ Inicie o tempo de execução do Azure IoT Edge no seu dispositivo IoT Edge.
 
 ![Diagrama - início o tempo de execução no dispositivo](./media/quickstart-linux/start-runtime.png)
 
-O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Tem três componentes. O **daemon de segurança do IoT Edge** é iniciado sempre que um dispositivo Edge arranca e arranca o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e a monitorização de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT.
+O runtime do IoT Edge é implementado em todos os dispositivos do IoT Edge. Tem três componentes. O **daemon de segurança de IoT Edge** começa sempre que um dispositivo IoT Edge é iniciado e arrancar o dispositivo ao iniciar o agente do IoT Edge. O **agente do IoT Edge** facilita a implementação e a monitorização de módulos no dispositivo IoT Edge, incluindo o hub do IoT Edge. O **hub do IoT Edge** gere as comunicações entre os módulos no dispositivo do IoT Edge e entre o dispositivo e o Hub IoT.
 
 Durante a configuração do runtime, apresenta a cadeia de ligação do dispositivo. Utilize a cadeia que obteve na CLI do Azure. Essa cadeia associa o dispositivo físico à identidade do dispositivo IoT Edge no Azure.
 
@@ -146,13 +146,13 @@ Certifique-se de que o tempo de execução foi corretamente instalado e configur
 >[!TIP]
 >Precisa de privilégios elevados para executar os comandos `iotedge`. Depois de terminar sessão do seu computador e iniciar sessão novamente pela primeira vez depois de instalar o runtime do IoT Edge, as suas permissões são atualizadas automaticamente. Até lá, utilize o **sudo** à frente dos comandos.
 
-1. Verifique se o Daemon de Segurança do Edge está em execução como serviço de sistema.
+1. Certifique-se de que o daemon de segurança de IoT Edge está em execução como um serviço de sistema.
 
    ```bash
    sudo systemctl status iotedge
    ```
 
-   ![Ver o Daemon do Edge em execução como serviço de sistema](./media/quickstart-linux/iotedged-running.png)
+   ![Consulte o daemon de IoT Edge está em execução como um serviço de sistema](./media/quickstart-linux/iotedged-running.png)
 
 2. Se precisar de resolver problemas relacionados com o serviço, obtenha os registos do serviço.
 
@@ -206,38 +206,22 @@ Também pode ver as mensagens de chegar ao seu hub IoT utilizando o [extensão d
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos do Azure que criou e remover o runtime do IoT Edge do seu dispositivo.
-
-### <a name="delete-azure-resources"></a>Eliminar recursos do Azure
+Se quiser avançar para os tutoriais do IoT Edge, pode utilizar o dispositivo que registou e configurou neste início rápido. Caso contrário, pode eliminar os recursos do Azure que criou para evitar encargos.
 
 Se tiver criado a sua máquina virtual e o hub IoT num novo grupo de recursos, pode eliminar esse grupo e todos os recursos associados. Verifique novamente o conteúdo do grupo de recursos para ter certeza de que existem 's nada que quer manter. Se não quiser eliminar todo o grupo, pode eliminar recursos individuais em vez disso.
 
 Remova o grupo de **IoTEdgeResources**.
 
-   ```azurecli-interactive
-   az group delete --name IoTEdgeResources
-   ```
-
-### <a name="remove-the-iot-edge-runtime"></a>Remover o runtime do IoT Edge
-
-Se quiser remover as instalações do seu dispositivo, utilize os comandos seguintes.  
-
-Remova o runtime do IoT Edge.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-Remova o runtime do contentor.
-
-   ```bash
-   sudo apt-get remove --purge moby-cli
-   sudo apt-get remove --purge moby-engine
-   ```
+```azurecli-interactive
+az group delete --name IoTEdgeResources
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Este início rápido é o pré-requisito para todos os tutoriais do IoT Edge. Pode continuar para qualquer um dos outros tutoriais para saber mais sobre como o Azure IoT Edge o pode ajudar a transformar estes dados em informações empresariais no Edge.
+
+Neste início rápido, criou um dispositivo IoT Edge e utilizou a interface de cloud do Azure IoT Edge para implementar o código no dispositivo. Agora tem um dispositivo de teste a gerar dados não processados sobre o seu ambiente.
+
+A próxima etapa é configurar o ambiente de desenvolvimento local para que possa começar a criar módulos que executam a lógica de negócio de IoT Edge. 
 
 > [!div class="nextstepaction"]
-> [Filtrar os dados de sensores com uma Função do Azure](tutorial-deploy-function.md)
+> [Comece a desenvolver módulos do IoT Edge para dispositivos do Linux](tutorial-develop-for-linux.md)

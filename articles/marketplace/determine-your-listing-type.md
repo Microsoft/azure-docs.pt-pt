@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 2755232ea81f1551477431f4eb1f0aeab8b8bfe8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb306a32a9388113a9c81fa363a6e1ee2c3b30ad
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726656"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938102"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a sua opção de publicação
 A opção de publicação que escolher para a oferta está relacionada diretamente para os requisitos de elegibilidade e os benefícios GTM do marketplace. Mais importante, a seleção da opção e o tipo de oferta de publicação no Portal de parceiros de nuvem define como os utilizadores irão interagir com a oferta do marketplace.

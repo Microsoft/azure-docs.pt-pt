@@ -1,25 +1,18 @@
 ---
-title: SaaS application oferta técnica de configuração do Azure | Documentos da Microsoft
+title: SaaS application oferta técnica de configuração do Azure | O Azure Marketplace
 description: Configure informações técnicas para a oferta de aplicação SaaS no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 891d9b7b34e3d30efb46b69ef1aa75566fe634c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 46dcf4aeb7ddb67028eb23dde9236f2b7709f86d
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594351"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941730"
 ---
 # <a name="saas-application-technical-info-tab"></a>Separador de informações técnicas de aplicação SaaS
 
@@ -27,9 +20,11 @@ O separador de informações técnicas fornece o formulário de configuração t
 
 ![Formulário de técnicas de configuração](./media/saas-techinfo-techconfig.png)
 
+
 ## <a name="technical-configuration-form"></a>Formulário de configuração do técnico
 
 Este formulário tem 2 campos: Produto e a chamada à ação.
+
 
 ### <a name="product-field"></a>Campo de produto
 
@@ -37,6 +32,7 @@ Pode fornecer uma aplicação SaaS para ambos as seguintes lojas:
 - Um utilizador empresarial, selecionando o **listagem** opção.
 - Para um utilizador de administrador de TI, selecionando **venda através de Microsoft**.
 Para ajudar a decidir que tipo de aplicação SaaS que está criando, leia [compreender seleção vitrine](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type#understand-storefront-selection).
+
 
 #### <a name="sell-through-microsoft"></a>Venda através da Microsoft
 Para criar essa experiência, precisa configurar as seguintes partes:
@@ -46,16 +42,17 @@ Para criar essa experiência, precisa configurar as seguintes partes:
 
   ![Venda através de formulário da Microsoft](./media/saas-techinfo-sellthrough-ms.png)
 
-A tabela seguinte descreve os campos obrigatórios para venda por meio da Microsoft.
+A tabela seguinte descreve os campos obrigatórios para **venda através de Microsoft**.  Campos obrigatórios são indicted por um asterisco (*).
 
 |  **Nome do campo**   |  **Descrição**  |
 |  ---------------  |  ---------------  |
-|    IDs de subscrição de pré-visualização               |    Todos os os subscrição do Azure identificadores utilizados para testar a sua oferta na pré-visualização antes de ser publicamente disponível.               |
-|     Instruções de introdução              |   Instruções para partilhar com os seus clientes para os ajudar a ligar à sua aplicação SaaS. Básicos tags de HTML são permitidas, por exemplo: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, etc.                |
-|    URL da página de destino  |   O URL do site que irá ser direcionar seus clientes aterrar em depois de adquirir a partir do portal do Azure. Este URL também será o ponto final que irão receber a ligação de APIs para facilitar o comércio com a Microsoft.                |
-|  Connection Webhook    |  Para todos os eventos assíncronos que a Microsoft tem de enviar a em nome do cliente (exemplo: Subscrição do Azure tornou-se inválida), pedimos que nos forneça um webhook da ligação. Se ainda não tiver um sistema de webhook no local, a configuração mais simples é fazer com uma aplicação de lógica de ponto final de HTTP que irá escutar quaisquer eventos que está a ser postados nele e, em seguida, manipulá-las adequadamente. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no logic apps</a>                |
-|  Inquilino do Azure AD ID e o ID de aplicação      |   No portal do Azure, é necessário que crie uma aplicação do Active Directory para que possamos validar a ligação entre nossos dois serviços estiver atrás de uma comunicação autenticada. Para estes campos, crie uma aplicação do AD e cole o Id de inquilino correspondente e o Id da aplicação necessária. Tenha em atenção que o id da aplicação está associado à sua publisherID. Por conseguinte, certifique-se de que o mesmo ID da aplicação como em todas as ofertas.             |
-
+|  **IDs de subscrição de pré-visualização\***   |  Todos os os subscrição do Azure identificadores utilizados para testar a sua oferta na pré-visualização antes de ser publicamente disponível.  |
+|  **Contas do AAD/MSA de pré-visualização\***   |  As contas do Azure AD/MSA, separadas por vírgula, que é concedida acesso para a versão de demonstração. |
+|  **Instruções de introdução** |  Instruções para partilhar com os seus clientes para os ajudar a ligar à sua aplicação SaaS. Básicos tags de HTML são permitidas, por exemplo: &lt;p&gt;, &lt;h1&gt;, &lt;li&gt;, etc.    |
+|  **URL da página de destino\***           |  O URL do site que irá ser direcionar seus clientes aterrar em depois de adquirir a partir do portal do Azure. Este URL também será o ponto final que irão receber a ligação de APIs para facilitar o comércio com a Microsoft.   |
+| **Connection Webhook\***            |  Para todos os eventos assíncronos que a Microsoft tem de enviar a em nome do cliente (exemplo: Subscrição do Azure tornou-se inválida), pedimos que nos forneça um webhook da ligação. Se ainda não tiver um sistema de webhook no local, a configuração mais simples é fazer com uma aplicação de lógica de ponto final de HTTP que irá escutar quaisquer eventos que está a ser postados nele e, em seguida, manipulá-las adequadamente. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint">chamar, acionar, ou aninhar fluxos de trabalho com pontos de extremidade HTTP no logic apps</a>    |
+|  **ID de inquilino do Azure AD\***  e **ID da aplicação\***      |   No portal do Azure, é necessário que crie uma aplicação do Active Directory para que possamos validar a ligação entre nossos dois serviços estiver atrás de uma comunicação autenticada. Para estes campos, crie uma aplicação do AD e cole o Id de inquilino correspondente e o Id da aplicação necessária. Tenha em atenção que o id da aplicação está associado à sua publisherID. Por conseguinte, certifique-se de que o mesmo ID da aplicação como em todas as ofertas.   |
+|   |   |
 
 Por fim, se selecionar **venda através de Microsoft**, há outra guia nova oferta com o nome **planos**. 
 

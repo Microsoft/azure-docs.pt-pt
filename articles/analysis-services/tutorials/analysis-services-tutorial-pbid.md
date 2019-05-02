@@ -5,15 +5,15 @@ manager: kfile
 description: Saiba como ligar ao Azure Analysis Services com o Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 5d021aa7a6d55bb071340ebcd8e7090a4b0c2e2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ea2a6612a568d4080a8df2c569f79aaaa283e9c4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60788235"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702847"
 ---
 # <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Ligar com o Power BI Desktop
 
@@ -71,4 +71,4 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 Se já não for preciso, não guarde o relatório ou elimine o ficheiro se o tiver guardado.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não estiver familiarizado sobre como criar um modelo de dados, veja o [tutorial de modelação de dados tabular de Vendas da Internet do Adventure Works](aas-adventure-works-tutorial.md).
+Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se não estiver familiarizado com a criar um modelo de dados, consulte a [tutorial de modelação de dados de tabela de vendas na Internet Adventure Works](https://docs.microsoft.com/sql/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) em documentos do SQL Server Analysis Services.

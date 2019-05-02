@@ -1,6 +1,6 @@
 ---
-title: Transmissão em fluxo de pontos de extremidade nos serviços de multimédia do Azure | Documentos da Microsoft
-description: Este artigo fornece uma explicação sobre o que são pontos finais de transmissão em fluxo e como elas são usadas pelos serviços de multimédia do Azure.
+title: Transmissão em fluxo de pontos de extremidade (origem) nos serviços de multimédia do Azure | Documentos da Microsoft
+description: Nos serviços de multimédia do Azure, um Endpoint de transmissão em fluxo de mensagens em fila (origem) representa um empacotamento dinâmico e o serviço de transmissão em fluxo que pode entregar conteúdo diretamente a uma aplicação de leitor cliente ou para uma rede de entrega de conteúdos (CDN) para uma maior distribuição.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,18 +9,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 8b6deadca610916a10f719d715fe6a17e29148bb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125428"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867618"
 ---
-# <a name="streaming-endpoints"></a>Pontos Finais de Transmissão em fluxo
+# <a name="streaming-endpoints-origin"></a>Pontos finais de transmissão em fluxo (origem)
 
-No Microsoft Azure Media Services (AMS), o [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints) entidade representa um serviço de transmissão em fluxo que pode entregar conteúdo diretamente a uma aplicação de leitor cliente ou para uma rede de entrega de conteúdo (CDN) para obter mais distribuição. O fluxo de saída de um **ponto final de transmissão em fluxo** serviço pode ser uma transmissão em direto ou um elemento de vídeo a pedido na sua conta de Media Services. Quando cria uma conta de Media Services, um **predefinição** ponto final de transmissão em fluxo é criado por si no estado parado. Não é possível eliminar a **predefinição** ponto final de transmissão em fluxo. Pontos finais de transmissão em fluxo adicionais podem ser criados sob a conta. 
+Nos serviços de multimédia do Microsoft Azure, um [ponto final de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa um dinâmico (just-in-time) empacotamento e a origem do serviço que pode distribuir os seus conteúdos em direto e a pedido diretamente a uma aplicação de leitor de cliente, utilizando um do transmissão em fluxo multimédia protocolos comuns (HLS ou DASH). Além disso, o **ponto final de transmissão em fluxo** fornece a encriptação dinâmica (just-in-time) para DRMs de líder da indústria.
+
+Quando cria uma conta de Media Services, um **predefinição** ponto final de transmissão em fluxo é criado por si no estado parado. Não é possível eliminar a **predefinição** ponto final de transmissão em fluxo. Pontos finais de transmissão em fluxo adicionais podem ser criados sob a conta (veja [Quotas e limitações](limits-quotas-constraints.md)). 
 
 > [!NOTE]
 > Para começar a transmissão em fluxo de vídeos, precisa para começar a **ponto final de transmissão em fluxo** partir da qual quer transmitir o vídeo. 
@@ -35,33 +37,37 @@ Para pontos finais adicionais: `{EndpointName}-{AccountName}-{DatacenterAbbrevia
 
 ## <a name="types"></a>Tipos  
 
-Existem dois tipos de **Ponto Final de Transmissão em Fluxo**: **Standard** e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocar para o ponto final de transmissão em fluxo. 
+Existem dois tipos de **Ponto Final de Transmissão em Fluxo**: **Standard** (pré-visualização) e **Premium**. O tipo é definido pelo número de unidades de escala (`scaleUnits`) alocar para o ponto final de transmissão em fluxo. 
 
 A tabela descreve os tipos:  
 
 |Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
-|**Ponto Final de Transmissão em Fluxo Standard** (recomendado)|0|A predefinição é o ponto final de transmissão em fluxo uma **padrão** tipo, mas pode ser alterada para o tipo Premium.<br/> O tipo de padrão é a opção recomendada para praticamente todos os cenários de transmissão em fluxo e tamanhos de audiência. O tipo **Standard** dimensiona a largura de banda de saída automaticamente. O débito deste tipo de ponto final de transmissão em fluxo é até 600 Mbps. Fragmentos de vídeo colocado em cache no CDN, não utilize a largura de banda do ponto final de transmissão em fluxo.<br/>Para clientes com requisitos extremamente exigentes, os Serviços de Multimédia oferecem pontos finais de transmissão em fluxo **Premium**, que podem ser utilizados para ampliar a capacidade para as maiores audiências de internet. Se espera grandes públicos e visualizadores em simultâneo, contacte-nos em amsstreaming\@microsoft.com para obter orientações sobre a necessidade de mover para o **Premium** tipo. |
-|**Ponto Final de Transmissão em Fluxo Premium**|>0|Os pontos finais de transmissão em fluxo **Premium** são adequadas para cargas de trabalho avançadas, ao fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits`. `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium**, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |
- 
-## <a name="comparing-streaming-types"></a>Comparar tipos de transmissão em fluxo
+|**Standard**|0|A predefinição é o ponto final de transmissão em fluxo uma **padrão** escreva, pode ser alterado para o tipo de Premium, ao ajustar `scaleUnits`.|
+|**Premium**|>0|**Premium** pontos finais de transmissão em fluxo são adequados para cargas de trabalho avançadas, fornecer uma capacidade de largura de banda dimensionável e dedicada. Mover para uma **Premium** tipo ao ajustar `scaleUnits` (unidades de transmissão em fluxo). `scaleUnits` Fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao utilizar o tipo **Premium**, cada unidade ativada fornece capacidade de largura de banda adicional à aplicação. |
 
-### <a name="features"></a>Funcionalidades
+> [!NOTE]
+> Para os clientes que pretendem para fornecer conteúdo ao grande público de internet, recomendamos que ative a CDN no ponto final de transmissão em fluxo.
+
+Para informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="comparing-streaming-types"></a>Comparar tipos de transmissão em fluxo
 
 Funcionalidade|Standard|Premium
 ---|---|---
-Gratuitos primeiros 15 dias| Sim |Não
-Débito |Até 600 Mbps quando não for utilizada o CDN do Azure. Dimensiona com CDN.|200 Mbps por unidade (SU) de transmissão em fluxo. Dimensiona com CDN.
+Libertar os primeiros 15 dias <sup>1</sup>| Sim |Não
+Débito |Até 600 Mbps e pode fornecer um muito eficiente um débito mais elevado quando utilizar uma CDN.|200 Mbps por unidade (SU) de transmissão em fluxo. Pode fornecer um muito eficiente um débito mais elevado quando utilizar uma CDN.
 CDN|A CDN do Azure, terceiros CDN ou não CDN.|A CDN do Azure, terceiros CDN ou não CDN.
 A faturação é calculada| Diariamente|Diariamente
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Escala|Automática se aumentar verticalmente para a taxa de transferência de destino.|Unidades de transmissão em fluxo adicionais
-Anfitrião de filtragem/G20/personalizado IP <sup>1</sup>|Sim|Sim
+Escala|Automática se aumentar verticalmente para a taxa de transferência de destino.|SUs adicionais
+Anfitrião de filtragem/G20/personalizado IP <sup>2</sup>|Sim|Sim
 Transferência progressiva|Sim|Sim
-Uso recomendado |Recomendado para a grande maioria dos cenários de transmissão em fluxo.|Utilização profissional.<br/>Se acha que podem ter necessidades além padrão. Contacte-nos (amsstreaming@microsoft.com) se espera que um tamanho de audiência em simultâneo maior do que 50.000 visualizadores.
+Uso recomendado |Recomendado para a grande maioria dos cenários de transmissão em fluxo.|Utilização profissional.
 
-<sup>1</sup> usado diretamente no ponto final de transmissão em fluxo apenas quando a CDN não estiver ativada no ponto final.
+<sup>1</sup> a avaliação gratuita aplica-se apenas às contas de serviços de suporte de dados recentemente criado e a predefinição ponto final de transmissão em fluxo.<br/>
+<sup>2</sup> usado diretamente no ponto final de transmissão em fluxo apenas quando a CDN não estiver ativada no ponto final.<br/>
 
 ## <a name="properties"></a>Propriedades 
 

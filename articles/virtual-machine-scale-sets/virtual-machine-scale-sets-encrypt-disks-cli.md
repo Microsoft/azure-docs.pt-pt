@@ -13,46 +13,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 04/26/2019
 ms.author: cynthn
-ms.openlocfilehash: 417772b2e955b1a3664dd495f292a76ab2819165
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 1264c7e4ebaf5e948e624fa49dc5fb0b4cdb31f0
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734526"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869062"
 ---
-# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli-preview"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento com a CLI do Azure (pré-visualização)
+# <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Encriptar o SO e discos de dados anexados num conjunto de dimensionamento com a CLI do Azure
 
 Para proteger e salvaguardar os dados em descanso ao utilizar a tecnologia de encriptação padrão da indústria, os conjuntos de dimensionamento de máquinas virtuais suportam encriptação de disco do Azure (ADE). Encriptação pode ser ativada para a máquina virtual Linux e Windows conjuntos de dimensionamento. Para obter mais informações, consulte [do Azure Disk Encryption para Linux e Windows](../security/azure-security-disk-encryption.md).
-
-> [!NOTE]
->  Azure disk encryption para conjuntos de dimensionamento de máquina virtual está atualmente em pré-visualização pública, disponível em todas as regiões públicas do Azure.
 
 Encriptação de disco do Azure é suportada:
 - para dimensionamento conjuntos criados com discos geridos e não suportado para conjuntos de dimensionamento do disco nativo (ou não gerenciado).
 - para os volumes de dados e SO de conjuntos de dimensionamento do Windows. Desativar a encriptação é suportada para volumes de dados e SO para conjuntos de dimensionamento do Windows.
-- para os volumes de dados de conjuntos de dimensionamento do Linux. Encriptação de disco de SO não é suportada na pré-visualização atual para conjuntos de dimensionamento do Linux.
-
-Dimensionamento VM recriação de imagem e atualização operações de conjunto não são suportadas na pré-visualização atual. Recomenda-se a encriptação de disco do Azure para a pré-visualização de conjuntos de dimensionamento de máquina virtual apenas em ambientes de teste. Na pré-visualização, não ative a encriptação de disco em ambientes de produção em que poderá ter de atualizar uma imagem de sistema operacional num conjunto de dimensionamento encriptados.
+- para os volumes de dados de conjuntos de dimensionamento do Linux. Encriptação de disco de SO não é suportada para conjuntos de dimensionamento do Linux.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.31 da CLI do Azure ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-
-## <a name="register-for-disk-encryption-preview"></a>Registar-se na pré-visualização da encriptação de disco
-
-A encriptação de disco do Azure para pré-visualização de conjuntos de dimensionamento de máquina virtual requer que Self-registar a sua subscrição com [Registre-se de funcionalidade de az](/cli/azure/feature). Apenas terá de efetuar os passos seguintes na primeira vez que utilize a funcionalidade de pré-visualização da encriptação de disco:
-
-```azurecli-interactive
-az feature register --name UnifiedDiskEncryption --namespace Microsoft.Compute
-```
-
-Pode demorar até 10 minutos para que o pedido de registo propagar. Pode verificar o estado de registo com [show de funcionalidade de az](/cli/azure/feature). Quando o `State` relatórios *registada*, volte a registar o *Microsoft. Compute* fornecedor com [Registre-se fornecedor de az](/cli/azure/provider):
-
-```azurecli-interactive
-az provider register --namespace Microsoft.Compute
-```
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
@@ -135,6 +116,30 @@ Pode demorar um minuto ou dois para que o processo de criptografia iniciar.
 
 Como o conjunto de dimensionamento é a política de atualização do conjunto de dimensionamento criado no passo anterior está definido como *automática*, as instâncias de VM iniciar automaticamente o processo de criptografia. Em conjuntos de dimensionamento em que a política de atualização é manual, iniciar a política de encriptação nas instâncias de VM com [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances).
 
+### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Ativar a encriptação com KEK para encapsular a chave
+
+Também pode utilizar uma chave de encriptação de chave para maior segurança, ao encriptar o conjunto de dimensionamento de máquina virtual.
+
+```azurecli-interactive
+# Get the resource ID of the Key Vault
+vaultResourceId=$(az keyvault show --resource-group myResourceGroup --name $keyvault_name --query id -o tsv)
+
+# Enable encryption of the data disks in a scale set
+az vmss encryption enable \
+    --resource-group myResourceGroup \
+    --name myScaleSet \
+    --disk-encryption-keyvault $vaultResourceId \
+    --key-encryption-key myKEK \
+    --key-encryption-keyvault $vaultResourceId \
+    --volume-type DATA
+```
+
+> [!NOTE]
+>  A sintaxe para o valor do parâmetro de disco-encriptação-Cofre de chaves é a cadeia de caracteres de identificador completo:</br>
+/subscriptions/[subscription-id-guid]/resourceGroups/[resource-group-name]/providers/Microsoft.KeyVault/vaults/[keyvault-name]</br></br>
+> A sintaxe para o valor do parâmetro de chave de encriptação de chave é o URI completo para a KEK como em:</br>
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
+
 ## <a name="check-encryption-progress"></a>Verificar o progresso de criptografia
 
 Para verificar o estado de encriptação de disco, utilize [show de encriptação az vmss](/cli/azure/vmss/encryption#az-vmss-encryption-show):
@@ -180,6 +185,6 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste artigo, utilizou a CLI do Azure para encriptar um conjunto de dimensionamento de máquina virtual. Também pode utilizar [do Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) ou modelos para [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
-
-Pode encontrar um exemplo de ficheiro de batch de ponto-a-ponto para a encriptação de disco de dados de conjunto de dimensionamento Linux [aqui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Este exemplo cria um grupo de recursos, o conjunto de dimensionamento do Linux, monta um disco de dados de 5 GB e encripta o conjunto de dimensionamento de máquina virtual.
+- Neste artigo, utilizou a CLI do Azure para encriptar um conjunto de dimensionamento de máquina virtual. Também pode utilizar [do Azure PowerShell](virtual-machine-scale-sets-encrypt-disks-ps.md) ou modelos para [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox) ou [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox).
+- Se pretender ter Azure Disk Encryption aplicada após a outra extensão está aprovisionada, pode utilizar [sequenciamento de extensão](virtual-machine-scale-sets-extension-sequencing.md). Pode usar [estes exemplos](../security/azure-security-disk-encryption-extension-sequencing.md#sample-azure-templates) para começar a utilizar.
+- Pode encontrar um exemplo de ficheiro de batch de ponto-a-ponto para a encriptação de disco de dados de conjunto de dimensionamento Linux [aqui](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Este exemplo cria um grupo de recursos, o conjunto de dimensionamento do Linux, monta um disco de dados de 5 GB e encripta o conjunto de dimensionamento de máquina virtual.

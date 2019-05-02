@@ -5,15 +5,15 @@ services: virtual-machines
 author: jpconnock
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/18/2018
+ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: ca4063d31d93aab3814abed202b6b91b7726185f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542939"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64929437"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração suportada por plataforma de recursos de IaaS do clássico para o Azure Resource Manager
 Este artigo descreve como migrar a infraestrutura como um recursos de serviço (IaaS) do clássico para modelos de implementação do Resource Manager e os detalhes como ligar recursos a partir de dois modelos de implementação que coexistir na sua subscrição, utilizando a rede virtual gateways de site a site. Pode ler mais sobre [recursos do Azure Resource Manager e os benefícios](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -74,7 +74,20 @@ Se a sua conta de armazenamento não tem quaisquer discos associados ou dados de
 
 > [!NOTE]
 > O modelo de implementação do Resource Manager não tem o conceito de discos e imagens clássicos. Quando a conta de armazenamento é migradas, clássicas imagens e discos não estão visíveis na pilha do Resource Manager, mas a VHDs de segurança permanecem na conta de armazenamento.
->
+
+As capturas de ecrã seguintes mostram como atualizar uma conta de armazenamento de clássico para uma conta de armazenamento do Azure Resource Manager através do portal do Azure:
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. Navegue até à sua conta de armazenamento.
+3. Na **configurações** secção, clique em **para migrar para ARM**.
+4. Clique em **Validate** para determinar a viabilidade de migração.
+5. Se a validação é bem-sucedida, clique em **preparar** para criar uma conta de armazenamento migrados.
+6. Tipo **Sim** para confirmar a migração e clique em **consolidar** para concluir a migração.
+
+    ![Validar a conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-1.png)
+    
+    ![Preparar a conta de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-2.png)
+    
+    ![Finalizar a migração de contas de armazenamento](../includes/media/storage-account-upgrade-classic/storage-migrate-resource-manager-3.png)
 
 ### <a name="migration-of-unattached-resources"></a>Migração de recursos ligados
 Contas de armazenamento sem discos associados ou dados de máquinas virtuais podem ser migradas de forma independente.
@@ -102,7 +115,7 @@ As seguintes configurações não são atualmente suportadas.
 
 | Serviço | Configuração | Recomendação |
 | --- | --- | --- |
-| Resource Manager |Função de acesso baseado em controle (RBAC) para recursos clássicos |Uma vez que o URI dos recursos é modificado após a migração, recomendamos que planeie as atualizações de políticas RBAC que têm de ocorrer após a migração. |
+| Resource Manager |Com base em função de controlo de acesso (RBAC) para recursos clássicos |Uma vez que o URI dos recursos é modificado após a migração, recomendamos que planeie as atualizações de políticas RBAC que têm de ocorrer após a migração. |
 | Computação |Várias sub-redes associadas uma VM |Atualize a configuração de sub-rede para referenciar apenas uma sub-rede. Isso pode exigir que remova um NIC secundário (que se refere a outra sub-rede) da VM e voltar a ligá-lo após a migração foi concluída. |
 | Computação |Máquinas virtuais que pertencem a uma rede virtual, mas não tem uma sub-rede explícita atribuída |Pode, opcionalmente, elimine a VM. |
 | Computação |Máquinas virtuais com alertas, políticas de dimensionamento automático |A migração atravessa e estas definições são ignoradas. É altamente recomendável que avaliar seu ambiente antes de efetuar a migração. Em alternativa, pode reconfigurar as definições de alerta após a conclusão da migração. |

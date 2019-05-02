@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 520961fb4bd126ef878a779c10fb5689b8692c73
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392933"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683734"
 ---
 # <a name="eventstore-service-overview"></a>Descrição geral do serviço de EventStore
 

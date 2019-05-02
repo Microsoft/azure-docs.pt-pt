@@ -9,11 +9,11 @@ ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
 ms.openlocfilehash: b02945197b20c7fe704d0f8cfa9201a5b9cbc292
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125209"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690933"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos Hubs de eventos do Azure com o Apache Storm no HDInsight (C#)
 

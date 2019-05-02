@@ -11,27 +11,29 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: d40330f257694e81704bf6fffa1fd2df8ed86c06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61376117"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573496"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar Chit-bate-papo para uma base de dados de conhecimento
 
 Adicionar chit-bate-papo ao seu bot torna mais conversacionais e apelativas. A funcionalidade de chit chat do QnA maker permite-lhe adicionar facilmente um conjunto preenchido previamente do chat-chit superior, em sua base de dados de conhecimento (KB). Isso pode ser um ponto de partida para a personalidade de seu bot, e isso vai economizar o tempo e o custo de escrevê-los a partir do zero.  
 
-Este conjunto de dados tem aproximadamente 100 cenários de chit chat na voz das três pessoas - o Professional, o amigo, o da revista em Quadrinhos. Escolha a pessoa que se assemelhe mais às voz seu bot. Devido uma consulta de utilizador, a QnA Maker tenta fazer sua correspondência com o mais próximo QnA chit-bate-papo conhecidos. 
+Este conjunto de dados tem aproximadamente 100 cenários de chit chat na voz das várias pessoas, como profissional, amigável e Witty. Escolha a pessoa que se assemelhe mais às voz seu bot. Devido uma consulta de utilizador, a QnA Maker tenta fazer sua correspondência com o mais próximo QnA chit-bate-papo conhecidos.  
 
-Alguns exemplos dos personalidades diferentes:
+Alguns exemplos dos personalidades diferentes estão abaixo. Pode ver todos os personalidade conjuntos de dados, juntamente com detalhes das personalidades [aqui](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets).
+
 <!-- added quotes so acrolinx doesn't score these sentences -->
-|Consulta de utilizador|O Professional|O amigo|Revista em Quadrinhos|
+|Consulta de utilizador|Profissional|Amigável|Witty|
 |--|--|--|--|
-|`You are awesome`|`I aim to serve.`|`That's so nice of you!`|`Flattery. I like it.`|
+|`You are awesome`|`I aim to serve.`|`Aw, I'm blushing.`|`Flattery. I like it.`|
 |`Are you hungry?`|`I don't need to eat.`|`I only do food for thought.`|`Eating would require a lot of things I don't have. Like a digestive system. And silverware.`|
-|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`You can't handle my dulcet tones.`|
-|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Aw, that's sweet.`|`Sure. Take me to city hall. See what happens.`|
+|`Sing a song`|`I'm afraid I'm not musically inclined.`|`La la la, tra la la. I'm awesome at this.`|`Those who can, do. Those who can't, don't sing.`|
+|`Will you marry me?`|`I think it's best if we stick to a professional relationship.`|`Definitely didn't see that coming!`|`Sure. Take me to city hall. See what happens.`|
+
 
 
 > [!NOTE]

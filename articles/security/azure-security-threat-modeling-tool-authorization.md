@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 3c078f7246140ee966f1d202d2248758dde49059
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c922556417ac92cc3667927fc8f846ace960a14a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121526"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935872"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Quadro de segurança: Autorização | Atenuações 
 | Produtos/serviços | Artigo |
@@ -280,7 +280,7 @@ Tenha em atenção que RLS como uma funcionalidade de base de dados de out-of-th
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | StorageType - tabela |
 | **Referências**              | [Como delegar acesso a objetos na sua conta de armazenamento do Azure com SAS](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_data-plane-security) |
-| **Passos** | Em determinados cenários comerciais, armazenamento de tabelas do Azure poderá ser necessário para armazenar dados confidenciais que atende a partes diferentes. Por exemplo, os dados confidenciais relativas a diferentes países. Nesses casos, assinaturas SAS podem ser construídas, especificando os intervalos chave de partição e de linha, que um usuário pode acessar dados específicos de um determinado país.| 
+| **Passos** | Em determinados cenários comerciais, armazenamento de tabelas do Azure poderá ser necessário para armazenar dados confidenciais que atende a partes diferentes. Por exemplo, os dados confidenciais relativas a diferentes países/regiões. Nesses casos, assinaturas SAS podem ser construídas, especificando os intervalos chave de partição e de linha, que um usuário pode acessar dados específicos de um determinado país/região.| 
 
 ## <a id="rbac-azure-manager"></a>Ativar com base em função de controlo de acesso (RBAC) para a conta de armazenamento do Azure com o Azure Resource Manager
 

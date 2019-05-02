@@ -9,11 +9,11 @@ ms.date: 03/29/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 75987c7838846aacb099b725e2a222967b32fe64
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763805"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691265"
 ---
 # <a name="use-azure-files-with-linux"></a>Utilizar os Ficheiros do Azure com o Linux
 

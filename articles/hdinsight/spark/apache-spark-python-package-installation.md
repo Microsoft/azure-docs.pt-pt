@@ -2,18 +2,17 @@
 title: Ação de script - pacotes de instalar o Python com o Jupyter no Azure HDInsight
 description: Instruções passo a passo sobre como utilizar a ação de script para configurar disponíveis da blocos de notas do Jupyter com clusters do Spark do HDInsight para utilizar pacotes externos python.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.author: hrasheed
-ms.openlocfilehash: 876037e0e8e795ca98ddd3adf74dd0a304192a35
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/22/2019
+ms.openlocfilehash: c07326cc3a4334f1873eef2dc23da05156a93577
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097917"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574655"
 ---
 # <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>Utilize a ação de Script para instalar pacotes de Python externos para blocos de notas do Jupyter nos clusters do Apache Spark no HDInsight
 > [!div class="op_single_selector"]
@@ -75,10 +74,10 @@ Existem dois tipos de componentes de código-fonte aberto que estão disponívei
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
+    /usr/bin/anaconda/bin/conda install --yes tensorflow
     ```
 
-5. Selecione **Criar**.  Visite a documentação sobre [como utilizar as ações de script personalizado](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux).
+5. Selecione **Criar**.  Visite a documentação sobre [como utilizar as ações de script personalizado](../hdinsight-hadoop-customize-cluster-linux.md).
 
 6. Aguarde que o script seja concluído.  O **ações de Script** painel irá indicar **novas ações de script podem ser submetidas após a conclusão da operação de cluster atual** enquanto o script está em execução.  Uma barra de progresso pode ser visualizada a partir do IU do Ambari **operações em segundo plano** janela.
 

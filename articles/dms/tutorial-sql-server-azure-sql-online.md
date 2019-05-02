@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: c01eccb63639a3838c9f726bc48400a76aba8cf0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 1623d592751da191efa5125b8d7cf28e10431808
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799050"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683871"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para um único banco de dados ou bases de dados agrupadas na base de dados do Azure SQL online com o DMS
 
@@ -259,7 +259,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     ![Criar Projeto do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-create-project3.png)
 
     > [!NOTE]
-    > Em alternativa, pode escolher **Apenas criar projeto** para criar o projeto de migração agora e executar a migração mais tarde.
+    > Em alternativa, pode escolher **criar projeto apenas** para criar o projeto de migração e executar a migração mais tarde.
 
 6. Selecione **Guardar**.
 

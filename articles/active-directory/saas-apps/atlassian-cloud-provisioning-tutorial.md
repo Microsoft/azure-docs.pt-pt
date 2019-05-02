@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: v-ant
-ms.openlocfilehash: f4e76121f7815702270d6601413ff7a4c2c25839
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4e028429ca8a22915eff2b90ca63c6d05a67741b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270307"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692243"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Configurar a Cloud da Atlassian para aprovisionamento automático de utilizadores
 

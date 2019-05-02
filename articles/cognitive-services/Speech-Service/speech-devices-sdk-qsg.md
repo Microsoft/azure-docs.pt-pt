@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0d520a9dc8d60a386d25694d441931fbc3ed38e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dec40f7ec21a4a059c6e4a7c75f6378f9757a479
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457604"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916850"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Começar com o SDK de dispositivos de voz
 
@@ -28,7 +28,7 @@ O código-fonte da aplicação de exemplo está incluído com o SDK de dispositi
 
 Antes de começar a desenvolver com o SDK de dispositivos de voz, recolha as informações e o software que necessário:
 
-* Obter um [kit de desenvolvimento de ROOBO](http://ddk.roobo.com/). Kits estão disponíveis com as configurações de matriz de microfone linear ou circular. Escolha a configuração correta para as suas necessidades.
+* Obter um [kit de desenvolvimento de ROOBO](https://ddk.roobo.com/). Kits estão disponíveis com as configurações de matriz de microfone linear ou circular. Escolha a configuração correta para as suas necessidades.
 
     |Configuração do kit de desenvolvimento|Localização de orador|
     |-----------------------------|------------|
@@ -199,4 +199,4 @@ Se obtiver falhas de certificado ao utilizar os serviços de voz, certifique-se 
 
 ### <a name="audio"></a>Áudio
 
-ROOBO fornece uma ferramenta que captura todos os áudio a memória flash. Ele pode ajudar a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração de kit de desenvolvimento. Sobre o [ROOBO site](http://ddk.roobo.com/), selecione o seu dispositivo e, em seguida, selecione a **ROOBO ferramentas** link na parte inferior da página.
+ROOBO fornece uma ferramenta que captura todos os áudio a memória flash. Ele pode ajudar a resolver problemas de áudio. Uma versão da ferramenta é fornecida para cada configuração de kit de desenvolvimento. Sobre o [ROOBO site](https://ddk.roobo.com/), selecione o seu dispositivo e, em seguida, selecione a **ROOBO ferramentas** link na parte inferior da página.

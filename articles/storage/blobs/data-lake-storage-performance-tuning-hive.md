@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9e5570b937fe97cc9b6ccd9ac804a35ff8e07d6f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b44c615396fbd526efb687977d303facd5d5d607
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805538"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939436"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Guia para o Hive no HDInsight e geração 2 de armazenamento do Azure Data Lake de sintonização de desempenho
 

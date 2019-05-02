@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: aa7fce21228d4413dc4964d6e828bf60478aee27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60682951"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684250"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introdução aos recursos de resolução de problemas no observador de rede do Azure
 

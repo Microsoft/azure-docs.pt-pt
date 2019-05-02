@@ -1,5 +1,5 @@
 ---
-title: Início rápido - criar uma aplicação HoloLens Unity com âncoras espaciais do Azure | Documentos da Microsoft
+title: Início rápido - criar um Unity aplicação HoloLens com âncoras espaciais do Azure | Documentos da Microsoft
 description: Neste guia de introdução, saiba como criar uma aplicação de HoloLens com o Unity usando âncoras espaciais.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ce9bca3f11911677a6009b4cfe0c3f6413b9f837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 31c7af3edf6364ebca021f87240e73c74e64ebc4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240598"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704125"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação HoloLens Unity que utiliza as âncoras espaciais do Azure
+# <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação Unity HoloLens que utiliza as âncoras espaciais do Azure
 
-Neste início rápido, irá criar uma aplicação HoloLens Unity que utiliza [âncoras geográficos de Azure](../overview.md). Âncoras espaciais é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista com objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação de HoloLens criada com o Unity, que pode guardar e lembre-se de uma âncora de espacial.
+Neste início rápido, irá criar uma aplicação Unity HoloLens que utiliza [âncoras geográficos de Azure](../overview.md). Âncoras espaciais é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista com objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação de HoloLens criada com o Unity, que pode guardar e lembre-se de uma âncora de espacial.
 
 Vai aprender a:
 

@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Saiba como criar, alterar ou eliminar uma rede virtual no Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
-ms.author: jdial
-ms.openlocfilehash: 6e393bf9c08eaa656a1c9b2302cde937a87ccc9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: kumud
+ms.openlocfilehash: 235a82c6bba4165790c370c2641ee6cd41f10840
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088507"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700471"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 

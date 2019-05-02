@@ -2,19 +2,19 @@
 title: 'Início rápido: Utilize o Explorador de armazenamento do Azure para gerir dados na geração 2 de armazenamento do Azure Data Lake '
 description: Neste início rápido, irá aprender a utilizar o Explorador de armazenamento do Azure para criar um sistema de ficheiros numa conta de geração 2 de armazenamento do Azure Data Lake, bem como um diretório e um ficheiro. Em seguida, saiba como transferir o ficheiro para o computador local e como visualizar todos os ficheiros num diretório.
 services: storage
-author: tamram
+author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
-ms.author: tamram
-ms.openlocfilehash: b6add3c2402df9c0db2284945269d3fbaa1c65e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: normesta
+ms.openlocfilehash: 01743eb7ec7f6650a0fd28fd9c4f090bebd524b3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708776"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939346"
 ---
 # <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Início rápido: Utilize o Explorador de armazenamento do Azure para gerir dados numa conta de geração 2 de armazenamento do Azure Data Lake
 

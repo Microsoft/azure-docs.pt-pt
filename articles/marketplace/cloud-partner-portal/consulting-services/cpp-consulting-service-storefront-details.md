@@ -1,25 +1,18 @@
 ---
-title: O Azure e do Dynamics 365 consultoria oferta de serviço - introduzir detalhes vitrine | Documentos da Microsoft
-description: Guia para definir detalhes vitrine numa Azure ou do Dynamics 365 consultoria serviço oferta no Portal de parceiros de nuvem.
+title: Introduza detalhes vitrine de consultoria oferta | O Azure Marketplace
+description: Defina detalhes vitrine numa Azure ou do Dynamics 365 consultoria serviço oferta no Portal de parceiros de nuvem.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pbutlerm
-ms.openlocfilehash: ac383c85938f5cb7dfe4f711714f5bacd0c96b89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/23/2019
+ms.author: pabutler
+ms.openlocfilehash: 1b028fe016d6ae3df8c1dfce548fc0c11479d5a6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865380"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942721"
 ---
 # <a name="storefront-details-tab"></a>Separador de detalhes da vitrine
 
@@ -32,14 +25,16 @@ Este artigo explica como inserir os detalhes para a loja. O **detalhes de loja**
 
 ![Criar uma nova oferta de serviço de consultoria - separador de detalhes de loja](media/consultingoffer-storefront-details.png)
 
+
 ## <a name="offer-details"></a>Detalhes da oferta
 
 O **detalhes sobre ofertas** secção contém as seguintes caixas:
 
--   **Resumo da oferta**
--   **Descrição da oferta**
+-   **Resumo da oferta\***
+-   **Descrição da oferta\***
 
-### <a name="offer-summary"></a>Resumo da oferta
+
+### <a name="offer-summary"></a>Resumo da oferta\*
 
 O resumo de oferta é uma breve descrição da sua oferta que aparece imediatamente abaixo do nome da oferta. Utilize texto sem formatação para inserir o resumo de oferta, sem quaisquer quebras de linha. Os exemplos seguintes são resumos de boa oferta juntamente com seus nomes de oferta correspondente.
 
@@ -68,7 +63,8 @@ O resumo de oferta é uma breve descrição da sua oferta que aparece imediatame
 -   **Nome da oferta**: Dynamics e projetos: Avaliação de 3 dias
 -   **Resumo da oferta**: Requisitos de recolha e de avaliação de uma solução ERP concebida para empresas de serviços profissionais e controlada por projeto as empresas.
 
-### <a name="offer-description"></a>Descrição da oferta
+
+### <a name="offer-description"></a>Descrição da oferta\*
 
 Introduza a descrição da oferta de serviço consultoria no **descrição da oferta** caixa. Uma descrição da oferta boa abrange obter detalhes exatos sobre o aspeto do engagement e o fim dos resultados para o cliente. Claramente deve ajudar a cliente compreender o que eles recebem. Incluem como sua oferta se relaciona com o produto da Microsoft para o qual está oferecendo serviços de consultoria.
 
@@ -144,6 +140,7 @@ Introduza o seu novo ID de centro de parceiros, se tiver uma.
 Introduza uma chave secreta para pré-visualizar a oferta no AppSource, antes de entrar no ar.
 Este identificador não é uma palavra-passe.
 
+
 ## <a name="listing-details"></a>Detalhes da lista
 
 **Tipo de serviço de consultoria**
@@ -166,7 +163,7 @@ Os seguintes cinco tipos de ofertas estão incluídos:
 Selecione o país e região onde está disponível nesta oferta de serviço de consultoria. Não é possível publicar uma oferta única em vários países ou regiões. Tem de ser criada uma nova oferta para cada país ou região.
 
 >[!Note]
->Serviços de consultoria do AppSource estão atualmente em direto nos Estados Unidos, o Reino Unido e no Canadá. Pode submeter uma oferta para um país que ainda não está em direto e será revisto e preparado para entrar em direto. Um número mínimo de ofertas prontos para entrar em direto é necessárias para abrir um novo país, para que são aconselhadas a ofertas para os países que não estão em direto.
+>Serviços de consultoria do AppSource estão atualmente em direto nos Estados Unidos, o Reino Unido e no Canadá. Pode submeter uma oferta para um país/região em que ainda não está em direto e será revisto e preparado para entrar em direto. Um número mínimo de ofertas prontos para entrar em direto é necessárias para abrir um novo país/região, para que são aconselhadas a ofertas para os países/regiões que não estão em direto.
 
 **Setores**
 
@@ -207,6 +204,7 @@ Carregue o folheto de marketing que descreve a sua oferta de serviço de consult
 **Capturas de ecrã (limitadas a cinco)**
 
 Carregar até cinco imagens que fornecem mais informações sobre a sua oferta, seus resultados finais ou sua empresa. Um trecho de sua folheto de marketing, um slide relevante a partir de uma apresentação ou uma imagem que mostra a dinâmica da empresa ou conhecimentos-se alguns exemplos.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

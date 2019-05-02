@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323829"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869519"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições de correspondência disponíveis para a rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
@@ -28,7 +28,7 @@ A segunda parte de uma regra é a condição de correspondência. Uma condição
 
 Por exemplo, pode utilizar uma condição de correspondência para:
 - Filtrar pedidos para o conteúdo numa localização específica.
-- Filtrar pedidos gerados a partir de um determinado endereço IP ou país.
+- Filtrar pedidos gerados a partir de um determinado endereço IP ou país/região.
 - Filtrar pedidos por informações de cabeçalho.
 
 ## <a name="always-match-condition"></a>Condição de correspondência sempre
@@ -235,7 +235,7 @@ Informações da chave:
 
 ---
 ### <a name="country"></a>País
-Pode especificar um país por meio de seu código de país. 
+Pode especificar um país/região por meio de seu código de país. 
 
 O **correspondências**/**não corresponde ao** opção determina as condições sob as quais o país corresponde à condição é cumprida:
 - **Correspondências**: Requer o pedido para conter os valores de código de país especificado. 
@@ -260,9 +260,9 @@ Esta condição de correspondência permite que realize uma infinidade de person
 - Correspondência de carateres universais do caminho de URL: Definir o [universal do caminho de URL corresponde à condição](#url-path-wildcard) para o diretório que esteja protegido. 
     Acrescente um asterisco ao final do caminho relativo para se certificar de que o acesso a todos os seus filhos irá ser restringido por esta regra.
 
-- Correspondência de país: Defina a condição de correspondência de país para o conjunto pretendido de países.
-   - Permitir: Definir a condição de correspondência de país **não corresponde ao** para permitir o acesso de países especificado ao conteúdo armazenado no local definido pela condição de correspondência de caminho de URL com carateres universais.
-   - Bloco: Definir a condição de correspondência de país **correspondências** para bloquear os países especificados de aceder ao conteúdo armazenado no local definido pela condição de correspondência de caminho de URL com carateres universais.
+- Correspondência de país: Defina a condição de correspondência de país para o conjunto pretendido de países/regiões.
+   - Permitir: Definir a condição de correspondência de país **não corresponde ao** para permitir o acesso de países/regiões especificado ao conteúdo armazenado no local definido pela condição de correspondência de caminho de URL com carateres universais.
+   - Bloco: Definir a condição de correspondência de país **correspondências** para bloquear os países/regiões especificados de aceder ao conteúdo armazenado no local definido pela condição de correspondência de caminho de URL com carateres universais.
 
 - Negar a funcionalidade de acesso (403): Ativar a [funcionalidade de negar acesso (403)](cdn-rules-engine-reference-features.md#deny-access-403) para replicar a parte de permissões ou de bloqueios da funcionalidade de filtragem de país.
 

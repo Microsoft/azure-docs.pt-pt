@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: bd588eeec8b560411e3fb4b6f84ec8a4a45f08d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60844182"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691936"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
@@ -2301,6 +2301,7 @@ Pode alterar o comportamento de tempo de execução padrão para acionadores e a
 | `runtimeConfiguration.concurrency.runs` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que podem ser executadas ao mesmo tempo, ou em paralelo. Este valor pode ajudar a limitar o número de pedidos a receber de sistemas back-end. <p>Definir o `runs` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [simultaneidade de Acionador de alteração](#change-trigger-concurrency) ou [acionar instâncias sequencialmente](#sequential-trigger). | Todos os acionadores | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de instâncias de fluxo de trabalho que pode aguardar para ser executada quando o fluxo de trabalho já está a executar o número máximo de instâncias em simultâneo. Pode alterar o limite de simultaneidade no `concurrency.runs` propriedade. <p>Para alterar o limite predefinido, consulte [limitam execuções de espera da alteração](#change-waiting-runs). | Todos os acionadores | 
 | `runtimeConfiguration.concurrency.repetitions` | Número inteiro | Alteração da [ *limite predefinido* ](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) no número de "para cada um" loop iterações que podem ser executadas ao mesmo tempo, ou em paralelo. <p>Definir o `repetitions` propriedade `1` funciona da mesma forma que a definição a `operationOptions` propriedade para `SingleInstance`. Pode definir a propriedade, mas não ambos. <p>Para alterar o limite predefinido, consulte [alterar "for each" simultaneidade](#change-for-each-concurrency) ou [executar "for each" faz um loop sequencialmente](#sequential-for-each). | Ação: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.paginationPolicy.minimumItemCount` | Número inteiro | Para ações específicas que suportam e tem a paginação ativada, este valor Especifica a *mínima* número de resultados a obter. <p>Para ativar a paginação, consulte [obter dados em massa, itens ou resultados com paginação](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Ação: Diversificados |
 ||||| 
 
 <a name="operation-options"></a>

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa782f687979f1d32cdf1c18bd08f6672e39adfe
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605564"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868597"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar as revisões de transcrição de vídeo com o .NET
 
@@ -162,7 +162,7 @@ Criar uma revisão de vídeo com **ContentModeratorClient.Reviews.CreateVideoRev
 - **Estado**. Definir o valor para "Unpublished." Se não defini-lo, ele é predefinida como "Pendentes", que significa que a revisão de vídeo é publicada e pendentes de revisão humana. Assim que for publicada uma revisão de vídeo, já não pode adicionar quadros de vídeo, transcrição ou um resultado de moderação de transcrição para ele.
 
 > [!NOTE]
-> **CreateVideoReviews** retorna um IList<string>. Cada uma destas cadeias contém um ID para uma revisão de vídeo. Essas IDs são GUIDs e não são os mesmos que o valor do **ContentId** propriedade.
+> **CreateVideoReviews** retorna um IList\<string >. Cada uma destas cadeias contém um ID para uma revisão de vídeo. Essas IDs são GUIDs e não são os mesmos que o valor do **ContentId** propriedade.
 
 Adicione a seguinte definição de método ao espaço de nomes VideoReviews, classe Program.
 
@@ -341,7 +341,7 @@ static void Main(string[] args)
         var transcript = @"WEBVTT
 
         01:01.000 --> 02:02.000
-        First line with a crap word in a transcript.
+        First line with a negative word in a transcript.
 
         02:03.000 --> 02:25.000
         This is another line in the transcript.

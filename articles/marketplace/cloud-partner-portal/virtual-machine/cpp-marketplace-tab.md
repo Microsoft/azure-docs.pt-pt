@@ -1,64 +1,60 @@
 ---
-title: Separador de Marketplace de máquina virtual no Portal de parceiros na Cloud do Azure | Documentos da Microsoft
+title: Separador de Marketplace de máquina virtual no Portal de parceiros da Cloud para o Azure Marketplace
 description: Descreve a guia Marketplace utilizada na criação de uma oferta de VM do Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
-ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: b1b62c68ef4e18f4d4d36a78078ad7431717b754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.author: pabutler
+ms.openlocfilehash: d9b259ba93be369658638d034f109a3a6ba4c4a4
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332760"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938194"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Separador do Marketplace de máquina virtual
 
-O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Esta forma longa é dividida em quatro seções: **Descrição geral**, **artefactos de Marketing**, **numa gestão**, e **legais**. 
+O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Esta forma longa é dividida em quatro seções: **Descrição geral**, **artefactos de Marketing**, **numa gestão**, e **legais**.
+
 
 ## <a name="overview-section"></a>Seção de visão geral
 Nesta secção, é possível inserir as informações gerais sobre a sua oferta do Azure Marketplace.  Um anexado asterisco (*) no nome do campo indica que é necessário.
 
-![Secção de descrição geral da guia Marketplace do formulário de nova oferta de mensagens em fila para máquinas virtuais](./media/publishvm_008.png)
+![Secção de descrição geral da guia Marketplace para máquinas virtuais](./media/publishvm_008.png)
 
-A tabela seguinte descreve a finalidade e o conteúdo desses campos.
+A tabela seguinte descreve a finalidade e o conteúdo desses campos. Campos obrigatórios são indicted por um asterisco (*).
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Title** (Título)                 | Título da oferta, muitas vezes, o nome longo, formal. Este título será ser apresentado de forma destacada no marketplace.  Comprimento máximo de 50 carateres. |
-| **Resumo**               | Breve objetivo ou a função da solução.  Comprimento máximo de 100 carateres. |
-| **Resumo completo**          | Objetivo ou a função da solução.  Comprimento máximo de 256 carateres. |
-| **Descrição**           | Descrição da solução.  Comprimento máximo de 3000 carateres, oferece suporte a formatação de HTML simples. |
-| **Canal de revendedor CSP da Microsoft** | Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais. |
-| **Identificador de marketing**  | Uma URL exclusiva para associar a esta oferta, normalmente inclui a sua organização e o nome da solução, 50 carateres de comprimento máximo.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
-| **IDs de subscrição de pré-visualização** | Adicione um e 100 identificadores de subscrição dos visualizadores. Estas subscrições listadas em branco têm acesso para a oferta assim que for publicado, antes de entrar no ar. |
+| **Título\***                 | Título da oferta, muitas vezes, o nome longo, formal. Este título será ser apresentado de forma destacada no marketplace.  Comprimento máximo de 50 carateres. |
+| **Resumo\***               | Breve objetivo ou a função da solução.  Comprimento máximo de 100 carateres. |
+| **Resumo completo\***          | Objetivo ou a função da solução.  Comprimento máximo de 256 carateres. |
+| **Descrição\***           | Descrição da solução.  Comprimento máximo de 3000 carateres, oferece suporte a formatação de HTML simples. |
+| **Canal de revendedor CSP da Microsoft\*** | Fornecedores de soluções (CSP) parceiro canal optar ativamente por participar na cloud agora está disponível.  Veja [fornecedores de soluções Cloud](../../cloud-solution-providers.md) para obter mais informações sobre a sua oferta através do CSP da Microsoft de marketing de parceiros canais. |
+| **Identificador de marketing\***  | Uma URL exclusiva para associar a esta oferta, normalmente inclui a sua organização e o nome da solução, 50 carateres de comprimento máximo.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
+| **IDs de subscrição de pré-visualização\*** | Adicione um e 100 identificadores de subscrição dos visualizadores. Estas subscrições listadas em branco têm acesso para a oferta assim que for publicado, antes de entrar no ar. |
 | **Ligações úteis**          | Adicione o URL para a documentação atualizados, notas de versão, FAQs e assim por diante. |
-| **Sugestões de categorias (máx. 5)** | Seleção múltipla de negócios e técnicas categorias que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
+| **Sugestões de categorias (máx. 5)\*** | Seleção múltipla de negócios e técnicas categorias que oferecem pode ser melhor associada.  Máximo permitido de cinco.  |
 |  |  |
 
 
 ## <a name="marketing-artifacts-section"></a>Secção de artefactos de marketing
 
-Esta segunda secção está dividida em três subsecções: **Logótipos**, **captura de ecrã**, e **vídeos**. Logótipos são o único necessário artefactos, de marketing, no entanto, todos são altamente recomendáveis para melhor apelo do cliente.
+Esta segunda secção está dividida em três subsecções: **Logótipos**, **captura de ecrã**, e **vídeos**. Logótipos são o único necessário artefactos, de marketing, no entanto, todos são altamente recomendáveis para melhor apelo do cliente. 
 
 ![Secção de artefactos da guia Marketplace do formulário de nova oferta de mensagens em fila para máquinas virtuais de marketing](./media/publishvm_009.png)
+
+A tabela seguinte descreve a finalidade e o conteúdo desses campos. Campos obrigatórios são indicted por um asterisco (*).
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logótipos*  |  |
-| **Pequenas**                 | mapa de bits do pixel de 40 x 40. ico                                                      |
-| **Médio**                | mapa de bits do pixel 90 x 90. ico                                                      |
-| **Grandes**                 | mapa de bits do pixel 115 x 115. ico                                                   |
-| **Ampla**                  | mapa de bits do pixel de 255 x 115. ico                                                    |
+| **Pequenas\***                 | mapa de bits do pixel de 40 x 40. ico                                                      |
+| **Médio\***                | mapa de bits do pixel 90 x 90. ico                                                      |
+| **Grandes\***                 | mapa de bits do pixel 115 x 115. ico                                                   |
+| **Ampla\***                  | mapa de bits do pixel de 255 x 115. ico                                                    |
 | **Hero**                  | 815x290 bitmap.  Opcional, no entanto uma vez carregado não é possível eliminar o ícone de hero. |
 | *Capturas de ecrã*  | É opcional, mas máximo de cinco capturas de ecrã por SKU. |
 | **Nome**                  | Nome ou o título <!-- TODO - max char length? none specified in UI -->                               |
@@ -67,8 +63,7 @@ Esta segunda secção está dividida em três subsecções: **Logótipos**, **ca
 | **Nome**                  | Nome ou o título  <!-- TODO - max char length? -->                              |
 | **Link**                  | URL de vídeo, alojado no YouTube ou Vimeo                                        |
 | **Miniatura**             | 533 x 324 bitmap                                                               |
-|  |  |
-
+|   |   |
 
 ### <a name="logo-guidelines"></a>Diretrizes para logótipos
 
@@ -105,7 +100,6 @@ A imagem seguinte demonstra como informações de marketing é apresentado na p�
 
 
 ## <a name="lead-management-section"></a>Levar a secção sobre gestão
-<!-- this all should be referenced in a common location for lead management, not in this file. nothing unique for a vm specifically. -->
 
 A terceira seção permite-lhe recolher clientes oportunidades potenciais geradas a partir de suas ofertas do Azure Marketplace. Ele oferece as seguintes opções de armazenamento (a partir de uma lista suspensa) para obter estas informações de oportunidades potenciais.
 
@@ -122,15 +116,16 @@ Depois de publicar a oferta com êxito, a ligação da oportunidade potencial é
 
 ## <a name="legal-section"></a>Secção legal
 
-Esta última seção permite-lhe fornecer os dois documentos legais necessários para cada oferta: Política de privacidade e termos de utilização.
+Esta última seção permite-lhe fornecer os documentos legais obrigatórios necessários para cada oferta.  
 
-|  **Campo**                |     **Descrição**                                                          |
-|  ---------                |     ---------------                                                          |
-| **URL de política de privacidade**    | URL para a política de privacidade postado                                            |
-| **Termos de utilização**          | política como texto sem formatação ou simple HTML.  <!-- TODO - max char length? -->       |
+|  **Campo**                    |     **Descrição**                                        |
+|  ---------                    |     ---------------                                        |
+| **URL de política de privacidade\***      | URL para a política de privacidade postado                          |
+| **Contrato de padrão de utilização?\***  |   |
+| **Termos de utilização\***            | política como texto sem formatação ou simple HTML.                       |
 |  |  |
 
-<br/>
+
+## <a name="next-steps"></a>Passos Seguintes
 
 Nos próximos [suportar](./cpp-support-tab.md) guia, irá fornecer recursos de suporte técnico e de utilizador para a sua oferta.
-

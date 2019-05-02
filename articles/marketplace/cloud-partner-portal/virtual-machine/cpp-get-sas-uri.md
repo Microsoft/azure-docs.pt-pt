@@ -1,25 +1,18 @@
 ---
-title: Obter o URI de assinatura de acesso partilhado para a sua imagem VM baseada no Azure da Microsoft | Documentos da Microsoft
+title: Obter o URI de assinatura de acesso partilhado para a sua imagem VM baseada no Azure da Microsoft | O Azure Marketplace
 description: Explica como obter a assinatura de acesso partilhado (SAS) URI para a imagem de VM.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 4da82b2f6aaa3fc664d2e91b80722329533b0cd0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744043"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938670"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Obter o URI de assinatura de acesso partilhado para a imagem de VM
 

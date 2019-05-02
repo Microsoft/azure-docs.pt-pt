@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: aef77f121f20d867c8ec5e764d8c9639c961713d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446589"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925660"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilizar os comandos de extensão do MongoDB para gerir os dados armazenados na API do Azure Cosmos DB para o MongoDB 
 
@@ -162,7 +162,7 @@ A tabela seguinte descreve os parâmetros no comando:
 
 |**Campo**|**Tipo** |**Descrição** |
 |---------|---------|---------|
-| customAction    | string | Nome do comando personalizado. Tem de ser "CreateDatabase"     |
+| customAction    | string | Nome do comando personalizado. Tem de ser "CreateCollection"     |
 | coleção      | string | Nome da coleção                                   |
 | offerThroughput | int    | Débito aprovisionado para definir na base de dados. É um parâmetro opcional |
 | shardKey        | string | Caminho da chave de partição horizontal para criar uma coleção em partição horizontal. É um parâmetro opcional |

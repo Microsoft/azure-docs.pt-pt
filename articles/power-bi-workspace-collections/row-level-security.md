@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: 2d0c8629e4abf9e27cd204b9a13b79808b177501
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103637"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64715195"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Segurança ao nível de linha com as Coleções de Área de Trabalho do Power BI
 

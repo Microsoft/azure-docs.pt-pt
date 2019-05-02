@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559874"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574121"
 ---
 # <a name="what-is-video-indexer"></a>O que é o Video Indexer?
 
@@ -37,7 +37,7 @@ O Azure Video Indexer é uma aplicação da cloud criada com base na Análise de
 
 ## <a name="audio-insights"></a>Informações de áudio
 
-- **Deteção de idioma automática**: Identifica automaticamente o idioma falado dominante. São suportados, entre outros, os seguintes idiomas: inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (Brasil). Será revertido para inglês quando não conseguir detetar o idioma.
+- **Deteção de idioma automática**: Identifica automaticamente o idioma falado dominante. Idiomas suportados incluem o inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e Brasil Português do será fallback para inglês quando não é possível detetar o idioma.
 - **Transcrição de áudio**: Converte voz em texto 12 idiomas e permite que as extensões. Idiomas suportados incluem o inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, árabe, russo, português (Brasil), Híndi e coreano.
 - **Legendagem de áudio**: Cria fechado as legendas de áudio em três formatos: VTT, TTML, SRT.
 - **Dois channel processamento**: Deteta automaticamente, separe transcrição e mesclagens para uma única linha do tempo.
@@ -47,7 +47,7 @@ O Azure Video Indexer é uma aplicação da cloud criada com base na Análise de
 - **Estatísticas de orador**: Apresenta estatísticas para proporções de voz de oradores.
 - **Moderação de conteúdo textual**: Deteta texto explícito na transcrição áudio.
 - **Efeitos de áudio**: Identifica os efeitos de áudio como claps mão, voz e silêncio.
-- **Deteção de emoções**: Identifica emoções com base nas ajudas de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.
+- **Deteção de emoções**: Identifica emoções com base em conversão de voz (o que está a ser dito) e tonality de voz (como ele está a ser dito).  As emoções podem ser alegria, tristeza, raiva ou medo.
 - **Tradução**: Cria as traduções de transcrição áudio a 54 diferentes idiomas.
 
 ## <a name="audio-and-video-insights-multi-channels"></a>Informações de áudio e vídeo (vários canais)

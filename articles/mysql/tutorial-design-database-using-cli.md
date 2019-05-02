@@ -6,14 +6,14 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
+ms.date: 04/29/2019
 ms.custom: mvc
-ms.openlocfilehash: 951cf377c7e33dd3dd5e13a7b42fa05bec06245d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 00c2efacab72c08d33b0004650bece2c369c757b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012382"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936002"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para MySQL com a CLI do Azure
 
@@ -53,7 +53,7 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL
 Crie uma Base de Dados do Azure para o servidor MySQL com o comando az mysql server create. Cada servidor pode gerir múltiplas bases de dados. Geralmente, é utilizada uma base de dados em separado para cada projeto ou para cada utilizador.
 
-O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um início de sessão de administrador com o nome `myadmin`. É para fins gerais, servidor de geração 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
+O exemplo seguinte cria uma Base de Dados do Azure para o servidor MySQL localizada em `westus` no grupo de recursos `myresourcegroup` com o nome `mydemoserver`. O servidor tem um utilizador de administrador com o nome `myadmin`. É para fins gerais, servidor de geração 5 com 2 vCores. Substitua `<server_admin_password>` pelo seu próprio valor.
 
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
@@ -118,7 +118,7 @@ O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **a
 ## <a name="connect-to-the-server-using-mysql"></a>Ligar ao servidor com o mysql
 Utilize a [ferramenta de linha de comandos do mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para ligar à Base de Dados do Azure para o servidor MySQL. Neste exemplo, o comando é:
 ```cmd
-mysql -h mydemoserver.database.windows.net -u myadmin@mydemoserver -p
+mysql -h mydemoserver.mysql.database.azure.com -u myadmin@mydemoserver -p
 ```
 
 ## <a name="create-a-blank-database"></a>Criar uma base de dados vazia

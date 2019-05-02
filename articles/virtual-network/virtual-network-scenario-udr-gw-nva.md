@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: kumud
-ms.openlocfilehash: c959ee3bea24955e3281feb9db66e4e0cadc8bf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1bdc485dfb352144e8a8d0fb75965cbb78288e2c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61034158"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575573"
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de aplicação virtual
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer uma aplicação em duas camadas, exposta à Internet, ao permitir o acesso para a camada de back-a partir de um datacenter no local. Este documento irá guiá-lo por meio de um cenário utilizar rotas definidas pelo utilizador (UDR), um Gateway de VPN e aplicações virtuais de rede para implementar um ambiente de duas camadas que cumpre os seguintes requisitos:
@@ -30,14 +30,14 @@ Um cenário comum entre os maiores clientes do Azure é a necessidade de fornece
 * Todo o tráfego para o servidor de aplicativo deve passar por uma aplicação virtual de firewall. Esta aplicação virtual será utilizada para acesso ao servidor de back-end end e proveniente de rede no local através de um Gateway de VPN de acesso.
 * Os administradores têm de ser capazes de gerir as aplicações virtuais de firewall de seus computadores no local, através da utilização de um terceiro firewall utilizada exclusivamente para fins de gestão de aplicação virtual.
 
-Este é um cenário de rede de Perímetro padrão com uma rede de Perímetro e uma rede protegida. Cenário como esse pode ser criado no Azure com NSGs, aplicações de virtual de firewall ou uma combinação de ambos. A tabela a seguir mostra alguns prós e contras entre os NSGs e aplicações virtuais de firewall.
+Este é um cenário de rede (também knowns como rede de Perímetro) de perímetro padrão com uma rede de Perímetro e uma rede protegida. Cenário como esse pode ser criado no Azure com NSGs, aplicações de virtual de firewall ou uma combinação de ambos. A tabela a seguir mostra alguns prós e contras entre os NSGs e aplicações virtuais de firewall.
 
 |  | Profissionais de TI | Contras |
 | --- | --- | --- |
-| NSG |Sem custos. <br/>Integrados no RBAC do Azure. <br/>As regras podem ser criadas em modelos ARM. |Complexidade pode variar em ambientes maiores. |
+| NSG |Sem custos. <br/>Integrados no RBAC do Azure. <br/>As regras podem ser criadas em modelos do Azure Resource Manager. |Complexidade pode variar em ambientes maiores. |
 | Firewall |Controlo total sobre o plano de dados. <br/>Gerenciamento central por meio da consola da firewall. |Custo da aplicação de firewall. <br/>Não é integrado com o RBAC do Azure. |
 
-A solução abaixo utiliza aplicações virtuais de firewall para implementar um cenário de rede protegida/rede de Perímetro.
+A solução abaixo utiliza aplicações virtuais de firewall para implementar uma rede de perímetro (DMZ) / protegidos o cenário de rede.
 
 ## <a name="considerations"></a>Considerações
 Pode implementar o ambiente explicado acima no Azure através de diferentes funcionalidades disponíveis hoje em dia, da seguinte forma.

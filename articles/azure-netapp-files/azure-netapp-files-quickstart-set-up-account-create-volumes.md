@@ -1,6 +1,6 @@
 ---
-title: Como configurar o serviço ficheiros NetApp do Azure e criar um volume NFS | Documentos da Microsoft
-description: Descreve como configurar o serviço ficheiros NetApp do Azure e criar um volume rapidamente.
+title: Início rápido - definir NetApp serviço ficheiros do Azure e criar um volume NFS | Documentos da Microsoft
+description: Início rápido - descreve como configurar o serviço ficheiros NetApp do Azure e criar um volume rapidamente.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,27 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 5b9e85da29b3130d5183f577a7d83d164e217310
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f0f3dea1c30790bb109d7cb7af07abd8fbb1ace4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759845"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702862"
 ---
-# <a name="set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Como configurar o serviço ficheiros NetApp do Azure e criar um volume NFS 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: Como configurar o serviço ficheiros NetApp do Azure e criar um volume NFS 
 
 Este artigo mostra-lhe como configurar o serviço ficheiros NetApp do Azure e criar um volume rapidamente. 
+
+Neste início rápido, irá configurar os seguintes itens:
+
+- Registo de ficheiros NetApp do Azure e o fornecedor de recursos de NetApp
+- Uma conta de NetApp
+- Um conjunto de capacidade
+- Um volume NFS para ficheiros de NetApp do Azure
+
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar 
 
@@ -33,7 +42,7 @@ Tem de ser parte do programa de pré-visualização pública e na lista de permi
 
 1. No portal do Azure, clique no ícone do Azure Cloud Shell no canto superior direito.
 
-      ![Ícone do Azure do Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell.png)
+    ![Ícone do Azure do Cloud Shell](../media/azure-netapp-files/azure-netapp-files-azure-cloud-shell-window.png)
 
 2. Especifique a subscrição que estava na lista de permissões para ficheiros de NetApp do Azure:
     
@@ -130,7 +139,31 @@ Tem de ser parte do programa de pré-visualização pública e na lista de permi
 
     ![Volume criado](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)  
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando tiver terminado e se quiser, pode eliminar o grupo de recursos. A ação de eliminação de um grupo de recursos é irreversível.  
+
+> [!IMPORTANT]
+> Todos os recursos os grupos de recursos serão eliminados permanentemente e não podem ser anulados. 
+
+1. Na caixa de pesquisa do portal do Azure, introduza **ficheiros do Azure NetApp** e, em seguida, selecione **ficheiros do Azure NetApp** na lista que é apresentada.
+
+2. Na lista de subscrições, clique no grupo de recursos (myRG1) que pretende eliminar. 
+
+    ![Navegue para grupos de recursos](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
+
+
+3. Na página do grupo de recursos, clique em **eliminar grupo de recursos**.
+
+    ![Eliminar grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png) 
+
+    É aberta uma janela com um aviso sobre os recursos que serão eliminados com o grupo de recursos.
+
+4. Introduza o nome do grupo de recursos (myRG1) para confirmar que pretende eliminar permanentemente o grupo de recursos e todos os recursos no mesmo e, em seguida, clique em **eliminar**.
+
+    ![Eliminar grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png ) 
+
 ## <a name="next-steps"></a>Passos Seguintes  
 
-* [Compreender a hierarquia de armazenamento de ficheiros do Azure NetApp](azure-netapp-files-understand-storage-hierarchy.md)
-* [Gerir volumes através do serviço ficheiros do Azure NetApp](azure-netapp-files-manage-volumes.md) 
+> [!div class="nextstepaction"]
+> [Gerir volumes através do serviço ficheiros do Azure NetApp](azure-netapp-files-manage-volumes.md)  

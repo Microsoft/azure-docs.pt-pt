@@ -1,25 +1,18 @@
 ---
-title: Criar o Dynamics 365 para ativos técnicos do envolvimento do cliente – Azure Marketplace | Documentos da Microsoft
+title: Criar o Dynamics 365 para ativos técnicos de envolvimento do cliente | O Azure Marketplace
 description: Crie os recursos técnicos para um de Dynamics 365 para a oferta de aplicação de envolvimento do cliente.
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 12/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 50c4fd512206cdf17ebb555acb88de2a3f74c2bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: eff175264677d6b8ffb885229b5e68b306424335
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472673"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943069"
 ---
 # <a name="create-technical-assets-for-azure-application-offer"></a>Criar ativos técnicos para a oferta de aplicação do Azure
 

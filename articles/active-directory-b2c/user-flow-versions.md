@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b3750768eb7346938faec7e3c1ead232923a68bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: af44658b42e9132ea89aadcbff29bdba1c13f46d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359760"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689661"
 ---
 # <a name="user-flow-versions-in-azure-active-directory-b2c"></a>Versões de fluxo de utilizador no Azure Active Directory B2C
 

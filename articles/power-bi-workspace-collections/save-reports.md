@@ -1,22 +1,19 @@
 ---
 title: Guardar relatórios nas coleções de área de trabalho do Power BI | Documentos da Microsoft
 description: Saiba como pode guardar relatórios em coleções de área de trabalho do Power BI. Isto requer as permissões adequadas para funcionar com êxito.
-services: power-bi-embedded
-author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: ''
-ms.service: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
-origin.date: 09/26/2018
-ms.date: 03/05/2019
-ms.author: v-junlch
+ms.date: 09/20/2017
 ms.openlocfilehash: b61abee3382697d50b9a18de763c8a4d01e1ccba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103887"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701853"
 ---
 # <a name="save-reports-in-power-bi-workspace-collections"></a>Guardar relatórios nas coleções de área de trabalho do Power BI
 
@@ -29,15 +26,15 @@ Dentro de coleções de área de trabalho do Power BI, pode editar os relatório
 
 Para guardar um relatório, tem primeiro de criar um token para o relatório específico com os âmbitos certos:
 
-- Para permitir guardar Report.ReadWrite é necessário o âmbito
-- Para permitir guardar como, os âmbitos de Report.Read e Workspace.Report.Copy são obrigatórios
-- Para permitir guardar e guardar como, Report.ReadWrite e Workspace.Report.Copy são necessários
+* Para permitir guardar Report.ReadWrite é necessário o âmbito
+* Para permitir guardar como, os âmbitos de Report.Read e Workspace.Report.Copy são obrigatórios
+* Para permitir guardar e guardar como, Report.ReadWrite e Workspace.Report.Copy são necessários
 
 Respectivamente, para permitir que o direito save/guardar como botões no menu ficheiro tem de fornecer a permissão adequada na configuração de incorporação quando incorporar o relatório:
 
-- models.Permissions.ReadWrite
-- models.Permissions.Copy
-- models.Permissions.All
+* models.Permissions.ReadWrite
+* models.Permissions.Copy
+* models.Permissions.All
 
 > [!NOTE]
 > O token de acesso também precisa dos escopos apropriados. Para obter mais informações, consulte [âmbitos](app-token-flow.md#scopes).
@@ -62,7 +59,7 @@ Por exemplo, no JavaScript:
     var config= {
         type: 'report',
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MI',
-        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
         id:  '5dac7a4a-4452-46b3-99f6-a25915e0fe55',
         permissions: models.Permissions.All /*both save & save as buttons will be visible*/,
         viewMode: models.ViewMode.Edit,
@@ -77,7 +74,7 @@ Por exemplo, no JavaScript:
 
     // Embed the report and display it within the div container.
     var report = powerbi.embed(reportContainer, config);
-    </script>    
+    </script>
 ```
 
 Agora, um relatório é incorporado na sua aplicação no modo de edição.
@@ -115,10 +112,10 @@ Em seguida, terá de carregar o novo relatório depois de um *guardar como*. A c
 
 ```html
 <div id="reportContainer"></div>
-<script>  
+<script>
 var embedConfiguration = {
         accessToken: 'eyJ0eXAiO...Qron7qYpY9MJ',
-        embedUrl: 'https://embedded.powerbi.cn/appTokenReportEmbed',
+        embedUrl: 'https://embedded.powerbi.com/appTokenReportEmbed',
         reportId: '5dac7a4a-4452-46b3-99f6-a25915e0fe54',
     };
     
@@ -127,7 +124,7 @@ var embedConfiguration = {
 
     // Embed report
     var report = powerbi.embed(reportContainer, embedConfiguration);
-</script>    
+</script>
 ```
 
 ## <a name="see-also"></a>Consulte também
@@ -141,5 +138,3 @@ var embedConfiguration = {
 
 Mais perguntas? [Tente a Comunidade do Power BI](https://community.powerbi.com/)
 
-
-<!-- Update_Description: update metedata properties -->

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 161c1ec72b14f4cc1b2517a0dc6282f0548575b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 909b9db08b9ee0ed1af716a0847e09264fb9accc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317582"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697520"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-desktop-app-using-azure-active-directory-b2c"></a>Início rápido: Configurar o início de sessão para uma aplicação de ambiente de trabalho com o Azure Active Directory B2C 
 

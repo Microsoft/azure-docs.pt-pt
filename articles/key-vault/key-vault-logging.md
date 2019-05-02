@@ -2,23 +2,19 @@
 title: Registo do Cofre de chaves do Azure | Documentos da Microsoft
 description: Utilize este tutorial para ajudá-lo a começar com o registo do Cofre de Chaves do Azure.
 services: key-vault
-documentationcenter: ''
 author: barclayn
 manager: barbkess
 tags: azure-resource-manager
-ms.assetid: 43f96a2b-3af8-4adc-9344-bc6041fface8
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 89f9ef37ed7c53817854442b3a32b32b7d11ae27
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484117"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706016"
 ---
 # <a name="azure-key-vault-logging"></a>Registo do Azure Key Vault
 

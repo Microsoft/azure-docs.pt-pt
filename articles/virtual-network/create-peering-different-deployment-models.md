@@ -3,8 +3,8 @@ title: Criar um peering de rede virtual do Azure - diferentes modelos de impleme
 description: Saiba como criar uma rede virtual peering entre redes virtuais criadas com modelos de implementação do Azure diferentes que estejam na mesma subscrição do Azure.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 4aa6fe901a49f4618b4844f9f5d2a94903d49cbd
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud;anavin
+ms.openlocfilehash: 56474ee56051c3b0b7482e81b0174b7945537654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652370"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694715"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Criar um peering de rede virtual - diferentes modelos de implementação, a mesma subscrição
 

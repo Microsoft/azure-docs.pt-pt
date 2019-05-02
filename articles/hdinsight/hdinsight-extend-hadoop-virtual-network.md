@@ -8,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.openlocfilehash: f97c07c522dfb22818aca84d41d30c023f564d84
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097342"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721316"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Expandir HDInsight do Azure com uma rede Virtual do Azure
 

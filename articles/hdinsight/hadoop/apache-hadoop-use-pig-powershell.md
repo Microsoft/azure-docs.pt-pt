@@ -9,11 +9,11 @@ ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ms.openlocfilehash: 9ad788989273f28f38ee95f8d669fdf17f1fd785
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105037"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725667"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Utilizar o Azure PowerShell para executar tarefas de Apache Pig com o HDInsight
 

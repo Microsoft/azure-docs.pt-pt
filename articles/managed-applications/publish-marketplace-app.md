@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 61cac49c34eb193d641a94c9a7839282289dd9c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60484021"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572579"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Aplicações geridas do Azure no Marketplace
 
@@ -29,7 +29,7 @@ Para concluir este artigo, pecisa de ter o ficheiro .zip para a definição da a
 
 Além disso, existem vários pré-requisitos empresariais. São:
 
-* A sua empresa, ou respetiva subsidiária, tem de estar localizada num país em que as vendas sejam suportadas pelo marketplace.
+* A sua empresa ou respetiva subsidiária têm de estar localizada num país/região em que as vendas são suportadas pelo marketplace.
 * O produto tem de estar licenciado de forma a ser compatível com os modelos de faturação suportados pelo marketplace.
 * Disponibilizar suporte técnico para os clientes de forma comercialmente razoável. O suporte pode ser gratuito, pago ou através da comunidade.
 * Licencie o software e quaisquer dependências de software de terceiros.
@@ -43,7 +43,7 @@ Para se tornar um editor no Azure Marketplace, tem de:
 
 1. Criar um ID da Microsoft - Crie a sua conta Microsoft com um endereço de e-mail que pertença ao domínio da sua empresa, mas não a um único indivíduo. Este endereço de e-mail é utilizado para o Centro para Programadores da Microsoft e o Cloud Partner Portal. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 1. Submeter o [Formulário de Nomeação do Azure Marketplace](https://aka.ms/ampnomination) - Para **Que solução quer publicar?**, selecione **Aplicação Gerida**. Depois de o formulário ser submetido, a equipa de inclusão do Marketplace revê a candidatura e valida o pedido. O processo de aprovação pode demorar entre um a três dias. Quando a nomeação for aprovada, receberá um código promocional para renunciar a taxa de registo do centro para programadores. Se **não** preencher o Formulário de Nomeação do Marketplace, é-lhe solicitado que pague uma taxa de registo de $99.
-1. Registar-se no [Centro para Programadores](https://dev.windows.com/registration?accountprogram=azure) – A Microsoft valida que a sua organização é uma entidade legal válida com um NIF válido para o país no qual está registado. O processo de aprovação pode demorar entre 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu no e-mail do processo de nomeação. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
+1. Registar no [Developer Center](https://dev.windows.com/registration?accountprogram=azure) -Microsoft valida que a sua organização é uma entidade legal válida com um ID de imposto sobre válido para o país/região na qual está registado. O processo de aprovação pode demorar entre 5 a 10 dias. Para evitar a taxa de registo, utilize o código promocional que recebeu no e-mail do processo de nomeação. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 1. Inicie sessão no [Cloud Partner Portal](https://cloudpartner.azure.com) – No perfil do editor, associe a sua conta do Centro para Programadores ao Perfil de Editor do Marketplace. Para obter mais informações, veja [Guia do Editor do Azure Marketplace](https://aka.ms/sellerguide).
 
 ## <a name="create-a-new-azure-application-offer"></a>Criar uma nova oferta de aplicação do Azure
@@ -94,8 +94,8 @@ Um SKU aparece na oferta principal no marketplace. É apresentado como a sua pr�
    * **Resumo**: Introduza um breve resumo para este SKU. Este texto é apresentado abaixo do título.
    * **Descrição**: Introduza uma descrição detalhada sobre o SKU.
    * **Tipo de SKU**: Os valores permitidos são *Managed Application* e *modelos de soluções*. Neste caso, selecione *Aplicação Gerida*.
-   * **Disponibilidade de país/região**: Selecione os países onde a aplicação gerida está disponível.
-   * **Preços**: Forneça um preço para a gestão da aplicação. Selecione os países disponíveis antes de definir o preço.
+   * **Disponibilidade de país/região**: Selecione os países/regiões em que a aplicação gerida está disponível.
+   * **Preços**: Forneça um preço para a gestão da aplicação. Selecione os países/regiões disponíveis antes de definir o preço.
 
 1. Adicione um novo pacote. Preencha a secção **Detalhes do Pacote** no seguinte formulário:
 

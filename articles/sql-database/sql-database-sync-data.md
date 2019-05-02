@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: a887c79a51c7a239e7057171e51e67a53af2f84b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f83eb87d2eecb91aa18b1caceb42f9d8bd6c2a0e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580252"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939578"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados em várias bases de dados na cloud e no local com a sincronização de dados SQL
 
@@ -32,7 +32,7 @@ Sincronização de dados é útil em casos onde os dados têm de ser mantidos at
 
 - **Sincronização de dados híbrida:** Sincronização de dados, pode manter os dados sincronizados entre as suas bases de dados no local e bases de dados SQL do Azure para ativar aplicações híbridas. Esta capacidade pode ser atraente para os clientes que estão pensando em mudar para a nuvem e gostariam de colocar alguns dos seus aplicativos no Azure.
 - **Aplicações distribuídas:** Em muitos casos, é vantajoso separar cargas de trabalho diferentes em diferentes bases de dados. Por exemplo, se tiver uma base de dados de produção de grandes dimensões, mas também tem de executar uma carga de trabalho de relatórios ou análises sobre estes dados, é útil ter uma segunda base de dados para esta carga de trabalho adicional. Essa abordagem minimiza o impacto de desempenho na sua carga de trabalho de produção. Pode usar a sincronização de dados para manter esses dois bancos de dados sincronizados.
-- **Aplicações distribuídas globalmente:** Muitas empresas abrangem várias regiões e até mesmo vários países. Para minimizar a latência de rede, é melhor ter seus dados numa região perto de si. Sincronização de dados, pode facilmente manter bases de dados nas regiões em todo o mundo sincronizados.
+- **Aplicações distribuídas globalmente:** Muitas empresas abrangem várias regiões e até mesmo vários países/regiões. Para minimizar a latência de rede, é melhor ter seus dados numa região perto de si. Sincronização de dados, pode facilmente manter bases de dados nas regiões em todo o mundo sincronizados.
 
 Sincronização de dados não é a solução preferencial para os seguintes cenários:
 

@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 644054960e12979c231bbf50a5979bc12d343f89
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415859"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694772"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Impor proteção de palavra-passe do Azure AD para o Windows Server Active Directory
 
-Proteção de palavra-passe do Azure AD é uma funcionalidade que melhora a políticas de palavra-passe de uma organização. Proteção de palavra-passe de implementação no local utiliza os dois as globais e personalizadas banida de palavra-passe listas que são armazenadas no Azure AD. Ele faz o mesmo verificações no local como o Azure AD para alterações com base na cloud.
+Proteção de palavra-passe do Azure AD é uma funcionalidade que melhora a políticas de palavra-passe de uma organização. Implementação no local de proteção de palavra-passe utiliza os dois as globais e personalizadas banida de palavra-passe listas que são armazenadas no Azure AD. Ele faz o mesmo verificações no local como o Azure AD para alterações com base na cloud.
 
 ## <a name="design-principles"></a>Princípios de conceção
 

@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.custom: seodec18
 ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759561"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716712"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 

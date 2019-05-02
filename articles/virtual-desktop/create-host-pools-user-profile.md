@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 0cb4df099faad8ca482fd15cf0bb50504c1528ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f6516e37107a16d80c4d9eb9514782bdbcc44184
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60883875"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925215"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurar uma partilha do perfil de utilizador para um conjunto de anfitriões
 
@@ -68,4 +68,4 @@ Para configurar as máquinas virtuais com o software de FSLogix, efetue o seguin
 | VHDLocations        | Valor de múltiplas cadeias | "Caminho de rede para a partilha de ficheiros"     |
 
 >[!IMPORTANT]
->Para ajudar a proteger o ambiente de área de Trabalho Virtual do Windows no Azure, recomendamos que não abrir a porta 3389 de entrada nas suas VMs. Área de Trabalho Virtual do Windows não precisa de uma porta de entrada aberta 3389 para os utilizadores acedam a VMs do conjunto de anfitrião. Se é necessário abrir a porta 3389 para fins de resolução de problemas, recomendamos que utilize [o acesso à VM just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+>Para ajudar a proteger o ambiente de área de Trabalho Virtual do Windows no Azure, recomendamos que não abrir a porta 3389 de entrada nas suas VMs. Área de Trabalho Virtual do Windows não precisa de uma porta de entrada aberta 3389 para os utilizadores acedam a VMs do conjunto de anfitrião. Se é necessário abrir a porta 3389 para fins de resolução de problemas, recomendamos que utilize [o acesso à VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

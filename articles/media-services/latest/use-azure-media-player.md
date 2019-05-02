@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/03/2018
 ms.author: juliako
-ms.openlocfilehash: 6de626323c82689d0ead4f5aaad2a2e43187ebd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fd5bf9f7bca9c667191d0d3f83be6e29a96c8dbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466651"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926521"
 ---
 # <a name="azure-media-player-overview"></a>Descrição geral de leitor de multimédia do Azure
 
@@ -24,7 +24,7 @@ O leitor de multimédia do Azure é um leitor de vídeo da web criado para repro
 
 Serviços de multimédia do Microsoft Azure permitem que o conteúdo ser atendidas com HLS, DASH, Smooth Streaming formatos de transmissão em fluxo para reproduzir conteúdo de volta. O Azure Media Player leva em conta esses vários formatos e executa automaticamente a ligação melhor, com base nos recursos de plataforma/browser. Serviços de multimédia também permite que a encriptação dinâmica de recursos com encriptação PlayReady ou AES de 128 bits de encriptação de envelope. O leitor de multimédia do Azure permite-lhe PlayReady e AES de 128 bits conteúdo encriptado quando configurado corretamente. 
 
-[Inicie a avaliação gratuita](https://azure.microsoft.com/en-us/pricing/free-trial/)
+[Inicie a avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/)
 
 ## <a name="use-azure-media-player-demo-page"></a>Utilize a página de demonstração do leitor de multimédia do Azure
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 3f41edef56b238d8789264d00d73998794fec7eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188718"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916663"
 ---
 # <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 O Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em datacenters diferentes. Configurar a cada implementação de aplicação como um ponto 'final' no Gestor de tráfego. Quando o Gestor de tráfego recebe um pedido DNS, ele escolhe um ponto de extremidade disponível para devolver na resposta DNS. O Gestor de tráfego bases a escolha sobre o estado atual do ponto final e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).
@@ -63,7 +63,7 @@ Pontos de extremidade aninhados combinam vários perfis do Gestor de tráfego pa
 
 Algumas considerações adicionais aplicam-se ao configurar aplicações Web como pontos finais no Traffic Manager:
 
-1. Só as aplicações Web no SKU "Standard" ou superior são elegíveis para utilização com o Gestor de tráfego. Falha de tentativas para adicionar uma aplicação Web de um SKU inferior. Desatualização de SKU de uma aplicação Web existente resulta no Gestor de tráfego deixe de enviar tráfego para essa aplicação Web. Para obter mais informações sobre os planos suportados, consulte o [planos do serviço de aplicações](https://azure.microsoft.com/en-us/pricing/details/app-service/plans/)
+1. Só as aplicações Web no SKU "Standard" ou superior são elegíveis para utilização com o Gestor de tráfego. Falha de tentativas para adicionar uma aplicação Web de um SKU inferior. Desatualização de SKU de uma aplicação Web existente resulta no Gestor de tráfego deixe de enviar tráfego para essa aplicação Web. Para obter mais informações sobre os planos suportados, consulte o [planos do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/)
 2. Quando um ponto de extremidade recebe um pedido HTTP, ele usa o cabeçalho de "host" no pedido para determinar qual aplicativo Web deverá responder ao pedido. O cabeçalho de anfitrião contém o nome DNS utilizado para iniciar o pedido, por exemplo "contosoapp.azurewebsites.net'. Para utilizar um nome DNS diferente com a sua aplicação Web, o nome DNS tem de ser registado como um nome de domínio personalizado para a aplicação. Ao adicionar um ponto de final de aplicação Web como um ponto final do Azure, o nome DNS de perfil do Gestor de tráfego é registrado automaticamente para a aplicação. Este registo é removido automaticamente quando o ponto final é eliminado.
 3. Cada perfil de Gestor de tráfego pode ter no máximo uma aplicação Web ponto final de cada região do Azure. Para contornar esta restrição, pode configurar uma aplicação Web como um ponto final externo. Para obter mais informações, consulte a [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints).
 

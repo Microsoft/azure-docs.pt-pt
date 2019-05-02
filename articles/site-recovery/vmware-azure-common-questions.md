@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/23/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: dffbb2c52b4e43eefe6b4f377bd7af529bae8cc5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125564"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925523"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Perguntas comuns - VMware para replicação do Azure
 
@@ -93,8 +93,8 @@ Instalar em cada VM que pretende replicar, utilizando um número de métodos:
 
 Site Recovery replica as VMs de VMware no local e servidores físicos para o managed disks no Azure.
 - O servidor de processos de recuperação de Site escreve os registos de replicação para uma conta de armazenamento de cache na região de destino.
-- Estes registos são utilizados para criar pontos de recuperação nos discos geridos.
-- Quando ocorre a ativação pós-falha, o ponto de recuperação que selecionar é utilizado para criar o disco gerido de destino.
+- Estes registos são utilizados para criar pontos de recuperação no Azure discos que têm o prefixo de asrseeddisk geridos.
+- Quando ocorre a ativação pós-falha, o ponto de recuperação que selecionar é utilizado para criar um novo disco gerido de destino. Este disco gerido está ligado à VM no Azure.
 - As VMs que anteriormente foram replicadas para uma conta de armazenamento (antes de Março de 2019) não são afetadas.
 
 
@@ -111,7 +111,7 @@ Replicação de novas VMs para uma conta de armazenamento só está disponível 
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>Posso alterar o tipo de disco gerido depois do computador está protegido?
 
-Sim, pode facilmente [alterar o tipo de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Antes de alterar o tipo, certifique-se de que revogar o URL de SAS para o disco ao aceder ao recurso de disco gerido do portal do Azure. No painel Descrição geral, cancele a qualquer exportação em curso. Assim que o URL de SAS é revogado, altere o tipo do disco nos próximos minutos. No entanto, se alterar o tipo de disco gerido, aguarde para pontos de recuperação nova seja gerado pelo Azure Site Recovery. Utilize os novos pontos de recuperação para qualquer ativação pós-falha de teste ou uma ativação pós-falha no futuro.
+Sim, pode facilmente [alterar o tipo de disco gerido](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) das replicações em curso. Antes de alterar o tipo, certifique-se de que nenhum URL de SAS é gerado no disco gerido. Vá para o recurso de disco gerido no portal do Azure e verifique se tem uma faixa de URL de SAS do painel Descrição geral. Se estiver presente, clique nele para cancelar a exportação contínua. Quando tiver terminado, altere o tipo do disco nos próximos minutos. No entanto, se alterar o tipo de disco gerido, aguarde para pontos de recuperação nova seja gerado pelo Azure Site Recovery. Utilize os novos pontos de recuperação para qualquer ativação pós-falha de teste ou uma ativação pós-falha no futuro.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>Posso alternar os replicação a partir de discos geridos para discos não geridos?
 
@@ -133,6 +133,10 @@ Não é suportada a replicação expandida ou em cadeia. Pedir esta funcionalida
 
 ### <a name="can-i-do-an-offline-initial-replication"></a>Posso fazer uma replicação inicial offline?
 Tal não é suportado. Pedir esta funcionalidade no [fórum de comentários](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+
+
+### <a name="what-is-asrseeddisk"></a>O que é asrseeddisk?
+Para cada disco de origem, os dados são replicados para um disco gerido no Azure. Este disco tem o prefixo de asrseeddisk. Ele armazena a cópia de disco de origem e de todos os instantâneos de ponto de recuperação.
 
 ### <a name="can-i-exclude-disks-from-replication"></a>Pode excluir discos da replicação?
 Sim, pode excluir discos.
@@ -249,7 +253,7 @@ No cofre dos serviços de recuperação, clique em **servidores de configuraçã
 
 ### <a name="unable-to-select-process-server-during-enable-replication"></a>Não é possível selecionar o servidor de processos durante a ativar a replicação
 
-Da versão 9.24, são feitas melhorias para fornecer [orientação no produto](vmware-azure-manage-process-server.md#process-server-selection-guidance) sobre quando configurar um servidor de processos de escalamento horizontal. Isso é para evitar a limitação do servidor de processo e evitar a utilização do servidor de processos de mau estado de funcionamento.
+Da versão 9.24, são feitas melhorias para fornecer [processar alertas do servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre quando configurar um servidor de processos de escalamento horizontal. Isso é para evitar a limitação do servidor de processo e evitar a utilização do servidor de processos de mau estado de funcionamento.
 
 ### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>O que devo fazer para obter o estado de funcionamento exata do servidor de processos?
 

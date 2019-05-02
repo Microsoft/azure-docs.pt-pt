@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 for Customer Engagement oferece guia Contacts - Azure Marketplace | Documentos da Microsoft
+title: Dynamics 365 for Customer Engagement oferece guia Contacts | O Azure Marketplace
 description: Configure informações de contacto para o Dynamics 365 para a oferta de envolvimento do cliente no Marketplace do AppSource.
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 12/27/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e15b20c4b874e68c09321e00604aed24b7970371
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60873692"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942503"
 ---
 # <a name="azure-application-contacts-tab"></a>Separador de contactos de aplicação do Azure
 
@@ -30,22 +23,22 @@ Utilize o **contactos** separador para fornecer ao cliente e de engenharia infor
 
 ## <a name="specify-customer-and-engineering-contacts"></a>Especifique os contactos de cliente e à engenharia
 
-Forneça os valores seguintes para definir o principal **contacto de engenharia** e para a sua oferta.
+Forneça os valores seguintes para definir o principal **contacto de engenharia** e para a sua oferta. Campos obrigatórios são indicted por um asterisco (*).
 
 |    Campo        |  Descrição                    |
 |    ---------    |  ---------------                |
-|  **Nome**       |  Nome do contacto de engenharia para a sua aplicação. Este contacto receberá comunicações técnicas da Microsoft.   |
-|  **E-mail**      |  Endereço de e-mail do contacto de engenharia  |
-|  **telefone**      |  Número de telefone de contacto de engenharia  |
+|  **Nome\***       |  Nome do contacto de engenharia para a sua aplicação. Este contacto receberá comunicações técnicas da Microsoft.   |
+|  **Email\***      |  Endereço de e-mail do contacto de engenharia  |
+|  **telefone\***      |  Número de telefone de contacto de engenharia  |
 |  |  |
 
 Forneça os valores seguintes para definir o principal **contacto de suporte** e para a sua oferta.
 
 |    Campo        |   Descrição                   |
 |    ---------    |  ---------------                |
-|  **Nome**       |  Nome do contacto de suporte ao cliente para a sua aplicação. Este contacto receberá as comunicações relacionadas ao suporte da Microsoft.   |
-|  **E-mail**      |  Endereço de e-mail do contacto de suporte ao cliente  |
-|  **telefone**      |  Número de telefone de contacto de suporte ao cliente  |
+|  **Nome\***       |  Nome do contacto de suporte ao cliente para a sua aplicação. Este contacto receberá as comunicações relacionadas ao suporte da Microsoft.   |
+|  **Email\***      |  Endereço de e-mail do contacto de suporte ao cliente  |
+|  **telefone\***      |  Número de telefone de contacto de suporte ao cliente  |
 |  |  |
 
 

@@ -7,29 +7,28 @@ ms.subservice: B2B
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
-author: msmimart
+author: v-miegge
 manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c2a0eaf75debf694421ac9e5f2f7eb13891a20cf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412425"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917358"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas de colaboração do Azure Active Directory B2B
 
 Aqui estão algumas soluções para problemas comuns com a colaboração B2B do Azure Active Directory (Azure AD).
 
-
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Eu adicionei um utilizador externo, mas não vê-los no meu livro de endereços globais ou no selecionador de pessoas
 
 Em casos em que os utilizadores externos não são preenchidos na lista, o objeto poderá demorar alguns minutos a replicar.
 
-## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um utilizador de convidados B2B não está visível no selecionador de pessoas do SharePoint Online/OneDrive 
- 
+## <a name="a-b2b-guest-user-is-not-showing-up-in-sharepoint-onlineonedrive-people-picker"></a>Um utilizador de convidados B2B não está visível no selecionador de pessoas do SharePoint Online/OneDrive
+
 A capacidade de pesquisar para utilizadores convidados existentes no selecionador de pessoas de SharePoint Online (SPO) está DESATIVADO por predefinição de acordo com o comportamento herdado.
 
 Pode ativar esta funcionalidade, utilize a definição 'ShowPeoplePickerSuggestionsForGuestUsers' ao nível da coleção inquilino e o site. Pode definir a funcionalidade com os cmdlets Set-SPOTenant e Set-SPOSite, que permitem aos membros procurar todos os utilizadores convidados existentes no diretório. As alterações no âmbito do inquilino não afetam os sites SPO já aprovisionados.
@@ -79,10 +78,20 @@ Para cumprir as leis de privacidade, as nossas APIs não incluem mensagens perso
 
 Se este cenário é importante para si, pode suprimir a nossa e-mail de convite de API e enviá-lo através do mecanismo de e-mail da sua preferência. Consulte a orientador jurídico também sua organização certificar-se de que todos os e-mails que envia que também cumprem as leis de privacidade.
 
+## <a name="you-receive-an-aadsts65005-error-when-you-try-to-log-in-to-an-azure-resource"></a>Receber um erro de "AADSTS65005" ao tentar iniciar sessão para um recurso do Azure
+
+Um utilizador que tem uma conta de convidado não pode iniciar sessão e está a receber a seguinte mensagem de erro:
+
+    AADSTS65005: Using application 'AppName' is currently not supported for your organization contoso.com because it is in an unmanaged state. An administrator needs to claim ownership of the company by DNS validation of contoso.com before the application AppName can be provisioned.
+
+O utilizador tem uma conta de utilizador do Azure e é um inquilino viral que foi abandonado ou não gerido. Além disso, existem não global ou da empresa administradores no inquilino.
+
+Para resolver este problema, tem de assumir o inquilino abandonado. Consulte a [assumir um diretório não gerido como administrador no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover). Também deve acessar o DNS de acesso à internet para o sufixo de domínio em questão para fornecer provas de direta que está no controle do espaço de nomes. Depois do inquilino é retornado para um estado gerido, discuta com o cliente se deixar os usuários e nome de domínio verificado é a melhor opção para a sua organização.
+
 ## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>Um utilizador convidado com um inquilino just-in-time ou "viral" não é possível repor a palavra-passe
 
 Se o inquilino de identidade for um just-in-time (JIT) ou o inquilino viral (ou seja, é um inquilino do Azure separado e não gerenciado), apenas o utilizador convidado pode repor a palavra-passe. Por vezes, uma organização será [assuma a gestão de inquilinos virais](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover) que são criadas quando os funcionários utilizam os respetivos endereços de e-mail de trabalho para se inscrever para os serviços. Depois da organização assume-se um inquilino viral, apenas um administrador nessa organização pode repor a palavra-passe do utilizador ou ativar a SSPR. Se necessário, como a organização que o convidou, pode remover a conta de utilizador convidado a partir do seu diretório e volte a enviar um convite.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Obtenha suporte para a colaboração B2B](get-support.md)
+[Obtenha suporte para a colaboração B2B](get-support.md)

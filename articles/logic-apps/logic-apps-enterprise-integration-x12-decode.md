@@ -11,11 +11,11 @@ ms.topic: article
 ms.assetid: 4fd48d2d-2008-4080-b6a1-8ae183b48131
 ms.date: 01/27/2017
 ms.openlocfilehash: 4a19462f4f849602fd14fe1204f1c7e3c01e6ec4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106523"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701452"
 ---
 # <a name="decode-x12-messages-in-azure-logic-apps-with-enterprise-integration-pack"></a>Descodificação de X12 mensagens no Azure Logic Apps com o Enterprise Integration Pack
 

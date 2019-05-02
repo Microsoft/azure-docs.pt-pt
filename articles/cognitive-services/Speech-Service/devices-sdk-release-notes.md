@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
 ms.openlocfilehash: 33a03b24de56ab1090cc8e07c9619eda17f33e27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61293540"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711897"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de versão do SDK de dispositivos de voz dos serviços cognitivos
 

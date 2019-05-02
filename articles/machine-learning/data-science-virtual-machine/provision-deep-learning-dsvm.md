@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 42430c847149f7eda2f0dbed1cff006a92f372ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fc4a4024893c29c35b4369d13227830cfbbca84
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943928"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Aprovisionar uma Máquina Virtual no Azure de aprendizagem profunda 
 
@@ -35,10 +35,11 @@ Eis os passos para criar uma instância do Deep Learning Virtual Machine:
 ).
 2. Selecione o **Create** na parte inferior para ser levados num assistente.![ dlvm criar](./media/dlvm-provision-wizard.PNG)
 3. O assistente utilizado para criar o DLVM requer **entradas** para cada um da **quatro passos** enumerado à direita da figura. Seguem-se as entradas necessárias para configurar cada um destes passos:
-   
+
+   <a name="basics"></a>   
    1. **Noções básicas**
       
-      1. **Nome**: Nome do seu servidor de ciência de dados que está a criar.
+      1. **Nome**: Nome do servidor de ciência de dados que está a criar.
       2. **Selecione o tipo de SO para a VM de aprendizagem profunda**: Escolha Windows ou Linux (para Windows 2016 e DSVM base do Ubuntu Linux)
       2. **Nome de utilizador**: Id de início de sessão da conta de administrador.
       3. **palavra-passe**: Palavra-passe da conta de administrador.
@@ -46,13 +47,14 @@ Eis os passos para criar uma instância do Deep Learning Virtual Machine:
       5. **Grupo de recursos**: Pode criar um novo ou utilizar um **vazio** grupo de recursos do Azure existente na sua subscrição.
       6. **Localização**: Selecione o Centro de dados mais adequada. Normalmente, é o Centro de dados que tem a maior parte dos seus dados ou mais se aproxima-se à sua localização física para acesso de rede mais rápido. 
       
-> [!NOTE]
-> O DLVM suporta todos os NC e ND série instâncias de GPU VM. Quando o DLVM de aprovisionamento, tem de escolher uma das localizações no Azure com GPUs. Verifique os [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) página para as localizações disponíveis e procure **série NC**, **série NCv2**, **série NCv3** , ou **série ND** sob **computação**. 
+      > [!NOTE]
+      > O DLVM suporta todos os NC e ND série instâncias de GPU VM. Quando o DLVM de aprovisionamento, tem de escolher uma das localizações no Azure com GPUs. Verifique os [produtos do Azure pela página de região](https://azure.microsoft.com/regions/services/) página para as localizações disponíveis e procure **série NC**, **série NCv2**, **série NCv3** , ou **série ND** sob **computação**. 
 
-1. **Definições**: Selecione um da série NC (NC, a NCv2, NCv3) ou série ND tamanhos de máquinas virtuais GPU que se adequa ao requisito funcional e restrições de custo. Crie uma conta de armazenamento para a sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
+   1. **Definições**: Selecione um da série NC (NC, a NCv2, NCv3) ou série ND tamanhos de máquinas virtuais GPU que se adequa ao requisito funcional e restrições de custo. Crie uma conta de armazenamento para a sua VM.  ![dlvm-settings](./media/dlvm-provision-step-2.PNG)
    
-1. **Resumo**: Certifique-se de que todas as informações que introduziu estão corretas.
-1. **Comprar**: Clique em **comprar** para iniciar o aprovisionamento. Receberá uma ligação para os termos da transação. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
+   1. **Resumo**: Certifique-se de que todas as informações que introduziu estão corretas.
+
+   1. **Comprar**: Clique em **comprar** para iniciar o aprovisionamento. Receberá uma ligação para os termos da transação. A VM não tem quaisquer custos adicionais para além de computação para o tamanho de servidor que selecionou no **tamanho** passo. 
 
 > [!NOTE]
 > O aprovisionamento deve demorar cerca de 10 a 20 minutos. O estado do provisionamento é apresentado no portal do Azure.
@@ -66,7 +68,7 @@ Depois da VM é criada, o ambiente de trabalho remoto, pode nela, usando as cred
 
 ### <a name="linux-edition"></a>Edição do Linux
 
-Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no **Noções básicas** secção do passo 3 para a interface do shell de texto. No cliente aWindows, pode baixar uma ferramenta de cliente SSH, como [Putty](https://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go.
+Depois da VM é criada, pode iniciar sessão na mesma ao utilizar SSH. Utilize as credenciais da conta que criou no [ **Noções básicas** ](#basics) secção do passo 3 para a interface do shell de texto. Para obter mais informações sobre ligações de SSH para VMs do Azure, consulte [instalar e configurar o ambiente de trabalho remoto para ligar a uma VM do Linux no Azure](/azure/virtual-machines/linux/use-remote-desktop). Num cliente Windows, pode baixar uma ferramenta de cliente SSH, como [Putty](http://www.putty.org). Se preferir um ambiente de trabalho gráfico (sistema de Windows X), pode utilizar o Putty de reencaminhamento de X11 ou instalar o cliente de X2Go. 
 
 > [!NOTE]
 > O cliente de X2Go executada melhor do que no nosso teste de reencaminhamento de X11. Recomendamos que utilize o cliente de X2Go para uma interface gráfica de área de trabalho.

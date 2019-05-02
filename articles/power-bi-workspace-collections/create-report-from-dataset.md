@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: e7499345f03e3deedb8972b0d51e8e676cb6c982
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110619"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683445"
 ---
 # <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Criar um novo relatório a partir de um conjunto de dados nas coleções de área de trabalho do Power BI
 

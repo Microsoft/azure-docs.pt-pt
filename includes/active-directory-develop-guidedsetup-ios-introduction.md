@@ -15,11 +15,11 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: 971ae8cd44f1b345d3a71b8fa4f256c8f25ef961
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250466"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951335"
 ---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Chamar a API do Microsoft Graph a partir de uma aplicação iOS
 

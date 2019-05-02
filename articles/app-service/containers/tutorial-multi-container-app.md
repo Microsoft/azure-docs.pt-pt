@@ -1,7 +1,7 @@
 ---
 title: Criar aplicação de vários contentor numa aplicação Web para contentores - serviço de aplicações do Azure
-description: Saiba como utilizar vários contentores no Azure com os ficheiros de configuração Kubernetes e Docker Compose, com uma aplicação MySQL e WordPress.
-keywords: serviço de aplicações do azure, aplicação web, linux, docker, compor, vários contentores, vários contentores, aplicação web para contentores, vários contentores, contentor, kubernetes, wordpress, bd do azure para mysql, base de dados de produção com contentores
+description: Saiba como utilizar vários contentores no Azure com o Docker Compose, WordPress e MySQL.
+keywords: serviço de aplicações do Azure, aplicação web, linux, docker, compor, multicontainer, com vários contentores, aplicação web para contentores, vários contentores, contentores, wordpress, BD do azure para mysql, base de dados de produção com contentores
 services: app-service
 documentationcenter: ''
 author: msangapu
@@ -12,15 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: msangapu
-ms.custom: seodec18
-ms.openlocfilehash: cd7edb576264ac8bb8a076bbb4b2970579056f13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b3dc019b8d5a31986f4145d9dd2f7bd86bbb467
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767940"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920061"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
 
@@ -30,7 +29,6 @@ Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Converter uma configuração do Docker Compose para funcionar com a Aplicação Web para Contentores
-> * Converter uma configuração do Kubernetes para funcionar com a Aplicação Web para Contentores
 > * Implementar uma aplicação com vários contentores no Azure
 > * Adicionar definições da aplicação
 > * Utilizar o armazenamento persistente para os contentores
@@ -41,7 +39,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, terá de experimentar o [Docker Compose](https://docs.docker.com/compose/) ou o [Kubernetes](https://kubernetes.io/).
+Para concluir este tutorial, terá de experiência com [Docker Compose](https://docs.docker.com/compose/).
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
@@ -255,7 +253,7 @@ Para obter mais informações sobre as variáveis de ambiente, consulte [configu
 
 ### <a name="use-a-custom-image-for-mysql-ssl-and-other-configurations"></a>Utilizar uma imagem personalizada para SSL do MySQL e outras configurações
 
-Por predefinição, o SSL é utilizado pela Base de Dados do Azure para MySQL. O WordPress exige uma configuração adicional para utilizar o SSL com o MySQL. A "imagem oficial" do WordPress não fornece uma configuração adicional, mas foi preparada uma [imagem personalizada](https://hub.docker.com/r/microsoft/multicontainerwordpress/builds/) para comodidade do utilizador. Na prática, estaria a adicionar as alterações pretendidas à sua própria imagem.
+Por predefinição, o SSL é utilizado pela Base de Dados do Azure para MySQL. O WordPress exige uma configuração adicional para utilizar o SSL com o MySQL. O WordPress 'imagem oficial' não fornece a configuração adicional, mas uma [imagem personalizada](https://github.com/Azure-Samples/multicontainerwordpress) tenha sido preparado para sua comodidade. Na prática, estaria a adicionar as alterações pretendidas à sua própria imagem.
 
 A imagem personalizada baseia-se na "imagem oficial" do [WordPress do Hub do Docker](https://hub.docker.com/_/wordpress/). Foram feitas as seguintes alterações nesta imagem personalizada para a Base de Dados do Azure para MySQL:
 
@@ -270,7 +268,7 @@ Foram feitas as seguintes alterações para o Redis (a ser utilizado numa secç�
 * [Adiciona o plug-in Redis Object Cache 1.3.8 do WordPress.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L74)
 * [Utiliza a Definição da Aplicação para o nome do anfitrião do Redis no wp-config.php do WordPress.](https://github.com/Azure-Samples/multicontainerwordpress/blob/5669a89e0ee8599285f0e2e6f7e935c16e539b92/docker-entrypoint.sh#L162)
 
-Para utilizar a imagem personalizada, deverá atualizar o ficheiro docker-compose-wordpress.yml. No Cloud Shell, escreva `nano docker-compose-wordpress.yml` para abrir o editor de texto nano. Alterar a `image: wordpress` para utilizar `image: microsoft/multicontainerwordpress`. Já não precisa do contentor de base de dados. Remova as secções `db`, `environment`, `depends_on` e `volumes` do ficheiro de configuração. O seu ficheiro deverá ser semelhante ao seguinte código:
+Para utilizar a imagem personalizada, deverá atualizar o ficheiro docker-compose-wordpress.yml. No Cloud Shell, escreva `nano docker-compose-wordpress.yml` para abrir o editor de texto nano. Alterar a `image: wordpress` para utilizar `image: mcr.microsoft.com/azuredocs/multicontainerwordpress`. Já não precisa do contentor de base de dados. Remova as secções `db`, `environment`, `depends_on` e `volumes` do ficheiro de configuração. O seu ficheiro deverá ser semelhante ao seguinte código:
 
 ```yaml
 version: '3.3'
@@ -404,7 +402,20 @@ A imagem personalizada baseia-se na "imagem oficial" do [WordPress do Hub do Doc
 
 Adicione o contentor do Redis ao final do ficheiro de configuração para que tenha um aspeto semelhante ao do exemplo abaixo:
 
-[!code-yml[Main](../../../azure-app-service-multi-container/compose-wordpress.yml)]
+```yaml
+version: '3.3'
+
+services:
+   wordpress:
+     image: microsoft/multicontainerwordpress
+     ports:
+       - "8000:80"
+     restart: always
+
+   redis:
+     image: redis:3-alpine
+     restart: always
+```
 
 ### <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
@@ -459,7 +470,7 @@ Conclua os passos e instale o WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Ligar o WordPress ao Redis
 
-Inicie sessão na administração do WordPress. No painel de navegação esquerdo, selecione **Plugins** e, em seguida, selecione **Installed Plugins** (Plug-ins instalados).
+Inicie sessão para o administrador do WordPress. No painel de navegação esquerdo, selecione **Plugins** e, em seguida, selecione **Installed Plugins** (Plug-ins instalados).
 
 ![Selecionar os Plug-ins do WordPress][2]
 
@@ -482,172 +493,6 @@ O WordPress é ligado ao servidor do Redis. O **estado** da ligação aparece na
 ![O WordPress é ligado ao servidor do Redis. O **estado** da ligação aparece na mesma página.][6]
 
 **Parabéns**, ligou o WordPress ao Redis. A aplicação pronta para produção está agora a utilizar a **Base de Dados do Azure para MySQL, o armazenamento persistente e o Redis**. Pode agora aumentar o seu plano do Serviço de Aplicações para múltiplas instâncias.
-
-## <a name="use-a-kubernetes-configuration-optional"></a>Utilizar uma configuração do Kubernetes (opcional)
-
-Nesta secção, irá aprender a utilizar uma configuração do Kubernetes para implementar vários contentores. Certifique-se de que segue os passos anteriores para criar um [grupo de recursos](#create-a-resource-group) e um [plano do Serviço de Aplicações](#create-an-azure-app-service-plan). Uma vez que a maioria dos passos são semelhantes aos da secção Compose, o ficheiro de configuração foi combinado para si.
-
-### <a name="kubernetes-configuration-file"></a>Ficheiro de configuração do Kubernetes
-
-Irá utilizar o *kubernetes-wordpress.yml* para esta parte do tutorial. É apresentado aqui para sua referência:
-
-[!code-yml[Main](../../../azure-app-service-multi-container/kubernetes-wordpress.yml)]
-
-Para opções de configuração suportados, consulte [opções de configuração do Kubernetes](configure-custom-container.md#kubernetes-configuration-options)
-
-### <a name="create-an-azure-database-for-mysql-server"></a>Criar uma Base de Dados do Azure para o servidor MySQL
-
-Crie um servidor na Base de Dados do Azure para MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
-
-No comando seguinte, substitua o nome do servidor MySQL onde vê os  _&lt;nome do servidor mysql >_ marcador de posição (carateres válidos são `a-z`, `0-9`, e `-`). Este nome faz parte do nome de anfitrião do servidor MySQL (`<mysql-server-name>.database.windows.net`); tem de ser globalmente exclusivo.
-
-```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
-```
-
-Quando o servidor MySQL tiver sido criado, o Cloud Shell mostra informações semelhantes às do exemplo abaixo:
-
-```json
-{
-  "administratorLogin": "adminuser",
-  "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql-server-name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
-  "location": "southcentralus",
-  "name": "<mysql-server-name>",
-  "resourceGroup": "myResourceGroup",
-  ...
-}
-```
-
-### <a name="configure-server-firewall"></a>Configurar a firewall do servidor
-
-Crie uma regra de firewall para o servidor MySQL permitir ligações ao cliente com o comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Quando os IPs inicial e final estão definidos como 0.0.0.0, a firewall apenas é aberta para outros recursos do Azure.
-
-```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-```
-
-> [!TIP]
-> Pode ser ainda mais restritivo na sua regra de firewall ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
->
-
-### <a name="create-the-wordpress-database"></a>Criar a base de dados do WordPress
-
-Caso ainda não o tenha feito, crie uma [Base de Dados do Azure para o servidor MySQL](#create-an-azure-database-for-mysql-server).
-
-```azurecli-interactive
-az mysql db create --resource-group myResourceGroup --server-name <mysql-server-name> --name wordpress
-```
-
-Quando a base de dados tiver sido criada, o Cloud Shell mostra informações semelhantes às do exemplo abaixo:
-
-```json
-{
-  "additionalProperties": {},
-  "charset": "latin1",
-  "collation": "latin1_swedish_ci",
-  "id": "/subscriptions/12db1644-4b12-4cab-ba54-8ba2f2822c1f/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>/databases/wordpress",
-  "name": "wordpress",
-  "resourceGroup": "myResourceGroup",
-  "type": "Microsoft.DBforMySQL/servers/databases"
-}
-```
-
-### <a name="create-a-multi-container-app-kubernetes"></a>Criar uma aplicação com vários contentores (Kubernetes)
-
-No Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no grupo de recursos `myResourceGroup` e no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir  _\<nome da aplicação >_ com um nome de aplicação único.
-
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
-```
-
-Quando a aplicação Web tiver sido criada, o Cloud Shell mostra informações semelhantes ao seguinte exemplo:
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app-name>.azurewebsites.net",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
-```
-
-### <a name="configure-database-variables-in-wordpress"></a>Configurar variáveis de base de dados no WordPress
-
-Para ligar a aplicação WordPress a este novo servidor MySQL, terá de configurar algumas variáveis de ambiente específico do WordPress. Para fazer esta alteração, utilize o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. As definições da aplicação são sensíveis a maiúsculas e minúsculas e são separadas por espaços.
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WORDPRESS_DB_HOST="<mysql-server-name>.mysql.database.azure.com" WORDPRESS_DB_USER="adminuser@<mysql-server-name>" WORDPRESS_DB_PASSWORD="My5up3rStr0ngPaSw0rd!" WORDPRESS_DB_NAME="wordpress" MYSQL_SSL_CA="BaltimoreCyberTrustroot.crt.pem"
-```
-
-Quando a definição de aplicação tiver sido criada, o Cloud Shell mostra informações semelhantes ao seguinte exemplo:
-
-```json
-[
-  {
-    "name": "WORDPRESS_DB_HOST",
-    "slotSetting": false,
-    "value": "<mysql-server-name>.mysql.database.azure.com"
-  },
-  {
-    "name": "WORDPRESS_DB_USER",
-    "slotSetting": false,
-    "value": "adminuser@<mysql-server-name>"
-  },
-  {
-    "name": "WORDPRESS_DB_NAME",
-    "slotSetting": false,
-    "value": "wordpress"
-  },
-  {
-    "name": "WORDPRESS_DB_PASSWORD",
-    "slotSetting": false,
-    "value": "My5up3rStr0ngPaSw0rd!"
-  }
-]
-```
-
-### <a name="add-persistent-storage"></a>Adicionar armazenamento persistente
-
-Os seus vários contentores estão agora em execução na Aplicação Web para Contentores. Os dados serão eliminados no reinício porque os ficheiros não são persistentes. Nesta secção, vai [adicionar armazenamento persistente](configure-custom-container.md#use-persistent-shared-storage) para o seu contentor do WordPress.
-
-### <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
-
-Para utilizar esta opção de armazenamento persistente, terá de ativar esta definição no Serviço de Aplicações. Para fazer esta alteração, utilize o comando [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. As definições da aplicação são sensíveis a maiúsculas e minúsculas e são separadas por espaços.
-
-```azurecli-interactive
-az webapp config appsettings set --resource-group myResourceGroup --name <app-name> --settings WEBSITES_ENABLE_APP_SERVICE_STORAGE=TRUE
-```
-
-Quando a definição de aplicação tiver sido criada, o Cloud Shell mostra informações semelhantes ao seguinte exemplo:
-
-```json
-[
-  {
-    "name": "WEBSITES_ENABLE_APP_SERVICE_STORAGE",
-    "slotSetting": false,
-    "value": "TRUE"
-  }
-]
-```
-
-### <a name="browse-to-the-app"></a>Navegar para a aplicação
-
-Navegue para a aplicação implementada em (`http://<app-name>.azurewebsites.net`).
-
-A aplicação está agora a executar os vários contentores na Aplicação Web para Contentores.
-
-![Aplicação com vários contentores de exemplo na Aplicação Web para Contentores][1]
-
-**Parabéns**, criou uma aplicação com vários contentores na Aplicação Web para Contentores.
-
-Para utilizar o Redis, siga os passos em [Ligar o WordPress ao Redis](#connect-wordpress-to-redis).
 
 ## <a name="find-docker-container-logs"></a>Localizar registos de Contentor do Docker
 
@@ -676,7 +521,6 @@ Pode ver um registo para cada contentor e um registo adicional para o processo p
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
 > * Converter uma configuração do Docker Compose para funcionar com a Aplicação Web para Contentores
-> * Converter uma configuração do Kubernetes para funcionar com a Aplicação Web para Contentores
 > * Implementar uma aplicação com vários contentores no Azure
 > * Adicionar definições da aplicação
 > * Utilizar o armazenamento persistente para os contentores

@@ -15,11 +15,11 @@ ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
 ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250357"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951386"
 ---
 ## <a name="setting-up-your-ios-application"></a>Configurar a sua aplicação iOS
 

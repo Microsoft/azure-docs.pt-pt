@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
 ms.date: 04/08/2019
-ms.openlocfilehash: 64c2cd0ed1572fdaaa42f4731519ba6d5c320f1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5a70eec15003a1f75a80740f269f6df3523012a8
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457741"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685399"
 ---
 # <a name="registration-management"></a>Gestão de registos
 
@@ -40,7 +40,7 @@ Um registo associa o identificador de serviço de notificação de plataforma (P
 
 ### <a name="installations"></a>Instalações
 
-Uma instalação é uma avançada propriedades relacionadas de registo que inclui uma matriz de push. É a abordagem melhor e mais recente para registar os seus dispositivos. No entanto, não é suportado pelo SDK de .NET do lado do cliente ([SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) até o momento.  Isso significa que se está a registar a partir do próprio dispositivo cliente, teria de utilizar o [API de REST dos Hubs de notificação](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) abordagem para dar suporte a instalações. Se estiver a utilizar um serviço de back-end, deverá conseguir utilizar [SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Uma instalação é uma avançada propriedades relacionadas de registo que inclui uma matriz de push. É a abordagem melhor e mais recente para registar os seus dispositivos. No entanto, não é suportado pelo SDK de .NET do lado do cliente ([SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)) até o momento.  Isso significa que se está a registar a partir do próprio dispositivo cliente, teria de utilizar o [API de REST dos Hubs de notificação](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) abordagem para dar suporte a instalações. Se estiver a utilizar um serviço de back-end, deverá conseguir utilizar [SDK do Hub de notificação para operações de back-end](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Seguem-se algumas vantagens principais para utilizar as instalações:
 
@@ -48,7 +48,7 @@ Seguem-se algumas vantagens principais para utilizar as instalações:
 - O modelo de instalação oferece suporte a um formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar uma notificação diretamente para o dispositivo específico. Por exemplo, se o código da aplicação define um ID de instalação do `joe93developer` para este dispositivo específico, um desenvolvedor pode visar este dispositivo ao enviar uma notificação para o `$InstallationId:{joe93developer}` marca. Isto permite-lhe um dispositivo específico de destino sem ter de fazer qualquer codificação adicionais.
 - Utilizar as instalações também lhe permite fazer atualizações parciais de registo. A atualização parcial de uma instalação for pedida com um método PATCH a utilizar o [padrão de JSON-Patch](https://tools.ietf.org/html/rfc6902). Isto é útil quando pretende atualizar as etiquetas no registo. Não precisa obter o registo completo e, em seguida, reenviar novamente todas as marcas anteriores.
 
-Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa das propriedades de instalação, consulte [criar ou substituir uma instalação com a REST API](https://docs.microsoft.com/en-us/rest/api/notificationhubs/create-overwrite-installation) ou [das propriedades de instalação](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
+Uma instalação pode conter as seguintes propriedades. Para obter uma lista completa das propriedades de instalação, consulte [criar ou substituir uma instalação com a REST API](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) ou [das propriedades de instalação](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -95,7 +95,7 @@ Instalações de registos e tem de conter um identificador PNS válido para cada
 
 Se quiser usar [modelos](notification-hubs-templates-cross-platform-push-messages.md), a instalação de dispositivo também contém todos os modelos associados esse dispositivo num JSON formatar (veja o exemplo acima). Os nomes de modelo ajudam a modelos diferentes de destino para o mesmo dispositivo.
 
-Cada nome de modelo é mapeado para um corpo de modelo e um conjunto opcional de etiquetas. Além disso, cada plataforma pode ter propriedades de modelo adicional. Para Store do Windows (com o WNS) e Windows Phone 8 (usando o MPNS), um conjunto adicional de cabeçalhos pode ser parte do modelo. No caso do APNs, pode definir uma propriedade de expiração para uma constante ou para uma expressão de modelo. Para obter uma listagem completa da instalação propriedades, consulte [criar ou substituir uma instalação com REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) tópico.
+Cada nome de modelo é mapeado para um corpo de modelo e um conjunto opcional de etiquetas. Além disso, cada plataforma pode ter propriedades de modelo adicional. Para Store do Windows (com o WNS) e Windows Phone 8 (usando o MPNS), um conjunto adicional de cabeçalhos pode ser parte do modelo. No caso do APNs, pode definir uma propriedade de expiração para uma constante ou para uma expressão de modelo. Para obter uma listagem completa da instalação propriedades, consulte [criar ou substituir uma instalação com REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) tópico.
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Blocos secundários para aplicativos da Windows Store
 
@@ -120,7 +120,7 @@ Registro do dispositivo é o método mais simples, mas tem algumas desvantagens:
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Código de exemplo para registar com um hub de notificação de um dispositivo com uma instalação
 
-Neste momento, isso só é suportado com o [API de REST dos Hubs de notificação](https://msdn.microsoft.com/library/mt621153.aspx).
+Neste momento, isso só é suportado com o [API de REST dos Hubs de notificação](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation).
 
 Também pode utilizar o método PATCH a utilizar o [padrão de JSON-Patch](https://tools.ietf.org/html/rfc6902) para atualizar a instalação.
 

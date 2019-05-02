@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6771cf093f62ef7823e57ced8223e4cc6c0dc57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7c4ef16457181b4147b763233c54bcca6598b05a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354673"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917669"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>O que é a condição de localização no acesso condicional do Azure Active Directory? 
 
@@ -50,16 +50,13 @@ Um local nomeado tem os seguintes componentes:
 - **Intervalos de IP** -um ou mais intervalos de endereços de IPv4 no formato CIDR. Especificar um intervalo de endereços IPv6 não é suportado.
 
    > [!NOTE]
-   > Rangess de endereço de IPv6 atualmente não é possível incluir um measn locationThis nomeado IPv6 intervalos não podem ser excluídos da política de acesso condicional.
+   > Rangess de endereço de IPv6 atualmente não pode ser incluído num local nomeado. Não não possível excluir este intervalos de IPv6 measn de uma política de acesso condicional.
 
 - **Marcar como localização fidedigna** -um sinalizador pode ser definido para um local nomeado indicar a localização fidedigna. Normalmente, os locais confiáveis são áreas de rede que são controladas pelo seu departamento de TI. Além do acesso condicional, localizações com nome confiáveis também são utilizadas pelos relatórios de segurança do Azure Identity Protection e o Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Países/regiões** -esta opção permite-lhe selecionar um ou mais país ou região para definir um local nomeado.
 - **Incluir áreas desconhecidas** -endereços IP alguns não são mapeados para um país específico. Esta opção permite-lhe escolher se estes endereços IP devem ser incluídos na localização com nome. Utilize esta definição se a política a utilizar a localização com o nome deve aplicar a localizações desconhecidas.
 
-O número de localizações com nome, que pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. Pode configurar localizações com base em das seguintes limitações:
-
-- Um com o nome local com até 1200 intervalos IP.
-- Um máximo de 90 locais nomeados com um intervalo IP atribuído a cada um deles.
+O número de localizações com nome, que pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. As organizações podem configurar até 90 locais lamed, cada um configurado com até 12000 intervalos IP.
 
 Política de acesso condicional aplica-se ao tráfego IPv4 e IPv6. Localizações atualmente com o nome não permitem a intervalos de IPv6 ser configurado. Esta limitação faz com que as seguintes situações:
 

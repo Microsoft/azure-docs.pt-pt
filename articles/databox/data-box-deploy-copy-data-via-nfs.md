@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para o Microsoft Azure Data Box através do NFS | Documentos da Microsoft
+title: Tutorial para copiar dados para o Azure Data Box através do NFS | Documentos da Microsoft
 description: Saiba como copiar dados para o Azure Data Box por meio de NFS
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 423db264c8035f9b089524eb4b19a13baccdf2e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55c880d0e795873a759ba121b6de0c98c5249061
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462462"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924473"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para o Azure Data Box por meio de NFS
 

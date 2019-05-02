@@ -8,16 +8,18 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 809c98c1e2e51ae51d7fe03f2165a5d9eecb05cc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515531"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681807"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de Webhook para regras de alerta de registo
 Quando um [alerta de registo é criada no Azure](alerts-log.md), tem a opção de [configurar a utilização de grupos de ação](action-groups.md) para efetuar uma ou mais ações.  Este artigo descreve as ações de webhook diferentes que estão disponíveis e os detalhes sobre como configurar o webhook com base em JSON personalizado.
 
+> [!NOTE]
+> Também pode utilizar o [esquema comum do alerta](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter um único extensível e payload de alerta unificada em todas as o alerta no Monitor do Azure, para serviços suas integrações do webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Ações de Webhook
 

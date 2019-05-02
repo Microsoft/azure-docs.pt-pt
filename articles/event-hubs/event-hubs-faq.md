@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: d1ed16465efb6c70b4426f22e8b9983112142c79
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162650"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690278"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 
@@ -50,6 +50,47 @@ Escalão Standard dos Hubs de eventos, atualmente, suporta um período de reten�
 
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Como posso monitorizar o meu Hubs de eventos?
 Os Hubs de eventos emite métricas exaustivas que fornecem o estado dos seus recursos para [do Azure Monitor](../azure-monitor/overview.md). Eles também permitem avaliar o estado de funcionamento geral do serviço Hubs de eventos não apenas ao nível do espaço de nomes, mas também no nível de entidade. Saiba mais sobre o que monitorizar é oferecido para [os Hubs de eventos do Azure](event-hubs-metrics-azure-monitor.md).
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso abrir na firewall? 
+Pode utilizar os seguintes protocolos com o Azure Service Bus para enviar e receber mensagens:
+
+- Avançadas Message Queuing Protocol (AMQP)
+- HTTP
+- Apache Kafka
+
+Veja a seguinte tabela para as portas de saída que é necessário abrir para utilizar estes protocolos para comunicar com os Hubs de eventos do Azure. 
+
+| Protocolo | Portas | Detalhes | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
+| HTTP, HTTPS | 80, 443 |  |
+| Kafka | 9092 | Consulte [dos Hubs de eventos de utilização de aplicações do Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Que endereços IP é necessário à lista de permissões?
+Para localizar os endereços IP corretos para a lista de permissões para as suas ligações, siga estes passos:
+
+1. Execute o seguinte comando numa linha de comandos: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Anote o endereço IP devolvido na `Non-authoritative answer`. Este endereço IP é estático. O único ponto no tempo que ele seria alterado é se restaurar o espaço de nomes para um cluster diferente.
+
+Se utilizar a redundância de zona para o espaço de nomes, precisa fazer algumas etapas adicionais: 
+
+1. Em primeiro lugar, execute nslookup no espaço de nomes.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Anote o nome na **resposta não autoritativa** seção, que se encontra dos seguintes formatos: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todos os três instâncias em execução em três zonas de disponibilidade, 
 
 ## <a name="apache-kafka-integration"></a>Integração do Apache Kafka
 

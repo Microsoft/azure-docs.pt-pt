@@ -10,25 +10,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 8f1e2aebae88d34334200504915be4043f32013b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107384"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926609"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [Versão atual](connector-azure-sql-data-warehouse.md)
 
-Este artigo explica como utilizar a atividade de cópia no Azure Data Factory para copiar dados de ou para o Azure SQL Data Warehouse. Ele se baseia no [descrição geral da atividade de cópia](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como copiar dados de e para o Azure SQL Data Warehouse. Para saber mais sobre o Azure Data Factory, leia os [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados do Azure SQL Data Warehouse para qualquer arquivo de dados de sink suportados. E pode copiar dados de qualquer arquivo de dados de origem suportada para o Azure SQL Data Warehouse. Para obter uma lista dos arquivos de dados que são suportados como origens ou sinks de atividade de cópia, consulte a [arquivos de dados e formatos suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Este conector de Blobs do Azure é suportada para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [suportado de matriz de origem/sink](copy-activity-overview.md) tabela
+- [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 
 Especificamente, este conector Azure SQL Data Warehouse oferece suporte a essas funções:
 
@@ -136,12 +141,12 @@ Para utilizar a autenticação de token de aplicação de serviço baseada em pr
 2. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador do Azure AD ou o grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador terá acesso total à base de dados.
 
 3. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para o principal de serviço. Ligar ao armazém de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL:
-    
+  
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -186,12 +191,12 @@ Para utilizar a autenticação de identidade gerida, siga estes passos:
 1. **[Aprovisionar um administrador do Azure Active Directory](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)**  para o seu servidor SQL do Azure no portal do Azure, se ainda não o tiver feito. O administrador do Azure AD pode ser um utilizador do Azure AD ou o grupo do Azure AD. Se conceder ao grupo com a identidade gerida de uma função de administrador, ignore os passos 3 e 4. O administrador terá acesso total à base de dados.
 
 2. **[Criar utilizadores de base de dados contido](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)**  para a identidade de geridos de fábrica de dados. Ligar ao armazém de dados de ou para o qual pretende copiar dados com ferramentas como o SSMS, com uma identidade do Azure AD que tenha, pelo menos, permissão de alterar qualquer utilizador. Execute o seguinte T-SQL. 
-    
+  
     ```sql
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Conceder as permissões necessárias da identidade de gerido de fábrica de dados** como faria normalmente para utilizadores SQL e outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **Conceder as permissões necessárias da identidade de gerido de fábrica de dados** como faria normalmente para utilizadores SQL e outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -416,7 +421,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
     | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | Autenticação do principal de serviço |
     | [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md) | Autenticação de chave de conta |
 
-2. O **formato de conjunto de dados de origem** é do **ParquetFormat**, **OrcFormat**, ou **TextFormat**, com as seguintes configurações:
+2. O **formato de dados de origem** é do **Parquet**, **ORC**, ou **delimitados por texto**, com as seguintes configurações:
 
    1. `folderPath` e `fileName` não contêm o filtro de carateres universais.
    2. `rowDelimiter` tem de ser **\n**.
@@ -424,20 +429,6 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
    4. `encodingName` está definido como **utf-8**, que é o valor predefinido.
    5. `escapeChar`, `quoteChar` e `skipLineCount` não estão especificados. Suporte de PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
    6. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
-
-      ```json
-      "typeProperties": {
-        "folderPath": "<path>",
-        "format": {
-            "type": "TextFormat",
-            "columnDelimiter": "<any delimiter>",
-            "rowDelimiter": "\n",
-            "nullValue": "",
-            "encodingName": "utf-8",
-            "firstRowAsHeader": <any>
-        }
-      },
-      ```
 
 ```json
 "activities":[
@@ -556,6 +547,10 @@ All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 O valor NULL é uma forma especial do valor predefinido. Se a coluna pode ser nula, os dados de entrada no blob para essa coluna podem estar vazios. Mas não pode estar em falta no conjunto de dados de entrada. O PolyBase insere NULL para valores em falta no Azure SQL Data Warehouse.
+
+## <a name="mapping-data-flow-properties"></a>Propriedades de fluxo de dados de mapeamento
+
+Conheça os detalhes da [transformação de origem](data-flow-source.md) e [sink transformação](data-flow-sink.md) no mapeamento de fluxo de dados.
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Mapeamento de tipo de dados do Azure SQL Data Warehouse
 

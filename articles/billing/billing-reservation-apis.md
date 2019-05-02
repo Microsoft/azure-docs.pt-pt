@@ -1,24 +1,22 @@
 ---
 title: APIs para a automatização de reserva do Azure | Documentos da Microsoft
 description: Saiba mais sobre as APIs do Azure que pode utilizar para obter informações sobre a reserva programaticamente.
-documentationcenter: ''
 author: yashesvi
 manager: yashesvi
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/13/2019
+ms.date: 04/25/2019
 ms.author: banders
-ms.openlocfilehash: 246278df61d4f13e2634a1cdfc5ff6b635cecbbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6d63f9a393dbb40c3b0952eba9ab9449fd7b558d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371211"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702612"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>APIs para a automatização de reserva do Azure
 
@@ -32,7 +30,38 @@ Também pode analisar o uso de recursos, utilizando os detalhes de utilização 
 
 ## <a name="buy-a-reservation"></a>Comprar uma reserva
 
-Atualmente não é possível comprar uma reserva através de programação. Para comprar uma reserva, consulte os artigos seguintes:
+Pode comprar reservas do Azure e planos de software por meio de programação através das APIs REST. Para obter mais informações, consulte [encomenda de reserva - API de compra](/rest/api/reserved-vm-instances/reservationorder/purchase).
+
+Este é um pedido de exemplo para comprar, utilizando a API REST:
+
+```
+PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
+```
+
+Corpo do Pedido:
+
+```
+{
+ "sku": {
+    "name": "standard_D1"
+  },
+ "location": "westus",
+ "properties": {
+    "reservedResourceType": "VirtualMachines",
+    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "term": "P1Y",
+    "quantity": "1",
+    "displayName": "TestReservationOrder",
+    "appliedScopes": null,
+    "appliedScopeType": "Shared",
+    "reservedResourceProperties": {
+      "instanceFlexibility": "On"
+    }
+  }
+}
+```
+
+Também pode comprar uma reserva no portal do Azure. Para obter mais informações, veja os artigos seguintes:
 
 Planos de serviço:
 - [Máquina virtual](../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/15/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 94912d5aa10ddd2e67c33bcbb416f007c85f105c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880365"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574120"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integração de controlo de código fonte da Automatização do Azure
 
@@ -52,14 +52,16 @@ Sobre o **resumo de controlo de origem** página, preencha as informações e cl
 |Repositório     | O nome do repositório ou projeto. Os primeiras 200 repositórios são devolvidos. Para procurar um repositório, escreva o nome no campo e clique em **pesquisa no GitHub**.|
 |Branch     | O ramo para extrair os ficheiros de origem do. Direcionamento de ramo não está disponível para o tipo de controlo de origem TFVC.          |
 |Caminho da pasta     | A pasta que contém os runbooks para sincronizar. Exemplo: /Runbooks </br>*Apenas runbooks na pasta especificada são sincronizados. Não é suportada a recursão.*        |
-|Sincronização automática     | Folheio ou desativar a sincronização automática quando uma consolidação é efetuada no repositório de controle de origem         |
+|Auto sincronização<sup>1</sup>     | Folheio ou desativar a sincronização automática quando uma consolidação é efetuada no repositório de controle de origem         |
 |Publicar o Runbook     | Se definido como **no**, após os runbooks são sincronizados a partir do controlo de origem vai ser publicados automaticamente.         |
 |Descrição     | Um campo de texto para fornecer detalhes adicionais        |
+
+<sup>1</sup> para ativar a sincronização automática quando configurar a integração do controlo de origem com repositórios do Azure, tem de ser um administrador de projeto.
 
 ![Resumo de controlo de origem](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Certifique-se de que iniciou sessão com a conta correta quando configurar o controlo de origem. Se houver dúvida, abra um novo separador no seu browser e terminar sessão da visualstudio.com ou github.com e tente novamente a ligação de controlo de origem.
+> O início de sessão para o repositório de controle de origem pode ser diferente do seu início de sessão no portal do Azure. Certifique-se de que iniciou sessão com a conta correta para o repositório de controle de origem quando configurar o controlo de origem. Se houver dúvida, abra um novo separador no seu browser e terminar sessão da visualstudio.com ou github.com e tente novamente a ligação de controlo de origem.
 
 ## <a name="configure-source-control---powershell"></a>Configurar o controlo de origem - PowerShell
 

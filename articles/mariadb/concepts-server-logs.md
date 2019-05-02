@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: a26f61eb199d8f370e1a9dd010932dc868b74ae4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/29/2019
+ms.openlocfilehash: 8a78a9b8f0772a83e45ac2b926878e61e6ee2e61
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041263"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926337"
 ---
 # <a name="server-logs-in-azure-database-for-mariadb"></a>Registos do servidor na base de dados do Azure para MariaDB
 Na base de dados do Azure para MariaDB, o log de consulta lenta está disponível para os utilizadores. Acesso ao registo de transação não é suportado. O log de consulta lenta pode ser utilizado para identificar afunilamentos de desempenho para resolução de problemas.
@@ -23,7 +23,7 @@ Pode listar e transferir a base de dados do Azure para MariaDB registos do servi
 
 No portal do Azure, selecione a base de dados do Azure para MariaDB server. Sob o **monitorização** cabeçalho, selecione a **os registos do servidor** página.
 
-<!-- For more information on Azure CLI, see [Configure and access server logs using Azure CLI](howto-configure-server-logs-in-cli.md).-->
+Para obter mais informações sobre a CLI do Azure, consulte [acesso e configurar os registos do servidor com a CLI do Azure](howto-configure-server-logs-cli.md).
 
 ## <a name="log-retention"></a>Retenção do registo
 Os registos estão disponíveis até sete dias desde a sua criação. Se o tamanho total dos registos disponíveis exceder 7 GB, em seguida, os mais antigos ficheiros são eliminados até que o espaço está disponível.
@@ -42,5 +42,41 @@ Outros parâmetros que pode ajustar incluem:
 
 Consulte a MariaDB [lento de documentação do log de consulta](https://mariadb.com/kb/en/library/slow-query-log-overview/) para descrições completas dos parâmetros de registo de consulta lenta.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="diagnostic-logs"></a>Registos de diagnósticos
+Base de dados do Azure para MariaDB está integrado com os registos de diagnóstico do Azure Monitor. Assim que tiver ativado os registos de consulta lenta no seu servidor MariaDB, pode optar por fazê-los emitidos para os registos do Azure Monitor, os Hubs de eventos ou armazenamento do Azure. Para saber mais sobre como ativar os registos de diagnóstico, ver como a secção a [documentação de registos de diagnóstico](../azure-monitor/platform/diagnostic-logs-overview.md).
+
+> [!IMPORTANT]
+> Esta funcionalidade de diagnóstico para os registos do servidor só está disponível nos fins gerais e com otimização de memória [escalões de preço](concepts-pricing-tiers.md).
+
+A tabela seguinte descreve as novidades em cada registo. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
+
+| **Propriedade** | **Descrição** |
+|---|---|
+| `TenantId` | O ID de inquilino |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Carimbo de hora quando o registo foi registado em UTC |
+| `Type` | Tipo do registo. Sempre `AzureDiagnostics` |
+| `SubscriptionId` | GUID da subscrição que o servidor pertence a |
+| `ResourceGroup` | Nome do grupo de recursos do servidor pertence a |
+| `ResourceProvider` | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORMARIADB` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | URI do recurso |
+| `Resource` | Nome do servidor |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Nome do servidor |
+| `start_time_t` [UTC] | Tempo que começou a consulta |
+| `query_time_s` | A consulta demorou a executar o tempo total |
+| `lock_time_s` | Tempo total que a consulta foi bloqueada |
+| `user_host_s` | Nome de utilizador |
+| `rows_sent_s` | Número de linhas enviados |
+| `rows_examined_s` | Número de linhas examinado |
+| `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |
+| `insert_id_s` | Inserir ID |
+| `sql_text_s` | Consulta completa |
+| `server_id_s` | ID do servidor |
+| `thread_id_s` | ID do Thread |
+| `\_ResourceId` | URI do recurso |
+
+## <a name="next-steps"></a>Passos Seguintes
 - [Como configurar e aceder aos registos de servidor do portal do Azure](howto-configure-server-logs-portal.md).

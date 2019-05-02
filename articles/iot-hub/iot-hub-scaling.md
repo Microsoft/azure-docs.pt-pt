@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
 ms.openlocfilehash: 49e0db690818e67f96f5bcefa4f581b1db6da451
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125581"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697338"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha o escalão certo do IoT Hub para a sua solução
 

@@ -1,23 +1,22 @@
 ---
 title: Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure com o Azure Site Recovery | Documentos da Microsoft
-description: Resume os sistemas operativos suportados e configurações para a replicação do Azure Site Recovery de máquinas virtuais do Azure (VMs) de uma região para outro para as necessidades de (DR recuperação) após desastre.
-services: site-recovery
+description: Resume os pré-requisitos e suporte para recuperação após desastre de VMs do Azure de uma região para outra com o Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: c64148fbc0432bd25c5b02fb20b3e44134c1d9d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60502109"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926595"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
-Este artigo resume as configurações suportadas e componentes quando implementar a recuperação após desastre com replicação, ativação pós-falha e recuperação de VMs do Azure a partir de uma região do Azure para outra, com o [do Azure Site Recovery](site-recovery-overview.md) serviço.
+Este artigo resume o suporte e pré-requisitos, quando o conjunto de recuperação após desastre de VMs do Azure de uma região do Azure para outro, utilizando o [do Azure Site Recovery](site-recovery-overview.md) serviço.
 
 
 ## <a name="deployment-method-support"></a>Suporte de método de implementação
@@ -96,10 +95,10 @@ Windows Server 2008 R2 | Com SP1 ou posterior
 Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
 CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
 Ubuntu 14.04 LTS Server | [Versões de kernel suportada](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
-Ubuntu 16.04 LTS Server | [Versão de kernel suportada](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Servidores de Ubuntu usando a autenticação baseada em palavra-passe e início de sessão e o pacote de cloud-init para configurar VMs, na cloud podem ter início de sessão baseada em palavra-passe desativado na ativação pós-falha (dependendo da configuração de cloudinit). Início de sessão baseada em palavra-passe pode ser novamente ativado na máquina virtual ao repor a palavra-passe do suporte da > Resolução de problemas > menu de definições (da VM no portal do Azure.
+Ubuntu 16.04 LTS Server | [Versão de kernel suportada](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Servidores de Ubuntu utilizando a autenticação baseada em palavra-passe e o início de sessão e o pacote de cloud-init para configurar VMs, na cloud podem ter início de sessão baseado em palavra-passe desativado na ativação pós-falha (dependendo da configuração de cloudinit). Início de sessão baseado em palavra-passe pode ser novamente ativada na máquina virtual ao repor a palavra-passe do suporte da > Resolução de problemas > menu de definições (da VM no portal do Azure.
 Debian 7 | [Versões de kernel suportada](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versões de kernel suportada](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1,SP2,SP3,SP4. [(Versões de kernel suportada)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versões de kernel suportada)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> Não é suportada a atualização de replicar máquinas a partir do SP3 para SP4. Se uma máquina replicada tiver sido atualizada, terá de desativar a replicação e volte a ativar a replicação após a atualização.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> A executar o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3 (UEK3).
@@ -132,8 +131,8 @@ Debian 8 | 9.21, 9.22, 9.23, 9.24 | 3.16.0-4-amd64 to 3.16.0-7-amd64, 4.9.0-0.bp
 **Versão** | **Versão do serviço de mobilidade** | **Versão de kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.24 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.175-94.79-default</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | 9.23 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.6-default |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.22 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.72-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.23 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.101-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.69-default</br></br>SP4 4.12.14-94.41-default para 4.12.14-95.6-default |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default para 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default para 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default para 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default para 4.4.121-92.98-default</br></br>4.4.73-5-default SP3 para 4.4.162-94.72-default |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>Replicar máquinas - armazenamento de convidado/sistema de ficheiros do Linux
@@ -148,7 +147,7 @@ SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | 9.21 | SP1 3.12.49-11-default pa
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
 Tamanho | Qualquer tamanho de VM do Azure com, pelo menos, 2 núcleos de CPU e 1 GB de RAM | Certifique-se [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
-Conjuntos de disponibilidade | Suportadas | Se ativar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade é criado automaticamente com base nas definições de região de origem. Pode modificar estas definições.
+Conjuntos de disponibilidade | Suportadas | Se ativar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade é criado automaticamente, com base nas definições de região de origem. Pode modificar estas definições.
 Zonas de disponibilidade | Suportadas |
 Benefício de utilização híbrida (HUB) | Suportadas | Se a VM de origem tem uma licença HUB ativada, uma ativação pós-falha de teste ou efetuar a ativação pós-falha VM utiliza também a licença HUB.
 Conjuntos de dimensionamento de VMs | Não suportado |
@@ -191,7 +190,8 @@ Espaços de armazenamento | Suportadas |
 Encriptação em repouso (SSE) | Suportadas | O SSE é a predefinição nas contas de armazenamento.   
 Azure Disk Encryption (ADE) para o sistema operacional do Windows | As VMs ativadas para [encryption com a aplicação do Azure AD](https://aka.ms/ade-aad-app) são suportados |
 Azure Disk Encryption (ADE) para o SO Linux | Não suportado |
-Disco de acesso frequente Adicionar/remover | Não suportado | Se adicionar ou remover o disco de dados na VM, terá de desativar a replicação e ative a replicação novamente para a VM.
+Adicionar frequente | Suportadas | Ativar a replicação para um disco de dados que adicionar a uma VM replicado do Azure é suportada para VMs que utilizam discos geridos.
+Frequente Remover disco | Não suportado | Se remover o disco de dados na VM, terá de desativar a replicação e ative a replicação novamente para a VM.
 Excluir o disco | Suporte. Tem de utilizar [Powershell](azure-to-azure-exclude-disks.md) para configurar. |  Discos temporários são excluídos por padrão.
 Storage Spaces Direct  | Suporte para pontos de recuperação consistente com falhas. Pontos de recuperação consistente com a aplicação não são suportados. |
 Servidor de ficheiros de escalamento horizontal  | Suporte para pontos de recuperação consistente com falhas. Pontos de recuperação consistente com a aplicação não são suportados. |
@@ -241,7 +241,7 @@ DNS do Azure | Suportadas |
 DNS Personalizado  | Suportadas |
 Proxy não autenticados | Suportadas | [Saiba mais.] (site-recovery-azure-to-azure-networking-guidance.md)   
 Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenticado para conectividade de saída, não podem ser replicada com o Azure Site Recovery.    
-Ligação de site-site VPN no local<br/><br/>(com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego de recuperação de Site não é encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
+Ligação de site-site VPN no local<br/><br/>(com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego do Site Recovery não é encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Ligação VNET a VNET | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos Finais de Serviço de Rede Virtual | Suportadas | Se estão a restringir o acesso de rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft fidedignos tenham permissão para aceder à conta de armazenamento.
 Redes aceleradas | Suportadas | Funcionamento em rede acelerado tem de estar ativado na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).

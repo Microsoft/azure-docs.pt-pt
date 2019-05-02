@@ -10,19 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fa1733ddd70de3f8ef93452a880094ccf8b9ef56
+ms.sourcegitcommit: 807c318f5c034f8256f91c241e9d6f8f4d7de90a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916721"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951463"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Microsoft Translator V2 de API de texto para a migração V3
 
 > [!NOTE]
-> V2 foi preterido no dia 30 de Abril de 2018 e será descontinuada a 30 de Abril de 2019.
+> V2 foi preterido no dia 30 de Abril de 2018. Migre seus aplicativos para a V3 para tirar o máximo partido da nova funcionalidade disponível exclusivamente no V3.
 > 
-> O Microsoft Translator Hub será retirado a 30 de Abril de 2019. [Ver as informações de migração de importantes e datas](https://www.microsoft.com/translator/business/hub/).  
+> O Microsoft Translator Hub será descontinuado a 17 de Maio de 2019. [Ver as informações de migração de importantes e datas](https://www.microsoft.com/translator/business/hub/).  
 
 A equipe do Microsoft Translator lançou a versão 3 (V3) da API de texto do Translator. Esta versão inclui novos recursos, métodos preteridos e um novo formato para enviar para e a receção de dados do serviço Microsoft Translator. Este documento fornece informações para alterar os aplicativos usem V3. 
 
@@ -110,7 +110,7 @@ Global
 
 > [!NOTE]
 > 
-> O Microsoft Translator Hub será retirado a 30 de Abril de 2019. [Ver as informações de migração de importantes e datas](https://www.microsoft.com/translator/business/hub/).   
+> O Microsoft Translator Hub será descontinuado a 17 de Maio de 2019. [Ver as informações de migração de importantes e datas](https://www.microsoft.com/translator/business/hub/).   
 
 Microsoft Translator V3 usa a tradução automática neural por predefinição. Como tal, não pode ser utilizado com o Microsoft Translator Hub. O Hub de Microsoft Translator suporta apenas herdados estatísticos de tradução automática. Personalização de tradução neural já está disponível com o Translator personalizado. [Saiba mais sobre a personalização de tradução automática neural](custom-translator/overview.md)
 
@@ -130,7 +130,6 @@ Tradução neural com a API de texto da V3 não suporta a utilização das categ
 Versão 3 do texto do Translator API está a utilizar se estiver a utilizar o ponto de extremidade api.cognitive.microsofttranslator.com.
 
 **Versão de API de texto do Translator 2**
-* Foi preterido. Ele será descontinuado a 30 de Abril de 2019. 
 * Não satisfaz todos os requisitos de certificação de 3 de SOC e ISO 20001,20018. 
 * Não permite invocar os sistemas de tradução de rede neural que tiver personalizado com a funcionalidade de personalização do Microsoft Translator.
 * Fornece acesso aos sistemas de tradução personalizadas criadas com o Microsoft Translator Hub.

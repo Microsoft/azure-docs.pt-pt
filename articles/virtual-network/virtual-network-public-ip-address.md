@@ -3,8 +3,8 @@ title: Criar, alterar ou eliminar um endereço IP público do Azure | Documentos
 description: Saiba como criar, alterar ou eliminar um endereço IP público.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
-ms.author: jdial
-ms.openlocfilehash: 2e6f3ce0c01674913dcb1f1980264d205eb4fcd3
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: e1e82d7f7b6b8bf9bfef56b569db2db097b914ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652786"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728742"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Criar, alterar ou eliminar um endereço IP público
 
@@ -63,7 +63,7 @@ Endereços IP públicos têm um custo nominal. Para ver os preços, leia os [pre
    |Atribuição de endereços IP (apenas visíveis, se tiver selecionado o **criar um endereço IPv6 (ou IPv4)** caixa de verificação)|Sim, se selecionar a **criar um IPv6** (ou IPv4) caixa de verificação.|Se a caixa de verificação indicar **criar um endereço IPv4**, pode selecionar um método de atribuição. Se a caixa de verificação indicar **criar um endereço IPv6**, não é possível selecionar um método de atribuição, como deve ser **dinâmico**.|
    |Subscrição|Sim|Tem de existir na mesma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) como o recurso que pretende associar o endereço IP público a.|
    |Grupo de recursos|Sim|Pode existir na mesma ou diferentes, [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) como o recurso que pretende associar o endereço IP público a.|
-   |Localização|Sim|Tem de existir na mesma [localização](https://azure.microsoft.com/regions), também referido como região, como o recurso que pretende associar o IP público de endereços para.|
+   |Location|Sim|Tem de existir na mesma [localização](https://azure.microsoft.com/regions), também referido como região, como o recurso que pretende associar o IP público de endereços para.|
    |Zona de disponibilidade| Não | Esta definição só é apresentada se selecionar uma localização suportada. Para obter uma lista das localizações suportadas, consulte [descrição geral das zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se tiver selecionado o **básica** SKU, *nenhum* é selecionado automaticamente para. Se preferir garantir uma zona específica, pode selecionar uma zona específica. De qualquer opção não está com redundância de zona. Se tiver selecionado o **padrão** SKU: Com redundância de zona é selecionado automaticamente para e torna o seu caminho de dados resiliente a falhas de zona. Se preferir garantir uma zona específica, que não é resiliente a falhas de zona, pode selecionar uma zona específica.
 
 **Comandos**

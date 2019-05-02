@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 064c3e5fb7a65a7495c393db893e784548075daf
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298907"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708212"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -75,6 +75,7 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
 1. Dependendo da versão do Visual Studio poderá ter de clique com o botão direito do rato no projeto `AppModelv2-WebApp-OpenIDConnect-DotNet` e **pacotes NuGet restaurar**
+1. Abra a consola do Gestor de pacotes (visualização -> Other Windows -> Package Manager Console) e executar `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
 
     ```xml

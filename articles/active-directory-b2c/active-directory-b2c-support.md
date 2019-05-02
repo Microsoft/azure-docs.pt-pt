@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/06/2016
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: c40c1357b74b05f54bb2c2837554d9375e06f246
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4311f7001e2cd5a05b3a383925dc759acb8b8a05
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384958"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64680859"
 ---
 # <a name="azure-active-directory-b2c-file-support-requests"></a>Azure Active Directory B2C: Pedidos de suporte de ficheiros
 Pode enviar pedidos de suporte para o Azure Active Directory (Azure AD) B2C no portal do Azure com os seguintes passos:

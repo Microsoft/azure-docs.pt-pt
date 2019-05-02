@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
 ms.openlocfilehash: 3462255311eaa6e418f97de5da598eb985b2a935
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097291"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695068"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Utilizar o Microsoft Cognitive Toolkit modelo com o cluster do Azure HDInsight Spark de aprendizagem profunda
 

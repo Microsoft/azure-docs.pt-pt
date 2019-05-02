@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 9daf1a7e58af23cb78705691217bf9709359c4d5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15deadad3b53b64c619933db76d28f012c85d6d1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889867"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730264"
 ---
-# <a name="what-is-azure-iot-open-platform-communications-opc-device-management"></a>O que é a gestão de dispositivos do Azure IoT aberto plataforma comunicações (OPC)?
+# <a name="what-is-opc-twin"></a>O que é duplo de OPC?
 
 Duplo de OPC é composta por microsserviços que utilizam o Azure IoT Edge e IoT Hub para ligar a cloud e a rede de fábrica. Duplo de OPC fornece deteção, o registro e o controlo remoto dos dispositivos industriais através de REST APIs. Duplo de OPC não necessita de uma arquitetura de unificação de OPC (OPC UA) SDK, é independente de linguagem de programação e pode ser incluído num fluxo de trabalho sem servidor. Este artigo descreve vários casos de utilização do OPC duplo.
 

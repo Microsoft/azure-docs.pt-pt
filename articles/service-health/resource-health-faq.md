@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 03c5fb0f399e43af2584743655eeea8af4c5b2f5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620832"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924455"
 ---
 # <a name="azure-resource-health-faq"></a>FAQ do Estado de funcionamento do recurso do Azure
 Aprenda as respostas a perguntas comuns sobre o Azure Resource Health.
@@ -50,7 +50,7 @@ Sim, quando um recurso não está disponível, o estado de funcionamento do recu
 No portal, as ações iniciadas pelo utilizador são apresentadas com um ícone de notificação azul, enquanto planeados e não planeados de eventos são apresentados com um ícone de aviso vermelho. Obter mais detalhes são fornecidos na [descrição geral do Estado de funcionamento do recurso](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Posso integrar o estado de funcionamento de recursos com minhas ferramentas de monitoramento?
-Estado de funcionamento do recurso [suporte de pré-visualização](resource-health-alert-arm-template-guide.md) para registo de atividades com base em alertas. Utilização de alertas de registo de atividades [grupos de ação](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) para notificar os utilizadores que foi acionado um alerta. Os grupos de ação suportam uma variedade de canais de notificação, como e-mail, SMS, webhook e ações do ITSM.
+Estado de funcionamento do recurso [suporte de pré-visualização](resource-health-alert-arm-template-guide.md) para registo de atividades com base em alertas. Utilização de alertas de registo de atividades [grupos de ação](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) para notificar os utilizadores que foi acionado um alerta. Os grupos de ação suportam uma variedade de canais de notificação, como e-mail, SMS, webhook e ações do ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>Onde posso encontrar o Resource Health?
 Depois de iniciar sessão portal do Azure, existem várias formas de acessar o estado de funcionamento do recurso:

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 7c239bbf577645ddb8ab12c525d1b3a8832421df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60680565"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64936014"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualizar os padrões de tráfego de rede de e para as VMs com ferramentas de código aberto
 
@@ -76,9 +76,9 @@ CapAnalysis oferece várias opções para visualizar a captura de pacotes, cada 
 
 1. Mapa geográfico
 
-    Este painel fornece uma vista de mapa de seu tráfego de rede, com cores Dimensionar para o volume de tráfego de cada país. Pode selecionar países realçados para ver estatísticas de fluxo adicionais, tais como a proporção de dados enviados e recebidos de IPs naquele país.
+    Este painel fornece uma vista de mapa de seu tráfego de rede, com cores Dimensionar para o volume de tráfego de cada país/região. Pode selecionar países/regiões realçados para ver estatísticas de fluxo adicionais, tais como a proporção de dados enviados e recebidos de IPs desse país/região.
 
-    ![mapa geográfico][8]
+    ![Mapa geográfico][8]
 
 1. Filtros
 

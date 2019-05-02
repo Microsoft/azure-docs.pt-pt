@@ -1,25 +1,18 @@
 ---
-title: Página de utilizadores para o Azure Marketplace | Documentos da Microsoft
-description: .
+title: Página de usuários para o Azure Marketplace
+description: Descrição geral da página utilizadores no Portal de parceiros da Cloud para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 22768e90a419e7a5c3c9e286953afbf3ba2ab311
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 1c420a275efa4bb45ba952a04faafe25e30d64ef
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825582"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943438"
 ---
 # <a name="users-page"></a>Página de utilizadores
 

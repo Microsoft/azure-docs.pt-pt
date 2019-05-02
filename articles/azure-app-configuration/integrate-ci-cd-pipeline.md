@@ -12,22 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7db796b33bab941f038afab1b80127aded50b54a
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000022"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572504"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
 
-Pode melhorar a resiliência da sua aplicação contra a remota possibilidade de não ser capaz de alcançar a configuração de aplicações do Azure. Para fazer isso, o pacote para um ficheiro que é implementado com a aplicação e carregá-lo localmente durante o arranque do seu os dados de configuração atual. Essa abordagem garante que seu aplicativo tem, pelo menos, os valores de definição de predefinição. Estes valores são substituídos por quaisquer alterações mais recentes feitas num arquivo de configuração de aplicação quando estiver disponível.
+Seu aplicativo poderá não conseguir executar se ela depende da configuração de aplicações do Azure e não é possível aceder ao mesmo. Pode melhorar a resiliência do seu aplicativo para lidar com o caso, no entanto improvável é acontecer. Para fazer isso, o pacote para um ficheiro que é implementado com a aplicação e carregá-lo localmente durante o arranque do seu os dados de configuração atual. Essa abordagem garante que seu aplicativo tem, pelo menos, os valores de definição de predefinição. Estes valores são substituídos por quaisquer alterações mais recentes feitas num arquivo de configuração de aplicação quando estiver disponível.
 
 Utilizar o [exportar](./howto-import-export-data.md#export-data) função de configuração de aplicações do Azure, pode automatizar o processo de obtenção de dados de configuração atual como um único arquivo. Em seguida, incorpore esse arquivo numa etapa de compilação ou implementação na sua integração contínua e um pipeline de implementação contínua (CI/CD).
 
 O exemplo seguinte mostra como incluir a configuração de aplicações passo de dados como uma compilação para a aplicação web, introduzida nos inícios rápidos. Antes de continuar, concluir [criar uma aplicação ASP.NET Core com a configuração de aplicações](./quickstart-aspnet-core-app.md) primeiro.
 
-Pode utilizar qualquer editor de código para realizar os passos neste guia de introdução. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
+Pode utilizar qualquer editor de código para realizar os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,7 +48,7 @@ Para fazer uma compilação de cloud, com o Azure DevOps, por exemplo, certifiqu
 
     Adicionar a *ConnectionString* associado a seu arquivo de configuração de aplicação como uma variável de ambiente.
 
-2. Abra o ficheiro Program.cs e atualizar o `CreateWebHostBuilder` método a utilizar o ficheiro JSON exportado ao chamar o `config.AddJsonFile()` método.
+2. Open *Program.cs*e atualizar a `CreateWebHostBuilder` método a utilizar o ficheiro JSON exportado ao chamar o `config.AddJsonFile()` método.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

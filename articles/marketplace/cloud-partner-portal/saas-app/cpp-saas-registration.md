@@ -1,25 +1,18 @@
 ---
-title: Registar uma aplicação SaaS - Azure Marketplace | Documentos da Microsoft
+title: Registar uma aplicação SaaS | O Azure Marketplace
 description: Explica como registar uma aplicação SaaS com o portal do Azure.
 services: Azure, Marketplace, Cloud Partner Portal, Azure portal
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 1edaf89c056918f640a905b99d01775273b2c133
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101596"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941935"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
 

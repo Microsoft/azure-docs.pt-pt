@@ -13,11 +13,11 @@ ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
 ms.openlocfilehash: a336f7faae24517aa4e29c991886107c6a82d2b5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103912"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692563"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvimento com os serviços de multimédia de v3 APIs
 

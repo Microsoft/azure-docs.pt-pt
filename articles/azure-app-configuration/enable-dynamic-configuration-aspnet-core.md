@@ -9,27 +9,27 @@ editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.workload: tbd
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cf872766a18c5691f6c094d71a0c29f6bcf736da
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: b8a466234489e65458b0136619076154fa4c9f37
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579041"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688914"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Utilizar a configuração dinâmica de uma aplicação ASP.NET Core
 
-ASP.NET Core tem um sistema de configuração conectáveis que pode ler dados de configuração de várias origens. Ele pode lidar com alterações imediatamente sem fazer com que um aplicativo reinicie. ASP.NET Core suporta a associação das definições de configuração para classes do .NET com rigidez de tipos. Ele injeta-los no seu código usando as várias `IOptions<T>` padrões. Um dos seguintes padrões especificamente `IOptionsSnapshot<T>`, automaticamente recarrega a configuração da aplicação quando os dados subjacentes são alterados. 
+ASP.NET Core tem um sistema de configuração conectáveis que pode ler dados de configuração de várias origens. Ele pode lidar com alterações imediatamente sem fazer com que um aplicativo reinicie. ASP.NET Core suporta a associação das definições de configuração para classes do .NET com rigidez de tipos. Ele injeta-los no seu código usando as várias `IOptions<T>` padrões. Um dos seguintes padrões especificamente `IOptionsSnapshot<T>`, automaticamente recarrega a configuração da aplicação quando os dados subjacentes são alterados.
 
 Pode injetar `IOptionsSnapshot<T>` nos controladores na sua aplicação para aceder à configuração mais recente, armazenada na configuração de aplicações do Azure. Também pode configurar a biblioteca de cliente de configuração de aplicação ASP.NET Core continuamente, monitorizar e recuperar qualquer alteração num arquivo de configuração de aplicação. É possível definir o intervalo periódico para a consulta.
 
 Este tutorial mostra como pode implementar atualizações de configuração dinâmica no seu código. Ele se baseia na aplicação web introduzida nos rápidos. Antes de continuar, concluir [criar uma aplicação ASP.NET Core com a configuração de aplicações](./quickstart-aspnet-core-app.md) primeiro.
 
-Pode utilizar qualquer editor de código para realizar os passos neste guia de introdução. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção está disponível no Windows, macOS e plataformas Linux.
+Pode utilizar qualquer editor de código para realizar os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção está disponível no Windows, macOS e plataformas Linux.
 
 Neste tutorial, ficará a saber como:
 
@@ -39,13 +39,13 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
+Para fazer este tutorial, instale o [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="reload-data-from-app-configuration"></a>Recarregar os dados de configuração de aplicações
 
-1. Abra o ficheiro Program.cs e atualizar o `CreateWebHostBuilder` método adicionando o `config.AddAzureAppConfiguration()` método.
+1. Open *Program.cs*e atualizar a `CreateWebHostBuilder` método adicionando o `config.AddAzureAppConfiguration()` método.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -64,7 +64,7 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
 
     O segundo parâmetro no `.Watch` método é o intervalo de consulta em que a biblioteca de cliente do ASP.NET consulta um arquivo de configuração de aplicação. A biblioteca de cliente verifica a definição de configuração específica para ver se qualquer alteração ocorreu.
 
-2. Adicione um ficheiro Settings.cs que define e implementa um novo `Settings` classe.
+2. Adicionar uma *Settings.cs* ficheiro que define e implementa um novo `Settings` classe.
 
     ```csharp
     namespace TestAppConfig
@@ -79,7 +79,7 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
     }
     ```
 
-3. Abra Startup.cs e atualize o `ConfigureServices` método para vincular dados de configuração para o `Settings` classe.
+3. Open *Startup.cs*e atualizar a `ConfigureServices` método para vincular dados de configuração para o `Settings` classe.
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -98,7 +98,13 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
 
 ## <a name="use-the-latest-configuration-data"></a>Utilizar os dados de configuração mais recente
 
-1. Abra HomeController.cs no diretório de controladores. Atualização do `HomeController` classe para receber `Settings` por meio de injeção de dependência e marca utilizar dos seus valores.
+1. Open *HomeController.cs* no diretório de controladores e adicione uma referência para o `Microsoft.Extensions.Options` pacote.
+
+    ```csharp
+    using Microsoft.Extensions.Options;
+    ```
+
+2. Atualização do `HomeController` classe para receber `Settings` por meio de injeção de dependência e marca utilizar dos seus valores.
 
     ```csharp
     public class HomeController : Controller
@@ -121,7 +127,7 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
     }
     ```
 
-2. Abra o Index. cshtml nas vistas > diretório de casa e substituir seu conteúdo com o seguinte script:
+3. Open *Index. cshtml* nas vistas > diretório de casa e substituir seu conteúdo com o seguinte script:
 
     ```html
     <!DOCTYPE html>
@@ -162,9 +168,9 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
 
 5. Selecione **Explorador de chave/valor**e atualize os valores das seguintes chaves:
 
-    | Chave | Valor |
+    | Chave | Value |
     |---|---|
-    | TestAppSettings:BackgroundColor | Azul |
+    | TestAppSettings:BackgroundColor | green |
     | TestAppSettings:FontColor | lightGray |
     | TestAppSettings:Message | Dados de configuração de aplicações do Azure - agora com atualizações em direto! |
 

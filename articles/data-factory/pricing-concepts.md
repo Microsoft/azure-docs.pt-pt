@@ -3,19 +3,18 @@ title: Compreender o por meio de exemplos de preços do Azure Data Factory | Doc
 description: Este artigo explica e demonstra o modelo com exemplos detalhados de preços do Azure Data Factory
 documentationcenter: ''
 author: shlo
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: shlo
-ms.openlocfilehash: 80b1f90ee0d9f5003c39eb6a853a07d2d64ca482
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 454899cd7cc592b87f96233d73ca8c4ed6ac333f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787486"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935733"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas sobre preços de fábrica de dados por meio de exemplos
 
@@ -122,6 +121,45 @@ Para realizar o cenário, terá de criar um pipeline com os seguintes itens:
   - Atividades de movimento de dados = US $0.166 (Prorated durante 10 minutos de tempo de execução. US $ 0,25/hora no Runtime de integração do Azure)
   - Atividade do pipeline = US $0.00003 (Prorated para 1 minuto de tempo de execução. US $0.002/hora no Runtime de integração do Azure)
   - Atividade do Pipeline externo = US $0.000041 (Prorated durante 10 minutos de tempo de execução. US $0.00025/hora no Runtime de integração do Azure)
+
+## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Com a depuração de fluxo de dados de mapeamento para um dia de trabalho normal
+
+Como engenheiro de dados, é responsável por estruturar, criar e testar fluxos de dados de mapeamento de todos os dias. Iniciar sessão na IU do ADF da manhã e ativar o modo de depuração para fluxos de dados. O TTL predefinido para sessões de depuração é 60 minutos. Funciona ao longo do dia durante 10 horas, para que a sua sessão de depuração nunca expira. Por conseguinte, o custo para o dia será:
+
+**10 (horas) x 8 (núcleos) x US $0.112 = us $8.96**
+
+## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Transformar dados no armazenamento de Blobs com o mapeamento de fluxos de dados
+
+Neste cenário, deseja transformar dados no Blob Store visualmente no ADF mapeando os dados fluem um cronograma de hora a hora.
+
+Para realizar o cenário, terá de criar um pipeline com os seguintes itens:
+
+1. Uma atividade de fluxo de dados de mensagens em fila com a lógica de transformação.
+
+2. Um conjunto de dados entrado para os dados no armazenamento do Azure.
+
+3. Um conjunto de dados de saída para os dados no armazenamento do Azure.
+
+4. Um acionador de agenda para executar o pipeline a cada hora.
+
+| **Operações** | **Tipos e unidades** |
+| --- | --- |
+| Criar serviço ligado | 2 de leitura/escrita entidade  |
+| Criar conjuntos de dados | 4 entidades de leitura/gravação (2 para a criação de conjunto de dados, 2 para referências de serviço ligado) |
+| Criar Pipeline | 3 entidades de leitura/gravação (1 para a criação do pipeline, 2 para referências do conjunto de dados) |
+| Obter o Pipeline | 1 entidade de leitura/escrita |
+| Executar o Pipeline | 2 execuções de Atividades (1 para 1 para execuções de atividades, execução do acionador) |
+| Tempo de execução de suposições de fluxo de dados: = 10 min + 10 min TTL | 10 \* 8 núcleos de computação geral com o valor de TTL de 10 |
+| Pressuposição de Pipeline do monitor: 1 apenas executar Ocorreu | 2 registos de monitorização run repetida (1 para 1 para a execução da atividade, execução de pipeline) |
+
+**Total de preços de cenário: $0.3011**
+
+- Operações da fábrica de dados = **US $0,0001**
+  - Leitura/escrita = 10\*00001 = US $0,0001 [1 R/W = US $ 0,50/50000 = 0,00001]
+  - Monitorização = 2\*000005 = US $0,00001 [monitorização 1 = US $ 0,25/50000 = 0.000005]
+- Orquestração do pipeline &amp; execução = **US $0.301**
+  - Execuções de atividades = 001\*2 = 0.002 [1 executar = US $1/1000 = 0,001]
+  - Atividades de fluxo de dados = US $0.299 Prorated durante 20 minutos (tempo de execução de 10 minutos + 10 minutos TTL). US $0.112/ hora no Runtime de integração do Azure com gerais de 8 núcleos de computação
 
 ## <a name="next-steps"></a>Passos Seguintes
 

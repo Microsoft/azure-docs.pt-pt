@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/29/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 67d3dcad4ec73ee09ec40282b2fbdea945daefe4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 21944c62f09518e20619313cd6ac28fb2ad600c7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122681"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925286"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Alojamento de Web site estático no armazenamento do Azure
 Contas de armazenamento GPv2 do Azure permitem-lhe servir conteúdo estático (HTML, CSS, JavaScript e arquivos de imagem) diretamente a partir de um contentor de armazenamento com o nome *$web*. Tirar partido de hospedagem no armazenamento do Azure permite utilizar arquiteturas sem servidor, incluindo [as funções do Azure](/azure/azure-functions/functions-overview) e outros serviços PaaS.
@@ -52,16 +52,21 @@ O nome de ficheiro predefinido selecionado é utilizado na raiz e todos os subdi
 
 ## <a name="cdn-and-ssl-support"></a>Suporte CDN e SSL
 
-Para tornar sua estático site ficheiros disponível através de HTTPS, consulte [utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md). Como parte deste processo, precisa *apontar o CDN para o ponto final web* em vez do ponto final do blob. Terá de aguardar alguns minutos até que seu conteúdo está visível à medida que a configuração de CDN não é executada imediatamente.
+Para disponibilizar os ficheiros do Web site estático ao longo do seu domínio personalizado e HTTPS, consulte [utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md). Como parte deste processo, precisa *apontar o CDN para o ponto final web* em vez do ponto final do blob. Terá de aguardar alguns minutos até que seu conteúdo está visível à medida que a configuração de CDN não é executada imediatamente.
 
 Ao atualizar o seu Web site estático, certifique-se de que limpar o conteúdo em cache em servidores edge CDN ao remover o ponto final da CDN. Para obter mais informações, consulte [Remover um ponto final do Azure CDN](../../cdn/cdn-purge-endpoint.md).
+
+> [!NOTE]
+> HTTPS é suportado nativamente através do ponto de final de web de conta. A utilização de domínios personalizados através de HTTPS requer a utilização da CDN do Azure neste momento. 
+>
+> Público web ponto final da conta através de HTTPS: `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
 
 ## <a name="custom-domain-names"></a>Nomes de domínio personalizados
 
 Pode [configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure](storage-custom-domain-name.md) para tornar o seu Web site estático disponível por meio de um domínio personalizado. Para alojar o seu domínio num exame minucioso sobre [do Azure, consulte alojar o seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Preços
-Alojamento de Web site estático é fornecido sem custos adicionais. Para obter mais detalhes sobre os preços para o armazenamento de Blobs do Azure, consulte a [página de preços do Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Permitir a hospedagem de Web site estático é sem encargos. São cobradas aos clientes para os custos de operações e de armazenamento de BLOBs utilizados. Para obter mais detalhes sobre os preços para o armazenamento de Blobs do Azure, consulte a [página de preços do Azure Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Início Rápido
 
@@ -159,7 +164,10 @@ Não, o alojamento de Web site estático apenas está disponível nas contas de 
 Sim, o novo ponto final da web obedeça as regras VNET e de firewall configuradas para a conta de armazenamento.
 
 **O ponto final web diferencia maiúsculas de minúsculas?**  
-Sim, o ponto final web diferencia maiúsculas de minúsculas tal como o ponto final do blob. 
+Sim, o ponto final web diferencia maiúsculas de minúsculas tal como o ponto final do blob.
+
+**O ponto final web é acessível através de HTTP e HTTPS?**
+Sim, o ponto final web é acessível através de HTTP e HTTPS. No entanto, se a conta de armazenamento está configurada para requerer transferência segura através de HTTPS, em seguida, os utilizadores podem utilizar o ponto final HTTPS. Para obter mais informações, consulte [requer transferência segura no armazenamento do Azure](../common/storage-require-secure-transfer.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Utilizar a CDN do Azure para aceder a blobs com domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md)

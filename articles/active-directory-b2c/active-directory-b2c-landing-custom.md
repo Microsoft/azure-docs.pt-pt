@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 5/06/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: bca20bdcf682b040a2fe0b14bf06bc6ca59528b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5e09fd32b56c553d60f68060471f28c1d8e5ef12
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317450"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703171"
 ---
 # <a name="sign-up-and-sign-in-consumers-in-your-applications-using-custom-policies-in-azure-active-directory-b2c"></a>Inscreva-se e iniciar sessão em consumidores nas suas aplicações com políticas personalizadas no Azure Active Directory B2C
 

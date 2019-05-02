@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: c6ac3d9dbbb16caed51243fea852adea541b9f04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a71a0cd5888cec5c3af0e2853edf5a7f014939b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505412"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919943"
 ---
 # <a name="azure-iot-edge-security-module"></a>Módulo de segurança do Azure IoT Edge
 
@@ -27,7 +27,7 @@ ms.locfileid: "60505412"
 > Centro de segurança do Azure para IoT está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é fornecido sem um contrato de nível de serviço e não é recomendada para worklo§1ads de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[O Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) fornece capacidades poderosas para gerir e executar fluxos de trabalho do negócio na periferia.
+[O Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) fornece capacidades poderosas para gerir e executar fluxos de trabalho do negócio na periferia.
 A parte de chave do IoT Edge desempenha em ambientes de IoT tornam especialmente atraente para atores maliciosos.
 
 Centro de segurança do Azure (ASC) para o módulo de segurança de IoT fornece uma solução de segurança abrangente para o IoT Edge dispositivos.
@@ -44,7 +44,7 @@ ASC para o módulo de segurança de IoT para o IoT Edge oferece as seguintes fun
 
 - Análise de manifestos de implantação do IoT Edge.
 
-- Agrega eventos de segurança não processados em mensagens enviadas por meio [Hub do IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
+- Agrega eventos de segurança não processados em mensagens enviadas por meio [Hub do IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).
 
 - Remova configuração através da utilização do duplo do módulo de segurança.
 

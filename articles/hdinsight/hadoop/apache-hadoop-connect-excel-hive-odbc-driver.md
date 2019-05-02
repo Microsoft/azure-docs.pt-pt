@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: hrasheed
 ms.openlocfilehash: 37fed781629351475b384ac843a588bdaf7b5b66
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121848"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718159"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Ligar o Excel para Apache Hadoop no HDInsight do Azure com o controlador Microsoft Hive ODBC
 

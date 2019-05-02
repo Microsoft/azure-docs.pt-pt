@@ -1,5 +1,5 @@
 ---
-title: Copiar dados para o Microsoft Azure Data Box através do SMB | Documentos da Microsoft
+title: Tutorial para copiar dados através de SMB no Azure Data Box | Documentos da Microsoft
 description: Saiba como copiar dados para o Azure Data Box através de SMB
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04f7710d95f5ce7a2b6195383c2737ff3b1fbf04
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466214"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925560"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -41,8 +41,8 @@ Antes de começar, certifique-se de que:
 
 Data Box com base na conta de armazenamento selecionada, cria até:
 - Três partilhas para cada conta de armazenamento associada de GPv1 e GPv2.
-- Um compartilhamento para armazenamento premium. 
-- Um compartilhamento para conta de armazenamento de Blobs. 
+- Um compartilhamento para armazenamento premium.
+- Um compartilhamento para conta de armazenamento de Blobs.
 
 Nas partilhas de blob de blocos e de blob de páginas, as entidades de primeiro nível são os contentores e as de segundo nível são os blobs. Nas partilhas de ficheiros do Azure, as entidades de primeiro nível são as partilhas e as de segundo nível são os ficheiros.
 
@@ -91,7 +91,7 @@ Se utilizar um computador de anfitrião do Windows Server, siga estes passos par
 
     **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada no blob de blocos e partilhas de blob de página representa um contentor para o qual os dados são carregados como blobs. Não é possível copiar o arquivos diretamente à *raiz* pasta na conta de armazenamento.
     
-Se utilizar um cliente Linux, utilize o comando seguinte para montar a partilha SMB. O parâmetro de "vers=3.0,username" abaixo é a versão do SMB que suporte o anfitrião Linux. Plug-in a versão adequada no comando abaixo. Para versões do SMB que o Data Box suporta consulte [sistemas de ficheiros suportados por clientes Linux](https://docs.microsoft.com/en-us/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
+Se utilizar um cliente Linux, utilize o comando seguinte para montar a partilha SMB. O parâmetro de "vers=3.0,username" abaixo é a versão do SMB que suporte o anfitrião Linux. Plug-in a versão adequada no comando abaixo. Para versões do SMB que o Data Box suporta consulte [sistemas de ficheiros suportados por clientes Linux](https://docs.microsoft.com/azure/databox/data-box-system-requirements#supported-file-systems-for-linux-clients) 
 
     `sudo mount -t nfs -o vers=2.1 10.126.76.172:/devicemanagertest1_BlockBlob /home/databoxubuntuhost/databox`
     
@@ -132,7 +132,7 @@ Depois de se ligar à partilha de SMB, iniciar a cópia de dados. Pode utilizar 
 |/z    | Copia os ficheiros no modo de Reinício. Utilize se o ambiente for instável. Esta opção reduz o débito devido ao registo adicional.      |
 | /zb     | Utiliza o modo de Reinício. Se o acesso for negado, esta opção utiliza o modo de Cópia de Segurança. Esta opção reduz o débito devido ao ponto de verificação.         |
 |/efsraw     | Copia todos os ficheiros encriptados no modo EFS não processado. Utilize apenas com ficheiros encriptados.         |
-|log+:<LogFile>| Anexa a saída ao ficheiro de registo existente.|    
+|log+:\<LogFile>| Anexa a saída ao ficheiro de registo existente.|    
  
 O exemplo seguinte mostra a saída do comando do Robocopy para copiar ficheiros para o Data Box.
     

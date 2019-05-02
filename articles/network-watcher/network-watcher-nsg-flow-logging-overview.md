@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1ec7fd4116aa848a9c431df386997cb23f405f1b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684562"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925420"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo do fluxo para grupos de segurança de rede
 
@@ -91,7 +91,7 @@ O texto que se segue é um exemplo de um registo de fluxo. Como pode ver, existe
 
 **Ativar NSG fluxo o registo em todos os NSGs anexados a um recurso**: Fluxo de início de sessão do Azure está configurado no recurso NSG. Um fluxo só pode ser associado a uma regra de NSG. Em cenários em que são utilizados vários NSGs, recomendamos que o registo do fluxo do NSG está ativado em todos os NSGs aplicada a interface de rede ou sub-rede de um recurso para garantir que todo o tráfego é registrado. Ver [como o tráfego é avaliado](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obter mais informações sobre grupos de segurança de rede. 
 
-**Os custos de registo do fluxo**: Registo do fluxo do NSG é faturado o volume de registos produzidos. Volume de tráfego elevado pode resultar num volume de registo de fluxo de grandes dimensões e os custos associados. Preços do log de fluxo de NSG não incluem os custos subjacentes de armazenamento. Utilizar a funcionalidade de política de retenção com o registo de fluxo de NSG pode resultar num grande volume de operações de armazenamento e os custos associados. Se não requerem a funcionalidade de política de retenção, recomendamos que defina este valor como 0. Ver [preços de observador de rede](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) e [preços de armazenamento do Azure](https://azure.microsoft.com/en-us/pricing/details/storage/) para obter mais detalhes.
+**Os custos de registo do fluxo**: Registo do fluxo do NSG é faturado o volume de registos produzidos. Volume de tráfego elevado pode resultar num volume de registo de fluxo de grandes dimensões e os custos associados. Preços do log de fluxo de NSG não incluem os custos subjacentes de armazenamento. Utilizar a funcionalidade de política de retenção com o registo de fluxo de NSG pode resultar num grande volume de operações de armazenamento e os custos associados. Se não requerem a funcionalidade de política de retenção, recomendamos que defina este valor como 0. Ver [preços de observador de rede](https://azure.microsoft.com/pricing/details/network-watcher/) e [preços de armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
 
 **Com sessão iniciados da internet IPs VMs sem IPs públicos de fluxos de entrada**: VMs que não têm um endereço IP público atribuído por meio de um endereço IP público associado ao NIC como um IP público ao nível da instância ou que fazem parte de um conjunto de back-end de Balanceador de carga básico, utilize [predefinido SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) e ter um endereço IP atribuído pelo Azure para facilitar a conectividade de saída. Como resultado, poderá ver entradas de registo do fluxo de fluxos de internet de endereços IP, se o fluxo se destinar a uma porta no intervalo de portas atribuídas para SNAT. Enquanto o Azure não permite que estes fluxos para a VM, a tentativa é registada e é apresentado no registo de fluxo NSG de observador de rede por predefinição. Recomendamos que tráfego de internet de entrada indesejável explicitamente bloqueado com o NSG.
 

@@ -1,25 +1,18 @@
 ---
-title: Configurar as oportunidades potenciais | Documentos da Microsoft
+title: Configurar as oportunidades potenciais | O Azure Marketplace
 description: Configure as oportunidades potenciais no Portal de parceiros de nuvem.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 2a425e607ea7dac394ab90a3fed4d4026056bbc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61069613"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64934991"
 ---
 <a name="get-customer-leads"></a>Obter oportunidades potenciais
 ==================

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d6e5142bec29f58671c553b7b32bb72202cae263
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322707"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706163"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Serviços de multimédia do Azure v3 perguntas mais frequentes
 
@@ -41,6 +41,10 @@ Uso [transforma](https://docs.microsoft.com/rest/api/media/transforms) para conf
 ### <a name="how-does-pagination-work"></a>Como funciona a paginação?
 
 Ao utilizar a paginação, deve sempre utilizar a ligação seguinte enumere a coleção e não dependem de um tamanho de página em particular. Para obter detalhes e exemplos, consulte [filtragem, ordenação, paginação](entities-overview.md).
+
+### <a name="what-features-are-not-yet-available-in-azure-media-services-v3"></a>Que funcionalidades ainda não estão disponíveis na v3 de serviços de multimédia do Azure?
+
+Para obter detalhes, consulte [funcionalidade lacunas em relação a v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="live-streaming"></a>Transmissão em direto 
 

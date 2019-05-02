@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 65c74b7451c5a605ca8c2e866296c87c0320b730
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8e4c145409579e2e3a833494008656d4d0e8e49e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316906"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703754"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Gerir as ameaças aos recursos e dados no Azure Active Directory B2C
 

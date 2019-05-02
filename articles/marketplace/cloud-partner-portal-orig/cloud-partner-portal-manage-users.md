@@ -1,25 +1,19 @@
 ---
-title: Gestão de utilizadores no portal de parceiros da cloud
+title: Gestão de utilizadores no portal do cloud partner | O Azure Marketplace
 description: Gestão de utilizadores no portal de parceiros da cloud
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777143"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935152"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Gestão de utilizadores no portal de parceiros da cloud
 ======================================

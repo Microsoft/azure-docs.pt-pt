@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 41a5f08be833d1235146d6e748580751af2c9d73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8461764a3f1f682ffb97420a4efdf2803f518872
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311034"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707148"
 ---
 # <a name="service-bus-faq"></a>Perguntas Frequentes do Service Bus
 
@@ -41,6 +41,48 @@ Uma fila convencional ou um tópico é manipulado por um mediador de mensagem ú
 Não é garantida a ordenação quando utilizar entidades particionadas. No caso de uma partição não estiver disponível, ainda pode enviar e receber mensagens de outras partições.
 
  Entidades particionadas já não são suportadas no [Premium SKU](service-bus-premium-messaging.md). 
+
+### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Que portas preciso abrir na firewall? 
+Pode utilizar os seguintes protocolos com o Azure Service Bus para enviar e receber mensagens:
+
+- Avançadas Message Queuing Protocol (AMQP)
+- (SBMP) do protocolo de mensagens do Service Bus
+- HTTP
+
+Veja a seguinte tabela para as portas de saída que é necessário abrir para utilizar estes protocolos para comunicar com os Hubs de eventos do Azure. 
+
+| Protocolo | Portas | Detalhes | 
+| -------- | ----- | ------- | 
+| AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](service-bus-amqp-protocol-guide.md) | 
+| SBMP | 9350 a 9354 | Consulte [modo de conectividade](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| HTTP, HTTPS | 80, 443 | 
+
+### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Que endereços IP é necessário à lista de permissões?
+Para localizar os endereços IP corretos para a lista de permissões para as suas ligações, siga estes passos:
+
+1. Execute o seguinte comando numa linha de comandos: 
+
+    ```
+    nslookup <YourNamespaceName>.servicebus.windows.net
+    ```
+2. Anote o endereço IP devolvido na `Non-authoritative answer`. Este endereço IP é estático. O único ponto no tempo que ele seria alterado é se restaurar o espaço de nomes para um cluster diferente.
+
+Se utilizar a redundância de zona para o espaço de nomes, precisa fazer algumas etapas adicionais: 
+
+1. Em primeiro lugar, execute nslookup no espaço de nomes.
+
+    ```
+    nslookup <yournamespace>.servicebus.windows.net
+    ```
+2. Anote o nome na **resposta não autoritativa** seção, que se encontra dos seguintes formatos: 
+
+    ```
+    <name>-s1.servicebus.windows.net
+    <name>-s2.servicebus.windows.net
+    <name>-s3.servicebus.windows.net
+    ```
+3. Execute nslookup para cada um com sufixos s1, s2 e s3 para obter os endereços IP de todos os três instâncias em execução em três zonas de disponibilidade, 
+
 
 ## <a name="best-practices"></a>Melhores práticas
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>Quais são algumas práticas recomendadas do Azure Service Bus?

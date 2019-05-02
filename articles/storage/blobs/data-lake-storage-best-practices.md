@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: e371ac848eff0e66390fe17bc23934725fca35f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b39866b990812913924118c564a5e93f898b1cb
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708537"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939473"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Melhores práticas para utilizar a geração 2 de armazenamento do Azure Data Lake
 

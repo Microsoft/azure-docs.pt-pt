@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61095631"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574465"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -77,26 +77,16 @@ Se estiver a utilizar o Azure File Sync para aceder a partilha de ficheiros do A
 Os ficheiros do Azure oferece dois escalões de desempenho: standard e premium.
 
 * **Partilhas de ficheiros padrão** são apoiados por rotação unidades de disco de rígido (HDDs) que apresentam um desempenho fiável para cargas de trabalho de e/s que são menos sensíveis à variabilidade de desempenho, como partilhas de ficheiros para fins gerais e ambientes de desenvolvimento/teste. Partilhas de ficheiros padrão só estão disponíveis num modelo de faturação pay as you go.
-* **As partilhas de ficheiros (pré-visualização) Premium** são apoiados por discos Estado sólidos (SSDs) que fornecem consistente de alto desempenho e baixa latência, em milissegundos de dígito na maioria das operações de e/s, para mais cargas de trabalho de e/s intensiva. Isso as torna adequadas para uma grande variedade de cargas de trabalho, como bases de dados, alojamento de web sites, ambientes de desenvolvimento, etc. Partilhas de ficheiros de Premium só estão disponíveis num modelo de faturação aprovisionado. Partilhas de ficheiros de Premium utilizam um modelo de implantação separado de partilhas de ficheiros padrão. Se gostaria de saber como criar uma partilha de ficheiros de premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de ficheiros do Azure premium](storage-how-to-create-premium-fileshare.md).
+* **As partilhas de ficheiros (pré-visualização) Premium** são apoiados por discos Estado sólidos (SSDs) que fornecem consistente de alto desempenho e baixa latência, em milissegundos de dígito na maioria das operações de e/s, para mais cargas de trabalho de e/s intensiva. Isso as torna adequadas para uma grande variedade de cargas de trabalho, como bases de dados, alojamento de web sites, ambientes de desenvolvimento, etc. Partilhas de ficheiros de Premium só estão disponíveis num modelo de faturação aprovisionado. Partilhas de ficheiros de Premium utilizam um modelo de implantação separado de partilhas de ficheiros padrão.
+
+Cópia de segurança do Azure está disponível para partilhas de ficheiros de premium e o serviço Kubernetes do Azure suporta partilhas de ficheiros de premium na versão 1.13 e acima.
+
+Se gostaria de saber como criar uma partilha de ficheiros de premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de ficheiros do Azure premium](storage-how-to-create-premium-fileshare.md).
+
+Atualmente, não é possível converter diretamente entre uma partilha de ficheiros e uma partilha de ficheiros de premium. Se gostaria de mudar para o escalão, tem de criar uma nova partilha de ficheiros nesse escalão e copiar os dados manualmente a partilha original de para a nova partilha que criou. Pode fazê-lo a utilizar as ferramentas de cópia de ficheiros do Azure suportados, por exemplo, o AzCopy.
 
 > [!IMPORTANT]
-> Ficheiros Premium partilhas ainda estão em pré-visualização, só estão disponível com o LRS e só estão disponíveis num subconjunto de regiões com suporte de cópia de segurança do Azure estejam disponíveis no selecionar regiões:
-
-|Região disponível  |Suporte de cópia de segurança do Azure  |
-|---------|---------|
-|E.U.A. Leste 2      | Sim|
-|EUA Leste       | Sim|
-|EUA Oeste       | Não |
-|E.U.A. Oeste 2      | Não |
-|EUA Central    | Não |
-|Europa do Norte  | Não |
-|Europa Ocidental   | Sim|
-|Sudeste asiático       | Sim|
-|Ásia Oriental     | Não |
-|Leste do Japão    | Não |
-|Oeste do Japão    | Não |
-|Coreia do Sul Central | Não |
-|Leste da Austrália| Não |
+> Partilhas de ficheiros de Premium ainda estão em pré-visualização, só estão disponíveis com o LRS e estão disponíveis na maioria das regiões que oferecem as contas de armazenamento. Para saber se as partilhas de ficheiros do premium estão atualmente disponíveis na sua região, consulte a [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) página para o Azure.
 
 ### <a name="provisioned-shares"></a>Partilhas aprovisionadas
 
@@ -115,7 +105,9 @@ Partilhas de tem de ser aprovisionadas em incrementos de 1 GiB. Tamanho mínimo 
 >
 > taxa de entrada = 40 MiB/s + 0.04 * aprovisionado GiB
 
-Tamanho da partilha pode ser aumentado em qualquer altura, mas pode ser reduzido apenas após 24 horas desde o último aumento. Após uma espera de 24 horas, sem um aumento de tamanho, pode diminuir o tamanho da partilha de quantas vezes até que aumentá-la novamente. Alterações de dimensionamento IOPS/débito entrarão em vigor dentro de alguns minutos após a alteração de tamanho.
+Tamanho da partilha pode ser aumentado em qualquer altura, mas pode ser reduzido apenas após 24 horas desde o último aumento. Após uma espera de 24 horas, sem um aumento de tamanho, pode diminuir o tamanho da partilha de quantas vezes desejar, até que aumentá-la novamente. Alterações de dimensionamento IOPS/débito entrarão em vigor dentro de alguns minutos após a alteração de tamanho.
+
+É possível diminuir o tamanho da partilha aprovisionado do abaixo sua GiB utilizado. Se fizer isso, não perderá dados mas, ainda será cobrado para o tamanho utilizado e receber o desempenho (linha de base de IOPS, débito e IOPS de rajada) da partilha aprovisionado, não o tamanho utilizado.
 
 A tabela seguinte ilustra alguns exemplos destes viramos para os tamanhos de partilha aprovisionado:
 
@@ -141,7 +133,7 @@ Partilhas de ficheiros de Premium podem ultrapassar os limites seu IOPS até um 
 Créditos acumular-se num bucket de rajada sempre que o tráfego para a partilha de ficheiros está abaixo da linha de base IOPS. Por exemplo, uma partilha de GiB 100 tem a linha de base de 100 IOPS. Se o tráfego real na partilha foi 40 IOPS para um intervalo de 1 segundo específico, o IOPS de não utilizado 60 é creditado um bucket de rajada. Estes créditos, em seguida, serão utilizados mais tarde quando operações iria exceder a linha de base IOPs.
 
 > [!TIP]
-> Tamanho do registo de rajada = Baseline_IOPS * 2 * 3600.
+> Tamanho do registo de rajada = IOPS de linha de base * 2 * 3600.
 
 Sempre que uma partilha excede a linha de base IOPS e tem créditos num bucket de rajada, irá expandir. Partilhas podem continuar a expandir, desde que os créditos são restantes, embora partilhas menores do que 50 TiB apenas permanecerá atingiu o limite de rajada para até uma hora. Partilhas de maiores do que 50 TiB tecnicamente podem exceder este limite de uma hora, se a duas horas, mas isso é com base no número de créditos de rajada acumulados. Cada e/s para além de linha de base de IOPS consome uma unidade de crédito e assim que todos os créditos são consumidos a partilha irá devolver a linha de base IOPS.
 

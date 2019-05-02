@@ -1,28 +1,21 @@
 ---
-title: Considerações sobre a API | Documentos da Microsoft
+title: Considerações sobre a API | O Azure Marketplace
 description: Problemas de controle de versão, tratamento de erros e autorização ao utilizar o APIs do marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c6cfb41cb6254145821ab3fef662e9a5e54f6298
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 6bf27db27daee50f78552344ae1b2b116d48a5c0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625062"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935566"
 ---
-<a name="api-considerations"></a>Considerações sobre a API
-=================
+# <a name="api-considerations"></a>Considerações sobre a API
+
 
 <a name="api-versioning"></a>Controlo de versões de API
 --------------

@@ -1,25 +1,18 @@
 ---
-title: Implementar uma VM do Azure de um usuário VHD | Documentos da Microsoft
+title: Implementar uma VM do Azure de um usuário VHD | O Azure Marketplace
 description: Explica como implementar uma imagem VHD de utilizador para criar uma instância de VM do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: pabutler
+ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046740"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938246"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementar uma VM do Azure a partir de um VHD do utilizador
 
@@ -38,7 +31,7 @@ Copiar o modelo Azure Resource Manager para [implementação de VHD](cpp-deploy-
 | userStorageAccountName     | Nome da conta de armazenamento                                                    |
 | sNameForPublicIP           | Nome DNS para o IP público. Tem de estar em minúsculas                                  |
 | subscriptionId             | Identificador de subscrição do Azure                                                  |
-| Localização                   | Localização geográfica do Azure padrão do grupo de recursos                       |
+| Location                   | Localização geográfica do Azure padrão do grupo de recursos                       |
 | vmName                     | Nome da máquina virtual                                                    |
 | vaultName                  | Nome do Cofre de chaves                                                          |
 | vaultResourceGroup         | Grupo de recursos do Cofre de chaves

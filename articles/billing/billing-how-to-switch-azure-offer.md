@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: banders
-ms.openlocfilehash: bbdcbdc7ef288eeeb279c7e5e59baee492e1f292
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11d3deb029ef0d8478844b64c54db7982ed1091e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60918788"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570979"
 ---
 # <a name="change-your-azure-pay-as-you-go-subscription-to-a-different-offer"></a>Alterar a sua subscrição pay as you go do Azure para outra oferta
 
@@ -86,7 +86,7 @@ Poderá não ver o **mudar para outra oferta** botão se:
 ### <a name="why-do-i-see-there-are-no-offers-available-in-your-region-or-country-at-this-time"></a>Por que vejo "Existem não existem ofertas disponíveis na sua região ou país neste momento"?
 
 * Não pode ser elegível para quaisquer comutadores de oferta. Verifique os [lista de ofertas disponíveis, pode mudar para](#whats-supported) e certifique-se de que ativou os benefícios certos com o Visual Studio ou do Bizspark.
-* Algumas ofertas poderão não estar disponíveis em todos os países.
+* Algumas ofertas podem não estar disponíveis em todos os países/regiões.
 
 ### <a name="what-does-switching-azure-offers-do-to-my-service-and-billing"></a>O que faz a mudar de fazer ofertas do Azure para meu serviço e de faturação?
 

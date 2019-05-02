@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1d4f7460d53e721ca1cba7aba6c6ef9c45111ee5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 495f7f465c47627eb066f4bc602bcfafdc6fd566
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316413"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703556"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e início de sessão com uma conta do Google com o Azure Active Directory B2C
 

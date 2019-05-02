@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 01/11/2019
 ms.author: annayak
-ms.openlocfilehash: 673101ad7f55969c216adf7e970402a2109f8254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 35f8a766c6d260e23ff854284d5b8ee047e64b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60864341"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926231"
 ---
 # <a name="troubleshoot-classic-storage-resource-deletion-errors"></a>Resolver problemas de erros de eliminação de recursos de armazenamento clássicas
 Este artigo fornece orientações de resolução de problemas quando um dos seguintes erros ocorre ao tentar eliminar a conta de armazenamento clássico do Azure, contentor ou VHD; ficheiro de BLOBs de página. 
@@ -37,7 +37,7 @@ Um recurso de "Disco" é usado para montar um ficheiro de BLOBs de página *. vh
 3. Assim que a concessão de disco (s) for interrompida, os BLOBs de página em si podem ser eliminados. Uma conta de armazenamento ou contentor pode ser eliminado depois de todos os recursos de "Disco" presentes nos mesmos são eliminados.
 
 >[!NOTE] 
->Se o utilizador elimina a VM, mas não o VHD, os custos de armazenamento irão continuar a acumular no ficheiro de VHD de blob de página. Os encargos serão em conformidade com o tipo de conta de armazenamento, verifique os [página de preços](https://azure.microsoft.com/en-us/pricing/details/storage/) para obter mais detalhes. Se o utilizador já não tenciona utilizar o VHD, elimine it /-los para evitar futuras Cobranças. 
+>Se o utilizador elimina a VM, mas não o VHD, os custos de armazenamento irão continuar a acumular no ficheiro de VHD de blob de página. Os encargos serão em conformidade com o tipo de conta de armazenamento, verifique os [página de preços](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes. Se o utilizador já não tenciona utilizar o VHD, elimine it /-los para evitar futuras Cobranças. 
 
 ## <a name="unable-to-delete-storage-account"></a>Não é possível eliminar a conta de armazenamento 
 

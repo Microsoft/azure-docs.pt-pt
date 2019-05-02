@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: add3521a3961f230188e04ff23dda5aac537571a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61418495"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924746"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -90,7 +90,7 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 5. **Novo** -agora tem várias opções de configuração onde os registos de auditoria serão escritos. Pode escrever os registos para uma conta de armazenamento do Azure, para uma área de trabalho do Log Analytics para consumo pelos registos do Azure Monitor ou para hub de eventos para consumo com o hub de eventos. Pode configurar qualquer combinação destas opções e registos de auditoria serão escritos para cada um.
 
    > [!WARNING]
-   > Ativação da auditoria para o Log Analytics incorre em encargos com base nas tarifas de ingestão. Atente o custo associado com o uso isso [opção](https://azure.microsoft.com/en-us/pricing/details/monitor/), ou considere armazenar a auditoria de registos numa conta de armazenamento do Azure.
+   > Ativação da auditoria para o Log Analytics incorre em encargos com base nas tarifas de ingestão. Atente o custo associado com o uso isso [opção](https://azure.microsoft.com/pricing/details/monitor/), ou considere armazenar a auditoria de registos numa conta de armazenamento do Azure.
 
     ![Opções de armazenamento](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 

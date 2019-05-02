@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.openlocfilehash: c39c332055943f915471d0da18526f793d4d7a4a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125547"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705025"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>Utilizar o Apache Pig com o Apache Hadoop no HDInsight
 

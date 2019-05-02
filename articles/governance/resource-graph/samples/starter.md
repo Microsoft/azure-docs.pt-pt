@@ -9,11 +9,11 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 98b05f74f0d6f7d20b5aa7ed77047818f217f147
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62732388"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691181"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de introdução do Azure Resource Graph
 

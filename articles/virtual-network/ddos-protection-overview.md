@@ -3,8 +3,8 @@ title: Descrição geral de padrão da proteção contra DDoS do Azure | Documen
 description: Saiba mais sobre o serviço Azure DDoS Protection.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/13/2018
-ms.author: jdial
-ms.openlocfilehash: 3183ff5ca1b951e1a2f813c71ac52fef4ae17021
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.author: kumud
+ms.openlocfilehash: c639bc1edceba9c9da08ee6bcc54c860f857cd33
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57245867"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696025"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Descrição geral do padrão de proteção contra DDoS do Azure
 

@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/18/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 1107842444ad0ac77ab890f07e65c8b489030461
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1fbe5b0a49960248133c35fb4a0401a31b95fb35
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60721713"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700941"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolver soluções de computação paralelas em grande escala com o Batch
 
@@ -132,7 +132,7 @@ Quando cria um agrupamento do Batch, pode especificar a configuração da máqui
 
 - A **Configuração de Máquina Virtual**, que especifica que o agrupamento é composto por máquinas virtuais do Azure. Estas VMs podem ser criadas a partir de imagens do Linux ou do Windows. 
 
-    Quando cria um agrupamento com base na Configuração de Máquina Virtual, tem de especificar não só o tamanho dos nós e a origem das imagens utilizadas para criá-los, como também a **referência da imagem da máquina virtual** e o **SKU do agente de nó** do Batch a instalar nos nós. Para obter mais informações sobre como especificar estas propriedades dos conjuntos, veja [Provision Linux compute nodes in Azure Batch pools (Aprovisionar nós de computação do Linux em conjuntos do Azure Batch)](batch-linux-nodes.md). Opcionalmente, pode anexar um ou mais discos de dados vazio às VMs do agrupamento criadas a partir de imagens do Marketplace ou incluir os discos de dados em imagens personalizadas utilizadas para criar as VMs.
+    Quando cria um agrupamento com base na Configuração de Máquina Virtual, tem de especificar não só o tamanho dos nós e a origem das imagens utilizadas para criá-los, como também a **referência da imagem da máquina virtual** e o **SKU do agente de nó** do Batch a instalar nos nós. Para obter mais informações sobre como especificar estas propriedades dos conjuntos, veja [Provision Linux compute nodes in Azure Batch pools (Aprovisionar nós de computação do Linux em conjuntos do Azure Batch)](batch-linux-nodes.md). Opcionalmente, pode anexar um ou mais discos de dados vazio às VMs do agrupamento criadas a partir de imagens do Marketplace ou incluir os discos de dados em imagens personalizadas utilizadas para criar as VMs. Ao incluir discos de dados, terá de montar e formatar os discos a partir de uma VM para utilizá-los.
 
 - A **Configuração de Serviços Cloud**, que especifica que o agrupamento é composto por nós de Serviços Cloud do Azure. Os Serviços Cloud *só* disponibilizam nós de computação do Windows.
 

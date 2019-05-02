@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 11e49d362508e9720cf65fc20e020930b5f5c3ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9be99bc9ac4683fea97333c9d6cb783f0fde35c5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769843"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575353"
 ---
 # <a name="glossary"></a>Glossário
 
@@ -63,7 +63,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="bearing"></a> **Tendo**: A direção horizontal de um ponto em relação a outro ponto. Isso é expresso como um ângulo em relação ao norte, de graus de 0 a 360-graus no sentido horário. 
 
-<a name="boundary"></a> **Limite**: Uma linha ou um polígono separar adjacentes entidades de políticas, como países, escolas e propriedades. Um limite é uma linha que podem ou não poderá seguir características físicas, como rios, montanhas ou paredes.
+<a name="boundary"></a> **Limite**: Uma linha ou um polígono separar adjacentes entidades de políticas, como países/regiões, escolas e propriedades. Um limite é uma linha que podem ou não poderá seguir características físicas, como rios, montanhas ou paredes.
 
 <a name="bounds"></a> **Limites**: Ver [Bounding caixa](#bounding-box).
 
@@ -91,13 +91,13 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="coordinate-system"></a> **Sistema de coordenadas**: Uma estrutura de referência utilizada para definir as posições dos pontos no espaço em duas ou três dimensões.
 
-<a name="country-code"></a> **Indicativo de país**: Um identificador exclusivo para um país com base no padrão ISO. ISO2 é um código de dois caracteres para um país (por exemplo, EUA), que representa ISO3 três caracteres de código (por exemplo, EUA).
+<a name="country-code"></a> **Indicativo de país**: Um identificador exclusivo para um país/região com base no padrão ISO. ISO2 é um código de dois caracteres para um país (por exemplo, EUA), que representa ISO3 três caracteres de código (por exemplo, EUA).
 
-<a name="country-subdivision"></a> **Subdivisões do país**: Uma subdivisão de primeiro nível de um país, comumente conhecido como um Estado ou província.
+<a name="country-subdivision"></a> **Subdivisões do país**: Uma subdivisão de primeiro nível de um país/região, comumente conhecido como um Estado ou província.
 
-<a name="country-secondary-subdivision"></a> **Subdivisões secundário do país**: Uma subdivisão de segundo nível de um país, comumente conhecido como um CONDADO.
+<a name="country-secondary-subdivision"></a> **Subdivisões secundário do país**: Uma subdivisão de segundo nível de um país/região, comumente conhecido como um CONDADO.
 
-<a name="country-tertiary-subdivision"></a> **Subdivisões terciária do país**: Uma subdivisão de terceiro nível de um país, normalmente, uma área nomeada como um ward.
+<a name="country-tertiary-subdivision"></a> **Subdivisões terciária do país**: Uma subdivisão de terceiro nível de um país/região, normalmente, uma área nomeada como um ward.
 
 <a name="cross-street"></a> **Rua entre**: Um ponto em que dois ou mais streets intersect.
 
@@ -283,7 +283,7 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="post-code"></a> **Publicar código**: Ver [caixa postal](#postal-code).
 
-<a name="postal-code"></a> **Código postal**: Uma série de letras ou números ou ambas, num formato específico, utilizado pelo serviço postal de um país para dividir áreas geográficas em zonas para simplificar a entrega de correio.
+<a name="postal-code"></a> **Código postal**: Uma série de letras ou números ou ambas, num formato específico, utilizado pelo serviço postal de um país/região para dividir áreas geográficas em zonas para simplificar a entrega de correio.
 
 <a name="prime-meridian"></a> **Meridiano**: Uma linha de longitude que representa 0 graus de longitude. Geralmente, os valores de longitude diminuir quando em transição numa direção westerly até 180 graus e aumentar quando estiverem em deslocação nas direções easterly para -180-graus. 
 
@@ -351,11 +351,11 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="terrain"></a> **Terrain**: Uma área de terra ter uma característica específica, como o terreno sandy ou mountainous terreno.
 
-<a name="thematic-maps"></a> **Mapas temáticas**: Um mapa temática é um mapa simple feito para refletir um tema sobre uma área geográfica. É um cenário comum para este tipo de mapa para as regiões administrativas, como países com base em algumas métrica de dados de cores.
+<a name="thematic-maps"></a> **Mapas temáticas**: Um mapa temática é um mapa simple feito para refletir um tema sobre uma área geográfica. É um cenário comum para este tipo de mapa para as regiões administrativas, como países/regiões com base em algumas métrica de dados de cores.
 
 <a name="tile-layer"></a> **Camada de mosaicos**: Uma camada apresentada com a montagem de mosaicos de mapa (retangulares secções) para uma camada contínua. Os mosaicos são ambos quadrícula mosaicos de imagem ou vetoriais mosaicos. A camadas em mosaico em padrão normalmente é processada antes do tempo e armazenada como imagens num servidor. Isso pode consumir muito espaço de armazenamento. A camadas em mosaico vetor é processada em tempo real no aplicativo cliente, portanto, os requisitos de armazenamento do lado do servidor são menores.
 
-<a name="time-zone"></a> **Fuso horário**: Uma região de todo o mundo que observa uma hora uniforme de standard para fins legais, comerciais e sociais. Fusos horários tendem a seguir os limites de países e seus subdivisões.
+<a name="time-zone"></a> **Fuso horário**: Uma região de todo o mundo que observa uma hora uniforme de standard para fins legais, comerciais e sociais. Fusos horários tendem a seguir os limites de países/regiões e seus subdivisões.
 
 <a name="transaction"></a> **Transação**: Mapas do Azure utiliza um modelo de licenciamento transacional onde;
 
@@ -398,5 +398,5 @@ Segue-se uma lista de palavras comuns utilizadas com o Azure Maps.
 
 <a name="zip-code"></a> **Código postal**: Ver [caixa postal](#postal-code).
 
-<a name="Zoom level"></a> **Nível de zoom**: Especifica o nível de detalhe e quanto do mapa está visível. Quando reduzido a um nível 0, o mapa-mundo completa será sempre na vista, mas irá mostrar detalhes limitados, como nomes de países e bordas e como e nomes de Oceano. Quando ampliado mais próximo para o nível 17, o mapa será apresentada uma área de alguns blocos de cidade com informações detalhadas de viagem. Para obter mais informações, consulte a [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md) documentação.
+<a name="Zoom level"></a> **Nível de zoom**: Especifica o nível de detalhe e quanto do mapa está visível. Quando reduzido a um nível 0, o mapa-mundo completa será sempre na vista, mas irá mostrar detalhes limitados, como nomes de país/região e bordas e como e nomes de Oceano. Quando ampliado mais próximo para o nível 17, o mapa será apresentada uma área de alguns blocos de cidade com informações detalhadas de viagem. Para obter mais informações, consulte a [níveis de Zoom e grelha de mosaico](zoom-levels-and-tile-grid.md) documentação.
 

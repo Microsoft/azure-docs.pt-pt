@@ -1,25 +1,18 @@
 ---
-title: Definições de Marketplace para uma imagem de contentores do Azure | Documentos da Microsoft
+title: Definições de Marketplace para uma imagem de contentores do Azure | O Azure Marketplace
 description: Configure definições de mercado para um contentor do Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 220084dd0a3c61205a2cf53c29cf49291000efdb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472982"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942638"
 ---
 # <a name="container-marketplace-tab"></a>Separador de Marketplace do contentor
 
@@ -31,16 +24,18 @@ Nesta secção, é possível inserir as informações gerais sobre a sua oferta 
 
 ![Informação do Marketplace](./media/containers-marketplace-tab.png)
 
-A tabela seguinte descreve a finalidade e o conteúdo desses campos.
+A tabela seguinte descreve a finalidade e o conteúdo desses campos. Campos obrigatórios são indicted por um asterisco (*).
 
-|  **Campo**                |     **Descrição**                                                          |
+|    Campo                  |       Descrição                                                            |
 |  ---------                |     ---------------                                                          |
-| **Title** (Título)                 | Título da oferta. Será apresentado forma destacada no marketplace.  Comprimento máximo é de 50 carateres. |
-| **Resumo**               | Breve resumo da oferta. Comprimento máximo é 100 carateres. |
-| **Resumo completo**          | Já resumo da oferta (embora pode ser igual a **resumo**).  Comprimento máximo é de 256 carateres. |
-| **Descrição**           | Descrição da oferta.  Comprimento máximo é 3000 carateres, oferece suporte a formatação de HTML simples.
+| **Título\***                 | Título da oferta. Será apresentado forma destacada no marketplace.  Comprimento máximo é de 50 carateres. |
+| **Resumo\***               | Breve resumo da oferta. Comprimento máximo é 100 carateres. |
+| **Resumo completo\***          | Já resumo da oferta (embora pode ser igual a **resumo**).  Comprimento máximo é de 256 carateres. |
+| **Descrição\***           | Descrição da oferta.  Comprimento máximo é 3000 carateres, oferece suporte a formatação de HTML simples.
 | **Identificador de marketing**  | Uma URL exclusiva para associar a esta oferta, que normalmente inclui o nome da sua organização e a solução. Comprimento máximo é de 50 carateres.   |
-| **Ids de subscrição de pré-visualização** | Adicione um e 100 identificadores de subscrição dos visualizadores. Estas subscrições listadas em branco têm acesso para a oferta assim que for publicado, antes de entrar no ar. |
+| **Ids de subscrição de pré-visualização\*** | Adicione um e 100 identificadores de subscrição dos visualizadores. Estas subscrições listadas em branco têm acesso para a oferta assim que for publicado, antes de entrar no ar. |
+|  |  |
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

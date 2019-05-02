@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6775f6e37a5b282afcfcdce7f93751e852923366
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1495c14ae4c588661452aa3696019da00be47548
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60349568"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571375"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
 A maioria dos tópicos para saber como utilizar o Azure AD Connect parte do princípio de começar com um Azure novo inquilino do AD e o que há nenhum usuário ou outros objetos. Mas se tiver iniciado com um inquilino do Azure AD, preenchido este com utilizadores e outros objetos e agora pretende utilizar Connect, em seguida, este tópico é para si.
@@ -58,6 +58,15 @@ Para uma nova instalação do Connect, não existe nenhum prática a diferença 
 
 ### <a name="other-objects-than-users"></a>Outros objetos que os utilizadores
 Para grupos com capacidade de correio e contatos, pode soft-correspondência com base em proxyAddresses. Disco rígido-match não é aplicável, uma vez que só pode atualizar o sourceAnchor/immutableID (com o PowerShell) os utilizadores apenas. Para os grupos que não são habilitados para email, atualmente não há suporte para a correspondência de forma recuperável ou de disco rígido.
+
+### <a name="admin-role-considerations"></a>Considerações de função de administrador
+Para impedir que utilizadores não fidedignos no local de correspondência com um utilizador na cloud com qualquer função de administrador, o Azure AD Connect não serão iguais aos objetos de utilizador no local com objetos que têm uma função de administrador. Trata-se por predefinição. Para resolver esse comportamento pode fazer o seguinte:
+
+1.  Remover as funções de diretório do objeto de utilizador apenas na cloud
+2.  Acionar uma sincronização
+3.  Opcionalmente, adicione as funções de diretório para o objeto de utilizador na cloud, assim que a correspondência ocorreu.
+
+
 
 ## <a name="create-a-new-on-premises-active-directory-from-data-in-azure-ad"></a>Criar um novo do Active Directory no local a partir de dados no Azure AD
 Alguns clientes começam com uma solução apenas na cloud com o Azure AD e não têm uma local do AD. Mais tarde pretende consumir recursos no local e quer criar uma local do AD com base nos dados do Azure AD. O Azure AD Connect não pode ajudá-lo para este cenário. Não cria os utilizadores no local e não tem qualquer capacidade de definir a palavra-passe no local para os mesmos que no Azure AD.

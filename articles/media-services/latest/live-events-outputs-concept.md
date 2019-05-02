@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.openlocfilehash: a36ca880387ee1a3c5f749dbd6b9d7dcb9e6d79d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103810"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708972"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 

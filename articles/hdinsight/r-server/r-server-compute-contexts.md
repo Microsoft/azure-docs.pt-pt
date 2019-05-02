@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.openlocfilehash: 9dac7aa19e428c964bd10c3ef62df949393e8d1f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124645"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681775"
 ---
 # <a name="compute-context-options-for-ml-services-on-hdinsight"></a>Opções de contexto para os serviços de ML no HDInsight de computação
 

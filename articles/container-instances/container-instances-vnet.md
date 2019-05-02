@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 25f9d4e02bcb354acf1c771157622f07c5f4bcc1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60684220"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712797"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Implementar instâncias de contentor numa rede virtual do Azure
 
@@ -265,7 +265,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 A pré-visualização inicial desse recurso exige vários comandos adicionais para eliminar os recursos de rede que criou anteriormente. Se utilizou os comandos de exemplo nas secções anteriores deste artigo para criar a rede virtual e sub-rede, em seguida, pode utilizar o seguinte script para eliminar os recursos de rede.
 
-Antes de executar o script, defina o `RES_GROUP` variável para o nome do grupo de recursos que contém a rede virtual e a sub-rede que deve ser eliminado. O script é formatado para o shell de Bash. Se preferir outro shell, tais como o PowerShell ou a linha de comandos, terá de ajustar a atribuição de variáveis e acessadores de forma apropriada.
+Antes de executar o script, defina o `RES_GROUP` variável para o nome do grupo de recursos que contém a rede virtual e a sub-rede que deve ser eliminado. Atualizar os nomes de rede virtual e sub-rede, se não utilizou o `aci-vnet` e `aci-subnet` nomes sugeridas anteriormente. O script é formatado para o shell de Bash. Se preferir outro shell, tais como o PowerShell ou a linha de comandos, terá de ajustar a atribuição de variáveis e acessadores de forma apropriada.
 
 > [!WARNING]
 > Este script elimina recursos! Elimina a rede virtual e todas as sub-redes que nele contidos. Certifique-se de que já não precisar *qualquer* dos recursos na rede virtual, incluindo quaisquer sub-redes contém, antes de executar este script. Depois de serem eliminadas **estes recursos são irrecuperáveis**.
@@ -281,6 +281,8 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $RES_GROUP --query
 az network profile delete --id $NETWORK_PROFILE_ID -y
 
 # Get the service association link (SAL) ID
+# Replace aci-vnet and aci-subnet with your VNet and subnet names in the following commands
+
 SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name aci-vnet --name aci-subnet --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
 
 # Delete the default SAL ID for the subnet

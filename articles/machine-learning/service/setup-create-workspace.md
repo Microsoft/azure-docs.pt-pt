@@ -11,11 +11,11 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 04/19/2019
 ms.openlocfilehash: ca43a6cff6a32a30d93e42f6a6624439b2fe83a7
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766801"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696533"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace"></a>Criar uma área de trabalho do serviço do Azure Machine Learning
 

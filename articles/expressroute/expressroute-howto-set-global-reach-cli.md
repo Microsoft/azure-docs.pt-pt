@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 28df8f59944ccac9d731e15a558d864beed2f3ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364219"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869968"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurar o alcance Global do ExpressRoute com a CLI do Azure
 
@@ -48,7 +48,7 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>Identificar os circuitos do ExpressRoute para configuração
 
-Pode ativar o alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estejam localizados no países com suporte e foram criados em diferentes localizações de peering. Se a sua subscrição é a proprietária de ambos os circuitos, pode escolher qualquer circuito para executar a configuração, conforme explicado neste artigo. Se dois circuitos estiverem em diferentes subscrições do Azure, deve ter a autorização de uma subscrição do Azure e têm de introduzir a chave de autorização ao executar o comando de configuração na subscrição do Azure.
+Pode ativar o alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estão localizados em países/regiões suportadas e foram criados em diferentes localizações de peering. Se a sua subscrição é a proprietária de ambos os circuitos, pode escolher qualquer circuito para executar a configuração, conforme explicado neste artigo. Se dois circuitos estiverem em diferentes subscrições do Azure, deve ter a autorização de uma subscrição do Azure e têm de introduzir a chave de autorização ao executar o comando de configuração na subscrição do Azure.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>Ativar a conectividade entre as redes no local
 

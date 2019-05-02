@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/19/2019
-ms.openlocfilehash: 6ad4cf251ad09adb7e1f11ebd42d7eab0d6a9183
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3a29c6b4d0308b41e29f38fc29d79634727d593
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330964"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926012"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>O Azure SQL encriptação de dados transparente com chaves geridas pelo cliente no Azure Key Vault: Oferecer suporte a sua própria chave
 
@@ -61,6 +61,7 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
 - Decidir quais as subscrições que vão ser utilizados para os recursos necessários – uma nova configuração do TDE com BYOKs necessita de mover o servidor entre subscrições mais tarde. Saiba mais sobre [mover recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 - Ao configurar o TDE com o Azure Key Vault, é importante levar em consideração a carga colocada no Cofre de chaves por repetidas moldar/anular moldagem de operações. Por exemplo, uma vez que todas as bases de dados associados a um servidor de base de dados SQL utilizam o mesmo protetor de TDE, irá acionar uma ativação pós-falha desse servidor como muitas operações-chave em relação a quantos do cofre são bases de dados no servidor. Com base em nossa experiência e documentadas [limites de serviço do Cofre de chaves](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits), recomendamos que a associação de no máximo, 500 Standard / fins gerais ou 200 Premium / bases de dados críticas para a empresa com um Azure Key Vault numa única subscrição para garantir consistentemente elevada disponibilidade ao acessar o protetor de TDE no cofre.
 - Recomendado: Manter uma cópia do protetor de TDE no local.  Isso exige um dispositivo HSM para criar um Protetor de TDE localmente e um sistema de caução de chaves para armazenar uma cópia local do Protetor de TDE.  Saiba mais [como transferir uma chave de um HSM local ao Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Para problemas com as configurações existentes, consulte [TDE de resolução de problemas](https://docs.microsoft.com/sql/relational-databases/security/encryption/troubleshoot-tde)
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Diretrizes para configurar o Azure Key Vault
 
@@ -72,7 +73,7 @@ Quando a TDE primeiro estiver configurado para utilizar um protetor de TDE do Ke
 - Conceda o acesso ao servidor da base de dados SQL para o Cofre de chaves utilizando a respetiva identidade do Azure Active Directory (Azure AD).  Ao utilizar a IU do Portal, a identidade do Azure AD é criada automaticamente e as permissões de acesso do Cofre de chaves são concedidas para o servidor.  Utilizar o PowerShell para configurar o TDE com o BYOK, a identidade do Azure AD tem de ser criada e a conclusão deve ser verificada. Ver [TDE configurar com o BYOK](transparent-data-encryption-byok-azure-sql-configure.md) e [configurar TDE com o BYOK para a instância gerida](https://aka.ms/sqlmibyoktdepowershell) para obter instruções passo a passo detalhadas ao utilizar o PowerShell.
 
   > [!NOTE]
-  > Se o Azure AD Identity **é acidentalmente eliminado ou permissões do servidor são revogadas** através da política de acesso do Cofre de chaves, o servidor perde o acesso ao Cofre de chaves e bases de dados do TDE encriptado estão inacessíveis dentro de 24 horas.
+  > Se o Azure AD Identity **é acidentalmente eliminado ou permissões do servidor são revogadas** através da política de acesso do Cofre de chaves ou inadvertidamente, movendo o servidor para uma subscrição diferente, o servidor perde o acesso ao Cofre de chaves, e bases de dados do TDE encriptado estão inacessíveis dentro de 24 horas.  
 
 - Ao utilizar firewalls e redes virtuais com o Azure Key Vault, tem de configurar o seguinte: 
   - Permitr serviços Microsoft fidedignos contornem esta firewall – escolher Sim

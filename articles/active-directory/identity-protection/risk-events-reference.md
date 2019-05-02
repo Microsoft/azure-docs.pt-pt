@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d009022d4ec03990d3ed0321ebcb13c72c674ed8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294213"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709606"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referência de eventos de risco do Azure Active Directory Identity Protection
 
@@ -80,10 +80,16 @@ Esse tipo de evento de risco indica inícios de sessão de endereços IP infetad
 
 ## <a name="unfamiliar-sign-in-properties"></a>Propriedades de início de sessão não familiar
 
-**Tipo de Deteção:** Em tempo real  
-**Nome antigo:** Inícios de sessão de localizações desconhecidas
+**Tipo de Deteção:** Em tempo real **nome antigo:** Inícios de sessão de localizações desconhecidas
 
 Este tipo de evento de risco considera anteriores histórico de início de sessão (IP, Latitude / Longitude e o ASN) para procurar por inícios de sessão anómalos. O sistema armazena informações sobre localizações anteriores, utilizado por um utilizador e considera esses locais "familiares". O evento de risco é acionado quando o início de sessão ocorre a partir de uma localização que não ainda esteja na lista de localizações familiares. Criado recentemente os utilizadores serão no "modo de aprendizagem" durante um período de tempo em que propriedades de início de sessão não familiares eventos de risco serão desativados enquanto os nossos algoritmos saiba o comportamento do utilizador. A aprendizagem é dinâmica, duração de modo e depende em quanto tempo demora o algoritmo para recolher informações suficientes sobre os padrões de início de sessão do utilizador. A duração mínima é de cinco dias. Um utilizador pode voltar atrás no modo de aprendizagem após um longo período de inatividade. O sistema também ignora os inícios de sessão de dispositivos familiares e localizações geograficamente próximas uma localização familiar. 
 
 Executamos também esta deteção para a autenticação básica (ou protocolos herdados). Uma vez que estes protocolos não tem propriedades modernos, como o ID de cliente, não existe telemetria limitada para reduzir os falsos positivos. Recomendamos que os nossos clientes para mover para a autenticação moderna.
 
+
+## <a name="azure-ad-threat-intelligence"></a>Informações sobre ameaças do Azure AD
+
+**Tipo de Deteção:** Offline <br>
+**Nome antigo:** Esta deteção será apresentada nos relatórios do Azure AD Identity Protection herdados (utilizadores sinalizados para risco, eventos de risco) como "Utilizadores com fuga de credenciais"
+
+Este tipo de evento de risco indica atividade do utilizador que está fora do comum para o utilizador especificado ou é consistente com os padrões de ataques conhecidos com base nas origens de informações de ameaças internas e externas da Microsoft.

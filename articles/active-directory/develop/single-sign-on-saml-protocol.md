@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d976a43173ce4f9deee0a723a895b40678e173b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250511"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705000"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de início de sessão único
 
@@ -90,7 +90,7 @@ Se `NameIDPolicy` for fornecido, pode incluir sua opcional `Format` atributo. O 
 O Azure AD ignora o `AllowCreate` atributo.
 
 ### <a name="requestauthncontext"></a>RequestAuthnContext
-O `RequestedAuthnContext` elemento Especifica os métodos de autenticação pretendido. É opcional no `AuthnRequest` elementos enviados para o Azure AD. O Azure AD suporta apenas um `AuthnContextClassRef` valor: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
+O `RequestedAuthnContext` elemento Especifica os métodos de autenticação pretendido. É opcional no `AuthnRequest` elementos enviados para o Azure AD. O Azure AD suporta `AuthnContextClassRef` valores, tais como `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### <a name="scoping"></a>Controlo de âmbito
 O `Scoping` elemento, que inclui uma lista de fornecedores de identidade, é opcional no `AuthnRequest` elementos enviados para o Azure AD.

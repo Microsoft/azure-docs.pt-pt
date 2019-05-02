@@ -16,12 +16,12 @@ ms.date: 06/13/2018
 ms.author: rogarana
 ms.custom: H1Hack27Feb2017
 ms.subservice: disks
-ms.openlocfilehash: 1915051380a514cf8143d43bddc0d0d475f43c07
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 3f33fb09a4b6c19bae3c02ecc47dae193a3a6cb0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765848"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925222"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM com Linux
 Este artigo mostra-lhe como anexar um disco persistente a sua VM, para que pode preservar seus dados - mesmo que a VM é reaprovisionada devido a manutenção ou redimensionar.
@@ -205,7 +205,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 >
 > O *nofail* opção garante que a VM é iniciado, mesmo que o sistema de ficheiros está danificado ou o disco não existe no momento da inicialização. Sem esta opção, pode encontrar o comportamento, conforme descrito em [não é possível SSH à VM do Linux devido a erros FSTAB](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/)
 >
-> Consola de série de VM do Azure pode ser utilizada para acesso à consola para a VM, se modificar fstab resultou numa falha de inicialização. Estão disponíveis em mais detalhes a [documentação da consola de série](https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/serial-console-linux).
+> Consola de série de VM do Azure pode ser utilizada para acesso à consola para a VM, se modificar fstab resultou numa falha de inicialização. Estão disponíveis em mais detalhes a [documentação da consola de série](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte de cortar/UNMAP para Linux no Azure
 Alguns kernels de Linux suportam operações de cortar/UNMAP descartar blocos não utilizados no disco. Esta funcionalidade é útil principalmente no armazenamento standard para informar o Azure eliminado páginas já não são válido e podem ser descartados e pode economizar dinheiro, se cria arquivos grandes e, em seguida, eliminá-los.

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/23/2019
 ms.author: ramamill
-ms.openlocfilehash: 678f9aa60d4970540ded8ba0bb1a4ddaa6281a49
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1b6084b4e93f3dc17f633f1b8496f9c26e7f576f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101902"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925479"
 ---
 # <a name="scale-with-additional-process-servers"></a>Dimensionar com os servidores de processos adicionais
 
@@ -24,7 +24,7 @@ Por predefinição, quando está a replicar VMs de VMware ou servidores físicos
 
 Certifique-se de que já executou [planeamento de capacidade](site-recovery-plan-capacity-vmware.md) para a replicação de VMware. Isto ajuda a identificar como e quando deve implantar os servidores de processos adicionais.
 
-Da versão 9.24, documentação de orientação é adicionada durante a seleção de servidor de processos das replicações de novo. Servidor de processos será marcado bom estado de funcionamento, aviso e críticas com base em determinados critérios. Para compreender os diferentes cenários que podem influenciar o estado do servidor de processos, visite [as orientações de seleção de servidor de processo](vmware-azure-manage-process-server.md#process-server-selection-guidance).
+Da versão 9.24, documentação de orientação é adicionada durante a seleção de servidor de processos das replicações de novo. Servidor de processos será marcado bom estado de funcionamento, aviso e crítico, com base em determinados critérios. Para compreender os diferentes cenários que podem influenciar o estado do servidor de processos, reveja os [processar alertas do servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
 > Não é suportada a utilização de um componente de servidor de processos clonado. Siga os passos neste artigo para cada PS Escalamento horizontal.

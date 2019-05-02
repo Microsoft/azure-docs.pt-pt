@@ -16,10 +16,10 @@ ms.date: 07/19/2017
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: eec049a2dc0292f0f732d0f560b8e1e2cac08600
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708329"
 ---
 [!INCLUDE [virtual-machines-common-premium-storage.md](../../../includes/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks.md)]

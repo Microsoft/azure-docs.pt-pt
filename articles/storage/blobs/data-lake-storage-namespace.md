@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b423d40884dd9132312e79ba0cbff00b8771b207
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0d888db5f8de137783a3f9282ca7f85d8a30fc3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747545"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939448"
 ---
 # <a name="azure-data-lake-storage-gen2-hierarchical-namespace"></a>Espaço de nomes hierárquico geração 2 de armazenamento do Data Lake do Azure
 

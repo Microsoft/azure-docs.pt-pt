@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 547b6a629677830b6f37883a4be835c12a62e599
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0faad91e9e3ff9384dcae57ed27c21fa21946b5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234032"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573767"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guia de IA do Azure para soluções de manutenção preditiva
 
@@ -92,7 +92,7 @@ Esta seção se concentra numa coleção de PdM casos de utilização de vários
 |**Finanças** |                         |
 |_Falha de ATM_ é um problema comum no setor bancário. O problema aqui é a probabilidade de que uma transação de retirada de dinheiro de ATM for interrompida devido a uma falha de confusão ou parte do documento no fornecedor de pagamento à vista de relatório. Com base nas predições de falhas de transação, caixas eletrônicos podem ser reparados proativamente para evitar a ocorrência de falhas.| Em vez de permitir que a máquina para falhar a meio de uma transação, é a alternativa desejável programa a máquina para negar serviços com base na predição.|
 |**Energia** |                          |
-|_Faça isso falhas turbina_: Turbines vento são a origem de energia principal em países ambiental responsáveis e envolvem custos de capitais altos. Um componente chave no turbines do vento é o motor de gerador. sua falha renderiza a turbina ineficaz. Também é altamente Caro corrigir.|Prever KPIs, tais como MTTF (tempo médio de falha) pode ajudar as empresas de energia evitar falhas de turbina e certifique-se de período de indisponibilidade mínimo. Probabilidades de falha irão informar técnicos para monitorizar turbines que são provável que falhem em breve e agendar regimes baseados no tempo de manutenção. Modelos de previsão de fornecem informações sobre os diferentes fatores que contribuem para a falha, o que ajuda a técnicos de compreender melhor que as principais causas de problemas.|
+|_Faça isso falhas turbina_: Turbines vento são a origem de energia principal em países/regiões ambiental responsáveis e envolvem custos de capitais altos. Um componente chave no turbines do vento é o motor de gerador. sua falha renderiza a turbina ineficaz. Também é altamente Caro corrigir.|Prever KPIs, tais como MTTF (tempo médio de falha) pode ajudar as empresas de energia evitar falhas de turbina e certifique-se de período de indisponibilidade mínimo. Probabilidades de falha irão informar técnicos para monitorizar turbines que são provável que falhem em breve e agendar regimes baseados no tempo de manutenção. Modelos de previsão de fornecem informações sobre os diferentes fatores que contribuem para a falha, o que ajuda a técnicos de compreender melhor que as principais causas de problemas.|
 |_Falhas de disjuntor automático_: Distribuição de eletricidade para casas e empresas requer linhas de power fique operacional em todos os momentos para garantir a entrega de energia. Separadores de circuito ajudar a limitar ou evitar danos à potência linhas durante sobrecarga ou adversos sobreviver aos condições. O problema de negócios aqui é prever falhas de disjuntor automático.| As soluções de PdM ajudam a reduzir os custos de reparação e aumentar a vida útil de equipamentos, tais como separadores de circuito. Eles ajudam a melhorar a qualidade da rede energia ao reduzir falhas inesperadas e interrupções do serviço.|
 |**Transportes e logística** |    |
 |_Falhas de porta do elevador_: As empresas de grande elevador fornecem um serviço de pilha completa para milhões de elevadores funcionais em todo o mundo. Tempo de atividade, confiabilidade e segurança elevador são as principais preocupações para seus clientes. Estas empresas controlam esses e vários outros atributos através de sensores, para ajudá-los com a manutenção preventiva e medidas corretiva. Num elevador, o problema mais proeminente do cliente está a funcionar incorretamente portas elevador. Neste caso é o problema comercial proporcionar um aplicativo de previsão de base de dados de conhecimento que prevê que o potencial causa de falhas de porta de.| Elevadores são investimentos de capitais para potencialmente um tempo de vida do ano de 20 a 30. Para que cada venda potencial possa ser altamente competitiva; Por conseguinte, as expectativas de suporte são elevadas. Manutenção preditiva pode dar a essas empresas com uma vantagem sobre seus concorrentes em seus produtos e ofertas de serviço.|

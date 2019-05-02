@@ -1,30 +1,23 @@
 ---
-title: Descrição de mercado para um módulo do Azure IoT Edge | Documentos da Microsoft
+title: Descrição de mercado para um módulo do Azure IoT Edge | O Azure Marketplace
 description: Crie a descrição do marketplace para o módulo do IoT Edge.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913336"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942383"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Separador de Marketplace de módulo do IoT Edge
 
-
 O **Marketplace** separador da **nova oferta** página permite-lhe fornecer os seus clientes potenciais informações de marketing, vendas e legais e contratos e gerir as oportunidades potenciais geradas a partir do Marketplace. Esta forma longa é dividida em quatro seções: **Descrição geral**, **artefactos de Marketing**, **numa gestão**, e **legais**.
+
 
 ## <a name="overview"></a>Descrição geral
 
@@ -32,22 +25,25 @@ Nesta secção, é possível inserir as informações gerais sobre a sua oferta 
 
 ![Secção de descrição geral da guia Marketplace do formulário de nova oferta para os módulos do IoT Edge](./media/iot-edge-module-marketplace-tab-overview.png)
 
-A tabela seguinte descreve a finalidade e o conteúdo desses campos.
+A tabela seguinte descreve a finalidade e o conteúdo desses campos. Campos obrigatórios são indicted por um asterisco (*).
 
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
-| **Title** (Título)                 | Título da oferta. Será apresentado forma destacada no marketplace.  Comprimento máximo de 50 carateres. <!--ADD PICTURE IN ACTION-->|
-| **Resumo**               | Breve resumo da oferta. Comprimento máximo de 100 carateres. <!--ADD PICTURE IN ACTION-->|
-| **Resumo completo**          | Já resumo da oferta (embora pode ser igual a **resumo**).  Comprimento máximo de 256 carateres. <!--ADD PICTURE IN ACTION-->|
-| **Descrição**           | Descrição da oferta.  Comprimento máximo de 3000 carateres, oferece suporte a formatação de HTML simples.<br/> Tem de incluir um *requisitos mínimos de hardware* parágrafo na parte inferior. Por exemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Linux x64 e OS arm32, 1 GB de RAM, 500 Mb de armazenamento</p>
-| **Identificador de marketing**  | Uma URL exclusiva para associar a esta oferta, normalmente inclui a sua organização e o nome da solução, 50 carateres de comprimento máximo.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Título\***                 | Título da oferta. Será apresentado forma destacada no marketplace.  Comprimento máximo de 50 carateres. <!--ADD PICTURE IN ACTION-->|
+| **Resumo\***               | Breve resumo da oferta. Comprimento máximo de 100 carateres. <!--ADD PICTURE IN ACTION-->|
+| **Resumo completo\***          | Já resumo da oferta (embora pode ser igual a **resumo**).  Comprimento máximo de 256 carateres. <!--ADD PICTURE IN ACTION-->|
+| **Descrição\***           | Descrição da oferta.  Comprimento máximo de 3000 carateres, oferece suporte a formatação de HTML simples.<br/> Tem de incluir um *requisitos mínimos de hardware* parágrafo na parte inferior. Por exemplo: <br/> <p><u>Requisitos mínimos de hardware:</u> Linux x64 e OS arm32, 1 GB de RAM, 500 Mb de armazenamento</p>
+| **Identificador de marketing\***  | Uma URL exclusiva para associar a esta oferta, normalmente inclui a sua organização e o nome da solução, 50 carateres de comprimento máximo.  Por exemplo: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **IDs de subscrição de pré-visualização** | Adicione um e 100 identificadores de subscrição dos visualizadores. Estas subscrições listadas em branco têm acesso para a oferta assim que for publicado, antes de entrar no ar. |
 | **Ligações úteis**          | Seleção múltipla de negócios e técnicas categorias que oferecem pode ser melhor associada.  Um máximo de 10 permitido. Certifique-se de adicionar pelo menos uma ligação para a documentação e uma ligação para os dispositivos do IoT Edge compatíveis dos [catálogo de dispositivos do IoT do Azure](https://catalog.azureiotsolutions.com/). |
-| **Categorias sugeridas** | Escolha até cinco categorias. Serão apresentados na sua página de detalhes do produto. Nas páginas de procura, todos os módulos do IoT Edge são apresentados sob a *Internet das coisas \> módulo do IoT Edge* categoria.|
+| **Categorias sugeridas\*** | Escolha até cinco categorias. Serão apresentados na sua página de detalhes do produto. Nas páginas de procura, todos os módulos do IoT Edge são apresentados sob a *Internet das coisas \> módulo do IoT Edge* categoria.|
+|  |  |
+
 
 ### <a name="offer-example"></a>Exemplo de oferta
 
  Os exemplos seguintes mostram como a oferta **Title**, **resumo**, **Descrição**, **logótipos**, e **capturas de ecrã** campos são apresentados em modos de exibição diferentes.
+
  
 #### <a name="on-the-azure-marketplace-website"></a>No site do Azure Marketplace:
 
@@ -58,6 +54,7 @@ A tabela seguinte descreve a finalidade e o conteúdo desses campos.
 - Ao examinar os detalhes da oferta:
 
     ![Como módulo do IoT Edge aparece ao ver os detalhes do produto no Web site](./media/iot-edge-module-ampdotcom-pdp.png)
+
 
 #### <a name="on-the-azure-portal-website"></a>No site de portal do Azure:
 
@@ -88,18 +85,19 @@ Esta secção tem as seguintes subsecções: **Logótipos**, **captura de ecrã*
 |  **Campo**                |     **Descrição**                                                          |
 |  ---------                |     ---------------                                                          |
 | *Logótipos*  | Veja a que captura de ecrã anterior para ver como e onde os logótipos serão utilizados.  |
-| **Pequenas**                 | formato do pixel de 40 x 40 PNG                                                     |
-| **Médio**                | formato do pixel 90 x 90 PNG                                                     |
-| **Grandes**                 | formato do pixel 115 x 115 PNG                                                  |
-| **Ampla**                  | formato do pixel de 255 x 115 PNG                                                   |
+| **Pequenas\***                 | formato do pixel de 40 x 40 PNG                                                     |
+| **Médio\***                | formato do pixel 90 x 90 PNG                                                     |
+| **Grandes\***                 | formato do pixel 115 x 115 PNG                                                  |
+| **Ampla\***                  | formato do pixel de 255 x 115 PNG                                                   |
 | **Hero**                  | formato do pixel 815 x 290 PNG.  Opcional, no entanto uma vez carregado não é possível eliminar o ícone de hero. |
 | *Capturas de ecrã*  | Capturas de ecrã são apresentadas na sua página de detalhes do produto. Eles são uma boa forma de comunicar visualmente o que faz o módulo do IoT Edge e como ela funciona. Pode mostrar diagramas de arquitetura ou utilizar as maiúsculas ilustrações por exemplo. É opcional, mas máximo de cinco capturas de ecrã por SKU. |
 | **Nome**                  | Nome ou título. Comprimento máximo de 100 carateres.                             |
-| **Imagem**                 | Imagem de captura de ecrã, formato do pixel 533 x 324 PNG                                         |
+| **Imagem**                 | Imagem de captura de ecrã, formato do pixel 533 x 324 PNG                               |
 | *Vídeos*  | Vídeos são apresentados na sua página de detalhes do produto. Eles são uma boa forma de comunicar visualmente o que faz o módulo do IoT Edge e como ela funciona. |
-| **Nome**                  | Nome ou título. Comprimento máximo de 100 carateres.                              |
+| **Nome**                  | Nome ou título. Comprimento máximo de 100 carateres.                             |
 | **Link**                  | URL de vídeo, alojado no YouTube ou Vimeo                                        |
-| **Miniatura**             | formato do pixel 533 x 324 PNG                                                           |
+| **Miniatura**             | formato do pixel 533 x 324 PNG                                                     |
+|  |  |
 
 
 ### <a name="logo-guidelines"></a>Diretrizes para logótipos
@@ -114,6 +112,7 @@ Todos os logótipos carregados para o Portal de parceiro de Cloud devem seguir a
 *  Não utilize um plano de fundo de gradação no seu logótipo.
 *  Evite colocar texto — até mesmo a sua empresa ou o nome da marca — no logótipo. O aspeto e funcionalidade do seu logótipo deve ser "simples" e deve evitar gradientes.
 *  Não se estendem o logótipo.
+
 
 #### <a name="hero-logo"></a>Logótipo de destaque
 
@@ -158,16 +157,18 @@ Depois de publicar a oferta com êxito, a ligação de oportunidade potencial é
 3. amp.com the pricing tab
 4. amp.com the tile -->
 
+
 ## <a name="legal"></a>Informações Legais
 
 Esta secção permite-lhe fornecer os dois documentos legais que são necessários para cada oferta: Política de privacidade e termos de utilização.
 
-|  **Campo**                |     **Descrição**                                                          |
-|  ---------                |     ---------------                                                          |
-| **URL de política de privacidade**    | URL para a política de privacidade postado                                            |
-| **Termos de utilização**          | Termos de utilização como inline simples HTML ou uma ligação para as suas postados termos de utilização       |
+|  **Campo**                    |     **Descrição**                                                          |
+|  ---------                    |     ---------------                                                          |
+| **URL de política de privacidade\***      | URL para a política de privacidade postado                                            |
+| **Utilizar Constract padrão\***  | Se utilizar o modelo de contrato do Microsoft padrão.  Para obter mais informações, consulte [contrato padrão](https://docs.microsoft.com/azure/marketplace/standard-contract).   |
+| **Termos de utilização\***            | *Termos de utilização* como inline simples HTML ou uma ligação para os seus termos postados da página de utilização     |
+|  |  |
 
-<br/>
 
 ## <a name="next-steps"></a>Passos Seguintes
 

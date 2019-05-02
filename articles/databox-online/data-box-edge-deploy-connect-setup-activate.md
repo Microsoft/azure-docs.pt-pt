@@ -1,6 +1,6 @@
 ---
-title: Ligue-se para configurar e ativar um dispositivo de limite de caixa de dados do Azure no portal do Azure | Documentos da Microsoft
-description: Terceiro tutorial para implementar dados de caixa de borda instrui a ligar, configurar e ativar o dispositivo físico.
+title: Tutorial para ligar, para configurar, ativar o dispositivo de limite de caixa de dados do Azure no portal do Azure | Documentos da Microsoft
+description: Tutorial para implementar dados de caixa de borda instrui a ligar, configurar e ativar o dispositivo físico.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: b97334ae60715f021cce387f9d73b5ea69eea7fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e951e44aeaa4ca8d3d06bae80a80bcb2eb1dd52
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60758606"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924548"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Ligar, configurar e ativar o limite de caixa de dados do Azure 
 

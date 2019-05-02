@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: ae89ab811015fca9bcb50fcc149534754533c25f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 826a38dd80db7cd0e6e500949d2c259c3808c0a9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60337749"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914936"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Resolver problemas de falhas de cópia de segurança do Azure: Problemas com o agente ou a extensão
 
@@ -121,9 +121,9 @@ Sua tarefa de cópia de segurança recente falhou porque existe uma tarefa de c�
 3. No menu do dashboard do cofre, clique em **tarefas de cópia de segurança** apresenta todas as tarefas de cópia de segurança.
 
     * Se uma tarefa de cópia de segurança está em curso, aguarde para concluir ou cancelar a tarefa de cópia de segurança.
-        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
     * Se o ter de reconfigurar a cópia de segurança num cofre diferente, em seguida, certifique-se não há nenhuma tarefa de cópia de segurança em execução no cofre antigo. Se existir, em seguida, cancele a tarefa de cópia de segurança.
-        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+        * Para cancelar o contexto da tarefa de cópia de segurança na tarefa de cópia de segurança e clique em **Cancelar** ou utilize [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Repita a operação de cópia de segurança.
 
 Se a operação de cópia de segurança agendada está a demorar mais tempo em conflito com a seguinte configuração de cópia de segurança, em seguida, reveja os [melhores práticas](backup-azure-vms-introduction.md#best-practices), [desempenho de cópia de segurança](backup-azure-vms-introduction.md#backup-performance) e [restaurar consideração ](backup-azure-vms-introduction.md#backup-and-restore-considerations).

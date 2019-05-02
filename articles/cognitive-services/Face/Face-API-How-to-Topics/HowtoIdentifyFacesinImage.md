@@ -8,26 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 013467cb64220b525d429c901c48028bf65b3852
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7da146cafaf9af5c91bbbb2a3a23d8a90d49d8cd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864932"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699331"
 ---
-# <a name="example-how-to-identify-faces-in-images"></a>Exemplo: Como identificar rostos em imagens
+# <a name="example-identify-faces-in-images"></a>Exemplo: Identificar rostos em imagens
 
 Este guia demonstra como identificar rostos desconhecidos com PersonGroups, que são criados com antecedência a partir de pessoas conhecidas. Os exemplos foram escritos em C# com a biblioteca de cliente da API Face.
-
-## <a name="concepts"></a>Conceitos
-
-Se não estiver familiarizado com os seguintes conceitos neste guia, pesquise as definições no nosso [glossário](../Glossary.md) a qualquer momento:
-
-- Rosto – Detetar
-- Rosto – Identificar
-- PersonGroup
 
 ## <a name="preparation"></a>Preparação
 
@@ -38,7 +30,7 @@ Neste exemplo, vamos demonstrar o seguinte:
 
 Para executar a demonstração deste exemplo, terá de preparar uma porção de imagens:
 
-- Umas poucas fotografias com o rosto da pessoa. [Clique aqui para transferir as fotografias de exemplo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) para Ana, Bernardo e Clara.
+- Umas poucas fotografias com o rosto da pessoa. [Transferir fotografias de exemplo](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) para Ana, Bill e Clare.
 - Uma série de fotografias de teste, que podem conter ou não os rostos de Ana, Bernardo e Clara, são utilizadas para testar a identificação. Também pode selecionar algumas imagens de exemplo da ligação anterior.
 
 ## <a name="step-1-authorize-the-api-call"></a>Passo 1: Autorizar a chamada de API
@@ -185,8 +177,9 @@ Neste guia, aprendeu o processo de criação de um PersonGroup e de identificaç
 - Treinar um PersonGroup com a API [PersonGroup – Treinar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249)
 - Identificar rostos desconhecidos em relação ao PersonGroup com a API [Rosto – Identificar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)
 
-## <a name="related-topics"></a>Tópicos relacionados
+## <a name="related-topics"></a>Tópicos Relacionados
 
+- [Conceitos de reconhecimento de rostos](../concepts/face-recognition.md)
 - [Como Detetar Rostos na Imagem](HowtoDetectFacesinImage.md)
 - [Como Adicionar Rostos](how-to-add-faces.md)
 - [Como utilizar a funcionalidade de grande escala](how-to-use-large-scale.md)

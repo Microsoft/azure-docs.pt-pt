@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo: Adicionar rostos - Face API'
+title: 'Exemplo: Adicionar rostos para um PersonGroup - Face API'
 titleSuffix: Azure Cognitive Services
 description: Utilize a API Face para adicionar rostos em imagens.
 services: cognitive-services
@@ -8,31 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 722a09b782c902642b599460835151928c16c5f4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 04fe9251ba124ed5d218daf915339c7f84efdeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859033"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704190"
 ---
-# <a name="example-how-to-add-faces"></a>Exemplo: Como adicionar rostos
+# <a name="how-to-add-faces-to-a-persongroup"></a>Como adicionar rostos para um PersonGroup
 
-Este guia apresenta as melhores práticas para adicionar um grande número de pessoas e rostos a um PersonGroup.
-A mesma estratégia também se aplica à FaceList e ao LargePersonGroup.
-Os exemplos foram escritos em C# com a biblioteca de cliente da API Face.
+Este guia demonstra as melhores práticas para adicionar um grande número de pessoas e rostos para um objeto de PersonGroup. A mesma estratégia também se aplica a LargePersonGroup FaceList e LargeFaceList. Este exemplo é escrito em C# com a biblioteca de cliente .NET de API de rostos.
 
 ## <a name="step-1-initialization"></a>Passo 1: Inicialização
 
-São declaradas diversas variáveis e é implementada uma função auxiliar para agendar os pedidos.
+O seguinte código declara várias variáveis e implementa uma função auxiliar para agendar o mostrador adicionar solicitações.
 
 - `PersonCount` é o número total de pessoas.
 - `CallLimitPerSecond` é o número máximo de chamadas por segundo de acordo com o escalão de subscrição.
 - `_timeStampQueue` é uma Fila para registrar os carimbo de data/hora dos pedidos.
 - `await WaitCallLimitPerSecondAsync()` irá aguardar até ser válido para enviar o pedido seguinte.
 
-```CSharp
+```csharp
 const int PersonCount = 10000;
 const int CallLimitPerSecond = 10;
 static Queue<DateTime> _timeStampQueue = new Queue<DateTime>(CallLimitPerSecond);
@@ -62,20 +60,20 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>Passo 2: Autorizar a chamada de API
 
-Ao utilizar uma biblioteca de cliente, a chave de subscrição é transmitida através do construtor da classe FaceServiceClient. Por exemplo:
+Quando estiver a utilizar uma biblioteca de cliente, tem de passar a chave de subscrição para o construtor da classe FaceServiceClient. Por exemplo:
 
-```CSharp
+```csharp
 FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>");
 ```
 
-A chave de subscrição pode ser obtida da página do Marketplace no portal do Azure. Veja [Subscrições](https://www.microsoft.com/cognitive-services/en-us/sign-up).
+A chave de subscrição pode ser obtida da página do Marketplace no portal do Azure. Veja [Subscrições](https://www.microsoft.com/cognitive-services/sign-up).
 
 ## <a name="step-3-create-the-persongroup"></a>Passo 3: Criar o PersonGroup
 
 É criado um PersonGroup com o nome "MyPersonGroup" para guardar as pessoas.
 A hora do pedido é colocada em fila em `_timeStampQueue` para garantir a validação geral.
 
-```CSharp
+```csharp
 const string personGroupId = "mypersongroupid";
 const string personGroupName = "MyPersonGroup";
 _timeStampQueue.Enqueue(DateTime.UtcNow);
@@ -86,7 +84,7 @@ await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 
 São criadas pessoas em simultâneo e `await WaitCallLimitPerSecondAsync()` é também aplicado para evitar exceder o limite de chamadas.
 
-```CSharp
+```csharp
 CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
@@ -102,7 +100,7 @@ Parallel.For(0, PersonCount, async i =>
 A adição de rostos a diferentes pessoas é processada em simultâneo, enquanto para uma pessoa específica é processada sequencialmente.
 Uma vez mais, `await WaitCallLimitPerSecondAsync()` é invocado para garantir que a frequência dos pedidos não excede o âmbito de limitação.
 
-```CSharp
+```csharp
 Parallel.For(0, PersonCount, async i =>
 {
     Guid personId = persons[i].PersonId;

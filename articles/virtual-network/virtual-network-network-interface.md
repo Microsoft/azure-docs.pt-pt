@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Saiba quais uma interface de rede é como criar, alterar as definições para e elimine um.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
-ms.author: jdial
-ms.openlocfilehash: 8840944f6757813b10b01c8e512b1ef64c05a85f
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: a3cb6e1b20e405cedddae8684a4b91fcb8a5514a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888292"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695352"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -57,7 +58,7 @@ Ao criar uma máquina virtual utilizando o portal do Azure, o portal cria uma in
     |Endereço IP privado (IPv6)|Não| Se selecionar esta caixa de verificação, é atribuído um endereço de IPv6 para a interface de rede, além de endereço IPv4 atribuído à interface de rede. Consulte a secção de IPv6 deste artigo para obter informações importantes sobre a utilização de IPv6 com interfaces de rede. Não é possível selecionar um método de atribuição para o endereço IPv6. Se optar por atribuir um endereço IPv6, é atribuída com o método dinâmico.
     |Nome do IPv6 (apenas será exibida quando o **endereço IP privado (IPv6)** caixa de verificação) |Sim, se o **endereço IP privado (IPv6)** caixa de verificação.| Este nome é atribuído a uma configuração de IP secundária para a interface de rede. Para saber mais sobre as configurações de IP, veja [ver definições de interface de rede](#view-network-interface-settings).|
     |Grupo de recursos|Sim|Selecione um existente [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) ou criar uma. Uma interface de rede pode existir no grupo de recursos idêntica ou diferente, que a máquina virtual, que anexar a ela, ou a rede virtual liga-o para.|
-    |Localização|Sim|A máquina virtual é anexar uma interface de rede para e a rede virtual que a ligue tem de existir na mesma [localização](https://azure.microsoft.com/regions), também referido como uma região.|
+    |Location|Sim|A máquina virtual é anexar uma interface de rede para e a rede virtual que a ligue tem de existir na mesma [localização](https://azure.microsoft.com/regions), também referido como uma região.|
 
 O portal não fornece a opção de atribuir um endereço IP público à interface de rede quando a criar, embora o portal de criar um endereço IP público e atribuí-lo a uma interface de rede quando cria uma máquina virtual com o portal. Para saber como adicionar um endereço IP público à interface de rede depois de criá-lo, veja [endereços IP gerir](virtual-network-network-interface-addresses.md). Se quiser criar uma interface de rede com um endereço IP público, tem de utilizar a CLI ou o PowerShell para criar a interface de rede.
 

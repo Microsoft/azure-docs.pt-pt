@@ -9,11 +9,11 @@ ms.date: 11/26/2018
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: d9b7296a116ebd06542a53087afbd083dbd3a7eb
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766873"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696753"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga-se os servidores no local para os ficheiros do Azure, ativar a sincronização de múltiplos site e recursos de camada de cloud. Como tal, um servidor no local tem de estar ligado à internet. Administrador de TI tem de decidir o melhor caminho para o servidor chegar a serviços cloud do Azure.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 784387b119bff6445015419adfd3bc0e52eee43f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d752af1860d76e59df045907c11d16b4e1d20b0c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397200"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702939"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passar um token de acesso através de uma política personalizada para a sua aplicação no Azure Active Directory B2C
 

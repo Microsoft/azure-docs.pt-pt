@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 14e8eb7c73a1e2cf5047410d3571008c1cd1e1ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b952763378de562f35c2e1ecaf49c56f0145c559
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60626484"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64951557"
 ---
 # <a name="security-for-internet-of-things-iot-from-the-ground-up"></a>Segurança para Internet das coisas (IoT) desde o início
 
@@ -33,7 +33,7 @@ Tendo em conta a segurança, privacidade, transparência e preocupações de con
 
 ## <a name="secure-infrastructure-from-the-ground-up"></a>Infraestrutura segura desde o início
 
-O [Microsoft Cloud](https://azure.microsoft.com) infraestrutura suporta mais de mil milhões de clientes em 127 países. Desenhando em décadas de experiência da Microsoft desenvolvimento de software empresarial e gestão de alguns dos maiores serviços online do mundo, a Cloud da Microsoft fornece níveis mais altos de maior segurança, privacidade, conformidade e ameaças práticas de atenuação a maioria dos clientes obteria por conta própria.
+O [Microsoft Cloud](https://azure.microsoft.com) infraestrutura suporta mais de mil milhões de clientes em 127 países/regiões. Desenhando em décadas de experiência da Microsoft desenvolvimento de software empresarial e gestão de alguns dos maiores serviços online do mundo, a Cloud da Microsoft fornece níveis mais altos de maior segurança, privacidade, conformidade e ameaças práticas de atenuação a maioria dos clientes obteria por conta própria.
 
 O [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl/) fornece um processo de desenvolvimento de toda a empresa obrigatório que incorpora requisitos de segurança no ciclo de vida do software completo. Para ajudar a garantir que as atividades operacionais seguem o mesmo nível de práticas de segurança, o SDL utiliza as diretrizes de segurança rigorosas descritas no processo de garantia de segurança operacional (OSA) da Microsoft. A Microsoft também trabalha com empresas de auditoria de terceiros para efeitos de verificação em curso que ele atenda às suas obrigações reguladoras de conformidade e Microsoft trabalha com esforços de segurança abrangente por meio da criação dos centros de excelência, incluindo a Microsoft Digital Crimes Unit, Microsoft Security Response Center e Microsoft Malware Protection Center.
 

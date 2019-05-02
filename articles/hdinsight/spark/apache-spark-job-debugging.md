@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: hrasheed
 ms.openlocfilehash: 5e384520c1b8d6cf5e3b182bbddf41a5f4f7f8f6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124293"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707823"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Depurar tarefas do Apache Spark em execução no Azure HDInsight
 

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e45346ce8bd23ea8431faf8a123d57ecdee71606
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599320"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937879"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos de listando tipo  
 Os requisitos de conteúdo técnicos e marketing variam de acordo com a loja, o tipo de oferta e o tipo de lista. Reveja as seguintes especificações para verificar a sua conformidade.  

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 9ab1a42578081d4e6537f221e3f3a8f4c7babde0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 37707d56caabf0ae8b0020eb8714245a27501ea6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759608"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696500"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminação de SSL com certificados do Key Vault
 

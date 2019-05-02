@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 42d3bd2285574b4416ec06af13006353880a7ca5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6f91b424398df7839c251d994fd3d484422d5e2c
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58903527"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64947325"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - portal do Azure
 
@@ -65,7 +65,9 @@ Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virt
 
 3. Selecione **OK** para voltar para o **definições** página.
 
-4. Escolha o **configuração do IP de front-end**. Sob **a configuração de IP de front-end**, certifique-se **tipo de endereço IP** está definida como **pública**. Sob **endereço IP público**, certifique-se **criar nova** está selecionada. <br>Pode configurar o IP de front-end, seja pública ou privada, de acordo com o seu caso de utilização. Neste exemplo, vamos escolher um IP público de front-end. 
+4. Escolha o **configuração do IP de front-end**. Sob **a configuração de IP de front-end**, certifique-se **tipo de endereço IP** está definida como **pública**. Sob **endereço IP público**, certifique-se **criar nova** está selecionada. <br>Pode configurar o IP de front-end, seja pública ou privada, de acordo com o seu caso de utilização. Neste exemplo, vamos escolher um IP público de front-end.
+   > [!NOTE]
+   > Para o SKU do Gateway de aplicação v2, apenas pode escolher **público** configuração de IP. Configuração de IP privado não está atualmente ativada para o SKU da v2.
 
 5. Introduza *myAGPublicIPAddress* para o nome do endereço IP público. 
 

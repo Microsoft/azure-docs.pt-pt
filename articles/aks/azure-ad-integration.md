@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: db92526bd02ba55be5df7ce6999e3099e72b8fa5
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: c23c13969fd4e2814fdc1894a98a3f876da7315b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116782"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574300"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o serviço Kubernetes do Azure
 
 O Azure Kubernetes Service (AKS) pode ser configurado para utilizar o Azure Active Directory (AD) para autenticação de utilizador. Nesta configuração, pode iniciar sessão para um cluster do AKS com o token de autenticação do Azure Active Directory. Além disso, os administradores de cluster são capazes de configurar o controlo de acesso baseado em função do Kubernetes (RBAC) com base na associação de grupo de identidade ou o diretório de um utilizador.
 
-Este artigo mostra-lhe como implementar os pré-requisitos para o AKS e o Azure AD, em seguida, como implementar um cluster do Azure AD habilitado e criar uma função RBAC básica do cluster do AKS.
+Este artigo mostra-lhe como implementar os pré-requisitos para o AKS e o Azure AD, em seguida, como implementar um cluster do Azure AD habilitado e criar uma função RBAC básica do cluster do AKS com o portal do Azure. Também pode [concluir estes passos com a CLI do Azure][azure-ad-cli].
 
 As seguintes limitações aplicam-se:
 
@@ -46,7 +46,7 @@ A primeira aplicação do Azure AD é utilizada para obter uma associação de g
 
 2. Selecione **manifesto** e editar os `groupMembershipClaims` valor a `"All"`.
 
-   Guarde as atualizações, depois de concluído.
+   **Guardar** as atualizações, depois de concluído.
 
    ![Atualizar associação de grupo para todos](media/aad-integration/edit-manifest.png)
 
@@ -64,11 +64,11 @@ A primeira aplicação do Azure AD é utilizada para obter uma associação de g
 
    ![Definir permissões de gráfico de aplicação](media/aad-integration/read-directory.png)
 
-6. Sob **PERMISSÕES DELEGADAS**, coloque uma marca junto a **iniciar sessão e ler o perfil de utilizador** e **ler dados do diretório**. Guarde as atualizações assim que estiver pronto.
+6. Sob **PERMISSÕES DELEGADAS**, coloque uma marca junto a **iniciar sessão e ler o perfil de utilizador** e **ler dados do diretório**. Escolher **selecione** para guardar as atualizações.
 
    ![Definir permissões de gráfico de aplicação](media/aad-integration/delegated-permissions.png)
 
-   Selecione **Done** (Concluído).
+   Em seguida, selecione **feito**.
 
 7. Escolher *Microsoft Graph* na lista de APIs, em seguida, selecione **conceder permissões**. Este passo irá falhar se a conta atual não é um administrador inquilino.
 
@@ -96,11 +96,13 @@ A segunda aplicação do Azure AD é utilizada quando iniciar sessão com a CLI 
 
    ![Configurar permissões de aplicação](media/aad-integration/select-api.png)
 
-3. Coloque uma marca de verificação ao lado da aplicação e clique em **selecione**.
+    Selecione a aplicação de servidor, em seguida, escolha **selecione**.
+
+3. Volta a *adicionar acesso à API* janela, escolha **selecionar permissões**. Inicie uma marca de verificação sob o *permissões delegadas* para acesso à sua aplicação, em seguida, escolha **selecione**.
 
    ![Selecione o ponto final de aplicação de servidor do AAD do AKS](media/aad-integration/select-server-app.png)
 
-   Selecione **concluído**
+   Volta a *adicionar acesso à API* janela, selecione **feito**.
 
 4. Selecione o seu servidor de API da lista e, em seguida, escolha **conceder permissões**:
 
@@ -259,3 +261,4 @@ Para melhores práticas no controlo de identidade e de recursos, consulte [melho
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
+[azure-ad-cli]: azure-ad-integration-cli.md

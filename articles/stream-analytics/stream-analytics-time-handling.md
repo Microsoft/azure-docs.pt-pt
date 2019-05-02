@@ -8,11 +8,11 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.openlocfilehash: 0eb4b77964aa3c07bac2af615a26c3a9199525de
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760838"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692381"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Compreender a manipulação de tempo no Azure Stream Analytics
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 85757ace20501bea1db22ecfdd2fdb63284038d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/23/2019
+ms.openlocfilehash: 0f764ebbad53185f46c7166011e05493ed261d6a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108751"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696649"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store cópias de segurança da base de dados do Azure SQL para até 10 anos
 
@@ -29,14 +29,14 @@ Muitos aplicativos têm regulamentação, conformidade ou de outras empresas fin
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Como funciona a retenção de longa duração de base de dados SQL
 
-Retenção de cópia de segurança de longo prazo (LTR) aproveita as cópias de segurança completa da base de dados que são [criada automaticamente](sql-database-automated-backups.md) para ativar o restauro de momento (PITR). Estas cópias de segurança são copiadas para blobs de armazenamento diferentes, se a política LTR estiver configurada.
-Pode configurar uma política LTR para cada base de dados SQL e especifique a frequência com que precisa copiar as cópias de segurança para os blobs de armazenamento de longo prazo. Para ativar essa flexibilidade pode definir a política utilizando uma combinação de quatro parâmetros: retenção de cópia de segurança semanal (W), retenção de cópia de segurança mensal (M), a retenção de cópia de segurança anual (Y) e a semana do ano (WeekOfYear). Se especificar W, uma cópia de segurança todas as semanas será copiado para o armazenamento de longa duração. Se especificar M, uma cópia de segurança durante a primeira semana de cada mês será copiada para o armazenamento de longo prazo. Se especificar Y, uma cópia de segurança durante a semana especificada pelo WeekOfYear será copiada para o armazenamento de longo prazo. Cada cópia de segurança será mantida no armazenamento de longo prazo para o período especificado por estes parâmetros. 
+Retenção de cópia de segurança de longo prazo (LTR) aproveita as cópias de segurança completa da base de dados que são [criada automaticamente](sql-database-automated-backups.md) para ativar o restauro de momento (PITR). Se está configurada uma política LTR, estas cópias de segurança são copiadas para blobs de diferentes para armazenamento a longo prazo. A operação de cópia é uma tarefa em segundo plano que não tem qualquer impacto de desempenho na carga de trabalho da base de dados. As cópias de segurança LTR são mantidas durante um período de tempo definido pela política de LTR. A política LTR para cada base de dados SQL também pode especificar a frequência com que as cópias de segurança LTR são criadas. Para ativar essa flexibilidade pode definir a política utilizando uma combinação de quatro parâmetros: retenção de cópia de segurança semanal (W), retenção de cópia de segurança mensal (M), a retenção de cópia de segurança anual (Y) e a semana do ano (WeekOfYear). Se especificar W, uma cópia de segurança todas as semanas será copiado para o armazenamento de longa duração. Se especificar M, uma cópia de segurança durante a primeira semana de cada mês será copiada para o armazenamento de longo prazo. Se especificar Y, uma cópia de segurança durante a semana especificada pelo WeekOfYear será copiada para o armazenamento de longo prazo. Cada cópia de segurança será mantida no armazenamento de longo prazo para o período especificado por estes parâmetros. Qualquer alteração da política de LTR aplica-se para as cópias de segurança futuras. Por exemplo, se for o WeekOfYear especificado no passado, quando a política está configurada, a primeira cópia de segurança LTR será criada próximo ano. 
 
-Exemplos:
+Exemplos da política de LTR:
 
 -  W=0, M=0, Y=5, WeekOfYear=3
 
-   A cópia de segurança completa 3º de cada ano será mantida durante 5 anos.
+   A terceira cópia de segurança completa de cada ano será mantida durante cinco anos.
+   
 - W=0, M=3, Y=0
 
    O primeiro backup completo de cada mês será mantido durante três meses.
@@ -47,7 +47,7 @@ Exemplos:
 
 - W=6, M=12, Y=10, WeekOfYear=16
 
-   Cada cópia de segurança completa semanal será mantida durante 6 semanas. Exceto a primeira cópia de segurança completa de cada mês, que será mantido durante 12 meses. Exceto o backup completo, que foram tomado 16 semana do ano, que será mantido para 10 anos. 
+   Cada cópia de segurança completa semanal será mantida para seis semanas. Exceto a primeira cópia de segurança completa de cada mês, que será mantido durante 12 meses. Exceto o backup completo, que foram tomado 16 semana do ano, que será mantido para 10 anos. 
 
 A tabela seguinte ilustra a cadência e expiração de cópias de segurança de longo prazo para a seguinte política:
 
@@ -57,23 +57,26 @@ W = 12 semanas (84 dias), M = 12 meses (365 dias), Y = 10 anos (3650 dias), Week
 
 
 
-Se modificar a política acima e W = 0 (não existem cópias de segurança semanais), a cadência de conjunto de cópias de segurança seria alterado como mostrado na tabela acima, as datas realçadas. A quantidade de armazenamento necessária para manter estas cópias de segurança reduziria em conformidade. 
+Se modificar a política acima e W = 0 (não existem cópias de segurança semanais), a cadência de conjunto de cópias de segurança irão mudar conforme mostrado na tabela acima, as datas realçadas. A quantidade de armazenamento necessária para manter estas cópias de segurança reduziria em conformidade. 
 
 > [!NOTE]
-> 1. As cópias LTR são criadas pelo serviço de armazenamento do Azure, para que o processo de cópia não tem qualquer impacto de desempenho na base de dados existente.
-> 2. A política aplica-se para as cópias de segurança futuras. Por exemplo, Se for o WeekOfYear especificado no passado, quando a política está configurada, a primeira cópia de segurança LTR será criada próximo ano. 
-> 3. Para restaurar uma base de dados a partir do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na respetiva timestamp.   A base de dados pode ser restaurada a qualquer servidor existente na mesma subscrição da base de dados original. 
+> O período de tempo das cópias de segurança LTR individuais é controlado pela base de dados do Azure SQL. Manual não é possível criar uma cópia de segurança LTR ou controlar a temporização da criação de cópia de segurança.
+> 
 
 ## <a name="geo-replication-and-long-term-backup-retention"></a>Georreplicação e retenção de cópia de segurança de longo prazo
 
-Se estiver a utilizar grupos de replicação geográfica ou da ativação pós-falha Active Directory como a sua solução de continuidade do negócio deve se preparar para as ativações pós-falha eventual e configurar a mesma política LTR na base de dados geo-secundária. Isto não irá aumentar o custo de armazenamento LTR como cópias de segurança não são geradas a partir de bases de dados secundárias. Apenas quando o secundário se torna primário as cópias de segurança serão criadas. Desta forma, garantirá não interrompidos geração das cópias de segurança LTR quando a ativação pós-falha é acionada e o principal move para a região secundária. 
+Se estiver a utilizar replicação geográfica activa ou grupos de ativação pós-falha como a sua solução de continuidade de negócios, deve preparar para as ativações pós-falha eventual e configurar a mesma política LTR na base de dados geo-secundária. O custo de armazenamento LTR não aumentará à medida que as cópias de segurança não são geradas a partir de bases de dados secundárias. Apenas quando o secundário se torna primário as cópias de segurança serão criadas. Ele garante não interrompida geração das cópias de segurança LTR quando a ativação pós-falha é acionada e o principal se move para a região secundária. 
 
 > [!NOTE]
-> Quando recupera a base de dados primária original da falha do que fazer com que a ativação pós-falha, ela se tornará um secundário novo. Por conseguinte, a criação de cópia de segurança não será retomada e a política LTR existente não irá surtir efeito até que ele se torna o principal novamente. 
+> Quando recupera a base de dados primária original de uma falha que causou a ativação pós-falha, ela se tornará um secundário novo. Por conseguinte, a criação de cópia de segurança não será retomada e a política LTR existente não irá surtir efeito até que ele se torna o principal novamente. 
 
 ## <a name="configure-long-term-backup-retention"></a>Configurar a retenção de cópias de segurança de longa duração
 
-Para saber como configurar a retenção de longa duração com o portal do Azure ou através do PowerShell, veja [configurar a retenção de cópia de segurança de longo prazo](sql-database-long-term-backup-retention-configure.md).
+Para saber como configurar a retenção de longa duração com o portal do Azure ou o PowerShell, veja [retenção de cópia de segurança de longa duração de gerir a base de dados de SQL do Azure](sql-database-long-term-backup-retention-configure.md).
+
+## <a name="restore-database-from-ltr-backup"></a>Restaurar a base de dados de cópia de segurança LTR
+
+Para restaurar uma base de dados a partir do armazenamento LTR, pode selecionar uma cópia de segurança específica com base na respetiva timestamp. A base de dados pode ser restaurada a qualquer servidor existente na mesma subscrição da base de dados original. Para saber como restaurar a base de dados a partir de uma cópia de segurança LTR, com o portal do Azure ou o PowerShell, veja [retenção de cópia de segurança de longa duração de gerir a base de dados de SQL do Azure](sql-database-long-term-backup-retention-configure.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

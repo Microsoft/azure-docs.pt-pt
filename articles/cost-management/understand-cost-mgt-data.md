@@ -11,11 +11,11 @@ ms.service: cost-management
 manager: micflan
 ms.custom: ''
 ms.openlocfilehash: 81947baccf723ab759f2dc24df40b81af4502e09
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61004004"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692450"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51230fe050c67253dd5b2bb3f23d03512df64ef6
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708469"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939261"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos relacionados com a geração 2 de armazenamento do Azure Data Lake
 

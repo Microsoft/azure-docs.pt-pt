@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 97c44c9285ec7a29827361111599db37bc6a86f3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0612770c823e30578e7f4675878fc4ce2aee2bd9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59282581"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702987"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
@@ -46,13 +46,13 @@ A tabela seguinte indica típica confiança associada para uma determinada class
 |0|Nenhuma correspondência, para que a resposta não é devolvida.|"Quanto o serviço custa"|
 
 ## <a name="choose-a-score-threshold"></a>Escolha um limiar de pontuação
-A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, uma vez que cada KB é diferente e tem diferentes tipos de palavras, objetivos e metas, que é recomendável testar e escolha o limiar que melhor funcione para si. É o predefinido e recomendado limiar que deve funcionar para a maioria dos KBs, **50**.
+A tabela acima mostra as classificações que espera-se na maioria dos KBs. No entanto, uma vez que cada KB é diferente e tem diferentes tipos de palavras, objetivos e metas, que é recomendável testar e escolha o limiar que melhor funcione para si. Por predefinição o limiar é definido como 0, para que todos os possíveis respostas são devolvidas. O limiar recomendado que deve funcionar para a maioria dos KBs, for **50**.
 
 Ao escolher o limiar, tenha em atenção o equilíbrio entre a precisão e a cobertura e ajustar o limiar com base nos seus requisitos.
 
 - Se **precisão** (ou de precisão) é mais importante para o seu cenário, em seguida, aumente o limiar. Dessa forma, sempre que retornar alguma resposta, é um CONFIDENT muito mais maiúsculas e minúsculas e muito mais provável que os utilizadores de resposta estão procurando. Neste caso, poderá acabar deixando mais perguntas sem resposta. *Por exemplo:* se fizer o limiar **70**, que pode perder algumas gostos de exemplos ambígua "o que é salvar e treinar?".
 
-- Se **cobertura** (ou de solicitação de recolhimento) é mais importante – e deseja responder como tantas perguntas quanto possível, mesmo que haja apenas uma relação para pergunta - o usuário parcial, em seguida, o limiar inferior. Isso significa que lá pode ser mais casos em que a resposta não à consulta de real do usuário, mas oferece alguns outra resposta um pouco relacionada. *Por exemplo:* se fizer o limiar **30**, poderá dar respostas não muito relacionadas, como, responder com o exemplo acima, para consultas como "onde posso editar meu KB?"
+- Se **cobertura** (ou de solicitação de recolhimento) é mais importante – e deseja responder como tantas perguntas quanto possível, mesmo que haja apenas uma relação para pergunta - o usuário parcial, em seguida, o limiar inferior. Isso significa que lá pode ser mais casos em que a resposta não à consulta de real do usuário, mas oferece alguns outra resposta um pouco relacionada. *Por exemplo:* se fizer o limiar **30**, poderá dar respostas para consultas como "Onde posso editar meu KB?"
 
 > [!NOTE]
 > Versões mais recentes do QnA Maker incluem melhoramentos de lógica de classificação e afetam o limiar. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limiar, se necessário. Pode verificar a sua versão de serviço do QnA [aqui](https://www.qnamaker.ai/UserSettings)e veja como obter as atualizações mais recentes [aqui](../How-To/troubleshooting-runtime.md).

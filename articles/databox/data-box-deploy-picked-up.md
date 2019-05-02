@@ -1,5 +1,5 @@
 ---
-title: Enviar o Microsoft Azure Data Box de volta | Microsoft Docs
+title: Tutorial para enviar novamente o Azure Data Box | Documentos da Microsoft
 description: Aprenda a enviar o Azure Data Box para a Microsoft
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 72d6ce58a986ddd0d0976d99de5ca3426d78f0b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 659dfbec1f73ca713cf03a2945361b794b8aaea6
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463164"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924946"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verifique se o carregamento de dados para o Azure
 

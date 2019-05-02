@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60006136"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686296"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL
 
@@ -80,7 +80,7 @@ Microsoft gerencia a instância gerida utilizando um ponto de final de gestão. 
 Quando as ligações começam dentro da instância gerida (tal como acontece com as cópias de segurança e registos de auditoria), o tráfego é apresentado iniciar a partir endereço IP do ponto final de gestão. Pode limitar o acesso aos serviços do público de uma instância gerida através da definição de regras de firewall para permitir apenas o endereço IP da instância gerida. Para obter mais informações, consulte [Verifique se o firewall interno da instância gerida](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
-> Traffice que vai para serviços do Azure que estão dentro de região a instância gerida está otimizada e para que razão não NATed para endereço IP instância geridas gestão ponto final público. Por esse motivo se precisar de utilizar regras de firewall baseadas em IP, mais comumente para armazenamento, o serviço precisa ser numa região diferente da instância gerida.
+> O tráfego que vai para serviços do Azure que estão dentro de região a instância gerida está otimizado e por esse motivo, não NATed para geridos gestão ponto final público endereço IP da instância. Por esse motivo se precisar de utilizar regras de firewall baseadas em IP, mais comumente para armazenamento, o serviço precisa ser numa região diferente da instância gerida.
 
 ## <a name="network-requirements"></a>Requisitos da rede
 

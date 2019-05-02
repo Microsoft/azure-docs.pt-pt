@@ -3,19 +3,19 @@ title: Exemplos de transformação de afirmações de cadeia de caracteres para 
 description: Cadeia de caracteres de exemplos de transformação de afirmações para a identidade experiência de estrutura de esquema do Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 32acee78b1aadbe5a461de6ea4475cf28503c325
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c6b90cb2b24f6a87504a3a0dbd47f998b67ebc1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113032"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707472"
 ---
 # <a name="string-claims-transformations"></a>Transformações de afirmações de cadeia de caracteres
 
@@ -125,7 +125,7 @@ Cria uma afirmação de cadeia de caracteres de parâmetro de entrada fornecido 
 
 | Item | TransformationClaimType | Tipo de Dados | Notas |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | valor | string | A cadeia a ser definido |
+| InputParameter | value | string | A cadeia a ser definido |
 | OutputClaim | createdClaim | string | O que é produzido depois de esta transformação de afirmações ClaimType ser invocado, com o valor especificado no parâmetro de entrada. |
 
 Utilize que este afirmações de transformação para definir uma cadeia de valor de ClaimType.

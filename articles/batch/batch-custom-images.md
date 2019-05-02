@@ -8,18 +8,18 @@ ms.service: batch
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: lahugh
-ms.openlocfilehash: 233b26b330fabe7da8664114ba1857f74feea4bc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 886dea0e53519870aaa27dea721a9eb78515cf86
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706323"
 ---
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Utilizar uma imagem personalizada para criar um conjunto de máquinas virtuais 
 
 Quando cria um conjunto do Azure Batch através da configuração de Máquina Virtual, especifique uma imagem de VM que fornece o sistema operativo para cada nó de computação no conjunto. Pode criar um conjunto de máquinas virtuais com uma imagem suportados do Azure Marketplace ou com uma imagem personalizada (uma imagem de VM ter criado e configurado por conta própria). A imagem personalizada tem de ser um *imagem gerida* recursos na mesma subscrição do Azure e a região que a conta do Batch.
 
-## <a name="why-use-a-custom-image"></a>Por que usar uma imagem personalizada?
+## <a name="benefits-of-custom-images"></a>Benefícios de imagens personalizadas
 
 Quando fornecer uma imagem personalizada, tem controle sobre a configuração do sistema operativo e o tipo de sistema operativo e discos de dados a serem utilizados. Sua imagem personalizada pode incluir aplicações e dados de referência que ficam disponíveis em todos os nós do conjunto de Batch assim que terem sido aprovisionados.
 
@@ -32,12 +32,11 @@ Com uma imagem personalizada configurada para o seu cenário, pode fornecer vár
 - **Economizar tempo de reinício de VMs.** Instalação de aplicativos normalmente requer a reinicialização da VM, que é um processo demorado. Pode salvar a hora de reinício através da pré-instalação de aplicativos. 
 - **Copie grandes quantidades de dados uma vez.** Fazer parte de dados estáticos da imagem personalizada gerida através de cópia para discos de dados de uma imagem gerida. Isso só precisa ser feito uma vez e disponibiliza a cada nó do conjunto de dados.
 - **Escolha de tipos de disco.** Tem a opção de usar o armazenamento premium para o disco do SO e o disco de dados.
-- **Aumente a conjuntos de tamanhos grandes.** Quando utiliza uma imagem personalizada gerida para criar um conjunto, o conjunto pode crescer sem necessidade de fazer cópias do blob de imagem VHDs. 
-
+- **Aumente a conjuntos de tamanhos grandes.** Quando utiliza uma imagem personalizada gerida para criar um conjunto, o conjunto pode crescer sem necessidade de fazer cópias do blob de imagem VHDs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Um recurso de imagem gerida**. Para criar um conjunto de máquinas virtuais utilizando uma imagem personalizada, terá de ter ou criar um recurso de imagem gerida na mesma subscrição do Azure e a região que a conta do Batch. A imagem deve ser criada a partir de instantâneos do disco do SO da VM e, opcionalmente, seus discos de dados anexados. Para obter mais informações e passos para preparar uma imagem gerida, consulte a secção seguinte. 
+- **Um recurso de imagem gerida**. Para criar um conjunto de máquinas virtuais utilizando uma imagem personalizada, terá de ter ou criar um recurso de imagem gerida na mesma subscrição do Azure e a região que a conta do Batch. A imagem deve ser criada a partir de instantâneos do disco do SO da VM e, opcionalmente, seus discos de dados anexados. Para obter mais informações e passos para preparar uma imagem gerida, consulte a secção seguinte.
   - Utilize uma imagem personalizada individual para cada conjunto de que criar.
   - Para criar um conjunto com a imagem usando as APIs do Batch, especifique a **ID de recurso** da imagem, que é o formato `/subscriptions/xxxx-xxxxxx-xxxxx-xxxxxx/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage`. Para utilizar o portal, utilize o **nome** da imagem.  
   - O recurso de imagem gerida deve existir durante a vida útil do conjunto para permitir que o vertical e pode ser removido depois do conjunto ser eliminado.
@@ -46,7 +45,7 @@ Com uma imagem personalizada configurada para o seu cenário, pode fornecer vár
 
 ## <a name="prepare-a-custom-image"></a>Preparar uma imagem personalizada
 
-No Azure pode preparar uma imagem gerida a partir de instantâneos do SO de uma VM do Azure e discos de dados, a partir de uma VM generalizada do Azure com discos geridos ou a partir de um VHD generalizado no local que carrega. Para dimensionar conjuntos do Batch com confiança com uma imagem personalizada, recomendamos que crie uma imagem gerida utilizando *apenas* o primeiro método: utilizando instantâneos de discos da VM. Consulte os seguintes passos para preparar uma VM, tire um instantâneo e criar uma imagem a partir do instantâneo. 
+No Azure pode preparar uma imagem gerida a partir de instantâneos do SO de uma VM do Azure e discos de dados, a partir de uma VM generalizada do Azure com discos geridos ou a partir de um VHD generalizado no local que carrega. Para dimensionar conjuntos do Batch com confiança com uma imagem personalizada, recomendamos que crie uma imagem gerida utilizando *apenas* o primeiro método: utilizando instantâneos de discos da VM. Consulte os seguintes passos para preparar uma VM, tire um instantâneo e criar uma imagem a partir do instantâneo.
 
 ### <a name="prepare-a-vm"></a>Preparar uma VM
 
@@ -60,6 +59,7 @@ Se estiver a criar uma nova VM para a imagem, utilize uma primeira imagem do Azu
 
 * Certifique-se de que a VM é criada com um disco gerido. Esta é a predefinição de armazenamento ao criar uma VM.
 * Não instale extensões do Azure, como a extensão de Script personalizado na VM. Se a imagem tiver uma extensão pré-instalada, o Azure pode encontrar problemas ao implementar o conjunto do Batch.
+* Quando utilizar discos de dados anexados, tem de montar e formatar os discos a partir de uma VM para utilizá-los.
 * Certifique-se de que a imagem do SO base que indicar utiliza a unidade temp predefinida. O agente de nó do Batch espera, atualmente, a unidade temp predefinida.
 * Quando a VM estiver em execução, ligue ao mesmo através de RDP (para Windows) ou SSH (para Linux). Instalar qualquer software necessário ou copiar os dados desejados.  
 

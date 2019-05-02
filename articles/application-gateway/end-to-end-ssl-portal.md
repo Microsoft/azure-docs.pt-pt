@@ -2,25 +2,25 @@
 title: Início rápido - configurar a encriptação de SSL de ponta a ponta com o Gateway de aplicação do Azure - portal do Azure | Documentos da Microsoft
 description: Saiba como utilizar o portal do Azure para criar um Gateway de aplicação do Azure com a encriptação SSL ponto a ponto.
 services: application-gateway
-author: abshamsft
+author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/19/2019
+ms.date: 4/30/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: e47a3e1231701f3339057e25ee4388aff0c9fbd7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd165f81b45e3ae0c121fb8876ed88e68d493195
+ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60831968"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64946800"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-the-portal"></a>Configurar SSL ponto a ponto com o Gateway de aplicação com o portal
 
 Este artigo mostra-lhe como utilizar o portal do Azure para configurar a encriptação de SSL de ponto a ponto com um gateway de aplicação v1 SKU.  
 
 > [!NOTE]
-> SKU de v2 do Gateway de aplicação requer certificados de raiz fidedigna para ativar configuração de ponto-a-ponto. Suporte do portal de adição de certificados de raiz fidedigna ainda não está disponível. Portanto, em caso de V2 SKU ver [configurar o SSL ponto a ponto com o PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+> SKU de v2 do Gateway de aplicação requer certificados de raiz fidedigna para ativar configuração de ponto-a-ponto. Suporte do portal de adição de certificados de raiz fidedigna ainda não está disponível. Portanto, em caso de v2 SKU ver [configurar o SSL ponto a ponto com o PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [SSL terminação e o SSL ponto a ponto]
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-ssl"></a>Criar um novo gateway de aplicação com SSL de ponta a ponta
 
-Para criar um novo gateway de aplicação com a encriptação SSL ponto a ponto, terá de ativar primeiro a terminação de SSL ao criar um novo gateway de aplicação. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista branca certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, portanto, ao realizar a encriptação SSL ponto a ponto.
+Para criar um novo gateway de aplicação com a encriptação SSL ponto a ponto, terá de ativar primeiro a terminação de SSL ao criar um novo gateway de aplicação. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista branca certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, ao realizar a encriptação SSL ponto a ponto.
 
 ### <a name="enable-ssl-termination-while-creating-a-new-application-gateway"></a>Ativar a terminação de SSL ao criar um novo gateway de aplicação
 
@@ -61,9 +61,9 @@ Consulte este artigo para compreender como [ativar a terminação de SSL ao cria
 
 ## <a name="enable-end-to-end-ssl-for-existing-application-gateway"></a>Ativar o SSL de ponta a ponta para o gateway de aplicação existente
 
-Para configurar um gateway de aplicação existente com a encriptação SSL ponto a ponto, precisará a terminação de SSL de ativar primeiro no serviço de escuta. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista branca certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, portanto, ao realizar a encriptação SSL ponto a ponto.
+Para configurar um gateway de aplicação existente com a encriptação SSL ponto a ponto, precisará para terminação de SSL de ativar primeiro no serviço de escuta. Isso permitirá a encriptação SSL para a comunicação entre o gateway de cliente e a aplicação. Em seguida, terá da lista branca certificados para servidores de back-end nas definições de HTTP para ativar a encriptação SSL para a comunicação entre servidores de gateway e o back-end de aplicações, ao realizar a encriptação SSL ponto a ponto.
 
-Terá de utilizar um serviço de escuta com o protocolo HTTPS e o certificado para ativar a terminação de SSL. Não é possível alterar o protocolo de um serviço de escuta. Por conseguinte, pode optar por utilizar um serviço de escuta com o protocolo HTTPS e o certificado ou criar um novo serviço de escuta. No caso de escolher o primeiro, pode ignorar o abaixo mencionado passos para **terminação de ativar o SSL no gateway de aplicação existente** e mova diretamente para **lista branca certificados para servidores de back-end** secção. Se escolher o último, efetue estes passos. 
+Precisará usar um serviço de escuta com o protocolo HTTPS e o certificado para ativar a terminação de SSL. Não é possível alterar o protocolo de um serviço de escuta. Dessa forma, pode optar por utilizar um serviço de escuta com o protocolo HTTPS e o certificado ou criar um novo serviço de escuta. No caso de escolher o primeiro, pode ignorar o abaixo mencionado passos para **terminação de ativar o SSL no gateway de aplicação existente** e mova diretamente para **lista branca certificados para servidores de back-end** secção. Se escolher o último, utilize estes passos.
 
 ### <a name="enable-ssl-termination-in-existing-application-gateway"></a>Ativar a terminação de SSL no gateway de aplicação existente
 

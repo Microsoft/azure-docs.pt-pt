@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/29/2098
 ms.author: rajanaki
-ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792933"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925703"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -31,9 +31,10 @@ Quando utiliza o Site Recovery para gerir as atualizações, implementa um runbo
 O agendamento do runbook padrão voltar a ocorrer diariamente às 12:00 AM no fuso horário do geo da VM replicada. Também pode alterar o agendamento do runbook através da conta de automatização.
 
 > [!NOTE]
+> A partir do Update Rollup 35, pode escolher uma conta de automatização existente a utilizar para atualizações. Antes desta atualização, o Site Recovery criada esta conta por predefinição. Esta opção está disponível quando ativa a replicação para uma VM. Se alterar a configuração, será aplicada para todas as VMs do Azure protegida no mesmo cofre.
+ 
 > Ativar atualizações automáticas não requerem um reinício das suas VMs do Azure ou afetar a replicação em curso.
 
-> [!NOTE]
 > Tarefa de faturação da conta de automatização baseia-se no número de minutos de tempo de execução de tarefas utilizados num mês. Por predefinição, 500 minutos estão incluídos como unidades gratuitas para uma conta de automatização. Execução da tarefa demora alguns segundos para cerca de um minuto por dia e está abrangida como unidades gratuitas.
 
 | Unidades gratuitas incluídas (por mês) | Preço |
@@ -63,7 +64,7 @@ Quando ativar a replicação para uma VM a partir de qualquer [da vista de VM](a
 
 
 > [!Note]
-> Qualquer uma das opções notifica-o a conta de automatização utilizada para gerir as atualizações. Se estiver a utilizar esta funcionalidade num cofre pela primeira vez, é criada uma nova conta de automatização. Todas as replicações de enable subsequentes no mesmo cofre utilizam aquele criado anteriormente.
+> Qualquer uma das opções notifica-o a conta de automatização utilizada para gerir as atualizações. Se estiver a utilizar esta funcionalidade num cofre pela primeira vez, uma nova conta de automatização é criada por predefinição. Em alternativa, pode personalizar a configuração e escolha uma conta de automatização existente. Todas as replicações de enable subsequentes no mesmo cofre utilizam aquele criado anteriormente.
 
 Para uma conta de automatização personalizada, utilize o seguinte script:
 

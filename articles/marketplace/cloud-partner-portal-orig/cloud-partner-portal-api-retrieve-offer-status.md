@@ -1,25 +1,18 @@
 ---
-title: Obter o estado da oferta | Documentos da Microsoft
+title: Obter o estado da oferta | O Azure Marketplace
 description: API obtém o estado atual da oferta.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9233a5919ad86adcbb7947cd095945654ed015a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093986"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935461"
 ---
 <a name="retrieve-offer-status"></a>Obter estado da oferta 
 =====================

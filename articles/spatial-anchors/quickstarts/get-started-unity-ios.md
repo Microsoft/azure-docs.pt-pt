@@ -1,5 +1,5 @@
 ---
-title: Início rápido - criar aplicação do Unity iOS com as âncoras espaciais do Azure | Documentos da Microsoft
+title: Início rápido - criar uma aplicação do Unity iOS com as âncoras espaciais do Azure | Documentos da Microsoft
 description: Neste guia de introdução, saiba como criar uma aplicação iOS com o Unity usando âncoras espaciais.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e3320cd6131497d0b2c794646bae7fae578488cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 41189d4945ef22f8a587a51717b7dd6f40ac39ce
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235284"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64690539"
 ---
-# <a name="quickstart-create-an-ios-unity-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação do Unity iOS com as âncoras espaciais do Azure
+# <a name="quickstart-create-a-unity-ios-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação do Unity iOS com as âncoras espaciais do Azure
 
-Este guia de introdução mostra como criar um através de aplicações de iOS Unity [âncoras geográficos de Azure](../overview.md). Âncoras espaciais do Azure é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista usando objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação do iOS de ARKit criada com o Unity, que pode guardar e lembre-se de uma âncora de espacial.
+Este início rápido mostra como criar um através de aplicações de iOS do Unity [âncoras geográficos de Azure](../overview.md). Âncoras espaciais do Azure é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista usando objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação do iOS de ARKit criada com o Unity, que pode guardar e lembre-se de uma âncora de espacial.
 
 Vai aprender a:
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 404335ce0cd05085c79cbeea29ad95f79008289c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59522508"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681953"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas do Hive e carregar dados do armazenamento de Blobs do Azure
 
@@ -47,7 +47,7 @@ Consultas do Hive podem ser submetidas através de:
 2. [Submeter consultas do Hive com o Editor do Hive](#hive-editor)
 3. [Submeter consultas do Hive com comandos do PowerShell do Azure](#ps)
 
-Consultas do Hive são semelhantes a SQL. Se estiver familiarizado com o SQL, pode achar a [Hive para folha de referência de utilizadores do SQL](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) útil.
+Consultas do Hive são semelhantes a SQL. Se estiver familiarizado com o SQL, pode achar a [Hive para folha de referência de utilizadores do SQL](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) útil.
 
 Quando submeter uma consulta do Hive, também pode controlar o destino da saída das consultas do Hive, independentemente de serem na tela ou num arquivo local no nó principal ou para um blob do Azure.
 

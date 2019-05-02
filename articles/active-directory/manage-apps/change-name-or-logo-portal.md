@@ -1,5 +1,5 @@
 ---
-title: Alterar o nome ou logótipo de uma aplicação empresarial no Azure Active Directory | Documentos da Microsoft
+title: Alterar o nome ou logótipo de um aplicativo empresarial no Azure Active Directory | Documentos da Microsoft
 description: Como alterar o nome ou logótipo para uma aplicação empresarial personalizada no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -11,39 +11,43 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62578fe037dc1c9672bd0a4cf28500c658344c53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: dbebc528227ebb06bd66e31b802dd4fd618d6a99
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440405"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718754"
 ---
-# <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Alterar o nome ou logótipo de uma aplicação empresarial no Azure Active Directory
-É fácil alterar o nome ou logótipo para uma aplicação empresarial personalizada no Azure Active Directory (Azure AD). Tem de ter as permissões adequadas para efetuar estas alterações e tem de ser o criador da aplicação personalizada.
+# <a name="change-the-name-or-logo-of-an-enterprise-application-in-azure-active-directory"></a>Alterar o nome ou logótipo de um aplicativo empresarial no Azure Active Directory
 
-## <a name="how-do-i-change-an-enterprise-apps-name-or-logo"></a>Como posso alterar nome de uma aplicação empresarial ou logótipo?
-1. Iniciar sessão no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
-2. Selecione **todos os serviços**, introduza **Azure Active Directory** na caixa de texto e, em seguida, selecione **Enter**.
-3. Sobre o **Azure Active Directory – *directoryname***  painel (ou seja, o Azure AD para o diretório que está a gerir), selecione **aplicações empresariais**.
+É fácil alterar o nome ou logótipo para uma aplicação empresarial personalizada no Azure Active Directory (Azure AD). Tem de ter as permissões adequadas para efetuar estas alterações e tem de ser o criador do aplicativo personalizado.
 
-    ![Aplicações empresariais de abertura](./media/change-name-or-logo-portal/open-enterprise-apps.png)
-4. Sobre o **aplicações empresariais** painel, selecione **todos os aplicativos**. Verá uma lista de aplicações que pode gerir.
-5. Sobre o **aplicações empresariais - todas as aplicações** painel, selecione uma aplicação.
-6. Sobre o ***appname*** painel (ou seja, o painel com o nome da aplicação selecionada no título), selecione **propriedades**.
+## <a name="how-do-i-change-an-enterprise-applications-name-or-logo"></a>Como posso alterar nome de uma aplicação empresarial ou logótipo?
 
-    ![Selecionar o comando Propriedades](./media/change-name-or-logo-portal/select-app.png)
-7. Sobre o ***appname*** **-propriedades** painel, navegue para um ficheiro para utilizar como um logótipo de novo ou editar o nome da aplicação, ou ambos.
+1. Inicie sessão para o [portal do Azure Active Directory](https://aad.portal.azure.com/) com uma conta que seja um administrador global do diretório. O **Centro de administração do Azure Active Directory** é apresentada a página.
+2. No painel esquerdo, selecione **Aplicações empresariais**. É apresentada a lista de aplicações empresariais.
+3. Selecione uma aplicação. É apresentada a página de descrição geral do aplicativo.
+4. No painel de descrição geral da aplicação, sob o **Manage** cabeçalho, selecione **propriedades**. O **propriedades** é apresentada a página.
+5. Se quiser alterar o nome, selecione o **Name** caixa, escreva o nome do novo e prima **Enter**.
+6. Se quiser alterar o logótipo, encontrar o **logótipo** campo e selecione o ícone de pasta junto aos **selecionar um ficheiro** caixa, o que é inferior a imagem de logótipo atual do aplicativo.
 
-    ![Alterar o comando de logótipo ou nameproperties de aplicação](./media/change-name-or-logo-portal/change-logo.png)
-8. Selecione o **guardar** comando.
+   ![Selecionar o comando Propriedades](./media/change-name-or-logo-portal/change-logo.png)
+
+   Caso contrário, se não estiver a alterar o logotipo, avance para o passo 8.
+7. No Seletor de ficheiros, selecione o ficheiro que pretende como novo logótipo. O nome do ficheiro é apresentado na caixa abaixo da imagem de logótipo atual.
+
+   > [!NOTE]
+   > O Azure requer a imagem de logotipo a ser um ficheiro PNG e aplica-se limites em largura, altura e tamanho de ficheiro.
+8. Selecione **Guardar**. Se optou por um novo logótipo, o **logótipo** alterações na imagem para refletir o novo ficheiro do logótipo do campo.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Ver todos os meus grupos](../fundamentals/active-directory-groups-view-azure-portal.md)
+
+* [Quickstart: Ver grupos e membros da sua organização no Azure Active Directory](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Atribuir um utilizador ou grupo a uma aplicação empresarial](assign-user-or-group-access-portal.md)
 * [Remover uma atribuição de utilizador ou grupo a partir de uma aplicação empresarial](remove-user-or-group-access-portal.md)
 * [Desativar utilizador-inícios de sessão de uma aplicação empresarial](disable-user-sign-in-portal.md)

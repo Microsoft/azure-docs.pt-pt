@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.openlocfilehash: 607f85c10183366e88d597d84090f49fc30aff48
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124599"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687971"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gerir o cluster de serviços de ML no Azure HDInsight
 

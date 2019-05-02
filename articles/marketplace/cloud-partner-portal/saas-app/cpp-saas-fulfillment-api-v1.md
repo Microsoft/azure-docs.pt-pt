@@ -1,26 +1,19 @@
 ---
-title: V1 de API de preenchimento do SaaS - o Azure Marketplace | Documentos da Microsoft
+title: V1 de API do preenchimento de SaaS | O Azure Marketplace
 description: Explica como criar uma oferta SaaS no Azure Marketplace usando o preenchimento associado V1 APIs.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 03/28/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101103"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943144"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>Versão de APIs de preenchimento do SaaS 1 (preterido)
 

@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.openlocfilehash: 3dead1bdedb75a1b6fafb947da9c88094f0c4de9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115014"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724147"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar o Apache Kafka produtor e consumidor APIs
 

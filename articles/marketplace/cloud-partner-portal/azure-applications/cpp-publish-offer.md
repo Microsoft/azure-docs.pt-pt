@@ -1,25 +1,18 @@
 ---
-title: Publicar oferta de aplicação do Azure - Azure Marketplace | Documentos da Microsoft
+title: Publicar oferta de aplicação do Azure | O Azure Marketplace
 description: Descreve o processo e os passos para publicar uma oferta de aplicação do Azure no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fdca47877d4cb2192eef0a26448cd21e8afe4b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 2326ce1a591d1276dbaf9c7f3238f7214e5134ab
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740254"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942894"
 ---
 # <a name="publish-azure-application-offer"></a>Publicar oferta de aplicação do Azure
 

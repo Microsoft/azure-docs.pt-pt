@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 718aac00582c119bfa721935d97e35f49e3d58a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b080f68d17cd2914aa35d26f6b1bd7bee1794ddd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60800880"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922535"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Início rápido: Publicar uma base de dados de conhecimento do QnA Maker com Java
 
@@ -28,7 +28,7 @@ Este início rápido chama as APIs do Criador de FAQ:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * [JDK SE](https://aka.ms/azure-jdks) (Kit de Desenvolvimento do Java, Edição Standard)
-* Este exemplo utiliza o Apache [cliente HTTP](http://hc.apache.org/httpcomponents-client-ga/) de componentes de HTTP. Terá de adicionar as seguintes bibliotecas de cliente Apache HTTP a seu projeto: 
+* Este exemplo utiliza o Apache [cliente HTTP](https://hc.apache.org/httpcomponents-client-ga/) de componentes de HTTP. Terá de adicionar as seguintes bibliotecas de cliente Apache HTTP a seu projeto: 
     * httpclient 4.5.3.jar
     * httpcore 4.4.6.jar
     * Commons-log-1.2.jar

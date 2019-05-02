@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: b653b0276cedea1e3b45adf7a9dc390b24f0d03f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5106b22500b73b650742e7fe0f881c2a4c984eff
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765402"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937721"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>Guia de publicação da oferta de aplicações de SaaS
 

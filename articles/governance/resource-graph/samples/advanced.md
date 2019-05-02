@@ -9,11 +9,11 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 7684ae6b4ddb6320efc62ef6f9963bef1b9a66fa
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62732372"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691997"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 

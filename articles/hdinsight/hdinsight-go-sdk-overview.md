@@ -8,11 +8,11 @@ ms.date: 09/21/2018
 ms.author: tyfox
 ms.custom: seodec18
 ms.openlocfilehash: 2e5b7816fda89e25dcb0de26f526e5187e0640b9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098563"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700611"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Pré-visualização do SDK de gestão do Go do HDInsight
 

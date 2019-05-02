@@ -1,25 +1,18 @@
 ---
-title: Atualizar a oferta de aplicação SaaS do Azure existente | Documentos da Microsoft
+title: Atualizar a oferta de aplicação SaaS do Azure existente | O Azure Marketplace
 description: Como atualizar uma oferta de aplicação SaaS existente no Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: dan-wesley
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 9d490a0ec09e351e4cee00e7c30c9161bdfac3e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 8817c8aa7d5d589be5e03cdd04e3a505d7e2be21
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594299"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64941652"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Atualizar uma oferta de aplicação SaaS existente
 

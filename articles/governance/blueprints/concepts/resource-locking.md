@@ -3,17 +3,17 @@ title: Compreender o bloqueio de recursos
 description: Saiba mais sobre as opções de bloqueios para proteger recursos, ao atribuir um plano gráfico.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/28/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 232d823f364f9f98d1da1bade50ba369b898a57d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db0b5bbe1261c7bdf76393c69a1189d2a850cd07
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683025"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719743"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Compreender o recurso de bloqueio em esquemas do Azure
 
@@ -53,6 +53,13 @@ Quando a atribuição ser removida, os bloqueios criados por esquemas são remov
 Um RBAC [negar atribuições](../../../role-based-access-control/deny-assignments.md) negar a ação é aplicada a recursos de artefacto durante a atribuição de um plano gráfico se a atribuição selecionado a **só de leitura** ou **não elimine** opção. A ação de negação é adicionada pela identidade gerida de atribuição do esquema e só pode ser removida dos recursos de artefacto pela mesma identidade gerida. Esta medida de segurança impõe o mecanismo de bloqueio e impede a remover o bloqueio de esquema fora de esquemas.
 
 ![Atribuição de grupo de recursos de negação de esquema](../media/resource-locking/blueprint-deny-assignment.png)
+
+O [propriedades de atribuição de negação](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são os seguintes:
+
+|Modo |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals [i]. ID | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Só de Leitura |**\*** |**\*/read** |SystemDefined (todos) |atribuição de esquema e definida pelo utilizador na **excludedPrincipals** |Grupo de recursos - _true_; Recursos - _FALSO_ |
+|Não Eliminar |**\*/delete** | |SystemDefined (todos) |atribuição de esquema e definida pelo utilizador na **excludedPrincipals** |Grupo de recursos - _true_; Recursos - _FALSO_ |
 
 > [!IMPORTANT]
 > O Azure Resource Manager coloca em cache os detalhes de atribuição de função durante até 30 minutos. Assim, negar atribuições negar a ação nos recursos de esquema pode não ser imediatamente em vigor completa. Durante este período de tempo, é possível eliminar um recurso que se destina a ser protegidos por bloqueios de esquema.

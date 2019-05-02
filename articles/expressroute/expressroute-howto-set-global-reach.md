@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 8ea3b3580cb70d0453a5ec6a38f6063788ebf7f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de9cbd9cfac766e2a67274684d3fb6b447e45200
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60364776"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572749"
 ---
 # <a name="configure-expressroute-global-reach"></a>Configurar o Alcance Global do ExpressRoute
 
@@ -39,7 +39,7 @@ Antes de iniciar a configuração, confirme o seguinte:
 1. Para iniciar a configuração, inicie sessão na sua conta do Azure e selecione a subscrição que pretende utilizar.
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
-2. Identifique os circuitos do ExpressRoute que pretende utilizar. Pode ativar o alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estão localizados em países/regiões suportadas e foram criados em diferentes localizações de peering. 
+2. Identifique os circuitos do ExpressRoute que pretende utilizar. Pode ativar o alcance Global do ExpressRoute entre quaisquer dois circuitos do ExpressRoute, desde que eles estão localizados nos países/regiões suportadas e foram criados em diferentes localizações de peering. 
 
    * Se a sua subscrição é a proprietária de ambos os circuitos, pode escolher qualquer circuito para executar a configuração nas seções a seguir.
    * Se dois circuitos estiverem em diferentes subscrições do Azure, terá de autorização de uma subscrição do Azure. Em seguida, passar a chave de autorização ao executar o comando de configuração na subscrição do Azure.

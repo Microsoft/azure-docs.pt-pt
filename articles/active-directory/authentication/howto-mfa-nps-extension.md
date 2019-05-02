@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 080a37a88e46117a9963f07c14d64f00c6bae6d5
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359233"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570468"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrar a infraestrutura NPS existente com o Azure multi-factor Authentication
 
@@ -183,6 +183,8 @@ A menos que queira utilizar seus próprios certificados (em vez dos certificados
 6. PowerShell mostra uma mensagem de êxito quando o script estiver concluído.  
 
 Repita estes passos em todos os servidores adicionais de NPS que pretende configurar para balanceamento de carga.
+
+Se o certificado de computador anterior tiver expirado, e um novo certificado foi gerado, deve eliminar todos os certificados expirados. Ter certificados expirados podem causar problemas com a extensão de NPS a iniciar.
 
 > [!NOTE]
 > Se usar seus próprios certificados em vez de gerar certificados com o script do PowerShell, certifique-se de que eles se alinham com a Convenção de nomenclatura de NPS. O nome do requerente tem de ser **CN =\<TenantID\>, UO = extensão NPS da Microsoft**. 

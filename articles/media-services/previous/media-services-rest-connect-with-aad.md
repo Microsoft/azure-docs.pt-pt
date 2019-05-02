@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: 4b6bd97d7e87832f774f7a09f7e0deeb4047e695
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6284a1aa0cc3a49291553309b058e4d9f65b24c6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598584"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701021"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Utilizar autenticação do Azure AD para aceder à API de serviços de multimédia com REST
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando estiver usando autenticação do Azure AD com os serviços de multimédia do Azure, pode autenticar-se de uma de duas formas:
 

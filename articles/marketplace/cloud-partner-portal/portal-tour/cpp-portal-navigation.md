@@ -1,25 +1,18 @@
 ---
-title: Navegação do Portal de parceiros para o Azure Marketplace da cloud | Documentos da Microsoft
-description: .
+title: Navegação do Portal de parceiros para o Azure Marketplace da cloud
+description: Explicação do painel de navegação no Portal do parceiro de Cloud para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/09/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e963734af450a96ac08830769560a2b5e8eef9c6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ef329bfef9dc4f98dfd975a33c190f0b1825df4e
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128634"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942059"
 ---
 # <a name="cloud-partner-portal-navigation"></a>Navegação do Portal de parceiros da cloud
 

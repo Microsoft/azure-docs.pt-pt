@@ -4,14 +4,14 @@ description: Mostra os tipos de recursos do Azure suportam etiquetas. Fornece de
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: dd6836ef4f859ce77c1a56095d32373d8e08f468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32156f39d36d8485c76dada5fd00f9ea0918598c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388068"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575446"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso suporta [etiquetas](resource-group-using-tags.md).
@@ -862,7 +862,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | dnszones/SOA | Não | 
 | dnszones/SRV | Não | 
 | dnszones/TXT | Não | 
-| expressRouteCircuits | Sim | 
+| expressRouteCircuits | Sim (o valor de etiqueta atualmente não aparece no relatório de custo) | 
 | expressRouteServiceProviders | Não | 
 | frontdoors | Sim | 
 | frontdoorWebApplicationFirewallPolicies | Sim | 
@@ -876,7 +876,7 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | networkInterfaces | Sim | 
 | networkProfiles | Sim | 
 | networkSecurityGroups | Sim | 
-| networkWatchers | Sim | 
+| networkWatchers | Sim (o valor de etiqueta atualmente não aparece no relatório de custo) | 
 | networkWatchers/connectionMonitors | Sim | 
 | networkWatchers/lenses | Sim | 
 | networkWatchers/pingMeshes | Sim | 
@@ -892,9 +892,10 @@ Para obter os mesmos dados como um ficheiro de valores separados por vírgulas, 
 | virtualHubs | Sim | 
 | virtualNetworkGateways | Sim | 
 | virtualNetworks | Sim | 
+| virtualNetworks/subnets | Não | 
 | virtualNetworkTaps | Sim | 
 | virtualWans | Sim | 
-| vpnGateways | Sim | 
+| vpnGateways | Sim (o valor de etiqueta atualmente não aparece no relatório de custo) | 
 | vpnSites | Sim | 
 | webApplicationFirewallPolicies | Sim | 
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47adab265978b4b760450ab1176cf28c55bc0548
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 1d58ef2716e2a432e1123d6b215b33fb2b688a32
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563687"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certent-equity-management"></a>Tutorial: Integração do Active Directory do Azure com a gestão de estudo de patrimônio Certent
 
@@ -113,7 +113,7 @@ Para configurar o Azure AD início de sessão único com a gestão de estudo de 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Analista de integração do contacto Certent atribuído pelo Gestor de sucesso do cliente para obter estes valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-5. Aplicativo de gerenciamento de estudo de patrimônio Certent espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+5. Aplicativo de gerenciamento de estudo de patrimônio Certent espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 

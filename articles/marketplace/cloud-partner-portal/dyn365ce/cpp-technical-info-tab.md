@@ -1,25 +1,18 @@
 ---
-title: Dynamics 365 para o separador de informações técnicas do Customer Engagement - Azure Marketplace | Documentos da Microsoft
+title: Dynamics 365 para o separador de informações de técnicas de envolvimento do cliente | O Azure Marketplace
 description: Como especificar as informações técnicas para um de Dynamics 365 para a aplicação de envolvimento do cliente no Marketplace do AppSource.
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 03/05/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 1dd488c2eb419b5e210a48d7a94f7d0bb423a2b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: df7f3be5a92a183176da7851ce1943793b8b57d0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60332893"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942343"
 ---
 # <a name="dynamics-365-for-customer-engagement-technical-info-tab"></a>Dynamics 365 para o separador de informações de técnicas de envolvimento do cliente
 
@@ -32,13 +25,13 @@ Deve fornecer detalhes sobre a sua aplicação do Dynamics 365 nesta secção.
 
 ![Secção de informações da aplicação do separador de informações técnicas](./media/dynce-technical-info-tab1.png)
 
-A tabela seguinte descreve estes campos.
+A tabela seguinte descreve estes campos. Campos obrigatórios são indicted por um asterisco (*).
 
 |      Campo                    |    Descrição                  |
 |    ---------                  |  ---------------                |
-|   Modelo de licença de base          |  Modelo de licença determina a forma como os clientes são atribuídos a sua aplicação no Centro de administração do Dynamics 365. **Resource** licenciamento é baseada na instância, enquanto **utilizador** licenças são atribuídas uma por inquilino.  |
-|  Saída de S2S & CRM Secure Store acesso |  Permite a configuração de CRM Secure Store ou o acesso de saída do servidor para servidor (S2S). *Esta funcionalidade requer consideração especializada da equipe de do Dynamics 365 durante a fase de certificação.* Microsoft irá contactá-lo para concluir os passos adicionais para suportar esta funcionalidade.  |
-| Subscrever eventos de ciclo de vida CRM | Integração com eventos de ciclo de vida do Dynamics 365 requer que forneça um serviço dedicado que está registado através de um contrato especial com a Microsoft. *Esta funcionalidade requer consideração especializada da equipe de do Dynamics 365 durante a fase de certificação.* Será contactado para concluir os passos adicionais para suportar esta capacidade.  |
+|   Modelo de licença de base\*          |  Modelo de licença determina a forma como os clientes são atribuídos a sua aplicação no Centro de administração do Dynamics 365. **Resource** licenciamento é baseada na instância, enquanto **utilizador** licenças são atribuídas uma por inquilino.  |
+|  Saída de S2S & CRM Secure Store acesso\* |  Permite a configuração de CRM Secure Store ou o acesso de saída do servidor para servidor (S2S). *Esta funcionalidade requer consideração especializada da equipe de do Dynamics 365 durante a fase de certificação.* Microsoft irá contactá-lo para concluir os passos adicionais para suportar esta funcionalidade.  |
+| Subscrever eventos de ciclo de vida CRM\* | Integração com eventos de ciclo de vida do Dynamics 365 requer que forneça um serviço dedicado que está registado através de um contrato especial com a Microsoft. *Esta funcionalidade requer consideração especializada da equipe de do Dynamics 365 durante a fase de certificação.* Será contactado para concluir os passos adicionais para suportar esta capacidade.  |
 | Url de configuração de aplicação | URL da página web que permite ao usuário configurar a aplicação |
 | Produtos aplicáveis do Dynamics 365  | Selecione os produtos do Dynamics 365 que esta oferta aplica-se a. Esta oferta serão apresentados no produtos selecionados no AppSource.  |
 | Apenas a alteração de marketing         | Definir esta opção para Sim indica que apenas marketing/descritivo alterações foram efetuadas para a oferta existente.  Essas alterações permitem a oferta para ignorar a certificação e aprovisionamento de fases.  |
@@ -51,14 +44,14 @@ Deve fornecer detalhes sobre o ficheiro de pacote do AppSource nesta secção.  
 
 ![Secção de pacote de CRM do separador de informações técnicas](./media/dynce-technical-info-tab2.png)
 
-A tabela seguinte descreve estes campos.
+A tabela seguinte descreve estes campos.  Campos obrigatórios são indicted por um asterisco (*).
 
 |      Campo                    |    Descrição                  |
 |    ---------                  |  ---------------                |
-|  Nome de ficheiro do pacote     |  Nome de ficheiro do pacote (. zip).  Este nome é *não* pública e será usado internamente pela equipe de certificação do Dynamics 365.  |
-|  Url                          |  URL de uma conta de armazenamento do Azure que contém o ficheiro de pacote. Este URL deve incluir uma chave SAS só de leitura para permitir que a nossa equipa de retirada do seu pacote para a verificação.  |
-| Mais do que um pacote de crm     | Selecione Sim apenas se estiver dando suporte a várias versões do crm com diferentes pacotes.  Cada versão terão um tht correspondente do ficheiro de pacote que tem de criar individualmente.  |
-| Recurso de caso de cenário e a utilização   | Permite o carregamento de um documento de especificação funcional para a sua aplicação, para utilização pela equipe de validação do Dynamics 365.  O formato preferencial para essa especificação é o [modelo de cenário de utilizador de E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
+|  Nome de ficheiro do pacote\*     |  Nome de ficheiro do pacote (. zip).  Este nome é *não* pública e será usado internamente pela equipe de certificação do Dynamics 365.  |
+|  URL da localização do pacote\*      |  URL de uma conta de armazenamento do Azure que contém o ficheiro de pacote. Este URL deve incluir uma chave SAS só de leitura para permitir que a nossa equipa de retirada do seu pacote para a verificação.  |
+| Mais do que um pacote de crm\*     | Selecione Sim apenas se estiver dando suporte a várias versões do crm com diferentes pacotes.  Cada versão terão um tht correspondente do ficheiro de pacote que tem de criar individualmente.  |
+| Recurso de caso de cenário e a utilização\*   | Permite o carregamento de um documento de especificação funcional para a sua aplicação, para utilização pela equipe de validação do Dynamics 365.  O formato preferencial para essa especificação é o [modelo de cenário de utilizador de E2E](https://isvdocumentation.blob.core.windows.net/d365documentation/Power%20Platform%20E2E%20document.docx).  |
 |  |  |
 
 

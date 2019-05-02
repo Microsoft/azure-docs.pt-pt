@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche, glenga
-ms.openlocfilehash: 3cf6a0d080e2d8cafcab8e69a614b59a470c7aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b673e625e1a50c32e3d8580ec442792ed8611703
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637051"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572593"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Perguntas mais frequentes sobre o funcionamento em rede nas funções do Azure
 
@@ -28,11 +28,14 @@ Implementar uma função num ambiente de serviço de aplicações está atualmen
 Pode restringir o acesso à internet de duas formas:
 
 * [Restrições de IP](../app-service/app-service-ip-restrictions.md): Restringir o tráfego de entrada para a sua aplicação de função, intervalo de IP.
+    * Em restrições de IP, também é possível configurar [pontos finais de serviço](../virtual-network/virtual-network-service-endpoints-overview.md), que restringir sua função para aceitar apenas o tráfego de entrada de uma rede virtual específico.
 * Remoção de todos os acionadores HTTP. Para alguns aplicativos, é suficiente para simplesmente evitar acionadores HTTP e usar qualquer outra origem de evento para acionar a função.
 
 Tenha em atenção que o editor do portal do Azure requer acesso direto à sua função em execução. Quaisquer alterações de código através do portal do Azure irão exigir que o dispositivo que estiver a utilizar para navegar até ao portal para têm a sua lista branca IP. Mas ainda pode usar qualquer coisa na guia de funcionalidades de plataforma com restrições de rede no local.
 
 ## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>Como posso restringir a minha aplicação de função a uma rede virtual?
+
+É possível restringir **entrada** tráfego para uma aplicação de funções para uma rede virtual com [pontos finais de serviço](./functions-networking-options.md#private-site-access). Esta configuração permite, ainda, a aplicação de funções fazer chamadas de saída à internet.
 
 A única forma de restringir totalmente uma função de forma que todo o tráfego flui através de uma rede virtual é usar um ambiente de serviço de aplicações internamente com balanceamento de carga. Esta opção implementa o seu site numa infraestrutura dedicada numa rede virtual e envia todos os acionadores e tráfego através da rede virtual. 
 
@@ -48,8 +51,11 @@ Ao utilizar a integração da rede virtual (atualmente em pré-visualização), 
 
 ## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>Como posso acionar uma função de um recurso numa rede virtual?
 
-Pode acionar uma função de um recurso numa rede virtual apenas ao implementar a aplicação de funções para um ambiente de serviço de aplicações. Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, consulte [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
+Pode permitir que os acionadores HTTP a ser chamado a partir de uma rede virtual com [pontos finais de serviço](./functions-networking-options.md#private-site-access). 
 
+Também pode acionar uma função de um recurso numa rede virtual ao implementar a aplicação de funções para um ambiente de serviço de aplicações. Para obter detalhes sobre como utilizar um ambiente de serviço de aplicações, consulte [criar e utilizar um balanceador de carga interno com um ambiente de serviço de aplicações](../app-service/environment/create-ilb-ase.md).
+
+Os Premium e o serviço de aplicações plano suporte acionadores HTTP de uma rede virtual, mas apenas um ambiente de serviço de aplicações suportam todos os tipos de Acionador outra função através de uma rede virtual.
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>Como posso implementar meu aplicativo de função numa rede virtual?
 

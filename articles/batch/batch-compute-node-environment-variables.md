@@ -1,6 +1,6 @@
 ---
-title: Variáveis de ambiente de nó - Azure Batch de computação | Documentos da Microsoft
-description: Referência de variável de ambiente de nó de computação do Azure Batch Analytics.
+title: Variáveis de ambiente de tempo de execução - Azure Batch de tarefas | Documentos da Microsoft
+description: Orientações variável de ambiente do tempo de execução de tarefa e a referência para o Azure Batch Analytics.
 services: batch
 author: laurenhughes
 manager: jeconnoc
@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 02/07/2019
+ms.date: 04/23/2019
 ms.author: lahugh
-ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c46f75c447becc8b15d4a6b8f979330db7ab95c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782236"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575576"
 ---
-# <a name="azure-batch-compute-node-environment-variables"></a>Variáveis do ambiente de nó de computação do Azure Batch
+# <a name="azure-batch-runtime-environment-variables"></a>Variáveis de ambiente de tempo de execução do Azure Batch
 
 O [serviço Azure Batch](https://azure.microsoft.com/services/batch/) define as seguintes variáveis de ambiente em nós de computação. Pode referenciar estas variáveis de ambiente nas linhas de comandos de tarefas e, os programas e scripts executam pelas linhas de comando.
 
@@ -28,6 +28,12 @@ Para obter mais informações sobre como utilizar variáveis de ambiente com o B
 ## <a name="environment-variable-visibility"></a>Visibilidade de variável de ambiente
 
 Estas variáveis de ambiente são visíveis apenas no contexto do **utilizador da tarefa**, a conta de utilizador no nó em que é executada uma tarefa. *Não* as verá se [ligar remotamente](https://azure.microsoft.com/documentation/articles/batch-api-basics/#connecting-to-compute-nodes) a um nó de computação através do protocolo DRP (Remote Desktop Protocol) ou de Secure Shell (SSH) e as apresentar. Isto deve-se ao facto de a conta de utilizador utilizada na ligação remota não ser a mesma conta utilizada pela tarefa.
+
+Para obter o valor atual de uma variável de ambiente, inicie `cmd.exe` num Windows nó de computação ou `/bin/sh` num nó de Linux:
+
+`cmd /c set <ENV_VARIABLE_NAME>`
+
+`/bin/sh printenv <ENV_VARIABLE_NAME>`
 
 ## <a name="command-line-expansion-of-environment-variables"></a>Expansão de variáveis de ambiente da linha de comandos
 

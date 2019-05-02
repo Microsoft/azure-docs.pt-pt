@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 06/22/2018
 ms.author: jeconnoc
 ms.openlocfilehash: bc861b6730e8bf9db6ba2ab005496914f7b9ed89
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63759810"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699680"
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instale o .NET em funções de serviços Cloud do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidos com o SO convidado do Azure. Pode utilizar o .NET no SO convidado para configurar as suas funções de web e de trabalho de serviço do cloud.

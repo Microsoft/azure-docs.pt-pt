@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: dc44cfbd24bd04caeede03dcbcfc60da06f61135
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 99e043adeac9a43432fb1eba85527b561c477354
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921770"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570565"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -199,7 +199,7 @@ O Azure é uma plataforma de nuvem global, que está disponível em geral em mui
 
 ### <a name="choose-the-best-region-for-your-application-and-data"></a>Escolha a região melhor para a sua aplicação e dados
 
-Uma das vantagens de utilizar o Azure é que pode implementar as aplicações para vários centros de dados em todo o mundo. A região que escolher pode afetar o desempenho da sua aplicação. Por exemplo, é melhor escolher uma região mais próxima da maioria dos seus clientes para reduzir a latência nos pedidos de rede. Também poderá selecionar a sua região para cumprir os requisitos legais para distribuir a sua aplicação em determinados países. É sempre uma prática recomendada de armazenar dados da aplicação no mesmo datacenter ou num Data Center como perto quanto possível para o datacenter que aloja a aplicação.
+Uma das vantagens de utilizar o Azure é que pode implementar as aplicações para vários centros de dados em todo o mundo. A região que escolher pode afetar o desempenho da sua aplicação. Por exemplo, é melhor escolher uma região mais próxima da maioria dos seus clientes para reduzir a latência nos pedidos de rede. Também poderá selecionar a sua região para cumprir os requisitos legais para distribuir a sua aplicação em determinados países/regiões. É sempre uma prática recomendada de armazenar dados da aplicação no mesmo datacenter ou num Data Center como perto quanto possível para o datacenter que aloja a aplicação.
 
 ### <a name="multi-region-apps"></a>Aplicações de várias regiões
 

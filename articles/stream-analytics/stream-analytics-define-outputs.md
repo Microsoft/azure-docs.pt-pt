@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 03871c3f3627e85cc2af2f05a5fba38bd8069a15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61481188"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926067"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Ao utilizar os dados de saída, pode fazer ainda mais análises de negócio e o armazenamento de dados dos seus dados.
@@ -182,7 +182,7 @@ O Power BI utiliza a política de retenção first in, First Out (FIFO). Recolha
 ### <a name="convert-a-data-type-from-stream-analytics-to-power-bi"></a>Converter um tipo de dados do Stream Analytics para o Power BI
 O Azure Stream Analytics atualiza o modelo de dados dinamicamente no tempo de execução, se alterar o esquema de saída. Todas as alterações de nome de coluna, alterações de tipo de coluna e a adição ou remoção de colunas são controlados.
 
-Esta tabela abrange as conversões de tipo de dados do [tipos de dados do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) para o Power BI [tipos de modelo de dados de entidade (EDM)](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/entity-data-model), se um conjunto de dados do Power BI e a tabela não existem.
+Esta tabela abrange as conversões de tipo de dados do [tipos de dados do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835065.aspx) para o Power BI [tipos de modelo de dados de entidade (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model), se um conjunto de dados do Power BI e a tabela não existem.
 
 Do Stream Analytics | Para o Power BI
 -----|-----

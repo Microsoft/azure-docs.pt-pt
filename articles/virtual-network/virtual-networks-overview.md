@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 9fb6aa0c2bf585862f61d7c78bd09b340ff8a3ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640349"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707022"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 

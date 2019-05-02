@@ -9,11 +9,11 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.openlocfilehash: 7d7fbf5d72654c26edf09ab27f024eaf39f8c387
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112898"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708990"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Execute Apache Oozie no Hadoop do HDInsight clusters com o Enterprise Security Package
 

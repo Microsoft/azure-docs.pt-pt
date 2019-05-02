@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.openlocfilehash: c85074a2b26a79dbf5e464972e7f82b5955d15f1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126890"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692474"
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para criar em tempo real, fiável e consistente e o aplicativo de processamento de dados de elevado desempenho. Ele é criado por cima de [Apache Storm](https://storm.incubator.apache.org/) – um sistema criado por Comunidades de sistemas operacionais de processamento em fluxo. Storm destina-se por Nathan Marz e foi aberto é obtido ao Twitter. Ela aproveita [Apache ZooKeeper](https://zookeeper.apache.org/), outro projeto do Apache para ativar altamente fiável distribuído de gerenciamento de estado e de coordenação. 

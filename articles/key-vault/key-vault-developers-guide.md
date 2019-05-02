@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 06fd66c3fb9e90e0198d40253f3c554fe8596c3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72ec3080658b98376952f72f746c1b53fdf7de77
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640808"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704327"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do programador do Cofre de chaves do Azure
 

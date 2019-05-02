@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38353ed68469ac35f04d68e19afd11ac4b47f2ae
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818411"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943956"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Comece a utilizar o Azure Stream Analytics: Deteção de fraudes em tempo real
 
@@ -30,7 +30,7 @@ Este tutorial utiliza o exemplo de deteção de fraudes em tempo real com base n
 
 ## <a name="scenario-telecommunications-and-sim-fraud-detection-in-real-time"></a>Cenário: Telecomunicações e SIM a deteção de fraudes em tempo real
 
-Uma empresa de telecomunicações tem um grande volume de dados, chamadas de entrada. A empresa quer detetar chamadas fraudulentas em tempo real, para que eles possam notifique os clientes ou encerrar o serviço para um número específico. Um tipo de fraude SIM envolve várias chamadas da mesma identidade quase ao mesmo tempo, mas em locais geograficamente diferentes. Para detetar este tipo de fraude, a empresa precisa examinar registos de telefone de entrada e procurar padrões específicos — neste caso, para as chamadas feitas quase ao mesmo tempo em diferentes países. Quaisquer registos de telefone que se enquadram nessa categoria são escritos para o armazenamento para análise posterior.
+Uma empresa de telecomunicações tem um grande volume de dados, chamadas de entrada. A empresa quer detetar chamadas fraudulentas em tempo real, para que eles possam notifique os clientes ou encerrar o serviço para um número específico. Um tipo de fraude SIM envolve várias chamadas da mesma identidade quase ao mesmo tempo, mas em locais geograficamente diferentes. Para detetar este tipo de fraude, a empresa precisa examinar registos de telefone de entrada e procurar padrões específicos — neste caso, para chamadas feitas quase ao mesmo tempo em diferentes países/regiões. Quaisquer registos de telefone que se enquadram nessa categoria são escritos para o armazenamento para análise posterior.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -150,7 +150,7 @@ Alguns dos campos de chave, que irá utilizar neste aplicativo de deteção de f
 |**Registo**|**Definição**|
 |----------|--------------|
 |`CallrecTime`|O carimbo de data/hora da hora de início da chamada. |
-|`SwitchNum`|O comutador de telefone utilizado para estabelecer a chamada. Neste exemplo, os comutadores são cadeias que representam o país de origem (E.U.A., China, Reino Unido, Alemanha ou Austrália). |
+|`SwitchNum`|O comutador de telefone utilizado para estabelecer a chamada. Neste exemplo, os comutadores são cadeias de caracteres que representam o país/região de origem (EUA, China, Reino Unido, Alemanha ou Austrália). |
 |`CallingNum`|O número de telefone do chamador. |
 |`CallingIMSI`|A Identidade Internacional de Assinante Móvel (IMSI). Este é o identificador exclusivo do chamador. |
 |`CalledNum`|O número de telefone do destinatário da chamada. |
@@ -276,7 +276,7 @@ Em muitos casos, a análise não precisa de todas as colunas do fluxo de entrada
 
 Suponha que queira contar o número de chamadas recebidas por região. Em dados de transmissão em fluxo, quando deseja realizar as funções de agregação, como a contagem, precisa de dividir o fluxo em unidades temporais (uma vez que o fluxo de dados em si é efetivamente infinito). Faz isso usando uma análise de transmissão em fluxo [função de janela](stream-analytics-window-functions.md). Em seguida, pode trabalhar com os dados dentro dela como uma unidade.
 
-Para essa transformação, pretende uma seqüência de temporais windows que não se sobreponham, cada janela terá um conjunto discreto de dados que pode agrupar e agregado. Este tipo de janela é referido como um *janela em cascata*. Dentro da janela em cascata, pode obter uma contagem de chamadas recebidas, agrupados por `SwitchNum`, que representa o país onde a chamada foi originada. 
+Para essa transformação, pretende uma seqüência de temporais windows que não se sobreponham, cada janela terá um conjunto discreto de dados que pode agrupar e agregado. Este tipo de janela é referido como um *janela em cascata*. Dentro da janela em cascata, pode obter uma contagem de chamadas recebidas, agrupados por `SwitchNum`, que representa o país/região em que a chamada teve origem. 
 
 1. Altere a consulta no editor de código para o seguinte:
 
@@ -292,7 +292,7 @@ Para essa transformação, pretende uma seqüência de temporais windows que nã
 
     Inclui a projeção `System.Timestamp`, que retorna um carimbo para o final de cada janela. 
 
-    Para especificar que pretende utilizar uma janela em cascata, utilize o [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionar o `GROUP BY` cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar a partir de um microssegundo para um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, então obterá uma contagem por país para o valor de cada 5 segundos de chamadas.
+    Para especificar que pretende utilizar uma janela em cascata, utilize o [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionar o `GROUP BY` cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar a partir de um microssegundo para um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela em cascata consiste em intervalos de 5 segundos, então obterá uma contagem por país/região para o valor de cada 5 segundos de chamadas.
 
 2. Clique em **teste** novamente. Nos resultados, tenha em atenção que os carimbos de data / sob **WindowEnd** são em incrementos de 5 segundos.
 
@@ -302,7 +302,7 @@ Para essa transformação, pretende uma seqüência de temporais windows que nã
 
 Neste exemplo, considere a utilização fraudulenta ser chamadas que têm origem no mesmo utilizador, mas em diferentes locais dentro de 5 segundos entre si. Por exemplo, o mesmo utilizador não pode legitimamente fazer uma chamada do E.U.A. e da Austrália ao mesmo tempo. 
 
-Para verificar esses casos, pode utilizar uma associação automática dos dados de transmissão em fluxo para associar o fluxo ao se baseia no `CallRecTime` valor. Pode procurar a chamada, em seguida, os registos em que o `CallingIMSI` valor (o número de origem) é o mesmo, mas o `SwitchNum` valor (país de origem) não é o mesmo.
+Para verificar esses casos, pode utilizar uma associação automática dos dados de transmissão em fluxo para associar o fluxo ao se baseia no `CallRecTime` valor. Pode procurar a chamada, em seguida, os registos em que o `CallingIMSI` valor (o número de origem) é o mesmo, mas o `SwitchNum` valor (país/região de origem) não é o mesmo.
 
 Quando utiliza uma junção com dados de transmissão em fluxo, a associação tem de fornecer que alguns limites relativamente a distância linhas correspondentes podem ser separados em tempo. (Conforme observado anteriormente, os dados de transmissão em fluxo são efetivamente infinitas.) Os limites de tempo para a relação são especificados no interior da `ON` cláusula de associação, usando o `DATEDIFF` função. Neste caso, a associação se baseia num intervalo de 5 segundos de dados de chamada.
 

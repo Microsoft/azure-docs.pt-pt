@@ -14,33 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 4098d55a0b7505b2178c95d612c078a427adc9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 03b9995eab503ac1fcd4615882419dde31d4f8bf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464220"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869468"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar ficheiros para uma conta de serviços de multimédia com .NET 
-> [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-upload-files.md)
-> * [REST](media-services-rest-upload-files.md)
-> * [Portal](media-services-portal-upload-files.md)
-> 
-> 
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Nos Media Services, pode carregar (ou inserir) os seus ficheiros digitais num elemento. O **Asset** entidade pode conter vídeo, áudio, imagens, coleções de miniaturas, texto faixas e legendagem de áudio ficheiros (e os metadados relativos a esses ficheiros.)  Assim que os ficheiros são carregados, o seu conteúdo é armazenado em segurança na nuvem para processamento adicional e a transmissão em fluxo.
 
 Os ficheiros no elemento são denominados **Ficheiros de Elemento**. O **AssetFile** instância e o ficheiro de multimédia real são dois objetos distintos. A instância de AssetFile contém metadados sobre o ficheiro de multimédia, ao passo que o ficheiro de suporte de dados contém o conteúdo de mídia real.
 
-> [!NOTE]
-> As seguintes considerações aplicam-se:
-> 
-> * Serviços de multimédia utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, por cento de codificação não é permitida. O valor do **Name** propriedade não pode ter qualquer um dos seguintes [carateres por cento de codificação-reservados](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
-> * O comprimento do nome não deve ser superior a 260 carateres.
-> * Existe um limite para o tamanho máximo dos ficheiros suportado para processamento nos Serviços de Multimédia. Veja [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre as limitações relativas aos tamanhos de ficheiros.
-> * Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
-> 
+## <a name="considerations"></a>Considerações
+
+As seguintes considerações aplicam-se:
+ 
+ * Serviços de multimédia utiliza o valor da propriedade IAssetFile.Name ao criar os URLs para o conteúdo de transmissão em fluxo (por exemplo, http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters.) Por esse motivo, por cento de codificação não é permitida. O valor do **Name** propriedade não pode ter qualquer um dos seguintes [carateres por cento de codificação-reservados](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters):! *' ();: @& = + $, /? [] # ". Além disso, só pode existir um '.' para a extensão de nome de ficheiro.
+* O comprimento do nome não deve ser superior a 260 carateres.
+* Existe um limite para o tamanho máximo dos ficheiros suportado para processamento nos Serviços de Multimédia. Veja [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre as limitações relativas aos tamanhos de ficheiros.
+* Existe um limite de 1,000,000 políticas para diferentes políticas do AMS (por exemplo, para a política Locator ou ContentKeyAuthorizationPolicy). Deve utilizar o mesmo ID de política se estiver a utilizar sempre os mesmas permissões de dias/acesso, por exemplo, políticas para localizadores que pretendam permanecem no local durante muito tempo (políticas de não carregamento). Para obter mais informações, veja [este](media-services-dotnet-manage-entities.md#limit-access-policies) artigo.
 
 Ao criar recursos, pode especificar as seguintes opções de encriptação:
 
@@ -61,6 +58,7 @@ Se especificar para o seu elemento seja encriptado com uma **StorageEncrypted** 
 Este artigo mostra como utilizar o SDK .NET dos Media Services, bem como as extensões do SDK .NET dos Media Services para carregar ficheiros para um recurso de serviços de multimédia.
 
 ## <a name="upload-a-single-file-with-media-services-net-sdk"></a>Carregar um único ficheiro com o SDK .NET dos Media Services
+
 O código a seguir usa o .NET para carregar um único ficheiro. O localizador e AccessPolicy são criados e destruído pela função de carregamento. 
 
 ```csharp

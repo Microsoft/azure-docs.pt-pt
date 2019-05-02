@@ -3,8 +3,8 @@ title: Os registos de fluxo de NSG de leitura | Documentos da Microsoft
 description: Este artigo mostra como analisar os registos de fluxo NSG
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: jdial
-ms.openlocfilehash: cddf6526a798195e3e3091af766fee28791ac522
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.author: kumud
+ms.openlocfilehash: 6eaad301f3b3ea00639ddb3f4c9d22b28d8d7b88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795485"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692704"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
 

@@ -11,20 +11,21 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357943"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572677"
 ---
-# <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>escalões de serviço de vCore, o benefício híbrido do Azure e migração
+# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Escolha de entre os escalões de serviço de vCore e migrar de escalões de serviço DTU
 
 O modelo de compra baseado em vCore permite-lhe dimensionar recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. Ele também permite-lhe escolher a geração de hardware:
 
 - Gen4 - até 24 CPUs lógicas com base na Intel E5-2673 v3 (Haswell) 2,4 GHz, vCore = 1 PP (núcleos físicos), 7 GB por núcleo, anexado SSD
 - Gen5 - até 80 CPUs lógicas com base na Intel E5-2673 v4 (Broadwell) 2,3 GHz, vCore = 1 LP (hyper-thread), 5.1 GB por núcleo, o rápido eNVM SSD
+
 
 Hardware de Gen4 oferece substancialmente mais memória por vCore. No entanto, o Gen5 hardware permite-lhe aumentar verticalmente os recursos de computação muito superiores.
 
@@ -40,9 +41,9 @@ A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
 ||**Fins gerais**|**Crítico para a empresa**|**Hiperescala (pré-visualização)**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
-|Computação|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo|
-|Armazenamento|Utiliza o armazenamento remoto:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
+|CPU|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80<br/>**Computação sem servidor**<br/>Gen5: 0,5 - 4 vCore|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
+|Memória|**Aprovisionado computação**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5.1 GB por núcleo<br/>**Computação sem servidor**<br/>Gen5: 3 GB por núcleo|**Aprovisionado computação**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5.1 GB por núcleo |**Aprovisionado computação**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5.1 GB por núcleo|
+|Armazenamento|Utiliza o armazenamento remoto:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Computação sem servidor da base de dados individual**:<br/>5 GB – 1 TB<br/>**Instância gerida**: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Instância gerida**:<br/>32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
 |Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com 200 000 IOPS máximos|TBD|
 |Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|?|
 |Cópias de segurança|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápidos e não um tamanho de operação de dados (a demorar minutos em vez de horas ou dias).|
@@ -56,16 +57,18 @@ A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
 - Para obter mais informações sobre os escalões de serviço para fins gerais e crítico para a empresa, consulte [escalões de serviço para fins gerais e crítico para a empresa](sql-database-service-tiers-general-purpose-business-critical.md).
 - Para obter detalhes sobre a camada de serviços de Hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md).  
 
-> [!IMPORTANT]
-> Se precisar de menos de um vCore de capacidade de computação, utilize o modelo de compra baseado em DTU.
+
 
 ## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
-No modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
+A camada de computadores aprovisionados do modelo de compra baseado em vCore, podem trocar suas licenças existentes para as tarifas com desconto na base de dados SQL com o [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Este benefício do Azure permite-lhe utilizar as suas licenças do SQL Server no local para economizar até 30% na base de dados do Azure SQL com as suas licenças do SQL Server no local com Software Assurance.
 
 ![preços](./media/sql-database-service-tiers/pricing.png)
 
-Com o benefício híbrido do Azure, pode optar por pagar apenas a infraestrutura do Azure subjacente, usando sua licença existente do SQL Server para o motor de base de dados SQL em si (**BasePrice**) ou pagar pela infraestrutura subjacente e a licença do SQL Server (**LicenseIncluded**). Pode escolher ou alterar o seu modelo de licenciamento com o portal do Azure ou através de um dos seguintes APIs.
+Com o benefício híbrido do Azure, pode optar por pagar apenas a infraestrutura do Azure subjacente, usando sua licença existente do SQL Server para o motor de base de dados SQL em si (**BasePrice**) ou pagar pela infraestrutura subjacente e a licença do SQL Server (**LicenseIncluded**).
+
+
+Pode escolher ou alterar o seu modelo de licenciamento com o portal do Azure ou através de um dos seguintes APIs.
 
 - Para definir ou atualizar o tipo de licença com o PowerShell:
 
@@ -130,5 +133,5 @@ Pode copiar qualquer base de dados com um tamanho de computação baseado em DTU
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para a base de dados, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para a base de dados, consulte [limites de recursos baseados em vCore de base de dados SQL para bases de dados individuais](sql-database-vcore-resource-limits-single-databases.md)
 - Para obter detalhes sobre específicas de computação tamanhos e opções de tamanho de armazenamento disponíveis para conjuntos elásticos, veja [limites de recursos baseados em vcore da base de dados SQL para conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).

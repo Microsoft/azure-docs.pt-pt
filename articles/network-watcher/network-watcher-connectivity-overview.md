@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 4b1164c3dedc5d8a2fa02d70f66ff00afe604836
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532460"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705813"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introdução à ligação resolução de problemas no observador de rede do Azure
 

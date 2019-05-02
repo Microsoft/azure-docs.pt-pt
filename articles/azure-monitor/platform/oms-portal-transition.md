@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: c4950d03449f2b293a87ab88f1ea3f49eee29557
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62102021"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876014"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS para o Azure
 
 > [!NOTE]
 > Este artigo aplica-se para a cloud pública do Azure e a cloud de governo, exceto onde indicado o contrário.
 
-O portal do Azure é o hub para todos os serviços do Azure e oferece uma gestão avançada de experiência com recursos como os dashboards para fixar recursos, a pesquisa inteligente para localizar recursos e a identificação para gestão de recursos. Para consolidar e simplificar o fluxo de trabalho de monitorização e gestão, começamos a adicionar as capacidades de portais do OMS no portal do Azure. Todas as funcionalidades do portal do OMS agora fazem parte do portal do Azure. Na verdade, alguns dos novos recursos, tais como análise de tráfego só estão disponíveis no portal do Azure. Será capaz de realizar tudo que estava a fazer no portal do OMS com o portal do Azure e muito mais. Se ainda não o fez, deve começar a utilizar o portal do Azure hoje mesmo!
+**Portal do OMS para a cloud pública do Azure foi extinto oficialmente. Portal do OMS para a cloud do Azure do Azure US Government vai ser descontinuado oficialmente 15 de Maio de 2019.** Temos o prazer de passar para o portal do Azure e esperar que a transição para ser fácil. Mas estamos cientes de alterações são difíceis e podem ser prejudicais. Envie dúvidas, comentários ou preocupações para **LAUpgradeFeedback\@microsoft.com**. O restante deste artigo passa pelos cenários-chave e o plano para essa transição.
 
-**Portal do OMS será oficialmente retirado a 15 de Janeiro de 2019** para a cloud comercial do Azure e para a cloud do Azure US Government, portal do OMS **vão ser descontinuados oficialmente 30 de Março de 2019.** Temos o prazer de passar para o portal do Azure e esperar que a transição para ser fácil. Mas estamos cientes de alterações são difíceis e podem ser prejudicais. Envie dúvidas, comentários ou preocupações para **LAUpgradeFeedback\@microsoft.com**. O restante deste artigo passa pelos cenários-chave e o plano para essa transição.
+O portal do Azure é o hub para todos os serviços do Azure e oferece uma gestão avançada de experiência com recursos como os dashboards para fixar recursos, a pesquisa inteligente para localizar recursos e a identificação para gestão de recursos. Para consolidar e simplificar o fluxo de trabalho de monitorização e gestão, começamos a adicionar as capacidades de portais do OMS no portal do Azure. Todas as funcionalidades do portal do OMS agora fazem parte do portal do Azure. Na verdade, alguns dos novos recursos, tais como análise de tráfego só estão disponíveis no portal do Azure. Será capaz de realizar tudo que estava a fazer no portal do OMS com o portal do Azure e muito mais. Se ainda não o fez, deve começar a utilizar o portal do Azure hoje mesmo!
 
 ## <a name="what-is-changing"></a>O que está a mudar? 
 As seguintes alterações estejam sendo anunciadas com a descontinuação do portal do OMS. Cada uma dessas alterações é descrita mais detalhadamente nas secções abaixo.
@@ -76,10 +76,7 @@ Já não estão a ser capaz de criar novas áreas de trabalho através do portal
 
 ### <a name="alert-extension"></a>Extensão de alerta  
 
-> [!NOTE]
-> Alertas agora foram estendidos totalmente no portal do Azure para a cloud pública. Regras de alerta existentes podem ser visualizadas no portal do OMS, mas só podem ser geridos no portal do Azure. Extensão de alertas no portal do Azure será iniciado para a cloud do Azure government, Fevereiro de 2019.
-
-Foram removidos [expandidos para o portal do Azure](alerts-extend.md). Quando isso for concluído, as ações de gestão de alertas só estará disponíveis no portal do Azure. Alertas existentes continuarão a ser listados no portal do OMS. Se aceder aos alertas através de programação, utilizando a API de REST de alerta do Log Analytics ou o modelo de recurso alerta do Log Analytics, terá de utilizar grupos de ação em vez de ações em suas chamadas de API, modelos Azure Resource Manager e comandos do PowerShell.
+Foram removidos [expandidos para o portal do Azure](alerts-extend.md) alertas existentes continuarão a ser listados no portal do OMS, mas apenas pode geri-los no portal do Azure. Se aceder aos alertas através de programação, utilizando a API de REST de alerta do Log Analytics ou o modelo de recurso alerta do Log Analytics, terá de utilizar grupos de ação em vez de ações em suas chamadas de API, modelos Azure Resource Manager e comandos do PowerShell.
 
 ### <a name="alert-management-solution"></a>Solução de gestão de alertas
 Como uma alteração de um anúncio anterior, o [solução de gestão de alertas](alert-management-solution.md) continuará a estar disponível e é totalmente suportada no portal do Azure. Pode continuar a instalar a solução do Azure Marketplace.

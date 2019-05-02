@@ -1,25 +1,18 @@
 ---
-title: Gerir o Azure e ofertas do Marketplace do AppSource | Documentos da Microsoft
+title: Gerir o Azure e ofertas do Marketplace do AppSource | O Azure Marketplace
 description: Gestão de ofertas no Azure e mercados de AppSource
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.author: pbutlerm
-ms.openlocfilehash: fa5280fd834d6defaf2816167a73bf72dc3d0a1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 8a03ce94971d704aa38c1be5d7cfbb3c24bd2f82
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729873"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943363"
 ---
 # <a name="manage-azure-and-appsource-marketplace-offers"></a>Gerir o Azure e ofertas do Marketplace do AppSource
 

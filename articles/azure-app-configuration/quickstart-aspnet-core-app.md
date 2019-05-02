@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b527199fd7b61609f292b13c73bfc1d6e0a6b896
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203794"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64683060"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -28,6 +28,8 @@ Configuração de aplicações do Azure é um serviço de configuração gerida 
 ASP.NET Core baseia-se um objeto de configuração baseada em chave-valor único com definições de um ou mais origens de dados que são especificadas por uma aplicação. Estas origens de dados são conhecidas como *fornecedores de configuração*. Porque a .NET Core configuração de aplicações, o cliente está implementado como tal, um fornecedor, o serviço é apresentado como outra origem de dados.
 
 Pode utilizar qualquer editor de código para realizar os passos neste guia de introdução. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
+
+![Início rápido iniciação da aplicação local](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -118,15 +120,12 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
-                });
+                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
             })
             .UseStartup<Startup>();
     ```
 
-6. Abra o Index. cshtml nas vistas > diretório de casa e substituir seu conteúdo com o código a seguir:
+6. Open *Index. cshtml* nas vistas > diretório de casa e substituir seu conteúdo com o código a seguir:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -152,7 +151,7 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
     </html>
     ```
 
-7. Abrir o layout. cshtml nas vistas > partilhados diretório e substituir seu conteúdo com o código a seguir:
+7. Open *layout. cshtml* nas vistas > partilhados diretório e substituir seu conteúdo com o código a seguir:
 
     ```html
     <!DOCTYPE html>
@@ -190,8 +189,6 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
         dotnet run
 
 3. Abra uma janela do browser e aceda a `http://localhost:5000`, que é o URL predefinido da aplicação web alojada localmente.
-
-    ![Início rápido iniciação da aplicação local](./media/quickstarts/aspnet-core-app-launch-local.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

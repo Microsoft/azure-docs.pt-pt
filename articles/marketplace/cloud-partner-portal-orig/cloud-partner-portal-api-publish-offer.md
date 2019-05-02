@@ -1,25 +1,18 @@
 ---
-title: Publicar uma oferta | Documentos da Microsoft
+title: Publicar uma oferta | O Azure Marketplace
 description: API para publicar a oferta especificada.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cb1293a771a137f4df7e36a2b412f68b384f16ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61094371"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64934981"
 ---
 <a name="publish-an-offer"></a>Publicar uma oferta
 ================

@@ -1,6 +1,6 @@
 ---
 title: Tutorial de implementar uma tarefa do Azure Stream Analytics num dispositivo - Azure IoT Edge | Documentos da Microsoft
-description: Neste tutorial, vai implementar o Azure Stream Analytics como um módulo num dispositivo IoT Edge
+description: Neste tutorial, vai implementar no Azure Stream Analytics como um módulo para um dispositivo IoT Edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: cea0d091620d53892f3334306a341b196765879d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096288"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575890"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementar o Azure Stream Analytics como um módulo do IoT Edge
 
@@ -44,7 +44,7 @@ Neste tutorial, ficará a saber como:
 
 Um dispositivo Azure IoT Edge:
 
-* Pode seguir os passos no início rápido para [dispositivos Linux](quickstart-linux.md) ou [Windows](quickstart.md) para utilizar o seu computador de desenvolvimento ou uma máquina virtual como um dispositivo Edge.
+* Pode utilizar uma máquina virtual do Azure como um dispositivo IoT Edge ao seguir os passos no guia de introdução para [Linux](quickstart-linux.md) ou [dispositivos Windows](quickstart.md).
 
 Recursos da cloud:
 
@@ -233,11 +233,9 @@ Deverá conseguir ver a temperatura da máquina a aumentar gradualmente até ati
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 
-Caso contrário, pode eliminar as configurações locais e os recursos do Azure que criou neste artigo para evitar custos. 
+Caso contrário, pode eliminar as configurações locais e os recursos do Azure que utilizou neste artigo para evitar encargos. 
  
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Passos Seguintes

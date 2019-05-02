@@ -1,25 +1,19 @@
 ---
-title: Pedido para publicar a aplicação | Documentos da Microsoft
+title: Pedido para publicar a aplicação
 description: .
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a3243310e1639591b19c1f426285d8ee6d8dddaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: e272d051af6070007bcebc0f697d2854cd721497
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483502"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943573"
 ---
 # <a name="request-to-publish-the-app"></a>Pedido para publicar a aplicação
 

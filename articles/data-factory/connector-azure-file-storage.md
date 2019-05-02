@@ -10,22 +10,26 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: b43532ade35e4e01573abbd3f47d009beadd9c60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d00bc68458d9f8acf11e1e4e2d755dfbec748b3f
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387847"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876825"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de ficheiros do Azure com o Azure Data Factory
 
-Este artigo descreve como utilizar a atividade de cópia no Azure Data Factory para copiar dados de e para armazenamento de ficheiros do Azure (ficheiros do Azure). Ele se baseia no [copiar descrição geral da atividade](copy-activity-overview.md) artigo apresenta uma visão geral da atividade de cópia.
+Este artigo descreve como copiar dados de e para armazenamento de ficheiros do Azure. Para saber mais sobre o Azure Data Factory, leia os [artigo introdutório](introduction.md).
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-Pode copiar dados de armazenamento de ficheiros do Azure para qualquer arquivo de dados de sink suportados ou copiar dados de qualquer arquivo de dados de origem suportada para o armazenamento de ficheiros do Azure. Para obter uma lista dos arquivos de dados que são suportados como origens/sinks a atividade de cópia, consulte a [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats) tabela.
+Este conector File Storage do Azure é suportada para as seguintes atividades:
+
+- [Atividade de cópia](copy-activity-overview.md) com [suportado de matriz de origem/sink](copy-activity-overview.md)
+- [Atividade de Pesquisa](control-flow-lookup-activity.md)
+- [Atividade GetMetadata](control-flow-get-metadata-activity.md)
 
 Especificamente, este conector File Storage do Azure suporta a cópia de arquivos como-é ou análise/gerar arquivos com o [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md).
 
@@ -79,9 +83,54 @@ As seguintes propriedades são suportadas para o serviço ligado do armazenament
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do armazenamento de ficheiros do Azure.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. 
 
-Para copiar dados de/para o armazenamento de ficheiros do Azure, defina a propriedade de tipo de conjunto de dados para **partilha de ficheiros**. São suportadas as seguintes propriedades:
+- Para **Parquet e o formato de texto delimitado**, consulte [conjunto de dados de formato de Parquet e texto delimitado](#parquet-and-delimited-text-format-dataset) secção.
+- Como outros formatos **formato ORC/Avro/JSON/binário**, consulte [outro conjunto de dados do formato](#other-format-dataset) secção.
+
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet e o conjunto de dados de formato de texto delimitado
+
+Para copiar dados de e para armazenamento de ficheiros do Azure no **Parquet ou formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo num conjunto de dados com base no formato e definições suportadas. As seguintes propriedades são suportadas para o armazenamento de ficheiros do Azure em `location` definições no conjunto de dados com base no formato:
+
+| Propriedade   | Descrição                                                  | Necessário |
+| ---------- | ------------------------------------------------------------ | -------- |
+| tipo       | A propriedade de tipo sob `location` no conjunto de dados deve ser definida como **FileServerLocation**. | Sim      |
+| folderPath | O caminho para a pasta. Se pretender utilizar o caráter universal para a pasta de filtro, ignorar esta definição e especifique nas definições da origem de atividade. | Não       |
+| fileName   | O nome de ficheiro em determinado folderPath. Se pretender utilizar o caráter universal para filtrar os ficheiros, ignorar esta definição e especifique nas definições da origem de atividade. | Não       |
+
+> [!NOTE]
+>
+> **Partilha de ficheiros** tipo conjunto de dados com o formato Parquet/Text mencionado na secção seguinte ainda é suportado como-é para a atividade de cópia/pesquisa/GetMetadata para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<Azure File Storage linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "FileServerLocation",
+                "folderPath": "root/folder/subfolder"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Outro conjunto de dados do formato
+
+Para copiar dados de e para armazenamento de ficheiros do Azure no **formato ORC/Avro/JSON/binário**, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -135,12 +184,76 @@ Para obter uma lista completa das secções e propriedades disponíveis para a d
 
 ### <a name="azure-file-storage-as-source"></a>Armazenamento de ficheiros do Azure como origem
 
-Para copiar dados de armazenamento de ficheiros do Azure, definir o tipo de origem na atividade de cópia para **FileSystemSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+- Para copiar a partir **Parquet e o formato de texto delimitado**, consulte [Parquet e origem de formato de texto delimitado](#parquet-and-delimited-text-format-source) secção.
+- Para copiar a partir de outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outra origem de formato](#other-format-source) secção.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e origem de formato de texto delimitado
+
+Para copiar dados de armazenamento de ficheiros do Azure no **Parquet ou formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo na atividade de cópia baseada em formato origem e de definições suportadas. As seguintes propriedades são suportadas para o armazenamento de ficheiros do Azure em `storeSettings` definições na origem de cópia baseada no formato:
+
+| Propriedade                 | Descrição                                                  | Necessário                                      |
+| ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
+| tipo                     | A propriedade de tipo sob `storeSettings` deve ser definida como **FileServerReadSetting**. | Sim                                           |
+| recursiva                | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção que quando recursiva é definida como true e o sink é um arquivo baseado em arquivo, uma pasta vazia ou uma subpasta não é copiada ou criada no coletor. Valores permitidos são **true** (predefinição) e **falso**. | Não                                            |
+| wildcardFolderPath       | O caminho de pasta com carateres universais para filtrar as pastas de origem. <br>Permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual); utilize `^` para se o seu nome de pasta real tem carateres universais ou esse caractere de escape dentro de escape. <br>Veja mais exemplos [exemplos de filtro de ficheiros e pastas](#folder-and-file-filter-examples). | Não                                            |
+| wildcardFileName         | O nome de ficheiro com carateres universais em determinado folderPath/wildcardFolderPath para ficheiros de origem do filtro. <br>Permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual); utilize `^` para se o seu nome de pasta real tem carateres universais ou esse caractere de escape dentro de escape.  Veja mais exemplos [exemplos de filtro de ficheiros e pastas](#folder-and-file-filter-examples). | Se Sim `fileName` não está especificado no conjunto de dados |
+| modifiedDatetimeStart    | Filtro de ficheiros baseado no atributo: Última modificação. Os ficheiros serão selecionados, se sua hora da última modificação estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd`. O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser nulo o que significa que nenhum filtro de atributo de ficheiro será aplicado ao conjunto de dados.  Quando `modifiedDatetimeStart` tem o valor de datetime mas `modifiedDatetimeEnd` má hodnotu NULL, significa que os ficheiros cujo último atributo modificado é maior que ou igual a com o valor de datetime será selecionado.  Quando `modifiedDatetimeEnd` tem o valor de datetime mas `modifiedDatetimeStart` for nulo, significa que os ficheiros cujo último atributo modificado é menor do que o valor de datetime será selecionado. | Não                                            |
+| modifiedDatetimeEnd      | Mesmo que acima.                                               | Não                                            |
+| maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não                                            |
+
+> [!NOTE]
+> Para o formato de texto delimitados/Parquet, **FileSystemSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-destina-se para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromAzureFileStorage",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "FileServerReadSetting",
+                    "recursive": true,
+                    "wildcardFolderPath": "myfolder*A",
+                    "wildcardFileName": "*.csv"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Outra origem de formato
+
+Para copiar dados de armazenamento de ficheiros do Azure no **formato ORC/Avro/JSON/binário**, as seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **FileSystemSource** |Sim |
 | recursiva | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção quando recursiva é definida como true e de sink é baseada em ficheiros de arquivo, vazia pasta/subutilização-folder não serão copiados/criado no sink.<br/>Valores permitidos são: **true** (predefinição), **FALSO** | Não |
+| maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não |
 
 **Exemplo:**
 
@@ -176,12 +289,66 @@ Para copiar dados de armazenamento de ficheiros do Azure, definir o tipo de orig
 
 ### <a name="azure-file-storage-as-sink"></a>Armazenamento de ficheiros do Azure como sink
 
-Para copiar dados para o armazenamento de ficheiros do Azure, defina o tipo de sink na atividade de cópia para **FileSystemSink**. As seguintes propriedades são suportadas os **sink** secção:
+- Para copiar para **Parquet e o formato de texto delimitado**, consulte [Parquet e de sink de formato de texto delimitado](#parquet-and-delimited-text-format-sink) secção.
+- Para copiar para outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outro sink de formato](#other-format-sink) secção.
+
+#### <a name="parquet-and-delimited-text-format-sink"></a>Parquet e de sink de formato de texto delimitado
+
+Para copiar dados para armazenamento de ficheiros do Azure no **Parquet ou formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo sobre o sink de atividade de cópia baseada em formato e definições suportadas. As seguintes propriedades são suportadas para o armazenamento de ficheiros do Azure em `storeSettings` as definições de sink de cópia baseada no formato:
+
+| Propriedade                 | Descrição                                                  | Necessário |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| tipo                     | A propriedade de tipo sob `storeSettings` deve ser definida como **FileServerWriteSetting**. | Sim      |
+| copyBehavior             | Define o comportamento de cópia quando a origem é ficheiros a partir de um arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>-PreserveHierarchy (predefinição)</b>: Preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><b>-FlattenHierarchy</b>: Todos os ficheiros da pasta de origem estão no primeiro nível de pasta de destino. Os ficheiros de destino têm nomes de geradas automaticamente. <br/><b>-MergeFiles</b>: Une todos os ficheiros da pasta de origem para um ficheiro. Se não for especificado o nome de ficheiro, o nome de ficheiro intercalada é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. | Não       |
+| maxConcurrentConnections | O número de ligações para ligar ao arquivo de dados em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não       |
+
+> [!NOTE]
+> Para o formato de texto delimitados/Parquet, **FileSystemSink** continua a ser suportado como sink de atividade de cópia de tipo mencionado na secção seguinte-destina-se para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyToAzureFileStorage",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<Parquet output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "<source type>"
+            },
+            "sink": {
+                "type": "ParquetSink",
+                "storeSettings":{
+                    "type": "FileServerWriteSetting",
+                    "copyBehavior": "PreserveHierarchy"
+                }
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-sink"></a>Outro sink de formato
+
+Para copiar dados para armazenamento de ficheiros do Azure no **formato ORC/Avro/JSON/binário**, as seguintes propriedades são suportadas os **sink** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **FileSystemSink** |Sim |
 | copyBehavior | Define o comportamento de cópia quando a origem é ficheiros de arquivo de dados baseados em ficheiros.<br/><br/>Valores permitidos são:<br/><b>-PreserveHierarchy (predefinição)</b>: preserva a hierarquia de ficheiros na pasta de destino. O caminho relativo do arquivo de origem para a pasta de origem é idêntico para o caminho relativo do ficheiro de destino para a pasta de destino.<br/><b>-FlattenHierarchy</b>: todos os ficheiros da pasta de origem estão no primeiro nível de pasta de destino. Os ficheiros de destino têm o nome gerado automaticamente. <br/><b>-MergeFiles</b>: une todos os ficheiros da pasta de origem para um ficheiro. Se o nome de ficheiro/Blob for especificado, o nome de ficheiro intercalada seria o nome especificado; caso contrário, seria o nome de ficheiro gerado automaticamente. | Não |
+| maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não |
 
 **Exemplo:**
 

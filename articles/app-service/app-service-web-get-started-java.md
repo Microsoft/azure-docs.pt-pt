@@ -16,11 +16,11 @@ ms.date: 04/23/2019
 ms.author: cephalin;robmcm
 ms.custom: seodec18
 ms.openlocfilehash: f1411ee28ca4e371f68c375242a2445c8b48f8d7
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760029"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706131"
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar a primeira aplicação Web Java no Azure
 

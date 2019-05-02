@@ -1,5 +1,5 @@
 ---
-title: Práticas recomendadas ao usar a API de detetor de anomalias
+title: Melhores práticas com a API do Detetor de Anomalias
 description: Saiba mais sobre as melhores práticas quando detetar anomalias, com a API de detetor de anomalias.
 services: cognitive-services
 author: aahill
@@ -9,12 +9,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
-ms.openlocfilehash: 467ac4e475a1c23e25b62c76cfbc959e7ed49465
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 766d009be3cd664d928a3c12f5fea38c26bbbdde
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484047"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692204"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Melhores práticas para utilizar a API de detetor de anomalias
 
@@ -25,6 +25,29 @@ A API de detetor de anomalias é um serviço de deteção de anomalias sem monit
 * O número de pontos de dados no seu pedido de API. 
 
 Utilize este artigo para saber mais sobre as melhores práticas para utilizar a API de obter os melhores resultados para os seus dados. 
+
+## <a name="when-to-use-batch-entire-or-latest-last-point-anomaly-detection"></a>Quando utilizar o batch (completa) ou a versão mais recente (última) do ponto de deteção de anomalias
+
+Ponto final de deteção do batch a API de detetor de anomalias permite-lhe detetar anomalias por meio de toda vezes dados de séries. Neste modo de deteção, um único modelo estatístico é criado e aplicado a cada ponto no conjunto de dados. Se tiver de sua série de tempo a abaixo características, recomendamos que utilize a deteção de batch para pré-visualizar os dados numa chamada de API.
+
+* Uma série de tempo sazonais, com anomalias ocasionais.
+* Uma série de tempo tendência simples, com picos ocasionais/dips. 
+
+Não é recomendado utilizar a deteção de anomalias de batch para dados em tempo real, monitorização, ou usá-lo em dados de séries de tempo que não tem acima características. 
+
+* Deteção de batch cria e aplica-se apenas um modelo, a deteção de cada ponto é feita no contexto da série completa. Se as tendências de dados da série tempo, e reduza verticalmente sem sazonalidade, alguns pontos de alterar (dips e aumento de dados) podem ser omitidas pelo modelo. Da mesma forma, alguns pontos de alteração que são menos significativos do que aqueles mais tarde no conjunto de dados não podem ser contabilizados como significativa o suficiente para ser incorporadas no modelo de.
+
+* Deteção de batch é mais lenta do que detetar o estado de anomalias do ponto mais recente ao efetuar a monitorização de dados em tempo real, devido ao número de pontos a ser analisados.
+
+Para a monitorização de dados em tempo real, recomendamos que o estado de anomalias do seu mais recente ponto de dados apenas a detetar. Aplicando continuamente mais recente ponto de deteção, monitorização de dados de transmissão em fluxo pode ser feito com mais eficiência e eficácia.
+
+O exemplo a seguir descreve o impacto que desses modos de deteção podem ter no desempenho. A primeira imagem mostra o resultado de forma contínua a detetar o ponto mais recente de estado de anomalias ao longo de pontos de dados anteriormente vista 28. Os pontos de vermelhos são anomalias.
+
+![Uma imagem que mostra a deteção de anomalias utilizando o ponto mais recente](../media/last.png)
+
+Segue-se o mesmo conjunto de dados com a deteção de anomalias do batch. O modelo criado para a operação tenha ignorado vários anomalias, marcadas pelo retângulos.
+
+![Uma imagem que mostra a deteção de anomalias usando o método de batch](../media/entire.png)
 
 ## <a name="data-preparation"></a>Preparação de dados
 
@@ -68,7 +91,7 @@ Para obter melhores resultados, fornecer 4 `period`do valor do ponto de dados, m
 
 Se os dados de transmissão em fluxo são amostrados num curto intervalo (por exemplo, segundos ou minutos), a enviar o número recomendado de pontos de dados pode exceder máximos número permitidos (8640 pontos de dados) a API de detetor de anomalias. Se seus dados mostram um padrão sazonal estável, considere enviar uma amostra dos seus dados de séries de tempo num intervalo de tempo maior, como horas. Os dados dessa forma de amostragem também visivelmente pode melhorar o tempo de resposta de API. 
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 
 * [O que é a API de detetor de anomalias?](../overview.md)
 * [Quickstart: Detetar anomalias nos seus dados de séries de tempo com a API de REST de detetor de anomalias](../quickstarts/detect-data-anomalies-csharp.md)

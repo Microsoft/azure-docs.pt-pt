@@ -3,8 +3,8 @@ title: Analisar a segurança de rede com a vista de grupo de segurança de obser
 description: Este artigo descreve como utilizar o PowerShell para analisar uma segurança de máquinas virtuais com a vista de grupo de segurança.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: b22dd2dcf575362b96d150ef98148076f4ec631f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 389eab13193b313d8609bfa54d5e0dc42329f5ad
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59047590"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720772"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analisar a segurança de Máquina Virtual com a vista de grupo de segurança com o PowerShell
 

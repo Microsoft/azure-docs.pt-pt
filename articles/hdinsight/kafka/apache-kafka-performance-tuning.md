@@ -1,20 +1,18 @@
 ---
 title: Otimização de desempenho para os clusters do Apache Kafka HDInsight
 description: Fornece uma descrição geral das técnicas para otimizar cargas de trabalho do Apache Kafka no HDInsight do Azure.
-services: hdinsight
 author: hrasheed-msft
-ms.author: v-yiso
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-origin.date: 02/21/2019
-ms.date: 04/29/2019
+ms.date: 02/21/2019
 ms.openlocfilehash: 8226d1f49b8ba73870dba009e97ff2718a0eee27
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115033"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64689362"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Otimização de desempenho para os clusters do Apache Kafka HDInsight
 

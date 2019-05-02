@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Saiba como criar, alterar ou eliminar uma tabela de rotas.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
-ms.author: jdial
-ms.openlocfilehash: c9846f78e05d598844d12819cef3e948caf2704d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: 1f20cc7ded40d6eccf000a9ddcd52fb407ba470d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889703"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682657"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou eliminar uma tabela de rotas
 

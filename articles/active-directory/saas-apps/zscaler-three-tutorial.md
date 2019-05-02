@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a7ddc6b9f4a8638d18262e458d61108c00b618d
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: e2729a47771f2c3073d91cb5b0de4684b51badbd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564558"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-three"></a>Tutorial: Integração do Active Directory do Azure com o Zscaler três
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com o Zscaler três, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * Zscaler três único início de sessão na subscrição ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -154,9 +154,17 @@ Para configurar o Azure AD início de sessão único com o Zscaler três, execut
 
 ### <a name="configure-zscaler-three-single-sign-on"></a>Configurar Zscaler três início de sessão único
 
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa Zscaler três como um administrador.
+1. Para automatizar a configuração no Zscaler três, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-2. Aceda a **administração > autenticação > definições de autenticação** e execute os seguintes passos:
+    ![Extensão My apps](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão para o navegador, clique em **configuração Zscaler três** irá direcioná-lo para o aplicativo Zscaler três. A partir daí, forneça as credenciais de administrador a iniciar sessão em Zscaler três. A extensão do browser irá configurar o aplicativo para e automatizar passos 3 a 6 automaticamente.
+
+    ![Configurar o sso](common/setup-sso.png)
+
+3. Se pretender que a configuração do Zscaler três manualmente, abra uma nova janela de browser e inicie sessão no site da sua empresa Zscaler três como administrador e execute os seguintes passos:
+
+4. Aceda a **administração > autenticação > definições de autenticação** e execute os seguintes passos:
    
     ![Administração](./media/zscaler-three-tutorial/ic800206.png "administração")
 
@@ -164,7 +172,7 @@ Para configurar o Azure AD início de sessão único com o Zscaler três, execut
 
     b. Clique em **configurar SAML**.
 
-3. Sobre o **SAML editar** janela, execute os seguintes passos: e clique em Guardar.  
+5. Sobre o **SAML editar** janela, execute os seguintes passos: e clique em Guardar.  
             
     ![Gerir utilizadores e de autenticação](./media/zscaler-three-tutorial/ic800208.png "gerir utilizadores e de autenticação")
     
@@ -184,7 +192,7 @@ Para configurar o Azure AD início de sessão único com o Zscaler três, execut
 
     h. Clique em **Guardar**.
 
-4. Sobre o **configurar a autenticação de utilizador** caixa de diálogo página, execute os seguintes passos:
+6. Sobre o **configurar a autenticação de utilizador** caixa de diálogo página, execute os seguintes passos:
 
     ![Administração](./media/zscaler-three-tutorial/ic800207.png)
 
@@ -241,7 +249,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 

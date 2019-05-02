@@ -5,14 +5,14 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: d9fdd6f42e1443c0515c2c38496e9d474c87715c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60837424"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704876"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para a arquitetura da recuperação após desastre do Azure
 
@@ -53,6 +53,7 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
     - O servidor de configuração orquestra a replicação com o Azure através da porta HTTPS 443 de saída.
     - VMs enviam dados de replicação para o servidor de processos (em execução na máquina do servidor de configuração) na porta HTTPS 9443 de entrada. Esta porta pode ser modificada.
     - O servidor de processos recebe dados de replicação, otimiza e criptografa- e envia-os para o armazenamento do Azure através da porta 443 saída.
+5. Os dados de replicação regista ' s land primeiro numa conta de armazenamento de cache no Azure. Estes registos são processados e os dados são armazenados num disco de geridos do Azure (chamado como disco de seed de asr). Os pontos de recuperação são criados neste disco.
 
 
 

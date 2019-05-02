@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
 ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741194"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64699907"
 ---
 # <a name="key-value-store"></a>Arquivo de chave-valor
 

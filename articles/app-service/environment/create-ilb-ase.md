@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7e4364a06a3d20edc7aafd54a4dcd86dfd039043
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60765049"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573566"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Criar e utilizar um balanceador de carga interno com um Ambiente de Serviço de Aplicações #
 
@@ -56,7 +56,7 @@ Existem algumas coisas que não é possível fazer quando utiliza um ASE de ILB:
 
 Para criar um ASE de ILB:
 
-1. No portal do Azure, selecione **criar um recurso** > **Web** > **App Service Environment**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web** > **Ambiente de Serviço de Aplicações**.
 
 2. Selecione a sua subscrição.
 
@@ -66,7 +66,7 @@ Para criar um ASE de ILB:
 
 5. Se selecionar uma VNet existente, terá de criar uma sub-rede para conter o ASE. Certifique-se de que define um tamanho de sub-rede suficientemente grande para se adaptar a qualquer crescimento futuro do seu ASE. Recomendamos um tamanho de `/24`, que tem 256 endereços e pode processar um ASE de tamanho máximo e qualquer necessidade de dimensionamento. 
 
-6. Selecione **rede Virtual/localização** > **configuração de rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
+6. Selecione **Rede Virtual/Localização** > **Configuração de Rede Virtual**. Defina o **Tipo de VIP** como **Interno**.
 
 7. Introduza um nome de domínio. Este domínio é o domínio utilizada para as aplicações criadas neste ASE. Existem algumas restrições. Não pode ser:
 
@@ -96,14 +96,14 @@ No painel **Rede Virtual**, existe uma opção **Configuração de Rede Virtual*
 
 Depois de selecionar **Interno**, a capacidade de adicionar mais endereços IP ao seu ASE é removida. Em vez disso, tem de fornecer o domínio do ASE. Num ASE com um VIP Externo, o nome do ASE é utilizado no domínio para as aplicações criadas nesse ASE.
 
-Se definir **Tipo de VIP** como **Interno**, o nome do ASE não é utilizado no domínio para o ASE. Especifique o domínio explicitamente. Se o seu domínio for *contoso.corp.net* e criar uma aplicação nesse ASE com o nome *timereporting*, o URL para essa aplicação é timereporting.contoso.corp.net.
+Se definir **Tipo de VIP** como **Interno**, o nome do ASE não é utilizado no domínio para o ASE. Especifique o domínio explicitamente. Se o seu domínio for *contoso.corp.net* e criar uma aplicação nesse ASE com o nome *timereporting*, o URL para essa aplicação é timereporting.contoso.corp.net.
 
 
 ## <a name="create-an-app-in-an-ilb-ase"></a>Criar uma aplicação num ASE de ILB ##
 
 Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação num ASE normalmente.
 
-1. No portal do Azure, selecione **criar um recurso** > **Web + móvel** > **aplicação Web**.
+1. No portal do Azure, selecione **Criar um recurso** > **Web + Móvel** > **Aplicação Web**.
 
 1. Introduza o nome da aplicação.
 
@@ -117,7 +117,7 @@ Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação
 
 1. Selecione ou crie um plano do Serviço de Aplicações. Se quiser criar um novo plano do Serviço de Aplicações, selecione o seu ASE como localização. Selecione o conjunto de processos de trabalho onde pretende que o seu plano do Serviço de Aplicações seja criado. Quando criar o plano do Serviço de Aplicações, selecione o seu ASE como a localização e o conjunto de processos de trabalho. Quando especificar o nome da aplicação, o domínio no nome da aplicação é substituído pelo domínio para o seu ASE.
 
-1. Selecione **Criar**. Se pretender que a aplicação apareça no dashboard, selecione o **afixar ao dashboard** caixa de verificação.
+1. Selecione **Criar**. Se quiser que a aplicação apareça no dashboard, selecione a caixa de verificação **Afixar ao dashboard**.
 
     ![Criação do plano do Serviço de Aplicações][2]
 
@@ -127,7 +127,7 @@ Uma aplicação num ASE de ILB é criada da mesma forma que cria uma aplicação
 
 Um ASE de ILB é ligeiramente diferente do ASE não ILB. Como já foi mencionado, tem de gerir o seu próprio DNS. Também tem de fornecer o seu próprio certificado para ligações HTTPS.
 
-Depois de criar o ASE, o nome de domínio mostra o domínio que especificou. Um novo item aparece no **definição** menu chamado **certificado ILB**. O ASE é criado com um certificado que não especifica o domínio do ASE de ILB. Se utilizar o ASE com esse certificado, o seu browser indicará que é inválido. Este certificado torna mais fácil testar o HTTPS, mas é preciso carregar o seu próprio certificado que está associado ao seu domínio do ASE de ILB. Este passo é necessário, independentemente de o seu certificado ser autoassinado ou adquirido junto de uma autoridade de certificação.
+Depois de criar o ASE, o nome de domínio mostra o domínio que especificou. Um novo item aparece no menu **Definição** com o nome **Certificado ILB**. O ASE é criado com um certificado que não especifica o domínio do ASE de ILB. Se utilizar o ASE com esse certificado, o seu browser indicará que é inválido. Este certificado torna mais fácil testar o HTTPS, mas é preciso carregar o seu próprio certificado que está associado ao seu domínio do ASE de ILB. Este passo é necessário, independentemente de o seu certificado ser autoassinado ou adquirido junto de uma autoridade de certificação.
 
 ![Nome de domínio do ASE de ILB][3]
 
@@ -154,7 +154,7 @@ O certificado gerado por estes comandos do PowerShell é assinalado pelos browse
 
 Para carregar os seus próprios certificados e testar o acesso:
 
-1. Após a criação do ASE, aceda à IU do ASE. Selecione **ASE** > **Definições** > **Certificado ILB**.
+1. Após a criação do ASE, aceda à IU do ASE. Selecione **ASE** > **Definições** > **Certificado ILB**.
 
 1. Para definir o certificado ILB, selecione o ficheiro .pfx do certificado e introduza a palavra-passe. Este passo demora algum tempo a processar. É apresentada uma mensagem a indicar que uma operação de carregamento está em curso.
 

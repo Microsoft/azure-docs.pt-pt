@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 04/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f3fe9c2483dda3b9350c110b2e8adf60dcd21e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387218"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572408"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de versões
 A equipa do Azure Active Directory (Azure AD) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -43,12 +43,12 @@ Transferir | [Transferir o Azure AD Connect](https://go.microsoft.com/fwlink/?Li
 Enquanto está por meio desse processo, o número da versão da versão será apresentado com um "X" na posição número versão secundária, como em "1.3.X.0" - Isto indica que as notas de versão neste documento são válidas para todas as versões a partir do "1.3.". Assim que podemos ter finalizado o processo de liberação o número de versão de lançamento será atualizado para a versão de lançamento mais recentemente e o estado de versão será atualizado para "Lançamento para download e a atualização automática".
 Nem todas as versões do Azure AD Connect serão disponibilizadas para atualização automática. O estado da versão irá indicar se uma versão for disponibilizada para atualização automática, ou apenas para download. Se a atualização automática foi ativada no seu servidor do Azure AD Connect, em seguida, esse servidor irão atualizar automaticamente para a versão mais recente do Azure AD Connect, que é fornecido para atualização automática. Tenha em atenção que nem todas as configurações do Azure AD Connect são elegíveis para atualização automática. Siga esta ligação para saber mais sobre [automaticamente a atualização](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
 
-## <a name="13x0"></a>1.3.X.0 
+## <a name="13200"></a>1.3.20.0 
 
 ### <a name="release-status"></a>Estado da versão 
 
-3/25/2019: Pendente
- 
+04/24/2019: Lançado para download
+
 ### <a name="new-features-and-improvements"></a>Novos recursos e aperfeiçoamentos 
 
 - Adicionar suporte para o domínio de atualização 
@@ -64,7 +64,7 @@ Nem todas as versões do Azure AD Connect serão disponibilizadas para atualiza�
 - Atualizar para a ADAL 3.19.8 pegar uma correção de WS-Trust para Ping e adicionar suporte para novas instâncias do Azure 
 - Modificar grupo regras de sincronização para o fluxo samAccountName, DomainNetbios e DomainFQDN para a cloud - necessário para afirmações 
 - Alterou o tratamento de regra de sincronização padrão – Leia mais [aqui](how-to-connect-fix-default-rules.md).
-- Adicionado um novo agente a ser executado como um serviço do windows. Este agente, com o nome "Agente administrador", que permite que um diagnóstico mais aprofundado remoto do servidor do Azure AD Connect para o ajudar a resolver problemas ao abrir um incidente de suporte do Microsoft Engineers. Saiba mais sobre o agente de administrador [aqui](whatis-aadc-admin-agent.md). 
+- Adicionado um novo agente a ser executado como um serviço do windows. Este agente, com o nome "Agente administrador", que permite que um diagnóstico mais aprofundado remoto do servidor do Azure AD Connect para o ajudar a resolver problemas ao abrir um incidente de suporte do Microsoft Engineers. Este agente não está instalado e ativado por predefinição.  Para obter mais informações sobre como instalar e ativar o agente consulte [o que é o agente do Azure AD Connect administrador?](whatis-aadc-admin-agent.md). 
 - Atualizado o contrato de licença de utilizador final (EULA) 
 - Adicionado suporte para atualização automática para implementações que utilizam o AD FS como seu tipo de início de sessão.  Isso também removido o requisito de atualizar o AD FS Azure AD entidade Confiadora como parte do processo de atualização. 
 - Adicionar uma tarefa de gestão de fidedignidade do Azure AD fornece duas opções: analisar/atualizar confiança e repor a fidedignidade. 

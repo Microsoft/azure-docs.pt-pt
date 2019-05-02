@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddc77cbcf004ddbd1738e598d5073a11f13e2c5a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317433"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695424"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Políticas personalizadas no Azure Active Directory B2C
 

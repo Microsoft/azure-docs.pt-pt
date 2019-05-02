@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d5f5c1d9b1884c6e9975ceb0ce28ecd5f25e89b2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308662"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716111"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Métricas de barramento de serviço do Azure no Azure Monitor (pré-visualização)
 
@@ -83,14 +83,14 @@ Os seguintes dois tipos de erros são classificados como erros de utilizador:
 |Mensagens de saída (pré-visualização)|O número de eventos ou mensagens recebidas do Service Bus num determinado período.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
 | Mensagens (pré-visualização) | Contagem de mensagens em fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
 | ActiveMessages (pré-visualização) | Contagem de mensagens ativas numa fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: EntityName |
+| Mensagens lettered em papel já era (pré-visualização) | Contagem de mensagens não-lettered mensagens em fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/>Dimensão: EntityName |
+| Mensagens agendadas (pré-visualização) | Contagem de mensagens agendadas na fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média  <br/> Dimensão: EntityName |
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 |ActiveConnections (pré-visualização)|O número de ligações ativas num espaço de nomes, bem como numa entidade.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Ligações aberto (pré-visualização)|O número de conexões abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName|
-|Ligações fechado (pré-visualização)|O número de conexões encerradas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: EntityName |
 
 ## <a name="resource-usage-metrics"></a>Métricas de utilização de recursos
 
@@ -115,7 +115,7 @@ O Azure Service Bus suporta as seguintes dimensões de métricas no Azure Monito
 1. Sobre o **métricas** separador do **o espaço de nomes do Service Bus** página, selecione **configurar alertas**. 
 
     ![Métricas de página - configurar o menu de alertas](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
-2. Selecione **selecionar destino**, e fazer as seguintes ações no **selecione um recurso** página: 
+2. Selecione o **selecionar destino** opção e fazer as seguintes ações no **selecione um recurso** página: 
     1. Selecione **espaços de nomes do Service Bus** para o **filtrar por tipo de recurso** campo. 
     2. Selecione a sua subscrição para o **filtrar por subscrição** campo.
     3. Selecione o **espaço de nomes do service bus** da lista. 

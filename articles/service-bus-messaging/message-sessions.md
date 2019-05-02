@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c767406ceec703b5c14680ec96fdf703c2316044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2c206d42e220534225cfef0415a65c1f9494f761
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403772"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64569789"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessões de mensagens: primeiro, primeiro out (FIFO) 
 
@@ -79,8 +79,7 @@ O estado da sessão contidas numa fila ou em que contagens de uma subscrição p
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Um exemplo completo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/Microsoft.Azure.ServiceBus/BasicSendReceiveUsingQueueClient) de enviar e receber mensagens com base em sessão do Service Bus coloca em fila usando a biblioteca .NET Standard.
-- [Um exemplo](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) que utiliza o cliente do .NET Framework para lidar com mensagens com reconhecimento de sessão. 
+- Consulte a [Microsoft.Azure.ServiceBus exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/Sessions) ou [Microsoft.ServiceBus.Messaging exemplos](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/Sessions) para obter um exemplo que utiliza o cliente do .NET Framework para lidar com mensagens com reconhecimento de sessão. 
 
 Para saber mais sobre mensagens do Service Bus, consulte os seguintes tópicos:
 

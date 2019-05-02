@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 810d0795bd005cc313ec3567811ad55ba1d9d522
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: be20ad0583558949f65b9706f0a478669360bf3d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60370038"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571203"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreender a sua fatura de contrato Enterprise do Azure
 
@@ -29,7 +29,7 @@ Crédito da sua organização inclui seu compromisso monetário. A alocação mo
 
 ## <a name="invoices-for-most-customers"></a>Notas fiscais para a maioria dos clientes
 
-Esta secção não se aplica aos clientes do Azure na Austrália, Japão e Singapura. Se estiver em um país, veja [notas fiscais para outros clientes](#invoices-for-other-customers).
+Esta secção não se aplica aos clientes do Azure na Austrália, Japão e Singapura. Se estiver em um desses países/regiões, veja [notas fiscais para outros clientes](#invoices-for-other-customers).
 
 Receber uma fatura do Azure quando um dos seguintes ocorre durante o ciclo de faturação:
 

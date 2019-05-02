@@ -8,16 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/06/2018
+ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d5d3d7031f9795db0ae04bc707bd9e7707137210
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60481985"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866537"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -110,7 +109,7 @@ Felizmente, é possível evitar totalmente esses problemas. Existem várias font
 |-|-|
 |[Corpus CMU Arctic](http://festvox.org/cmu_arctic/)|Aproximadamente 1100 frases selecionadas a partir de fora de copyright funciona especificamente para uso em projetos de síntese de fala. Um ponto de partida excelente.|
 |Já não funciona<br>autorais|Normalmente funciona publicado antes 1923. Para inglês, [Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de tal funciona. Poderá pretender focar-se no mais recente funciona, como o idioma será mais de perto como inglês modernos.|
-|Governo&nbsp;funciona|Funciona criada pelo Governo dos Estados Unidos não é protegidos por direitos autorais nos Estados Unidos, embora o Governo poderá solicitar copyright em outros países.|
+|Governo&nbsp;funciona|Funciona criada pelo Governo dos Estados Unidos não é protegidos por direitos autorais nos Estados Unidos, embora o Governo poderá solicitar copyright em outros países/regiões.|
 |Domínio público|Funciona para os quais direitos de autor tenham sido explicitamente isenta ou que tem sido dedicada para o domínio público. Não pode ser possível renunciaremos aos direitos de autor inteiramente em alguns jurisdições.|
 |Funciona permissively licenciado|Como o Works distribuídos sob uma licença Creative Commons ou a licença GNU documentação gratuitas (GFDL). Wikipedia utiliza o GFDL. Algumas licenças, no entanto, podem impor restrições sobre o desempenho do conteúdo licenciado que possam afetar a criação de um modelo de voz personalizadas, por isso, leia a licença com atenção.|
 

@@ -1,5 +1,5 @@
 ---
-title: Configurar o Azure Data Box| Microsoft Docs
+title: Tutorial para configurar o Azure Data Box | Documentos da Microsoft
 description: Saiba como instalar os cabos e ligar o Azure Data Box
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b601ad5936820e2c237b7b9d37d9af73aa468bbc
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2da6bf971cc966e27fac46546bfd4e3dcac6d12f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123302"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926174"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligue-se para o Azure Data Box
 
@@ -40,7 +40,7 @@ Antes de começar, certifique-se de que:
     - Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se não estiver disponível uma ligação de 10 GbE, poderá ser utilizada uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas. 
 6. Tem acesso a uma superfície plana onde possa colocar o Data Box. Se pretende colocar o dispositivo numa prateleira de rack padrão, precisará de um bloco de 7U no rack do datacenter. Pode colocar o dispositivo na horizontal ou vertical no rack.
 7. Obteve os cabos seguintes para ligar o Data Box ao computador anfitrião.
-    - Um ou mais 10 GbE SFP + Twinax cobre ou SFP + cabos de fibra óptica (utilize com dados 1, 2 de dados de interfaces de rede). Data Box tem adaptadores Mellanox ConnectX®-3 Pro EN porta dupla 10GBASE-T c / 3.0 Express do PCI de interface de rede, para que os cabos que são compatíveis com essa interface devem funcionar. Por exemplo, um SFP do CISCO SFP-H10GB-CU3M 10GBASE CU TWINMAX + 3 M cabo foi utilizado para fins de teste inhouse. Para obter mais informações, consulte a [lista de suportadas cabos e comutadores de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - Um ou mais 10 GbE SFP + Twinax cobre ou SFP + cabos de fibra óptica (utilize com dados 1, 2 de dados de interfaces de rede). Data Box tem adaptadores Mellanox ConnectX®-3 Pro EN porta dupla 10GBASE-T c / 3.0 Express do PCI de interface de rede, para que os cabos que são compatíveis com essa interface devem funcionar. Por exemplo, um SFP do CISCO SFP-H10GB-CU3M 10GBASE CU TWINMAX + 3 M cabo foi utilizado para testes internos. Para obter mais informações, consulte a [lista de suportadas cabos e comutadores de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Um cabo de rede RJ-45 CAT 6 (utilizar com interface de rede MGMT)
     - Um cabo de rede RJ-45 CAT 6A OU RJ-45 CAT 6 (utilizar com a interface de rede DADOS 3, configurada como 10 Gbps ou 1 Gbps, respetivamente)
 

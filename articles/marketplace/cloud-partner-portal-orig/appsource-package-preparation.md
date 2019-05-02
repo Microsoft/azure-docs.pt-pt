@@ -1,25 +1,19 @@
 ---
-title: Preparação do pacote do AppSource | Documentos da Microsoft
+title: Preparação do pacote do AppSource | O Azure Marketplace
 description: Explanaion em como preparar e criar pacotes do AppSource.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
 manager: Ricardo.Villalobos
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: cc06ddf2fce93bef27e7aaee85b47179608e192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ff822e87bfec5daa161172c0d47975eb06cc2808
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625474"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935634"
 ---
 # <a name="appsource-package-preparation"></a>Preparação do pacote do AppSource
 
@@ -117,7 +111,7 @@ Aqui está o código de exemplo para input.xml. Consulte as definições na tabe
 |SolutionAnchorName |Nome do ficheiro zip solução no package deployer que é utilizado para o nome a apresentar e a descrição de ativos de solução.|
 | startDate| Esta é a data em que o pacote de solução irá tornar-se disponível. O formato é MM/DD/AAAA|
 |endDate|Esta é a data em que o pacote de solução deixará de estar disponível. O formato é MM/DD/AAAA |
-|SupportedCountries |Esta é uma lista delimitada por vírgulas de países que deve ver este pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país atual. O momento da redação deste artigo lista foi: AE, AL, AM, PEDIDOS, AR, AT, AU, AZ, BA, BB, DB, SER, BG, BH, BM, BN, BO, BRASIL, PELA AC, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, FAÇA, DZ, EC, EE, POR EXEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, RH, HU, ID, IE, IL, IN, IQ, É, ELE, JM, JO, JP, KE, KG, KN, COREIA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MÊS, MT, MU, MX, MEU, NG, NI, NL, NÃO, NZ, OM, PA, PE, PH , PK, PL, PR, PS, HORA DO PACÍFICO, PY, CONTROLE DE QUALIDADE, RO, RS, RU, RW, SA, SE, SG, IS, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, E.U.A., UY, UZ, VE, VI, VN, ZA, ZW |
+|SupportedCountries |Esta é uma lista delimitada por vírgulas dos países/regiões que deve ver este pacote. Entre em contato com os serviços online para obter uma lista de todos os códigos de país atual. O momento da redação deste artigo lista foi: AE, AL, AM, PEDIDOS, AR, AT, AU, AZ, BA, BB, DB, SER, BG, BH, BM, BN, BO, BRASIL, PELA AC, CH, CI, CL, CM, CO, CR, CV, CW, CY, CZ, DE, DK, FAÇA, DZ, EC, EE, POR EXEMPLO, ES, FI, FR, GB, GE, GH, GR, GT, HK , HN, RH, HU, ID, IE, IL, IN, IQ, É, ELE, JM, JO, JP, KE, KG, KN, COREIA, KW, KY, KZ, LB, LK, LT, LU, LV, LY, MA, MC, MD, ME, MK, MN, MÊS, MT, MU, MX, MEU, NG, NI, NL, NÃO, NZ, OM, PA, PE, PH , PK, PL, PR, PS, HORA DO PACÍFICO, PY, CONTROLE DE QUALIDADE, RO, RS, RU, RW, SA, SE, SG, IS, SK, SN, SV, TH, TM, TN, TR, TT, TW, UA, E.U.A., UY, UZ, VE, VI, VN, ZA, ZW |
 |LearnMoreLink | URL para a página de informações mais para este pacote. |
 |Localidades|Uma instância deste nó para cada idioma de UX pretende oferecer apoio técnico na solução preferencial experiência do usuário. Este nó contém elementos subordinados que descrevem a Localidade, o logótipo e a termos para cada idioma|
 |Localidades: PackageLocale.Code|LCID do idioma para este nó. Exemplo: Inglês dos Estados Unidos é 1033|

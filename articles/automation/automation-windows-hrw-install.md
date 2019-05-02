@@ -10,11 +10,11 @@ ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61304962"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701768"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 

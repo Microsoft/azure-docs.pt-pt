@@ -9,11 +9,11 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.openlocfilehash: 84c5dbcf5073ba8c0ae662af019cde590a9adf10
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62738393"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686652"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browsers suportados por SDK web
 

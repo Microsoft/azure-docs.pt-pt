@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/17/2019
 ms.author: wesmc
-ms.openlocfilehash: 7a2cb110d5be74e23e8e782fc02873786e8813e9
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.openlocfilehash: 2f86b74299b5d47a87ed0b8e89a992f0f91a84be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149721"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924636"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ligar a IoT DevKit AZ3166 ao Hub IoT do Azure
 
@@ -79,7 +79,9 @@ O guia de introdução utiliza compilada previamente DevKit firmware para enviar
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
     ```
-
+   > [!NOTE]
+   > Se obtiver um erro ao executar `device-identity`, instale o [extensão de IOT do Azure para a CLI do Azure](https://github.com/Azure/azure-iot-cli-extension/blob/dev/README.md) para obter mais detalhes.
+  
 1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
 
    **YourIoTHubName**: Substitua este marcador de posição abaixo com o nome que escolher para o seu hub IoT.

@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/12/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c1b3282417cd95f1aaff472890ec655e4c5a983f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 089334d32ca54035abfbf59446366ecbe3378c15
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60852976"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919746"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Executar um contentor do Windows personalizado no Azure (Pré-visualização)
 
@@ -178,7 +178,7 @@ Para dizer ao Serviço de Aplicações para obter a nova imagem do Hub do Docker
 
 Pode utilizar outra imagem do Docker personalizada para executar a sua aplicação. Contudo, tem de escolher a [imagem principal](https://docs.docker.com/develop/develop-images/baseimages/) certa para a arquitetura que pretende: 
 
-- Para implementar aplicações de .NET Framework, utilizar uma imagem de principal com base no núcleo de servidor Windows 2019 [canal de manutenção de longo prazo (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) de versão. 
+- Para implementar aplicações de .NET Framework, utilizar uma imagem de principal com base no núcleo de servidor Windows 2019 [canal de manutenção de longo prazo (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) de versão. 
 - Para implementar aplicações de .NET Core, utilize uma imagem principal com base no 1809 de Nano do Windows Server [canal semi-anual de manutenção (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) de versão. 
 
 O carregamento das imagens principais durante o arranque da aplicação demora algum tempo. No entanto, pode utilizar uma das seguintes imagens principais que já estão em cache no Serviço de Aplicações do Azure para reduzir o tempo de arranque:

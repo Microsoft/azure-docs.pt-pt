@@ -1,25 +1,18 @@
 ---
-title: Vitrine detalhes de uma aplicação do Power BI oferece - Azure Marketplace | Documentos da Microsoft
+title: Vitrine detalhes de uma aplicação do Power BI oferecem | O Azure Marketplace
 description: Configure os campos de detalhes de loja para uma oferta de aplicação do Power BI para o Microsoft AppSource Marketplace.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 2c99b20e554d92dbe63594d63525dd8e1d765423
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: 0816e7a7add430a65af9b3948aa8626f9567053a
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60726234"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942630"
 ---
 # <a name="power-bi-app-storefront-details-tab"></a>Separador de detalhes de loja de aplicações do Power BI
 
@@ -32,13 +25,13 @@ Na **detalhes sobre ofertas** , digite as informações gerais sobre a oferta do
 
 ![Secção de detalhes de oferta da guia detalhes de loja](./media/offer-details-section.png)
 
-Para concluir os campos nesta secção, utilize a tabela seguinte:
+A tabela seguinte fornece mais informações sobre estes campos. Campos obrigatórios são indicted por um asterisco (*).  
 
 |   Campo               |   Descrição                                                                           |
 |-----------------------|-----------------------------------------------------------------------------------------|
-| **Resumo da oferta**     | Uma breve finalidade da aplicação, com até 100 carateres.                             |
-| **Descrição da oferta** | Uma descrição da aplicação, com até 3.000 carateres. Este campo suporta a formatação de HTML simples. |
-|                       |                                                                                         |
+| **Resumo da oferta\***     | Uma breve finalidade da aplicação, com até 100 carateres.                             |
+| **Descrição da oferta\*** | Uma descrição da aplicação, com até 3.000 carateres. Este campo suporta a formatação de HTML simples. |
+|   |    |
 
 
 ## <a name="listing-details-section"></a>Secção de detalhes de listagem
@@ -47,13 +40,13 @@ O **detalhes de listagem** secção reúne informações sobre o contexto da sua
 
 ![Secção de detalhes de listagem da guia detalhes de loja](./media/listing-details-section.png)
 
-Para concluir os campos nesta secção, utilize a tabela seguinte:
+Para concluir os campos nesta secção, utilize a tabela seguinte.  Campos obrigatórios são indicted por um asterisco (*).
  
 |   Campo                                  |   Descrição                                                        |
 | --------------                           | ---------------------                                                |
 | **Setores**                           | Selecione o setor em que a aplicação mais adequado. Se o aplicativo se relaciona para vários setores, deixe este campo em branco.      |
-| **Categorias**                           | Selecione até três categorias que se relacionam com a sua aplicação.     |
-| **Ligação de ajuda para a sua aplicação**               | Forneça um URL para uma página que oferece ajuda online para a sua aplicação.           |
+| **Categorias\***                           | Selecione até três categorias que se relacionam com a sua aplicação.     |
+| **Ligação de ajuda para a sua aplicação\***               | Forneça um URL para uma página que oferece ajuda online para a sua aplicação.           |
 | **Produtos a que sua aplicação funciona com (máx. 3)** | Selecione o **New** sinal de adição para criar um campo de texto. No campo, introduza o nome de um produto que a sua aplicação funciona com. Liste até três produtos.       |
 | **Palavras a procurar (máx. 3)**              | Introduza até três palavras-chave que os usuários provavelmente usarão a pesquisa para a sua aplicação no AppSource. Por exemplo, se o aplicativo é chamado "A minha aplicação Emailing", as palavras-chave podem ser **e-mails**, **correspondência**, e **aplicação de correio**. |
 |  |  |
@@ -65,13 +58,13 @@ Na **artefactos Marketing** seção imagem corporativa do carregamento de market
 
 ![Secção de artefactos de marketing da guia detalhes de loja](./media/marketing-artifacts-section.png)
 
-Para concluir os campos nesta secção, utilize a tabela seguinte:
+Para concluir os campos nesta secção, utilize a tabela seguinte. Campos obrigatórios são indicted por um asterisco (*).
  
 |    Campo                             |    Descrição                                                    |
 |   -----------                        |    -------------                                                  |
 | *Logótipos*                              |                                                                   |
-| **Logótipo da oferta (formato png, 48 x 48)**   | Carregue um logótipo a apresentar na descrição geral da aplicação ou nos resultados de pesquisa da aplicação. AppSource suporta apenas, formato PNG, com uma resolução de 48 x 48 px.  |
-| **Logótipo da oferta (formato png, 216 x 216)** | Carregue um logótipo a apresentar na página de detalhes da sua aplicação.  AppSource suporta apenas, formato PNG, com uma resolução de 216 x 216 px.  |
+| **Logótipo da oferta (formato png, 48 x 48)\***   | Carregue um logótipo a apresentar na descrição geral da aplicação ou nos resultados de pesquisa da aplicação. AppSource suporta apenas, formato PNG, com uma resolução de 48 x 48 px.  |
+| **Logótipo da oferta (formato png, 216 x 216)\*** | Carregue um logótipo a apresentar na página de detalhes da sua aplicação.  AppSource suporta apenas, formato PNG, com uma resolução de 216 x 216 px.  |
 | *Vídeos*                             |                                                                   |
 | **Nome**                             | Introduza o nome ou o título da sua aplicação.                                          |
 | **URL**                              | Introduza o URL de um vídeo alojado no YouTube ou Vimeo.                              |
@@ -79,7 +72,7 @@ Para concluir os campos nesta secção, utilize a tabela seguinte:
 | *Documentos*                          | Adicione até três documentos para apresentar no AppSource, no **Saiba mais** cabeçalho.  |
 | **Nome**                             | Introduza o nome ou o título de um documento de suporte.                              |
 | **Ficheiro**                             | Carregue um ficheiro PDF.                             |
-| *Capturas de ecrã*                        | Adicione até cinco capturas de ecrã.                        |
+| *Capturas de ecrã\**                      | Adicione até cinco capturas de ecrã.                        |
 | **Nome**                             | Introduza um nome ou o título de uma captura de ecrã.                                       |
 | **Imagem**                            | Carregar uma captura de ecrã do PNG. Sua resolução tem de ser px de 1280 x 720.  | 
 |   |   |
@@ -100,8 +93,8 @@ Para concluir os campos nesta secção, utilize a tabela seguinte:
 
 |   Campo                |   Descrição                           |
 |------------------------|--------------------------------------   |
-| **URL de política de privacidade** | URL para a sua política de privacidade postado       |
-| **Termos de utilização**       | Sua política de uso, formatados como texto sem formatação ou simple HTML     |
+| **URL de política de privacidade\*** | URL para a sua política de privacidade postado       |
+| **Termos de utilização\***       | Sua política de uso, formatados como texto sem formatação ou simple HTML     |
 |  |  |
 
 

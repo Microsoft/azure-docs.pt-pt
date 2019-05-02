@@ -2,24 +2,18 @@
 title: Registe-se no Dev Center | Azure
 description: Como registar na Developer Center (Centro de desenvolvimento).
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter: ''
 author: jm-aditi-ms
 manager: pabutler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 682c9e209c4fa4a9f4971af5da901faf1ec58c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 559b5a519a48d4aa8022961a59f6f29cef28f948
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60735795"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937580"
 ---
 # <a name="register-in-dev-center"></a>Registar no Dev Center  
 Para ajudar a verificar o que não esteja conectado numa conta pessoal do browser, abra um novo Internet Explorer InPrivate ou Incognito Chrome sessão de navegação.  
@@ -34,7 +28,7 @@ Para ajudar a verificar o que não esteja conectado numa conta pessoal do browse
     ![Informações da conta com a caixa de país/região](./media/marketplace-publishers-guide/devcenterregistrationaccountinfo.png)  
    
     >[!WARNING]
-    >Para vender os seus serviços no Azure Marketplace, certifique-se de que a sua entidade registada for de uma a aprovados *origem de venda* países. A restrição de localização é necessária por motivos de dividendos e tributação. 
+    >Para vender os seus serviços no Azure Marketplace, certifique-se de que a sua entidade registada for de uma a aprovados *origem de venda* países/regiões. A restrição de localização é necessária por motivos de dividendos e tributação. 
     >*   Para obter mais informações, visite as políticas de participação do Azure Marketplace página localizada em [azure.microsoft.com/support/legal/marketplace/participation-policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies).  
 
 4.  Para *tipo de conta*, selecione o `Company` botão de opção.  

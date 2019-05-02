@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 04/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8c226608f6c1c776463aa05c02b1d3cc04b699ec
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766824"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939676"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
 
@@ -39,13 +39,13 @@ Enquanto uma sincronização automática é executada apenas quando horizontal u
 
 Ao realizar uma operação de escalamento horizontal subsequente, por exemplo, aumento do número de réplicas no agrupamento de consulta de duas a cinco, as réplicas novos são alimentadas com dados de que o segundo conjunto de ficheiros no armazenamento de Blobs. Não há nenhuma sincronização. Se fosse, em seguida, executar uma sincronização depois de aumentar horizontalmente, as réplicas de novo no agrupamento de consulta seria alimentado duas vezes - uma com redundância de hidratação. Ao realizar uma operação de aumento horizontal subseqüente, é importante ter em mente:
 
-* Efetuar uma sincronização *antes da operação de aumento horizontal* para evitar hidratação redundante das réplicas foi adicionadas.
+* Efetuar uma sincronização *antes da operação de aumento horizontal* para evitar hidratação redundante das réplicas foi adicionadas. Sincronização em simultâneo e operações de escalamento horizontal em execução ao mesmo tempo não são permitidas.
 
 * Ao automatizar os dois processamento *e* operações de escalamento horizontal, é importante primeiro processam dados no servidor primário e, em seguida, efetuar uma sincronização e, em seguida, efetuar a operação de escalamento horizontal. Esta sequência garante um impacto mínimo nos recursos QPU e memória.
 
 * A sincronização for permitida, mesmo quando não há nenhum réplicas no agrupamento de consulta. Se aumentar horizontalmente de zero a uma ou mais réplicas com novos dados de uma operação de processamento no servidor primário, execute a sincronização pela primeira vez com nenhuma réplicas no agrupamento de consulta e, em seguida, aumentar horizontalmente. Sincronizar antes de aumentar horizontalmente evita hidratação redundante das réplicas recém-adicionada.
 
-* Quando eliminar uma base de dados do modelo do servidor primário, ele não automaticamente é eliminado do réplicas no agrupamento de consulta. Tem de efetuar uma operação de sincronização ao utilizar o [sincronização AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando do PowerShell que remove o ficheiro/s para essa base de dados de localização de armazenamento de BLOBs partilhado a réplica e, em seguida, elimina o modelo base de dados nas réplicas no agrupamento de consulta.
+* Quando eliminar uma base de dados do modelo do servidor primário, ele não automaticamente é eliminado do réplicas no agrupamento de consulta. Tem de efetuar uma operação de sincronização ao utilizar o [sincronização AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando do PowerShell que remove o ficheiro/s para essa base de dados de localização de armazenamento de BLOBs partilhado a réplica e, em seguida, elimina o modelo base de dados nas réplicas no agrupamento de consulta. Para determinar se uma base de dados do modelo existe em réplicas no agrupamento de consulta, mas não no servidor primário, certifique-se a **separar o servidor de processamento da consulta de conjunto** definição é **Sim**. Em seguida, utilizar o SSMS para ligar ao servidor primário com o `:rw` qualificador se a base de dados existe. Em seguida, ligar a réplicas no agrupamento de consulta ao ligar-se sem o `:rw` qualificador para ver se existe também o mesmo banco de dados. Se a base de dados existir em réplicas no agrupamento de consulta, mas não no servidor primário, execute uma operação de sincronização.   
 
 * Quando mudar o nome de uma base de dados no servidor primário, há uma etapa adicional necessária para assegurar que a base de dados está sincronizado corretamente para as réplicas. Depois de mudar o nome, executar uma sincronização usando o [AzAnalysisServicesInstance de sincronização](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) especificação de comando o `-Database` parâmetro com o nome de base de dados antigo. Esta sincronização remove a base de dados e ficheiros com o nome antigo das réplicas. Em seguida, executar outra de sincronização especificando o `-Database` parâmetro com o novo nome de base de dados. A segunda Sincronização copia a base de dados novo nome para o segundo conjunto de ficheiros e hydrates as réplicas. Estes sincronizações não não possível efetuar ao utilizar o comando de modelo de sincronização no portal.
 
@@ -58,6 +58,8 @@ Para um desempenho máximo para processamento e operações de consulta, pode op
 Para determinar se o Escalamento horizontal para o servidor é necessário, monitorize o seu servidor no portal do Azure ao uso de métricas. Se sua QPU regularmente maxes horizontalmente, significa que o número de consultas em relação a seus modelos está a exceder o limite QPU para o seu plano. Métrica de comprimento de fila de tarefa de conjunto de consulta também aumenta quando o número de consultas na fila de pool de threads a consulta excede QPU disponível. 
 
 Outra boa métrica para ver é uma QPU média por ServerResourceType. Esta métrica compara QPU médio para o servidor primário com que o conjunto de consultas. 
+
+![Consulta de ampliação métricas](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
 ### <a name="to-configure-qpu-by-serverresourcetype"></a>Para configurar QPU por ServerResourceType
 1. Num gráfico de linhas de métricas, clique em **adicionar métrica**. 
@@ -146,6 +148,8 @@ Para o SSMS, SSDT e cadeias de ligação no PowerShell, aplicações de função
 **Problema:** Os utilizadores obtêm o erro **não é possível localizar o servidor '\<nome do servidor > "instância no modo de ligação"Só de leitura".**
 
 **Solução:** Ao selecionar o **separar o servidor de processamento do conjunto de consulta** opção, as ligações de cliente utilizando a cadeia de ligação padrão (sem `:rw`) são redirecionadas para réplicas de conjunto de consulta. Se as réplicas no agrupamento de consulta são ainda online porque a sincronização não tem ainda não foi concluídas, as ligações de cliente redirecionada podem falhar. Para impedir ligações falhadas, deve haver pelo menos dois servidores no agrupamento de consulta quando efetuar uma sincronização. Cada servidor está sincronizado individualmente, enquanto outros permanecem online. Se optar por não ter o servidor de processamento do conjunto de consulta durante o processamento, é possível removê-lo a partir do agrupamento para processamento, e, em seguida, adicioná-lo após a conclusão do processamento, mas antes da sincronização para o pool. Utilize métricas de memória e QPU para monitorizar o estado de sincronização.
+
+
 
 ## <a name="related-information"></a>Informações relacionadas
 

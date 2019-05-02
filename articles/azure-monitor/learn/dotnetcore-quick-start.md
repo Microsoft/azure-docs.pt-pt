@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: eae9dc6447dd8211a3919c52beaea64274fc0ec5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6deb3ac0869ba7d8dfb41cc6fac8c30fb035b5a6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61388093"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572719"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
 Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação Web quanto à disponibilidade, ao desempenho e à utilização. Também pode identificar e diagnosticar erros rapidamente na sua aplicação sem ter de esperar que um utilizador os comunique. 
 
-Este início rápido orienta-o ao processo de adicionar o Application Insights SDK para um aplicativo de web do ASP.NET Core existente. 
+Este início rápido orienta-o ao processo de adicionar o Application Insights SDK para um aplicativo de web do ASP.NET Core existente. Para saber mais sobre como configurar o Application Insights sem Check-Out do Visual Studio [artigo](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -94,28 +94,6 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 4. Retorno para o **descrição geral** página e examinar os Dashboards de KPI.  Este dashboard fornece estatísticas sobre o estado de funcionamento da aplicação, incluindo o número de pedidos recebidos, a duração desses pedidos e quaisquer falhas que ocorram. 
 
    ![Gráficos de linha cronológica de Descrição Geral do Estado de Funcionamento](./media/dotnetcore-quick-start/7kpidashboards.png)
-
-   Para ativar o gráfico **Duração de Carregamento da Vista de Página** para preencher com **dados telemétricos do lado do cliente**, adicione este script a cada página que queira controlar:
-
-   ```HTML
-   <!-- 
-   To collect user behavior analytics about your application, 
-   insert the following script into each page you want to track.
-   Place this code immediately before the closing </head> tag,
-   and before any other scripts. Your first data will appear 
-   automatically in just a few seconds.
-   -->
-   <script type="text/javascript">
-     var appInsights=window.appInsights||function(config){
-       function i(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s="AuthenticatedUserContext",h="start",c="stop",l="Track",a=l+"Event",v=l+"Page",y=u.createElement(o),r,f;y.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(y);try{t.cookie=u.cookie}catch(p){}for(t.queue=[],t.version="1.0",r=["Event","Exception","Metric","PageView","Trace","Dependency"];r.length;)i("track"+r.pop());return i("set"+s),i("clear"+s),i(h+a),i(c+a),i(h+v),i(c+v),i("flush"),config.disableExceptionTracking||(r="onerror",i("_"+r),f=e[r],e[r]=function(config,i,u,e,o){var s=f&&f(config,i,u,e,o);return s!==!0&&t["_"+r](config,i,u,e,o),s}),t
-       }({
-           instrumentationKey:"<insert instrumentation key>"
-       });
-       
-       window.appInsights=appInsights;
-       appInsights.trackPageView();
-   </script>
-   ```
 
 5. Sobre o lado esquerdo clique em **métricas**. Utilize o Explorador de métricas para investigar o estado de funcionamento e a utilização do seu recurso. Pode clicar em **Adicionar novo gráfico** criar vistas personalizadas adicionais ou selecionar **Editar** para modificar os tipos de gráficos existentes, a altura, a paleta de cores, os agrupamentos e as métricas. Por exemplo, pode fazer um gráfico que apresenta o tempo de carregamento de página do browser média ao selecionar um "Tempo de carregamento de páginas do Browser" na lista pendente da métricas e "Média" de agregação. Para saber mais sobre o Explorador de métricas do Azure visite [introdução ao Explorador de métricas do Azure](../../azure-monitor/platform/metrics-getting-started.md).
 

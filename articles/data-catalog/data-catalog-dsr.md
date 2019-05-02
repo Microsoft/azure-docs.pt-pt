@@ -7,12 +7,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 8b584e06697f9f4212fe0d1d59c29e4670a87eda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f97f84ebf1dc4406bd924817bfd4aa3267559751
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002112"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64694344"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Origens de dados suportadas no catálogo de dados do Azure
 

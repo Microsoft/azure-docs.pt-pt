@@ -15,12 +15,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78897e2e03085a20f07ce8724226f0e0171861e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291246"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707169"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Utilizar as restrições de inquilino para gerir o acesso a aplicações de cloud de SaaS
 
@@ -42,7 +42,7 @@ A solução geral inclui os seguintes componentes:
 
 3. **Software de cliente**: Para suportar restrições de inquilino, software de cliente tem de pedir tokens diretamente a partir do Azure AD, para que a infraestrutura do proxy pode interceptar o tráfego. Baseada no browser e aplicativos do Office 365 suportam atualmente restrições de inquilino, tal como os clientes do Office que utilizam autenticação moderna (como o OAuth 2.0).
 
-4. **Autenticação moderna**: Serviços cloud tem de utilizar autenticação moderna para utilizar as restrições de inquilino e bloquear o acesso a todos os inquilinos não permitido. Tem de configurar serviços de nuvem do Office 365 para utilizar protocolos de autenticação moderna por predefinição. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [autenticação moderna do Office 365 atualizado](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/).
+4. **Autenticação moderna**: Serviços cloud tem de utilizar autenticação moderna para utilizar as restrições de inquilino e bloquear o acesso a todos os inquilinos não permitido. Tem de configurar serviços de nuvem do Office 365 para utilizar protocolos de autenticação moderna por predefinição. Para obter as informações mais recentes sobre o suporte do Office 365 para autenticação moderna, leia [autenticação moderna do Office 365 atualizado](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
 O diagrama seguinte ilustra o fluxo de tráfego de alto nível. Restrições de inquilino exigir a inspeção do SSL apenas no tráfego do Azure AD, não para os serviços em nuvem do Office 365. Essa distinção é importante, porque o volume de tráfego para a autenticação para o Azure AD é normalmente muito menor do que o volume de tráfego para aplicações de SaaS, como o Exchange Online e SharePoint Online.
 
@@ -128,7 +128,7 @@ Aplicativos do Office 365 tem de cumprir dois critérios para suportar totalment
 1. O cliente utilizado suporta a autenticação moderna.
 2. Autenticação moderna está ativada como o protocolo de autenticação predefinido para o serviço cloud.
 
-Consulte a [autenticação moderna do Office 365 atualizado](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) para as informações mais recentes no Office que os clientes suportam atualmente autenticação moderna. Essa página também inclui ligações para instruções para habilitar a autenticação moderna no específicos Exchange Online e Skype para empresas Online inquilinos. SharePoint Online já permite a autenticação moderna por predefinição.
+Consulte a [autenticação moderna do Office 365 atualizado](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) para as informações mais recentes no Office que os clientes suportam atualmente autenticação moderna. Essa página também inclui ligações para instruções para habilitar a autenticação moderna no específicos Exchange Online e Skype para empresas Online inquilinos. SharePoint Online já permite a autenticação moderna por predefinição.
 
 Aplicativos baseados em navegador do Office 365 (o SharePoint do Portal do Office, Yammer, sites, Outlook na Web e muito mais) suportam atualmente as restrições de inquilino. Clientes espessos (Outlook, Skype para empresas, Word, Excel, PowerPoint e muito mais) podem impor restrições de inquilino, apenas quando utilizam autenticação moderna.  
 
@@ -185,5 +185,5 @@ Para obter detalhes específicos, consulte a documentação do servidor proxy.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Leia sobre [autenticação moderna do Office 365 atualizado](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/)
+- Leia sobre [autenticação moderna do Office 365 atualizado](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/)
 - Reveja o [intervalos de endereços IP e URLs do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)

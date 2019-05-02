@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8a2972b8fbc31a3f945f40949128b3f37f2f4b77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c77b700cab4afd411c3a2df824ee8335cb394cda
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60544955"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868301"
 ---
 # <a name="upload-files-into-an-azure-media-services-account-from-azure-storsimple"></a>Carregar ficheiros para uma conta dos Serviços de Multimédia do Azure a partir do Azure StorSimple  
 
-Este artigo proporciona uma breve descrição geral do Azure StorSimple Data Manager. Também contém ligações para tutoriais que lhe mostram como extrair dados do StorSimple e carregar esses dados como elementos para uma conta dos Serviços de Multimédia do Azure (AMS).
-
-> 
 > [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+>
+> 
 > O Azure StorSimple Data Manager está atualmente em pré-visualização privada. 
 > 
 

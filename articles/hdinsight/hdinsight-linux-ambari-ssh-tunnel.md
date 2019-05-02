@@ -1,21 +1,19 @@
 ---
 title: Utilizar o SSH Tunneling to access do Azure HDInsight túnel
 description: Saiba como utilizar um túnel SSH para procurar em segurança a recursos da web hospedada em nós do HDInsight baseado em Linux.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/30/2018
-ms.date: 02/04/2019
+ms.date: 12/15/2018
 ms.author: hrasheed
 ms.openlocfilehash: 0361539cefbacb8fc0473a1f863cf2ae4638b444
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766754"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682546"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-web-uis"></a>Utilizar o túnel SSH para aceder a Apache Ambari web UI, JobHistory, NameNode, Apache Oozie e outras interfaces do usuário da web
 
@@ -35,7 +33,7 @@ As seguintes interfaces de usuário de Web exigem um túnel SSH:
 
 Se utilizar as ações de Script para personalizar o seu cluster, quaisquer serviços ou utilitários que instala e expõem um serviço web exigem um túnel SSH. Por exemplo, se instalar a Hue com uma ação de Script, tem de utilizar um túnel SSH para acessar a web da Hue da interface do Usuário.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Se tiver acesso direto ao HDInsight através de uma rede virtual, não é necessário utilizar túneis SSH. Para obter um exemplo de acessar diretamente o HDInsight através de uma rede virtual, consulte a [ligar o HDInsight à sua rede no local](connect-on-premises-network.md) documento.
 
 ## <a name="what-is-an-ssh-tunnel"></a>O que é um túnel SSH
@@ -48,7 +46,7 @@ Se utilizar as ações de Script para personalizar o seu cluster, quaisquer serv
 
 * Um navegador da web que pode ser configurado para utilizar um proxy de SOCKS5.
 
-    > [!WARNING]
+    > [!WARNING]  
     > O suporte de proxy de SOCKS incorporado nas configurações de Internet do Windows não suporta SOCKS5 e não funciona com os passos neste documento. Os seguintes browsers contam com as definições de proxy do Windows e não trabalhar com os passos neste documento:
     >
     > * Microsoft Edge
@@ -111,14 +109,14 @@ Assim que o comando terminar, o tráfego enviado para a porta 9876 no computador
 
 ## <a name="use-the-tunnel-from-your-browser"></a>Utilizar o túnel do seu navegador
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Os passos nesta secção utilizam o navegador Mozilla FireFox, pois fornece as mesmas definições de proxy para todas as plataformas. Outros navegadores modernos, como o Google Chrome, podem exigir uma extensão, como FoxyProxy para trabalhar com o túnel.
 
 1. Configurar o browser utilize **localhost** e a porta que utilizou quando criar o túnel como um **SOCKS v5** proxy. Eis a aparência as definições do Firefox. Se utilizou uma porta diferente da que 9876, altere a porta para utilizado:
    
     ![Imagem das definições do Firefox](./media/hdinsight-linux-ambari-ssh-tunnel/firefoxproxy.png)
    
-   > [!NOTE]
+   > [!NOTE]  
    > Selecionando **DNS remoto** resolve os pedidos de sistema de nomes de domínio (DNS) ao utilizar o cluster do HDInsight. Esta definição resolve DNS com o nó principal do cluster.
 
 2. Certifique-se de que o túnel funciona ao visitar um site como [ https://www.whatismyip.com/ ](https://www.whatismyip.com/). O IP devolvido deve ser usada pelo datacenter do Microsoft Azure.
@@ -140,7 +138,7 @@ Depois do cluster tiver sido estabelecido, utilize os seguintes passos para veri
 
     ![Imagem com o menu de QuickLinks expandido](./media/hdinsight-linux-ambari-ssh-tunnel/namenodedropdown.png)
 
-   > [!NOTE]
+   > [!NOTE]  
    > Quando seleciona __ligações rápidas__, poderá receber um indicador de espera. Esta condição pode ocorrer se tiver uma conexão lenta com a internet. Aguarde um minuto ou dois para que os dados a serem recebidos do servidor e tente novamente a lista.
    >
    > Algumas entradas no **ligações rápidas** menu pode ser cortado pelo lado direito da tela. Se assim for, expanda o menu utilizando o rato e utilize a tecla de seta para a direita para deslocar o ecrã para a direita para ver o resto do menu.

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/31/2018
+ms.date: 04/25/2019
 ms.author: genli
-ms.openlocfilehash: 6b77ceb2ab9abe232cec75254b30ce37c3dbbf60
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3c0152726aba115e1b370838308a7bf0af08cab7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307727"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64708125"
 ---
 # <a name="reset-local-windows-password-for-azure-vm-offline"></a>Repor a palavra-passe do Windows local offline para VM do Azure
 Pode redefinir a senha do Windows local de uma VM no Azure com o [portal do Azure ou do Azure PowerShell](reset-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) desde que o agente convidado do Azure está instalado. Esse método é a principal maneira para repor uma palavra-passe de uma VM do Azure. Se ocorrerem problemas com o agente convidado do Azure não está a responder ou deixar de instalar depois de carregar uma imagem personalizada, pode repor manualmente uma palavra-passe do Windows. Este artigo fornece detalhes sobre como repor uma palavra-passe da conta local ao anexar o disco virtual de origem do SO a outra VM. Os passos descritos neste artigo não se aplicam aos controladores de domínio do Windows. 
@@ -106,7 +106,7 @@ Sempre tenta repor uma palavra-passe através da [portal do Azure ou do Azure Po
      ```
      
      ![Criar GPT](./media/reset-local-password-without-agent/create_gpt_ini.png)
-5. Crie `scripts.ini` em `\Windows\System32\GroupPolicy\Machine\Scripts\Startup`. Certifique-se de pastas ocultas são mostradas. Se necessário, crie o `Machine` ou `Scripts` pastas.
+5. Crie `scripts.ini` em `\Windows\System32\GroupPolicy\Machines\Scripts\`. Certifique-se de pastas ocultas são mostradas. Se necessário, crie o `Machine` ou `Scripts` pastas.
    
    * Adicione as seguintes linhas a `scripts.ini` ficheiro que criou:
      
@@ -156,7 +156,7 @@ Sempre tenta repor uma palavra-passe através da [portal do Azure ou do Azure Po
     
     * De %windir%\System32
       * remove FixAzureVM.cmd
-    * De %windir%\System32\GroupPolicy\Machine\
+    * De %windir%\System32\GroupPolicy\Machine\Scripts
       * Remover scripts.ini
     * De %windir%\System32\GroupPolicy
       * remover GPT (se GPT existido e renomeou gpt.ini.bak, mudar o nome do ficheiro. bak de volta para o GPT)

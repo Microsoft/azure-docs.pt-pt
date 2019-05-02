@@ -10,11 +10,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/04/2019
 ms.openlocfilehash: 04e607517bc806b60d7e76e5076f9d3518e530eb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098342"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64681754"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Utilizar ferramentas do Azure HDInsight para Visual Studio Code
 

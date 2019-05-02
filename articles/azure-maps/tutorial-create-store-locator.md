@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f53e21b8121006a6a6a1d2099b26e7cb28ca0ed9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1d3099da3d449e29d378e2f350fdc87ce5166f2e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692742"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574397"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Criar um localizador de arquivo com o Azure Maps
 
@@ -71,7 +71,7 @@ Os wireframes mostram um aplicativo bem simples. O aplicativo tem uma caixa de p
 
 ## <a name="create-the-store-location-dataset"></a>Criar o conjunto de dados de localização de armazenamento
 
-Antes de desenvolver um aplicativo de localizador de arquivo, é necessário criar um conjunto de dados de arquivos de que queremos exibir no mapa. Neste tutorial, utilizamos um conjunto de dados para um café fictícia chamada Contoso café. O conjunto de dados para este localizador de arquivo simples é gerenciado num livro do Excel. O conjunto de dados contém 10,213 localizações de café Contoso café espalhadas em nove países: Estados Unidos, Canadá, Reino Unido, França, Alemanha, Itália, Países Baixos, Dinamarca e Espanha. Eis uma captura de ecrã o que os dados é semelhante a:
+Antes de desenvolver um aplicativo de localizador de arquivo, é necessário criar um conjunto de dados de arquivos de que queremos exibir no mapa. Neste tutorial, utilizamos um conjunto de dados para um café fictícia chamada Contoso café. O conjunto de dados para este localizador de arquivo simples é gerenciado num livro do Excel. O conjunto de dados contém 10,213 localizações de café Contoso café espalhadas em nove países/regiões: Estados Unidos, Canadá, Reino Unido, França, Alemanha, Itália, Países Baixos, Dinamarca e Espanha. Eis uma captura de ecrã o que os dados é semelhante a:
 
 <br/>
 <center>
@@ -403,7 +403,7 @@ Neste momento, tudo está configurado na interface do usuário. Agora, precisamo
 
 1. Adicione código ao *Index*. O código a seguir inicializa o mapa, adiciona uma [serviço de escuta de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) que aguarda a conclusão da página de carregamento, conecta eventos a monitorizar o carregamento do mapa e alimenta o botão de pesquisa e o botão de localização de My.
 
-   Quando o utilizador seleciona o botão de pesquisa, ou quando o usuário pressiona Enter depois de introduzir uma localização na caixa de pesquisa, pesquisas difusas em relação a consulta do utilizador é iniciada. Passar uma matriz de país ISO 2 valores para o `countrySet` opção para limitar os resultados da pesquisa nesses países. Limitar os países para pesquisar ajuda a aumentar a precisão dos resultados retornados. 
+   Quando o utilizador seleciona o botão de pesquisa, ou quando o usuário pressiona Enter depois de introduzir uma localização na caixa de pesquisa, pesquisas difusas em relação a consulta do utilizador é iniciada. Passar uma matriz de país ISO 2 valores para o `countrySet` opção para limitar os resultados da pesquisa para os países/regiões. Limitar os países/regiões para pesquisar ajuda a aumentar a precisão dos resultados retornados. 
   
    Quando a pesquisa estiver concluída, levar o primeiro resultado e defina a câmara de mapa através dessa área. Quando o utilizador seleciona o botão de localização My, utilize a API de localização geográfica do HTML5 que está incorporado no browser para obter a localização do utilizador e centrar o mapa ao longo da respetiva localização.  
 

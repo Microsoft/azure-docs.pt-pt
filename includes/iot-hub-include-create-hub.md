@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: d373bc188a4d93c122cdf2cffbc4323aca16b4a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc83d94acd25914ee57473de53afbc018f310887
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346273"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64575766"
 ---
 Esta secção descreve como criar um hub IoT com o [portal do Azure](https://portal.azure.com).
 
 1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
 
-2. Escolher +**criar um recurso**, em seguida, escolha **Internet das coisas**.
+2. Escolher +**criar um recurso**, em seguida, *pesquisar no Marketplace* para o **IoT Hub**.
 
-3. Clique em **Iot Hub** da lista à direita. Veja a primeira tela para criar um hub IoT.
+3. Selecione **IoT Hub** e clique nas **criar** botão. Veja a primeira tela para criar um hub IoT.
 
    ![Criar um hub no portal do Azure](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 

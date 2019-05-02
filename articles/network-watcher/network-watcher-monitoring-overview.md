@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 0eb27e997d39ceb82098b63de607d3529ccc53b4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddc577af945c01b94dae5a75725082e4e6689fd9
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60532190"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64697148"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 

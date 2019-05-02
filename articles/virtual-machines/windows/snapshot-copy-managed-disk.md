@@ -16,11 +16,11 @@ ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
 ms.openlocfilehash: b3b9095cd7ee3fa12523b14f59cc06820b9e4382
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763929"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692223"
 ---
 # <a name="create-a-snapshot"></a>Criar um instantâneo
 

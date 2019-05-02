@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: dfd926f3e091f4516685fd73f3a6b87949330afb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098782"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706361"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerir os recursos de cluster do Apache Spark no Azure HDInsight 
 

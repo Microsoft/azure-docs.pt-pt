@@ -4,20 +4,21 @@ titlesuffix: Azure Virtual Network
 description: Respostas às perguntas mais frequentes sobre as redes virtuais do Microsoft Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
-ms.author: jdial
-ms.openlocfilehash: 19fdf2e7e1c7c56b6bfe8ddbf7329d3722f4e8de
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.author: kumud
+ms.openlocfilehash: 131d62fd2cea3ed76342f0fd179b7a9e0fd673e5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188616"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925269"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -243,7 +244,7 @@ Os seguintes recursos utilizam balanceadores de carga básico, que significa que
 - SQL Always on
 - SQL MI
 - Gestão de API
-- AD DS
+- Serviço de domínio do Active Directory (ADDS)
 - Aplicações Lógicas
 - HD Insight
 -   Azure Batch

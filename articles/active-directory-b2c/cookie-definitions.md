@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ac422a00a919903063c96ac096882036b99a63e3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7864320b71416d1b06661b8ae96c6113962250dd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384991"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703979"
 ---
 # <a name="cookies-definitions-for-azure-active-directory-b2c"></a>Definições de cookies para o Azure Active Directory B2C
 

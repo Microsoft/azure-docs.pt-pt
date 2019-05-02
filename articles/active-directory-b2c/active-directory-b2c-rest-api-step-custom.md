@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 55740b74aef5ce3d2def5ad22cfe3ededa1204d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c0a29bcbd3142be577d4cf1f64ff8c9921010bba
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316889"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688002"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Descrição Passo a Passo: Integrar a REST API trocas de afirmações no seu percurso do utilizador do Azure AD B2C como um passo de orquestração
 

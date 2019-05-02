@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
 ms.openlocfilehash: e808bd18e2b23c211f1c5257881fc8a8b72271fc
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760875"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705908"
 ---
 # <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 

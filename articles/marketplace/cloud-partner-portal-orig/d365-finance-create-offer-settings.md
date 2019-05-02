@@ -1,25 +1,18 @@
 ---
-title: Como preencher o formulário de definições da oferta | Documentos da Microsoft
+title: Como preencher o formulário de definições da oferta | O Azure Marketplace
 description: Explica os vários campos que precisam de valores no formulário de definições da oferta para uma nova aplicação do Dynamics 365 Business Central.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.author: pbutlerm
-ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: d29b17e1a109b37a51a0e6bd2af2a7bb02b977a9
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60397826"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64934913"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Como preencher o formulário de definições da oferta
 =======================================

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: a067d83c32f11e0bf091b0efc5528995ab6a021a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.openlocfilehash: cae806953721f3cedead023f013c7d1d585efeb6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341647"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573379"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de base de dados SQL do Azure dos termos
 
@@ -39,6 +39,7 @@ Objetos de base de dados|Base de dados SQL do Azure|Qualquer base de dados na ba
 ||Base de dados de fins gerais|Criada dentro de uma base de dados ou movido para a camada de serviços de fins gerais do modelo de compra baseado em vCore|
 ||Base de dados de grande escala|Criada dentro de uma base de dados ou movido para a camada de serviços de hiperescala do modelo de compra baseado em vCore|
 ||Bases de dados fundamentais do negócio|Criada dentro de uma base de dados ou movido para a camada de serviços críticos de negócios do modelo de compra baseado em vCore|
+||Base de dados aprovisionada|Uma base de dados configurada na camada de computação aprovisionada|
 |[Modelos de compra e de recursos](sql-database-purchase-models.md)|Modelo de compra baseado em DTU|[Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md)|
 ||Modelo de compra baseado em vCore|[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md)|
 ||vCore|Um núcleo fornecido para o SO convidado pelo hipervisor.|

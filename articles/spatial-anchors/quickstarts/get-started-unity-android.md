@@ -1,5 +1,5 @@
 ---
-title: Início rápido - criar aplicação do Android Unity com âncoras espaciais do Azure | Documentos da Microsoft
+title: Início rápido - criar uma aplicação Android do Unity com âncoras espaciais do Azure | Documentos da Microsoft
 description: Neste guia de introdução, saiba como criar uma aplicação Android com o Unity usando âncoras espaciais.
 author: craigktreasure
 manager: aliemami
@@ -8,16 +8,16 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bce71db594d2bbd869dcc5a1ff5cb494a7a6f1c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 001042a5499b492db151853172e999cf7a3c5f88
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60342525"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687821"
 ---
-# <a name="quickstart-create-an-android-unity-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação Android Unity com o Azure âncoras espaciais
+# <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Início rápido: Criar uma aplicação Android do Unity com âncoras espaciais do Azure
 
-Este guia de introdução mostra como criar uma aplicação do Android Unity com [âncoras geográficos de Azure](../overview.md). Âncoras espaciais do Azure é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista usando objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação ARCore Android criada com o Unity, que pode guardar e lembre-se de uma âncora de espacial.
+Este guia de introdução mostra como criar uma aplicação Android de Unity através de [âncoras geográficos de Azure](../overview.md). Âncoras espaciais do Azure é um serviço de programador para várias plataformas que permite-lhe criar experiências de realidade mista usando objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação ARCore Android criada com o Unity, que pode guardar e lembre-se de uma âncora de espacial.
 
 Vai aprender a:
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 520aeb8e47b5e94e6346e682f21f46cb0814f8f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a3c6eca548eb61d6b7b239b4292b9c77ca2dec6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389718"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702707"
 ---
 # <a name="azure-resource-providers-and-types"></a>Fornecedores de recursos do Azure e tipos
 
@@ -31,6 +31,8 @@ Durante a implantação de recursos, com freqüência precisar de obter informa�
 * Ver versões de API válidas para um tipo de recurso
 
 Pode executar estes passos através do portal do Azure, o Azure PowerShell ou a CLI do Azure.
+
+Para obter uma lista que mapeia os fornecedores de recursos para os serviços do Azure, consulte [fornecedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 
 ## <a name="azure-portal"></a>Portal do Azure
 
@@ -291,5 +293,5 @@ West US
 
 * Para saber mais sobre a criação de modelos do Resource Manager, veja [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md). 
 * Para ver os esquemas de modelo de fornecedor de recursos, consulte [referência de modelo](/azure/templates/).
-* Para saber mais sobre a implementação de recursos, veja [implementar uma aplicação com o modelo Azure Resource Manager](resource-group-template-deploy.md).
+* Para obter uma lista que mapeia os fornecedores de recursos para os serviços do Azure, consulte [fornecedores de recursos para serviços do Azure](azure-services-resource-providers.md).
 * Para ver as operações de um fornecedor de recursos, consulte [API REST do Azure](/rest/api/).

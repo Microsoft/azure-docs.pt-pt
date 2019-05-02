@@ -14,15 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako;johndeu
-ms.openlocfilehash: 549554521570d1d2f27b2da2b36ca1dfde25562f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fbdd9325f50e1bcb271b7ca47b9ccd3361d0d27e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60762531"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687062"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Descrição geral de REST API de operações de serviços de multimédia 
-[!INCLUDE [media-services-selector-setup](../../../includes/media-services-selector-setup.md)]
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 O **REST de operações de serviços de multimédia** API é utilizada para a criação de tarefas, recursos, canais em direto e outros recursos numa conta de Media Services. Para obter mais informações, consulte [referência da API de REST de operações de serviços de multimédia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 

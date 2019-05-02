@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: a9d0daaacb046df7943202775adc77bc912cce11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c5dd0146fe59e7dc85787f146b10cfde7d6addb4
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217578"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867899"
 ---
 # <a name="overview-of-live-streaming-using-media-services"></a>Descrição geral da transmissão em direto utilizando os Media Services
 
 > [!NOTE]
-> A partir de 12 de Maio de 2018, os canais em direto será já não suporte o fluxo de transporte RTP/MPEG-2 protocolo de ingestão. Migre de RTP/MPEG-2 para RTMP ou MP4 fragmentado (Smooth Streaming) protocolos de ingestão.
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 ## <a name="overview"></a>Descrição geral
 
@@ -44,7 +44,12 @@ Os seguintes componentes estão normalmente relacionados ao entregar eventos de 
 
 Os **Media Services do Microsoft Azure** (AMS) fornecem a capacidade de inserir, codificar, pré-visualizar, armazenar e distribuir os seus conteúdos por transmissão em fluxo em direto.
 
-Quando distribui os seus conteúdos aos seus clientes, o seu objetivo é fornecer um vídeo de alta qualidade para vários dispositivos em condições de rede diferentes. Para conseguir isso, utilize codificadores em direto para codificar a sua transmissão em fluxo para um fluxo de vídeo do múltipla (velocidade de transmissão adaptável).  Para realizar a transmissão em fluxo para dispositivos diferentes, utilize o [empacotamento dinâmico](media-services-dynamic-packaging-overview.md) dos Media Services para empacotar novamente e de forma dinâmica a sua transmissão em fluxo para protocolos diferentes. Serviços de multimédia suportam a distribuição das seguinte velocidade de transmissão adaptável tecnologias de transmissão em fluxo: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
+Com os Media Services, pode aproveitar [empacotamento dinâmico](media-services-dynamic-packaging-overview.md), que permite-lhe transmitir as transmissões em direto em MPEG DASH, HLS, Smooth Streaming formatos e da contribuição de feed que está sendo enviada para o serviço. Os visualizadores têm acesso podem reproduzir a transmissão em direto com qualquer leitores compatível com HLS, TRAÇO ou transmissão em fluxo uniforme. Pode utilizar o leitor de multimédia do Azure nas suas aplicações móveis ou web para fornecer a sua transmissão em fluxo em qualquer um desses protocolos.
+
+> [!NOTE]
+> A partir de 12 de Maio de 2018, os canais em direto será já não suporte o fluxo de transporte RTP/MPEG-2 protocolo de ingestão. Migre de RTP/MPEG-2 para RTMP ou MP4 fragmentado (Smooth Streaming) protocolos de ingestão.
+
+## <a name="streaming-endpoints-channels-programs"></a>Transmissão em fluxo de pontos de extremidade, canais, programas
 
 Nos Media Services do Azure, os **Canais**, **Programas** e **Pontos Finais de Transmissão em Fluxo** lidam com todas as funcionalidades de transmissão em fluxo em direto, incluindo inserção, formatação, DVR, segurança, escalabilidade e redundância.
 

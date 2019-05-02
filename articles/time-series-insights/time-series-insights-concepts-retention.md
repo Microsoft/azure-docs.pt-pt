@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 02/09/2018
 ms.custom: seodec18
 ms.openlocfilehash: b230ac48cf2ca14c9ed988f869b5abba3e347215
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63761572"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696673"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Compreender a retenção de dados no Time Series Insights
 

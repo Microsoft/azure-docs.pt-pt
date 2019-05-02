@@ -1,6 +1,6 @@
 ---
 title: Limita a borda de caixa de dados do Azure | Documentos da Microsoft
-description: Descreve os limites de sistema e os tamanhos recomendados para o limite de caixa de dados do Microsoft Azure.
+description: Descreve os limites de sistema e os tamanhos recomendados para o Edge de caixa de dados do Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: a687398032adffe5e787ef1469abe0b2627a38fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b454b563cdb870ca8f07a45b796dc6b1e272502d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60758029"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924606"
 ---
 # <a name="azure-data-box-edge-limits"></a>Limites de borda de caixa de dados do Azure
 

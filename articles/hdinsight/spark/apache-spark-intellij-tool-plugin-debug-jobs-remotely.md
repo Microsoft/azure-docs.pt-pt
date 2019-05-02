@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.openlocfilehash: 30d52f1ac6a68a3202de59a0b4cab8edfb7ed042
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124339"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701086"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Utilizar o Azure Toolkit para IntelliJ depurar aplicações do Apache Spark remotamente no HDInsight através de VPN
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 026b8a85bf353dfe384077b1dc8e284d7c373046
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bb064deae87e6545d003ffb1fa85058926f5dee
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740136"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938040"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Fazer crescer o seu negócio com a Microsoft
 

@@ -3,17 +3,17 @@ title: Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (C#) | Docum
 description: Como desenvolvedor de dispositivo, como ligar um Raspberry Pi a sua aplicação do Azure IoT Central utilizando C#.
 author: viv-liu
 ms.author: viviali
-ms.date: 04/05/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8a7b2d15884f7a1cb8b6e72937b0f1e3b6cb8ca9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 3e77494eacaf16ac23a531cb7a16fe8bf6117006
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616021"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714428"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Ligar um Raspberry Pi a sua aplicação do Azure IoT Central (c#)
 
@@ -357,7 +357,7 @@ Ativar/desativar definições
 | Type            | Nome a apresentar | Nome do campo | Tipo de dados |
 | --------------- | ------------ | ---------- | --------- |
 | Propriedade do dispositivo | Morrem número   | dieNumber  | número    |
-| Texto            | Localização     | localização   | N/A       |
+| Text            | Location     | localização   | N/A       |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
