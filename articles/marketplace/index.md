@@ -1,24 +1,19 @@
 ---
-title: Documentação do Azure Marketplace | Microsoft Docs
+title: Documentação do Azure Marketplace
 description: Saiba mais sobre o Azure Marketplace.
 services: Azure, marketplace
 author: jm-aditi-ms
-manager: pabutler
-editor: ''
 layout: LandingPage
-ms.assetid: ''
 ms.service: marketplace
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: cdff88d828de465443d59865e6ab51f98619b949
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd95863d4e9286576bbb31e6df2de7816c6c17b0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739823"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937860"
 ---
 # <a name="azure-marketplace-documentation"></a>Documentação do Azure Marketplace
 

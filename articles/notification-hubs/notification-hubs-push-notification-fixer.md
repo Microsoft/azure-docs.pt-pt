@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 4fc4175c03baa4ddb81507dd4001fcdbe7c7058b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eebf9ef63a8622c4cc431322b786fdf30f6352fe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61458782"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64925825"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnosticar notificações ignoradas nos Hubs de notificação do Azure
 
@@ -123,7 +123,7 @@ Aqui estão os caminhos para diagnosticar a causa de raiz de notificações igno
 
 #### <a name="push-notification-service-developer-portal"></a>Portal de Programador de serviço de notificação Push ####
 
-Verifique se as credenciais no respectivo push notification service portal do programador (APNs, FCM, serviço de notificação do Windows e assim por diante). Para obter mais informações, consulte [Tutorial: Enviar notificações para aplicações da plataforma Universal do Windows com os Hubs de notificação do Azure](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Verifique se as credenciais no respectivo push notification service portal do programador (APNs, FCM, serviço de notificação do Windows e assim por diante). Para obter mais informações, consulte [Tutorial: Enviar notificações para aplicações da plataforma Universal do Windows com os Hubs de notificação do Azure](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
 #### <a name="azure-portal"></a>Portal do Azure ####
 
@@ -180,7 +180,7 @@ Também pode enviar notificações de teste a partir do Visual Studio.
 
 Para obter mais informações sobre como utilizar os Hubs de notificação com o Visual Studio Server Explorer, veja estes artigos:
 
-* [Como ver os registos de dispositivos para os hubs de notificação](https://docs.microsoft.com/en-us/previous-versions/windows/apps/dn792122(v=win.10))
+* [Como ver os registos de dispositivos para os hubs de notificação](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
 * [Aprofunde-se: Visual Studio 2013 Update 2 RC e o Azure SDK 2.3]
 * [Apresentamos o lançamento do Visual Studio 2013 Update 3 e o Azure SDK 2.4]
 
@@ -261,7 +261,7 @@ No portal, pode obter uma visão geral de toda a atividade do seu hub de notific
 
 #### <a name="programmatic-access"></a>Acesso programático ####
 
-Para obter mais informações sobre o acesso programático, consulte [acesso programático](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Para obter mais informações sobre o acesso programático, consulte [acesso programático](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Várias funcionalidades relacionadas com a telemetria, como a exportação e importação de registos e acesso de telemetria através de APIs, estão disponíveis apenas no escalão de serviço Standard. Se tentar usar esses recursos do gratuito ou básico escalão de serviço, obterá uma mensagem de exceção se usar o SDK. Obterá um erro HTTP 403 (proibido) se usar os recursos diretamente a partir de REST APIs.

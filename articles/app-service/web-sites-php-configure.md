@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ad5a4981869f992ab6823a13afc2cad0e5252d08
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: eb731dc18b1524bcf161352265af9e277f85876e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105438"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730615"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurar o PHP no serviço de aplicações do Azure
 
@@ -35,15 +35,11 @@ Versões do PHP 7.0 e PHP 7.2 também estão disponíveis, mas não ativado por 
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Navegue para a sua aplicação no [portal do Azure](https://portal.azure.com) e clique nas **definições** botão.
+1. Navegue para a sua aplicação no [portal do Azure](https://portal.azure.com) e desloque-se para o **configuração** página.
 
-    ![Definições da Aplicação][settings-button]
-2. Do **definições** painel, selecione **configurações de aplicativo** e escolha a nova versão PHP.
+2. Partir **Configuration**, selecione **definições gerais** e escolha a nova versão PHP.
 
-    ![Definições da Aplicação][application-settings]
-3. Clique no **salvar** botão na parte superior a **as definições da aplicação** painel.
-
-    ![Guardar definições de configuração][save-button]
+3. Clique no **salvar** botão na parte superior a **definições gerais** painel.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
 
@@ -130,18 +126,12 @@ Conforme observado na seção anterior, a melhor forma de ver a versão PHP pred
 ### <a name="configure-via-app-setting"></a>Configurar através de definição de aplicação
 
 1. Adicionar um `bin` diretório para o diretório de raiz.
-1. Colocar `.dll` extensão de arquivos no `bin` diretório (por exemplo, `php_xdebug.dll`). Certifique-se de que as extensões são compatíveis com a versão predefinida do PHP e são VC9 e compatível com o não thread-safe (ualizar).
-2. Implemente a sua aplicação.
-3. Navegue para a sua aplicação no portal do Azure e clique nas **definições** botão.
-
-    ![Definições da Aplicação][settings-button]
-4. Do **definições** painel, selecione **as definições da aplicação** e desloque-se para o **definições de aplicação** secção.
-5. Na **as definições da aplicação** secção, criar um **PHP_EXTENSIONS** chave. O valor para esta chave seria um caminho relativo à raiz do Web site: **bin\your-ext-ficheiro**.
-
-    ![Ativar a extensão nas definições da aplicação][php-extensions]
-6. Clique no **salvar** botão na parte superior a **as definições da aplicação** painel.
-
-    ![Guardar definições de configuração][save-button]
+2. Colocar `.dll` extensão de arquivos no `bin` diretório (por exemplo, `php_xdebug.dll`). Certifique-se de que as extensões são compatíveis com a versão predefinida do PHP e são VC9 e compatível com o não thread-safe (ualizar).
+3. Implemente a sua aplicação.
+4. Navegue para a sua aplicação no portal do Azure e clique no **Configuration** localizada abaixo **definições** secção.
+5. Do **Configuration** painel, selecione **configurações de aplicativo**.
+6. Na **as configurações do aplicativo** secção, clique em **+ nova definição de aplicação** e crie um **PHP_EXTENSIONS** chave. O valor para esta chave seria um caminho relativo à raiz do Web site: **bin\your-ext-ficheiro**.
+7. Clique nas **atualização** botão na parte inferior, em seguida, clique em **guardar** acima a **as definições da aplicação** separador.
 
 As extensões de Zend também são suportadas ao utilizar um **PHP_ZENDEXTENSIONS** chave. Para ativar várias extensões, inclua uma lista separada por vírgulas de `.dll` ficheiros para o valor de definição de aplicação.
 
@@ -154,15 +144,11 @@ Em vez do runtime PHP predefinido, o serviço de aplicações pode utilizar um t
 3. Opcionalmente, adicionar extensões ao seu tempo de execução do PHP e ativá-los no `php.ini` ficheiro.
 4. Adicionar uma `bin` diretório para o seu diretório de raiz e put o diretório que contém o runtime PHP no mesmo (por exemplo, `bin\php`).
 5. Implemente a sua aplicação.
-6. Navegue para a sua aplicação no portal do Azure e clique nas **definições** botão.
-
-    ![Definições da Aplicação][settings-button]
-7. Do **configurações** painel, selecione **as definições da aplicação** e desloque-se para o **mapeamentos do processador** secção. Adicione `*.php` para a extensão de campo e adicione o caminho para o `php-cgi.exe` executável. Se colocar o runtime PHP no `bin` é o caminho de diretório na raiz da sua aplicação, `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
-
-    ![Especifique o manipulador no mapeamentos do processador][handler-mappings]
-8. Clique no **salvar** botão na parte superior a **as definições da aplicação** painel.
-
-    ![Guardar definições de configuração][save-button]
+6. Navegue para a sua aplicação no portal do Azure e clique nas **configuração** painel.
+8. Partir do **Configuration** painel, selecione **mapeamentos de caminho**. 
+9. Clique em **+ novo manipulador** e adicione `*.php` para a extensão de campo e adicione o caminho para o `php-cgi.exe` executável no **processador de scripts**. Se colocar o runtime PHP no `bin` é o caminho de diretório na raiz da sua aplicação, `D:\home\site\wwwroot\bin\php\php-cgi.exe`.
+10. Na parte inferior, clique em **atualização** para acabar de adicionar o mapeamento do processador.
+11. Clique em **Guardar** para guardar as alterações.
 
 <a name="composer" />
 

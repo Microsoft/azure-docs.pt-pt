@@ -10,11 +10,11 @@ ms.service: power-bi-embedded
 ms.topic: landing-page
 ms.date: 07/31/2018
 ms.openlocfilehash: decbe7c59f46ea77b1f5088bab8daf64722f2a8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110704"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727723"
 ---
 # <a name="power-bi-embedded-documentation"></a>Documentação do Power BI Embedded
 

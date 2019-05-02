@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61022107"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875929"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -41,6 +41,9 @@ Salvo indicação em contrário, os exemplos neste artigo são para a versão 2.
 ### <a name="v2"></a>Versão 2.x
 
 Versão 2.x das ferramentas utiliza o runtime das funções do Azure 2.x está incorporada no .NET Core. Esta versão é suportada em todas as plataformas suporta de 2.x do .NET Core, incluindo [Windows](#windows-npm), [macOS](#brew), e [Linux](#linux). Primeiro tem de instalar o .NET Core 2.x SDK.
+
+> [!IMPORTANT]
+> Quando ativa a pacotes de extensão no ficheiro de Host. JSON do projeto, não é necessário instalar o .NET Core 2.x SDK. Para obter mais informações, consulte [Local de desenvolvimento com ferramentas de núcleo de funções do Azure e os pacotes de extensão ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Os pacotes de extensão requer a versão 2.6.1071 das ferramentas de núcleo ou uma versão posterior.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -310,6 +313,7 @@ O `host` comando apenas é necessária na versão 1.x.
 | **`--script-root --prefix`** | Utilizado para especificar o caminho para a raiz da aplicação de função que está a ser executado ou implantado. Isto é utilizado para os projetos compilados que geram ficheiros de projeto para uma subpasta. Por exemplo, quando criar uma biblioteca de classes do c# arquivos de projeto, o Host. JSON, Settings e Function são gerados numa *raiz* subpasta com um caminho como `MyProject/bin/Debug/netstandard2.0`. Neste caso, defina o prefixo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta é a raiz da aplicação de função quando em execução no Azure. |
 | **`--timeout -t`** | O tempo limite para o anfitrião de funções iniciar, em segundos. Predefinição: 20 segundos.|
 | **`--useHttps`** | Vincular `https://localhost:{port}` em vez da `http://localhost:{port}`. Por predefinição, esta opção cria um certificado fidedigno no seu computador.|
+| **`--enableAuth`** | Ative a autenticação completa, processamento de pipeline.|
 
 Para um classe biblioteca projeto c# (arquivo. csproj), tem de incluir o `--build` opção para gerar o ficheiro. dll de biblioteca.
 

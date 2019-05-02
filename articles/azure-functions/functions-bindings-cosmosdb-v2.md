@@ -258,8 +258,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type** || Tem de ser definido como `cosmosDBTrigger`. |
-|**direction** || Tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
+|**tipo** || Tem de ser definido como `cosmosDBTrigger`. |
+|**direção** || Tem de ser definido como `in`. Este parâmetro é definido automaticamente quando criar o acionador no portal do Azure. |
 |**name** || O nome da variável no código de função que representa a lista de documentos com as alterações. |
 |**connectionStringSetting**|**ConnectionStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação utilizada para ligar à conta do Azure Cosmos DB a ser monitorizada. |
 |**databaseName**|**DatabaseName**  | O nome da base de dados do Azure Cosmos DB com a coleção a ser monitorizada. |
@@ -1711,8 +1711,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**     || Tem de ser definido como `cosmosDB`.        |
-|**direction**     || Tem de ser definido como `in`.         |
+|**tipo**     || Tem de ser definido como `cosmosDB`.        |
+|**direção**     || Tem de ser definido como `in`.         |
 |**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** |**DatabaseName** |A base de dados que contém o documento.        |
 |**collectionName** |**CollectionName** | O nome da coleção que contém o documento. |
@@ -2296,8 +2296,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**type**     || Tem de ser definido como `cosmosDB`.        |
-|**direction**     || Tem de ser definido como `out`.         |
+|**tipo**     || Tem de ser definido como `cosmosDB`.        |
+|**direção**     || Tem de ser definido como `out`.         |
 |**name**     || Nome do parâmetro de enlace que representa o documento na função.  |
 |**databaseName** | **DatabaseName**|A base de dados que contém a coleção onde o documento é criado.     |
 |**collectionName** |**CollectionName**  | O nome da coleção em que o documento é criado. |
@@ -2345,7 +2345,7 @@ Esta secção descreve as definições de configuração global disponíveis par
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |GatewayMode|Gateway|O modo de ligação utilizado pela função, ao ligar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
-|Protocol|Https|O protocolo de ligação utilizado pela função quando a ligação ao serviço do Azure Cosmos DB.  Leitura [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)| 
+|Protocolo|Https|O protocolo de ligação utilizado pela função quando a ligação ao serviço do Azure Cosmos DB.  Leitura [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)| 
 |leasePrefix|n/d|Prefixo de concessão para utilizar em todas as funções num aplicativo.| 
 
 ## <a name="next-steps"></a>Passos Seguintes

@@ -59,7 +59,7 @@
     - name: Monitorização de Alterações
       items:
         - name: Descrição geral de Controlo de Alterações
-          href: automation-change-tracking.md
+          href: change-tracking.md
           displayName: 'wildcard, recursion, environment variables, registry'
         - name: Ver os conteúdos de ficheiro de ficheiros controlados
           href: change-tracking-file-contents.md

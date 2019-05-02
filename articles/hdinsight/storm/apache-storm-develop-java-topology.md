@@ -1,7 +1,6 @@
 ---
 title: Topologia de Java de exemplo do Apache Storm – Azure HDInsight
 description: Saiba como criar topologias do Apache Storm no Java através da criação de uma topologia de contagem de palavras de exemplo.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: o Apache storm, o exemplo do apache storm, o java de storm, o exemplo de topologia do storm
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 32a8c81cd7b2078f4866d4c7311ea5ac0d0b3439
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 43f68908c8549c2f1d8322b5c4ad3985618cfe6e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448299"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695650"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia do Apache Storm no Java
 

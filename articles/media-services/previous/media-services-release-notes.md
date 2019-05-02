@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 25da9fd787c467bdddb7c8dcd68b9df518d018b7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621435"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728044"
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos serviços de multimédia do Azure
 
@@ -321,10 +321,6 @@ O [SDK .NET dos Media Services](https://www.nuget.org/packages/windowsazure.medi
 * Atualmente, não pode ingerir um fluxo em direto de RTMP através de uma ligação SSL.
 * Pode transmitir em fluxo através de SSL apenas se o ponto final de transmissão em fluxo do que forneça o conteúdo tiver sido criado depois de 10 de Setembro de 2014. Se os URLs de transmissão em fluxo baseiam-se os pontos finais de transmissão em fluxo criados após 10 de Setembro de 2014, o URL contém "streaming.mediaservices.windows.net" (o novo formato). URLs de transmissão em fluxo que contêm "origin.mediaservices.windows.net" (o formato antigo) não suportam SSL. Se o URL está no formato antigo e quer transmitir através de SSL, [criar um novo ponto de final de transmissão em fluxo](media-services-portal-manage-streaming-endpoints.md). Para transmitir o seu conteúdo através de SSL, use URLs com base no novo ponto de final de transmissão em fluxo.
 
-## <a id="october_changes_14"></a>Versão de Outubro de 2014
-### <a id="new_encoder_release"></a>Versão do codificador de serviços de multimédia
- A nova versão do codificador de multimédia do Media Services do Azure foi anunciada. Com o codificador de multimédia mais recentes, é-lhe cobrado apenas para GBs de saída. Caso contrário, o novo codificador é compatível com o codificador anterior de funcionalidade. Para obter mais informações, consulte [Detalhes de preços dos Serviços de Multimédia (Media Services pricing details)].
-
 ### <a id="oct_sdk"></a>.NET SDK dos serviços de multimédia
 O SDK de Media Services para .NET extensions está agora a versão 2.0.0.3.
 
@@ -396,14 +392,6 @@ O SDK .NET dos Media Services agora é a versão 3.0.0.5. Foram efetuadas as seg
   * Quando receber exceções da web (por exemplo, durante um pedido de token de serviço de controlo de acesso), erros fatais falharem mais rapidamente agora.
 
 Para obter mais informações, consulte [lógica de repetição no SDK de serviços de multimédia para .NET].
-
-## <a id="april_changes_14"></a>Versão do codificador de Abril de 2014
-### <a name="april_14_enocer_changes"></a>Atualizações do codificador de serviços de multimédia
-* Foi adicionado suporte para ingerir ficheiros AVI, que são criados com o editor de não-linear de grama Valley EDIUS. Nesse processo, o vídeo é apenas superficialmente comprimido com o codec de grama Valley HQ/HQX. Para obter mais informações, consulte [grama Valley anuncia 7 EDIUS transmissão em fluxo através da cloud].
-*  Foi adicionado suporte para especificar a Convenção de nomenclatura para os arquivos gerados pelo codificador de serviços de multimédia. Para obter mais informações, consulte [nomes de ficheiro de saída do codificador de serviços de suporte de dados de controle](https://msdn.microsoft.com/library/azure/dn303341.aspx).
-*  Foi adicionado suporte para sobreposições de vídeo e/ou áudio. Para obter mais informações, consulte [criar sobreposições](https://msdn.microsoft.com/library/azure/dn640496.aspx).
-*  Foi adicionado suporte para reunir vários segmentos de vídeo. Para obter mais informações, consulte [reunir os segmentos de vídeo](https://msdn.microsoft.com/library/azure/dn640504.aspx).
-* Foi corrigido um erro que estava relacionado a transcodificação MP4s onde o áudio codificado com MPEG-1 3 da camada de áudio (também conhecido como MP3).
 
 ## <a id="jan_feb_changes_14"></a>Versões de Janeiro/Fevereiro de 2014
 ### <a name="jan_fab_14_donnet_changes"></a>SDK de .NET 3.0.0.1, 3.0.0.2 e 3.0.0.3 dos serviços de multimédia
@@ -556,7 +544,7 @@ A seguinte funcionalidade foi nova na versão de Novembro do SDK:
 <!--- URLs. --->
 [Fórum MSDN dos serviços de multimédia do Azure]: https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices
 [Referência da API de REST dos serviços de multimédia do Azure]: https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference
-[Detalhes de preços dos Serviços de Multimédia (Media Services pricing details)]: https://azure.microsoft.com/pricing/details/media-services/
+[Media Services pricing details]: https://azure.microsoft.com/pricing/details/media-services/
 [Metadados de entrada]: https://msdn.microsoft.com/library/azure/dn783120.aspx
 [Metadados de saída]: https://msdn.microsoft.com/library/azure/dn783217.aspx
 [Deliver content]: https://msdn.microsoft.com/library/azure/hh973618.aspx
@@ -573,7 +561,7 @@ A seguinte funcionalidade foi nova na versão de Novembro do SDK:
 [Nick Drouin's blog]: http://blog-ndrouin.azurewebsites.net/hls-v3-new-old-thing/
 [Protect Smooth Streaming with PlayReady]: https://msdn.microsoft.com/library/azure/dn189154.aspx
 [Lógica de repetição no SDK de serviços de multimédia para .NET]: https://msdn.microsoft.com/library/azure/dn745650.aspx
-[Grama Valley anuncia 7 EDIUS transmissão em fluxo através da cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
+[Grass Valley announces EDIUS 7 streaming through the cloud]: https://www.streamingmedia.com/Producer/Articles/ReadArticle.aspx?ArticleID=96351&utm_source=dlvr.it&utm_medium=twitter
 [Control Media Services Encoder output file names]: https://msdn.microsoft.com/library/azure/dn303341.aspx
 [Create overlays]: https://msdn.microsoft.com/library/azure/dn640496.aspx
 [Stitch video segments]: https://msdn.microsoft.com/library/azure/dn640504.aspx

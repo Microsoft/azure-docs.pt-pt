@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c5979fa7ff67c5acda9ab653bc4ee52d8b5129a5
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: a45e2af6f2cb9c105c084585a03a6de615fa1397
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293809"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573038"
 ---
 # <a name="streaming-endpoints-overview"></a>Descrição geral de pontos finais de transmissão em fluxo  
 
-## <a name="overview"></a>Descrição geral
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 No Microsoft Azure Media Services (AMS), um **ponto final de transmissão em fluxo** representa um serviço de transmissão em fluxo que pode entregar conteúdo diretamente a uma aplicação de leitor cliente ou para uma rede de entrega de conteúdos (CDN) para uma maior distribuição. Serviços de multimédia também fornecem uma integração perfeita do CDN do Azure. O fluxo de saída de um serviço de StreamingEndpoint pode ser uma transmissão em direto, um vídeo sob demanda ou transferência progressiva de seus recursos na sua conta de Media Services. Cada conta de Media Services do Azure inclui um padrão StreamingEndpoint. Pontos finais adicionais podem ser criadas sob a conta. Existem duas versões de pontos finais, 1.0 e 2.0. A partir de 10 de Janeiro de 2017, qualquer acabada de criar contas do AMS irão incluir versão 2.0 **predefinição** StreamingEndpoint. Transmissão em fluxo pontos finais adicionais que adicionar a esta conta também será a versão 2.0. Esta alteração não afetará as contas existentes; pontos finais existentes serão a versão 1.0 e podem ser atualizados para a versão 2.0. Com esta alteração vão ocorrer alterações de comportamento, a faturação e a funcionalidade (para obter mais informações, consulte a **transmissão em fluxo de tipos e versões** secção documentados abaixo).
 
@@ -46,14 +47,17 @@ Para pontos finais adicionais: `{EndpointName}-{AccountName}.streaming.mediaserv
 
 ### <a name="standardpremium-types-version-20"></a>Tipos de Standard/Premium (versão 2.0)
 
-A partir da versão de Janeiro de 2017 dos serviços de multimédia, tem dois tipos de transmissão em fluxo: **Standard** e **Premium**. Esses tipos são parte da versão de ponto final de transmissão em fluxo "2.0".
+A partir da versão de Janeiro de 2017 dos serviços de multimédia, tem dois tipos de transmissão em fluxo: **Standard** (pré-visualização) e **Premium**. Esses tipos são parte da versão de ponto final de transmissão em fluxo "2.0".
 
-Type|Descrição
----|---
-**Standard** |Esta é a opção predefinida que funcionaria para a maioria dos cenários.<br/>Com esta opção, obtém o SLA/limitado, primeiros 15 dias depois de iniciar o ponto final de transmissão em fluxo é gratuito.<br/>Se criar mais de uma transmissão em fluxo de pontos de extremidade, apenas a primeira é gratuito durante os primeiros 15 dias, os outros são faturados assim que são iniciados. <br/>Tenha em atenção que versão de avaliação gratuita só se aplica às contas de serviços de suporte de dados recém-criado e ponto final de transmissão em fluxo predefinido. Pontos finais de transmissão em fluxo existentes e os pontos finais de transmissão em fluxo criados além disso, não inclui período de avaliação gratuita, mesmo que sejam atualizados para a versão 2.0 ou são criados como a versão 2.0.
-**Premium** |Esta opção é adequada para cenários de profissionais que necessitam de maior escala ou controle.<br/>SLA de variável com base na capacidade premium transmissão em fluxo (SU) de unidades adquirida, dedicados pontos finais de transmissão em fluxo em direto em ambiente isolado e não compitam por recursos.
 
-Para obter mais informações, consulte a **tipos de comparar a transmissão em fluxo** secção seguinte.
+|Type|Descrição|
+|--------|--------|  
+|**Standard**|A predefinição é o ponto final de transmissão em fluxo uma **padrão** tipo, pode ser alterado para o tipo de Premium, ao ajustar unidades transmissão em fluxo.|
+|**Premium** |Esta opção é adequada para cenários de profissionais que necessitam de maior escala ou controle. Mover para uma **Premium** tipo ao ajustar unidades transmissão em fluxo.<br/>Dedicada pontos finais de transmissão em fluxo em direto em ambiente isolado e não compitam por recursos.|
+
+Para os clientes que pretendem para fornecer conteúdo ao grande público de internet, recomendamos que ative a CDN no ponto final de transmissão em fluxo.
+
+Para obter mais informações, consulte a [tipos de comparar a transmissão em fluxo](#comparing-streaming-types) secção seguinte.
 
 ### <a name="classic-type-version-10"></a>Tipo clássico (versão 1.0)
 
@@ -71,29 +75,32 @@ Se sua **versão "1.0"** ponto final de transmissão em fluxo tem > = 1 premium 
 
 ### <a name="versions"></a>Versões
 
-|Type|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|SLA| 
-|--------------|----------|-----------------|-----------------|-----------------|-----------------|    
-|Clássica|1.0|0|ND|Gratuito|ND|
-|Ponto Final de Transmissão em Fluxo Standard|2.0|0|Sim|Pago|Sim|
-|Unidades de Transmissão em Fluxo Premium|1.0|>0|Sim|Pago|Sim|
-|Unidades de Transmissão em Fluxo Premium|2.0|>0|Sim|Pago|Sim|
+|Type|StreamingEndpointVersion|ScaleUnits|CDN|Faturação|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Clássica|1.0|0|ND|Gratuito|
+|Ponto final de transmissão em fluxo Standard (pré-visualização)|2.0|0|Sim|Pago|
+|Unidades de Transmissão em Fluxo Premium|1.0|>0|Sim|Pago|
+|Unidades de Transmissão em Fluxo Premium|2.0|>0|Sim|Pago|
 
 ### <a name="features"></a>Funcionalidades
 
 Funcionalidade|Standard|Premium
 ---|---|---
-Gratuitos primeiros 15 dias| Sim |Não
-Débito |Até 600 Mbps quando não for utilizada o CDN do Azure. Dimensiona com CDN.|200 Mbps por unidade (SU) de transmissão em fluxo. Dimensiona com CDN.
-SLA | 99.9|99,9 (200 Mbps por SU).
+Libertar os primeiros 15 dias <sup>1</sup>| Sim |Não
+Débito |Até 600 Mbps e pode fornecer um muito eficiente um débito mais elevado quando utilizar uma CDN.|200 Mbps por unidade (SU) de transmissão em fluxo. Pode fornecer um muito eficiente um débito mais elevado quando utilizar uma CDN.
 CDN|A CDN do Azure, terceiros CDN ou não CDN.|A CDN do Azure, terceiros CDN ou não CDN.
 A faturação é calculada| Diariamente|Diariamente
 Encriptação dinâmica|Sim|Sim
 Empacotamento dinâmico|Sim|Sim
-Escala|Automática se aumentar verticalmente para a taxa de transferência de destino.|Unidades de transmissão em fluxo adicionais
-Anfitrião de filtragem/G20/personalizado IP|Sim|Sim
+Escala|Automática se aumentar verticalmente para a taxa de transferência de destino.|Unidades de transmissão em fluxo adicionais.
+Anfitrião de filtragem/G20/personalizado IP <sup>2</sup>|Sim|Sim
 Transferência progressiva|Sim|Sim
-Uso recomendado |Recomendado para a grande maioria dos cenários de transmissão em fluxo.|Utilização profissional.<br/>Se acha que podem ter necessidades além padrão. Contacte-nos (amsstreaming@microsoft.com) se espera que um tamanho de audiência em simultâneo maior do que 50.000 visualizadores.
+Uso recomendado |Recomendado para a grande maioria dos cenários de transmissão em fluxo.|Utilização profissional. 
 
+<sup>1</sup> a avaliação gratuita aplica-se apenas às contas de serviços de suporte de dados recentemente criado e a predefinição ponto final de transmissão em fluxo.<br/>
+<sup>2</sup> usado diretamente no ponto final de transmissão em fluxo apenas quando a CDN não estiver ativada no ponto final.<br/>
+
+Para informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
 
 ## <a name="migration-between-types"></a>Migração entre tipos
 

@@ -136,8 +136,6 @@
         - name: Utilizar nós de extremidade em branco
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true
-        - name: Desenvolver programas de transmissão de Python
-          href: apache-hadoop-streaming-python.md
         - name: Processar e analisar documentos JSON
           href: using-json-in-hive.md
         - name: 'Utilizar funções C# definidas pelo utilizador'

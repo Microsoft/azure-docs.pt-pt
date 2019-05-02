@@ -5,6 +5,7 @@
     - name: Acerca da Cache do Azure para Redis
       href: cache-overview.md
 - name: Inícios rápidos
+  expanded: true
   items:
     - name: Criar uma aplicação ASP.NET
       href: cache-web-app-howto.md

@@ -4,15 +4,15 @@ description: Saiba mais sobre os grupos de gestão, como as permissões destes f
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 04/17/2019
+ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ceb606f2243ef723866e485c6580a6323c1c92ec
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59699394"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722479"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -47,9 +47,8 @@ Este grupo de gestão de raiz está incorporado na hierarquia para ter todos os 
 
 ### <a name="important-facts-about-the-root-management-group"></a>Factos importantes sobre o grupo de gestão de Raiz
 
-- O nome e ID do grupo de gestão de raiz são fornecidos por predefinição. O nome a apresentar pode ser atualizado a qualquer momento para mostrar o nome diferente no portal do Azure. Para [alterar o nome](manage.md#change-the-name-of-a-management-group), sua conta tem de estar atribuída à função de Proprietário ou Contribuinte no grupo de gestão de raiz.
-  - O nome será "Grupo de raiz de inquilino".
-  - O ID será o ID do Azure Active Directory.
+- Por predefinição, o nome a apresentar do grupo de gestão de raiz é **Grupo de raiz do inquilino**. O ID é o ID do Azure Active Directory.
+- Para alterar o nome a apresentar, a sua conta tem de estar atribuída à função de Proprietário ou Contribuinte no grupo de gestão de raiz. Para obter os passos para alterar o nome, veja [Alterar o nome de um grupo de gestão](manage.md#change-the-name-of-a-management-group).
 - O grupo de gestão de raiz não pode ser movido nem eliminado, ao contrário de outros grupos de gestão.  
 - Todos os grupos de gestão e subscrições ficam associados ao grupo de gestão de raiz dentro do diretório.
   - Todos os recursos no diretório ficam associados ao grupo de gestão de raiz para gestão global.
