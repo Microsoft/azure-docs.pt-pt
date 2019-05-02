@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 044c0355b6ec9f064cae74ffd5259d457cb49147
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2cce7203d23d5de77200fdf75ab31042d9608352
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60515418"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866380"
 ---
 # <a name="supported-languages"></a>Linguagens suportadas
 

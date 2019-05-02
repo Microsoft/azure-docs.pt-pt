@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 2f27105aed940f0411abaa534cb09adf0be34bfe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a16421182f533f5aa2ad4bcc2e58e910cc7e8ca6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830336"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64702417"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicação
 
@@ -26,7 +26,7 @@ Este artigo explica como um gateway de aplicação aceita os pedidos recebidos e
 
 2. O DNS do Azure devolve o endereço IP para o cliente, o que é o endereço IP de front-end do gateway de aplicação.
 
-3. O gateway de aplicação aceita tráfego de entrada num ou mais serviços de escuta. Um serviço de escuta é uma entidade lógica que verifica a existência de pedidos de ligação. Este é configurado com um endereço IP apoiado, o protocolo e o número de porta para ligações de clientes para o gateway de aplicação.
+3. O gateway de aplicação aceita tráfego de entrada num ou mais serviços de escuta. Um serviço de escuta é uma entidade lógica que verifica a existência de pedidos de ligação. Este é configurado com um endereço IP de front-end, o protocolo e o número de porta para ligações de clientes para o gateway de aplicação.
 
 4. Se uma firewall de aplicações web (WAF) está a ser utilizado, o gateway de aplicação verifica os cabeçalhos de pedido e o corpo, se estiver presente, com regras de WAF. Esta ação determina se o pedido de solicitação válida ou uma ameaça de segurança. Se o pedido for válido, é encaminhado para o back-end. Se o pedido não é válido, ele está bloqueado como uma ameaça de segurança.
 

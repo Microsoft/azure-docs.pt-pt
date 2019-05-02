@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 9a4d5acfe16a2fdbb3b631cb8baf6cb8e90a7d58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935709"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872547"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis de sistema suportadas pelo Azure Data Factory
 Este artigo descreve as variáveis de sistema suportadas pelo Azure Data Factory. Pode utilizar estas variáveis em expressões de quando definir entidades do Data Factory.
@@ -41,7 +41,7 @@ Estas variáveis de sistema podem ser referenciadas em qualquer lugar no acionad
 | Nome da variável | Descrição |
 | --- | --- |
 | @trigger().scheduledTime |Hora quando o acionador foi agendado para invocar a execução do pipeline. Por exemplo, para um acionador que é acionado cada 5 min, esta variável retornaria `2017-06-01T22:20:00Z`, `2017-06-01T22:25:00Z`, `2017-06-01T22:29:00Z` , respetivamente.|
-| @trigger().startTime |Hora em que o acionador **, na verdade,** acionadas para invocar a execução do pipeline. Por exemplo, para um acionador que é acionado cada 5 min, esta variável pode devolver mais ou menos assim `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` , respetivamente.|
+| @trigger().startTime |Hora em que o acionador **, na verdade,** acionadas para invocar a execução do pipeline. Por exemplo, para um acionador que é acionado cada 5 min, esta variável pode devolver mais ou menos assim `2017-06-01T22:20:00.4061448Z`, `2017-06-01T22:25:00.7958577Z`, `2017-06-01T22:29:00.9935483Z` , respetivamente. (Nota: O carimbo de hora está por predefinição no formato ISO 8601)|
 
 ## <a name="tumbling-window-trigger-scope"></a>Âmbito de Acionador de janela em cascata
 Estas variáveis de sistema podem ser referenciadas em qualquer lugar no acionador de JSON se o acionador é do tipo: "TumblingWindowTrigger."

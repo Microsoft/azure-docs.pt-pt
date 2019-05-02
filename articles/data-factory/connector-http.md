@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 87505081f16008dff7da1f567c1265c695f3f0ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653777"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875952"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final HTTP através do Azure Data Factory
 
@@ -160,11 +160,55 @@ Se usar **certThumbprint** para autenticação e o certificado está instalado n
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Esta seção fornece uma lista de propriedades que suporta o conjunto de dados HTTP. 
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. 
 
-Para obter uma lista completa de seções e as propriedades que estão disponíveis para definir conjuntos de dados, consulte [conjuntos de dados e serviços ligados](concepts-datasets-linked-services.md). 
+- Para **Parquet e o formato de texto delimitado**, consulte [conjunto de dados de formato de Parquet e texto delimitado](#parquet-and-delimited-text-format-dataset) secção.
+- Como outros formatos **formato ORC/Avro/JSON/binário**, consulte [outro conjunto de dados do formato](#other-format-dataset) secção.
 
-Para copiar dados de HTTP, defina o **tipo** propriedade do conjunto de dados para **HttpFile**. São suportadas as seguintes propriedades:
+### <a name="parquet-and-delimited-text-format-dataset"></a>Parquet e o conjunto de dados de formato de texto delimitado
+
+Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) num conjunto de dados com base no formato de artigos e suporte definições. As seguintes propriedades são suportadas para HTTP em `location` definições no conjunto de dados com base no formato:
+
+| Propriedade    | Descrição                                                  | Necessário |
+| ----------- | ------------------------------------------------------------ | -------- |
+| tipo        | A propriedade de tipo sob `location` no conjunto de dados deve ser definida como **HttpServerLocation**. | Sim      |
+| relativeUrl | Um URL relativo ao recurso que contém os dados.       | Não       |
+
+> [!NOTE]
+> O tamanho de payload de pedido HTTP suportado é de cerca de 500 KB. Se o tamanho da carga que pretende passar para o ponto final de web for superior a 500 KB, considere a criação de batches o payload em segmentos mais pequenos.
+
+> [!NOTE]
+> **HttpFile** tipo conjunto de dados com o formato Parquet/Text mencionado na secção seguinte ainda é suportado como-destina-se a atividade de cópia/pesquisa para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+{
+    "name": "DelimitedTextDataset",
+    "properties": {
+        "type": "DelimitedText",
+        "linkedServiceName": {
+            "referenceName": "<HTTP linked service name>",
+            "type": "LinkedServiceReference"
+        },
+        "schema": [ < physical schema, optional, auto retrieved during authoring > ],
+        "typeProperties": {
+            "location": {
+                "type": "HttpServerLocation",
+                "relativeUrl": "<relative url>"
+            },
+            "columnDelimiter": ",",
+            "quoteChar": "\"",
+            "firstRowAsHeader": true,
+            "compressionCodec": "gzip"
+        }
+    }
+}
+```
+
+### <a name="other-format-dataset"></a>Outro conjunto de dados do formato
+
+Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -226,7 +270,69 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 ### <a name="http-as-source"></a>HTTP como origem
 
-Para copiar dados de HTTP, defina **tipo de origem** na atividade de cópia para **HttpSource**. As seguintes propriedades são suportadas na atividade de cópia **origem** secção:
+- Para copiar a partir **Parquet e o formato de texto delimitado**, consulte [Parquet e origem de formato de texto delimitado](#parquet-and-delimited-text-format-source) secção.
+- Para copiar a partir de outros formatos, como **formato ORC/Avro/JSON/binário**, consulte [outra origem de formato](#other-format-source) secção.
+
+#### <a name="parquet-and-delimited-text-format-source"></a>Parquet e origem de formato de texto delimitado
+
+Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consulte [formato Parquet](format-parquet.md) e [formato de texto delimitado](format-delimited-text.md) artigo na origem de atividade de cópia baseada em formato e definições suportadas. As seguintes propriedades são suportadas para HTTP em `storeSettings` definições na origem de cópia baseada no formato:
+
+| Propriedade                 | Descrição                                                  | Necessário |
+| ------------------------ | ------------------------------------------------------------ | -------- |
+| tipo                     | A propriedade de tipo sob `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
+| requestMethod            | O método HTTP. <br>Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não       |
+| addtionalHeaders         | Cabeçalhos de pedido HTTP adicionais.                             | Não       |
+| requestBody              | O corpo do pedido HTTP.                               | Não       |
+| requestTimeout           | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. O valor predefinido é **01:00:40**. | Não       |
+| maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não       |
+
+> [!NOTE]
+> Para o formato de texto delimitados/Parquet, **HttpSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-destina-se para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+
+**Exemplo:**
+
+```json
+"activities":[
+    {
+        "name": "CopyFromHTTP",
+        "type": "Copy",
+        "inputs": [
+            {
+                "referenceName": "<Delimited text input dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "outputs": [
+            {
+                "referenceName": "<output dataset name>",
+                "type": "DatasetReference"
+            }
+        ],
+        "typeProperties": {
+            "source": {
+                "type": "DelimitedTextSource",
+                "formatSettings":{
+                    "type": "DelimitedTextReadSetting",
+                    "skipLineCount": 10
+                },
+                "storeSettings":{
+                    "type": "HttpReadSetting",
+                    "requestMethod": "Post",
+                    "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
+                    "requestBody": "<body for POST HTTP request>"
+                }
+            },
+            "sink": {
+                "type": "<sink type>"
+            }
+        }
+    }
+]
+```
+
+#### <a name="other-format-source"></a>Outra origem de formato
+
+Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, as seguintes propriedades são suportadas na atividade de cópia **origem** secção:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |

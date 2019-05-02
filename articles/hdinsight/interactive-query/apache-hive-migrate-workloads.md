@@ -2,17 +2,17 @@
 title: Migrar cargas de trabalho do Azure HDInsight 3.6 do Hive do HDInsight 4.0
 description: Saiba como migrar cargas de trabalho Apache Hive no HDInsight 3.6 4.0 do HDInsight.
 ms.service: hdinsight
-author: hrasheed-msft
-ms.author: hrasheed
+author: msft-tacox
+ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/15/2019
-ms.openlocfilehash: 144e0ada0ce3a15a5dcd13b31f46f50162750a74
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126567"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707008"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrar cargas de trabalho do Azure HDInsight 3.6 do Hive do HDInsight 4.0
 
@@ -98,6 +98,8 @@ No HDInsight 4.0, HiveCLI foi substituído com o Beeline. HiveCLI é um cliente 
 No HDInsight 3.6, o cliente de GUI para interagir com o servidor do Hive é a exibição do Ambari Hive. HDInsight 4.0 substitui a vista do Hive com o Studio de análise de dados do Hortonworks (DAS). DAS não são enviados juntamente com clusters de HDInsight out-of-box e não é um pacote de suporte oficial. No entanto, DAS pode ser instaladas no cluster da seguinte forma:
 
 Inicie uma ação de script no cluster, com "Nós principais" como o tipo de nó para execução. Cole o URI seguinte na caixa de texto marcada "URI de Script de Bash": https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+
+Estúdio de análise de dados pode ser iniciado com o URL: https://<clustername>.azurehdinsight.net/das/
 
 
 

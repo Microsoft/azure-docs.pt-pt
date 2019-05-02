@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8fa43998d0b10eddacdc9e0dd512295559814255
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101968"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711947"
 ---
 # <a name="common-security-attributes-for-azure-storage"></a>Atributos de segurança comuns do armazenamento do Azure
 
@@ -27,7 +27,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim |  |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim | Suporte a mecanismos de HTTPS/TLS padrão.  Os usuários também podem criptografar dados antes de ser transmitido para o serviço. |
+| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Sim | Suporte a mecanismos de HTTPS/TLS padrão.  Os usuários também podem criptografar dados antes de ser transmitido para o serviço. |
 | Manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | Ver [encriptação do serviço de armazenamento a utilizar chaves geridas pelo cliente no Azure Key Vault](storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).|
 | Encriptação de nível de coluna (Serviços de dados do Azure)| N/A |  |
 | Chamadas de API encriptadas| Sim |  |
@@ -37,7 +37,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Suporte de ponto final de serviço| Sim |  |
-| suporte de injeção de vNET| N/A |  |
+| Suporte de injeção de VNet| N/A |  |
 | Isolamento de rede e o suporte de firewall| Sim | |
 | Suporte de encapsulamento de forçado| N/A |  |
 

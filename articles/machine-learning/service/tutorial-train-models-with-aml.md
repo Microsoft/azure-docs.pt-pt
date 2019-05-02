@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 01/28/2019
+ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7617aec2739daa4f84bcecab060ae0f8e28fabe
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361596"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723200"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning
 
@@ -315,18 +315,16 @@ joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')
 
 Repare que o script obtém dados e guarda modelos:
 
-+ O script de treinamento lê um argumento para localizar o diretório que contém os dados. Quando submete o trabalho mais tarde, apontar para o arquivo de dados para este argumento: `parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')`.
++ O script de treinamento lê um argumento para localizar o diretório que contém os dados. Quando submete o trabalho posteriormente, tem de apontar para o arquivo de dados deste argumento: ```parser.add_argument('--data-folder', type=str, dest='data_folder', help='data directory mounting point')```
 
-+ O script de treinamento salva seu modelo num diretório chamado **produz**: <br/>
-`joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`.<br/>
-Tudo o que for escrito neste diretório é carregado automaticamente para a sua área de trabalho. Aceder a seu modelo a partir deste diretório mais tarde no tutorial.
-O ficheiro `utils.py` é referenciado a partir do script de preparação para carregar o conjunto de dados devidamente. Copie este script para a pasta de script, para que possa ser acedida, juntamente com o script de treinamento sobre o recurso remoto.
++ O script de treinamento salva seu modelo num diretório chamado **produz**. Tudo o que for escrito neste diretório é carregado automaticamente para a sua área de trabalho. Aceder a seu modelo a partir deste diretório mais tarde no tutorial. `joblib.dump(value=clf, filename='outputs/sklearn_mnist_model.pkl')`
 
++ O script de treinamento requer que o ficheiro `utils.py` para carregar o conjunto de dados corretamente. O seguinte código cópias `utils.py` em `script_folder` para que o ficheiro pode ser acedido juntamente com o script de treinamento sobre o recurso remoto.
 
-```python
-import shutil
-shutil.copy('utils.py', script_folder)
-```
+  ```python
+  import shutil
+  shutil.copy('utils.py', script_folder)
+  ```
 
 
 ### <a name="create-an-estimator"></a>Criar simulador

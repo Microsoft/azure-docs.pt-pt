@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: 15c559bb8b357b7776c101f88db8316b05edb677
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7c0bb571dcb9ec763d0247042e93966bfd0b65
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764242"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937807"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Aplicações do Azure: Guia de publicação de oferta de aplicação gerida
 

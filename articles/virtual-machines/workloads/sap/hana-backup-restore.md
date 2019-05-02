@@ -15,11 +15,11 @@ ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 7c03a7e5763f580bf1e17232a5850064710c8227
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098325"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64707249"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 

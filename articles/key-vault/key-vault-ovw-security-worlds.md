@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: barbkess
 ms.date: 07/03/2017
-ms.openlocfilehash: 86438ab7ebecc53aa716e72662965276b19f1b96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75ce953f73912428ee88fe2e19a138799f979fa
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461302"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704716"
 ---
 # <a name="azure-key-vault-security-worlds-and-geographic-boundaries"></a>Mundos de segurança do Cofre de chaves do Azure e limites geográficos
 

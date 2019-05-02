@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb7010ec16592fea2f530329916e00056ca03a70
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096132"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729528"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -158,7 +158,6 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de palavra-passe e a Federação. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Derivado de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | St |X |X | | |
@@ -241,7 +240,6 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | reportToOriginator | | |X | |
 | reportToOwner | | |X | |
-| securityEnabled | | |X |Derivado de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | St |X |X | | |
@@ -294,7 +292,6 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | preferredLanguage |X | | | |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
-| securityEnabled | | |X |Derivado de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | St |X |X | | |
@@ -317,7 +314,6 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | objectSID |X | |X |propriedade mecânica. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | proxyAddresses |X |X |X |propriedade mecânica. Utilizado pelo Azure AD. Contém todos os endereços de e-mail secundário para o utilizador. |
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. |
-| securityEnabled | | |X |Deriva groupType. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |Este UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
@@ -336,7 +332,6 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | objectSID |X | |X |propriedade mecânica. Identificador de utilizador do AD utilizado para manter a sincronização entre o Azure AD e AD. |
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
-| securityEnabled | | |X |Derivado de groupType |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
@@ -364,7 +359,6 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | postalCode |X |X | | |
 | preferredLanguage |X | | | |
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
-| securityEnabled | | |X |Derivado de groupType |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
 | St |X |X | | |

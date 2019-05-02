@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: e0008f6eb54dd690fda6833b96cda69fe8e1e954
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 39624595b4dd4e72ab1d34082a6ba44a1b3636d0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304970"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721990"
 ---
 # <a name="grant-several-applications-access-to-a-key-vault"></a>Conceder acesso de aplicações de vários para um cofre de chaves
 

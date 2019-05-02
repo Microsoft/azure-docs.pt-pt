@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
 ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62736816"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704576"
 ---
 # <a name="use-firewall-rules"></a>Utilize regras de Firewall
 

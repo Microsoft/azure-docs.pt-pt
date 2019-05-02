@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 6cca6692da37714c76f5241ed14e24c967b00563
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467702"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920452"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicações do Azure com o Assistente do Azure
 
@@ -88,11 +88,11 @@ Muito alta utilização da CPU durante um período prolongado pode fazer com que
 Uma taxa de acertos de cache baixos pode resultar em maior de IOPS e de desempenho de consulta mais lento. Isto pode dever-se um plano de consulta incorreta ou a executar uma carga de trabalho intensivas em termos de memória. Corrigir o plano de consulta ou [aumentar a memória](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) da base de dados do Azure para servidor de base de dados do PostgreSQL, o servidor de base de dados MySQL do Azure ou Azure MariaDB server ajudarão a otimizar a execução da carga de trabalho da base de dados. O Assistente do Azure identifica servidores afetados devido a estas alterações de conjunto de memória intermédia de alta e recomenda a corrigir o plano de consulta, mover para um SKU superior com mais memória ou a aumentar o tamanho de armazenamento para obter mais IOPS.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Utilize um MySQL do Azure ou a réplica de leitura do PostgreSQL do Azure para aumentar horizontalmente leituras para cargas de trabalho de leitura intensivas
-O Assistente do Azure tira partido da heurística com base na carga de trabalho, como a proporção de leituras por oposição a escritas no servidor nos últimos sete dias para identificar cargas de trabalho de leitura intensiva. Sua base de dados do Azure para PostgreSQL recursos ou a base de dados do Azure para MySQL recursos com um rácio de leitura/escrita muito alto pode resultar em contenções de CPU e/ou de memória que leva a diminuir o desempenho de consulta. Adicionar uma [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ajudará no aumento horizontal de leituras para o servidor de réplica, impedindo que as restrições de memória e/ou da CPU no servidor primário. O assistente irá identificar os servidores com essas cargas de trabalho de leitura intensiva elevadas e recomendamos adicionar um [ler réplica](https://docs.microsoft.com/en-us/azure/postgresql/concepts-read-replicas) para descarregar algumas das cargas de trabalho de leitura.
+O Assistente do Azure tira partido da heurística com base na carga de trabalho, como a proporção de leituras por oposição a escritas no servidor nos últimos sete dias para identificar cargas de trabalho de leitura intensiva. Sua base de dados do Azure para PostgreSQL recursos ou a base de dados do Azure para MySQL recursos com um rácio de leitura/escrita muito alto pode resultar em contenções de CPU e/ou de memória que leva a diminuir o desempenho de consulta. Adicionar uma [réplica](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) ajudará no aumento horizontal de leituras para o servidor de réplica, impedindo que as restrições de memória e/ou da CPU no servidor primário. O assistente irá identificar os servidores com essas cargas de trabalho de leitura intensiva elevadas e recomendamos adicionar um [ler réplica](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) para descarregar algumas das cargas de trabalho de leitura.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Dimensionar o seu servidor Azure MySQL, PostgreSQL do Azure ou Azure MariaDB para um SKU superior para impedir que as restrições de ligação
-Cada nova ligação ao seu servidor de base de dados ocupa alguma memória. Degrada o desempenho do servidor de base de dados se ligações ao seu servidor estão a falhar devido uma [limite superior](https://docs.microsoft.com/en-us/azure/postgresql/concepts-limits) na memória. O Assistente do Azure irá identificar os servidores em execução com muitas falhas de ligação e recomendável fazer a atualização de limites de ligações do seu servidor para fornecer mais memória para o servidor ao aumentar verticalmente a computação ou utilizar a memória otimizada SKUs, que tem mais computação por núcleo.
+Cada nova ligação ao seu servidor de base de dados ocupa alguma memória. Degrada o desempenho do servidor de base de dados se ligações ao seu servidor estão a falhar devido uma [limite superior](https://docs.microsoft.com/azure/postgresql/concepts-limits) na memória. O Assistente do Azure irá identificar os servidores em execução com muitas falhas de ligação e recomendável fazer a atualização de limites de ligações do seu servidor para fornecer mais memória para o servidor ao aumentar verticalmente a computação ou utilizar a memória otimizada SKUs, que tem mais computação por núcleo.
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

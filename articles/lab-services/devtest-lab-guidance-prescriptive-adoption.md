@@ -1,6 +1,6 @@
 ---
 title: Adotar o Azure DevTest Labs para a sua empresa
-description: Este artigo fornece orientações prescritivas para a adoção do Azure DevTest Labs na sua empresa.
+description: Este artigo fornece orientação prescritiva de utilização do Azure DevTest Labs na sua empresa.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -13,20 +13,20 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: e1d119f3c7c5d6dbdb570d362c53b80dad7886bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 32e828f420d41d7a67e4f41ac8a4a0698711ce2f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198042"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916396"
 ---
-# <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Configurar a infraestrutura do Azure DevTest Labs na sua empresa
-As empresas estão rapidamente adotando cloud devido a seu [benefícios](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) que incluem agilidade, flexibilidade e economia. Um primeiro passo comuns para os clientes utilizar a cloud é começar com cargas de trabalho de desenvolvimento e teste.  Fornece o DevTest Labs [funcionalidades](devtest-lab-concepts.md) que se beneficiam empresarial e suporte [enterprise programador/teste cenários fundamentais](devtest-lab-guidance-get-started.md).
+# <a name="devtest-labs-in-the-enterprise"></a>DevTest Labs na empresa
+As empresas estão rapidamente adotando cloud devido [benefícios](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) que incluem agilidade, flexibilidade e economia. Os primeiros passos são, muitas vezes, desenvolvimento e teste cargas de trabalho. O Azure DevTest Labs fornece [funcionalidades](devtest-lab-concepts.md) que se beneficiam empresarial e suporte [cenários de desenvolvimento/teste da chave](devtest-lab-guidance-get-started.md).
 
-Existe um conjunto comum de preocupações ao migrar estas cargas de trabalho para a cloud:
+Preocupações mais comuns para as empresas que migrar cargas de trabalho para a cloud incluem:
 
 - [Proteger recursos de desenvolvimento/teste](devtest-lab-guidance-governance-policy-compliance.md)
-- [Gerir e compreender o custo](devtest-lab-guidance-governance-cost-ownership.md)
+- [Gerir e compreender os custos](devtest-lab-guidance-governance-cost-ownership.md)
 - Ativar o Self-Service para os desenvolvedores sem comprometer a segurança empresarial e de conformidade
 - Automatizar e estender o DevTest Labs para abranger cenários adicionais
 - [Dimensionar uma solução baseada no DevTest Labs para milhares de recursos](devtest-lab-guidance-scale.md)
@@ -34,11 +34,11 @@ Existe um conjunto comum de preocupações ao migrar estas cargas de trabalho pa
 - [Guia de introdução uma prova de conceito](devtest-lab-guidance-orchestrate-implementation.md)
 
 ## <a name="intended-audience"></a>Público-alvo
-A documentação destinados a empresas destina-se a planejadores de TI, arquitetos e gestores de que são responsáveis por estabelecer e revisão implementações geral e supervisionar práticas de operações. Como resultado, este documento enfatiza o processo geral e recomendado de princípios de design para promover um ambiente seguro e estável desenvolvimento/teste, que, por fim, aciona a adoção do Azure DevTest Labs dentro de uma organização.
+Esta documentação é para TI corporativos planejadores, arquitetos e gestores de que são responsáveis por estabelecer e implementações de revisão e supervisionar operações. Estes artigos enfatizam os princípios de design geral processos e recomendados. A meta é promover um ambiente seguro e estável desenvolvimento/teste, que, por fim, aciona a adoção do Azure DevTest Labs dentro de uma organização.
 
 ## <a name="enterprise-customers"></a>Clientes empresariais
 
-Muitos clientes de enterprise DevTest Labs atuais utilizam com êxito o DevTest Labs para desenvolvimento e teste cargas de trabalho em suas organizações. [Saiba mais](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs).
+Muitos clientes de enterprise DevTest Labs atuais utilizam com êxito o DevTest Labs para desenvolvimento e teste cargas de trabalho em suas organizações. [Saiba mais](https://azure.microsoft.com/case-studies/?term=DevTest+labs).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - [Arquitetura de referência para uma empresa](devtest-lab-reference-architecture.md)

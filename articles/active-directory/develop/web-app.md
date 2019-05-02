@@ -12,18 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 04/08/2019
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0337f3de40e75ada86c0a5265fc99b34f1c2ecae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea3e1b951a683d7ee1def09024e531e94dd905b4
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296827"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918533"
 ---
 # <a name="web-apps"></a>Web Apps
 
@@ -46,7 +45,7 @@ Veja os exemplos de código para o navegador da web para cenários de aplicativo
 
 ## <a name="app-registration"></a>Registo de aplicações
 
-Para registar uma aplicação web, consulte [registar uma aplicação com o ponto de final do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Para registar uma aplicação web, consulte [registar uma aplicação](quickstart-register-app.md).
 
 * Inquilino único, se estiver a criar uma aplicação apenas para a sua organização, tem de ser registado no diretório da sua empresa com o portal do Azure.
 * Multi-inquilino - se estiver criando um aplicativo que pode ser utilizado por utilizadores fora da sua organização, ela deve ser registrada no diretório da sua empresa, mas também tem de estar registrada no diretório de cada organização que irá utilizar a aplicação. Para disponibilizar a aplicação no seu diretório, pode incluir um processo de inscrição para os seus clientes, que permite autorizar a aplicação. Quando se inscrevem no seu aplicativo, serão apresentadas com uma caixa de diálogo que mostra as permissões que a aplicação requer e, em seguida, a opção para dar consentimento. Consoante as permissões necessárias, um administrador da outra organização poderá ser necessário para dar consentimento. Quando o utilizador ou administrador autorizar, o aplicativo está registado no seu diretório.
@@ -59,5 +58,3 @@ A sessão do utilizador expira quando expira o tempo de vida do token emitido pe
 
 * Saiba mais sobre outras [tipos de aplicativos e cenários](app-types.md)
 * Saiba mais sobre o Azure AD [Noções básicas de autenticação](authentication-scenarios.md)
-
-<!-- Update_Description: wording update -->

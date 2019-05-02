@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/20/2019
-ms.openlocfilehash: 7294236a7b79ad093480e9063d886dd30ccf7fc1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 75228098bcb62b83f8e93aebe600bffac62d6179
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998979"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727349"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o servidor de SQL de RDS para a base de dados do Azure SQL ou uma base de dados do Azure SQL instância gerida online com o DMS
 Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância de servidor de SQL de RDS para [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) ou uma [instância gerida de base de dados do Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) com período de indisponibilidade mínimo. Neste tutorial, migra os **Adventureworks2012** base de dados restaurada para um servidor de SQL de RDS instância do SQL Server 2012 (ou posterior) para a base de dados do Azure SQL ou uma base de dados do SQL Azure instância gerida utilizando a migração de base de dados do Azure Serviço.
@@ -199,7 +199,7 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
     ![Criar Projeto do Azure Database Migration Service](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-create-project4.png)
 
     > [!NOTE]
-    > Em alternativa, pode escolher **Apenas criar projeto** para criar o projeto de migração agora e executar a migração mais tarde.
+    > Em alternativa, pode escolher **criar projeto apenas** para criar o projeto de migração e executar a migração mais tarde.
 
 6. Selecione **Guardar**.
 

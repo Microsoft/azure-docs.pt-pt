@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e9b86a5fb0d9e24618cafffb5ca12e22d5394294
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203639"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730177"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Início rápido: Definir e obter um segredo no Azure Key Vault com o portal do Azure
 

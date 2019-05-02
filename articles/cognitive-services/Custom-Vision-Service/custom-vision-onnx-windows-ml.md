@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: larryfr
 ms.openlocfilehash: ceb45048d160603a3ee619e3ea0e69a0c188a9ad
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098850"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725781"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Utilizar um modelo ONNX de visão personalizada com o Windows ML (pré-visualização)
 

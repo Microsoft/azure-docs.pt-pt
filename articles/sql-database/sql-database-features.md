@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 857b1059df2edf34e58d38d335725e27159977a0
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 3fe6eae5f9f7d1ff318aa96bee7e1ab9a96a6870
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62738810"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867937"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparação de recursos: Base de dados SQL do Azure e do SQL Server
 
@@ -48,14 +48,14 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Ficheiro BACPAC (exportação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) | Sim - veja [exportação da base de dados SQL](sql-database-export.md) | Sim |
 | [Ficheiro BACPAC (importação)](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database) | Sim - veja [importar da base de dados SQL](sql-database-import.md) | Sim |
 | [Comando de cópia de segurança](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql) | Não, apenas iniciada pelo sistema de cópias de segurança automáticas - veja [cópias de segurança automatizadas](sql-database-automated-backups.md) | Cópias de segurança automáticas iniciadas pelo sistema e o utilizador iniciou as cópias de segurança apenas de cópia - veja [diferenças de cópia de segurança](sql-database-managed-instance-transact-sql-information.md#backup) |
-| [Funções incorporadas](https://docs.microsoft.com/sql/t-sql/functions/functions) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Funções incorporadas](https://docs.microsoft.com/sql/t-sql/functions/functions) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Captura de dados de alteração](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Não | Sim |
 | [Registo de alterações](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) | Sim |Sim |
 | [Agrupamento - base de dados](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Sim | Sim |
 | [Agrupamento - servidor/instância](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Não, predefinido `SQL_Latin1_General_CP1_CI_AS` é sempre utilizado. | Sim, a pode ser definido quando o [instância é criada](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) e não pode ser atualizada. |
 | [Índices Columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim - [escalão Premium, o escalão Standard - S3 e superior, o escalão fins gerais e crítico para a empresa camadas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sim |
 | [Tempo de execução comum para a linguagem (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Não | Sim, mas sem acesso ao sistema de arquivos - veja [diferenças CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
-| [Bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sim | Não [devido a defeitos no RESTAURO, incluindo o RESTAURO de ponto no tempo](sql-database-managed-instance-transact-sql-information.md#cannot-restore-contained-database) |
+| [Bases de dados contidas](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sim | Não [devido a defeitos no RESTAURO, incluindo o RESTAURO de ponto no tempo](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database) |
 | [Utilizadores contidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sim | Sim |
 | [Controlo de palavras-chave language do fluxo](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sim | Sim |
 | [Consultas entre bases de dados](https://docs.microsoft.com/sql/relational-databases/linked-servers/linked-servers-database-engine) | Não, consulte [consultas elásticas](sql-database-elastic-query-overview.md) | Sim, além de [consultas elásticas](sql-database-elastic-query-overview.md) |
@@ -86,7 +86,7 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 [Ficheiros e grupos de ficheiros](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Grupo de ficheiros primário apenas | Sim |
 | [Filestream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Não | Não |
 | [Pesquisa em texto completo](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Separadores de palavras de terceiros não são suportados |Separadores de palavras de terceiros não são suportados |
-| [Funções](https://docs.microsoft.com/sql/t-sql/functions/functions) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Funções](https://docs.microsoft.com/sql/t-sql/functions/functions) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Restauro geográfico](sql-database-recovery-using-backups.md#geo-restore) | Sim - todas as camadas que não seja de hiperescala de serviço | Sim - usando [do Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
 | [Processamento de gráficos](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview) | Sim | Sim |
 | [Otimização dentro da memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) | Sim - [apenas escalões Premium e crítico para a empresa](sql-database-in-memory.md) | Sim - [comerciais críticos apenas no escalão](sql-database-managed-instance.md) |
@@ -137,8 +137,8 @@ A tabela seguinte lista os principais recursos do SQL Server e fornece informaç
 | [Replicação do SQL Server](https://docs.microsoft.com/sql/relational-databases/replication/sql-server-replication) | [Apenas subscritor de replicação de instantâneo e transacional](sql-database-single-database-migrate.md) | Sim, em [pré-visualização pública](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance) |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) | Não - [ver o Power BI](https://docs.microsoft.com/power-bi/) |
 | [Procedimentos armazenados](https://docs.microsoft.com/sql/relational-databases/stored-procedures/stored-procedures-database-engine) | Sim | Sim |
-| [Funções armazenadas do sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
-| [Procedimentos armazenados do sistema](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Alguns - Consulte individuais procedimentos armazenados | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-triggers) |
+| [Funções armazenadas do sistema](https://docs.microsoft.com/sql/relational-databases/system-functions/system-functions-for-transact-sql) | Maioria - Consulte funções individuais | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
+| [Procedimentos armazenados do sistema](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/system-stored-procedures-transact-sql) | Alguns - Consulte individuais procedimentos armazenados | Sim - veja [procedimentos armazenados, funções, aciona as diferenças](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Tabelas de sistema](https://docs.microsoft.com/sql/relational-databases/system-tables/system-tables-transact-sql) | Alguns - Consulte tabelas individuais | Sim - veja [diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Exibições de catálogo do sistema](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/catalog-views-transact-sql) | Alguns - Consulte vistas individuais | Sim - veja [diferenças do T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Tabelas temporárias](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql#database-scoped-global-temporary-tables-azure-sql-database) | Tabelas temporárias globais locais e no âmbito da base de dados | Tabelas temporárias globais locais e com âmbito de instância |

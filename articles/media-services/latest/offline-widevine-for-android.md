@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 5102720242edd3ffc0a377bbddf0f7f3ade68b63
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111958"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937225"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Offline Widevine para transmissão em fluxo para Android
 
 Além de proteger conteúdo para a transmissão em fluxo online, suporte de dados de conteúdo de subscrição e aluguel serviços oferta conteúdo transferível que funciona quando não estiver ligado à internet. Poderá ter de transferir o conteúdo no seu telemóvel ou tablet para reprodução em modo de avião, quando se soltando desligado da rede. Cenários adicionais, em que pode querer transferir conteúdo:
 
-- Alguns fornecedores de conteúdo pode não permitir a entrega de licenças DRM além do limite de um país. Se um usuário desejar ver o conteúdo quando estiverem viajando exterior, é necessário o offline download.
-- Em alguns países, disponibilidade de Internet e/ou de largura de banda é limitada. Os utilizadores podem optar por transferir conteúdo para conseguir vê-lo em resolução alta o suficiente para a experiência de visualização satisfatória.
+- Alguns fornecedores de conteúdo pode não permitir a entrega de licenças DRM além do limite de um país/região. Se um usuário desejar ver o conteúdo quando estiverem viajando exterior, é necessário o offline download.
+- Em alguns países/regiões, disponibilidade de Internet e/ou de largura de banda é limitada. Os utilizadores podem optar por transferir conteúdo para conseguir vê-lo em resolução alta o suficiente para a experiência de visualização satisfatória.
 
 Este artigo discute como implementar a reprodução de modo offline para o conteúdo de TRAÇO protegido pelo Widevine em dispositivos Android. Offline DRM permite-lhe fornecer a subscrição, alugueres e compras modelos para o seu conteúdo, permitindo aos clientes dos seus serviços colocar facilmente conteúdo com os mesmos quando desligado da internet.
 

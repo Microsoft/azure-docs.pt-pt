@@ -1,5 +1,5 @@
 ---
-title: Descrição geral da transmissão em direto através dos serviços de multimédia do Azure | Documentos da Microsoft
+title: Descrição geral do Live transmissão em fluxo com serviços de multimédia do Azure v3 | Documentos da Microsoft
 description: Isso permite o artigo uma visão geral do live a transmissão em fluxo através dos serviços de multimédia do Azure v3.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322492"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866346"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -26,7 +26,7 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 
 - Uma câmera que é utilizada para capturar o evento em direto.<br/>Para obter ideias de configuração, confira [programa de configuração de engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 
-    Se não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) pode ser utilizado gerar ao live feed a partir de um ficheiro de vídeo.
+    Se não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) pode ser utilizado gerar ao live feed a partir de um ficheiro de vídeo.
 - Um codificador vídeo em direto que converte sinais de uma câmera (ou outro dispositivo, como um laptop) numa contribuição feed, que é enviada para os serviços de multimédia. O feed de contribuição pode incluir sinais relacionadas com a publicidade, como marcadores SCTE 35.<br/>Para obter uma lista de recomendados codificadores de transmissão em fluxo em direto, consulte [live codificadores de transmissão em fluxo](recommended-on-premises-live-encoders.md). Além disso, consulte este blogue: [Transmissão em fluxo em direto em produção com OBS](https://link.medium.com/ttuwHpaJeT).
 - Componentes nos serviços de multimédia, permitem-lhe ingerir, pré-visualização, do pacote, gravam, encriptar e transmitir o evento em direto para os seus clientes ou para uma CDN para uma maior distribuição.
 
@@ -37,7 +37,7 @@ Este artigo fornece uma descrição geral e a documentação de orientação de 
 
 ## <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
-Com os serviços de multimédia, pode tirar partido de Packaging](dynamic-packaging-overview.md) dinâmica, o que permite-lhe visualizar e difusão de transmissões em direto no [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de contribuição feed que envia para o serviço. Os visualizadores têm acesso podem reproduzir a transmissão em direto com qualquer leitores compatível com HLS, TRAÇO ou transmissão em fluxo uniforme. Pode usar [leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) no seu web ou aplicações móveis para fornecer a sua transmissão em fluxo em qualquer um desses protocolos.
+Com os Media Services, pode aproveitar [empacotamento dinâmico](dynamic-packaging-overview.md), que permite-lhe visualizar e difusão de transmissões em direto no [formatos MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) de contribuição de feed que está a ser enviado para o serviço. Os visualizadores têm acesso podem reproduzir a transmissão em direto com qualquer leitores compatível com HLS, TRAÇO ou transmissão em fluxo uniforme. Pode usar [leitor de multimédia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) no seu web ou aplicações móveis para fornecer a sua transmissão em fluxo em qualquer um desses protocolos.
 
 ## <a name="dynamic-encryption"></a>Encriptação dinâmica
 
@@ -73,7 +73,7 @@ Para compreender o fluxo de trabalho de transmissão em fluxo em direto em servi
 
 ### <a name="general-steps"></a>Passos gerais
 
-1. Na sua conta de Media Services, certifique-se de que o **ponto final de transmissão em fluxo** está em execução. 
+1. Na sua conta de Media Services, certifique-se de que o **ponto final de transmissão em fluxo** (origem) está em execução. 
 2. Criar uma [evento em direto](live-events-outputs-concept.md). <br/>Ao criar o evento, pode especificar para início automático-lo. Em alternativa, pode iniciar o evento quando estiver pronto para começar a transmissão em fluxo.<br/> Quando o início automático está definido como true, o evento em direto será iniciado correto após a criação. A faturação tem início assim que o evento Live começa a ser executado. Tem de chamar explicitamente Stop do recurso de evento em direto para parar a faturação ainda mais. Para obter mais informações, consulte [Estados de evento em direto e de faturação](live-event-states-billing.md).
 3. Obtenha os URLs de ingestão e configurar seu codificador no local para utilizar o URL para enviar a contribuição do feed.<br/>Ver [recomendado codificadores em direto](recommended-on-premises-live-encoders.md).
 4. Obter o URL de pré-visualização e utilizá-lo para verificar que a entrada do codificador, na verdade, está a ser recebida.
@@ -81,7 +81,7 @@ Para compreender o fluxo de trabalho de transmissão em fluxo em direto em servi
 6. Criar uma **Live saída** e utilize o nome de recurso que criou.<br/>O **saída Live** irá arquivar a transmissão para o **Asset**.
 7. Criar uma **localizador de transmissão em fluxo** com o incorporado **política de transmissão em fluxo** tipos.<br/>Se pretende encriptar o seu conteúdo, consulte [descrição geral da proteção de conteúdo](content-protection-overview.md).
 8. Listar os caminhos na **localizador de transmissão em fluxo** para recuperar os URLs para utilizar (esses são determinísticos).
-9. Obter o nome do anfitrião para o **ponto final de transmissão em fluxo** que deseja transmitir em fluxo do.
+9. Obter o nome do anfitrião para o **ponto final de transmissão em fluxo** (origem) que deseja transmitir em fluxo do.
 10. Combine o URL do passo 8 com o nome de anfitrião no passo 9 para obter o URL completo.
 11. Se pretender parar a tornar sua **evento em direto** podem ser visualizados, terá de parar a transmissão em fluxo o evento e a eliminar a **localizador de transmissão em fluxo**.
 
@@ -92,6 +92,10 @@ Para compreender o fluxo de trabalho de transmissão em fluxo em direto em servi
 - [Comparação de recursos de tipos de evento em direto](live-event-types-comparison.md)
 - [States and billing](live-event-states-billing.md) (Estados e faturação)
 - [Latência](live-event-latency.md)
+
+## <a name="provide-feedback"></a>Enviar comentários
+
+Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

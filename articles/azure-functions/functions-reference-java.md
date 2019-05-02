@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: 9258b58783d4670620a251fef866211f7634480f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020389"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922933"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -111,7 +111,7 @@ Aqui está o correspondente gerado `function.json` pelo [azure-funções--Plug-i
 
 Transferir e utilizar o [Azul Zulu Enterprise para o Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) Java 8 JDKs partir [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) para o local de desenvolvimento de aplicações de funções do Java. As funções do Azure utiliza o tempo de execução do Azul Java 8 JDK quando implementar as suas aplicações de função para a cloud.
 
-[Suporte do Azure](https://azure.microsoft.com/en-us/support/) problemas com o JDKs e a função de aplicações está disponível com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
+[Suporte do Azure](https://azure.microsoft.com/support/) problemas com o JDKs e a função de aplicações está disponível com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
 ## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
 

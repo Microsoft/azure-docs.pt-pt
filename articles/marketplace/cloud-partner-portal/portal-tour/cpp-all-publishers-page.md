@@ -1,25 +1,18 @@
 ---
-title: Todos os editores página para o Azure Marketplace | Documentos da Microsoft
-description: .
+title: Página de todos os editores para o Azure Marketplace
+description: Descrição geral de todos os editores no Portal de parceiros da Cloud para o Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: e2c780992143ab753dad1ca89b22593d20fdedc4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: ab42757d91244c0661a6acd02e4e5ebe891929a0
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128690"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942007"
 ---
 # <a name="all-publishers-page"></a>Página com todos os editores
 

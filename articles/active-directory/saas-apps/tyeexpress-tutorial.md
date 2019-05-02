@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d3459f7bcfc0e2e61cb55b38a05b7b6a21ea3e9e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d84a7060fadcb3f3d80b7fbbff9d91f8812388b2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59283516"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920618"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: Integração do Active Directory do Azure com o T & E Express
 
@@ -110,7 +110,7 @@ Para configurar o Azure AD início de sessão único com o T & E Express, execut
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Aqui iremos sugerir-lhe utilizar o valor único de cadeia de caracteres no identificador de. Contacte [equipa de suporte de T & cliente de Express E](http://www.tyeexpress.com/contacto.aspx) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o identificador real e o URL de resposta. Aqui iremos sugerir-lhe utilizar o valor único de cadeia de caracteres no identificador de. Contacte [equipa de suporte de T & cliente de Express E](https://www.tyeexpress.com/contacto.aspx) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 

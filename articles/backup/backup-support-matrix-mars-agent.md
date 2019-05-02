@@ -8,12 +8,12 @@ ms.date: 02/17/2019
 ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
-ms.openlocfilehash: 3e2c6a550a9358656fd0870c7e785d131c5b6380
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9799914cdabf1f64fccfd6bfd891f9498b860e39
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894398"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64923010"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matriz de suporte para cópia de segurança com o agente dos serviços de recuperação do Azure (MARS) da Microsoft
 
@@ -24,14 +24,14 @@ Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) 
 Cópia de segurança do Azure utiliza o agente MARS para efetuar cópias de segurança de dados de máquinas no local e VMs do Azure para um cofre dos serviços de recuperação de cópia de segurança no Azure. O agente de MARS pode:
 - Execute em máquinas do Windows no local para que eles podem criar cópias de segurança diretamente para um cofre de serviços de recuperação de cópia de segurança no Azure.
 - Execute em VMs do Windows para que eles podem criar cópias de segurança diretamente para um cofre.
-- Execute no servidor de cópia de segurança do Azure (MABS) da Microsoft ou de um servidor do System Center Data Protection Manager (DPM). Neste cenário, máquinas e cargas de trabalho de cópia de segurança para o MABS ou para o servidor do DPM. O agente de MARS, em seguida, efetua cópias de segurança neste servidor para um cofre no Azure. 
+- Execute no servidor de cópia de segurança do Azure (MABS) da Microsoft ou de um servidor do System Center Data Protection Manager (DPM). Neste cenário, máquinas e cargas de trabalho de cópia de segurança para o MABS ou para o servidor do DPM. O agente de MARS, em seguida, efetua cópias de segurança neste servidor para um cofre no Azure.
 
 As opções de cópia de segurança dependem de onde o agente está instalado. Para obter mais informações, consulte [arquitetura de cópia de segurança do Azure com o agente de MARS](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Para obter informações sobre a arquitetura de cópia de segurança do MABS e o DPM, consulte [cópia de segurança para DPM ou MABS](backup-architecture.md#architecture-back-up-to-dpmmabs). Consulte também [requisitos](backup-support-matrix-mabs-dpm.md) para a arquitetura de cópia de segurança.
 
 **Instalação** | **Detalhes**
 --- | ---
 Transferir o agente de MARS mais recente | Pode baixar a versão mais recente do agente a partir do cofre, ou [transferi-lo diretamente](https://aka.ms/azurebackup_agent).
-Instalar diretamente num computador | Pode instalar o agente de MARS diretamente num servidor do Windows no local ou numa VM do Windows que está a executar qualquer um da [sistemas operativos suportados](https://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
+Instalar diretamente num computador | Pode instalar o agente de MARS diretamente num servidor do Windows no local ou numa VM do Windows que está a executar qualquer um da [sistemas operativos suportados](https://docs.microsoft.com/azure/backup/backup-support-matrix-mabs-dpm#supported-mabs-and-dpm-operating-systems).
 Instale num servidor de cópia de segurança | Quando configurar o DPM ou MABS para criar cópias de segurança para o Azure, transfira e instale o agente de MARS no servidor. Pode instalar o agente num [sistemas operativos suportados](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems) na matriz de suporte de cópia de segurança do servidor.
 
 > [!NOTE]
@@ -45,8 +45,8 @@ Quando utiliza o agente MARS para efetuar cópias de segurança de dados, o agen
 
 **Cache** | **Detalhes**
 --- | ---
-Tamanho |  Espaço livre na pasta cache deve ser, pelo menos, 5 a 10 por cento do tamanho total dos seus dados de cópia de segurança. 
-Localização | A pasta de cache deve ser armazenada localmente no computador que está a cópia de segurança e tem de estar online. A pasta de cache não deve estar numa partilha de rede, em mídia removível ou num volume offline. 
+Tamanho |  Espaço livre na pasta cache deve ser, pelo menos, 5 a 10 por cento do tamanho total dos seus dados de cópia de segurança.
+Location | A pasta de cache deve ser armazenada localmente no computador que está a cópia de segurança e tem de estar online. A pasta de cache não deve estar numa partilha de rede, em mídia removível ou num volume offline.
 Pasta | A pasta de cache deve ser encriptada num volume com eliminação de duplicados ou numa pasta que é compactado, esparso ou que tenha um ponto de reanálise.
 Alterações de localização | Pode alterar a localização da cache, parando o mecanismo de cópia de segurança (`net stop bengine`) e copiar a pasta de cache para uma nova unidade. (Certifique-se do que novo disco tem espaço suficiente.) Em seguida, atualize duas entradas de registo em **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**Config/ScratchLocation** e **CloudBackupProvider/Config/ScratchLocation**) para a nova localização e reinicie o motor.
 
@@ -103,9 +103,9 @@ Windows 7   | 1,700 GB
 
 ## <a name="supported-file-types-for-backup"></a>Tipos de ficheiro suportados para cópia de segurança
 
-**Tipo** | **Suporte** 
---- | --- 
-Encriptados   | Suportado. 
+**Tipo** | **Suporte**
+--- | ---
+Encriptados   | Suportado.
 Comprimidos | Suportado.
 Dispersos | Suportado.
 Comprimidos e dispersos | Suportado.
@@ -114,7 +114,7 @@ Ponto de reanálise   | Não suportado. Ignorado.
 Encriptados e dispersos |  Não suportado. Ignorado.
 Fluxo comprimido   | Não suportado. Ignorado.
 Sequência dispersa   | Não suportado. Ignorado.
-OneDrive (ficheiros sincronizados são fluxos esparsos)  | Não suportado. 
+OneDrive (ficheiros sincronizados são fluxos esparsos)  | Não suportado.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Unidades suportadas ou volumes para cópia de segurança
 

@@ -17,12 +17,12 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44161e689645c3feb2efbd80b825b9285c1bdfc9
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298741"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918599"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar o Microsoft Graph API a partir de uma aplicação de consola com a identidade da aplicação
 
@@ -198,7 +198,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 > | `config.ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 > | `config.Authority`    | (Opcional) O ponto de extremidade STS para o utilizador autenticar. Normalmente, <https://login.microsoftonline.com/{tenant}> para a nuvem pública, em que {inquilino} é o nome do seu inquilino ou o seu inquilino do ID.|
 
-Para obter mais informações, consulte o [documentação de referência `ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
+Para obter mais informações, consulte o [documentação de referência `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet)
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 

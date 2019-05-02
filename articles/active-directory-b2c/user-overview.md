@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 9d4bcc66cfd82fee13ce57d096e061ddd8706720
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7e9e046ef4fcba81d5a8c330180a6e0831a7dcdd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419089"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718061"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Descrição geral das contas de utilizador no Azure Active Directory B2C
 

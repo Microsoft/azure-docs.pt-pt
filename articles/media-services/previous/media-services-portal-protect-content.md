@@ -14,14 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: c0571e202448951de0994d34f68e1649eabd5519
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 65e5b5502b7d63d89845781487443f539a708816
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61128185"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866972"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo com o portal do Azure
+
+> [!NOTE]
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Sem novos recursos ou funcionalidades estão a ser adicionados para serviços de multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+>
+
  Com os serviços de multimédia do Azure, pode proteger os seus suportes de dados a partir do momento em que deixa seu computador por meio de armazenamento, processamento e entrega. Pode utilizar os serviços de multimédia para distribuir os seus conteúdos encriptados dinamicamente com a encriptação AES (Advanced Standard) utilizando as chaves de encriptação de 128 bits. Também pode utilizá-lo com a encriptação comum (CENC) com o PlayReady e/ou Widevine gestão de direitos digitais (DRM) e o Apple FairPlay. 
 
 Os Media Services fornecem um serviço para entregar licenças DRM e chaves para os clientes autorizados de não encriptada AES. Pode utilizar o portal do Azure para criar uma política de autorização de chaves/licenças para todos os tipos de encriptações.

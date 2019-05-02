@@ -3,8 +3,8 @@ title: Exemplo de script do Azure PowerShell - Filtrar o tráfego de rede de VM 
 description: Exemplo de script do Azure PowerShell - Filtrar o tráfego de rede de VM de entrada e saída.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: sample
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
-ms.author: jdial
-ms.openlocfilehash: 9be13fb12d23457031bdb40ba5234de5b35ce503
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 1bebb81670b4e8cac5fb6f9ea1b60ef1cc6b60fe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651928"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717864"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Exemplo de script de filtragem de tráfego de rede VM de entrada e saída
 

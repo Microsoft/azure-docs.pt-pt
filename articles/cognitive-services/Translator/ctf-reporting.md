@@ -10,21 +10,19 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 178747ffddbadb06751ce0db7d16701c3cea7416
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513717"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712830"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Como utilizar os relatórios do Collaborative Translation Framework (CTF)
 
 > [!NOTE]
 > Tato metoda se zamítá. Não está disponível no V3.0 da API de texto do Translator.
 > 
-> A colaboração traduções Framework (CTF), anteriormente disponível para a versão 2.0 da API de texto do Translator, foi preterido a partir de 1 de Fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem aos utilizadores ativar correções por meio do Framework de tradução colaborativa. Após 31 de Janeiro de 2018, essas duas funções não aceitou novos envios de sentença e os utilizadores recebem uma mensagem de erro. Essas funções estavam a ser descontinuadas e não serão substituídas.
-> 
-> Uma funcionalidade semelhante está disponível na API de Hub do Translator, que lhe permite criar um sistema de tradução personalizadas com a sua terminologia e estilo, e pode invocá-lo a utilizar o ID de categoria na API de texto do Translator. Hub de tradutor: [ https://hub.microsofttranslator.com ](https://hub.microsofttranslator.com). API do Translator Hub: [ https://hub.microsofttranslator.com/swagger ](https://hub.microsofttranslator.com/swagger).
+> A colaboração traduções Framework (CTF), anteriormente disponível para a versão 2.0 da API de texto do Translator, foi preterido a partir de 1 de Fevereiro de 2018. As funções AddTranslation e AddTranslationArray permitem aos utilizadores ativar correções por meio do Framework de tradução colaborativa. Após 31 de Janeiro de 2018, essas duas funções não aceitou novos envios de sentença e os utilizadores recebem uma mensagem de erro. Essas funções foram extintos e não serão substituídas.
 
 A API de relatórios de estrutura de tradução colaborativa (CTF) devolve estatísticas e o conteúdo real no arquivo de CTF. Esta API é diferente do método GetTranslations() porque ele:
 * Devolve o conteúdo traduzido e sua contagem total apenas a partir da sua conta (conta do Azure Marketplace ou de appId).

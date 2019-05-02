@@ -9,11 +9,11 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.openlocfilehash: 84e3aff9c1c8cb3e7fe399c861c2c7d58c278fed
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107878"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730544"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Atualizar as soluções de análise de macrodados de geração 1 de armazenamento do Azure Data Lake para geração 2 de armazenamento do Azure Data Lake
 

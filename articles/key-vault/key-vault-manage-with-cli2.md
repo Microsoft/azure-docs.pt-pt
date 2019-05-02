@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: barclayn
-ms.openlocfilehash: 1679fbe0dedc88ca3e8293512f9a79bb7da69790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d7d76458601b2afecafc1313e334215bf08b6545
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641029"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713849"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Key Vault com a CLI do Azure 
 

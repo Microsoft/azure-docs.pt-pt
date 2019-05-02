@@ -3,8 +3,8 @@ title: Utilizar a captura de pacotes para efetuar a monitorização de rede proa
 description: Este artigo descreve como criar uma captura de pacotes acionadas alerta com o observador de rede do Azure
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: ''
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
-ms.openlocfilehash: c7bfd36bb4e36b10487edbbaa40421f067c9ed3e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.author: kumud
+ms.openlocfilehash: 37e42b05046be27254d2ceb15a59fbdb931ae161
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048763"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711920"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilizar a captura de pacotes de monitorização de rede proativa com alertas e as funções do Azure
 
@@ -149,7 +149,7 @@ Para utilizar cmdlets do PowerShell do observador de rede, carregar o módulo do
 
     ![Ficheiros PowerShell][functions7]
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 Para utilizar os cmdlets do PowerShell, tem de autenticar. Configurar a autenticação na function app. Para configurar a autenticação, tem de configurar variáveis de ambiente e carregar um ficheiro de chave encriptado para a aplicação de funções.
 

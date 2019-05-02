@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c8cb4713e38ca0da610c687325f3810f57da2b26
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 67bab857e66edd8e9fae7d45c6157f018da81ccf
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61216156"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867039"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analisar as estatísticas de utilização com a CDN do Azure, relatórios HTTP avançados
 ## <a name="overview"></a>Descrição geral
@@ -42,30 +42,30 @@ Este documento explica relatórios HTTP avançados na CDN do Microsoft Azure. Es
 ## <a name="geography-reports-map-based"></a>Relatórios de geografia (baseada em mapa)
 Há cinco relatórios que tiram partido de um mapa para indicar as regiões a partir do qual o seu conteúdo está a ser requerido. Estes relatórios são mapa-mundo, mapa dos Estados Unidos, Canadá mapa, mapa de Europa e Ásia Pacífico mapa.
 
-Cada relatório baseada em mapa classificações entidades geográficas (ou seja, países, Estados e províncias), de acordo com a percentagem de ocorrências que se originou essa região. Além disso, um mapa é fornecido para o ajudar a visualizar as localizações a partir do qual o seu conteúdo está a ser requerido. É capaz de fazer isso, codificação por cores cada região, de acordo com a quantidade de procura experiente nessa região. Mais leves sombreadas regiões indicam menor procura para o seu conteúdo, embora mais escura regiões indicam níveis mais altos de procura para o seu conteúdo.
+Cada relatório baseada em mapa classifica entidades geográficas (ou seja, países/regiões, um mapa é fornecido para o ajudar a visualizar as localizações a partir do qual o seu conteúdo está a ser requerido. É capaz de fazer isso, codificação por cores cada região, de acordo com a quantidade de procura experiente nessa região. Mais leves sombreadas regiões indicam menor procura para o seu conteúdo, embora mais escura regiões indicam níveis mais altos de procura para o seu conteúdo.
 
-As informações detalhadas sobre o tráfego e largura de banda para cada região são fornecidas diretamente abaixo do mapa. Isto permite-lhe ver o número total de acertos, a percentagem de resultados, a quantidade total de dados transferidos (em gigabytes) e a percentagem de dados transferidos para cada região. Ver uma descrição para cada um destas métricas. Por fim, quando coloque o cursor sobre uma região (ou seja, país, estado ou província), o nome e a percentagem de pedidos com êxito na que ocorreram na região serão apresentadas como uma descrição.
+As informações detalhadas sobre o tráfego e largura de banda para cada região são fornecidas diretamente abaixo do mapa. Isto permite-lhe ver o número total de acertos, a percentagem de resultados, a quantidade total de dados transferidos (em gigabytes) e a percentagem de dados transferidos para cada região. Ver uma descrição para cada um destas métricas. Por fim, quando coloque o cursor sobre uma região (ou seja, país/região, estado ou província), o nome e a percentagem de pedidos com êxito na que ocorreram na região será apresentada como uma descrição.
 
 Uma breve descrição é apresentada abaixo para cada tipo de relatório de geografia baseada em mapa.
 
 | Nome do relatório | Descrição |
 | --- | --- |
-| Mapa-mundo |Este relatório permite-lhe ver a procura em todo o mundo para o seu conteúdo da CDN. Cada país é codificado por cores do mapa do mundo para indicar a percentagem de ocorrências que se originou essa região. |
+| Mapa-mundo |Este relatório permite-lhe ver a procura em todo o mundo para o seu conteúdo da CDN. Cada país/região é codificado por cores do mapa do mundo para indicar a percentagem de ocorrências que se originou essa região. |
 | Mapa dos Estados Unidos |Este relatório permite-lhe ver o pedido para o seu conteúdo da CDN nos Estados Unidos. Cada Estado é codificada com cores deste mapa para indicar a percentagem de ocorrências que se originou essa região. |
 | Mapa do Canadá |Este relatório permite-lhe ver o pedido para o seu conteúdo da CDN no Canadá. Cada província é codificada com cores deste mapa para indicar a percentagem de ocorrências que se originou essa região. |
-| Mapa da Europa |Este relatório permite-lhe ver o pedido para o seu conteúdo CDN na Europa. Cada país é codificada com cores deste mapa para indicar a percentagem de ocorrências que se originou essa região. |
-| Mapa de Ásia-Pacífico |Este relatório permite-lhe ver o pedido para o seu conteúdo CDN na Ásia. Cada país é codificada com cores deste mapa para indicar a percentagem de ocorrências que se originou essa região. |
+| Mapa da Europa |Este relatório permite-lhe ver o pedido para o seu conteúdo CDN na Europa. Cada país/região é codificada com cores deste mapa para indicar a percentagem de ocorrências que se originou essa região. |
+| Mapa de Ásia-Pacífico |Este relatório permite-lhe ver o pedido para o seu conteúdo CDN na Ásia. Cada país/região é codificada com cores deste mapa para indicar a percentagem de ocorrências que se originou essa região. |
 
 ## <a name="geography-reports-bar-charts"></a>Relatórios de geografia (gráficos de barras)
-Existem dois relatórios adicionais que fornecem informações estatísticas de acordo com a geografia, que são cidades da parte superior e países da parte superior. Estes relatórios classificar cidades e países, respectivamente, consoante o número de ocorrências que se originou essas regiões. Após gerar este tipo de relatório, um gráfico de barras indicará os 10 principais cidades ou países que solicitou o conteúdo ao longo de uma plataforma específica. Este gráfico de barras permite-lhe avaliar rapidamente as regiões que geram o maior número de pedidos para o seu conteúdo.
+Existem dois relatórios adicionais que fornecem informações estatísticas de acordo com a geografia, que são cidades da parte superior e países da parte superior. Estes relatórios classificar cidades e países/regiões, respectivamente, consoante o número de ocorrências que se originou esses países/regiões. Após gerar este tipo de relatório, um gráfico de barras indicará os 10 principais cidades ou países/regiões que solicitou o conteúdo ao longo de uma plataforma específica. Este gráfico de barras permite-lhe avaliar rapidamente as regiões que geram o maior número de pedidos para o seu conteúdo.
 
 O lado esquerdo do gráfico (eixo y) indica quantos acessos ocorreu na região especificada. Diretamente abaixo do gráfico (eixo x), encontrará uma etiqueta para cada uma das principais 10 regiões.
 
 ### <a name="using-the-bar-charts"></a>Utilizar gráficos de barras
 * Se coloque o cursor sobre uma barra, o nome e o número total de acertos que ocorreram na região serão apresentadas como uma descrição.
-* A descrição para o relatório de cidades da parte superior identifica uma cidade por seu nome, o estado/província e a abreviatura de país.
-* Se não foi possível determinar o cidade ou a região (ou seja, estado/província) a partir do qual um pedido teve origem, irá indicar que são desconhecidos. Se o país é desconhecido, em seguida, dois pontos de interrogação (ou seja,??), será apresentada.
-* Um relatório pode incluir as métricas para "Europa" ou "Região Ásia-Pacífico." Esses itens não se destinam a fornecer informações estatísticas sobre todos os endereços IP nessas regiões. Em vez disso, só se aplicam a pedidos provenientes de endereços IP que são rinat Europa ou Ásia-Pacífico, em vez de uma cidade específica ou país.
+* A descrição para o relatório de cidades da parte superior identifica uma cidade por seu nome, o estado/província e a abreviatura de país/região.
+* Se não foi possível determinar o cidade ou a região (ou seja, estado/província) a partir do qual um pedido teve origem, irá indicar que são desconhecidos. Se o país/região for desconhecido, em seguida, dois pontos de interrogação (ou seja,??), será apresentada.
+* Um relatório pode incluir as métricas para "Europa" ou "Região Ásia-Pacífico." Esses itens não se destinam a fornecer informações estatísticas sobre todos os endereços IP nessas regiões. Em vez disso, só se aplicam a pedidos provenientes de endereços IP que são rinat Europa ou Ásia-Pacífico, em vez de uma cidade específica ou país/região.
 
 Os dados que foi utilizados para gerar o gráfico de barras podem ser visualizados abaixo dele. Lá encontrará o número total de acertos, a percentagem de resultados, a quantidade de dados transferidos (em gigabytes) e a percentagem de dados transferidos para as regiões da parte superior a 250. Ver uma descrição para cada um destas métricas.
 
@@ -74,7 +74,7 @@ Uma breve descrição é fornecida para ambos os tipos de relatórios abaixo.
 | Nome do relatório | Descrição |
 | --- | --- |
 | Cidades da parte superior |Este relatório classifica cidades, de acordo com o número de resultados que originou nessa região. |
-| Principais países |Este relatório classifica os países, de acordo com o número de resultados que originou nessa região. |
+| Principais países |Este relatório classifica os países/regiões, de acordo com o número de ocorrências que se originou desse país/região. |
 
 ## <a name="daily-summary"></a>Resumo diário
 O relatório de resumo diário permite-lhe ver o número total de acertos e os dados transferidos por uma plataforma específica numa base diária. Estas informações podem ser utilizadas de discernir rapidamente padrões de atividade da CDN. Por exemplo, este relatório pode ajudá-lo a detectar qual dias experientes superior ou inferiores ao tráfego esperado.

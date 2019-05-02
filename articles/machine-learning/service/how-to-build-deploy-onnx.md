@@ -12,11 +12,11 @@ author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
 ms.openlocfilehash: 716286fdfb684a277c7147936f162089a2cdefd8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118471"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692686"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e do Azure Machine Learning: Criar e implementar modelos de IA interoperáveis
 

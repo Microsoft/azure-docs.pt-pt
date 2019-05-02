@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ee4418700cec5de1dc404c3669dd5de315aab983
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 27881758175ab698e4b713c0215383878272382f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60640774"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64700770"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Melhores práticas para utilizar o Key Vault
 

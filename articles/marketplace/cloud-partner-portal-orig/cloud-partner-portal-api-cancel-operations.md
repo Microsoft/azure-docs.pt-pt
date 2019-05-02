@@ -1,28 +1,20 @@
 ---
-title: Cancelar a operação de API | Documentos da Microsoft
+title: Cancelar a operação de API | O Azure Marketplace
 description: Cancele operações.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 18f00391beded0744c80eab73bb1efe1c6ab8dbc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60625045"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935548"
 ---
-<a name="cancel-operation"></a>Operação de cancelamento 
-=================
+# <a name="cancel-operation"></a>Operação de cancelamento 
 
 Esta API cancela uma operação atualmente em curso sobre a oferta. Utilize o [obter operações de API](./cloud-partner-portal-api-retrieve-operations.md) para obter um `operationId` para passar para esta API. O cancelamento é normalmente uma operação síncrona, no entanto, em alguns cenários complexos pode ser necessário uma operação de novo para cancelar um já existente. Neste caso, o corpo da resposta HTTP contém a localização da operação que deve ser usada para consultar o estado.
 

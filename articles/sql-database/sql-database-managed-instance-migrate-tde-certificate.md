@@ -11,13 +11,13 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 43793380fab2bcece215c53b82e09a3c3a849af3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/25/2019
+ms.openlocfilehash: f54950ab96664b17aab056b468db0644216e8654
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57833918"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706097"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>Migrar o certificado de base de dados do TDE protegido para a instância gerida da base de dados SQL do Azure
 
@@ -31,7 +31,7 @@ Ao migrar uma base de dados protegido pelo [encriptação de dados transparente]
 Para uma opção alternativa através do serviço completamente gerido para uma migração totalmente integrada da base de dados protegida de TDE e do certificado correspondente, veja [Como migrar a base de dados no local para a Instância Gerida com o Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Encriptação de dados transparente para a instância gerida da base de dados SQL do Azure funciona em modo de serviço gerido. O certificado migrado é utilizado apenas no restauro da base de dados protegida de TDE. Logo após a conclusão do restauro, o certificado migrado é substituído por um certificado gerido pelo sistema diferente.
+> O certificado migrado é utilizado apenas no restauro da base de dados protegida de TDE. Logo após o restauro estiver concluído, o certificado migrado é substituído por um protetor de diferente, o serviço gerido certificado ou chave assimétrica do Cofre de chaves, dependendo do tipo de encriptação de dados transparente definido na instância.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -14,11 +14,11 @@ ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 578ca5fa1de338a92280e2dc7cc252fb616e2111
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483412"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64706689"
 ---
 # <a name="update-your-groups-info-from-the-my-apps-portal"></a>Atualizar as suas informações de grupos no portal as minhas aplicações
 Pode utilizar a sua conta escolar ou profissional com baseada na web **as minhas aplicações** portal, para ver e iniciar a muitas das aplicações de base na cloud da sua organização, para atualizar algumas das suas informações de perfil e conta, para ver seu **grupos** informações e para realizar **as revisões de acesso** para as aplicações e grupos. Se não tiver acesso para o **as minhas aplicações** portal, tem de contactar o suporte técnico para obter permissão.

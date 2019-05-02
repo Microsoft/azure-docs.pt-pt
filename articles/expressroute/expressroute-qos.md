@@ -1,19 +1,19 @@
 ---
-title: 'Requisitos do QoS - ExpressRoute: Azure | Documentos da Microsoft'
+title: 'Requisitos do QoS - ExpressRoute: Azure | Microsoft Docs'
 description: Esta página fornece os requisitos detalhados para configurar e gerir o QoS. Skype para serviços de negócios/voz são discutidos.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 04/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: bc946587cf54142278472652449db40096ca27b8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 9bdeb91b145f8c7f31be8c1dcd5c5158d50ff2f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117219"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712323"
 ---
 # <a name="expressroute-qos-requirements"></a>Requisitos do QoS do ExpressRoute
 O Skype para Empresas tem várias cargas de trabalho que exigem um tratamento do QoS diferenciado. Se planear consumir serviços de voz através do ExpressRoute, deve cumprir os requisitos descritos abaixo.
@@ -25,9 +25,9 @@ O Skype para Empresas tem várias cargas de trabalho que exigem um tratamento do
 > 
 > 
 
-A tabela seguinte fornece uma lista de marcações DSCP utilizadas pelo Skype para Empresas. Para obter mais informações, veja [Gerir QoS para Skype para Empresas](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS).
+A tabela seguinte fornece uma lista de marcações DSCP utilizadas pelo Microsoft Teams e o Skype para empresas. Para obter mais informações, veja [Gerir QoS para Skype para Empresas](https://docs.microsoft.com/SkypeForBusiness/manage/network-management/qos/managing-quality-of-service-QoS).
 
-| **Classe de Tráfego** | **Tratamento (Marcação DSCP)** | **Cargas de trabalho do Skype para Empresas** |
+| **Classe de Tráfego** | **Tratamento (Marcação DSCP)** | **Microsoft Teams e o Skype para cargas de trabalho empresariais** |
 | --- | --- | --- |
 | **Voz** |EF (46) |Voz do Skype/Lync |
 | **Interativo** |AF41 (34) |Video, VBSS |

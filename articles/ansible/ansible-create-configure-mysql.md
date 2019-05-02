@@ -9,11 +9,11 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/22/2019
 ms.openlocfilehash: 7238e993ebd812734b3b08f57b7a4c2f080a7384
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764068"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727071"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>Tutorial: Configurar bases de dados na base de dados do Azure para MySQL com o Ansible
 

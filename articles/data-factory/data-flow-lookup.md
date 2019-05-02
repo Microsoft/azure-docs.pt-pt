@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: ef473ea5f88b9108894787785fe1e9083fab1b0a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61348180"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868113"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Mapeamento de transformação de pesquisa de fluxo de dados de fábrica de dados do Azure
 
@@ -25,6 +25,10 @@ Utilize Lookup para adicionar dados de referência de outra origem para o seu fl
 Selecione os campos de chave que deseja correspondência com entre os campos de fluxo de entrada e os campos da origem de referência. Primeiro tem de criar uma nova origem da tela de design de fluxo de dados para utilizar como à direita para a pesquisa.
 
 Quando forem encontradas correspondências, resultante de linhas e colunas da origem de referência serão adicionadas ao seu fluxo de dados. Pode escolher quais os campos de interesse que deseja incluir no seu coletor no final do seu fluxo de dados.
+
+## <a name="match--no-match"></a>Corresponder / nenhuma correspondência
+
+Após a sua transformação de pesquisa, pode usar as transformações subseqüentes para inspecionar os resultados de cada linha da correspondência com a função de expressão `isMatch()` efetuar mais opções na sua lógica com base em se é ou não a pesquisa resultou numa ocorrência de linha ou não.
 
 ## <a name="optimizations"></a>Otimizações
 

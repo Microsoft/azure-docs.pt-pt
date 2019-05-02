@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.custom: seodec18
-ms.openlocfilehash: 933d411f67655b49b4aef7bf413dfe5f87e4ff08
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: ee52cde6feeb69f9140df497a9abee300c93fd71
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556735"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64692109"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem de evento do hub IoT ao seu ambiente do Time Series Insights
 
@@ -81,7 +81,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
    | Chave de política do hub IoT | A chave é pré-preenchida.
    | Grupo de consumidores do hub IoT | O grupo de consumidores lê eventos a partir do IoT hub. Recomendamos vivamente que utilize um grupo de consumidores dedicado para a origem do evento.
    | Formato de serialização de eventos | Atualmente, o JSON é o formato de serialização só estão disponíveis. As mensagens de eventos tem de estar no seguinte formato ou dados não podem ser lidos. |
-   | Nome da propriedade Timestamp | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem que são enviados para o hub IoT. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Se deixado em branco, o **tempo de colocar em fila de eventos** de eventos de origem é utilizada como o carimbo de hora do evento. |
+   | Nome da propriedade de carimbo de data/hora | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem que são enviados para o hub IoT. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Se deixado em branco, o **tempo de colocar em fila de eventos** de eventos de origem é utilizada como o carimbo de hora do evento. |
 
 1. A tabela seguinte descreve as propriedades necessárias para o **definições de fornecer o IoT Hub manualmente**:
 
@@ -94,7 +94,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
    | Chave de política do hub IoT | A chave de acesso partilhado que é utilizada para autenticar o acesso ao espaço de nomes do Service bus do Azure. Introduza a chave primária ou secundária aqui.
    | Grupo de consumidores do hub IoT | O grupo de consumidores lê eventos a partir do IoT hub. Recomendamos vivamente que utilize um grupo de consumidores dedicado para a origem do evento.
    | Formato de serialização de eventos | Atualmente, o JSON é o formato de serialização só estão disponíveis. As mensagens de eventos tem de estar no seguinte formato ou dados não podem ser lidos. |
-   | Nome da propriedade Timestamp | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem que são enviados para o hub IoT. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Se deixado em branco, o **tempo de colocar em fila de eventos** de eventos de origem é utilizada como o carimbo de hora do evento. |
+   | Nome da propriedade de carimbo de data/hora | Para determinar este valor, precisa entender o formato de mensagem dos dados da mensagem que são enviados para o hub IoT. Este valor é o **nome** da propriedade de evento específico dos dados de mensagem que pretende utilizar como o carimbo de hora do evento. O valor diferencia maiúsculas de minúsculas. Se deixado em branco, o **tempo de colocar em fila de eventos** de eventos de origem é utilizada como o carimbo de hora do evento. |
 
 1. Adicione o nome de grupo consumidor dedicado Time Series Insights que adicionou ao seu hub IoT.
 
@@ -107,7 +107,9 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Definir políticas de acesso de dados](time-series-insights-data-access.md) para proteger os dados.
+
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
+
 * Aceder ao seu ambiente no [Explorador do Time Series Insights](https://insights.timeseries.azure.com).
 
 <!-- Images -->

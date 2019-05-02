@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2724451d44a793023f7b69196b186f68f6fc6a26
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922000"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720479"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Compare as opções de armazenamento para utilização com clusters do HDInsight do Azure
 
@@ -31,8 +31,12 @@ A tabela seguinte resume os serviços de armazenamento do Azure que são suporta
 |Armazenamento do Azure Data Lake Ger2| Para fins gerais V2 | Hierárquica (sistema de ficheiros) | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | 3.6 + | Todos |
 |Storage do Azure| Para fins gerais V2 | Object | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | 3.6 + | Todos |
 |Storage do Azure| Para fins gerais V1 | Object | Blobs | Standard | N/A | Todos | Todos |
-|Storage do Azure| Blob Storage | Object | Blobs | Standard | Armazenamento frequente, esporádica, arquivo | Todos | Todos |
+|Storage do Azure| Blob Storage * * | Object | Blob de Blocos | Standard | Armazenamento frequente, esporádica, arquivo | Todos | Todos |
 |Armazenamento do Azure Data Lake Ger1| N/A | Hierárquica (sistema de ficheiros) | N/A | N/D | N/A | Apenas 3.6 | Tudo, exceto HBase |
+
+* * Para os clusters do HDInsight, apenas as contas de armazenamento secundário podem ser do tipo BlobStorage.
+
+Para obter mais informações sobre os tipos de conta de armazenamento do Azure, consulte [descrição geral da conta de armazenamento do Azure](../storage/common/storage-account-overview.md)
 
 Para obter mais informações sobre as camadas de acesso de armazenamento do Azure, consulte [armazenamento de Blobs do Azure: Premium (pré-visualização), as camadas de armazenamento frequente, esporádico e arquivo](../storage/blobs/storage-blob-storage-tiers.md)
 
@@ -40,14 +44,14 @@ Pode criar um cluster com diferentes combinações de serviços para armazenamen
 
 | Versão do HDInsight | Armazenamento Primário | Armazenamento secundário | Suportadas |
 |---|---|---|---|
-| 3.6 & 4.0 | BLOBs padrão | BLOBs padrão | Sim |
-| 3.6 & 4.0 | BLOBs padrão | Armazenamento do Data Lake Ger2 | Não |
-| 3.6 & 4.0 | BLOBs padrão | Armazenamento do Data Lake Ger1 | Sim |
+| 3.6 & 4.0 | Fins gerais V1, V2 de fins gerais | Fins gerais V1, V2 de fins gerais, BlobStorage (Blobs de blocos) | Sim |
+| 3.6 & 4.0 | Fins gerais V1, V2 de fins gerais | Armazenamento do Data Lake Ger2 | Não |
+| 3.6 & 4.0 | Fins gerais V1, V2 de fins gerais | Armazenamento do Data Lake Ger1 | Sim |
 | 3.6 & 4.0 | Data Lake Storage Gen2* | Armazenamento do Data Lake Ger2 | Sim |
-| 3.6 & 4.0 | Data Lake Storage Gen2* | BLOBs padrão | Sim |
+| 3.6 & 4.0 | Data Lake Storage Gen2* | Fins gerais V1, V2 de fins gerais, BlobStorage (Blobs de blocos) | Sim |
 | 3.6 & 4.0 | Armazenamento do Data Lake Ger2 | Armazenamento do Data Lake Ger1 | Não |
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger1 | Sim |
-| 3.6 | Armazenamento do Data Lake Ger1 | BLOBs padrão | Sim |
+| 3.6 | Armazenamento do Data Lake Ger1 | Fins gerais V1, V2 de fins gerais, BlobStorage (Blobs de blocos) | Sim |
 | 3.6 | Armazenamento do Data Lake Ger1 | Armazenamento do Data Lake Ger2 | Não |
 | 4.0 | Armazenamento do Data Lake Ger1 | Qualquer | Não |
 

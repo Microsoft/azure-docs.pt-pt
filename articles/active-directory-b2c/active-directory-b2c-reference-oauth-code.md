@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72111bc54691b340bcb0d8af8ef52bf0bd103a21
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317161"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703591"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Fluxo de código de autorização de OAuth 2.0 no Azure Active Directory B2C
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 88a66cae00bcd1256f6c3ad76a04d1333d1db9db
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: daab3c3b2a5b756686a4867350478faaa1142279
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58917095"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726852"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Realizar a transmissão em direto através dos serviços de multimédia para criar transmissões em fluxo com o portal do Azure  
 > [!div class="op_single_selector"]
@@ -43,7 +43,7 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 
 1. Ligue uma câmara de vídeo a um computador. <br/>Para obter ideias de configuração, confira [programa de configuração de engrenagem de vídeo de evento simples e portátil]( https://link.medium.com/KNTtiN6IeT).
 
-    Se não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](http://www.telestream.net/wirecast/overview.htm) pode ser utilizado gerar ao live feed a partir de um ficheiro de vídeo.
+    Se não tiver acesso a uma câmera, as ferramentas como [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) pode ser utilizado gerar ao live feed a partir de um ficheiro de vídeo.
 1. Iniciar e configurar um codificador em direto no local que possa enviar um fluxo de velocidade de transmissão única dos seguintes protocolos: RTMP ou Smooth Streaming. Para obter mais informações, consulte [Suporte RTMP dos Media Services do Azure e Codificadores em Direto](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Além disso, consulte este blogue: [Transmissão em fluxo em direto em produção com OBS](https://link.medium.com/ttuwHpaJeT).
 
     Este passo também pode ser realizado depois de criar o Canal.

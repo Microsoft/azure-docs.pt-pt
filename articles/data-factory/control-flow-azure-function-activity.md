@@ -11,12 +11,12 @@ ms.date: 01/09/2019
 author: sharonlo101
 ms.author: shlo
 manager: craigg
-ms.openlocfilehash: b98d20a1f96a6ab4a0dc72330e85fdc98ba04eae
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 82786b8f01ce409179f4ddd37127679f9357cd0e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576383"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727045"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Actividade de função do Azure no Azure Data Factory
 
@@ -28,7 +28,7 @@ Para uma introdução de oito minutos e uma demonstração desta funcionalidade,
 
 ## <a name="azure-function-linked-service"></a>Serviço ligado de função do Azure
 
-O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) é *não* um `JObject`.) Qualquer tipo de retorno diferente de `JObject` falhar e gera o erro de utilizador genérica *ponto final de chamada de erro*.
+O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se [JArray](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_Linq_JArray.htm) é *não* um `JObject`.) Qualquer tipo de retorno diferente de `JObject` falhar e gera o erro de utilizador *conteúdo de resposta não é um válido JObject*.
 
 | **Propriedade** | **Descrição** | **Necessário** |
 | --- | --- | --- |
@@ -41,7 +41,7 @@ O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se 
 
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| name  | Nome da atividade no pipeline  | String | sim |
+| nome  | Nome da atividade no pipeline  | String | sim |
 | tipo  | Tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | Serviço ligado | O serviço de função do Azure ligado para a aplicação de funções do Azure correspondente  | Referência de serviço ligado | sim |
 | Nome da função  | Nome da função na aplicação de função do Azure que chama esta atividade | String | sim |
@@ -52,11 +52,18 @@ O tipo de retorno da função do Azure tem de ser válido `JObject`. (Lembre-se 
 
 Ver o esquema do payload de pedido no [esquema de payload de pedido](control-flow-web-activity.md#request-payload-schema) secção.
 
-## <a name="more-info"></a>Mais informações
+## <a name="routing-and-queries"></a>Encaminhamento e consultas
 
-A actividade de função do Azure suporta **encaminhamento**. Por exemplo, se a sua aplicação utiliza o encaminhamento seguintes - `https://functionAPP.azurewebsites.net/api/functionName/{value}?code=<secret>` - o `functionName` é `functionName/{value}`, que é possível parametrizar para fornecer o desejado `functionName` em tempo de execução.
+A actividade de função do Azure suporta **encaminhamento**. Por exemplo, se a sua função do Azure tem o ponto final `https://functionAPP.azurewebsites.net/api/<functionName>/<value>?code=<secret>`, em seguida, o `functionName` para utilizar na atividade de função do Azure é `<functionName>/<value>`. É possível parametrizar esta função para fornecer o desejado `functionName` em tempo de execução.
 
-A actividade de função do Azure também suporta **consultas**. Tem de fazer parte de uma consulta a `functionName` – por exemplo, `HttpTriggerCSharp2?name=hello` – onde o `function name` é `HttpTriggerCSharp2`.
+A actividade de função do Azure também suporta **consultas**. Uma consulta tem de ser incluído como parte do `functionName`. Por exemplo, quando o nome da função é `HttpTriggerCSharp` e a consulta que pretende incluir `name=hello`, em seguida, pode construir o `functionName` na atividade de função do Azure como `HttpTriggerCSharp?name=hello`. Esta função pode ser parametrizada, pelo que o valor pode ser determinado em runtime.
+
+## <a name="timeout-and-long-running-functions"></a>Tempo limite e funções de execução longa
+
+Azure funções expire após 230 segundos, independentemente do `functionTimeout` definição já configurada nas definições. Para obter mais informações, consulte [este artigo](../azure-functions/functions-versions.md#timeout). Para contornar este comportamento, seguem um padrão assíncrono ou utilize funções duráveis. A vantagem de funções durável é que eles oferecem a seu próprio mecanismo de controlo de estado, para que não tenha de implementar sua própria.
+
+Saiba mais sobre as funções durável na [este artigo](../azure-functions/durable/durable-functions-overview.md). Pode configurar uma atividade de função do Azure para chamar a função duráveis, o que irá devolver uma resposta com um URI diferente, tal como [neste exemplo](../azure-functions/durable/durable-functions-http-api.md#http-api-url-discovery). Uma vez que `statusQueryGetUri` devolve o estado de HTTP 202 enquanto a função está em execução, pode consultar o estado da função através de uma atividade de Web. Basta configurar uma atividade Web com o `url` campo definido como `@activity('<AzureFunctionActivityName>').output.statusQueryGetUri`. Quando tiver concluído a função duráveis, o resultado da função será a saída da atividade Web.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

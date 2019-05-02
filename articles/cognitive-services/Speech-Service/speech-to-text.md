@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461260"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916825"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
-Conversão de voz em texto dos serviços de voz do Azure, também conhecido como conversão de voz em texto, permite transcrição em tempo real dos fluxos de áudio em texto que podem consumir os seus aplicativos, ferramentas ou dispositivos, apresentar e tomar medidas em como entrada de comando. Este serviço utiliza a tecnologia da mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos da Cortana e o Office e funciona de forma totalmente integrada com a tradução e voz.  Para obter uma lista completa de idiomas de voz em texto disponíveis, consulte [idiomas suportados](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
+Conversão de voz em texto dos serviços de voz do Azure, também conhecido como conversão de voz em texto, permite transcrição em tempo real dos fluxos de áudio em texto que podem consumir os seus aplicativos, ferramentas ou dispositivos, apresentar e tomar medidas em como entrada de comando. Este serviço utiliza a tecnologia da mesma tecnologia de reconhecimento que a Microsoft utiliza para produtos da Cortana e o Office e funciona de forma totalmente integrada com a tradução e voz.  Para obter uma lista completa de idiomas de voz em texto disponíveis, consulte [idiomas suportados](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
 Por predefinição, o serviço de voz em texto utiliza o modelo de idioma Universal. Este modelo foi treinado a utilizar os dados pertencentes à Microsoft e é implementado na cloud. É ideal para conversação e cenários de ditado. Se estiver usando a voz em texto para o reconhecimento e transcrição de num ambiente exclusivo, pode criar e formar modelos acústicos, idioma e pronúncia personalizados para o ruído do endereço ou específicos da indústria vocabulário. 
 

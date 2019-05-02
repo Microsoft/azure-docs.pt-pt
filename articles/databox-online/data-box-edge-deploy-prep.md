@@ -1,20 +1,20 @@
 ---
-title: Tutorial sobre a preparação do portal do Azure para implementar o Data Box Edge | Microsoft Docs
+title: Tutorial para preparar o ambiente de centro de dados de portal, do Azure para implementar o Edge de caixa de dados do Azure | Documentos da Microsoft
 description: O primeiro tutorial sobre como implementar o Edge de caixa de dados do Azure envolve a preparação do portal do Azure.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/07/2019
+ms.date: 04/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 19c4fc96653f966ea5642149d944886e4b7f4483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: d7e66970db3397531c798bc37bf7c1f346e999bf
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401667"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924762"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-edge"></a>Tutorial: Preparar a implementação de borda de caixa de dados do Azure  
 
@@ -55,6 +55,8 @@ Seguem-se os pré-requisitos de configuração para o seu recurso de borda de ca
 Antes de começar, certifique-se de que:
 
 - Subscrição do Microsoft Azure está ativada para um recurso de borda de caixa de dados. Subscrições pay as you go não são suportadas.
+- Tem o proprietário ou Contribuidor aceder à sua subscrição.
+- Tem o administrador ou utilizador o acesso ao Azure Active Directory Graph API. Para obter mais informações, consulte [do Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - Tem a conta do Storage do Microsoft Azure com credenciais de acesso.
 
 ### <a name="for-the-data-box-edge-device"></a>Para o dispositivo do Data Box Edge
@@ -87,11 +89,15 @@ Para criar um recurso de borda de caixa de dados, siga os passos seguintes no po
 
 1. Utilize as suas credenciais do Microsoft Azure para iniciar sessão no 
     
-    - O portal do Azure neste URL: [ https://portal.azure.com ](http://portal.azure.com).
-    - Em alternativa, o portal do Azure Government neste URL: [https://portal.azure.us](https://portal.azure.us)
+    - O portal do Azure neste URL: [ https://portal.azure.com ](https://portal.azure.com).
+    - Ou, no portal do Azure Government neste URL: [ https://portal.azure.us ](https://portal.azure.us). Para obter mais detalhes, aceda a [ligue-se ao utilizar o portal do Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
 
 2. No painel esquerdo, selecione **+ criar um recurso**. Procure **dados de caixa Edge / dados caixa Gateway**. Selecione **dados de caixa Edge / dados caixa Gateway**. Selecione **Criar**.
-3. Escolha a subscrição que pretende utilizar para o dispositivo de limite de caixa de dados. Selecione a região onde pretende implementar o recurso Data Box Edge. Nesta versão, E.U.A. leste, Sudeste asiático e Europa estão disponíveis. Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. Na **dados de caixa de borda** opção, selecione **criar**.
+3. Escolha a subscrição que pretende utilizar para o dispositivo de limite de caixa de dados. Selecione a região onde pretende implementar o recurso Data Box Edge. Nesta versão, E.U.A. leste, Sudeste asiático e Europa estão disponíveis. 
+
+    Escolha uma localização mais próxima da região geográfica onde pretende implementar o dispositivo. A região armazena apenas os metadados para gestão de dispositivos. Os dados reais podem ser armazenados em qualquer conta de armazenamento. 
+    
+    Na **dados de caixa de borda** opção, selecione **criar**.
 
     ![Pesquisar o serviço Data Box Edge](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

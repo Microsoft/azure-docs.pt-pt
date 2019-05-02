@@ -1,5 +1,5 @@
 ---
-title: Fuso de horário de instância de gerida de base de dados SQL do Azure | Documentos da Microsoft"
+title: O Azure SQL Database Managed Instance fusos horários | Documentos da Microsoft"
 description: Saiba mais sobre as especificações de fuso horário de instância gerida da base de dados SQL do Azure
 services: sql-database
 ms.service: sql-database
@@ -10,46 +10,46 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/10/2019
-ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/25/2019
+ms.openlocfilehash: 6d7d065f45bca38cedd2c276bdd9b98dfd9675df
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487417"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866956"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Fuso horário na instância gerida da base de dados do SQL do Azure (pré-visualização)
+# <a name="time-zones-in-azure-sql-database-managed-instance-preview"></a>Fusos horários no SQL da base de dados instância gerida do Azure (pré-visualização)
 
-Embora utilizar Hora Universal Coordenada (UTC) é uma prática recomendada para a camada de dados de soluções na cloud, instância gerida da base de dados SQL do Azure oferece uma opção de fuso horário para satisfazer as necessidades das aplicações existentes que armazenam valores de data e hora e data da chamada e funções de tempo com um contexto implícito de um fuso horário específico.
+Hora Universal Coordenada (UTC) é o fuso horário recomendado para a camada de dados de soluções na cloud. Instância de gerida de base de dados de SQL do Azure também oferece uma opção de fusos horários para satisfazer as necessidades das aplicações existentes que armazenam valores de data e hora e chamam funções de data e hora com um contexto implícito de um fuso horário específico.
 
-Como o funções T-SQL [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) ou código CLR observar o fuso horário que definir na instância do nível. Trabalhos do SQL Agent também seguem agenda, de acordo com o fuso horário da instância.
+Como o funções T-SQL [GETDATE()](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql) ou código CLR observar o fuso horário que definir na instância do nível. Trabalhos do SQL Server Agent também seguem as agendas de acordo com o fuso horário da instância.
 
   >[!NOTE]
   > A instância gerida é a opção de implementação apenas de base de dados do SQL do Azure que suporta a definição de fuso horário. Outras opções de implementação seguem sempre UTC.
-Uso [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) no únicos e em pool bases de dados SQL se precisar de interpretam as informações de data e hora no fuso horário não UTC.
+Uso [AT TIME ZONE](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql) no únicos e em pool bases de dados SQL se precisar de interpretam as informações de data e hora num fuso horário não UTC.
 
 ## <a name="supported-time-zones"></a>Suportado fusos horários
 
-Um conjunto de fusos horários suportados é herdado do sistema operativo subjacente da instância gerida e está a ser atualizado regularmente para obter novas definições de fuso horário e refletir as alterações para os já existentes.
+Um conjunto de fusos horários suportados é herdado de sistema operacional subjacente da instância gerida. É atualizada regularmente para obter novas definições de fuso horário e refletir as alterações para os já existentes. 
 
 Uma lista com os nomes das zonas de tempo suportados é exposta por meio da [sys.time_zone_info](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-time-zone-info-transact-sql) vista de sistema.
 
-## <a name="setting-time-zone"></a>Fuso horário de definição
+## <a name="set-a-time-zone"></a>Definir um fuso horário
 
-Um fuso horário de instância gerida pode ser definido durante a criação de instância apenas. O fuso horário padrão é a hora Universal Coordenada (UTC).
+Um fuso horário de uma instância gerida pode ser definido durante a criação de instância apenas. O fuso horário padrão é UTC.
 
   >[!NOTE]
   > Não é possível alterar o fuso horário de uma instância gerida existente.
 
-### <a name="setting-the-time-zone-through-azure-portal"></a>Definir o fuso horário através do portal do Azure
+### <a name="set-the-time-zone-through-the-azure-portal"></a>Definir o fuso horário através do portal do Azure
 
-Ao introduzir parâmetros para a nova instância, selecione um fuso horário na lista de fusos horários suportados:
+Ao introduzir parâmetros para uma nova instância, selecione um fuso horário na lista de suportadas fusos horários. 
   
-![Definir o fuso horário durante a criação de instância](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
+![Definir um fuso horário durante a criação de instância](media/sql-database-managed-instance-timezone/01-setting_timezone-during-instance-creation.png)
 
 ### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
-Especifique a propriedade timezoneId no seu [modelo do Resource Manager](https://aka.ms/sql-mi-create-arm-posh) para definir o fuso horário durante a criação de instância.
+Especifica a propriedade timezoneId em sua [modelo do Resource Manager](https://aka.ms/sql-mi-create-arm-posh) para definir o fuso horário durante a criação de instância.
 
 ```json
 "properties": {
@@ -66,36 +66,35 @@ Especifique a propriedade timezoneId no seu [modelo do Resource Manager](https:/
 
 ```
 
-Lista de valores suportados para a propriedade timezoneId pode ser encontrada no final deste artigo.
+É uma lista de valores suportados para a propriedade timezoneId no final deste artigo.
 
-Se não for especificado, será definido fuso horário UTC.
+Se não for especificado, é definir o fuso horário UTC.
 
-## <a name="checking-the-time-zone-of-instance"></a>A verificar o fuso horário da instância
+## <a name="check-the-time-zone-of-an-instance"></a>Verifique o fuso horário de uma instância
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) função retorna um nome a apresentar do fuso horário da instância.
+O [CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) função retorna um nome a apresentar do fuso horário da instância.
 
 ## <a name="cross-feature-considerations"></a>Considerações sobre várias funcionalidades
 
 ### <a name="restore-and-import"></a>Restauro e da importação
 
-Pode restaurar o ficheiro de cópia de segurança ou importar dados para a instância gerida de uma instância ou um servidor com as definições de fuso horário diferente. No entanto, certifique-se fazer isso com cuidado e para analisar o comportamento da aplicação e os resultados das consultas e relatórios, tal como ao transferir dados entre duas instâncias do SQL Server com as definições de fuso horário diferente.
+Pode restaurar um ficheiro de cópia de segurança ou importar dados para uma instância gerida de uma instância ou um servidor com as definições de fuso horário diferente. Certifique-se fazer isso com cuidado. Analise o comportamento da aplicação e os resultados das consultas e relatórios, tal como quando a transferência de dados entre duas instâncias do SQL Server com as definições de fuso horário diferente.
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
-Quando efetuar o restauro de ponto no tempo, o tempo de restauro para é interpretado como hora UTC para evitar qualquer ambiguidade devido ao horário de Verão e as alterações do mesmo potenciais.
+Ao efetuar um restauro de ponto no tempo, o tempo de restauro para é interpretado como hora UTC. Esta definição evita qualquer ambiguidade devido ao horário de Verão e as alterações do mesmo potenciais.
 
 ### <a name="auto-failover-groups"></a>Grupos de ativação pós-falha automática
 
-Usando o mesmo fuso horário na instância principal e secundária numa ativação pós-falha grupo não é imposto, mas é altamente recomendável.
-  >[!IMPORTANT]
-  > Embora haja cenários válidos para ter o fuso horário diferente na instância de geo-secundária utilizada para a leitura de escala apenas, tenha em atenção que no caso de ativação pós-falha manual ou automática para a instância secundária ele manterá seu fuso horário original.
+Utilizar o mesmo fuso horário entre uma instância primária e secundária de um grupo de ativação pós-falha não é imposta, mas é altamente recomendável.
+
+  >[!WARNING]
+  > Recomendamos vivamente que utilize o mesmo fuso horário para a instância primária e secundária de um grupo de ativação pós-falha. Devido a alguns cenários raros, manter o mesmo fuso horário nas instâncias principal e secundárias não é imposta. É importante compreender que, no caso de ativação pós-falha manual ou automática, a instância secundária manterão seu fuso horário original.
 
 ## <a name="limitations"></a>Limitações
 
 - Não é possível alterar o fuso horário da instância gerida existente.
-- Processos externos iniciados a partir de trabalhos do SQL Agent não observam fuso horário da instância.
-- Instância gerida do nativa [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance) cmdlet do PowerShell não tempo de passagem do suporte de zona parâmetro ainda. Wrapper de PowerShell de utilização com [modelo do Resource Manager](https://aka.ms/sql-mi-create-arm-posh) em vez disso.
-- Comando da CLI [az sql mi criar](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) não suporta o parâmetro de fuso horário ainda.
+- Processos externos iniciados das tarefas do SQL Server Agent não observam o fuso horário da instância.
 
 ## <a name="list-of-supported-time-zones"></a>Lista de fusos horários suportados
 
@@ -240,7 +239,7 @@ Usando o mesmo fuso horário na instância principal e secundária numa ativaç�
 | Hora Padrão de Samoa | (UTC+13:00) Samoa |
 | Hora Padrão Ilhas Espórades Equatoriais | (UTC+14:00) Ilha de Kiritimati |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Consulte também 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql)
 - [AT TIME ZONE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/queries/at-time-zone-transact-sql)

@@ -12,53 +12,41 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b21f82dc0a1eb8edf571da13e0d34fecae5f401b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93ac5ef5f03f800a8f90259db3e382b3bc5c5e2c
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249718"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875646"
 ---
 # <a name="identity-data-storage-for-european-customers-in-azure-active-directory"></a>Armazenamento de dados de identidade para os clientes europeus no Azure Active Directory
-Azure Active Directory (Azure AD) ajuda a gerir identidades de utilizador e para criar políticas de acesso orientadas por inteligência que ajude a proteger os recursos da sua organização. Os dados de identidade são armazenados numa localização que tem por base a morada que a sua organização indicou quando subscreveu o serviço. Por exemplo, quando subscreveu o Office 365 ou o Azure. Para obter informações específicas sobre onde é que os seus dados de identidade são armazenados, pode ver a secção [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Onde estão localizados os seus dados?) do Microsoft Trust Center.
+Dados de identidade são armazenados pelo Azure AD numa localização geográfica com base no endereço fornecido pela sua organização ao subscrever um serviço Online da Microsoft, como o Office 365 e Azure. Para obter informações sobre onde estão armazenados os dados de identidade, pode utilizar o [é onde os dados localizados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) secção da Microsoft Trust Center.
 
-Enquanto os dados de mais para o Azure AD relacionadas com identidade europeus permanecem em centros de dados europeus, existem alguns dados operacionais, de serviços específicos necessários para normal operação do Azure AD, o que são armazenados nos EUA e não inclui quaisquer dados pessoais.
+Para os clientes que forneceu um endereço na Europa, do Azure AD mantém a maioria dos dados de identidade entre os datacenters europeus. Este documento fornece informações sobre todos os dados que estão armazenados fora do Europa por serviços do Azure AD.
 
-## <a name="data-stored-outside-of-european-datacenters-for-european-customers"></a>Dados armazenados fora dos datacenters europeus para clientes europeus
-
-A maioria dos dados de identidade de clientes europeus relacionados com o Azure AD, relativamente às organizações que tenham moradas sedeadas na Europa, permanecem em datacenters europeus. Os dados do Azure AD que tem armazenado em datacenters europeus e também são replicados para os datacenters dos Estados Unidos, incluem:
-
-- **Autenticação multifator do Microsoft Azure (MFA) e reposição personalizada de palavras-passe do Azure AD (SSPR)**
+## <a name="microsoft-azure-multi-factor-authentication-mfa"></a>Autenticação multifator do Microsoft Azure (MFA)
     
-    A MFA armazena todos os dados de utilizador inativos em datacenters europeus. Contudo, alguns dados específicos deste serviço são armazenados nos E.U.A., incluindo:
+- Autenticação de todos os dois fatores através de chamadas de telefone ou SMS têm origem nos datacenters nos EUA e também é roteado pelo fornecedores mundiais.
+- Enviar notificações push com o Microsoft Authenticator app provêm de datacenters nos EUA. Além disso, os serviços específicos do fornecedor de dispositivo também pode ter no play e estes serviços talvez fora da Europa.
+- Os códigos OATH são sempre validados nos E.U.A. 
+
+## <a name="microsoft-azure-active-directory-b2c-azure-ad-b2c"></a>Microsoft Azure Active Directory B2C (Azure AD B2C)
+
+Dados de configuração de política do AD B2C e contentores de chaves do Azure são armazenados em datacenters nos EUA. Estes não contêm dados pessoais do utilizador. Para mais informações sobre as configurações da política, veja o [Azure Active Directory B2C: Políticas incorporadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artigo.
+
+## <a name="microsoft-azure-active-directory-b2b-azure-ad-b2b"></a>Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    - A autenticação multifator e os dados pessoais relacionados com a mesma podem ser armazenados nos E.U.A., caso esteja a utilizar a MFA ou a SSPR.
+Convites de lojas AD B2B do Azure com resgatar associar e redirecionar informações de URL em datacenters nos EUA. Além disso, o endereço de correio eletrónico de utilizadores que anular a subscrição de receber convites de B2B também são armazenadas em datacenters nos EUA.
 
-        - As autenticações de dois fatores que utilizem chamadas ou SMS podem ser realizadas por operadoras norte-americanas.
-    
-        - As notificações push que utilizem a aplicação Microsoft Authenticator precisam de notificações do serviço de notificações do fabricante (Apple ou Google), que pode estar fora da Europa.
-    
-        - Os códigos OATH são sempre validados nos E.U.A. 
-    
-    - Alguns registos da MFA e do SSPR são armazenados nos E.U.A. durante 30 dias, independentemente do tipo de autenticação.
+## <a name="microsoft-azure-active-directory-domain-services-azure-ad-ds"></a>Serviços de domínio do Microsoft Azure Active Directory (Azure AD DS)
 
-- **Microsoft Azure Active Directory B2C (Azure AD B2C)**
+O Azure AD DS armazena os dados de utilizador na mesma localização da rede virtual do Azure que os utilizadores selecionam. Assim, se a rede estiver fora da Europa, os dados são replicados e armazenados fora deste continente.
 
-    O Azure AD B2C armazena todos os dados de utilizador inativos em datacenters europeus. No entanto, os registos operacionais (com os dados pessoais removidos) permanecem na localização na qual a pessoa está a aceder aos serviços. Por exemplo, se um utilizador do B2C aceder ao serviço nos E.U.A., os registos operacionais permanecem nesse país. Além disso, todos os dados de configuração de políticas que não contenham dados pessoais são armazenados apenas nos E.U.A. Para mais informações sobre as configurações da política, veja o [Azure Active Directory B2C: Políticas incorporadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) artigo.
+## <a name="other-considerations"></a>Outras considerações
 
-- **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
-    
-    O Azure AD B2B armazena todos os dados de utilizador inativos em datacenters europeus. No entanto, o B2B armazena os respetivos metadados não pessoais em tabelas em datacenters nos E.U.A. Essas tabelas incluem campos como redeemUrl, invitationTicket, resource tenant Id, InviteRedirectUrl e InviterAppId.
+Serviços e aplicações que se integram com o Azure AD têm acesso a dados de identidade. Avalie cada serviço e o que usa para determinar como os dados de identidade são processados por esse serviço específico e a aplicação e, se cumprirem os requisitos de armazenamento de dados da sua empresa.
 
-- **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
-
-    O Azure AD DS armazena os dados de utilizador na mesma localização da rede virtual do Azure que os utilizadores selecionam. Assim, se a rede estiver fora da Europa, os dados são replicados e armazenados fora deste continente.
-
-- **Serviços e aplicações integrados no Azure AD**
-
-    Todos os serviços e aplicações que são integrados no Azure AD têm acesso aos dados de identidade. Analise cada serviço e aplicação para determinar de que forma é que processam os dados de identidade e se cumprem os requisitos de armazenamento de dados da sua empresa.
-
-    Para obter mais informações sobre a residência de dados dos serviços Microsoft, veja a secção [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Onde estão localizados os seus dados) do Microsoft Trust Center.
+Para obter mais informações sobre a residência de dados dos serviços Microsoft, veja a secção [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Onde estão localizados os seus dados) do Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre qualquer um dos recursos e funcionalidade descrita acima, veja estes artigos:

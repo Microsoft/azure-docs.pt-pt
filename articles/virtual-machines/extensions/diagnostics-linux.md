@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e43ba83581b6ce012c619036317361a7c1c0bf4f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129212"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710407"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilize a extensão de diagnóstico do Linux para monitorizar métricas e registos
 
@@ -500,7 +500,9 @@ ReadsPerSecond | Operações de leitura por segundo
 WritesPerSecond | Operações de escrita por segundo
 TransfersPerSecond | Operações de leitura ou escrita por segundo
 
-Valores agregados em todos os sistemas de ficheiros podem ser obtidos através da definição `"condition": "IsAggregate=True"`. Os valores de um sistema de ficheiros instalado específico, por exemplo, "/ mnt", podem ser obtidos através da definição `"condition": 'Name="/mnt"'`.
+Valores agregados em todos os sistemas de ficheiros podem ser obtidos através da definição `"condition": "IsAggregate=True"`. Os valores de um sistema de ficheiros instalado específico, por exemplo, "/ mnt", podem ser obtidos através da definição `"condition": 'Name="/mnt"'`. 
+
+**NOTA**: Se utilizar o Portal do Azure em vez de JSON, o formulário de campo de condição correto é o nome ='/ mnt "
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>métricas de Builtin para a classe de disco
 

@@ -7,11 +7,11 @@ ms.topic: sample
 ms.date: 04/15/2019
 ms.author: hrasheed
 ms.openlocfilehash: 90723afd8864bd7ec64f7b2e81e11644561cb52d
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763445"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710149"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Exemplos do Java
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 496f7c75e6633089d4ca88a9e3cd7c76ee415780
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736715"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922414"
 ---
 # <a name="language-support-for-qna-maker"></a>Suporte de idiomas para o QnA Maker
 
@@ -41,7 +41,7 @@ Se o utilizador planos de suporte a vários idiomas, terá de ter um novo recurs
 
 Verifique se o idioma principal com os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](http://portal.azure.com).  
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).  
 1. Procure e selecione o recurso de pesquisa do Azure criado como parte do seu recurso do QnA Maker. O nome do recurso de pesquisa do Azure irá começar com o mesmo nome que o recurso do QnA Maker e terá o tipo **serviço de pesquisa**. 
 1. Partir do **descrição geral** página do recurso de pesquisa, selecione **índices**. 
 1. Selecione o **testkb** índice.

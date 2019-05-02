@@ -9,11 +9,11 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: ac7b662bc9ef4f3ae675c4cbde18e159383d3d8e
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63767003"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711796"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criação de esquemas dinâmicas através de parâmetros
 

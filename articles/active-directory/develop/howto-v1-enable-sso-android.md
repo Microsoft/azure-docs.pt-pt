@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5085acad8a82394340892a3a67a3d1e5d85384b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410370"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917259"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos Android através da ADAL
 
@@ -39,7 +39,7 @@ Nesta explicação de procedimento, aprenderá como configurar o SDK na sua apli
 
 Nesta explicação de procedimento parte do princípio de que sabe como:
 
-- Aprovisione a sua aplicação com o portal de legado para o Azure Active Directory (Azure AD). Para obter mais informações, consulte [registar uma aplicação com o ponto de final de versão 1.0 do Azure AD](quickstart-v1-add-azure-ad-app.md)
+- Aprovisione a sua aplicação com o portal de legado para o Azure Active Directory (Azure AD). Para obter mais informações, consulte [registar uma aplicação](quickstart-register-app.md)
 - Integrar a aplicação com o [do Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android).
 
 ## <a name="single-sign-on-concepts"></a>Conceitos de início de sessão únicos

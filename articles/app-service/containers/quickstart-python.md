@@ -12,17 +12,16 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 04/29/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 04f08965d161e35a9ae4423ad5d3cf80cb407b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b704e9074c8ef88d8fefd97f466884af952c46f8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60396756"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919616"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar uma aplicação Python no serviço de aplicações do Azure no Linux (pré-visualização)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar uma aplicação Python no serviço de aplicações do Azure no Linux
 
 Neste início rápido, vai implementar uma aplicação de Python simples no [serviço de aplicações no Linux](app-service-linux-intro.md), que fornece um serviço de alojamento na web altamente dimensionável e com correção automática. Utilizar a interface de linha de comandos do Azure (a [CLI do Azure](/cli/azure/install-azure-cli)) através do interativo, baseada no browser e do Azure Cloud Shell, pelo que pode seguir os passos utilizam um computador Mac, Linux ou Windows.
 
@@ -198,8 +197,6 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-A imagem do Python incorporada no Serviço de Aplicações do Linux encontra-se em pré-visualização, sendo que pode personalizar o comando que serve para iniciar a sua aplicação. Em alternativa, também pode criar aplicações Python de produção com um contentor personalizado.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Aplicação de Python com PostgreSQL](tutorial-python-postgresql-app.md)

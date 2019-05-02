@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fbc5a149e59bff1897d3949185272e9ca664f989
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020269"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717816"
 ---
 # <a name="azure-functions-f-developer-reference"></a>As funções do Azure F# referência para programadores
 
@@ -54,7 +54,7 @@ FunctionsProject
 
 Existe um partilhada [Host. JSON](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem seu próprio arquivo de código (.fsx) e o ficheiro de configuração de vinculação (Function).
 
-As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#local-development-azure-functions-core-tools). Ao desenvolver funções no portal do Azure, este registo é feito para.
+As extensões de vinculação necessárias [versão 2.x](functions-versions.md) runtime das funções definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
 ## <a name="binding-to-arguments"></a>Vinculando a argumentos
 Cada ligação suporta um conjunto de argumentos, conforme detalhado no [referência de Programador de acionadores e enlaces do funções do Azure](functions-triggers-bindings.md). Por exemplo, uma das ligações de argumento oferece suporte a um acionador de blob é um POCO, que pode ser expresso usando um F# registo. Por exemplo:

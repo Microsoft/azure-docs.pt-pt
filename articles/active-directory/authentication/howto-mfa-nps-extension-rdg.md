@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44cd18be888b18e8b045114b420ddd48ec909e3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 638703e4d67cbd004f0bd616ba31475f507dfd8a
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60361038"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873432"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a sua infraestrutura de Gateway de ambiente de trabalho remoto usando a extensão de servidor de políticas de rede (NPS) e o Azure AD
 
@@ -37,7 +37,7 @@ A política de rede e serviços de acesso (NPS) dá às organizações a capacid
 
 Normalmente, as organizações utilizar NPS (RADIUS) para simplificar e centralizar a gestão das políticas VPN. No entanto, muitas organizações também utilizam o NPS para simplificar e centralizar o gerenciamento de diretivas de autorização de ligação de ambiente de trabalho de área de trabalho remota (CAPs de RD).
 
-As organizações também podem integrar o NPS com a MFA do Azure para melhorar a segurança e fornecer um alto nível de conformidade. Isto ajuda a garantir que os usuários estabelecer a verificação de dois passos para iniciar sessão para o Gateway de ambiente de trabalho remoto. Para os utilizadores ter acesso, tem de fornecer sua combinação de nome de utilizador/palavra-passe, juntamente com informações que o utilizador tem no seu controle. Estas informações tem de ser fidedigno e não facilmente duplicadas, como um número de telefone celular, o número fixo, a aplicação num dispositivo móvel e assim por diante. Para obter mais informações sobre os métodos de autenticação suportados, consulte a secção [determinar quais métodos de autenticação a seus usuários podem usar](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
+As organizações também podem integrar o NPS com a MFA do Azure para melhorar a segurança e fornecer um alto nível de conformidade. Isto ajuda a garantir que os usuários estabelecer a verificação de dois passos para iniciar sessão para o Gateway de ambiente de trabalho remoto. Para os utilizadores ter acesso, tem de fornecer sua combinação de nome de utilizador/palavra-passe, juntamente com informações que o utilizador tem no seu controle. Estas informações tem de ser fidedigno e não facilmente duplicadas, como um número de telefone celular, o número fixo, a aplicação num dispositivo móvel e assim por diante. RDG suporta atualmente chamadas telefónicas e de notificações push a partir de métodos de aplicação do Microsoft authenticator para 2FA. Para obter mais informações sobre os métodos de autenticação suportados, consulte a secção [determinar quais métodos de autenticação a seus usuários podem usar](howto-mfa-nps-extension.md#determine-which-authentication-methods-your-users-can-use).
 
 Antes da disponibilidade da extensão NPS para Azure, os clientes que desejavam implementar a verificação de dois passos para ambientes de NPS e o MFA do Azure integradas tinham de configurar e manter um servidor de MFA separado no ambiente no local, conforme documentado no [ Gateway de ambiente de trabalho remoto e de servidor de autenticação do multi-factor do Azure com o RADIUS](howto-mfaserver-nps-rdg.md).
 

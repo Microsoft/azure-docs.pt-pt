@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.openlocfilehash: 63f1cfbf697f9cb1211e2c4671f64b19f933bc94
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: d566b57ae12520b9eee26334a67d2e10c05f8040
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129355"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64709077"
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-linux-based-apache-hadoop-in-hdinsight-ssh"></a>Gerar recomendações de filmes com o Apache Mahout com baseado em Linux Apache Hadoop no HDInsight (SSH)
 
@@ -21,16 +21,13 @@ ms.locfileid: "62129355"
 
 Saiba como utilizar o [Apache Mahout](https://mahout.apache.org) biblioteca de machine learning com o Azure HDInsight para gerar recomendações de filmes.
 
-O manhout é uma [machine learning] [ ml] biblioteca para o Apache Hadoop. Mahout contém algoritmos para processamento de dados, como filtragem, classificação e clustering. Neste artigo, vai utilizar um motor de recomendação para gerar recomendações de filmes que se baseiam em filmes que viu seus amigos.
+O manhout é uma [aprendizagem](https://en.wikipedia.org/wiki/Machine_learning) biblioteca para o Apache Hadoop. Mahout contém algoritmos para processamento de dados, como filtragem, classificação e clustering. Neste artigo, vai utilizar um motor de recomendação para gerar recomendações de filmes que se baseiam em filmes que viu seus amigos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cluster do HDInsight baseado em Linux. Para obter informações sobre como criar um, consulte [começar a utilizar o Hadoop baseado em Linux no HDInsight][getstarted].
+* Um cluster do Apache Hadoop no HDInsight. Ver [introdução ao HDInsight no Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-> [!IMPORTANT]  
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows).
-
-* Um cliente SSH. Para obter mais informações, veja o documento [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="apache-mahout-versioning"></a>Controle de versão do Apache Mahout
 
@@ -50,7 +47,7 @@ O seguinte fluxo de trabalho é um exemplo simplificado que utiliza dados do fil
 
 ### <a name="understanding-the-data"></a>Compreender os dados
 
-Convenientemente, [GroupLens Research] [ movielens] fornece dados de classificação de filmes num formato compatível com o Mahout. Estes dados estão disponíveis no armazenamento de predefinido do seu cluster em `/HdiSamples/HdiSamples/MahoutMovieData`.
+Convenientemente, [GroupLens Research](https://grouplens.org/datasets/movielens/) fornece dados de classificação de filmes num formato compatível com o Mahout. Estes dados estão disponíveis no armazenamento de predefinido do seu cluster em `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Existem dois ficheiros, `moviedb.txt` e `user-ratings.txt`. O `user-ratings.txt` ficheiro é utilizado durante a análise. O `moviedb.txt` é utilizado para fornecer informações de um texto amigável ao visualizar os resultados.
 
@@ -200,15 +197,3 @@ Agora que aprendeu como utilizar o Mahout, descobrir outras formas de trabalhar 
 * [Apache Hive com o HDInsight](hdinsight-use-hive.md)
 * [Apache Pig com o HDInsight](hdinsight-use-pig.md)
 * [MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
-
-[build]: https://mahout.apache.org/developers/buildingmahout.html
-[movielens]: https://grouplens.org/datasets/movielens/
-[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]:apache-hadoop-linux-tutorial-get-started.md
-[upload]: hdinsight-upload-data.md
-[ml]: https://en.wikipedia.org/wiki/Machine_learning
-[forest]: https://en.wikipedia.org/wiki/Random_forest
-[enableremote]: ./media/hdinsight-mahout/enableremote.png
-[connect]: ./media/hdinsight-mahout/connect.png
-[hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
-[tools]: https://github.com/Blackmist/hdinsight-tools

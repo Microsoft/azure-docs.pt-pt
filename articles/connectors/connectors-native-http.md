@@ -11,26 +11,28 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 01da06ca55199989a3a27012bec101580f5ef853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 22b21512c78a06f2639ca9339f3b7a20c7f5bfa3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60447608"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713807"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Chamar pontos finais HTTP ou HTTPS com o Azure Logic Apps
 
-Com o Azure Logic Apps e o conector de protocolo HTTP (Hypertext Transfer), pode automatizar fluxos de trabalho que comunicam com qualquer ponto final HTTP ou HTTPS através da criação de aplicações lógicas. Por exemplo, pode monitorizar o ponto final de serviço para o seu site. Quando ocorre um evento naquele ponto de extremidade, como o seu Web site fica em baixo, o evento aciona o fluxo de trabalho da sua aplicação lógica e executa as ações especificadas. 
+Com o Azure Logic Apps e o conector de protocolo HTTP (Hypertext Transfer), pode automatizar fluxos de trabalho que comunicam com qualquer ponto final HTTP ou HTTPS através da criação de aplicações lógicas. Por exemplo, pode monitorizar o ponto final de serviço para o seu site. Quando ocorre um evento naquele ponto de extremidade, como o seu Web site fica em baixo, o evento aciona o fluxo de trabalho da sua aplicação lógica e executa as ações especificadas.
 
 Pode utilizar o acionador HTTP como o primeiro passo no seu fluxo de trabalho para a verificação ou *consulta* um ponto de extremidade com base numa agenda regular. Em cada verificação, o acionador envia uma chamada ou *pedido* para o ponto final. Resposta do ponto de extremidade determina se a fluxo de trabalho da sua aplicação lógica é executada. O acionador passa ao longo de qualquer conteúdo da resposta às ações na sua aplicação lógica. 
 
-Pode utilizar a ação de HTTP como qualquer outro passo no fluxo de trabalho para chamar o ponto de extremidade quando quiser. Resposta do ponto de extremidade determina como executam ações restantes do seu fluxo de trabalho.
+Pode utilizar a ação de HTTP como qualquer outro passo no fluxo de trabalho para chamar o ponto de extremidade quando quiser. Resposta do ponto de extremidade determina como executam ações restantes do seu fluxo de trabalho. 
+
+Com base em capacidade do destino do ponto de extremidade, este conector suporta o Transport Layer Security (TLS) versões 1.0, 1.1 e 1.2. O Logic Apps negocia com o ponto final com o uso a versão suportada mais elevada possível. Então, por exemplo, se o ponto final de suportar 1.2, o conector utiliza 1.2 pela primeira vez. Caso contrário, o conector utiliza a versão suportada mais alta seguinte.
 
 Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>. 
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
 * O URL para o ponto de extremidade de destino que pretende chamar 
 

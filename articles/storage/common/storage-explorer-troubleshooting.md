@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3e26365c4273611c81682a760695522575f3875d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 385eee6223487e9d7ca5cc3b213d180bb0f1da46
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483381"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710863"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas de Explorador de armazenamento do Azure
 
@@ -96,10 +96,10 @@ Se não conseguir encontrar nenhum certificado autoassinado utilizando os passos
 
 Em branco início de sessão caixas de diálogo são causadas frequentemente por ADFS solicitando o Explorador de armazenamento para executar um redirecionamento, que não é suportado por Bombardeador. Para contornar este problema, pode tentar utilizar o fluxo de código de dispositivo para início de sessão. Para tal, siga estes passos:
 
-1. "Ir para a pré-visualização" -> "Utilizar código sessão de dispositivo".
+1. Menu: Pré-visualização -> "Utilizar código sessão de dispositivo".
 2. Abra a caixa de diálogo Ligar (quer através de "Adicionar conta" no painel de conta ou o ícone de plug na barra vertical do lado esquerdo).
 3. Escolha qual pretende iniciar sessão para o ambiente.
-4. Clique em "Iniciar" no botão.
+4. Clique no botão "Sessão".
 5. Siga as instruções no painel seguinte.
 
 Se tiver problemas de inscrição para a conta que pretende utilizar como browser predefinido já está conectado a uma conta diferente, pode:

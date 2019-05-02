@@ -1,9 +1,8 @@
 ---
-title: Práticas recomendadas de segurança de rede do Azure | Documentos da Microsoft
+title: Melhores práticas para segurança de rede – Microsoft Azure
 description: Este artigo fornece um conjunto de melhores práticas para segurança de rede através do Azure recursos internos.
 services: security
-documentationcenter: na
-author: TomShinder
+author: TerryLanfear
 manager: barbkess
 editor: TomShinder
 ms.assetid: 7f6aa45f-138f-4fde-a611-aaf7e8fe56d1
@@ -12,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/17/2018
+ms.date: 04/28/2019
 ms.author: TomSh
-ms.openlocfilehash: b644a175814fb28563a2524e27f52d0285415d66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5bec7db1c4409165242416df16e437b121381b49
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610966"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872564"
 ---
 # <a name="azure-network-security-best-practices"></a>Práticas recomendadas de segurança de rede do Azure
-Pode ligar [máquinas virtuais do Azure (VMs)](https://azure.microsoft.com/services/virtual-machines/) e aplicações para outros dispositivos de rede, colocando-os no [redes virtuais do Azure](https://azure.microsoft.com/documentation/services/virtual-network/). Ou seja, pode ligar placas de interface de rede virtual a uma rede virtual para permitir comunicações baseadas em TCP/IP entre dispositivos de rede ativada. As máquinas virtuais ligadas a uma rede virtual do Azure, pode ligar-se a dispositivos na mesma rede virtual, redes virtuais diferentes, internet ou suas próprias redes no local.
-
 Este artigo aborda um conjunto de práticas recomendadas de segurança de rede do Azure. Essas práticas recomendadas são derivadas da nossa experiência com redes do Azure e as experiências dos clientes, como mesmo.
 
 Para cada melhor prática, este artigo explica:
@@ -35,8 +32,6 @@ Para cada melhor prática, este artigo explica:
 * Como pode aprender permitir a melhor prática
 
 Este artigo de práticas recomendadas de segurança de rede do Azure baseia-se numa opinião de consenso e capacidades da plataforma Azure e conjuntos de recursos, tal como existem no momento que este artigo foi escrito. Opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
-
-As secções seguintes descrevem as práticas recomendadas para segurança de rede.
 
 ## <a name="logically-segment-subnets"></a>Logicamente as sub-redes de segmento
 Redes virtuais do Azure são semelhantes a uma rede local na sua rede no local. A idéia por trás de uma rede virtual do Azure é que crie uma única privada com base no espaço em rede de endereços IP no qual pode colocar todas as suas máquinas virtuais do Azure. Os espaços de endereços IP privados disponíveis estão numa classe (10.0.0.0/8), classe B (172.16.0.0/12), e intervalos de classe C (192.168.0.0/16).

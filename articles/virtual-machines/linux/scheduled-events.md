@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799264"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924378"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Linux
 
@@ -49,7 +49,7 @@ Eventos agendados fornece eventos nos seguintes casos de utilização:
 - Manutenção iniciada pelo plataforma (por exemplo, uma atualização do sistema operacional host)
 - Hardware degradado
 - Manutenção iniciada pelo utilizador (por exemplo, um utilizador for reiniciado ou reimplementa uma VM)
-- [Expulsão de baixa prioridade VM](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) conjuntos de dimensionamento
+- [Expulsão de baixa prioridade VM](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
 
 ## <a name="the-basics"></a>As noções básicas  
 

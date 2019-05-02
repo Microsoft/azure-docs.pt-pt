@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Saiba como criar, alterar ou eliminar um grupo de segurança de rede.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/05/2018
-ms.author: jdial
-ms.openlocfilehash: 5eb5a24d6126e9609d1c653948c2db6b0a4feb55
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.author: kumud
+ms.openlocfilehash: 9fc73c40d4d3241afefd67b1c4f084765b0be934
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821939"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64710205"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
@@ -197,7 +197,7 @@ Um grupo de segurança do aplicativo contém zero ou mais interfaces de rede. Pa
     | Name           | O nome tem de ser exclusivo dentro de um grupo de recursos.        |
     | Subscrição   | Selecione a sua subscrição.                               |
     | Grupo de recursos | Selecione um grupo de recursos existente ou crie um novo. |
-    | Localização       | Selecione uma localização                                       |
+    | Location       | Selecione uma localização                                       |
 
 **Comandos**
 

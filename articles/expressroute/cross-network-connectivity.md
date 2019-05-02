@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/03/2019
 ms.author: rambala
-ms.openlocfilehash: 4923c7f2048b7368af6314d5e2288216115bc3bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bc189cf269084fdb26f141a36755c96554cad7b
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60368881"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865993"
 ---
 # <a name="cross-network-connectivity"></a>Conectividade entre redes
 
@@ -119,7 +119,7 @@ A tabela seguinte mostra a tabela de rotas do peering privado do ExpressRoute da
 
 Ver [FAQ da rede virtual][VNet-FAQ], para quaisquer perguntas ainda mais na VNet e o peering de VNet. Ver [FAQ do ExpressRoute] [ ER-FAQ] para conectividade de rede mais alguma questão no ExpressRoute e virtuais.
 
-Alcance global é implementada numa base de país a país. Para ver se o alcance Global está disponível nos países em que pretende, consulte [alcance Global do ExpressRoute][Global Reach].
+Alcance global é implementada numa base de país/região por país/região. Para ver se está disponível nos países/regiões que pretende que o alcance Global, veja [alcance Global do ExpressRoute][Global Reach].
 
 <!--Image References-->
 [1]: ./media/cross-network-connectivity/premergerscenario.png "cenário da aplicação"

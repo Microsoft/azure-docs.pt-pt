@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 5345069005f9161ff04fffb063fda99b7594ec08
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317722"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703048"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Resolver problemas de políticas personalizadas do Azure AD B2C e arquitetura de experiências de identidade
 

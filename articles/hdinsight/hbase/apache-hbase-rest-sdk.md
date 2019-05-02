@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
 ms.openlocfilehash: 707869880c5df619def2d707264b59e22e03c521
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123098"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720309"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Utilizar o SDK .NET para o Apache HBase
 

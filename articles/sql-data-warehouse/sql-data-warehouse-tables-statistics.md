@@ -11,12 +11,12 @@ ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
-ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ef5c0a4e6694e9babcb3054831e88d9edceae85
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474951"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937279"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estatísticas de tabela no Azure SQL Data Warehouse
 
@@ -71,7 +71,7 @@ O nome_tabela é o nome da tabela que contém as estatísticas para apresentar. 
 
 ## <a name="updating-statistics"></a>Atualizar as estatísticas
 
-Um procedimento recomendado é atualizar estatísticas em colunas de data por dia à medida que são adicionadas novas datas. Cada novas linhas de tempo são carregados para o armazém de dados, as datas de carga novo ou datas de transação são adicionadas. Estes alterar a distribuição de dados e tornam as estatísticas Desatualizadas. Por outro lado, estatísticas numa coluna de país na tabela de clientes nunca poderão ter de ser atualizado, uma vez que a distribuição dos valores em geral, não é alterado. Partindo do princípio de que a distribuição é constante entre os clientes, adicionar novas linhas para a variação de tabela não irá alterar a distribuição de dados. No entanto, se o armazém de dados contém apenas um país e importar dados a partir de um novo país, resultando em dados a partir de vários países que está a ser armazenados, em seguida, terá de atualizar as estatísticas na coluna de país.
+Um procedimento recomendado é atualizar estatísticas em colunas de data por dia à medida que são adicionadas novas datas. Cada novas linhas de tempo são carregados para o armazém de dados, as datas de carga novo ou datas de transação são adicionadas. Estes alterar a distribuição de dados e tornam as estatísticas Desatualizadas. Por outro lado, estatísticas numa coluna de país/região numa tabela de cliente nunca poderão ter de ser atualizado, uma vez que a distribuição dos valores em geral, não é alterado. Partindo do princípio de que a distribuição é constante entre os clientes, adicionar novas linhas para a variação de tabela não irá alterar a distribuição de dados. No entanto, se o armazém de dados contém apenas um país/região e importar dados a partir de um novo país/região, resultando em dados a partir de vários países/regiões a ser armazenados, em seguida, terá de atualizar as estatísticas na coluna de país/região.
 
 Seguem-se a atualizar as estatísticas de recomendações:
 

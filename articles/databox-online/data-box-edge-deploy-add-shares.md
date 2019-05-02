@@ -1,5 +1,5 @@
 ---
-title: Transferir dados com o Azure Data Box Edge | Microsoft Docs
+title: Tutorial para transferir dados para partilhas com o Edge de caixa de dados do Azure | Documentos da Microsoft
 description: Saiba como adicionar e ligar a partilhas no dispositivo Data Box Edge.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e902f0c9465f65f31f6e1a5cadc7b6b30cda1a27
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 701ae5e70612b89c28e3092571e26e4f06389af0
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60647080"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924621"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-edge"></a>Tutorial: Transferir dados com o Edge de caixa de dados do Azure
 

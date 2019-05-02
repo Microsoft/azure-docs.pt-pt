@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: 8492f736e64366802b3601f9b5fc8bd1d9b6ea79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827436"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64873153"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análise de série de tempo no Explorador de dados do Azure
 
@@ -260,3 +260,8 @@ demo_many_series1
 Em menos de dois minutos, ADX analisados próximas 20 000 séries de tempo e detetou duas séries de tempo anormal em que a contagem de leitura, de repente, removido.
 
 Estas capacidades avançadas, combinadas com um desempenho rápido ADX fornecem uma solução única e eficiente para análise de série de tempo.
+
+## <a name="next-steps"></a>Passos Seguintes
+
+* Saiba mais sobre [deteção de anomalias de série e a previsão do tempo](/azure/data-explorer/anomaly-detection) no Explorador de dados do Azure.
+* Saiba mais sobre [de Machine learning capacidades](/azure/data-explorer/machine-learning-clustering) no Explorador de dados do Azure.

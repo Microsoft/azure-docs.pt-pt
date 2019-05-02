@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: e3b6eed6f70eb2803ef4fa4e6b5d32fb0a4d843a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60851158"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919950"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
 
@@ -136,7 +136,7 @@ Adicione o nome da imagem inteira, incluindo o URL de registo privado (por exemp
 
 **Pode expor mais de uma porta na minha imagem de contentor personalizado?**
 
-Nós não suportam atualmente expor mais de uma porta.
+Não é suportada a exposição de mais de uma porta.
 
 **Posso usar o meu próprio armazenamento?**
 
@@ -154,11 +154,11 @@ Temos a deteção automática de porta. Também pode especificar uma aplicação
 
 Não, a plataforma lida com a terminação HTTPS nos front-ends partilhados.
 
-## <a name="multi-container-with-docker-compose-and-kubernetes"></a>Composição de vários contentores com o Docker e Kubernetes
+## <a name="multi-container-with-docker-compose"></a>Com vários contentores com o Docker Compose
 
 **Como posso configurar o Azure Container Registry (ACR) para utilizar com vários contentores?**
 
-Para utilizar o ACR com vários contentores, **todas as imagens de contentor** precisam ser hospedados no mesmo servidor de registo do ACR. Quando estiverem no mesmo servidor de registo, terá de criar as definições da aplicação e, em seguida, atualizar o ficheiro de configuração do Docker Compose ou o Kubernetes para incluir o nome de imagem do ACR.
+Para utilizar o ACR com vários contentores, **todas as imagens de contentor** precisam ser hospedados no mesmo servidor de registo do ACR. Quando estiverem no mesmo servidor de registo, terá de criar as definições da aplicação e, em seguida, atualizar o ficheiro de configuração do Docker Compose para incluir o nome de imagem do ACR.
 
 Crie as seguintes definições de aplicação:
 

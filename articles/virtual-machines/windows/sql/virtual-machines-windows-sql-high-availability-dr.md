@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8a9d4699ba625f575cdcba2a85af900a7c04843e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61478370"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924467"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Elevada disponibilidade e recuperação após desastre para SQL Server em Máquinas Virtuais do Azure
 
@@ -59,7 +59,7 @@ Pode ter uma solução de recuperação após desastre para as bases de dados do
 | Tecnologia | Arquiteturas de exemplo |
 | --- | --- |
 | **Grupos de disponibilidade** |Réplicas de disponibilidade em execução em vários datacenters em VMs do Azure para recuperação após desastre. Esta solução entre regiões protege contra indisponibilidade do site concluída. <br/> ![Grupos de disponibilidade](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_alwayson.png)<br/>Dentro de uma região, todas as réplicas devem estar no mesmo serviço cloud e a mesma VNet. Uma vez que cada região terá uma VNet separada, tais soluções exigiam VNet para a conectividade VNet. Para obter mais informações, consulte [configurar uma ligação de VNet a VNet com o portal do Azure](../../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Para obter instruções detalhadas, consulte [configurar um grupo de disponibilidade do SQL Server em máquinas virtuais do Azure em regiões diferentes](virtual-machines-windows-portal-sql-availability-group-dr.md).|
-| **Espelhamento de banco de dados** |Principal e espelho e servidores em execução em diferentes centros de dados para recuperação após desastre. Tem de implementar utilizando certificados de servidor, uma vez que um domínio do Active Directory não pode abranger vários datacenters.<br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
+| **Espelhamento de banco de dados** |Principal e espelho e servidores em execução em diferentes centros de dados para recuperação após desastre. Tem de implementar a utilização de certificados de servidor. <br/>![Espelhamento de banco de dados](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_dbmirroring.gif) |
 | **Cópia de segurança e restauro com o serviço de armazenamento de Blobs do Azure** |Bases de dados de produção uma cópia de segurança diretamente para o armazenamento de BLOBs num Data Center diferente para recuperação após desastre.<br/>![Cópia de Segurança e Restauro](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_backup_restore.gif)<br/>Para obter mais informações, consulte [cópia de segurança e restaurar para o SQL Server em máquinas de virtuais do Azure](virtual-machines-windows-sql-backup-recovery.md). |
 | **A replicação e ativação pós-falha de SQL Server para o Azure com o Azure Site Recovery** |SQL Server de produção de um datacenter do Azure replicado diretamente para o armazenamento do Azure do datacenter do Azure diferente para recuperação após desastre.<br/>![Replicar com o Azure Site Recovery](./media/virtual-machines-windows-sql-high-availability-dr/azure_only_dr_standalone_sqlserver-asr.png)<br/>Para obter mais informações, consulte [proteger o SQL Server com a recuperação de desastres do SQL Server e o Azure Site Recovery](../../../site-recovery/site-recovery-sql.md). |
 

@@ -1,0 +1,74 @@
+---
+title: 'Referência de API do v2 de Monitor do Estado do Azure: Ativar o motor de instrumentação | Documentos da Microsoft'
+description: Estado Monitor v2 API referência Enable-InstrumentationEngine. Monitorizar o desempenho dos Web sites sem implementar novamente o Web site. Funciona com aplicações Web ASP.NET alojadas no local, em VMs ou no Azure.
+services: application-insights
+documentationcenter: .net
+author: MS-TimothyMothra
+manager: alexklim
+ms.assetid: 769a5ea4-a8c6-4c18-b46c-657e864e24de
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.topic: conceptual
+ms.date: 04/23/2019
+ms.author: tilee
+ms.openlocfilehash: 7d337c9b6b22f3abfcb4aea1c47127706ed9e9d7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64870511"
+---
+# <a name="status-monitor-v2-api-enable-instrumentationengine-v021-alpha"></a>API de v2 de Monitor de estado: Enable-InstrumentationEngine (v0.2.1-alpha)
+
+Este documento descreve um cmdlet que é enviado como parte da [módulo do Az.ApplicationMonitor PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
+
+> [!IMPORTANT]
+> V2 de Monitor de estado está atualmente em pré-visualização pública.
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
+## <a name="description"></a>Descrição
+
+Este cmdlet irá ativar o mecanismo de instrumentação definindo algumas chaves de Registro.
+Reinicie o IIS para que essas alterações entrem em vigor.
+
+O mecanismo de instrumentação pode complementar os dados recolhidos pelos SDKs do .NET.
+Eventos e as mensagens serão recolhidas que descrevem a execução de um processo gerenciado. Incluindo mas não limitado a códigos de resultado de dependência, verbos HTTP e texto do comando SQL. 
+
+Ative o mecanismo de instrumentação se:
+- Já tiver ativado a monitorização utilizando o Enable cmdlet, mas não tiver ativado o InstrumentationEngine.
+- Manualmente tiver instrumentado a sua aplicação com os SDKs do .NET e pretende recolher telemetria adicional.
+
+> [!IMPORTANT] 
+> Este cmdlet requer uma sessão do PowerShell com permissões de administrador.
+
+> [!NOTE] 
+> Este cmdlet irá solicitar-lhe rever e aceitar a nossa declaração de licença e de privacidade.
+
+> [!NOTE] 
+> O mecanismo de instrumentação adiciona sobrecarga adicional e está desativada por predefinição.
+
+## <a name="examples"></a>Exemplos
+
+```powershell
+PS C:\> Enable-InstrumentationEngine
+```
+
+## <a name="parameters"></a>Parâmetros 
+
+### <a name="-acceptlicense"></a>-AcceptLicense
+**Opcional.** Utilize este parâmetro para aceitar a licença e declaração de privacidade em instalações sem periféricos.
+
+### <a name="-verbose"></a>-Verbose
+**Parâmetro comum.** Utilize este parâmetro para a saída de registos detalhados.
+
+## <a name="output"></a>Saída
+
+
+#### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exemplo da saída da ativar com êxito o mecanismo de instrumentação
+
+```
+Configuring IIS Environment for instrumentation engine...
+Configuring registry for instrumentation engine...
+```

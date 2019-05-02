@@ -1,6 +1,6 @@
 ---
-title: Disponibilidade da infraestrutura do Azure
-description: O artigo descreve os níveis de redundância para fornecer disponibilidade máxima dos dados dos clientes.
+title: Disponibilidade da infraestrutura do Azure - segurança do Azure
+description: Este artigo fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2018
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: a9a55f61f032512be032897d5f21ece405844634
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d13c79152afe00cb326f69b523e9fd7f0c3550b0
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587199"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872611"
 ---
 # <a name="azure-infrastructure-availability"></a>Disponibilidade da infraestrutura do Azure
-O Azure fornece disponibilidade robusta, com base em ampla redundância obtida com tecnologia de virtualização. O Azure fornece vários níveis de redundância para fornecer disponibilidade máxima dos dados dos clientes.
+Este artigo fornece informações sobre o que a Microsoft faz para proteger a infraestrutura do Azure e fornecer a máxima disponibilidade dos dados dos clientes. O Azure fornece disponibilidade robusta, com base em ampla redundância obtida com tecnologia de virtualização.
 
 ## <a name="temporary-outages-and-natural-disaster"></a>Falhas temporárias e desastre natural
 A equipe de operações de infraestrutura de nuvem da Microsoft e projeta, cria, opera e melhora a segurança da infraestrutura de nuvem. Esta equipe garante que a infraestrutura do Azure é a entrega de elevada disponibilidade e confiabilidade, alta eficiência e escalabilidade inteligente. A equipe fornece uma nuvem mais segura, privada e confiável.

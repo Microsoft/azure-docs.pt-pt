@@ -3,8 +3,8 @@ title: Diagnosticar um problema de encaminhamento de máquina virtual do Azure |
 description: Saiba como diagnosticar um problema de encaminhamento de máquina virtual ao visualizar as rotas efetivas para uma máquina virtual.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
-ms.author: jdial
-ms.openlocfilehash: 6864e282319bc5a0539c4c94f3062dcab7315970
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.author: kumud
+ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652251"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730502"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnosticar um problema de encaminhamento de máquina virtual
 

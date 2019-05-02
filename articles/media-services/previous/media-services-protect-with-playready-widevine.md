@@ -14,24 +14,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: df967c56d84650894d2e07054e9ec8d6f830192b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c6271b5bb64eacf66c771b84139cead722a2e7b3
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711747"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869400"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>Utilizar a encriptação comum dinâmica com PlayReady e/ou Widevine
 
-> [!div class="op_single_selector"]
-> * [.NET](media-services-protect-with-playready-widevine.md)
-> * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
-> * [PHP](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)
->
-
 > [!NOTE]
-> Para obter a versão mais recente do Java SDK e começar a programar com o Java, veja [Introdução ao SDK de cliente Java para os Serviços de Multimédia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
-> Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowsAzure no [repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Sem novos recursos ou funcionalidades estão a ser adicionados para serviços de multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+>   
 
 ## <a name="overview"></a>Descrição geral
 
@@ -619,6 +613,9 @@ namespace DynamicEncryptionWithDRM
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Consulte também
+
 * [Use the CENC with multi-DRM and access control](media-services-cenc-with-multidrm-access-control.md) (Utilizar a Encriptação Comum (CENC) com multi DRM e com controlo de acesso)
 * [Configure Widevine packaging with Media Services](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services) (Configurar o empacotamento do Widevine com os Serviços de Multimédia)
-* [Anunciar os serviços de entrega de licença Widevine da Google nos Serviços de Multimédia do Azure](https://azure.microsoft.com/blog/announcing-general-availability-of-google-widevine-license-services/)
+* [Introdução ao SDK de cliente Java para serviços de multimédia do Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
+* Para transferir o SDK mais recente do PHP para os Serviços de Multimédia, procure a versão 0.5.7 do pacote Microsoft/WindowsAzure no [repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
+

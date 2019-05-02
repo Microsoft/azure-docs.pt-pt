@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 3eefbcb048799f783dca7471f879d566983e4c51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 549f966f86e9ddd447f24e21027504395981fd1e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61488237"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729364"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic-script-sample"></a>Exemplo de script de filtragem de tráfego de rede VM de entrada e saída
 

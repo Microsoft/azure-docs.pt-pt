@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6e7b3b316a8a6dcde95bdf872dbda4cd1372f072
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322537"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721802"
 ---
 # <a name="scaling-media-processing"></a>Dimensionar processamento de multimédia
 
@@ -33,9 +33,9 @@ A tabela seguinte ajuda-o a tomar uma decisão, ao escolher entre diferentes vel
 
 |Tipo do RU|Cenário|Resultados de exemplo para o [7 min 1080p vídeo](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z)|
 |---|---|---|
-| **S1**|Codificação de velocidade de transmissão única. <br/>Ficheiros em SD ou abaixo de resoluções, não um prazo confidenciais, baixo custo.|Codificação a ser o único ficheiro MP4 de velocidade de transmissão SD resolução usando "H264 taxa de bits única de velocidade de transmissão SD 16 x 9" leva de 10 minutos.|
-| **S2**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Utilização normal para a codificação SD e HD.|Com "H264 taxa de bits única 720p" predefinição de codificação demora cerca de 8 minutos.<br/><br/>Codificação com "h264 taxa de bits múltiplas 720p" configuração predefinida demora, aproximadamente 16.8 minutos.|
-| **S3**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Vídeos de resolução do HD e 4K completos. Tempo de codificação de face àquilo confidencial, mais rápido.|Com "H264 taxa de bits única 1080p" predefinição de codificação demora cerca de 4 minutos.<br/><br/>Codificação com "H264 Multiple Bitrate 1080p" configuração predefinida demora, aproximadamente 8 minutos.|
+| **S1**|Codificação de velocidade de transmissão única. <br/>Ficheiros em SD ou abaixo de resoluções, não um prazo confidenciais, baixo custo.|Codificação de ficheiro MP4 de velocidade de transmissão única SD resolução usando "H264 taxa de bits única de velocidade de transmissão SD 16 x 9" demora cerca de 7 minutos.|
+| **S2**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Utilização normal para a codificação SD e HD.|Com "H264 taxa de bits única 720p" predefinição de codificação demora cerca de 6 minutos.<br/><br/>Codificação com "h264 taxa de bits múltiplas 720p" Predefinir demora cerca de 12 minutos.|
+| **S3**|Velocidade de transmissão única e a codificação de velocidade de transmissão múltiplas.<br/>Vídeos de resolução do HD e 4K completos. Tempo de codificação de face àquilo confidencial, mais rápido.|Com "H264 taxa de bits única 1080p" predefinição de codificação demora cerca de 3 minutos.<br/><br/>Codificação com "H264 Multiple Bitrate 1080p" Predefinir demora cerca de 8 minutos.|
 
 ## <a name="considerations"></a>Considerações
 
@@ -62,7 +62,7 @@ Execute o comando `mru`.
 O seguinte procedimento [mru de contas do az ams](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) comando conjuntos de unidades reservadas de multimédia "amsaccount" conta utilizando o **contagem** e **tipo** parâmetros.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+az ams account mru set -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
 
 ## <a name="billing"></a>Faturação

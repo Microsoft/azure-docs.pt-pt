@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 1d0905900b81a0c7775011774b55565217d13b71
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c8d2a948dd82fb2c04aceb24815e63be13e35919
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011548"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64722599"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar o Oracle Golden Gate numa VM do Linux do Azure 
 
@@ -261,7 +261,6 @@ export LD_LIBRARY_PATH=$ORACLE_HOME/lib
 
 ### <a name="start-oracle-listener"></a>Iniciar serviço de escuta do Oracle
 ```bash
-$ sudo su - oracle
 $ lsnrctl start
 ```
 

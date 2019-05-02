@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d48977c60fb4a13e1fc0dbd294fa4e7708f1cd5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7462536443b2be23eef0f8b4c6f6b6412fb7032
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277506"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724880"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-g-suite"></a>Tutorial: Integração do Active Directory do Azure com o G Suite
 
@@ -239,11 +239,11 @@ Para configurar o Azure AD início de sessão único com o G Suite, execute os s
 
     a. Selecione **SSO de configuração com o fornecedor de identidade de terceiros**.
 
-    b. Na **URL da página de início de sessão** campo no G Suite, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
+    b. Na **URL da página de início de sessão** campo no G Suite, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
 
-    c. Na **URL de página de início de sessão** campo no G Suite, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
+    c. Na **URL de página de início de sessão** campo no G Suite, cole o valor de **URL de fim de sessão** que copiou do portal do Azure.
 
-    d. Na **alterar o URL de palavra-passe** campo no G Suite, cole o valor de **alterar a URL da palavra-passe** que copiou do portal do Azure.
+    d. Na **alterar o URL de palavra-passe** campo no G Suite, cole o valor de **alterar a URL da palavra-passe** que copiou do portal do Azure.
 
     e. No G Suite, para o **certificado de verificação**, carregue o certificado que transferiu a partir do portal do Azure.
 

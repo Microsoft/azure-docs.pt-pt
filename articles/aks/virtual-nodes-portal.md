@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d12226daa7353c01ee462ea31c5cbf011ba28409
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025185"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726067"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Pré-visualizar - criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais no portal do Azure
 
@@ -22,6 +22,30 @@ Para implementar rapidamente as cargas de trabalho num cluster do Azure Kubernet
 > Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
 >
 > Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
+
+## <a name="before-you-begin"></a>Antes de começar
+
+Nós virtuais de ativar a comunicação de rede entre os pods que são executados no ACI e o cluster do AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e permissões delegadas são atribuídas. Nós virtuais funcionam apenas com clusters do AKS criados usando *avançadas* funcionamento em rede. Por predefinição, os clusters do AKS são criados com *básica* funcionamento em rede. Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster do AKS que utiliza o sistema de rede avançado.
+
+Se não tiver utilizado anteriormente ACI, registe o fornecedor de serviço com a sua subscrição. Pode verificar o estado do uso de registo de fornecedor do ACI a [lista de fornecedores de az] [ az-provider-list] de comando, conforme mostrado no exemplo a seguir:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+O *Microsoft.ContainerInstance* fornecedor deve reportar como *registado*, conforme mostrado no seguinte exemplo:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Se o fornecedor é apresentado como *NotRegistered*, registar o fornecedor com [az registar o fornecedor] [az-provider register], conforme mostrado no exemplo a seguir:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
@@ -55,9 +79,12 @@ Sobre o **Noções básicas** página, configure as seguintes opções:
 
 - *DETALHES DO PROJETO*: Selecione uma subscrição do Azure, em seguida, selecionar ou criar um grupo de recursos do Azure, tal como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes**, como *myAKSCluster*.
 - *DETALHES DO CLUSTER*: Selecione uma região, a versão do Kubernetes e o prefixo de nome de DNS para o cluster do AKS.
-- *DIMENSIONAMENTO*: Selecione um tamanho VM para os nós do AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
-    - Selecione o número de nós a implementar no cluster. Neste artigo, definido **contagem de nós** ao *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
-    - Sob **nós virtuais**, selecione *ativado*.
+- *CONJUNTO DE NÓ PRIMÁRIO*: Selecione um tamanho VM para os nós do AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
+     - Selecione o número de nós a implementar no cluster. Neste artigo, definido **contagem de nós** ao *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
+
+Clique em **seguinte: Dimensionamento**.
+
+Sobre o **escala** página, selecione *ativado* sob **nós virtuais**.
 
 ![Criar um cluster do AKS e ativar os nós virtuais](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -215,3 +242,4 @@ Nós virtuais são um componente de uma solução de dimensionamento no AKS. Par
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+[az-provider-list]: /cli/azure/provider#az-provider-list

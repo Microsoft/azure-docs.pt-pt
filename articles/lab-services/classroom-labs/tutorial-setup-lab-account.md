@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/29/2019
+ms.date: 04/24/2019
 ms.author: spelluru
-ms.openlocfilehash: 962b69a97b8116b82878a0a82960c9159091a9a7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 704ad915616e4f860204783462269ec68a6e4e28
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652625"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730635"
 ---
 # <a name="tutorial-set-up-a-lab-account-with-azure-lab-services"></a>Tutorial: Configurar uma conta de laboratório com o Azure Lab Services
 No Azure Lab Services, a conta de laboratório serve como a conta central em que são geridos os laboratórios na organização. Na conta de laboratório, conceda permissões para outros utilizadores criarem laboratórios e definir políticas aplicáveis a todos os laboratórios na conta de laboratório. Neste tutorial, aprenda como criar uma conta de laboratório como administrador de laboratório. 
@@ -48,9 +48,10 @@ Os passos seguintes mostram como utilizar o portal do Azure para criar uma conta
     2. Selecione a **Subscrição do Azure**, na qual pretende criar a conta de laboratório.
     3. Em **Grupo de recursos**: selecione **Criar novo** e introduza um nome para o grupo de recursos.
     4. Em **Localização**, selecione uma região/localização na qual pretende criar a conta de laboratório. 
-    5. Para **elemento da rede virtual**, selecione um elemento da rede virtual (VNet) para a rede de laboratório. Laboratórios criados nesta conta estão ligados à VNet selecionada e tem acesso aos recursos da VNet selecionada. 
-    6. Para o **criador do laboratório de permitir a escolher a localização de laboratório** campo, especifique se pretende que os criadores de laboratório para poder selecionar uma localização para o laboratório. Por predefinição, a opção está desativada. Quando estiver desativada, os criadores de laboratório não é possível especificar uma localização para o laboratório estiver a criar. Os laboratórios são criados na localização geográfica mais próxima à conta de laboratório. Quando estiver ativada, um criador de laboratório pode selecionar uma localização no momento da criação de um laboratório. 
-    7. Selecione **Criar**. 
+    5. Selecione um existente **Galeria de imagem partilhada** ou criar uma. Pode guardar o modelo de VM na Galeria de imagens partilhado para que ele seja reutilizado por outros utilizadores. Para obter informações detalhadas sobre as galerias de imagem partilhada, consulte [utilizar uma galeria de imagem partilhada do Azure Lab Services](how-to-use-shared-image-gallery.md). 
+    6. Para **elemento da rede virtual**, selecione um elemento da rede virtual (VNet) para a rede de laboratório. Laboratórios criados nesta conta estão ligados à VNet selecionada e tem acesso aos recursos da VNet selecionada. 
+    7. Para o **criador do laboratório de permitir a escolher a localização de laboratório** campo, especifique se pretende que os criadores de laboratório para poder selecionar uma localização para o laboratório. Por predefinição, a opção está desativada. Quando estiver desativada, os criadores de laboratório não é possível especificar uma localização para o laboratório estiver a criar. Os laboratórios são criados na localização geográfica mais próxima à conta de laboratório. Quando estiver ativada, um criador de laboratório pode selecionar uma localização no momento da criação de um laboratório. 
+    8. Selecione **Criar**. 
 
         ![Janela Criar uma conta de laboratório](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selecione o **ícone de sino** na barra de ferramentas (**notificações**), confirme que a implementação foi concluída com êxito e, em seguida, selecione **Ir para recurso**. 

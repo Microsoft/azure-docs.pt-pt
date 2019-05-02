@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 7e37d8e732408e70dbcdc86d3e21556f553506cd
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 26306489b11e24ab50f0ae893f11137d279c6127
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768489"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719820"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows mostra a tela azul de erro quando se reinicia uma VM do Azure
 Este artigo descreve os erros de tela azul que poderá encontrar ao inicializar uma Máquina Virtual do Windows (VM) no Microsoft Azure. Ele fornece passos para o ajudar a recolher dados para um pedido de suporte. 
@@ -56,7 +56,7 @@ Para resolver este problema, precisaria primeiro a reunir o arquivo de despejo d
 ### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localize o ficheiro de informação e submeter um pedido de suporte
 
 1. Na VM de recuperação, vá para a pasta do windows no disco do SO anexado. Se a letra de unidade que está atribuída ao disco do SO anexado F, terá de ir para F:\Windows.
-2. Localize o ficheiro de memory.dmp th e, em seguida [submeter um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de informação. 
+2. Localize o ficheiro de memory.dmp e, em seguida [submeter um pedido de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o ficheiro de informação. 
 
 Se não encontrar o ficheiro de informação, mova o passo seguinte para ativar o registo de informação e a consola de série.
 

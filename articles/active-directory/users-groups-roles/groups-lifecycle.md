@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471987"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920159"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -86,7 +86,7 @@ O grupo pode ser restaurado dentro de 30 dias após a sua eliminação seleciona
 Se o grupo de que está a restaurar contém documentos, sites do SharePoint ou outros objetos persistentes, poderá demorar até 24 horas para restaurar completamente o grupo e o respetivo conteúdo.
 
 ## <a name="how-to-retrieve-office-365-group-expiration-date"></a>Como obter a data de expiração de grupo do Office 365
-Para além do painel de acesso, onde os utilizadores podem ver os detalhes de grupo, incluindo a data de expiração e data da última renovada, data de expiração de um grupo do Office 365 pode ser obtida da versão Beta do Microsoft Graph REST API. foi ativado expirationDateTime como uma propriedade de grupo na versão Beta do Microsoft Graph. Pode ser obtida com um pedido GET. Para obter mais detalhes, consulte [neste exemplo](https://docs.microsoft.com/en-us/graph/api/group-get?view=graph-rest-beta#example).
+Para além do painel de acesso, onde os utilizadores podem ver os detalhes de grupo, incluindo a data de expiração e data da última renovada, data de expiração de um grupo do Office 365 pode ser obtida da versão Beta do Microsoft Graph REST API. foi ativado expirationDateTime como uma propriedade de grupo na versão Beta do Microsoft Graph. Pode ser obtida com um pedido GET. Para obter mais detalhes, consulte [neste exemplo](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > Para gerir membros do grupo no painel de acesso, "Restringir o acesso a grupos no painel de acesso" tem de ser definido como "Não", no Azure Active Directory grupos de definições gerais.
@@ -101,10 +101,10 @@ A política de retenção está configurada por meio do Centro de conformidade e
 ## <a name="powershell-examples"></a>Exemplos do PowerShell
 Seguem-se exemplos de como pode utilizar os cmdlets do PowerShell para configurar as definições de expiração para grupos do Office 365 no seu inquilino:
 
-1. Instalar o módulo de pré-visualização do PowerShell versão 2.0 (2.0.0.137) e inicie sessão na linha de comandos do PowerShell:
+1. Instalar o módulo do PowerShell v2.0 e inicie sessão na linha de comandos do PowerShell:
    ```powershell
-   Install-Module -Name AzureADPreview
-   connect-azuread 
+   Install-Module -Name AzureAD
+   Connect-AzureAD
    ```
 2. Configure as definições de expiração New-AzureADMSGroupLifecyclePolicy:  Este cmdlet define o tempo de vida para todos os grupos do Office 365 no inquilino para 365 dias. Notificações de renovação para o Office 365 grupos sem proprietários serão enviados para "emailaddress@contoso.com'
   

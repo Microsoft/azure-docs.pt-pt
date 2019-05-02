@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: BrianLevenson
-ms.openlocfilehash: 4a1586d965a51a3c655346994274159b99ab0a9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 881d62cd7b7b9d4434a807a2aab62b75e9a8e97b
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764277"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937783"
 ---
 # <a name="azure-marketplace-and-appsource-roadmap"></a>Roteiro do Azure Marketplace e AppSource
 

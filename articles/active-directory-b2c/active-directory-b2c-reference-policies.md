@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67db13c8a36977f2614ba7b0e263919bd0405bc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3bb7b5d4126cde854da01451fd62ba969e605c1f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316957"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64703713"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Fluxos de utilizador no Azure Active Directory B2C
 

@@ -9,11 +9,11 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/15/2019
 ms.openlocfilehash: 95a530ea57237453a3b0d7d8dd42963f4b9c3dde
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63760392"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64713036"
 ---
 # <a name="release-notes-for-azure-hdinsight"></a>Notas de versão do Azure HDInsight
 

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3485639062f33d013152cd30f6785df4d1c79790
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7ae0e87fddabee9f42cbb5506dce4cd7a5f4f082
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350376"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918844"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Mova a base de dados do Azure AD Connect do SQL Server Express para o SQL Server 
 
@@ -25,7 +25,7 @@ Este documento descreve como mover a base de dados do Azure AD Connect do servid
 ## <a name="about-this-scenario"></a>Acerca deste cenário
 Seguem-se algumas informações breves sobre este cenário.  Neste cenário, a versão do Azure AD Connect (1.1.819.0) está instalada num controlador de domínio do Windows Server 2016 único.  Está a utilizar o SQL Server 2012 Express Edition incorporado na respetiva base de dados.  A base de dados será movida para um servidor do SQL Server de 2017.
 
-![](media/how-to-connect-install-move-db/move1.png)
+![Arquitetura do cenário](media/how-to-connect-install-move-db/move1.png)
 
 ## <a name="move-the-azure-ad-connect-database"></a>Mova a base de dados do Azure AD Connect
 Utilize os seguintes passos para mover a base de dados do Azure AD Connect para um SQL Server remoto.
@@ -37,7 +37,7 @@ Utilize os seguintes passos para mover a base de dados do Azure AD Connect para 
 5. No SQL server remoto, abra o SQL Server Management Studio.
 6. Nas Bases de dados, clique com o botão direito do rato e selecione Anexar.
 7. No ecrã **Anexar Bases de Dados**, clique em **Adicionar** e navegue para o ficheiro ADSync.mdf.  Clique em **OK**.
-   ![](media/how-to-connect-install-move-db/move2.png)
+   ![anexar a base de dados](media/how-to-connect-install-move-db/move2.png)
 
 8. Depois de anexar a base de dados, volte para o servidor do Azure AD Connect e instale o Azure AD Connect.
 9. Assim que a instalação do MSI estiver concluída, o assistente do Azure AD Connect é iniciado com a configuração do modo Express. Feche o ecrã ao clicar no ícone Sair.

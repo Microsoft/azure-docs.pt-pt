@@ -1,6 +1,6 @@
 ---
-title: Conceitos de serviços de multimédia do Azure - Azure | Documentos da Microsoft
-description: Este tópico fornece uma breve descrição geral dos conceitos de Media Services do Azure e fornece ligações para obter detalhes.
+title: Terminologia de serviços de multimédia do Azure e de conceitos - Azure | Documentos da Microsoft
+description: Este tópico fornece uma breve descrição geral dos conceitos e terminologia-serviços de multimédia do Azure e fornece ligações para obter mais detalhes.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,20 +12,38 @@ ms.topic: article
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 74a4ee03562963c8a50159f085e4b76b6d461ed9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feba7d53f196f6675aca965218046df67bbef81d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103858"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867069"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
-Este tópico fornece uma breve descrição geral dos conceitos de Media Services do Azure e fornece ligações para artigos com uma explicação detalhada sobre funcionalidades e conceitos do serviços de multimédia v3. Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.
+Este tópico apresenta uma breve descrição geral dos conceitos e terminologia-serviços de multimédia do Azure. O artigo também fornece ligações para artigos com uma explicação detalhada sobre funcionalidades e conceitos do serviços de multimédia v3. 
+
+Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.
 
 > [!NOTE]
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
 
+## <a name="terminology"></a>Terminologia
+
+Esta secção mostra como o mapeamento de alguns termos comuns da indústria, para a API dos serviços de multimédia v3.
+
+### <a name="live-event"></a>Evento Live
+
+R **evento em direto** representa um pipeline de ingestão, transcodificação (opcionalmente) e empacotamento de transmissões em direto dos metadados do vídeo, áudio e em tempo real.
+
+Para os clientes a migrar a partir dos serviços de multimédia v2 APIs, o **evento em direto** substitui o **canal** entidade no v2. Para obter mais informações, consulte [migrando do v2 para v3](migrate-from-v2-to-v3.md).
+
+### <a name="streaming-endpoint-packaging-and-origin"></a>Ponto final de transmissão em fluxo (empacotamento e a origem)
+
+R **ponto final de transmissão em fluxo** representa um dinâmico (just-in-time) empacotamento e a origem do serviço que pode distribuir os seus conteúdos em direto e a pedido diretamente a uma aplicação de leitor de cliente, utilizando um dos protocolos comuns de suporte de dados streaming (HLS ou DASH). Além disso, o **ponto final de transmissão em fluxo** fornece a encriptação dinâmica (just-in-time) para DRMs de líder da indústria.
+
+O suporte de dados da indústria de transmissão em fluxo, este serviço é frequentemente referido como um **Packager** ou **origem**.  Outros termos comuns da indústria para esta capacidade incluem JITP (Just-em-tempo-packager) ou JITE (Just-em-tempo-encriptação). 
+ 
 ## <a name="cloud-upload-and-storage"></a>Carregamento e armazenamento na cloud
 
 Para começar a gerir, encriptar, codificar, analisar e transmissão em fluxo conteúdo de multimédia do Azure, terá de criar uma conta de Media Services e carregar os ficheiros digitais num **ativos**.
@@ -52,7 +70,7 @@ Para analisar seus arquivos de áudio e vídeos, terá também de criar **transf
 
 ## <a name="packaging-delivery-protection"></a>Empacotamento, entrega, proteção
 
-Assim que o seu conteúdo está codificado, pode aproveitar **empacotamento dinâmico**. **Ponto final de transmissão em fluxo** é o serviço de empacotamento dinâmico dos serviços de multimédia utilizadas para disponibilizar conteúdo multimédia para jogadores do cliente. Para disponibilizar vídeos no recurso de saída para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e, em seguida, crie URLs de transmissão em fluxo. 
+Assim que o seu conteúdo está codificado, pode aproveitar **empacotamento dinâmico**. Nos Media Services, um **ponto final de transmissão em fluxo**  /origem é o serviço de empacotamento dinâmico utilizado para disponibilizar conteúdo multimédia para jogadores do cliente. Para disponibilizar vídeos no recurso de saída para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e, em seguida, crie URLs de transmissão em fluxo. 
 
 Ao criar o **localizador de transmissão em fluxo**, além do nome do elemento, tem de especificar **política de transmissão em fluxo**. **Políticas de transmissão em fluxo** permitem-lhe definir os protocolos de transmissão em fluxo e encriptação de opções (se houver) para a sua **localizadores de transmissão em fluxo**.
 

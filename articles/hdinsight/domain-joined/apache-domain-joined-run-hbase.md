@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: tutorial
 ms.date: 02/01/2019
-ms.openlocfilehash: 61d3256ca169952ab3dda76914293a06a044d6eb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: d1f2a2b24e6f1856d021911e6f2e9c107bd38b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62113158"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926099"
 ---
-# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutorial: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package (pré-visualização)
+# <a name="tutorial-configure-apache-hbase-policies-in-hdinsight-with-enterprise-security-package"></a>Tutorial: Configurar políticas de Apache HBase no HDInsight com o Enterprise Security Package
 
 Saiba como configurar políticas do Apache Ranger para clusters do HBase do Apache de pacote de segurança da empresa (ESP). Os clusters do ESP estão ligados a um domínio, permitindo que os utilizadores sejam autenticados com credenciais do domínio. Neste tutorial, vai criar duas políticas do Ranger para restringir o acesso para famílias de colunas diferentes numa tabela de HBase.
 

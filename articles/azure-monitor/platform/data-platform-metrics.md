@@ -11,17 +11,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: c00f703c5cfa606eaeb6ea0dea5fe5d754d3de5d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 319def9072dbf38eff44ca4459428f1ef99a2b54
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108089"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867971"
 ---
 # <a name="metrics-in-azure-monitor"></a>Métricas no Azure Monitor
 
 > [!NOTE]
-> A plataforma de dados do Azure Monitor baseia-se em dois tipos de dados fundamentais: Métricas e registos. Este artigo descreve as métricas. Consulte a [inicia sessão no Azure Monitor](data-platform-logs.md) para obter uma descrição detalhada dos registos e a [platforn de dados do Azure Monitor](data-platform.md) para obter uma comparação dos dois.
+> A plataforma de dados do Azure Monitor baseia-se em dois tipos de dados fundamentais: Métricas e registos. Este artigo descreve as métricas. Consulte a [inicia sessão no Azure Monitor](data-platform-logs.md) para obter uma descrição detalhada dos registos e a [plataforma de dados do Azure Monitor](data-platform.md) para obter uma comparação dos dois.
 
 Métricas no Azure Monitor são leves e capaz de suportar perto de cenários em tempo real, tornando-os particularmente útil para deteção de alerta e rápida de problemas. Este artigo descreve como as métricas são estruturadas, o que pode fazer com eles e identifica as origens de dados diferentes que armazenam dados em métricas.
 

@@ -1,25 +1,18 @@
 ---
-title: Unidade de teste da aplicação lógica | Documentos da Microsoft
+title: Unidade de teste da aplicação lógica | O Azure Marketplace
 description: Explica como criar a unidade de teste que se liga com uma instância do Dynamics AX/CRM ou qualquer outro recurso além do Azure apenas.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: pbutlerm
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.author: pabutler
+ms.openlocfilehash: 3dc5642541f411acc93301f6bb9828e901aba449
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61070424"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64940014"
 ---
 <a name="logic-app-test-drive"></a>Unidade de teste da aplicação lógica
 ====================

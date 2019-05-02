@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 47c99b14a41ac50e13198f934e38718e205e6e79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d62bf0d77a7e77b1fb6ece014dcd850d52d26ce0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317035"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705553"
 ---
 # <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: Protocolos de autenticação
 O Azure Active Directory B2C (Azure AD B2C) fornece identidade como um serviço para as suas aplicações com suporte a dois protocolos de norma da indústria: OpenID Connect e OAuth 2.0. O serviço é compatível com os padrões, mas qualquer duas implementações desses protocolos podem ter ligeiras diferenças. 

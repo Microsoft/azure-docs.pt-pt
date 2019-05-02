@@ -4,8 +4,8 @@ titlesuffix: Azure Virtual Network
 description: Saiba como utilizar o Azure DDoS Protection padrão telemetria no Azure Monitor para mitigar um ataque.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
-ms.author: jdial
-ms.openlocfilehash: 32c4516c7dc68b04826b362d34841160936d682d
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.author: kumud
+ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244524"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728339"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir padrão do Azure DDoS Protection através do portal do Azure
 
@@ -47,7 +47,7 @@ Criação de mais de um plano não é necessária para a maioria das organizaç�
     |Name           | myDdosProtectionPlan                              |
     |Subscrição   | Selecione a sua subscrição.                         |
     |Grupo de recursos | Selecione **criar novo** e introduza *myResourceGroup* |
-    |Localização       | EUA Leste                                           |
+    |Location       | EUA Leste                                           |
 
 ## <a name="enable-ddos-for-a-new-virtual-network"></a>Ativar o DDoS para uma nova rede virtual
 
@@ -60,7 +60,7 @@ Criação de mais de um plano não é necessária para a maioria das organizaç�
     | Nome            | myVirtualNetwork                                             |
     | Subscrição    | Selecione a sua subscrição.                                    |
     | Grupo de recursos  | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
-    | Localização        | EUA Leste                                                      |
+    | Location        | EUA Leste                                                      |
     | Proteção contra DDos | Selecione **padrão** e, em **proteção contra DDoS**, selecione **myDdosProtectionPlan**. O plano que selecionou pode ser na subscrição idêntica ou diferente do que a rede virtual, mas ambas as subscrições têm de estar associadas ao mesmo inquilino do Azure Active Directory.|
 
 Não é possível mover uma rede virtual para outro grupo de recursos ou subscrição quando padrão DDoS está ativada para a rede virtual. Se precisar de mover uma rede virtual com o padrão de DDoS ativada, desativar o padrão de DDoS em primeiro lugar, mover a rede virtual e, em seguida, ativar o padrão de DDoS. Após a mudança, são repostos os limiares de política otimizadas para todos os protegido endereços IP públicos na rede virtual.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 79c4530878783cbdb62cac630d81b65dc73c52a4
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804838"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733821"
 ---
 <a name="virtual-networking-limits-classic"></a>Os limites seguintes só se aplicam a recursos de rede geridos através do modelo de implementação clássica por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -40,7 +40,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 > [!NOTE]
 > Aumentámos recentemente todos os limites predefinidos para os limites máximos. Se não houver nenhuma coluna de limite máximo, o recurso não tem limites ajustável. Se tivesse estes limites aumentados em suporte no passado e não vir os limites atualizados nas tabelas seguintes, [abra um pedido de suporte do cliente online sem custos](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Recurso | Limite predefinido | 
+| Recurso | Limite predefinido do limite/máximo | 
 | --- | --- |
 | Redes virtuais |1,000 |
 | Sub-redes por rede virtual |3000 |

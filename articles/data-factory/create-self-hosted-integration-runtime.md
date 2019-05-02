@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565549"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728083"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -40,7 +40,7 @@ Este documento descreve como pode criar e configurar um ir autoalojado.
 
     ```powershell
 
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
 
     ```
 
@@ -63,7 +63,7 @@ Este é um fluxo de dados de alto nível para o resumo de passos para copiar com
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações sobre a utilização de um ir Autoalojado
 
 - Um runtime de integração autoalojado único pode ser utilizado para várias origens de dados no local. Um runtime de integração autoalojado único pode ser partilhado com outro fábrica de dados no mesmo inquilino do Azure Active Directory. Para obter mais informações, consulte [partilha um runtime de integração autoalojado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- Pode ter apenas uma instância de um runtime de integração autoalojado instalado numa única máquina. Se tiver duas fábricas de dados que precisam de aceder a origens de dados no local, terá de instalar o runtime de integração autoalojado em dois locais computadores cada de ambas as fábricas de dados ou utilizar o [Self-hosted IRdorecursodecompartilhamento](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories)para partilhar um runtime de integração autoalojado com outra Data Factory.  
+- Pode ter apenas uma instância de um runtime de integração autoalojado instalado numa única máquina. Se tiver duas fábricas de dados que precisam de aceder a origens de dados no local, optar por utilizar o [recurso de compartilhamento de Runtime de integração de autoalojado](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) para partilhar o runtime de integração autoalojado ou instalar o runtime de integração autoalojado em dois computadores no local, um para cada fábrica de dados.  
 - O runtime de integração autoalojado não precisa de estar no mesmo computador, como a origem de dados. No entanto, o mais perto da origem de dados com o runtime de integração autoalojado reduz o tempo para o runtime de integração autoalojado ligar à origem de dados. Recomendamos que instale o runtime de integração autoalojado num computador que é diferente dessa origem de dados de locais de anfitriões. Quando a origem de dados e do runtime de integração autoalojado em computadores diferentes, o runtime de integração autoalojado não compitam por recursos com a origem de dados.
 - Pode ter vários runtimes de integração autoalojado em diferentes computadores que se ligam à mesma origem de dados no local. Por exemplo, pode ter dois runtimes de integração autoalojado que sirva duas fábricas de dados, mas a mesma origem de dados no local é registrada em ambas as fábricas de dados.
 - Se já tiver um gateway instalado no seu computador para ser usado um cenário do Power BI, instale um runtime de integração autoalojado separada do Azure Data Factory em outra máquina.

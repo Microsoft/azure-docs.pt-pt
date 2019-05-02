@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60360406"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64705076"
 ---
 # <a name="relyingparty"></a>RelyingParty
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/19/2019
+ms.date: 04/26/2019
 ms.author: pareshmu
-ms.openlocfilehash: 95b06800b29d021290776025f9693eec8a43e74a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 61a6608a4b498cf47ece194e8cee4ea19a0333fd
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129473"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869091"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -50,7 +50,7 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | **Índia** | 2 |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | 2 |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Coreia do Sul** | 2 |Centro da Coreia, Sul da Coreia do Sul |Busan, Seul|
-| **EMIRADOS ÁRABES UNIDOS** | 2 | EAU Central, Norte dos eau | Dubai |
+| **EMIRADOS ÁRABES UNIDOS** | 3 | EAU Central, Norte dos eau | Dubai |
 | **África do Sul** | 3 |África do Sul Ocidental, Norte da África do Sul |Cidade do Cabo, Joanesburgo |
 | **América do Sul** | 3 |Sul do Brasil |São Paulo |
 

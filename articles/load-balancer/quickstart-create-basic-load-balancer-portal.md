@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db781899a3fe0d13d030943ed3ab4ebd3d105ad1
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507972"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727595"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Início rápido: Criar um balanceador de carga básico com o portal do Azure
 
@@ -235,21 +235,27 @@ Instale serviços de informação Internet (IIS) em máquinas virtuais para o aj
    
    A área de trabalho da VM abre-se numa nova janela. 
    
-**Para instalar o IIS na VM:**
+**Para instalar o IIS**
 
-1. Se **Gestor de servidores** não é estiver aberto no ambiente de trabalho de servidor, navegue até **ferramentas administrativas do Windows** > **Gestor de servidor**.
-   
-1. Na **Gestor de servidores**, selecione **para adicionar funções e funcionalidades**.
-   
-   ![Adicionar função de Gestor de servidor](./media/load-balancer-get-started-internet-portal/servermanager.png)
-   
-1. Na **Assistente para adicionar funções e funcionalidades**:
-   1. Na página **Selecionar tipo de instalação**, selecione **Instalação baseada em funções ou baseada em funcionalidades**.
-   1. Sobre o **selecionar servidor de destino** , selecione **MyVM1**.
-   1. Na página **Selecionar função de servidor**, selecione **Servidor Web (IIS)**. 
-   1. Na linha de comandos para instalar as ferramentas necessárias, selecione **adicionar funcionalidades**. 
-   1. Aceite as predefinições e selecione **instalar**. 
-   1. Quando terminar as funcionalidades a instalar, selecione **fechar**. 
+1. Selecione **todos os serviços** no menu da esquerda, selecione **todos os recursos**e, em seguida, na lista de recursos, selecione **myVM1** que se encontra no  *myResourceGroupSLB* grupo de recursos.
+2. Na página **Descrição geral**, selecione **Ligar** para estabelecer o RDP para a VM.
+5. Inicie sessão na VM com as credenciais que forneceu durante a criação desta VM. Esta ação inicia uma sessão de ambiente de trabalho remoto com a máquina virtual *myVM1*.
+6. No ambiente de trabalho do servidor, navegue para **Ferramentas Administrativas do Windows**>**Windows PowerShell**.
+7. Na Janela do PowerShell, execute os seguintes comandos para instalar o servidor IIS, remova o ficheiro iisstart.htm predefinido e, em seguida, adicione um novo ficheiro iisstart.htm que apresenta o nome da VM:
+
+   ```azurepowershell
+    
+    # install IIS server role
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    
+    # remove default htm file
+    remove-item  C:\inetpub\wwwroot\iisstart.htm
+    
+    # Add a new htm file that displays server name
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+   ```
+6. Fechar a sessão RDP com *myVM1*.
+7. Repita os passos 1 a 6 para instalar o IIS e o ficheiro iisstart.htm atualizado em *myVM2*.
    
 1. Repita os passos para a máquina virtual **MyVM2**, exceto a definir o servidor de destino **MyVM2**.
 
@@ -257,9 +263,9 @@ Instale serviços de informação Internet (IIS) em máquinas virtuais para o aj
 
 Abra um browser e cole o endereço IP público do seu Balanceador de carga na barra de endereço do browser. A página predefinida do IIS web server deve aparecer no navegador.
 
-![Servidor Web do IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
+![Servidor Web do IIS](./media/tutorial-load-balancer-standard-zonal-portal/load-balancer-test.png)
 
-Para ver o balanceador de carga a distribuir tráfego pelas três VMs que estão a executar a aplicação, pode forçar a atualização do browser.
+Para ver o balanceador de carga a distribuir tráfego pelas VMs que estão a executar a aplicação, pode forçar a atualização do browser.
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Para eliminar o Balanceador de carga e todos os recursos relacionados, quando já não precisar delas, abra a **MyResourceGroupLB** recursos de grupo e selecione **eliminar grupo de recursos**.

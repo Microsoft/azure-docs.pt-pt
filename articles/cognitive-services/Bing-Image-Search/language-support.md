@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a4c315d2696b081a4f2ac646d097e76ff9562380
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 57a96648e480c89d1112f069676edb1abcc7cfc3
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60917214"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869858"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte de idioma e região para a API de pesquisa de imagens do Bing
 
@@ -32,7 +32,7 @@ Em alternativa, pode especificar o país/região a utilizar o `cc` parâmetro de
 > - EN-AU (inglês, Austrália)
 > - zh-CN (Chinese, China)
 
-## <a name="countries"></a>Países
+## <a name="countriesregions"></a>Países/Regiões
 
 |País/região|Código|
 |-------|----|

@@ -13,18 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
-ms.openlocfilehash: e27b52c96f524f25aab18f45cf72c43884b7640d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4b4f2ec779c37f78b371c27df80c354eccb41e7a
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61227185"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869422"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versão 3](../latest/dynamic-packaging-overview.md)
 > * [Versão 2](media-services-dynamic-packaging-overview.md)
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Serviços de multimédia do Microsoft Azure podem ser utilizados para disponibilizar formatos de muitos arquivos de origem do suporte de dados, suportes de dados em fluxo em formatos, e a proteção de conteúdo formata a uma variedade de tecnologias de cliente (por exemplo, iOS, XBOX, Silverlight, Windows 8). Estes clientes compreender protocolos diferentes, por exemplo iOS requer um formato de V4 HTTP Live Streaming (HLS) e Silverlight e o Xbox precisam de transmissão em fluxo uniforme. Se tiver um conjunto de velocidade de transmissão adaptável (múltipla) MP4 ou um conjunto de arquivos transmissão em fluxo uniforme de velocidade de transmissão adaptável que deve servir para clientes que compreender MPEG DASH, HLS ou transmissão em fluxo uniforme de ficheiros (ISO Base Media 14496-12), deve tirar vantagem do suporte de dados Serviços de empacotamento dinâmico.
 

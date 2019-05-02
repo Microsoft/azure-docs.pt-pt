@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 854d0e8f6927c9ce4855435a02b4819055111ceb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3d86960e726ae18fba8d171ab9f85d7c991b4e40
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306024"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729230"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Monitorizar e gerir a criação do certificados
 Aplica-se a: Azure

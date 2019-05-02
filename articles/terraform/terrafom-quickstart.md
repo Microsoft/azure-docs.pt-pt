@@ -7,12 +7,12 @@ ms.service: azure
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: nepeters
-ms.openlocfilehash: 6c858514c29a040539516f42e024f1633c2512a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3905296fca4285ce5b75cfb210d125f667428bfe
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60905831"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724397"
 ---
 # <a name="create-a-terraform-configuration-for-azure"></a>Criar uma configuração do Terraform do Azure
 

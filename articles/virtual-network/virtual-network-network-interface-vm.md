@@ -3,8 +3,8 @@ title: Interfaces de rede para adicionar ou remover de máquinas virtuais do Azu
 description: Saiba como interfaces de rede para adicionar ou remover interfaces de rede de máquinas virtuais.
 services: virtual-network
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
-ms.author: jdial
-ms.openlocfilehash: a6371746d156fb0be2d45ac94c898652a3147a6b
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.author: kumud
+ms.openlocfilehash: 23e46290af6bdb4c217d8fa0cd836673652fc81d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56887493"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64701381"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Interfaces de rede para adicionar ou remover interfaces de rede de máquinas virtuais
 

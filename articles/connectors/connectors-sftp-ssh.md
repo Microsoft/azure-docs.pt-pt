@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f82c654b443d58c9ce38c2fb0f48c1654daeb34
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537705"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922251"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorizar, criar e gerir ficheiros SFTP através do SSH e o Azure Logic Apps
 
@@ -32,7 +32,7 @@ Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Log
 
 ## <a name="limits"></a>Limits
 
-* Ações SFTP-SSH podem ler ou gravar arquivos que estão *1 GB ou menor* através da gestão de dados como *50 MB partes*, não de 1 GB partes.
+* Ações SFTP-SSH podem ler ou gravar arquivos que estão *1 GB ou menor* através da gestão de dados como *15 MB partes*, não de 1 GB partes.
 
 * Para os ficheiros *superior a 1 GB*, podem utilizar ações [mensagem segmentação](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os acionadores SFTP-SSH não suportam a segmentação.
 
@@ -44,7 +44,7 @@ Para obter mais diferenças, reveja [comparar SFTP-SSH versus SFTP](#comparison)
 
 Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conector do SFTP em que o conector SFTP-SSH tem estas capacidades:
 
-* Utiliza a <a href="https://github.com/sshnet/SSH.NET" target="_blank"> **SSH.NET** </a> biblioteca, o que é uma biblioteca de Secure Shell (SSH) de código-fonte aberto com suporte para .NET.
+* Utiliza a [SSH.NET biblioteca](https://github.com/sshnet/SSH.NET), que é uma biblioteca de Secure Shell (SSH) de código-fonte aberto com suporte para .NET.
 
   > [!NOTE]
   >
@@ -54,7 +54,7 @@ Aqui estão outras diferenças fundamentais entre o conector SFTP-SSH e o conect
   > * **Algoritmos de encriptação**: DES-EDE3-CBC, EDE3-CFB de DES, DES-CBC, AES-CBC-de-128, 192-AES-CBC e 256-AES-CBC
   > * **Impressão digital**: MD5
 
-* Ações podem ler ou gravar arquivos *até 1 GB* em comparação com o conector do SFTP, mas os dados de identificadores em 50 MB de partes, não de 1 GB partes. Para ficheiros maiores do que 1GB, também podem utilizar ações [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os acionadores SFTP-SSH não suportam a segmentação.
+* Ações podem ler ou gravar arquivos *até 1 GB* em comparação com o conector do SFTP, mas os dados de identificadores em 15 MB de partes, não de 1 GB partes. Para ficheiros maiores do que 1GB, também podem utilizar ações [segmentação de mensagem](../logic-apps/logic-apps-handle-large-messages.md). Atualmente, os acionadores SFTP-SSH não suportam a segmentação.
 
 * Fornece a **criar pasta** ação, que cria uma pasta no caminho especificado no servidor SFTP.
 
@@ -136,7 +136,7 @@ Os acionadores SFTP-SSH trabalham consulta o sistema de ficheiros SFTP e está �
 
 Quando um acionador localiza um novo ficheiro, o acionador verifica que o novo ficheiro é completa e não parcialmente escrito. Por exemplo, um ficheiro pode ter as alterações em curso quando o acionador verifica o servidor de ficheiros. Para evitar o retorno de um arquivo parcialmente escrito, o acionador anota o carimbo de hora para o ficheiro que tem alterações recentes, mas não retorna imediatamente esse arquivo. O acionador devolver o ficheiro apenas quando consulta o servidor novamente. Às vezes, esse comportamento pode causar um atraso que é até duas vezes o acionador intervalo de consulta. 
 
-Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros maiores do que 15 MB. Para obter ficheiros maiores do que 15 MB, siga este padrão: 
 
 * Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
 
@@ -152,7 +152,7 @@ Este acionador é iniciado um fluxo de trabalho de aplicação lógica quando um
 
 **Exemplo de Enterprise**: Pode utilizar este acionador para monitorizar uma pasta SFTP para novos ficheiros que representam as encomendas de cliente. Em seguida, pode utilizar como uma ação de SFTP **obter conteúdo do ficheiro** , de modo a obter o conteúdo do pedido para processamento adicional e armazenar essa ordem numa base de dados de encomendas.
 
-Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros maiores do que 15 MB. Para obter ficheiros maiores do que 15 MB, siga este padrão: 
 
 * Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
 
@@ -164,7 +164,7 @@ Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros supe
 
 Esta ação obtém o conteúdo de um arquivo num servidor SFTP. Por exemplo, pode adicionar o acionador do exemplo anterior e uma condição que o conteúdo do ficheiro tem de cumprir. Se a condição for verdadeira, pode executar a ação que obtém o conteúdo. 
 
-Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros superior a 50 MB. Para obter os ficheiros mais de 50 MB, siga este padrão: 
+Quando solicitar o conteúdo do ficheiro, acionadores não obtêm ficheiros maiores do que 15 MB. Para obter ficheiros maiores do que 15 MB, siga este padrão: 
 
 * Utilizar um acionador que retorna as propriedades do ficheiro, tal como **quando um ficheiro é adicionado ou modificado (propriedades apenas)**.
 

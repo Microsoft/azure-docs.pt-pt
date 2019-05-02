@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: b65bad57a300d941774f5d3e5d01967f0c13d684
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22521abbc341fa9999738dd51301d3f84c18627a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60186842"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919315"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -78,7 +78,7 @@ Também pode tentar o [resolução de problemas de problemas de peering de rede 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 
 As seguintes restrições aplicam-se apenas quando as redes virtuais global em modo de peering:
-- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Existe suporte para o Balanceador de carga Standard para o Global VNet Peering.
+- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Não existe suporte para o Balanceador de carga Standard para tanto, o VNet Peering e o Global VNet Peering. Serviços que utilizam um balanceador de carga básico que não irá funcionar através de Global VNet Peering são documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Para saber mais sobre os requisitos e as limitações, veja [Requisitos e limitações do peering de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites ao número de peerings que pode criar para uma rede virtual, veja [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Limites de rede do Azure). 
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: b81dccf3c71fbaff7b0cbb9ba00f13b458156e73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f9f15c558e507742a641239ed25ba136dca0671a
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074601"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920001"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Integrar computadores para gestão de configuração de estado de automatização do Azure
 
@@ -62,8 +62,8 @@ Sob **Registro**, introduza o [valores de Gestor de configuração Local do Powe
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
-Máquinas virtuais do Azure podem ser implementadas e carregados para a configuração de estado de automatização do Azure através de modelos Azure Resource Manager. Ver [servidor gerido pelo serviço de Desired State Configuration](https://azure.microsoft.com/en-us/resources/templates/101-automation-configuration/) para um modelo de exemplo que carrega uma VM existente para a configuração de estado de automatização do Azure.
-Se estiver a gerir um conjunto de dimensionamento de Máquina Virtual, consulte o modelo de exemplo [configuração de conjunto de dimensionamento de VM geridos pela automatização do Azure](https://azure.microsoft.com/en-us/resources/templates/201-vmss-automation-dsc/).
+Máquinas virtuais do Azure podem ser implementadas e carregados para a configuração de estado de automatização do Azure através de modelos Azure Resource Manager. Ver [servidor gerido pelo serviço de Desired State Configuration](https://azure.microsoft.com/resources/templates/101-automation-configuration/) para um modelo de exemplo que carrega uma VM existente para a configuração de estado de automatização do Azure.
+Se estiver a gerir um conjunto de dimensionamento de Máquina Virtual, consulte o modelo de exemplo [configuração de conjunto de dimensionamento de VM geridos pela automatização do Azure](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -72,7 +72,7 @@ O [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/regi
 ### <a name="registering-virtual-machines-across-azure-subscriptions"></a>Registar máquinas virtuais nas subscrições do Azure
 
 É a melhor forma de registar máquinas virtuais a partir de outras subscrições do Azure utilizar a extensão de DSC num modelo de implementação Azure Resource Manager.
-São fornecidos exemplos [extensão de Desired State Configuration com modelos Azure Resource Manager](https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/dsc-template).
+São fornecidos exemplos [extensão de Desired State Configuration com modelos Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Para obter a chave de registo e o URL de registo para utilizar como parâmetros no modelo, consulte o seguinte procedimento [ **proteger registo** ](#secure-registration) secção.
 
 ## <a name="azure-virtual-machines-classic"></a>Máquinas virtuais do Azure (clássico)

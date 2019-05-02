@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dd6148d2d817b1f2465b6beaba5fd488b16ead21
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60518413"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724399"
 ---
 # <a name="manage-your-application-preferences"></a>Gerir as suas preferências de aplicação
 
@@ -36,4 +36,4 @@ Temos suporte para o tema escuro e o tema claro. Embora o tema no claro é o pad
 Agora que aprendeu como gerir o seu perfil no Azure IoT Central, este é o passo seguinte sugerido:
 
 > [!div class="nextstepaction"]
-> [Configurar o seu dashboard de aplicações](howto-configure-homepage.md)
+> [Ativar/desativar de chat ao vivo](howto-show-hide-chat.md)

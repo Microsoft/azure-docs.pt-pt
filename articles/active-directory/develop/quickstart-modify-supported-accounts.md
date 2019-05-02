@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2c68d607e7afc2e3eac675511734c8d054c427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3a4d4293eeea06e30189e0bccce488a8f44b199
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299537"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918820"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Início rápido: Modificar as contas suportadas por uma aplicação (pré-visualização)
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: Modificar as contas suportadas por uma aplicação
 
 Quando registar uma aplicação na plataforma de identidade da Microsoft, poderá querer que a mesma seja acedida apenas pelos utilizadores da sua organização. Em alternativa, também pode querer que a aplicação seja acedida pelos utilizadores em organizações externas, ou por utilizadores em organizações externas e utilizadores que não fazem necessariamente parte de uma organização (contas pessoais).
 

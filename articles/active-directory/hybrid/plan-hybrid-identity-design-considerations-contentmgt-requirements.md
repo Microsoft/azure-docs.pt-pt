@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a1ab0ee411f05b353317b0d781e0cb292c7d6a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60455861"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918446"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de gestão de conteúdos para a sua solução de identidade híbrida
 Compreender os requisitos de gestão de conteúdos para a sua empresa direto pode afetar sua decisão sobre qual solução de identidade híbrida para utilizar. Com a proliferação de vários dispositivos e a capacidade dos usuários para trazer os seus próprios dispositivos ([BYOD](https://aka.ms/byodcg)), a empresa precisa proteger os seus próprios dados, mas ele também deve manter privacidade do utilizador intactos. Normalmente, quando um utilizador tem seu próprio dispositivo, poderá também têm várias credenciais que serão alternadas, de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo que foi criado com as credenciais pessoais em comparação com aqueles criados com as credenciais da empresa. Sua solução de identidade deve ser capaz de interagir com a nuvem serviços para fornecer uma experiência totalmente integrada para o utilizador final ao mesmo tempo, certifique-se a sua privacidade e aumentar a proteção contra fugas de dados. 
 
 Sua solução de identidade irá ser aproveitada pelas diferentes controlos técnicos para fornecer gestão de conteúdos, conforme mostrado na figura abaixo:
 
-![](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
+![Controlos de segurança](./media/plan-hybrid-identity-design-considerations/securitycontrols.png)
 
 **Controlos de segurança que irão ser tirar partido do seu sistema de gerenciamento de identidade**
 

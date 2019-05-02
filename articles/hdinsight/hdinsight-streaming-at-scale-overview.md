@@ -8,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.openlocfilehash: e2b6cbabc9a0c727c9eb0232bd55048493b29128
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63763708"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64696916"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Transmissão em fluxo em escala no HDInsight
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: caba23f45c5ca22d2cd21ee239f13ae30986ed74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1dced2eecafa45b0d172b807dc492942d461de71
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327397"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919038"
 ---
 # <a name="azure-and-the-internet-of-things"></a>Azure e Internet das Coisas
 
@@ -81,7 +81,7 @@ A camada de apresentação e conectividade empresarial permite aos utilizadores 
 
 [lnk-iot-hub]: ../articles/iot-hub/about-iot-hub.md
 [lnk-iot-suite]: ../articles/iot-accelerators/about-iot-accelerators.md
-[lnk-machinelearning]: http://azure.microsoft.com/documentation/services/machine-learning/
-[Azure IoT solution accelerators]: http://azure.microsoft.com/solutions/iot
+[lnk-machinelearning]: https://azure.microsoft.com/documentation/services/machine-learning/
+[Azure IoT solution accelerators]: https://azure.microsoft.com/solutions/iot
 [lnk-protocol-gateway]:  ../articles/iot-hub/iot-hub-protocol-gateway.md
 [lnk-refarch]: http://download.microsoft.com/download/A/4/D/A4DAD253-BC21-41D3-B9D9-87D2AE6F0719/Microsoft_Azure_IoT_Reference_Architecture.pdf

@@ -5,15 +5,15 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 4/29/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392471"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938571"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir a ciclo de vida de armazenamento de Blobs do Azure
 
@@ -36,13 +36,13 @@ A política de gestão do ciclo de vida está disponível com ambos os fins gera
 
 A funcionalidade de gestão do ciclo de vida de é gratuita. Os clientes são cobrados os custos de operação normais para o [listar os Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) e [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) chamadas de API. Operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [preços do Blob de blocos](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="regional-availability"></a>Disponibilidade Regional 
+## <a name="regional-availability"></a>Disponibilidade regional 
 A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões públicas do Azure. 
 
 
 ## <a name="add-or-remove-a-policy"></a>Adicionar ou remover uma política 
 
-Pode adicionar, editar ou remover uma política com o portal do Azure, [do Azure PowerShell](https://github.com/Azure/azure-powershell/releases), a CLI do Azure, [REST APIs](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), ou uma ferramenta de cliente. Este artigo mostra como gerir a política com o portal e métodos do PowerShell.  
+Pode adicionar, editar ou remover uma política com o portal do Azure, [do Azure PowerShell](https://github.com/Azure/azure-powershell/releases), a CLI do Azure, [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies), ou uma ferramenta de cliente. Este artigo mostra como gerir a política com o portal e métodos do PowerShell.  
 
 > [!NOTE]
 > Se ativar as regras de firewall para a sua conta de armazenamento, pedidos de gestão do ciclo de vida podem ser bloqueados. Pode desbloquear estes pedidos fornecendo exceções. A omissão necessária são: `Logging,  Metrics,  AzureServices`. Para obter mais informações, consulte a secção de exceções na [configurar firewalls e redes virtuais](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
@@ -80,7 +80,47 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 
 ```
+## <a name="arm-template-with-lifecycle-management-policy"></a>Modelo ARM com a política de gestão do ciclo de vida
 
+Pode definir e implementar a gestão de ciclo de vida como parte da sua implementação de solução do Azure através de modelos ARM. A seguir é um modelo de exemplo para implementar uma conta de armazenamento RA-GRS GPv2 com uma política de gestão do ciclo de vida. 
+
+```json
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {
+    "storageAccountName": "[uniqueString(resourceGroup().id)]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[variables('storageAccountName')]",
+      "location": "[resourceGroup().location]",
+      "apiVersion": "2019-04-01",
+      "sku": {
+        "name": "Standard_RAGRS"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "networkAcls": {}
+      }
+    },
+    {
+      "name": "[concat(variables('storageAccountName'), '/default')]",
+      "type": "Microsoft.Storage/storageAccounts/managementPolicies",
+      "apiVersion": "2019-04-01",
+      "dependsOn": [
+        "[variables('storageAccountName')]"
+      ],
+      "properties": {
+        "policy": {...}
+      }
+    }
+  ],
+  "outputs": {}
+}
+```
 
 ## <a name="policy"></a>Política
 
@@ -305,8 +345,8 @@ Para dados que são modificados e acedidos regularmente ao longo de seu ciclo de
   ]
 }
 ```
-## <a name="faq---i-created-a-new-policy-why-are-the-actions-not-run-immediately"></a>FAQ - Criei uma nova política, por que as ações não serão executadas imediatamente? 
-
+## <a name="faq"></a>FAQ 
+**Criei uma nova política, por que as ações não serão executadas imediatamente?**  
 A plataforma executa a política de ciclo de vida de uma vez por dia. Depois de configurar uma política, pode demorar até 24 horas para algumas ações (como disposição em camadas e eliminação) para ser executado pela primeira vez.  
 
 ## <a name="next-steps"></a>Passos Seguintes

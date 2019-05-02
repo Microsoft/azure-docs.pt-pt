@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: ghogen
-ms.openlocfilehash: d95bd114be712953b79ef5afbb0915173f6de26c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 154eaa577ea66056c301db9516b425931b81d24d
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764569"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64730424"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Adicionar o Key Vault à sua aplicação web com o Visual Studio ligado Services
 

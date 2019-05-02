@@ -9,11 +9,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.openlocfilehash: dfbbdf3f2414f7b00445b271b667ad761ba93df0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098884"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724363"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Otimizar tarefas do Apache Spark
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 640c65b1f6995a6c5fb7a3a1fcfeb580aecf5c43
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324559"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869413"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger recursos da CDN do Azure com a autenticação de token
 
@@ -86,7 +86,7 @@ O fluxograma a seguir descreve como a CDN do Azure valida um pedido de cliente q
 
       ![Chave de configuração de autenticação de token de CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-   4. Utilize a ferramenta de criptografar para definir os parâmetros de encriptação e gerar um token. Com a ferramenta de encriptar, pode permitir ou negar pedidos com base na hora de expiração, o país, o referenciador, o protocolo e o IP de cliente (em qualquer combinação). Embora não exista nenhum limite para o número e a combinação de parâmetros que podem ser combinados para formar um token, o comprimento total de um token está limitado a 512 carateres. 
+   4. Utilize a ferramenta de criptografar para definir os parâmetros de encriptação e gerar um token. Com a ferramenta de encriptar, pode permitir ou negar pedidos com base na hora de expiração, o país/região, o referenciador, o protocolo e o IP de cliente (em qualquer combinação). Embora não exista nenhum limite para o número e a combinação de parâmetros que podem ser combinados para formar um token, o comprimento total de um token está limitado a 512 carateres. 
 
       ![Ferramenta de encriptar de CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
@@ -120,11 +120,11 @@ O fluxograma a seguir descreve como a CDN do Azure valida um pedido de cliente q
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Permite apenas pedidos provenientes de um ou mais países especificados. Pedidos provenientes de todos os outros países serão negados. Utilizar duas letras [indicativo de país ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) para cada país e separar cada um deles com uma vírgula; não adicione um espaço. Por exemplo, se quiser autorizar o acesso apenas a Estados Unidos e em França, introduza `US,FR`.</td>
+      >    <td>Permite apenas pedidos provenientes de um ou mais especificados países/regiões. Pedidos provenientes de todos os outros países/regiões serão negados. Utilizar duas letras [indicativo de país ISO 3166](/previous-versions/azure/mt761717(v=azure.100)) para cada país e separar cada um deles com uma vírgula; não adicione um espaço. Por exemplo, se quiser autorizar o acesso apenas a Estados Unidos e em França, introduza `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 
-      >    <td>Nega pedidos provenientes de um ou mais países especificados. São permitidos pedidos provenientes de todos os outros países. A implementação é igual a <b>ec_country_allow</b> parâmetro. Se um código de país está presente em ambos os <b>ec_country_allow</b> e <b>ec_country_deny</b> parâmetros, o <b>ec_country_allow</b> parâmetro tem precedência.</td>
+      >    <td>Nega pedidos provenientes de um ou mais especificados países/regiões. São permitidos pedidos provenientes de todos os outros países/regiões. A implementação é igual a <b>ec_country_allow</b> parâmetro. Se um código de país está presente em ambos os <b>ec_country_allow</b> e <b>ec_country_deny</b> parâmetros, o <b>ec_country_allow</b> parâmetro tem precedência.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_ref_allow</b></td>

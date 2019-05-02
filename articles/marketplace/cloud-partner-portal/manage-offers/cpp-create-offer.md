@@ -1,25 +1,18 @@
 ---
-title: Criar ofertas do Marketplace - Azure Marketplace | Documentos da Microsoft
+title: Criar ofertas do Marketplace | O Azure Marketplace
 description: Criar ofertas no Azure e mercados de AppSource com o Portal de parceiro de Cloud
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: pbutlerm
-ms.openlocfilehash: af9b34d90098409135020fa8a45ecd0253f25b22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: cc0d8e68578500d4fa5f1b167790d60c8f7c5067
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825716"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64942165"
 ---
 # <a name="create-azure-marketplace-and-appsource-offers"></a>Criar ofertas do Azure Marketplace e AppSource
 

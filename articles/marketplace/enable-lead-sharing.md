@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 346ebd9636623a2fc8b08d42c2170a21a5e9a316
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 9aecef81547131e6f843fdd55db259d2c4299c9c
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121083"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64938683"
 ---
 # <a name="enable-lead-sharing"></a>Ativar a partilha de oportunidades potenciais
 Garantir que a gestão de oportunidades potenciais está ativado para a listagem na [do Azure Marketplace](https://azuremarketplace.microsoft.com) ou [Microsoft AppSource](https://appsource.microsoft.com) podem ajudar a receber informações de contacto para o seguinte público:

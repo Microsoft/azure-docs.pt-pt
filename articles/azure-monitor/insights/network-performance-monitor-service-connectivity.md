@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119340"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719300"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
@@ -59,7 +59,7 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 Comece a criar seus testes para monitorizar a conectividade de rede para os pontos finais de serviço.
 
 1. Selecione o **Monitor de conectividade do serviço** separador.
-2. Selecione **Add Test**e introduza o nome do teste e a descrição. 
+2. Selecione **Add Test**e introduza o nome do teste e a descrição. Pode criar testes de 450 máximos por área de trabalho. 
 3. Selecione o tipo de teste:<br>
 
     * Selecione **Web** para monitorizar a conectividade a um serviço que responde a pedidos HTTP/S, como outlook.office365.com ou bing.com.<br>

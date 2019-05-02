@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b477171be0f306431b0f7c5965ebede4f4680c22
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249940"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918720"
 ---
 # <a name="web-api"></a>API Web
 
@@ -69,7 +69,7 @@ Veja os exemplos de código para a aplicação Web para cenários de Web API. E,
 
 ## <a name="app-registration"></a>Registo de aplicações
 
-Registar uma aplicação com o ponto de final de versão 1.0 do Azure AD, consulte [registar uma aplicação com o ponto de final do Azure AD v1.0](quickstart-v1-add-azure-ad-app.md).
+Registar uma aplicação com o ponto de final de versão 1.0 do Azure AD, consulte [registar uma aplicação](quickstart-register-app.md).
 
 * Inquilino único, para a identidade da aplicação e casos de identidade do utilizador delegado, a aplicação web e a API web têm de estar registado no mesmo diretório no Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são utilizadas para limitar o acesso da aplicação web para seus recursos. Se está a ser utilizado um tipo de identidade do utilizador delegado, a aplicação web tem de selecionar as permissões pretendidas a partir da **permissões para outras aplicações** menu pendente no portal do Azure. Este passo não é necessário se o tipo de identidade da aplicação está a ser utilizado.
 * Multi-inquilino-em primeiro lugar, a aplicação web está configurado para indicar as permissões que ele requer que seja funcional. Esta lista de permissões necessárias é mostrada numa caixa de diálogo quando um utilizador ou administrador no diretório de destino dá consentimento para a aplicação, o que torna disponível para a sua organização. Apenas algumas aplicações necessitam de permissões de nível de usuário, que pode consentir qualquer utilizador na organização. Outras aplicações requerem permissões de nível de administrador, que não pode autorizar um utilizador na organização. Apenas um administrador do diretório pode dar consentimento a aplicações que exigem esse nível de permissões. Quando o utilizador ou administrador autorizar, o aplicativo web e a API web são ambos registados no respetivo diretório.

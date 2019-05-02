@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako;cenkd;anilmur
-ms.openlocfilehash: adacce5c8307f3be972920bd3aef6d8ea912eb30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6e09ce83296fccfbcb4a04913d55961e0da4de79
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991991"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720796"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>Utilizar o codificador de NewTek tricaster para enviar um fluxo em direto com velocidade de transmissão única  
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "57991991"
 >
 >
 
-Este artigo mostra como configurar o [codificador de NewTek TriCaster](http://newtek.com/products/tricaster-40.html) codificador em direto para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o [codificador de NewTek TriCaster](https://newtek.com/products/tricaster-40.html) codificador em direto para enviar um fluxo de velocidade de transmissão única para o AMS canais que estão ativados para live encoding. Para obter mais informações, consulte [Trabalhar com Canais Ativados para Realizar Live Encoding com Media Services do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerir o Azure Media Services (AMS) com a ferramenta do Explorador de serviços de multimédia do Azure (AMSE). Essa ferramenta só é executado no PC do Windows. Se estiver no Mac ou Linux, utilize o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 

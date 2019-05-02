@@ -17,12 +17,12 @@ ms.date: 11/21/2018
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b59471cd8af02513186fa4437a2249b056cc324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d603ddbba9e36d562c8dcd6e3844af28c91255
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354523"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918841"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planear a sua implementação de associação do Azure AD
 
@@ -135,7 +135,11 @@ Associação ao Azure AD:
 
 ### <a name="management-platform"></a>Plataforma de gestão
 
-Gestão de dispositivos para dispositivos associados ao Azure AD se baseia numa plataforma MDM, como o Intune) e CSPs de MDM. Windows 10 tem um agente MDM incorporado que funciona com todas as soluções MDM compatíveis.
+Gestão de dispositivos para dispositivos associados ao Azure AD se baseia numa plataforma MDM como o Intune e MDM CSPs. Windows 10 tem um agente MDM incorporado que funciona com todas as soluções MDM compatíveis.
+
+> [!NOTE]
+> As políticas de grupo não são suportadas em dispositivos associados ao Azure AD, como não estiverem ligados ao Active Directory no local. Gestão de dispositivos associados ao Azure AD só é possível através de MDM
+
 
 Existem duas abordagens para gerir o Azure AD dispositivos associados ao:
 
@@ -143,7 +147,6 @@ Existem duas abordagens para gerir o Azure AD dispositivos associados ao:
 
 - **Cogestão** -um dispositivo é gerido por um fornecedor de MDM e o SCCM. Nesta abordagem, o agente do SCCM é instalado num dispositivo gerido pelo MDM para administrar determinados aspetos.
 
-Uma vez associado ao Azure AD dispositivos não estiverem ligados ao Active Directory no local, as políticas de grupo não são suportadas.
 
 
 Se estiver a utilizar as políticas de grupo, avaliar a paridade de política MDM, utilizando o [ferramenta de análise de migração de MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 

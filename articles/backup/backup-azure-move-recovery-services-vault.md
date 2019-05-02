@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 8d5d6ed6c14927c57279cf500518f3b3a86d591d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72bfbc34f57e7725ae9556e893825900474317cb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699840"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876838"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Mover um cofre dos serviços de recuperação através de subscrições do Azure e grupos de recursos
 
@@ -21,7 +21,7 @@ Este artigo explica como mover um cofre de serviços de recuperação configurad
 
 ## <a name="supported-region"></a>Região suportada
 
-Movimentação do recurso para o Cofre dos serviços de recuperação é suportada no Leste da Austrália, leste do Sul da Austrália, Canadá Central, leste do Canadá, Sudeste asiático, Ásia Oriental, E.U.A. Central, e.u.a. Centro-Norte, E.U.A. leste, e.u.a. Leste 2, Centro-Sul central nos e.u.a. centro-oeste, oeste oeste2, E.U.A. oeste, Índia central, Sul da Índia, leste do Japão, oeste do Japão, Coreia Central, Coreia do Sul, Europa do Norte, Europa Ocidental, Norte da África do Sul, África do Sul Ocidental, sul do Reino Unido, oeste do Reino Unido, eau Central e Norte dos eau.
+Movimentação do recurso para o Cofre dos serviços de recuperação é suportada no Leste da Austrália, leste do Sul da Austrália, Canadá Central, leste do Canadá, Sudeste asiático, Ásia Oriental, E.U.A. Central, e.u.a. Centro-Norte, E.U.A. leste, e.u.a. Leste 2, Centro-Sul central nos e.u.a. centro-oeste, oeste oeste2, E.U.A. oeste, Índia central, Sul da Índia, leste do Japão, oeste do Japão, Coreia Central, Coreia do Sul, Europa do Norte, Europa Ocidental, Norte da África do Sul, África do Sul Ocidental, sul do Reino Unido e oeste do Reino Unido.
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>Pré-requisitos para o Cofre dos serviços de recuperação de movimentação
 

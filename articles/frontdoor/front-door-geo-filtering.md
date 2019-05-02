@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 1d6343705e8d27fb2d22827cf792de332861456e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: da56c9664ce533709676ded677add4a2391dce03
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736603"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64865872"
 ---
 # <a name="what-is-geo-filtering-on-a-domain-for-azure-front-door"></a>O que é filtragem geográfica num domínio para a porta da frente do Azure?
 
-Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, talvez queira restringir o acesso às suas aplicações Web por país. Serviço da Web application firewall (WAF) desde início permite-lhe definir uma política com as regras de acesso personalizado para um caminho específico no seu ponto final para permitir ou bloquear o acesso de países especificados. 
+Por predefinição, o Azure Front Door Service responde aos pedidos de utilizador independentemente da localização do utilizador que efetua o pedido. No entanto, em alguns casos, talvez queira restringir o acesso aos seus aplicativos web por país/região. Serviço da Web application firewall (WAF) desde início permite-lhe definir uma política com as regras de acesso personalizado para um caminho específico no seu ponto final para permitir ou bloquear o acesso a partir de países/regiões especificados. 
 
 Uma política de WAF geralmente inclui um conjunto de regras personalizadas. Uma regra é constituída por condições de correspondência, uma ação e uma prioridade. Numa condição de correspondência, vai definir uma variável de correspondência, um operador e um valor de correspondência.  Para a regra de filtragem geográfica, a variável é REMOTE_ADDR, o operador é GeoMatch e o valor é o código de país de duas letras de interesse. Pode combinar uma condição GeoMatch e uma condição de correspondência de cadeia de carateres REQUEST_URI para criar uma regra de filtragem geográfica baseada no caminho.
 
@@ -62,7 +62,7 @@ Pode configurar uma política de filtragem geográfica para a porta de entrada p
 | BY | Bielorrússia|
 | BZ | Belize|
 | CA | Canadá|
-| CD | Congo, República Democrática do|
+| CD | República Democrática do Congo|
 | CF | República Centro-Africana|
 | CH | Suíça|
 | CI | Costa do Marfim|

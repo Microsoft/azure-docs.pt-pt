@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
 ms.openlocfilehash: ac7984c50e6adec888c112cc260cf2e6af02fc97
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114466"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64695703"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster do Apache HBase para uma nova versão
 

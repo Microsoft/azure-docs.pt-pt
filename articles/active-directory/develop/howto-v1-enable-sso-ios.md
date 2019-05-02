@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e79b73123b33a012c062a89fb9748fa101fabcea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299622"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917220"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos iOS através da ADAL
 
@@ -44,7 +44,7 @@ Nesta explicação de procedimento aplica-se a:
 
 Nesta explicação de procedimento parte do princípio de que sabe como:
 
-* Aprovisione a sua aplicação com o portal de legado para o Azure AD. Para obter mais informações, consulte [registar uma aplicação com o ponto de final de versão 1.0 do Azure AD](quickstart-v1-add-azure-ad-app.md)
+* Aprovisione a sua aplicação com o portal de legado para o Azure AD. Para obter mais informações, consulte [registar uma aplicação](quickstart-register-app.md)
 * Integrar a aplicação com o [SDK iOS do Azure AD](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
 ## <a name="single-sign-on-concepts"></a>Conceitos de início de sessão únicos

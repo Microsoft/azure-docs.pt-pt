@@ -1,5 +1,5 @@
 ---
-title: Registar uma aplicação na plataforma de identidade da Microsoft (Pré-visualização) | Azure
+title: Registar uma aplicação com a plataforma de identidade da Microsoft – plataforma de identidade da Microsoft
 description: Saiba como adicionar e registar uma aplicação na plataforma de identidade da Microsoft.
 services: active-directory
 documentationcenter: ''
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2e78a837588ef177182f0c13db49e480845f772
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299604"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918756"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Início rápido: Registar uma aplicação com a plataforma de identidade da Microsoft (pré-visualização)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início rápido: Registar uma aplicação com a plataforma de identidade da Microsoft
 
 Os programadores empresariais e os fornecedores de software como serviço (SaaS) podem desenvolver serviços cloud comerciais ou aplicações de linha de negócio que podem ser integrados na plataforma de identidade da Microsoft, de modo a proporcionar início de sessão protegido e autorização para os serviços que oferecem.
 
-Este início rápido mostra como adicionar e registar uma aplicação com a experiência **Registos de aplicações (Pré-visualização)** no portal do Azure para que a sua aplicação possa ser integrada na plataforma de identidade da Microsoft. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registos de aplicação, veja [nesta mensagem de blogue](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
+Este início rápido mostra como adicionar e registe-se de uma aplicação com o **registos das aplicações** experiência no portal do Azure, para que a sua aplicação pode ser integrada com a plataforma de identidade da Microsoft. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registos de aplicação, veja [nesta mensagem de blogue](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="prerequisite"></a>Pré-requisito
 

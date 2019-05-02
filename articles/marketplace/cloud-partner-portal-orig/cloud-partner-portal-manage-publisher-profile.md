@@ -1,25 +1,19 @@
 ---
-title: Gerir o perfil do publicador "Azure Marketplace" e 'AppSource'
-description: Gerir o perfil do publicador "Azure Marketplace" e 'AppSource'
+title: Gerir o perfil de publicador do Azure Marketplace e AppSource
+description: Gerir o perfil de publicador do Azure Marketplace e AppSource
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: qianw211
 manager: pbutlerm
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
-ms.author: pbutlerm
-ms.openlocfilehash: c73c846db4b22d8c19ccdaa2ec99a3fe7fdadf78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: a72259e1deb97ca0256de5bfd3b2f6c78d92e3c8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777244"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935351"
 ---
 # <a name="manage-azure-marketplace-and-appsource-publisher-profile"></a>Gerir o perfil do publicador "Azure Marketplace" e 'AppSource'
 

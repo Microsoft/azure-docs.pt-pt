@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
 ms.openlocfilehash: 44b965bd60d976d4d28dc5e31d78a1c838d4ee02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60542361"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64704668"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais de computação de elevado desempenho
 

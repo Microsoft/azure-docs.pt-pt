@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36ef27dfb4a5d77ec2e595013a82f55cdf240c0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3b4c3bac1a2d62246fa5a7ff3a348c6cb2652ea1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465699"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868173"
 ---
 # <a name="use-azure-webhooks-to-monitor-media-services-job-notifications-with-net"></a>Utilizar Webhooks de Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET 
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Quando executa tarefas, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode monitorizar as notificações de trabalho de serviços de multimédia, através de Webhooks do Azure ou [armazenamento de filas do Azure](media-services-dotnet-check-job-progress-with-queues.md). Este artigo mostra como trabalhar com webhooks.
 
@@ -31,7 +34,7 @@ Este artigo mostra como
     
     Neste caso, o webhook é acionado pelos serviços de multimédia, quando a tarefa de codificação altera o estado. A função de escuta para a chamada de webhook de notificações de serviços de multimédia e publica o elemento de saída depois da tarefa é concluída. 
     
-    >[!NOTE]
+    >[!TIP]
     >Antes de continuar, certifique-se de que compreende como [enlaces de HTTP de funções do Azure e webhook](../../azure-functions/functions-bindings-http-webhook.md) trabalhar.
     >
     

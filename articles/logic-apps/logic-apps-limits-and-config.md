@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c211d479efe086bb739b91034c6d9e349358b2d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303677"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916802"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -179,45 +179,18 @@ Aqui estão os limites dos conectores personalizados que pode criar a partir de 
 
 Aqui estão os limites no número de artefactos para cada conta de integração. Para obter mais informações, consulte [preços de aplicações lógicas](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-*Escalão gratuito*
+> [!NOTE] 
+> Utilize o escalão gratuito apenas para cenários de exploratórios, não os cenários de produção. Este escalão restringe o débito e a utilização e não tem nenhum contrato de nível de serviço (SLA).
 
-Utilize o escalão gratuito apenas para cenários de exploratórios, não os cenários de produção. Este escalão restringe o débito e a utilização e não tem nenhum contrato de nível de serviço (SLA).
-
-| Artefacto | Limite | Notas |
-|----------|-------|-------|
-| Assemblagens | 10 | |
-| Configurações de batch | 5 |
-| Certificados | 25 | |
-| Contratos comerciais de EDI | 10 | |
-| Parceiros comerciais EDI | 25 | |
-| Maps | 25 | |
-| Esquemas | 25 |
-||||
-
-*Escalão básico*
-
-| Artefacto | Limite | Notas |
-|----------|-------|-------|
-| Assemblagens | 25 | |
-| Configurações de batch | 1 | |
-| Certificados | 2 | |
-| Contratos comerciais de EDI | 1 | |
-| Parceiros comerciais EDI | 2 | |
-| Maps | 500 | |
-| Esquemas | 500 |
-||||
-
-*Escalão Standard*
-
-| Artefacto | Limite | Notas |
-|----------|-------|-------|
-| Assemblagens | 50 | |
-| Configurações de batch | 50 |
-| Certificados | 500 | |
-| Contratos comerciais de EDI | 500 | |
-| Parceiros comerciais EDI | 500 | |
-| Maps | 1,000 | |
-| Esquemas | 1,000 |
+| Artefacto | Gratuito | Básica | Standard |
+|----------|------|-------|----------|
+| Contratos comerciais de EDI | 10 | 1 | 500 |
+| Parceiros comerciais EDI | 25 | 2 | 500 |
+| Maps | 25 | 500 | 1,000 |
+| Esquemas | 25 | 500 | 1,000 |
+| Assemblagens | 10 | 25 | 50 |
+| Certificados | 25 | 2 | 500 |
+| Configurações de batch | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -304,7 +277,7 @@ O Logic Apps não suporta a ligação direta para contas de armazenamento do Azu
 | Sul da Índia | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sudeste Asiático | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | EUA Centro-Oeste | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Europa Ocidental | 13.95.155.53, 52.174.49.6, 52.174.49.6, 52.174.54.218 |
+| Europa Ocidental | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | Oeste da Índia | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | EUA Oeste | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | EUA Oeste 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |

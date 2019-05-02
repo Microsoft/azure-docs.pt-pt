@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 97309a24c0ab12720f968409856a16cab4ff7ac7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60013261"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714903"
 ---
 # <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Criar e formar um modelo preditivo em R com os serviços de aprendizagem de máquina de base de dados de SQL do Azure (pré-visualização)
 
@@ -171,7 +171,7 @@ VALUES (
 
 **Resultados**
 
-![Modelo preparado com saída adicional](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
+![Modelo preparado com saída adicional](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
 ## <a name="score-new-data-using-the-trained-model"></a>Classificar dados novos com o modelo preparado
 
@@ -239,7 +239,7 @@ Reparou que os dados de preparação originais param nos 45 quilómetros por hor
 
    **Resultados**
 
-   ![Conjunto de resultados para prever a distância de paragem](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
+   ![Conjunto de resultados para prever a distância de paragem](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
 > Neste script de exemplo, o `str` função é adicionada durante a fase de teste para verificar o esquema de dados que está a ser retornada do R. Pode remover a instrução mais tarde.
@@ -248,10 +248,9 @@ Reparou que os dados de preparação originais param nos 45 quilómetros por hor
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre o Machine Learning Services, consulte os artigos abaixo. Embora alguns dos seguintes artigos para o SQL Server, a maioria das informações também é aplicável ao Machine Learning Services (com R) na base de dados do Azure SQL.
+Para obter mais informações sobre serviços do Azure SQL Database Machine Learning com R (pré-visualização), consulte os artigos seguintes.
 
-- [SQL do Azure da base de dados serviços de Machine Learning (com R)](sql-database-machine-learning-services-overview.md)
-- [Serviços de Machine Learning do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Aprenda a análise de na base de dados com o R no SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
-- [End-to-end data science walkthrough for R and SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) (Instruções completas de ciência de dados para R e SQL Server)
-- [Tutorial: Utilizar funções de RevoScaleR R com dados do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Serviços do Azure SQL da base de dados Machine Learning com R (pré-visualização)](sql-database-machine-learning-services-overview.md)
+- [Criar e executar scripts simples do R no SQL da base de dados serviços Azure Machine Learning (pré-visualização)](sql-database-quickstart-r-create-script.md)
+- [Escrever funções avançadas do R na base de dados do SQL Azure com serviços do Machine Learning (pré-visualização)](sql-database-machine-learning-services-functions.md)
+- [Trabalhar com dados de R e SQL no SQL da base de dados serviços Azure Machine Learning (pré-visualização)](sql-database-machine-learning-services-data-issues.md)

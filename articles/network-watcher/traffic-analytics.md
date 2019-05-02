@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;kumud
-ms.openlocfilehash: 2f283421a851914822f5b0c9d05ed6bc929d28c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a4ae997398c85dc99af8711f1c6ce4e743592d73
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60430128"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939899"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -176,7 +176,7 @@ Selecione as opções seguintes, conforme mostrado na imagem:
 
     ![Seleção de conta de armazenamento, área de trabalho do Log Analytics e ativação de análise de tráfego](./media/traffic-analytics/selection-of-storage-account-log-analytics-workspace-and-traffic-analytics-enablement-nsg-flowlogs-v2.png)
 
-Repita os passos anteriores para quaisquer outros NSGs para o qual pretende ativar a análise de tráfego para. Dados dos registos de fluxo são enviados para a área de trabalho, por isso, certifique-se de que as leis e regulamentações locais no seu país permitem o armazenamento de dados na região onde a área de trabalho existe.
+Repita os passos anteriores para quaisquer outros NSGs para o qual pretende ativar a análise de tráfego para. Dados dos registos de fluxo são enviados para a área de trabalho, por isso, certifique-se de que as leis e regulamentações locais no seu país/região permitem o armazenamento de dados na região onde a área de trabalho existe.
 
 Também pode configurar a análise de tráfego com o [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) cmdlet do PowerShell do Azure PowerShell. Executar `Get-Module -ListAvailable Az` para encontrar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps).
 
@@ -270,13 +270,13 @@ Algumas das informações que talvez queira obter após a análise de tráfego �
 
     ![Distribuição de tráfego apresentando do dashboard](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- O mapa geográfico mostra a faixa de opções principal para a seleção de parâmetros, tais como a centros de dados (análise de implementado/não-implementação/ativo/inativo/tráfego ativado/análise de tráfego não ativada) e os países que contribuem com tráfego Benign/maliciosos para o Active Directory implementação:
+- O mapa geográfico mostra a faixa de opções principal para a seleção de parâmetros, tais como a centros de dados (análise de implementado/não-implementação/ativo/inativo/tráfego ativado/análise de tráfego não ativada) e países/regiões que contribuem com tráfego Benign/maliciosos para o Active Directory implementação:
 
     ![Vista do mapa geográfico que mostra a implementação ativa](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
-- O mapa geográfico mostra a distribuição de tráfego para um centro de dados de países e continentes comunicar a ele, em vermelho (tráfego malicioso) e azul (tráfego benigno), colorido linhas:
+- O mapa geográfico mostra a distribuição de tráfego para um centro de dados de países/regiões e continentes comunicar a ele, em vermelho (tráfego malicioso) e azul (tráfego benigno), colorido linhas:
 
-    ![Vista do mapa geográfico que mostra a distribuição de tráfego em países e continentes](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
+    ![Vista do mapa geográfico que mostra a distribuição de tráfego para os países/regiões e continentes](./media/traffic-analytics/geo-map-view-showcasing-traffic-distribution-to-countries-and-continents.png)
 
     ![Detalhes para a distribuição de tráfego na pesquisa de registos do fluxo](./media/traffic-analytics/flow-details-for-traffic-distribution-in-log-search.png)
 

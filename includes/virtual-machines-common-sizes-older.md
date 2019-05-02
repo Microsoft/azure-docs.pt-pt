@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/11/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: d89a9c4c4498e249dbfbd453ef9772d18ffd213f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7196a2ea794c1d17a2c55c05accb447d83929972
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60541629"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744480"
 ---
 Esta seção fornece informações sobre suporte a gerações anteriores de tamanhos de máquina virtual. Estes tamanhos ainda são suportados mas não receberão a capacidade adicional. Existem mais recente ou alternativos tamanhos que estão disponíveis em geral. Consulte a [máquinas de virtuais de tamanhos para Windows no Azure](../articles/virtual-machines/windows/sizes.md) ou [tamanhos de máquinas de virtuais do Linux no Azure](../articles/virtual-machines/linux/sizes.md) para escolher a VM tamanhos que serão melhor acordo com as suas necessidades.  
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f851fd2857650dd00e365abf71ec5f0199db6d57
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738192"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711582"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de Runbooks na automatização do Azure
 
@@ -78,6 +78,9 @@ else
 ### <a name="time-dependant-scripts"></a>Scripts de dependentes do tempo
 
 Consideração cuidadosa deve ser efetuada durante a criação de runbooks. Como mencionado anteriormente, os runbooks precisam de ser autoradas numa forma que eles são robustos e pode lidar com erros transitórios que podem fazer com que o runbook para reiniciar ou efetuar a ativação. Se um runbook falhar, será repetida. Se um runbook normalmente é executado dentro de uma restrição de tempo, a lógica para verificar o tempo de execução devem ser implementado no runbook para garantir operações como iniciar, encerrar ou aumentar horizontalmente são executados apenas durante horas específicas.
+
+> [!NOTE]
+> A hora local do processo de sandbox do Azure é definida como hora UTC. Cálculos de data e hora em seus runbooks tem de ter isto em consideração.
 
 ### <a name="tracking-progress"></a>Acompanhando o progresso
 

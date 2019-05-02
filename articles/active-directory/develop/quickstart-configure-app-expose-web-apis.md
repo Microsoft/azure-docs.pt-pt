@@ -1,5 +1,5 @@
 ---
-title: Configurar uma aplicação para expor APIs Web (Pré-visualização) | Azure
+title: Configurar uma aplicação para expor as APIs - a plataforma de identidade do Microsoft web
 description: Saiba como configurar uma aplicação para expor uma nova permissão/âmbito e função para disponibilizar a aplicação às aplicações cliente.
 services: active-directory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 04/30/2019
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a0b31aebfe431aca43dc763c2f168f123889b72
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443675"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918883"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Início rápido: Configurar uma aplicação para expor web APIs (pré-visualização)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início rápido: Configurar uma aplicação para expor as APIs web
 
 Pode programar uma API Web e expor [permissões/âmbitos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles) para a disponibilizar às aplicações cliente. As APIs Web configuradas corretamente são disponibilizadas tal e qual as outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365.
 

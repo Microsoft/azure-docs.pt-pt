@@ -1,25 +1,18 @@
 ---
-title: Automatizar a publicação da oferta | Documentos da Microsoft
+title: Automatizar a publicação da oferta | O Azure Marketplace
 description: Explica como programaticamente automatizar o fluxo de trabalho de publicação de máquina virtual.
 services: Azure, Marketplace, Cloud Partner Portal,
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
-ms.openlocfilehash: 929bff618bfca0405b8c1a2b53d5fbacad9ad5f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: pabutler
+ms.openlocfilehash: 0a927c72a82c6aa3c79988c599ea8b840821a2b8
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727101"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64935888"
 ---
 <a name="automate-offer-publishing"></a>Automatizar a publicação da oferta
 =========================

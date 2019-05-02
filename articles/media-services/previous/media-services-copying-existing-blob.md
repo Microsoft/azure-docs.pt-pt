@@ -13,25 +13,27 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 36bfd1787e9f35ac4eaa8b8418df1e592386e8f4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 15d2f16b2c4133e40c7f77390e83504397c47980
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61243355"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868163"
 ---
 # <a name="copying-existing-blobs-into-a-media-services-asset"></a>Copiar blobs existentes num elemento de serviços de multimédia
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+
 Este artigo mostra como copiar blobs a partir de uma conta de armazenamento num novo Azure Media Services (AMS) asset utilizando [extensões do SDK de .NET do Azure Media Services](https://github.com/Azure/azure-sdk-for-media-services-extensions/).
+
+Não deve tentar alterar os conteúdos de contentores de BLOBs que foram gerados pelos serviços de multimédia sem utilizar as APIs de serviço de suporte de dados.
 
 Os métodos de extensão de trabalho com:
 
 - Ativos regulares.
 - Arquivo Live ativos (FragBlob formato).
 - Recursos de origem e de destino que pertencem a diferentes contas de serviços de multimédia (mesmo em data centers diferentes). No entanto, podem haver encargos incorridos ao fazer isso. Para obter mais informações sobre preços, consulte [as transferências de dados](https://azure.microsoft.com/pricing/#header-11).
-
-> [!NOTE]
-> Não deve tentar alterar os conteúdos de contentores de BLOBs que foram gerados pelos serviços de multimédia sem utilizar as APIs de serviço de suporte de dados.
-> 
 
 O artigo mostra dois exemplos de código:
 

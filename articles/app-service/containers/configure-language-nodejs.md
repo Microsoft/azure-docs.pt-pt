@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 43dc76e6d1e1ec2a6167f1d3e3cc7b8780f843db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850236"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919789"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurar uma aplicação node. js do Linux para o serviço de aplicações do Azure
 
@@ -55,7 +55,7 @@ Esta definição especifica a versão do node. js para utilizar, tanto em tempo 
 
 ## <a name="configure-nodejs-server"></a>Configurar o servidor node. js
 
-Os contentores de node. js acompanham [PM2](http://pm2.keymetrics.io/), um Gestor de processos de produção. Pode configurar a sua aplicação para iniciar PM2, ou com NPM ou com um comando personalizado.
+Os contentores de node. js acompanham [PM2](https://pm2.keymetrics.io/), um Gestor de processos de produção. Pode configurar a sua aplicação para iniciar PM2, ou com NPM ou com um comando personalizado.
 
 - [Executar comandos personalizados](#run-custom-command)
 - [Execute o início de npm](#run-npm-start)
@@ -99,12 +99,12 @@ O contentor começa automaticamente a aplicação com PM2 quando um dos ficheiro
 - *app.js*
 - *index.js*
 - *hostingstart.js*
-- Um dos seguintes [ficheiros PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* e *ecosystem.config.js*
+- Um dos seguintes [ficheiros PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file): *process.json* e *ecosystem.config.js*
 
 Também pode configurar um ficheiro de arranque personalizada com as seguintes extensões:
 
 - R *. js* ficheiro
-- R [ficheiro PM2](http://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *. JSON*, *. config. js*, *.yaml*, ou *. yml*
+- R [ficheiro PM2](https://pm2.keymetrics.io/docs/usage/application-declaration/#process-file) com a extensão *. JSON*, *. config. js*, *.yaml*, ou *. yml*
 
 Para adicionar um ficheiro de arranque personalizadas, execute o seguinte comando [Cloud Shell](https://shell.azure.com):
 
@@ -226,7 +226,7 @@ fi
 
 No serviço de aplicações [terminação de SSL](https://wikipedia.org/wiki/TLS_termination_proxy) ocorre aos balanceadores de carga de rede, para que todos os pedidos HTTPS à sua aplicação, como solicitações HTTP não criptografadas. Se as suas necessidades de lógica de aplicação para verificar se os pedidos de utilizador são encriptados ou não, Inspecione o `X-Forwarded-Proto` cabeçalho.
 
-Web populares estruturas permitem-lhe acesso a `X-Forwarded-*` informações no seu padrão de aplicativo padrão. Na [Express](https://expressjs.com/), pode utilizar [confiar proxies](http://expressjs.com/guide/behind-proxies.html). Por exemplo:
+Web populares estruturas permitem-lhe acesso a `X-Forwarded-*` informações no seu padrão de aplicativo padrão. Na [Express](https://expressjs.com/), pode utilizar [confiar proxies](https://expressjs.com/guide/behind-proxies.html). Por exemplo:
 
 ```javascript
 app.set('trust proxy', 1)
@@ -253,7 +253,7 @@ Quando um trabalho de aplicação node. js tem um comportamento diferente no ser
     - Consoante os *Package. JSON*, diferentes pacotes que podem ser instalados para o modo de produção (`dependencies` versus `devDependencies`).
     - Determinadas estruturas da web podem implementar ficheiros estáticos de forma diferente no modo de produção.
     - Determinadas estruturas da web podem utilizar scripts de inicialização personalizada quando executado no modo de produção.
-- Execute a aplicação no serviço de aplicações no modo de desenvolvimento. Por exemplo, no [Mean. js](http://meanjs.org/), pode definir a aplicação para o modo de desenvolvimento no tempo de execução por [definição da `NODE_ENV` definição de aplicação](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Execute a aplicação no serviço de aplicações no modo de desenvolvimento. Por exemplo, no [Mean. js](https://meanjs.org/), pode definir a aplicação para o modo de desenvolvimento no tempo de execução por [definição da `NODE_ENV` definição de aplicação](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

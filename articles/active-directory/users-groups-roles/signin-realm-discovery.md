@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b6846c5f907c41db16e99883be7041a68357586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60468939"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920522"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Deteção de realm inicial para páginas de início de sessão no Azure Active Directory
 
@@ -49,7 +49,7 @@ Uma vantagem adicional desse trabalho é de erro melhoradas de mensagens. Aqui e
     ![palavra-passe é escrito incorretamente com bom nome de utilizador](./media/signin-realm-discovery/incorrect-password.png)
   
 > [!IMPORTANT]
-> Esta funcionalidade pode ter um impacto nos domínios Federados da entidade confiadora na deteção de Realm Inicial para forçar o Federação no nível do domínio antigo. Para obter atualizações sobre o quando será adicionado suporte de domínio federado, consulte [deteção de realm inicial durante o início de sessão para serviços do Microsoft 365](https://azure.microsoft.com/en-us/updates/signin-hrd/). Entretanto, algumas organizações têm formação aos seus funcionários para iniciar sessão com um nome de utilizador que não existe no Azure Active Directory, mas contém o nome de domínio adequado, porque os nomes de domínio encaminha os utilizadores atualmente ao ponto final de domínio da sua organização. O novo comportamento de início de sessão não permite isso. O utilizador é notificado para corrigir o nome de utilizador, e eles não têm permissão para iniciar sessão com um nome de utilizador que não existe no Azure Active Directory.
+> Esta funcionalidade pode ter um impacto nos domínios Federados da entidade confiadora na deteção de Realm Inicial para forçar o Federação no nível do domínio antigo. Para obter atualizações sobre o quando será adicionado suporte de domínio federado, consulte [deteção de realm inicial durante o início de sessão para serviços do Microsoft 365](https://azure.microsoft.com/updates/signin-hrd/). Entretanto, algumas organizações têm formação aos seus funcionários para iniciar sessão com um nome de utilizador que não existe no Azure Active Directory, mas contém o nome de domínio adequado, porque os nomes de domínio encaminha os utilizadores atualmente ao ponto final de domínio da sua organização. O novo comportamento de início de sessão não permite isso. O utilizador é notificado para corrigir o nome de utilizador, e eles não têm permissão para iniciar sessão com um nome de utilizador que não existe no Azure Active Directory.
 >
 > Se ou sua organização tiver práticas que dependem do comportamento antigo, é importante para os administradores da organização para atualizar a documentação de início de sessão e autenticação de funcionários e para preparar os funcionários para usarem o respetivo nome de utilizador do Azure Active Directory para iniciar sessão.
   

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.openlocfilehash: 352ad9473a1c1a9360ddceb720ff968f4e97e012
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59617311"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64876646"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integração do Active Directory do Azure com o Tableau Online
 
@@ -188,7 +188,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
+    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
     Por exemplo, BrittaSimon\@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
@@ -229,7 +229,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Tableau Online.
   
     ![Criar um utilizador de teste do Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_15.png)
 
-2. Selecione **adicionar utilizadores para a autenticação (SAML)**. Na **endereços de e-mail de Enter** adicionar caixa de texto britta.simon@contoso.com
+2. Selecione **adicionar utilizadores para a autenticação (SAML)**. Na **endereços de e-mail de Enter** caixa de texto Adicionar britta.simon\@contoso.com
   
     ![Criar um utilizador de teste do Azure AD](./media/tableauonline-tutorial/tutorial_tableauonline_11.png)
 
