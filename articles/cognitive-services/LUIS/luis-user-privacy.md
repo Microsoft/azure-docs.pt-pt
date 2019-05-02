@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a82452f4b41aee9c4ea6f269d92fbc91a5697d16
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597100"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916946"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportar e eliminar os dados dos clientes na compreensão de idiomas (LUIS) nos serviços cognitivos
 
@@ -58,7 +58,7 @@ Para habilitar [aprendizagem ativa](luis-how-to-review-endpoint-utterances.md#en
 * [Austrália](#australia)
 * [Estados Unidos](#united-states)
 
-Com exceção dos dados de aprendizagem ativa (detalhados abaixo), LUIS segue a [práticas de armazenamento de dados para serviços regionais](http://azuredatacentermap.azurewebsites.net/). 
+Com exceção dos dados de aprendizagem ativa (detalhados abaixo), LUIS segue a [práticas de armazenamento de dados para serviços regionais](https://azuredatacentermap.azurewebsites.net/). 
 
 ### <a name="europe"></a>Europa
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0f5a996d68c80fd9b1f55a36de37579ea245d99d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60931828"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922789"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Enviar dados de registo para o Azure Monitor com a API de Recoletor de dados HTTP (pré-visualização pública)
 Este artigo mostra-lhe como utilizar a API de Recoletor de dados de HTTP para enviar dados de registo para o Azure Monitor, de um cliente de REST API.  Ele descreve como formatar os dados recolhidos pelo seu script ou aplicativo, incluí-lo num pedido e ter esse pedido autorizado pelo Azure Monitor.  São fornecidos exemplos do PowerShell, c# e Python.
@@ -476,7 +476,7 @@ Embora a API de Recoletor de dados deve abranger a maior parte das suas necessid
 
 | Alternativa | Descrição | Mais adequada para |
 |---|---|---|
-| [Eventos personalizados](https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão de com base no SDK de mensagens em fila nativo no Application Insights | O Application Insights, normalmente instrumentado por meio de um SDK na sua aplicação, oferece a capacidade para enviar dados personalizados por meio de eventos personalizados. | <ul><li> Dados que são gerados no seu aplicativo, mas não aplicados pelo SDK através de um dos tipos de dados padrão (ie: pedidos, dependências, exceções, etc).</li><li> Dados com mais freqüência são correlacionados com outros dados de aplicação no Application Insights </li></ul> |
+| [Eventos personalizados](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Ingestão de com base no SDK de mensagens em fila nativo no Application Insights | O Application Insights, normalmente instrumentado por meio de um SDK na sua aplicação, oferece a capacidade para enviar dados personalizados por meio de eventos personalizados. | <ul><li> Dados que são gerados no seu aplicativo, mas não aplicados pelo SDK através de um dos tipos de dados padrão (ie: pedidos, dependências, exceções, etc).</li><li> Dados com mais freqüência são correlacionados com outros dados de aplicação no Application Insights </li></ul> |
 | [API do Recoletor de dados](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) nos Logs de Monitor do Azure | A API de Recoletor de dados nos Logs de Monitor do Azure é uma forma totalmente aberta para ingestão de dados. Quaisquer dados formatados num objeto JSON podem ser enviados aqui. Uma vez enviado, voltará a ser processada e disponíveis nos registos para ser correlacionadas com outros dados nos registos ou em relação a outros Application Insights dados. <br/><br/> É bem fácil de carregar os dados como arquivos para um blob de Blobs do Azure, de onde estes ficheiros serão processados e carregados para o Log Analytics. Veja [isso](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) artigo para uma implementação de exemplo de tal pipeline. | <ul><li> Dados que não é necessariamente gerados dentro de um aplicativo instrumentado dentro do Application Insights.</li><li> Os exemplos incluem tabelas de pesquisa e de fato, os dados de referência, estatísticas agregadas previamente, etc. </li><li> O objetivo de dados que irão ser referências cruzados em relação a outros dados do Azure Monitor (por exemplo, Application Insights, outros tipos de dados de registos, o Centro de segurança, o Azure Monitor para contentores/VMs, etc). </li></ul> |
 | [Explorador de dados do Azure](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Explorador de dados do Azure (ADX) é a plataforma de dados que alimenta o Application Insights Analytics e Logs de Monitor do Azure. Agora geralmente disponível ("GA"), com a plataforma de dados no seu formato não processado fornece completa flexibilidade (mas que requerem a sobrecarga de gestão) ao longo do cluster (RBAC, a taxa de retenção, o esquema, etc). ADX oferece muitas [opções de ingestão](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) incluindo [CSV, TSV e JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) ficheiros. | <ul><li> Dados que não irão ser correlacionados com quaisquer outros dados no Application Insights ou registos. </li><li> A necessidade de dados avançada ingestão ou hoje não está disponível no Azure Monitor registos de recursos de processamento. </li></ul> |
 

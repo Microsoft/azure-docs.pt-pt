@@ -1,10 +1,10 @@
 ---
 title: Saiba mais sobre modelos de conjunto de dimensionamento de máquinas virtuais | Documentos da Microsoft
-description: Saiba como criar um modelo de conjunto de dimensionamento mínimo viável para conjuntos de dimensionamento de máquinas virtuais
+description: Saiba como criar um modelo de conjunto de dimensionamento básico para conjuntos de dimensionamento de máquinas virtuais
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -13,27 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: d4a3dd6ae390fd48a8085cca33063a6bb74bd96c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 8b6a6b78dc74572b22d397b5536efa1394401bbc
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60805574"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868911"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre modelos de conjunto de dimensionamento de máquina virtual
-Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma ótima maneira de implementar grupos de recursos relacionados. Nesta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento mínimo viável e como modificar este modelo de acordo com vários cenários. Todos os exemplos vêm de isso [repositório do GitHub](https://github.com/gatneil/mvss). 
+Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma ótima maneira de implementar grupos de recursos relacionados. Nesta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento básico e como modificar este modelo de acordo com vários cenários. Todos os exemplos vêm de isso [repositório do GitHub](https://github.com/gatneil/mvss).
 
 Este modelo destina-se para ser simples. Para obter exemplos mais completos de dimensionamento do conjunto de modelos, consulte a [repositório do GitHub de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) e procure a pastas que contêm a cadeia de caracteres `vmss`.
 
 Se já estiver familiarizado com a criação de modelos, pode avançar para a secção "Passos seguintes" para ver como modificar este modelo.
-
-## <a name="review-the-template"></a>Reveja o modelo
-
-Utilizar o GitHub para rever o modelo de conjunto de dimensionamento mínimo viável [azuredeploy. JSON](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json).
-
-Neste tutorial, vamos examinar o diff (`git diff master minimum-viable-scale-set`) criar o dimensionamento mínimo viável modelo de conjunto de parte por parte.
 
 ## <a name="define-schema-and-contentversion"></a>Definir $schema e contentVersion
 Em primeiro lugar, defina `$schema` e `contentVersion` no modelo. O `$schema` elemento define a versão da linguagem do modelo e é utilizado para o realce de sintaxe do Visual Studio e os recursos de validação semelhantes. O `contentVersion` elemento não é utilizado pelo Azure. Em vez disso, ajuda-o a manter o controle de versão de modelo.
@@ -43,6 +37,7 @@ Em primeiro lugar, defina `$schema` e `contentVersion` no modelo. O `$schema` el
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
 ```
+
 ## <a name="define-parameters"></a>Definir os parâmetros
 Em seguida, defina dois parâmetros, `adminUsername` e `adminPassword`. Os parâmetros são valores que especificou no momento da implantação. O `adminUsername` parâmetro é simplesmente um `string` tipo, mas porque `adminPassword` é um proporcionar secreta, que ele escreva `securestring`. Mais tarde, esses parâmetros são transmitidos para a configuração de conjunto de dimensionamento.
 
@@ -70,13 +65,13 @@ Em seguida, é a seção de recursos do modelo. Aqui, é possível definir o que
    "resources": [
 ```
 
-Todos os recursos exigem `type`, `name`, `apiVersion`, e `location` propriedades. Recurso de primeira neste exemplo tem o tipo [Network/virtualnetwork](/azure/templates/microsoft.network/virtualnetworks)e o nome `myVnet`e apiVersion `2016-03-30`. (Para obter a versão mais recente do API para um tipo de recurso, consulte a [referência de modelo do Azure Resource Manager](/azure/templates/).)
+Todos os recursos exigem `type`, `name`, `apiVersion`, e `location` propriedades. Recurso de primeira neste exemplo tem o tipo [Network/virtualnetwork](/azure/templates/microsoft.network/virtualnetworks)e o nome `myVnet`e apiVersion `2018-11-01`. (Para obter a versão mais recente do API para um tipo de recurso, consulte a [referência de modelo do Azure Resource Manager](/azure/templates/).)
 
 ```json
      {
        "type": "Microsoft.Network/virtualNetworks",
        "name": "myVnet",
-       "apiVersion": "2016-12-01",
+       "apiVersion": "2018-11-01",
 ```
 
 ## <a name="specify-location"></a>Especifique a localização
@@ -117,7 +112,7 @@ Neste caso, há apenas um elemento na lista, a rede virtual do exemplo anterior.
      {
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
        "location": "[resourceGroup().location]",
        "dependsOn": [
          "Microsoft.Network/virtualNetworks/myVnet"
@@ -136,7 +131,7 @@ O conjunto de dimensionamento tem de saber qual será o tamanho da VM para criar
 ```
 
 ### <a name="choose-type-of-updates"></a>Escolha o tipo de atualizações
-A escala definida também precisa saber como lidar com atualizações no conjunto de dimensionamento. Atualmente, existem duas opções, `Manual` e `Automatic`. Para obter mais informações sobre as diferenças entre os dois, consulte a documentação sobre [como atualizar um conjunto de dimensionamento](./virtual-machine-scale-sets-upgrade-scale-set.md).
+A escala definida também precisa saber como lidar com atualizações no conjunto de dimensionamento. Atualmente, existem três opções pelo `Manual`, `Rolling` e `Automatic`. Para obter mais informações sobre as diferenças entre os dois, consulte a documentação sobre [como atualizar um conjunto de dimensionamento](./virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ```json
        "properties": {

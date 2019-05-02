@@ -5,26 +5,23 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/01/2019
+ms.date: 04/23/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 660bbf50e1a8ae73bd7bbe1f7c42691ed62d276a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 40c8cb41ad3bcd46e9973a5f96134ff1bfd02fd2
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552992"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64744477"
 ---
-Se ainda não tiver uma VNet, pode criar uma rapidamente com o PowerShell. Também pode criar uma rede virtual com o portal do Azure.
+Para criar rapidamente uma VNet, pode clicar em "Tentá-lo" neste artigo para abrir a consola do PowerShell. Ajuste os valores e copie e cole os comandos na janela da consola. Para saber mais sobre o novo módulo Az e AzureRM compatibilidade, veja [apresentando o novo módulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). Para instruções de instalação do módulo de Az, consulte [instalar o Azure PowerShell](/powershell/azure/install-az-ps).
 
-* Verifique que o espaço de endereços da VNet que criar não se sobrepõe a nenhum dos intervalos de endereços de outras VNets às quais pretenda ligar nem a nenhum dos espaços de endereços da sua rede no local. 
-* Se já tiver uma VNet, confirme que a mesma cumpre os critérios obrigatórios e que não tem um gateway de rede virtual.
-
-Pode criar facilmente a VNet ao clicar em “Experimentar”, no artigo, para abrir uma consola do PowerShell. Ajuste os valores e copie e cole os comandos na janela da consola.
+Verifique que o espaço de endereços da VNet que criar não se sobrepõe a nenhum dos intervalos de endereços de outras VNets às quais pretenda ligar nem a nenhum dos espaços de endereços da sua rede no local.
 
 ### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Ajuste os comandos do PowerShell e crie um grupo de recursos.
+Se ainda não tiver um grupo de recursos que pretende utilizar, crie um novo. Ajustar os comandos do PowerShell para refletir o nome do grupo de recursos que pretende utilizar e, em seguida, execute o seguinte cmdlet:
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
@@ -32,7 +29,7 @@ New-AzResourceGroup -ResourceGroupName WANTestRG -Location WestUS
 
 ### <a name="create-a-vnet"></a>Criar uma VNet
 
-Ajuste os comandos do PowerShell para criar a VNet que é compatível com o seu ambiente.
+Ajuste os comandos do PowerShell para criar uma VNet que é compatível para o seu ambiente.
 
 ```azurepowershell-interactive
 $fesub1 = New-AzVirtualNetworkSubnetConfig -Name FrontEnd -AddressPrefix "10.1.0.0/24"

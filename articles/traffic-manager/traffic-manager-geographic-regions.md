@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: f033f8e8e686165febdd2262953b2aa871686a12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e3ea1d2a0c3e8501222d57a92fad917d465022e
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330113"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866998"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hierarquia de país/região utilizada pelo Gestor de tráfego do Azure para o método de encaminhamento de tráfego geográfico
 
@@ -481,8 +481,6 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
         - CD(Congo (RDC))
 
         - CF (República Centro Africana)
-
-        - CG(Congo)
 
         - CI (Côte d'Ivoire)
 

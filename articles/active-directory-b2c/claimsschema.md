@@ -3,19 +3,19 @@ title: ClaimsSchema - Azure Active Directory B2C | Documentos da Microsoft
 description: Especifique o elemento de ClaimsSchema de uma política personalizada no Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 5d7036f2c7301223b27c80402dace8e9ea05b7f1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 81df3532ee466f32ee42f0010de9aa74dbeb6d85
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487826"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64721744"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -161,7 +161,7 @@ O **enumeração** elemento contém os seguintes atributos:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Texto | Sim | A cadeia de apresentação que é mostrada ao usuário na interface do usuário para esta opção. |
+| Text | Sim | A cadeia de apresentação que é mostrada ao usuário na interface do usuário para esta opção. |
 |Value | Sim | O valor de afirmação que está associado a seleção desta opção. |
 | SelectByDefault | Não | Indica se é ou não essa opção deve ser selecionada por predefinição na interface do Usuário. Valores possíveis: VERDADEIRO ou FALSO. |
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/20/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: f411504b0f4b7872e92a64c57fecbde863f532c6
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: c426df2293cfb2d8ba4dc02e8fc5519c3d822168
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52271680"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868781"
 ---
 Aplicar etiquetas aos recursos do Azure, fornecendo os metadados para as organizar numa taxonomia. Cada etiqueta é constituída por um nome e um par de valor. Por exemplo, pode aplicar o nome "Ambiente" e o valor "Produção" em todos os recursos na produção.
 
@@ -26,7 +26,7 @@ As seguintes limitações aplicam-se às etiquetas:
 * Nem todos os tipos de recursos suportam etiquetas. Para determinar se pode aplicar uma etiqueta a um tipo de recurso, veja [marca o suporte para recursos do Azure](../articles/azure-resource-manager/tag-support.md).
 * Cada recurso ou grupo de recursos pode ter um máximo de 15 pares de nomes/valores de etiquetas. Esta limitação aplica-se apenas a etiquetas diretamente aplicadas ao recurso ou grupo de recursos. Um grupo de recursos pode conter muitos recursos que tenham, cada um, 15 pares de nomes/valores de etiqueta. Se tiver mais de 15 valores que têm de ser associados a um recurso, utilize uma cadeia JSON para o valor da etiqueta. A cadeia JSON pode conter muitos valores que são aplicados a um nome de etiqueta individual. Este artigo mostra um exemplo de atribuição de uma cadeia JSON à etiqueta.
 * O nome de etiqueta está limitado a 512 caracteres e o valor a 256. Nas contas de armazenamento, o nome da etiqueta está limitado a 128 caracteres e o valor a 256.
-* Máquinas virtuais estão limitadas a um total de 2048 carateres para todos os nomes de etiquetas e valores.
+* Máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais estão limitados a um total de 2048 carateres para todos os nomes de etiquetas e valores.
 * As etiquetas aplicadas ao grupo de recursos não são herdadas pelos recursos nesse grupo de recursos.
 * Não não possível aplicar etiquetas a recursos clássicos, como os serviços Cloud.
 * Nomes de etiquetas não podem conter estes carateres: `<`, `>`, `%`, `&`, `\`, `?`, `/`

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82afadef58310f46046c8c3168ed93a34769b316
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472401"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920503"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -58,6 +58,18 @@ As seguintes funções de administrador estão disponíveis:
   * Grupo de segurança e de grupo do Office 365 proprietários, que podem gerir a associação de grupo. Esses grupos podem conceder acesso a informações confidenciais ou privadas ou críticos de configuração no Azure AD e em outros locais.
   * Os administradores em outros serviços fora do Azure AD, como sistemas de Exchange Online, segurança do Office e Centro de conformidade e de recursos humanos.
   * Os não administradores como executivos, assessores jurídicos e funcionários de recursos humanos que podem ter acesso a informações confidenciais ou privadas.
+
+* **[Administrador de fluxo de utilizador do B2C](#b2c-user-flow-administrator)**: Os utilizadores com esta função podem criar e gerir B2C fluxos de utilizador (também conhecido como "internas" políticas) no Portal do Azure. Ao criar ou editar fluxos de utilizador, estes utilizadores podem alterar o conteúdo de html, CSS e javascript da experiência do usuário, alterar os requisitos de MFA por fluxo de utilizador, altere afirmações no token e ajustar as configurações de sessão para todas as políticas no inquilino. Por outro lado, esta função não incluem a capacidade de examinar os dados de utilizador ou fazer alterações aos atributos que estão incluídos no esquema do inquilino. Altera a arquitetura de experiências de identidade (também conhecido como personalizado) políticas também está fora do âmbito desta função.
+
+* **[Administrador de atributo do fluxo de utilizador do B2C](#b2c-user-flow-attribute-administrator)**: Os utilizadores com esta função adicionar ou eliminar os atributos personalizados disponíveis para todos os fluxos de utilizador no inquilino. Como tal, os utilizadores com esta função podem alterar ou adicionar novos elementos ao esquema do utilizador final e afetar o comportamento de todos os fluxos de utilizador e indiretamente resultem em alterações a dados que podem ser mais frequentes dos utilizadores finais e enviados, por fim, como afirmações para aplicações. Esta função não é possível editar os fluxos de utilizador.
+
+* **[Administrador de conjunto de chaves do B2C IEF](#b2c-ief-keyset-administrator)**:    Utilizador pode criar e gerir políticas de chaves e segredos para encriptação de tokens, assinaturas de token e afirmação encriptação/desencriptação. Adicionando novas chaves para os contentores de chaves existentes, este administrador limitado pode segredos de rollover conforme necessário, sem afetar os aplicativos existentes. Este utilizador pode ver o conteúdo completo destes segredos e as respetivas datas de expiração, mesmo após a sua criação.
+    
+  <b>Importante:</b> esta é uma função confidencial. A função de administrador de conjunto de chaves deve ser cuidadosamente auditada e atribuída com cuidado durante a produção e pré-produção.
+
+* **[Administrador de diretiva do B2C IEF](#b2c-ief-policy-administrator)**: Os utilizadores nesta função têm a capacidade de criar, ler, atualizar e eliminar todas as políticas personalizadas no Azure AD B2C e, por conseguinte, tem controlo total sobre a arquitetura de experiências de identidade no inquilino do Azure AD B2C relevante. Ao editar as políticas, este utilizador pode estabelecer Federação direta com fornecedores de identidade externos, alterar o esquema de diretório, alterar o conteúdo de todos os utilizadores com acesso à (HTML, CSS, JavaScript), alterar os requisitos para concluir uma autenticação, criar novos utilizadores, enviar dados de utilizador a sistemas externos, incluindo completa de migrações e editar todas as informações de utilizador, incluindo campos confidenciais como palavras-passe e números de telefone. Por outro lado, esta função não é possível alterar as chaves de encriptação ou editar os segredos utilizados para a Federação no inquilino.
+
+  <b>Importante:</b> O administrador de diretiva de IEF B2 é uma função altamente confidencial que deve ser atribuída de forma muito limitada para inquilinos na produção. Atividades por estes utilizadores devem ser estreitamente auditadas, especialmente para os inquilinos na produção.
 
 * **[Administrador de faturação](#billing-administrator)**: Efetua compras, gere subscrições, gere pedidos de suporte e monitoriza o estado de funcionamento do serviço.
 
@@ -110,6 +122,9 @@ As seguintes funções de administrador estão disponíveis:
   > [!NOTE]
   > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "administrador de serviço Exchange". É "Administrador do Exchange" no [portal do Azure](https://portal.azure.com). É "Administrador Online do Exchange" no [Centro de administração do Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144). 
 
+* **[Administrador do fornecedor de identidade externo](#external-identity-provider-administrator)**: Este administrador gerencia o Federação entre inquilinos do Azure Active Directory e fornecedores de identidade externo. Com esta função, os utilizadores podem adicionar novos fornecedores de identidade e configurar todas as definições disponíveis (por exemplo, caminho de autenticação, id de serviço, atribuído contentores de chaves). Este utilizador pode ativar o inquilino confie as autenticações de fornecedores de identidade externo. O impacto resultante em experiências de usuário final depende do tipo de inquilino:
+  * Inquilinos do Active Directory do Azure para os funcionários e parceiros: A adição de uma federação (por exemplo, com o Gmail) imediatamente irá afetar todos os convites de convidados ainda não foi resgatados. Ver [adicionando Google como fornecedor de identidade para utilizadores convidados B2B](https://docs.microsoft.com/azure/active-directory/b2b/google-federation).
+  * Inquilinos do Active Directory B2C do Azure: A adição de uma federação (por exemplo, com o Facebook ou com outro Azure Active Directory) não afeta os fluxos de utilizador final imediatamente, até que o fornecedor de identidade é adicionado como uma opção num fluxo de utilizador (também conhecido como política incorporada). Ver [configurar uma conta Microsoft como fornecedor de identidade](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app) para obter um exemplo. Para alterar os fluxos de utilizador, a função limitada do "Administrador de fluxo de utilizador do B2C" é necessária.
 
 * **[Administrador global / administrador de empresa](#company-administrator)**: Os utilizadores com esta função têm acesso a todas as funcionalidades administrativas no Azure Active Directory, bem como serviços que utilizam identidades do Azure Active Directory, como o Centro de segurança do Microsoft 365, Microsoft 365 Centro de conformidade, Exchange Online, SharePoint Online, e Skype para empresas Online. A pessoa que se inscreve no inquilino do Azure Active Directory torna-se um administrador global. Apenas os administradores globais podem atribuir outras funções de administrador. Podem existir mais do que um administrador global na sua empresa. Os administradores globais podem redefinir a palavra-passe para qualquer utilizador e a todos os outros administradores.
 
@@ -314,6 +329,34 @@ Pode ver, definir e repor as informações de método de autenticação para qua
 | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos no microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
+
+### <a name="b2c-user-flow-administrator"></a>Administrador de fluxo de utilizador do B2C
+Criar e gerir todos os aspetos de fluxos de utilizador.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.b2c/userFlows/allTasks | Ler e configurar fluxos de utilizador no Azure Active Directory B2C. |
+
+### <a name="b2c-user-flow-attribute-administrator"></a>Administrador de atributo de fluxo de utilizador de B2C
+Criar e gerir o esquema de atributos disponível para todos os fluxos de utilizador.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.b2c/userAttributes/allTasks | Ler e configurar atributos de utilizador no Azure Active Directory B2C. |
+
+### <a name="b2c-ief-keyset-administrator"></a>Administrador de conjunto de chaves IEF B2C
+Gerir segredos para Federação e de encriptação do Framework de experiência de identidade.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.b2c/trustFramework/keySets/allTasks | Ler e configurar conjuntos de chaves no Azure Active Directory B2C. |
+
+### <a name="b2c-ief-policy-administrator"></a>Administrador de diretiva IEF B2C
+Criar e gerir políticas de estrutura de confiança do Framework de experiência de identidade.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| Microsoft.aad.B2C/trustFramework/Policies/allTasks | Ler e configurar as políticas personalizadas no Azure Active Directory B2C. |
 
 ### <a name="billing-administrator"></a>Administrador de Faturação
 Pode executar tarefas de faturação comuns, como atualizar as informações de pagamento.
@@ -675,6 +718,13 @@ Pode gerir todos os aspetos do produto Exchange.
 | microsoft.office365.exchange/allEntities/allTasks | Gerir todos os aspetos do Exchange Online. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
+
+### <a name="external-identity-provider-administrator"></a>Administrador do fornecedor de identidade externo
+Configure fornecedores de identidade para utilização na Federação direta.
+
+| **Ações** | **Descrição** |
+| --- | --- |
+| microsoft.aad.b2c/identityProviders/allTasks | Ler e configurar fornecedores de identidade no Azure Active Directory B2C. |
 
 ### <a name="guest-inviter"></a>Emitente de Convites
 Pode convidar utilizadores convidados independentemente da definição "Os membros podem convidar convidados".

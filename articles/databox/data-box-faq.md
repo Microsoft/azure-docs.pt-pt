@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9cef479c1d4af55ae58c61a07ff1d5348ed7183
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405465"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868250"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -50,7 +50,7 @@ R. O Data Box está disponível a um custo nominal durante dez dias. Quando sele
 R. O Data Box tem uma capacidade bruta de 100 TB e uma capacidade utilizável de 80 TB. Pode transferir até 80 TB de dados com o Data Box. Para transferir mais dados, tem de encomendar mais dispositivos.
 
 ### <a name="q-how-can-i-check-if-data-box-is-available-in-my-region"></a>P. Como posso saber se o Data Box está disponível na minha região? 
-R.  Para obter informações relativamente aos países nos quais o Data Box está disponível, aceda a [Region availability](data-box-overview.md#region-availability) (Disponibilidade por região).  
+R.  Para obter informações em que países/regiões está disponível o Data Box, aceda a [disponibilidade das regiões](data-box-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box"></a>P. Em que regiões posso armazenar dados com o Data Box?
 R. O Data Box é suportado em todas as regiões dos E.U.A., da Europa Ocidental, da Europa do Norte, de França e do Reino Unido. Só são suportadas as regiões de cloud pública do Azure. O Azure Government e as outras clouds soberanas não são suportadas. Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: cb0e079eee78f865d472b55b162fb65b5eadaf44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a1dadc29006a365f7e614db5722fa0e92e0129d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460464"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922512"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Sobre os dispositivos de voz SDK (pré-visualização)
 
@@ -39,7 +39,7 @@ Atualmente, esses designs de referência completa, ponto-a-ponto sistema estão 
 
 |||
 |-|-|
-|[![Logótipo ROOBO](media/speech-devices-sdk/roobo-logo.png)](http://ddk.roobo.com/)|ROOBO fornece completa artificial intelligence soluções de sistema (IA) para aparelhos electric domésticos, automóveis, robôs, toys e outros setores. Estruturas de referência do ROOBO reduzem significativamente o desenvolvimento time-to-market por meio da integração com os serviços de voz do Azure. [Visite ROOBO](http://ddk.roobo.com/).|
+|[![Logótipo ROOBO](media/speech-devices-sdk/roobo-logo.png)](https://ddk.roobo.com/)|ROOBO fornece completa artificial intelligence soluções de sistema (IA) para aparelhos electric domésticos, automóveis, robôs, toys e outros setores. Estruturas de referência do ROOBO reduzem significativamente o desenvolvimento time-to-market por meio da integração com os serviços de voz do Azure. [Visite ROOBO](https://ddk.roobo.com/).|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

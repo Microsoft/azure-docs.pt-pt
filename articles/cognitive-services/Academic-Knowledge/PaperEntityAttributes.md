@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: alch
-ms.openlocfilehash: bd37665e962ada59149b54075d7f8acbea895c50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92844b5faf691b67617c9f3424a1322aa05429bb
+ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61336829"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64875741"
 ---
 # <a name="paper-entity"></a>Entidade de documento
 
@@ -26,7 +26,7 @@ Name    |Descrição                                        |Type       | Opera�
 ------- | ------------------------------------------------- | --------- | ----------------------------
 Id      |ID de entidade                                          |Int64      |Igual a
 Ti      |Título do documento                                        |String     |É igual a,<br/>StartsWith
-L       |Código de idioma do documento separados por "\@@ @"            |String     |Igual a
+L       |Código de idioma do documento separados por "\@\@\@"          |String     |Igual a
 S       |Ano de documento                                         |Int32      |É igual a,<br/>IsBetween
 D       |Data do documento                                         |Date       |É igual a,<br/>IsBetween
 Cc      |Contagem de citação                                     |Int32      |nenhum  

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 2/20/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: b389d86fe4d23e3f4ee1c66e4270a74351098129
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1a2d24be00b0e1224b5f8d52105e2969d64e5f64
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059610"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922468"
 ---
 # <a name="why-use-batch-transcription"></a>Por que usar a transcrição de Batch?
 
@@ -29,7 +29,7 @@ Transcrição de batch é ideal se quiser transcrição de uma grande quantidade
 Com todas as funcionalidades do serviço de voz, criar uma chave de subscrição do [portal do Azure](https://portal.azure.com) seguindo nossas [guia de introdução](get-started.md). Se pretender obter transcrições de nossos modelos de linha de base, a criação de uma chave é tudo o que precisa fazer.
 
 >[!NOTE]
-> Uma subscrição standard (S0) para serviços de voz é necessário para utilizar a transcrição do batch. Chaves de subscrição gratuita (F0) não irão funcionar. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/speech-services/).
+> Uma subscrição standard (S0) para serviços de voz é necessário para utilizar a transcrição do batch. Chaves de subscrição gratuita (F0) não irão funcionar. Para obter mais informações, consulte [preços e limites](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="custom-models"></a>Modelos personalizados
 
@@ -72,7 +72,8 @@ Parâmetros de configuração são fornecidos como JSON:
   "properties": {
     "ProfanityFilterMode": "Masked",
     "PunctuationMode": "DictatedAndAutomatic",
-    "AddWordLevelTimestamps" : "True"
+    "AddWordLevelTimestamps" : "True",
+    "AddSentiment" : "True"
   }
 }
 ```
@@ -87,6 +88,7 @@ Parâmetros de configuração são fornecidos como JSON:
 | `ProfanityFilterMode` | Especifica como lidar com linguagem inapropriada nos resultados de reconhecimento. Aceite os valores são `none` que desativa a filtragem de palavras ofensivas `masked` que substitui a linguagem inapropriada por asteriscos, `removed` linguagem inapropriada todos os que remove o resultado ou `tags` que adiciona as etiquetas de "linguagem inapropriada". A predefinição é `masked`. | Opcional |
 | `PunctuationMode` | Especifica como lidar com a pontuação nos resultados de reconhecimento. Aceite os valores são `none` que desativa a pontuação, `dictated` implica que pontuação explícita, `automatic` que permite que o Decodificador lidar com a pontuação, ou `dictatedandautomatic` que implica ditado marcas de pontuação ou automático. | Opcional |
  | `AddWordLevelTimestamps` | Especifica se os carimbos de nível de word devem ser adicionados à saída. Aceite os valores são `true` que permite aos carimbos de nível do word e `false` (o valor predefinido) para desabilitá-lo. | Opcional |
+ | `AddSentiment` | Especifica o sentimento deve ser adicionado para a expressão. Aceite os valores são `true` que permite que o sentimento por expressão e `false` (o valor predefinido) para desabilitá-lo. | Opcional |
 
 ### <a name="storage"></a>Armazenamento
 
@@ -97,6 +99,57 @@ O batch suporta transcrição [armazenamento de Blobs do Azure](https://docs.mic
 Sondagem de status de transcrição pode não ser o melhor desempenho ou proporcionar a melhor experiência de utilizador. Para consultar para obter o estado, pode registrar retornos de chamada, o que o cliente serão notificado quando as tarefas de transcrição de longa execução forem concluídas.
 
 Para obter mais detalhes, consulte [Webhooks](webhooks.md).
+
+## <a name="sentiment"></a>Sentimento
+
+Sentimento é um novo recurso na API de transcrição do Batch e é um recurso importante no domínio do Centro de chamada. Os clientes podem utilizar o `AddSentiment` parâmetros para os pedidos para 
+
+1.  Obtenha informações sobre a satisfação do cliente
+2.  Obtenha informações sobre o desempenho dos agentes (team colocar as chamadas)
+3.  Identificar o ponto exato no tempo quando uma chamada demorou uma folheada numa direção negativa
+4.  Identificar o que correu bem quando ativar chamadas negativas para positivo
+5.  Identificar o que, como os clientes e o que eles não gosto sobre um produto ou um serviço
+
+Sentimento é classificado por segmento de áudio em que um segmento de áudio é definido como o intervalo de tempo entre o início da expressão (deslocamento) e o silêncio de deteção de fim do fluxo de bytes. Todo o texto dentro desse segmento é utilizado para calcular o sentimento. NÃO podemos calcular quaisquer valores de sentimentos de agregação para a chamada de toda ou a voz inteiro de cada canal. Estes são deixadas para o proprietário do domínio ainda mais a aplicar.
+
+Sentimento é aplicado no formulário léxico.
+
+Um exemplo de saída JSON é semelhante a abaixo:
+
+```json
+{
+  "AudioFileResults": [
+    {
+      "AudioFileName": "Channel.0.wav",
+      "AudioFileUrl": null,
+      "SegmentResults": [
+        {
+          "RecognitionStatus": "Success",
+          "ChannelNumber": null,
+          "Offset": 400000,
+          "Duration": 13300000,
+          "NBest": [
+            {
+              "Confidence": 0.976174,
+              "Lexical": "what's the weather like",
+              "ITN": "what's the weather like",
+              "MaskedITN": "what's the weather like",
+              "Display": "What's the weather like?",
+              "Words": null,
+              "Sentiment": {
+                "Negative": 0.206194,
+                "Neutral": 0.793785,
+                "Positive": 0.0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+Os recursos utiliza um modelo de sentimento que está atualmente em Beta.
 
 ## <a name="sample-code"></a>Código de exemplo
 

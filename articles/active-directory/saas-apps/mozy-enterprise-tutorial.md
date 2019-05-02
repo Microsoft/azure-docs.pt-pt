@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a0f21165af0bcbd8bda28f0eae20d3ee837f3be9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 964d7af92b087bd9905113a25513e2b2f7a3df17
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275662"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922342"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mozy-enterprise"></a>Tutorial: Integração do Active Directory do Azure com o Mozy Enterprise
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD início de sessão único com o Mozy Enterprise, exec
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<tenantname>.Mozyenterprise.com`
 
     > [!NOTE]
-    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de Mozy Enterprise Client](http://support.mozy.com/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de Mozy Enterprise Client](https://support.mozy.com/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 

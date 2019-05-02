@@ -6,14 +6,14 @@ author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 04ed95317311b81af49f5d96addb203b7cfeb74a
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466380"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64725647"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes sobre o Azure Kubernetes Service (AKS)
 
@@ -53,10 +53,27 @@ Para obter mais informações sobre como utilizar kured, consulte [aplicar atual
 
 Cada implementação do AKS abrange dois grupos de recursos:
 
-- O primeiro grupo de recursos é criado por si e contém apenas o recurso de serviço do Kubernetes. O fornecedor de recursos do AKS cria automaticamente o um segundo durante a implementação, como *MC_myResourceGroup_myAKSCluster_eastus*.
+- O primeiro grupo de recursos é criado por si e contém apenas o recurso de serviço do Kubernetes. O fornecedor de recursos do AKS cria automaticamente o um segundo durante a implementação, como *MC_myResourceGroup_myAKSCluster_eastus*. Para obter informações sobre como pode especificar o nome deste segundo grupo de recursos, consulte a secção seguinte.
 - Este recurso segundo grupo, tal como *MC_myResourceGroup_myAKSCluster_eastus*, contém todos os recursos de infraestrutura associados ao cluster. Esses recursos incluem a VMs de nó do Kubernetes, redes virtuais e armazenamento. Este grupo de recursos separado é criado para simplificar a limpeza de recursos.
 
 Se criar recursos para utilização com o seu cluster do AKS, como contas de armazenamento ou endereços IP públicos reservados, colocá-los no grupo de recursos gerada automaticamente.
+
+## <a name="can-i-provide-my-own-name-for-the-aks-infrastructure-resource-group"></a>Pode fornecer meu próprio nome para o grupo de recursos de infraestrutura do AKS?
+
+Sim. Por predefinição, o fornecedor de recursos do AKS automaticamente cria um grupo de recursos secundário durante a implementação, como *MC_myResourceGroup_myAKSCluster_eastus*. Para estar em conformidade com a política empresarial, pode fornecer seu próprio nome para este cluster gerido (*MC_*) grupo de recursos.
+
+Para especificar o seu próprio nome de grupo de recursos, instalar o [pré-visualização do aks] [ aks-preview-cli] versão da extensão da CLI do Azure *0.3.2* ou posterior. Quando cria um cluster do AKS com o [criar az aks] [ az-aks-create] comando, utilize o *– grupo de recursos de nó* parâmetro e especificar um nome para o grupo de recursos. Se [utilizar um modelo Azure Resource Manager] [ aks-rm-template] para implementar um cluster do AKS, pode definir o grupo de recursos nome utilizando o *nodeResourceGroup* propriedade.
+
+* Este grupo de recursos é criado automaticamente pelo fornecedor de recursos do Azure na sua própria subscrição.
+* Só pode especificar um nome de grupo de recursos personalizado quando o cluster é criado.
+
+Não são suportados os seguintes cenários:
+
+* Não é possível especificar um grupo de recursos existente para *MC_* grupo.
+* Não é possível especificar uma subscrição diferente para o *MC_* grupo de recursos.
+* Não é possível alterar o *MC_* nome do grupo de recursos depois do cluster ter sido criado.
+* Não é possível especificar nomes para os recursos gerenciados dentro de *MC_* grupo de recursos.
+* Não é possível modificar ou eliminar etiquetas de recursos geridos dentro da *MC_* grupo de recursos (consulte informações adicionais na secção seguinte).
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-mc-resource-group"></a>Posso modificar as etiquetas e outras propriedades de recursos do AKS no grupo de recursos MC_ *?
 
@@ -100,6 +117,9 @@ Num contrato ao nível de serviço, (SLA), o fornecedor concorda em reembolsar o
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
+[aks-preview-cli]: /cli/azure/ext/aks-preview/aks
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[aks-rm-template]: /rest/api/aks/managedclusters/createorupdate#managedcluster
 
 <!-- LINKS - external -->
 
@@ -108,4 +128,3 @@ Num contrato ao nível de serviço, (SLA), o fornecedor concorda em reembolsar o
 [hexadite]: https://github.com/Hexadite/acs-keyvault-agent
 [admission-controllers]: https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/
 [keyvault-flexvolume]: https://github.com/Azure/kubernetes-keyvault-flexvol
-

@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
-ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733491"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717956"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Configuração predefinida para a codificação de conteúdo com suporte para experimentais
 
-Para preparar o conteúdo para a entrega por [transmissão em fluxo de velocidade de transmissão adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), vídeo tem de ser codificado em vários bits taxas de (em cima para baixo). Para garantir que a redução gradual de qualidade, como a velocidade de transmissão é reduzida é por isso, a resolução do vídeo. Isso resulta numa escada codificação chamada – uma tabela de resoluções e velocidades de transmissão, como pode ver em alguns dos nossos fixas configurações predefinidas de codificação, tal como [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md).
+Para preparar o conteúdo para a entrega por [transmissão em fluxo de velocidade de transmissão adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), vídeo tem de ser codificado em vários bits taxas de (em cima para baixo). Para garantir que a redução gradual de qualidade, como a velocidade de transmissão é reduzida é por isso, a resolução do vídeo. Isso resulta numa escada codificação chamada – uma tabela de resoluções e velocidades de transmissão; ver os serviços de multimédia [configurações predefinidas de codificação incorporadas](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 ## <a name="overview"></a>Descrição geral
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2da4ee5d60290485d87af86885dda0d72a625fef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 44894694bab7d34ed9e6a71fe5e47c9e41144bca
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323165"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64716277"
 ---
 # <a name="dynamic-manifests"></a>Manifestos dinâmicos
 

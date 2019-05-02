@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/08/2017
-ms.openlocfilehash: 9c9a5f219af0d474e1608f98595abe027b894117
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef302ecaa6defc6ac0dc1dd58d4f8acc0f2fd263
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001739"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64711445"
 ---
 # <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Consultar os exemplos de padrões de utilização comuns do Stream Analytics
 
@@ -493,7 +493,7 @@ Por exemplo, gere um evento em 5 segundos, que informa o ponto de dados mais rec
 
 **Entrada**:
 
-| t | valor |
+| t | value |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -537,7 +537,7 @@ Por exemplo, num cenário de IoT para ovens iniciais, deve ser gerado um alerta 
 
 **Entrada**:
 
-| hora | deviceId | sensorName | valor |
+| time | deviceId | sensorName | value |
 | --- | --- | --- | --- |
 | "2018-01-01T16:01:00" | "Oven1" | "temp" |120 |
 | "2018-01-01T16:01:00" | "Oven1" | "power" |15 |
@@ -605,7 +605,7 @@ WHERE
 **EXPLICAÇÃO**: A primeira consulta `max_power_during_last_3_mins`, utiliza o [deslizantes janela](https://msdn.microsoft.com/azure/stream-analytics/reference/sliding-window-azure-stream-analytics) para determinar o valor máximo do sensor de alimentação para todos os dispositivos, durante os últimos 3 minutos. A segunda consulta é associada à primeira consulta para encontrar o valor de energia na janela do mais recente relevantes para o evento atual. E, em seguida, desde que as condições são cumpridas, é gerado um alerta para o dispositivo.
 
 ## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exemplo de consulta: Processar eventos independentes de dispositivo inclinar do relógio (subfluxos)
-**Descrição**: Eventos podem se atrasam ou fora de ordem devido a desvios de relógio entre produtores de eventos, o relógio inclina entre partições ou latência de rede. No exemplo a seguir, o relógio do dispositivo para TollID 2 é dez segundos atrás TollID 1 e o relógio do dispositivo para TollID 3 é cinco segundos por trás TollID 1. 
+**Descrição**: Eventos podem se atrasam ou fora de ordem devido a desvios de relógio entre produtores de eventos, o relógio inclina entre partições ou latência de rede. No exemplo a seguir, o relógio do dispositivo para TollID 2 é cinco segundos por trás TollID 1 e o relógio do dispositivo para TollID 3 é dez segundos atrás TollID 1. 
 
 
 **Entrada**:

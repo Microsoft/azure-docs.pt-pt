@@ -13,22 +13,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/24/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d145407331ed652f21510483b51a4617bf28e2fa
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 466b1aadb84bc92981b9adf1b1affa69f5f2ec25
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62096179"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919174"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
 ## <a name="accounts-used-for-azure-ad-connect"></a>Contas utilizadas para o Azure AD Connect
 
-![](media/reference-connect-accounts-permissions/account5.png)
+![Descrição geral de contas](media/reference-connect-accounts-permissions/account5.png)
 
 O Azure AD Connect utiliza as 3 contas para sincronizar informações do Windows Server Active Directory ou no local ao Azure Active Directory.  Estas contas são:
 
@@ -111,10 +111,10 @@ Segue-se um resumo das páginas de Assistente de instalação personalizada, as 
 | Instalar serviços de sincronização, opção de conta de serviço |AD ou credenciais de conta de utilizador local |Utilizador, as permissões são concedidas pelo Assistente de instalação |Se o administrador especifica uma conta, esta conta é utilizada como a conta de serviço para o serviço de sincronização. |
 | Ligar ao Azure AD |Credenciais de diretório do Azure AD |Função de administrador global no Azure AD |<li>Ativar a sincronização no diretório do Azure AD.</li>  <li>Criação da conta do conector do Azure AD que é utilizada para operações de sincronização em curso no Azure AD.</li> |
 | Ligar os diretórios |Credenciais do Active Directory no local para cada floresta que está ligada ao Azure AD |As permissões dependem quais recursos ativa e pode ser encontrado em criar a conta do conector do AD DS |Esta conta é utilizada para ler e gravar informações de diretório durante a sincronização. |
-| Servidores do AD FS |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador que executa o assistente não são suficientes para ligar |Administrador de domínio |Instalação e configuração da função de servidor do AD FS. |
-| Servidores de proxy de aplicações Web |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão do utilizador que executa o assistente não são suficientes para ligar |Administrador local no computador de destino |Instalação e configuração da função de servidor do WAP. |
+| Servidores do AD FS |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão de utilizador que executa o assistente não são suficientes para ligar |Administrador de domínio |Instalação e configuração da função de servidor do AD FS. |
+| Servidores de proxy de aplicações Web |Para cada servidor na lista, o assistente recolhe as credenciais quando as credenciais de início de sessão de utilizador que executa o assistente não são suficientes para ligar |Administrador local no computador de destino |Instalação e configuração da função de servidor do WAP. |
 | Credenciais de confiança do proxy |Credenciais de confiança de serviço de Federação (as credenciais de proxy utiliza para registrar um certificado de confiança do FS |Conta de domínio que seja um administrador local do servidor do AD FS |Inscrição inicial do certificado de confiança FS WAP. |
-| Página de conta de serviço FS AD, "Utilizar uma opção de conta de utilizador de domínio" |Credenciais de conta de utilizador do AD |Utilizador de domínio |A conta de utilizador do AD cujas credenciais são fornecidas é utilizada como a conta de início de sessão do serviço do AD FS. |
+| Página de conta de serviço FS AD, "Utilizar uma opção de conta de utilizador de domínio" |Credenciais de conta de utilizador do AD |Utilizador de domínio |A conta de utilizador do Azure AD cujas credenciais são fornecidas é utilizada como a conta de início de sessão do serviço do AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Criar a conta do conector do AD DS
 
@@ -239,6 +239,11 @@ A conta é criada com uma palavra-passe muito complexa que não expire. Ele é c
 Existe um limite de 20 contas de serviço de sincronização no Azure AD. Para obter a lista de contas de serviço do Azure AD existentes no seu Azure AD, execute o seguinte cmdlet do PowerShell do Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
 Para remover o AD do Azure não utilizado contas de serviço, execute o seguinte cmdlet do PowerShell do Azure AD: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+
+>[!NOTE]
+>Antes de poder utilizar os comandos do PowerShell acima terá de instalar o [Azure Active Directory PowerShell para o módulo do Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e ligue-se à sua instância do Azure AD com [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+
+Para obter mais informações sobre como gerir ou repor a palavra-passe para a conta do conector do Azure AD, consulte [gerir a conta do Azure AD Connect](how-to-connect-azureadaccount.md)
 
 ## <a name="related-documentation"></a>Documentação relacionada
 Se não leu a documentação sobre [integrar as identidades no local com o Azure Active Directory](whatis-hybrid-identity.md), a tabela seguinte fornece ligações para tópicos relacionados.

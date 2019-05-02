@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0fcdcdf781c86179b67eeef0223d46da0fc65b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388427"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916990"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de criar projeto Acoustics Unity
 Este tutorial descreve acoustics implantando com o projeto Acoustics no Unity.
 
 Requisitos de software:
-* [Unity 2018.2 +](http://unity3d.com) para Windows
+* [Unity 2018.2 +](https://unity3d.com) para Windows
 * [Plug-in do projeto Acoustics integrado no seu projeto Unity](unity-integration.md) ou o [conteúdos de exemplo de projeto Acoustics Unity](unity-quickstart.md)
 * Opcional: Uma [conta do Azure Batch](create-azure-account.md) para acelerar a incorpora a utilizar a informática na cloud
 

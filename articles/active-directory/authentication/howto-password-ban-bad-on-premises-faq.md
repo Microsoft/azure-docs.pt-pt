@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bd117b79c2d103225e8f1f29b63eb6ae341031d
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358162"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917668"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure proteção de palavra-passe do AD no local - perguntas mais frequentes
 
@@ -42,7 +42,7 @@ Uma alteração de palavra-passe é quando o utilizador seleciona uma nova palav
 
 Um conjunto de palavra-passe (por vezes denominado uma reposição de palavra-passe) é quando um administrador substitui a palavra-passe numa conta com uma nova palavra-passe, por exemplo, utilizando a ferramenta de gerenciamento do Active Directory utilizadores e computadores. Esta operação requer um alto nível de privilégio (normalmente, o administrador de domínio) e a pessoa que efetua a operação, normalmente, não tem conhecimento da palavra-passe antiga. Cenários de assistência técnica, muitas vezes, fazem-lo, por exemplo quando um usuário que esqueceu a palavra-passe a prestar assistência. Também poderá ver a palavra-passe definida eventos quando uma nova conta de utilizador está a ser criada pela primeira vez com uma palavra-passe.
 
-A política de validação da palavra-passe se comporta iguais, independentemente de se está a ser feito uma alteração de palavra-passe ou um conjunto. O serviço de agente do Azure AD palavra-passe DC de proteção de registrar eventos diferentes para o informar se uma alteração de palavra-passe ou a operação de definição foi feita.  Ver [proteção de palavra-passe do Azure AD, monitorização e registo](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+A política de validação da palavra-passe se comporta iguais, independentemente de se está a ser feito uma alteração de palavra-passe ou um conjunto. O serviço de agente do Azure AD palavra-passe DC de proteção de registrar eventos diferentes para o informar se uma alteração de palavra-passe ou a operação de definição foi feita.  Ver [proteção de palavra-passe do Azure AD, monitorização e registo](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
 **P: É possível para instalar a proteção de palavra-passe do Azure AD lado a lado com outros produtos baseados em palavra-passe-filtro?**
 

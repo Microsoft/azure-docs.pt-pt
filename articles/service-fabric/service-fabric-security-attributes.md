@@ -9,12 +9,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b25400f21e24b18a0a21b9d849bdd505f6d47aac
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: f12d11cecbf682ae82f9c432804b1d611ee3e39f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765754"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719398"
 ---
 # <a name="common-security-attributes-for-azure-service-fabric"></a>Atributos comuns de segurança para o Azure Service Fabric
 
@@ -27,7 +27,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim | O cliente possui o cluster e o conjunto no qual o cluster é criado de dimensionamento de máquina virtual. Encriptação de disco do Azure pode ser ativada no conjunto de dimensionamento de máquina virtual. |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim |  |
+| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Sim |  |
 | Manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | O cliente possui o cluster e o conjunto no qual o cluster é criado de dimensionamento de máquina virtual. Encriptação de disco do Azure pode ser ativada no conjunto de dimensionamento de máquina virtual. |
 | Encriptação de nível de coluna (Serviços de dados do Azure)| N/A |  |
 | Chamadas de API encriptadas| Sim | Chamadas de API do Service Fabric são feitas através do Gestor de recursos do Azure. Um válido JSON web tokens (JWT) é necessário. |
@@ -37,7 +37,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Suporte de ponto final de serviço| Sim |  |
-| suporte de injeção de vNET| Sim |  |
+| Suporte de injeção de VNet| Sim |  |
 | Isolamento de rede e o suporte de firewall| Sim | Utilizar grupos de segurança de rede (NSG). |
 | Suporte de encapsulamento de forçado| Sim | Redes do Azure fornecem um túnel forçado. |
 

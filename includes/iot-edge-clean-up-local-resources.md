@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/10/2018
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: cdb60ffb3ba3c31c336c8b74c46621792c707f74
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.openlocfilehash: 2b61cc8c5c448c28e96b06afa3556688a82567ed
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40046824"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866815"
 ---
 ### <a name="delete-local-resources"></a>Eliminar recursos locais
 

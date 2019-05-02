@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
-ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 284480ab8b9973c02f365dbf3ebfd3a103ef4b42
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371806"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919154"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configurar a sua conta de cobrança para um contrato de cliente da Microsoft
 
@@ -108,7 +108,7 @@ Um inquilino do Azure Active Directory está selecionado para a nova conta de fa
 
 Sua nova conta suporta apenas os utilizadores ao inquilino tiver sido selecionada durante a assinatura do contrato de cliente da Microsoft. Se os utilizadores com permissões administrativas no seu contrato Enterprise fazem parte do inquilino, elas receberão acesso para a nova conta de faturação durante a configuração. Se eles não são parte do inquilino, não será capazes de aceder a nova conta de cobrança, a menos que convidá-los.
 
-Quando convida os usuários, eles são adicionados ao inquilino como os utilizadores convidados e obtém acesso à conta de faturação. Para convidar os utilizadores, o acesso de convidado tem de estar ativado para o inquilino. Para obter mais informações, consulte [controlar o acesso de convidado no Azure Active Directory](https://docs.microsoft.com/en-us/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se o acesso de convidado é desativado, contacte os administradores globais do seu inquilino para ativá-la. <!-- Todo - How can they find their global administrator -->
+Quando convida os usuários, eles são adicionados ao inquilino como os utilizadores convidados e obtém acesso à conta de faturação. Para convidar os utilizadores, o acesso de convidado tem de estar ativado para o inquilino. Para obter mais informações, consulte [controlar o acesso de convidado no Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). Se o acesso de convidado é desativado, contacte os administradores globais do seu inquilino para ativá-la. <!-- Todo - How can they find their global administrator -->
 
 ## <a name="view-features-replaced-by-the-new-billing-account"></a>Ver recursos substituídos pela nova conta de faturação
 

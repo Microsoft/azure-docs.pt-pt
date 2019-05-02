@@ -10,11 +10,11 @@ ms.date: 05/11/2017
 ms.author: jasontang501
 ms.subservice: common
 ms.openlocfilehash: 9e786aed031d528b8ae574444b71753ac538cf47
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63766191"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728311"
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerir a Simultaneidade no Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral

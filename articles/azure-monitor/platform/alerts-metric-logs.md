@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 9f47ba44e7940414932371ef1b7a360d0b01e1ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 1c744e0063d5c56b2ca17f2b6c6fa694ad13a26c
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483867"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872583"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Criar alertas de métricas para os registos no Azure Monitor
 
@@ -57,7 +57,7 @@ Antes de métrica para os registos recolhidos sobre funciona de dados do Log Ana
 
 1. **Área de trabalho do Active Directory do Log Analytics**: Tem de existir uma área de trabalho do Log Analytics válida e ativa. Para obter mais informações, consulte [criar uma área de trabalho do Log Analytics no portal do Azure](../../azure-monitor/learn/quick-create-workspace.md).
 2. **Agente for configurado para a área de trabalho do Log Analytics**: Agente tem de ser configuradas para as VMs do Azure (e/ou) VMs no local enviar dados para a área de trabalho de análise do registo utilizada no passo anterior. Para obter mais informações, consulte [descrição geral do agente do Log Analytics -](../../azure-monitor/platform/agents-overview.md).
-3. **Soluções de análise de registos suportados é instalada**: Solução de análise de registo deve ser configurados e envio dados na área de trabalho do Log Analytics - suportado são de soluções [contadores de desempenho para Windows e Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [registos de Heartbeat de agente de estado de funcionamento](../../azure-monitor/insights/solution-agenthealth.md) , [A gestão, de atualizações e [dados de eventos](../../azure-monitor/platform/data-sources-windows-events.md).
+3. **Soluções de análise de registos suportados é instalada**: Solução de análise de registo deve ser configurados e envio dados na área de trabalho do Log Analytics - suportado são de soluções [contadores de desempenho para Windows e Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [registos de Heartbeat de agente de estado de funcionamento](../../azure-monitor/insights/solution-agenthealth.md) , [Gestão de atualizações](../../automation/automation-update-management.md), e [dados de eventos](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **Configurado para enviar registos de soluções de análise de registo**: Solução de análise de registo deve ter o correspondente de dados/registos necessários para [métricas suportadas para áreas de trabalho do Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) ativada. Por exemplo, para *% de memória disponível* contador do mesmo tem de ser configurado na [contadores de desempenho](../../azure-monitor/platform/data-sources-performance-counters.md) solução primeiro.
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configurar o alerta de métrica para os registos

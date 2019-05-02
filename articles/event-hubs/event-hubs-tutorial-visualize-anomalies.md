@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6786e4e3382c7c4d7a6a6a28c3cd3621df221c1
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60369429"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867142"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutorial: Visualizar anomalias de dados nos eventos em tempo real, enviados para os Hubs de eventos do Azure
 
-Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estiverem a enviar transações de cartão de crédito, e precisa de capturar dados em qualquer lugar que tenha várias transações em vários países num intervalo de tempo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
+Com os Hubs de Eventos do Azure, pode utilizar o Azure Stream Analytics para verificar os dados recebidos e extrair as anomalias, que, em seguida, pode visualizar no Power BI. Imaginemos que tem milhares de dispositivos constantemente a enviar dados em tempo real para um hub de eventos, adicionando até milhões de eventos por segundo. De que forma verifica a existência de anomalias ou erros nessa quantidade de dados? Por exemplo, e se os dispositivos estão a enviar transações de cartão de crédito, e precisa capturar em qualquer lugar que tem várias transações em vários países/regiões dentro de um intervalo de tempo de 5 segundos? Isto poderia acontecer se alguém roubar cartões de crédito e, em seguida, utilizá-los para comprar artigos em todo o mundo ao mesmo tempo. 
 
 Neste tutorial, vai simular este exemplo. Vai executar uma aplicação que cria e envia transações de cartão de crédito para um hub de eventos. Em seguida, vai ler o fluxo de dados em tempo real com o Azure Stream Analytics, que separa as transações válidas das transações inválidas e, em seguida, vai utilizar o Power BI para identificar visualmente as transações que estão identificadas como inválidas.
 

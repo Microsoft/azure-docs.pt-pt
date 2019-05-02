@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: dc5bfe6b431659b7b99140eb29a0e64922a42275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fddea12d4c6b7d09d87174d29c645ef6da54af6f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61364520"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917429"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utilizar o encaminhamento de mensagens do IoT Hub para enviar mensagens do dispositivo para a cloud para diferentes pontos de extremidade
 
@@ -119,7 +119,7 @@ Na maioria dos casos, o aumento de média de latência é inferior a 500 ms. Pod
 
 O IoT Hub fornece encaminhamento várias e métricas para uma visão geral do Estado de funcionamento do seu hub e as mensagens enviadas relacionados com o ponto final. Pode combinar informações a partir de várias métricas para identificar a causa de raiz para problemas. Por exemplo, utilize a métrica **encaminhamento: mensagens de telemetria removidas** ou **d2c.telemetry.egress.dropped** para identificar o número de mensagens que foram removidos quando eles não correspondeu consultas em qualquer uma das rotas e a rota de contingência foi desativada. [Métricas do IoT Hub](iot-hub-metrics.md) apresenta uma lista de todas as métricas que estão ativadas por predefinição para o seu IoT Hub.
 
-Pode utilizar a API REST [obter estado de funcionamento do ponto final](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter [estado de funcionamento](iot-hub-devguide-endpoints.md#custom-endpoints) os pontos de extremidade. Recomendamos que utilize o [métricas do IoT Hub](iot-hub-metrics.md) relacionadas com a latência da mensagem de encaminhamento para identificar e depurar erros quando o estado de funcionamento do ponto final está inativo ou mau estado de funcionamento. Por exemplo, para o tipo de ponto final dos Hubs de eventos, pode monitorar **d2c.endpoints.latency.eventHubs**. O estado de um ponto de extremidade de mau estado de funcionamento será atualizado para o bom estado de funcionamento quando o IoT Hub estabeleceu um Estado de funcionamento eventualmente consistente do Estado de funcionamento.
+Pode utilizar a API REST [obter estado de funcionamento do ponto final](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) para obter [estado de funcionamento](iot-hub-devguide-endpoints.md#custom-endpoints) os pontos de extremidade. Recomendamos que utilize o [métricas do IoT Hub](iot-hub-metrics.md) relacionadas com a latência da mensagem de encaminhamento para identificar e depurar erros quando o estado de funcionamento do ponto final está inativo ou mau estado de funcionamento. Por exemplo, para o tipo de ponto final dos Hubs de eventos, pode monitorar **d2c.endpoints.latency.eventHubs**. O estado de um ponto de extremidade de mau estado de funcionamento será atualizado para o bom estado de funcionamento quando o IoT Hub estabeleceu um Estado de funcionamento eventualmente consistente do Estado de funcionamento.
 
 Com o **rotas** registos de diagnóstico no Azure Monitor [das definições de diagnóstico](../iot-hub/iot-hub-monitor-resource-health.md), pode erros de roteiros que ocorrem durante a avaliação de um Estado de funcionamento encaminhamento de consulta e o ponto final como percebido pelo IoT Hub, por exemplo Quando um ponto final está inativo. Estes registos de diagnóstico podem ser enviados para os registos do Azure Monitor, os Hubs de eventos ou armazenamento do Azure para processamento personalizado.
 

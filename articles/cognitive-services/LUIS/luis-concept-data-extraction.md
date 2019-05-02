@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812837"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867705"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com intenções e entidades
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, aplicação ou bot de bate-papo para tomar medidas. As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON.
@@ -441,7 +441,7 @@ Se utilizar a entidade simple, certifique-se dê exemplos que utilizam o nome pr
 
 ### <a name="names-of-places"></a>Nomes de locais
 
-Nomes de localização são estabelecidos e conhecidos como cidades, condados, Estados, províncias e países. Utilizar a entidade pré-criados **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extrair informações de localização.
+Nomes de localização são estabelecidos e conhecidos como cidades, condados, Estados, províncias e países/regiões. Utilizar a entidade pré-criados **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extrair informações de localização.
 
 ### <a name="new-and-emerging-names"></a>Nomes de novos e emergentes
 

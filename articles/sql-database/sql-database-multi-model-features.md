@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 84efdb0297a2dc69497baee5fb746fb51d02b1b7
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62122664"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64939520"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Capacidades de vários modelos de base de dados do Azure SQL
 
@@ -90,7 +90,7 @@ Modelos de documento podem ser usados em vez dos modelos relacionais em alguns c
 
 ## <a name="spatial-features"></a>Recursos espaciais
 
-Dados espaciais representam informações sobre a localização física e a forma dos objetos geométricos. Estes objetos podem ser localizações de pontos ou objetos mais complexos, como países, estradas ou lakes.
+Dados espaciais representam informações sobre a localização física e a forma dos objetos geométricos. Estes objetos podem ser localizações de pontos ou objetos mais complexos, como países/regiões, estradas ou lakes.
 
 Base de dados SQL do Azure suporta dois tipos de dados geográficos - escreva o tipo de dados de geometria e os dados de geografia.
 - O tipo de geometria representa os dados num sistema de coordenadas Euclidiana (simples).

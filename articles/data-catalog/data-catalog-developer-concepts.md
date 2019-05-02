@@ -8,12 +8,12 @@ ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42e4b545a48bcbd0ad4b7faf077ebdbfe21648b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3cfd6bd453cd06be4676a806997697a71afb0b59
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61002676"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727404"
 ---
 # <a name="azure-data-catalog-developer-concepts"></a>Conceitos de programador do catálogo de dados do Azure
 Microsoft **catálogo de dados do Azure** é um serviço cloud totalmente gerido que fornece capacidades para deteção de origens de dados e para crowdsourcing de metadados de origem de dados. Os programadores podem utilizar o serviço através de suas APIs de REST. Compreender os conceitos implementados no serviço é importante para os programadores integrar com êxito **catálogo de dados do Azure**.
@@ -174,9 +174,9 @@ Tipos comuns podem ser utilizados como os tipos de propriedades, mas não são i
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocolo</td><td>string</td><td>Necessário. Descreve um protocolo utilizado para comunicar com a origem de dados. Por exemplo: "tds" para o SQl Server, "oracle" para o Oracle, etc. Consulte a <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">especificação de referência - estrutura de DSL da origem de dados</a> para a lista de protocolos suportados atualmente.</td></tr>
-<tr><td></td><td>endereço</td><td>Dicionário<string, object></td><td>Necessário. O endereço é um conjunto de dados específicos para o protocolo que é utilizado para identificar a origem de dados a ser referenciada. Os dados de endereço no âmbito de um determinado protocolo, que significa que tem qualquer significado sem saber o protocolo.</td></tr>
+<tr><td></td><td>endereço</td><td>Dicionário&lt;de cadeias de caracteres, de objeto&gt;</td><td>Necessário. O endereço é um conjunto de dados específicos para o protocolo que é utilizado para identificar a origem de dados a ser referenciada. Os dados de endereço no âmbito de um determinado protocolo, que significa que tem qualquer significado sem saber o protocolo.</td></tr>
 <tr><td></td><td>autenticação</td><td>string</td><td>Opcional. O esquema de autenticação utilizado para comunicar com a origem de dados. Por exemplo: windows, oauth, etc.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Dicionário<string, object></td><td>Opcional. Obter informações adicionais sobre como ligar a uma origem de dados.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Dicionário&lt;de cadeias de caracteres, de objeto&gt;</td><td>Opcional. Obter informações adicionais sobre como ligar a uma origem de dados.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>O back-end não realiza nenhuma validação de propriedades fornecidas em relação a AAD durante a publicação.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Endereço de e-mail exclusivo do utilizador. Tem de ser especificado se não for fornecido objectId ou no contexto da propriedade de "lastRegisteredBy", caso contrário, opcional.</td></tr>

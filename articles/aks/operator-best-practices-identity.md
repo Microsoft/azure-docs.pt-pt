@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 04/24/2019
 ms.author: iainfou
-ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1c20e7796d152c9198786c491f9a61752d88ea6f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464496"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726624"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Melhores práticas para autenticação e autorização no Azure Kubernetes Service (AKS)
 
@@ -108,7 +108,8 @@ No exemplo a seguir, um desenvolvedor cria um pod que utiliza uma identidade ger
 1. Um desenvolvedor implementa um pod com uma identidade gerida que solicita um token de acesso através do servidor de NMI.
 1. O token é retornado para o pod e utilizado para aceder a uma instância de servidor SQL do Azure.
 
-Identidades de pod gerido é um projeto de código-fonte aberto do AKS e não é suportado pelo suporte técnico do Azure. Ele é fornecido para recolher comentários e bugs de nossa Comunidade. O projeto não é recomendado para utilização em produção.
+> [!NOTE]
+> Identidades de pod gerido é um projeto de código-fonte aberto e não é suportado pelo suporte técnico do Azure.
 
 Para utilizar identidades de pod, consulte [identidades do Azure Active Directory para aplicações do Kubernetes][aad-pod-identity].
 

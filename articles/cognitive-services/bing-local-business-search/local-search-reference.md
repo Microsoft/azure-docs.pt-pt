@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: bc38b4457179c11f9d6b2656aacb8aa66848c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3628670d2393d7b6921c60317719ccf8e72a451
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581042"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866350"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Referência da API de pesquisa de negócios locais do Bing v7
 
-A API de pesquisa de negócios locais envia uma consulta de pesquisa do Bing para obter resultados que incluem restaurantes, hotéis ou outros negócios locais. Para locais, a consulta pode especificar o nome da empresa local, ou uma categoria (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. Local neste contexto é entidades comerciais, Estados, países, etc.  
+A API de pesquisa de negócios locais envia uma consulta de pesquisa do Bing para obter resultados que incluem restaurantes, hotéis ou outros negócios locais. Para locais, a consulta pode especificar o nome da empresa local, ou uma categoria (por exemplo, restaurantes perto de mim). Os resultados de entidades incluem pessoas, locais ou coisas. Local neste contexto é entidades comerciais, Estados, países/regiões, etc.  
 
 Esta secção fornece detalhes técnicos sobre os objetos de resposta e os parâmetros de consulta e os cabeçalhos que afetam os resultados da pesquisa. Para obter exemplos que mostram como fazer pedidos, consulte [Local de negócios de pesquisa C# início rápido](quickstarts/local-quickstart.md) ou [início rápido de Java de pesquisa de negócios locais](quickstarts/local-search-java-quickstart.md). 
   

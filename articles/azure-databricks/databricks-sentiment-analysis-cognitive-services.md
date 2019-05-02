@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks'
-description: Saiba como utilizar o Azure Databricks com os Hubs de Eventos e a API de Serviços Cognitivos para executar a análise de sentimentos na transmissão em fluxo de dados em quase tempo real.
+description: Saiba como utilizar o Azure Databricks com Hubs de eventos e a API de serviços cognitivos para executar a análise de sentimentos na transmissão em fluxo de dados em tempo real.
 services: azure-databricks
 author: lenadroid
 ms.author: alehall
-ms.reviewer: jasonh
+ms.reviewer: mamccrea
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/07/2018
-ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/29/2019
+ms.openlocfilehash: a4762f78b16b7798ff746770f1ea69ccebd30130
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60786326"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919018"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
 
@@ -55,9 +55,9 @@ Antes de começar este tutorial, certifique-se de que cumpre os seguintes requis
 
 Pode satisfazer estes requisitos, efetuando os passos no artigo, [Criar um espaço de nomes e um hub de eventos dos Hubs de Eventos do Azure](../event-hubs/event-hubs-create.md).
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -154,7 +154,7 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
 ## <a name="get-a-cognitive-services-access-key"></a>Obter uma chave de acesso aos Serviços Cognitivos
 
-Neste tutorial, vai utilizar o [APIs de análise de texto do Microsoft Cognitive Services](../cognitive-services/text-analytics/overview.md) para executar a análise de sentimentos numa sequência de tweets em tempo real. Antes de utilizar as APIs, tem de criar uma conta de serviços cognitivos da Microsoft no Azure e obter uma chave de acesso para utilizar as APIs de análise de texto.
+Neste tutorial, vai utilizar o [APIs de análise de texto do Azure Cognitive Services](../cognitive-services/text-analytics/overview.md) para executar a análise de sentimentos numa sequência de tweets em tempo real. Antes de utilizar as APIs, tem de criar uma conta de serviços cognitivos do Azure no Azure e obter uma chave de acesso para utilizar as APIs de análise de texto.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -227,7 +227,7 @@ val connStr = new ConnectionStringBuilder()
             .setSasKeyName(sasKeyName)
             .setSasKey(sasKey)
 
-val pool = Executors.newFixedThreadPool(1)
+val pool = Executors.newScheduledThreadPool(1)
 val eventHubClient = EventHubClient.create(connStr.toString(), pool)
 
 def sendEvent(message: String) = {

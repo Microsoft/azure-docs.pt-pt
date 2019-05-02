@@ -13,25 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/27/2017
-ms.date: 11/30/2018
-ms.author: v-junlch
-ms.openlocfilehash: 1dcb97a94bd5790edc2e40acf890bb47baec7a4b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.date: 04/26/2019
+ms.author: manayar
+ms.openlocfilehash: 8b75b9898eb767866c0843594a82570cfb65d122
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108032"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868961"
 ---
 # <a name="add-reference-to-an-existing-virtual-network-in-an-azure-scale-set-template"></a>Adicionar referência a uma rede virtual existente num modelo de conjunto de dimensionamento do Azure
 
-Este artigo mostra como modificar o [modelo de conjunto de dimensionamento mínimo viável](./virtual-machine-scale-sets-mvss-start.md) para implementar numa rede virtual existente, em vez de criar um novo.
+Este artigo mostra como modificar o [modelo de conjunto de dimensionamento básico](virtual-machine-scale-sets-mvss-start.md) para implementar numa rede virtual existente, em vez de criar um novo.
 
 ## <a name="change-the-template-definition"></a>Altere a definição do modelo
 
-Pode ser visto o modelo de conjunto de dimensionamento mínimo viável [aqui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json), e o modelo para implementar o conjunto de dimensionamento numa rede virtual existente pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/existing-vnet/azuredeploy.json). Vamos examinar o diff utilizado para criar este modelo (`git diff minimum-viable-scale-set existing-vnet`) parte por parte:
+Num [artigo anterior](virtual-machine-scale-sets-mvss-start.md) que criamos um modelo de conjunto de dimensionamento básico. Iremos agora utilizar esse modelo anterior e modificá-lo para criar um modelo que implementa um conjunto de dimensionamento numa rede virtual existente. 
 
-Primeiro, adicione um `subnetId` parâmetro. Esta cadeia é passada para a configuração de conjunto de dimensionamento, permitindo que o conjunto de dimensionamento para identificar a sub-rede previamente criada para implementar máquinas virtuais em. Esta cadeia tem de ser do formulário: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`. Por exemplo, para implementar o dimensionamento conjunto numa rede virtual existente com o nome `myvnet`, sub-rede `mysubnet`, grupo de recursos `myrg`e subscrição `00000000-0000-0000-0000-000000000000`, o subnetId seria: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
+Primeiro, adicione um `subnetId` parâmetro. Esta cadeia é passada para a configuração de conjunto de dimensionamento, permitindo que o conjunto de dimensionamento para identificar a sub-rede previamente criada para implementar máquinas virtuais em. Esta cadeia tem de ser do formulário: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>/subnets/<subnet-name>`
+
+Por exemplo, para implementar o dimensionamento conjunto numa rede virtual existente com o nome `myvnet`, sub-rede `mysubnet`, grupo de recursos `myrg`e subscrição `00000000-0000-0000-0000-000000000000`, o subnetId seria: `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/mysubnet`.
 
 ```diff
      },
@@ -53,7 +54,7 @@ Em seguida, elimine o recurso de rede virtual do `resources` matriz, à medida q
 -      "type": "Microsoft.Network/virtualNetworks",
 -      "name": "myVnet",
 -      "location": "[resourceGroup().location]",
--      "apiVersion": "2016-12-01",
+-      "apiVersion": "2018-11-01",
 -      "properties": {
 -        "addressSpace": {
 -          "addressPrefixes": [
@@ -79,7 +80,7 @@ A rede virtual já existe antes do modelo é implementado, pelo que é necessár
        "type": "Microsoft.Compute/virtualMachineScaleSets",
        "name": "myScaleSet",
        "location": "[resourceGroup().location]",
-       "apiVersion": "2016-04-30-preview",
+       "apiVersion": "2019-03-01",
 -      "dependsOn": [
 -        "Microsoft.Network/virtualNetworks/myVnet"
 -      ],
@@ -88,7 +89,7 @@ A rede virtual já existe antes do modelo é implementado, pelo que é necessár
          "capacity": 2
 ```
 
-Finalmente, passar o `subnetId` parâmetro definido pelo utilizador (em vez de usar `resourceId` para obter o ID de uma vnet na mesma implementação, que é o que o dimensionamento mínimo viável definir modelo faz).
+Finalmente, passar o `subnetId` parâmetro definido pelo utilizador (em vez de usar `resourceId` para obter o ID de uma vnet na mesma implementação, que é o que o básico conjunto de dimensionamento viável modelo faz).
 
 ```diff
                        "name": "myIpConfig",
@@ -107,5 +108,3 @@ Finalmente, passar o `subnetId` parâmetro definido pelo utilizador (em vez de u
 ## <a name="next-steps"></a>Passos Seguintes
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-
-<!-- Update_Description: update metedata properties -->

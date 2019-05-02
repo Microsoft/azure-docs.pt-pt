@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a559191bb4e84b3b60529bf20a25e381c72f42a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 845ca13bdd8e3677f559bac373efa078f3b951be
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840941"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Active Directory do Azure com TOPdesk - seguro
 
@@ -180,7 +180,7 @@ Para configurar o Azure AD início de sessão único com TOPdesk - proteger, exe
 
     b. Para carregar o ficheiro de certificado, em **certificados RSA ()**, clique em **procurar**.
 
-    c. Para **(RSA, PKCS8, DER) de chave privada**, pode carregar sua própria chave privada ou pode contactar [TOPdesk - equipa de suporte de cliente proteger](http://www.topdesk.com/us/support) para obter a chave privada.
+    c. Para **(RSA, PKCS8, DER) de chave privada**, pode carregar sua própria chave privada ou pode contactar [TOPdesk - equipa de suporte de cliente proteger](https://www.topdesk.com/us/support) para obter a chave privada.
 
     d. Para carregar o ficheiro do logótipo da equipe de suporte do TOPdesk, tem em **ícone de logótipo**, clique em **procurar**.
 

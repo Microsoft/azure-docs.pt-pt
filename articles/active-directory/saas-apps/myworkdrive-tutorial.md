@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/04/2019
+ms.date: 04/26/2019
 ms.author: jeedes
-ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 494284d32b48b810143f8c483278b2efbfb0dbc2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280507"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922308"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Tutorial: Integração do Active Directory do Azure com a MyWorkDrive
 
@@ -37,7 +37,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com MyWorkDrive, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * MyWorkDrive logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -66,7 +66,7 @@ Para configurar a integração da MyWorkDrive no Azure AD, terá de adicionar My
 
 4. Na caixa de pesquisa, escreva **MyWorkDrive**, selecione **MyWorkDrive** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![MyWorkDrive na lista de resultados](common/search-new-app.png)
+    ![MyWorkDrive na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -123,11 +123,11 @@ Para configurar o Azure AD início de sessão único com MyWorkDrive, execute os
 
 6. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, clique em botão Copiar para copiar **Url de metadados de Federação de aplicação** e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de download de certificado](common/copy-metadataurl.png)
 
 ### <a name="configure-myworkdrive-single-sign-on"></a>Configurar a MyWorkDrive Single Sign-On
 
-1. Numa janela do browser web diferente, início de sessão para MyWorkDrive como um administrador de segurança.
+1. Numa janela do browser web diferente, inicie sessão no MyWorkDrive como um administrador de segurança.
 
 2. No servidor MyWorkDrive no painel administração, clique em **ENTERPRISE** e execute os seguintes passos:
 
@@ -141,10 +141,10 @@ Para configurar o Azure AD início de sessão único com MyWorkDrive, execute os
 
     d. Clicar em **Guardar**
 
-    >[!NOTE]
-    >Para informações adicionais, veja a [artigo de suporte do Azure AD de MyWorkDrive](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
+    > [!NOTE]
+    > Para informações adicionais, veja a [artigo de suporte do Azure AD de MyWorkDrive](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
@@ -162,8 +162,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -199,7 +198,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no MyWorkDrive. Trabalhar com [equipa de suporte da MyWorkDrive](mailto:support@myworkdrive.com) para adicionar os utilizadores na plataforma da MyWorkDrive. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar o início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -212,4 +211,3 @@ Quando clica no mosaico da MyWorkDrive no painel de acesso, deve ser automaticam
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

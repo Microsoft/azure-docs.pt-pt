@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6911b19c680c2fdb8c372347c4dd0fca60bb0e0b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60245530"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918514"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
 
@@ -25,7 +25,7 @@ O módulo do PowerShell com o nome [ADSyncConfig.psm1](reference-connect-adsyncc
 ## <a name="overview"></a>Descrição geral 
 Os seguintes cmdlets PowerShell pode ser utilizado para configurar permissões do Active Directory da conta do conector do AD DS, para cada funcionalidade que optar por ativar no Azure AD Connect. Para evitar quaisquer problemas, deve preparar permissões do Active Directory com antecedência sempre que deseja instalar o Azure AD Connect com uma conta de domínio personalizado para ligar à sua floresta. Este módulo de ADSyncConfig também pode ser utilizado para configurar permissões após a implementação do Azure AD Connect.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![Descrição geral da conta do ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 Para a instalação do Azure AD Connect Express, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada no Active Directory com todas as permissões necessárias, para que não é necessário utilizar este módulo ADSyncConfig, exceto se o ter bloqueado permissões herança em unidades organizacionais ou em objetos específicos do Active Directory que pretende sincronizar com o Azure AD. 
  

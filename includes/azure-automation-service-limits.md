@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60012506"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733799"
 ---
 #### <a name="process-automation"></a>Automatização de processos
 
@@ -31,6 +31,7 @@ ms.locfileid: "60012506"
 | Número máximo de soquetes de rede, permitidos por sandbox<sup>1</sup> |1,000 |Aplica-se apenas uma áreas de segurança do Azure.|
 | Tempo de execução máximo permitido por runbook<sup>1</sup> |3 horas |Aplica-se apenas uma áreas de segurança do Azure.|
 | Número máximo de contas de automatização numa subscrição |Sem limite ||
+| Número máximo de grupos de trabalho híbrido por conta de automatização|4,000||
 |Número máximo de tarefas simultâneas que podem ser executadas num único Runbook Worker híbrido|50 ||
 | Tamanho do parâmetro de tarefa de runbook máximo   | 512 quilobits||
 | Parâmetros do runbook máximo   | 50|Se atingir o limite de parâmetro de 50, pode passar uma cadeia de caracteres do JSON ou XML para um parâmetro e analisá-lo com o runbook.|

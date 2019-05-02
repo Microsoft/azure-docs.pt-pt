@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 1e5faa8d356b891d825586414c0a1a1b9fa47090
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: feeb9ae4472fb3439ecc5d6505860cc407f9e4d3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853325"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919703"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurar um contentor personalizado do Linux para o serviço de aplicações do Azure
 
@@ -109,7 +109,6 @@ O SSH permite a comunicação segura entre um contentor e um cliente. Por ordem 
 - [Utilizar o armazenamento persistente no Docker Compose](#use-persistent-storage-in-docker-compose)
 - [Limitações de pré-visualização](#preview-limitations)
 - [Opções do docker Compose](#docker-compose-options)
-- [Opções de configuração do Kubernetes](#kubernetes-configuration-options)
 
 ### <a name="use-persistent-storage-in-docker-compose"></a>Utilizar o armazenamento persistente no Docker Compose
 
@@ -132,19 +131,6 @@ wordpress:
   - ${WEBAPP_STORAGE_HOME}/site/wwwroot:/var/www/html
   - ${WEBAPP_STORAGE_HOME}/phpmyadmin:/var/www/phpmyadmin
   - ${WEBAPP_STORAGE_HOME}/LogFiles:/var/log
-```
-
-### <a name="use-custom-storage-in-docker-compose"></a>Utilizar o armazenamento personalizado no Docker Compose
-
-O armazenamento do Azure (ficheiros do Azure ou BLOBs do Azure) pode ser montado aplicações de vários contentores com o id de personalizada. Para ver o nome do id de personalizada, execute [ `az webapp config storage-account list --name <app_name> --resource-group <resource_group>` ](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
-
-No seu *docker-Compose* de arquivos, mapear os `volumes` a opção de `custom-id`. Por exemplo:
-
-```yaml
-wordpress:
-  image: wordpress:latest
-  volumes:
-  - <custom-id>:<path_in_container>
 ```
 
 ### <a name="preview-limitations"></a>Limitações de pré-visualização
@@ -179,22 +165,6 @@ As listas seguintes mostram suportadas e não suportadas Docker Compose as opç�
 
 > [!NOTE]
 > Quaisquer outras opções não explicitamente chamadas são ignoradas em pré-visualização pública.
-
-### <a name="kubernetes-configuration-options"></a>Opções de configuração do Kubernetes
-
-As seguintes opções de configuração são suportadas para Kubernetes:
-
-- args
-- command
-- containers
-- image
-- nome
-- ports
-- spec
-
-> [!NOTE]
-> Quaisquer outras opções não explicitamente chamadas não são suportadas em pré-visualização pública.
->
 
 ## <a name="next-steps"></a>Passos Seguintes
 

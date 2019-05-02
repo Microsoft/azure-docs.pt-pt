@@ -10,18 +10,18 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: aa7c5c513d65310bf9bffab29c1d18e7e7a85b49
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8605fe2ea86f875b5c5fd8ea451a287442dcd51b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389497"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922495"
 ---
 # <a name="project-acoustics-unity-integration"></a>Integração do projeto Acoustics Unity
 Nesta explicação de procedimento explica a integração do plug-in do projeto Acoustics Unity em seu projeto Unity.
 
 Requisitos de software:
-* [Unity 2018.2 +](http://unity3d.com) para Windows
+* [Unity 2018.2 +](https://unity3d.com) para Windows
 * [Pacote do Acoustics Unity de projeto](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ## <a name="import-the-plugin"></a>Importar o plug-in

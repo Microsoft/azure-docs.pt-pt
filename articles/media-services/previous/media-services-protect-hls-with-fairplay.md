@@ -13,14 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7763338a5c2d5ccb58fe912d9989ab5bb57d5932
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c30a32466cbac795ef037a3295816e87995ad749
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557482"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868396"
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteger o seu HLS conteúdo com o Apple FairPlay ou o Microsoft PlayReady
+
+> [!NOTE]
+> Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).   > Sem novos recursos ou funcionalidades estão a ser adicionados para serviços de multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
+>
+
 Serviços de multimédia do Azure permite-lhe encriptar dinamicamente o seu conteúdo de HTTP Live Streaming (HLS), utilizando os seguintes formatos:  
 
 * **Chave não encriptada do AES-128 envelope**

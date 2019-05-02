@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: ''
 author: chackdan
 ms.author: chackdan
-ms.date: 12/12/2018
+ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 27cf4d31f11eaf861d1cafc093d912aa15c8bec0
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979756"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728588"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Malha de recursos de infraestrutura do serviço perguntas mais frequentes
 
@@ -77,7 +77,9 @@ Por exemplo:
 
 Para eliminar o grupo de recursos, utilize o `az group delete <nameOfResourceGroup>` comando.
 
-## <a name="supported-container-os-images"></a>Imagens de contentor suportados SO
+## <a name="deployments"></a>Implementações
+
+### <a name="what-container-images-are-supported"></a>As imagens de contentor são suportadas?
 
 Se estiver a desenvolver numa máquina Windows Fall Creators Update (versão 1709), só pode utilizar imagens do docker Windows versão 1709.
 
@@ -90,6 +92,10 @@ As seguintes imagens de sistema operacional de contentor podem ser utilizadas pa
     - Windows Server versão 1803
 - Linux
     - Não existem limitações conhecidas
+
+### <a name="what-types-of-applications-can-i-deploy"></a>Os tipos de aplicações posso implementar? 
+
+Pode implementar tudo o que é executado em contentores que cabem dentro as restrições colocados num recurso de aplicação (veja acima para obter mais informações sobre as quotas). Se detectarmos que estiver a utilizar malha para executar cargas de trabalho ilegais ou abuso do sistema (ou seja, de extração), em seguida, reservamo-no direito de terminar a suas implementações e a lista de bloqueios sua subscrição a execução no serviço. Contacte-nos se tiver dúvidas sobre como executar uma carga de trabalho específica. 
 
 ## <a name="developer-experience-issues"></a>Problemas de experiência do desenvolvedor
 

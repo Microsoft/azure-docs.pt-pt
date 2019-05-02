@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 811ed6dde4ed98222bdd2589d8d6fdd8e0f64ce8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2a7f15eb7e90ba4dec9bc614a45d2de46c07bdfd
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61465631"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868108"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Utilize o armazenamento de filas do Azure para monitorizar as notificações de trabalho de serviços de multimédia com .NET 
+
+> [!NOTE]
+> Não serão adicionadas novas funcionalidades aos Serviços de Multimédia v2. <br/>Veja a versão mais recente, [Serviços de Multimédia v3](https://docs.microsoft.com/azure/media-services/latest/). Além disso, veja [orientação de migração da v2 para a v3](../latest/migrate-from-v2-to-v3.md)
 
 Ao executar tarefas de codificação, muitas vezes, necessitam de uma maneira de controlar o progresso da tarefa. Pode configurar a entrega de notificações para os serviços de multimédia [armazenamento de filas do Azure](../../storage/storage-dotnet-how-to-use-queues.md). Pode monitorizar o progresso da tarefa, obter notificações do armazenamento de filas. 
 

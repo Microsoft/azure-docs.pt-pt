@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e23b5ff9917eda7272e378aa70d6e2dd79f4b9f1
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616843"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918976"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Negócios continuidade e recuperação após desastre (BCDR): Regiões emparelhadas do Azure
 
@@ -38,7 +38,6 @@ Figura 1 – pares regionais do Azure
 | Europa |Europa do Norte |Europa Ocidental |
 | França |França Central|Sul de França|
 | Alemanha |Alemanha Central |Alemanha Nordeste |
-| Alemanha |Norte da Alemanha | Alemanha Oeste-Central
 | Índia |Índia Central |Sul da Índia |
 | Índia |Oeste da Índia |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
@@ -47,13 +46,8 @@ Figura 1 – pares regionais do Azure
 | América do Norte |EUA Leste 2 |EUA Central |
 | América do Norte |EUA Centro-Norte |EUA Centro-Sul |
 | América do Norte |EUA Oeste 2 |EUA Centro-Oeste 
-| América do Norte |E.U.A. oeste 3 |EUA Leste
-| Noruega |Leste da Noruega |Oeste da Noruega
 | África do Sul | África do Sul, Norte | África do Sul, Oeste
-| Suécia |Central de Suécia |Suécia Sul
-| Suíça | Norte da Suíça | Oeste da Suíça
 | RU |Reino Unido Oeste |Reino Unido Sul |
-| RU |Norte do Reino Unido |Sul do Reino Unido 2
 | Emirados Árabes Unidos | Norte dos EAU | Emirados Árabes Unidos Centro
 | Departamento de Defesa dos E.U.A. |US DoD Leste |US DoD Centro |
 | Governo dos Estados Unidos da América |Gov (US) - Arizona |Gov (US) - Texas |

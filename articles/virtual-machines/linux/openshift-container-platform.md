@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 04/18/2019
 ms.author: haroldw
 ms.openlocfilehash: 296bc42313ef80425004d3c9b43c6792cbaf97f4
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127009"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718250"
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implementar o OpenShift Container Platform no Azure
 

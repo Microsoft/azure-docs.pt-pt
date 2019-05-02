@@ -2,31 +2,25 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/04/2018
+ms.date: 04/24/2019
 ms.author: glenga
-ms.openlocfilehash: 914c006daf49e22ebec870a549bfdbc63f882647
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a3f75b7273164abc5318f16e9ab8d9883ff0c0aa
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148049"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867332"
 ---
-## <a name="test"></a>Testar a função
+## <a name="test"></a>Testar a função no Azure
 
-Utilize o cURL para testar a função implementada num computador Mac ou Linux ou com o Powershell no Windows. Execute o comando cURL seguinte, substituindo o marcador de posição `<app_name>` pelo nome da sua aplicação Function App. Anexe a cadeia de consulta `&name=<yourname>` ao URL.
-
-```powershell
-Invoke-WebRequest -Uri "https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>"
-```
+Utilize o cURL para testar a função implementada. Com o URL que copiou no passo anterior, anexe a cadeia de consulta `&name=<yourname>` para o URL, como no exemplo seguinte:
 
 ```bash
-curl https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-```  
+curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
+```
 
-![Resposta da função mostrada num browser.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png)  
+![com o cURL para chamar a função no Azure.](./media/functions-test-function-code/functions-azure-cli-function-test-curl.png) 
 
-Se não tiver `cURL`ou `Invoke-WebRequest` disponíveis na sua linha de comandos, introduza o endereço do seu navegador da web, o mesmo URL. Mais uma vez, substitua o marcador de posição `<app_name>` pelo nome da aplicação de funções, anexe a cadeia de consulta `&name=<yourname>` ao URL e execute o pedido.
+Também pode colar o URL copiado para o endereço do seu navegador da web. Novamente, anexe a cadeia de consulta `&name=<yourname>` para o URL antes de executar o pedido.
 
-    https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>
-   
-![Resposta da função mostrada num browser.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  
+![Usando um navegador da web para chamar a função.](./media/functions-test-function-code/functions-azure-cli-function-test-browser.png)  

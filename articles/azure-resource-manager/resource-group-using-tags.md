@@ -4,22 +4,20 @@ description: Mostra como aplicar etiquetas para organizar os recursos do Azure p
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 003a78e5-2ff8-4685-93b4-e94d6fb8ed5b
 ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: AzurePortal
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/26/2019
 ms.author: tomfitz
-ms.openlocfilehash: bc89b8d830e364c70fef5a5959d4da85c517a5ee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 0ee1cc9673d5e4fbd71706af74e82f6520d42b6d
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764938"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64868762"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Utilizar etiquetas para organizar os recursos do Azure
 

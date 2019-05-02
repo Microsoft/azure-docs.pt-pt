@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5b6efce033efe99ed4463d6b04b24503de57407c
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 7feea92d48a826000fd8aa878b95658b79d6d908
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63762777"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869985"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de composição do Azure Maps
 
@@ -45,7 +45,6 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | República Centro-Africana         | ✓ | Ø |
 | Chade                             | ✓ | Ø |
 | Comores                          | ✓ | Ø |
-| República do Congo                            | ✓ | ✓ |
 | República Democrática do Congo | ✓ | ✓ |
 | Costa do Marfim (Côte d’Ivoire)                    | ✓ | Ø |
 | Jibuti                         | ✓ | Ø |
@@ -109,7 +108,6 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Canadá                    | ✓ | ✓ |
 | Ilhas Caimão            | ✓ | ✓ |
 | Chile                     | ✓ | ✓ |
-| Ilha de Clipperton         | ✓ | ✓ |
 | Colômbia                  | ✓ | ✓ |
 | Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |

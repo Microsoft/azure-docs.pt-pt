@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 09b219fe173be9ba2fd515facce9964b5edc67af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a4195d7c292100712e6d68831443369ab793bb95
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316297"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64726129"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Migração de utilizador
 Ao migrar o fornecedor de identidade para o Azure Active Directory B2C (Azure AD B2C), também poderá ter de migrar a conta de utilizador. Este artigo explica como migrar as contas de utilizador existentes de qualquer fornecedor de identidade para o Azure AD B2C. O artigo não se destina a ser prescritivas, mas, em vez disso, ele descreve alguns cenários. O desenvolvedor é responsável pela adequação de cada abordagem.

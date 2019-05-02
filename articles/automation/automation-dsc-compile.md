@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 847c928681451b4fef93198e2f2272d5bb04b1b8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61074194"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919807"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilar configurações de DSC na configuração de estado de automatização do Azure
 
@@ -287,11 +287,11 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ## <a name="partial-configuration"></a>Configuração parcial
 
-Configuração de estado da automatização do Azure suporta a utilização de [configurações parciais](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+Configuração de estado da automatização do Azure suporta a utilização de [configurações parciais](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
 Neste cenário, DSC está configurado para gerir várias configurações de forma independente e cada configuração é retreieved da automatização do Azure.
 No entanto, apenas uma configuração pode ser atribuída a um nó por conta de automatização.
 Isso significa que se estiver a utilizar duas configurações para um nó vai precisar de duas contas de automatização.
-Para obter mais informações sobre como as equipes podem trabalhar em conjunto para gerir os servidores em colaboração usando configuração como código ver [função do DSC de compreensão num Pipeline CI/CD](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
+Para obter mais informações sobre como as equipes podem trabalhar em conjunto para gerir os servidores em colaboração usando configuração como código ver [função do DSC de compreensão num Pipeline CI/CD](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importação de configurações de nó
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33d8e18dcec98710443623c03651aa568aa37009
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: e821c6bc9f2f7f84f5f020d1c5e3248e7163044c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819944"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64914981"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
 
@@ -281,7 +281,7 @@ f1_score_macro|F1 pontuação é a média harmônica de precisão e lembre-se. M
 f1_score_micro|F1 pontuação é a média harmônica de precisão e lembre-se. Micro é computada globalmente por contagem de total positivos verdadeiros, falsos negativos e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "micro"|
 f1_score_weighted|F1 pontuação é a média harmônica de precisão e lembre-se. Média ponderada pela frequência de classe de pontuação F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "ponderado"|
 log_loss|Esta é a função de perda utilizada regressão logística de (multinomial) e extensões do mesmo como redes neurais, definidas como a probabilidade de registo de negativa das etiquetas verdadeiras tendo em conta as previsões de um classificador probabilístico. Para obter um exemplo único com true Etiquetar yt na {0,1} e estimado probabilidade yp esse yt = 1, a perda de log é – P de registo (yt&#124;yp) =-(yt log(yp) + (1 - yt) registo (1 - yp))|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhuma|
-norm_macro_recall|Normalizado Macro Lembre-se de é lembrar de Macro normalizados de modo a que o desempenho aleatório tem uma pontuação igual a 0 e desempenho perfeito tem uma pontuação de 1. Isto é conseguido ao norm_macro_recall: = (recall_score_macro - R) /(1-R), em que o R é o valor esperado de recall_score_macro para predições aleatórias (ou seja, R = 0,5 para classificação binária) e R=(1/C) para problemas de classificação de classe C|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "macro" e, em seguida, (recall_score_macro - R) /(1-R), em que o R é o valor esperado de recall_score_macro para predições aleatórias (ou seja, R = 0,5 para classificação binária) e R=(1/C) para problemas de classificação de classe C|
+norm_macro_recall|Normalizado Macro Lembre-se de é lembrar de Macro normalizados de modo a que o desempenho aleatório tem uma pontuação igual a 0 e desempenho perfeito tem uma pontuação de 1. Isto é conseguido ao norm_macro_recall: = (recall_score_macro - R) /(1-R), em que o R é o valor esperado de recall_score_macro para predições aleatórias (ou seja, R = 0,5 para classificação binária) e R=(1/C) para problemas de classificação de classe C|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "macro" e, em seguida, (recall_score_macro - R) /(1-R), em que o R é o valor esperado de recall_score_macro para predições aleatórias (ou seja, R = 0,5 para classificação binária) e R=(1/C) para problemas de classificação de classe C|
 precision_score_macro|Precisão é a percentagem de elementos identificados como uma determinada classe, que, na verdade, estão nessa classe. Macro é a média aritmética de precisão para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "macro"|
 precision_score_micro|Precisão é a percentagem de elementos identificados como uma determinada classe, que, na verdade, estão nessa classe. Micro é computada globalmente por contagem de total positivos verdadeiros e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "micro"|
 precision_score_weighted|Precisão é a percentagem de elementos identificados como uma determinada classe, que, na verdade, estão nessa classe. Ponderada é a média aritmética de precisão para cada classe, ponderado por número de instâncias verdadeiros em cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "ponderado"|

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: vinigam
-ms.openlocfilehash: 29826f7f842f8dfbd7cd2a754c919f06542a161c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5d5a9e07c28ab3059872f4d187c96586456a200
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60401991"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916765"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução de Monitor de desempenho no Azure de rede
 
@@ -263,8 +263,8 @@ Se for um utilizador NPM, criação de um alerta através do portal do Azure:
 3. Se optar por utilizar grupos de ação, terá de selecionar um grupo de ação criado anteriormente. Pode saber como criar um grupo de ação [aqui.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
 4. Depois do alerta for criado com êxito, pode utilizar o link de gerir alertas para gerir os alertas. 
 
-Sempre que cria um alerta, o NPM cria uma regra de alerta de registo de consulta com base no Azure Monitor. Esta consulta é acionada cada 5 minutos por predefinição. Monitor do Azure não cobra para a 250 primeira registar regras de alerta criadas e quaisquer regras de alerta acima limitam de 250 regras de alerta de registo serão cobradas como [preço na página de preços do Azure Monitor de alertas](https://azure.microsoft.com/en-us/pricing/details/monitor/).
-Notificações são cobradas em separado, de acordo [notificações de preço na página de preços do Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Sempre que cria um alerta, o NPM cria uma regra de alerta de registo de consulta com base no Azure Monitor. Esta consulta é acionada cada 5 minutos por predefinição. Monitor do Azure não cobra para a 250 primeira registar regras de alerta criadas e quaisquer regras de alerta acima limitam de 250 regras de alerta de registo serão cobradas como [preço na página de preços do Azure Monitor de alertas](https://azure.microsoft.com/pricing/details/monitor/).
+Notificações são cobradas em separado, de acordo [notificações de preço na página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="pricing"></a>Preços

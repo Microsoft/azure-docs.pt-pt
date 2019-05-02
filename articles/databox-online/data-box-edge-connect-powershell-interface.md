@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b4d047f4266d11a5f6b77f33054eb93e31f7090b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 8cd89b21e80662ec50746e0c7721a5544cfbce30
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58791580"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64717496"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gerir um dispositivo de limite de caixa de dados do Azure através do Windows PowerShell
 
@@ -24,7 +24,6 @@ Este artigo se concentra nas tarefas que fizer através da interface do PowerShe
 Este artigo inclui os seguintes procedimentos:
 
 - Ligar a interface do PowerShell
-- Iniciar uma sessão de suporte
 - Criar um pacote de suporte
 - Carregar certificado
 - Repor o dispositivo
@@ -59,7 +58,6 @@ Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cer
 Para obter mais informações sobre certificados, aceda a [certificados do Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) ou [instalar certificados num gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Ver informações de dispositivo
-
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -90,6 +88,9 @@ Se a função de computação é configurada no seu dispositivo, também pode ob
 
 [!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
+## <a name="exit-the-remote-session"></a>Saia da sessão remota
+
+Para sair na sessão remota do PowerShell, feche a janela do PowerShell.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

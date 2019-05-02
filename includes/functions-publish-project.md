@@ -5,29 +5,28 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/27/2018
+ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 1b553cbd720fcb76899844712ce5053af46f7ccb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 48bb91b3b2e9a31de63e515edb857bc2a170ea79
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452960"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64867363"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Implementar o projeto da aplicação de funções no Azure
 
-Depois da criação da aplicação de funções no Azure, pode utilizar o comando [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) para implementar o código do projeto no Azure.
+Depois da aplicação de funções é criada no Azure, pode utilizar o [ `func azure functionapp publish` ](../articles/azure-functions/functions-run-local.md#project-file-deployment) comando de ferramentas de núcleo para implementar o código do projeto no Azure. No comando seguinte, substitua `<APP_NAME>` com o nome da sua aplicação do passo anterior.
 
 ```bash
-func azure functionapp publish <FunctionAppName>
+func azure functionapp publish <APP_NAME>
 ```
 
-Será apresentado algo semelhante ao resultado seguinte, que foi truncado para facilitar a leitura.
+Aparece um resultado semelhante ao seguinte, que foi truncado para facilitar a leitura.
 
 ```output
 Getting site publishing info...
-
 ...
 
 Preparing archive...
@@ -35,6 +34,9 @@ Uploading content...
 Upload completed successfully.
 Deployment completed successfully.
 Syncing triggers...
+Functions in myfunctionapp:
+    HttpTrigger - [httpTrigger]
+        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-Agora, pode testar as suas funções no Azure.
+Copie o valor de URL invocar para HttpTrigger, o que agora pode utilizar para testar a sua função no Azure. O URL contém um `code` valor de cadeia de caracteres de consulta é a chave de função. Esta chave torna difícil para outras pessoas chamar o ponto final de Acionador HTTP no Azure.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a9e58139d248daed19f4fe35c7d33ede9dfe64b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1d05a5c4fa13b83abd26ee06123028f75a725582
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60317195"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729467"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar a alteração de palavra-passe com as políticas personalizadas no Azure Active Directory B2C
 

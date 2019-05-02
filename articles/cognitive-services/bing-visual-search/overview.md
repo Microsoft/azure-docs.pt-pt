@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: overview
 ms.date: 03/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: 8bcb0372ebb60ac3a46cf06bf85322b288e153ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd93166cb878fbd961795492ed9a035c919429a8
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511499"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916627"
 ---
 # <a name="what-is-the-bing-visual-search-api"></a>O que é a API de Pesquisa Visual do Bing?
 
@@ -47,7 +47,7 @@ Resultados de pesquisa Visual do Bing também incluem delimitação de caixas de
 
 A API de pesquisa Visual do Bing é um serviço RESTful web, facilitando a chamar a partir de qualquer linguagem de programação que pode fazer solicitações HTTP e analisar JSON. Pode utilizar a API REST ou o SDK para o serviço.
 
-1. Criar uma [conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para aceder às APIs de pesquisa do Bing. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free/). Pode obter a chave de subscrição a partir da [portal do Azure](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) depois de criar a sua conta, ou [Web site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) após a ativação de uma avaliação gratuita.
+1. Criar uma [conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para aceder às APIs de pesquisa do Bing. Se não tiver uma subscrição do Azure, pode [criar uma conta gratuita](https://azure.microsoft.com/free/). Pode obter a chave de subscrição a partir da [portal do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#access-your-resource) depois de criar a sua conta, ou [Web site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis) após a ativação de uma avaliação gratuita.
 2. Envie um pedido para a API com uma consulta de pesquisa válidos.
 3. Processe a resposta da API ao analisar a mensagem JSON devolvida.
 

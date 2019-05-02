@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322102"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64728838"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Monitorizar métricas de serviços de multimédia e registos de diagnóstico
 
@@ -37,7 +37,7 @@ Atualmente, os seguintes serviços de multimédia [pontos finais de transmissão
 |Name|Descrição|
 |---|---|
 |Pedidos|Fornece detalhes em torno de n. º total de pedidos servidos pelo ponto final de transmissão em fluxo.|
-|Saída|Número total de bytes de saída. Por exemplo, bytes transmitidos em fluxo por ponto final de transmissão em fluxo.|
+|Saída|Número total de bytes de saída. Por exemplo, bytes transmitidos pelo ponto final de transmissão em fluxo.|
 |Latência de ponto a ponto com êxito| Fornece informações sobre a latência de ponto a ponto dos pedidos com êxito.|
 
 Por exemplo, para obter métricas de "Saída" com a CLI, executaria o seguinte `az monitor metrics` comando da CLI:

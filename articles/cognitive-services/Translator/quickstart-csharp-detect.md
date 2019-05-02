@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 6f89e1e89736929b7d50444800550708a55e45db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: adc74dbcb943af9ad793dbc3f59a31465f44b6fd
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60509396"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916793"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-c"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto atravésC#
 
@@ -163,7 +163,7 @@ dotnet run
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Encontre a abreviatura de país nesta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+Encontre a abreviatura de país nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

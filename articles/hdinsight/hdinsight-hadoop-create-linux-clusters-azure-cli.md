@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
 ms.openlocfilehash: 21985b009694dc5a21c65d4c9dc9536cf6c01a0e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128724"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64727074"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-classic-cli"></a>Criar clusters do HDInsight com a CLI clássica do Azure
 

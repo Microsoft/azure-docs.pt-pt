@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250048"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918467"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidade da Microsoft e de protocolo do OpenID Connect
 
@@ -32,7 +32,7 @@ OpenID Connect é um protocolo de autenticação criado no OAuth 2.0, que pode u
 > [!NOTE]
 > O ponto de extremidade de plataforma de identidade Microsoft não suporta todos os cenários do Azure Active Directory (Azure AD) e funcionalidades. Para determinar se deve utilizar o ponto de extremidade de plataforma do Microsoft identity, leia sobre [limitações de plataforma de identidade do Microsoft](active-directory-v2-limitations.md).
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo a utilizar como um *autenticação* de protocolo, para que pode fazer único início de sessão com a OAuth. OpenID Connect introduz o conceito de um *token de ID*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador. O token de ID também obtém informações de perfil básicas sobre o utilizador. Porque o OpenID Connect expande o OAuth 2.0, as aplicações com segurança podem adquirir *tokens de acesso*, que podem ser utilizadas para aceder a recursos que estão protegidos por um [servidor de autorização](active-directory-v2-protocols.md#the-basics). O ponto de extremidade de plataforma do Microsoft identity também permite que as aplicações de terceiros que estão registadas com o Azure AD para emitir tokens de acesso para recursos protegidos, como as APIs da Web. Para obter mais informações sobre como configurar uma aplicação para emitir tokens de acesso, consulte [como registar uma aplicação com o ponto de extremidade de plataforma de identidade Microsoft](quickstart-v2-register-an-app.md). Recomendamos que utilize OpenID Connect, se estiver a criar uma [aplicação web](v2-app-types.md#web-apps) que é alojada num servidor e acedido através de um browser.
+[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) expande o OAuth 2.0 *autorização* protocolo a utilizar como um *autenticação* de protocolo, para que pode fazer único início de sessão com a OAuth. OpenID Connect introduz o conceito de um *token de ID*, que é um token de segurança que permite que o cliente verificar a identidade do utilizador. O token de ID também obtém informações de perfil básicas sobre o utilizador. Porque o OpenID Connect expande o OAuth 2.0, as aplicações com segurança podem adquirir *tokens de acesso*, que podem ser utilizadas para aceder a recursos que estão protegidos por um [servidor de autorização](active-directory-v2-protocols.md#the-basics). O ponto de extremidade de plataforma do Microsoft identity também permite que as aplicações de terceiros que estão registadas com o Azure AD para emitir tokens de acesso para recursos protegidos, como as APIs da Web. Para obter mais informações sobre como configurar uma aplicação para emitir tokens de acesso, consulte [como registar uma aplicação com o ponto de extremidade de plataforma de identidade Microsoft](quickstart-register-app.md). Recomendamos que utilize OpenID Connect, se estiver a criar uma [aplicação web](v2-app-types.md#web-apps) que é alojada num servidor e acedido através de um browser.
 
 ## <a name="protocol-diagram-sign-in"></a>Diagrama de protocolo: início de sessão
 

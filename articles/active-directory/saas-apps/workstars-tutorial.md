@@ -4,256 +4,225 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 51a4a4e4-ff60-4971-b3f8-a0367b70d220
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/25/2017
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a9c1d13c1d51eeadae3ef9dad71e64618d1a5fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: db646c48c1332f986840d54127729c766ffb6dd7
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60523034"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920319"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workstars"></a>Tutorial: Integração do Active Directory do Azure com Workstars
 
 Neste tutorial, saiba como integrar Workstars com o Azure Active Directory (Azure AD).
-
 Integrar Workstars no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Workstars.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Workstars (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao Workstars.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Workstars (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Workstars, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um Workstars logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
+* Workstars único início de sessão na subscrição ativada
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Workstars da Galeria
-1. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta Workstars **IDP** iniciada SSO
 
 ## <a name="adding-workstars-from-the-gallery"></a>Adicionando Workstars da Galeria
+
 Para configurar a integração do Workstars com o Azure AD, terá de adicionar Workstars a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Workstars a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-1. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
-1. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O novo botão de aplicativo][3]
+3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-1. Na caixa de pesquisa, escreva **Workstars**, selecione **Workstars** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
-    ![Workstars na lista de resultados](./media/workstars-tutorial/tutorial_workstars_addfromgallery.png)
+4. Na caixa de pesquisa, escreva **Workstars**, selecione **Workstars** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+
+     ![Workstars na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Workstars com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Workstars a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Workstars deve ser estabelecido.
-
-Workstars, atribua o valor do **nome de utilizador** no Azure AD como o valor do **Username** para estabelecer a relação de ligação.
+Nesta secção, configure e teste do Azure AD início de sessão único com Workstars com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Workstars deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com Workstars, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Criar um utilizador de teste Workstars](#create-a-workstars-test-user)**  - para ter um equivalente da Eduarda Almeida na Workstars que está ligado à representação de utilizador do Azure AD.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+2. **[Configurar Workstars Single Sign-On](#configure-workstars-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Workstars](#create-workstars-test-user)**  - para ter um equivalente da Eduarda Almeida na Workstars que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Workstars.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com Workstars, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com Workstars, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Workstars** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Workstars** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-1. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
- 
-    ![Caixa de diálogo de início de sessão único](./media/workstars-tutorial/tutorial_workstars_samlbase.png)
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-1. Sobre o **Workstars domínio e URLs** secção, execute os seguintes passos:
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-    ![Workstars domínio e URLs únicas início de sessão em informações](./media/workstars-tutorial/tutorial_workstars_url.png)
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    a. Na **identificador** caixa de texto, escreva o URL: `https://workstars.com`
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **definir a segurança de início de sessão único com o SAML** página, execute os seguintes passos:
+
+    ![Workstars domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
+
+    a. Na **identificador** caixa de texto, escreva um URL: `https://workstars.com`
 
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.workstars.com/saml/login_check`
 
-    > [!NOTE] 
-    > O valor não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte de Workstars](https://support.workstars.com) para obter o valor.
- 
-1. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+    > [!NOTE]
+    > O valor não é real. Atualize o valor com o URL de resposta real. Contacte [equipa de suporte de cliente Workstars](https://support.workstars.com/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-    ![O link de download de certificado](./media/workstars-tutorial/tutorial_workstars_certificate.png) 
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-1. Clique em **guardar** botão.
+    ![O link de download de certificado](common/certificatebase64.png)
 
-    ![Configurar o botão único início de sessão em Guardar](./media/workstars-tutorial/tutorial_general_400.png)
+6. Sobre o **configurar Workstars** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-1. Sobre o **Workstars configuração** secção, clique em **configurar Workstars** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão, o ID de entidade de SAML e o SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    ![Configuração de Workstars](./media/workstars-tutorial/tutorial_workstars_configure.png) 
+    a. URL de início de sessão
+
+    b. Identificador do Azure AD
+
+    c. URL de fim de sessão
+
+### <a name="configure-workstars-single-sign-on"></a>Configurar Workstars Single Sign-On
 
 1. Na outra janela do browser, inicie sessão site da sua empresa Workstars como um administrador.
 
-1. Na barra de ferramentas principal, clique em **definições**.
+2. Na barra de ferramentas principal, clique em **definições**.
 
     ![Definições de Workstars](./media/workstars-tutorial/tutorial_workstars_sett.png)
 
-1. Aceda a **iniciar sessão** > **definições**.
+3. Aceda a **iniciar sessão** > **definições**.
 
     ![Workstars início de sessão](./media/workstars-tutorial/tutorial_workstars_signon.png)
 
     ![Definições de Workstars](./media/workstars-tutorial/tutorial_workstars_settings.png)
 
-1. Sobre o **único início de sessão (SAML) - definições** página, execute os seguintes passos:
+4. Sobre o **único início de sessão (SAML) - definições** página, execute os seguintes passos:
     
     ![Workstars saml](./media/workstars-tutorial/tutorial_workstars_saml.png)
 
     a. Na **nome do fornecedor de identidade** caixa de texto, tipo **do Office 365**.
 
-    b. Na **ID de entidade do fornecedor de identidade** caixa de texto, cole o valor de **ID de entidade de SAML**, que copiou do portal do Azure.
+    b. Na **ID de entidade do fornecedor de identidade** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure.
 
     c. Copie o conteúdo do ficheiro de certificado transferido no bloco de notas e, em seguida, cole-o para o **x509 certificado** caixa de texto. 
 
-    d. Na **URL de SSO SAML** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
+    d. Na **URL de SSO SAML** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
     
     e. Na **URL de fim de sessão remoto** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure. 
 
     f. Selecione **ID de nome** como **E-Mail (predefinição)**.
 
     g. Clique em **Confirmar**.
-    
-> [!TIP]
-> Agora pode ler uma versão concisa destas instruções dentro do [portal do Azure](https://portal.azure.com), enquanto estiver a configurar a aplicação!  Depois de adicionar esta aplicação a partir da **do Active Directory > aplicações empresariais** secção, basta clicar o **Single Sign-On** separador e a documentação do embedded através de acesso a  **Configuração** seção na parte inferior. Pode ler mais sobre a funcionalidade de documentação do embedded aqui: [Documentação do Azure AD incorporado]( https://go.microsoft.com/fwlink/?linkid=845985)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/workstars-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-1. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/workstars-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-1. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/workstars-tutorial/create_aaduser_03.png)
-
-1. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/workstars-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
-  
-### <a name="create-a-workstars-test-user"></a>Criar um utilizador de teste Workstars
-
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Workstars. Trabalhar com [equipa de suporte de Workstars](https://support.workstars.com) para adicionar os utilizadores na plataforma Workstars.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
 Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Workstars.
 
-![Atribuir a função de utilizador][200] 
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Workstars**.
 
-**Para atribuir a Eduarda Almeida a Workstars, execute os seguintes passos:**
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
+2. Na lista de aplicações, selecione **Workstars**.
 
-    ![Atribuir utilizador][201] 
+    ![A ligação de Workstars na lista de aplicações](common/all-applications.png)
 
-1. Na lista de aplicações, selecione **Workstars**.
+3. No menu à esquerda, selecione **utilizadores e grupos**.
 
-    ![A ligação de Workstars na lista de aplicações](./media/workstars-tutorial/tutorial_workstars_app.png)  
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-1. No menu à esquerda, clique em **utilizadores e grupos**.
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação "Utilizadores e grupos"][202]
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-    ![O painel Adicionar atribuição][203]
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
 
-1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
+### <a name="create-workstars-test-user"></a>Criar utilizador de teste Workstars
 
-1. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Workstars. Trabalhar com [equipa de suporte de Workstars](https://support.workstars.com) para adicionar os utilizadores na plataforma Workstars.
+
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Workstars no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Workstars.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico Workstars no painel de acesso, deve ser automaticamente sessão iniciada no Workstars para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/workstars-tutorial/tutorial_general_01.png
-[2]: ./media/workstars-tutorial/tutorial_general_02.png
-[3]: ./media/workstars-tutorial/tutorial_general_03.png
-[4]: ./media/workstars-tutorial/tutorial_general_04.png
-
-[100]: ./media/workstars-tutorial/tutorial_general_100.png
-
-[200]: ./media/workstars-tutorial/tutorial_general_200.png
-[201]: ./media/workstars-tutorial/tutorial_general_201.png
-[202]: ./media/workstars-tutorial/tutorial_general_202.png
-[203]: ./media/workstars-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

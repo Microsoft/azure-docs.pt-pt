@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 9e29b08da35b9fd2f479f1d4e3b0d89ed881344b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d3ff97dc86ea6932ba51a4a30e53edf1082d5305
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60326436"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64937475"
 ---
 # <a name="offline-playready-streaming-for-windows-10"></a>PlayReady offline de transmissão em fluxo para o Windows 10
 
@@ -32,9 +32,9 @@ Serviços de multimédia do Azure suportam offline download/reprodução com pro
 
 Esta secção fornece algumas informações básicas sobre a reprodução de modo offline, especialmente por que motivo:
 
-* Em alguns países, disponibilidade de Internet e/ou de largura de banda é continua a ser limitada. Os utilizadores podem optar por transferir primeiro para conseguir ver o conteúdo na resolução de alto o suficiente para a experiência de visualização satisfatória. Neste caso, mais freqüentemente, o problema não é a disponibilidade de rede, em vez disso, é a largura de banda de rede limitada. Fornecedores OTT/OVP Pedimos para suporte ao modo offline.
+* Em alguns países/regiões, disponibilidade de Internet e/ou de largura de banda é continua a ser limitada. Os utilizadores podem optar por transferir primeiro para conseguir ver o conteúdo na resolução de alto o suficiente para a experiência de visualização satisfatória. Neste caso, mais freqüentemente, o problema não é a disponibilidade de rede, em vez disso, é a largura de banda de rede limitada. Fornecedores OTT/OVP Pedimos para suporte ao modo offline.
 * Como divulgadas na conferência de acionistas Netflix 2016 P3, transferência do conteúdo é um "recurso solicitado lema freqüentemente" e "estamos abertos ao mesmo" disse por Reed Hastings, CEO da Netflix.
-* Alguns fornecedores de conteúdo pode não permitir a entrega de licenças DRM além do limite de um país. Se um usuário precisa ir exterior e ainda quiser ver conteúdo, é necessário o offline download.
+* Alguns fornecedores de conteúdo pode não permitir a entrega de licenças DRM além do limite de um país/região. Se um usuário precisa ir exterior e ainda quiser ver conteúdo, é necessário o offline download.
  
 O desafio que enfrentamos na implementação do modo offline é a seguinte:
 

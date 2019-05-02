@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896267"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64712432"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência dados Windows no Azure
 
@@ -116,7 +116,7 @@ Pode utilizar o Microsoft Enterprise Library para dimensionável R ou Python par
 
 Machine Learning Server suporta várias estatísticas de macrodados, modelação preditiva e machine learning tarefas. Ele oferece suporte a gama completa de análise: exploração, análise, visualização e modelação. Ao utilizar e alargar o R e Python de código-fonte aberto, o Machine Learning Server é compatível com scripts R e Python e funções. Também é compatível com CRAN, pip e pacotes de Conda para analisar os dados à escala empresarial.
 
-Machine Learning Server resolve as limitações de memória do R de código aberto ao adicionar paralelo e processamento em partes de dados. Isso significa que pode executar a análise em volume de dados maior do que o que se encaixa na memória principal. O Visual Studio Community está incluído na VM. Ele tem as ferramentas R para Visual Studio e ferramentas do Python para extensões do Visual Studio (PTVS) que fornecem um IDE completo para trabalhar com o R ou Python. Também fornecemos como outros IDEs [RStudio](http://www.rstudio.com) e [edição de Comunidade PyCharm](https://www.jetbrains.com/pycharm/) na VM.
+Machine Learning Server resolve as limitações de memória do R de código aberto ao adicionar paralelo e processamento em partes de dados. Isso significa que pode executar a análise em volume de dados maior do que o que se encaixa na memória principal. O Visual Studio Community está incluído na VM. Ele tem as ferramentas R para Visual Studio e ferramentas do Python para extensões do Visual Studio (PTVS) que fornecem um IDE completo para trabalhar com o R ou Python. Também fornecemos como outros IDEs [RStudio](https://www.rstudio.com) e [edição de Comunidade PyCharm](https://www.jetbrains.com/pycharm/) na VM.
 
 ### <a name="python"></a>Python
 

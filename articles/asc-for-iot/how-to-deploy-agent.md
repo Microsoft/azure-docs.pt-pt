@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: c0a5e04b91d79b99935b52fd7f24752fb5d1b115
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61358408"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919629"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecione e implementar um agente de segurança no seu dispositivo IoT
 
@@ -49,7 +49,7 @@ O agente de segurança baseada em C tem um espaço de memória inferior e é a e
 | Código fonte aberto | Disponível em [licença MIT](https://en.wikipedia.org/wiki/MIT_License) no [Github](https://aka.ms/iot-security-github-cs) | Disponível em [licença MIT](https://en.wikipedia.org/wiki/MIT_License) no [Github](https://aka.ms/iot-security-github-c) |
 | Linguagem de desenvolvimento    | C | C# |
 | Plataformas suportadas do Windows? | Não | Sim |
-| Pré-requisitos do Windows | --- | [WMI](https://docs.microsoft.com/en-us/windows/desktop/wmisdk/) |
+| Pré-requisitos do Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Plataformas suportadas do Linux? | Sim, x64 e x86 | Sim, somente x64 |
 | Pré-requisitos do Linux | libunwind8, libcurl3, tempo de execução do uuid, auditd, audispd-plug-ins | libunwind8, libcurl3, tempo de execução do uuid, auditd, audispd-plug-ins, sudo, netstat, iptables |
 | Requisitos de espaço de disco | 10.5 MB | 90MB |

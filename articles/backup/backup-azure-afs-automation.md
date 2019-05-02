@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 83fe8d17699c19d442fd734d71d828eb9fd9d6ed
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258365"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64918957"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Criar cópias de segurança e restaurar ficheiros do Azure com o PowerShell
 
@@ -317,7 +317,7 @@ Depois do ponto de recuperação relevante está selecionado, restaurar o fichei
 
 ### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Restaurar uma partilha de ficheiros do Azure para uma localização alternativa
 
-Utilize o [restauro AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifica estes parâmetros para identificar a localização alternativa: 
+Utilize o [restauro AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especifica estes parâmetros para identificar a localização alternativa: 
 
 - **TargetStorageAccountName**: A conta de armazenamento para o qual é restaurado o conteúdo de uma cópia de segurança. A conta de armazenamento de destino tem de ser na mesma localização que o cofre.
 - **TargetFileShareName**: As partilhas de ficheiros no armazenamento de destino da conta para que o conteúdo de uma cópia de segurança é restaurado.
@@ -340,7 +340,7 @@ testAzureFS        Restore              InProgress           12/10/2018 9:56:38 
 
 ### <a name="restore-an-azure-file-to-an-alternate-location"></a>Restaurar um ficheiro do Azure para uma localização alternativa
 
-Utilize o [restauro AzRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especificar estes parâmetros para identificar a localização alternativa e, para identificar exclusivamente o ficheiro que pretende restaurar.
+Utilize o [restauro AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) para restaurar para o ponto de recuperação selecionado. Especificar estes parâmetros para identificar a localização alternativa e, para identificar exclusivamente o ficheiro que pretende restaurar.
 
 * **TargetStorageAccountName**: A conta de armazenamento para o qual é restaurado o conteúdo de uma cópia de segurança. A conta de armazenamento de destino tem de ser na mesma localização que o cofre.
 * **TargetFileShareName**: As partilhas de ficheiros no armazenamento de destino da conta para que o conteúdo de uma cópia de segurança é restaurado.

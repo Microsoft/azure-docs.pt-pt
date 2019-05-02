@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 328433664d22925b4e991f2f18c858c5505cade1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: b410dab40d5434a6f23950a9f151e50240ace63b
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782016"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64916368"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recolher dados de registo com o agente do Log Analytics do Azure
 
@@ -38,7 +38,7 @@ Se estiver a monitorizar um computador com o System Center Operations Manager 20
 
 O agente do Windows pode relatar até quatro áreas de trabalho do Log Analytics, enquanto o agente Linux só suporta a geração de relatórios para um único espaço de trabalho.  
 
-O agente para Linux e Windows não é apenas para ligar ao Azure Monitor, também suporta a automatização do Azure para alojar a função de trabalho de Runbook híbrida e outros serviços, como [controlo de alterações](../../automation/automation-change-tracking.md) e [degestãodeatualizações](../../automation/automation-update-management.md). Para obter mais informações sobre a função de trabalho de Runbook híbrida, veja [Runbook Worker híbrido do Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+O agente para Linux e Windows não é apenas para ligar ao Azure Monitor, também suporta a automatização do Azure para alojar a função de trabalho de Runbook híbrida e outros serviços, como [controlo de alterações](../../automation/change-tracking.md) e [degestãodeatualizações](../../automation/automation-update-management.md). Para obter mais informações sobre a função de trabalho de Runbook híbrida, veja [Runbook Worker híbrido do Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas de operativos do Windows
 As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:

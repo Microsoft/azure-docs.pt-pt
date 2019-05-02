@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/01/2019
+ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: ec0e8ae1bf657cda59f3d133db23106436e184e3
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
+ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120897"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64872045"
 ---
 # <a name="azure-storage-security-overview"></a>Descrição geral da segurança de armazenamento do Azure
 
-O Azure Storage é a solução de armazenamento na cloud para aplicações modernas que dependem da durabilidade, da disponibilidade e da escalabilidade para satisfazer as necessidades dos seus clientes. Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança. Pode:
+Este artigo fornece uma descrição geral das funcionalidades de segurança do Azure que pode utilizar com o armazenamento do Azure. O Azure Storage é a solução de armazenamento na cloud para aplicações modernas que dependem da durabilidade, da disponibilidade e da escalabilidade para satisfazer as necessidades dos seus clientes. Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança. Pode:
 
 * Proteger a conta de armazenamento utilizando o controlo de acesso baseado em funções (RBAC) e o Azure Active Directory.
 * Proteger dados em trânsito entre um aplicativo e o Azure através de encriptação do lado do cliente, HTTPS ou SMB 3.0.
@@ -33,9 +33,6 @@ O Azure Storage é a solução de armazenamento na cloud para aplicações moder
 * Utilize a análise para controlar o método de autenticação que alguém está a utilizar quando acedem de armazenamento.
 
 Para uma visão mais detalhada de segurança no armazenamento do Azure, consulte a [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md). Este guia fornece uma descrição aprofundada os recursos de segurança do armazenamento do Azure. Estas funcionalidades incluem as chaves de conta de armazenamento, encriptação de dados em trânsito e em repouso e análise de armazenamento.
-
-
-Este artigo fornece uma descrição geral das funcionalidades de segurança do Azure que pode utilizar com o armazenamento do Azure. Links para artigos fornecem detalhes de cada funcionalidade, para que possa saber mais.
 
 ## <a name="role-based-access-control"></a>Controlo de Acesso Baseado em Funções
 

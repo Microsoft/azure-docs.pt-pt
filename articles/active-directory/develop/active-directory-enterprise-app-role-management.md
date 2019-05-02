@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a354fdf8ea75d9446c2a5e5ee6a70489cf9dbfb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412361"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64723297"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a afirmação de função emitida no token SAML para aplicações empresariais
 
@@ -152,7 +152,7 @@ Se seu aplicativo espera funções personalizadas a serem passados numa resposta
 
 8. Atualização do **atributos** tabela para definir um mapeamento personalizado de declaração de função.
 
-9. Na **atributos de utilizador e afirmações** secção a **início de sessão único** caixa de diálogo caixa, configure o atributo de token SAML, conforme mostrado na imagem e execute os seguintes passos.
+9. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
     | Nome de atributo | Valor do atributo |
     | -------------- | ----------------|
@@ -161,11 +161,11 @@ Se seu aplicativo espera funções personalizadas a serem passados numa resposta
     >[!NOTE]
     >Se o valor de afirmação de função for nulo, em seguida, do Azure AD não enviará esse valor no token e esta é a predefinição de acordo com o design.
 
-    a. Clique em **edite** botão para abrir **atributos de utilizador** caixa de diálogo.
+    a. Clique em **edite** ícone para abrir **atributos de utilizador e afirmações** caixa de diálogo.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
-    b. Selecione **adicionar atributo** para abrir o **afirmações de utilizador de gerir** painel.
+    b. Na **Gerir afirmações de utilizador** caixa de diálogo, adicione o atributo de token SAML, clicando em **Adicionar nova afirmação**.
 
       ![Botão "Adicionar atributo"](./media/active-directory-enterprise-app-role-management/tutorial_attribute_04.png)
 

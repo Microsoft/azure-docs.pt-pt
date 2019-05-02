@@ -5,21 +5,47 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 04/26/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: a8f0e61a953a2e2471e49d571063f6202b7ab76d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 4b7cda593bd4dd39a7220aa282529535c6a63bea
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60540498"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64914554"
 ---
-Máquinas de virtuais de série H do Azure são as mais recentes da computação de que VMS com o objetivo de processar cargas de trabalho, como o processamento em lotes, análise, modelação molecular e dinâmicas de fluidos de alto desempenho. Essas 8 e 16 VMs de vCPU são criadas com o Intel Haswell E5 2667 V3 processador tecnologia com memória DDR4 e armazenamento temporário baseado em SSD. 
+Máquinas de virtuais de série H do Azure (VMs) foram concebidas para fornecer desempenho de classe de liderança, escalabilidade MPI e a eficiência para uma variedade de cargas de trabalho do mundo real HPC de custo.
 
-Além do poder de CPU substancial, a série H oferece diversas opções para funcionamento em rede RDMA de baixa latência através de FDR InfiniBand e várias configurações de memória para suportar requisitos computacionais de memória intensiva.
+As VMs da série HB estão otimizadas para aplicações orientadas pela largura de banda de memória, como dinâmica fluída, análise de elementos finitos explícitos e modelos de previsão meteorológica. As VMs da série HB apresentam 60 núcleos de processador AMD EPYC 7551, 4 GB de RAM por núcleo de CPU e nenhum hiperthreading. A plataforma AMD EPYC oferece mais de 260 GB/segundo de largura de banda de memória.
+
+As VMs da série HC estão otimizadas para aplicativos orientados por densa computação, como análises implícita de elementos finitos, molecular dynamics e supramolecular computacional. As VMs da série HC apresentam 44 núcleos de processador Intel Xeon Platinum 8168, 8 GB de RAM por núcleo de CPU e nenhum hiperthreading. A plataforma Intel Xeon Platinum oferece suporte a ecossistema diversificado da Intel das ferramentas de software, como a biblioteca de Kernel do Intel matemática.
+
+HB e HC VMs de recursos de 100 Gb/seg Mellanox EDR InfiniBand num fat sem bloqueio de árvore configuração para um desempenho consistente RDMA. HB e HC VMs suportam controladores de Mellanox/OFED padrão, de modo a que todos os tipos MPI e versões, bem como verbos RDMA, também são oferecidos.
+
+VMs de série H são otimizadas para aplicativos orientados por altas frequências de CPU ou memória grande por principais requisitos. Processador de v3 Intel Xeon E5 2667 do série H VMs funcionalidade 8 ou 16 núcleos, 7 ou 14 GB de RAM por núcleo de CPU e não hyperthreading. Série H funcionalidades 56 Gb/seg Mellanox FDR InfiniBand num fat sem bloqueio de árvore configuração para um desempenho consistente RDMA. VMs de série H oferecer suporte a MPI Intel 5.x e MS-MPI.
+
+## <a name="hb-series"></a>Série HB
+
+Armazenamento Premium: Suporte de armazenamento Premium de colocação em cache: Suportadas
+
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de base da CPU (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte MPI | Armazenamento temporário (GB) | Discos de dados máximos | NICs de Ethernet máx. |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HB60rs | 60 | AMD EPYC 7551 | 240 | 263 | 2.0 | 2.55 | 2.55 | 100 | Todos | 700 | 4 | 1 |
+
+<br>
+
+## <a name="hc-series"></a>Série HC
+
+Armazenamento Premium: Suporte de armazenamento Premium de colocação em cache: Suportadas
 
 
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de base da CPU (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte MPI | Armazenamento temporário (GB) | Discos de dados máximos | NICs de Ethernet máx. |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_HC44rs | 44 | Intel Xeon Platinum 8168 | 352 | 191 | 2.7 | 3.4 | 3.7 | 100 | Todos | 700 | 4 | 1 |
+
+
+<br>
 
 ## <a name="h-series"></a>Série H
 
@@ -29,21 +55,15 @@ Armazenamento Premium:  Não suportado
 
 Cache de armazenamento Premium:  Não suportado
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do disco: IOPS | NICs máximos |
-| --- | --- | --- | --- | --- | --- | --- |
-| Standard_H8 |8 |56 |1000 |32 |32 x 500 |2  |
-| Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |
-| Standard_H8m |8 |112 |1000 |32 |32 x 500 |2  |
-| Standard_H16m |16 |224 |2000 |64 |64 x 500 |4  |
-| Standard_H16r <sup>1</sup> |16 |112 |2000 |64 |64 x 500 |4  |
-| Standard_H16mr <sup>1</sup> |16 |224 |2000 |64 |64 x 500 |4 |
+| Tamanho | vCPU | Processador | Memória (GB) | Largura de banda de memória GB/s | Frequência de base da CPU (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte MPI | Armazenamento temporário (GB) | Discos de dados máximos | NICs de Ethernet máx. |
+| --- | --- |--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_H8 | 8 | Intel Xeon E5 2667 v3 | 56 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16 | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 |  56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H8m | 8 | Intel Xeon E5 2667 v3 | 112 | 40 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 1000 | 32 | 2 |
+| Standard_H16m | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | Intel 5.x, MS-MPI | 2000 | 64 | 4 |
+| Standard_H16r <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 112 | 80 | 3.2 | 3.3 | 3.6 | 56 | 2000 | Intel 5.x, MS-MPI | 64 | 4 |
+| Standard_H16mr <sup>1</sup> | 16 | Intel Xeon E5 2667 v3 | 224 | 80 | 3.2 | 3.3 | 3.6 | 56 | 2000 | Intel 5.x, MS-MPI | 64 | 4 |
 
 <sup>1</sup> para aplicações de MPI, rede de back-end RDMA dedicada é ativada pela rede FDR InfiniBand, que proporciona o ultra baixa latência e alta largura de banda.
 
 <br>
-
-
-
-
-
-

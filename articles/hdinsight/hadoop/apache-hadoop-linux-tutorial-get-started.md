@@ -10,11 +10,11 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 12/27/2018
 ms.openlocfilehash: f192c0bcd11aacde90992e06c2736e1412f85505
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129370"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64729411"
 ---
 # <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-resource-manager-template"></a>Início rápido: Introdução ao Apache Hadoop e Apache Hive no HDInsight do Azure com o modelo do Resource Manager
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8bb790571e1499bd45fb8bee27f4f1896046cbc2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a7fcd4deb0446577af310ff5380ffddf05ba87be
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749112"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64719798"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Resolver problemas de Hyper-V para replicação do Azure e de ativação pós-falha
 
@@ -129,7 +129,7 @@ Um instantâneo consistente com a aplicação é um instantâneo de ponto no tem
 
 2. Para gerar instantâneos do VSS para a VM, verifique que os serviços de integração do Hyper-V estão instalados na VM e que o serviço de integração de cópia de segurança (VSS) está ativado.
     - Certifique-se de que o serviço de VSS de serviços de integração/daemons estão em execução no convidado e estão numa **OK** estado.
-    - Pode verificar isto partir de uma sessão de PowerShell elevada no anfitrião Hyper-V com o comando **et-VMIntegrationService - VMName<VMName>-nome VSS** também pode obter estas informações ao iniciar sessão na VM do convidado. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - Pode verificar isto partir de uma sessão de PowerShell elevada no anfitrião Hyper-V com o comando **et-VMIntegrationService - VMName\<VMName >-nome VSS** também pode obter estas informações ao iniciar sessão na VM do convidado. [Saiba mais](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - Certifique-se de que os serviços de integração de cópia de segurança/VSS na VM em execução e em bom estado de funcionamento. Caso contrário, reinicie esses serviços e o serviço de solicitante de cópia de sombra de volumes do Hyper-V no servidor de anfitrião do Hyper-V.
 
 ### <a name="common-errors"></a>Erros comuns

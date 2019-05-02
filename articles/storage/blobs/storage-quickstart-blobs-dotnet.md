@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 50bb13ecaa9e6076f00749d54b492a1e6663a93e
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2708efc22d373db6ee55dfee6b8adfa35bd450ef
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110071"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924322"
 ---
 # <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Início rápido: Utilizar o .NET para criar um blob no armazenamento de objetos
 
@@ -48,13 +48,13 @@ Para obter informações sobre como escolher entre o .NET Core e o .NET Framewor
 
 A aplicação de exemplo utilizada neste início rápido é uma aplicação de consola básica. Pode explorar a aplicação de exemplo no [GitHub](https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart).
 
-Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. 
+Utilize o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-dotnet-quickstart.git
 ```
 
-Este comando clona o repositório para a sua pasta local do git. Para abrir a solução do Visual Studio, procure a pasta *storage-blobs-dotnet-quickstart*, abra-a e faça duplo clique em *storage-blobs-dotnet-quickstart.sln*. 
+Este comando clona o repositório para a sua pasta local do git. Para abrir a solução do Visual Studio, procure a pasta *storage-blobs-dotnet-quickstart*, abra-a e faça duplo clique em *storage-blobs-dotnet-quickstart.sln*.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -70,7 +70,7 @@ Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambien
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-Depois de adicionar a variável de ambiente, poderá ter de reiniciar todos os programas em execução que irão precisar de ler a variável de ambiente, incluindo a janela da consola. Por exemplo, se estiver a utilizar o Visual Studio como editor, reinicie o Visual Studio antes de executar o exemplo. 
+Depois de adicionar a variável de ambiente, poderá ter de reiniciar todos os programas em execução que irão precisar de ler a variável de ambiente, incluindo a janela da consola. Por exemplo, se estiver a utilizar o Visual Studio como editor, reinicie o Visual Studio antes de executar o exemplo.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
@@ -85,7 +85,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bashrc` a partir
 Edite o seu .bash_profile e adicione a variável de ambiente:
 
 ```bash
-export STORAGE_CONNECTION_STRING=<yourconnectionstring>
+export storageconnectionstring=<yourconnectionstring>
 ```
 
 Depois de adicionar a variável de ambiente, execute `source .bash_profile` a partir da janela da consola para que as alterações entrem em vigor.
@@ -94,15 +94,15 @@ Depois de adicionar a variável de ambiente, execute `source .bash_profile` a pa
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
-Este exemplo cria um ficheiro de teste na sua pasta **MyDocuments** local e carrega-o no Armazenamento de blobs. Em seguida, o exemplo lista os blobs no contentor e transfere o ficheiro com um novo nome para que possa comparar o ficheiro antigo com o novo. 
+Este exemplo cria um ficheiro de teste na sua pasta **MyDocuments** local e carrega-o no Armazenamento de blobs. Em seguida, o exemplo lista os blobs no contentor e transfere o ficheiro com um novo nome para que possa comparar o ficheiro antigo com o novo.
 
 # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-Se estiver a utilizar o Visual Studio como editor, pode premir **F5** para executar. 
+Se estiver a utilizar o Visual Studio como editor, pode premir **F5** para executar.
 
 Caso contrário, navegue para o diretório de aplicações e execute a aplicação com o comando `dotnet run`.
 
-```
+```console
 dotnet run
 ```
 
@@ -110,7 +110,7 @@ dotnet run
 
 Navegue para o diretório de aplicações e execute a aplicação com o comando `dotnet run`.
 
-```
+```console
 dotnet run
 ```
 
@@ -118,7 +118,7 @@ dotnet run
 
 Navegue para o diretório de aplicações e execute a aplicação com o comando `dotnet run`.
 
-```
+```console
 dotnet run
 ```
 
@@ -126,7 +126,7 @@ dotnet run
 
 O resultado do exemplo de aplicação é semelhante ao seguinte:
 
-```
+```output
 Azure Blob storage - .NET Quickstart sample
 
 Created container 'quickstartblobs33c90d2a-eabd-4236-958b-5cc5949e731f'
@@ -144,7 +144,7 @@ Press any key to delete the sample files and example container.
 
 Quando premir a tecla **Enter**, a aplicação elimina o contentor de armazenamento e os ficheiros. Antes de os eliminar, procure os dois ficheiros na pasta **MyDocuments**. Pode abri-los e constatar que são idênticos. Copie o URL do blob a partir da janela da consola e cole-o num browser para ver o conteúdo do blob.
 
-Depois de verificar os ficheiros, prima qualquer tecla para concluir a demonstração e eliminar os ficheiros de teste. Agora que sabe o que o exemplo faz, abra o ficheiro Program.cs para ver o código. 
+Depois de verificar os ficheiros, prima qualquer tecla para concluir a demonstração e eliminar os ficheiros de teste. Agora que sabe o que o exemplo faz, abra o ficheiro Program.cs para ver o código.
 
 ## <a name="understand-the-sample-code"></a>Compreender o código de exemplo
 
@@ -184,23 +184,22 @@ else
 
 Em seguida, o exemplo cria um contentor e define as respetivas permissões de modo a que os blobs existentes no contentor sejam públicos. Se um blob for público, pode ser acedido anonimamente por qualquer cliente.
 
-Para criar o contentor, primeiro crie uma instância do objeto [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient), que aponte para o Armazenamento de blobs na sua conta de armazenamento. Em seguida, crie uma instância do objeto [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) e depois crie o contentor. 
+Para criar o contentor, primeiro crie uma instância do objeto [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient), que aponte para o Armazenamento de blobs na sua conta de armazenamento. Em seguida, crie uma instância do objeto [CloudBlobContainer](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer) e depois crie o contentor.
 
 Neste caso, o exemplo chama o método [CreateAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createasync) para criar o contentor. É anexado um valor GUID ao nome do contentor para garantir que é exclusivo. Num ambiente de produção, é muitas vezes preferível utilizar o método [CreateIfNotExistsAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.createifnotexistsasync) para criar um contentor apenas se este ainda não existir e evitar conflitos de nomenclatura.
 
 > [!IMPORTANT]
 > Os nomes dos contentores têm de estar em minúscula. Para obter mais informações sobre a atribuição de nomes de contentores e blobs, veja [Nomenclatura e Referenciação de Contentores, Blobs e Metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
-
 ```csharp
 // Create the CloudBlobClient that represents the Blob storage endpoint for the storage account.
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
-// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
+// Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique.
 CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
-// Set the permissions so the blobs are public. 
+// Set the permissions so the blobs are public.
 BlobContainerPermissions permissions = new BlobContainerPermissions
 {
     PublicAccess = BlobContainerPublicAccessType.Blob
@@ -210,7 +209,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contentor
 
-Em seguida, o exemplo carrega um ficheiro local para um blob de blocos. O exemplo de código obtém uma referência a um objeto **CloudBlockBlob** ao chamar o método [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) no contentor criado na secção anterior. Em seguida, carrega o ficheiro selecionado para o blob ao chamar o método [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Este método cria o blob, caso ainda não exista, ou substitui-o se o mesmo já existir. 
+Em seguida, o exemplo carrega um ficheiro local para um blob de blocos. O exemplo de código obtém uma referência a um objeto **CloudBlockBlob** ao chamar o método [GetBlockBlobReference](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.getblockblobreference) no contentor criado na secção anterior. Em seguida, carrega o ficheiro selecionado para o blob ao chamar o método [UploadFromFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromfileasync). Este método cria o blob, caso ainda não exista, ou substitui-o se o mesmo já existir.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -248,7 +247,7 @@ do
     {
         Console.WriteLine(item.Uri);
     }
-} while (blobContinuationToken != null); // Loop while the continuation token is not null. 
+} while (blobContinuationToken != null); // Loop while the continuation token is not null.
 
 ```
 
@@ -257,7 +256,7 @@ do
 Em seguida, o exemplo transfere o blob criado anteriormente para o seu sistema de ficheiros local através do método [DownloadToFileAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync). O código de exemplo adiciona o sufixo "_DOWNLOADED" ao nome do blob para que possa ver ambos os ficheiros no sistema de ficheiros local.
 
 ```csharp
-// Download the blob to a local file, using the reference created earlier. 
+// Download the blob to a local file, using the reference created earlier.
 // Append the string "_DOWNLOADED" before the .txt extension so that you can see both files in MyDocuments.
 destinationFile = sourceFile.Replace(".txt", "_DOWNLOADED.txt");
 Console.WriteLine("Downloading blob to {0}", destinationFile);
@@ -288,7 +287,7 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com Armazename
 
 ### <a name="binaries-and-source-code"></a>Binários e código fonte
 
-- Transfira o pacote NuGet para obter a versão mais recente da [biblioteca de cliente .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do Armazenamento do Azure. 
+- Transfira o pacote NuGet para obter a versão mais recente da [biblioteca de cliente .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do Armazenamento do Azure.
 - Veja o [código fonte da biblioteca de cliente .NET](https://github.com/Azure/azure-storage-net) no GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referência e exemplos da biblioteca de cliente
@@ -298,7 +297,7 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com Armazename
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, aprendeu a carregar, transferir e listar blobs com o .NET. 
+Neste início rápido, aprendeu a carregar, transferir e listar blobs com o .NET.
 
 Para saber como criar uma aplicação Web que carrega uma imagem para o Armazenamento de blobs, avance para o tópico [Carregar dados de imagem na cloud com o Armazenamento do Azure](storage-upload-process-images.md).
 
@@ -307,4 +306,3 @@ Para saber como criar uma aplicação Web que carrega uma imagem para o Armazena
 
 - Para saber mais sobre o .NET Core, veja [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).
 - Para explorar uma aplicação de exemplo que pode implementar a partir do Visual Studio para Windows, veja [Exemplo de Aplicação Web de Galeria de Fotografias do .NET com o Armazenamento de Blobs do Azure](https://azure.microsoft.com/resources/samples/storage-blobs-dotnet-webapp/).
- 

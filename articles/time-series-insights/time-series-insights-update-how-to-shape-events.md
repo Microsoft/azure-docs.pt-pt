@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: eb398ad621167ad9f9b245fb8aa98c6942b87668
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 344f3a8b1bdfb789251479baffeb4df15bbf2842
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557432"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64718358"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Eventos de forma com a pré-visualização do Azure Time Series Insights
 
@@ -129,6 +129,6 @@ No exemplo anterior, tenha em atenção os seguintes pontos:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para colocar estas diretrizes em prática, consulte [sintaxe de consulta de pré-visualização do Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Ficará a saber que mais sobre a sintaxe de consulta para os dados de pré-visualização do Time Series Insights REST API de acesso.
+- Para colocar estas diretrizes em prática, consulte [sintaxe de consulta de pré-visualização do Azure Time Series Insights](./time-series-insights-query-data-csharp.md). Ficará a saber que mais sobre a sintaxe de consulta para os dados de pré-visualização do Time Series Insights REST API de acesso.
 
-Para saber mais sobre formas JSON suportadas, veja [formas JSON suportadas](./time-series-insights-send-events.md#json).
+- Para saber mais sobre formas JSON suportadas, veja [formas JSON suportadas](./time-series-insights-send-events.md#json).

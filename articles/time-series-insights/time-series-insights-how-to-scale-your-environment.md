@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.custom: seodec18
-ms.openlocfilehash: f6c2c8c49f34c707c7b0fb4d525337fbfa169a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: fcdfc78a62d901bdaf50c18e9286e6f2d30c5b13
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692430"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64714125"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o seu ambiente do Time Series Insights
 
@@ -60,5 +60,5 @@ As capacidades de maneira linear, dimensionar, para que uma SKU S1 com capacidad
 4. Selecione **guardar** para dimensionar o ambiente. O indicador de progresso é apresentado até que a alteração é consolidada, em instantes. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-> [!div class="nextstepaction"]
-> [Certifique-se de que a nova capacidade é suficiente para impedir a limitação](time-series-insights-diagnose-and-solve-problems.md).
+
+- Certifique-se de que é a nova capacidade [suficiente para evitar a limitação](time-series-insights-diagnose-and-solve-problems.md).

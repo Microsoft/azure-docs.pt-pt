@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 00666e27c9251248aa6ecff75d88908baabf71f3
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61360154"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919710"
 ---
 # <a name="pricing-and-associated-costs"></a>Custos associados e preços
 
@@ -40,7 +40,7 @@ O ASC para IoT, modelo de preços é composto por duas partes e é faturado uma 
   >[!Note]
   > Mensagens de segurança também serão cobrado o consumo de quota no IoT Hub.
 
-Para obter mais informações, consulte [preços do Centro de segurança](https://azure.microsoft.com/en-us/pricing/details/security-center/).
+Para obter mais informações, consulte [preços do Centro de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Custos associados
 
@@ -65,7 +65,7 @@ A tabela seguinte fornece um resumo dos custos associados e as implicações de 
 |     | Utilização | Comentário |
 | --- | --- | --- |
 | **Consumo de quota do IoT Hub** |  |
-| [Exportar dispositivos](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) tarefa (exportação de twin) | Uma vez por dia | Desativar _duplo coleção de metadados_ |
+| [Exportar dispositivos](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) tarefa (exportação de twin) | Uma vez por dia | Desativar _duplo coleção de metadados_ |
 | **Armazenamento do log Analytics** |  |
 | Recomendação de dispositivo e alertas| Recomendação de segurança e alertas gerados pelo serviço | Não é opcional |
 | Dados de segurança não processados| Dados de segurança bruto dos dispositivos de IoT, recolhidos pelos agentes de segurança | Desativar _armazenar eventos de segurança de dispositivo sem formato_ |

@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 90af9d40f797e493696d52e4cd744b99e3b57911
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: a907e35e8e39b9dadd9106e7fd99063db28647a5
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62104127"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64869658"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
-Serviços de multimédia do Microsoft Azure podem ser utilizados para disponibilizar formatos de muitos arquivos de origem do suporte de dados, suportes de dados em fluxo em formatos, e a proteção de conteúdo formata a uma variedade de tecnologias de cliente (por exemplo, iOS e XBOX). Estes clientes compreender protocolos diferentes, por exemplo iOS requer que um formato de HTTP Live Streaming (HLS) e o Xbox necessitam de transmissão em fluxo uniforme. Se tiver um conjunto de velocidade de transmissão adaptável (múltipla) MP4 ou um conjunto de arquivos transmissão em fluxo uniforme de velocidade de transmissão adaptável que deve servir para clientes que compreender HLS, MPEG DASH ou transmissão em fluxo uniforme de ficheiros (ISO Base Media 14496-12), pode tirar partido de dinâmico Empacotamento. O empacotamento é agnóstico para a resolução de vídeo, SD/HD/UHD - 4K são suportados.
+Serviços de multimédia do Microsoft Azure podem ser utilizados para disponibilizar formatos de muitos arquivos de origem do suporte de dados, suportes de dados em fluxo em formatos, e a proteção de conteúdo formata a uma variedade de tecnologias de cliente (por exemplo, iOS e XBOX). Estes clientes compreender protocolos diferentes, por exemplo iOS requer que um formato de HTTP Live Streaming (HLS) e o Xbox necessitam de transmissão em fluxo uniforme. Se tiver um conjunto de velocidade de transmissão adaptável (múltipla) MP4 ou um conjunto de arquivos transmissão em fluxo uniforme de velocidade de transmissão adaptável que deve servir para clientes que compreender HLS, MPEG DASH ou transmissão em fluxo uniforme de ficheiros (ISO Base Media 14496-12), pode tirar partido de  **Empacotamento dinâmico**. O empacotamento é agnóstico para a resolução de vídeo, SD/HD/UHD - 4K são suportados.
 
-[Pontos finais de transmissão em fluxo](streaming-endpoint-concept.md) é o serviço de empacotamento dinâmico dos serviços de multimédia utilizadas para disponibilizar conteúdo multimédia para jogadores do cliente. Empacotamento dinâmico é uma funcionalidade que vem padrão em todos os **pontos finais de transmissão em fluxo** (Standard ou Premium). 
+Nos Media Services, um [ponto final de transmissão em fluxo](streaming-endpoint-concept.md) representa um dinâmico (just-in-time) empacotamento e a origem do serviço que pode distribuir os seus conteúdos em direto e a pedido diretamente a uma aplicação de leitor de cliente, utilizando um do comum de transmissão em fluxo protocolos de suporte de dados (HLS ou DASH). Empacotamento dinâmico é uma funcionalidade que vem padrão em todos os **pontos finais de transmissão em fluxo** (Standard ou Premium). 
 
 Para tirar partido das **empacotamento dinâmico**, tem de ter um **Asset** com um conjunto de ficheiros MP4 de velocidade de transmissão adaptável e ficheiros de configuração de transmissão em fluxo necessários pelo empacotamento dinâmico de serviços de multimédia. Uma forma de obter os ficheiros é codificar o ficheiro mezzanine (de origem) com os Serviços de Multimédia. Para disponibilizar vídeos no elemento codificado para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e criar URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto cliente streaming (HLS, TRAÇO ou uniforme), receberá o fluxo no protocolo que escolheu.
 

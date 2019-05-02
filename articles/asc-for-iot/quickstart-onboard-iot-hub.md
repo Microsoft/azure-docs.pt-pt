@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/18/2019
+ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0236050ffcf7ad1d18ff3a8a763d0469d91eeeb5
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505432"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919884"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Início rápido: Ativar o serviço no IoT Hub
 
@@ -39,6 +39,7 @@ Este artigo fornece uma explicação de como ativar o Centro de segurança do Az
   - Dois tipos de informações são armazenados por padrão na sua área de trabalho do Log Analytics pelo ASC do IoT; **alertas de segurança** e **recomendações**. 
   - Pode optar por adicionar armazenamento de um tipo de informações adicionais **eventos não processados**. Tenha em atenção que armazenar **eventos não processados** no Log Analytics acarreta custos de armazenamento adicionais. 
 - IoT Hub (escalão standard ou superior)
+- Atender a todas as [prerequities de serviço](service-prerequisites.md) 
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Ativar o ASC para IoT no seu Hub IoT 
 
@@ -50,8 +51,7 @@ Para ativar a segurança no seu IoT Hub, faça o seguinte:
 4. Forneça os detalhes da sua área de trabalho do Log Analytics. 
    - Optar por armazenar **eventos não processados** além dos tipos de informações padrão de armazenamento, deixando a **eventos não processados** Ativar/desativar **no**. 
    - Opte por ativar **duplo coleção** deixando a **duplo coleção** Ativar/desativar **no**. 
-5. Clique em **OK**. 
-6. Clique em **Guardar**. 
+5. Clique em **Guardar**. 
 
 Parabéns! Concluiu a ativar o ASC para IoT no seu IoT Hub. 
 

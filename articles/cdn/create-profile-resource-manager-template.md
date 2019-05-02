@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5c393916bc977f4e0bc51913bdb2dfbbd6677c97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c26c9021637b1b6ec2b3808db1307de9955bb660
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323965"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922396"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>Início rápido: Criar um perfil de CDN do Azure e o ponto de extremidade usando o modelo do Resource Manager
 
@@ -51,7 +51,7 @@ az group create --name cdn --location eastus
 
 Neste passo, vai criar um arquivo de modelo que implementa os recursos.
 
-Embora este exemplo descreve como um cenário de aceleração de site geral, isso significa que há muitas outras configurações que podem ser configuradas. Estas definições estão disponíveis na referência de modelo do Azure Resource Manager. Consulte referências para [perfil da CDN](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles) e [ponto final do perfil de CDN](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
+Embora este exemplo descreve como um cenário de aceleração de site geral, isso significa que há muitas outras configurações que podem ser configuradas. Estas definições estão disponíveis na referência de modelo do Azure Resource Manager. Consulte referências para [perfil da CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles) e [ponto final do perfil de CDN](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints).
 
 Tenha em atenção que o Microsoft CDN não suporta a modificar a lista de tipo de conteúdo.
 
@@ -224,8 +224,8 @@ az group delete --name cdn
 
 ## <a name="references"></a>Referências
 
-* Perfil CDN - [referência de modelo do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles)
-* Ponto final da CDN - [documentação de referência de modelo do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
+* Perfil CDN - [referência de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles)
+* Ponto final da CDN - [documentação de referência de modelo do Azure Resource Manager](https://docs.microsoft.com/azure/templates/microsoft.cdn/2017-10-12/profiles/endpoints)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

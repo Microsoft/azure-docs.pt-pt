@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
 ms.author: lahugh
-ms.openlocfilehash: 4ecee0e4f01da329e44c0f65b2c204520f2da87f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 0ca22cfe99e77cd2ed3c5a966fb2412444103d71
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60722427"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64922449"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções de serviço do Batch com o Active Directory
 
@@ -68,7 +68,7 @@ O primeiro passo para utilizar o Azure AD para autenticar está a registar a apl
 
 Quando registar a sua aplicação, fornecer informações sobre a sua aplicação para o Azure AD. Em seguida, do Azure AD fornece um ID de aplicação (também chamado de um *ID de cliente*) que utilizou para associar a sua aplicação com o Azure AD em tempo de execução. Para saber mais sobre o ID da aplicação, veja [aplicativos e objetos de principal de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Para registar a aplicação do Batch, siga os passos a [adicionar uma aplicação](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) secção [integrar aplicações com o Azure Active Directory][aad_integrate]. Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. Não é necessário ser um ponto final real.
+Para registar a aplicação do Batch, siga os passos a [adicionar uma aplicação](../active-directory/develop/quickstart-register-app.md) secção [integrar aplicações com o Azure Active Directory][aad_integrate]. Se registar a sua aplicação como um aplicativo nativo, pode especificar qualquer URI válida para o **URI de redirecionamento**. Não é necessário ser um ponto final real.
 
 Depois de registar a aplicação, verá o ID da aplicação:
 

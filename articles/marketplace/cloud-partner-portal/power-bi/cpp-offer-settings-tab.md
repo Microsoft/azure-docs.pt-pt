@@ -1,25 +1,18 @@
 ---
-title: Definições para uma aplicação do Power BI oferece - Azure Marketplace da oferta | Documentos da Microsoft
+title: Definições para uma oferta de aplicação do Power BI da oferta | O Azure Marketplace
 description: Configure definições de oferta para uma oferta de aplicação do Power BI para o mercado do Microsoft AppSource.
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
-documentationcenter: ''
 author: v-miclar
-manager: Patrick.Butler
-editor: ''
-ms.assetid: ''
 ms.service: marketplace
-ms.workload: ''
-ms.tgt_pltfrm: ''
-ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/29/2019
-ms.author: pbutlerm
-ms.openlocfilehash: 49bbe5dcf17a9aa20cb47f477c59e7115d29dacc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.author: pabutler
+ms.openlocfilehash: be2c2b4f5d9461aa0fdc6dde89931ed4b6418ced
+ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60727948"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64943467"
 ---
 # <a name="power-bi-apps-offer-settings-tab"></a>Separador de definições de oferta de aplicações de BI de energia
 
@@ -30,13 +23,13 @@ Quando abre o **nova oferta** página para o serviço de aplicações, primeiro 
 
 ## <a name="offer-settings-fields"></a>Campos de definições da oferta 
 
-Sobre o **oferecer definições** guia, tem de introduzir informações nos seguintes campos obrigatórios:
+Sobre o **oferecer definições** guia, tem de introduzir informações nos seguintes campos obrigatórios. Campos obrigatórios são indicted por um asterisco (*).
 
 |  Campo        |  Descrição                                                               |
 |---------------|----------------------------------------------------------------------------|
-| **ID de oferta**  | Um identificador exclusivo (dentro de um perfil do publicador) para a oferta. Este identificador estará visível no produto URLs, modelos do Azure Resource Manager, e relatórios de faturação. O comprimento máximo é de 50 carateres. Pode conter apenas carateres alfanuméricos em minúsculas e hífenes (-). Não pode terminar com um traço. Este identificador não pode ser alterado depois de uma oferta entra no ar. Se a Contoso publica uma oferta com o ID da oferta `sample-SvcApp`, a oferta é atribuída o URL de AppSource `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`.      |
-| **Publicador** | Identificador exclusivo da sua organização no [AppSource](https://appsource.microsoft.com). Todas as suas ofertas devem ser associadas com o ID de publicador. Este valor não pode ser alterado depois da oferta é guardada.                         |
-| **Nome**      | Nome a apresentar para a sua oferta. Este nome será apresentado no AppSource e no Portal de parceiros de nuvem. O comprimento máximo é de 50 carateres. Utilize um nome de marca reconhecível para o seu produto. Não inclua o nome da sua organização aqui, a menos que a aplicação é comercializada com esse nome. Se estiver fornecendo esta oferta em outros Web sites e publicações, utilize o mesmo nome em todas as publicações.    <br/>Se libera uma oferta durante o período de pré-visualização para aplicações do Power BI, adicione a cadeia de caracteres `(Preview)` no final do nome da sua aplicação, como este: `Sample Scv App (Preview)`. |
+| **ID de oferta\***  | Um identificador exclusivo (dentro de um perfil do publicador) para a oferta. Este identificador estará visível no produto URLs, modelos do Azure Resource Manager, e relatórios de faturação. O comprimento máximo é de 50 carateres. Pode conter apenas carateres alfanuméricos em minúsculas e hífenes (-). Não pode terminar com um traço. Este identificador não pode ser alterado depois de uma oferta entra no ar. Se a Contoso publica uma oferta com o ID da oferta `sample-SvcApp`, a oferta é atribuída o URL de AppSource `https://appsource.microsoft.com/marketplace/apps/contoso.sample-SvcApp`.      |
+| **Publisher\*** | Identificador exclusivo da sua organização no [AppSource](https://appsource.microsoft.com). Todas as suas ofertas devem ser associadas com o ID de publicador. Este valor não pode ser alterado depois da oferta é guardada.                         |
+| **Nome\***      | Nome a apresentar para a sua oferta. Este nome será apresentado no AppSource e no Portal de parceiros de nuvem. O comprimento máximo é de 50 carateres. Utilize um nome de marca reconhecível para o seu produto. Não inclua o nome da sua organização aqui, a menos que a aplicação é comercializada com esse nome. Se estiver fornecendo esta oferta em outros Web sites e publicações, utilize o mesmo nome em todas as publicações.    <br/>Se libera uma oferta durante o período de pré-visualização para aplicações do Power BI, adicione a cadeia de caracteres `(Preview)` no final do nome da sua aplicação, como este: `Sample Scv App (Preview)`. |
 |     |     |
 
 

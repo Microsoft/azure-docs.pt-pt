@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: 7d052ee2d3d3bdf6cca99dd6a91b88176983113f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.date: 04/24/2019
+ms.openlocfilehash: 8bbb638190928e0478053843264fde585ae17222
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559740"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64720583"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensões do PostgreSQL na base de dados do Azure para PostgreSQL
 PostgreSQL fornece a capacidade de estender a funcionalidade da sua base de dados a utilizar extensões. As extensões permitem para agrupar vários objetos relacionados do SQL em conjunto num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Após a ser carregado no banco de dados, as extensões podem funcionar tal como as funcionalidades incorporadas. Para obter mais informações sobre as extensões do PostgreSQL, consulte [empacotamento objetos relacionados numa extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -49,6 +49,7 @@ As tabelas seguintes listam as extensões de PostgreSQL padrão que são atualme
 > | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | Fornece funções e operadores para determinar a semelhança de alfanumérico texto com base na correspondência de trigram. |
 > | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | Fornece funções que manipulam tabelas inteiras, incluindo tabela cruzada. |
 > | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | Gera identificadores exclusivos universalmente (UUIDs não). |
+> | [orafce](https://github.com/orafce/orafce) | Fornece um subconjunto de funções e pacotes emulados dos bancos de dados comerciais. |
 
 ### <a name="full-text-search-extensions"></a>Extensões de pesquisa em texto completo
 
@@ -94,7 +95,7 @@ As tabelas seguintes listam as extensões de PostgreSQL padrão que são atualme
 > [!div class="mx-tableFixed"]
 > | **Extensão** | **Descrição** |
 > |---|---|
-> | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
+> | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Objetos espaciais e geográficos para PostgreSQL. |
 > | endereço\_standardizer, endereço\_standardizer\_dados\_-nos | Utilizado para analisar um endereço em elementos que constituem. Utilizados para suportar o passo de normalização de endereço de geocodificação. |
 > | [pgrouting](https://pgrouting.org/) | Estende os PostGIS / funcionalidade de encaminhamento de base de dados do PostgreSQL geoespacial para fornecer dados geoespaciais. |
 

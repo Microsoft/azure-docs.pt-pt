@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 3/5/2018
 ms.author: v-jansko
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 63592a0afc7e5da0a37c25c226b92b587aa5f886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 513fd93f148a8a133901a5dbb60722fbc4a7d9e7
+ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827527"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64866256"
 ---
 # <a name="languages-supported-by-the-translator-speech-api"></a>Idiomas suportados pela API de voz do Translator
 
@@ -27,13 +27,13 @@ Os seguintes idiomas são suportados para tradução de voz. Se ambos os idiomas
 | Idiomas de voz    |
 |:----------- |
 | Árabe (Standard moderno)      |
+| Português (Brasil)     |
 | Chinês (Mandarim)      |
 | Português      |
 | Francês      |
 | Alemão      |
 | Italiano      |
 | Japonês      |
-| Português (Brasil)     |
 | Russo      |
 | Espanhol      |
 

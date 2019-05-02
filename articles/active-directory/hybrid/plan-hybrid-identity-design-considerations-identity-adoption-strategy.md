@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/30/2018
+ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d64cac3812d8daf8ac34b93c91338e1dfab88a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39495e11e42853bf3cf9481475d970667c56223f
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382002"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64919108"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, vai definir a estratégia de adoção de identidade híbrida para a sua solução de identidade híbrida satisfazer os requisitos empresariais que foram abordados em:
@@ -37,7 +37,7 @@ Os endereços de tarefa primeiro determinar os negócios de organizações preci
 ## <a name="define-an-integration-strategy"></a>Definir uma estratégia de integração
 A Microsoft tem três cenários de integração principais que são identidades federadas, identidades sincronizadas e identidades de nuvem.  Deve planejar a adoção de uma destas estratégias de integração.  A estratégia que escolher pode variar e podem incluir as decisões de escolher um, que tipo de experiência de utilizador que pretende fornecer, tem uma infraestrutura existente, e o que é a mais econômica.  
 
-![](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
+![Cenários de integração](./media/plan-hybrid-identity-design-considerations/integration-scenarios.png)
 
 Os cenários definidos na figura acima são:
 
@@ -111,14 +111,14 @@ Ao longo dos anos, várias ferramentas de sincronização tem existia e utilizad
 ### <a name="supported-topologies"></a>Topologias suportadas
 Ao definir uma estratégia de sincronização, tem de ser determinada a topologia que é utilizada. Consoante as informações de que foi determinadas no passo 2 é possível determinar a topologia é a correta para utilizar. A única floresta, única consiste numa única floresta do Active Directory e uma única instância do Azure AD e é o mais comum de topologia do AD do Azure.  Isso vai ser utilizada numa maioria dos cenários e a topologia esperada ao utilizar a instalação do Azure AD Connect Express conforme mostrado na figura abaixo.
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest.png) Cenário de floresta única é comum para as pequenas e grandes organizações de várias florestas, conforme mostrado na figura 5.
+![Suportadas topologias](./media/plan-hybrid-identity-design-considerations/single-forest.png) única floresta cenário é comum para as pequenas e grandes organizações de várias florestas, conforme mostrado na figura 5.
 
 > [!NOTE]
 > Para obter mais informações sobre os diferentes no local e topologias do Azure AD com o Azure AD Connect sync leia o artigo [topologias do Azure AD Connect](plan-connect-topologies.md).
 > 
 > 
 
-![](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
+![topologia de várias floresta](./media/plan-hybrid-identity-design-considerations/multi-forest.png) 
 
 Cenário de várias floresta
 
@@ -140,7 +140,7 @@ Se este for o caso, em seguida, a única de várias floresta topologia do AD do 
 
 Se o procedimento acima não forem VERDADEIRO e tiver mais de uma conta do Active Directory ou de mais do que uma caixa de correio, o Azure AD Connect escolha uma e ignorar o outro.  Caso de ligação caixas de correio, mas não existe nenhuma outra conta, estas contas não serão exportadas para o Azure AD e que o utilizador não será um membro de nenhum dos grupos.  Isso é diferente de como era no passado com o DirSync e é intencional para melhor suporte esses cenários de várias florestas. Um cenário de várias floresta é mostrado na figura abaixo.
 
-![](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
+![Vários inquilinos do Azure AD](./media/plan-hybrid-identity-design-considerations/multiforest-multipleAzureAD.png) 
 
 **Várias florestas vários cenário do Azure AD**
 
@@ -148,7 +148,7 @@ Se o procedimento acima não forem VERDADEIRO e tiver mais de uma conta do Activ
 
 É possível e compatível para ligar uma instância no local do Active Directory para vários diretórios do Azure AD, conforme mostrado na figura abaixo:
 
-![](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
+![filtragem de floresta única](./media/plan-hybrid-identity-design-considerations/single-forest-flitering.png) 
 
 **Cenário de filtragem de floresta única**
 

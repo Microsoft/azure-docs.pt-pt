@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300186"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64917330"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade do Microsoft
 
@@ -51,7 +51,7 @@ Todas as aplicações que queira aceitar tanto pessoais e contas escolares ou pr
 * R **URI de redirecionamento** ou **identificador de pacote** que podem ser utilizadas para direcionar as respostas de volta à sua aplicação
 * Alguns outros valores específicos de cenário.
 
-Para obter mais detalhes, saiba como [registar uma aplicação](quickstart-v2-register-an-app.md).
+Para obter mais detalhes, saiba como [registar uma aplicação](quickstart-register-app.md).
 
 ## <a name="endpoints"></a>Pontos Finais
 

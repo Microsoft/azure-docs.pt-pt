@@ -8,16 +8,13 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ee987448f9f6d95e6f97317bec2f696e734cba20
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d067f1af3d5479aef28ddf2290cebe3fe45726b0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632948"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64733754"
 ---
-#### <a name="expressroute-limits"></a>Limites do ExpressRoute
-Os limites seguintes aplicam-se aos recursos do Azure ExpressRoute por subscrição.
-
 | Recurso | Limite de máximo/predefinido |
 | --- | --- |
 | Circuitos do ExpressRoute por subscrição |10 |
@@ -27,7 +24,8 @@ Os limites seguintes aplicam-se aos recursos do Azure ExpressRoute por subscriç
 | Número máximo de rotas para peering privado do Azure do espaço de endereço VNet para uma ligação do ExpressRoute |200 | 
 | Número máximo de rotas para peering da Microsoft Azure com o ExpressRoute Standard |200 |
 | Número máximo de rotas para peering da Microsoft Azure com o suplemento ExpressRoute Premium |200 |
-| Número máximo de circuitos do ExpressRoute ligado à mesma rede virtual em diferentes localizações de peering |4 |
+| Número máximo de circuitos do ExpressRoute ligado à mesma rede virtual na mesma localização de peering |4 |
+| Número máximo de circuitos do ExpressRoute ligado à mesma rede virtual em diferentes localizações de peering |> 4, depende do tamanho da GatewaySubnet|
 | Número de ligações de rede virtual permitidos por circuito do ExpressRoute |Consulte a tabela seguinte. |
 
 #### <a name="number-of-virtual-networks-per-expressroute-circuit"></a>Número de redes virtuais por circuito do ExpressRoute

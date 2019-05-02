@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: a7d6ccc2360d63b888dc46badc742f2618a08dac
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62110670"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724611"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Incorporar um relatório nas coleções de área de trabalho do Power BI
 

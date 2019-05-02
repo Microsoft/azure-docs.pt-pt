@@ -4,187 +4,205 @@ description: Saiba como configurar o início de sessão único entre o Azure Act
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 84e60fa4-36fb-49c4-a642-95538c78f926
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 08/07/2018
+ms.topic: tutorial
+ms.date: 03/29/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 175e678365016bafd3d18f590a5434c32ac9fadd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 02c09744130bec55eed4181b0d4ba958aec59e69
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798386"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64920555"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ziflow"></a>Tutorial: Integração do Active Directory do Azure com Ziflow
 
 Neste tutorial, saiba como integrar Ziflow com o Azure Active Directory (Azure AD).
-
 Integrar Ziflow no Azure AD fornece as seguintes vantagens:
 
-- Pode controlar no Azure AD que tenha acesso ao Ziflow.
-- Pode permitir que os utilizadores automaticamente obter com sessão iniciada para Ziflow (Single Sign-On) com as suas contas do Azure AD.
-- Pode gerir as suas contas num local central – portal do Azure.
+* Pode controlar no Azure AD que tenha acesso ao Ziflow.
+* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Ziflow (Single Sign-On) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com Ziflow, terá dos seguintes itens:
 
-- Uma subscrição do Azure
-- Um Ziflow logon único habilitado subscrição
-
-> [!NOTE]
-> Para testar os passos neste tutorial, recomendamos que não utilize um ambiente de produção.
-
-Para testar os passos neste tutorial, deve seguir estas recomendações:
-
-- Não utilize o seu ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, pode [obtenha uma avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
+* Ziflow logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, vai testar do Azure AD início de sessão único num ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-1. Adicionando Ziflow da Galeria
-2. Configuração e teste do Azure AD início de sessão único
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+
+* Suporta Ziflow **SP** iniciada SSO
 
 ## <a name="adding-ziflow-from-the-gallery"></a>Adicionando Ziflow da Galeria
+
 Para configurar a integração do Ziflow com o Azure AD, terá de adicionar Ziflow a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
 **Para adicionar Ziflow a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone. 
+1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
-    ![O botão do Azure Active Directory][1]
+    ![O botão do Azure Active Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais**. Em seguida, aceda a **todos os aplicativos**.
+2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
 
-    ![O painel de aplicações empresariais][2]
-    
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+
 3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
 
-    ![O novo botão de aplicativo][3]
+    ![O novo botão de aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, escreva **Ziflow**, selecione **Ziflow** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-    ![Ziflow na lista de resultados](./media/ziflow-tutorial/tutorial_ziflow_addfromgallery.png)
+     ![Ziflow na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Ziflow com base num utilizador de teste chamado "Eduarda Almeida".
-
-Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de contraparte no Ziflow a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Ziflow deve ser estabelecido.
+Nesta secção, configure e teste do Azure AD início de sessão único com Ziflow com base num utilizador de teste **Eduarda Almeida**.
+Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Ziflow deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com Ziflow, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-3. **[Criar um utilizador de teste Ziflow](#create-a-ziflow-test-user)**  - para ter um equivalente da Eduarda Almeida na Ziflow que está ligado à representação de utilizador do Azure AD.
+2. **[Configurar Ziflow Single Sign-On](#configure-ziflow-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+5. **[Criar utilizador de teste Ziflow](#create-ziflow-test-user)**  - para ter um equivalente da Eduarda Almeida na Ziflow que está ligado à representação de utilizador do Azure AD.
+6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, pode ativar o Azure AD início de sessão único no portal do Azure e configurar início de sessão único em seu aplicativo Ziflow.
+Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
 
-**Para configurar o Azure AD início de sessão único com Ziflow, execute os seguintes passos:**
+Para configurar o Azure AD início de sessão único com Ziflow, execute os seguintes passos:
 
-1. No portal do Azure, sobre o **Ziflow** página de integração de aplicação, clique em **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **Ziflow** página de integração de aplicações, selecione **início de sessão único**.
 
-    ![Configurar a ligação de início de sessão única][4]
+    ![Configurar a ligação de início de sessão única](common/select-sso.png)
 
-2. Sobre o **início de sessão único** caixa de diálogo, selecione **modo** como **baseado em SAML logon** para ativar o início de sessão único.
+2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
 
-    ![Caixa de diálogo de início de sessão único](./media/ziflow-tutorial/tutorial_ziflow_samlbase.png)
+    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-3. Sobre o **Ziflow domínio e URLs** secção, execute os seguintes passos:
+3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
 
-    ![Ziflow domínio e URLs únicas início de sessão em informações](./media/ziflow-tutorial/tutorial_ziflow_url.png)
+    ![Editar a configuração SAML do básico](common/edit-urls.png)
+
+4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+
+    ![Ziflow domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://ziflow-production.auth0.com/login/callback?connection=<UniqueID>`
 
-    b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `urn:auth0:ziflow-production:<UniqueID>`
+    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `urn:auth0:ziflow-production:<UniqueID>`
 
     > [!NOTE]
     > Os valores anteriores não são reais. Atualizar o valor ID exclusivo do identificador e o URL de início de sessão com o valor real, o que é explicado mais tarde no tutorial.
 
-4. Sobre o **certificado de assinatura SAML** secção, clique em **certificado (Base64)** e, em seguida, guarde o ficheiro de certificado no seu computador.
+5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
-    ![O link de download de certificado](./media/ziflow-tutorial/tutorial_ziflow_certificate.png) 
+    ![O link de download de certificado](common/certificatebase64.png)
 
-5. Clique em **guardar** botão.
+6. Sobre o **configurar Ziflow** secção, copie os URLs apropriados de acordo com seus requisitos.
 
-    ![Configurar o botão único início de sessão em Guardar](./media/ziflow-tutorial/tutorial_general_400.png)
+    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-6. Sobre o **Ziflow configuração** secção, clique em **configurar Ziflow** para abrir **configurar início de sessão** janela. Cópia a **URL de fim de sessão e SAML único início de sessão no URL do serviço** partir o **secção de referência rápida.**
+    a. URL de início de sessão
 
-    ![Configuração de Ziflow](./media/ziflow-tutorial/tutorial_ziflow_configure.png) 
+    b. Identificador do Azure AD
 
-7. Numa janela do browser web diferente, início de sessão para Ziflow como um administrador de segurança.
+    c. URL de fim de sessão
 
-8. Clique em Avatar no canto superior direito e, em seguida, clique em **gerir conta**.
+### <a name="configure-ziflow-single-sign-on"></a>Configurar Ziflow Single Sign-On
+
+1. Numa janela do browser web diferente, inicie sessão no Ziflow como um administrador de segurança.
+
+2. Clique em Avatar no canto superior direito e, em seguida, clique em **gerir conta**.
 
     ![Gerir a configuração de Ziflow](./media/ziflow-tutorial/tutorial_ziflow_manage.png)
 
-9. No canto superior esquerdo, clique em **Single Sign-On**.
+3. No canto superior esquerdo, clique em **Single Sign-On**.
 
     ![Início de sessão de configuração de Ziflow](./media/ziflow-tutorial/tutorial_ziflow_signon.png)
 
-10. Sobre o **Single Sign-On** página, execute os seguintes passos:
+4. Sobre o **Single Sign-On** página, execute os seguintes passos:
 
     ![Ziflow configuração única](./media/ziflow-tutorial/tutorial_ziflow_page.png)
 
     a. Selecione **tipo** como **SAML2.0**.
 
-    b. Na **URL de início de sessão** caixa de texto, cole o valor de **SAML único início de sessão no URL do serviço**, que copiou do portal do Azure.
+    b. Na **URL de início de sessão** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure.
 
     c. Carregar o certificado codificado de base 64 que transferiu do portal do Azure, para o **X509 certificado de assinatura**.
 
     d. Na **URL de fim de sessão** caixa de texto, cole o valor de **URL de fim de sessão**, que copiou do portal do Azure.
 
-    e. Do **definições de configuração para o seu fornecedor de identificador** secção, copie o valor de ID exclusivo realçado e acrescentá-lo com o identificador e o URL de início de sessão a **seção Ziflow domínio e URLs** no Portal do Azure.
+    e. Do **definições de configuração para o seu fornecedor de identificador** secção, copie o valor de ID exclusivo realçado e acrescentá-lo com o identificador e o URL de início de sessão a **configuração básica de SAML** no Azure Portal.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
 O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-   ![Criar um utilizador de teste do Azure AD][100]
+1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
-**Para criar um utilizador de teste no Azure AD, execute os seguintes passos:**
+    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
 
-1. No portal do Azure, no painel esquerdo, clique nas **do Azure Active Directory** botão.
+2. Selecione **novo utilizador** na parte superior do ecrã.
 
-    ![O botão do Azure Active Directory](./media/ziflow-tutorial/create_aaduser_01.png)
+    ![Novo utilizador botão](common/new-user.png)
 
-2. Para apresentar a lista de utilizadores, aceda a **utilizadores e grupos**e, em seguida, clique em **todos os utilizadores**.
+3. Nas propriedades do utilizador, execute os seguintes passos.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](./media/ziflow-tutorial/create_aaduser_02.png)
+    ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-3. Para abrir o **usuário** caixa de diálogo, clique em **Add** na parte superior a **todos os utilizadores** caixa de diálogo.
+    a. Na **Name** campo introduza **BrittaSimon**.
+  
+    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
 
-    ![Botão Adicionar](./media/ziflow-tutorial/create_aaduser_03.png)
-
-4. Na **utilizador** diálogo caixa, execute os seguintes passos:
-
-    ![A caixa de diálogo de utilizador](./media/ziflow-tutorial/create_aaduser_04.png)
-
-    a. Na **Name** , escreva **BrittaSimon**.
-
-    b. Na **nome de utilizador** , escreva o endereço de e-mail do utilizador Eduarda Almeida.
-
-    c. Selecione o **mostrar palavra-passe** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
     d. Clique em **Criar**.
-  
-### <a name="create-a-ziflow-test-user"></a>Criar um utilizador de teste Ziflow
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Ziflow.
+
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Ziflow**.
+
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+
+2. Na lista de aplicações, selecione **Ziflow**.
+
+    ![A ligação de Ziflow na lista de aplicações](common/all-applications.png)
+
+3. No menu à esquerda, selecione **utilizadores e grupos**.
+
+    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+
+4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar atribuição](common/add-assign-user.png)
+
+5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+
+6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+
+7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+
+### <a name="create-ziflow-test-user"></a>Criar utilizador de teste Ziflow
 
 Para ativar a utilizadores do Azure AD iniciar sessão no Ziflow, tem de ser aprovisionados em Ziflow. Ziflow, aprovisionamento é uma tarefa manual.
 
@@ -217,61 +235,17 @@ Para Aprovisionar uma conta de utilizador, execute os seguintes passos:
     > [!NOTE]
     > O titular da conta do Azure Active Directory recebe uma mensagem de e-mail e segue uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Ziflow.
-
-![Atribuir a função de utilizador][200] 
-
-**Para atribuir a Eduarda Almeida a Ziflow, execute os seguintes passos:**
-
-1. No portal do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
-
-    ![Atribuir utilizador][201] 
-
-2. Na lista de aplicações, selecione **Ziflow**.
-
-    ![A ligação de Ziflow na lista de aplicações](./media/ziflow-tutorial/tutorial_ziflow_app.png)  
-
-3. No menu à esquerda, clique em **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"][202]
-
-4. Clique em **adicionar** botão. Em seguida, selecione **utilizadores e grupos** nos **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição][203]
-
-5. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
-
-6. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
-
-7. Clique em **atribua** botão **adicionar atribuição** caixa de diálogo.
-    
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
-Quando clica no mosaico Ziflow no painel de acesso, deve obter automaticamente sessão iniciada em seu aplicativo Ziflow.
-Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Quando clica no mosaico Ziflow no painel de acesso, deve ser automaticamente sessão iniciada no Ziflow para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="additional-resources"></a>Recursos Adicionais
 
-* [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-
-<!--Image references-->
-
-[1]: ./media/ziflow-tutorial/tutorial_general_01.png
-[2]: ./media/ziflow-tutorial/tutorial_general_02.png
-[3]: ./media/ziflow-tutorial/tutorial_general_03.png
-[4]: ./media/ziflow-tutorial/tutorial_general_04.png
-
-[100]: ./media/ziflow-tutorial/tutorial_general_100.png
-
-[200]: ./media/ziflow-tutorial/tutorial_general_200.png
-[201]: ./media/ziflow-tutorial/tutorial_general_201.png
-[202]: ./media/ziflow-tutorial/tutorial_general_202.png
-[203]: ./media/ziflow-tutorial/tutorial_general_203.png
+- [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

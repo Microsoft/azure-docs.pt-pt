@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 88a5a1bcff8542ac500bbb5e0da790f77c90a825
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 999d44e394d47e350187f9175389e04e68567d5e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809684"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64724661"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>Início rápido: Transmissão de mensagens em tempo real da aplicação de consola
 
@@ -181,4 +181,4 @@ Version | Método HTTP da API | URL do Pedido
 Neste início rápido, aprendeu a utilizar a REST API para difundir de mensagens em tempo real do SignalR serviço aos clientes. Em seguida, saiba mais sobre como desenvolver e implementar as funções do Azure com o serviço SignalR ligação, que é criada sobre a REST API.
 
 > [!div class="nextstepaction"]
-> [Desenvolver as funções do Azure a utilizar enlaces de serviço do Azure SignalR](signalr-quickstart-azure-functions-csharp.md)
+> [Desenvolver as funções do Azure a utilizar enlaces de serviço Azure SignalR](signalr-quickstart-azure-functions-csharp.md)
