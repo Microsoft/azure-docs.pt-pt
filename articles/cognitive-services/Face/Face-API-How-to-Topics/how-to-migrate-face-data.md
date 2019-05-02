@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 02e9b64c89eda1471d644e0116bbf8c1c061ccc3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548409"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682524"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migre os seus dados de rostos para uma subscrição diferente de rostos
 
 Este guia mostra como mover dados de rostos (como um guardado **PersonGroup** de faces) para uma subscrição diferente do Face API, a utilizar a funcionalidade de instantâneo. Isto permite-lhe evitar ter de criar e formar repetidamente uma **PersonGroup** ou **FaceList** quando mover ou expandir suas operações. Por exemplo, pode criar uma **PersonGroup** com uma subscrição de avaliação gratuita e agora pretende migrá-la para a subscrição paga ou poderá ter de sincronizar os dados de rostos em várias regiões para uma operação de empresas de grande porte.
 
-Esta estratégia de migração mesmo que também se aplica aos **LargePersonGroup** e **LargeFaceList** objetos. Se não estiver familiarizado com os conceitos neste guia, consulte as respetivas definições no [glossário](../Glossary.md). Este guia utiliza a biblioteca de cliente .NET de API de rostos com C#.
+Esta estratégia de migração mesmo que também se aplica aos **LargePersonGroup** e **LargeFaceList** objetos. Se não estiver familiarizado com os conceitos neste guia, consulte as respetivas definições no [conceitos de reconhecimento de rostos](../concepts/face-recognition.md) guia. Este guia utiliza a biblioteca de cliente .NET de API de rostos com C#.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,15 +29,13 @@ Esta estratégia de migração mesmo que também se aplica aos **LargePersonGrou
 - A cadeia de ID de subscrição de API de rostos correspondente para a subscrição de destino (encontrada no **descrição geral** painel no portal do Azure). 
 - Qualquer edição do [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
-
 ## <a name="create-the-visual-studio-project"></a>Criar o projeto do Visual Studio
 
 Este guia irá utilizar uma aplicação de consola simples para executar a migração de dados de rostos. Para uma implementação completa, consulte a [exemplo de instantâneo de API de rostos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) no GitHub.
 
-1. No Visual Studio, crie um novo **aplicação de consola (.NET Framework)** do projeto e nomeie- **FaceApiSnapshotSample**. 
+1. No Visual Studio, crie um novo **aplicação de consola (.NET Framework)** do projeto e nomeie- **FaceApiSnapshotSample**.
 1. Obtenha os pacotes NuGet necessários. Com o botão direito no seu projeto no Solution Explorer e selecione **gerir pacotes NuGet**. Clique nas **navegue** separador e selecione **incluir pré-lançamento**; em seguida, localizar e instalar o pacote seguinte:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.3.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-
 
 ## <a name="create-face-clients"></a>Criar clientes de rostos
 
@@ -226,7 +224,9 @@ Quando tiver terminado de migração de dados de rostos, recomendamos que as eli
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="related-topics"></a>Tópicos Relacionados
+## <a name="next-steps"></a>Passos Seguintes
+
+Em seguida, ver a relevante documentação de referência de API, explorar uma aplicação de exemplo que utiliza a funcionalidade de instantâneo ou seguir um guia de procedimentos para começar a utilizar as outras operações de API mencionadas aqui.
 
 - [Documentação de referência do instantâneo (SDK do .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
 - [Exemplo de instantâneo de API de rostos](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)

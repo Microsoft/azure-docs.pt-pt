@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ae097cb1c778c0ad60512753ae6ef28da04e8004
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
-ms.translationtype: HT
+ms.openlocfilehash: 899bf4bbf201ae785a4f49c7f278de75fb48945e
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63764371"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926265"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utilizar uma partilha de ficheiros do Azure com o Windows
 [Ficheiros do Azure](storage-files-introduction.md) é o sistema de ficheiros na cloud fácil de utilizar da Microsoft. As partilhas de ficheiros do Azure podem ser utilizadas de forma totalmente integrada no Windows e no Windows Server. Este artigo aborda as considerações relativas à utilização de uma partilha de ficheiros do Azure com o Windows e o Windows Server.
@@ -48,7 +48,7 @@ Pode utilizar as partilhas de ficheiros do Azure numa instalação do Windows qu
 
 * **Chave da conta de armazenamento**: Para montar uma partilha de ficheiros do Azure, terá da chave de armazenamento primária (ou secundário). Atualmente, não são suportadas chaves SAS para a montagem.
 
-* **Certifique-se de que a porta 445 está aberta**: Porta TCP 445 estar abertas; requer que o protocolo SMB ligações irão falhar se a porta 445 estiver bloqueada. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. Pode saber mais sobre [várias formas de resolver bloqueada a porta 445 aqui](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+* **Certifique-se de que a porta 445 está aberta**: Porta TCP 445 estar abertas; requer que o protocolo SMB ligações irão falhar se a porta 445 estiver bloqueada. Pode utilizar o cmdlet `Test-NetConnection` para verificar se a firewall está a bloqueá-la. Pode saber mais sobre [várias formas de resolver bloqueada a porta 445 aqui](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
     O PowerShell seguinte código parte do princípio de que tem o módulo Azure PowerShell instalado, consulte [módulo de instalar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) para obter mais informações. Não se esqueça de substituir `<your-storage-account-name>` e `<your-resource-group-name>` pelos nomes relevantes para a sua conta de armazenamento.
 

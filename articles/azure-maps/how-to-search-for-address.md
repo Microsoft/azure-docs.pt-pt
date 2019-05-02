@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 497ffb5acf6262dfb42f490efe68e1ea26c777cb
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904145"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572384"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Localizar um endereço com o serviço de pesquisa do Azure Maps
 
@@ -68,7 +68,7 @@ A maioria das consultas de pesquisa como padrão `maxFuzzyLevel=1` para obter o 
 
     A cadeia de consulta ambígua de "pizza" devolvido 10 [ponto do resultado de interesse](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) resultados (POI) com as categorias cair no "pizza" e "restaurante". Cada resultado retorna um endereço de rua, latitude / ver os valores de longitude, portas e pontos de entrada para a localização.
   
-    Os resultados são diversificados para essa consulta, não ligada a qualquer localização de referência específica. Pode utilizar o **countrySet** parâmetro para especificar apenas os países para os quais seu aplicativo precisa cobertura, como o comportamento padrão é pesquisar todo o mundo, potencialmente, retornando resultados desnecessários.
+    Os resultados são diversificados para essa consulta, não ligada a qualquer localização de referência específica. Pode utilizar o **countrySet** parâmetro para especificar apenas os países/regiões para o qual seu aplicativo precisa cobertura, como o comportamento padrão é pesquisar todo o mundo, potencialmente, retornando resultados desnecessários.
 
 5. Adicione a seguinte chave / valor par para o **Params** secção e clique em **enviar**:
 

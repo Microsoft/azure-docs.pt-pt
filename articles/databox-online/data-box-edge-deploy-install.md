@@ -1,5 +1,5 @@
 ---
-title: Tutorial sobre como instalar um dispositivo físico do Edge de caixa de dados do Azure | Documentos da Microsoft
+title: Tutorial - instalar o descompactar, montar, o cabo dispositivo físico do Edge de caixa de dados do Azure | Documentos da Microsoft
 description: O segundo tutorial sobre como instalar o Edge de caixa de dados do Azure envolve como descompactar, bastidor e instalar os cabos do dispositivo físico.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7062e9d829242a62dfa4f661c21ce6c56b0db69c
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60758386"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924526"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalar o Edge de caixa de dados do Azure
 
@@ -145,7 +145,8 @@ Localize os componentes para instalar o assembly do rail kit:
 
 ### <a name="engage-and-release-the-slam-latch"></a>Se envolver e liberar o bloqueio temporário mais
 
-NOTA: Para sistemas não equipados com mais travas, proteger o sistema usando screws, conforme descrito no passo 3 deste procedimento.
+> [!NOTE]
+> Para sistemas não equipados com mais travas, proteger o sistema usando screws, conforme descrito no passo 3 deste procedimento.
 
 1. Com acesso à frente, localize o bloqueio temporário mais em ambos os lados do sistema.
 2. As travas envolver-se automaticamente à medida que o sistema é enviada para o bastidor e são lançadas ao extrair a cópia de segurança nas travas.

@@ -3,8 +3,8 @@ title: Diagnosticar um máquina virtual rede problema de encaminhamento - CLI do
 description: Neste artigo, saiba como diagnosticar um problema encaminhamento de rede de máquina virtual com a capacidade de salto seguinte do observador de rede do Azure.
 services: network-watcher
 documentationcenter: network-watcher
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -15,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: jdial
+ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 8b881e51bfac25b83a828ad1f44fcd6d7da1c791
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948054"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688207"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um máquina virtual rede problema de encaminhamento - CLI do Azure
 

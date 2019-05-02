@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: eaf2d4a5a34a42867debcff4163f692431c8e0ab
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61052395"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64573865"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, acionadores e funções definidas pelo utilizador no Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Uma vez escrito, o procedimento armazenado tem de estar registado com uma coleç
 
 ### <a id="create-an-item"></a>Criar um item a utilizar o procedimento armazenado
 
-Quando cria um item ao utilizar o procedimento armazenado, o item é inserido o contentor do Azure Cosmos DB e um id para o item criado recentemente, que ele retornado. Criar um item é uma operação assíncrona e depende das funções de retorno de chamada de JavaScript. A função de retorno de chamada tem dois parâmetros: um para o objeto de erro no caso da que operação falhar e outro para um valor de retorno; Neste caso, o objeto criado. Dentro do retorno de chamada, pode tratar a exceção ou lançar um erro. No caso de um retorno de chamada não for fornecido, e existe um erro, o tempo de execução do Azure Cosmos DB irá gerar um erro. 
+Quando cria um item ao utilizar o procedimento armazenado, o item é inserido para o contentor do Azure Cosmos DB e é devolvido um id para o item criado recentemente. Criar um item é uma operação assíncrona e depende das funções de retorno de chamada de JavaScript. A função de retorno de chamada tem dois parâmetros: um para o objeto de erro no caso da que operação falhar e outro para um valor de retorno; Neste caso, o objeto criado. Dentro do retorno de chamada, pode tratar a exceção ou lançar um erro. No caso de um retorno de chamada não for fornecido, e existe um erro, o tempo de execução do Azure Cosmos DB irá gerar um erro. 
 
 O procedimento armazenado também inclui um parâmetro para definir a descrição, é um valor booleano. Quando o parâmetro é definido como true e a descrição está em falta, o procedimento armazenado lançará uma exceção. Caso contrário, o restante do procedimento armazenado continua a ser executado.
 

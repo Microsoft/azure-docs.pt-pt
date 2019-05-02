@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0ab129d7b215f0f10841b13fc2835af59227198
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 6b03dfa5a33850dfedf23375536278c4e08bed68
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565246"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687152"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integração do Active Directory do Azure com o serviço de Cloud Alibaba (SSO baseado em funções)
 
@@ -120,7 +120,7 @@ Para configurar o Azure AD início de sessão único com o serviço de Cloud Ali
     | `https://signin.aliyun.com/saml-role/SSO` |
     | `https://signin.alibabacloud.com/saml-role/SSO` |
 
-5. Aplicação de serviço de nuvem Alibaba (SSO baseado em funções) espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos do utilizador** caixa de diálogo.
+5. Aplicação de serviço de nuvem Alibaba (SSO baseado em funções) espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
 
     ![image](common/edit-attribute.png)
 
@@ -220,7 +220,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Criar utilizador de teste do serviço de Cloud Alibaba (SSO baseado em funções)
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no serviço de Cloud Alibaba (SSO baseado em funções). Trabalhar com [equipa de suporte do serviço de Cloud Alibaba (SSO baseado em funções)](https://www.aliyun.com/service/) para adicionar os utilizadores na plataforma do serviço de Cloud Alibaba (SSO baseado em funções). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no serviço de Cloud Alibaba (SSO baseado em funções). Trabalhar com [equipa de suporte do serviço de Cloud Alibaba (SSO baseado em funções)](https://www.aliyun.com/service/) para adicionar os utilizadores na plataforma do serviço de Cloud Alibaba (SSO baseado em funções). Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 

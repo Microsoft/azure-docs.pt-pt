@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: e865d4e9cbad2c2064d961bc6e407440ce8556fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: fe0547c1ddb89b8d9ab3e876e83bbdea17a58743
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60772075"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570593"
 ---
 # <a name="run-shell-scripts-in-your-linux-vm-with-run-command"></a>Executar scripts de shell na VM do Linux com o comando Executar
 
@@ -78,9 +78,9 @@ Esta tabela mostra a lista de comandos disponíveis para VMs do Linux. O **RunSh
 
 ## <a name="limiting-access-to-run-command"></a>Limitar o acesso a executar o comando
 
-Listagem os comandos de execução ou que mostra os detalhes de um comando de exigir a `Microsoft.Compute/locations/runCommands/read` permissão, que incorporada [leitor](../../role-based-access-control/built-in-roles.md#reader) função e superior.
+Listagem os comandos de execução ou que mostra os detalhes de um comando de exigir a `Microsoft.Compute/locations/runCommands/read` permissão ao nível da subscrição, que incorporada [leitor](../../role-based-access-control/built-in-roles.md#reader) função e superior.
 
-A execução de um comando requer o `Microsoft.Compute/virtualMachines/runCommand/action` permissão, que o [contribuinte](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) função e superior.
+A execução de um comando requer o `Microsoft.Compute/virtualMachines/runCommand/action` permissão ao nível da subscrição, que o [contribuinte de Máquina Virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) função e superior.
 
 Pode utilizar um da [incorporadas](../../role-based-access-control/built-in-roles.md) funções ou criar um [personalizado](../../role-based-access-control/custom-roles.md) função para utilizar o comando Executar.
 

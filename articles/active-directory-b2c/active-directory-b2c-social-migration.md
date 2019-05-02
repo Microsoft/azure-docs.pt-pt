@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: cb52cc85ea4e09890cf7c489d817c0b01192c65e
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60316108"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64684609"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrar os utilizadores com identidades sociais
 Quando planeia migrar o seu fornecedor de identidade para o Azure AD B2C, também terá de migrar os utilizadores com identidades sociais. Este artigo explica como migrar as contas de identidades das redes sociais existentes, tais como: Contas do Facebook, LinkedIn, Microsoft e Google para o Azure AD B2C. Este artigo também se aplica a identidades federadas, no entanto, essas migrações são menos comuns.

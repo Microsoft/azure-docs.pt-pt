@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 28f2b395c7f9be1b194b500ef20456be8ff405b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 039b0951484a6bf57703d9a91d604c9c5e5c9a66
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021277"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64571174"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de programadores de Python de funções do Azure
 
@@ -28,7 +28,7 @@ Este artigo é uma introdução ao desenvolvimento das funções do Azure com o 
 
 ## <a name="programming-model"></a>Modelo de programação
 
-Uma função do Azure deve ser um método sem monitoração de estado no seu script de Python que processa as entradas e produz um resultado. Por predefinição, o tempo de execução espera esta opção para ser implementado como um método global chamado `main()` no `__init__.py` ficheiro.
+Uma função do Azure deve ser um método sem monitoração de estado no seu script de Python que processa as entradas e produz um resultado. Por predefinição, o tempo de execução espera que o método a ser implementado como um método global chamado `main()` no `__init__.py` ficheiro.
 
 Pode alterar a configuração predefinida, especificando o `scriptFile` e `entryPoint` propriedades no `function.json` ficheiro. Por exemplo, o _Function_ abaixo indica o tempo de execução para utilizar o _customentry()_ método no _main.py_ ficheiro, como o ponto de entrada para a função do Azure.
 
@@ -109,15 +109,16 @@ Código compartilhado deve ser mantido numa pasta separada. Para referenciar os 
 from ..SharedCode import myFirstHelperFunction
 ```
 
-Extensões de ligação utilizadas pelo tempo de execução de funções são definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#local-development-azure-functions-core-tools) com ferramentas de núcleo de funções do Azure. 
+Extensões de ligação utilizadas pelo tempo de execução de funções são definidas no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](./functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles) com ferramentas de núcleo de funções do Azure. 
 
 Quando implementar um projeto de funções para a aplicação de funções no Azure, todo o conteúdo da pasta FunctionApp deve ser incluído no pacote, mas não a pasta em si.
 
-## <a name="inputs"></a>Entradas
+## <a name="triggers-and-inputs"></a>Acionadores e as entradas
 
-Entradas são divididas em duas categorias nas funções do Azure: a entrada de Acionador e entrada adicional. Embora eles sejam diferentes em `function.json`, a utilização é idêntica no código de Python. Vejamos o seguinte trecho de código como exemplo:
+Entradas são divididas em duas categorias nas funções do Azure: a entrada de Acionador e entrada adicional. Embora eles sejam diferentes em `function.json`, a utilização é idêntica no código de Python.  Cadeias de ligação para origens de entrada e de Acionador devem ser mapeada para valores no `local.settings.json` ficheiro localmente e as definições da aplicação quando em execução no Azure. Vejamos o seguinte trecho de código como exemplo:
 
 ```json
+// function.json
 {
   "scriptFile": "__init__.py",
   "bindings": [
@@ -139,7 +140,19 @@ Entradas são divididas em duas categorias nas funções do Azure: a entrada de 
 }
 ```
 
+```json
+// local.settings.json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
+  }
+}
+```
+
 ```python
+# __init__.py
 import azure.functions as func
 import logging
 
@@ -149,7 +162,8 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quando a função é invocada, o pedido HTTP é passado para a função como `req`. Uma entrada será recuperada de armazenamento de Blobs do Azure com base na _id_ o URL de rota e disponibilizados tal como `obj` no corpo da função.
+Quando a função é invocada, o pedido HTTP é passado para a função como `req`. Uma entrada será recuperada de armazenamento de Blobs do Azure com base na _ID_ o URL de rota e disponibilizados tal como `obj` no corpo da função.  Aqui a conta de armazenamento especificado a cadeia de ligação se encontra no `AzureWebJobsStorage` que é a mesma conta de armazenamento utilizada pela aplicação de função.
+
 
 ## <a name="outputs"></a>Saídas
 

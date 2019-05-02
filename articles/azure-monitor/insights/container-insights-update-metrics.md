@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: f0c9b84f31810a4b0cec93738f7ce327bc24d8d0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101613"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64685627"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar o Azure Monitor para contentores para ativar as métricas
 Monitor do Azure para contentores disponibiliza suporte para recolher métricas de nós de clusters de serviços de Kubernetes do Azure (AKS) e pods e escrevê-los para o arquivo de métricas do Azure Monitor. Esta alteração destina-se para fornecer pontualidade melhorada ao apresentar cálculos agregados (média, contagem, Max, Min, soma) em gráficos de desempenho, suporte afixar nos dashboards do portais do Azure, os gráficos do desempenho e alertas de métricas de suporte.

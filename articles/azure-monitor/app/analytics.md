@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/02/2019
 ms.author: mbullwin
-ms.openlocfilehash: 4c3ecdd01106cc8d305764206bc75535fa4dac3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d75544a30a441b5178a1e9dd368f1ce41cd4d321
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691956"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574273"
 ---
 # <a name="analytics-in-application-insights"></a>Análise no Application Insights
 A análise é a ferramenta de pesquisa e consulta poderosa da [Application Insights](app-insights-overview.md). A análise é uma ferramenta da web para que nenhuma configuração é necessária.
@@ -38,7 +38,7 @@ Não é possível acessar dados numa área de trabalho do Log Analytics diretame
 
 ## <a name="query-data-in-analytics"></a>Dados de consulta do Analytics
 Uma consulta típica começa com um nome de tabela, seguido de uma série de *operadores* separados por `|`.
-Por exemplo, vamos descobrir o número de pedidos a nossa aplicação recebida a partir de diferentes países, durante as últimas 3 horas:
+Por exemplo, vamos descobrir quantas solicitações a nossa aplicação recebida a partir de diferentes países/regiões, durante as últimas 3 horas:
 ```AIQL
 requests
 | where timestamp > ago(3h)

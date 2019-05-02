@@ -11,30 +11,25 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/26/2019
+ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360186"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64574089"
 ---
-# <a name="azure-sql-database-purchasing-models"></a>Base de dados do SQL do Azure modelos de compra
+# <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Escolher entre o vCore e o modelo de compra DTU
 
 Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dados de PaaS totalmente gerido que se adeque às suas necessidades de desempenho e custo. Consoante o modelo de implementação de base de dados do Azure SQL, pode selecionar o modelo de compra que atende às suas necessidades:
-
-- [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) (recomendado) que permite-lhe escolher a quantidade exata de capacidade de armazenamento e computação de que precisa para a sua carga de trabalho.
-- [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) onde pode escolher agrupados com balanceamento de cargas de trabalho comuns de pacotes de computação e armazenamento.
 
 Diferentes modelos de compras estão disponíveis em modelos de implementação de base de dados do Azure SQL:
 
 - O [base de dados individual](sql-database-single-databases-manage.md) e [conjunto elástico](sql-database-elastic-pool.md) opções de implementação na [SQL Database do Azure](sql-database-technical-overview.md) oferecem ambos o [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 - O [instância gerida](sql-database-managed-instance.md) só oferece a opção de implementação na base de dados do Azure SQL a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
-> [!IMPORTANT]
-> O [camada de serviços de hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md) está em pré-visualização pública apenas para bases de dados individuais, utilizando o modelo de compra de vCore.
 
-O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compras.
+O gráfico e tabela seguintes comparam e contrastar o vCore e a DTU modelos de compra.
 
 |**Modelo de compra**|**Descrição**|**Melhor para**|
 |---|---|---|
@@ -46,7 +41,10 @@ O gráfico e tabela seguintes comparam e contrastar esses dois modelos de compra
 
 ## <a name="compute-costs"></a>Os custos de computação
 
-O custo de computação reflete a capacidade de total de computação é aprovisionada para a aplicação. Na camada de serviço críticos de negócio, podemos atribuir automaticamente, pelo menos, 3 réplicas. Para refletir esta adicional a alocação de recursos de computação, o preço no modelo de compra baseado em vCore é aproximadamente de 2,7 x maiores na camada de serviço crítico comercial que na camada de serviço de fins gerais. Pela mesma razão, o maior preço do armazenamento por GB na camada de serviço críticos de negócio reflete a e/s elevado e baixa latência de armazenamento SSD. Ao mesmo tempo, o custo de armazenamento de cópia de segurança não é diferente entre estas camadas de duas serviço porque em ambos os casos, podemos usar uma classe de armazenamento standard.
+### <a name="provisioned-compute-costs"></a>Custos de computação aprovisionada
+
+Na camada de computação aprovisionada, o custo de computação reflete a capacidade de total de computação é aprovisionada para a aplicação.  Na camada de serviço críticos de negócio, podemos atribuir automaticamente, pelo menos, 3 réplicas. Para refletir esta adicional a alocação de recursos de computação, o preço no modelo de compra baseado em vCore é aproximadamente de 2,7 x maiores na camada de serviço crítico comercial que na camada de serviço de fins gerais. Pela mesma razão, o maior preço do armazenamento por GB na camada de serviço críticos de negócio reflete a e/s elevado e baixa latência de armazenamento SSD. Ao mesmo tempo, o custo de armazenamento de cópia de segurança não é diferente entre estas camadas de duas serviço porque em ambos os casos, podemos usar uma classe de armazenamento standard.
+
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
@@ -78,7 +76,7 @@ Se a sua base de dados individual ou um conjunto elástico consome mais de 300 D
 
 ## <a name="dtu-based-purchasing-model"></a>Modelo de compra baseado em DTU
 
-As unidades de transação de base de dados (DTU) representa uma medida combinada de CPU, memória, lê e escreve. O modelo de compra baseado em DTU oferece um conjunto de pacotes de recursos de computação pré-configurados e armazenamento para impulsionar diferentes níveis de desempenho do aplicativo incluído. Os clientes que preferem a simplicidade de um pacote pré-configurado e pagamentos fixos a cada mês, pode encontrar o modelo baseado em DTU mais adequado às suas necessidades. No modelo de compra baseado em DTU, os clientes podem escolher entre **básica**, **padrão**, e **premium** escalões de serviço para ambos [bases de dadosúnicas](sql-database-single-database-scale.md) e [conjuntos elásticos](sql-database-elastic-pool.md). Este modelo de compra não está disponível no [instâncias geridas](sql-database-managed-instance.md).
+As unidades de transação de base de dados (DTU) representa uma medida combinada de CPU, memória, lê e escreve. O modelo de compra baseado em DTU oferece um conjunto de pacotes pré-configurados de recursos de computação e armazenamento para impulsionar diferentes níveis de desempenho do aplicativo incluído. Os clientes que preferem a simplicidade de um pacote pré-configurado e pagamentos fixos a cada mês, pode encontrar o modelo baseado em DTU mais adequado às suas necessidades. No modelo de compra baseado em DTU, os clientes podem escolher entre **básica**, **padrão**, e **premium** escalões de serviço para ambos [bases de dadosúnicas](sql-database-single-database-scale.md) e [conjuntos elásticos](sql-database-elastic-pool.md). Este modelo de compra não está disponível no [instâncias geridas](sql-database-managed-instance.md).
 
 ### <a name="database-transaction-units-dtus"></a>Unidades de transação de base de dados (DTUs)
 
@@ -110,7 +108,7 @@ Se estiver à procura para migrar um existente no local ou o SQL Server a carga 
 
 Os conjuntos são adequados para um grande número de bases de dados com padrões de utilização específicos. Para um determinado banco de dados, este padrão é caracterizado por uma média de utilização baixa com picos de utilização relativamente raros. A Base de Dados SQL avalia automaticamente o histórico de utilização de recursos de bases de dados num servidor da Base de Dados SQL existente e recomenda a configuração de conjunto adequada no portal do Azure. Para obter mais informações, consulte [When should an elastic pool be used? (Quando deve ser utilizado um conjunto elástico?)](sql-database-elastic-pool.md)
 
-## <a name="purchase-model-frequently-asked-questions-faq"></a>Modelo de compra perguntas mais frequentes (FAQ)
+## <a name="purchase-models-frequently-asked-questions-faq"></a>Adquirir modelos: Perguntas mais frequentes sobre (FAQ)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-database-to-a-vcore-based-service-tier"></a>É necessário colocar a minha aplicação offline para converter de uma base de dados baseado em DTU para um escalão de serviço baseado em vCore
 

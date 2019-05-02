@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 3daea17a491af8950b38f1e3183583fef63751e2
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483507"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64926479"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registo de análise de armazenamento do Azure
 
@@ -76,7 +76,7 @@ A maioria das ferramentas de navegação de armazenamento permitem-lhe ver os me
  }  
  ```  
 
-Para obter informações sobre listar blobs através de programação, consulte [enumerar recursos do Blob](http://msdn.microsoft.com/library/azure/hh452233.aspx) e [definição e obter as propriedades e metadados para recursos Blob](http://msdn.microsoft.com/library/azure/dd179404.aspx).  
+Para obter informações sobre listar blobs através de programação, consulte [enumerar recursos do Blob](https://msdn.microsoft.com/library/azure/hh452233.aspx) e [definição e obter as propriedades e metadados para recursos Blob](https://msdn.microsoft.com/library/azure/dd179404.aspx).  
 
 ### <a name="log-naming-conventions"></a>Registo de convenções de nomenclatura
 

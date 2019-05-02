@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 2d96a04b1287033999dd5f026dd7d8d017259eb4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 52631d0b25527d204baa11a90401b60e437137a0
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859051"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691048"
 ---
 # <a name="example-how-to-use-the-large-scale-feature"></a>Exemplo: Como utilizar a funcionalidade em grande escala
 
@@ -37,7 +37,7 @@ No entanto, a desvantagem é que os novos rostos/pessoas que foram adicionados n
 
 ## <a name="concepts"></a>Conceitos
 
-Se não estiver familiarizado com os seguintes conceitos neste guia, as definições poderão ser encontradas no [glossário](../Glossary.md):
+Deve estar familiarizado com os seguintes conceitos antes de avançar para a frente:
 
 - LargePersonGroup: Uma coleção de pessoas com capacidade de até 1.000.000.
 - LargeFaceList: Uma coleção de rostos com capacidade de até 1.000.000.
@@ -233,7 +233,7 @@ Para LargeFaceList com mais rostos, utilizar um intervalo maior reduz o custo e 
 O intervalo de tempo deve ser personalizado, de acordo com a expectativa de capacidade do LargeFaceList.
 
 A mesma estratégia também se aplica a LargePersonGroup.
-Por exemplo, quando treinar um LargePersonGroup com 1 000 000 pessoas, o `timeIntervalInMilliseconds` poderia ser 60 000 (também conhecido como intervalo de 1 minuto).
+Por exemplo, quando um LargePersonGroup de treinamento com 1 000 000 pessoas, o `timeIntervalInMilliseconds` poderia ser 60.000 (intervalo de 1 minuto).
 
 ## <a name="step-32-small-scale-buffer"></a>Passo 3.2 Memória intermédia de pequena escala
 
@@ -251,7 +251,7 @@ Exemplo de fluxo de trabalho:
 1. Quando o tamanho da coleção de memória intermédia aumenta até um limiar ou num tempo de inatividade do sistema, criar uma nova coleção de memória intermédia e acionar o treino na coleção principal.
 1. Eliminar a antiga coleção da memória intermédia após a conclusão de treino na coleção principal.
 
-## <a name="step-33-standalone-training"></a>Passo 3.3 Treino Autónomo
+## <a name="step-33-standalone-training"></a>Treinamento do passo 3.3 autónomo
 
 Se uma latência relativamente longa é aceitável, não é necessário acionar a operação de Treino logo após a adição de novos dados.
 Em vez disso, a operação de Treino pode ser separada da lógica principal e acionada regularmente.
@@ -296,7 +296,9 @@ Neste guia, aprendeu a migrar o código de PersonGroup/FaceList existente (e nã
 - LargePersonGroup e LargeFaceList funcionam de maneira semelhante para PersonGroup/FaceList, exceto que a operação Treino é exigida por LargeFaceList.
 - Crie uma estratégia de treino adequada para atualização de dados dinâmicos para o conjunto de dados em grande escala.
 
-## <a name="related-topics"></a>Tópicos relacionados
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Como Identificar Rostos na Imagem](HowtoIdentifyFacesinImage.md)
+Seguir um guia de procedimentos para saber como adicionar rostos para um PersonGroup ou executar a operação de identificar num PersonGroup.
+
 - [Como Adicionar Rostos](how-to-add-faces.md)
+- [Como Identificar Rostos na Imagem](HowtoIdentifyFacesinImage.md)

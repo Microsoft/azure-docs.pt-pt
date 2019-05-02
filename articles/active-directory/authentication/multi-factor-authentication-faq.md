@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0277180f0d768bbcc83a0d8d05fbc4b8b25301e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357482"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64570828"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Azure multi-factor Authentication
 
@@ -59,7 +59,7 @@ No Canadá Microsoft utiliza os seguintes códigos de curtos de SMS:
    * 759731 
    * 673801
 
-A Microsoft não garante consistente SMS ou voz com base no multi-factor Authentication prompt entrega pelo mesmo número. Com o intuito de nossos usuários, a Microsoft poderá adicionar ou remover curtos códigos em qualquer altura, à medida que faz ajustes de rota para melhorar a capacidade de entrega SMS. A Microsoft não suporta códigos curtos para países além dos Estados Unidos e Canadá
+A Microsoft não garante consistente SMS ou voz com base no multi-factor Authentication prompt entrega pelo mesmo número. Com o intuito de nossos usuários, a Microsoft poderá adicionar ou remover curtos códigos em qualquer altura, à medida que faz ajustes de rota para melhorar a capacidade de entrega SMS. Microsoft não suporta curtos códigos de países/regiões além dos Estados Unidos e Canadá.
 
 ## <a name="billing"></a>Faturação
 
@@ -95,7 +95,7 @@ Autenticação Multifator para utilizadores do Office 365 oferece um subconjunto
 
 Se a sua organização comprar MFA como um serviço autónomo com a faturação com base no consumo, escolha um modelo de faturação ao criar um fornecedor de MFA. Não é possível alterar o modelo de faturação após a criação de um fornecedor de MFA. No entanto, pode eliminar o fornecedor MFA e, em seguida, criar um com um modelo de faturação diferente.
 
-Quando é criado um fornecedor de MFA, podem ser associado a um Azure Active Directory (também conhecido como "inquilino do Azure AD"). Se o fornecedor de MFA atual estiver associado a um inquilino do Azure AD, pode eliminar o fornecedor MFA com segurança e criar um que esteja associado ao mesmo inquilino do Azure AD. Em alternativa, se comprou licenças suficientes do MFA, Azure AD Premium ou Enterprise Mobility + Security (EMS) para abranger todos os utilizadores ativados para o MFA, pode eliminar totalmente o fornecedor do MFA.
+Quando é criado um fornecedor de MFA, ele pode ser vinculado a um Azure Active Directory, ou "Inquilino do Azure AD." Se o fornecedor MFA atual estiver associado a um inquilino do Azure AD, pode eliminar o fornecedor MFA com segurança e criar um que esteja associado ao mesmo inquilino do Azure AD. Em alternativa, se comprou licenças suficientes do MFA, Azure AD Premium ou Enterprise Mobility + Security (EMS) para abranger todos os utilizadores ativados para o MFA, pode eliminar totalmente o fornecedor do MFA.
 
 Se for o fornecedor de MFA *não* ligado a um inquilino do Azure AD ou associar o novo fornecedor do MFA com um Azure AD diferentes inquilinos, as definições de utilizador e opções de configuração não são transferidas. Além disso, os Servidores MFA do Azure existentes têm de ser reativados com as credenciais de ativação geradas através do novo Fornecedor do MFA. Reativar os Servidores MFA para associá-los ao novo Fornecedor do MFA não afeta a autenticação por chamada telefónica e mensagem de texto, mas as notificações da aplicação móvel deixarão de funcionar para todos os utilizadores até que reativem a aplicação móvel.
 
@@ -142,7 +142,7 @@ Se sua organização não tiver clientes legados, não deve permitir que os util
 > [!NOTE]
 > Autenticação moderna para clientes do Office 2013
 >
-> As palavras-passe de aplicação são necessárias apenas para aplicações que não suportam a autenticação moderna. Os clientes do Office 2013 suportam protocolos de autenticação moderna, mas têm de ser configurados. Agora a autenticação moderna está disponível para todos os clientes a executar a atualização de Março de 2015 ou posterior do Office 2013. Para obter mais informações, consulte a [Office 2013 autenticação moderna pré-visualização pública anunciada](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> As palavras-passe de aplicação são necessárias apenas para aplicações que não suportam a autenticação moderna. Os clientes do Office 2013 suportam protocolos de autenticação moderna, mas têm de ser configurados. Agora a autenticação moderna está disponível para todos os clientes a executar a atualização de Março de 2015 ou posterior do Office 2013. Para obter mais informações, consulte a mensagem de blogue [autenticação moderna do Office 365 atualizado](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
 **P: Os meus utilizadores dizem que às vezes, não receber a mensagem de texto, ou eles respondem às mensagens de texto bidirecional, mas a verificação de exceder o tempo limite.**
 

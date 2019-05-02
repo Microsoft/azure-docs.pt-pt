@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/31/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 0ea34fe4862941bde882b3ea8ed5dbaa111ac742
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 9b86df3d08ec6dfcb3100cff333c4dc5653ee1c7
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731503"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688348"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, pode configurar pontos finais de webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar o estas notificações para outros sistemas para ações de pós-processamento ou personalizados. Este artigo mostra o payload para o HTTP POST para um webhook como fica.
@@ -22,13 +22,17 @@ Para obter mais informações sobre alertas de registo de atividade, consulte co
 
 Para obter informações sobre grupos de ação, veja como [criar grupos de ação](../../azure-monitor/platform/action-groups.md).
 
+> [!NOTE]
+> Também pode utilizar o [esquema comum do alerta](https://aka.ms/commonAlertSchemaDocs), que fornece a vantagem de ter um único extensível e payload de alerta unificada em todas as o alerta no Monitor do Azure, para serviços suas integrações do webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](https://aka.ms/commonAlertSchemaDefinitions)
+
+
 ## <a name="authenticate-the-webhook"></a>Autenticar o webhook
 O webhook, opcionalmente, pode utilizar a autorização baseada em tokens para autenticação. O webhook URI é guardado com um ID de token, por exemplo, `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`.
 
 ## <a name="payload-schema"></a>Esquema do payload
 O payload JSON contido na operação POST difere com base no campo de data.context.activityLog.eventSource o payload.
 
-### <a name="common"></a>Comum
+### <a name="common"></a>Common
 ```json
 {
     "schemaId": "Microsoft.Insights/activityLogs",
@@ -167,21 +171,21 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| estado |Utilizado para alertas de métricas. Sempre definido como "ativado" para os alertas de registo de atividade. |
+| status |Utilizado para alertas de métricas. Sempre definido como "ativado" para os alertas de registo de atividade. |
 | context |Contexto do evento. |
 | resourceProviderName |O fornecedor de recursos do recurso afetado. |
 | conditionType |Sempre "Event". |
-| name |Nome da regra de alerta. |
-| id |ID de recurso do alerta. |
-| descrição |Descrição do alerta definida quando é criado o alerta. |
+| nome |Nome da regra de alerta. |
+| ID |ID de recurso do alerta. |
+| description |Descrição do alerta definida quando é criado o alerta. |
 | subscriptionId |ID de subscrição do Azure. |
-| carimbo de data/hora |Tempo em que o evento foi gerado pelo serviço do Azure que processou o pedido. |
+| timestamp |Tempo em que o evento foi gerado pelo serviço do Azure que processou o pedido. |
 | resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado. |
-| propriedades |Conjunto de `<Key, Value>` pares (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
+| properties |Conjunto de `<Key, Value>` pares (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
 | event |Elemento que contém metadados sobre o evento. |
 | Autorização |As propriedades de controlo de acesso baseado em funções do evento. Essas propriedades incluem, geralmente, a ação, a função e o âmbito. |
-| categoria |Categoria do evento. Valores suportados incluem a administração, alerta, segurança, ServiceHealth e recomendação. |
+| category |Categoria do evento. Valores suportados incluem a administração, alerta, segurança, ServiceHealth e recomendação. |
 | chamador |Endereço de e-mail do utilizador que executou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. Pode ser nulo para certas chamadas de sistema. |
 | correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos com correlationId pertencem à mesma ação maior e normalmente partilham uma correlationId. |
 | eventDescription |Descrição de texto estático do evento. |
@@ -191,8 +195,8 @@ Para obter detalhes de esquema específico em todos os outros alertas de registo
 | nível |Um dos seguintes valores: Crítico, erro, aviso e informativas. |
 | operationId |Normalmente, um GUID compartilhado entre os eventos correspondentes a única operação. |
 | operationName |Nome da operação. |
-| propriedades |Propriedades do evento. |
-| estado |cadeia de caracteres. Estado da operação. Os valores comuns incluem a introdução, em curso, com êxito, falha, Active Directory e resolvido. |
+| properties |Propriedades do evento. |
+| status |cadeia de caracteres. Estado da operação. Os valores comuns incluem a introdução, em curso, com êxito, falha, Active Directory e resolvido. |
 | subStatus |Normalmente, inclui o código de estado HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevem um subestado. Os valores de subestado comuns incluem OK (código de estado HTTP: 200), criado (código de estado HTTP: 201), aceite (código de estado HTTP: 202), não existe conteúdo (código de estado HTTP: 204), pedido incorreto (código de estado HTTP: 400), não encontrado (código de estado HTTP: 404), conflito (código de estado HTTP: 409), erro de servidor interno (código de estado HTTP: 500), serviço indisponível (código de estado HTTP: 503) e o tempo limite do Gateway (código de estado HTTP: 504). |
 
 ## <a name="next-steps"></a>Passos Seguintes

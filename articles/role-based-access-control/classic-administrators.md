@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 02/19/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a19153677e691d2681c131df67100a43ef9532a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 9c3bd2480853f5c4134cd560c20a6007b044e138
+ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709561"
+ms.lasthandoff: 04/30/2019
+ms.locfileid: "64924657"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássica do Azure
 
@@ -30,7 +30,7 @@ Este artigo descreve como adicionar ou alterar as funções de Coadministrador e
 ## <a name="add-a-co-administrator"></a>Adicionar um Coadministrador
 
 > [!TIP]
-> Só tem de adicionar um Coadministrador se o utilizador precisar gerir implementações clássicas do Azure, utilizando [módulo do PowerShell de gestão de serviço de Azure](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure). Se o utilizador utiliza apenas o portal do Azure para gerir os recursos clássicos, não terá de adicionar o administrador clássico para o utilizador.
+> Só tem de adicionar um Coadministrador se o utilizador precisar gerir implementações clássicas do Azure, utilizando [módulo do PowerShell de gestão de serviço de Azure](https://docs.microsoft.com/powershell/module/servicemanagement/azure). Se o utilizador utiliza apenas o portal do Azure para gerir os recursos clássicos, não terá de adicionar o administrador clássico para o utilizador.
 
 1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como um administrador de serviços.
 

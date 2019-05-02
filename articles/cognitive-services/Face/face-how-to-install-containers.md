@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: a3087718a3eece1e19f05757ace64ba00aa0dc58
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680728"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64682670"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar e executar contentores de rostos
 
@@ -34,10 +34,9 @@ Tem de cumprir os seguintes pré-requisitos antes de utilizar contentores da Fac
 |Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
 |Azure `Cognitive Services` recursos |Para utilizar o contentor, tem de ter:<br><br>R _dos serviços cognitivos_ o ponto final de faturação URI da chave de recursos do Azure e a faturação associada. Ambos os valores estão disponíveis nas páginas de descrição geral e as chaves para o recurso e são necessários para iniciar o contentor. Tem de adicionar o `face/v1.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}** : chave de recurso<br><br>**{BILLING_ENDPOINT_URI}** : exemplo URI do ponto final é: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
-
 ## <a name="request-access-to-the-private-container-registry"></a>Pedir acesso para o registo de contentor privado
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
+[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>O computador anfitrião
 
@@ -84,7 +83,7 @@ Assim que o contentor estiver no [computador anfitrião](#the-host-computer), ut
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar qualquer um dos três contentores. O comando utiliza os seguintes parâmetros:
 
-| Marcador de posição | Valor |
+| Marcador de posição | Value |
 |-------------|-------|
 |{BILLING_KEY} | Esta chave é utilizada para iniciar o contentor e está disponível no Azure `Cognitive Services` página chaves.  |
 |{BILLING_ENDPOINT_URI} | O valor do URI de ponto de extremidade faturação está disponível no Azure `Cognitive Services` página de descrição geral. Exemplo é: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
@@ -162,5 +161,4 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para transferir, instalar e
 * Revisão [configurar contentores](face-resource-container-config.md) para definições de configuração
 * Revisão [descrição geral de Face](Overview.md) para saber mais sobre a detetar e identificar rostos  
 * Consulte a [a API Face](//westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) para obter detalhes sobre os métodos suportados pelo contentor.
-* Consulte a [perguntas mais frequentes (FAQ) do sobre](FAQ.md) para resolver problemas relacionados com a funcionalidade de rostos.
 * Utilizar mais [contentores de serviços cognitivos](../cognitive-services-container-support.md)

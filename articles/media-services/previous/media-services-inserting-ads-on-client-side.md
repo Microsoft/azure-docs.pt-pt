@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8b0f5cdcf5a24513b89a2523be71dd74a1a2859b
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 8f5cdc33e48d647dba8caeb09b57e233d64712f6
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484836"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64687735"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserir publicidade no lado do cliente
 Este artigo contém informações sobre como inserir vários tipos de publicidade no lado do cliente.
@@ -170,7 +170,7 @@ Aplicação/x-shockwave-flash – o recurso será exibido num Flash player.
 
 **IFrameResource** descreve um recurso HTML que pode ser exibido num IFrame. **HTMLResource** descreve um trecho de código HTML que pode ser inserido numa página da web. **TrackingEvents** especificar eventos de controlo e o URI para pedir quando o evento ocorre. Neste exemplo, os eventos acceptInvitation e fechar são controlados. Para obter mais informações sobre o **NonLinearAds** elemento e seus filhos, consulte IAB.NET/VAST. Tenha em atenção que o **TrackingEvents** elemento está localizado no **NonLinearAds** elemento em vez do **NonLinear** elemento.
 
-Anúncios de complementar são definidos dentro de um `<CompanionAds>` elemento. O `<CompanionAds>` elemento pode conter um ou mais `<Companion>` elementos. Cada `<Companion>` elemento descreve um ad complementar e pode conter um `<StaticResource>`, `<IFrameResource>`, ou `<HTMLResource>` que são especificados da mesma forma como num ad não linear. Um arquivo grande pode conter vários anúncios de complementar e a aplicação de leitor pode escolher o ad mais adequado para apresentar. Para obter mais informações sobre VAST, consulte [3.0 grande](http://www.iab.net/media/file/VASTv3.0.pdf).
+Anúncios de complementar são definidos dentro de um `<CompanionAds>` elemento. O `<CompanionAds>` elemento pode conter um ou mais `<Companion>` elementos. Cada `<Companion>` elemento descreve um ad complementar e pode conter um `<StaticResource>`, `<IFrameResource>`, ou `<HTMLResource>` que são especificados da mesma forma como num ad não linear. Um arquivo grande pode conter vários anúncios de complementar e a aplicação de leitor pode escolher o ad mais adequado para apresentar. Para obter mais informações sobre VAST, consulte [3.0 grande](https://www.iab.net/media/file/VASTv3.0.pdf).
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>Usando um vídeo Digital vários ficheiros de lista de reprodução (VMAP) do Ad
 Um ficheiro VMAP permite-lhe especificar quando ocorrem quebras de ad, quanto tempo dura cada quebra, quantos anúncios podem ser apresentados dentro de um intervalo e que tipos de anúncios poderão ser apresentado durante um intervalo. O seguinte num arquivo VMAP de exemplo que define uma quebra de única do ad:
@@ -243,7 +243,7 @@ A <**AdSource**> elemento fornece o leitor de uma resposta de ad inline ou uma r
 * `<AdTagURI>` um URI que faz referência a uma resposta de ad de outro sistema
 * `<CustomAdData>` -uma cadeia arbitrária que representa uma resposta não grande
 
-Neste exemplo, uma resposta em linha ad for especificada com um `<VASTAdData>` elemento que contém uma resposta de ad grande. Para obter mais informações sobre os outros elementos, consulte [VMAP](http://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
+Neste exemplo, uma resposta em linha ad for especificada com um `<VASTAdData>` elemento que contém uma resposta de ad grande. Para obter mais informações sobre os outros elementos, consulte [VMAP](https://www.iab.net/guidelines/508676/digitalvideo/vsuite/vmap).
 
 A <**AdBreak**> elemento também pode conter um <**TrackingEvents**> elemento. A <**TrackingEvents**> elemento permite-lhe controlar o início ou de fim de uma garantia de reparação do ad ou se Ocorreu um erro durante a garantia de reparação do ad. A <**TrackingEvents**> elemento contém um ou mais <**controlo**> elementos, cada um dos quais Especifica um evento de controlo e um URI de controlo. Os eventos de rastreio possíveis são:
 
@@ -363,7 +363,7 @@ Um executável ad é criado no código que deve ser executado num ambiente de te
     </MediaFiles>
 ```
 
-Um executável ad pode ser inicializado com o `<AdParameters>` elemento dentro do `<Linear>` ou `<NonLinear>` elementos numa grande resposta. Para obter mais informações sobre o `<AdParameters>` elemento, consulte [3.0 grande](http://www.iab.net/media/file/VASTv3.0.pdf). Para obter mais informações sobre a API de VPAID, consulte [VPAID 2.0](http://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
+Um executável ad pode ser inicializado com o `<AdParameters>` elemento dentro do `<Linear>` ou `<NonLinear>` elementos numa grande resposta. Para obter mais informações sobre o `<AdParameters>` elemento, consulte [3.0 grande](https://www.iab.net/media/file/VASTv3.0.pdf). Para obter mais informações sobre a API de VPAID, consulte [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf).
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>Implementação de um Windows ou Windows Phone 8 Player com suporte do Ad
 A plataforma de multimédia do Microsoft: Player Framework para Windows 8 e Windows Phone 8 contém uma coleção de aplicativos de exemplo que lhe mostram como implementar uma aplicação de leitor de vídeo com o framework. Pode baixar o Player Framework e os exemplos de [Player Framework para Windows 8 e Windows Phone 8](https://playerframework.codeplex.com).

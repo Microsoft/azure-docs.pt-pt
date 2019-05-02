@@ -8,18 +8,22 @@ ms.topic: article
 ms.date: 04/26/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0f87645537576f49ee04b823341acf8853798f88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ad6d7a60700727b73b87a78e364fde3fa1caa8c3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730060"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64572563"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Transferir dados com AzCopy no Linux
 
 O AzCopy é um utilitário de linha de comandos concebido para copiar dados de/para armazenamento de Blobs do Microsoft Azure e o arquivo, usando comandos concebidos para otimizar o desempenho. Pode copiar dados entre um sistema de ficheiros e uma conta de armazenamento ou entre contas de armazenamento.  
 
-Existem duas versões do AzCopy que pode baixar. AzCopy no Linux destina-se plataformas Linux, oferecendo opções da linha de comandos de estilo POSIX. [AzCopy no Windows](../storage-use-azcopy.md) oferece opções de linha de comandos de estilo do Windows. Este artigo aborda o AzCopy no Linux. 
+> [!IMPORTANT]
+> Este artigo descreve uma versão mais antiga do AzCopy.
+>Para instalar a versão mais recente do AzCopy, veja [AzCopy v10](storage-use-azcopy-v10.md).
+
+Se optar por instalar a versão mais antiga do AzCopy (AzCopy v8.1), em seguida, existem várias versões do AzCopy v8.1 que pode baixar. AzCopy no Linux destina-se plataformas Linux, oferecendo opções da linha de comandos de estilo POSIX. [AzCopy no Windows](../storage-use-azcopy.md) oferece opções de linha de comandos de estilo do Windows. Este artigo aborda o AzCopy no Linux. 
 
 > [!NOTE]  
 > As dependências do .NET Core a partir da versão do AzCopy 7.2, são empacotadas com o pacote de AzCopy. Se usar a versão de 7,2 ou mais tarde, já não terá de instalar o .NET Core como um pré-requisito.

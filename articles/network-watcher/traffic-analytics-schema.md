@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 491f19abfd87c28ede45e98a24f31fe7e599b18b
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799339"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64691423"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregação de esquema e os dados na análise de tráfego
 
@@ -35,7 +35,7 @@ Análise de tráfego é uma solução baseada na cloud que fornece visibilidade 
 1. Todos os registos de fluxo num NSG entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t" são capturados em intervalos de um minuto na conta de armazenamento, como blobs, antes de ser processado pela análise de tráfego. 
 2. Intervalo de processamento de padrão de análise de tráfego é de 60 minutos. Isso significa que cada 60 minutos, a análise de tráfego escolhe blobs de armazenamento para agregação.
 3. Protocolo (TCP ou UDP) de camada de fluxos que tenham o mesmo IP de origem, IP de destino, porta de destino, nome do NSG, regra NSG, direção de fluxo e transporte (observação: Porta de origem está excluída para agregação) clubbed num único fluxo pela análise de tráfego
-4. Este registo único está decorada (detalhes na secção abaixo) e ingeridos no Log Analytics, análise de tráfego.
+4. Este registo único está decoradas (detalhes na secção abaixo) e ingerido no Log Analytics por tráfego Analytics.This processo pode demorar até 1 hora máximo.
 5. Campo de FlowStartTime_t indica a primeira ocorrência de tal um fluxo agregado (mesmo quatro cadeias de identificação) no registo de fluxo do processamento de intervalo entre "FlowIntervalStartTime_t" e "FlowIntervalEndTime_t". 
 6. Para qualquer recurso no TA, os fluxos do indicado na interface do Usuário são vistos pelo NSG de total de fluxos, mas no Anlaytics de registo de utilizador irá ver apenas o registo único, reduzido. Para ver todos os fluxos, utilize o campo de blob_id, que pode ser referenciado a partir do armazenamento. O fluxo total contar para que o registo irá corresponder os fluxos individuais vistos no blob.
 
@@ -60,7 +60,7 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 | SrcIP_s | Endereço IP de origem | Estará em branco em caso de AzurePublic e ExternalPublic fluxos |
 | DestIP_s | Endereço IP de destino | Estará em branco em caso de AzurePublic e ExternalPublic fluxos |
 | VMIP_s | IP da VM | Utilizado para os fluxos AzurePublic e ExternalPublic |
-| PublicIP_S | Endereços IP públicos | Utilizado para os fluxos AzurePublic e ExternalPublic |
+| PublicIP_s | Endereços IP públicos | Utilizado para os fluxos AzurePublic e ExternalPublic |
 | DestPort_d | Porta de destino | Porta em que o tráfego é recebido | 
 | L4Protocol_s  | * T <br> * U  | Protocolo de transporte. T = TCP <br> U = UDP | 
 | L7Protocol_s  | Nome de protocolo | Derivado de porta de destino |
@@ -121,6 +121,7 @@ Abaixo encontram-se os campos no esquema e o que eles significar
 1. MaliciousFlow - um dos endereços IP pertencem à rede virtual do azure enquanto o outro endereço IP é um IP público que não se encontra no Azure e é comunicado como malicioso em feeds o ASC que consome de análise de tráfego para o intervalo de processamento entre" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
 1. UnknownPrivate - um dos endereços IP pertence à rede Virtual do Azure enquanto o outro endereço IP pertence ao intervalo de IP privados, conforme definido na RFC 1918 e não foi possível mapear pela análise de tráfego para um cliente propriedade site ou a rede Virtual do Azure.
 1. Desconhecido – não é possível mapear a qualquer um do IP endereços nos fluxos com a topologia de cliente no Azure, bem como no local (site).
+1. Alguns nomes de campo são acrescentados com _s ou _d. Estes não indicar origem e de destino.
 
 ### <a name="next-steps"></a>Próximos Passos
 Para obter respostas às perguntas mais frequentes, consulte [FAQ da análise de tráfego](traffic-analytics-faq.md) para ver detalhes sobre a funcionalidade, consulte [documentação da análise de tráfego](traffic-analytics.md)

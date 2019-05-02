@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678654"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64688654"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
 
@@ -51,7 +51,7 @@ O menu superior é apresentado em todas as páginas:
 - Para procurar dispositivos e modelos de dispositivos, introduza um **pesquisa** valor.
 - Para alterar o idioma de interface do Usuário ou o tema, escolha o **definições** ícone.
 - Para terminar a aplicação, escolha o **conta** ícone.
-- Para obter ajuda e suporte, escolha o menu pendente **Ajuda** para obter uma lista de recursos.
+- Para obter ajuda e suporte, escolha o menu pendente **Ajuda** para obter uma lista de recursos. Num aplicativo de avaliação, os recursos de suporte incluem acesso ao [chat ao vivo](howto-show-hide-chat.md).
 
 Pode escolher entre um tema claro ou um tema escuro para a IU:
 

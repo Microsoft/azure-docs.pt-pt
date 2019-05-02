@@ -1,22 +1,28 @@
 ---
-title: Idiomas suportados nas Azure Maps | Documentos da Microsoft
+title: Suporte de localização do Azure Maps | Documentos da Microsoft
 description: Saiba mais sobre os idiomas suportados para os serviços do Azure Maps
-author: juliekohler
-ms.author: julieko
-ms.date: 04/08/2019
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/25/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1928185521419006a487a933e2ecba79894a09d3
+ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769197"
+ms.lasthandoff: 04/28/2019
+ms.locfileid: "64686788"
 ---
-# <a name="azure-maps-supported-languages"></a>Idiomas com suporte do Azure Maps
-Foram localizado numa variedade de linguagens do Azure Maps em serviços.  A tabela seguinte fornece os códigos de idiomas suportados para cada serviço.  
+# <a name="localization-support-in-azure-maps"></a>Suporte de localização do Azure Maps
+
+Mapas do Azure suporta vários idiomas e modos de exibição com base no país/região. Este artigo fornece os idiomas suportados e vistas para ajudar a orientar a sua implementação do Azure Maps.
+
+
+## <a name="azure-maps-supported-languages"></a>Idiomas com suporte do Azure Maps
+
+Foram localizado numa variedade de linguagens do Azure Maps em serviços. A tabela seguinte fornece os códigos de idiomas suportados para cada serviço.  
   
 
 | ID         | Name                   |  Maps | Pesquisa | Encaminhamento | Incidentes de tráfego | Controlo de mapas JS | Fuso horário |
@@ -75,3 +81,30 @@ Foram localizado numa variedade de linguagens do Azure Maps em serviços.  A ta
 | tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | uk-UA      | Ucraniano               |       |    ✓   |         |                   |                |     ✓     |
 | vi-VN      | Vietnamita             |       |    ✓   |         |                   |                |     ✓     |
+
+
+## <a name="azure-maps-supported-views"></a>Vistas de suporte do Azure Maps
+
+Parâmetro de vista de mapas do Azure (também referido como "parâmetro de região do utilizador") é um código de país ISO 3166 de 2 letras que mostrará os mapas corretos para esse país/região a especificar qual conjunto de geopolitically questionadas bordas e as etiquetas são apresentadas no mapa.  Por predefinição, o parâmetro de modo de exibição é definido como **"Unified"**.  País/regiões que não estejam na lista de vista será predefinido para a vista de "Unificado". É da responsabilidade do cliente para determinar a localização dos seus utilizadores e, em seguida, defina o parâmetro de modo de exibição corretamente para esse local. O parâmetro de ver no mapas do Azure tem de ser utilizado em conformidade com as leis aplicáveis, incluindo aquelas sobre mapeamento do país em que os mapas, imagens e outros conteúdos de dados e de terceiros que está autorizado a aceder através do Azure Maps é disponibilizado.
+
+A tabela seguinte fornece vistas suportadas.
+
+| Vista         | Descrição                            |  Maps | Pesquisa | Controlo de mapas JS |
+|--------------|----------------------------------------|:-----:|:------:|:--------------:|
+| AE           | Emirados Árabes Unidos (vista de Árabe)    |   ✓   |        |     ✓          |
+| AR           | Argentina (exibição Argentinian)           |   ✓   |    ✓   |     ✓          |
+| BH           | Barém (vista de Árabe)                 |   ✓   |        |     ✓          |
+| IN           | Índia (exibição indianos)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Iraque (vista de Árabe)                    |   ✓   |        |     ✓          |
+| JO           | Jordânia (vista de Árabe)                  |   ✓   |        |     ✓          |
+| KW           | Kuwait (vista de Árabe)                  |   ✓   |        |     ✓          |
+| LB           | Líbano (vista de Árabe)                 |   ✓   |        |     ✓          |
+| MA           | Marrocos (exibição Maroko)                |   ✓   |   ✓     |     ✓          |
+| OM           | Omã (vista de Árabe)                    |   ✓   |        |     ✓          |
+| PK           | Paquistão (exibição Pakistani)              |   ✓   |    ✓    |     ✓          |
+| PS           | Autoridade Palestiniana (vista de Árabe)    |   ✓   |        |     ✓          |
+| QA           | Catar (vista de Árabe)                   |   ✓   |        |     ✓          |
+| SA           | Arábia Saudita (vista de Árabe)            |   ✓   |        |     ✓          |
+| SY           | Síria (vista de Árabe)                   |   ✓   |        |     ✓          |
+| VOCÊ           | Iémen (vista de Árabe)                   |   ✓   |        |     ✓          |
+| Unified      | Vista unificada (outros)                  |   ✓   |   ✓     |     ✓          |
