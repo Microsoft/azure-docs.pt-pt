@@ -248,7 +248,7 @@ A automatização cria dois tipos de registos na área de trabalho do Log Analyt
 
 |Propriedade | Descrição|
 |----------|----------|
-|Autor da chamada |  Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados.|
+|Caller |  Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados.|
 |Category | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs.|
 |CorrelationId | GUID que é o ID de correlação do trabalho do runbook.|
 |JobId | GUID que é o ID do trabalho do runbook.|
@@ -263,13 +263,13 @@ A automatização cria dois tipos de registos na área de trabalho do Log Analyt
 |SourceSystem | Especifica o sistema de origem dos dados submetidos. Para a automatização, o valor é OpsManager|
 |StreamType | Especifica o tipo de evento. Os valores possíveis são:<br>- Verboso<br>- Saída<br>- Erro<br>- Aviso|
 |SubscriptionId | Especifica o ID de subscrição do trabalho.
-|Hora | Data e hora da execução do trabalho do runbook.|
+|Time | Data e hora da execução do trabalho do runbook.|
 
 ### <a name="job-streams"></a>Fluxos de trabalho
 
 |Propriedade | Descrição|
 |----------|----------|
-|Autor da chamada |  Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados.|
+|Caller |  Quem iniciou a operação. Os valores possíveis são um endereço de e-mail ou o sistema para trabalhos agendados.|
 |Category | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams.|
 |JobId | GUID que é o ID do trabalho do runbook.|
 |operationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho.|
@@ -282,7 +282,7 @@ A automatização cria dois tipos de registos na área de trabalho do Log Analyt
 |RunbookName | O nome do runbook.|
 |SourceSystem | Especifica o sistema de origem dos dados submetidos. Para a automatização, o valor será OpsManager.|
 |StreamType | O tipo de fluxo de trabalho. Os valores possíveis são:<br>-Progresso<br>- Saída<br>- Aviso<br>- Erro<br>- Depuração<br>- Verboso|
-|Hora | Data e hora da execução do trabalho do runbook.|
+|Time | Data e hora da execução do trabalho do runbook.|
 
 Quando efetua uma pesquisa de registos que devolva registos da categoria da **JobLogs** ou **JobStreams**, pode selecionar o **JobLogs** ou **JobStreams**exibição, que apresenta um conjunto de mosaicos que resumem as atualizações devolvidas pela pesquisa.
 
