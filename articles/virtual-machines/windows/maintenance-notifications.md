@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: cfd88118b483067f4c6ee62ee013a2202f0d7e67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76e0f496acf37d4220f57a599f0ce449ca130bba
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301768"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992907"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Notificações de manutenção de manipulação em planeadas para as máquinas virtuais do Windows
 
@@ -33,7 +33,7 @@ O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o des
 Manutenção planeada, que requer uma reinicialização, é agendada em etapas. Cada fase tem escopo diferente (regiões).
 
 - Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar mais opções de mensagens, como e-mail, SMS e Webhooks e os destinatários de notificações através do Azure [alertas de registo de atividade](../../azure-monitor/platform/activity-logs-overview.md).  
-- No momento da notificação, um *janela de self-service* é disponibilizado. Durante este período, pode encontrar a quais das suas máquinas virtuais estão incluídos nessa onda e iniciar proativamente a manutenção, de acordo com suas necessidades de agendamento.
+- No momento da notificação, um *janela de self-service* é disponibilizado. Durante esta janela que é, normalmente, quatro semanas, pode encontrar quais das suas máquinas virtuais estão incluídos nessa onda e iniciar proativamente a manutenção, de acordo com suas próprias necessidades de agendamento.
 - Depois da janela de self-service, um *janela de manutenção agendada* começa. Em algum momento durante este período, o Azure agendas e aplica-se a manutenção necessária à máquina virtual. 
 
 O objetivo de ter duas janelas é para lhe dar tempo suficiente para iniciar a manutenção e reiniciar a máquina de virtual sabendo quando o Azure irá automaticamente iniciar manutenção.
