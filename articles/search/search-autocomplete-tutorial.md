@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f5cb8d2fee706600251039d80232d9fc7f60d5fb
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61126747"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025147"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Exemplo: Adicionar preenchimento automático ou sugestões para a sua aplicação do Azure Search
 
@@ -23,7 +23,7 @@ Neste artigo, saiba como utilizar [sugestões](https://docs.microsoft.com/rest/a
 
 + *Sugestões* resultados sugeridos gerados à medida que escreve, onde cada sugestão é um único resultado do índice que corresponde ao que tiver digitado até agora. 
 
-+ *Preenchimento automático*, [uma funcionalidade de pré-visualização](search-api-preview.md), "terminar" a palavra ou expressão que um usuário está digitando atualmente. Em vez de retornar resultados, ser concluída uma consulta, que pode ser executado para devolver resultados. Tal como acontece com sugestões, uma concluído palavra ou frase numa consulta se baseia numa correspondência no índice. O serviço não oferece consultas que devolvem zero resultados no índice.
++ *Preenchimento automático* "terminar" a palavra ou expressão que um usuário está digitando atualmente. Em vez de retornar resultados, ser concluída uma consulta, que pode ser executado para devolver resultados. Tal como acontece com sugestões, uma concluído palavra ou frase numa consulta se baseia numa correspondência no índice. O serviço não oferece consultas que devolvem zero resultados no índice.
 
 Pode transferir e executar o código de exemplo **DotNetHowToAutocomplete** para avaliar esses recursos. O código de exemplo destina-se um índice criados previamente preenchido com [dados de demonstração de NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). O índice de NYCJobs contém um [construção Sugestor](index-add-suggesters.md), que é um requisito para usar sugestões ou preenchimento automático. Pode usar o índice preparado alojado num serviço de proteção de segurança, ou [preencher seu próprio índice de](#configure-app) usando um carregador de dados na solução de exemplo NYCJobs. 
 

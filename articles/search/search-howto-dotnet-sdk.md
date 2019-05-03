@@ -7,17 +7,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25a156c4403b7a89f7a7bf7f6acf22fa34216791
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871302"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025134"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como utilizar o Azure Search a partir de uma aplicação .NET
+
+> [!Important]
+> Este conteúdo está ainda estão em construção. Versão 9.0 do SDK de .NET de pesquisa do Azure está disponível em NuGet. Estamos a trabalhar sobre este guia de migração para explicar como atualizar para a nova versão de atualização. Esteja atento.
+>
+
 Este artigo é um passo a passo para ajudá-lo em execução com o [SDK .NET da Azure Search](https://aka.ms/search-sdk). Pode utilizar o SDK de .NET para implementar uma experiência de pesquisa avançadas na sua aplicação com o Azure Search.
 
 ## <a name="whats-in-the-azure-search-sdk"></a>Novidades no Azure SDK de pesquisa
@@ -38,7 +42,7 @@ As várias bibliotecas de cliente definem classes como `Index`, `Field`, e `Docu
 
 A versão atual do SDK de .NET da Azure Search está agora em disponibilidade geral. Se quiser enviar comentários para nós incorporar na próxima versão, visite nosso [página de comentários](https://feedback.azure.com/forums/263029-azure-search/).
 
-O SDK de .NET suporta a versão `2017-11-11` das [API de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui agora suporte para sinónimos, bem como melhoramentos incrementais para indexadores. Funcionalidades de pré-visualização *não* parte desta versão, como o suporte para indexação de matrizes JSON e arquivos CSV, estão na [pré-visualização](search-api-2016-09-01-preview.md) e disponível por meio de [versão 4.0-pré-visualização do .NET SDK](https://aka.ms/search-sdk-preview).
+O SDK de .NET suporta a versão `2017-11-11` das [API de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Esta versão inclui agora suporte para sinónimos, bem como melhoramentos incrementais para indexadores. 
 
 Este SDK não suporta [operações de gestão](https://docs.microsoft.com/rest/api/searchmanagement/) , tais como criar e dimensionar os serviços de pesquisa e gerir chaves de API. Se precisar de gerir os recursos de pesquisa a partir de uma aplicação .NET, pode utilizar o [SDK de gestão do Azure Search .NET](https://aka.ms/search-mgmt-sdk).
 
@@ -392,7 +396,7 @@ public partial class Hotel
 A primeira coisa a observar é que cada propriedade pública de `Hotel` corresponde a um campo na definição do índice, mas com uma diferença crucial: O nome de cada campo começa com uma letra minúscula ("camel case"), enquanto o nome de cada propriedade pública de `Hotel` começa com uma letra maiúscula ("Pascal case"). Este é um cenário comum em aplicações .NET que realizam enlace de dados no qual o esquema de destino está fora do controlo do programador da aplicação. Em vez de ter de violar as diretrizes de nomenclatura .NET aplicando o estilo camel-case aos nomes de propriedade, pode indicar ao SDK para mapear os nomes das propriedades no estilo camel-case automaticamente com o atributo `[SerializePropertyNamesAsCamelCase]`.
 
 > [!NOTE]
-> O SDK .NET da Azure Search utiliza a biblioteca [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e anular a serialização dos objetos do modelo personalizado de e para JSON. Se necessário, pode personalizar esta serialização. Para obter mais detalhes, consulte [personalizados de serialização com JSON.NET](#JsonDotNet).
+> O SDK .NET da Azure Search utiliza a biblioteca [NewtonSoft JSON.NET](https://www.newtonsoft.com/json/help/html/Introduction.htm) para serializar e anular a serialização dos objetos do modelo personalizado de e para JSON. Se necessário, pode personalizar esta serialização. Para obter mais informações, consulte [personalizados de serialização com JSON.NET](#JsonDotNet).
 > 
 > 
 

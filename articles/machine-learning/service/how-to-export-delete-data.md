@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
-ms.date: 09/24/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b55282adf56bedb0724eca578b8eaea00c26074
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819420"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023981"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou eliminar os dados de área de trabalho do serviço de Machine Learning 
 
@@ -231,3 +231,29 @@ Modelos podem ser obtidos por:
 Origens de dados podem ser obtidas por:
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
+
+## <a name="delete-visual-interface-assets"></a>Eliminar recursos de visual interface
+
+Na interface do visual onde criou a sua experimentação, elimine recursos individuais:
+
+1. No lado esquerdo, selecione o tipo de recurso que pretende eliminar.
+
+    ![Eliminar recursos](media/how-to-export-delete-data.md/delete-experiment.png)
+
+1. Na lista, selecione os recursos individuais para eliminar.
+
+1. Na parte inferior, selecione **eliminar**.
+
+## <a name="export-visual-interface-data"></a>Exportar dados de visual interface
+
+Na interface do visual onde criou a sua experimentação, exporte dados que foram adicionados:
+
+1. No lado esquerdo, selecione **dados**.
+
+1. Na parte superior, selecione **conjuntos de dados de meu** ou **exemplos** para localizar os dados que pretende exportar.
+
+    ![Transferir dados](media/how-to-export-delete-data.md/download-data.png)
+
+1. Na lista, selecione os conjuntos de dados individuais, para exportar.
+
+1. Na parte inferior, selecione **transferir**.

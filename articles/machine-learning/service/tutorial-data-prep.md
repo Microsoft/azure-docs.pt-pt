@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c1c00fec5f56fc81b2cb73404728b214b5aaf3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a717fa4191c57c21705d24884397ebb485726492
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60764594"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025098"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Tutorial: Preparar dados para a modelação de regressão
 
@@ -41,18 +41,16 @@ Avance para o [configurar o ambiente de desenvolvimento](#start) para ler os pas
     * O Azure Machine Learning a preparação de dados SDK para Python
 * O bloco de notas do tutorial
 
-Obter todos os estes pré-requisitos a partir de qualquer uma das seções abaixo.
-
-* Utilize [blocos de notas do Azure](#azure)
+* Utilize um [servidor de bloco de notas na nuvem na sua área de trabalho](#azure) 
 * Utilize [seu próprio servidor de bloco de notas](#server)
 
-### <a name="azure"></a>Utilize blocos de notas do Azure: Blocos de notas do Jupyter gratuitos na cloud
+### <a name="azure"></a>Utilizar um servidor de bloco de notas de cloud na sua área de trabalho
 
-É fácil começar com blocos de notas do Azure! O SDK do Azure Machine Learning Data Prep já está instalado e configurado para si no [blocos de notas do Azure](https://notebooks.azure.com/). A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
-
-Depois de concluir os passos abaixo, execute o **tutoriais/regressão-part1-data-prep.ipynb** bloco de notas no seu **introdução** projeto.
+É fácil começar a utilizar o seu próprio servidor de bloco de notas com base na cloud. O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado por si, depois de criar este recurso da nuvem.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Depois de iniciar a página de Web do bloco de notas, execute o **tutoriais/regressão-part1-data-prep.ipynb** bloco de notas.
 
 ### <a name="server"></a>Utilizar o seu próprio servidor de bloco de notas do Jupyter
 

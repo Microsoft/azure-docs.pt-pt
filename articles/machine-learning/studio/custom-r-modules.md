@@ -1,7 +1,7 @@
 ---
 title: Definir módulos R personalizados
 titleSuffix: Azure Machine Learning Studio
-description: Este tópico descreve como criar e implementar um módulo R personalizado no Azure Machine Learning Studio. Ele explica o que são módulos R personalizados e os ficheiros que são utilizados para defini-las.
+description: Este tópico descreve como criar e implementar um estúdio de R personalizado. Ele explica o que são módulos R personalizados e os ficheiros que são utilizados para defini-las.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0dec86eff9b9df70514be6f32f3aad60bfb311ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6d330340ff09ddb6c2bec04259f964f2298dbffc
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60751218"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025069"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definir módulos R personalizados para o Azure Machine Learning Studio
 
-Este tópico descreve como criar e implementar um módulo R personalizado no Azure Machine Learning Studio. Ele explica o que são módulos R personalizados e os ficheiros que são utilizados para defini-las. Ela ilustra como construir os ficheiros que definem um módulo e como registar o módulo para a implementação numa área de trabalho do Machine Learning. Os elementos e atributos usados na definição do módulo personalizado, em seguida, são descritos mais detalhadamente. Como utilizar a funcionalidade de auxiliar e de ficheiros e de várias saídas também é abordado. 
+Este tópico descreve como criar e implementar um estúdio de R personalizado. Ele explica o que são módulos R personalizados e os ficheiros que são utilizados para defini-las. Ela ilustra como construir os ficheiros que definem um módulo e como registar o módulo para a implementação numa área de trabalho do Machine Learning. Os elementos e atributos usados na definição do módulo personalizado, em seguida, são descritos mais detalhadamente. Como utilizar a funcionalidade de auxiliar e de ficheiros e de várias saídas também é abordado. 
 
 
 
@@ -159,7 +159,7 @@ Opcional **DataTable** portas que não forem transmitidas como entrada numa expe
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-Para módulos R personalizados, o id para uma porta de Zip não tem de corresponder a todos os parâmetros da função de R. Isto acontece porque o ficheiro zip é extraído automaticamente para o diretório de trabalho de R.
+Para módulos R personalizados, o ID para uma porta de Zip não tem de corresponder a todos os parâmetros da função de R. Isto acontece porque o ficheiro zip é extraído automaticamente para o diretório de trabalho de R.
 
 **Regras de entrada:**
 
@@ -225,7 +225,7 @@ E retornar a lista de objetos numa lista na ordem correta em "CustomAddRows.R":
 ### <a name="arguments"></a>Argumentos
 Dados adicionais podem ser passados para a função de R através de parâmetros de módulo que são definidos no **argumentos** elemento. Esses parâmetros são apresentados no painel de propriedades mais à direita da interface do Usuário do Machine Learning, quando o módulo é selecionado. Os argumentos podem ser qualquer um dos tipos suportados ou pode criar uma enumeração personalizada quando necessário. Semelhante a **portas** elementos, **argumentos** elementos podem ter um opcional **Descrição** elemento que especifica o texto que aparece quando focaliza o mouse sobre o nome do parâmetro.
 Propriedades opcionais de um módulo, tal como defaultValue minValue e maxValue podem ser adicionadas a qualquer argumento como atributos para um **propriedades** elemento. Propriedades válidas para o **propriedades** elemento dependem do tipo de argumento e são descritas com os tipos de argumento suportados na secção seguinte. Argumentos com o **é opcional** definida como **"true"** não exigem que o usuário inserir um valor. Se um valor não for fornecido para o argumento, o argumento não é transmitido para a função de ponto de entrada. Argumentos da função de ponto de entrada que são opcionais precisam ser explicitamente manipulados pela função, por exemplo, atribuída um valor predefinido nulo na definição de função de ponto de entrada. Um argumento opcional só irá impor as outras restrições de argumento, ou seja, min ou max, se um valor é fornecido pelo utilizador.
-Tal como acontece com entradas e saídas, é fundamental que cada um dos parâmetros têm valores de id exclusivo associados a eles. No nosso exemplo de início rápido ao parâmetro/id associado foi *troca*.
+Tal como acontece com entradas e saídas, é fundamental que cada um dos parâmetros têm valores de ID exclusivos associados a eles. No nosso exemplo de início rápido ao parâmetro/id associado foi *troca*.
 
 ### <a name="arg-element"></a>Elemento de arg
 Um parâmetro de módulo é definido usando o **Arg** elemento subordinado do **argumentos** secção do ficheiro de definição XML. Tal como acontece com os elementos filho a **portas** secção, a ordem dos parâmetros na **argumentos** secção define o layout encontrado na experiência do usuário. Os parâmetros são apresentados de cima para baixo na interface de Usuário na mesma ordem em que são definidos no arquivo XML. Os tipos suportados pelo Machine Learning para os parâmetros estão listados aqui. 
@@ -270,7 +270,7 @@ Um parâmetro de módulo é definido usando o **Arg** elemento subordinado do **
 
 * *Propriedades opcionais*: **predefinição** e **é opcional**
 
-**ColumnPicker**: um parâmetro de seleção de coluna. Este tipo é representado na UX como um Seletor de coluna. O **propriedade** elemento é utilizado aqui para especificar o id da porta partir dos quais colunas são selecionadas, onde o tipo de porta de destino tem de ser *DataTable*. O resultado da seleção da coluna é passado para a função de R como uma lista de cadeias de caracteres que contém os nomes de coluna selecionada. 
+**ColumnPicker**: um parâmetro de seleção de coluna. Este tipo é representado na UX como um Seletor de coluna. O **propriedade** elemento é utilizado aqui para especificar o ID da porta partir dos quais colunas são selecionadas, onde o tipo de porta de destino tem de ser *DataTable*. O resultado da seleção da coluna é passado para a função de R como uma lista de cadeias de caracteres que contém os nomes de coluna selecionada. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -278,7 +278,7 @@ Um parâmetro de módulo é definido usando o **Arg** elemento subordinado do **
         </Arg>
 
 
-* *As propriedades necessárias*: **portId** -corresponde ao id de um elemento de entrada com o tipo *DataTable*.
+* *As propriedades necessárias*: **portId** -corresponde ao ID de um elemento de entrada com o tipo *DataTable*.
 * *Propriedades opcionais*:
   
   * **allowedTypes** -filtros de tipos de coluna da qual pode escolher. Valores válidos incluem: 

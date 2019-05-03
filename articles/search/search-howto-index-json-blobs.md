@@ -1,7 +1,7 @@
 ---
 title: Blobs JSON de indexação do indexador de Blobs do Azure para pesquisa em texto completo - Azure Search
 description: Pesquise blobs JSON do Azure para o conteúdo de texto com o indexador Blob do Azure Search. Indexadores automatizam ingestão de dados para origens de dados selecionadas, como o armazenamento de Blobs do Azure.
-ms.date: 04/11/2019
+ms.date: 05/02/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6db86d3e5aba1a2e43e69e71df8cc516fb14581f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871662"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024948"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Como indexar blobs JSON com o indexador Blob do Azure Search
 Este artigo mostra-lhe como configurar um blob do Azure Search [indexador](search-indexer-overview.md) para extrair conteúdo estruturado de documentos JSON no armazenamento de Blobs do Azure e permitir pesquisável no Azure Search. Este fluxo de trabalho cria um índice da Azure Search e carrega-os com existente textos extraídos dos JSON blobs. 
@@ -24,8 +24,7 @@ Pode utilizar o [portal](#json-indexer-portal), [REST APIs](#json-indexer-rest),
 
 Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único documento JSON ou uma coleção de entidades JSON. Para coleções de JSON, o blob pode ter uma **matriz** dos elementos JSON bem formados. BLOBs também poderiam ser compostos por várias entidades individuais de JSON separadas por uma nova linha. O indexador blob do Azure Search pode analisar esse tipo de construção, dependendo de como definir o **parsingMode** parâmetro na solicitação.
 
-> [!IMPORTANT]
-> `json` e `jsonArray` modos de análise estão disponíveis em geral, mas `jsonLines` modo de análise está em pré-visualização pública e não deve ser usado em ambientes de produção. Para obter mais informações, consulte [REST api-version = 2017-11-11-pré-visualização](search-api-2017-11-11-preview.md). 
+Modos de análise de JSON de todas as (`json`, `jsonArray`, `jsonLines`) estão agora geralmente disponíveis. 
 
 > [!NOTE]
 > Siga as recomendações de configuração do indexador nas [um-para-muitos indexação](search-howto-index-one-to-many-blobs.md) para vários documentos de pesquisa de um blob do Azure de saída.
@@ -132,8 +131,8 @@ Blobs JSON no armazenamento de Blobs do Azure são, normalmente, um único docum
 | Documento JSON | parsingMode | Descrição | Disponibilidade |
 |--------------|-------------|--------------|--------------|
 | Um por blob | `json` | Analisa JSON blobs como um único segmento de texto. Cada blob JSON torna-se um único documento de Azure Search. | Disponível em geral nos dois [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Vários por blob | `jsonArray` | Analisa uma matriz JSON no blob, onde cada elemento da matriz se torna um documento separado do Azure Search.  | Disponível em pré-visualização em ambos [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Vários por blob | `jsonLines` | Analisa um blob que contém várias entidades JSON (uma "matriz") separadas por uma nova linha, onde cada entidade se torna um documento separado do Azure Search. | Disponível em pré-visualização em ambos [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Vários por blob | `jsonArray` | Analisa uma matriz JSON no blob, onde cada elemento da matriz se torna um documento separado do Azure Search.  | Disponível em geral nos dois [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Vários por blob | `jsonLines` | Analisa um blob que contém várias entidades JSON (uma "matriz") separadas por uma nova linha, onde cada entidade se torna um documento separado do Azure Search. | Disponível em geral nos dois [REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) API e [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1 - montar entradas para o pedido
 
@@ -160,7 +159,7 @@ Este passo fornece as informações de ligação de origem de dados o indexador.
 
 Substitua os valores válidos para o nome do serviço, a chave de administrador, a conta de armazenamento e os marcadores de posição de chave de conta.
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -179,7 +178,7 @@ O índice armazena conteúdo pesquisável no Azure Search. Para criar um índice
 
 A exemplo a seguir mostra um [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) pedido. O índice terão um pesquisável `content` campo para armazenar os textos extraídos dos blobs:   
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -196,7 +195,7 @@ A exemplo a seguir mostra um [Create Index](https://docs.microsoft.com/rest/api/
 
 Como com um índice e um dados de origem e indexador está também com um nome de objeto que cria e reutilizar num serviço Azure Search. Um pedido totalmente especificado para criar um indexador será semelhante ao seguinte:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -223,7 +222,7 @@ Esta secção é um resumo de todos os pedidos utilizado para a criação de obj
 
 Todos os indexadores exigem um objeto de origem de dados que fornece informações de ligação aos dados existentes. 
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -239,7 +238,7 @@ Todos os indexadores exigem um objeto de origem de dados que fornece informaçõ
 
 Todos os indexadores requerem um índice de destino que recebe os dados. O corpo do pedido define o esquema de índice, consistindo em campos, atribuídos para oferecer suporte os comportamentos desejados num índice pesquisável. Este índice deve estar vazio quando executar o indexador. 
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -258,7 +257,7 @@ Este pedido mostra um indexador completamente especificado. Ele inclui mapeament
 
 Criar o indexador no Azure Search aciona a importação de dados. Ele é executado imediatamente e, posteriormente, com base numa agenda se forneceu uma.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key for Azure Search]
 
@@ -339,7 +338,7 @@ Em alternativa, pode utilizar a opção de matriz JSON. Esta opção é útil qu
 
 Para uma matriz JSON, a definição de indexador deve ter um aspeto semelhante ao seguinte exemplo. Tenha em atenção que o parâmetro parsingMode Especifica o `jsonArray` analisador. Especificando o analisador correto e ter os dados corretos entrada são apenas dois requisitos específicos de matriz para indexar JSON blobs.
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -386,7 +385,7 @@ Se o blob contém várias entidades JSON separadas por uma nova linha e pretende
 
 Para linhas JSON, a definição de indexador deve ter um aspeto semelhante ao seguinte exemplo. Tenha em atenção que o parâmetro parsingMode Especifica o `jsonLines` analisador. 
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

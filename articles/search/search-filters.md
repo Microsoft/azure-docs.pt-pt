@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49f971fb50d0a8a6a0dab09158f780206a4d32f1
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61289591"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024836"
 ---
 # <a name="filters-in-azure-search"></a>Filtros no Azure Search 
 
@@ -73,10 +73,10 @@ Os exemplos a seguir representam as definições do filtro prototípico em vári
 
 ```http
 # Option 1:  Use $filter for GET
-GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2017-11-11
+GET https://[service name].search.windows.net/indexes/hotels/docs?search=*&$filter=baseRate lt 150&$select=hotelId,description&api-version=2019-05-06
 
 # Option 2: Use filter for POST and pass it in the header
-POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2017-11-11
+POST https://[service name].search.windows.net/indexes/hotels/docs/search?api-version=2019-05-06
 {
     "search": "*",
     "filter": "baseRate lt 150",
@@ -146,7 +146,7 @@ A reconstrução de campos individuais pode ser uma operação de baixo impacto,
 
 ## <a name="text-filter-fundamentals"></a>Conceitos básicos do filtro de texto
 
-Filtros de texto são válidos para campos de cadeia de caracteres, a partir do qual pretende extrair alguns coleção arbitrária de documentos com base nos valores dentro do corpo.
+Filtros de texto são válidos para campos de cadeia de caracteres, a partir do qual pretende extrair alguns coleção arbitrária de documentos com base nos valores no índice de pesquisa.
 
 Para filtros de texto compostos por cadeias de caracteres, não existe nenhum análise lexical ou separação de palavras, para que as comparações destinam-se apenas a correspondências exatas. Por exemplo, suponha que um campo *f* contém "sunny day", `$filter=f eq 'Sunny'`não corresponderem, mas `$filter=f eq 'Sunny day'` será. 
 
