@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 04/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d09fca68af55b577c47316363ed386e98525baf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d6e478cba13c7b4cf628535a4a1ecdbec344a733
+ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925763"
+ms.lasthandoff: 05/03/2019
+ms.locfileid: "65035451"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Utilizar automatizada de machine learning para criar o seu modelo de regressão
 
@@ -54,16 +54,16 @@ Avance para o [configurar o ambiente de desenvolvimento](#start) para ler os pas
 
 Obter todos os estes pré-requisitos a partir de qualquer uma das seções abaixo.
 
-* Utilize [blocos de notas do Azure](#azure)
+* Utilize um [servidor de bloco de notas na nuvem na sua área de trabalho](#azure) 
 * Utilize [seu próprio servidor de bloco de notas](#server)
 
-### <a name="azure"></a>Utilize blocos de notas do Azure: Blocos de notas do Jupyter gratuitos na cloud
+### <a name="azure"></a>Utilizar um servidor de bloco de notas de cloud na sua área de trabalho
 
-É fácil começar com blocos de notas do Azure! O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado para si no [blocos de notas do Azure](https://notebooks.azure.com/). A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
-
-Depois de concluir os passos abaixo, execute o **tutoriais/regressão-parte 2-automatizada-ml.ipynb** bloco de notas no seu **introdução** projeto.
+É fácil começar a utilizar o seu próprio servidor de bloco de notas com base na cloud. O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado por si, depois de criar este recurso da nuvem.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Depois de iniciar a página de Web do bloco de notas, execute o **tutoriais/regressão-parte 2-automatizada-ml.ipynb** bloco de notas.
 
 ### <a name="server"></a>Utilizar o seu próprio servidor de bloco de notas do Jupyter
 
