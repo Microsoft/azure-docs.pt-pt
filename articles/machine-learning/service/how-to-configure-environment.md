@@ -1,7 +1,7 @@
 ---
 title: Configurar um ambiente de desenvolvimento do Python
 titleSuffix: Azure Machine Learning service
-description: Saiba como configurar um ambiente de desenvolvimento, quando trabalha com o serviço Azure Machine Learning. Neste artigo, saiba como utilizar ambientes de Conda, criar arquivos de configuração e configurar o Jupyter Notebooks, blocos de notas do Azure, Azure Databricks, IDEs, editores de código e a máquina de Virtual de ciência de dados.
+description: Saiba como configurar um ambiente de desenvolvimento, quando trabalha com o serviço Azure Machine Learning. Neste artigo, saiba como utilizar ambientes de Conda, criar arquivos de configuração e configurar o seu próprio servidor de bloco de notas com base na cloud, blocos de notas do Jupyter, Azure Databricks, blocos de notas do Azure, IDEs, editores de código e a máquina de Virtual de ciência de dados.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820027"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024954"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -26,7 +26,7 @@ Os únicos requisitos para o seu ambiente de desenvolvimento são Python 3, Anac
 
 Este artigo enfoca os ambientes e ferramentas que se seguem:
 
-* Blocos de notas do Azure: Um serviço de blocos de notas do Jupyter que está alojado na cloud do Azure. É a maneira mais fácil para começar, porque já está instalado o SDK do Azure Machine Learning.
+* Sua própria [servidor do bloco de notas com base na cloud](#notebookvm): Utilize um recurso de computação na sua estação de trabalho para executar blocos de notas do Jupyter. É a maneira mais fácil para começar, porque já está instalado o SDK do Azure Machine Learning.
 
 * [A máquina de Virtual de ciência de dados (DSVM)](#dsvm): Um ambiente de desenvolvimento ou experimentação pré-configurado na cloud do Azure foi concebido para o trabalho de ciência de dados e pode ser implementada para instâncias de VM apenas de CPU ou as instâncias baseadas em GPU. Python 3, Conda, blocos de notas do Jupyter e o SDK do Azure Machine Learning já estão instalados. A VM é fornecido com popular aprendizagem automática e aprendizagem profunda editores, ferramentas e estruturas para o desenvolvimento de soluções de aprendizagem automática. Provavelmente é o ambiente de desenvolvimento mais completo do Machine learning na plataforma do Azure.
 
@@ -44,7 +44,7 @@ Se já tiver um ambiente de Python 3 ou deseja apenas os passos básicos para in
 
 - Uma área de trabalho de serviço do Azure Machine Learning. Para criar a área de trabalho, consulte [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md).
 
-Uma área de trabalho é tudo o que precisa para começar com seus [blocos de notas do Azure](#aznotebooks), uma [DSVM](#dsvm), ou [Azure Databricks](#aml-databricks).
+Uma área de trabalho é tudo o que precisa para começar a utilizar com os seus próprios [servidor do bloco de notas com base na cloud](#notebookvm), uma [DSVM](#dsvm), [Azure Databricks](#aml-databricks), ou [blocos de notas do Azure](#aznotebooks).
 
 Para instalar o ambiente de SDK para sua [computador local](#local), [servidor de bloco de notas do Jupyter](#jupyter) ou [Visual Studio Code](#vscode) também tem de:
 
@@ -57,16 +57,15 @@ Para instalar o ambiente de SDK para sua [computador local](#local), [servidor d
 
 - No Windows, terá da linha de comandos ou prompt Anaconda (por Anaconda e Miniconda instalado).
 
-## <a id="aznotebooks"></a>Blocos de notas do Azure
+## <a id="notebookvm"></a>O seu servidor de bloco de notas com base na cloud
 
-[Blocos de notas do Azure](https://notebooks.azure.com) (pré-visualização) é um ambiente de desenvolvimento interativo na cloud do Azure. É uma forma fácil de começar com o desenvolvimento do Azure Machine Learning.
+Crie um servidor de bloco de notas na área de trabalho do Azure Machine Learning para a forma mais fácil começar a utilizar com o desenvolvimento do Azure Machine Learning.
 
 * Já está instalado o SDK do Azure Machine Learning.
-* Depois de criar uma área de trabalho do serviço do Azure Machine Learning no portal do Azure, pode clicar num botão para configurar automaticamente o ambiente de bloco de notas do Azure para trabalhar com a área de trabalho.
+* O ambiente de VM do bloco de notas é automaticamente configurado para trabalhar com a sua área de trabalho.
+* O recurso é criado na sua área de trabalho e pode ser gerido existir
 
-Utilize o [portal do Azure](https://portal.azure.com) para começar a utilizar com blocos de notas do Azure.  Abra a área de trabalho e para o **descrição geral** secção, selecione **começar em blocos de notas do Azure**.
-
-Por predefinição, os blocos de notas do Azure utiliza uma camada de serviço gratuito que está limitada a 4GB de memória e 1GB de dados. Pode, no entanto, remover estes limites ao anexar uma instância de máquina de Virtual de ciência de dados para o projeto de blocos de notas do Azure. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).    
+Para começar a desenvolver com o seu servidor de bloco de notas com base na cloud, veja [início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 
 ## <a id="dsvm"></a>Máquina de Virtual de ciência de dados
@@ -320,7 +319,7 @@ Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.data
       
    Considere também:
    + Na configuração de Automl, ao utilizar o Azure Databricks, adicione os seguintes parâmetros:
-        1. ```max_concurrent_iterations``` baseia-se no número de nós de trabalho no seu cluster. 
+       1. ```max_concurrent_iterations``` baseia-se no número de nós de trabalho no seu cluster. 
         2. ```spark_context=sc``` baseia-se no contexto do spark de predefinição. 
    + Em alternativa, se tiver uma versão antiga do SDK, desmarcá-la a partir de bibliotecas de instalados do cluster e mover para o lixo. Instalar a nova versão do SDK e reinicie o cluster. Se houver um problema depois disso, desligar e voltar a anexar o cluster.
 
@@ -337,6 +336,17 @@ Experimente:
   Embora muitos blocos de notas de exemplo estão disponíveis, **apenas [estes blocos de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) profissional com o Azure Databricks.**
   
 + Saiba como [criar um pipeline com o Databricks como a computação de treinamento](how-to-create-your-first-pipeline.md).
+
+## <a id="aznotebooks"></a>Blocos de notas do Azure
+
+[Blocos de notas do Azure](https://notebooks.azure.com) (pré-visualização) é um ambiente de desenvolvimento interativo na cloud do Azure. É uma forma fácil de começar com o desenvolvimento do Azure Machine Learning.
+
+* Já está instalado o SDK do Azure Machine Learning.
+* Depois de criar uma área de trabalho do serviço do Azure Machine Learning no portal do Azure, pode clicar num botão para configurar automaticamente o ambiente de bloco de notas do Azure para trabalhar com a área de trabalho.
+
+Utilize o [portal do Azure](https://portal.azure.com) para começar a utilizar com blocos de notas do Azure.  Abra a área de trabalho e para o **descrição geral** secção, selecione **começar em blocos de notas do Azure**.
+
+Por predefinição, os blocos de notas do Azure utiliza uma camada de serviço gratuito que está limitada a 4GB de memória e 1GB de dados. Pode, no entanto, remover estes limites ao anexar uma instância de máquina de Virtual de ciência de dados para o projeto de blocos de notas do Azure. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas do Azure - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a id="workspace"></a>Criar um ficheiro de configuração da área de trabalho
 
@@ -358,7 +368,7 @@ Pode criar o ficheiro de configuração de três formas:
 
 * **Siga os passos em [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#sdk)**: R *config* ficheiro é criado na sua biblioteca de blocos de notas do Azure. O ficheiro contém as informações de configuração para a área de trabalho. Pode transferir ou copiar o *config* para outros ambientes de desenvolvimento.
 
-* **Criar o ficheiro manualmente**: Com este método, utilize um editor de texto. Pode encontrar os valores que ir para o ficheiro de configuração ao visitar a sua área de trabalho do [portal do Azure](https://portal.azure.com). Copie o nome de área de trabalho, grupo de recursos e os valores de ID de subscrição e utilizá-los no ficheiro de configuração.
+* **Transfira o ficheiro**: Na [portal do Azure](https://ms.portal.azure.com), selecione **transferir config** do **descrição geral** secção da área de trabalho.
 
      ![Portal do Azure](./media/how-to-configure-environment/configure.png)
 
@@ -387,3 +397,4 @@ Pode criar o ficheiro de configuração de três formas:
 - [Preparar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados MNIST
 - Ver os [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) referência
 - Saiba mais sobre o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk)
+- 

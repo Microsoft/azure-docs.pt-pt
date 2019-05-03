@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: Criar um índice com tecnologia de IA no portal do Azure - Azure Search'
+title: 'Início rápido: Criar um índice sofisticados de IA no portal do Azure - Azure Search'
 description: Extração de dados, a linguagem natural e habilidades num portal de indexação de pesquisa do Azure, de processamento de imagens no portal do Azure e dados de exemplo.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb029530d2c6cdac82fd0d257e10717386eebf0e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61345474"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65022099"
 ---
-# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Início rápido: Criar um pipeline de indexação de IA com capacidades cognitivas e dados de exemplo
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de indexação de IA com competências cognitivas no Azure Search
 
 Integra-o Azure Search [dos serviços cognitivos](https://azure.microsoft.com/services/cognitive-services/), adição de extração de conteúdo, o processamento de linguagem natural (NLP) e as competências de processamento de imagem para um pipeline de indexação de pesquisa do Azure, tornando o conteúdo não estruturado ou unsearchable mais pesquisável. 
 
@@ -30,12 +30,12 @@ Neste início rápido, crie seu primeiro pipeline de melhoria na [portal do Azur
 > * Execute o assistente (uma capacidade de entidades deteta as pessoas, a localização e as organizações)
 > * Uso [ **Explorador de pesquisa** ](search-explorer.md) para consultar os dados plena
 
-Este início rápido executa o serviço gratuito, mas o número de transações gratuitos está limitado a 20 documentos por dia. Se pretender executar este início rápido, mais de uma vez no mesmo dia, utilize um ficheiro mais pequeno, definir, para que caibam em mais execuções.
+Este início rápido executa o serviço gratuito, mas o número de transações gratuitos está limitado a 20 documentos por dia. Se pretender executar este início rápido mais do que uma vez por dia, utilizar um ficheiro mais pequeno, definir, para que caibam em mais execuções.
 
 > [!NOTE]
-> À medida que expande o âmbito, aumentando a frequência de processamento, adicionar mais documentos ou adicionar mais algoritmos de IA, terá de anexar um recurso dos serviços cognitivos faturável. Os encargos acumulam ao chamar APIs serviços cognitivos e para extração de imagem como parte da fase de aberturas de documentos no Azure Search. Não existem custos para extração de texto de documentos.
+> Como expandir âmbito ao aumento da frequência de processamento, adicionar mais documentos ou adicionar mais algoritmos de IA, precisará [anexar um recurso dos serviços cognitivos cobrar](cognitive-search-attach-cognitive-services.md). Os encargos acumulam ao chamar APIs serviços cognitivos e para extração de imagem como parte da fase de aberturas de documentos no Azure Search. Não existem custos para extração de texto de documentos.
 >
-> Execução de habilidades internas é cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/) . Preços de extração de imagem é cobrado a preços de pré-visualização, conforme descrito no [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Saiba [mais](cognitive-search-attach-cognitive-services.md).
+> Execução de habilidades internas é cobrada existente [dos serviços cognitivos pay as you go preço](https://azure.microsoft.com/pricing/details/cognitive-services/). Preços de extração de imagem está descrito na [página de preços do Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 

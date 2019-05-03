@@ -11,16 +11,33 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60752342"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021097"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
 
 Este artigo ajuda-o, encontre e corrija erros ou falhas encontrados ao utilizar o serviço Azure Machine Learning.
+
+## <a name="visual-interface-issues"></a>Problemas de Visual interface
+
+Interface visual para problemas do serviço de aprendizagem automática.
+
+### <a name="long-compute-preparation-time"></a>Tempo de preparação de tempo de computação
+
+Criar nova computação ou evocar descarta computação exige tempo, pode ser por alguns minutos ou até mesmo mais tempo. A equipe está trabalhando para otimização.
+
+
+### <a name="cannot-run-an-experiment-only-contains-dataset"></a>Não é possível executar uma experimentação apenas contém conjunto de dados 
+
+Pode querer executar uma experimentação contém apenas o conjunto de dados para visualizar o conjunto de dados. No entanto, não tem permissão para ser executada uma experimentação contém apenas conjunto de dados hoje mesmo. Estamos ativamente a corrigir este problema.
+ 
+Antes da correção, pode ligar o conjunto de dados para qualquer módulo de transformação de dados (selecionar colunas no conjunto de dados, editar metadados, etc. de dados de divisão) e execute a experimentação. Em seguida, pode ver o conjunto de dados. 
+
+Abaixo imagem mostra como: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 

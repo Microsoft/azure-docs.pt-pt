@@ -8,18 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/24/2019
+ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 6a9e66b1731a06d81e89b5f3fc4467a0f0344160
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697867"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020347"
 ---
 # <a name="release-notes"></a>Notas de versão
 
+## <a name="speech-sdk-150-2019-may-release"></a>Voz SDK 1.5.0: Versão de Maio de 2019
+
+**Novos recursos**
+
+* Palavra-chave, detetar funcionalidade (KWS) está disponível para Windows e Linux. Funcionalidade KWS pode funcionar com qualquer tipo de microfone, oficial KWS suportar, no entanto, é atualmente limitado para as matrizes de microfone encontrado no hardware de Azure Kinect DK ou o SDK de dispositivos de voz.
+* Funcionalidade de sugestão de frase está disponível através do SDK. Para obter mais informações, consulte [aqui](how-to-phrase-lists.md).
+* Funcionalidades de transcrição da conversação estão disponível através do SDK. Ver [aqui](conversation-transcription-service.md).
+* Adicione suporte para os assistentes de virtual de voz em primeiro lugar usando o canal direto de linha de voz.
+
+**Amostras**
+
+* Foram adicionados exemplos para novos recursos ou novos serviços suportados pelo SDK.
+
+**Melhorias / alterações**
+
+* Adicionar várias propriedades do reconhecedor para ajustar o comportamento de serviço ou resultados de serviço (como a máscara de linguagem inapropriada e outros).
+* Agora pode configurar o reconhecedor através das propriedades de configuração padrão, mesmo que tenha criado o reconhecedor `FromEndpoint`.
+* Objective-c: `OutputFormat` propriedade foi adicionada ao SPXSpeechConfiguration.
+* O SDK suporta agora Debian 9 como uma distribuição do Linux.
+
+**Correções de erros**
+
+* Foi corrigido um problema em que o recurso de palestrante foi destructed muito precocemente no voz.
 ## <a name="speech-sdk-142"></a>Voz SDK 1.4.2
 
 Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nativo. Ele não está a afetar a versão de JavaScript do SDK.
@@ -28,13 +51,13 @@ Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nati
 
 Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. Foram efetuadas as seguintes correções:
 
-* Impedi que o webpack a carregar o agente de proxy de https.
+* Impedi que o pacote da web a carregar o agente de proxy de https.
 
 ## <a name="speech-sdk-140-2019-april-release"></a>Voz SDK 1.4.0: Versão de Abril de 2019
 
 **Novos recursos** 
 
-* O SDK suporta agora o serviço de texto para voz como uma versão beta. É suportada no Windows e Linux a área de trabalho de C++ e C#. Para obter mais informações, veja a [descrição geral do texto para discurso](text-to-speech.md#get-started-with-text-to-speech).
+* O SDK suporta agora o serviço de texto para voz como uma versão beta. É suportada no Windows e Linux a área de trabalho de C++ e C#. Para obter mais informações, consulte a [descrição geral do texto para discurso](text-to-speech.md#get-started-with-text-to-speech).
 * O SDK suporta agora arquivos de áudio MP3 e Opus/Ogg como ficheiros de fluxo de entrada. Esta funcionalidade só está disponível no Linux a partir de C++ e C# e está atualmente na versão beta (mais detalhes [aqui](how-to-use-compressed-audio-input-streams.md)).
 * O SDK de voz para Java, .NET core, Objective-C e C++ passaram a suporte de macOS. O suporte de Objective-C para macOS está atualmente na versão beta.
 * iOS: O SDK de voz para iOS (Objective-C) agora também é publicado como um CocoaPod.
@@ -49,7 +72,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 **Melhorias / alterações**
 
 * Python: Propriedades adicionais de resultados de reconhecimento agora são expostas por meio do `properties` propriedade.
-* Para obter suporte adicional de desenvolvimento e depuração pode redirecionar informações de registo e diagnóstico do SDK num arquivo de log (mais detalhes [aqui](how-to-use-logging.md)).
+* Para desenvolvimento e suporte de depuração, pode redirecionar informações de registo e diagnóstico do SDK num arquivo de log (mais detalhes [aqui](how-to-use-logging.md)).
 * JavaScript: Melhore o desempenho de processamento de áudio.
 
 **Correções de erros**
@@ -70,8 +93,8 @@ Esta é uma versão de correção de erros e afetar apenas o SDK gerenciado/nati
 
 **Novos recursos**
 
-* O SDK de voz suporta uma seleção de entrada microfone por meio da classe AudioConfig. Isto permite-lhe transmitir dados áudio para os serviços de voz de um microfone de não-padrão. Para obter mais informações, consulte a documentação que descreve [seleção de dispositivo de entrada de áudio](how-to-select-audio-input-devices.md). Isso ainda não está disponível a partir do JavaScript.
-* O SDK de voz suporta agora Unity numa versão beta. Envie comentários através a secção de problema a [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples). Esta versão suporta Unity em Windows x86 e x64 (ambiente de trabalho ou aplicativos da plataforma Universal do Windows) e o Android (ARM32/64, x86). Estão disponíveis mais informações no nosso [início rápido do Unity](quickstart-csharp-unity.md).
+* O SDK de voz suporta uma seleção de entrada microfone por meio da classe AudioConfig. Isto permite-lhe transmitir dados áudio para os serviços de voz de um microfone de não-padrão. Para obter mais informações, consulte a documentação que descreve [seleção de dispositivo de entrada de áudio](how-to-select-audio-input-devices.md). Esta funcionalidade ainda não está disponível a partir do JavaScript.
+* O SDK de voz suporta agora Unity numa versão beta. Fornecer comentários através da secção de problema a [repositório de exemplo do GitHub](https://aka.ms/csspeech/samples). Esta versão suporta Unity em Windows x86 e x64 (ambiente de trabalho ou aplicativos da plataforma Universal do Windows) e o Android (ARM32/64, x86). Estão disponíveis mais informações no nosso [início rápido do Unity](quickstart-csharp-unity.md).
 * O ficheiro `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (lançado em versões anteriores) não é necessária mais. A funcionalidade agora está integrada ao SDK core.
 
 
@@ -109,7 +132,7 @@ O seguinte conteúdo novo está disponível no nosso [repositório de exemplo](h
 * Nome de utilizador de proxy vazio e a palavra-passe do proxy não foram processadas corretamente. Com esta versão, se definir o nome de utilizador de proxy e a palavra-passe do proxy como uma cadeia vazia, eles serão não submetidos ao estabelecer ligação com o proxy.
 * SessionId do criado pelo SDK nem sempre foram efetivamente aleatório para alguns idiomas&nbsp;/ ambientes. Adicionada a inicialização de gerador aleatórios para corrigir este problema.
 * Aperfeiçoar o tratamento de token de autorização. Se pretender utilizar um token de autorização, especifique o SpeechConfig e deixe em branco a chave de subscrição. Em seguida, crie o reconhecedor como de costume.
-* Em alguns casos, a ligação de objeto não foi lançado corretamente. Isto foi corrigido.
+* Em alguns casos, a ligação de objeto não foi lançado corretamente. Este problema foi corrigido.
 * O exemplo de JavaScript foi corrigido para oferecer suporte a saída de áudio para a sintetização de tradução também no Safari.
 
 ## <a name="speech-sdk-121"></a>Voz SDK 1.2.1
@@ -134,7 +157,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
   * A restrição de comprimento para sessões de áudio tiver sido removida, o restabelecimento de ligação acontecerá automaticamente sob a capa.
 * Objeto de ligação
   * De que o reconhecedor, pode acessar um objeto de conexão. Este objeto permite-lhe explicitamente iniciar a ligação de serviço e inscrever-se para se ligar e desligar os eventos.
-    (Isso ainda não está disponível a partir do JavaScript e Python.)
+    (Esta funcionalidade ainda não está disponível de JavaScript e Python.)
 * Suporte para Ubuntu 18.04.
 * Android
   * Suporta ProGuard ativado durante a geração do ficheiro APK.
@@ -142,7 +165,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 **Melhorias**
 
 * Melhorias na utilização de thread interno e reduzindo o número de threads, bloqueios, exclusões mútuas.
-* Relatórios de erros melhorados / informações. Em vários casos mensagens de erro não tem sido propagadas totalmente horizontalmente.
+* Relatórios de erros melhorados / informações. Em vários casos, mensagens de erro não foram foram propagadas horizontalmente até terminar.
 * Atualizar as dependências de desenvolvimento em JavaScript para utilizar módulos atualizados.
 
 **Correções de erros**
@@ -218,7 +241,7 @@ No nosso [repositório de exemplo](https://aka.ms/csspeech/samples), foi adicion
 **Alterações recentes**
 
 * Com esta versão, é introduzido um número de alterações de última hora.
-  Verifique se existem [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
+  Verifique [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Voz dos serviços cognitivos SDK 0.6.0: Lançamento de Agosto de 2018
 

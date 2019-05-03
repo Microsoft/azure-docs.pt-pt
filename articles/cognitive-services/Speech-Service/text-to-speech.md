@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cbabdde2dd5df2ca40ee45fe0f7b0437f095673b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460274"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020370"
 ---
 # <a name="what-is-text-to-speech"></a>O que é o texto para discurso?
 
@@ -32,7 +32,9 @@ Vozes padrão são criadas usando técnicas de estatísticas de síntese Paramé
 
 Vozes neurais usam redes neurais profundas para superar os limites dos sistemas de texto para voz tradicionais em correspondentes aos padrões de estresse e intonation num idioma falado e resumir as unidades de conversão de voz numa voz de computador. Voz Standard divide prosody em separado de análise linguística e passos de predição acústico que são regidos pelos modelos independentes. Isso pode resultar na síntese de voz muffled, buzzy. Nossa capacidade neural faz síntese de voz e de predição de prosody simultaneamente, que resulta numa voz mais fluida e com o som natural.
 
-Vozes neurais podem ser utilizados para tornar as interações com chatbots e assistentes virtual mais natural e envolventes converter textos digital, como o e-livros em audiobooks e melhorar a sistemas de navegação no carro. Com o prosody natural de semelhante à humana e articulation clara de palavras, o vozes Neural reduzem significativamente fadiga escuta quando interage com os sistemas de IA. Para obter mais informações sobre as vozes neurais, consulte [idiomas suportados](language-support.md#text-to-speech).
+Vozes neurais podem ser utilizados para tornar as interações com chatbots e assistentes virtual mais natural e envolventes converter textos digital, como o e-livros em audiobooks e melhorar a sistemas de navegação no carro. Com o prosody natural de semelhante à humana e articulation clara de palavras, o vozes Neural reduzem significativamente fadiga escuta quando interage com os sistemas de IA. 
+
+Vozes neurais oferecem suporte a estilos diferentes, tais como neutra e cheerful. Por exemplo, a voz Jessa (en-US) compatível com o protocolo cheerfully, que está otimizado para conversação quente, feliz. Pode ajustar a saída de voz, como o tom, o argumento de venda e acelerar usando [Speech Synthesis Markup Language](speech-synthesis-markup.md). Para obter uma lista completa de vozes disponíveis, consulte [idiomas suportados](language-support.md#text-to-speech).
 
 Para saber mais sobre os benefícios de vozes neurais, veja [serviço de texto para discurso neural novo da Microsoft ajuda a máquinas falar, como as pessoas](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 05/02/2019
 ms.author: chlandsi
-ms.openlocfilehash: 1464d1ca8fcf1ad5a955d69aa76caec9aa568dad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 34af7544a7678dfd8c8f870369bf0b4b1083b96d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621313"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020704"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para Python
 
@@ -30,15 +30,24 @@ Este artigo mostra como utilizar os serviços de voz através do SDK de voz para
 * O pacote do Python SDK de voz está disponível para estes sistemas operativos:
     * Windows: x64 e x86.
     * MAC: versão do macOS X 10.12 ou posterior.
-    * Linux: Ubuntu 16.04 ou 18.04 em x64.
-* No Ubuntu, execute estes comandos para instalar os pacotes necessários:
+    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 em x64.
+* No Linux, execute estes comandos para instalar os pacotes necessários:
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-  ```
+  * On Ubuntu:
 
-* No Windows, também terá do [Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma.
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
+
+  * No Debian 9:
+
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
+
+* No Windows, é necessário o [Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) para a sua plataforma.
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de voz
 

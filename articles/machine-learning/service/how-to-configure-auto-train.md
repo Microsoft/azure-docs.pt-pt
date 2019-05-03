@@ -9,18 +9,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e821c6bc9f2f7f84f5f020d1c5e3248e7163044c
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64914981"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023717"
 ---
-# <a name="configure-automated-machine-learning-experiments"></a>Configurar automatizada experimentações de machine learning
+# <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizadas de ML de experimentações no Python
 
-Aprendizagem automática escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning. Neste guia, saiba como definir várias definições de configuração.
+Neste guia, saiba como definir várias definições de configuração de seu automatizada experimentações de machine learning com o [do Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Aprendizagem automática escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning.
 
 Para ver exemplos de um automatizada experimentações de machine learning, consulte [Tutorial: Preparar um modelo de classificação automatizada de machine Learning](tutorial-auto-train-models.md) ou [formar modelos com aprendizagem automática na cloud](how-to-auto-train-remote.md).
 
@@ -34,7 +34,10 @@ Opções de configuração disponíveis no automatizada de machine learning:
 * Explorar métricas de modelo
 * Registe e implemente o modelo
 
+Se preferir uma experiência sem código, também pode [criar sua automatizada experimentações de machine learning no portal do Azure](how-to-create-portal-experiments.md).
+
 ## <a name="select-your-experiment-type"></a>Selecione o tipo de experimentação
+
 Antes de começar a sua experimentação, deve determinar o tipo de problema de aprendizado de máquina que está a resolver. Automatizada de machine learning suporta tipos de tarefa de classificação, regressão e previsão.
 
 Automatizada de machine learning suporta os seguintes algoritmos durante a automação e o processo de otimização. Como um utilizador, não é necessário para especificar o algoritmo. Embora os algoritmos DNN estejam disponíveis durante o treinamento, ML automatizado não criar modelos DNN.
@@ -51,7 +54,7 @@ Classificação | Regressão | Previsão de série temporal
 [Floresta aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Floresta aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Floresta aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Árvores extremamente aleatório](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Árvores extremamente aleatório](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Árvores extremamente aleatório](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[DNN Classifer](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Regressor foi DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Regressor foi DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
+[Classificador DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Regressor foi DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Regressor foi DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [Classificador DNN Linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Regressor foi linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Regressor foi linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
 [A classificação bayesiana Ingênua](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
 [Descendente gradação stochastic gradient (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
@@ -125,8 +128,8 @@ label | cadeia  | X, y, X_valid, y_valid |  A coluna data_train representa a eti
 Colunas | matriz de cadeias de caracteres  ||  _Opcional_ lista aprovada de colunas a utilizar para funcionalidades
 cv_splits_indices   | Matriz de números inteiros ||  _Opcional_ lista de índices para dividir os dados para cruzada validação
 
-### <a name="load-and-prepare-data-using-dataprep-sdk"></a>Carregar e preparar dados com o SDK de DataPrep
-Automatizada experimentações de machine learning suporta o carregamento de dados e transformações com o SDK de dataprep. Com o SDK fornece a capacidade de
+### <a name="load-and-prepare-data-using-data-prep-sdk"></a>Carregar e preparar dados com o SDK de preparação de dados
+Automatizada experimentações de machine learning suporta o carregamento de dados e transformações com a SDK de preparação de dados. Com o SDK fornece a capacidade de
 
 >* Carregar a partir de muitos tipos de ficheiro com a inferência de tipos de parâmetro (codificação, separador, cabeçalhos) de análise
 >* Conversão de tipo usando inferência durante o carregamento de ficheiro
@@ -159,7 +162,7 @@ Pode especificar train separado e validação definida por meio de get_data() ou
 
 Utilize `n_cross_validations` definição para especificar o número de cruzada validações. O conjunto de dados de treinamento será dividido aleatoriamente em `n_cross_validations` subconjuntos de tamanho igual. Durante cada validação cruzada redondo, um dos subconjuntos será utilizado para a validação do modelo com base em com os subconjuntos restantes. Este processo repete-se para `n_cross_validations` Arredonda por excesso até que cada subconjuntos de validação é utilizado uma vez como conjunto de validação. As pontuações média em todos os `n_cross_validations` rodadas serão reportadas e o modelo correspondente será reestruturar os em todo o conjunto de dados de preparação. 
 
-### <a name="monte-carlo-cross-validation-aka-repeated-random-sub-sampling"></a>Monte Carlo (também conhecido como validação cruzada Amostragem de secundárias aleatória repetida)
+### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte Carlo entre validação (amostragem aleatória de secundárias repetida)
 
 Utilizar `validation_size` para especificar a percentagem do conjunto de dados de treinamento que deve ser utilizado para validação e use `n_cross_validations` para especificar o número de cruzada validações. Durante cada uma validação round, um subconjunto de tamanho de cruzada `validation_size` serão selecionados aleatoriamente para a validação do modelo com base em com os dados restantes. Por fim, a média pontua em todos os `n_cross_validations` rodadas serão reportadas e o modelo correspondente será reestruturar os em todo o conjunto de dados de preparação. Monte Carlo não é suportada para previsão de séries de tempo.
 
@@ -174,6 +177,10 @@ Em seguida, determine onde será preparado o modelo. Uma experimentação de pre
 *   Um computador remoto na cloud – [Machine Learning geridos de computação no Azure](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) é um serviço gerido que permite a capacidade preparar modelos de machine learning em clusters de máquinas virtuais do Azure.
 
 Consulte a [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) por exemplo o destinos de computação de blocos de notas com o local e remoto.
+
+*   Um cluster do Azure Databricks na sua subscrição do Azure. Pode encontrar mais detalhes aqui – [cluster do programa de configuração do Azure Databricks para o ML automatizada](how-to-configure-environment.md#azure-databricks)
+
+Consulte a [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) como blocos de notas com o Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -223,23 +230,48 @@ A métrica primária; conforme mostrado nos exemplos acima determina a métrica 
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-## <a name="data-pre-processing-and-featurization"></a>Processamento prévio de dados e featurization
+## <a name="data-preprocessing--featurization"></a>O pré-processamento de dados & featurization
 
-Se usar `preprocess=True`, os seguintes passos de pré-processamento de dados são efetuados automaticamente para:
-1.  Remova cardinalidade elevada ou nenhum recurso de variância
-    * Remova funcionalidades sem informações úteis de conjuntos de formação e validação. Estes incluem recursos com todos os valores em falta, mesmo valor em todas as linhas ou com uma cardinalidade muito elevada (por exemplo, hashes, IDs ou GUIDs).
-1.  Imputation de valor em falta
-    *   De funcionalidades numéricas, impute valores em falta com a média dos valores na coluna.
-    *   Para obter recursos categóricos, impute valores em falta com o valor mais frequente.
-1.  Gerar recursos adicionais
-    * Para as funcionalidades de DateTime: Ano, mês, dia, dia da semana, dia do ano, trimestre, semana do ano, hora, minuto, segundo.
-    * Para as funcionalidades de texto: Frequência de prazo com base em vectorizer de contagem de unigram, bi-grams e chamamos-gram, do word.
-1.  Transformações e codificações
-    * Recursos de numérico com poucos valores exclusivos, transformados em funcionalidades categóricas.
-    * Consoante a cardinalidade dos recursos categóricos, execute etiqueta codificação ou (hash) frequente de uma codificação.
+Em cada automatizada experimentação do machine learning, os seus dados estão [automaticamente dimensionado e normalizados](concept-automated-ml.md#preprocess) para ajudar a algoritmos de bom desempenho.  No entanto, também pode ativar adicional pré-processamento/featurization, como em falta imputation de valores, codificação de mensagens em fila e transformações. [Saiba mais sobre o que featurization está incluído](how-to-create-portal-experiments.md#preprocess). 
 
-## <a name="ensemble-models"></a>Modelos de Ensemble
-Ensemble learning melhora os resultados do machine learning e o desempenho de previsão ao combinam muitos modelos em vez de utilizar os modelos de únicos. Quando usando automatizadas a aprendizagem automática, pode preparar os modelos de ensemble com o [algoritmo de seleção de ensemble Caruana com a inicialização de Ensemble classificada](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). A iteração ensemble é apresentado como a última iteração de sua execução.
+Para ativar este featurization, especifique `"preprocess": True` para o [ `AutoMLConfig` classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+## <a name="time-series-forecasting"></a>Previsão de série temporal
+Para o tipo de tarefa de previsão de série de tempo tem parâmetros adicionais para definir.
+1. time_column_name - este é um parâmetro necessário que define o nome da coluna na série de data/hora que contém seu treinamento dados. 
+1. max_horizon - isso define o período de tempo que pretende prever horizontalmente com base na periodicidade dos dados de treinamento. Por exemplo se tiver dados de treinamento com detalhamento de tempo diária, até que ponto por definir em dias em que quer que o modelo para treinar para.
+1. grain_column_names - isso define o nome de colunas que contêm dados de séries de tempo individuais em seus dados de treinamento. Por exemplo, se a previsão de vendas de uma determinada marca pela loja, definiria colunas de arquivo e marca como as colunas de intervalo de agregação.
+
+Ver exemplo dessas definições de que está a ser utilizadas abaixo, o exemplo de bloco de notas está disponível [aqui](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
+
+```python
+# Setting Store and Brand as grains for training.
+grain_column_names = ['Store', 'Brand']
+nseries = data.groupby(grain_column_names).ngroups
+
+# View the number of time series data with defined grains
+print('Data contains {0} individual time-series.'.format(nseries))
+```
+
+```python
+time_series_settings = {
+    'time_column_name': time_column_name,
+    'grain_column_names': grain_column_names,
+    'drop_column_names': ['logQuantity'],
+    'max_horizon': n_test_periods
+}
+
+automl_config = AutoMLConfig(task='forecasting',
+                             debug_log='automl_oj_sales_errors.log',
+                             primary_metric='normalized_root_mean_squared_error',
+                             iterations=10,
+                             X=X_train,
+                             y=y_train,
+                             n_cross_validations=5,
+                             path=project_folder,
+                             verbosity=logging.INFO,
+                             **time_series_settings)
+```
 
 ## <a name="run-experiment"></a>Execute experimentação
 
@@ -258,7 +290,7 @@ Existem algumas opções pode definir para concluir a sua experimentação.
 1. Não existem critérios - se não definir qualquer sair parâmetros que a experimentação vai continuar até que nenhum progresso adicional em sua métrica primária. 
 1. Número de iterações - lhe define o número de iterações de experimentação para execução. Pode opcional adicionar iteration_timeout_minutes para definir um limite de tempo em minutos por cada iteração.
 1. Saia do após um período de tempo - usando experiment_timeout_minutes nas definições do que pode definir o período de tempo em minutos uma experimentação deve continuar em execução.
-1. Sair quando for alcançada uma pontuação - usando experiment_exit_score que pode optar por executar o experiement depois de uma classificação com base em sua métrica principal foi atingida.
+1. Sair quando for alcançada uma pontuação - usando experiment_exit_score que pode optar por executar a experimentação, depois de uma classificação com base em sua métrica principal foi atingida.
 
 ## <a name="explore-model-metrics"></a>Explorar métricas de modelo
 Pode ver os resultados num widget ou inline, se estiver num bloco de notas. Ver [controlar e avaliar modelos](how-to-track-experiments.md#view-run-details) para obter mais detalhes.
@@ -307,9 +339,221 @@ normalized_root_mean_squared_error|Raiz normalizado significar um erro ao quadra
 root_mean_squared_log_error|Raiz significa de erro do registo ao quadrado é a raiz quadrada do erro logarítmica ao quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhuma|
 normalized_root_mean_squared_log_error|Erro de registo ao quadrado mean normalizado raiz é dividido pelo intervalo dos dados de erro do registo ao quadrado médio de raiz|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo dos dados|
 
-## <a name="explain-the-model"></a>Explicar o modelo
 
-Enquanto as capacidades de aprendizagem de máquina automáticos estão disponíveis em geral, **a modelo explainability funcionalidade ainda está em pré-visualização pública.**
+## <a name="understand-automated-ml-models"></a>Compreender os modelos de ML automatizados
+
+Qualquer modelo produzido através de ML automatizada inclui os seguintes passos:
++ Automatizada de engenharia de funcionalidades (se pré-processar = True)
++ Dimensionamento/normalização e o algoritmo com valores hypermeter
+
+Podemos torná-lo transparente para obter essas informações a partir da saída fitted_model do ML automatizada.
+
+```python
+automl_config = AutoMLConfig(…)
+automl_run = experiment.submit(automl_config …)
+best_run, fitted_model = automl_run.get_output()
+```
+
+### <a name="automated-feature-engineering"></a>Engenharia de funcionalidades automatizadas
+
+Ver a lista de pré-processamento e [automatizada de engenharia de funcionalidades](concept-automated-ml.md#preprocess) que acontece quando pré-processar = True.  
+
+Considere este exemplo:
++ Há 4 recursos de entrada: Um (numéricos), B (numéricos), C (numéricos), 1!d (DateTime)
++ Funcionalidade numérico C é ignorada porque é uma coluna de ID com todos os valores exclusivos
++ Recursos numéricos A e B tenham valores em falta e, por conseguinte, são imputed pela média
++ O recurso de DateTime D é caracterizadas em 11 diferentes funcionalidades de engenharia
+
+Utilize estes 2 APIs no primeiro passo do modelo ajustado para saber mais.  Ver [este bloco de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+
++ API 1: `get_engineered_feature_names()` devolve uma lista de nomes das funcionalidades de engenharia.
+
+  Utilização: 
+  ```python
+  fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
+  ```
+
+  ```
+  Output: ['A', 'B', 'A_WASNULL', 'B_WASNULL', 'year', 'half', 'quarter', 'month', 'day', 'hour', 'am_pm', 'hour12', 'wday', 'qday', 'week']
+  ```
+
+  Esta lista inclui todos os nomes de recursos de engenharia.
+
+  >[!Note]
+  >Utilizar 'timeseriestransformer' para tarefa = "previsão", utilize outra datatransformer para a tarefa "regressão" ou "classificação". 
+
++ API 2: `get_featurization_summary()` devolve featurization resumo para todas as funcionalidades de entrada.
+
+  Utilização: 
+  ```python
+  fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+  ```
+
+  >[!Note]
+  >Utilizar 'timeseriestransformer' para tarefa = "previsão", utilize outra datatransformer para a tarefa "regressão" ou "classificação".
+
+  Saída:
+  ```
+  [{'RawFeatureName': 'A',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'B',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 2,
+    'Tranformations': ['MeanImputer', 'ImputationMarker']},
+   {'RawFeatureName': 'C',
+    'TypeDetected': 'Numeric',
+    'Dropped': 'Yes',
+    'EngineeredFeatureCount': 0,
+    'Tranformations': []},
+   {'RawFeatureName': 'D',
+    'TypeDetected': 'DateTime',
+    'Dropped': 'No',
+    'EngineeredFeatureCount': 11,
+    'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
+  ```
+  
+   Em que:
+   
+   |Saída|Definição|
+   |----|--------|
+   |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.| 
+   |TypeDetected|Tipo de dados detetado da funcionalidade de entrada.|
+   |Removido|Indica se a funcionalidade de entrada foi removida ou utilizada.|
+   |EngineeringFeatureCount|Número de funcionalidades geradas por meio de transformações de engenharia de funcionalidade automatizada.|
+   |Transformações|Lista de transformações aplicadas a recursos para gerar a engenharia de funcionalidades de entrada.|  
+
+### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Dimensionamento/normalização e o algoritmo com valores hypermeter:
+
+Para compreender os valores de normalização/dimensionamento e o algoritmo/hiper-parâmetros para um pipeline, utilize fitted_model.steps. [Saiba mais sobre dimensionamento/normalização](concept-automated-ml.md#preprocess). Eis uma saída de exemplo:
+
+```
+[('RobustScaler', RobustScaler(copy=True, quantile_range=[10, 90], with_centering=True, with_scaling=True)), ('LogisticRegression', LogisticRegression(C=0.18420699693267145, class_weight='balanced', dual=False, fit_intercept=True, intercept_scaling=1, max_iter=100, multi_class='multinomial', n_jobs=1, penalty='l2', random_state=None, solver='newton-cg', tol=0.0001, verbose=0, warm_start=False))
+```
+
+Para obter mais detalhes, utilize esta função auxiliar mostrada na [este bloco de notas do exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification/auto-ml-classification.ipynb).
+
+```python
+from pprint import pprint
+def print_model(model, prefix=""):
+    for step in model.steps:
+        print(prefix + step[0])
+        if hasattr(step[1], 'estimators') and hasattr(step[1], 'weights'):
+            pprint({'estimators': list(e[0] for e in step[1].estimators), 'weights': step[1].weights})
+            print()
+            for estimator in step[1].estimators:
+                print_model(estimator[1], estimator[0]+ ' - ')
+        else:
+            pprint(step[1].get_params())
+            print()
+                
+print_model(fitted_model)
+```
+
+Eis a saída de exemplo:
+
++ Pipeline com um algoritmo específico (LogisticRegression com RobustScalar neste caso):
+
+  ```
+  RobustScaler
+  {'copy': True,
+   'quantile_range': [10, 90],
+   'with_centering': True,
+   'with_scaling': True}
+  
+  LogisticRegression
+  {'C': 0.18420699693267145,
+   'class_weight': 'balanced',
+   'dual': False,
+   'fit_intercept': True,
+   'intercept_scaling': 1,
+   'max_iter': 100,
+   'multi_class': 'multinomial',
+   'n_jobs': 1,
+   'penalty': 'l2',
+   'random_state': None,
+   'solver': 'newton-cg',
+   'tol': 0.0001,
+   'verbose': 0,
+   'warm_start': False}
+  ```
+  
++ Pipeline com a abordagem de ensemble: Neste caso, é um ensemble 2 pipelines diferentes
+
+  ```
+  prefittedsoftvotingclassifier
+  {'estimators': ['1', '18'],
+  'weights': [0.6666666666666667,
+              0.3333333333333333]}
+
+  1 - RobustScaler
+  {'copy': True,
+   'quantile_range': [25, 75],
+   'with_centering': True,
+   'with_scaling': False}
+  
+  1 - LightGBMClassifier
+  {'boosting_type': 'gbdt',
+   'class_weight': None,
+   'colsample_bytree': 0.2977777777777778,
+   'importance_type': 'split',
+   'learning_rate': 0.1,
+   'max_bin': 30,
+   'max_depth': 5,
+   'min_child_samples': 6,
+   'min_child_weight': 5,
+   'min_split_gain': 0.05263157894736842,
+   'n_estimators': 200,
+   'n_jobs': 1,
+   'num_leaves': 176,
+   'objective': None,
+   'random_state': None,
+   'reg_alpha': 0.2631578947368421,
+   'reg_lambda': 0,
+   'silent': True,
+   'subsample': 0.8415789473684211,
+   'subsample_for_bin': 200000,
+   'subsample_freq': 0,
+   'verbose': -10}
+  
+  18 - StandardScalerWrapper
+  {'class_name': 'StandardScaler',
+   'copy': True,
+   'module_name': 'sklearn.preprocessing.data',
+   'with_mean': True,
+   'with_std': True}
+  
+  18 - LightGBMClassifier
+  {'boosting_type': 'goss',
+   'class_weight': None,
+   'colsample_bytree': 0.2977777777777778,
+   'importance_type': 'split',
+   'learning_rate': 0.07894947368421053,
+   'max_bin': 30,
+   'max_depth': 6,
+   'min_child_samples': 47,
+   'min_child_weight': 0,
+   'min_split_gain': 0.2631578947368421,
+   'n_estimators': 400,
+   'n_jobs': 1,
+   'num_leaves': 14,
+   'objective': None,
+   'random_state': None,
+   'reg_alpha': 0.5789473684210527,
+   'reg_lambda': 0.7894736842105263,
+   'silent': True,
+   'subsample': 1,
+   'subsample_for_bin': 200000,
+   'subsample_freq': 0,
+   'verbose': -10}
+  ```
+  
+<a name="explain"></a>
+
+## <a name="explain-the-model-interpretability"></a>Explicar o modelo (interpretability)
 
 Aprendizagem automática permite-lhe compreender a importância de funcionalidade.  Durante o processo de treinamento, pode obter a importância de recurso global para o modelo.  Para cenários de classificação, também pode obter a importância de recurso de nível de classe.  Tem de fornecer um conjunto de dados de validação (X_valid) para obter a importância de funcionalidade.
 
@@ -368,7 +612,7 @@ Existem duas formas de gerar a importância de funcionalidade.
 
 É possível visualizar o gráfico de importância de funcionalidade na sua área de trabalho no portal do Azure. O gráfico também é mostrado ao utilizar o widget de Jupyter num bloco de notas. Para saber mais sobre os gráficos consulte o [artigo de blocos de notas do serviço de exemplo do Azure Machine Learning.](samples-notebooks.md)
 
-```python
+```Python
 from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```

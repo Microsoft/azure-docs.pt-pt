@@ -8,18 +8,26 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 172774c90633c96c3a8e2c128df050fedeb8b52b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62109839"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021513"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
-Suporte para contentores nos serviços cognitivos do Azure permite aos desenvolvedores usar as mesmas APIs avançadas estão disponíveis no Azure e permite flexibilidade no onde implementar e hospedar os serviços que acompanham [contentores do Docker](https://www.docker.com/what-container). Suporte do contentor está atualmente disponível em pré-visualização para um subconjunto de serviços cognitivos do Azure, incluindo partes da [de imagem digitalizada](Computer-vision/Home.md), [Face](Face/Overview.md), [análise de texto](text-analytics/overview.md)e [ Compreensão de idiomas](LUIS/luis-container-howto.md) (LUIS).
+Suporte para contentores nos serviços cognitivos do Azure permite aos desenvolvedores usar as mesmas APIs avançadas estão disponíveis no Azure e permite flexibilidade no onde implementar e hospedar os serviços que acompanham [contentores do Docker](https://www.docker.com/what-container). Suporte do contentor está atualmente disponível em pré-visualização para um subconjunto de serviços cognitivos do Azure, incluindo partes de:
+
+* [Detetor de anomalias](Anomaly-Detector/overview.md)
+* [Imagem Digitalizada](Computer-vision/Home.md)
+* [Face](Face/Overview.md)
+* [Formulário reconhecedor](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Compreensão de idiomas](LUIS/luis-container-howto.md) (LUIS)
+* [API de Serviço de Voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Análise de Texto](text-analytics/overview.md)
 
 Contentorização é uma abordagem para distribuição de software em que uma aplicação ou serviço, incluindo suas dependências e a configuração, é empacotado em conjunto como uma imagem de contentor. Com poucas ou nenhuma modificação, uma imagem de contentor pode ser implementada num anfitrião de contentor. Os contentores são isolados umas das outras e o sistema operacional subjacente, com requisitos de espaço mais pequenos do que uma máquina virtual. Contentores podem ser instanciados a partir de imagens de contentor para tarefas de curta duração e removidos quando já não for necessário.
 
@@ -27,7 +35,7 @@ O vídeo seguinte demonstra como utilizar um contentor de serviços cognitivos.
 
 [![Demonstração de contentor para os serviços cognitivos](./media/index/containers-video-image.png)](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services)
 
-O [de imagem digitalizada](Computer-vision/Home.md), [Face](Face/Overview.md), [análise de texto](text-analytics/overview.md), e [compreensão de idiomas (LUIS)](LUIS/what-is-luis.md) serviços estão disponíveis na [Microsoft Azure](https://azure.microsoft.com). Inicie sessão para o [portal do Azure](https://portal.azure.com/) para criar e explore os recursos do Azure para estes serviços.
+Recursos de serviços cognitivos estão disponíveis na [Microsoft Azure](https://azure.microsoft.com). Inicie sessão para o [portal do Azure](https://portal.azure.com/) para criar e explore os recursos do Azure para estes serviços.
 
 ## <a name="features-and-benefits"></a>Funcionalidades e benefícios
 
@@ -43,14 +51,23 @@ Contentores de serviços cognitivos do Azure fornecem o seguinte conjunto de con
 
 | Serviço | Escalão de preço suportado | Contentor | Descrição |
 |---------|----------|----------|-------------|
+|[Detetor de anomalias](https://go.microsoft.com/fwlink/?linkid=2083925&clcid=0x409) |F0, S0|**Detetor de anomalias** |A API de detetor de anomalias permite-lhe monitorizar e detetar anomalias nos seus dados de séries de tempo com o machine learning.<br>[Pedir acesso](https://aka.ms/adcontainer)|
 |[Imagem Digitalizada](Computer-vision/computer-vision-how-to-install-containers.md) |F0, S1|**Reconhecer texto** |Extrai texto impresso partir de imagens de vários objetos com diferentes superfícies e fundos, como recibos, pôsteres e cartões de visita.<br/><br/>**Importante:** O contentor de reconhecer texto atualmente funciona apenas com o inglês.<br>[Pedir acesso](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Deteta rostos humanos em imagens e identifica os atributos, incluindo pontos de referência do rosto (como noses e olhos), sexo, idade e outras funcionalidades faciais prevista de máquina. Além de deteção, Face pode verificar se dois rostos na mesma imagem ou imagens diferentes são o mesmo com uma pontuação de confiança, ou comparam rostos em relação a uma base de dados para ver se um aspeto semelhante ou idêntica face já existe. Ele também pode organizar o rostos semelhantes em grupos, com as características de visual partilhadas.<br>[Pedir acesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204))|Carrega um modelo de compreensão de idiomas treinado ou publicado, também conhecido como uma aplicação LUIS, para um contentor do docker e fornece acesso para as previsões de consulta a partir de pontos finais de API do contentor. Pode recolher registos de consulta do contêiner e carregar esses anterior para o [portal de LUIS](https://www.luis.ai) para melhorar a exatidão da previsão da aplicação.|
-|[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extração de expressões chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extrai as expressões-chave para identificar os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. |
-|[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Deteção de idioma** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018759)) |Para até 120 idiomas, Deteta que o texto de entrada é escrito em idioma e o relatório um código de idioma único para cada documento enviado no pedido. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. |
-|[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Análise de sentimentos** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analisa o texto não processado para dicas sobre o sentimento positivo ou negativo. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo. Os modelos de análise previamente são treinados com um corpo extenso de tecnologias de texto e de linguagem natural da Microsoft. Para os [idiomas selecionados](./text-analytics/language-support.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada. |
+|[Reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Formulário reconhecedor** |Compreensão de formulário aplica-se a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e tabelas de formulários.<br>[Pedir acesso](https://aka.ms/FormRecognizerContainerRequestAccess)|
+|[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carrega um modelo de compreensão de idiomas treinado ou publicado, também conhecido como uma aplicação LUIS, para um contentor do docker e fornece acesso para as previsões de consulta a partir de pontos finais de API do contentor. Pode recolher registos de consulta do contêiner e carregar esses anterior para o [portal de LUIS](https://www.luis.ai) para melhorar a exatidão da previsão da aplicação.|
+|[API de Serviço de Voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Conversão de voz em texto** |Transcreve voz em tempo real contínua para texto.<br>[Pedir acesso](https://aka.ms/speechcontainerspreview/)|
+|[API de Serviço de Voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Conversão de texto em voz** |Converte texto em voz com som natural.<br>[Pedir acesso](https://aka.ms/speechcontainerspreview/)|
+|[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extração de expressões chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrai as expressões-chave para identificar os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. |
+|[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Deteção de idioma** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Para até 120 idiomas, Deteta que o texto de entrada é escrito em idioma e o relatório um código de idioma único para cada documento enviado no pedido. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. |
+|[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Análise de sentimentos** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analisa o texto não processado para dicas sobre o sentimento positivo ou negativo. Esta API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, em que 1 é o mais positivo. Os modelos de análise previamente são treinados com um corpo extenso de tecnologias de texto e de linguagem natural da Microsoft. Para os [idiomas selecionados](./text-analytics/language-support.md), a API pode analisar e classificar qualquer texto não processado que fornecer, devolvendo diretamente os resultados à aplicação de chamada. |
 
-Além disso, os contentores são suportados nos serviços cognitivos [tudo-em-um oferta](https://azure.microsoft.com/pricing/details/cognitive-services/). Pode criar um único recurso de tudo-em-um dos serviços cognitivos e usar a mesma chave de faturação para todos os tipos de contentor mencionados acima.
+Além disso, alguns contentores são suportadas nos serviços cognitivos [ **tudo-em-um oferta** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) as chaves do recurso. Pode criar um único recurso de tudo-em-um dos serviços cognitivos e usar a mesma chave de faturação em todos os serviços suportados para os seguintes serviços:
+
+* Imagem Digitalizada
+* Rostos
+* LUIS
+* Análise de Texto
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilidade de contentor nos serviços cognitivos do Azure
 
@@ -81,7 +98,10 @@ Exemplos de programador estão disponíveis em nosso [repositório do GitHub](ht
 
 Instalar e explorar a funcionalidade fornecida pelo contentores nos serviços cognitivos do Azure:
 
-* [Instalar e utilizar contentores de imagem digitalizada](Computer-vision/computer-vision-how-to-install-containers.md)
-* [Instalar e utilizar contentores de rostos](Face/face-how-to-install-containers.md)
-* [Instalar e utilizar contentores de análise de texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-* [Instalar e utilizar contentores de compreensão de idiomas (LUIS)](LUIS/luis-container-howto.md)
+* [Contentores de detetor de anomalias](Anomaly-Detector/anomaly-detector-container-howto.md)
+* [Contentores de visão do computador](Computer-vision/computer-vision-how-to-install-containers.md)
+* [Contentores de rostos](Face/face-how-to-install-containers.md)
+* [Contentores do reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
+* [Contentores do Language Understanding (LUIS)](LUIS/luis-container-howto.md)
+* [Contentores de API do serviço de voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
+* [Contentores de análise de texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

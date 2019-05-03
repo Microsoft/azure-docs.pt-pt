@@ -1,7 +1,7 @@
 ---
 title: Ligar e indexar o Azure SQL Database conteúdo com indexadores - Azure Search
 description: Aprenda a pesquisar dados na base de dados do SQL Azure com indexadores para pesquisa em texto completo no Azure Search. Este artigo aborda as ligações, a configuração do indexador e ingestão de dados.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c23933e7f379a438d436fd99c5fea7899c5891ef
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817171"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65025345"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Ligar a e indexar o conteúdo de indexadores do Azure Search a utilizar o Azure SQL Database
 
@@ -63,7 +63,7 @@ Dependendo de vários fatores relacionados aos seus dados, a utilização do ind
 1. Crie a origem de dados:
 
    ```
-    POST https://myservice.search.windows.net/datasources?api-version=2017-11-11
+    POST https://myservice.search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -82,7 +82,7 @@ Dependendo de vários fatores relacionados aos seus dados, a utilização do ind
 3. Crie o indexador, dando a ele um nome e o índice de origem e destino de dados de referência:
 
     ```
-    POST https://myservice.search.windows.net/indexers?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 
@@ -95,7 +95,7 @@ Dependendo de vários fatores relacionados aos seus dados, a utilização do ind
 
 Um indexador criado dessa forma, não tem uma agenda. Ele é automaticamente executada uma vez quando é criado. Pode executá-lo novamente a qualquer momento, utilizando um **executar o indexador** pedido:
 
-    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2017-11-11
+    POST https://myservice.search.windows.net/indexers/myindexer/run?api-version=2019-05-06
     api-key: admin-key
 
 Pode personalizar vários aspectos do comportamento de indexador, como o tamanho de lote e podem ser ignorados o número de documentos antes de falha de execução de um indexador. Para obter mais informações, consulte [API do indexador de criar](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
@@ -104,7 +104,7 @@ Se pretender permitir que os serviços do Azure ligar à base de dados. Ver [lig
 
 Para monitorizar o histórico de estado e a execução do indexador (número de itens indexados, falhas, etc.), utilize um **estado de indexador** pedido:
 
-    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2017-11-11
+    GET https://myservice.search.windows.net/indexers/myindexer/status?api-version=2019-05-06
     api-key: admin-key
 
 A resposta deve ter um aspeto semelhante ao seguinte:
@@ -146,7 +146,7 @@ Informações adicionais sobre a resposta podem ser encontradas no [obter estado
 ## <a name="run-indexers-on-a-schedule"></a>Executar os indexadores com base numa agenda
 Também é possível providenciar o indexador para executar periodicamente com base numa agenda. Para tal, adicione a **agenda** propriedade quando criar ou atualizar o indexador. O exemplo abaixo mostra um pedido PUT para atualizar o indexador:
 
-    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2017-11-11
+    PUT https://myservice.search.windows.net/indexers/myindexer?api-version=2019-05-06
     Content-Type: application/json
     api-key: admin-key
 

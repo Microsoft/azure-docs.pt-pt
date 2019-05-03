@@ -8,15 +8,15 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfb8f5ca9b4d204b7a5efdc1b54a0fdd150e5ed6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 637edc0e45daa37a753fbaa15313b076e8af4d7c
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344211"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023879"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Como fazer referência a anotações num conjunto de capacidades de pesquisa cognitiva
 
@@ -36,13 +36,13 @@ Antes de examinar a sintaxe, vamos rever alguns conceitos importantes a compreen
 <a name="example-1"></a>
 ## <a name="example-1-simple-annotation-reference"></a>Exemplo 1: Referência de anotação simples
 
-Armazenamento de Blobs do Azure, suponha que tem uma variedade de ficheiros que contêm referências a nomes de pessoas que pretende extrair usando o reconhecimento de entidades. Na definição de habilidades abaixo, `"/document/content"` é a representação textual de todo o documento, e "pessoas" é uma extração de nomes completos para entidades identificados como pessoas.
+Armazenamento de Blobs do Azure, suponha que tem uma variedade de ficheiros que contêm referências a nomes de pessoas que pretende extrair com reconhecimento de entidades. Na definição de habilidades abaixo, `"/document/content"` é a representação textual de todo o documento, e "pessoas" é uma extração de nomes completos para entidades identificados como pessoas.
 
 Uma vez que o contexto predefinido é `"/document"`, a lista de pessoas agora pode ser referenciada como `"/document/people"`. Nesse caso específico `"/document/people"` é uma anotação, que pode agora ser mapeada para um campo num índice ou utilizada em outra habilidade no mesmo conjunto de capacidades.
 
 ```json
   {
-    "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+    "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
     "categories": [ "Person"],
     "defaultLanguageCode": "en",
     "inputs": [

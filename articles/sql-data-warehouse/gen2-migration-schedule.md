@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 0d3927fbc1826f9ab4f613a7c2a310f581b7f7c5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: HT
+ms.openlocfilehash: a5d93a77652f540fde44b33963b13df04b45ecee
+ms.sourcegitcommit: 60606c5e9a20b2906f6b6e3a3ddbcb6c826962d6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729295"
+ms.lasthandoff: 05/01/2019
+ms.locfileid: "64987932"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Atualizar o seu armazém de dados para a geração 2
 
@@ -67,7 +67,7 @@ A tabela seguinte resume por região quando a escala de computação de geraçã
 
 ## <a name="automatic-upgrade-process"></a>Processo de atualização automática
 
-Com base no gráfico de disponibilidade acima, vai ser agendamento de atualizações automáticas para as suas instâncias de geração 1. Para evitar qualquer interrupção inesperada na disponibilidade do armazém de dados, as atualizações automáticas serão agendadas durante a sua agenda de manutenção. Para obter mais informações sobre agendas, consulte [ver um agendamento de manutenção](viewing-maintenance-schedule.md)
+Com base no gráfico de disponibilidade acima, vai ser agendamento de atualizações automáticas para as suas instâncias de geração 1. Para evitar qualquer interrupção inesperada na disponibilidade do armazém de dados, as atualizações automáticas serão agendadas durante a sua agenda de manutenção. A capacidade de criar uma nova instância de geração 1 será desativada em regiões passando por atualização automática para a geração 2. Para obter mais informações sobre agendas, consulte [ver um agendamento de manutenção](viewing-maintenance-schedule.md)
 
 O processo de atualização envolverá uma breve queda da conectividade (aproximadamente 5 min) como vamos reiniciar o seu armazém de dados.  Assim que o seu armazém de dados foi reiniciado, ele será totalmente disponível para utilização. No entanto, pode ocorrer uma degradação do desempenho enquanto o processo de atualização continua a atualizar os ficheiros de dados em segundo plano. O tempo total para a degradação do desempenho irá variar depende do tamanho dos ficheiros de dados.
 

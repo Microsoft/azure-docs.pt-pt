@@ -1,5 +1,5 @@
 ---
-title: Início rápido executar um bloco de notas na cloud
+title: 'Início rápido: Executar um bloco de notas na cloud'
 titleSuffix: Azure Machine Learning service
 description: Introdução ao serviço Azure Machine Learning. Utilize um servidor gerido na cloud para experimentar a sua área de trabalho.  A área de trabalho é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática.
 services: machine-learning
@@ -8,85 +8,103 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0672d90a25bc4c879d28512ab212f98f29efbf3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3d4127226037bf28ba677a49f6444ca987118cb9
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754106"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023888"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning
 
-Neste artigo, vai utilizar blocos de notas do Azure para executar o código que é registado no serviço do Azure Machine Learning [área de trabalho](concept-azure-machine-learning-architecture.md). A área de trabalho é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática com o Machine Learning. 
+Criar um servidor de bloco de notas com base na cloud e, em seguida, utilizá-lo.  Neste início rápido, vai executar código Python que efetua login valores a [área de trabalho do Azure Machine Learning serviço](concept-azure-machine-learning-architecture.md). A área de trabalho é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática com o Machine Learning. 
 
-Este início rápido utiliza recursos na cloud e não requer qualquer instalação. Para utilizar em vez disso, o seu próprio ambiente, consulte [início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning](quickstart-run-local-notebook.md).  
+Este início rápido mostra como criar um recurso da nuvem na sua área de trabalho do Azure Machine Learning, configurado com o ambiente do Python necessário para executar o Azure Machine Learning. Para utilizar em vez disso, o seu próprio ambiente, consulte [início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning](quickstart-run-local-notebook.md).  
  
 Neste início rápido, efetuar as seguintes ações:
 
-* Ligar à sua área de trabalho com o Python num bloco de notas do Jupyter. O bloco de anotações contém código para calcular o instalador de plataforma e registos de erros em cada iteração. 
-* Ver os valores de erro com sessão iniciada na sua área de trabalho.
+* Criar um novo servidor de bloco de notas com base na cloud na sua área de trabalho
+* Iniciar a interface de web do Jupyter
+* Abra um bloco de notas que contém o código para calcular o instalador de plataforma e registos de erros em cada iteração.
+* Execute o bloco de notas.
+* Ver os valores de erro com sessão iniciada na sua área de trabalho.  Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo das informações geradas num script. 
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-## <a name="prerequisite"></a>Pré-requisito
+## <a name="prerequisites"></a>Pré-requisitos
 
-1. [Criar uma área de trabalho do Azure Machine Learning](setup-create-workspace.md#portal) se não tiver uma.
+- Uma área de trabalho do Azure Machine Learning.  [Criar a sua área de trabalho](setup-create-workspace.md#portal) agora, se não tiver uma.
 
-1. Abra a área de trabalho do [portal do Azure](https://portal.azure.com/).  Veja como [encontrar a sua área de trabalho](how-to-manage-workspace.md#view).
+## <a name="create-a-cloud-based-notebook-server"></a>Criar um servidor de bloco de notas com base na cloud
 
-## <a name="use-your-workspace"></a>Utilizar a sua área de trabalho
+ Na área de trabalho, criar um recurso da nuvem para começar a utilizar blocos de notas do Jupyter. Este recurso oferece uma plataforma com base na cloud pré-configuradas com tudo o que precisa para executar o serviço Azure Machine Learning.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
+1. Abra a área de trabalho do [portal do Azure](https://portal.azure.com/).  Se não tem a certeza de como localizar a sua área de trabalho no portal, consulte como [encontrar a sua área de trabalho](how-to-manage-workspace.md#view).
 
+1. Na sua página de área de trabalho no portal do Azure, selecione **VMs de bloco de notas** à esquerda.
 
+1. Selecione **+ novo** para criar uma VM do bloco de notas.
 
-Saiba como uma área de trabalho ajuda-o a gerir os seus scripts do machine learning. Nesta secção, siga os passos seguintes:
+     ![Selecione a nova VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-* Abrir um bloco de notas no Azure Notebooks.
-* Executar código que cria alguns valores registados.
-* Ver os valores registados na área de trabalho.
+1. Forneça um nome para a sua VM. Em seguida, selecione **Criar**. 
 
-Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo das informações geradas num script. 
+    ![Criar uma nova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-### <a name="open-a-notebook"></a>Abrir um bloco de notas 
+1. Aguarde aproximadamente 4 a 5 minutos, em seguida, selecione **atualizar**.  Tente atualizar a cada 30 segundos mais ou menos até que o estado seja **em execução**.
 
-[Blocos de notas do Azure](https://notebooks.azure.com) fornece uma plataforma de cloud gratuitos para blocos de notas do Jupyter que é pré-configurado com tudo o que precisa para executar o Machine Learning. Na área de trabalho, pode iniciar esta plataforma para começar a utilizar a sua área de trabalho do serviço do Azure Machine Learning.
+    ![Atualizar](media/quickstart-run-cloud-notebook/refresh.png)
 
-1. Na página de descrição geral de área de trabalho, selecione **introdução ao Azure blocos de notas** para experimentar a sua primeira experiência em blocos de notas do Azure.  Blocos de notas do Azure é um serviço separado, que permite que execute blocos de notas Jupyter gratuitamente na cloud.  Quando utiliza esta ligação para o serviço, informações sobre como ligar à sua área de trabalho serão adicionadas à biblioteca de que criar em blocos de notas do Azure.
+## <a name="launch-jupyter-web-interface"></a>Iniciar a interface de web do Jupyter
 
-   ![Explore a área de trabalho](./media/quickstart-run-cloud-notebook/explore-aml.png)
+Depois da VM está em execução, utilize o **VMs de bloco de notas** secção para iniciar a interface de web do Jupyter.
 
-1. Inicie sessão em blocos de notas do Azure.  Certifique-se de que iniciar sessão com a mesma conta utilizada para iniciar sessão no portal do Azure. A sua organização poderá precisar de [consentimento de administrador](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) antes de poder iniciar sessão.
+1. Selecione **Jupyter** no **URI** coluna para a sua VM.  
 
-1. Depois de iniciar sessão, é aberto um novo separador e um aviso `Clone Library` é apresentado. Clonar esta biblioteca carregará um conjunto de blocos de notas e outros ficheiros na sua conta de blocos de notas do Azure.  Estes ficheiros ajudam a explorar os recursos do Azure Machine Learning.
+    ![Iniciar o servidor de bloco de notas do Jupyter](./media/quickstart-run-cloud-notebook/start-server.png)
 
-1. Desmarque **público** para que não a partilhar as informações da sua área de trabalho com outras pessoas.
+    A ligação inicia o servidor de bloco de notas e abre a página de Web de bloco de notas do Jupyter num novo separador do browser.  Esse link só funciona para a pessoa que cria a VM.
 
-1. Selecione **Clone**.
+1. Na página de Web do bloco de notas Jupyter, selecione o **amostras/quickstart** pasta para ver o bloco de notas do guia de introdução.
 
-   ![Clonar uma biblioteca](./media/quickstart-run-cloud-notebook/clone.png)
+## <a name="run-the-notebook"></a>Executar o bloco de notas
 
-1. Se vir que o status do projeto é parado, clique em **executado no computador livre** para utilizar o servidor de bloco de notas gratuito.
-
-    ![Executar um projeto no cálculo gratuita](./media/quickstart-run-cloud-notebook/run-project.png)
-
-### <a name="run-the-notebook"></a>Executar o bloco de notas
-
-Na lista de ficheiros para este projeto, verá um `config.json` ficheiro. Este ficheiro de configuração contém informações sobre a área de trabalho que criou no portal do Azure.  Este ficheiro permite que seu código ligar a e adicione informações na área de trabalho.
+Execute um bloco de notas que as estimativas de instalador de plataforma e registra o erro em sua área de trabalho.
 
 1. Selecione **01.run experiment.ipynb** para abrir o bloco de notas.
 
-1. A área de status informa ao aguardar até que o kernel foi iniciado.  A mensagem desaparecerá depois do kernel está pronto.
+1. Poderá ver uma mensagem que o kernel não foi definido.  Selecione **Python 3.6 - AzureML**, em seguida, selecione **definir Kernel**.
+
+   ![Definir o kernel](./media/quickstart-run-cloud-notebook/set-kernel.png)
+
+1. A área de status informa ao aguardar até que o kernel foi iniciado. A mensagem desaparecerá depois do kernel está pronto.
 
     ![Aguarde de kernel começar](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. Depois de iniciado o kernel, execute as células um a um momento, utilizando **Shift + Enter**. Ou selecione **células** > **executar todos** para executar o bloco de notas completo. Quando vir um asterisco __*__, junto a uma célula, a célula ainda está em execução. Após o código para essa célula terminar, é apresentado um número. 
+1.  Clique na primeira célula de código e selecione **executar**.
 
-1. Siga as instruções no bloco de notas para autenticar a sua subscrição do Azure.
+    > [!NOTE]
+    > Células de código têm Retos antes-los. Se os colchetes estão vazios (__[]__), o código não tiver sido executado. Enquanto o código está em execução, verá um asterisco (__[*]__). Após a conclusão de código, um número **[1]** aparece.  O número indica a ordem em que as células foi executado.
+    >
+    > Uso **Shift-Enter** como um atalho para executar uma célula.
 
-Depois de terminar a executar todas as células no bloco de notas, pode ver os valores com sessão iniciada na sua área de trabalho.
+    ![Executa a primeira célula de código](media/quickstart-run-cloud-notebook/cell1.png)
+
+1. Execute a segunda célula do código. Se ver instruções para se autenticar, copie o código e siga a ligação para iniciar sessão. Depois de iniciar sessão, o browser irá se lembrar dessa configuração.  
+
+    > [!TIP]
+    > Certifique-se de que não copiar o espaço depois do código.  
+
+    ![Autenticar](media/quickstart-run-cloud-notebook/authenticate.png)
+
+1. Quando terminar, o número de células __[2]__ aparece.  Se tiver de iniciar sessão, verá uma mensagem de estado de autenticação com êxito.   Se não tiver de iniciar sessão, não verá quaisquer dados para esta célula, apenas o número é apresentado mostrar que a célula foi executada com êxito.
+
+    ![Mensagem de êxito](media/quickstart-run-cloud-notebook/success.png)
+
+1. Execute o restante das células de código.  Como cada célula termina a execução, verá o número de célula são apresentados. A última célula apresenta quaisquer outros dados.  Na maior célula de código, verá `run.log` utilizado em vários locais. Cada `run.log` adiciona o seu valor à sua área de trabalho.
+
 
 ## <a name="view-logged-values"></a>Ver valores registados
 
@@ -104,13 +122,35 @@ Uma vez que o código para pi aproximado utiliza valores aleatórios, seus gráf
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 
+### <a name="stop-the-notebook-vm"></a>Parar o bloco de notas VM
+
+Pare o bloco de notas VM quando não estiver a utilizá-lo a reduzir os custos.  
+
+1. Na área de trabalho, selecione **VMs de bloco de notas**.
+
+   ![Parar o servidor VM](./media/quickstart-run-cloud-notebook/stop-server.png)
+
+1. Na lista, selecione a VM.
+
+1. Selecione **parar**.
+
+1. Quando estiver pronto para o utilizador o servidor novamente, selecione **iniciar**.
+
+### <a name="delete-everything"></a>Eliminar tudo
+
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 Também pode manter o grupo de recursos mas eliminar uma área de trabalho única. Apresentar as propriedades de área de trabalho e selecione **eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Criou os recursos necessários para experimentar e implementar modelos. Também executou algum código num bloco de notas. E explorou o histórico de execuções desse código na sua área de trabalho na cloud.
+Neste início rápido, concluir estas tarefas:
+
+* Criar uma VM do bloco de notas
+* Iniciar um servidor de bloco de notas do Jupyter no bloco de notas VM
+* Abra um bloco de notas que contém o código para calcular o instalador de plataforma e registos de erros em cada iteração.
+* Execute o bloco de notas.
+* Ver os valores de erro com sessão iniciada na sua área de trabalho.  Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo das informações geradas num script. 
 
 Para obter uma experiência de fluxo de trabalho detalhados, siga os tutoriais de Machine Learning para preparar e implementar um modelo:  
 

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: jordane
 author: jpe316
-ms.date: 04/30/2019
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2992ec9f43aac9e0d80c5e42873d26ac3a9c3fd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9cc6ad4f7b33de4d132efe63ff11c34f10b614af
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916985"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023372"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Utilizar a extensão da CLI para o serviço Azure Machine Learning
 
@@ -80,7 +80,6 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
     ```
 
 + Anexe uma configuração de área de trabalho para uma pasta para ativar a deteção contextual da CLI.
-
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
@@ -90,26 +89,14 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
     ```azurecli-interactive
     az ml datastore attach-blob  -n datastorename -a accountname -c containername
     ```
-
+    
 + Anexe um cluster do AKS como um destino de computação.
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace
     ```
 
-+ Criar um novo destino de AMLcompute
-
-    ```azurecli-interactive
-    az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
-    ```
-    
 ## <a id="experiments"></a>Executar experimentações
-
-+ Anexe uma configuração de área de trabalho para uma pasta para ativar a deteção contextual da CLI.
-
-    ```azurecli-interactive
-    az ml folder attach -w myworkspace -g myresourcegroup
-    ```
 
 * Inicie uma execução da sua experimentação. Quando utilizar este comando, especifique o nome do ficheiro runconfig (o texto antes do \*.runconfig se estiver à procura no seu sistema de ficheiros) contra o parâmetro - c.
 
@@ -123,7 +110,7 @@ Os comandos seguintes demonstram como utilizar a CLI para gerir os recursos util
     az ml experiment list
     ```
 
-## <a name="model-registration-profiling-deployment"></a>Registo do modelo, criação de perfis, implementação
+## <a name="model-registration-profiling--deployment"></a>Registo de modelo, criação de perfis e implementação
 
 Os comandos seguintes demonstram como registar um modelo preparado e, em seguida, implementá-la como um serviço de produção:
 

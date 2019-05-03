@@ -27,6 +27,8 @@
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
+    - name: Fornecer comentários sobre o produto
+      href: 'https://cognitive.uservoice.com/'
     - name: Código de conduta
       href: 'https://go.microsoft.com/fwlink/?LinkId=698895'
     - name: Base de Dados de Conhecimento

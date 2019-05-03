@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 11b2fb5a246dfa8f5b1295a11cc57de36120898e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f366726f539a817f515a78fbc35bfeaa3b65514e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61283432"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024506"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Dados de segurança e privacidade no Azure Search
 
@@ -43,11 +43,8 @@ Encriptação estende-se ao longo de todo o pipeline de indexação: partir das 
 | Camada de segurança | Descrição |
 |----------------|-------------|
 | Encriptação em trânsito <br>(HTTPS/SSL/TLS) | O Azure Search escuta na porta HTTPS 443. Em toda a plataforma, as ligações aos serviços do Azure são encriptadas. <br/><br/>Todas as interações de Azure Search do serviço de cliente são compatíveis com o SSL/TLS 1.2.  Certifique-se de que utilizar TLSv1.2 para ligações de SSL ao seu serviço.|
-| Encriptação inativa | Encriptação é totalmente internalizada no processo de indexação, sem afetar mensuráveis indexação tempo de conclusão ou tamanho do índice. Ocorre automaticamente na indexação de todos os, incluindo as atualizações incrementais para um índice que não está totalmente encriptado (criada antes de Janeiro de 2018).<br><br>Internamente, a encriptação é baseada em [do Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), através de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).|
-
-A criptografia é interna para o Azure Search, com certificados e chaves de encriptação gerida internamente pela Microsoft e aplicadas universalmente. Não é possível ativar ou desativar a encriptação, gerir ou substituir as suas próprias chaves ou ver as definições de encriptação no portal ou através de programação. 
-
-Encriptação em repouso foi anunciada em 24 de Janeiro de 2018 e aplica-se a todos os escalões de serviço, incluindo serviços (gratuitos) partilhados, em todas as regiões. Para a encriptação completa, índices criados antes dessa data tem de ser removidos e reconstruídos para que encriptação para ocorrer. Caso contrário, apenas os novos dados adicionados após 24 de Janeiro são encriptados.
+| Encriptação inativa <br>Chaves geridas pela Microsoft | Encriptação é totalmente internalizada no processo de indexação, sem afetar mensuráveis indexação tempo de conclusão ou tamanho do índice. Ocorre automaticamente na indexação de todos os, incluindo as atualizações incrementais para um índice que não está totalmente encriptado (criada antes de Janeiro de 2018).<br><br>Internamente, a encriptação é baseada em [do Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), através de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> A criptografia é interna para o Azure Search, com certificados e chaves de encriptação gerida internamente pela Microsoft e aplicadas universalmente. Não é possível ativar ou desativar a encriptação, gerir ou substituir as suas próprias chaves ou ver as definições de encriptação no portal ou através de programação.<br><br>Encriptação em repouso foi anunciada em 24 de Janeiro de 2018 e aplica-se a todos os escalões de serviço, incluindo serviços (gratuitos) partilhados, em todas as regiões. Para a encriptação completa, índices criados antes dessa data tem de ser removidos e reconstruídos para que encriptação para ocorrer. Caso contrário, apenas os novos dados adicionados após 24 de Janeiro são encriptados.|
+| Encriptação inativa <br>Chaves geridas pelo cliente | A encriptação com chaves gerida pelo cliente é um **pré-visualização** dos serviços de recurso que não está disponível gratuitamente. Para serviços pagos, só está disponível para os serviços de pesquisa criados em ou depois de Janeiro de 2019, usando a versão mais recente visualização a api-version (api-version = 2019-05-06-pré-visualização).<br><br>Índices de pesquisa do Azure e mapas de sinónimos agora podem ser encriptados em repouso com chaves de cliente gerido chaves no Azure Key Vault. Para obter mais informações, consulte [gerir chaves de encriptação no Azure Search](search-security-manage-encryption-keys.md).<br>Esta funcionalidade não está a substituir a encriptação de predefinição em repouso, mas em vez disso, é aplicada para além de-lo.<br>Ativar esta funcionalidade irá aumentar o tamanho do índice e degradar o desempenho de consulta. Com base nas observações até à data, pode esperar ver um aumento de 30% - 60% no tempo de consulta, embora o desempenho real irá variar consoante a definição de índice e os tipos de consultas. Devido a esse impacto no desempenho, recomendamos que ative apenas esta funcionalidade em índices que realmente precisam dela.
 
 ## <a name="azure-wide-user-access-controls"></a>Controlos de acesso de utilizador de todo o Azure
 

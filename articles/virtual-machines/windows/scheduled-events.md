@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: ab0aefd5650aada9c301115813a80747ddd1f2ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926320"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64992927"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Windows
 
@@ -45,7 +45,7 @@ Muitos aplicativos podem beneficiar de tempo para se preparar para a manutençã
 Através dos eventos agendados seu aplicativo podem detetar quando manutenção irá ocorrer e acionar tarefas para limitar seu impacto. Ativar eventos agendados dá a sua máquina virtual uma quantidade mínima de tempo antes que seja efetuada a atividade de manutenção. Consulte a secção de agendamento eventos abaixo para obter detalhes.
 
 Eventos agendados fornece eventos nos seguintes casos de utilização:
-- Manutenção de plataforma iniciada (por exemplo, atualização de SO de Host)
+- [Manutenção iniciada de plataforma](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, VM reinicialização, migração em direto ou atualizações para o anfitrião de preservação de memória)
 - Hardware degradado
 - (Por exemplo, usuário será reiniciado e reimplementa uma VM) de manutenção iniciada pelo utilizador
 - [Expulsão de baixa prioridade VM](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
@@ -119,7 +119,7 @@ O DocumentIncarnation é uma ETag e fornece uma forma fácil de inspecionar se o
 |Propriedade  |  Descrição |
 | - | - |
 | EventId | Identificador exclusivo global para este evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impacto faz com que o este evento. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está agendada para pausar durante alguns segundos. A CPU está suspenso, mas não há nenhum impacto na memória, ficheiros abertos ou ligações de rede. <li>`Reboot`: A Máquina Virtual está agendada para reinicialização (a memória não persistentes é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para mover para outro nó (discos efémeros são perdidos). <li>`Preempt`: A Máquina Virtual de baixa prioridade está a ser eliminado (discos efémeros são perdidos).|
+| EventType | Impacto faz com que o este evento. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está agendada para colocar em pausa por alguns segundos. Conectividade de CPU e da rede pode ser suspensa, mas não há nenhum impacto na memória ou ficheiros abertos. <li>`Reboot`: A Máquina Virtual está agendada para reinicialização (a memória não persistentes é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para mover para outro nó (discos efémeros são perdidos). <li>`Preempt`: A Máquina Virtual de baixa prioridade está a ser eliminado (discos efémeros são perdidos).|
 | ResourceType | Tipo de recurso que tem impacto sobre a este evento. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Lista de recursos que tem impacto sobre a este evento. Isso é garantido que contêm máquinas a partir de um [domínio de atualização](manage-availability.md), mas não pode conter todas as máquinas a UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | Estado do evento | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para iniciar após o período de tempo especificado no `NotBefore` propriedade.<li>`Started`: Este evento foi iniciado.</ul> Não `Completed` ou estado semelhante já é fornecido; o evento já não vai ser devolvido quando o evento for concluído.
@@ -136,7 +136,8 @@ Cada evento está agendado uma quantidade mínima de tempo no futuro, com base n
 | Tomar o lugar | 30 segundos |
 
 ### <a name="event-scope"></a>Âmbito de eventos     
-Eventos agendados são entregues para:        
+Eventos agendados são entregues para:
+ - Máquinas virtuais autónomas
  - Todas as máquinas virtuais num serviço Cloud      
  - Todas as máquinas virtuais num conjunto de disponibilidade      
  - Todas as máquinas virtuais num grupo de colocação do conjunto de dimensionamento.         

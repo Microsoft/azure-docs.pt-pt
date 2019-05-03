@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2bd271557ae0deefeb12a2dc7343c46fbd35363
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817561"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023789"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
 Neste artigo, vai aprender diferentes métodos de transformar dados com o SDK do Azure Machine Learning Data Prep. O SDK oferece funções que tornam mais fácil adicionar colunas, filtrar indesejadas linhas ou colunas e impute valores em falta. Para ver a documentação de referência para o SDK, consulte a [descrição geral](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> Se estiver a criar uma nova solução, tente o [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (pré-visualização) para transformar os seus dados, os dados de instantâneos e armazenar as definições do conjunto de dados com a versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para o gerenciamento de soluções de ia de conjuntos de dados de preparação de dados.
 
 Nesta explicação de procedimento mostra exemplos para as seguintes tarefas:
 
@@ -35,7 +38,7 @@ Nesta explicação de procedimento mostra exemplos para as seguintes tarefas:
 
 Inclui o SDK do Azure Machine Learning Data Prep `substring` expressões, pode utilizar para calcular um valor de colunas existentes e, em seguida, colocar esse valor numa nova coluna. Neste exemplo, carregar dados e tente adicionar colunas a esses dados de entrada.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -52,7 +55,7 @@ dflow.head(3)
 
 Utilize o `substring(start, length)` expressão para extrair o prefixo da coluna de número de caso e colocar essa cadeia de caracteres numa nova coluna, `Case Category`. Passando o `substring_expression` variável para o `expression` parâmetro cria uma nova coluna calculada que executa a expressão em cada registo.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -67,10 +70,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|05/07/2015 20: 11:00 PM|121XX S FRONT AVE|0486|BATERIA|BATERIA NACIONAL SIMPLE|RUA|false|true|...|9|53|08B|||2015|12/07/2015 42:46 12:00 DE|
 
 
-
 Utilize o `substring(start)` expressão para extrair apenas o número da coluna de número de caso e criar uma nova coluna. Convertê-lo para um tipo de dados numéricos com o `to_number()` funcionar e passar o nome da coluna de cadeia de caracteres como um parâmetro.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',

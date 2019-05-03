@@ -11,18 +11,18 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: a862c920f1e070ab1bbb8af2546bc3d4350347b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4aaf56a00669dbf7e312e2a6f8787ccc664d1190
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819461"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023821"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como um serviço web
 
 Implementar um modelo do Azure Machine Learning como um serviço web cria uma API REST. Pode enviar dados para esta API e receber a predição devolvida pelo modelo. Neste documento, saiba como criar clientes para o serviço web com o C#, Go, Java e Python.
 
-Criar um web service ao implementar uma imagem para o Azure Container Instances, o serviço Kubernetes do Azure ou o Project Brainwave (matrizes de porta programável por campo). Criar imagens a partir de modelos de registado e classificação de ficheiros. Obter o URI utilizado para aceder a um serviço web utilizando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
+Criar um web service ao implementar uma imagem para o Azure Container Instances, Azure Kubernetes Service ou matrizes de porta de campos programáveis (FPGA). Criar imagens a partir de modelos de registado e classificação de ficheiros. Obter o URI utilizado para aceder a um serviço web utilizando o [SDK do Azure Machine Learning](https://aka.ms/aml-sdk). Se a autenticação estiver ativada, também pode utilizar o SDK para obter as chaves de autenticação.
 
 O fluxo de trabalho geral para a criação de um cliente que utiliza um serviço web machine learning é:
 

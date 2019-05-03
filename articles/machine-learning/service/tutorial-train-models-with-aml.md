@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 04/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 76567db7362298b5cd35b544bf7952ebc54a2b66
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723200"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021739"
 ---
 # <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning
 
@@ -45,31 +45,29 @@ Avance para o [configurar o ambiente de desenvolvimento](#start) para ler os pas
 * Um servidor de bloco de notas do Python 3.6 com o seguinte instalado:
     * O Azure Machine Learning SDK para Python
     * `matplotlib` e `scikit-learn`
-* O bloco de notas do tutorial e utils.py o ficheiro
-* Uma área de trabalho do machine learning 
-* O ficheiro de configuração para a área de trabalho no mesmo diretório como o bloco de notas 
+* O tutorial bloco de notas e o ficheiro **utils.py**
+* Uma área de trabalho do machine learning
+* O ficheiro de configuração para a área de trabalho no mesmo diretório como o bloco de notas
 
 Obter todos os estes pré-requisitos a partir de qualquer uma das seções abaixo.
  
-* Utilize [blocos de notas do Azure](#azure) 
+* Utilize um [servidor de bloco de notas na nuvem na sua área de trabalho](#azure) 
 * Utilize [seu próprio servidor de bloco de notas](#server)
 
-### <a name="azure"></a>Utilize blocos de notas do Azure: Blocos de notas do Jupyter gratuitos na cloud
+### <a name="azure"></a>Utilizar um servidor de bloco de notas de cloud na sua área de trabalho
 
-É fácil começar com blocos de notas do Azure! O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado para si no [blocos de notas do Azure](https://notebooks.azure.com/). A instalação e as futuras atualizações são geridas automaticamente por meio de serviços do Azure.
-
-Depois de concluir os passos abaixo, execute o **tutoriais/img-classificação-part1-training.ipynb** bloco de notas no seu **introdução** projeto.
+É fácil começar a utilizar o seu próprio servidor de bloco de notas com base na cloud. O [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) já está instalado e configurado por si, depois de criar este recurso da nuvem.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* Depois de iniciar a página de Web do bloco de notas, abra a **tutoriais/img-classificação-part1-training.ipynb** bloco de notas.
 
 
 ### <a name="server"></a>Utilizar o seu próprio servidor de bloco de notas do Jupyter
 
-Utilize estes passos para criar um servidor de bloco de notas Jupyter local no seu computador. 
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- Depois de concluir os passos, execute o **tutoriais/img-classificação-part1-training.ipynb** bloco de notas.
+ Depois de concluir os passos, execute o **tutoriais/img-classificação-part1-training.ipynb** bloco de notas do seu diretório clonado.
 
 ## <a name="start"></a>Configurar o ambiente de desenvolvimento
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: aacb4521f4c6e8699be357cf396a01b7eb54b552
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
+ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924378"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "64993154"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Linux
 
@@ -46,7 +46,7 @@ Com eventos agendados, seu aplicativo pode detetar quando manutenção irá ocor
 
 Eventos agendados fornece eventos nos seguintes casos de utilização:
 
-- Manutenção iniciada pelo plataforma (por exemplo, uma atualização do sistema operacional host)
+- [Manutenção iniciada de plataforma](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, VM reinicialização, migração em direto ou atualizações para o anfitrião de preservação de memória)
 - Hardware degradado
 - Manutenção iniciada pelo utilizador (por exemplo, um utilizador for reiniciado ou reimplementa uma VM)
 - [Expulsão de baixa prioridade VM](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
@@ -58,6 +58,7 @@ Eventos agendados fornece eventos nos seguintes casos de utilização:
 ### <a name="scope"></a>Âmbito
 Eventos agendados são entregues para:
 
+- Máquinas virtuais autónomas.
 - Todas as VMs num serviço cloud.
 - Todas as VMs num conjunto de disponibilidade.
 - Todas as VMs num grupo de colocação do conjunto de dimensionamento. 
@@ -129,7 +130,7 @@ No caso em que há eventos agendados, a resposta contém uma matriz de eventos.
 |Propriedade  |  Descrição |
 | - | - |
 | EventId | Identificador exclusivo global para este evento. <br><br> Exemplo: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impacto faz com que o este evento. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está agendada para pausar durante alguns segundos. A CPU está suspenso, mas não há nenhum impacto na memória, ficheiros abertos ou ligações de rede. <li>`Reboot`: A Máquina Virtual está agendada para reinicialização (a memória não persistentes é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para mover para outro nó (discos efémeros são perdidos). <li>`Preempt`: A Máquina Virtual de baixa prioridade está a ser eliminado (discos efémeros são perdidos).|
+| EventType | Impacto faz com que o este evento. <br><br> Valores: <br><ul><li> `Freeze`: A Máquina Virtual está agendada para colocar em pausa por alguns segundos. Conectividade de CPU e da rede pode ser suspensa, mas não há nenhum impacto na memória ou ficheiros abertos.<li>`Reboot`: A Máquina Virtual está agendada para reinicialização (a memória não persistentes é perdida). <li>`Redeploy`: A Máquina Virtual está agendada para mover para outro nó (discos efémeros são perdidos). <li>`Preempt`: A Máquina Virtual de baixa prioridade está a ser eliminado (discos efémeros são perdidos).|
 | ResourceType | Tipo de recurso que afeta a este evento. <br><br> Valores: <ul><li>`VirtualMachine`|
 | Recursos| Lista de recursos que afeta a este evento. A lista é garantida que contêm máquinas a partir de um [domínio de atualização](manage-availability.md), mas não poderá conter todas as máquinas a UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para iniciar após o período de tempo especificado no `NotBefore` propriedade.<li>`Started`: Este evento foi iniciado.</ul> Não `Completed` ou estado semelhante nunca seja fornecido. O evento já não é retornado quando o evento estiver concluído.

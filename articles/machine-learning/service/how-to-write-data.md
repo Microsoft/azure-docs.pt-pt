@@ -10,18 +10,21 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 92f04d80ea956f3036d7778a5d6de62e53b969ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817361"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023738"
 ---
-# <a name="write-and-configure-data-using-azure-machine-learning"></a>Escrever e configurar os dados com o Azure Machine Learning
+# <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Escrever e configurar os dados com o SDK de preparação de dados do Azure Machine Learning
 
 Neste artigo, vai aprender diferentes métodos para escrever dados com o [SDK Python do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) e como configurar esses dados para a experimentação com o [do Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Dados de saída podem ser escritos em qualquer um fluxo de dados. Escritas são adicionadas como passos ao fluxo de dados resultante e estes passos são executados sempre que os dados de execuções de fluxo. Dados são gravados para vários ficheiros de partição para permitir que escritas paralelas.
+
+> [!Important]
+> Se estiver a criar uma nova solução, tente o [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (pré-visualização) para transformar os seus dados, os dados de instantâneos e armazenar as definições do conjunto de dados com a versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para o gerenciamento de soluções de ia de conjuntos de dados de preparação de dados.
 
 Uma vez que existem sem limites de quantos escrever passos existem num pipeline, pode adicionar facilmente passos adicionais de escrita para obter os resultados intermediários para resolução de problemas ou para outros pipelines.
 

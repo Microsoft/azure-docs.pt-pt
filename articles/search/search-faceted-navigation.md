@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 21c75c0f377f55614e2c7fa0bb27628cf598e3e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924576"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65023962"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
 Navegação por facetas é um mecanismo de filtragem que fornece navegação de Detalhamento auto-direcionada em aplicativos de pesquisa. O termo 'navegação por facetas' pode estar familiarizado, mas provavelmente usou antes. Como mostra o exemplo seguinte, a navegação por facetas é nada mais do que as categorias, utilizadas para filtrar os resultados.
 
  ![Demonstração de Portal de tarefa de pesquisa do Azure][1]
 
-Navegação por facetas é um ponto de entrada alternativa para procurar. Ele oferece uma alternativa conveniente para escrever expressões de pesquisa complexa manualmente. Facetas podem ajudar a encontrar o que está procurando, garantindo que não obtém zero resultados. Como desenvolvedor, facetas permitem-lhe expor os critérios de pesquisa mais úteis para navegar de corpo. Em aplicativos do setor do retalho online, navegação por facetas baseia-se, muitas vezes, ao longo de marcas, departamentos (sapatos para crianças), tamanho, preço, popularidade e classificações. 
+Navegação por facetas é um ponto de entrada alternativa para procurar. Ele oferece uma alternativa conveniente para escrever expressões de pesquisa complexa manualmente. Facetas podem ajudar a encontrar o que está procurando, garantindo que não obtém zero resultados. Como desenvolvedor, facetas permitem-lhe expor os critérios de pesquisa mais úteis para navegar seu índice de pesquisa. Em aplicativos do setor do retalho online, navegação por facetas baseia-se, muitas vezes, ao longo de marcas, departamentos (sapatos para crianças), tamanho, preço, popularidade e classificações. 
 
 Implementando a navegação por facetas difere em tecnologias de pesquisa. No Azure Search, navegação por facetas baseia-se no momento da consulta, com campos que anteriormente atribuído no seu esquema.
 

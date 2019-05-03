@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9369e076517e295a7d17011e024353614ec8ad46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61344550"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65021776"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um conjunto de capacidades num pipeline de melhoria
 
-Pesquisa cognitiva extrai e otimiza os dados para torná-lo pesquisáveis no Azure Search. Chamamos passos de extração e enriquecimento *capacidades cognitivas*, combinados num *conjunto de capacidades* referenciado durante a indexação. Pode utilizar um conjunto de capacidades [predefinidos habilidades](cognitive-search-predefined-skills.md) ou competências personalizadas (consulte [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md) para obter mais informações).
+Pesquisa cognitiva extrai e otimiza os dados para torná-lo pesquisáveis no Azure Search. Chamamos passos de extração e enriquecimento *capacidades cognitivas*, combinados num *conjunto de capacidades* referenciado durante a indexação. Pode utilizar um conjunto de capacidades [habilidades internas](cognitive-search-predefined-skills.md) ou competências personalizadas (consulte [exemplo: criar uma habilidade personalizada](cognitive-search-create-custom-skill-example.md) para obter mais informações).
 
 Neste artigo, saiba como criar um pipeline de melhoria para as competências que pretende utilizar. Um conjunto de capacidades está ligado a um Azure Search [indexador](search-indexer-overview.md). Uma parte do design de pipeline, abordada neste artigo, é construir o conjunto de capacidades em si. 
 
@@ -57,7 +57,7 @@ No diagrama, o *aberturas de documentos* passo ocorre automaticamente. Essencial
 Um conjunto de capacidades é definido como uma matriz de habilidades. Cada habilidade define a origem das respetivas entradas e o nome de saídas produzido. Utilizar o [criar API REST do conjunto de capacidades](https://docs.microsoft.com/rest/api/searchservice/create-skillset), pode definir um conjunto de capacidades que corresponde ao diagrama anterior: 
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -69,7 +69,7 @@ Content-Type: application/json
   "skills":
   [
     {
-      "@odata.type": "#Microsoft.Skills.Text.NamedEntityRecognitionSkill",
+      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
       "context": "/document",
       "categories": [ "Organization" ],
       "defaultLanguageCode": "en",
@@ -138,11 +138,11 @@ Ao criar um conjunto de capacidades, pode fornecer uma descrição para tornar o
 }
 ```
 
-A próxima peça o conjunto de capacidades é uma matriz de habilidades. Pode pensar cada habilidades como um primitivo de melhoria. Cada habilidade executa uma tarefa de small neste pipeline de melhoria. Cada um deles usa uma entrada (ou um conjunto de entradas) e retorna algumas saídas. As próximas seções se concentrar em como especificar as capacidades predefinidas e personalizadas, encadeamento habilidades em conjunto através de referências de entrada e saídas. Entradas podem vir de dados de origem ou de outra habilidade. Saídas podem ser mapeadas para um campo num índice de pesquisa ou usadas como entrada para uma habilidade de downstream.
+A próxima peça o conjunto de capacidades é uma matriz de habilidades. Pode pensar cada habilidades como um primitivo de melhoria. Cada habilidade executa uma tarefa de small neste pipeline de melhoria. Cada um deles usa uma entrada (ou um conjunto de entradas) e retorna algumas saídas. As próximas seções se concentrar em como especificar as capacidades incorporadas e personalizadas, encadeamento habilidades em conjunto através de referências de entrada e saídas. Entradas podem vir de dados de origem ou de outra habilidade. Saídas podem ser mapeadas para um campo num índice de pesquisa ou usadas como entrada para uma habilidade de downstream.
 
-## <a name="add-predefined-skills"></a>Adicionar competências predefinidas
+## <a name="add-built-in-skills"></a>Adicionar habilidades internas
 
-Vamos examinar a habilidade de primeira, que é o predefinido [habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md):
+Vamos examinar a habilidade de primeira, que é incorporada [habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md):
 
 ```json
     {
@@ -165,11 +165,11 @@ Vamos examinar a habilidade de primeira, que é o predefinido [habilidade de rec
     }
 ```
 
-* Tem de todas as habilidades predefinidas `odata.type`, `input`, e `output` propriedades. Propriedades de habilidades específicas fornecem informações adicionais aplicáveis a essa habilidade. Para reconhecimento de entidades, `categories` é uma entidade entre um conjunto fixo de tipos de entidade que o modelo pretrained pode reconhecer.
+* Tem de todas as habilidades internas `odata.type`, `input`, e `output` propriedades. Propriedades de habilidades específicas fornecem informações adicionais aplicáveis a essa habilidade. Para reconhecimento de entidades, `categories` é uma entidade entre um conjunto fixo de tipos de entidade que o modelo pretrained pode reconhecer.
 
-* Cada habilidade deve ter um ```"context"```. O contexto representa o nível em que operações ocorrem. Na habilidade acima, o contexto é todo o documento, que significa que a habilidade de reconhecimento de entidades nomeadas é chamada de uma vez por documento. Saídas também são produzidas nesse nível. Mais especificamente, ```"organizations"``` são gerados como membro do ```"/document"```. No downstream habilidades, pode consultar recentemente criada informações como ```"/document/organizations"```.  Se o ```"context"``` campo não for explicitamente definido, o contexto predefinido é o documento.
+* Cada habilidade deve ter um ```"context"```. O contexto representa o nível em que operações ocorrem. Na habilidade acima, o contexto é todo o documento, que significa que a habilidade de reconhecimento de entidades é chamada de uma vez por documento. Saídas também são produzidas nesse nível. Mais especificamente, ```"organizations"``` são gerados como membro do ```"/document"```. No downstream habilidades, pode consultar recentemente criada informações como ```"/document/organizations"```.  Se o ```"context"``` campo não for explicitamente definido, o contexto predefinido é o documento.
 
-* A habilidade tem uma entrada chamada "text", com um conjunto de entrada de origem para ```"/document/content"```. A habilidade (chamada de reconhecimento de entidades) opera a *conteúdo* campo de cada documento, o que é um campo padrão criado pelo indexador blob do Azure. 
+* A habilidade tem uma entrada chamada "text", com um conjunto de entrada de origem para ```"/document/content"```. A habilidade (reconhecimento de entidades) funciona com o *conteúdo* campo de cada documento, o que é um campo padrão criado pelo indexador blob do Azure. 
 
 * A habilidade tem uma saída chamada ```"organizations"```. Saídas de existir apenas durante o processamento. Para encadear esta saída à entrada de uma habilidade downstream, referenciar a saída como ```"/document/organizations"```.
 
@@ -235,7 +235,7 @@ Tenha em atenção que o campo de "contexto" é definido como ```"/document/orga
 
 A saída, neste caso uma descrição da empresa, é gerado para cada organização identificada. Quando nos Referimos a descrição num passo downstream (por exemplo, na extração de expressões-chave), usaria o caminho ```"/document/organizations/*/description"``` para fazer isso. 
 
-## <a name="enrichments-create-structure-out-of-unstructured-information"></a>Possível criar a estrutura de informações não estruturadas
+## <a name="add-structure"></a>Adicionar estrutura
 
 O conjunto de capacidades gera informações estruturadas dos dados não estruturados. Considere o exemplo a seguir:
 
@@ -245,9 +245,38 @@ Um resultado provável seria uma estrutura gerada semelhante à ilustração seg
 
 ![Estrutura de saída de exemplo](media/cognitive-search-defining-skillset/enriched-doc.png "estrutura de saída de exemplo")
 
-Lembre-se de que essa estrutura é interna. Na verdade, não é possível obter este gráfico no código.
+Até agora, essa estrutura tem sido apenas internos, como só de memória e é utilizado apenas em índices de pesquisa do Azure. A adição de um arquivo de dados de conhecimento fornece uma maneira de economizar moldada possível para utilização fora da pesquisa.
+
+## <a name="add-a-knowledge-store"></a>Adicionar um arquivo de dados de conhecimento
+
+[Dados de conhecimento Store](knowledge-store-concept-intro.md) é uma funcionalidade de pré-visualização do Azure Search para salvar seu documento plena. Um arquivo de dados de conhecimento que criar, de uma conta de armazenamento do Azure, é o repositório onde os dados plena que chegam. 
+
+Uma definição de arquivo de dados de conhecimento é adicionada a um conjunto de capacidades. Para obter instruções de todo o processo, consulte [como começar com o arquivo de dados de conhecimento](knowledge-store-howto.md).
+
+```json
+"knowledgeStore": {
+  "storageConnectionString": "<an Azure storage connection string>",
+  "projections" : [
+    {
+      "tables": [ ]
+    },
+    {
+      "objects": [
+        {
+          "storageContainer": "containername",
+          "source": "/document/EnrichedShape/",
+          "key": "/document/Id"
+        }
+      ]
+    }
+  ]
+}
+```
+
+Pode optar por guardar os documentos plena como tabelas com relações hierárquicas preservadas ou como documentos JSON no armazenamento de Blobs. Saída de qualquer uma das habilidades das competências pode ser disponibilizada como entrada para a projeção. Se estiver à procura para os dados do projeto num específico formatar, atualizada [habilidade Modelador](cognitive-search-skill-shaper.md) agora pode modelar tipos complexos que pode utilizar. 
 
 <a name="next-step"></a>
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 Agora que já está familiarizado com o pipeline de enriquecimento e conjuntos de habilidades, prosseguir [como fazer referência a anotações num conjunto de capacidades](cognitive-search-concept-annotations-syntax.md) ou [como mapear saídas para campos num índice](cognitive-search-output-field-mapping.md). 

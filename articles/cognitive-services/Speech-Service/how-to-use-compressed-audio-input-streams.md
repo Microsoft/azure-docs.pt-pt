@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 05/02/2019
 ms.author: amishu
-ms.openlocfilehash: 2066dc3e20ab9fc92b23fd071728ea6a920d3324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6ab43b530c045eb4f2920b65f601ba981dfc8a2
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60697685"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020756"
 ---
 # <a name="stream-compressed-audio-with-the-speech-sdk"></a>Áudio de Stream compactado com o SDK de voz
 
 O SDK de voz **Stream de entrada de áudio compactados** API fornece uma maneira para transmitir áudio compactado para o serviço de voz usando PullStream ou PushStream.
 
 > [!IMPORTANT]
-> Transmissão em fluxo de áudio compactado só é suportado para C++, C#e o Java no Linux (Ubuntu 16.04 ou Ubuntu 18.04).
+> Transmissão em fluxo de áudio compactado só é suportado para C++, C#e o Java no Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9).
 > O suporte está limitado a arquivos MP3 e OPUS/OGG.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de instalar estas dependências para utilizar a entrada de áudio compactada com o SDK de voz para Linux:
+Instale estas dependências adicionais para utilizar a entrada de áudio compactada com o SDK de voz para Linux:
 
 ```sh
 sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly
@@ -37,7 +37,7 @@ sudo apt install libgstreamer1.0-0 gstreamer1.0-plugins-base gstreamer1.0-plugin
 
 Para transmitir em fluxo num formato compactado de áudio para os serviços de voz, crie `PullAudioInputStream` ou `PushAudioInputStream`. Em seguida, crie um `AudioConfig` de uma instância da sua classe de fluxos, especificando o formato de compressão da transmissão em fluxo.
 
-Vamos supor que tem uma classe de fluxo de entrada chamada `myPushStream` e estiver a utilizar OPUS/OGG. Este é o que o código pode ser semelhante: 
+Vamos supor que tem uma classe de fluxo de entrada chamada `myPushStream` e estiver a utilizar OPUS/OGG. Seu código pode ter este aspeto:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;

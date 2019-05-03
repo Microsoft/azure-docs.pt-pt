@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: eb3697eefb5835305b2ec80ca1e77ccade19e44f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83cea56cecf9792c829e062965fe39b63201af3e
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480668"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020654"
 ---
 # <a name="speech-service-supported-regions"></a>Regiões suportadas do serviço de voz
 
@@ -28,9 +28,9 @@ Certifique-se de que use o ponto final que corresponde à região para a sua sub
 
 Na [SDK de voz](speech-sdk.md), regiões são especificadas como uma cadeia de caracteres (por exemplo, como um parâmetro para `SpeechConfig.FromSubscription` no SDK de voz para c#).
 
-### <a name="speech-recognition-and-translation"></a>Reconhecimento de fala e tradução
+### <a name="speech-to-text-text-to-speech-and-translation"></a>Conversão de voz em texto e tradução de voz
 
-O SDK de voz está disponível nestas regiões para **reconhecimento de fala** e **tradução**:
+O SDK de voz está disponível nestas regiões para **reconhecimento de fala**, **voz**, e **tradução**:
 
   Região | Parâmetro do SDK de voz | Portal de personalização de voz
  ------|-------|--------

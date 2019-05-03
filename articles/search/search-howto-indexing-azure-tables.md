@@ -1,7 +1,7 @@
 ---
 title: Indexar conteúdo do armazenamento de tabelas do Azure para pesquisa em texto completo - Azure Search
 description: Aprenda a indexar dados armazenados no armazenamento de tabelas do Azure com um indexador de Azure Search.
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: e1b411ab54a5b666849893ba9d246eff85e7e54e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f0e7feb52b34a4bd29bef01925bf9ea8f84d7db
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871239"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024789"
 ---
 # <a name="index-azure-table-storage-with-azure-search"></a>Armazenamento de tabelas do índice do Azure com o Azure Search
 Este artigo mostra como utilizar o Azure Search para dados de índice armazenados no armazenamento de tabelas do Azure.
@@ -49,7 +49,7 @@ Para tabela indexação, a origem de dados tem de ter as seguintes propriedades:
 
 Para criar uma origem de dados:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -81,7 +81,7 @@ O índice Especifica os campos num documento, os atributos, e a experiência de 
 
 Para criar um índice:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -100,7 +100,7 @@ Um indexador liga uma origem de dados com um índice de pesquisa de destino e fo
 
 Depois do índice e a origem de dados são criados, está pronto para criar o indexador:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -133,7 +133,7 @@ Quando configurar um indexador de tabelas para executar com base numa agenda, el
 
 Para indicar que determinados documentos têm de ser removidos do índice, pode usar uma estratégia de eliminação de forma recuperável. Em vez de excluir uma linha, adicione uma propriedade para indicar que foi eliminada e configurar uma política de deteção de eliminação de forma recuperável na origem de dados. Por exemplo, a seguinte política considera que uma linha é eliminada se a linha tem uma propriedade `IsDeleted` com o valor `"true"`:
 
-    PUT https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 

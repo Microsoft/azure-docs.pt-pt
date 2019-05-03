@@ -6,16 +6,16 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 05/02/2019
 manager: jlembicz
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 4383cc327d8058ca44acd892f41a7a256e3b1727
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567124f50745080da12178a458957a0f6c8266b5
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61281807"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024322"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinónimos no Azure Search
 
@@ -23,11 +23,13 @@ Sinónimos em mecanismos de pesquisa associam termos equivalentes que implicitam
 
 No Azure Search, expansão de sinónimos é feita no momento da consulta. Pode adicionar mapas de sinónimos a um serviço com nenhuma interrupção para operações existentes. Pode adicionar um **synonymMaps** propriedade a uma definição de campo sem ter de recriar o índice.
 
-## <a name="feature-availability"></a>Disponibilidade de funcionalidades
+## <a name="create-synonyms"></a>Criar sinónimos
 
-A funcionalidade de sinónimos é suportada na versão da api mais recente (api-version = 2017-11-11). Não existe suporte do portal do Azure neste momento.
+Não existe nenhum suporte do portal para a criação de sinónimos, mas pode utilizar a REST API ou .NET SDK. Para começar a utilizar com o REST, é recomendável [com o Postman](search-fiddler.md) e formulação de pedidos com esta API: [Criar mapas de sinónimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para C# os programadores, pode começar a utilizar com [adicionar sinónimos a sessão com a pesquisa do Azure C# ](search-synonyms-tutorial-sdk.md).
 
-## <a name="how-to-use-synonyms-in-azure-search"></a>Como utilizar sinónimos no Azure search
+Opcionalmente, se estiver a utilizar [chaves geridas pelo cliente](search-security-manage-encryption-keys.md) para o lado do serviço de encriptação em repouso, pode aplicar essa proteção ao conteúdo do seu mapa de sinónimos.
+
+## <a name="use-synonyms"></a>Utilizar sinónimos
 
 No Azure Search, suporte de sinónimos baseia-se em mapas de sinónimos que definem e carregar para o seu serviço. Esses mapas constituem um recurso independente (como índices ou origens de dados) e podem ser utilizados por qualquer campo pesquisável qualquer índice no seu serviço de pesquisa.
 
@@ -49,7 +51,7 @@ Mapas de sinónimos tem de estar no formato do Apache Solr, que é explicado aba
 
 Pode criar um novo mapa de sinónimos utilizando o HTTP POST, como no exemplo seguinte:
 
-    POST https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -62,7 +64,7 @@ Pode criar um novo mapa de sinónimos utilizando o HTTP POST, como no exemplo se
 
 Em alternativa, pode utilizar PUT e especifique o nome do mapa de sinónimos no URI. Se o mapa de sinónimos não existir, será criada.
 
-    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
     {
@@ -74,7 +76,7 @@ Em alternativa, pode utilizar PUT e especifique o nome do mapa de sinónimos no 
 
 ##### <a name="apache-solr-synonym-format"></a>Formato de sinónimos do Apache Solr
 
-O formato de Solr suporta mapeamentos de sinónimos equivalentes e explícito. Regras de mapeamento de respeitar a especificação de filtro de sinónimos de código-fonte aberto de Apache Solr, descritos neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Segue-se um exemplo de regra para sinónimos equivalentes.
+O formato de Solr suporta mapeamentos de sinónimos equivalentes e explícito. Regras de mapeamento de respeitar a especificação de filtro de sinónimos de open source do Apache Solr, descritos neste documento: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Segue-se um exemplo de regra para sinónimos equivalentes.
 ```
 USA, United States, United States of America
 ```
@@ -88,24 +90,24 @@ Washington, Wash., WA => WA
 
 #### <a name="list-synonym-maps-under-your-service"></a>Mapeia sinónimo de lista no seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="get-a-synonym-map-under-your-service"></a>Obtenha um mapa de sinónimos no seu serviço.
 
-    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 #### <a name="delete-a-synonyms-map-under-your-service"></a>Elimine um mapa de sinónimos no seu serviço.
 
-    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2017-11-11
+    DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
     api-key: [admin key]
 
 ### <a name="configure-a-searchable-field-to-use-the-synonym-map-in-the-index-definition"></a>Configure um campo pesquisável para utilizar o mapa de sinónimos na definição do índice.
 
 Uma nova propriedade de campo **synonymMaps** pode ser utilizado para especificar um mapa de sinónimos a utilizar para um campo pesquisável. Mapas de sinónimos são recursos de nível de serviço e podem ser referenciados por qualquer campo de um índice no serviço.
 
-    POST https://[servicename].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
     api-key: [admin key]
 
     {

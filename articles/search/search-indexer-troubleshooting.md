@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 05/02/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 81987115ba0406e704f2198061c6ee3cae8a72df
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60321847"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65024701"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Resolução de problemas comuns do indexador no Azure Search
 
@@ -57,7 +57,7 @@ O Azure Search tem uma dependência implícita de indexação do Cosmos DB. Se d
 O indexador blob [documentos que formatos de documento explicitamente são suportados.](search-howto-indexing-azure-blob-storage.md#supported-document-formats). Às vezes, um contentor de armazenamento de blob contém documentos não suportados. Outras vezes pode haver documentos problemáticos. Pode evitar a parar o indexador nestes documentos por [alterar opções de configuração](search-howto-indexing-azure-blob-storage.md#dealing-with-errors):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 
@@ -75,7 +75,7 @@ O indexador blob [localiza e extrai o texto de blobs num contentor](search-howto
 * O indexador blob está configurado para apenas os metadados do índice. Para extrair o conteúdo, o indexador blob tem de ser configurado para [extrair o conteúdo e metadados](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed):
 
 ```
-PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2017-11-11
+PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 
