@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b9234814404194364f775add87f865170747220a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73dda32c3f5f89a8b3e7465fbfdde28cb0ad2d6f
+ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471070"
+ms.lasthandoff: 05/02/2019
+ms.locfileid: "65020831"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -434,6 +434,12 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             <a href="/azure/cyclecloud/">
                                                 <img src="media/index/logo_cyclecloud.svg" alt="" />
                                                 <p>CycleCloud</p>
+                                            </a>
+                                        </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>Solução VMware no Azure da CloudSimple</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1018,6 +1024,12 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                 <p>API de Pesquisa de Imagens do Bing</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/open-datasets">
+                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <p>Conjuntos de Dados Abertos</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Migração</h3>
                                     <ul>
@@ -1254,6 +1266,12 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                 <img src="media/index/Azure-Data-Lake-Store-COLOR.svg" alt="" />
                                                 <p>Armazenamento do Data Lake Ger1</p>
                                             </a>
+                                        </li>
+                                        <li>
+                                        <a href="/azure/open-datasets">
+                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <p>Conjuntos de Dados Abertos</p>
+                                        </a>
                                         </li>
                                     </ul>
                                     <h3>DevOps</h3>
@@ -2070,6 +2088,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
                                                     <p>Criar, gerir, operar e otimizar os clusters de HPC e de macrocomputação de qualquer escala</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Solução VMware no Azure da CloudSimple</h3>
+                                                    <p>Executar a plataforma VMware no Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3613,6 +3650,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Conjuntos de Dados Abertos</h3>
+                                                    <p>Conjuntos de dados públicos organizados para melhorar os modelos de machine learning</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/azure-netapp-files/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3785,6 +3841,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Azure Search</h3>
                                                     <p>Serviço de pesquisa totalmente gerido</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/open-datasets">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Conjuntos de Dados Abertos</h3>
+                                                    <p>Conjuntos de dados públicos organizados para melhorar os modelos de machine learning</p>
                                                 </div>
                                             </div>
                                         </div>

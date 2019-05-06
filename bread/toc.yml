@@ -48,7 +48,7 @@
         - name: 'Utilizadores, grupos e funções'
           tocHref: /azure/active-directory/users-groups-roles/
           topicHref: /azure/active-directory/users-groups-roles/
-        - name: Governação de identidade
+        - name: Identity Governance
           tocHref: /azure/active-directory/governance/
           topicHref: /azure/active-directory/governance/
         - name: Gestão de aplicações
@@ -105,6 +105,9 @@
     - name: Automatização
       tocHref: /azure/automation/
       topicHref: /azure/automation/
+    - name: Azure Blockchain Service
+      tocHref: /azure/blockchain/service
+      topicHref: /azure/blockchain/service
     - name: Azure Databricks
       tocHref: /azure/azure-databricks/
       topicHref: /azure/azure-databricks/
@@ -145,6 +148,9 @@
     - name: Azure NetApp Files
       tocHref: /azure/azure-netapp-files/
       topicHref: /azure/azure-netapp-files/
+    - name: Solução VMware no Azure da CloudSimple
+      tocHref: /azure/vmware-cloudsimple/
+      topicHref: /azure/vmware-cloudsimple/
     - name: Personalização do portal do Azure
       tocHref: /azure/azure-portal/
       topicHref: /azure/azure-portal/\
@@ -476,6 +482,10 @@
         - name: Serviço
           tocHref: /azure/machine-learning/service
           topicHref: /azure/machine-learning/service/
+          items:
+            - name: Referência de Algoritmos e Módulos
+              tocHref: /azure/machine-learning/algorithm-module-reference
+              topicHref: /azure/machine-learning/algorithm-module-reference/module-reference.md
         - name: Studio
           tocHref: /azure/machine-learning/studio
           topicHref: /azure/machine-learning/studio/
@@ -532,6 +542,9 @@
     - name: Hubs de Notificação
       tocHref: /azure/notification-hubs/
       topicHref: /azure/notification-hubs/
+    - name: Conjuntos de Dados Abertos
+      tocHref: /azure/open-datasets/
+      topicHref: /azure/open-datasets/
     - name: Operations Management Suite
       tocHref: /azure/operations-management-suite/
       topicHref: /azure/operations-management-suite/

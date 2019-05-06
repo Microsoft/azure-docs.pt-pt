@@ -152,6 +152,8 @@
         - name: Quotas de vCPU
           href: ../virtual-machines/windows/quotas.md
           maintainContext: true
+    - name: FAQ do Conjunto de Dimensionamento
+      href: virtual-machine-scale-sets-faq.md
 - name: Procedimento
   items:
     - name: Planear e conceber
@@ -183,6 +185,9 @@
               href: virtual-machine-scale-sets-autoscale-portal.md
             - name: Dimensionamento automático avançado
               href: ../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md
+              maintainContext: true
+            - name: Resolução de problemas do dimensionamento automático
+              href: virtual-machine-scale-sets-troubleshoot.md
         - name: Aplicações em conjuntos de dimensionamento
           href: virtual-machine-scale-sets-deploy-app.md
         - name: Extensões em conjuntos de dimensionamento
@@ -199,6 +204,9 @@
               href: virtual-machine-scale-sets-encrypt-disks-ps.md
             - name: Utilizar a CLI do Azure
               href: virtual-machine-scale-sets-encrypt-disks-cli.md
+            - name: Encriptação do disco com sequência de extensão
+              href: ../security/azure-security-disk-encryption-extension-sequencing.md
+              maintainContext: true
         - name: Trabalhar com conjuntos de dimensionamento de grande escala
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido
@@ -247,14 +255,6 @@
         - name: Dimensionar automaticamente um conjunto de dimensionamento
           href: /azure/ansible/ansible-auto-scale-vmss
           maintainContext: true
-    - name: Resolução de problemas
-      items:
-        - name: Dimensionamento Automático
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: FAQ
-      items:
-        - name: FAQ do Conjunto de Dimensionamento
-          href: virtual-machine-scale-sets-faq.md
 - name: Referência
   items:
     - name: Azure PowerShell

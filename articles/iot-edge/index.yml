@@ -43,15 +43,13 @@ sections:
       - type: paragraph
         text: 'Saiba como instalar e configurar o IoT Edge, implementar módulos e utilizar os serviços do Azure como o Stream Analytics e a Visão Personalizada no edge.'
       - type: list
-        style: unordered
+        style: ordered
         items:
+          - html: Configure a sua máquina de desenvolvimento e saiba mais sobre os módulos do IoT Edge para <a href="/azure/iot-edge/tutorial-develop-for-linux">dispositivos Linux</a> ou <a href="/azure/iot-edge/tutorial-develop-for-windows">dispositivos Windows</a>.
+          - html: 'Desenvolva módulos de código personalizados para dispositivos Linux em <a href="/azure/iot-edge/tutorial-c-module">C</a>, <a href="/azure/iot-edge/tutorial-csharp-module">C#</a>, <a href="/azure/iot-edge/tutorial-python-module">Python</a>, <a href="/azure/iot-edge/tutorial-node-module">Node.js</a> ou <a href="/azure/iot-edge/tutorial-java-module">Java</a>.'
+          - html: 'Desenvolva módulos de código personalizados para dispositivos Windows em <a href="/azure/iot-edge/tutorial-c-module-windows">C</a> ou <a href="/azure/iot-edge/tutorial-csharp-module-windows">C#</a>.'
           - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filtrar mensagens com as Funções do Azure</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Encontrar médias com o Azure Stream Analytics como um módulo</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Classificar dados com o Azure Machine Learning como um módulo</a>
           - html: <a href="/azure/iot-edge/tutorial-deploy-custom-vision">Classificar imagens com o Serviço de Visão Personalizada como módulo</a>
-          - html: '<a href="/azure/iot-edge/tutorial-csharp-module">Filtrar dados com um módulo de C#</a>'
-          - html: <a href="/azure/iot-edge/tutorial-python-module">Filtrar dados com um módulo de Python</a>
-          - html: <a href="/azure/iot-edge/tutorial-node-module">Filtrar dados com um módulo de Node.js</a>
-          - html: <a href="/azure/iot-edge/tutorial-java-module">Filtrar dados com um módulo de Java</a>
-          - html: <a href="/azure/iot-edge/tutorial-c-module">Filtrar dados com um módulo de C</a>
           - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Armazenar dados no Edge com o SQL Server</a>

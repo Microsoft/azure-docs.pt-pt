@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação de governação de identidades do Azure AD
+title: Documentação do Azure AD Identity Governance
 metadata:
   document_id: null
-  title: Documentação de governação de identidades do Azure Active Directory | Microsoft Docs
+  title: Documentação do Azure Active Directory Identity Governance | Microsoft Docs
   description: 'Saiba mais sobre a governação do ciclo de vida de identidade, aceder à governação do ciclo de vida e garantir a administração entre funcionários e parceiros.'
   services: active-directory
   author: rolyon
@@ -12,10 +12,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/16/2018
+  ms.date: 04/18/2019
   ms.author: rolyon
 abstract:
-  description: 'A governação de identidade do Azure Active Directory (Azure AD) dá às organizações a capacidade de governar o ciclo de vida de identidade, governar pelo ciclo de vida e garantir a administração entre funcionários e parceiros.'
+  description: 'O Azure Active Directory (Azure AD) Identity Governance proporciona às organizações a capacidade de governar o ciclo de vida de identidade e de acesso, bem como proteger a administração entre colaboradores e parceiros.'
   aside:
     image:
       alt: null
@@ -26,23 +26,31 @@ abstract:
     href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
     width: 200
 sections:
-  - title: Governação de identidade
+  - title: Identity Governance
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/governance/identity-governance-overview">O que é a governação de identidade?</a>
+          - html: <a href="/azure/active-directory/governance/identity-governance-overview">O que é o Identity Governance?</a>
+  - title: Gestão de direitos (Pré-visualização)
+    items:
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/entitlement-management-overview">O que é a gestão de direitos do Azure AD?</a>
+          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-first">Tutorial – Criar o seu primeiro pacote de acesso</a>
+          - html: <a href="/azure/active-directory/governance/entitlement-management-access-package-edit">Editar e gerir um pacote de acesso existente</a>
   - title: Revisões de acesso
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/governance/access-reviews-overview">O que é uma revisão de acesso?</a>
-          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gerir o acesso de utilizador com as revisões de acesso</a>
-          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gerir o acesso de convidado com as revisões de acesso</a>
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">O que são as revisões de acesso do Azure AD?</a>
+          - html: <a href="/azure/active-directory/governance/create-access-review">Criar uma revisão de acesso de grupos ou aplicações</a>
+          - html: <a href="/azure/active-directory/governance/perform-access-review">Rever o acesso a grupos ou aplicações</a>
   - title: Termos de utilização
     items:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">O que posso fazer com os Termos de Utilização?</a>
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Pedir os Termos de Utilização?</a>

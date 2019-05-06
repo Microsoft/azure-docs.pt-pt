@@ -70,41 +70,10 @@
           href: analysis-services-deploy.md
         - name: Atualizar com API REST
           href: analysis-services-async-refresh.md
-        - name: Modelação de dados no Visual Studio – tutorial do Adventure Works (1400)
-          href: tutorials/aas-adventure-works-tutorial.md
-          items:
-            - name: 1 - Criar um projeto de modelo em tabela
-              href: tutorials/aas-lesson-1-create-a-new-tabular-model-project.md
-            - name: 2 - Obter dados
-              href: tutorials/aas-lesson-2-get-data.md
-            - name: 3 - Marcar como Tabela de Data
-              href: tutorials/aas-lesson-3-mark-as-date-table.md
-            - name: 4 - Criar relações
-              href: tutorials/aas-lesson-4-create-relationships.md
-            - name: 5 - Criar colunas calculadas
-              href: tutorials/aas-lesson-5-create-calculated-columns.md
-            - name: 6 - Criar medidas
-              href: tutorials/aas-lesson-6-create-measures.md
-            - name: 7 - Criar indicadores-chave de desempenho
-              href: tutorials/aas-lesson-7-create-key-performance-indicators.md
-            - name: 8 - Criar perspetivas
-              href: tutorials/aas-lesson-8-create-perspectives.md
-            - name: 9 - Criar hierarquias
-              href: tutorials/aas-lesson-9-create-hierarchies.md
-            - name: 10 - Criar partições
-              href: tutorials/aas-lesson-10-create-partitions.md
-            - name: 11 - Criar funções
-              href: tutorials/aas-lesson-11-create-roles.md
-            - name: 12 - Analisar no Excel
-              href: tutorials/aas-lesson-12-analyze-in-excel.md
-            - name: 13 - Implementar
-              href: tutorials/aas-lesson-13-deploy.md
-            - name: Lição suplementar - Linhas Detalhadas
-              href: tutorials/aas-supplemental-lesson-detail-rows.md
-            - name: Lição suplementar - Segurança dinâmica
-              href: tutorials/aas-supplemental-lesson-dynamic-security.md
-            - name: Lição suplementar - Hierarquias desbalanceadas
-              href: tutorials/aas-supplemental-lesson-ragged-hierarchies.md
+        - name: Atualizar com o Logic Apps
+          href: analysis-services-refresh-logic-app.md
+        - name: Atualizar com a Automatização do Azure
+          href: analysis-services-refresh-azure-automation.md
     - name: Segurança
       items:
         - name: Gerir utilizadores da base de dados

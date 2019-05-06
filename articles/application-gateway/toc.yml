@@ -45,6 +45,8 @@
           href: application-gateway-components.md
         - name: Descrição geral da configuração
           href: configuration-overview.md
+    - name: SKU v2 de dimensionamento automático
+      href: application-gateway-autoscaling-zone-redundant.md
     - name: Encaminhamento
       items:
         - name: Alojamento de vários sites
@@ -77,8 +79,6 @@
           href: application-gateway-probe-overview.md
         - name: Diagnóstico
           href: application-gateway-diagnostics.md
-    - name: Dimensionamento automático e redundância de zona
-      href: application-gateway-autoscaling-zone-redundant.md
     - name: Aplicação Web do serviço de aplicações e suporte multi-inquilino
       href: application-gateway-web-app-overview.md
     - name: Suporte do WebSocket
@@ -183,6 +183,8 @@
           href: rewrite-http-headers-portal.md
         - name: Azure PowerShell
           href: add-http-header-rewrite-rule-powershell.md
+        - name: Criar e rescrever cabeçalhos HTTP
+          href: tutorial-http-header-rewrite-powershell.md
     - name: Configurar Aplicação Web do serviço de aplicações e serviço multi-inquilino
       items:
         - name: Portal

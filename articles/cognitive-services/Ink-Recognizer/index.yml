@@ -1,0 +1,82 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Reconhecedor de Tinta Digital
+metadata:
+  title: 'Documentação do Reconhecedor de Tinta Digital – Inícios Rápidos, Tutoriais, Referência da API – Serviços Cognitivos do Azure | Microsoft Docs'
+  description: Saiba como utilizar a Tradução de Texto para traduzir texto para vários idiomas.
+  services: cognitive-services
+  author: erhopf
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/02/2019
+  ms.author: erhopf
+abstract:
+  description: 'Tinta digital refere-se às tecnologias que permitem representações digitais de entrada, como escrita manual e desenhos. À medida que os dispositivos continuam a permitir experiências avançadas de tinta digital, a inteligência artificial e a aprendizagem automática permitem o reconhecimento de texto e formas escritas em qualquer contexto. A API do Reconhecedor de Tinta Digital é um serviço com base na cloud que lhe permite enviar traços de tinta e obter informações detalhadas sobre os mesmos.'
+sections:
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/ink-recognizer/overview
+            html: <p>Saiba mais sobre o Reconhecedor de Tinta Digital e como integrá-lo nos seus produtos</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: O que é a API do Reconhecedor de Tinta Digital?
+          - href: concepts/send-ink-data.md
+            html: <p>Saiba mais sobre os padrões de chamada recomendados ao utilizar a API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: Enviar dados para a API do Reconhecedor de Tinta Digital
+  - title: Inícios rápidos de cinco minutos
+    items:
+      - type: paragraph
+        text: 'Começar a utilizar a API do Reconhecedor de Tinta Digital:'
+      - type: table
+        style: dataMatrix
+        columns:
+          - image:
+              src: media/index/logo-csharp.svg
+            title: 'C#'
+          - image:
+              src: media/index/logo-java.svg
+            title: Java
+          - image:
+              src: media/index/logo-js.svg
+            title: Javascript
+        rows:
+          - title: Reconhecer traços de tinta digital
+            values:
+              - href: quickstarts/csharp.md
+              - href: quickstarts/java.md
+              - href: quickstarts/javascript.md
+  - title: Amostras
+    items:
+      - type: paragraph
+        text: 'Utilize estes programas de exemplo para ver como integrar a API do Reconhecedor de Tinta Digital nas suas aplicações:'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089502">C# e Plataforma Universal do Windows (UWP)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089804">C# e Windows Presentation Foundation (WPF)</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089908">Aplicação de browser Javascript</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089906">Aplicação para dispositivos móveis Java e Android</a>'
+      - type: paragraph
+        text: '<a href="https://go.microsoft.com/fwlink/?linkid=2089805">Aplicação para dispositivos móveis Swift e iOS</a>'
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2089907">Referência da API REST</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">CLI do Azure</a></p>'

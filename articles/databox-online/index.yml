@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação do Azure Data Box - Transferência Online
+title: Documentação do Azure Data Box – Transferência online
 metadata:
-  title: Documentação do Azure Data Box - Transferência Online
-  description: 'Utilize os dispositivos do Data Box para transferências de dados de elevado desempenho através da rede para o Azure de forma rápida, fiável e de baixo custo.'
+  title: Documentação do Data Box Gateway e do Data Box Edge para transferência de dados através da rede para o Azure
+  description: 'Utilize o Data Box Edge e o Data Box Gateway para transferências de dados de elevado desempenho através da rede para o Azure de forma rápida, económica e fiável.'
   services: databox
   author: alkohli
   manager: twooley
@@ -13,7 +13,7 @@ metadata:
   ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: 'A família Azure Data Box permite-lhe transferir centenas de terabytes de dados para o Azure de forma rápida, económica e fiável. Utilizar os dispositivos do Data Box para transferências de dados de elevado de desempenho através da rede.<p>Escolha o Data Box Gateway para enviar dados para arquivo na cloud, recuperação após desastre ou para processar dados à escala da cloud.  Utilize o Data Box Edge para filtrar, analisar e transformar os seus dados à medida que se movem para o Azure.</p><p>Saiba como tirar partido do Data Box Gateway e do Data Box Edge para transferências baseadas na rede com os nossos tutoriais.</p>'
+  description: 'A família Azure Data Box permite-lhe transferir centenas de terabytes de dados para o Azure de forma rápida, económica e fiável. Utilize os dispositivos Data Box Edge e Data Box Gateway para transferências de dados de elevado desempenho através da rede.<p>Escolha o Data Box Gateway para enviar dados para arquivo na cloud, recuperação após desastre ou para processar dados à escala da cloud.  Utilize o Data Box Edge para filtrar, analisar e transformar os seus dados à medida que se movem para o Azure.</p><p>Saiba como tirar partido do Data Box Gateway e do Data Box Edge para transferências baseadas na rede com os nossos tutoriais.</p>'
 sections:
   - title: Tutoriais
     items:

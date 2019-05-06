@@ -72,7 +72,9 @@
           href: waf-front-door-custom-rules-powershell.md
         - name: Configurar código de resposta personalizado
           href: waf-front-door-configure-custom-response-code.md
-        - name: Configurar limite de taxa de WAF - Azure PowerShell
+        - name: Configurar restrições de IP
+          href: waf-front-door-configure-ip-restriction.md
+        - name: Configurar limite de taxa – Azure PowerShell
           href: waf-front-door-rate-limit-powershell.md
 - name: FAQ
   items:

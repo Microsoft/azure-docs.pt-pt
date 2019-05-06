@@ -18,7 +18,7 @@ sections:
       - type: markdown
         text: |-
           > [!IMPORTANT]
-          > O Azure Dev Spaces está atualmente em pré-visualização e é suportado apenas por clusters do AKS nas regiões **E.U.A. Leste**, **E.U.A. Leste 2**, **E.U.A. Central**, **E.U.A. Oeste 2**, **Europa do Norte**, **Europa Ocidental**, **Sudeste Asiático**, **Canadá Central** e **Leste do Canadá**. As pré-visualizações são tornadas disponíveis para si na condição de concordar com os [termos suplementares de utilização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alguns aspetos desta funcionalidade podem alterar-se após a disponibilidade geral (GA).
+          > O Azure Dev Spaces é suportado apenas por clusters do AKS nas regiões **E.U.A. Leste**, **E.U.A. Leste 2**, **E.U.A. Central**, **E.U.A. Oeste 2**, **Europa do Norte**, **Europa Ocidental**, **Sudeste Asiático**, **Canadá Central** e **Leste do Canadá**. O Azure Dev Spaces suporta a utilização da [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou do [Visual Studio Code](https://code.visualstudio.com/download) com a [extensão do Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) instalada no Linux, MacOS ou Windows 8 ou superior para criar e executar aplicações no AKS. Também suporta a utilização do [Visual Studio 2017](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs) com a carga de trabalho de Desenvolvimento Web e do [Visual Studio Tools para Kubernetes](https://aka.ms/get-vsk8stools) instalado no Windows 8 ou superior.
   - title: Introdução ao Azure Dev Spaces
     items:
       - type: paragraph

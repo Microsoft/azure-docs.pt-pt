@@ -56,6 +56,8 @@
           href: active-directory-b2c-overview-custom.md
         - name: Acesso do utilizador
           href: manage-user-access.md
+    - name: JavaScript e contratos de páginas
+      href: user-flow-javascript-overview.md
     - name: OAuth 2.0
       href: active-directory-b2c-reference-oauth-code.md
     - name: OpenID Connect
@@ -70,8 +72,6 @@
       href: manage-user-data.md
     - name: Fluxos do utilizador
       href: active-directory-b2c-reference-policies.md
-    - name: Fluxos do utilizador com o JavaScript
-      href: user-flow-javascript-overview.md
     - name: Personalização da interface de utilizador
       href: customize-ui-overview.md
 - name: Guias de procedimentos

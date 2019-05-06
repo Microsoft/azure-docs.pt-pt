@@ -19,6 +19,8 @@
       href: functions-create-first-java-maven.md
     - name: Criar função - Python
       href: functions-create-first-function-python.md
+    - name: Criar função - PowerShell
+      href: functions-create-first-function-powershell.md
     - name: Criar função - CLI do Azure
       href: functions-create-first-azure-function-azure-cli.md
     - name: Criar função - portal
@@ -39,7 +41,9 @@
       items:
         - name: Azure Cosmos DB
           href: functions-integrate-store-unstructured-data-cosmosdb.md
-        - name: Armazenamento
+        - name: Armazenamento - Python
+          href: functions-add-output-binding-storage-queue-python.md
+        - name: Armazenamento - portal
           href: functions-integrate-storage-queue-output-binding.md
 - name: Tutoriais
   items:
@@ -100,6 +104,8 @@
           href: functions-reference-node.md
         - name: Java
           href: functions-reference-java.md
+        - name: PowerShell
+          href: functions-reference-powershell.md
         - name: Python
           href: functions-reference-python.md
     - name: Diagnóstico
@@ -134,6 +140,8 @@
           href: functions-create-maven-eclipse.md
         - name: Criar aplicação de funções do Linux
           href: create-function-app-linux-app-service-plan.md
+        - name: Depurar funções locais do PowerShell
+          href: functions-debug-powershell-local.md
         - name: Gerir ligações
           href: manage-connections.md
         - name: Processamento de erros
@@ -148,6 +156,8 @@
       items:
         - name: Implementação contínua
           href: functions-continuous-deployment.md
+        - name: Criar e implementar com Pipelines do Azure
+          href: functions-how-to-azure-devops.md
         - name: Implementação em Zip
           href: deployment-zip-push.md
         - name: Executar a partir do pacote

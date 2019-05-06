@@ -14,20 +14,14 @@
         - name: Configurar uma aplicação
           items:
             - name: Registar uma aplicação
-              href: quickstart-v1-add-azure-ad-app.md
-            - name: Atualizar uma aplicação
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Remover uma aplicação
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Registar uma aplicação (Pré-visualização)
               href: quickstart-register-app.md
-            - name: Configurar a aplicação para aceder às APIs web (Pré-visualização)
+            - name: Configurar a aplicação para aceder às APIs Web
               href: quickstart-configure-app-access-web-apis.md
-            - name: Configurar a aplicação para expor as APIs web (Pré-visualização)
+            - name: Configurar a aplicação para expor as APIs Web
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Modificar as contas suportadas por uma aplicação (Pré-visualização)
+            - name: Modificar as contas suportadas por uma aplicação
               href: quickstart-modify-supported-accounts.md
-            - name: Remover uma aplicação (Pré-visualização)
+            - name: Remover uma aplicação
               href: quickstart-remove-app.md
         - name: Aplicações de página única
           items:
@@ -243,20 +237,14 @@
         - name: Configurar uma aplicação
           items:
             - name: Registar uma aplicação
-              href: quickstart-v2-register-an-app.md
-            - name: Atualizar uma aplicação
-              href: quickstart-v1-update-azure-ad-app.md
-            - name: Remover uma aplicação
-              href: quickstart-v1-remove-azure-ad-app.md
-            - name: Registar uma aplicação (Pré-visualização)
               href: quickstart-register-app.md
-            - name: Configurar a aplicação para aceder às APIs web (Pré-visualização)
+            - name: Configurar a aplicação para aceder às APIs Web
               href: quickstart-configure-app-access-web-apis.md
-            - name: Configurar a aplicação para expor as APIs web (Pré-visualização)
+            - name: Configurar a aplicação para expor as APIs Web
               href: quickstart-configure-app-expose-web-apis.md
-            - name: Modificar as contas suportadas por uma aplicação (Pré-visualização)
+            - name: Modificar as contas suportadas por uma aplicação
               href: quickstart-modify-supported-accounts.md
-            - name: Remover uma aplicação (Pré-visualização)
+            - name: Remover uma aplicação
               href: quickstart-remove-app.md
         - name: Aplicações de página única
           items:
@@ -350,6 +338,8 @@
               href: active-directory-certificate-credentials.md
         - name: Configuração da aplicação
           items:
+            - name: Guia de preparação de registos de aplicações
+              href: app-registrations-training-guide.md
             - name: Aplicações e principais de serviço
               href: app-objects-and-service-principals.md
             - name: Aplicações de inquilino único e multi-inquilino

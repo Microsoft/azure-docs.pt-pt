@@ -129,6 +129,8 @@
           href: platform/activity-log-alerts.md
         - name: Esquema de alertas comuns
           href: platform/alerts-common-schema.md
+        - name: Regras de ação
+          href: platform/alerts-action-rules.md
     - name: Visualizar os dados
       href: visualizations.md
     - name: Integrações de parceiros
@@ -309,6 +311,29 @@
                   href: app/asp-net.md
                 - name: Monitor de Estado
                   href: app/monitor-performance-live-website-now.md
+                - name: Monitor de Estado v2
+                  href: app/status-monitor-v2-overview.md
+                  items:
+                    - name: Introdução
+                      href: app/status-monitor-v2-get-started.md
+                    - name: Instruções detalhadas
+                      href: app/status-monitor-v2-detailed-instructions.md
+                    - name: Resolução de problemas e problemas conhecidos
+                      href: app/status-monitor-v2-troubleshoot.md
+                    - name: API Disable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-disable-instrumentation-engine.md
+                    - name: API Disable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-disable-monitoring.md
+                    - name: API Enable-InstrumentationEngine
+                      href: app/status-monitor-v2-api-enable-instrumentation-engine.md
+                    - name: API Enable-ApplicationInsightsMonitoring
+                      href: app/status-monitor-v2-api-enable-monitoring.md
+                    - name: API Get-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-get-config.md
+                    - name: API Get-ApplicationInsightsMonitoringStatus
+                      href: app/status-monitor-v2-api-get-status.md
+                    - name: API Set-ApplicationInsightsMonitoringConfig
+                      href: app/status-monitor-v2-api-set-config.md
                 - name: Serviços Windows
                   href: app/windows-services.md
                 - name: Ambiente de trabalho do Windows
@@ -560,6 +585,8 @@
               href: insights/containers.md
             - name: Monitorizar aplicações do Docker
               href: app/docker.md
+            - name: Application Insights para Kubernetes
+              href: app/kubernetes.md
         - name: Monitorize grupos de recursos
           href: insights/resource-group-insights.md
         - name: Monitorizar bases de dados
@@ -684,6 +711,8 @@
               href: platform/metrics-charts.md
             - name: Exemplos de gráficos de métricas
               href: platform/metric-chart-samples.md
+            - name: Resolução de problemas de gráficos de métricas
+              href: platform/metrics-troubleshoot.md
         - name: Registos
           items:
             - name: Registar consultas

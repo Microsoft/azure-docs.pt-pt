@@ -18,6 +18,10 @@
       items:
         - name: .NET
           href: storage-quickstart-queues-dotnet.md
+- name: Tutoriais
+  items:
+    - name: Trabalhar com filas de armazenamento do Azure
+      href: storage-tutorial-queues.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
 - name: Amostras
   items:
     - name: .NET

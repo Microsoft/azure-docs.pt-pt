@@ -143,17 +143,6 @@
             - name: Políticas de indexação
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: Feed de alterações
-          items:
-            - name: Descrição geral
-              href: change-feed.md
-            - name: Ler o feed de alterações
-              href: read-change-feed.md
-            - name: Processador do feed de alterações
-              href: change-feed-processor.md
-            - name: Acionar Funções do Azure
-              displayName: change feed
-              href: change-feed-functions.md
         - name: Time to live
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md
@@ -498,6 +487,9 @@
           href: data-explorer.md
         - name: Gerir as políticas de indexação
           href: how-to-manage-indexing-policy.md
+        - name: Exemplos de subconsultas SQL
+          displayName: 'subquery, exists'
+          href: how-to-sql-subquery.md
     - name: Feed de Alterações
       items:
         - name: Vários Acionadores do Azure Cosmos DB

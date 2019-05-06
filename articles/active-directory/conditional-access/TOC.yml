@@ -40,10 +40,10 @@
       href: best-practices.md
     - name: Bloquear a autenticação legada
       href: block-legacy-authentication.md
-    - name: Controlar o acesso ao Exchaneg Online e ao SharePoint Online
-      href: conditional-access-for-exo-and-spo.md
     - name: Migrar políticas clássicas
       href: policy-migration.md
+    - name: Frequência de início de sessão e controlos de persistência do browser
+      href: howto-conditional-access-session-lifetime.md
     - name: Exigir aplicações aprovados do cliente
       href: app-based-conditional-access.md
     - name: Pedir uma política de proteção de aplicações

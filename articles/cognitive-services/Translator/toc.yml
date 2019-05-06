@@ -228,6 +228,8 @@
           href: custom-translator/how-to-manage-settings.md
         - name: Migrar do Hub
           href: custom-translator/how-to-migrate.md
+        - name: Implementações de linguagens não suportadas
+          href: custom-translator/unsupported-language-deployments.md
     - name: Recursos
       items:
         - name: Suporte de Idiomas

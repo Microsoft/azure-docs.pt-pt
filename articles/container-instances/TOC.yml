@@ -45,6 +45,8 @@
       href: container-instances-region-availability.md
     - name: Relação com orquestradores
       href: container-instances-orchestrator-relationship.md
+    - name: Considerações de segurança
+      href: container-instances-image-security.md
 - name: Guias de procedimentos
   items:
     - name: Implementação
@@ -69,6 +71,8 @@
           href: container-instances-managed-identity.md
         - name: Utilizar recursos da GPU (pré-visualização)
           href: container-instances-gpu.md
+        - name: Ativar o ponto final SSL
+          href: container-instances-container-group-ssl.md
     - name: Montar volumes de dados
       items:
         - name: Partilha de ficheiros do Azure
