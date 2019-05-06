@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 04/29/2019
 ms.author: juliako
-ms.openlocfilehash: 4a4f8478eef96ebe10d729e0ff380faf6f4b6779
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 3c3687ceff10baec028435d1e6c513e72ca5da86
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937372"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149089"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Tarefas
 

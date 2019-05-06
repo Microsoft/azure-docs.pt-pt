@@ -41,15 +41,15 @@
         - name: Gestão de contas
           href: cloudsimple-account.md
         - name: Gestão da atividade
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-activity/'
+          href: cloudsimple-activity.md
         - name: VMware em cloud privada
-          href: 'https://docs.azure.cloudsimple.com/vmware-components/'
+          href: vmware-components.md
         - name: Descrição geral da segurança
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-security/'
         - name: Quota de nós
-          href: 'https://docs.azure.cloudsimple.com/node-quota/'
+          href: node-quota.md
         - name: Manutenção e atualizações
-          href: 'https://docs.azure.cloudsimple.com/cloudsimple-maintenance-updates/'
+          href: cloudsimple-maintenance-updates.md
         - name: FAQ
           href: 'https://docs.azure.cloudsimple.com/cloudsimple-faq/'
     - name: Tutoriais

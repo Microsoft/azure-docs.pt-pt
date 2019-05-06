@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Utilize um fornecedor de identidade 2.0 para início de sessão único no | Documentos da Microsoft'
+title: 'Azure AD Connect: Utilizar um fornecedor de identidade 2.0 para início de sessão único - Azure'
 description: Este documento descreve a utilizar um Idp de conformidade de SAML 2.0 para início de sessão único no.
 services: active-directory
 author: billmath
@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e25060152577e7947a78aa0e8d78c85cc7fd2fad
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350937"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138331"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Utilize um fornecedor de identidade 2.0 (IdP) para início de sessão único no
 
@@ -41,7 +41,7 @@ A Microsoft suporta esta experiência de início de sessão, como a integração
 >     - Cliente de correio do Windows 8 e o cliente de correio do Windows 8.1
 >     - Cliente de correio do Windows 10
 
-Todos os outros clientes não estão disponíveis neste cenário de início de sessão com o seu fornecedor de identidade do SAML 2.0. Por exemplo, o cliente de desktop do Lync 2010 não é capaz de iniciar sessão no serviço junto do seu fornecedor de identidade do SAML 2.0 configurada para início de sessão único.
+Todos os outros clientes não estão disponíveis neste cenário de início de sessão com o seu fornecedor de identidade do SAML 2.0. Por exemplo, o cliente de desktop do Lync 2010 não é capaz de iniciar sessão serviço junto do seu fornecedor de identidade do SAML 2.0 configurada para início de sessão único.
 
 ## <a name="azure-ad-saml-20-protocol-requirements"></a>Requisitos de protocolo do Azure AD SAML 2.0
 Este documento contém os requisitos detalhados sobre o protocolo e a mensagem de formatação que o fornecedor de identidade de SAML 2.0 tem de implementar para federar com o Azure AD para ativar o início de sessão num ou mais serviços cloud da Microsoft (como o Office 365). A entidade da entidade confiadora de SAML 2.0 (SP-STS), para um serviço cloud da Microsoft utilizada neste cenário é o Azure AD.
@@ -71,8 +71,8 @@ Na mensagem de resposta SAML, o nó de assinatura contém informações sobre a 
 Enlaces são os parâmetros de comunicações relacionadas com o transporte que são necessários. Os seguintes requisitos aplicam-se para as ligações
 
 1. O HTTPS é o transporte necessário.
-2.  Azure AD irá exigir HTTP POST para a submissão de token durante o início de sessão
-3.  Azure AD irá utilizar o HTTP POST para o pedido de autenticação para o fornecedor de identidade e o REDIRECIONAMENTO para a mensagem de Logoff para o fornecedor de identidade.
+2.  Azure AD irá exigir HTTP POST para a submissão de token durante o início de sessão.
+3.  Azure AD irá utilizar o HTTP POST para o pedido de autenticação para o fornecedor de identidade e o REDIRECIONAMENTO para o início de sessão mensagem para o fornecedor de identidade.
 
 ## <a name="required-attributes"></a>Atributos necessários
 Esta tabela mostra os requisitos de atributos específicos na mensagem de SAML 2.0.
@@ -258,7 +258,7 @@ A Microsoft forneceu uma ferramenta que pode usar para testar o seu fornecedor d
 2.  Clique em instalar agora para começar a baixar e instalar a ferramenta.
 3.  Selecione "Não é possível configurar a Federação com o Office 365, Azure ou noutros serviços que utilizam o Azure Active Directory".
 4.  Assim que a ferramenta é transferida e em execução, verá a janela de diagnóstico de conectividade. A ferramenta apresentará a por meio do teste a ligação de Federação.
-5.  O analisador de conectividade abrirá o SAML 2.0 IDP-lhe iniciar sessão, introduza as credenciais de principal de utilizador que está a testar: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
+5.  O analisador de conectividade abrirá o SAML 2.0 IDP para início de sessão, introduza as credenciais para o utilizador está a testar principal: ![SAML](./media/how-to-connect-fed-saml-idp/saml1.png)
 6.  No teste de início de sessão na janela de Federação, que deve introduzir um nome de conta e palavra-passe para o inquilino do Azure AD que está configurado para ser Federado com o seu fornecedor de identidade de SAML 2.0. A ferramenta irá tentar inicie a sessão com as credenciais e resultados detalhados de testes executados durante a tentativa de início de sessão serão fornecidos como saída.
 ![SAML](./media/how-to-connect-fed-saml-idp/saml2.png)
 7. Esta janela exibe um resultado de falha de teste. Clicar em revisão dos resultados em pormenor mostrará informações sobre os resultados para cada teste que foi executada. Também pode guardar os resultados para o disco para partilhá-los.
@@ -271,7 +271,7 @@ A verificação manual fornece passos adicionais que pode tomar para se certific
 Para verificar que esse início de sessão único foi configurado corretamente, conclua os seguintes passos:
 
 
-1. Num computador associado a um domínio, início de sessão ao seu serviço de nuvem com o mesmo nome de início de sessão que utilizam as suas credenciais empresariais.
+1. Num computador associado a um domínio, início de sessão ao seu serviço de nuvem com o mesmo início de sessão nome que utiliza as suas credenciais empresariais.
 2.  Clique dentro da caixa de palavra-passe. Se o início de sessão único estiver configurado, a caixa de palavra-passe será sombreada e verá a seguinte mensagem: "Agora tem de iniciar sessão no &lt;da sua empresa&gt;."
 3.  Clique no início de sessão no &lt;da sua empresa&gt; ligação. Se for capaz de início de sessão, em seguida, único início de sessão foi configurado.
 

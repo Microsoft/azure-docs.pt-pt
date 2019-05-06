@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc38e2096b6a761060fab09a8ce2518808b370e1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713350"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139231"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer afirmações opcionais para a sua aplicação do Azure AD
 
@@ -70,7 +70,8 @@ O conjunto de afirmações opcionais disponíveis por predefinição para as apl
 | `xms_pl`                   | Idioma preferido do utilizador  | JWT ||O usuário do idioma preferencial, se definir. Origem do seu inquilino principal, em cenários de acesso de convidado. Formatado LL CC ("en-us"). |
 | `xms_tpl`                  | Idioma preferencial do inquilino| JWT | | O inquilino de recursos do idioma preferencial, se definir. Formatado LL ("en"). |
 | `ztdid`                    | Implantação zero-touch ID | JWT | | A identidade de dispositivo utilizada para [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
-| `email`                    | O e-mail endereçável para este utilizador, se o utilizador tiver um.  | JWT, SAML | MSA, AAD | Este valor está incluído por predefinição, se o utilizador é um convidado no inquilino.  Para os utilizadores geridos (aquelas dentro do inquilino), este deve ser solicitada por meio desta afirmação opcional ou, na versão 2.0 apenas, com o âmbito OpenID.  Para os utilizadores geridos, o endereço de e-mail tem de ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).|  
+| `email`                    | O e-mail endereçável para este utilizador, se o utilizador tiver um.  | JWT, SAML | MSA, AAD | Este valor está incluído por predefinição, se o utilizador é um convidado no inquilino.  Para os utilizadores geridos (aquelas dentro do inquilino), este deve ser solicitada por meio desta afirmação opcional ou, na versão 2.0 apenas, com o âmbito OpenID.  Para os utilizadores geridos, o endereço de e-mail tem de ser definido [portal de administração do Office](https://portal.office.com/adminportal/home#/users).| 
+| `groups`| Opcional de formatação para declarações de grupo |JWT, SAML| |Utilizado em conjunto com a definição de GroupMembershipClaims na [manifesto do aplicativo](reference-app-manifest.md), que tem de ser definido também. Para obter detalhes, consulte [afirmações de grupo](#Configuring-group-optional claims) abaixo. Para obter mais informações sobre afirmações de grupo Consulte [como configurar afirmações de grupo](../hybrid/how-to-connect-fed-group-claims.md)
 | `acct`             | Estado da conta de utilizadores no inquilino. | JWT, SAML | | Se o utilizador é membro do inquilino, o valor é `0`. Se forem um convidado, o valor é `1`. |
 | `upn`                      | Declaração de UserPrincipalName. | JWT, SAML  |           | Embora esta afirmação é automaticamente incluída, pode especificá-lo como uma afirmação opcional para anexar propriedades adicionais para modificar seu comportamento no caso de utilizador convidado.  |
 
@@ -91,7 +92,6 @@ Essas declarações são sempre incluídas na v1.0 tokens de AD do Azure, mas n�
 | `family_name` | Apelido                       | Fornece o último nome, sobrenome ou nome de família do utilizador, conforme definido no objeto user. <br>"family_name": "Santos" | Suportado no AAD e MSA   |
 | `given_name`  | Nome próprio                      | Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto user.<br>"given_name": "Frank"                   | Suportado no AAD e MSA  |
 | `upn`         | Nome Principal de Utilizador | Um identificador para o utilizador que pode ser utilizado com o parâmetro username_hint.  Não é um identificador duradouro para o utilizador e não deve ser usado para dados de chave. | Ver [propriedades adicionais](#additional-properties-of-optional-claims) abaixo para a configuração da afirmação. |
-
 
 ### <a name="additional-properties-of-optional-claims"></a>Propriedades adicionais de afirmações opcionais
 
@@ -131,24 +131,24 @@ Pode configurar afirmações opcionais para a sua aplicação ao modificar o man
 ```json
 "optionalClaims":  
    {
-       "idToken": [
-             { 
-                   "name": "auth_time", 
-                   "essential": false
-              }
-        ],
- "accessToken": [ 
+      "idToken": [
+            {
+                  "name": "auth_time", 
+                  "essential": false
+             }
+      ],
+      "accessToken": [
              {
                     "name": "ipaddr", 
                     "essential": false
               }
-        ],
-"saml2Token": [ 
-              { 
+      ],
+      "saml2Token": [
+              {
                     "name": "upn", 
                     "essential": false
                },
-               { 
+               {
                     "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                     "source": "user", 
                     "essential": false
@@ -187,7 +187,7 @@ Se for suportado por uma declaração específica, também pode modificar o comp
 Além do conjunto de afirmações opcionais standard, também pode configurar tokens para incluir as extensões de esquema do diretório. Para mais informações, veja [extensões de esquema do](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). Esta funcionalidade é útil para anexar informações de utilizador adicionais que pode utilizar a aplicação – por exemplo, um identificador adicional ou a opção de configuração importantes que o usuário tiver definido. 
 
 > [!Note]
-> Extensões de esquema de diretório são um recurso exclusivo de AAD, portanto, se seu aplicativo manifesto pedidos de uma extensão personalizada e um utilizador MSA registos na sua aplicação, estas extensões não vão ser devolvidas. 
+> Extensões de esquema de diretório são um recurso exclusivo de AAD, portanto, se seu aplicativo manifesto pedidos de uma extensão personalizada e um utilizador MSA registos na sua aplicação, estas extensões não vão ser devolvidas.
 
 ### <a name="directory-extension-formatting"></a>Formatação de extensão de diretório
 
@@ -196,6 +196,98 @@ Para atributos de extensão, utilize o nome completo da extensão (no formato: `
 Dentro do JWT, essas declarações serão emitidas com o seguinte formato de nome: `extn.<attributename>`.
 
 Dentro de SAML tokens, essas declarações serão emitidas com o formato URI seguinte: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+
+## <a name="configuring-group-optional-claims"></a>Configurar afirmações opcionais de grupo
+
+   > [!NOTE]
+   > A capacidade de emitir nomes de grupos de utilizadores e grupos sincronizados no local é a pré-visualização pública
+
+Esta secção abrange as opções de configuração em afirmações opcionais para alterar os atributos de grupo utilizados nas afirmações de grupo do objectID de grupo padrão de atributos sincronizados a partir do Active Directory do Windows no local
+> [!IMPORTANT]
+> Ver [configurar afirmações de grupo para aplicações com o Azure Active Directory](../hybrid/how-to-connect-fed-group-claims.md) para obter mais detalhes, incluindo avisos importantes para a pré-visualização pública de declarações de grupo de atributos no local.
+
+1. No portal -> Azure Active Directory -> aplicação registos -> selecione aplicação -> manifesto
+
+2. Ativar afirmações de associação de grupo, alterando o groupMembershipClaim
+
+   Os valores válidos são:
+
+   - "Tudo"
+   - "SecurityGroup"
+   - "DistributionList"
+   - "DirectoryRole"
+
+   Por exemplo:
+
+   ```json
+   "groupMembershipClaims": "SecurityGroup"
+   ```
+
+   Por predefinição que ObjectIds grupo será emitido no grupo de valor de afirmação.  Para modificar o valor de afirmação para conter nos atributos de grupo local ou para alterar o tipo de afirmação a função, utilize a configuração de OptionalClaims da seguinte forma:
+
+3. Conjunto de afirmações opcionais de configuração do nome de grupo.
+
+   Se quiser grupos no token para conter no local, atributos de grupo do AD na secção afirmações opcionais especificam qual afirmação opcional do tipo de token deve ser aplicada, o nome da afirmação opcional solicitada e as propriedades adicionais assim o desejar.  Vários tipos de tokens podem ser listados:
+
+   - idToken para o token de ID de OIDC
+   - accessToken para o token de acesso de OAuth/OIDC
+   - Saml2Token para SAML tokens.
+
+   > [!NOTE]
+   > O tipo de Saml2Token aplica-se a SAML1.1 e SAML2.0 tokens de formato
+
+   Para cada tipo de token relevante, modifique a declaração de grupos para utilizar a secção de OptionalClaims no manifesto. O esquema de OptionalClaims é o seguinte:
+
+   ```json
+   {
+   "name": "groups",
+   "source": null,
+   "essential": false,
+   "additionalProperties": []
+   }
+   ```
+
+   | Esquema de afirmações opcionais | Value |
+   |----------|-------------|
+   | **name:** | Tem de ser "grupos" |
+   | **Origem:** | Não utilizado. Omitir ou especifique null |
+   | **essential:** | Não utilizado. Omitir ou especifique false |
+   | **additionalProperties:** | Lista de propriedades adicionais.  As opções válidas são "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles" |
+
+   No additionalProperties apenas um dos "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" são necessários.  Se existir mais do que um, o primeiro é utilizado e quaisquer outros ignorados.
+
+   Algumas aplicações necessitam de informações do grupo sobre o utilizador na declaração de função.  Para alterar o tipo de afirmação a partir de um grupo de afirmação para uma declaração role, adicione "emit_as_roles" às propriedades adicionais.  Os valores de grupo serão emitidos na declaração de função.
+
+   > [!NOTE]
+   > Se for utilizado "emit_as_roles" quaisquer funções de aplicação configurado que é atribuída ao utilizador irá não aparecem na declaração de função
+
+**Exemplos:** Emitir grupos como nomes de grupo nos tokens de acesso de OAuth no formato de dnsDomainName\sAMAccountName
+
+```json
+"optionalClaims": {
+    "accessToken": [{
+        "name": "groups",
+        "additionalProperties": ["dns_domain_and_sam_account_name"]
+    }]
+}
+ ```
+
+Emitir nomes de grupo seja retornado em formato de netbiosDomain\sAMAccountName como as funções de afirmações no SAML e Tokens de ID de OIDC:
+
+```json
+"optionalClaims": {
+    "saml2Token": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }],
+
+    "idToken": [{
+        "name": "groups",
+        "additionalProperties": ["netbios_name_and_sam_account_name", "emit_as_roles"]
+    }]
+ }
+
+ ```
 
 ## <a name="optional-claims-example"></a>Exemplo de afirmações opcionais
 
@@ -213,7 +305,7 @@ Existem várias opções disponíveis para atualização das propriedades na con
 1. A partir da página da aplicação, clique em **manifesto** para abrir o editor de manifesto inline. 
 1. Pode editar diretamente o manifesto usando esse editor. O manifesto segue o esquema para o [entidade de aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest)e o manifesto de uma vez guardado de formatos de automática. Serão adicionados novos elementos para o `OptionalClaims` propriedade.
 
-      ```json
+    ```json
       "optionalClaims": 
       {
             "idToken": [ 
@@ -223,13 +315,13 @@ Existem várias opções disponíveis para atualização das propriedades na con
                         "additionalProperties": [ "include_externally_authenticated_upn"]  
                   }
             ],
-      "accessToken": [ 
+            "accessToken": [ 
                   {
                         "name": "auth_time", 
                         "essential": false
                   }
             ],
-      "saml2Token": [ 
+            "saml2Token": [ 
                   { 
                         "name": "extension_ab603c56068041afb2f6832e2a17e237_skypeId",
                         "source": "user", 
@@ -237,8 +329,10 @@ Existem várias opções disponíveis para atualização das propriedades na con
                   }
             ]
       }
-      ```
-      Neste caso, as afirmações opcionais diferentes foram adicionadas para cada tipo de token que a aplicação pode receber. Os tokens de ID agora irão conter o UPN para utilizadores federados na forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Os tokens de acesso que outros clientes pedem para esta aplicação irão agora incluir a afirmação auth_time. Os tokens SAML agora irão conter a extensão de esquema de diretório skypeId (neste exemplo, o ID de aplicação para esta aplicação é ab603c56068041afb2f6832e2a17e237). Os tokens SAML irão expor o ID de Skype como `extension_skypeId`.
+
+    ```
+
+    Neste caso, as afirmações opcionais diferentes foram adicionadas para cada tipo de token que a aplicação pode receber. Os tokens de ID agora irão conter o UPN para utilizadores federados na forma completa (`<upn>_<homedomain>#EXT#@<resourcedomain>`). Os tokens de acesso que outros clientes pedem para esta aplicação irão agora incluir a afirmação auth_time. Os tokens SAML agora irão conter a extensão de esquema de diretório skypeId (neste exemplo, o ID de aplicação para esta aplicação é ab603c56068041afb2f6832e2a17e237). Os tokens SAML irão expor o ID de Skype como `extension_skypeId`.
 
 1. Quando tiver terminado a atualizar o manifesto, clique em **guardar** para guardar o manifesto
 

@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/15/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a27f7597ddc934b925d63507a816ac5816b682d6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733509"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151052"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Serviços de multimédia do Azure de acesso à API com a CLI do Azure
  
@@ -54,7 +54,11 @@ Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo 
 - [Criar EventGrid - CLI](./scripts/cli-create-event-grid.md)
 - [Publicar um elemento - CLI](./scripts/cli-publish-asset.md)
 - [Filtro - CLI](filters-dynamic-manifest-cli-howto.md)
+- [CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[CLI do Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+Ponto final de transmissão em fluxo partir do qual quer transmitir conteúdo tem de estar no Estado em execução. O seguinte comando da CLI começa seu padrão de ponto final de transmissão em fluxo:
+
+
+`az ams streaming-endpoint start -n default -a <amsaccount> -g <amsResourceGroup>`

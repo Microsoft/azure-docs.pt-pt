@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial: Conceber uma base de dados do Azure para PostgreSQL com a CLI do Azure'
-description: Este tutorial mostra como criar, configurar e consultar o seu primeiro servidor da Base de Dados do Azure para PostgreSQL com a CLI do Azure.
+title: 'Tutorial: Conceber uma base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure'
+description: Este tutorial mostra como criar, configurar e consultar a sua primeira base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/01/2018
-ms.openlocfilehash: eba1ffcbe07c617661d902de0726f17e4fec0a00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 5/6/2019
+ms.openlocfilehash: ed272afcfedaf6c781d2a96e5732fe2368914a67
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992087"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073076"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL com a CLI do Azure 
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure 
 Neste tutorial, utiliza a CLI do Azure (interface de linha de comandos) e outros utilitários para saber como:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor PostgreSQL

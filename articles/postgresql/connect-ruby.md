@@ -1,21 +1,21 @@
 ---
-title: Ligar à Base de Dados do Azure para PostgreSQL com Ruby
-description: Este guia de início rápido fornece um código de exemplo de Ruby que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
+title: Utilizar Ruby para ligar à base de dados do Azure para PostgreSQL - servidor único
+description: Este início rápido fornece um exemplo de código Ruby que pode utilizar para se ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 03/12/2019
-ms.openlocfilehash: cdb53685e744401f9d2d229a5deaffa72502e26b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 242f5724e81f9b8ac6177e5c9d3844b3fab9a7f2
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421489"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067269"
 ---
-# <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilizar Ruby para se ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-ruby-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilizar Ruby para se ligar e consultar dados
 Este início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação [Ruby](https://www.ruby-lang.org). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Ruby e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -4,14 +4,14 @@ description: Saiba como gerir políticas de indexação no Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 76275420e1e6ed7fdec8309da9e11a272f08fee0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054678"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068663"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 
@@ -162,7 +162,7 @@ response = client.ReplaceContainer(containerPath, container)
 Aqui estão alguns exemplos de políticas de indexação apresentadas no seu formato JSON, que é a forma como elas são expostas no portal do Azure. Os mesmos parâmetros podem ser definidos através da CLI do Azure ou qualquer SDK.
 
 ### <a name="opt-out-policy-to-selectively-exclude-some-property-paths"></a>Política de sair para seletivamente excluir alguns caminhos de propriedade
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -193,9 +193,10 @@ Aqui estão alguns exemplos de políticas de indexação apresentadas no seu for
             }
         ]
     }
+```
 
 ### <a name="opt-in-policy-to-selectively-include-some-property-paths"></a>Política de optar por incluir seletivamente alguns caminhos de propriedade
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -224,11 +225,12 @@ Aqui estão alguns exemplos de políticas de indexação apresentadas no seu for
             }
         ]
     }
+```
 
 Nota: Em geral, é recomendado utilizar um **sair** política para permitir que o Azure Cosmos DB proativamente de indexação de índice qualquer nova propriedade, que pode ser adicionada ao seu modelo.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usando um índice espacial em apenas um caminho de propriedade específica
-
+```
     {
         "indexingPolicy": "consistent",
         "includedPaths": [
@@ -257,11 +259,12 @@ Nota: Em geral, é recomendado utilizar um **sair** política para permitir que 
         ],
         "excludedPaths": []
     }
+```
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Excluir todos os caminhos de propriedade, mas mantendo a indexação do Active Directory
 
 Esta política pode ser usada em situações em que o [Time-to-Live (TTL) funcionalidade](time-to-live.md) é Active Directory, mas não secundário índice é necessário (para utilizar o Azure Cosmos DB como um arquivo de chave-valor puro).
-
+```
     {
         "indexingMode": "consistent",
         "includedPaths": [],
@@ -269,12 +272,130 @@ Esta política pode ser usada em situações em que o [Time-to-Live (TTL) funcio
             "path": "/*"
         }]
     }
+```
 
 ### <a name="no-indexing"></a>Não existem indexação
-
+```
     {
         "indexingPolicy": "none"
     }
+```
+
+## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação compostos
+
+Além de incluindo ou excluindo os caminhos para propriedades individuais, também pode especificar um índice composto. Se quiser executar uma consulta que tem um `ORDER BY` cláusula de várias propriedades, uma [índice composto](index-policy.md#composite-indexes) sobre essas propriedades é necessária.
+
+### <a name="composite-index-defined-for-name-asc-age-desc"></a>Índice composto definido para (asc nome, idade desc):
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+Este índice composto deve ser capaz de dar suporte as duas consultas seguintes:
+
+Consulta de #1:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name asc, age desc    
+```
+
+Consulta de #2:
+```sql
+    SELECT *
+    FROM c
+    ORDER BY name desc, age asc
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc-and-name-asc-age-desc"></a>Índice composto definido para (asc nome, idade asc) e (nome asc, idade desc):
+
+Pode definir vários índices compostos diferentes na mesma política de indexação. 
+```
+    {  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"ascending"
+                }
+            ]
+            [  
+                {  
+                    "path":"/name",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/age",
+                    "order":"descending"
+                }
+            ]
+        ]
+    }
+```
+
+### <a name="composite-index-defined-for-name-asc-age-asc"></a>Índice composto definido para (asc nome, idade asc):
+
+É opcional especificar a ordem. Se não for especificado, a ordem é ascendente.
+```
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[  
+
+        ],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/name",
+                },
+                {  
+                    "path":"/age",
+                }
+            ]
+        ]
+}
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -3,21 +3,21 @@ title: Predefinir uma experimental para a codificação de conteúdo com suporte
 description: Este artigo aborda a codificação com reconhecimento de conteúdo nos serviços de multimédia do Azure
 services: media-services
 documentationcenter: ''
-author: sethmanheim
+author: Juliako
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 04/05/2019
-ms.author: sethm
+ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: b0b5a74a6ca0085f945075a8896c05a724ff062c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ddb7bfd2437af806c8db75068c50545e69867ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717956"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151011"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Configuração predefinida para a codificação de conteúdo com suporte para experimentais
 

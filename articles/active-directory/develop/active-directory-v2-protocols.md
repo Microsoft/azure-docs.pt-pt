@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7471bb82aece2b4c11f5071b6b3746f1a55a4a60
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8d509e9f3cabcd588d539d42b8cce022e17a1222
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917330"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139199"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidade do Microsoft
 
@@ -45,7 +45,7 @@ Em quase todos os fluxos do OAuth 2.0 e OpenID Connect, há quatro partes envolv
 
 ## <a name="app-registration"></a>Registo de aplicações
 
-Todas as aplicações que queira aceitar tanto pessoais e contas escolares ou profissionais têm de estar registadas por meio do novo **registos de aplicações (pré-visualização)** experiência no [portal do Azure](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) antes de ele pode iniciar sessão a estes utilizadores utilizar o OAuth 2.0 ou OpenID Connect. O processo de registo de aplicação irá recolher e atribuir alguns valores à sua aplicação:
+Todas as aplicações que queira aceitar tanto pessoais e contas escolares ou profissionais têm de estar registadas através do **registos de aplicações** experiência no [portal do Azure](https://aka.ms/appregistrations) antes de pode inscrever-se esses utilizadores com o OAuth 2.0 ou OpenID Connect. O processo de registo de aplicação irá recolher e atribuir alguns valores à sua aplicação:
 
 * Uma **ID da aplicação** que identifica exclusivamente a sua aplicação
 * R **URI de redirecionamento** ou **identificador de pacote** que podem ser utilizadas para direcionar as respostas de volta à sua aplicação

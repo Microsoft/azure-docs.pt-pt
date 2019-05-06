@@ -1,37 +1,48 @@
 ---
 title: Exemplos do Azure PowerShell para o Azure Cosmos DB
 description: Exemplos do Azure PowerShell - Scripts para ajudá-lo a criar e gerir contas do Azure Cosmos DB.
-author: SnehaGunda
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/16/2017
-ms.author: sngun
-ms.openlocfilehash: 3498ac6a2a4aaa1682d7b5bc5aae5383866d5bcd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/08/2019
+ms.author: mjbrown
+ms.openlocfilehash: 68e845a05f4ebe2d1f25b55c00042c8925c8109e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926167"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069306"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemplos do Azure PowerShell para o Azure Cosmos DB
 
-A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell para o Azure Cosmos DB. Atualmente, só pode gerir a conta do Azure Cosmos DB a partir do PowerShell; outros recursos, como bases de dados e contentores, não podem ser geridos através do PowerShell.
+A tabela seguinte inclui ligações para scripts de exemplo do Azure PowerShell para o Azure Cosmos DB para Core (SQL) API.
 
 | |  |
 |---|---|
-|**Criar uma conta do Azure Cosmos DB**||
-|[Criar e configurar uma conta do Cosmos com a API de SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API SQL. |
-|[Criar e configurar uma conta do Cosmos com a API do Azure Cosmos DB para o MongoDB](scripts/create-mongodb-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Cosmos com API do Azure Cosmos DB para o MongoDB. |
-|[Criar e configurar uma conta do Cosmos com a API do Gremlin](scripts/create-graph-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API Gremlin. |
-|[Criar e configurar uma conta do Cosmos com a API de Cassandra](scripts/create-and-configure-cassandra-database.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API para Cassandra. |
-|[Criar e configurar uma conta do Cosmos com a API de tabela](scripts/create-table-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do Azure Cosmos DB para utilização com a API de Tabela. |
-|**Dimensionar o Azure Cosmos DB**||
-|[Replicar a conta do Azure Cosmos DB em várias regiões e configurar prioridades de ativação pós-falha](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replica globalmente os dados da conta em várias regiões com uma prioridade de ativação pós-falha especificada.|
-|**Proteger o Azure Cosmos DB**||
-| [Obter chaves de contas](scripts/secure-get-account-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Obtém as chaves de escrita mestra primária e secundária, e as chaves só de leitura primária e secundária da conta.|
-| [Obter a cadeia de ligação do MongoDB](scripts/secure-mongo-connection-string-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Obtém a cadeia de ligação para ligar a aplicação MongoDB à sua conta do Azure Cosmos DB.|
-|[Voltar a gerar chaves da conta](scripts/secure-regenerate-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Volta a gerar a chave mestra ou só de leitura da conta.|
-|[Criar uma firewall](scripts/create-firewall-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma política de controlo de acesso IP de entrada para limitar o acesso à conta a partir de um conjunto aprovado de computadores e/ou serviços cloud.|
-|**Elevada disponibilidade, recuperação após desastre, cópia de segurança e restauro**||
-|[Configurar política de ativação pós-falha](scripts/ha-failover-policy-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Define a prioridade de ativação pós-falha de cada região em que a conta é replicada.|
+|**Contas do Cosmos do Azure**||
+|[Criar uma conta](scripts/powershell/sql/ps-account-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma conta API SQL do Azure Cosmos. |
+|[Obter uma conta](scripts/powershell/sql/ps-account-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obter as propriedades de uma conta do Cosmos do Azure. |
+|[Adicionar uma região](scripts/powershell/sql/ps-account-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha uma conta do Cosmos do Azure e adicionar uma região para a lista de localizações. |
+|[Alterar a prioridade de ativação pós-falha](scripts/powershell/sql/ps-account-failover-priority-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Altere a prioridade de ativação pós-falha de uma conta do Cosmos do Azure com um acionador de ativação pós-falha manual. |
+|[Etiquetas de atualização](scripts/powershell/sql/ps-account-tags-update.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Atualize as etiquetas de uma conta do Cosmos do Azure. |
+|[Obter chaves de contas](scripts/powershell/sql/ps-account-key-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha as chaves primárias e secundárias de uma conta do Cosmos do Azure. |
+|[Voltar a gerar chaves da conta](scripts/powershell/sql/ps-account-key-regenerate.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Regenere as chaves primárias e secundárias de uma conta do Cosmos do Azure. |
+|[Lista cadeias de ligação](scripts/powershell/sql/ps-account-connection-string-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Obtenha as cadeias de ligação primária e secundária de uma conta do Cosmos do Azure. |
+|[Criar a Firewall do IP](scripts/powershell/sql/ps-account-firewall-create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crie uma Firewall do IP de uma conta do Cosmos do Azure. |
+|[Eliminar uma conta do Cosmos do Azure](scripts/powershell/sql/ps-account-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elimine uma conta do Cosmos do Azure. |
+|**Bases de dados do Cosmos do Azure**||
+| [Criar uma base de dados](scripts/powershell/sql/ps-database-create.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie uma base de dados dentro de uma conta do Cosmos do Azure.|
+| [Criar uma base de dados com débito de partilhado/nível base de dados](scripts/powershell/sql/ps-database-create-shared.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie uma base de dados do Cosmos do Azure com débito de nível de base de dados que é partilhado com seus contêineres.|
+| [Liste todas as bases de dados](scripts/powershell/sql/ps-database-list.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Liste todas as bases de dados numa conta do Cosmos do Azure.|
+| [Obter uma base de dados](scripts/powershell/sql/ps-database-get.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Obter as propriedades de uma base de dados do Cosmos do Azure.|
+|**Contentores do Azure Cosmos**||
+| [Criar um contentor](scripts/powershell/sql/ps-container-create.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um contentor do Cosmos do Azure com o débito dedicado.|
+| [Criar um contentor com a taxa de transferência partilhada](scripts/powershell/sql/ps-container-create-shared.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um contentor do Cosmos do Azure com a taxa de transferência partilhada com outros contentores na base de dados.|
+| [Criar um contentor com a política de índice](scripts/powershell/sql/ps-container-create-index-custom.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um contentor do Cosmos do Azure com uma política de índice personalizado.|
+| [Criar um contentor com nenhuma política de índice](scripts/powershell/sql/ps-container-create-index-none.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um contentor do Cosmos do Azure com a política de índice desativada.|
+| [Criar um contentor com chaves exclusivas e TTL](scripts/powershell/sql/ps-container-create-unique-key-ttl.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crie um Cosmos Azure configurado de contentor com uma restrição de chave exclusiva e time-to-live.|
+| [Criar um contentor com resolução de conflitos](scripts/powershell/sql/ps-container-create-conflict-policy.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Criar um contentor do Cosmos do Azure com o último-escritor-wins entram em conflito de política de resolução.|
+| [Listar todos os contentores](scripts/powershell/sql/ps-container-list.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Liste todos os contentores numa base de dados do Cosmos do Azure.|
+| [Obter um contentor](scripts/powershell/sql/ps-container-get.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Obter as propriedades para um contentor num banco de dados do Cosmos do Azure.|
+| [Eliminar um contentor](scripts/powershell/sql/ps-container-delete.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Elimine um contentor num banco de dados do Cosmos do Azure.|
 |||

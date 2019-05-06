@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
-ms.openlocfilehash: 0157cdc8062d7c53aaeb3ff01762e9562aa9c394
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866346"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153383"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -93,7 +93,7 @@ Para compreender o fluxo de trabalho de transmissão em fluxo em direto em servi
 - [States and billing](live-event-states-billing.md) (Estados e faturação)
 - [Latência](live-event-latency.md)
 
-## <a name="provide-feedback"></a>Enviar comentários
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obter atualizações
 
 Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 

@@ -1,6 +1,6 @@
 ---
-title: Concluir uma revisão de acesso para funções do Azure AD no PIM - Azure Active Directory | Documentos da Microsoft
-description: Saiba como concluir uma revisão de acesso para funções do Azure AD no Azure AD Privileged Identity Management (PIM) e ver os resultados
+title: Concluir uma revisão de acesso de funções do Azure AD no PIM - Azure Active Directory | Documentos da Microsoft
+description: Saiba como concluir uma revisão de acesso de funções do Azure AD no Azure AD Privileged Identity Management (PIM) e ver os resultados
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288313"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140995"
 ---
-# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Concluir uma revisão de acesso para funções do Azure AD no PIM
+# <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Concluir uma revisão de acesso de funções do Azure AD no PIM
 Os administradores de função com privilégios podem rever acesso privilegiado de uma vez um [revisão de acesso foi iniciada](pim-how-to-start-security-review.md). O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enviará automaticamente um e-mail a pedir aos utilizadores para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-how-to-perform-security-review.md).
 
 Depois do período de revisão de acesso, ou todos os usuários tem concluído a seus Self-rever, siga os passos neste artigo para gerir a revisão e ver os resultados.

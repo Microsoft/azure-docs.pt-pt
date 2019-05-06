@@ -1,25 +1,25 @@
 ---
-title: Início rápido - criar uma base de dados do Azure para PostgreSQL com um simple comando da CLI do Azure - az postgres cópia de segurança (pré-visualização)
-description: Guia de início rápido para criar a base de dados do Azure para o servidor PostgreSQL com a CLI do Azure (interface de linha de comandos) comando.
+title: 'Início rápido: Criar uma base de dados do Azure para PostgreSQL - servidor único com CLI comando az postgres cópia de segurança'
+description: Guia de início rápido para criar a base de dados do Azure para o PostgreSQL – CLI do Azure (interface de linha de comandos) de servidor único comando.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
-ms.openlocfilehash: 0db49e2c370aee37cca4181cecbe4cf0b5585c51
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 49f71c199a2832d763bb3c19d878fade47dfb8e4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61091643"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069081"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql-using-a-simple-azure-cli-command---az-postgres-up-preview"></a>Início rápido: Criar uma base de dados do Azure para PostgreSQL com um simple comando da CLI do Azure - az postgres cópia de segurança (pré-visualização)
+# <a name="quickstart-use-an-azure-cli-command-az-postgres-up-preview-to-create-an-azure-database-for-postgresql---single-server"></a>Início rápido: Utilizar um comando da CLI do Azure, az postgres cópia de segurança (pré-visualização), para criar uma base de dados do Azure para PostgreSQL - servidor único
 
 > [!IMPORTANT]
 > O [az postgres se](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando da CLI do Azure está em pré-visualização.
 
-A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de introdução mostra-lhe como utilizar o [az postgres se](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando para criar uma base de dados do Azure para o servidor PostgreSQL com a CLI do Azure. Além de criar o servidor, o `az postgres up` comando cria uma base de dados de exemplo, um utilizador de raiz na base de dados, abre-se a firewall para serviços do Azure e cria predefinidas regras de firewall para o computador cliente. Isto ajuda a acelerar o processo de desenvolvimento.
+A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este guia de introdução mostra-lhe como utilizar o [az postgres se](/cli/azure/ext/db-up/postgres#ext-db-up-az-postgres-up) comando para criar uma base de dados do Azure para o servidor PostgreSQL com a CLI do Azure. Além de criar o servidor, o `az postgres up` comando cria uma base de dados de exemplo, um utilizador de raiz na base de dados, abre-se a firewall para serviços do Azure e cria predefinidas regras de firewall para o computador cliente. Esses padrões ajudam a acelerar o processo de desenvolvimento.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,13 +27,13 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Este artigo requer a que está a executar a CLI do Azure versão 2.0 ou posterior localmente. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Terá de iniciar sessão na sua conta com o [início de sessão az](/cli/azure/authenticate-azure-cli?view=interactive-log-in) comando. Anote a propriedade **id** da saída de comando para o nome de subscrição correspondente.
+Terá de iniciar sessão na sua conta com o [início de sessão az](/cli/azure/authenticate-azure-cli?view=interactive-log-in) comando. Tenha em atenção a **ID** propriedade da saída do comando para o nome da subscrição correspondente.
 
 ```azurecli
 az login
 ```
 
-Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](/cli/azure/account). Substitua a **id de subscrição** propriedade a partir do **início de sessão az** de saída para a sua subscrição para o marcador de posição de id de subscrição.
+Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](/cli/azure/account). Substitua a **ID de subscrição** propriedade a partir do **início de sessão az** de saída para a sua subscrição para o marcador de posição de ID de subscrição.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -60,13 +60,13 @@ O servidor é criado com os seguintes valores predefinidos (a menos que as subst
 server-name | Gerada pelo sistema | Um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL.
 resource-group | Gerada pelo sistema | Um novo grupo de recursos do Azure.
 sku-name | GP_Gen5_2 | O nome de SKU. Segue a convenção {escalão de preço}\_{geração de computação}\_{vCores} em estenografia. A predefinição é um servidor de Gen5 de finalidade geral com 2 vCores. Consulte nossos [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações sobre os escalões.
-backup-retention | 7 | Quando tempo se deve reter uma cópia de segurança. A unidade é dias.
+backup-retention | 7 | Como uma cópia de segurança de longa é mantida. A unidade é dias.
 geo-redundant-backup | Desativado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não.
 localização | westus2 | A localização do Azure para o servidor.
 ssl-enforcement | Desativado | Se SSL deve ser ativado ou não para este servidor.
 storage-size | 5120 | A capacidade de armazenamento do servidor (a unidade é megabytes).
 versão | 10 | A versão principal do PostgreSQL.
-admin-user | Gerada pelo sistema | O nome de utilizador para o início de sessão do administrador.
+admin-user | Gerada pelo sistema | O nome de utilizador para o administrador.
 admin-password | Gerada pelo sistema | A palavra-passe do utilizador administrador.
 
 > [!NOTE]

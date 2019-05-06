@@ -2,88 +2,67 @@
 title: Como configurar a política de registo de autenticação multifator no Azure Active Directory Identity Protection | Documentos da Microsoft
 description: Saiba como configurar a política de registo de multi-factor authentication do Azure AD Identity Protection.
 services: active-directory
-keywords: proteção de identidade do Azure Active Directory, descoberta de aplicações na cloud, gestão de aplicações, a segurança, a risco, a nível de risco, a vulnerabilidade, a política de segurança
-documentationcenter: ''
-author: MicrosoftGuyJFlo
-manager: daveba
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2019
+ms.date: 05/01/2019
+author: MicrosoftGuyJFlo
+manager: daveba
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f4083ddf849842358f7699badca6598e56e4dee
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294910"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139375"
 ---
-# <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registo de autenticação multifator
+# <a name="how-to-configure-the-azure-multi-factor-authentication-registration-policy"></a>Como: Configurar a política de registo de multi-factor Authentication do Azure
 
-O Azure AD Identity Protection ajuda a gerir o roll-cancelar o registro de autenticação multifator (MFA) ao configurar uma política para exigir o registo do MFA. Este artigo explica o que a política pode ser utilizada e como configurá-lo.
+O Azure AD Identity Protection ajuda-o a gerir o roll-cancelar o registro de autenticação multifator (MFA) ao configurar uma política de acesso condicional para exigir o registo do MFA, independentemente da aplicação que está a iniciar. Este artigo explica o que a política pode ser utilizada e como configurá-lo.
 
-## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>O que é a política de registo de autenticação multifator?
+## <a name="what-is-the-azure-multi-factor-authentication-registration-policy"></a>O que é a política de registo de multi-factor Authentication do Azure?
 
-Autenticação multifator do Azure é um método de verificação quem é o que requer a utilização de mais do que apenas um nome de utilizador e palavra-passe. Ele fornece uma segunda camada de segurança para inícios de sessão de utilizador e transações. Por ordem para que os utilizadores possam responder a pedidos MFA, eles tem primeiro de registar para a MFA. 
+O Azure multi-factor Authentication fornece um meio para verificar quem estiver a utilizar mais do que apenas um nome de utilizador e palavra-passe. Ele fornece uma segunda camada de segurança para inícios de sessão do utilizador. Por ordem para que os utilizadores possam responder a pedidos MFA, tem primeiro estabelecimentos de multi-factor Authentication.
 
-Recomendamos que exigem multi-factor authentication para inícios de sessão de utilizador, porque ele:
+Recomendamos que exigem multi-factor Authentication para inícios de sessão de utilizador, porque ele:
 
 - Proporciona uma autenticação segura com uma variedade de opções de verificação simples
+- Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar a partir de eventos de risco no Identity Protection
 
-- Desempenha um papel fundamental na preparação de sua organização para proteger e recuperar a partir de comprometimentos de conta
+Para obter mais detalhes sobre a MFA, consulte [o que é o Azure multi-factor Authentication?](../authentication/howto-mfa-getstarted.md)
 
+## <a name="how-do-i-access-the-registration-policy"></a>Como posso aceder a política de registo?
 
-Para obter mais detalhes sobre a MFA, consulte [o que é o Azure multi-factor Authentication?](../authentication/multi-factor-authentication.md)
-
-
-## <a name="how-do-i-access-the-mfa-registration-policy"></a>Como posso aceder a política de registo MFA?
-   
 A política de registo MFA está no **configurar** secção sobre o [página do Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
-   
+
 ![Política da MFA](./media/howto-mfa-policy/1014.png)
-
-
-
 
 ## <a name="policy-settings"></a>Definições de política
 
-Ao configurar a política de registo do MFA, tem de definir:
+Ao configurar a política de registo do MFA, tem de efetuar as seguintes alterações de configuração:
 
-- Os utilizadores e grupos que a política aplica-se a:
+- Os utilizadores e grupos que se aplica a política. Lembre-se de excluir da sua organização [contas de acesso de emergência](../users-groups-roles/directory-emergency-access.md).
 
     ![Utilizadores e grupos](./media/howto-mfa-policy/11.png)
 
-- O controle que pretende impor requisitos de registo na MFA:  
+- O controle que deseja impor - **registo exigir MFA do Azure**
 
     ![Access](./media/howto-mfa-policy/12.png)
 
-- O estado da política:
+- Impor a política deve ser definida como **no**.
 
     ![Impor a política](./media/howto-mfa-policy/14.png)
 
-
-A caixa de diálogo de configuração de política fornece uma opção para calcular o impacto da sua configuração.
-
-![Impacto estimado](./media/howto-mfa-policy/15.png)
-
-
-
+- **Guardar** sua política
 
 ## <a name="user-experience"></a>Experiência de utilizador
 
-
 Para uma descrição geral da experiência do usuário relacionadas, consulte:
 
-* [Fluxo de registo de autenticação multifator](flows.md#multi-factor-authentication-registration).  
-* [Experiências de início de sessão com o Azure AD Identity Protection](flows.md).  
-
-
+- [Fluxo de registo de autenticação multifator](flows.md#multi-factor-authentication-registration).  
+- [Experiências de início de sessão com o Azure AD Identity Protection](flows.md).  
 
 ## <a name="next-steps"></a>Passos Seguintes
 

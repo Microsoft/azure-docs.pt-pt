@@ -1,20 +1,20 @@
 ---
-title: 'Tutorial: Conceber uma base de dados do Azure para PostgreSQL com o portal do Azure'
-description: Este tutorial mostra como Conceber a sua primeira Base de Dados do Azure para PostgreSQL com o portal do Azure.
+title: 'Tutorial: Conceber uma base de dados do Azure para PostgreSQL - servidor único com o portal do Azure'
+description: Este tutorial mostra como conceber a sua primeira base de dados do Azure para PostgreSQL - servidor único com o portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 03/20/2018
-ms.openlocfilehash: aed539484ac01d1b18b8374ffb57456364f9bd2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/16/2019
+ms.openlocfilehash: 20eb5a59e98c06d7bce4623a6a8facd998d3be4c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61092115"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069162"
 ---
-# <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL com o portal do Azure
+# <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Conceber uma base de dados do Azure para PostgreSQL - servidor único com o portal do Azure
 
 A Base de Dados do Azure para o PostgreSQL é um serviço gerido que lhe permite executar, gerir e dimensionar as bases de dados de alta disponibilidade do PostgreSQL na cloud. No portal do Azure, pode facilmente gerir o seu servidor e criar uma base de dados.
 
@@ -31,9 +31,6 @@ Neste tutorial, irá utilizar o Portal do Azure para aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="log-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
-
 ## <a name="create-an-azure-database-for-postgresql"></a>Criar uma Base de Dados do Azure para o PostgreSQL
 
 É criada uma Base de Dados do Azure para o servidor PostgreSQL com um conjunto definido de [recursos de armazenamento e computação](./concepts-compute-unit-and-storage.md). O servidor é criado dentro de um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
@@ -43,34 +40,40 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
 2. Selecione **Bases de Dados**, na página **Nova**, e selecione **Base de Dados do Azure para o PostgreSQL**, na página **Bases de Dados**.
    ![Base de Dados do Azure para o PostgreSQL – Criar a base de dados](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
 
-3. Preencha o formulário com os detalhes do novo servidor com as seguintes informações:
+3. Selecione o **único servidor** opção de implementação.
 
-   ![Criar um servidor](./media/tutorial-design-database-using-azure-portal/2-create.png)
+   ![Selecione a base de dados do Azure para PostgreSQL - opção de implementação de servidor único](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
 
-   - Nome do servidor: **mydemoserver** (o nome de um servidor é mapeado para o nome DNS e, por conseguinte, é necessário que seja globalmente exclusivo) 
-   - Subscrição: Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso existe ou é cobrado.
-   - Grupo de recursos: **myresourcegroup**
-   - Início de sessão e palavra-passe de administrador do servidor à sua escolha
-   - Location
-   - Versão do PostgreSQL
+4. Preencha os **Noções básicas** formulário com as seguintes informações:
 
-   > [!IMPORTANT]
-   > O início de sessão e a palavra-passe de administrador de servidor que especificar aqui serão necessários para iniciar sessão no servidor e nas respetivas bases de dados mais adiante neste tutorial. Lembre-se ou grave estas informações para utilização posterior.
+    ![Criar um servidor](./media/tutorial-design-database-using-azure-portal/create-basics.png)
 
-4. Clique em **Escalão de preço** para especificar o escalão de preço do seu novo servidor. Neste tutorial, selecione **fins gerais**, **fins 5** geração de computação e 2 **vCores**, 5 GB de **armazenamento** e 7 dias  **período de retenção de cópia de segurança**. Selecione a opção de redundância da cópia de segurança **Geograficamente Redundante** para que as cópias de segurança automáticas do seu servidor sejam armazenadas no armazenamento georredundante.
-   ![Base de Dados do Azure para PostgreSQL – escolher o escalão de preço](./media/tutorial-design-database-using-azure-portal/2-pricing-tier.png)
+    Definição|Valor sugerido|Descrição
+    ---|---|---
+    Subscrição|Nome da sua subscrição|A subscrição do Azure que quer utilizar para o servidor. Se tiver várias subscrições, escolha a subscrição na qual o recurso é cobrado.
+    Grupo de recursos|*myresourcegroup*| Um nome de grupo de recursos novo ou um já existente na sua subscrição.
+    Nome do servidor |*mydemoserver*|Um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome de domínio *postgres.database.azure.com* é acrescentado ao nome de servidor que indicar. O servidor só pode conter letras minúsculas, números e o caráter de hífen (-). Tem de conter, pelo menos, 3 a 63 carateres.
+    Origem de dados | *Nenhum* | Selecione *None* para criar um novo servidor a partir do zero. (Selecione *Cópia de segurança* se estiver a criar um servidor a partir de uma cópia de segurança geo de um servidor da Base de Dados do Azure para PostgreSQL existente).
+    Nome de utilizador de administrador |*myadmin*| A sua própria conta de início de sessão quando se ligar ao servidor. O nome de início de sessão de administrador não pode ser **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Não pode começar por **pg_**.
+    Palavra-passe |A sua palavra-passe| Uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números (0 a 9) e carateres não alfanuméricos (!, $, #, %, etc.).
+    Location|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.
+    Version|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
+    Computação + armazenamento | **Fins Gerais**, **Geração 5**, **2 vCores**, **5 GB**, **7 dias**, **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **configurar servidor**. Em seguida, selecione o separador **Fins Gerais**. *Fins gerais 5*, *4 vCores*, *100 GB*, e *7 dias* são os valores predefinidos para **geração de computação**,  **vCore**, **armazenamento**, e **período de retenção de cópia de segurança**. Pode deixar os controlos de deslize, tal como estão ou ajustá-los. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
-5. Clique em **OK**.
+   > [!NOTE]
+   > Considere utilizar o escalão de preços básico se capacidades de computação e e/s são adequadas para sua carga de trabalho. Tenha em atenção que os servidores que criou no escalão de preço básico mais tarde não podem ser ampliadas para fins gerais ou com otimização de memória. Consulte a [página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para obter mais informações.
+   > 
 
-6. Clique em **Criar** para aprovisionar o servidor. O aprovisionamento demora alguns minutos.
+    ![Painel “Escalão de preço”](./media/quickstart-create-database-portal/2-pricing-tier.png)
 
-7. Na barra de ferramentas, clique em **Notificações** para monitorizar o processo de implementação.
-   ![Base de Dados do Azure para o PostgreSQL – Ver as notificações](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
+5. Selecione **rever + criar** para rever as suas seleções. Selecione **Criar** para aprovisionar o servidor. Esta operação poderá demorar alguns minutos.
 
-   > [!TIP]
-   > Marque a opção **Afixar ao dashboard** para poder controlar de forma fácil as implementações.
+6. Na barra de ferramentas, selecione o ícone **Notificações** (um sino) para monitorizar o processo de implementação. Uma vez concluída a implementação, pode selecionar **Afixar ao dashboard**, o que cria um mosaico para este servidor no dashboard do portal do Azure como um atalho para a página **Descrição geral** do servidor. Selecionar **Ir para recurso** abre a página **Descrição geral** do servidor.
 
-   Por predefinição, é criada a base de dados **postgres** no servidor. A base de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é uma base de dados predefinida que se destina a ser utilizada por utilizadores, utilitários e aplicações de terceiros. 
+    ![Painel “Notificações”](./media/quickstart-create-database-portal/3-notifications.png)
+   
+   Por predefinição, é criada uma base de dados **postgres** no servidor. A base de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é uma base de dados predefinida que se destina a ser utilizada por utilizadores, utilitários e aplicações de terceiros. (A outra base de dados predefinida é **azure_maintenance**. A sua função é separar os processos de serviço geridos das ações dos utilizadores. Não pode aceder a esta base de dados.)
+
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
 

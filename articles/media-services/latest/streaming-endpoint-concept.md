@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 1b29e75531c9e24d2f296442d528a28a23ffa947
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3f939154d2b34e6dc043e505ab89897221bcfe23
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867618"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149236"
 ---
 # <a name="streaming-endpoints-origin"></a>Pontos finais de transmissão em fluxo (origem)
 
@@ -156,7 +156,7 @@ Integração da CDN está ativada em todos os centros de dados do Azure, exceto 
 
 Pode determinar se a alteração de DNS foi efetuada num ponto final de transmissão em fluxo (o tráfego estiver sendo direcionado para a CDN do Azure) utilizando https://www.digwebinterface.com. Se os resultados tem nomes de domínio azureedge.net nos resultados, o tráfego é agora que está sendo apontado para a CDN.
 
-## <a name="provide-feedback"></a>Enviar comentários
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obter atualizações
 
 Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 

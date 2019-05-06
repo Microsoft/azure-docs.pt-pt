@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f242afb717557a35b81515ab718971bdc398b5a
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 98f93c6343f1f496355165bc0ae598d61ba7b527
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992781"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139226"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação de página única (SPA) de JavaScript
 
@@ -147,16 +147,16 @@ Depois do navegador carrega a aplicação, clique em **sessão**.  A primeira ve
 A MSAL é a biblioteca utilizada para iniciar sessão de utilizadores e pedir tokens utilizados para aceder a uma API protegida pela plataforma de identidade da Microsoft. O guia de introdução *Index* contém uma referência à biblioteca:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0/js/msal.min.js"></script>
 ```
 > [!TIP]
 > Pode substituir a versão acima com a versão mais recente lançada sob [msal libera](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases).
 
 
-Em alternativa, se tiver o nó instalado, pode baixar a versão de pré-visualização mais recente através do npm:
+Em alternativa, se tiver o nó instalado, pode baixar a versão mais recente através do npm:
 
 ```batch
-npm install msal@preview
+npm install msal
 ```
 
 ### <a name="msal-initialization"></a>Inicialização da MSAL
@@ -192,11 +192,11 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 O fragmento de código seguinte mostra como iniciar sessão dos utilizadores:
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.loginPopup(request).then(function (loginResponse) {
+myMSALObj.loginPopup(requestObj).then(function (loginResponse) {
     //Login Success callback code here
 }).catch(function (error) {
     console.log(error);
@@ -219,11 +219,11 @@ A MSAL possui três métodos utilizados para adquirir tokens: `acquireTokenRedir
 O `acquireTokenSilent` método processa a aquisições de token e a renovação sem qualquer interação do utilizador. Depois do `loginRedirect` ou `loginPopup` método é executado pela primeira vez, `acquireTokenSilent` é o método normalmente usado para obter os tokens que são utilizados para aceder a recursos protegidos por chamadas subsequentes. Chamadas para pedir ou renovar os tokens são feitas automaticamente.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenSilent(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenSilent(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {
@@ -247,11 +247,11 @@ Padrão recomendado normal para a maioria dos aplicativos é chamar `acquireToke
 Chamar o `acquireTokenPopup` resulta numa janela de pop-up para iniciar sessão (ou `acquireTokenRedirect` resulta em redirecionar utilizadores para o ponto de extremidade de plataforma de identidade Microsoft) em que os usuários precisam interagir qualquer uma das respetivas credenciais de instalação, a dar o consentimento à necessários recurso ou concluir a autenticação de dois fatores.
 
 ```javascript
-var request = {
+var requestObj = {
     scopes: ["user.read"]
 };
 
-myMSALObj.acquireTokenPopup(request).then(function (tokenResponse) {
+myMSALObj.acquireTokenPopup(requestObj).then(function (tokenResponse) {
     // Callback code here
     console.log(tokenResponse.accessToken);
 }).catch(function (error) {

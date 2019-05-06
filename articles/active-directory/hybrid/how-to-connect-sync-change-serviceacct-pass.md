@@ -1,5 +1,5 @@
 ---
-title: 'Sincronização do Azure AD Connect:  Alterar a conta de serviço do Azure AD Connect Sync | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect:  Alterar a conta de serviço do ADSync | Documentos da Microsoft'
 description: Este documento de tópico descreve a chave de encriptação e como abandoná-lo Depois da palavra-passe é alterada.
 services: active-directory
 keywords: Conta de serviço de sincronização do Azure AD, a palavra-passe
@@ -13,25 +13,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 05/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d0d537a23e21eeda3b284e7ec706cde2b443e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 077671ab4e964d7641aa3a0f0b435b39117eb6aa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241728"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139397"
 ---
-# <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Alterar a senha de conta de serviço de sincronização do Azure AD Connect
-Se alterar a senha de conta de serviço de sincronização do Azure AD Connect, o serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de encriptação e reinicializados a senha de conta de serviço de sincronização do Azure AD Connect. 
+# <a name="changing-the-adsync-service-account-password"></a>Alterar a palavra-passe da conta do serviço de ADSync
+Se alterar a palavra-passe da conta do serviço de ADSync, o serviço de sincronização não será capaz de iniciar corretamente até ter abandonado a chave de encriptação e reinicializados a palavra-passe da conta de serviço do ADSync. 
 
-O Azure AD Connect, como parte dos serviços de sincronização utiliza uma chave de encriptação para armazenar as palavras-passe das contas de serviço do AD DS e AD do Azure.  Estas contas são encriptadas antes de serem armazenadas na base de dados. 
+O Azure AD Connect, como parte dos serviços de sincronização utiliza uma chave de encriptação para armazenar as palavras-passe da conta do conector do AD DS e conta de serviço do ADSync.  Estas contas são encriptadas antes de serem armazenadas na base de dados. 
 
-A chave de encriptação utilizada estiver protegida por [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protege a encriptação chaves utilizando o **palavra-passe da conta de serviço de sincronização do Azure AD Connect**. 
+A chave de encriptação utilizada estiver protegida por [Windows Data Protection (DPAPI)](https://msdn.microsoft.com/library/ms995355.aspx). DPAPI protege a encriptação chaves utilizando o **conta de serviço do ADSync**. 
 
-Se precisar de alterar a palavra-passe da conta de serviço pode utilizar os procedimentos [abandonar a chave de encriptação do Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) para fazer isso.  Estes procedimentos também devem ser utilizados se precisar de abandonar a chave de encriptação por qualquer motivo.
+Se precisar de alterar a palavra-passe da conta de serviço pode utilizar os procedimentos [abandonar a chave de encriptação da conta de serviço de ADSync](#abandoning-the-adsync-service-account-encryption-key) para fazer isso.  Estes procedimentos também devem ser utilizados se precisar de abandonar a chave de encriptação por qualquer motivo.
 
 ## <a name="issues-that-arise-from-changing-the-password"></a>Problemas decorrentes de alterar a palavra-passe
 Existem duas coisas que precisam ser feito quando alterar a palavra-passe da conta de serviço.
@@ -48,9 +48,9 @@ Verá erros, tais como:
 - Em Gestor de controlo de serviço de Windows, se tentar iniciar o serviço de sincronização e ele não é possível obter a chave de encriptação, ele falha com o erro "<strong>Windows não conseguiu iniciar a sincronização do Microsoft Azure AD no computador Local. Para obter mais informações, consulte o registo de eventos do sistema. Se se tratar de um serviço de terceiros, contacte o fornecedor de serviço e consulte o código de erro específico do serviço-21451857952</strong>. "
 - No Visualizador de eventos do Windows, o log de eventos do aplicativo contém um erro com **evento ID 6028** e a mensagem de erro *"não é possível aceder a chave de encriptação do servidor."*
 
-Para garantir que não recebem esses erros, siga os procedimentos [abandonar a chave de encriptação do Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) quando alterar a palavra-passe.
+Para garantir que não recebem esses erros, siga os procedimentos [abandonar a chave de encriptação da conta de serviço de ADSync](#abandoning-the-adsync-service-account-encryption-key) quando alterar a palavra-passe.
  
-## <a name="abandoning-the-azure-ad-connect-sync-encryption-key"></a>Abandonar a chave de encriptação do Azure AD Connect Sync
+## <a name="abandoning-the-adsync-service-account-encryption-key"></a>Abandonar a chave de encriptação da conta de serviço de ADSync
 >[!IMPORTANT]
 >Os procedimentos seguintes aplicam-se apenas para o Azure AD Connect compilação 1.1.443.0 ou mais antigos.
 
@@ -64,9 +64,9 @@ Se precisar de abandonar a chave de encriptação, utilize os procedimentos segu
 
 1. [Abandonar a chave de encriptação existente](#abandon-the-existing-encryption-key)
 
-2. [Forneça a palavra-passe da conta do AD DS](#provide-the-password-of-the-ad-ds-account)
+2. [Forneça a palavra-passe da conta do conector do AD DS](#provide-the-password-of-the-ad-ds-connector-account)
 
-3. [Reinicializar a palavra-passe da conta de sincronização do Azure AD](#reinitialize-the-password-of-the-azure-ad-sync-account)
+3. [A palavra-passe da conta de serviço ADSync de reinicializar](#reinitialize-the-password-of-the-adsync-service-account)
 
 4. [Iniciar o serviço de sincronização](#start-the-synchronization-service)
 
@@ -90,8 +90,8 @@ Abandone a chave de encriptação existente para que essa nova chave de encripta
 
 ![Utilitário de chave de encriptação de sincronização do Azure AD Connect](./media/how-to-connect-sync-change-serviceacct-pass/key5.png)
 
-#### <a name="provide-the-password-of-the-ad-ds-account"></a>Forneça a palavra-passe da conta do AD DS
-Como as palavras-passe existentes armazenadas no banco de dados já não podem ser desencriptadas, tem de fornecer o serviço de sincronização com a palavra-passe da conta do AD DS. O serviço de sincronização encripta as palavras-passe com a nova chave de encriptação:
+#### <a name="provide-the-password-of-the-ad-ds-connector-account"></a>Forneça a palavra-passe da conta do conector do AD DS
+Como as palavras-passe existentes armazenadas no banco de dados já não podem ser desencriptadas, tem de fornecer o serviço de sincronização com a palavra-passe da conta do conector do AD DS. O serviço de sincronização encripta as palavras-passe com a nova chave de encriptação:
 
 1. Inicie o Synchronization Service Manager (serviço de sincronização do início →).
 </br>![Gestor do serviço de sincronização](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
@@ -103,7 +103,7 @@ Como as palavras-passe existentes armazenadas no banco de dados já não podem s
 7. Clique em **OK** para guardar a nova palavra-passe e fechar a caixa de diálogo pop-up.
 ![Utilitário de chave de encriptação de sincronização do Azure AD Connect](./media/how-to-connect-sync-change-serviceacct-pass/key6.png)
 
-#### <a name="reinitialize-the-password-of-the-azure-ad-sync-account"></a>Reinicializar a palavra-passe da conta de sincronização do Azure AD
+#### <a name="reinitialize-the-password-of-the-adsync-service-account"></a>A palavra-passe da conta de serviço ADSync de reinicializar
 Diretamente não é possível fornecer a palavra-passe da conta de serviço do Azure AD para o serviço de sincronização. Em vez disso, tem de utilizar o cmdlet **Add-ADSyncAADServiceAccount** reinicializar a conta de serviço do Azure AD. O cmdlet repõe a palavra-passe de conta e torna-o disponível para o serviço de sincronização:
 
 1. Inicie uma nova sessão do PowerShell no servidor do Azure AD Connect.

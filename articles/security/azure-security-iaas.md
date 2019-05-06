@@ -12,31 +12,36 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 05/05/2019
 ms.author: barclayn
-ms.openlocfilehash: da165634f5323183b633ee3c8a59e0d2607e8ef1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4b2506781df5572ddaff8dda34bf3edab8987be
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60586531"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145207"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho de IaaS no Azure
+Este artigo descreve as melhores práticas de segurança para sistemas operacionais e de VMs.
+
+As melhores práticas baseiam-se um consenso de opinião, e trabalhar com recursos atuais da plataforma do Azure e conjuntos de recursos. Uma vez que opiniões e as tecnologias podem mudar ao longo do tempo, este artigo será atualizado para refletir essas alterações.
 
 Na maioria dos infraestrutura como um cenários de serviço (IaaS), [máquinas virtuais do Azure (VMs)](https://docs.microsoft.com/azure/virtual-machines/) é a carga de trabalho principal para organizações que utilizam a cloud de informática. Esse fato é evidente nos [cenários híbridos](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) em que as organizações querem lentamente migrar cargas de trabalho para a cloud. Em tais cenários, siga os [considerações de segurança geral para IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx)e aplique as melhores práticas de segurança para todas as suas VMs.
 
+## <a name="shared-responsibility"></a>Responsabilidade partilhada
 A responsabilidade de segurança baseia-se no tipo de serviço em nuvem. A tabela a seguir resume o saldo de responsabilidade para a Microsoft e:
 
 ![Áreas de responsabilidade](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 Requisitos de segurança variam consoante vários fatores, incluindo diferentes tipos de cargas de trabalho. Não uma dessas práticas recomendadas pode por si só, proteger seus sistemas. Como qualquer outra coisa em segurança, terá de escolher as opções apropriadas e veja como as soluções podem se complementam ao preencher as lacunas.
 
-Este artigo descreve as melhores práticas de segurança para sistemas operacionais e de VMs.
-
-As melhores práticas baseiam-se um consenso de opinião, e trabalhar com recursos atuais da plataforma do Azure e conjuntos de recursos. Uma vez que opiniões e as tecnologias podem mudar ao longo do tempo, este artigo será atualizado para refletir essas alterações.
-
 ## <a name="protect-vms-by-using-authentication-and-access-control"></a>Proteger VMs com o controlo de acesso e autenticação
 O primeiro passo para proteger as suas VMs é garantir que os utilizadores autorizados apenas pode configurar novas VMs e acesso de VMs.
+
+> [!NOTE]
+> Para melhorar a segurança de VMs do Linux no Azure, pode integrar com a autenticação do Azure AD. Quando utiliza [autenticação do Azure AD para VMs do Linux](../virtual-machines/linux/login-using-aad.md), pode controlar centralmente e impor políticas que permitem ou negam o acesso às VMs.
+>
+>
 
 **Melhor prática**: Controlar o acesso VM.   
 **Detalhe**: Uso [políticas do Azure](../azure-policy/azure-policy-introduction.md) para estabelecer as convenções para recursos na sua organização e criar políticas personalizadas. Aplicar estas políticas para recursos, como [grupos de recursos](../azure-resource-manager/resource-group-overview.md). As VMs que pertencem a um grupo de recursos herdam suas diretivas.
@@ -102,6 +107,9 @@ Se utilizar o Windows Update, deixe a definição de atualização do Windows au
 **Melhor prática**: Reimplemente periodicamente as suas VMs para forçar uma nova versão do sistema operacional.   
 **Detalhe**: Definir a sua VM com uma [modelo Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para que pode facilmente implementar novamente. Com um modelo dá-lhe uma VM segura e corrigida quando precisa dela.
 
+**Melhor prática**: Aplica rapidamente atualizações de segurança para VMs.   
+**Detalhe**: Ativar Centro de segurança Azure (escalão gratuito ou escalão Standard) para [identificar atualizações de segurança em falta e aplicá-las](../security-center/security-center-apply-system-updates.md).
+
 **Melhor prática**: Instale as atualizações de segurança mais recentes.   
 **Detalhe**: Algumas das primeiras cargas de trabalho que os clientes mover para o Azure são laboratórios e sistemas de face externa. Se as VMs do Azure alojar aplicações ou serviços que precisam de estar acessíveis à internet, ser vigilante sobre a aplicação de patches. Aplicar o patch ponha o sistema operativo. Vulnerabilidades não corrigidas em aplicações de parceiros também podem levar a problemas que podem ser evitados se gerenciamento de patches boa estiver em vigor.
 
@@ -165,6 +173,18 @@ Quando aplica o Azure Disk Encryption, pode atender as necessidades de negócio 
 
 - VMs de IaaS são protegidas em descanso através da tecnologia de encriptação de norma da indústria para atender a requisitos de segurança e conformidade organizacionais.
 - Comece a VMs de IaaS em controlado pelo cliente chaves e políticas e pode auditar a utilização das mesmas no seu Cofre de chaves.
+
+## <a name="restrict-direct-internet-connectivity"></a>Restringir a conectividade à internet direta
+Monitorizar e restringir a conectividade à internet direta de VM. Os atacantes constantemente analisar os intervalos de IP de cloud pública para portas de gestão aberta e tentarem ataques "simples", como palavras-passe comuns e conhecidas de vulnerabilidades não corrigidas. A tabela seguinte apresenta uma lista de práticas recomendadas para ajudar a proteger contra esses ataques:
+
+**Melhor prática**: Impedi a exposição acidental de roteamento e segurança de rede.   
+**Detalhe**: Utilize o RBAC para garantir que apenas o grupo de rede central tem permissão para recursos de rede.
+
+**Melhor prática**: Identificar e remediar expostas VMs que permitem o acesso de "qualquer" endereço IP de origem.   
+**Detalhe**: Utilize o Centro de segurança do Azure. Centro de segurança irá recomendar que restringir o acesso através de pontos finais de acesso à internet se qualquer um dos seus grupos de segurança de rede tem um ou mais regras de entrada que permitem o acesso de "qualquer" endereço IP de origem. Centro de segurança irá recomendar que editar estas regras de entrada para [restringir o acesso](../security-center/security-center-restrict-access-through-internet-facing-endpoints.md) para endereços IP de origem que realmente precisam de acesso.
+
+**Melhor prática**: Restringir as portas de gestão (RDP, SSH).   
+**Detalhe**: [O acesso à VM just-in-time (JIT)](../security-center/security-center-just-in-time.md) podem ser utilizadas para bloquear o tráfego de entrada para as VMs do Azure, reduzindo a exposição a ataques, fornecendo acesso fácil para ligar a VMs quando necessário. Quando o JIT estiver ativada, o Centro de segurança bloqueia o tráfego de entrada para as VMs do Azure através da criação de uma regra de grupo de segurança de rede. Selecione as portas na VM para o qual será bloqueado o tráfego de entrada. Estas portas são controladas pela solução de JIT.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Ver [padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md) para obter mais melhores práticas de segurança a utilizar quando estiver conceber, implementar e gerir soluções na cloud ao utilizar o Azure.

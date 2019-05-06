@@ -27,12 +27,6 @@
       href: pim-deployment-plan.md
     - name: Comece a utilizar o PIM
       href: pim-getting-started.md
-    - name: Ativar as minhas funções
-      items:
-        - name: Ativar as minhas funções do Azure AD
-          href: pim-how-to-activate-role.md
-        - name: Ativar as minhas funções de recursos do Azure
-          href: pim-resource-roles-activate-your-roles.md
     - name: Configurar o PIM
       items:
         - name: Assistente de segurança
@@ -43,6 +37,12 @@
           href: pim-how-to-give-access-to-pim.md
         - name: Elevar acesso para gerir todas as subscrições
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+    - name: Ativar as minhas funções
+      items:
+        - name: Ativar as minhas funções do Azure AD
+          href: pim-how-to-activate-role.md
+        - name: Ativar as minhas funções de recursos do Azure
+          href: pim-resource-roles-activate-your-roles.md
     - name: Gerir funções do Azure AD
       items:
         - name: Atribuir funções
@@ -73,21 +73,21 @@
           href: azure-pim-resource-rbac.md
         - name: Utilizar funções personalizadas
           href: pim-resource-roles-custom-role-policy.md
-    - name: Rever acesso
+    - name: Revisões de acesso
       items:
         - name: Funções do Azure AD
           items:
-            - name: Rever as minhas funções do Azure AD
-              href: pim-how-to-perform-security-review.md
-            - name: Iniciar uma revisão de acesso
+            - name: Criar uma revisão de acesso
               href: pim-how-to-start-security-review.md
+            - name: Rever acesso
+              href: pim-how-to-perform-security-review.md
             - name: Concluir uma revisão de acesso
               href: pim-how-to-complete-review.md
         - name: Funções de recursos do Azure
           items:
-            - name: Consultar as minhas funções de recursos do Azure
-              href: pim-resource-roles-perform-access-review.md
-            - name: Iniciar uma revisão de acesso
+            - name: Criar uma revisão de acesso
               href: pim-resource-roles-start-access-review.md
+            - name: Rever acesso
+              href: pim-resource-roles-perform-access-review.md
             - name: Concluir uma revisão de acesso
               href: pim-resource-roles-complete-access-review.md

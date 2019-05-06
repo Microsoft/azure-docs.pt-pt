@@ -1,5 +1,5 @@
 ---
-title: Algoritmo de hash de assinatura de alteração para confiança da entidade confiadora do Office 365 | Documentos da Microsoft
+title: Altere o algoritmo de hash de assinatura para o Office 365 da entidade confiadora fidedignidade de terceiros - Azure
 description: Esta página fornece diretrizes para alterar o algoritmo SHA para confiança da federação com o Office 365
 keywords: SHA1, SHA256, O365, Federação, aadconnect, adfs, ad fs, sha de alteração, fidedignidade de Federação, a confiança de entidade confiadora
 services: active-directory
@@ -16,12 +16,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa597c8b458305946aa298631726df3da317534
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b6c81343d52f016dc779f9e08176a0d909684c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60244434"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138628"
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Altere o algoritmo de hash de assinatura para o Office 365 confiança de entidade confiadora
 ## <a name="overview"></a>Descrição geral

@@ -1,21 +1,21 @@
 ---
-title: Ligar à Base de Dados do Azure para PostgreSQL a partir de C#
-description: Este início rápido fornece um código de exemplo de C# (.NET) que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
+title: Utilize C# para ligar à base de dados do Azure para PostgreSQL - servidor único
+description: Este início rápido proporciona um C# exemplo de código de (.NET) que pode utilizar para se ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 03/12/2019
-ms.openlocfilehash: 79f2749c9a1f5a6a34628087dc2fd22f6eab6d17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 546626b1bf655ce6755e0a34ae8d8a85bcf6990f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623912"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067365"
 ---
-# <a name="azure-database-for-postgresql-use-net-c-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilizar .NET (C#) para se ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilizar .NET (C#) para se ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação C#. Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com C# e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

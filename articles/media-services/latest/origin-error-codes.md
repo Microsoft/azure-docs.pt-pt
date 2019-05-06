@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/28/2019
 ms.author: juliako
-ms.openlocfilehash: c350a989f23eb667923a53f6eb06dd55905b0fab
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927316"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141139"
 ---
 # <a name="media-services-packaging-errors"></a>Erros de empacotamento de serviços de multimédia 
 
@@ -194,7 +194,7 @@ O servidor está atualmente não é possível receber pedidos. Este erro pode se
 |---|---|---|
 |MPE_STORAGE_SERVER_BUSY|0x808900E8|Erro de operação de armazenamento, recebeu o erro de disponibilidade do servidor HTTP 503.|
 
-## <a name="provide-feedback"></a>Enviar comentários
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obter atualizações
 
 Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
 

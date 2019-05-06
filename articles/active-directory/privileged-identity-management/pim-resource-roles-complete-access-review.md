@@ -1,6 +1,6 @@
 ---
-title: Concluir uma revisão de acesso para funções de recursos do Azure no PIM - Azure Active Directory | Documentos da Microsoft
-description: Aprenda como concluir uma revisão de acesso para funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
+title: Concluir uma revisão de acesso de funções de recursos do Azure no PIM - Azure Active Directory | Documentos da Microsoft
+description: Aprenda como concluir uma revisão de acesso de funções de recursos do Azure no Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837be3ccdbd133f6bf372779dadff4d3c574a2e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a310770f26a1c40682791582a05a9bb4c47a42d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288260"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141032"
 ---
-# <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso para funções de recursos do Azure no PIM
+# <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso de funções de recursos do Azure no PIM
 Os administradores de função com privilégios, podem rever acesso privilegiado após uma [revisão de acesso foi iniciada](pim-resource-roles-start-access-review.md). O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) envia automaticamente um e-mail que solicita aos usuários para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-resource-roles-perform-access-review.md).
 
 Após o período de revisão de acesso, ou depois que todos os utilizadores tiverem terminado seus Self-rever, siga os passos neste artigo para gerir a revisão e ver os resultados.

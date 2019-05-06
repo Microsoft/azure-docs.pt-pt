@@ -1,21 +1,21 @@
 ---
-title: Ligar à Base de Dados do Azure para PostgreSQL a partir do Python
-description: Este guia de início rápido fornece um código de exemplo Python que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
+title: Utilizar Python para ligar à base de dados do Azure para PostgreSQL - servidor único
+description: Este início rápido fornece um exemplo de código Python que pode utilizar para se ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: eb6b23d8f8c476ba41bea918456fdf7fb9782920
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d7988ad590e6d57d9da37f46557f99fccaad294
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422173"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067227"
 ---
-# <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilizar Python para ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-python-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilizar Python para ligar e consultar dados
 Este guia de início rápido mostra como utilizar o [Python](https://python.org) para se ligar a uma Base de Dados do Azure para PostgreSQL. Mostra também como utilizar declarações SQL para consultar, inserir, atualizar e eliminar dados na base de dados a partir de plataformas macOS, Ubuntu Linux e Windows. Os passos neste artigo pressupõem que está familiarizado com a programação com Python e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

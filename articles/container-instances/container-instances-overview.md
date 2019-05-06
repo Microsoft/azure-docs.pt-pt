@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
-ms.date: 11/30/2018
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ec0280ab2a39674a1b41120f0a8791dfb8b1922
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582776"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073291"
 ---
 # <a name="what-is-azure-container-instances"></a>O que é o Azure Container Instances?
 
@@ -56,7 +56,10 @@ Algumas funcionalidades estão atualmente restritas para contentores do Linux:
 * [Implementação da rede virtual](container-instances-vnet.md) (pré-visualização)
 * [Recursos GPU](container-instances-gpu.md) (pré-visualização)
 
-Atualmente, o Azure Container Instances suporta imagens do Windows Server 2016 com base em versões de canal de manutenção de longo prazo (LTSC). As versões do Canal Semianual (SAC) do Windows, como 1709 e 1803, não são suportadas.
+Para implementações de contentor do Windows, utilizar imagens com base em comum [imagens de base do Windows](container-instances-faq.md#what-windows-base-os-images-are-supported).
+
+> [!NOTE]
+> Utilização de imagens baseadas no Windows Server 2019 no Azure Container Instances está em pré-visualização.
 
 ## <a name="co-scheduled-groups"></a>Grupos agendados conjuntamente
 

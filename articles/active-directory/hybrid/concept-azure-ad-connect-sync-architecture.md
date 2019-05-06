@@ -1,27 +1,27 @@
 ---
-title: 'Sincronização do Azure AD Connect: Compreendendo a arquitetura | Documentos da Microsoft'
+title: 'Sincronização do Azure AD Connect: Compreendendo a arquitetura - Azure'
 description: Este tópico descreve a arquitetura de sincronização do Azure AD Connect e explica os termos utilizados.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 465bcbe9-3bdd-4769-a8ca-f8905abf426d
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-origin.date: 07/13/2017
-ms.date: 11/08/2018
-ms.component: hybrid
-ms.author: v-junlch
-ms.openlocfilehash: 60a648b24ad16c1b5ea404b5ad9f1f18fd5041da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.topic: conceptual
+ms.date: 07/13/2017
+ms.subservice: hybrid
+ms.author: billmath
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: fac0f9143918d3f273812e53abfb88d6a56f7a71
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60246007"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138592"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Sincronização do Azure AD Connect: Compreender a arquitetura
 Este tópico abrange a arquitetura básica para sincronização do Azure AD Connect. Em muitos aspectos, ele é semelhante a seus antecessores, o MIIS 2003, o ILM 2007 e o FIM 2010. Sincronização do Azure AD Connect é a evolução dessas tecnologias. Se estiver familiarizado com qualquer uma dessas tecnologias anteriores, o conteúdo deste tópico será familiar para também. Se estiver familiarizado com a sincronização, em seguida, este tópico é para. No entanto não é um requisito para saber os detalhes deste tópico para ter êxito na criação de personalizações para sincronização do Azure AD Connect (chamado de motor de sincronização neste tópico).
@@ -49,8 +49,8 @@ Se a origem de dados ligada utiliza componentes estruturas, como as partições 
 ### <a name="internal-structure-of-the-sync-engine-namespace"></a>Estrutura interna do espaço de nomes do motor de sincronização
 O espaço de nomes do motor de sincronização completa é constituído por dois espaços de nomes que armazenam as informações de identidade. Os dois espaços de nomes são:
 
-- O espaço conector (CS)
-- O metaverse (MV)
+* O espaço conector (CS)
+* O metaverse (MV)
 
 O **espaço conector** é uma área de transição que contém as representações dos objetos designados de uma origem de dados ligados e os atributos especificados na lista de inclusão de atributos. O motor de sincronização utiliza o espaço de conector para determinar o que foi alterado na origem de dados ligados e testar as alterações de entrada. O motor de sincronização também utiliza o espaço conector para testar as alterações de saída para exportação para a origem de dados ligada. O motor de sincronização mantém um espaço conector distintas como uma área de teste para cada conector.
 
@@ -72,8 +72,8 @@ Quando o motor de sincronização se comunica com uma origem de dados ligada, l�
 
 Todos os objetos no espaço conector tem dois atributos:
 
-- Um identificador exclusivo global (GUID)
-- Um nome único (também conhecido como DN)
+* Um identificador exclusivo global (GUID)
+* Um nome único (também conhecido como DN)
 
 Se a origem de dados ligada atribui um atributo exclusivo para o objeto, em seguida, objetos no espaço conector também podem ter um atributo de âncora. O atributo de âncora identifica exclusivamente um objeto na origem de dados ligada. O motor de sincronização utiliza a âncora para localizar a representação correspondente deste objeto na origem de dados ligada. Motor de sincronização pressupõe que nunca mudará a âncora de um objeto durante o ciclo de vida do objeto.
 
@@ -83,8 +83,8 @@ Nesse caso, a âncora é criada a partir de um ou mais atributos exclusivos de u
 
 Um objeto de espaço conector pode ser um dos seguintes:
 
-- Um objeto de teste
-- Um marcador de posição
+* Um objeto de teste
+* Um marcador de posição
 
 ### <a name="staging-objects"></a>Objetos de teste
 Um objeto de teste representa uma instância dos tipos de objeto designado da origem de dados ligada. Além do GUID e o nome único, um objeto de teste tem sempre um valor que indica o tipo de objeto.
@@ -145,9 +145,9 @@ Um objeto de importação é criado como um objeto disjoined. Um objeto de expor
 ## <a name="sync-engine-identity-management-process"></a>Processo de gestão de identidade de motor de sincronização
 O processo de gerenciamento de identidade controla a forma como as informações de identidade são atualizadas entre origens de dados ligadas diferentes. Gestão de identidades ocorre em três processos:
 
-- Importar
-- Sincronização
-- Exportar
+* Importar
+* Sincronização
+* Exportar
 
 Durante o processo de importação, o motor de sincronização avalia as informações de identidade de entrada de uma origem de dados ligadas. Quando forem detetadas alterações, ele cria novos objetos de testes ou objetos de testes existentes no espaço conector para a sincronização de atualizações.
 
@@ -164,34 +164,34 @@ Durante o processo de importação, o motor de sincronização avalia atualizaç
 
 Com o armazenamento temporário objetos no espaço conector antes de sincronização, o motor de sincronização pode processar apenas as informações de identidade que foi alterado. Este processo fornece as seguintes vantagens:
 
-- **Sincronização eficiente**. A quantidade de dados processados durante a sincronização é minimizada.
-- **A ressincronização eficiente**. Pode alterar como o motor de sincronização processa as informações de identidade sem ligar novamente o motor de sincronização para a origem de dados.
-- **Oportunidade de pré-visualizar sincronização**. Pode visualizar a sincronização para verificar se suas suposições sobre o processo de gestão de identidade estão corretas.
+* **Sincronização eficiente**. A quantidade de dados processados durante a sincronização é minimizada.
+* **A ressincronização eficiente**. Pode alterar como o motor de sincronização processa as informações de identidade sem ligar novamente o motor de sincronização para a origem de dados.
+* **Oportunidade de pré-visualizar sincronização**. Pode visualizar a sincronização para verificar se suas suposições sobre o processo de gestão de identidade estão corretas.
 
 Para cada objeto especificado no conector, o motor de sincronização primeiro tenta localizar uma representação do objeto no espaço conector do conector. Motor de sincronização examina todos os objetos de testes no espaço conector e tenta encontrar um objeto de transição correspondente que tem um atributo de âncora correspondente. Se nenhum objeto de teste existente tem um atributo de âncora correspondente, o motor de sincronização tenta encontrar um objeto de transição correspondente com o mesmo nome distinto.
 
 Quando o motor de sincronização encontra um objeto de teste que corresponda ao nome único, mas não por âncora, ocorre o seguinte comportamento especial:
 
-- Se o objeto localizado no espaço conector não tem nenhuma âncora, o motor de sincronização remove este objeto de espaço conector e marca o objeto de metaverso está ligado como **Repita aprovisionamento na próxima sincronização executar**. Em seguida, ele cria o novo objeto de importação.
-- Se o objeto localizado no espaço conector tem uma âncora, em seguida, motor de sincronização parte do princípio de que este objeto foi mudado ou eliminado no diretório conectado. Atribui um nome único temporário, novo para o objeto de espaço conector para que ele pode preparar o objeto de entrada. O objeto antigo de, em seguida, se torna **transitório**, esperar até que o conector importar a mudança de nome ou eliminação para resolver a situação.
+* Se o objeto localizado no espaço conector não tem nenhuma âncora, o motor de sincronização remove este objeto de espaço conector e marca o objeto de metaverso está ligado como **Repita aprovisionamento na próxima sincronização executar**. Em seguida, ele cria o novo objeto de importação.
+* Se o objeto localizado no espaço conector tem uma âncora, em seguida, motor de sincronização parte do princípio de que este objeto foi mudado ou eliminado no diretório conectado. Atribui um nome único temporário, novo para o objeto de espaço conector para que ele pode preparar o objeto de entrada. O objeto antigo de, em seguida, se torna **transitório**, esperar até que o conector importar a mudança de nome ou eliminação para resolver a situação.
 
 Se o motor de sincronização localiza um objeto de transição correspondente para o objeto especificado no conector, ele determina que tipo de alterações a aplicar. Por exemplo, motor de sincronização poderá mudar o nome ou eliminar o objeto na origem de dados ligada ou ele só poderá atualizar valores de atributo do objeto.
 
 Objetos de teste com dados atualizados são marcados como os importação pendente. Diferentes tipos de pendentes imports estão disponíveis. Consoante o resultado do processo de importação, um objeto de teste no espaço conector tem um dos seguintes pendentes tipos de importação:
 
-- **Nenhuma**. Nenhuma alteração a qualquer um dos atributos do objeto de teste está disponíveis. Motor de sincronização não sinaliza esse tipo como os importação pendente.
-- **Adicionar**. O objeto de teste é um novo objeto de importação no espaço conector. Motor de Sincronização sinaliza esse tipo como pendentes importação para processamento adicional no metaverso.
-- **Atualização**. Motor de sincronização encontra um objeto de transição correspondente no espaço conector e sinaliza esse tipo como importação pendente para que as atualizações para os atributos podem ser processadas no metaverso. As atualizações incluem a mudar o nome de objeto.
-- **Eliminar**. Motor de sincronização encontra um objeto de transição correspondente no espaço conector e sinaliza esse tipo como importação pendente para que o objeto associado ao pode ser eliminado.
-- **Adicionar/eliminar**. Motor de sincronização encontra um objeto de transição correspondente no espaço conector, mas os tipos de objeto não coincidem. Neste caso, um adicionar delete modificação é preparada. A eliminar-adicionar modificação indica ao motor de sincronização que tem de ocorrer uma ressincronização completa deste objeto porque diferentes conjuntos de regras se aplica a este objeto quando o objeto de tipo de alterações.
+* **Nenhuma**. Nenhuma alteração a qualquer um dos atributos do objeto de teste está disponíveis. Motor de sincronização não sinaliza esse tipo como os importação pendente.
+* **Adicionar**. O objeto de teste é um novo objeto de importação no espaço conector. Motor de Sincronização sinaliza esse tipo como pendentes importação para processamento adicional no metaverso.
+* **Atualização**. Motor de sincronização encontra um objeto de transição correspondente no espaço conector e sinaliza esse tipo como importação pendente para que as atualizações para os atributos podem ser processadas no metaverso. As atualizações incluem a mudar o nome de objeto.
+* **Eliminar**. Motor de sincronização encontra um objeto de transição correspondente no espaço conector e sinaliza esse tipo como importação pendente para que o objeto associado ao pode ser eliminado.
+* **Adicionar/eliminar**. Motor de sincronização encontra um objeto de transição correspondente no espaço conector, mas os tipos de objeto não coincidem. Neste caso, um adicionar delete modificação é preparada. A eliminar-adicionar modificação indica ao motor de sincronização que tem de ocorrer uma ressincronização completa deste objeto porque diferentes conjuntos de regras se aplica a este objeto quando o objeto de tipo de alterações.
 
 Ao definir o estado de importação de um objeto de teste, é possível reduzir significativamente a quantidade de dados processados durante a sincronização porque a permissão para que o sistema processar apenas os objetos que os dados atualizados.
 
 ### <a name="synchronization-process"></a>Processo de sincronização
 Sincronização consiste em dois processos relacionados:
 
-- Sincronização de entrada, quando o conteúdo do metaverso é atualizado com os dados no espaço conector.
-- Sincronização de saída, quando o conteúdo do espaço conector é atualizado com dados no metaverso.
+* Sincronização de entrada, quando o conteúdo do metaverso é atualizado com os dados no espaço conector.
+* Sincronização de saída, quando o conteúdo do espaço conector é atualizado com dados no metaverso.
 
 Ao utilizar as informações de teste no espaço conector, o processo de sincronização de entrada cria, no metaverso, a vista integrada dos dados que são armazenados em origens de dados ligadas. São agregadas todos os objetos de testes ou apenas as pessoas com informações de importação, dependendo de como as regras estão configuradas.
 
@@ -203,9 +203,9 @@ Sincronização de entrada cria a vista integrada no metaverso as informações 
 
 Sincronização de entrada inclui os seguintes processos:
 
-- **Aprovisionar** (também denominado **projeção** se é importante distinguir esse processo de aprovisionamento de sincronização de saída). O motor de sincronização cria um novo objeto de metaverso com base num objeto de teste e liga-los. Aprovisionar é uma operação de ao nível do objeto.
-- **Junte-se a**. O motor de sincronização liga a um objeto de transição para um objeto de metaverso existente. Uma junção é uma operação de ao nível do objeto.
-- **Importar Fluxo de atributos**. Motor de sincronização atualiza os valores de atributo, chamados de fluxo de atributos, do objeto no metaverso. Fluxo de atributos de importação é uma operação de nível de atributo que exige uma ligação entre um objeto de teste e um objeto de metaverso.
+* **Aprovisionar** (também denominado **projeção** se é importante distinguir esse processo de aprovisionamento de sincronização de saída). O motor de sincronização cria um novo objeto de metaverso com base num objeto de teste e liga-los. Aprovisionar é uma operação de ao nível do objeto.
+* **Junte-se a**. O motor de sincronização liga a um objeto de transição para um objeto de metaverso existente. Uma junção é uma operação de ao nível do objeto.
+* **Importar Fluxo de atributos**. Motor de sincronização atualiza os valores de atributo, chamados de fluxo de atributos, do objeto no metaverso. Fluxo de atributos de importação é uma operação de nível de atributo que exige uma ligação entre um objeto de teste e um objeto de metaverso.
 
 Disposição é o único processo que cria os objetos no metaverso. Aprovisionar afeta apenas os objetos de importação que são objetos desagregados. Durante o aprovisionamento, o motor de sincronização cria um objeto de metaverso que corresponde ao tipo de objeto do objeto de importação e estabelece uma ligação entre os dois objetos, criando assim um objeto associado a um.
 
@@ -223,17 +223,17 @@ Atualizações de sincronização de saída exportar objetos quando um objeto de
 
 Sincronização de saída tem três processos:
 
-- **Aprovisionamento**
-- **O desaprovisionamento**
-- **Fluxo de atributos da exportação**
+* **Aprovisionamento**
+* **O desaprovisionamento**
+* **Fluxo de atributos da exportação**
 
 Aprovisionamento e desaprovisionamento são as duas operações ao nível do objeto. Desaprovisionamento depende do aprovisionamento porque aprovisionamento apenas pode iniciar ele. Desaprovisionamento é acionado quando o aprovisionamento remove a ligação entre um objeto de metaverso e um objeto de exportação.
 
 Aprovisionamento sempre é acionado quando as alterações são aplicadas a objetos no metaverso. Quando forem feitas alterações a objetos de metaverso, o motor de sincronização pode efetuar qualquer uma das seguintes tarefas como parte do processo de aprovisionamento:
 
-- Crie objetos associados, onde um objeto de metaverso está anexado a um objeto de exportação criado recentemente.
-- Mudar o nome de um objeto associado a um.
-- Anular adesão vínculos entre um objeto de metaverso e objetos, criação de um objeto disjoined de teste.
+* Crie objetos associados, onde um objeto de metaverso está anexado a um objeto de exportação criado recentemente.
+* Mudar o nome de um objeto associado a um.
+* Anular adesão vínculos entre um objeto de metaverso e objetos, criação de um objeto disjoined de teste.
 
 Se o aprovisionamento requer o motor de sincronização para criar um novo objeto de conector, o objeto de transição para o qual o objeto de metaverso está ligado é sempre um objeto de exportação, porque o objeto ainda não existir na origem de dados ligada.
 
@@ -260,5 +260,4 @@ Por exemplo, se o motor de sincronização exporta o atributo C, que tem um valo
 Saiba mais sobre o [do Azure AD Connect](how-to-connect-sync-whatis.md) configuração.
 
 Saiba mais sobre como [Integrar as identidades no local ao Azure Active Directory](whatis-hybrid-identity.md).
-
 

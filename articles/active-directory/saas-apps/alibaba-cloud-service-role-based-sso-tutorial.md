@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b03dfa5a33850dfedf23375536278c4e08bed68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8de2f7cb90e004673c59282a8023d55df364220a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687152"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-alibaba-cloud-service-role-based-sso"></a>Tutorial: Integração do Active Directory do Azure com o serviço de Cloud Alibaba (SSO baseado em funções)
 
@@ -70,6 +70,10 @@ Para configurar a integração do serviço em nuvem do Alibaba (SSO baseado em f
 
     ![Serviço de Cloud Alibaba (SSO baseado em funções) na lista de resultados](common/search-new-app.png)
 
+5. Sobre o **Alibaba Cloud Service (SSO baseado em funções)** página, clique em **propriedades** no painel de navegação da esquerda e copie o **ID de objeto** e guarde-o no seu computador para uso subseqüente.
+
+    ![Configuração de propriedades](./media/alibaba-cloud-service-role-based-sso-tutorial/Properties.png)
+    
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
 Nesta secção, configurar e testar o Azure AD início de sessão único com o serviço de Cloud Alibaba (baseado em funções SSO) com base num utilizador de teste **Eduarda Almeida**.
@@ -78,6 +82,7 @@ Para o início de sessão único funcionar, uma relação de ligação entre um 
 Para configurar e testar o Azure AD início de sessão único com o serviço de Cloud Alibaba (SSO baseado em funções), tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+2. **[Configure Role-Based início de sessão único no serviço de Cloud Alibaba](#configure-role-based-single-sign-on-in-alibaba-cloud-service)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar o serviço de Cloud Alibaba (SSO baseado em funções) início de sessão único](#configure-alibaba-cloud-service-role-based-sso-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
 4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
@@ -102,23 +107,25 @@ Para configurar o Azure AD início de sessão único com o serviço de Cloud Ali
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **definir a segurança de início de sessão único com o SAML** página, execute os seguintes passos:
+4. Sobre o **configuração básica de SAML** secção, se tiver **ficheiro de metadados do fornecedor de serviços**, execute os seguintes passos:
 
-    ![URLs de domínio do serviço de nuvem Alibaba (SSO baseado em funções) e únicas início de sessão em informações](common/idp-intiated.png)
+    >[!NOTE]
+    >Obterá os metadados do fornecedor de serviços nesta [URL](https://signin.alibabacloud.com/saml-role/sp-metadata.xml)
 
-    a. Na **identificador** texto, escreva qualquer do URL:
-    
-    | |
-    |--|
-    | `urn:alibaba:cloudcomputing` |
-    | `urn:alibaba:cloudcomputing:international` |
+    a. Clique em **carregamento de ficheiro de metadados**.
 
-    b. Na **URL de resposta** texto, escreva qualquer do URL:
+    ![image](common/upload-metadata.png)
 
-    | |
-    |--|
-    | `https://signin.aliyun.com/saml-role/SSO` |
-    | `https://signin.alibabacloud.com/saml-role/SSO` |
+    b. Clique em **logótipo da pasta** para selecionar o ficheiro de metadados e clique em **carregar**.
+
+    ![image](common/browse-upload-metadata.png)
+
+    c. Depois do ficheiro de metadados é carregado com êxito, o **identificador** e **URL de resposta** automaticamente povoada na caixa de texto do serviço de Cloud Alibaba (SSO baseado em funções) secção de introdução de valores:
+
+    ![image](common/idp-intiated.png)
+
+    > [!Note]
+    > Se o **identificador** e **URL de resposta** valores não obter preenchida automaticamente, em seguida, preencha os valores manualmente de acordo com seus requisitos.
 
 5. Aplicação de serviço de nuvem Alibaba (SSO baseado em funções) espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir **atributos de utilizador** caixa de diálogo.
 
@@ -126,10 +133,10 @@ Para configurar o Azure AD início de sessão único com o serviço de Cloud Ali
 
 6. Além dos acima, a aplicação de serviço de nuvem Alibaba (SSO baseado em funções) espera mais alguns atributos a serem passados na resposta SAML. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, execute os seguintes passos para adicionar o atributo de token de SAML conforme mostrado na tabela a seguir:
 
-    | Name | Atributo de origem|
-    | ---------------| --------------- |
-    | Função | user.assignedroles |
-    | RoleSessionName | user.mail |
+    | Name | Espaço de nomes | Atributo de origem|
+    | ---------------| ------------| --------------- |
+    | Função | https://www.aliyun.com/SAML-Role/Attribute | user.assignedroles |
+    | RoleSessionName | https://www.aliyun.com/SAML-Role/Attribute | user.userprincipalname |
 
     > [!NOTE]
     > Clique [aqui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) saber como configurar **função** no Azure AD
@@ -164,6 +171,85 @@ Para configurar o Azure AD início de sessão único com o serviço de Cloud Ali
 
     c. URL de fim de sessão
 
+### <a name="configure-role-based-single-sign-on-in-alibaba-cloud-service"></a>Configurar com base em função de início de sessão único num serviço Alibaba Cloud
+
+1. Inicie sessão para a Alibaba Cloud [consola de RAM](https://account.alibabacloud.com/login/login.htm?oauth_callback=https%3A%2F%2Fram.console.aliyun.com%2F%3Fspm%3Da2c63.p38356.879954.8.7d904e167h6Yg9) utilizando Account1.
+
+2. No painel de navegação do lado esquerdo, selecione **SSO**.
+
+3. Sobre o **SSO baseado em funções** separador, clique em **criar IdP**.
+
+4. Na página apresentada, introduza `AAD` no campo de nome de IdP, introduza uma descrição na **nota** campo, clique em **carregar** para carregar o ficheiro de metadados de federação que transferiu anteriormente e clique em  **OK**.
+
+5. Depois do IdP for criada com êxito, clique em **criar função de RAM**.
+
+6. Na **nome da função de RAM** campo introduza `AADrole`, selecione `AAD` do **selecionar IdP** pendente lista e clique em OK.
+
+    >[!NOTE]
+    >Pode conceder permissão para a função, conforme necessário. Depois de criar o IdP e a função correspondente, recomendamos que guarde ARNs de IdP e a função para uma utilização posterior. Pode obter os ARNs na página de informações do IdP e a página de informações de função.
+
+7. Associe a função de Alibaba Cloud RAM (AADrole) com o utilizador do Azure AD (u2): Para associar a função de RAM com o utilizador do Azure AD, tem de criar uma função no Azure AD através dos seguintes passos:
+
+    a. Inicie sessão para o [do Azure AD Graph](https://developer.microsoft.com/graph/graph-explorer?spm=a2c63.p38356.879954.9.7d904e167h6Yg9).
+
+    b. Clique em **modificar permissões** para obter as permissões necessárias para a criação de uma função.
+
+    ![Configuração de gráfico](./media/alibaba-cloud-service-role-based-sso-tutorial/graph01.png)
+
+    c. Selecione as seguintes permissões da lista e clique em **modificar permissões**, conforme mostrado na figura a seguir.
+
+    ![Configuração de gráfico](./media/alibaba-cloud-service-role-based-sso-tutorial/graph02.png)
+
+    >[!NOTE]
+    >Depois das permissões são concedidas, inicie sessão no Explorador do gráfico novamente.
+
+    d. Na página de API do Graph, selecione **Obtenha** na primeira lista pendente e **beta** na segunda lista pendente. Em seguida, introduza `https://graph.microsoft.com/beta/servicePrincipals` no campo ao lado de listas pendentes e clique em **executar consulta**.
+
+    ![Configuração de gráfico](./media/alibaba-cloud-service-role-based-sso-tutorial/graph03.png)
+
+    >[!NOTE]
+    >Se estiver a utilizar vários diretórios, pode introduzir `https://graph.microsoft.com/beta/contoso.com/servicePrincipals` no campo da consulta.
+
+    e. Na **pré-visualização de resposta** secção, extrair a propriedade appRoles do ' Principal de serviço "para uma utilização posterior.
+
+    ![Configuração de gráfico](./media/alibaba-cloud-service-role-based-sso-tutorial/graph05.png)
+
+    >[!NOTE]
+    >Pode localizar a propriedade appRoles introduzindo `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` no campo da consulta. Tenha em atenção que o `objectID` é o ID de objeto que a tiver copiado do Azure AD **propriedades** página.
+
+    f. Voltar ao Explorador do gráfico, alterar o método de **Obtenha** para **aplicar o PATCH**, cole o seguinte conteúdo para o **corpo do pedido** secção e clique em **executar consulta** :
+    ```
+    { 
+    "appRoles": [
+        { 
+        "allowedMemberTypes":[
+            "User"
+        ],
+        "description": "msiam_access",
+        "displayName": "msiam_access",
+        "id": "41be2db8-48d9-4277-8e86-f6d22d35****",
+        "isEnabled": true,
+        "origin": "Application",
+        "value": null
+        },
+        { "allowedMemberTypes": [
+            "User"
+        ],
+        "description": "Admin,AzureADProd",
+        "displayName": "Admin,AzureADProd",
+        "id": "68adae10-8b6b-47e6-9142-6476078cdbce",
+        "isEnabled": true,
+        "origin": "ServicePrincipal",
+        "value": "acs:ram::187125022722****:role/aadrole,acs:ram::187125022722****:saml-provider/AAD"
+        }
+    ]
+    }
+    ```
+    > [!NOTE]
+    > O `value` é ARNs de IdP e a função que criou na consola de RAM. Aqui, pode adicionar várias funções conforme necessário. Azure AD irá enviar o valor de uma destas funções, como o valor de afirmação na resposta SAML. No entanto, só é possível adicionar novas funções depois do `msiam_access` parte para a operação de correção. Para suavizar o processo de criação, recomendamos que utilize um gerador de ID, como o gerador de GUID, para gerar IDs em tempo real.
+
+    g. Depois do ' Principal de serviço ' for corrigido com a função necessária, anexar a função com o utilizador do Azure AD (u2) ao seguir os passos de **atribua o utilizador de teste do Azure AD** secção do tutorial.
+
 ### <a name="configure-alibaba-cloud-service-role-based-sso-single-sign-on"></a>Configurar Alibaba Cloud Service (SSO baseado em funções) início de sessão único
 
 Para configurar o início de sessão único num **Alibaba Cloud Service (SSO baseado em funções)** lado, terá de enviar o transferido **XML de metadados de Federação** e copiados URLs partir do portal do Azure para [ Equipa de suporte do serviço de Cloud Alibaba (SSO baseado em funções)](https://www.aliyun.com/service/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
@@ -184,9 +270,9 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -212,11 +298,16 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Sobre o **utilizadores e grupos** separador, selecione u2 da lista de utilizadores e clique em **selecione**. Em seguida, clique em **atribuir**.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+    ![Configuração de teste](./media/alibaba-cloud-service-role-based-sso-tutorial/test01.png)
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+6. Ver a função atribuída e testar o serviço de Cloud Alibaba (SSO baseado em funções).
+
+    ![Configuração de teste](./media/alibaba-cloud-service-role-based-sso-tutorial/test02.png)
+
+    >[!NOTE]
+    >Depois de atribuir o utilizador (u2), a função criada automaticamente é anexada ao usuário. Se o ter criado várias funções, terá de anexar a função adequada para o usuário conforme necessário. Se pretender implementar SSO baseado em funções do Azure AD para várias contas de Alibaba Cloud, repita os passos anteriores.
 
 ### <a name="create-alibaba-cloud-service-role-based-sso-test-user"></a>Criar utilizador de teste do serviço de Cloud Alibaba (SSO baseado em funções)
 
@@ -224,9 +315,23 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no serviço de Clo
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Depois das configurações anteriores são concluídas, teste o serviço de nuvem de Alibaba (SSO baseado em funções) ao seguir estes passos:
 
-Quando clica no mosaico do serviço de Cloud Alibaba (SSO baseado em funções) no painel de acesso, deve ser automaticamente conectado para o serviço de nuvem Alibaba (SSO baseado em funções) para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+1. No portal do Azure, vá para o **Alibaba Cloud Service (SSO baseado em funções)** página, selecione **início de sessão único**e clique em **teste**.
+
+    ![Configuração de teste](./media/alibaba-cloud-service-role-based-sso-tutorial/test03.png)
+
+2. Clique em **Iniciar sessão como o utilizador atual**.
+
+    ![Configuração de teste](./media/alibaba-cloud-service-role-based-sso-tutorial/test04.png)
+
+3. Na página de seleção de conta, selecione u2.
+
+    ![Configuração de teste](./media/alibaba-cloud-service-role-based-sso-tutorial/test05.png)
+
+4. É apresentada a página seguinte, que indica que o SSO baseado em funções é efetuada com êxito.
+
+    ![Configuração de teste](./media/alibaba-cloud-service-role-based-sso-tutorial/test06.png)
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

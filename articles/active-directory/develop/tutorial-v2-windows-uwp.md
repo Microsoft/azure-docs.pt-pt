@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bd57b3d41ad7c670b5423f10a9c93b55e87d757
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 448858efeaae4c3e2a41d41181e9ec74b03223f6
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252231"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138260"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chamar o Microsoft Graph API a partir de uma aplicação plataforma Universal do Windows (XAML)
 
@@ -333,8 +333,10 @@ Agora precisa de registar a sua aplicação no Portal de registo de aplicação 
    - Na **tipos de conta suportados** secção, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, o Skype, Xbox, Outlook.com)**.
    - Selecione **Registar** para criar a aplicação.
 1. Na aplicação **descrição geral** página, encontre o **ID de aplicação (cliente)** valor e registe-a para utilizar mais tarde. Volte ao Visual Studio, abra **MainPage.xaml.cs**e substitua o valor do ID de cliente com o ID da aplicação que acabou de registar:
-1. Na lista de páginas da aplicação, selecione **autenticação**:
-   - Na **URIs de redirecionamento** | **sugerido URIs de redirecionamento para os clientes públicos (para dispositivos móveis, computadores)** secção, verificação **urn: ietf:wg:oauth:2.0:oob**
+1. Na lista de páginas da aplicação, selecione **Autenticação**.
+   1. Na **URIs de redirecionamento** secção, na lista de URIs de redirecionamento:
+   1. Na **tipo** coluna select **cliente público (móvel e ambiente de trabalho)**.
+   1. Introduza `urn:ietf:wg:oauth:2.0:oob` no **URI de REDIRECIONAMENTO** coluna.
 1. Selecione **Guardar**.
 1. Na lista de páginas da aplicação, selecione **permissões de API**
    - Clique nas **adicionar uma permissão** botão e, em seguida,

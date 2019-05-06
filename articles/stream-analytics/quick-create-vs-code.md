@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 05/06/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: dd6d527020bbf5e2fb510fa9605af408673e89dd
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 511dab7090f6114c7769d504166f3e2c137d43ca
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514237"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65071858"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Início rápido: Criar uma tarefa de cloud do Azure Stream Analytics no Visual Studio Code (pré-visualização)
 
@@ -26,23 +26,13 @@ Este guia de introdução mostra-lhe como criar e executar uma tarefa de Stream 
 
 * Instale [Visual Studio Code](https://code.visualstudio.com/).
 
-* Transfira o [extensão do Azure Stream Analytics para o VS Code](https://usqldownload.blob.core.windows.net/ext/asa/vscode-asa-0.0.2.vsix).
-
 ## <a name="install-the-azure-stream-analytics-extension"></a>Instalar a extensão do Azure Stream Analytics
-
-Instale a extensão do Azure Stream Analytics do pacote VSIX privado que transferiu.
 
 1. Abra o Visual Studio Code.
 
-2. Partir **extensões** no painel esquerdo, selecione as reticências **(...)**  no canto superior direito. Em seguida, selecione **instalar a partir do VSIX**.
+2. Partir **extensões** no painel da esquerda, procure **Stream Analytics** e selecione **instalar** no **Azure Stream Analytics** extensão.
 
-   ![Instalar a partir do VSIX no Visual Studio Code](./media/quick-create-vs-code/install-vsix.png)
-
-3. Selecione a extensão que transferiu como pré-requisito e selecione **instalar**.  Esta alteração pode demorar vários segundos.
-
-4. Quando a instalação foi concluída com êxito, selecione **recarregar agora** de pop-up janela se lhe for pedido.
-
-5. Certifique-se de que **ferramentas do Azure Stream Analytics** está visível no seu **extensões ativadas**.
+3. Depois de instalar a extensão, certifique-se de que **ferramentas do Azure Stream Analytics** está visível no seu **extensões ativadas**.
 
    ![Ferramentas do Azure Stream Analytics em extensões ativadas no Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
@@ -123,7 +113,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
 
    ![Arquivos de projeto do Stream Analytics no VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
-4. O ficheiro de configuração asaproj.json contém as entradas, saídas e informações de ficheiro de configuração de tarefa necessária para submeter a tarefa ASA para o Azure.
+4. O **asaproj.json** ficheiro de configuração contém as entradas, saídas e informações de ficheiro de configuração de tarefa necessária para submeter a tarefa de Stream Analytics para o Azure.
 
    ![Ficheiro de configuração do Stream Analytics tarefa no VS Code](./media/quick-create-vs-code/job-configuration.png)
 
@@ -146,7 +136,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
 
 4. Introduza o nome do ficheiro de entrada **IotHub.json**.
 
-5. Editar **IoTHub.json** com os seguintes valores. Mantenha os valores predefinidos para os campos não mencionados abaixo. Utilize o CodeLens para introduzir uma cadeia de caracteres ou selecionar a partir de uma lista suspensa.
+5. Editar **IoTHub.json** com os seguintes valores. Mantenha os valores predefinidos para os campos não mencionados abaixo. Pode utilizar o CodeLens para o ajudar a introduzir uma cadeia de caracteres, selecionar a partir de uma lista suspensa ou alterar o texto diretamente no ficheiro.
 
    |Definição|Valor sugerido|Descrição|
    |-------|---------------|-----------|
@@ -189,9 +179,9 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
    HAVING Temperature > 27
    ```
 
-## <a name="compile-script"></a>Compilar o script
+## <a name="compile-the-script"></a>Compilar o script
 
-Compilação de script faz duas coisas: Verifique a sintaxe e gerar os modelos Azure Resource Manager para implementação automática.
+Compilação de script faz duas coisas: Verifique a sintaxe e gerar os modelos Azure Resource Manager para a implementação automática.
 
 Existem duas formas para acionar a compilação de script:
 
@@ -205,6 +195,8 @@ Existem duas formas para acionar a compilação de script:
 
 3. Após a compilação, pode encontrar os dois modelos do Azure Resource Manager gerado em **Deploy** pasta do seu projeto. Esses dois arquivos são usados para implementação automática.
 
+    ![Modelos de implementação do Stream Analytics no Explorador de ficheiros](./media/quick-create-vs-code/deployment-templates.png)
+
 ## <a name="submit-a-stream-analytics-job-to-azure"></a>Submeter uma tarefa do Stream Analytics para o Azure
 
 1. Na janela de editor de script do Visual Studio Code, selecione **selecione a partir das subscrições**.
@@ -213,7 +205,7 @@ Existem duas formas para acionar a compilação de script:
 
 2. Selecione a sua subscrição na lista de pop-up.
 
-3. Selecione **Selecione uma tarefa**. Em seguida, escolha criar uma nova tarefa.
+3. Selecione uma tarefa * *. Em seguida, escolha criar uma nova tarefa.
 
 4. Introduza o seu nome de tarefa **myASAjob** e, em seguida, siga as instruções para escolher o grupo de recursos e localização.
 
@@ -233,13 +225,15 @@ Existem duas formas para acionar a compilação de script:
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Iniciar a tarefa do Stream Analytics e verificar a saída
 
-1. Abra o Explorador do Stream Analytics no Visual Studio Code e localize o seu trabalho,**myASAJob**.
+1. Open **Explorer do Stream Analytics** no Visual Studio Code e localize a sua tarefa **myASAJob**.
 
 2. Clique com o botão direito no nome da tarefa. Em seguida, selecione **iniciar** no menu de contexto.
 
+![Iniciar a tarefa de Stream Analytics no VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+
 3. Escolher **agora** na janela de pop-up para iniciar a tarefa.
 
-4. Tenha em atenção o estado da tarefa foi alterado para **em execução**. Com o botão direito no nome da tarefa e escolha **vista de tarefas aberto no Portal** para ver a entrada e métricas de eventos de saída. Esta operação poderá demorar alguns minutos.
+4. Tenha em atenção o estado da tarefa foi alterado para **em execução**. Com o botão direito no nome da tarefa e escolha **vista de tarefas aberto no Portal** para ver a entrada e métricas de eventos de saída. Esta ação pode demorar alguns minutos.
 
 5. Para ver os resultados, abra o armazenamento de BLOBs na extensão do Visual Studio Code ou no portal do Azure.
 

@@ -1,21 +1,21 @@
 ---
-title: Ligar à Base de Dados do Azure para PostgreSQL com linguagem Go
-description: Este guia de início rápido fornece um exemplo de linguagem de programação Go que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
+title: Utilize a linguagem Go para ligar à base de dados do Azure para PostgreSQL - servidor único
+description: Este início rápido fornece um exemplo de programação de Go da linguagem que pode utilizar para ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 802d7f200f43c690978f05e2d66be81bd2635e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9356379262cc078cd6a62f3280bcb8cc3d315844
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60778479"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067379"
 ---
-# <a name="azure-database-for-postgresql-use-go-language-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilize a linguagem Go para ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilize a linguagem Go para ligar e consultar dados
 Este início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de código escrito na linguagem [Go](https://golang.org/) (golang). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que esteja familiarizado com o desenvolvimento que utiliza o Go, mas que nunca trabalhou com a base de dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

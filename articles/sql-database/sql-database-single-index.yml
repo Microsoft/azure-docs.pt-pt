@@ -75,6 +75,7 @@ sections:
           - html: '(Pré-visualização) Novas funcionalidades de linguagem do Transact-SQL, tais como <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">agregado APPROX_COUNT_DISTINCT</a> e <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">em massa importar do armazenamento de Blobs do Azure</a>.'
           - html: '(Pré-visualização) Novo 2019 Online do SQL Server <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">criar</a> e reconstruir as operações de índice columnstore em cluster.'
           - html: '(Pré-visualização) Novos <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">do Azure SQL da base de dados serviços de Machine Learning (com R)</a>.'
+          - html: '(Pré-visualização) Novos <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">escalão de computação sem servidor</a> fornece o dimensionamento automático computação e de faturação por segundo para computação utilizada.'
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph

@@ -1,21 +1,21 @@
 ---
-title: Ligar à Base de Dados do Azure para PostgreSQL a partir do Node.js
-description: Este guia de início rápido proporciona um código de exemplo de Node.js que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para PostgreSQL.
+title: Utilizar o node. js para ligar à base de dados do Azure para PostgreSQL - servidor único
+description: Este início rápido fornece um exemplo de código de node. js que pode utilizar para se ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 4c7f2f71ff302cbaa0aab66f97b93cb1c5b9e5e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5ebcb3151bf9b6eaca4a726553a3c8f1d93c08aa
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623868"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067139"
 ---
-# <a name="azure-database-for-postgresql-use-nodejs-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL: Utilizar o node. js para ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-nodejs-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilizar o node. js para ligar e consultar dados
 Este guia de introdução explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de uma aplicação [Node.js](https://nodejs.org/). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Os passos neste artigo pressupõem que está familiarizado com a programação com Node.js e que nunca trabalhou com a Base de Dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos

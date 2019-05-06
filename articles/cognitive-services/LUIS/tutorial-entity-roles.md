@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: diberry
-ms.openlocfilehash: 98c2ad15d836162608affbfbc89908a15e274cee
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528719"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65069256"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados contextualmente relacionados de uma expressão
 
 Neste tutorial, localize fragmentos de dados relacionados com base no contexto. Por exemplo, uma origem e destino locais para uma transferência de uma cidade para outro. Ambas as partes de dados podem ser necessárias e se relacionam entre si.  
 
-Este tutorial anteriormente foi escrito usando entidades hierárquicas. Funções de entidade substituem a necessidade do tipo de entidade hierárquica. Uma função pode ser utilizada com qualquer tipo de entidade predefinidos ou personalizados e utilizada em expressões de exemplo e padrões. 
+Uma função pode ser utilizada com qualquer tipo de entidade predefinidos ou personalizados e utilizada em expressões de exemplo e padrões. 
 
 **Neste tutorial, vai aprender a:**
 
@@ -117,7 +117,7 @@ A entidade pré-criados, geographyV2, extrai informações de localização, inc
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 
-1. Vá para o final do URL na barra de endereço e introduza `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer uma das expressões identificadas, pelo que é um bom teste e deve devolver a intenção `MoveEmployee` com a entidade hierárquica extraída.
+1. Vá para o final do URL na barra de endereço e introduza `Please move Carl Chamerlin from Tampa to Portland`. O último parâmetro querystring é `q`, a expressão **query**. Esta expressão não é igual a qualquer um das expressões etiquetadas pelo é um bom teste e deverá devolver o `MoveEmployee` intenção com a entidade extraída.
 
     ```json
     {

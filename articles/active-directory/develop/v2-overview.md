@@ -1,6 +1,6 @@
 ---
-title: Sobre o v2.0 | Azure
-description: Saiba mais sobre a plataforma e o ponto final do v2.0.
+title: Microsoft identity (v2.0) visão geral da plataforma - Azure
+description: Saiba mais sobre a plataforma e o ponto de extremidade do Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -12,55 +12,75 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb269df035bcc11583ebb7cff7d1ee2c3f6d8bca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6aa0af1ff5a8600f43ab92a5f2534a8e3ff253c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250303"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067672"
 ---
-# <a name="about-v20"></a>Sobre o v2.0
+# <a name="microsoft-identity-platform-v20-overview"></a>Visão geral do Microsoft identity platform (v2.0)
 
-A plataforma e o ponto final do v2.0 estão em pré-visualização e são continuamente melhorados. Hoje em dia, os cenários de aplicação de página única (SPA) do JavaScript incluem todas as funcionalidades e convidamo-lo a utilizar o MSAL.js para criar aplicações baseadas no browser e enviar-nos comentários, para que possamos atualizar o estado da pré-visualização para disponibilidade geral (GA).
+A plataforma de identidade da Microsoft é uma evolução da plataforma para programadores e do serviço de identidade do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que iniciar sessão em todas as identidades da Microsoft e obtém tokens para chamar as APIs da Microsoft, como o Microsoft Graph ou as APIs que os desenvolvedores criaram. A plataforma de identidade da Microsoft consiste em:
 
-> [!NOTE]
-> A MSAL Android, iOS e .NET ainda têm funcionalidades em desenvolvimento. Pode utilizá-los para criar aplicações e enviar-nos comentários.
+- **Serviço de autenticação compatíveis com o padrão de OAuth 2.0 e OpenID Connect** que permite aos desenvolvedores autenticar qualquer identidade da Microsoft, incluindo:
+  - Contas escolares ou profissionais (aprovisionadas através do Azure AD)
+  - Contas Microsoft pessoais (por exemplo, o Skype, Xbox e Outlook.com)
+  - Contas de redes sociais ou locais (através do Azure AD B2C)
+- **Bibliotecas de código-fonte aberto**: Bibliotecas de autenticação da Microsoft (MSAL) e suporte para outras bibliotecas compatíveis com padrões
+- **Portal de gestão de aplicações**: Uma experiência de configuração e de registo criada no portal do Azure, juntamente com todas as suas outras funcionalidades de gestão do Azure.
+- **Configuração da aplicação API e PowerShell**: que permite que a configuração programática das suas aplicações através de REST API (Microsoft Graph e do Azure Active Directory Graph 1.6) e o PowerShell, para que pode automatizar suas tarefas de DevOps.
+- **Conteúdo para desenvolvedores**: conceitual e fazer referência a documentação, exemplos de início rápido, exemplos de código, tutoriais e guias de procedimentos.
 
-O portal do Azure [registos de aplicações (pré-visualização)](quickstart-register-app.md) experiência foi significativamente atualizada para incluir todas as suas aplicações criadas com o ADAL ou MSAL e para melhorar a usabilidade.
+Para os desenvolvedores, a plataforma de identidade da Microsoft oferece integração direta com as inovações no espaço de identidade e segurança, tais como autenticação de início, a autenticação Step-up e acesso condicional.  Não é necessário implementar essa funcionalidade por conta própria: aplicações integradas com a plataforma de identidade do Microsoft nativamente tirar partido dessas inovações.
 
-No passado, os programadores de aplicações que queriam suportar as contas pessoais e profissionais da Microsoft do Azure Active Directory (Azure AD) tinham de se integrar em dois sistemas separados. A plataforma e o ponto final do v2.0 oferece uma versão da API de autenticação que simplifica este processo. Permite inícios de sessão de ambos os tipos de contas, através de uma única integração. As aplicações que utilizam o ponto final do v2.0 também podem consumir as APIs REST do [Microsoft Graph API](https://developer.microsoft.com/graph) ao utilizar ambos os tipos de contas.
+Com a plataforma de identidade da Microsoft, pode escrever código uma vez e chegue a qualquer utilizador. Pode criar uma aplicação uma vez e fazer com que ele funciona em muitas plataformas ou criar uma aplicação que funciona como um cliente, bem como uma aplicação de recurso (API).
 
 ## <a name="getting-started"></a>Introdução
 
-Escolha a sua plataforma favorita na lista seguinte para criar uma aplicação com o Microsoft abrir estruturas e bibliotecas de origem:
+Trabalhar com a identidade não precisa ser difícil. Escolha um cenário que se aplica a si — cada caminho de cenário tem um início rápido e uma página de descrição geral para ajudá-lo em funcionamento em minutos:
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- [Criar uma aplicação de página única](scenario-spa-overview.md)
+- [Criar uma aplicação web que inicia sessão dos utilizadores](scenario-web-app-sign-user-overview.md)
+- [Criar uma aplicação web que chama a APIs web](scenario-web-app-call-api-overview.md)
+- [Criar uma API web protegida](scenario-protected-web-api-overview.md)
+- [Compilar uma web API, que chama a APIs web](scenario-web-api-call-api-overview.md)
+- [Criar uma aplicação de ambiente de trabalho](scenario-desktop-overview.md)
+- [Criar uma aplicação de daemon](scenario-daemon-overview.md)
+- [Crie uma aplicação móvel](scenario-mobile-overview.md)
 
-## <a name="learn-more-about-the-v20-endpoint-and-platform"></a>Saiba mais sobre a plataforma e o ponto final do v2.0
+<!--- We are making updates to the application scenarios chart. This is placeholder text for it.
 
-Saiba mais sobre o que pode fazer com o ponto final do Azure AD v2.0:
+The following chart outlines the full set of authentication scenarios and best practices – use it as a reference when integrating the Microsoft identity platform before shipping your app.
 
-* Detete os [tipos de aplicações que pode criar com o ponto de final do Azure AD v2.0](v2-app-types.md).
-* Compreenda os [limites e restrições](active-directory-v2-limitations.md) com o ponto final do Azure AD v2.0.
+[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
-## <a name="additional-resources"></a>Recursos adicionais
+--->
 
-Explore informações aprofundadas sobre o v2.0:
+## <a name="next-steps"></a>Passos Seguintes
 
-* [Sobre a plataforma de identidade da Microsoft](about-microsoft-identity-platform.md)
-* [Referência de protocolos do v2.0](active-directory-v2-protocols.md)
-* [Referência de tokens de acesso](access-tokens.md)
-* [Referência de tokens de ID](id-tokens.md)
-* [Referência de bibliotecas de autenticação d v2.0](reference-v2-libraries.md)
-* [Permissões e consentimento na v2.0](v2-permissions-and-consent.md)
-* [Microsoft Graph API](https://developer.microsoft.com/graph)
+Se gostaria de saber mais sobre conceitos de autenticação de principais, recomendamos que comece com estes tópicos:
 
-> [!NOTE]
-> Se apenas tiver de iniciar sessão nas contas profissionais e escolares do Azure Active Directory, comece com o [Guia do programador do Azure AD](v1-overview.md). O ponto final do v2.0 destina-se a programadores que precisam explicitamente de iniciar sessão em contas pessoais da Microsoft.
+- [Noções básicas de autenticação](authentication-scenarios.md)
+- [Aplicação e os principais de serviço](app-objects-and-service-principals.md)
+- [públicos-alvo](v2-supported-account-types.md)
+- [Permissões e consentimento](v2-permissions-and-consent.md)
+- [Tokens de ID](id-tokens.md) e [tokens de acesso](access-tokens.md)
 
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+Criar uma aplicação de dados sofisticados que chama [Microsoft Graph](https://docs.microsoft.com/graph/overview).
+
+Quando estiver pronto para iniciar a sua aplicação para um **ambiente de produção**, reveja estas melhores práticas:
+
+- [Ativar o registo](msal-logging.md) em seu aplicativo.
+- Ative a telemetria na sua aplicação.
+- Ativar [proxies e personalizar clientes HTTP](msal-net-provide-httpclient.md).
+- Testar a sua integração ao seguir a [lista de verificação do Microsoft identity platform integração](identity-platform-integration-checklist.md).
+
+## <a name="learn-more"></a>Saiba mais
+
+Se tivesse de planeamento para criar uma aplicação do lado do cliente que inicia sessão identidades sociais e locais, veja a [descrição geral do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
