@@ -352,7 +352,7 @@ O `context.req` (pedido) objeto tem as seguintes propriedades:
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Um objeto que contém o corpo do pedido.               |
 | _headers_     | Um objeto que contém os cabeçalhos de pedido.                   |
-| _Método_      | O método HTTP do pedido.                                |
+| _method_      | O método HTTP do pedido.                                |
 | _originalUrl_ | O URL do pedido.                                        |
 | _params_      | Um objeto que contém os parâmetros de encaminhamento do pedido. |
 | _query_       | Um objeto que contém os parâmetros de consulta.                  |
