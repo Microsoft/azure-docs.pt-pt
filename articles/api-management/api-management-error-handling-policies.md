@@ -84,8 +84,8 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
 | Mensagem  | string | Descrição do erro legível por humanos.                                                                         | Sim      |
 | Âmbito    | string | Nome do âmbito em que o erro ocorreu e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
 | Section  | string | Nome de secção onde ocorreu o erro. Valores possíveis: "entrada", "backend", "saída" ou "em erro".       | Não       |
-| Caminho     | string | Especifica a política de aninhadas, por exemplo "Escolha [3] / quando [2]".                                                        | Não       |
-| PolicyId | string | Valor da `id` de atributo, se for especificado pelo cliente, na política de onde ocorreu o erro             | Não       |
+| `Path`     | string | Especifica a política de aninhadas, por exemplo "Escolha [3] / quando [2]".                                                        | Não       |
+| `PolicyId` | string | Valor da `id` de atributo, se for especificado pelo cliente, na política de onde ocorreu o erro             | Não       |
 
 > [!TIP]
 > Pode acessar o código de estado por meio do contexto. Response.StatusCode.  

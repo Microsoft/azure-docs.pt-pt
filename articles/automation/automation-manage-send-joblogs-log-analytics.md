@@ -99,7 +99,7 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 | ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Novo<br>- Iniciado<br>- Parado<br>- Suspenso<br>- Falhado<br>-Concluída |
 | Category | Classificação do tipo de dados. Para a Automatização, o valor é JobLogs. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
-| Recurso | Nome da conta de automatização |
+| Resource | Nome da conta de automatização |
 | SourceSystem | Como o Azure Monitor registos recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |
 | ResultDescription |Descreve o estado do resultado do trabalho do runbook. Os valores possíveis são:<br>- Trabalho iniciado<br>- Trabalho falhado<br>- Trabalho Concluído |
 | CorrelationId |GUID que é o Id de Correlação do trabalho do runbook. |
@@ -122,7 +122,7 @@ Cria dois tipos de registos no Azure Monitor registos de diagnóstico da automat
 | ResultType |O estado do trabalho do runbook. Os valores possíveis são:<br>-Em curso |
 | Category | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams. |
 | OperationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho. |
-| Recurso | Nome da conta de automatização |
+| Resource | Nome da conta de automatização |
 | SourceSystem | Como o Azure Monitor registos recolhidos os dados. Sempre *Azure* para obter um diagnóstico do Azure. |
 | ResultDescription |Inclui o fluxo de saída do runbook. |
 | CorrelationId |GUID que é o Id de Correlação do trabalho do runbook. |

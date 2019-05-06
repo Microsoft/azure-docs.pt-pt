@@ -11,10 +11,10 @@ metadata:
   ms.service: search
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 01/18/2019
+  ms.date: 05/02/2019
   ms.author: heidist
 abstract:
-  description: 'Saiba como criar uma solução de pesquisa de nível empresarial através de conteúdo privado e heterogéneo com o Azure Search. Os tutoriais, referências da API e outros documentos mostram-lhe como consolidar conteúdo pesquisável num único índice rápido e passível de consulta através de sintaxe simples a avançada para um vasto leque de cenários. <p/><a href="/azure/search/cognitive-search-concept-intro"><b>Nova pré-visualização de pesquisa cognitiva.</b></a> Utilize uma API REST de pré-lançamento para o enlace de algoritmos com tecnologia de IA para o pipeline de indexação. Extrair dados, invocar linguagem natural e processamento de imagens para transformar conteúdo não estruturado bruto em conteúdo pesquisável num índice do Azure Search. <p/>Explore a pesquisa cognitiva com <a href="/azure/search/cognitive-search-quickstart-blob">recursos e dados de exemplo</a> ou saiba mais em <a href="/azure/search/cognitive-search-concept-intro">Conceitos</a>.'
+  description: 'Saiba como criar uma solução de pesquisa de nível empresarial através de conteúdo privado e heterogéneo com o Azure Search. Os tutoriais, referências da API e outros documentos mostram-lhe como consolidar conteúdo pesquisável num único índice rápido e passível de consulta através de sintaxe simples a avançada para um vasto leque de cenários. <p/>A <a href="/azure/search/cognitive-search-concept-intro"><b>Pesquisa Cognitiva</b></a> já está em disponibilidade geral, com melhoramentos com IA suportados para cenários de produção.<p/>O <a href="/azure/search/knowledge-store-concept-intro"><b>Knowledge Store (Pré-visualização)</b></a> expande a Pesquisa Cognitiva. Guarde os melhoramentos com a IA no armazenamento, onde pode ver, alterar e consumir melhoramentos noutras aplicações para além do Azure Search. <a href="/azure/search/knowledge-store-howto"><b>Comece</b></a> já.'
   aside:
     image:
       alt: null
@@ -51,11 +51,11 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Indexar com IA (Serviços Cognitivos)</a>
-          - html: <a href="/azure/search/search-howto-dotnet-sdk">Como utilizar o Azure Search com .NET</a>
+          - html: <a href="/azure/search/search-get-started-portal">Utilizar o portal para indexação e teste de consultas</a>
+          - html: <a href="/azure/search/search-howto-dotnet-sdk">Utilizar o .NET para escrever a sua primeira solução de pesquisa</a>
+          - html: <a href="/azure/search/cognitive-search-tutorial-blob">Melhorar com a IA (Serviços Cognitivos)</a>
           - html: <a href="/azure/search/search-indexer-tutorial">Indexar conteúdo da Base de Dados SQL do Azure com .NET</a>
           - html: <a href="/azure/search/search-semi-structured-data">Indexar dados semiestruturados no armazenamento de Blobs do Azure com REST</a>
-          - html: <a href="/azure/search/search-get-started-portal">Utilizar o portal para indexação e teste de consultas</a>
   - title: Referência
     items:
       - type: list

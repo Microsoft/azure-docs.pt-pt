@@ -1,0 +1,39 @@
+- name: Documentação do Azure Open Datasets
+  href: index.yml
+- name: Descrição geral
+  expanded: true
+  items:
+    - name: O que é o Azure Open Datasets?
+      displayName: open datasets overview introduction
+      href: overview-what-are-open-datasets.md
+- name: Tutorial
+  items:
+    - name: Regressão com aprendizagem automática automatizada
+      href: tutorial-opendatasets-automl.md
+- name: Amostras
+  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
+  href: samples.md
+- name: Referência
+  items:
+    - name: SDK Python
+      displayName: api open datasets reference sdk
+      href: 'https://aka.ms/open-datasets-api'
+    - name: Jupyter Notebooks
+      displayName: python notebooks
+      href: 'https://github.com/Azure/OpenDatasetsNotebooks'
+- name: Recursos
+  items:
+    - name: Catálogo do Azure Open Datasets
+      href: 'https://azure.microsoft.com/services/open-datasets/catalog/'
+    - name: Microsoft Research Open Data
+      href: 'https://msropendata.com/'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/open-datasets/'
+    - name: Disponibilidade regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Fórum de utilizadores
+      href: 'https://aka.ms/open-datasets-forum'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-open-datasets'
