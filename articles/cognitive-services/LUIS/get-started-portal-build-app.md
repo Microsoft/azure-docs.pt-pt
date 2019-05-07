@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5ec38c510fedee7f489b3b100285eeb7c75f4561
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e4ff7dc97e3ee72336bd4c081caf1aa1a62bc56
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690974"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146562"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Início rápido: Criar uma nova aplicação no portal do LUIS
 
@@ -56,7 +56,7 @@ A aplicação do dois diferentes _intenções_ se alinham com os seguintes objet
 |ApplyForJob|`I want to apply for the new software engineering position in Cairo.`|
 |FindForm|`Where is the job transfer form hrf-123456?`|
 
-Para criar intenções, siga os passos abaixo:
+Para criar intenções, conclua os seguintes passos:
 
 1. Depois da aplicação é criada, estará no **intenções** página do **criar** secção. Selecione **Create new intent** (Criar nova intenção).
 
@@ -71,6 +71,8 @@ Para criar intenções, siga os passos abaixo:
 Adicionar expressões de exemplo depois de criar objetivos. Expressões com de exemplo são texto que um utilizador introduz num chatbot ou outra aplicação de cliente. A intenção de texto do utilizador podem ser mapeados para uma intenção de LUIS.
 
 Para esta aplicação de exemplo `FindForm` intenção, expressões de exemplo irão incluir o número de formulário. A aplicação cliente tem o número de forma a satisfazer o pedido do utilizador, pelo que é importante para incluí-lo na expressão.
+
+[![Introduza expressões de exemplo para a intenção de FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
 
 Adicione as seguintes expressões de 15 de exemplo para o `FindForm` intenção.
 
@@ -100,11 +102,11 @@ Por predefinição, estas expressões de exemplo variam das seguintes formas:
 * tempo verbal do verbo (é, foi, irá ser)
 * ordem das palavras
 
-[![Introduza expressões de exemplo para a intenção de FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
+
 
 ## <a name="create-a-regular-expression-entity"></a>Criar uma entidade de expressão regular
 
-Para obter o número de formulário devolvido como parte da resposta de previsão do tempo de execução, o formulário tem de ser marcado como uma entidade. Uma vez que o texto de número de forma altamente está estruturado, podem ser marcado com uma entidade de expressão regular. Crie a entidade com os seguintes passos:
+Para devolver o número de forma a resposta de previsão do tempo de execução, o formulário tem de ser marcado como uma entidade. Uma vez que o texto de número de forma altamente é estruturado, pode marcá-lo com uma entidade de expressão regular. Crie a entidade com os seguintes passos:
 
 1. Selecione **entidades** no menu à esquerda.
 

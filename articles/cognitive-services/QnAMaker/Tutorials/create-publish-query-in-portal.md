@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463765"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149961"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: No portal do QnA Maker, criar uma base de dados de conhecimento
 
@@ -68,7 +68,7 @@ Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-serv
     |--|--|--|
     |do IdP|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Os conteúdos de FAQ nesse URL estão formatados com uma pergunta, seguida de uma resposta. O Criador de FAQ consegue interpretar este formato para extrair perguntas e as respostas associadas.|
     |Ficheiro |_não utilizado neste tutorial_|Esta definição carrega ficheiros para perguntas e respostas. |
-    |Personalidade de Chit-chat|O amigo|Esta definição dá uma personalidade informal e amigável a perguntas e respostas comuns. Pode editar estas perguntas e respostas mais tarde. |
+    |Personalidade de Chit-chat|Amigável|Esta definição dá uma personalidade informal e amigável a perguntas e respostas comuns. Pode editar estas perguntas e respostas mais tarde. |
 
     ![Passo 4 do processo de criação da BDC](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 
@@ -84,9 +84,9 @@ Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-serv
 
 1. Selecione a última página de perguntas e respostas na parte inferior da tabela. A página mostra perguntas e respostas da personalidade Chit-chat. 
 
-1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o ícone de metadados. Isso mostra as marcas de metadados para cada pergunta e resposta. As perguntas de Chit chat têm o **editorial: chit-bate-papo** metadados já definido. Estes metadados é retornado para a aplicação de cliente, juntamente com a resposta selecionada. O aplicativo de cliente, como um chatbot, pode utilizar estes metadados filtrados para determinar o processamento adicional ou as interações com o utilizador.
+1. Na barra de ferramentas acima da lista de perguntas e respostas, selecione o **ver opções** ícone, em seguida, selecione **Mostrar metadados**. Isso mostra as marcas de metadados para cada pergunta e resposta. As perguntas de Chit chat têm o **editorial: chit-bate-papo** metadados já definido. Estes metadados é retornado para a aplicação de cliente, juntamente com a resposta selecionada. O aplicativo de cliente, como um chatbot, pode utilizar estes metadados filtrados para determinar o processamento adicional ou as interações com o utilizador.
 
-    ![Marcas de metadados de vista](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)
+    ![! [Exibir marcas de metadados] (.. / media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png)](../media/qnamaker-tutorial-create-publish-query-in-portal/save-and-train-kb-chit-chat.png#lightbox)
 
 1. Selecione **Save and train** (Guardar e preparar) na barra de menus superior.
 

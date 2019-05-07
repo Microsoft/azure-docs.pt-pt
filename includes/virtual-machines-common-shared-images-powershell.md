@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 12/10/2018
+ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d4be0bf52fd925e22e40e98258082304a25a111
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188343"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148761"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -21,17 +21,6 @@ O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para execu
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
 
-
-## <a name="preview-register-the-feature"></a>Pré-visualização: Registar a funcionalidade
-
-Galerias de imagem partilhada está em pré-visualização, mas tem de registar a funcionalidade antes de poder utilizá-lo. Para registar a funcionalidade de galerias de imagem partilhada:
-
-```azurepowershell-interactive
-Register-AzProviderFeature `
-   -FeatureName GalleryPreview `
-   -ProviderNamespace Microsoft.Compute
-Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-```
 
 ## <a name="get-the-managed-image"></a>Obter a imagem gerida
 
@@ -45,7 +34,9 @@ $managedImage = Get-AzImage `
 
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
-Uma galeria de imagens é o recurso principal utilizado para ativar a partilha de imagens. Nomes de galeria tem de ser exclusivos na sua subscrição. Crie uma galeria de imagens com [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). O exemplo seguinte cria uma galeria com o nome *myGallery* no *myGalleryRG* grupo de recursos.
+Uma galeria de imagens é o recurso principal utilizado para ativar a partilha de imagens. Carateres permitidos para o nome de galeria são letras em maiúsculas ou minúsculas, dígitos, pontos e períodos. O nome de Galeria não pode conter traços. Nomes de galeria tem de ser exclusivos na sua subscrição. 
+
+Crie uma galeria de imagens com [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). O exemplo seguinte cria uma galeria com o nome *myGallery* no *myGalleryRG* grupo de recursos.
 
 ```azurepowershell-interactive
 $resourceGroup = New-AzResourceGroup `
@@ -60,7 +51,9 @@ $gallery = New-AzGallery `
    
 ## <a name="create-an-image-definition"></a>Criar uma definição de imagem 
 
-Criar a imagem de galeria definição com [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem de galeria é denominada *myGalleryImage*.
+Definições de imagem, criar um agrupamento lógico das imagens. Eles são usados para gerenciar informações sobre as versões de imagem que são criados dentro dos mesmos. Nomes de definição de imagem podem ser constituídos por letras em maiúsculas ou minúsculas, dígitos, pontos, travessões e períodos. Para obter mais informações sobre os valores que pode especificar para obter uma definição de imagem, veja [definições de imagem](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+
+Criar a definição de imagem com [New-AzGalleryImageDefinition](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). Neste exemplo, a imagem de galeria é denominada *myGalleryImage*.
 
 ```azurepowershell-interactive
 $galleryImage = New-AzGalleryImageDefinition `
@@ -74,30 +67,15 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-### <a name="using-publisher-offer-and-sku"></a>Utilizar o publicador, oferta, SKU e 
-Para clientes que planeiam na implementação de Imagens partilhadas, **numa versão futura**, poderá usar seu pessoal definidos **-publicador**, **-oferecem** e **- Sku** valores para encontrar e especifique uma definição de imagem, em seguida, criar uma VM com a versão mais recente da imagem da correspondência de definição de imagem. Por exemplo, Eis três definições de imagem e os respetivos valores:
 
-|Definição da Imagem|Publicador|Oferta|Sku|
-|---|---|---|---|
-|myImage1|myPublisher|myOffer|mySku|
-|myImage2|myPublisher|standardOffer|mySku|
-|myImage3|Testes|standardOffer|testSku|
-
-Todos os três deles têm exclusivos conjuntos de valores. Pode ter versões de imagem que compartilham um ou dois, mas nem todos os três valores. **Numa versão futura**, será possível combinar estes valores para solicitar a versão mais recente de uma imagem específica. **Esta opção não funcionar na versão atual**, mas estará disponível no futuro. Quando lançada, deve ser utilizado com a seguinte sintaxe para definir a imagem de origem como *myImage1* da tabela acima.
-
-```powershell
-$vmConfig = Set-AzVMSourceImage `
-   -VM $vmConfig `
-   -PublisherName myPublisher `
-   -Offer myOffer `
-   -Skus mySku 
-```
-
-Isto é semelhante à forma como pode atualmente especificar utilização publicador, oferta e SKU para [imagens do Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) para obter a versão mais recente de uma imagem do Marketplace. Com isso em mente, cada definição de imagem tem de ter um conjunto exclusivo desses valores.  
 
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
-Criar uma versão de imagem a partir de uma imagem gerida utilizando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion) . Neste exemplo, é a versão da imagem *1.0.0* e ele é replicado para ambas *e.u.a. Centro-Oeste* e *Centro-Sul* centros de dados.
+Criar uma versão de imagem a partir de uma imagem gerida utilizando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). 
+
+Carateres permitidos para a versão da imagem são números e pontos finais. Tem de ser números dentro do intervalo de um número inteiro de 32 bits. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
+
+Neste exemplo, é a versão da imagem *1.0.0* e ele é replicado para ambas *e.u.a. Centro-Oeste* e *Centro-Sul* centros de dados. Ao escolher as regiões de destino para replicação, lembre-se de que também tem de incluir o *origem* região como um destino para replicação.
 
 
 ```azurepowershell-interactive
@@ -122,3 +100,5 @@ Pode demorar algum tempo para replicar a imagem para todas as regiões de destin
 $job.State
 ```
 
+> [!NOTE]
+> Terá de aguardar que a versão da imagem concluir completamente a ser criada e replicadas antes de poder utilizar a mesma imagem gerida para criar outra versão da imagem.

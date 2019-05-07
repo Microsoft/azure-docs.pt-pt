@@ -7,12 +7,13 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: tamram
-ms.openlocfilehash: 0cbb4d2bc6449dc1cf12a374085b429743224995
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.reviewer: artek
+ms.openlocfilehash: e71e4557b464f6407e510478f737b7aef8823ead
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391875"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150813"
 ---
 # <a name="tutorial-simulate-a-failure-in-accessing-read-access-redundant-storage"></a>Tutorial: Simular uma falha ao aceder ao armazenamento redundante com acesso de leitura
 

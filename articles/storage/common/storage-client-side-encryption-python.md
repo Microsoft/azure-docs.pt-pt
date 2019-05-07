@@ -2,19 +2,20 @@
 title: Encriptação do lado do cliente com o Python para o armazenamento do Microsoft Azure | Documentos da Microsoft
 description: Biblioteca de cliente de armazenamento do Azure para Python suporta a encriptação do lado do cliente para segurança máxima para as suas aplicações de armazenamento do Azure.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ecfd86a7e4a8ef97663cc930906fd909b6f0fae8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d04c1e137a190b01554106c041853aa2fd6786d7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011116"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146902"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Encriptação do lado do cliente com o Python para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -138,7 +139,7 @@ O Resolvedor de chave tem de implementar, pelo menos, um método que, tendo em c
   * O Resolvedor de chave é invocado se especificada para obter a chave. Se o resolvedor for especificado, mas não tem um mapeamento para o identificador de chave, ocorrerá um erro.
   * Se o resolvedor não for especificado, mas é especificada uma chave, a chave é utilizada se o seu identificador corresponde ao identificador de chave necessário. Se o identificador não corresponderem, ocorrerá um erro.
 
-    Os exemplos de encriptação no azure.storage.samples <fix URL>demonstrar um cenário de ponto a ponto mais detalhado para blobs, filas e tabelas.
+    Os exemplos de encriptação no azure.storage.samples demonstram um cenário de ponto a ponto mais detalhado para blobs, filas e tabelas.
       Implementações de exemplo da KEK e resolução de chave são fornecidas nos ficheiros de exemplo como KeyWrapper e KeyResolver, respetivamente.
 
 ### <a name="requireencryption-mode"></a>Modo de RequireEncryption

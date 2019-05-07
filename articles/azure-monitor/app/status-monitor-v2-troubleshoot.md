@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 26d677df81df6e10fae8d63362d49deee2cd0aca
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f8e057bf2e71d5a00c1e2a8ef72a5c9415a5a207
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870751"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145128"
 ---
 # <a name="troubleshooting-status-monitor-v2"></a>Estado de resolução de problemas monitorizar v2
 
@@ -200,3 +200,9 @@ Se a monitorização está a funcionar, DLLS, pelo menos, 12 devem ser carregado
 4. Tente navegar para a sua aplicação.
 5. Depois da aplicação concluir o carregamento, regresse ao PerfView e clique em "Parar a coleção"
 
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+- Reveja nossa [referência da API](status-monitor-v2-overview.md#powershell-api-reference) para encontrar um parâmetro que possa ter perdido.
+- Se se deparou com um problema não listado aqui, pode contactar-nos [aqui](https://github.com/Microsoft/ApplicationInsights-Home/issues).

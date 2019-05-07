@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: cfe21d2119b92665c5950d792dec6500257c6316
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024172"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149615"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementar um modelo como um serviço web num FPGA com o serviço Azure Machine Learning
 
@@ -29,22 +29,33 @@ Estes modelos estão atualmente disponíveis:
   - VGG-16
   - SSD-VGG
 
-Os FPGAs estão disponíveis nestas regiões do Azure:
+FPGAs estão disponíveis nestas regiões do Azure:
   - EUA Leste
-  - EUA Oeste 2
-  - Europa Ocidental
   - Sudeste Asiático
+  - Europa Ocidental
+  - EUA Oeste 2
 
 > [!IMPORTANT]
 > Para otimizar o débito e latência, o cliente a enviar dados para o modelo FPGA deve ser de uma das regiões acima (aquele que implementou o modelo para).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+- Uma subscrição do Azure.  Se não tiver uma, crie uma conta gratuita, antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
+
+- FPGA quota.  Utilize a CLI do Azure para verificar se tem quota.
+    ```shell
+    az vm list-usage --location "eastus" -o table
+    ```
+
+    Os outros locais são ``southeastasia``, ``westeurope``, e ``westus2``.
+
+    Na coluna "Name", procure "VCPUs família PBS Standard" e certifique-se de que tem, pelo menos, 6 vCPUs em "CurrentValue."
+
+    Se não tiver quota, em seguida, enviar um formulário de pedido [aqui](https://aka.ms/accelerateAI).
 
 - Uma área de trabalho do serviço do Azure Machine Learning e o Azure Machine Learning SDK para Python instalada. Saiba como obter estes pré-requisitos com o [como configurar um ambiente de desenvolvimento](how-to-configure-environment.md) documento.
  
-  - Instale o SDK de Python para modelos de acelerada por hardware:
+- O SDK de Python para modelos de acelerada por hardware:
 
     ```shell
     pip install --upgrade azureml-accel-models
@@ -52,7 +63,7 @@ Os FPGAs estão disponíveis nestas regiões do Azure:
 
 ## <a name="sample-notebooks"></a>Blocos de notas de exemplo
 
-Para sua comodidade [blocos de notas de exemplo](https://aka.ms/aml-notebooks) estão disponíveis para o exemplo abaixo e, além de outros exemplos.  Procure modelos acelerados em procedimentos-to-use-azureml e implementação de pastas.
+Para sua comodidade [blocos de notas de exemplo](https://aka.ms/aml-accel-models-notebooks) estão disponíveis para o exemplo abaixo e outros exemplos.
 
 ## <a name="create-and-containerize-your-model"></a>Criar e contentorizar o seu modelo
 
@@ -61,6 +72,7 @@ Este documento descrevem como criar um gráfico de TensorFlow pré-processar a i
 Siga as instruções para:
 
 * Definir o modelo do TensorFlow
+* Converter o modelo
 * Implementar o modelo
 * Consumir o modelo implementado
 * Eliminar serviços implementados
@@ -74,7 +86,7 @@ import os
 import tensorflow as tf
  
 from azureml.core import Workspace
- 
+
 ws = Workspace.from_config()
 print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep = '\n')
 ```
@@ -86,6 +98,8 @@ A entrada para o serviço web é uma imagem JPEG.  A primeira etapa é decodific
 ```python
 # Input images as a two-dimensional tensor containing an arbitrary number of images represented a strings
 import azureml.accel.models.utils as utils
+tf.reset_default_graph()
+
 in_images = tf.placeholder(tf.string)
 image_tensors = utils.preprocess_array(in_images)
 print(image_tensors.shape)
@@ -124,15 +138,47 @@ Agora que a pré-processador e o classificador de utilizar o ResNet 50 featurize
 
 ```python
 model_name = "resnet50"
-model_def_path = os.path.join(save_path, model_name)
-print("Saving model in {}".format(model_def_path))
+model_save_path = os.path.join(save_path, model_name)
+print("Saving model in {}".format(model_save_path))
 
 with tf.Session() as sess:
     model_graph.restore_weights(sess)
-    tf.saved_model.simple_save(sess, model_def_path,
+    tf.saved_model.simple_save(sess, model_save_path,
                                    inputs={'images': in_images},
                                    outputs={'output_alias': classifier_output})
 ```
+
+### <a name="save-input-and-output-tensors"></a>Guardar tensors de entrada e saídas
+Serão necessário os tensors de entrada e saídas que foram criados durante os passos de pré-processamento e classificador de conversão de modelo e inferência.
+
+```python
+input_tensors = in_images.name
+output_tensors = classifier_output.name
+
+print(input_tensors)
+print(output_tensors)
+```
+
+> [!IMPORTANT]
+> Guardar a entrada e saída tensors porque vai precisar deles para pedidos de inferência e conversão de modelo.
+
+Os modelos disponíveis e o classificador de padrão correspondente de saída tensors estão abaixo, que é o que usaria durante inferência se tiver utilizado o classificador de predefinição.
+
++ Resnet50, QuantizedResnet50 ``
+output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
+``
++ Resnet152, QuantizedResnet152 ``
+output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
+``
++ Densenet121, QuantizedDensenet121 ``
+output_tensors = "classifier/densenet121/predictions/Softmax:0"
+``
++ Vgg16, QuantizedVgg16 ``
+output_tensors = "classifier/vgg_16/fc8/squeezed:0"
+``
++ SsdVgg, QuantizedSsdVgg ``
+output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
+``
 
 ### <a name="register-model"></a>Registar o modelo
 
@@ -141,8 +187,8 @@ with tf.Session() as sess:
 ```python
 from azureml.core.model import Model
 
-registered_model = Model.register(workspace = ws
-                                  model_path = model_def_path,
+registered_model = Model.register(workspace = ws,
+                                  model_path = model_save_path,
                                   model_name = model_name)
 
 print("Successfully registered: ", registered_model.name, registered_model.description, registered_model.version, sep = '\t')
@@ -160,44 +206,39 @@ print(registered_model.name, registered_model.description, registered_model.vers
 
 ### <a name="convert-model"></a>Converter o modelo
 
-O gráfico do TensorFlow tem de ser convertidos para o formato de troca de rede Neural aberto ([ONNX](https://onnx.ai/)).  Terá de fornecer os nomes dos tensors a entrada e saídas, e esses nomes serão utilizados pelo seu cliente quando consome o serviço web.
+Converter o gráfico do TensorFlow para o formato de troca de rede Neural aberto ([ONNX](https://onnx.ai/)).  Terá de fornecer os nomes dos tensors a entrada e saídas, e esses nomes serão utilizados pelo seu cliente quando consome o serviço web.
 
 ```python
-input_tensor = in_images.name
-output_tensors = classifier_output.name
+from azureml.accel import AccelOnnxConverter
 
-print(input_tensor)
-print(output_tensors)
+convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensors, output_tensors)
 
-
-from azureml.accel.accel_onnx_converter import AccelOnnxConverter
-
-convert_request = AccelOnnxConverter.convert_tf_model(ws, registered_model, input_tensor, output_tensors)
-convert_request.wait_for_completion(show_output=True)
+# If it fails, you can run wait_for_completion again with show_output=True.
+convert_request.wait_for_completion(show_output = False)
 
 # If the above call succeeded, get the converted model
 converted_model = convert_request.result
-print(converted_model.name, converted_model.url, converted_model.version, converted_model.id,converted_model.created_time)
+print("\nSuccessfully converted: ", converted_model.name, converted_model.url, converted_model.version, 
+      converted_model.id, converted_model.created_time, '\n')
 ```
 
 ### <a name="create-docker-image"></a>Criar a imagem do Docker
 
-O modelo convertido e todas as dependências são adicionadas a uma imagem do Docker.  Esta imagem de Docker, em seguida, pode ser implementada e instanciada, tal como na cloud ou um dispositivo de limite suportado [Edge de caixa de dados do Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Também pode adicionar etiquetas e descrições para a imagem do Docker registada.
+O modelo convertido e todas as dependências são adicionadas a uma imagem do Docker.  Esta imagem de Docker, em seguida, pode ser implementada e instanciada.  Destinos de implementação suportados incluem AKS na cloud ou um dispositivo do edge como [Edge de caixa de dados do Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview).  Também pode adicionar etiquetas e descrições para a imagem do Docker registada.
 
 ```python
 from azureml.core.image import Image
-from azureml.accel.accel_container_image import AccelContainerImage
+from azureml.accel import AccelContainerImage
 
 image_config = AccelContainerImage.image_configuration()
+# Image name must be lowercase
 image_name = "{}-image".format(model_name)
 
 image = Image.create(name = image_name,
                      models = [converted_model],
                      image_config = image_config, 
                      workspace = ws)
-
-
-image.wait_for_creation(show_output = True)
+image.wait_for_creation(show_output = False)
 ```
 
 Listar as imagens por etiqueta e obter os registos detalhados para nenhuma depuração.
@@ -214,34 +255,44 @@ for i in Image.list(workspace = ws):
 Para implementar o seu modelo como um serviço da web de produção de grande escala, utilize o Azure Kubernetes Service (AKS). Pode criar uma nova com o SDK do Azure Machine Learning, CLI ou o portal do Azure.
 
 ```python
-# Use the default configuration (can also provide parameters to customize)
-prov_config = AksCompute.provisioning_configuration()
+from azureml.core.compute import AksCompute, ComputeTarget
 
-aks_name = 'my-aks-9' 
+# Specify the Standard_PB6s Azure VM
+prov_config = AksCompute.provisioning_configuration(vm_size = "Standard_PB6s",
+                                                    agent_count = 1)
+
+aks_name = 'my-aks-cluster'
 # Create the cluster
 aks_target = ComputeTarget.create(workspace = ws, 
                                   name = aks_name, 
                                   provisioning_configuration = prov_config)
+```
 
-%%time
+A implementação do AKS pode demorar cerca de 15 minutos.  Verifique se a implementação foi concluída com êxito.
+
+```python
 aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
+```
 
-#Set the web service configuration (using default here)
-aks_config = AksWebservice.deploy_configuration()
+Implemente o contentor para o cluster do AKS.
+```python
+from azureml.core.webservice import Webservice, AksWebservice
 
-%%time
-aks_service_name ='aks-service-1'
+# For this deployment, set the web service configuration without enabling auto-scaling or authentication for testing
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=False,
+                                                num_replicas=1,
+                                                auth_enabled = False)
 
-aks_service = Webservice.deploy_from_image(workspace = ws, 
+aks_service_name ='my-aks-service'
+
+aks_service = Webservice.deploy_from_image(workspace = ws,
                                            name = aks_service_name,
                                            image = image,
                                            deployment_config = aks_config,
                                            deployment_target = aks_target)
 aks_service.wait_for_deployment(show_output = True)
-print(aks_service.state)
-print(aks_service.scoring_uri)
 ```
 
 #### <a name="test-the-cloud-service"></a>Testar o serviço em nuvem
@@ -252,12 +303,30 @@ A imagem do Docker suporta gRPC e o TensorFlow que serve "prever" API.  Utilize 
 Se desejar usar a servir de TensorFlow, pode [transferir um cliente de exemplo](https://www.tensorflow.org/serving/setup).
 
 ```python
+# Using the grpc client in Azure ML Accelerated Models SDK package
+from azureml.accel.client import PredictionClient
+
+address = aks_service.scoring_uri
+ssl_enabled = address.startswith("https")
+address = address[address.find('/')+2:].strip('/')
+port = 443 if ssl_enabled else 80
+
+# Initialize AzureML Accelerated Models client
+client = PredictionClient(address=address,
+                          port=port,
+                          use_ssl=ssl_enabled,
+                          service_name=aks_service.name)
+```
+
+Uma vez que este classificador foi com base em com o [ImageNet](http://www.image-net.org/) dados definir, mapear as classes para etiquetas legível por humanos.
+
+```python
 import requests
 classes_entries = requests.get("https://raw.githubusercontent.com/Lasagne/Recipes/master/examples/resnet50/imagenet_classes.txt").text.splitlines()
 
-# Score image using input and output tensor names
+# Score image with input and output tensor names
 results = client.score_file(path="./snowleopardgaze.jpg", 
-                             input_name=input_tensor, 
+                             input_name=input_tensors, 
                              outputs=output_tensors)
 
 # map results [class_id] => [confidence]
@@ -274,6 +343,7 @@ Elimine o serviço web, imagem e o modelo (deve ser feito por esta ordem uma vez
 
 ```python
 aks_service.delete()
+aks_target.delete()
 image.delete()
 registered_model.delete()
 converted_model.delete()
@@ -287,3 +357,7 @@ Todos os [dispositivos periféricos de caixa de dados do Azure](https://docs.mic
 ## <a name="secure-fpga-web-services"></a>Proteger serviços da web FPGA
 
 Para obter informações sobre como proteger serviços da web FPGA, consulte a [proteger serviços da web](how-to-secure-web-service.md) documento.
+
+## <a name="pbs-family-vms"></a>Família PBS VMs
+
+A família PBS de VMs do Azure contém Intel Arria 10 FPGAs.  Este será apresentado como "Família PBS Standard vCPUs" quando verificar sua alocação de quota do Azure.  A VM de PB6 tem seis vCPUs e uma FPGA e automaticamente serão aprovisionada pelo Azure ML como parte da implementação de um modelo para um FPGA.  Só é utilizado com o Azure ML e ele não é possível executar bitstreams arbitrário.  Por exemplo, não será capaz de flash FPGA com bitstreams, fazer a encriptação, codificação, etc. 

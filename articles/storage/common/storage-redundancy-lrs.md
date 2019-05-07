@@ -2,18 +2,19 @@
 title: Armazenamento localmente redundante (LRS) para redundância de baixo custo do armazenamento do Azure | Documentos da Microsoft
 description: Por predefinição, novas contas de armazenamento do Azure utilizam o armazenamento localmente redundante (LRS) para a replicação. LRS é a opção menos dispendiosa para replicação. Ele protege contra falhas de hardware no Centro de dados, mas não contra desastres de nível do datacenter.
 services: storage
-author: tolandmike
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 02/12/2019
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 30470f7313fb198aedd89f5dd37325359f0d7a9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0cb1b3d10c8b8ea29081cb60cea8b8867a734e2a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729643"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146049"
 ---
 # <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Armazenamento localmente redundante (LRS): Redundância de dados de baixo custo do armazenamento do Azure
 
