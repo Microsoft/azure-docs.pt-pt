@@ -54,10 +54,10 @@ As seguintes propriedades são suportadas para o serviço ligado do Amazon Redsh
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **AmazonRedshift** | Sim |
-| servidor |Nome anfitrião ou endereço IP do servidor do Amazon Redshift. |Sim |
-| porta |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não, a predefinição é 5439 |
-| base de dados |Nome da base de dados do Amazon Redshift. |Sim |
-| o nome de utilizador |Nome de utilizador que tenha acesso à base de dados. |Sim |
+| server |Nome anfitrião ou endereço IP do servidor do Amazon Redshift. |Sim |
+| port |O número da porta TCP que o servidor do Amazon Redshift utiliza para escutar ligações de cliente. |Não, a predefinição é 5439 |
+| database |Nome da base de dados do Amazon Redshift. |Sim |
+| username |Nome de utilizador que tenha acesso à base de dados. |Sim |
 | password |Palavra-passe da conta de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração do Azure ou o Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -126,7 +126,7 @@ Para copiar dados do Amazon Redshift, defina o tipo de origem na atividade de c�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AmazonRedshiftSource** | Sim |
-| consulta |Utilize a consulta personalizada para ler dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
+| query |Utilize a consulta personalizada para ler dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "tableName" no conjunto de dados) |
 | redshiftUnloadSettings | Grupo de propriedade ao utilizar UNLOAD do Amazon Redshift. | Não |
 | s3LinkedServiceName | Refere-se a um Amazon S3 to-be-utilizado como um armazenamento provisório, especificando um nome de serviço ligado do tipo "AmazonS3". | Sim, se utilizar o descarregamento |
 | bucketName | Indica o registo de S3 para armazenar os dados intermediárias. Se não for indicado, serviço Data Factory gera automaticamente.  | Sim, se utilizar o descarregamento |
@@ -210,16 +210,16 @@ Ao copiar dados do Amazon Redshift, os seguintes mapeamentos são utilizados ent
 | Tipo de dados do Amazon Redshift | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BIGINT |Int64 |
-| VALOR BOOLEANO |String |
+| BOOLEAN |String |
 | CHAR |String |
-| DATA |DateTime |
+| DATE |DateTime |
 | DECIMAL |Decimal |
-| PRECISÃO DUPLA |Double |
-| NÚMERO INTEIRO |Int32 |
+| DOUBLE PRECISION |Double |
+| INTEGER |Int32 |
 | REAL |Single |
 | SMALLINT |Int16 |
-| TEXTO |String |
-| CARIMBO DE DATA/HORA |DateTime |
+| TEXT |String |
+| TIMESTAMP |DateTime |
 | VARCHAR |String |
 
 ## <a name="next-steps"></a>Passos Seguintes
