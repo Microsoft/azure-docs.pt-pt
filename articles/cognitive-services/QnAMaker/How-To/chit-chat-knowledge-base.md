@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 05/07/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: a908185f2d8475afb642250d1499cffa539aca4d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 08d09680ee1797e73666c185f4430c7ef3079477
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573496"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153691"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicionar Chit-bate-papo para uma base de dados de conhecimento
 
@@ -54,10 +54,12 @@ Ao editar o KB, verá uma nova origem para chit-bate-papo, com base em personali
 
 ![Editar QnAs chit-bate-papo](../media/qnamaker-how-to-chit-chat/edit-chit-chat.png)
 
+Para ver os metadados, selecione **opções de visualização** na barra de ferramentas, em seguida, selecione **Mostrar metadados**.
+
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>Adicione a conversa chit adicionais perguntas e respostas
 Pode adicionar novos QnA chit-bate-papo não no predefinidos definida. Certifique-se de que não estará duplicando um par de QnA que já é abrangido no conjunto de chit-bate-papo. Quando adiciona qualquer QnA chit-bate-papo novo, é adicionado à sua **Editorial** origem. Para garantir que compreende o classificador que se trata de chit-bate-papo, adicione o par de chaves/valores de metadados "Editorial: chit-bate-papo", como mostrado na imagem seguinte:
    
-![Adicionar QnAs chit-bate-papo](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)
+![! [Adicionar chit-bate-papo QnAs] (.. / media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
 ## <a name="delete-chit-chat-from-an-existing-kb"></a>Eliminar chit-bate-papo de um KB existente
 Selecione a sua BDC e navegue para o **definições** página. A origem do chat chit específico é listada como um arquivo, com o nome de personalidade selecionado. Pode eliminar este como um ficheiro de origem.

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: c566d1fd4b151efc0d28b7059504e60a1451c034
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f0aca3e387d675064cf798b4efdeb66cfe906520
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027146"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153540"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Início rápido: Personalizar o conteúdo usandoC# 
 
@@ -34,7 +34,7 @@ Introdução à personalização envolve os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Terá de uma chave de subscrição e o url do serviço de emissão de token.
+* É necessário um [serviço Personalizer](how-to-settings.md) para preparar a sua subscrição chave e a emissão de tokens url de serviço. 
 * [Visual Studio 2015 ou 2017](https://visualstudio.microsoft.com/downloads/).
 * O pacote NuGet do SDK Microsoft.Azure.CognitiveServices.Personalization. Abaixo, são fornecidas as instruções de instalação.
 

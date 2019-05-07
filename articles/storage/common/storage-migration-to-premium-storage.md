@@ -2,18 +2,19 @@
 title: Migração de VMs para o armazenamento Premium do Azure | Documentos da Microsoft
 description: Migre as suas VMs existentes para o armazenamento Premium do Azure. O armazenamento Premium oferece suporte de disco de elevado desempenho e de baixa latência para cargas de trabalho de e/S intensivas executadas em máquinas de virtuais do Azure.
 services: storage
-author: yuemlu
+author: roygara
 ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
-ms.author: yuemlu
+ms.author: rogarana
+ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: fdca10c54c798bd47a34eb0f8af091908bcc2711
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 5cfb96bd3115c8f3116a28926e93df89dff54351
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372323"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153770"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrar para o armazenamento Premium do Azure (discos não geridos)
 
@@ -74,7 +75,7 @@ Para obter mais informações sobre especificações do Premium Storage, confira
 #### <a name="disk-caching-policy"></a>Política de colocação em cache do disco
 Por predefinição, é a política de colocação em cache *só de leitura* em todos os discos de dados de Premium, e *leitura-escrita* para o disco de sistema operativo Premium ligados à VM. Esta definição de configuração é recomendada para alcançar o desempenho ideal para a IOs sua aplicação. Para discos de dados de escrita intensiva ou só de escrita (por exemplo, ficheiros de registo do SQL Server), desative o cache em disco para que pode obter um melhor desempenho do aplicativo. As definições de cache para discos de dados existentes podem ser atualizadas utilizando o [portal do Azure](https://portal.azure.com) ou o *- HostCaching* parâmetro do *AzureDataDisk conjunto* cmdlet.
 
-#### <a name="location"></a>Localização
+#### <a name="location"></a>Location
 Escolha uma localização onde o armazenamento Premium do Azure está disponível. Ver [serviços do Azure por região](https://azure.microsoft.com/regions/#services) para obter informações atualizadas sobre localizações disponíveis. VMs localizadas na mesma região que a conta de armazenamento que armazena os discos da VM dará um desempenho muito melhor do que se eles estão em regiões separadas.
 
 #### <a name="other-azure-vm-configuration-settings"></a>Outras definições de configuração de VM do Azure
@@ -255,7 +256,7 @@ Agora que tem o VHD no diretório local, pode utilizar o AzCopy ou AzurePowerShe
 Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 ```
 
-Um exemplo <Uri> pode ser ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Um exemplo <FileInfo> pode ser ***"C:\path\to\upload.vhd"***.
+Um exemplo \<Uri > pode ser ***"https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd"***. Um exemplo \<FileInfo > pode ser ***"C:\path\to\upload.vhd"***.
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Opção 2: Com o AzCopy para carregar o ficheiro. vhd
 Utilizar o AzCopy, pode carregar facilmente o VHD através da Internet. Dependendo do tamanho dos VHDs, isto pode demorar tempo. Não se esqueça de verificar os limites de entrada/saída de conta de armazenamento ao utilizar esta opção. Ver [metas de desempenho e escalabilidade do armazenamento do Azure](storage-scalability-targets.md) para obter detalhes.

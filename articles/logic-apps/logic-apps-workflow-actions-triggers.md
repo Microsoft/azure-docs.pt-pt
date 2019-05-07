@@ -8,13 +8,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
-ms.date: 06/22/2018
-ms.openlocfilehash: 76783ffd91a8ad17fca912ac9c3a66a5f0f15821
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 503bd6cfee1c19d2342ec9f535b3945178ab3ea0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691936"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136608"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referência para tipos de Acionador e ação na linguagem de definição de fluxo de trabalho para o Azure Logic Apps
 
@@ -804,6 +804,8 @@ Seguem-se alguns tipos de ação frequentemente utilizadas:
 
   * [**Resposta** ](#response-action) para responder a pedidos
 
+  * [**Executar o código de JavaScript** ](#run-javascript-code) fragmentos de código para a execução de JavaScript
+
   * [**Função** ](#function-action) para chamar as funções do Azure
 
   * Ações de operação de dados, como [ **aderir**](#join-action), [ **Compose**](#compose-action), [ **tabela** ](#table-action), [ **Selecione**](#select-action)e outras pessoas que criam ou transformar dados de várias entradas
@@ -821,6 +823,7 @@ Seguem-se alguns tipos de ação frequentemente utilizadas:
 | Tipo de ação | Descrição | 
 |-------------|-------------| 
 | [**Compor**](#compose-action) | Cria uma única saída a partir de entradas, que podem ter vários tipos. | 
+| [**Executar o código de JavaScript**](#run-javascript-code) | Execute fragmentos de código do JavaScript que se encaixa em critérios específicos. Para requisitos de código e obter mais informações, consulte [adicionar e trechos de código de execução com o código embutido](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Função**](#function-action) | Chama uma função do Azure. | 
 | [**HTTP**](#http-action) | Chama um ponto final HTTP. | 
 | [**Join**](#join-action) | Cria uma cadeia de caracteres a partir de todos os itens numa matriz e separa esses itens com um caráter delimitador especificado. | 
@@ -1047,6 +1050,81 @@ Esta definição de ação intercala uma variável de cadeia de caracteres que c
 Eis a saída que esta ação cria:
 
 `"abcdefg1234"`
+
+<a name="run-javascript-code"></a>
+
+### <a name="execute-javascript-code-action"></a>Executar a ação de código JavaScript
+
+Esta ação é executada um trecho de código do JavaScript e retorna os resultados por meio de um `Result` token que podem fazer referência a ações subsequentes.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "<JavaScript-code-snippet>",
+      "explicitDependencies": {
+         "actions": [ <previous-actions> ],
+         "includeTrigger": true
+      }
+   },
+   "runAfter": {}
+}
+```
+
+*Necessário*
+
+| Value | Type | Descrição |
+|-------|------|-------------|
+| <*JavaScript-code-snippet*> | Varia | O código de JavaScript que pretende executar. Para requisitos de código e obter mais informações, consulte [adicionar e trechos de código de execução com o código embutido](../logic-apps/logic-apps-add-run-inline-code.md). <p>Na `code` atributo, seu trecho de código pode utilizar o só de leitura `workflowContext` de objeto como entrada. Este objeto tem subproperties conceder o acesso de código para os resultados a partir do acionador e ações anteriores no fluxo de trabalho. Para obter mais informações sobre o `workflowContext` objeto, consulte [resultados de Acionador e ação em seu código de referência](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+||||
+
+*Necessário em alguns casos*
+
+O `explicitDependencies` atributo especifica de que deseja incluir explicitamente os resultados do acionador, as ações anteriores ou ambas como dependências para o seu trecho de código. Para obter mais informações sobre como adicionar estas dependências, consulte [adicionar parâmetros de código inline](../logic-apps/logic-apps-add-run-inline-code.md#add-parameters). 
+
+Para o `includeTrigger` atributo, pode especificar `true` ou `false` valores.
+
+| Value | Type | Descrição |
+|-------|------|-------------|
+| <*previous-actions*> | Matriz de cadeia de caracteres | Uma matriz com seus nomes de ação especificada. Utilize os nomes de ação que aparecem na sua definição de fluxo de trabalho em que os nomes de ação utilizam carateres de sublinhado (_), não espaços (""). |
+||||
+
+*Exemplo 1*
+
+Esta ação executa o código que obtém o nome da sua aplicação lógica e retorna o texto "Hello world do < nome da aplicação lógica >" como o resultado. Neste exemplo, o código referencia o nome do fluxo de trabalho acedendo a `workflowContext.workflow.name` propriedade através do só de leitura `workflowContext` objeto. Para obter mais informações sobre como utilizar o `workflowContext` objeto, consulte [resultados de Acionador e ação em seu código de referência](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext).
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var text = \"Hello world from \" + workflowContext.workflow.name;\r\n\r\nreturn text;"
+   },
+   "runAfter": {}
+}
+```
+
+*Exemplo 2*
+
+Esta ação executa código numa aplicação lógica que é acionada quando um novo e-mail chega numa conta de Outlook do Office 365. A aplicação lógica também utiliza uma ação de e-mail de aprovação de envio que encaminha o conteúdo do e-mail recebido, juntamente com um pedido de aprovação. 
+
+O código extrai endereços de e-mail a partir do acionador `Body` propriedade e retorna esses endereços de e-mail juntamente com o `SelectedOption` valor da propriedade da ação de aprovação. A ação inclua explicitamente a ação de e-mail de aprovação de envio como uma dependência no `explicitDependencies`  >  `actions` atributo.
+
+```json
+"Execute_JavaScript_Code": {
+   "type": "JavaScriptCode",
+   "inputs": {
+      "code": "var re = /(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))/g;\r\n\r\nvar email = workflowContext.trigger.outputs.body.Body;\r\n\r\nvar reply = workflowContext.actions.Send_approval_email_.outputs.body.SelectedOption;\r\n\r\nreturn email.match(re) + \" - \" + reply;\r\n;",
+      "explicitDependencies": {
+         "actions": [
+            "Send_approval_email_"
+         ]
+      }
+   },
+   "runAfter": {}
+}
+```
+
+
 
 <a name="function-action"></a>
 
@@ -2586,7 +2664,7 @@ Para [autenticação básica](../active-directory-b2c/active-directory-b2c-custo
 
 | Propriedade | Necessário | Value | Descrição | 
 |----------|----------|-------|-------------| 
-| **tipo** | Sim | "Básico" | O tipo de autenticação a utilizar, que é "Básico" aqui | 
+| **type** | Sim | "Básico" | O tipo de autenticação a utilizar, que é "Básico" aqui | 
 | **username** | Sim | "@parameters('userNameParam')" | O nome de utilizador para autenticar o acesso para o ponto de extremidade do serviço de destino |
 | **password** | Sim | "@parameters('passwordParam')" | A palavra-passe para autenticar o acesso para o ponto de extremidade do serviço de destino |
 ||||| 
@@ -2620,7 +2698,7 @@ Para [autenticação baseada em certificado](../active-directory/authentication/
 
 | Propriedade | Necessário | Value | Descrição |
 |----------|----------|-------|-------------|
-| **tipo** | Sim | "ClientCertificate" | O tipo de autenticação a utilizar Secure Sockets Layer (SSL) para certificados de cliente. Embora sejam suportados certificados autoassinados, não são suportados certificados autoassinados para SSL. |
+| **type** | Sim | "ClientCertificate" | O tipo de autenticação a utilizar Secure Sockets Layer (SSL) para certificados de cliente. Embora sejam suportados certificados autoassinados, não são suportados certificados autoassinados para SSL. |
 | **pfx** | Sim | "@parameters('pfxParam') | O conteúdo codificado em base64 a partir de um ficheiro Personal Information Exchange (PFX) |
 | **password** | Sim | "@parameters('passwordParam')" | A palavra-passe para aceder ao ficheiro PFX |
 ||||| 
@@ -2654,7 +2732,7 @@ Para [autenticação de OAuth do Azure AD](../active-directory/develop/authentic
 
 | Propriedade | Necessário | Value | Descrição |
 |----------|----------|-------|-------------|
-| **tipo** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a utilizar, que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
+| **type** | Sim | `ActiveDirectoryOAuth` | O tipo de autenticação a utilizar, que é "ActiveDirectoryOAuth" para o OAuth do Azure AD |
 | **authority** | Não | <*URL-for-authority-token-issuer*> | O URL para a autoridade que fornece o token de autenticação |
 | **tenant** | Sim | <*tenant-ID*> | O ID de inquilino para o inquilino do Azure AD |
 | **Público-alvo** | Sim | <*resource-to-authorize*> | O recurso que pretende utilizar para autorização, por exemplo, `https://management.core.windows.net/` |

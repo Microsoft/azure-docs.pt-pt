@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 543defc622942f4a0643aca275ad4ad2fa9e1ab2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 231f44612b5e87afdf84f31d86c80be644fb4484
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926536"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154331"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copiar dados de ou para a base de dados do Azure SQL com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
@@ -228,7 +228,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos:
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados de base de dados do Azure SQL.
 
-Para copiar dados de ou para a base de dados do Azure SQL, defina o **tipo** propriedade do conjunto de dados para **AzureSqlTable**. São suportadas as seguintes propriedades:
+Para copiar dados de ou para a base de dados do Azure SQL, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -247,6 +247,7 @@ Para copiar dados de ou para a base de dados do Azure SQL, defina o **tipo** pro
             "referenceName": "<Azure SQL Database linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -368,7 +369,7 @@ Para copiar dados para a base de dados do Azure SQL, defina o **tipo** proprieda
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **SqlSink**. | Sim |
-| writeBatchSize | Número de linhas para inserções na tabela de SQL **por lote**.<br/> O valor permitido é **número inteiro** (número de linhas). | Não. A predefinição é 10000. |
+| writeBatchSize | Número de linhas para inserções na tabela de SQL **por lote**.<br/> O valor permitido é **número inteiro** (número de linhas). Por predefinição, o Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho de linha. | Não |
 | writeBatchTimeout | O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite.<br/> O valor permitido é **timespan**. Exemplo: "00: 30:00" (30 minutos). | Não |
 | preCopyScript | Especifica uma consulta SQL para a atividade de cópia a executar antes da escrita de dados na base de dados do Azure SQL. Só é invocado uma vez por cópia executar. Use essa propriedade para limpar os dados pré-carregado. | Não |
 | sqlWriterStoredProcedureName | O nome do procedimento armazenado que define como aplicar dados de origem para uma tabela de destino. Um exemplo é fazer upserts ou transformar ao utilizar a sua própria lógica de negócios. <br/><br/>Este procedimento armazenado está **invocado por lote**. Para operações que apenas executam uma vez e não têm nada a ver com a origem de dados, utilize o `preCopyScript` propriedade. Operações de exemplo são delete e truncam. | Não |

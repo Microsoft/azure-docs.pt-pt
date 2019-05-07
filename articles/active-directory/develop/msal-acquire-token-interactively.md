@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e22f6b8b0ff6874004373eb4a292ad907db2418
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: 0d32b56b28d9ce7425e782fc10fa9ffb67047ce0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080927"
+ms.locfileid: "65139509"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Adquirir e colocação em cache tokens com MSAL
 [Tokens de acesso](access-tokens.md) permitem que os clientes chamar as APIs protegidas pelo Azure web com segurança. Existem várias formas de adquirir um token com o Microsoft Authentication Library (MSAL). Algumas formas requerem interações do usuário por meio de um navegador da web. Alguns não requerem qualquer interações de utilizador. Em geral, a forma de adquirir um token depende se a aplicação é uma aplicação de cliente público (aplicação de ambiente de trabalho ou móvel) ou um aplicativo de cliente confidencial (aplicação Web, Web API ou o daemon de aplicativo, como um serviço do Windows).
@@ -65,7 +65,7 @@ Código da aplicação deve tentar obter um token silenciosamente (da cache), em
 
 No entanto, existem dois fluxos antes do qual **não deve** tentar silenciosamente adquirir um token:
 
-- [fluxo de credenciais de cliente](msal-authentication-flows.md#confidential-client), que não utiliza a cache de token de utilizador, mas uma cache de tokens de aplicação. Este método se encarrega de verificação desta cache de token de aplicação antes de enviar um pedido para o STS.
+- [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials), que não utiliza a cache de token de utilizador, mas uma cache de tokens de aplicação. Este método se encarrega de verificação desta cache de token de aplicação antes de enviar um pedido para o STS.
 - [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) nas aplicações Web, como ele redeems um código que o aplicativo obteve por iniciar a sessão do utilizador e fazendo com que eles consentimento para obter mais âmbitos. Uma vez que um código é transmitido como um parâmetro e não uma conta, o método não é possível verificar na cache antes de obter o código, o que requer que, de qualquer forma, uma chamada para o serviço.
 
 ### <a name="recommended-call-pattern-in-web-apps-using-the-authorization-code-flow"></a>Recomendado padrão de chamada em aplicações Web com o fluxo de código de autorização 
@@ -86,7 +86,7 @@ Para aplicativos de cliente público (aplicação de ambiente de trabalho ou mó
 
 ### <a name="confidential-client-applications"></a>Aplicações de cliente confidencial 
 Para aplicativos de clientes confidenciais (aplicação Web, Web API ou o daemon de aplicativo como um serviço do Windows),:
-- Adquira tokens **da própria aplicação** e não para um utilizador, utilizando o [fluxo de credenciais de cliente](msal-authentication-flows.md#confidential-client). Isso pode ser usado para ferramentas de sincronização, ou ferramentas que processam os usuários em geral e não um utilizador específico. 
+- Adquira tokens **da própria aplicação** e não para um utilizador, utilizando o [fluxo de credenciais de cliente](msal-authentication-flows.md#client-credentials). Isso pode ser usado para ferramentas de sincronização, ou ferramentas que processam os usuários em geral e não um utilizador específico. 
 - Utilize o [fluxo em-nome-de](msal-authentication-flows.md#on-behalf-of) para uma API web para chamar uma API em nome do utilizador. O aplicativo esteja identificado com credenciais de cliente para adquirir um token com base numa asserção (SAML por exemplo, ou um token JWT) de utilizador. Este fluxo é utilizado por aplicações que precisam de aceder a recursos de um determinado usuário em chamadas de serviço para serviço.
 - Adquirir tokens utilizando o [fluxo de código de autorização](msal-authentication-flows.md#authorization-code) nas aplicações web, depois do utilizador inicia a sessão por meio da autorização URL do pedido. Aplicação de ligação OpenID normalmente usar esse mecanismo, o que permite ao utilizador ligar de início de sessão através do ID de aberto e, em seguida, APIs da web do acesso em nome do utilizador.
 

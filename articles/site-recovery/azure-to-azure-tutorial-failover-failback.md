@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bf2ded7a98d608780bc447c5944e7d1f4d9b698b
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926409"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153792"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Ativação pós-falha e voltar a proteger as VMs do Azure entre regiões
 
@@ -27,8 +27,10 @@ Este tutorial descreve como fazer a ativação pós-falha de uma máquina virtua
 > [!NOTE]
 > Este tutorial contém o caminho mais simples com as predefinições e personalização mínima. Para cenários mais complexos, utilize os artigos em "Como para" para VMs do Azure.
 
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Antes de começar, reveja [perguntas mais frequentes sobre](site-recovery-faq.md#failover) sobre a ativação pós-falha.
 - Certifique-se de que concluiu um [teste de recuperação após desastre](azure-to-azure-tutorial-dr-drill.md) para verificar se está tudo a funcionar conforme esperado.
 - Verifique as propriedades da VM antes de executar a ativação pós-falha de teste. A VM tem de cumprir os [Requisitos do Azure](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 

@@ -2,18 +2,17 @@
 title: Práticas recomendadas do desenvolvedor – segurança de Pod em serviços do Azure Kubernetes (AKS)
 description: Conheça as práticas recomendadas de programador para saber como proteger os pods no Azure Kubernetes Service (AKS)
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: 1c2c5cbee91ddaee5f1f6af8ec17c48326f68e84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/06/2018
+ms.author: zarhoads
+ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466889"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073976"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Práticas recomendadas para segurança de pod no Azure Kubernetes Service (AKS)
 
@@ -32,7 +31,9 @@ Também pode ler as melhores práticas para [segurança do cluster] [ best-pract
 
 **Melhores diretrizes de práticas** - para executar como um acesso de utilizador ou grupo e limite diferentes para os serviços e processos de nó subjacentes, definir configurações de contexto de segurança de pod. Atribua o menor número de privilégios necessários.
 
-Para as suas aplicações para serem executados corretamente, pods devem ser executado como pelo usuário ou grupo e não como *raiz*. O `securityContext` para um pod ou contentor permite-lhe definir as definições, tais como *runAsUser* ou *fsGroup* assumir as permissões adequadas. Apenas atribuir o utilizador necessário ou permissões de grupo e não utilize o contexto de segurança como um meio para partem do princípio de permissões adicionais. Quando executa como usuário não raiz, contentores não é possível vincular as portas com privilégios em 1024. Neste cenário, os serviços de Kubernetes pode ser utilizados para dissimular o fato de que uma aplicação está em execução numa porta específica.
+Para as suas aplicações para serem executados corretamente, pods devem ser executado como pelo usuário ou grupo e não como *raiz*. O `securityContext` para um pod ou contentor permite-lhe definir as definições, tais como *runAsUser* ou *fsGroup* assumir as permissões adequadas. Apenas atribuir o utilizador necessário ou permissões de grupo e não utilize o contexto de segurança como um meio para partem do princípio de permissões adicionais. O *runAsUser*, escalamento de privilégios e outras definições de capacidades de Linux só estão disponíveis em nós do Linux e os pods.
+
+Quando executa como usuário não raiz, contentores não é possível vincular as portas com privilégios em 1024. Neste cenário, os serviços de Kubernetes pode ser utilizados para dissimular o fato de que uma aplicação está em execução numa porta específica.
 
 Também pode definir um contexto de segurança de pod capacidades adicionais ou permissões para aceder a processos e serviços. As seguintes definições de contexto de segurança comuns podem ser definidas:
 
@@ -54,7 +55,7 @@ metadata:
 spec:
   containers:
     - name: security-context-demo
-      image: dockerhub.azk8s.cn/nginx:1.15.5
+      image: nginx:1.15.5
     securityContext:
       runAsUser: 1000
       fsGroup: 2000
@@ -67,7 +68,7 @@ Trabalhar com o operador de cluster para determinar quais configurações de con
 
 ## <a name="limit-credential-exposure"></a>Exposição de credenciais de limite
 
-**Melhores diretrizes de práticas** -não definir credenciais no código da aplicação. Utilize identidades geridas para recursos do Azure para que o acesso de pedido de pod a outros recursos. Um cofre digital, como o Azure Key Vault, também deve ser utilizado para armazenar e obter chaves digitais e as credenciais.
+**Melhores diretrizes de práticas** -não definir credenciais no código da aplicação. Utilize identidades geridas para recursos do Azure para que o acesso de pedido de pod a outros recursos. Um cofre digital, como o Azure Key Vault, também deve ser utilizado para armazenar e obter chaves digitais e as credenciais. Pod gerido identidades destina-se para utilização com pods de Linux e apenas as imagens de contentor.
 
 Para limitar o risco de credenciais que são expostas no código da aplicação, evite a utilização de credenciais fixas ou partilhadas. As credenciais ou chaves não devem ser incluídas diretamente em seu código. Se estas credenciais são expostas, o aplicativo precisa ser atualizada e implantados novamente. Uma abordagem melhor é dar pods sua própria identidade e a forma de se autenticar ou obter automaticamente as credenciais a partir de um cofre digital.
 
@@ -97,6 +98,8 @@ Quando as aplicações precisam de uma credencial, o que se comunicar com o Cofr
 ![Fluxo de trabalho simplificado para obter uma credencial do Cofre de chaves com um pod de identidade gerido](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
 Com o Key Vault, armazena e girar regularmente os segredos, como credenciais, as chaves de conta de armazenamento ou certificados. Pode integrar o Azure Key Vault com um cluster do AKS com um FlexVolume. O driver FlexVolume permite que o cluster do AKS nativamente obter as credenciais de Cofre de chaves e fornecer com segurança apenas para o pod solicitante. Trabalhar com o operador de cluster para implementar o controlador de FlexVol do Cofre de chave para os nós do AKS. Pode utilizar uma identidade de pod gerido para pedir acesso ao Key Vault e obter as credenciais que precisa por meio do driver FlexVolume.
+
+O Azure Key Vault com FlexVol destina-se a utilização com aplicações e serviços em execução no Linux pods e nós.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

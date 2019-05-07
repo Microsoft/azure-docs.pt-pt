@@ -1,6 +1,6 @@
 ---
 title: Gerir o agente de análise de registos do Azure | Documentos da Microsoft
-description: Este artigo descreve as tarefas de gestão diferentes que, normalmente, realizará durante o ciclo de vida do Microsoft Monitoring Agent (MMA) implantados numa máquina.
+description: Este artigo descreve as tarefas de gestão diferentes que, normalmente, realizará durante o ciclo de vida do Windows do Log Analytics ou agente do Linux implementadas num computador.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 19530aa676e681f9a6ec50d2cacf77711dcb0110
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1809cc50f3ad3c285e0b69bc6e383a2c7c398238
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730283"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139254"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gerenciando e mantendo o agente Log Analytics para Windows e Linux
 
-Após a implementação inicial do Windows do Log Analytics ou agente do Linux no Azure Monitor, terá de reconfigurar o agente, atualizá-lo ou removê-lo a partir do computador se atingiu a fase de extinção no seu ciclo de vida. Pode gerir facilmente essas tarefas de manutenção de rotina manualmente ou através da automatização, o que reduz o erro operacional e as despesas.
+Após a implementação inicial do Windows do Log Analytics ou agente do Linux no Azure Monitor, terá de reconfigurar o agente, atualizá-lo ou removê-lo a partir do computador, se ele alcançou a fase de extinção no seu ciclo de vida. Pode gerir facilmente essas tarefas de manutenção de rotina manualmente ou através da automatização, o que reduz o erro operacional e as despesas.
 
 ## <a name="upgrading-agent"></a>A atualizar agente
 
@@ -40,7 +40,7 @@ Para atualizar o agente numa VM do Windows para a versão mais recente não inst
 
 Pode transferir a versão mais recente do agente do Windows da sua área de trabalho do Log Analytics, efetuando os seguintes passos.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **áreas de trabalho do Log Analytics**.
 
@@ -91,6 +91,7 @@ Execute o seguinte comando para atualizar o agente.
 ## <a name="adding-or-removing-a-workspace"></a>Adicionar ou remover uma área de trabalho
 
 ### <a name="windows-agent"></a>Agente do Windows
+Os passos nesta secção são necessários quando pretender não apenas reconfigurar o agente do Windows para reportar a uma área de trabalho diferente ou para remover uma área de trabalho da sua configuração, mas também que deseja configurar o agente para reportar a mais do que uma área de trabalho (normalmente chamado multi-homing). Configurar o agente do Windows para reportar a várias áreas de trabalho só pode ser executada após a configuração inicial do agente e usando os métodos descritos abaixo.    
 
 #### <a name="update-settings-from-control-panel"></a>Atualizar as definições no painel de controlo
 
@@ -140,7 +141,7 @@ $mma.ReloadConfiguration()
 >
 
 ### <a name="linux-agent"></a>Agente do Linux
-Os passos seguintes demonstram como reconfigurar o agente do Linux, se optar por registá-lo com uma área de trabalho diferente ou mesmo remover uma área de trabalho da sua configuração.
+Os passos seguintes demonstram como reconfigurar o agente do Linux, se decidir registá-lo na área de trabalho diferente ou para remover uma área de trabalho da sua configuração.
 
 1. Para verificar se que está registado para uma área de trabalho, execute o seguinte comando:
 
@@ -231,7 +232,7 @@ Se seus computadores com Linux precisarem de comunicar através de um servidor p
     ```
 
 ## <a name="uninstall-agent"></a>Desinstalar agente
-Utilize um dos seguintes procedimentos para desinstalar o agente do Windows ou Linux utilizando o Assistente de linha de comando ou de configuração.
+Utilize um dos seguintes procedimentos para desinstalar o agente do Windows ou Linux utilizar o Assistente de configuração ou linha de comandos.
 
 ### <a name="windows-agent"></a>Agente do Windows
 

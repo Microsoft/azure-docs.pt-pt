@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4d22764cfb038bc2021b99d0743f3cbac17d91d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a355d18de875ad980e0c2b6c564d3379c2b90ee7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024933"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154292"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -25,22 +25,90 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
 
-## <a name="2019-05-02"></a>2019-05-02
+## <a name="2019-05-06"></a>2019-05-06
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-+ Crie experimentações automatizadas de ML no portal.
+No portal do Azure, pode agora:
++ Criar e executar experimentações automatizadas de ML 
++ Criar uma VM para experimentar os blocos de notas Jupyter do exemplo do bloco de notas ou sua própria.
++ Totalmente nova secção criação de conteúdos (pré-visualização) na área de serviço Machine Learning, que inclui automatizada Machine Learning, a Visual Interface e alojadas as VMs de bloco de notas
+    + Criar automaticamente um modelo com o Automated machine learning 
+    + Utilize uma operação arrastar e soltar Interface Visual para executar experimentações
+    + Crie uma VM de bloco de notas para explorar dados, criar modelos e implementar serviços.
++ Gráfico e a atualização em executar relatórios de métrica do Live e executar as páginas de detalhes
++ Visualizador de ficheiro atualizado para os registos, saídas e instantâneos em páginas de detalhes de execução.
++ Experiência de criação de relatórios novos e aprimorados no separador de experimentações. 
++ Foi adicionada a capacidade para transferir o ficheiro Config JSON a partir da página de descrição geral da área de trabalho de serviço do Azure Machine Learning.
++ Suporta a criação de área de trabalho do Machine Learning service da área de trabalho do Azure Databricks 
+
+
+### <a name="notebook-virtual-machine"></a>Máquina Virtual de bloco de notas 
+
+Utilize uma VM de bloco de notas como um ambiente de hospedagem seguro e prontas para empresas para blocos de notas do Jupyter no qual pode programar experiências de machine learning, implementar modelos como pontos finais de web e realizar todas as outras operações suportadas pelo Machine Learning SDK do Azure com Python. Ele fornece várias capacidades:
++ [Lance rapidamente um bloco de notas pré-configurada VM](quickstart-run-cloud-notebook.md) que tem a versão mais recente do SDK do Azure Machine Learning e de pacotes relacionados.
++ Acesso é protegido através de tecnologias comprovadas, por exemplo, HTTPS, autorização e autenticação do Azure Active Directory.
++ Armazenamento de cloud fiável de blocos de notas e o código na sua conta de armazenamento de BLOBs de área de trabalho do Azure Machine Learning. Pode eliminar em segurança o bloco de notas VM sem perder o seu trabalho.
++ Pré-instalado blocos de notas de exemplo para explorar e experimentar as funcionalidades do serviço Azure Machine Learning.
++ Capacidades de personalização total de VMs do Azure, qualquer tipo VM, quaisquer pacotes, quaisquer controladores. 
+
+## <a name="2019-04-26"></a>2019-04-26
+
+### <a name="azure-machine-learning-sdk-for-python-v1033-released"></a>Azure SDK de Aprendizado de máquina para v1.0.33 Python lançados.
+
++ O Azure ML aceleradas modelos de Hardware no [FPGAs](concept-accelerate-with-fpgas.md) está disponível em geral.
+  + Agora, pode [utilizar o pacote de modelos de aceleração azureml](how-to-deploy-fpga-web-service.md) para:
+    + Treinar os pesos de uma rede neural profunda suportado (utilizar o ResNet 50, utilizar o ResNet 152, DenseNet 121, VGG-16 e SSD VGG)
+    + Utilizar transferência learning com o DNN suportado
+    + Registe o modelo com o serviço de gestão de modelos e o modelo de colocar num contentor
+    + Implementar o modelo para uma VM do Azure com um FPGA num cluster do Azure Kubernetes Service (AKS)
+  + Implementar o contentor para um [Edge de caixa de dados do Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview) dispositivo de servidor
+  + Classificar os dados com o ponto de final de gRPC com isso [exemplo](https://github.com/Azure-Samples/aml-hardware-accelerated-models)
+
+### <a name="automated-machine-learning"></a>Aprendizagem automática
+
++ Funcionalidade varrimento para ativar featurizers adicionar dinamicamente para otimização de desempenho. Novo featurizers: funcionam embeddings, peso de evidências, a codificações de destino, a codificação de destino de texto, a distância de cluster
++ CV inteligente para lidar com train/válido divide dentro de ML automatizada
++ Algumas alterações de otimização de memória e melhoria de desempenho de tempo de execução
++ Melhorias de desempenho explicação de modelo
++ Conversão de modelos ONNX para execução local
++ Foi adicionado suporte de Subsampling
++ A parar quando não existem critérios de saída definidos inteligente
++ Árvores empilhadas
+
++ Previsão de série temporal
+  + Prever nova função de previsão   
+  + Agora, pode utilizar a origem sem interrupção de validação cruzada nos dados de séries de tempo
+  + Nova funcionalidade adicionada ao configurar a hora atrasada de série 
+  + Nova funcionalidade adicionada para oferecer suporte a recursos de agregação de janela sem interrupção
+  + Definições de experimentação nova deteção de feriado e featurizer quando o código de país é definido no
+
++ Azure Databricks
+  + Ativada a previsão de séries de tempo e modelar a capacidade de explainabilty/interpretability
+  + Já pode cancelar e retomar (continuar) ML automatizada experimentações
+  + Foi adicionado suporte para processamento de vários núcleos
+
+### <a name="mlops"></a>MLOps
++ **Implementação de local e depuração para a classificação de contentores**<br/> Agora pode implementar um modelo de ML localmente e iterar rapidamente em sua classificação de ficheiros e dependências para garantir que se comportam conforme o esperado.
+
++ **Introduced InferenceConfig & Model.deploy()**<br/> Implementação de modelo agora suporta especificando uma pasta de origem com um script de entrada, o mesmo que um RunConfig.  Além disso, a implementação de modelo foi simplificada para um único comando.
+
++ **Referência de Git de controlo**<br/> Os clientes vêm solicitando capacidades de integração básicas do Git para algum tempo à medida que o ajuda a manter uma trilha de auditoria de ponto-a-ponto. Implementamos o rastreamento entre entidades principais no Azure ML para os metadados relacionados com o Git (repositório, consolidação, estado limpo). Estas informações serão recolhidas automaticamente pelo SDK do e da CLI.
+
++ **Serviço de criação de perfis e validação de modelo**<br/> Os clientes frequentemente reclamam da dificuldade para dimensionar corretamente a computação associada ao seu serviço de inferência de tipos. Com o nosso modelo de serviço de criação de perfis, o cliente pode fornecer entradas de exemplo e irá criar o perfil em 16 de CPU diferentes / configurações de memória para determinar ideal de tamanho para a implementação.
+
++ **Traga a sua própria imagem de base para inferência de tipos**<br/> Outra reclamação comum foi a dificuldade em mover de experimentação para dependências de partilha de RE de inferência de tipos. Com a nossa imagem base nova capacidade de partilha, agora pode reutilizar as imagens de base de experimentação, dependências e tudo, de inferência de tipos. Isso deve acelerar Implantações e reduzir a lacuna de interno para o loop externo.
+
++ **Experiência de geração de esquema de Swagger melhorada**<br/> Nossa geração anterior de swagger método foi impossível de automatizar e propensa a erros. Temos uma nova forma de inline de geração de esquemas do swagger a partir de qualquer função de Python via decoradores. Podemos ter aberto esse código e o protocolo de geração de esquema não está integrado na plataforma do Azure ML.
+
++ **CLI do Azure ML está em disponibilidade geral (GA)**<br/> Modelos, podem agora ser implementados com um único comando da CLI. Temos comuns comentários de clientes que ninguém implementa um modelo de ML a partir de um bloco de notas do Jupyter. O [ **documentação de referência da CLI** ](https://aka.ms/azmlcli) foi atualizado.
 
 
 ## <a name="2019-04-22"></a>2019-04-22
 
-### <a name="azure-machine-learning-sdk-for-python-v1030"></a>Azure Machine Learning SDK for Python v1.0.30
-+ **Novos recursos**
-  + Conjuntos de dados
+Azure SDK de Aprendizado de máquina para v1.0.30 Python lançados.
 
-+ **Melhorias e correções de erros**
-  + Nenhuma
-
+O [ `PipelineEndpoint` ](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline_endpoint.pipelineendpoint?view=azure-ml-py) foi introduzir para adicionar uma nova versão de um pipeline de publicado, mantendo o mesmo ponto final.
 
 ## <a name="2019-04-17"></a>2019-04-17
 
@@ -70,11 +138,10 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
 ## <a name="2019-04-15"></a>2019-04-15
 
 ### <a name="azure-portal"></a>Portal do Azure
-+ **Novos recursos**
   + Agora pode submeter novamente um Script existente ser executado num cluster de computação remota existente. 
   + Agora, pode executar um pipeline publicado com novos parâmetros na guia Pipelines. 
   + Detalhes da execução agora oferece suporte a um novo Visualizador de arquivos de instantâneo. Pode ver um instantâneo do diretório quando é submetida uma execução específica. Também pode transferir o bloco de notas que foi submetido para iniciar a execução.
-   + Agora pode cancelar execuções do principal do Portal do Azure.
+  + Agora pode cancelar execuções do principal do portal do Azure.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -134,7 +201,7 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
 
  + **Alterações**
    + O pacote do azureml tensorboard substitui azureml-contrib-tensorboard.
-   + Com esta versão, pode configurar uma conta de utilizador no seu cluster de computação gerida (amlcompute), ao criá-lo. Isso pode ser feito simplesmente passar essas propriedades na configuração provisoning. Pode encontrar mais detalhes a [documentação de referência do SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
+   + Com esta versão, pode configurar uma conta de utilizador no seu cluster de computação gerida (amlcompute), ao criá-lo. Isso pode ser feito ao transmitir essas propriedades na configuração de aprovisionamento. Pode encontrar mais detalhes a [documentação de referência do SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none-).
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1017"></a>SDK v1.0.17 de preparação de dados do Azure Machine Learning
 
@@ -163,14 +230,14 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
   + O Azure Machine Learning Pipelines adicionado uma execução de Pipeline com base nas alterações de arquivo de dados de Acionador de capacidade. O pipeline [bloco de notas do agendamento](https://aka.ms/pl-schedule) é atualizado para demonstrar esta funcionalidade.
 
 + **Melhorias e correções de erros**
-  + Foi adicionado o suporte do Azure Machine Learning Pipelines para definir a propriedade source_directory_data_store para um arquivo de dados desejado (por exemplo, o armazenamento de BLOBs) no [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) que são fornecidos para o [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Por predefinição passos utilizam o armazenamento de ficheiros do Azure como o arquivo de dados de backup que pode se deparar com problemas de limitação quando um grande número de passos é executado em simultâneo.
+  + Foi adicionado o suporte do Azure Machine Learning Pipelines para definir a propriedade source_directory_data_store para um arquivo de dados desejado (por exemplo, o armazenamento de BLOBs) no [RunConfigurations](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py) que são fornecidos para o [ PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py). Por predefinição passos utilizam o armazenamento de ficheiros do Azure como o arquivo de dados do backup, que pode se deparar com problemas de limitação quando um grande número de passos é executado em simultâneo.
 
 ### <a name="azure-portal"></a>Portal do Azure
 
 + **Novos recursos**
   + Experiência de editor para relatórios de tabela nova arrastar e soltar. Os utilizadores podem arrastar uma coluna do poço para a área de tabela em que será apresentada uma pré-visualização da tabela. As colunas podem ser reorganizadas.
   + Novo Visualizador de arquivos de registos
-  + Links para experimentação é executada, computação, modelos, imagens e implantações do separador de atividades
+  + Links para experimentar execuções, computação, modelos, imagens e implantações do separador de atividades
 
 ### <a name="azure-machine-learning-data-prep-sdk-v1015"></a>SDK v1.0.15 de preparação de dados do Azure Machine Learning
 
@@ -189,7 +256,7 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
 ### <a name="azure-machine-learning-sdk-for-python-v1015"></a>Azure Machine Learning SDK for Python v1.0.15
 
 + **Novos recursos**
-  + O Azure Machine Learning Pipelines adicionado AzureBatchStep ([bloco de notas](https://aka.ms/pl-azbatch)), HyperDriveStep ([bloco de notas](https://aka.ms/pl-hyperdrive)) e a funcionalidade de agendamento baseados no tempo ([bloco de notas](https://aka.ms/pl-schedule)).
+  + O Azure Machine Learning Pipelines adicionado AzureBatchStep ([bloco de notas](https://aka.ms/pl-azbatch)), HyperDriveStep (bloco de notas) e a funcionalidade de agendamento baseados no tempo ([bloco de notas](https://aka.ms/pl-schedule)).
   +  DataTranferStep atualizado para trabalhar com o servidor SQL do Azure e base de dados do Azure para PostgreSQL ([bloco de notas](https://aka.ms/pl-data-trans)).
 
 + **Alterações**
@@ -202,7 +269,7 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
   + Dados Prep agora suporta leitura a partir de uma base de dados SQL do Azure com o arquivo de dados.
  
 + **Alterações**
-  + Melhoraram significativamente o desempenho de memória de determinadas operações nos dados de grande dimensão.
+  + Melhorámos o desempenho de memória de determinadas operações nos dados de grande dimensão.
   + `read_pandas_dataframe()` agora requer `temp_folder` seja especificado.
   + O `name` propriedade no `ColumnProfile` foi preterido – utilizar `column_name` em vez disso.
 
@@ -212,7 +279,7 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
 
 + **Alterações**: 
   + SDK do Azure ML já não tem a dependência de pacotes de cli do azure. Especificamente, as dependências do azure-cli-core e do azure-cli-perfil foram removidas do azureml-core. Estes são o utilizador que afetem as alterações:
-    + Se estiver a executar "início de sessão az" e, em seguida, utilizar o sdk do azureml, o SDK fará o browser ou o início de sessão de código de dispositivo mais uma vez. Ele não usa nenhum Estado de credenciais criado por "início de sessão az".
+    + Se estiver a executar "início de sessão az" e, em seguida, utilizar o sdk do azureml, o SDK irá fazer o registo de código do browser ou dispositivo de mais uma vez. Ele não usa nenhum Estado de credenciais criado por "início de sessão az".
     + Para a autenticação de CLI do Azure, como o uso de "início de sessão az" usar _azureml.core.authentication.AzureCliAuthentication_ classe. Para a autenticação de CLI do Azure, fazer _cli do azure a instalação do pip_ no ambiente de Python em que instalou o sdk do azureml.
     + Se estiver fazendo "az login" com um principal de serviço para a automatização, recomendamos que utilize _azureml.core.authentication.ServicePrincipalAuthentication_ de classe, como o sdk do azureml não utiliza o estado de credenciais criado pela CLI do azure. 
 
@@ -221,7 +288,7 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>SDK v1.0.8 de preparação de dados do Azure Machine Learning
 
 + **Correções de erros**
-  + Melhoraram significativamente o desempenho de obter os perfis de dados.
+  + Melhorámos o desempenho de obter os perfis de dados.
   + Foram corrigidos erros secundários relacionadas com relatórios de erro.
   
 ### <a name="azure-portal-new-features"></a>Portal do Azure: novos recursos

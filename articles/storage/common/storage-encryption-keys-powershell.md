@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 01d5226a2d6f4c4e2e376803a3f0a25d2d5b0fd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0eeae1451e77d9000c87b1aff7ad73323e74f7ee
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61593566"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154132"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure a partir do PowerShell
 

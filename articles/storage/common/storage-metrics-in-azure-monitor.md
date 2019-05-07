@@ -2,18 +2,19 @@
 title: Métricas de armazenamento do Azure no Azure Monitor | Documentos da Microsoft
 description: Saiba mais sobre a nova métrica fornecida a partir do Azure Monitor.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 09/05/2017
-ms.author: fryu
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d776c67aad9f42184d8cf9ba0a437fbcf9d2c46c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101987"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154235"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas do Armazenamento do Azure no Azure Monitor
 
@@ -336,15 +337,15 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| UsedCapacity | A quantidade de armazenamento utilizado pela conta de armazenamento. Para contas de armazenamento standard, é a soma da capacidade utilizada pelo blob, tabela, ficheiro e fila. Para contas de armazenamento premium e contas de armazenamento de BLOBs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| UsedCapacity | A quantidade de armazenamento utilizado pela conta de armazenamento. Para as contas de armazenamento standard, é a soma da capacidade utilizada pelos blobs, tabelas, ficheiros e filas. Para as contas de armazenamento premium e contas de armazenamento de blobs, é o mesmo que BlobCapacity. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="blob-storage"></a>Armazenamento de blobs
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | BlobCapacity | O total de armazenamento de BLOBs utilizado na conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType**, e **BlobTier** ([definição](#metrics-dimensions)) |
-| BlobCount    | O número de objetos de BLOBs armazenados na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType**, e **BlobTier** ([definição](#metrics-dimensions)) |
-| ContainerCount    | O número de contentores na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| BlobCount    | O número de objetos de BLOBs armazenados na conta de armazenamento. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 <br/> Dimensões: **BlobType**, e **BlobTier** ([definição](#metrics-dimensions)) |
+| ContainerCount    | O número de contentores na conta de armazenamento. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | IndexCapacity     | A quantidade de armazenamento utilizado pelo índice hierárquica do ADLS geração 2 <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
@@ -352,24 +353,24 @@ Armazenamento do Azure fornece as seguintes métricas de capacidade no Azure Mon
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | TableCapacity | A quantidade de armazenamento de tabela utilizada a conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| TableCount   | O número de tabelas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| TableEntityCount | O número de entidades da tabela na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| TableCount   | O número de tabelas na conta de armazenamento. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| TableEntityCount | O número de entidades da tabela na conta de armazenamento. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="queue-storage"></a>Armazenamento de filas
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | QueueCapacity | A quantidade de armazenamento de filas utilizada a conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| QueueCount   | O número de filas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| QueueMessageCount | O número de mensagens em fila existe na conta de armazenamento. <br/><br/>Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| QueueCount   | O número de filas na conta de armazenamento. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| QueueMessageCount | O número de mensagens em fila existe na conta de armazenamento. <br/><br/>Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ### <a name="file-storage"></a>Armazenamento de ficheiros
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
 | FileCapacity | A quantidade de armazenamento de ficheiros utilizado a conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| FileCount   | O número de ficheiros na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
-| FileShareCount | O número de ficheiro de partilha na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| FileCount   | O número de ficheiros na conta de armazenamento. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
+| FileShareCount | O número de ficheiro de partilha na conta de armazenamento. <br/><br/> Unidade: Count <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 
 ## <a name="transaction-metrics"></a>Métricas de transação
 
@@ -379,12 +380,12 @@ O armazenamento do Azure fornece as seguintes métricas de transação no Azure 
 
 | Nome da Métrica | Descrição |
 | ------------------- | ----------------- |
-| Transações | O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensões aplicável: ResponseType, GeoType, ApiName e autenticação ([definição](#metrics-dimensions))<br/> Exemplo de valor: 1024 |
+| Transações | O número de pedidos feitos a um serviço de armazenamento ou a uma operação de API especificada. Este número inclui pedidos com e sem êxito, bem como pedidos que produziram erros. <br/><br/> Unidade: Count <br/> Tipo de agregação: Total <br/> Dimensões aplicável: ResponseType, GeoType, ApiName e autenticação ([definição](#metrics-dimensions))<br/> Exemplo de valor: 1024 |
 | Entrada | A quantidade de dados de entrada. Este número inclui a entrada de um cliente externo no Armazenamento do Azure, assim como a entrada no Azure. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | Saída | A quantidade de dados de saída. Este número inclui a saída de um cliente externo no Armazenamento do Azure, assim como a saída no Azure. Como resultado, este número não reflete a saída faturável. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | SuccessServerLatency | O tempo médio utilizado para processar um pedido com êxito pelo Armazenamento do Azure. Este valor não inclui a latência de rede especificada em SuccessE2ELatency. <br/><br/> Unidade: Milissegundos <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
 | SuccessE2ELatency | A latência de ponto a ponto média de pedidos com êxito feitos a um serviço de armazenamento ou a uma operação de API especificada. Este valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler o pedido, enviar a resposta e receber confirmação da resposta. <br/><br/> Unidade: Milissegundos <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 1024 |
-| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada Considerando o valor total de pedidos faturáveis e dividindo-o pelo número de pedidos aplicáveis, incluindo os pedidos que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada. <br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 99.99 |
+| Disponibilidade | A percentagem de disponibilidade para o serviço de armazenamento ou a operação de API especificada. A disponibilidade é calculada ao dividir o valor do total dos pedidos faturáveis pelo número de pedidos aplicáveis, incluindo os que produziram erros inesperados. Todos os erros inesperados resultam numa disponibilidade reduzida para o serviço de armazenamento ou para a operação de API especificada. <br/><br/> Unidade: Percentagem <br/> Tipo de agregação: Média <br/> Dimensões aplicável: GeoType, ApiName e autenticação ([definição](#metrics-dimensions)) <br/> Exemplo de valor: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Dimensões de métricas
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 357ed4c42cc2758766b9ccd45a3fafa541338d11
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60814028"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154558"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Limites para o seu modelo do LUIS e chaves
 LUIS tem várias áreas de limites. A primeira é o [limites de modelo](#model-boundaries), que controla o intenções, entidades e recursos do LUIS. É a segunda área [limites de quota](#key-limits) com base no tipo de chave. É uma terceira área dos limites da [combinação de teclado](#keyboard-controls) para controlar o Web site do LUIS. É uma área de quarta a [mapeamento de região do mundo](luis-reference-regions.md) entre o LUIS criação de Web site e o LUIS [endpoint](luis-glossary.md#endpoint) APIs. 
@@ -31,9 +31,11 @@ Se a sua aplicação exceder os limites de modelo do LUIS e os limites, consider
 | [Nome da aplicação][luis-get-started-create-app] | * Máximo de carateres de predefinido |
 | [Teste de batch][batch-testing]| conjuntos de dados de 10, expressões de 1000 por conjunto de dados|
 | Lista explícita | 50 por aplicação|
+| Entidades externas | sem limites |
 | [Objetivos][intents]|500 por aplicação: 499 intenções personalizadas e necessários _None_ intenção.<br>[Com base na expedição](https://aka.ms/dispatch-tool) aplicativo possui origens de expedição 500 correspondente.|
 | [Lista de entidades](./luis-concept-entity-types.md) | Principal: 50, filho: 20 000 itens. É o nome canônico * predefinido máx. de caráter. Valores de sinónimos não ter nenhuma restrição de comprimento. |
-| [Ficou a saber de máquina entidades](./luis-concept-entity-types.md):<br> Composição,<br>  Hierárquica<br> Simples|Um limite de entidades de 100 principal (não incluindo filhos hierárquicos) ou 330 entidades (incluindo filhos hierárquicos), independentemente da que ocorrer limita as visitas de utilizador pela primeira vez.<br><br>Um exemplo de com hierarquia seria 30 hierarquias com 10 crianças.  Os filhos consumirá 300 total e os elementos da hierarquia irão consumir os restantes 30. |
+| [Ficou a saber de máquina entidades + funções](./luis-concept-entity-types.md):<br> Composição,<br>simples,<br>função de entidade|Um limite de 100 entidades pai ou 330 entidades, independentemente da que ocorrer limita as visitas de utilizador pela primeira vez. Uma função é contabilizado como uma entidade com o objetivo deste limite. Um exemplo é uma composição com uma entidade que tem 2 funções é: 1 simples compostos + 1 + 2 funções = 4 das 330 entidades.|
+| [Pré-visualização - entidades de lista dinâmica](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|listas de ~ 1 de 2 mil por pedido de ponto final de predição de consulta|
 | [Padrões de](luis-concept-patterns.md)|500 padrões por aplicação.<br>Comprimento máximo do padrão é de 400 caracteres.<br>3 Pattern.any entidades, por padrão<br>Máximo de 2 textos de opcionais aninhados no padrão|
 | [Pattern.any](./luis-concept-entity-types.md)|100 por aplicação, 3 pattern.any entidades, por padrão |
 | [Lista de frase][phrase-list]|10 de frase de listas, itens de 5000 por lista|

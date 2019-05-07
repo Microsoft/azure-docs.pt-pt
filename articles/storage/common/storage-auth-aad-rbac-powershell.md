@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f14c6625a36356a6882e1596db13c1749a9a292a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e850b915cd01b6bacd70d6df7752eeb83f7101d0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58450038"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153844"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Conceder acesso a dados de BLOBs e filas do Azure com o RBAC com o PowerShell
 

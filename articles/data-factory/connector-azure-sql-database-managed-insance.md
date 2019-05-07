@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3f29db5786c682188b4eadec12275df46ae3b547
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093952"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153345"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiar dados de e para instância gerida da base de dados SQL do Azure com o Azure Data Factory
 
@@ -142,7 +142,7 @@ As seguintes propriedades são suportadas para o serviço do Azure SQL Database 
 
 Para obter uma lista completa de seções e propriedades disponíveis para serem utilizados definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados de instância gerida da base de dados SQL do Azure.
 
-Para copiar dados de e para instância gerida da base de dados SQL do Azure, defina a propriedade de tipo de conjunto de dados para **SqlServerTable**. São suportadas as seguintes propriedades:
+Para copiar dados de e para instância gerida da base de dados SQL do Azure, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -161,6 +161,7 @@ Para copiar dados de e para instância gerida da base de dados SQL do Azure, def
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -282,7 +283,7 @@ Para copiar dados para a instância gerida da base de dados SQL do Azure, defina
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SqlSink**. | Sim. |
-| writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são números inteiros para o número de linhas. |Não (predefinição: 10,000). |
+| writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são números inteiros para o número de linhas. Por predefinição, o Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho de linha.  |Não |
 | writeBatchTimeout |Esta propriedade especifica o tempo de espera para a operação de inserção de lote seja concluída antes de atingir o tempo limite.<br/>Valores permitidos são para o intervalo de tempo. Um exemplo é "00: 30:00," que é 30 minutos. |Não. |
 | preCopyScript |Esta propriedade especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados para a instância gerida. Ele é invocado apenas uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados pré-carregado. |Não. |
 | sqlWriterStoredProcedureName |Este nome é o procedimento armazenado que define como aplicar dados de origem para a tabela de destino. São exemplos de procedimentos para fazer a upserts ou transformações com sua própria lógica de negócios. <br/><br/>Este procedimento armazenado está *invocado por lote*. Para fazer uma operação que é executado apenas uma vez e não tem nada a com dados de origem, por exemplo, delete ou truncate, use o `preCopyScript` propriedade. |Não. |

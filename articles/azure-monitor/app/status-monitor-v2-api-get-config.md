@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 0e6b47c9b629aed28fa217cb6299edb57423fc6f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 28893e0782a7fa928757bbbba42662e6d3fa272c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870481"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153574"
 ---
 # <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig-v021-alpha"></a>API de v2 de Monitor de estado: Get-ApplicationInsightsMonitoringConfig (v0.2.1-alpha)
 
@@ -57,3 +57,20 @@ Filters:
 1)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx2 AppFilter: WebAppTwo MachineFilter: .*
 2)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault AppFilter: .* MachineFilter: .*
 ```
+
+## <a name="next-steps"></a>Passos Seguintes
+
+  Ver a telemetria:
+ - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e a utilização
+- [Pesquise eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas
+- [Análise](../../azure-monitor/app/analytics.md) para obter mais informações avançadas consultas
+- [Criar dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+ 
+ Adicionar mais telemetria:
+ - [Criar testes web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
+- [Adicionar telemetria de cliente web](../../azure-monitor/app/javascript.md) para ver as exceções de código de página da web e para permitir a inserção de chamadas de rastreio.
+- [Adicionar o Application Insights SDK ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir o rastreio e chamadas de registo
+ 
+ Faça mais com a v2 de Monitor de estado:
+ - Utilize o nosso guia para [resolução de problemas](status-monitor-v2-troubleshoot.md) v2 de Monitor de estado.
+ - Fazer alterações para esta configuração com o [definir a configuração](status-monitor-v2-api-set-config.md) cmdlet.

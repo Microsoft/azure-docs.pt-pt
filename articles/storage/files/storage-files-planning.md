@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fecefbbed39f4fc12db79c7466006409e3da7dd1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574465"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073362"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -111,20 +111,16 @@ Tamanho da partilha pode ser aumentado em qualquer altura, mas pode ser reduzido
 
 A tabela seguinte ilustra alguns exemplos destes viramos para os tamanhos de partilha aprovisionado:
 
-(Tamanhos assinalados com um * estão em pré-visualização pública limitada)
-
 |Capacidade (GiB) | Linha de base de IOPS | Períodos de rajada de IOPS | Saída (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Até 300     | 66   | 44   |
 |500         | 500     | Até 1500   | 90   | 60   |
 |1,024       | 1,024   | Até 3,072   | 122   | 81   |
 |5,120       | 5,120   | Até 15.360  | 368   | 245   |
-|10,240 *     | 10,240  | Até 30,720  | 675 | 450   |
-|33,792 *     | 33,792  | Até 100 000 | 2,088 | 1,392   |
-|51,200 *     | 51,200  | Até 100 000 | 3,132 | 2,088   |
-|102,400 *    | 100 000 | Até 100 000 | 6,204 | 4,136   |
-
-Atualmente, os tamanhos de partilha de ficheiros até 5 TiB estão em pré-visualização pública, enquanto com tamanhos até 100 TiB estão em pré-visualização pública limitada para pedir acesso para a pré-visualização pública limitada completa [este inquérito.](https://aka.ms/azurefilesatscalesurvey)
+|10,240      | 10,240  | Até 30,720  | 675 | 450   |
+|33,792      | 33,792  | Até 100 000 | 2,088 | 1,392   |
+|51,200      | 51,200  | Até 100 000 | 3,132 | 2,088   |
+|102,400     | 100 000 | Até 100 000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Extrapolação
 
@@ -184,7 +180,7 @@ Tenha em consideração esses pontos ao decidir que opção de replicação a ut
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
 
-Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB (pré-visualização pública limitada de compartilhamento de TiB de 100 para o ficheiro de premium). Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure.
+Hoje em dia, o tamanho máximo para uma partilha de ficheiros do Azure é de 5 TiB (TiB 100 para partilhas de ficheiros de premium, que estão em pré-visualização pública). Por causa da limitação atual, deve considerar o crescimento de dados esperado durante a implantação de uma partilha de ficheiros do Azure.
 
 É possível sincronizar as partilhas de ficheiros do Azure vários para um único servidor de ficheiros do Windows com o Azure File Sync. Isto permite-lhe garantir que as partilhas de ficheiros de grande, mais antigos que podem ter no local podem ser colocadas em Azure File Sync. Para obter mais informações, consulte [planear uma implementação de sincronização de ficheiros do Azure](storage-files-planning.md).
 

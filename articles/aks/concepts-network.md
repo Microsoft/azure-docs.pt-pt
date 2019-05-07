@@ -2,18 +2,17 @@
 title: Conceitos - sistema de rede nos serviços de Kubernetes do Azure (AKS)
 description: Saiba mais sobre o funcionamento em rede no Azure Kubernetes Service (AKS), incluindo kubenet e funcionamento em rede de Azure CNI, controladores de entrada, balanceadores de carga e endereços IP estáticos.
 services: container-service
-author: rockboyfor
+author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: cbdbf7dcd6269991d23c61d316dcee68e6678171
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: iainfou
+ms.openlocfilehash: 2d51699138914e4a8ad5d2a133161fcfce71e9fe
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467294"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074055"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceitos de rede para aplicações no Azure Kubernetes Service (AKS)
 
@@ -65,7 +64,6 @@ No AKS, pode implementar um cluster que utiliza um dos seguintes modelos de duas
 - *Kubenet* networking - rede de recursos, normalmente, são criados e configurados, conforme o cluster do AKS é implementado.
 - *Interface de rede de contentor do Azure (CNI)* redes - cluster do AKS a está ligado a recursos de rede virtual existente e configurações.
 
-<a name="kubenet-basic-networking"></a>
 ### <a name="kubenet-basic-networking"></a>Redes de Kubenet (básico)
 
 O *kubenet* opção de rede é a configuração predefinida para a criação de cluster do AKS. Com o *kubenet*, nós obtém um endereço IP da sub-rede da rede virtual do Azure. Pods recebem um endereço IP a partir de um espaço de endereço logicamente diferente para a sub-rede de rede virtual do Azure de nós. Tradução de endereços de rede (NAT), em seguida, está configurada para que os pods podem chegar a recursos na rede virtual do Azure. O endereço IP de origem do tráfego é que NAT para IP primária o nó o resolveria.
@@ -74,7 +72,6 @@ Nós de utilizar o [kubenet] [ kubenet] Plug-in do Kubernetes. Pode permitir que
 
 Para obter mais informações, consulte [configurar kubenet de rede para um cluster do AKS][aks-configure-kubenet-networking].
 
-<a name="azure-cni-advanced-networking"></a>
 ### <a name="azure-cni-advanced-networking"></a>Redes de CNI (avançado) do Azure
 
 Com o Azure CNI, cada pod obtém um endereço IP da sub-rede e pode ser acedido diretamente. Estes endereços IP tem de ser exclusivos em seu espaço de rede e devem ser planeados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods que suporta. O número equivalente de endereços IP por nó, em seguida, é reservado com antecedência para esse nó. Esta abordagem requer um planejamento mais e, muitas vezes conduzem à exaustão de endereço IP ou a necessidade de recriar clusters numa sub-rede maior à medida que aumentam as suas exigências de aplicativo.
@@ -111,7 +108,7 @@ Um grupo de segurança de rede filtra o tráfego para as VMs, por exemplo, os n�
 
 Por predefinição, todos os pods num cluster do AKS podem enviar e receber tráfego sem limitações. Para obter mais segurança, pode querer definir regras que controlam o fluxo de tráfego. Aplicações de back-end, muitas vezes, só são expostas aos serviços de front-end necessário ou componentes da base de dados só estão acessíveis para os escalões de aplicação que se ligar aos mesmos.
 
-Política de rede é uma funcionalidade de Kubernetes atualmente em pré-visualização no AKS que lhe permite controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. Grupos de segurança de rede são mais para os nós do AKS, não os pods. O uso de diretivas de rede é uma forma mais adequada, nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente.
+Política de rede é uma funcionalidade de Kubernetes no AKS que lhe permite controlar o fluxo de tráfego entre pods disponível. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. Grupos de segurança de rede são mais para os nós do AKS, não os pods. O uso de diretivas de rede é uma forma mais adequada, nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente.
 
 Para obter mais informações, consulte [proteger o tráfego entre pods através de políticas de rede no Azure Kubernetes Service (AKS)][use-network-policies].
 
@@ -142,10 +139,7 @@ Para obter mais informações sobre principais Kubernetes e conceitos do AKS, co
 
 <!-- LINKS - Internal -->
 [aks-http-routing]: http-application-routing.md
-[aks-ingress-tls]: ingress-tls.md
-
-<!--Mooncake : URL redirect to ingress-tls.md-->
-
+[aks-ingress-tls]: ingress.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
 [aks-configure-advanced-networking]: configure-azure-cni.md
 [aks-concepts-clusters-workloads]: concepts-clusters-workloads.md

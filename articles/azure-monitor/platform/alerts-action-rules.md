@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: c260273c647dd5dd6050f1fd543ebd5a5aa47b89
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922758"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137994"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -184,8 +184,8 @@ A alertas de registo de tirar partido das melhores com regras de ação, Aconsel
 
 * P. O que acontece se eu tiver um recurso monitorizado no duas regras de ação separada? Obter notificações de um ou dois? Por exemplo "VM2" neste cenário:
 
-      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1' 
-      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1' 
+      action rule 'AR1' defined for 'VM1' and 'VM2' with action group 'AG1'
+      action rule 'AR2' defined for 'VM2' and 'VM3' with action group 'AG1'
 
     R. Para cada alerta no "VM1" e "VM3", grupo de ação 'AG1' seria acionado uma vez. Para cada alerta no "VM2", grupo de ação 'AG1' seria acionado duas vezes (**regras de ação não remover a duplicação de ações**). 
 
@@ -198,9 +198,10 @@ A alertas de registo de tirar partido das melhores com regras de ação, Aconsel
 
 * P. O que acontece se eu tiver uma regra de alerta e uma regra de ação definidos para o mesmo recurso chamar grupos de ação diferentes? Por exemplo, VM1 neste cenário:
 
-     regra de alerta "rule1" no "VM1" com a regra de ação de 'AG2' de grupo de ação "AR1" definido para "VM1" com o grupo de ação 'AG1',  
+      alert rule  'rule1' on          'VM1' with action group 'AG2'
+      action rule 'AR1'   defined for 'VM1' with action group 'AG1' 
  
-    R. Para cada alerta na "VM1", o grupo de ação 'AG1' seria acionado uma vez. Sempre que a regra de alerta 'rule1' é acionada, também irá acionar 'AG2' além disso. (**ação grupos definidos nas regras de ação e regras de alerta funcionam de forma independente, com a eliminação de duplicação**) 
+    R. Para cada alerta na "VM1", o grupo de ação 'AG1' seria acionado uma vez. Sempre que a regra de alerta 'rule1' é acionada, também irá acionar 'AG2' além disso. **Grupos de ação definida dentro das regras de ação e regras de alerta funcionam de forma independente, com a eliminação de duplicação**. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

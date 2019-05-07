@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465381"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073764"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Verificar a existência de práticas recomendadas do Kubernetes no seu cluster
 
@@ -21,6 +21,8 @@ Existem várias práticas recomendadas que deve seguir nas suas implantações d
 ## <a name="about-kube-advisor"></a>Sobre o kube advisor
 
 O [ferramenta de aconselhamento kube] [ kube-advisor-github] é um único contentor foi concebido para ser executado no seu cluster. Ele consulta o servidor de API do Kubernetes para obter informações sobre as implementações e devolve um conjunto de melhorias sugeridas.
+
+A ferramenta de aconselhamento do kube pode reportar pedido de recurso e limites em falta em aplicativos de PodSpecs para Windows, bem como as aplicações do Linux, mas a própria ferramenta kube advisor deverá ser programada num pod do Linux. Pode agendar um pod para serem executadas num conjunto de nós com um através do sistema operacional específico uma [Seletor de nó] [ k8s-node-selector] na configuração o pod.
 
 > [!NOTE]
 > A ferramenta de aconselhamento do kube é suportada pela Microsoft numa base de melhor esforço. Problemas e sugestões devem ser arquivadas no GitHub.
@@ -73,3 +75,4 @@ Se estiver a executar a ferramenta em relação a um cluster que não está ativ
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors

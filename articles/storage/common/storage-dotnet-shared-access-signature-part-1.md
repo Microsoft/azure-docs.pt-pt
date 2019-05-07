@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 25c562e144b635cb66c5df9b5b7bd6237ce3122c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001594"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154436"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Utilizar assinaturas de acesso partilhado (SAS)
 
@@ -114,7 +115,7 @@ https://myaccount.blob.core.windows.net/sascontainer/sasblob.txt?sv=2015-04-05&s
 | Versão de serviços de armazenamento |`sv=2015-04-05` |Para a versão 2012-02-12 dos serviços de armazenamento e mais tarde, esse parâmetro indica a versão a utilizar. |
 | Hora de início |`st=2015-04-29T22%3A18%3A26Z` |Especificado no fuso horário UTC. Se pretender que a SAS para ser válida imediatamente, omita a hora de início. |
 | Hora de expiração |`se=2015-04-30T02%3A23%3A26Z` |Especificado no fuso horário UTC. |
-| Recurso |`sr=b` |O recurso é um blob. |
+| Resource |`sr=b` |O recurso é um blob. |
 | Permissões |`sp=rw` |As permissões concedidas a SAs incluem Read (r) e escrita (w). |
 | Intervalo de IPs |`sip=168.1.5.60-168.1.5.70` |O intervalo de endereços IP do qual será aceita um pedido. |
 | Protocolo |`spr=https` |São permitidos apenas os pedidos através de HTTPS. |

@@ -1,25 +1,28 @@
 ---
 title: Encriptação de armazenamento do Azure para dados Inativos | Documentos da Microsoft
-description: O armazenamento do Azure protege os dados ao encriptar automaticamente antes persisti-los para a cloud. Todos os dados no armazenamento do Azure, seja em blobs, discos, ficheiros, filas ou tabelas, são encriptados e desencriptados de forma transparente com a encriptação de AES de 256 bits e está em conformidade com a FIPS 140-2.
+description: O armazenamento do Azure protege os dados ao encriptar automaticamente antes persisti-los para a cloud. Todos os dados no armazenamento do Azure são encriptados e desencriptados de forma transparente com a encriptação de AES de 256 bits e está em conformidade com a FIPS 140-2.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 04/30/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 211cfeb3aba29245e154f4a7db86fb4a3659c36f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730838"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153095"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Encriptação de armazenamento do Azure para dados Inativos
 
 O armazenamento do Azure encripta automaticamente os dados quando persisti-los para a cloud. A criptografia protege seus dados e para ajudá-lo a respeitar os compromissos de segurança e conformidade. Dados no armazenamento do Azure são encriptados e desencriptados de forma transparente através de 256 bits [encriptação AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), um do bloco mais forte disponíveis de cifras e está em conformidade com a FIPS 140-2. Encriptação de armazenamento do Azure é semelhante à criptografia de disco BitLocker no Windows.
 
-Encriptação de armazenamento do Azure está ativada para todas as contas de armazenamento de novas e existentes e não pode ser desativada. Porque os seus dados estão protegidos por predefinição, não precisa de modificar as suas aplicações para tirar partido da encriptação de armazenamento do Azure ou de código. Contas de armazenamento são encriptadas independentemente do seu modelo de implementação (Azure Resource Manager ou clássico) ou o escalão de desempenho (standard ou premium). Todas as opções de redundância de armazenamento do Azure suportam encriptação, e todas as cópias de uma conta de armazenamento são encriptadas. Todos os recursos de armazenamento do Azure são encriptados, incluindo blobs, discos, ficheiros, filas e tabelas.
+Encriptação de armazenamento do Azure está ativada para todas as contas de armazenamento de novas e existentes e não pode ser desativada. Porque os seus dados estão protegidos por predefinição, não precisa de modificar as suas aplicações para tirar partido da encriptação de armazenamento do Azure ou de código. 
+
+Contas de armazenamento são encriptadas independentemente do seu modelo de implementação (Azure Resource Manager ou clássico) ou o escalão de desempenho (standard ou premium). Todas as opções de redundância de armazenamento do Azure suportam encriptação, e todas as cópias de uma conta de armazenamento são encriptadas. Todos os recursos de armazenamento do Azure são encriptados, incluindo blobs, discos, ficheiros, filas e tabelas. Todos os metadados do objeto também são encriptados.
 
 Encriptação não afeta o desempenho de armazenamento do Azure. Não existe nenhum custo adicional para a encriptação de armazenamento do Azure.
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f7fa1d58c21ea0ed457cc5987d7823fad68d554f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126630"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153819"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar uma aplicação de funções no Linux num plano do serviço de aplicações do Azure
 
@@ -62,9 +62,6 @@ Precisa de uma aplicação de funções para alojar a execução das suas funç�
     ![Definir novas definições da aplicação de funções](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
 5. Selecione **Ir para o recurso** para ver a sua nova aplicação de funções.
-
-> [!TIP]
-> Está com dificuldade em encontrar as suas aplicações de funções no portal? Experimente [adicionar as Aplicações de Funções aos favoritos no portal do Azure](functions-how-to-use-azure-function-app-settings.md#favorite).
 
 Em seguida, vai criar uma função na aplicação Function App nova. Mesmo depois da aplicação function app está disponível, poderá demorar alguns minutos a ser totalmente inicializado.
 

@@ -11,14 +11,14 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77bc33747964a5f4ee1a67aba777dc3ed76b9a51
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388748"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073454"
 ---
-# <a name="accelerated-database-recovery-preview"></a>Recuperação acelerada de base de dados (pré-visualização)
+# <a name="accelerated-database-recovery"></a>Recuperação de base de dados acelerada
 
 **Acelerado de recuperação de base de dados (ADR)** é uma funcionalidade de motor da base de dados nova SQL melhora significativamente a disponibilidade de base de dados, especialmente na presença de longa execução transações, ao ter de redesenhar o processo de recuperação do motor de base de dados SQL. Regras de implementação automática estão atualmente disponível para bases de dados individuais e bases de dados agrupadas na base de dados do Azure SQL e bases de dados no Azure SQL Data Warehouse. Os principais benefícios da ADR são:
 
@@ -128,6 +128,3 @@ Os seguintes tipos de clientes devem considerar a ativação de ADR:
 - Clientes que já VI casos em que estão a causar o registo de transações aumentar significativamente transações ativas.  
 - Clientes que passaram pelos longos períodos de indisponibilidade da base de dados devido à recuperação (por exemplo, inesperado do SQL Server reinício ou manual reversão de transação) de longa execução do SQL Server.
 
-## <a name="to-enable-adr-during-this-preview-period"></a>Para ativar a ADR durante este período de pré-visualização
-
-Durante o período de pré-visualização para esta funcionalidade, envie um e-mail para [ adr@microsoft.com ](mailto:adr@microsoft.com) para saber mais e experimentar o recuperação de base de dados acelerada (ADR). No e-mail, inclua o nome do seu servidor de base de dados SQL (para bases de dados individuais e bases de dados agrupadas na base de dados SQL e bancos de dados no armazém de dados do Azure). Como essa é uma funcionalidade de pré-visualização, o seu servidor de teste deve ser um servidor de não produção.

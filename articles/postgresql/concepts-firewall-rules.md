@@ -1,19 +1,19 @@
 ---
-title: Base de dados do Azure para as regras de firewall do servidor PostgreSQL
-description: Este artigo descreve as regras de firewall da base de dados do Azure para o servidor PostgreSQL.
+title: Regras de firewall na base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve as regras de firewall da base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 793a68ee829d87a8433d5bdd77fe7b43e2f3af19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 40a675fbefe9743f5de1f9766cf33ae7dba9e5a7
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560252"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073576"
 ---
-# <a name="azure-database-for-postgresql-server-firewall-rules"></a>Base de dados do Azure para as regras de firewall do servidor PostgreSQL
+# <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Regras de firewall na base de dados do Azure para PostgreSQL - servidor único
 Base de dados do Azure para o firewall do servidor PostgreSQL impede todo o acesso ao seu servidor de base de dados até especificar que computadores têm permissão. A firewall concede acesso ao servidor com base no endereço IP de origem de cada pedido.
 Para configurar a firewall, crie as regras de firewall que especificam intervalos de endereços IP aceitáveis. Pode criar regras de firewall ao nível do servidor.
 
