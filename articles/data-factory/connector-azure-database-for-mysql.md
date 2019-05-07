@@ -142,7 +142,7 @@ Para copiar dados da base de dados do Azure para MySQL, defina o tipo de origem 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AzureMySqlSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 | queryCommandTimeout | O tempo de espera antes do pedido de consulta exceder o tempo limite. A predefinição é 120 minutos (02: 00:00) | Não |
 
 **Exemplo:**
