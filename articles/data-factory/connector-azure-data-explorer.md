@@ -68,10 +68,10 @@ As seguintes propriedades são suportadas para o serviço ligado do Explorador d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade deve ser definida **AzureDataExplorer** | Sim |
+| type | O **tipo** propriedade deve ser definida **AzureDataExplorer** | Sim |
 | endpoint | URL de ponto final do cluster do Azure Data Explorer, com o formato como `https://<clusterName>.<regionName>.kusto.windows.net`. | Sim |
-| base de dados | Nome da base de dados. | Sim |
-| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Este é o que sabe normalmente como "**ID da autoridade**" no [cadeia de ligação de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperá-lo passando o Mouse com o mouse no canto superior direito do portal do Azure. | Sim |
+| database | Nome da base de dados. | Sim |
+| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Este é o que sabe normalmente como "**ID da autoridade**" no [cadeia de ligação de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperá-lo passando o Mouse com o mouse no canto superior direito do portal do Azure. | Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação Este é o que sabe normalmente como "**ID de cliente de aplicação do AAD**" no [cadeia de ligação de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sim |
 | servicePrincipalKey | Especifique a chave da aplicação. Este é o que sabe normalmente como "**chave de aplicação do AAD**" no [cadeia de ligação de Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 
@@ -106,8 +106,8 @@ São suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade deve ser definida **AzureDataExplorerTable** | Sim |
-| tabela | O nome da tabela que o serviço ligado refere-se a. | Sim para o sink; Não para a origem |
+| type | O **tipo** propriedade deve ser definida **AzureDataExplorerTable** | Sim |
+| table | O nome da tabela que o serviço ligado refere-se a. | Sim para o sink; Não para a origem |
 
 **Exemplo de propriedades do conjunto de dados**
 
@@ -137,8 +137,8 @@ Para copiar dados a partir do Explorador de dados do Azure, defina o **tipo** pr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como: **AzureDataExplorerSource** | Sim |
-| consulta | Um pedido de só de leitura fornecido num [formato KQL](/azure/kusto/query/). Utilize a consulta KQL personalizada como uma referência. | Sim |
+| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como: **AzureDataExplorerSource** | Sim |
+| query | Um pedido de só de leitura fornecido num [formato KQL](/azure/kusto/query/). Utilize a consulta KQL personalizada como uma referência. | Sim |
 | queryTimeout | O tempo de espera antes do pedido de consulta exceder o tempo limite. Valor predefinido é 10 minutos (00: 10:00); permitido valor máximo é de 1 hora (01: 00:00). | Não |
 
 >[!NOTE]
@@ -183,7 +183,7 @@ Para copiar dados para o Explorador de dados do Azure, definir a propriedade de 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como: **AzureDataExplorerSink** | Sim |
+| type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como: **AzureDataExplorerSink** | Sim |
 | ingestionMappingName | Nome de uma pré-criada **[mapeamento](/azure/kusto/management/mappings#csv-mapping)** numa tabela de Kusto. Para mapear as colunas de origem para o Explorador de dados do Azure – o que se aplica ao **[suportadas/formatos de arquivos de origem](copy-activity-overview.md#supported-data-stores-and-formats)** incluindo CSV/JSON/Avro formatos etc., pode utilizar a atividade de cópia [coluna mapeamento](copy-activity-schema-and-type-mapping.md) (implicitamente por nome ou explicitamente configurado) e/ou mapeamentos de Explorador de dados do Azure. | Não |
 
 **Exemplo:**
