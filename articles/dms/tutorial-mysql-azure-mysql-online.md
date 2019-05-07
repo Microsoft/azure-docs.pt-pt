@@ -10,15 +10,16 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/29/2019
-ms.openlocfilehash: 75241fe9922ac7ff8e2570c8f7bf7b114d5eb329
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.date: 05/01/2019
+ms.openlocfilehash: e92c0b5e02daf08100151e15314399722ffc8763
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872855"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148799"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o MySQL para a Base de Dados do Azure para MySQL online com o DMS
+
 Pode utilizar o Azure Database Migration Service para migrar as bases de dados de uma instância do MySQL no local para a [Base de Dados do Azure para MySQL](https://docs.microsoft.com/azure/mysql/) com um período de indisponibilidade mínimo. Por outras palavras, a migração pode ser feita com um período de indisponibilidade mínimo para a aplicação. Neste tutorial, vai migrar a base de dados de exemplo **Colaboradores** de uma instância no local do MySQL 5.7 para a Base de Dados do Azure para MySQL através de uma atividade de migração online no Azure Database Migration Service.
 
 Neste tutorial, ficará a saber como:
@@ -83,7 +84,7 @@ Para concluir este tutorial, precisa de:
 
 Para concluir todos os objetos de base de dados, como esquemas de tabela, índices e procedimentos armazenados, é necessário extrair o esquema da base de dados de origem e aplicar à base de dados. Para extrair o esquema, pode utilizar mysqldump com o parâmetro `--no-data`.
 
-Partindo do princípio de que tem a base de dados de exemplo de funcionários de MySQL no sistema no local, o comando para fazer a migração do esquema a utilizar mysqldump é:
+Pressupondo que tenha MySQL **funcionários** base de dados de exemplo no sistema no local, o comando para fazer a migração do esquema a utilizar mysqldump é:
 
 ```
 mysqldump -h [servername] -u [username] -p[password] --databases [db name] --no-data > [schema file path]
@@ -152,7 +153,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
 3. Procure por migração e, à direita de **Microsoft.DataMigration**, selecione **Registar**.
 
-    ![Registar o fornecedor de recursos](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)    
+    ![Registar o fornecedor de recursos](media/tutorial-mysql-to-azure-mysql-online/portal-register-resource-provider.png)
 
 ## <a name="create-a-dms-instance"></a>Criar uma instância do DMS
 
@@ -176,9 +177,7 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
 
     Para obter mais informações sobre os custos e os escalões de preços, veja a [página de preços](https://aka.ms/dms-pricing).
 
-    Se precisar de ajuda para escolher o escalão certo do serviço de migração de base de dados do Azure, consulte as recomendações apresentadas na postagem de blog [escolher um escalão de serviço de migração de base de dados do Azure (Azure DMS)](https://go.microsoft.com/fwlink/?linkid=861067). 
-
-     ![Configurar as definições da instância do Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
+    ![Configurar as definições da instância do Azure Database Migration Service](media/tutorial-mysql-to-azure-mysql-online/dms-settings3.png)
 
 6. Selecione **Criar** para criar o serviço.
 

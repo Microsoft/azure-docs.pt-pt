@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 8633dbf6cdfc48b240a84bf876aaa63f2a579a64
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: c20cbf50129247fa01f10f12a99c558bc86492b8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870421"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145164"
 ---
 # <a name="getting-started-with-status-monitor-v2"></a>Introdução ao v2 de Monitor de estado
 
@@ -74,3 +74,25 @@ Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
 ```powershell
 Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
+
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+ Ver a telemetria:
+
+- [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e a utilização
+- [Pesquise eventos e registos](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas
+- [Análise](../../azure-monitor/app/analytics.md) para obter mais informações avançadas consultas
+- [Criar dashboards](../../azure-monitor/app/app-insights-dashboards.md)
+
+ Adicionar mais telemetria:
+
+- [Criar testes web](monitor-web-app-availability.md) para se certificar de que mantém o seu site em direto.
+- [Adicionar telemetria de cliente web](../../azure-monitor/app/javascript.md) para ver as exceções de código de página da web e para permitir a inserção de chamadas de rastreio.
+- [Adicionar o Application Insights SDK ao seu código](../../azure-monitor/app/asp-net.md) para que possa inserir o rastreio e chamadas de registo
+
+Faça mais com a v2 de Monitor de estado:
+
+- Reveja os [instruções detalhadas](status-monitor-v2-detailed-instructions.md) para obter uma explicação dos comandos encontrada neste guia.
+- Utilize o nosso guia para [resolução de problemas](status-monitor-v2-troubleshoot.md) v2 de Monitor de estado.

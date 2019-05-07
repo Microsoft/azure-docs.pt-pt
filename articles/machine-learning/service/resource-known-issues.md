@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 242b7cb45e9a73e78ae9f9b62e83311e110e07ee
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 80bb7af0f7ed20336ab08d4f3ca9639057b9c67f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021097"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149761"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conhecidos e resolução de problemas serviço do Azure Machine Learning
 
@@ -69,6 +69,9 @@ Não será capaz de implementar os modelos no FPGAs até que tiver solicitado e 
 
 Aprendizagem de máquina de fluxo automatizada tensor não suporta a versão de fluxo de tensor 1.13 atualmente. Instalar esta versão fará com que as dependências de pacote parar de funcionar. Estamos a trabalhar para corrigir este problema numa versão futura. 
 
+### <a name="experiment-charts"></a>Gráficos de experimentação
+
+Gráficos de classificação binária (o recolhimento de precisão, ROC, obter curva etc.) mostrados automatizadas iterações de experimentação do ML não são corectly de composição na interface do usuário desde 4/12. Gráficos de gráfico estão atualmente mostrando resultados inversa, onde os modelos de melhor desempenho são exibidos com resultados inferiores. Uma resolução está sendo investigado.
 
 ## <a name="databricks"></a>Databricks
 

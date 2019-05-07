@@ -8,12 +8,12 @@ ms.date: 04/20/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 0ae85b45dfcd80056316ed5f2099aab4057d24c8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 81cb5e62c8abc93aa5defb690628c7178fd2a869
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64720337"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142543"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -29,7 +29,7 @@ Deteção de alteração e os detalhes são valiosos para os seguintes cenários
 - Manter um banco de dados de gestão de configuração, conhecido como CMDB, atualizado. Em vez de atualizar todos os recursos e seus conjuntos de propriedades completa numa frequência agendada, obtenha apenas o que foi alterado.
 - Noções básicas sobre as outras propriedades que possam ter sido alteradas quando um recurso alterou o estado de conformidade. Avaliação destas propriedades adicionais pode fornecer informações sobre outras propriedades que poderão ter de ser geridos através de uma definição de política do Azure.
 
-Este artigo mostra como recolher estas informações através do SDK do gráfico de recursos. Para ver estas informações no portal do Azure, veja o Azure Policy [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history-preview).
+Este artigo mostra como recolher estas informações através do SDK do gráfico de recursos. Para ver estas informações no portal do Azure, veja o Azure Policy [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history-preview) ou o registo de atividades do Azure [histórico de alterações](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
 
 > [!NOTE]
 > Detalhes da alteração no gráfico de recursos são as propriedades do Gestor de recursos. Para controlar as alterações numa máquina virtual, consulte da automatização do Azure [controlo de alterações](../../../automation/automation-change-tracking.md) ou o Azure Policy [configuração de convidado para VMs](../../policy/concepts/guest-configuration.md).

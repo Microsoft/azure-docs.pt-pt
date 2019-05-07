@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: ed180563ea6138b3b4bab6092b39eeacf9dbf840
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0c42ab44ba317888b982ba7c72f78be4ca73d93c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097059"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148170"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Adicionar intenções para determinar a intenção do utilizador de expressões
 
@@ -42,16 +42,25 @@ Expressões com de exemplo são exemplos de texto de perguntas de utilizador ou 
 
     LUIS converte todas as expressões de com em minúsculas e adiciona os espaços em torno de tokens, como hífens.
 
-## <a name="intent-prediction-discrepancy-errors"></a>Erros de discrepância de predição de intenção 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-Uma expressão numa intenção, pode ter uma discrepância de predição de intenção entre a intenção de selecionado e a pontuação de predição. LUIS indica essa discrepância com uma caixa vermelha à volta da **rotulado intenção** na linha da expressão de exemplo. 
+## <a name="intent-prediction-errors"></a>Erros de predição de intenção 
 
-![Página de detalhes de captura de ecrã de objetivos, com erros de discrepância de predição de expressão](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+Uma expressão de exemplo numa intenção, pode ter um erro de previsão intencional entre a intenção que da expressão de exemplo está atualmente em e a intenção de predição determinado durante o treinamento. 
 
-No painel de navegação superior, selecione **Train**. A discrepância de predição é agora já era.
+Para localizar erros de predição de expressão e corrigi-los, utilize o **filtro** dessa opção **avaliação** opções de incorreto e Unclear combinado com o **vista** opção de **Vista detalhada**. 
 
-> [!Note]
-> Quando uma linha vermelha está sob uma palavra ou frase na expressão de exemplo, um [erro de previsão de entidade](luis-how-to-add-example-utterances.md#entity-status-predictions) ocorreu. Tem de corrigi-lo. 
+![Para encontrar a expressão erros de previsão e corrigi-los, utilize a opção de filtro.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+Quando a exibição e os filtros são aplicados, e existem expressões de exemplo com erros, a lista de expressão de exemplo mostra as expressões e os problemas.
+
+![! [Quando a exibição e os filtros são aplicados, e existem expressões de exemplo com erros, a lista de expressão de exemplo mostra as expressões e os problemas.] (. / media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Cada linha mostra a pontuação de predição de preparação atual para a expressão de exemplo, a pontuação do rival mais próximo, o que é a diferença nestas duas classificações. 
+
+### <a name="fixing-intents"></a>Corrigir intenções
+
+Para saber como corrigir erros de predição de intenção, utilize o [Dashboard de resumo](luis-how-to-use-dashboard.md). O dashboard de resumo fornece uma análise de treinamento de último a versão de Active Directory e oferece as sugestões principais para corrigir seu modelo.  
 
 ## <a name="add-a-custom-entity"></a>Adicionar uma entidade personalizada
 

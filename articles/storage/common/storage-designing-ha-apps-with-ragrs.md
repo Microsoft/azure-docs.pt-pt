@@ -8,13 +8,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: be1c46c5bc2c8edcfeca81c82095687c4ddfd894
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483473"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65139349"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
 

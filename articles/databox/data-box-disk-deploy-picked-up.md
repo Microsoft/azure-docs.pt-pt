@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: e7d57b9d6a06f230835b53d5f6c8120b2a9b61ac
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924897"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150751"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o disco do Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -54,7 +54,12 @@ Siga os passos seguintes se retornando o dispositivo nos EUA ou Canadá.
     - Affix a etiqueta no dispositivo.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
-3. Agende uma recolha no-BREAK.
+3. Agende uma recolha no-BREAK. Para agendar uma recolha:
+
+    - Chame no-BREAK local (número gratuito de incidir específico do país).
+    - Em sua chamada citar a remessa inversa número, como mostra a sua etiqueta impressa de controle.
+    - Se o número de controlo não é indicado, UPS exigirá que paga um custo adicional durante a recolha.
+    - Em vez da recolha de agendamento, também pode remover o fora do disco de caixa de dados no local de entrega mais próximo.
 
 
 ### <a name="pick-up-in-europe"></a>Pegar na Europa

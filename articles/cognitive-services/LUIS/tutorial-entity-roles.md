@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 03/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2e2b2c39cf9039c78a610e9b28065b972484123e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: a0ab928ef3b8551e3e20ff3c4b16533c80ee4b7d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069256"
+ms.locfileid: "65149274"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>Tutorial: Extrair dados contextualmente relacionados de uma expressão
 
@@ -93,12 +93,8 @@ A entidade pré-criados, geographyV2, extrai informações de localização, inc
     ![Adicionar funções a entidade pré-criados](media/tutorial-entity-roles/add-roles-to-prebuilt-entity.png)
 1. Selecione **intenções** no painel de navegação esquerda, em seguida, selecione a **MoveEmployeeToCity** intenção. Tenha em atenção os nomes de cidade são rotulados com a entidade pré-criados **geogrpahyV2**.
 1. Na expressão primeiro da lista, selecione a localização de origem. É apresentado um menu de lista pendente. Selecione **geographyV2** na lista, em seguida, siga o menu para selecionar **origem**.
-
-    [![Captura de ecrã da cidade como localização de origem a marcação](media/tutorial-entity-roles/tag-origin-city-with-role.png "captura de ecrã da marcação cidade como localização de origem")](media/tutorial-entity-roles/tag-origin-city-with-role.png#lightbox)
-
 1. Utilize o método do passo anterior para marcar todas as funções de localizações em todas as expressões. 
 
-    [![Em expressões com o nome de entidade de captura de ecrã de localizações](media/tutorial-entity-roles/all-locations-marked-with-roles.png "em expressões com o nome de entidade de captura de ecrã de localizações")](media/tutorial-entity-roles/all-locations-marked-with-roles.png#lightbox)
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Adicionar expressões de exemplo para a intenção None 
 

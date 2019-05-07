@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 3/18/2019
+ms.date: 5/3/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 7beb3d986b016688c4ee0a512b9406dbf3dfbb40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 608674d6e049c71d22c7bf91f37fcb16ffccc581
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60194263"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144921"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -61,9 +61,9 @@ Existem três requisitos chave para este cenário funcionar corretamente:
 Veja a secção [Criar Rotas](#create-the-routes) neste tutorial para perceber como estas rotas são criadas.
 
 >[!NOTE]
->Firewall do Azure tem de ter conectividade à internet direta. Por predefinição, AzureFirewallSubnet só deve permitir um 0.0.0.0/0 UDR com o **NextHopType** valor definido como **Internet**.
+>Firewall do Azure tem de ter conectividade à Internet direta. Se sua AzureFirewallSubnet aprende uma rota predefinida para a sua rede no local através do BGP, tem de substituir isso com um UDR 0.0.0.0/0 com o **NextHopType** valor definido como **Internet** manter direto Desde Conectividade Internet. Por predefinição, o Firewall do Azure não suporta o túnel forçado a uma rede no local.
 >
->Se ativar o protocolo de túnel forçado para o local através do ExpressRoute ou o Gateway de aplicação, poderá ter de configurar explicitamente uma 0.0.0.0/0 UDR com o valor de NextHopType definido como **Internet** e associá-lo a seu AzureFirewallSubnet. Se a sua organização precisar de túnel forçado para o tráfego de Firewall do Azure, contacte o suporte para que possamos lista branca de sua subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
+>No entanto, se a configuração requer o túnel forçado a uma rede no local, a Microsoft suporta-lo um caso a caso. Contacte o suporte para que possamos examinar seu caso. Se aceites, vamos lista branca de sua subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
 
 >[!NOTE]
 >Tráfego entre VNets diretamente em modo de peering é encaminhado diretamente, mesmo se um UDR aponta para o Firewall do Azure como o gateway predefinido. Para enviar tráfego de sub-rede para sub-rede para o firewall neste cenário, um UDR tem de conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.
@@ -138,7 +138,7 @@ $VNetHub = New-AzVirtualNetwork -Name $VNetnameHub -ResourceGroupName $RG1 `
 -Location $Location1 -AddressPrefix $VNetHubPrefix -Subnet $FWsub,$GWsub
 ```
 
-Pedir um endereço IP público a ser alocada para o gateway de VPN, que irá criar rede virtual. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não pode especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway de VPN. 
+Pedir um endereço IP público a ser alocada para o gateway de VPN, que irá criar rede virtual. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não é possível especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway de VPN.
 
   ```azurepowershell
   $gwpip1 = New-AzPublicIpAddress -Name $GWHubpipName -ResourceGroupName $RG1 `
@@ -177,7 +177,7 @@ $VNetOnprem = New-AzVirtualNetwork -Name $VNetnameOnprem -ResourceGroupName $RG1
 -Location $Location1 -AddressPrefix $VNetOnpremPrefix -Subnet $Onpremsub,$GWOnpremsub
 ```
 
-Pedir um endereço IP público a ser alocada para o gateway que irá criar para a rede virtual. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não pode especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway. 
+Pedir um endereço IP público a ser alocada para o gateway que irá criar para a rede virtual. Tenha em atenção que o *AllocationMethod* é **Dinâmico**. Não é possível especificar o endereço IP que pretende utilizar. É atribuído dinamicamente ao seu gateway.
 
   ```azurepowershell
   $gwOnprempip = New-AzPublicIpAddress -Name $GWOnprempipName -ResourceGroupName $RG1 `
@@ -471,7 +471,7 @@ Na **VM Onprem**, abra um ambiente de trabalho remoto para a **VM-spoke-01** no 
 
 A ligação deve ser bem-sucedida e deverá conseguir iniciar sessão com o nome de utilizador e a palavra-passe escolhidos.
 
-Verificou que as regras de firewall estão a funcionar:
+Portanto, agora verificar que as regras de firewall estão a funcionar:
 
 <!---- You can ping the server on the spoke VNet.--->
 - Pode procurar o servidor web na rede virtual spoke.

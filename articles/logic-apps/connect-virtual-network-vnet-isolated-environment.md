@@ -8,18 +8,15 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 8cbc02f80244b02b397162309fa5ae047f3f460a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 8809a2fed5a44910e3a353d9dc5bc41ea964a1ce
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511112"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150567"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
-
-> [!NOTE]
-> Esta capacidade está em [ *pré-visualização pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Para cenários em que o logic apps e as contas de integração precisam de acesso a uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md), criar um [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). Um ISE é um ambiente isolado e privado que utiliza armazenamento dedicado e outros recursos que sejam mantidos separados do serviço de aplicações lógicas "global" ou público. Essa separação também reduz a qualquer impacto que outros inquilinos do Azure podem ter sobre o desempenho das suas aplicações. O ISE encontra-se *injetado* para a sua rede virtual do Azure, que, em seguida, implementa o serviço de aplicações lógicas na sua rede virtual. Quando cria uma conta de integração ou da aplicação lógica, selecione esta ISE como a respetiva localização. Sua conta de integração ou da aplicação lógica, em seguida, pode aceder diretamente a recursos, como máquinas virtuais (VMs), servidores, sistemas e serviços, na sua rede virtual.
 
@@ -101,13 +98,11 @@ Para controlar o tráfego entre sub-redes da rede virtual onde implementar seu I
 Para criar o ambiente de serviço de integração (ISE), siga estes passos:
 
 1. Na [portal do Azure](https://portal.azure.com), no menu principal do Azure, selecione **criar um recurso**.
+Na caixa de pesquisa, introduza "ambiente de serviço de integração" como o filtro.
 
    ![Criar novo recurso](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-1. Na caixa de pesquisa, introduza "ambiente de serviço de integração" como o filtro.
-Na lista de resultados, selecione **o ambiente de serviço de integração (pré-visualização)** e, em seguida, escolha **criar**.
-
-   ![Selecione "Ambiente de serviço de integração"](./media/connect-virtual-network-vnet-isolated-environment/select-integration-service-environment.png)
+1. No painel de criação de ambiente de serviço de integração, escolha **criar**.
 
    ![Escolha "Criar"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
@@ -121,8 +116,8 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
    | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O grupo de recursos do Azure onde pretende criar o seu ambiente |
    | **Nome do ambiente de serviço de integração** | Sim | <*environment-name*> | O nome para dar o seu ambiente |
    | **Localização** | Sim | <*Azure-datacenter-region*> | A região do datacenter do Azure onde pretende implementar o seu ambiente |
-   | **Capacidade adicional** | Sim | 0, 1, 2, 3 | O número de unidades de processamento para utilizar para este recurso ISE. Para adicionar capacidade após a criação, consulte [adicionar capacidade](#add-capacity). |
-   | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure em que deseja injetar o seu ambiente para que aplicações lógicas nesse ambiente podem acessar a rede virtual. Se não tiver uma rede, pode criar uma aqui. <p>**Importante**: Pode *apenas* realizar este injeção quando cria seu ISE. No entanto, antes de poder criar esta relação, certifique-se de que já configurou a controlo de acesso baseado em funções na sua rede virtual para o Azure Logic Apps. |
+   | **Capacidade adicional** | Sim | 0 a 10 | O número de unidades de processamento adicional para utilizar para este recurso ISE. Para adicionar capacidade após a criação, consulte [capacidade de adicionar ISE](#add-capacity). |
+   | **Rede virtual** | Sim | <*Azure-virtual-network-name*> | A rede virtual do Azure em que deseja injetar o seu ambiente para que aplicações lógicas nesse ambiente podem acessar a rede virtual. Se não tiver uma rede, [primeiro, criar uma Azure virtual network](../virtual-network/quick-create-portal.md). <p>**Importante**: Pode *apenas* realizar este injeção quando cria seu ISE. |
    | **Sub-redes** | Sim | <*subnet-resource-list*> | Um ISE requer quatro *vazio* sub-redes para a criação de recursos no seu ambiente. Para criar cada sub-rede [siga os passos nesta tabela](#create-subnet).  |
    |||||
 
@@ -172,6 +167,9 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
 
    1. Repita estes passos para três sub-redes mais.
 
+      > [!NOTE]
+      > Se as sub-redes que tenta criar não são válidas, o portal do Azure mostra uma mensagem, mas não bloqueie o seu progresso.
+
 1. Depois do Azure com êxito valida suas informações de ISE, escolha **criar**, por exemplo:
 
    ![Após a validação com êxito, escolha "Criar"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
@@ -185,34 +183,17 @@ Na lista de resultados, selecione **o ambiente de serviço de integração (pré
 
    ![Implementação efetuada com êxito](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
 
+   Caso contrário, siga as instruções do portal do Azure para resolução de problemas de implementação.
+
    > [!NOTE]
-   > Se falhar a implementação ou eliminar seu ISE, do Azure *poderá* demorar até uma hora antes de lançar as sub-redes. Por isso, poderá ter de aguardar antes de reutilizar essas sub-redes no ISE do outro.
+   > Se falhar a implementação ou eliminar seu ISE, Azure, pode demorar até uma hora antes de lançar as sub-redes. Este atraso significa significa que pode ter de aguardar antes de reutilizar essas sub-redes no ISE do outro. 
+   >
+   > Se eliminar a rede virtual, o Azure normalmente demora até duas horas antes de liberar se as sub-redes, mas esta operação pode demorar mais tempo. 
+   > Ao eliminar redes virtuais, certifique-se de que não existem recursos ainda estão ligados. Ver [Delete de rede virtual](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 1. Para ver o seu ambiente, escolha **Ir para recurso** se o Azure não passar automaticamente para o seu ambiente após a conclusão da implementação.  
 
-<a name="add-capacity"></a>
-
-### <a name="add-capacity"></a>Adicionar capacidade
-
-A unidade de base do ISE corrigiu capacidade, portanto, se precisar de mais débito, pode adicionar mais unidades de escala. Pode dimensionar automaticamente com base em métricas de desempenho ou com base num número de unidades de processamento. Se escolher o dimensionamento automático com base em métricas, pode escolher de entre vários critérios e especifique as condições de limiar para atender esse critério.
-
-1. No portal do Azure, encontre o ISE.
-
-1. Para ver métricas de desempenho para seu ISE, no menu principal do seu ISE, escolha **descrição geral**.
-
-1. Para configurar o dimensionamento automático, em **configurações**, selecione **aumentar horizontalmente**. Sobre o **configurar** separador, escolha **ativar o dimensionamento automático**.
-
-1. Na **predefinido** secção, escolha o **dimensionam com base numa métrica** ou **Dimensionar para uma contagem de instâncias específica**.
-
-1. Se escolher com base na instância, introduza o número de unidades de processamento entre 0 e 3, inclusivamente. Caso contrário, para baseada em métrica, siga estes passos:
-
-   1. Na **predefinido** secção, escolha **adicionar uma regra**.
-
-   1. Sobre o **regra de dimensionamento** painel, configurar os critérios e a ação a tomar quando a regra for acionada.
-
-   1. Quando tiver terminado, escolha **adicionar**.
-
-1. Quando tiver terminado, lembre-se de guardar as alterações.
+Para obter mais informações sobre como criar sub-redes, veja [adicionar uma sub-rede de rede virtual](../virtual-network/virtual-network-manage-subnet.md).
 
 <a name="create-logic-apps-environment"></a>
 
@@ -248,10 +229,37 @@ Para criar uma conta de integração que utiliza um ISE, siga os passos em [como
 
 ![Selecione o ambiente de serviço de integração](./media/connect-virtual-network-vnet-isolated-environment/create-integration-account-with-integration-service-environment.png)
 
-## <a name="get-support"></a>Obter suporte
+<a name="add-capacity"></a>
 
-* Relativamente a dúvidas, visite o <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">fórum do Azure Logic Apps</a>.
-* Para submeter ou votar em ideias para funcionalidades, visite o <a href="https://aka.ms/logicapps-wish" target="_blank">site de comentários dos utilizadores do Logic Apps</a>.
+## <a name="add-ise-capacity"></a>Adicione a capacidade ISE
+
+A unidade de base do ISE corrigiu capacidade, portanto, se precisar de mais débito, pode adicionar mais unidades de escala. Pode dimensionar automaticamente com base em métricas de desempenho ou com base num número de unidades de processamento adicional. Se escolher o dimensionamento automático com base em métricas, pode escolher de entre vários critérios e especifique as condições de limiar para atender esse critério.
+
+1. No portal do Azure, encontre o ISE.
+
+1. Para rever as métricas de utilização e desempenho para seu ISE, no menu principal do seu ISE, selecione **descrição geral**.
+
+   ![Ver a utilização de ISE](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
+
+1. Para configurar o dimensionamento automático, em **configurações**, selecione **aumentar horizontalmente**. Sobre o **configurar** separador, escolha **ativar o dimensionamento automático**.
+
+   ![Ativar o dimensionamento automático](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+
+1. Para **nome da definição de dimensionamento automático**, forneça um nome para sua configuração.
+
+1. Na **predefinido** secção, escolha o **dimensionam com base numa métrica** ou **Dimensionar para uma contagem de instâncias específica**.
+
+   * Se escolher com base na instância, introduza o número de unidades de processamento entre 0 e 10, inclusivamente.
+
+   * Se escolher com base na métrica, siga estes passos:
+
+     1. Na **regras** secção, escolha **adicionar uma regra**.
+
+     1. Sobre o **regra de dimensionamento** painel, configurar os critérios e a ação a tomar quando a regra for acionada.
+
+     1. Quando tiver terminado, escolha **adicionar**.
+
+1. Quando tiver terminado com as suas definições de dimensionamento automático, guarde as alterações.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
