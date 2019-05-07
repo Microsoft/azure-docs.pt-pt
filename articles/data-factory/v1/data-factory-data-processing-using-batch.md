@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f78275af5faaf19a4993a5ae4414b0163f9a4d9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e95f167cf6dcfe90fff1c2be174ca197cb2aa004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60487818"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204028"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Conjuntos de dados em grande escala do processo com o Data Factory e o Batch
 > [!NOTE]
@@ -409,7 +409,7 @@ O método tem alguns componentes principais que precisa entender:
 #### <a name="execute-method"></a>Executar o método
 Esta seção fornece mais detalhes sobre o código no método Execute.
 
-1. Os membros para iterar por meio da coleção de entrada são encontrados no [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) espaço de nomes. Para iterar na coleção de BLOBs, tem de utilizar o **BlobContinuationToken** classe. Em essência, tem de utilizar um fazer-loop com o token de como o mecanismo para sair do loop while. Para obter mais informações, consulte [armazenamento de BLOBs de utilização do .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Um loop básico é mostrado aqui:
+1. Os membros para iterar por meio da coleção de entrada são encontrados no [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) espaço de nomes. Para iterar na coleção de BLOBs, tem de utilizar o **BlobContinuationToken** classe. Em essência, tem de utilizar um fazer-loop com o token de como o mecanismo para sair do loop while. Para obter mais informações, consulte [armazenamento de BLOBs de utilização do .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). Um loop básico é mostrado aqui:
 
     ```csharp
     // Initialize the continuation token.
@@ -432,7 +432,7 @@ Esta seção fornece mais detalhes sobre o código no método Execute.
     } while (continuationToken != null);
 
     ```
-   Para obter mais informações, consulte a documentação para o [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) método.
+   Para obter mais informações, consulte a documentação para o [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) método.
 
 1. O código para o trabalho por meio de conjunto de blobs logicamente vai dentro do fazer-while loop. Na **Execute** método, a fazer-enquanto loop passa a lista de blobs para um método chamado **Calculate**. O método retorna uma variável de cadeia de caracteres chamada **saída** ou seja, o resultado de ter iteração de todos os blobs no segmento.
 

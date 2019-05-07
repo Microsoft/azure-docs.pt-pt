@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b97fe5d638b5967f533e489a67d4235bbc5a3db1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128420"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198585"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar a sua aplicação com uma rede Virtual do Azure
 Este documento descreve a funcionalidade de integração de rede virtual do App Service do Azure e mostra como configurá-lo com as aplicações no [App Service do Azure](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure] [ VNETOverview] (VNets) permitem-lhe colocar muitos dos seus recursos do Azure numa rede de endereçáveis não internet. Estas redes, em seguida, podem ser ligadas às suas redes no local usando as tecnologias VPN. 
@@ -271,9 +271,9 @@ A nova versão está em pré-visualização e tem as seguintes características.
 * Pode aceder a recursos através de ligações do ExpressRoute sem qualquer configuração adicional para além da integração com o ExpressRoute ligado VNet.
 * A aplicação e a VNet tem de estar na mesma região
 * O novo recurso exige uma sub-rede não utilizada na sua VNet do Resource Manager.
+* A aplicação tem de ser numa implantação do App Service do Azure que seja capaz de aumentar verticalmente para Premium v2.
 * Seu plano do serviço de aplicações tem de ser um plano Standard, Premium ou PremiumV2
 * Cargas de trabalho de produção não são suportadas no novo recurso enquanto estiverem em pré-visualização
-* A aplicação tem de ser numa implantação do App Service do Azure que seja capaz de aumentar verticalmente para Premium v2.
 * A nova funcionalidade de integração de VNet não funciona para aplicações num ambiente de serviço de aplicações.
 * Não é possível eliminar uma VNet com uma aplicação integrada.  
 * Tabelas de rotas e o global peering ainda não estão disponíveis com a nova integração de VNet.  

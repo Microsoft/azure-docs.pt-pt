@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 42cdf230379665c596761f9846e52454a3d99680
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 5524645153db0468076cc9b567965bff79d915cb
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939676"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192341"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Aumentar horizontalmente o Azure Analysis Services
 
@@ -51,7 +51,7 @@ Ao realizar uma operação de escalamento horizontal subsequente, por exemplo, a
 
 ### <a name="separate-processing-from-query-pool"></a>Separar o processamento a partir do conjunto de consultas
 
-Para um desempenho máximo para processamento e operações de consulta, pode optar por separar o servidor de processamento do conjunto de consultas. Quando separados, existentes e novas ligações de cliente são atribuídas para réplicas de consulta no agrupamento consulta apenas. Se as operações de processamento demorar apenas um curto período de tempo, pode optar por separar o servidor de processamento do conjunto de consultas para apenas a quantidade de tempo que demora a executar operações de processamento e a sincronização e, em seguida, inclua-o para o pool de consulta. 
+Para um desempenho máximo para processamento e operações de consulta, pode optar por separar o servidor de processamento do conjunto de consultas. Quando separados, novas ligações de clientes são atribuídas para réplicas de consulta no agrupamento consulta apenas. Se as operações de processamento demorar apenas um curto período de tempo, pode optar por separar o servidor de processamento do conjunto de consultas para apenas a quantidade de tempo que demora a executar operações de processamento e a sincronização e, em seguida, inclua-o para o pool de consulta. Ao separar o servidor de processamento do conjunto de consultas, ou ao adicioná-lo novamente para o pool de consulta pode demorar até cinco minutos para a operação esteja concluída.
 
 ## <a name="monitor-qpu-usage"></a>Monitorizar a utilização QPU
 

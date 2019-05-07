@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: pullabhk
-ms.openlocfilehash: 46719d3f72c57a44fb48489891e2348bb418da1e
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 986414d0bac24d0c7e37b34df473346742fa97fd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918957"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204188"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Criar cópias de segurança e restaurar ficheiros do Azure com o PowerShell
 
@@ -108,7 +108,7 @@ Siga estes passos para criar um cofre dos serviços de recuperação.
 3. Especifique o tipo de redundância para utilizar o armazenamento do cofre.
 
    - Pode usar [armazenamento localmente redundante](../storage/common/storage-redundancy-lrs.md) ou [armazenamento georredundante](../storage/common/storage-redundancy-grs.md).
-   - O exemplo seguinte define a **- BackupStorageRedundancy** opção para o[conjunto AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd para **testvault** definido como  **GeoRedundant**.
+   - O exemplo seguinte define a **- BackupStorageRedundancy** opção para o[conjunto AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd para **testvault** definido como  **GeoRedundant**.
 
      ```powershell
      $vault1 = Get-AzRecoveryServicesVault -Name "testvault"

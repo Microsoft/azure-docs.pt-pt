@@ -1,5 +1,5 @@
 ---
-title: Resolver problemas de um cluster de HDInsight lento ou a falhar - Azure HDInsight
+title: Resolver problemas de uma tarefa lenta ou a falhar num cluster HDInsight - Azure HDInsight
 description: Diagnosticar e resolver problemas de um cluster de HDInsight lento ou a falhar.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: 785eac065e10c64b99839ab8667e9b613f62aeb9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0f405f542a8408c290704f1707ca10a24b08f861
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708909"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203632"
 ---
-# <a name="troubleshoot-a-slow-or-failing-hdinsight-cluster"></a>Resolver problemas de um cluster do HDInsight lento ou a falhar
+# <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Resolver problemas de uma tarefa lenta ou a falhar num cluster do HDInsight
 
-Se um cluster do HDInsight está a ser executadas lentamente ou falhar com um código de erro, tem várias opções de resolução de problemas. Se as tarefas estão a demorar mais tempo a executar o que o esperado, ou se está a ver tempos de resposta lento em geral, pode haver falhas a montante do seu cluster, como os serviços em que o cluster é executado. No entanto, a causa mais comum destes abrandamentos é insuficiente de dimensionamento. Quando cria um novo cluster do HDInsight, selecione o adequado [tamanhos de máquinas virtuais](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Se um aplicativo de processamento de dados num cluster do HDInsight está em execução lentamente ou falhar com um código de erro, tem várias opções de resolução de problemas. Se as tarefas estão a demorar mais tempo a executar o que o esperado, ou se está a ver tempos de resposta lento em geral, pode haver falhas a montante do seu cluster, como os serviços em que o cluster é executado. No entanto, a causa mais comum destes abrandamentos é insuficiente de dimensionamento. Quando cria um novo cluster do HDInsight, selecione o adequado [tamanhos de máquinas virtuais](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
 
 Para diagnosticar um cluster lento ou a falhar, recolha informações sobre todos os aspectos do ambiente, como serviços associados do Azure, configuração de cluster e informações de execução de tarefa. Um diagnóstico útil é tentar reproduzir o estado de erro no outro cluster.
 

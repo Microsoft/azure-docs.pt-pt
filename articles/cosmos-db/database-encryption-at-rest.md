@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 07d5aa752d6613f6733a44c9b34e48f537eb67ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 49fe9c0921579802b726e02a074bb0a911d88231
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60889585"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204200"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Encriptação de dados no Azure Cosmos DB 
 
 Encriptação inativa é uma expressão que normalmente refere-se para a encriptação de dados em dispositivos de armazenamento não volátil, como unidades de estado sólido (SSDs) e unidades de disco rígido (HDDs). O cosmos DB armazena seus bancos de dados primários no SSDs. Seus anexos de suporte de dados e as cópias de segurança são armazenadas no armazenamento de Blobs do Azure, que geralmente está protegido por HDDs. Com o lançamento de encriptação em repouso para o Cosmos DB, todos os seus bancos de dados, anexos de suporte de dados e as cópias de segurança são encriptadas. Os dados agora são encriptados em trânsito (através da rede) e em repouso (não-volátil armazenamento), dando-lhe encriptação ponto a ponto.
 
-Como um serviço PaaS, o Cosmos DB é muito fácil de usar. Como de todos os dados de utilizador armazenados no Cosmos DB são encriptados em descanso e em transporte, não precisa de realizar qualquer ação. Outra forma de colocar isso é que a encriptação inativa é "on" por predefinição. Não há nenhum controle para ativá-la ou desativar. Fornecemos esta funcionalidade enquanto Continuamos atender aos nossos [SLAs de disponibilidade e desempenho](https://azure.microsoft.com/support/legal/sla/cosmos-db).
+Como um serviço PaaS, o Cosmos DB é muito fácil de usar. Como de todos os dados de utilizador armazenados no Cosmos DB são encriptados em descanso e em transporte, não precisa de realizar qualquer ação. Outra forma de colocar isso é que a encriptação inativa é "on" por predefinição. Não há nenhum controle para ativá-la ou desativar. O Azure Cosmos DB utiliza encriptação AES-256 em todas as regiões onde a conta está em execução. Fornecemos esta funcionalidade enquanto Continuamos atender aos nossos [SLAs de disponibilidade e desempenho](https://azure.microsoft.com/support/legal/sla/cosmos-db).
 
 ## <a name="implementation-of-encryption-at-rest-for-azure-cosmos-db"></a>Implementação de encriptação em repouso para o Azure Cosmos DB
 

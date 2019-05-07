@@ -207,7 +207,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 |console|n/d| O [consola](#console) definição de registo. |
 |applicationInsights|n/d| O [Application Insights](#applicationinsights) definição. |
 
-## <a name="console"></a>consola
+## <a name="console"></a>console
 
 Esta definição é um elemento subordinado [registo](#logging). Ele controla a consola do registo quando não estiver no modo de depuração.
 

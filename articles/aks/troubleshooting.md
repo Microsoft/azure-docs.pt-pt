@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031410"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192281"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -94,3 +94,27 @@ Operações de cluster estão limitadas quando ocorrem operações de atualizaç
 ## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>Posso mover o meu cluster para uma subscrição diferente ou a minha subscrição com o meu cluster para um novo inquilino?
 
 Se moveu o cluster do AKS para uma subscrição diferente ou o cluster de proprietário da subscrição para um novo inquilino, o cluster irá perder funcionalidades devido a direitos de principais de serviço e perdedora atribuições de funções. **AKS não suporta clusters movimentação entre subscrições ou inquilinos** devido a esta restrição.
+
+## <a name="im-receiving-errors-trying-to-use-features-that-require-virtual-machine-scale-sets"></a>Estou a receber erros ao tentar utilizar funcionalidades que requerem conjuntos de dimensionamento de máquina virtual
+
+*Esse recurso de resolução de problemas é direcionado de aka.ms/aks-vmss-ativação*
+
+Poderá receber erros que indicam que o cluster do AKS não se encontra num conjunto de dimensionamento de máquinas virtuais, como o exemplo seguinte:
+
+**AgentPool 'agentpool' definiu como ativada de dimensionamento automático, mas não está em conjuntos de dimensionamento de Máquina Virtual**
+
+Para usar recursos como o dimensionamento automático de cluster ou nó de vários conjuntos, devem ser criados clusters do AKS que utilizam conjuntos de dimensionamento de máquina virtual. Se tentar usar funcionalidades que dependem de conjuntos de dimensionamento de máquina virtual e um cluster AKS do conjunto de dimensionamento regulares, a máquina de virtual de destino, são devolvidos erros. Suporte de conjunto de dimensionamento de máquina virtual está atualmente em pré-visualização no AKS.
+
+Siga os *antes de começar* passos no documento apropriado para registrar corretamente para o dimensionamento de máquinas virtuais do conjunto de funcionalidades de pré-visualização e criar um cluster do AKS:
+
+* [Utilizar o dimensionamento automático de cluster](cluster-autoscaler.md)
+* [Criar e utilizar vários conjuntos de nós](use-multiple-node-pools.md)
+ 
+## <a name="what-naming-restrictions-are-enforced-for-aks-resources-and-parameters"></a>Que restrições de nomenclatura são impostas para recursos do AKS e parâmetros?
+
+*Esse recurso de resolução de problemas é direcionado de aka.ms/aks-naming-regras*
+
+Restrições de nomenclatura são implementadas com a plataforma Azure e o AKS. Se um nome de recurso ou o parâmetro interromper uma destas restrições, é devolvido um erro que solicita a que fornecer uma entrada de diferente. As seguintes diretrizes de nomenclatura comuns aplicam-se:
+
+* O AKS *MC_* nome do grupo de recursos combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerado automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` deve ter mais de 80 carateres. Se for necessário, reduza o comprimento do seu nome de grupo de recursos ou o nome do cluster AKS.
+* O *dnsPrefix* deve começar e terminar com valores de alfanuméricos. Carateres válidos incluem valores de alfanuméricos e hífenes (-). O *dnsPrefix* não pode incluir carateres especiais, como um ponto (.).

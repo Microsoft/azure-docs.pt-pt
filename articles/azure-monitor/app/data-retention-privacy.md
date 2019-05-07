@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0f8f1c5585eb13506baea1e5ddbe611cc931758e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60899253"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204876"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -87,7 +87,7 @@ Pontos de dados não processados (ou seja, os itens que pode consultar no Analyt
 
 Dados agregados (ou seja, contagens, médias e outros dados de estatísticos que vê no Explorador de métricas) são mantidos de acordo com um intervalo de agregação de 1 minuto durante 90 dias.
 
-[Instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados durante sete dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
+[Instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados durante quinze dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
 
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 Os dados são visíveis para si e, se tiver uma conta de organização, os membros da equipe. 

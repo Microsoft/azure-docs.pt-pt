@@ -1,19 +1,19 @@
 ---
-title: Monitorizar e otimizar na base de dados do Azure para PostgreSQL
-description: Este artigo descreve a monitorização e otimização de recursos na base de dados do Azure para PostgreSQL.
+title: Monitorizar e otimizar na base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve as funcionalidades de monitorização e otimização na base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/05/2018
-ms.openlocfilehash: 0d5508fe6b07bd5664bd0708960559537d8f6be1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 5e03a3e33d618c393241a649be50fe78632caafe
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456228"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068998"
 ---
-# <a name="monitor-and-tune"></a>Monitorizar e otimizar
+# <a name="monitor-and-tune-azure-database-for-postgresql---single-server"></a>Monitorizar e otimizar a base de dados do Azure para PostgreSQL - servidor único
 Dados sobre os servidores de monitorização ajuda-o a resolver problemas e otimizar a sua carga de trabalho. Base de dados do Azure para PostgreSQL fornece várias opções de monitorização para fornecer informações sobre o comportamento do seu servidor.
 
 ## <a name="metrics"></a>Métricas
@@ -33,8 +33,8 @@ Estas métricas estão disponíveis para a base de dados do Azure para PostgreSQ
 |serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|A percentagem de armazenamento de registo de servidor utilizado fora do armazenamento de registos de servidor máxima do servidor.|
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
-|active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
-|connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas para o servidor.|
+|active_connections|Ligações ativas|Count|O número de ligações ativas para o servidor.|
+|connections_failed|Ligações com Falhas|Count|O número de ligações falhadas para o servidor.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|

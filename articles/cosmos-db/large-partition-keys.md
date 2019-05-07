@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: ee1568274792621b8ed9f25d211c40440a82208c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 46df484303237722f4eb66099748f2fcef8240b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160039"
+ms.locfileid: "65205836"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contentores com a chave de partição de grandes dimensões
 
@@ -43,6 +43,17 @@ database,
 Para criar uma chave de partição de grandes dimensões, enquanto cria um novo contentor no portal do Azure, consulte a **minha chave de partição é maior do que 100 bytes** opção. Por predefinição, todos os novos contentores são optado por utilizar as chaves de partição de grandes dimensões. Desmarque a caixa de verificação se não precisar de chaves de partição de grandes dimensões ou se tiver aplicações em execução numa versão de SDKs mais antigo do que 1.18.
 
 ![Criar chaves de partição de grandes dimensões com o portal do Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+
+## <a name="supported-sdk-versions"></a>Versões suportadas do SDK
+
+As chaves de partição de grandes dimensões são suportadas com as seguintes versões mínimas SDKs:
+
+|Tipo SDK  | Versão mínima   |
+|---------|---------|
+|.Net     |    1.18     |
+|Sincronização de Java     |   2.4.0      |
+|Java assíncrono   |  2.5.0        |
  
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: alkohli
-ms.openlocfilehash: be5719d2c383c838ef70c6862c1055c3374e05e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956cf45eb9e246f2e1f917f2bf487ac14deba90e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362497"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204252"
 ---
 # <a name="configure-web-proxy-for-your-storsimple-device"></a>Configurar o proxy web para o dispositivo StorSimple
 
@@ -68,7 +68,7 @@ Utilize o Assistente de configuração para orientá-lo através dos passos para
     `http://<IP address or FQDN of the web proxy server>:<TCP port number>`
    
     Por predefinição, o número da porta TCP 8080 está especificado.
-4. Escolha o tipo de autenticação como **NTLM**, **básica**, ou **None**. Básica é a autenticação menos segura para a configuração do servidor proxy. NT LAN Manager (NTLM) é um protocolo de autenticação altamente seguro e complexas que utiliza um sistema de mensagens de três vias (às vezes, quatro se for necessária a adicionais de integridade) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, consulte [básica](http://hc.apache.org/httpclient-3.x/authentication.html) e [autenticação NTLM](http://hc.apache.org/httpclient-3.x/authentication.html). 
+4. Escolha o tipo de autenticação como **NTLM**, **básica**, ou **None**. Básica é a autenticação menos segura para a configuração do servidor proxy. NT LAN Manager (NTLM) é um protocolo de autenticação altamente seguro e complexas que utiliza um sistema de mensagens de três vias (às vezes, quatro se for necessária a adicionais de integridade) para autenticar um usuário. A autenticação padrão é NTLM. Para obter mais informações, consulte [básica](https://hc.apache.org/httpclient-3.x/authentication.html) e [autenticação NTLM](https://hc.apache.org/httpclient-3.x/authentication.html). 
    
    > [!IMPORTANT]
    > **No serviço StorSimple Device Manager, os gráficos de monitorização de dispositivos não funcionam quando básica ou autenticação NTLM está ativada na configuração do servidor proxy para o dispositivo. Para os gráficos de monitorização funcionar, terá de garantir que a autenticação está definida como NONE.**

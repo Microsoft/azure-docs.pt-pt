@@ -1,19 +1,19 @@
 ---
 title: Início Rápido - Direcionar tráfego da Web com o Gateway de Aplicação do Azure - portal do Azure | Microsoft Docs
-description: Saiba como utilizar o portal do Azure para criar um Gateway de Aplicação do Azure que direciona o tráfego da Web para máquinas virtuais num conjunto de back-end.
+description: Saiba como utilizar o portal do Azure para criar um Gateway de aplicação do Azure que direciona o tráfego da web para máquinas virtuais num conjunto de back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 1/8/2019
+ms.date: 5/7/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6f91b424398df7839c251d994fd3d484422d5e2c
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: bcbbb63206a443d87afa656ace6f141c6567d17d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947325"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192672"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Início rápido: Tráfego da web direto com o Gateway de aplicação do Azure - portal do Azure
 
@@ -30,7 +30,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com a sua conta do
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
-Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virtual. Pode criar uma nova rede virtual ou utilize um já existente. Neste exemplo, iremos criar uma nova rede virtual. Pode criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. Instâncias de Gateway de aplicação são criadas em sub-redes separadas. Criar duas sub-redes neste exemplo: um para o gateway de aplicação e outro para os servidores de back-end.
+Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virtual. Pode criar uma nova rede virtual ou utilize um já existente. Neste exemplo, criará uma nova rede virtual. Criar uma rede virtual ao mesmo tempo que cria o gateway de aplicação. Instâncias de Gateway de aplicação são criadas em sub-redes separadas. Criar duas sub-redes neste exemplo: um para o gateway de aplicação e outro para os servidores de back-end.
 
 1. Selecione **criar um recurso** no menu da esquerda do portal do Azure. O **New** é apresentada a janela.
 
@@ -65,13 +65,13 @@ Para o Azure comunicar entre os recursos que criar, ele precisa de uma rede virt
 
 3. Selecione **OK** para voltar para o **definições** página.
 
-4. Escolha o **configuração do IP de front-end**. Sob **a configuração de IP de front-end**, certifique-se **tipo de endereço IP** está definida como **pública**. Sob **endereço IP público**, certifique-se **criar nova** está selecionada. <br>Pode configurar o IP de front-end, seja pública ou privada, de acordo com o seu caso de utilização. Neste exemplo, vamos escolher um IP público de front-end.
+4. Escolha o **configuração do IP de front-end**. Sob **a configuração de IP de front-end**, certifique-se **tipo de endereço IP** está definida como **pública**. Sob **endereço IP público**, certifique-se **criar nova** está selecionada. <br>Pode configurar o IP de front-end, seja pública ou privada, de acordo com o seu caso de utilização. Neste exemplo, que vai escolher um IP público de front-end.
    > [!NOTE]
-   > Para o SKU do Gateway de aplicação v2, apenas pode escolher **público** configuração de IP. Configuração de IP privado não está atualmente ativada para o SKU da v2.
+   > Para o SKU do Gateway de aplicação v2, apenas pode escolher **público** configuração de IP de front-end. Configuração de IP de front-end de privada não está atualmente ativada para o SKU da v2.
 
 5. Introduza *myAGPublicIPAddress* para o nome do endereço IP público. 
 
-6. Aceite os valores predefinidos para as outras definições e, em seguida, selecione **OK**.<br>Vamos escolher valores predefinidos neste artigo para simplificar, mas pode configurar os valores personalizados para as outras definições consoante o seu caso de utilização 
+6. Aceite os valores predefinidos para as outras definições e, em seguida, selecione **OK**.<br>Irá escolher valores predefinidos neste artigo para simplicidade mas também pode configurar valores personalizados para as outras definições consoante o seu caso de utilização 
 
 ### <a name="summary-page"></a>Página de resumo
 
@@ -79,12 +79,14 @@ Reveja as definições na **resumo** página e, em seguida, selecione **OK** par
 
 ## <a name="add-backend-pool"></a>Adicionar conjunto back-end
 
-O conjunto de back-end é utilizado para encaminhar pedidos para os servidores de back-end que irão ser que atendeu à solicitação. Conjuntos de back-end podem ser compostos de NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, nomes de IPs interno, de domínio completamente qualificado (FQDN) e back-ends de multi-inquilino, como o serviço de aplicações do Azure. Precisa adicionar seus destinos de back-end para um conjunto de back-end.
+O conjunto de back-end é utilizado para encaminhar pedidos para os servidores de back-end que irá atender à solicitação. Conjuntos de back-end podem ser compostos de NICs, conjuntos de dimensionamento de máquinas virtuais, IPs públicos, nomes de IPs interno, de domínio completamente qualificado (FQDN) e back-ends de multi-inquilino, como o serviço de aplicações do Azure. Irá adicionar seus destinos de back-end para um conjunto de back-end.
 
-Neste exemplo, utilizaremos as máquinas virtuais como o back-end de destino. Pode utilizar máquinas virtuais existentes ou criar novos. Neste exemplo, iremos criar duas máquinas virtuais que utiliza o Azure como servidores de back-end para o gateway de aplicação. Para tal, iremos:
+Neste exemplo, usará as máquinas virtuais como o back-end de destino. Pode utilizar máquinas virtuais existentes ou criar novos. Irá criar duas máquinas virtuais que utiliza o Azure como servidores de back-end para o gateway de aplicação.
 
-1. Criar uma nova sub-rede *myBackendSubnet*, na qual as novas VMs vão ser criadas. 
-2. Criar VMS novas 2, a *myVM* e *myVM2*, para ser utilizada como servidores de back-end.
+Para fazer isso, irá:
+
+1. Criar uma nova sub-rede *myBackendSubnet*, na qual as novas VMs vão ser criadas.
+2. Criar duas novas VMs *myVM* e *myVM2*, para ser utilizada como servidores de back-end.
 3. Instale o IIS nas máquinas virtuais para verificar se o gateway de aplicação foi criado com êxito.
 4. Adicione os servidores de back-end para o conjunto de back-end.
 
@@ -112,14 +114,14 @@ Adicione uma sub-rede para a rede virtual que criou ao seguir estes passos:
     - **palavra-passe**: Introduza *Azure123456!* a palavra-passe de administrador.
 4. Aceite as outras predefinições e, em seguida, selecione **seguinte: Discos**.  
 5. Aceite o **discos** separador predefinições e, em seguida, selecione **seguinte: Funcionamento em rede**.
-6. No **Networking** separador, certifique-se de que **myVNet** está selecionada para o **rede Virtual** e a **sub-rede** está definido como  **myBackendSubnet**. Aceite as outras predefinições e, em seguida, selecione **seguinte: Management**.<br>Gateway de aplicação pode comunicar com instâncias de fora da rede virtual que está a ser, mas é necessário garantir que existe conectividade IP. 
+6. No **Networking** separador, certifique-se de que **myVNet** está selecionada para o **rede Virtual** e a **sub-rede** está definido como  **myBackendSubnet**. Aceite as outras predefinições e, em seguida, selecione **seguinte: Management**.<br>Gateway de aplicação pode comunicar com instâncias de fora da rede virtual que está a ser, mas certifique-se de que existe IP conectividade.
 7. Sobre o **gestão** separador, defina **diagnósticos de arranque** para **desativar**. Aceite as outras predefinições e, em seguida, selecione **rever + criar**.
 8. Sobre o **rever + criar** separador, reveja as definições, corrija os erros de validação e, em seguida, selecione **criar**.
 9. Aguarde até a criação da máquina virtual concluir antes de continuar.
 
 ### <a name="install-iis-for-testing"></a>Instalar o IIS para fins de teste
 
-Neste exemplo, podemos são instalar o IIS nas máquinas virtuais apenas para efeitos de verificar o que Azure foi criado o gateway de aplicação com êxito. 
+Neste exemplo, instalar o IIS nas máquinas virtuais apenas para verificar o que Azure foi criado o gateway de aplicação com êxito.
 
 1. Open [do Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para tal, selecione **Cloud Shell** na barra de navegação superior do portal do Azure e, em seguida, selecione **PowerShell** na lista pendente. 
 
@@ -161,10 +163,9 @@ Neste exemplo, podemos são instalar o IIS nas máquinas virtuais apenas para ef
 
 Embora o IIS não é necessário para criar o gateway de aplicação, a instalou neste início rápido para verificar se o Azure criada com êxito o gateway de aplicação. Utilize o IIS para testar o gateway de aplicação:
 
-1. Encontrar o endereço IP público para o gateway de aplicação na respetiva **descrição geral** página.![ Registar o endereço IP público do application gateway](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)em alternativa, pode selecionar **todos os recursos**, introduza *myAGPublicIPAddress* na pesquisa caixa e, em seguida, selecione-o na pesquisa resultados. Azure mostra o endereço IP público na **descrição geral** página.
+1. Encontrar o endereço IP público para o gateway de aplicação na respetiva **descrição geral** página.![ Registar o endereço IP público do application gateway](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png) alternativa, pode selecionar **todos os recursos**, introduza *myAGPublicIPAddress* na pesquisa caixa e, em seguida, selecione-o nos resultados da pesquisa. Azure mostra o endereço IP público na **descrição geral** página.
 2. Copie o endereço IP público e cole-o na barra de endereço do browser.
-3. Verifique a resposta. Uma resposta válida verifica se o gateway de aplicação foi criado com êxito e é capaz de ligar com êxito com o back-end.![Testar o gateway de aplicação](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
-
+3. Verifique a resposta. Uma resposta válida verifica se o gateway de aplicação foi criado com êxito e de que consegue ligar com êxito com o back-end.![Testar o gateway de aplicação](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

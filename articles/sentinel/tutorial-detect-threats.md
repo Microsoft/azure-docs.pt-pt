@@ -4,7 +4,7 @@ description: Utilize este tutorial para saber como investigar alertas com sentin
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: b5fbc5ac-68b2-4024-9c1b-bd3cc41a66d0
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 319ec5d09a6daddb5c1fc36f680ee6d0d856e337
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614825"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205434"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Tutorial: Detete ameaças com a pré-visualização de sentinela do Azure
 

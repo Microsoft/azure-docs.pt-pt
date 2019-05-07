@@ -5,7 +5,7 @@ services: asc-for-iot
 ms.service: ascforiot
 documentationcenter: na
 author: mlottner
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 670e6d2b-e168-4b14-a9bf-51a33c2a9aad
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: mlottner
-ms.openlocfilehash: 0236050ffcf7ad1d18ff3a8a763d0469d91eeeb5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919884"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192481"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Início rápido: Ativar o serviço no IoT Hub
 

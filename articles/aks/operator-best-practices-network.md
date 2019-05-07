@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 2bdc18ba4dc77178d5fcc5d2ba6d89aa109d923c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: HT
+ms.openlocfilehash: b26af87de8a09f987d69f0441a817638e626b4af
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074147"
+ms.locfileid: "65192224"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade de rede e segurança no Azure Kubernetes Service (AKS)
 
@@ -47,7 +47,7 @@ Quando utiliza o sistema de rede do Azure CNI, o recurso de rede virtual está n
 
 Para obter mais informações sobre a delegação de principal de serviço do AKS, consulte [delegar o acesso a outros recursos do Azure][sp-delegation].
 
-À medida que cada nó e o pod receber o seu próprio endereço IP, planear os intervalos de endereços para as sub-redes AKS. A sub-rede tem de ser suficientemente grande para fornecer endereços IP para cada nó, os pods e recursos de rede que implementar. Cada cluster do AKS deve ser colocado na sua própria sub-rede. Para permitir a conetividade no local ou em modo de peering de redes no Azure, não utilize os intervalos de endereços IP que se sobreponha com recursos de rede existentes. Existem limites predefinidos para o número de pods que cada nó é executado com kubenet e funcionamento em rede do Azure CNI. Para lidar com escala a eventos ou atualizações de cluster, também terá de endereços IP adicionais disponíveis para utilização na sub-rede atribuída. Este espaço de endereços adicional é especialmente importante se usar contentores do Windows Server (atualmente em pré-visualização no AKS), como esses conjuntos de nós exigem uma atualização para aplicar os patches de segurança mais recentes. Para obter mais informações em nós do Windows Server, consulte [atualizar um conjunto de nós no AKS][nodepool-upgrade].
+À medida que cada nó e o pod receber o seu próprio endereço IP, planear os intervalos de endereços para as sub-redes AKS. A sub-rede tem de ser suficientemente grande para fornecer endereços IP para cada nó, os pods e recursos de rede que implementar. Cada cluster do AKS deve ser colocado na sua própria sub-rede. Para permitir a conetividade no local ou em modo de peering de redes no Azure, não utilize os intervalos de endereços IP que se sobreponha com recursos de rede existentes. Existem limites predefinidos para o número de pods que cada nó é executado com kubenet e funcionamento em rede do Azure CNI. Para lidar com escala a eventos ou atualizações de cluster, também terá de endereços IP adicionais disponíveis para utilização na sub-rede atribuída.
 
 Para calcular o endereço IP necessário, veja [CNI do Azure de configurar o funcionamento em rede no AKS][advanced-networking].
 
@@ -101,8 +101,6 @@ spec:
 
 Um controlador de entrada é um daemon que é executada num nó AKS e monitoriza os pedidos recebidos. Em seguida, o tráfego é distribuído com base em regras definidas no recurso da entrada a pedido. O controlador de entrada mais comum se baseia [NGINX]. AKS não o restringe a um controlador específico, pelo que pode utilizar outros controladores, como [Contour][contour], [HAProxy][haproxy], ou [ Traefik][traefik].
 
-Controladores de entrada deverá ser programadas num nó de Linux. Nós do Windows Server (atualmente em pré-visualização no AKS) não deve ser executado o controlador de entrada. Utilize um Seletor de nó no seu manifesto YAML ou implementação de gráfico Helm para indicar que o recurso deve ser executada num nó baseado em Linux. Para obter mais informações, consulte [utilize seletores de nó para controlar onde os pods são agendadas no AKS][concepts-node-selectors].
-
 Existem muitos cenários de entrada, incluindo os seguintes guias de procedimentos:
 
 * [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
@@ -128,7 +126,7 @@ Recursos de entrada ou de Balanceador de carga continuam a executar no cluster d
 
 Política de rede é uma funcionalidade de Kubernetes, que permite-lhe controlar o fluxo de tráfego entre os pods. Pode optar por permitir ou negar o tráfego com base em etiquetas de definições de atribuídas como, espaço de nomes ou porta de tráfego. O uso de diretivas de rede fornece uma forma de nativas da cloud para controlar o fluxo de tráfego. À medida pods são criados dinamicamente num cluster do AKS, as políticas de rede necessária podem ser aplicadas automaticamente. Não utilize grupos de segurança de rede do Azure para controlar o tráfego de pod de pod, utilize políticas de rede.
 
-Para utilizar a política de rede, a funcionalidade tem de estar ativada ao criar um cluster do AKS. Não é possível ativar a política de rede num cluster do AKS existente. Planeie com antecedência para se certificar de que ativar política de rede em clusters e pode utilizá-las conforme necessário. Política de rede só deve ser utilizada para nós baseado em Linux e pods no AKS.
+Para utilizar a política de rede, a funcionalidade tem de estar ativada ao criar um cluster do AKS. Não é possível ativar a política de rede num cluster do AKS existente. Planeie com antecedência para se certificar de que ativar política de rede em clusters e pode utilizá-las conforme necessário.
 
 É criada uma política de rede como um recurso de Kubernetes com um manifesto YAML. As políticas são aplicadas para pods definidos e, em seguida, as regras de entrada ou saída definem a forma como o tráfego pode fluir. O exemplo seguinte aplica-se uma política de rede a pods com o *aplicação: back-end* etiqueta aplicada aos mesmos. A regra de entrada, em seguida, permite apenas tráfego de pods com o *aplicação: front-end* etiqueta:
 
@@ -188,5 +186,3 @@ Este artigo concentra-se em segurança e conectividade de rede. Para obter mais 
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
-[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
-[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

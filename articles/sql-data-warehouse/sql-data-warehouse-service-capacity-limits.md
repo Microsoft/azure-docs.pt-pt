@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: b37f16ab914fe4062bc9720ae9cc0139c573fb93
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154284"
+ms.locfileid: "65204900"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
@@ -25,7 +25,7 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 |:--- |:--- |:--- |
 | [Unidades do Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Máx. de DWU para um único armazém de dados SQL | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades do Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Padrão DTU por servidor |54,000<br></br>Por predefinição, cada SQL server (por exemplo, myserver.database.windows.net) tem uma Quota de DTU de 54,000, que permite até DW6000c. Esta quota é apenas um limite de segurança. Pode aumentar a quota por [criar um pedido de suporte](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *Quota* como o tipo de pedido.  Para calcular a DTU necessidades, multiplique 7,5 pelo total que necessário DWU ou multiplicar 9.0 pelo cDWU total necessário. Por exemplo:<br></br>DW6000 x 7.5 = 45.000 DTUs<br></br>DW6000c x 9.0 = 54,000 DTUs.<br></br>Pode ver o consumo de DTU atual da opção de servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
-| Ligação à base de dados |Máxima simultâneas abra sessões |1024<br/><br/>O número de sessões abertas em simultâneo irá variar consoante a DWU selecionada. DWU500c e acima suporte um máximo de 1024 abra sessões. DWU400c e abaixo dar suporte a um limite de sessão aberta de em simultâneo máximo de 512. Tenha em atenção que existem limites no número de consultas que podem executar em simultâneo. Quando o limite de simultaneidade for excedido, o pedido vai para uma fila interna em que ele espera para serem processados. |
+| Ligação à base de dados |Máxima simultâneas abra sessões |1024<br/><br/>O número de sessões abertas em simultâneo irá variar consoante a DWU selecionada. DWU600c e acima suporte um máximo de 1024 abra sessões. DWU500c e abaixo dar suporte a um limite de sessão aberta de em simultâneo máximo de 512. Tenha em atenção que existem limites no número de consultas que podem executar em simultâneo. Quando o limite de simultaneidade for excedido, o pedido vai para uma fila interna em que ele espera para serem processados. |
 | Ligação à base de dados |Memória máxima para instruções preparadas |20 MB |
 | [Gestão de cargas de trabalho](resource-classes-for-workload-management.md) |Consultas em simultâneo máximas |128<br/><br/> O SQL Data Warehouse pode executar um máximo de 128 consultas em simultâneo e filas restantes consultas.<br/><br/>O número de consultas em simultâneo pode diminuir quando os utilizadores são atribuídos aos mais classes de recursos ou quando o SQL Data Warehouse tem um inferior [unidade do armazém de dados](memory-and-concurrency-limits.md) definição. Algumas consultas, como consultas DMV, sempre têm permissão para executar e fazer não afeta o limite de consulta em simultâneo. Para obter mais detalhes sobre a execução de consultas em simultâneo, consulte a [valores máximos de simultaneidade](memory-and-concurrency-limits.md#concurrency-maximums) artigo. |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |GB máximo |GB, 399 por DW100. Por isso em DWU1000, tempdb é ajustado para 3.99 TB. |

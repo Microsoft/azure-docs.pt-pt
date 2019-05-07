@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 4b3fa69156146037ff59a41eab8c8373f6e01dc4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 65a861c647c2dc92e416fa356075821aa5060042
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029119"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205041"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Criar e registar os conjuntos de dados do Azure Machine Learning (pré-visualização)
 
@@ -44,7 +44,7 @@ Carregar ficheiros do seu computador local, especificando o caminho de ficheiro 
 * Inferindo e conversão de tipos de dados de coluna.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 
 dataset = Dataset.auto_read_files('./data/crime.csv')
 ```
@@ -60,7 +60,9 @@ Para criar conjuntos de dados a partir de um arquivo de dados do Azure, certifiq
 * Importar os [ `Workspace` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) e [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) e `Dataset` pacotes do SDK.
 
 ```Python
-from azureml.core import Workspace, Datastore, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.datastore import Datastore
+from azureml.core.dataset import Dataset
 
 datastore_name = 'your datastore name'
 
@@ -74,7 +76,7 @@ workspace = Workspace.from_config()
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Utilize o `from_delimited_files()` método para leitura de arquivos delimitados e criar conjuntos de dados na memória.
+Utilize o `from_delimited_files()` método de leitura de arquivos delimitados e criar um conjunto de dados de anular o registo.
 
 ```Python
 # create an in-memory Dataset on your local machine
@@ -98,23 +100,22 @@ dataset.head(5)
 Utilize o [ `register()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) método para registar os conjuntos de dados à sua área de trabalho para compartilhar e reutilizar dentro da sua organização e entre várias experiências.
 
 ```Python
-dataset = dataset.register(workspace = 'workspace_name',
-                           name = "dataset_crime",
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
+
                            description = 'Training data',
                            exist_ok = False
                            )
 ```
 
 >[!NOTE]
-> A definição de parâmetro padrão para `register()` é ' exist_ok = False'. Resultados de um erro se tentar registar um conjunto de dados com o mesmo nome sem alterar esta definição.
+> A definição de parâmetro de predefinida `register()` é `exist_ok = False`. Resultados de um erro se tentar registar um conjunto de dados com o mesmo nome sem alterar esta definição.
 
-O `register()` método atualiza a definição de um conjunto de dados já registado com a definição de parâmetro, `exist_ok = True`.
+O `register()` método retorna o conjunto de dados já registado com a definição de parâmetro, `exist_ok = True`.
 
 ```Python
-dataset = dataset.register(workspace = workspace_name,
-                           name = "dataset_crime",
-                           description = 'Training data',
-                           exist_ok = True)
+dataset = dataset.register(workspace = workspace,
+                           name = 'dataset_crime',
 ```
 
 Utilize `list()` para ver todos os conjuntos de dados registados na sua área de trabalho.
@@ -137,7 +138,7 @@ Conjuntos de dados registados estão acessíveis e consumível localmente, remot
 ```Python
 workspace = Workspace.from_config()
 
-dataset = workspace.Datasets['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

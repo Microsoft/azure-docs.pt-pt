@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5d4be0bf52fd925e22e40e98258082304a25a111
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148761"
+ms.locfileid: "65191730"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
@@ -101,4 +101,7 @@ $job.State
 ```
 
 > [!NOTE]
-> Terá de aguardar que a versão da imagem concluir completamente a ser criada e replicadas antes de poder utilizar a mesma imagem gerida para criar outra versão da imagem.
+> Terá de aguardar que a versão da imagem concluir completamente a ser criada e replicadas antes de poder utilizar a mesma imagem gerida para criar outra versão da imagem. 
+>
+> Pode também armazenar sua versão de imagem na [armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `-StorageAccountType Standard_ZRS` ao criar a versão da imagem.
+>

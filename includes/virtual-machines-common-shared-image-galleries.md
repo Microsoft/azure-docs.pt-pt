@@ -5,22 +5,21 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: fd1dd1f8af8fee9b1fecb05405381dba879facde
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149791"
+ms.locfileid: "65192375"
 ---
 Galeria de imagens partilhado é um serviço que ajuda a criar a estrutura e a organização em torno de suas imagens VM geridas personalizadas. Forneça a galerias de imagem partilhada:
 
 - Gerenciado os replicação global de imagens.
 - Controle de versão e o agrupamento de imagens para uma gestão mais fácil.
-- Limites de dimensionamento superior. Imagens personalizadas permitem 600 VMs em simultâneo, enquanto galerias de imagem partilhado permitem para VMs em simultâneo de 1000.
-- Imagens de elevada disponibilidade com armazenamento com redundância de zona. Mesmo que um centro de dados fica inativo, terá acesso às imagens nessa região.
+- Tornar suas imagens de elevada disponibilidade com contas de armazenamento com redundância de zona (ZRS) em regiões que suportam as zonas de disponibilidade. O ZRS oferece uma maior resiliência contra falhas zonais.
 - Partilha entre subscrições e até mesmo entre inquilinos, utilizando o RBAC.
 
 Utilizar uma galeria de imagens partilhado pode partilhar suas imagens para diferentes utilizadores, principais de serviço ou grupos do AD na sua organização. Imagens partilhadas podem ser replicadas para várias regiões, mais rápido dimensionamento das suas implementações.
@@ -92,12 +91,10 @@ Regiões de origem estão listados na tabela abaixo. Todas as regiões públicas
 
 ## <a name="limits"></a>Limits 
 
-Com imagens gerenciadas pelo, só pode ter 600 VMs em simultâneo por imagem, com galerias de imagem partilhada, isso é aumentou para 1000 VMs em simultâneo por versão da imagem.
-
 Existem limites, por subscrição, para implementar recursos através de galerias de imagem partilhada:
-- 10 galerias de imagem partilhada, por subscrição, por região
-- 200 definições de imagem, por subscrição, por região
-- versões de imagem de 2000, por subscrição, por região
+- 100 galerias de imagem partilhada, por subscrição, por região
+- 1000 definições de imagem, por subscrição, por região
+- 10 000 versões de imagem, por subscrição, por região
 
 Para obter mais informações, consulte [verificar a utilização de recursos em relação a limites](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obter exemplos sobre como verificar a sua utilização atual.
  

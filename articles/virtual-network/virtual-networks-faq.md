@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 25c71019227c52bf0c1530dcdf655fc7575d8032
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148529"
+ms.locfileid: "65205724"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -67,7 +67,7 @@ Sim. Para obter mais informações sobre intervalos de endereços IP públicos, 
 Sim. Ver [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereços de sub-rede não podem sobrepor um do outro.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existem restrições sobre como utilizar endereços IP dentro destas sub-redes?
-Sim. O Azure reserva alguns endereços IP em cada sub-rede. Os endereços IP do próprio e apelidos de cada sub-rede estão reservados para conformidade com o protocolo, juntamente com os endereços de x.x.x.1 x.x.x.3 de cada sub-rede, que são utilizadas para serviços do Azure.
+Sim. O Azure reserva cinco endereços IP em cada sub-rede. Os endereços IP do próprio e apelidos de cada sub-rede estão reservados para conformidade com o protocolo, juntamente com os endereços de x.x.x.1 x.x.x.3 de cada sub-rede, que são utilizadas para serviços do Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Como pequenos e grandes como podem ser VNets e sub-redes?
 A sub-rede menor suportada é /29, sendo o maior /8 (através de definições de sub-rede CIDR).
@@ -231,7 +231,7 @@ Sim. Saiba mais sobre como utilizar:
 VNet peering (ou peering da rede virtual) permite-lhe ligar redes virtuais. Uma ligação VNet peering entre redes virtuais permite-lhe encaminhar tráfego entre as mesmas em privado por meio de endereços IPv4. Máquinas virtuais nas VNets em modo de peering podem comunicar entre si, como se fossem dentro da mesma rede. Nestas redes virtuais podem estar na mesma região ou em diferentes regiões (também conhecido como Global VNet Peering). Também é possível criar ligações de VNet peering entre subscrições do Azure.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Pode criar uma ligação de peering para uma VNet numa região diferente?
-Sim. Global VNet peering permite-lhe configurar o peering entre VNets em diferentes regiões. Global VNet peering está disponível em todas as regiões públicas do Azure e regiões de cloud da China. Não é possível globalmente emparelhamento de regiões públicas do Azure para as regiões de cloud nacional. Global peering não está atualmente disponível na cloud do Governo.
+Sim. Global VNet peering permite-lhe configurar o peering entre VNets em diferentes regiões. Global VNet peering está disponível em todas as regiões públicas do Azure, regiões da cloud na China e regiões de cloud do Governo. Não é possível globalmente emparelhamento de regiões públicas do Azure para as regiões de cloud nacional.
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>Quais são as restrições relacionadas com a Global VNet Peering e Balanceadores de carga?
 Se as duas redes virtuais estiverem numa região diferente (Global VNet Peering), é possível ligar a recursos que utilizar o Balanceador de carga básico. Pode ligar a recursos que utilizam o Balanceador de carga Standard.
@@ -241,7 +241,6 @@ Os seguintes recursos utilizam balanceadores de carga básico, que significa que
 - Cache de Redis 
 - Gateway de aplicação (v1) SKU
 - Service Fabric
-- SQL Always on
 - SQL MI
 - Gestão de API
 - Serviço de domínio do Active Directory (ADDS)

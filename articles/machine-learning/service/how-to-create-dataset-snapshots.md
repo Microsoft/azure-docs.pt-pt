@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.date: 05/02/2019
-ms.openlocfilehash: ed10cb259802321769605bc0399a610131ddb174
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029149"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205007"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Comparação de dados e certifique-se a capacidade de reprodução com instantâneos (pré-visualização)
 
-Neste artigo, saiba como criar e gerir instantâneos dos seus [conjuntos de dados do Azure Machine Learning](how-to-create-register-datasets.md) (conjuntos de dados) para que possa capturar ou comparar dados ao longo do tempo. Conjuntos de dados tornam mais fácil de acessar e trabalhar com os seus dados na cloud em vários cenários. 
+Neste artigo, saiba como criar e gerir instantâneos dos seus [conjuntos de dados do Azure Machine Learning](how-to-create-register-datasets.md) (conjuntos de dados) para que possa capturar ou comparar dados ao longo do tempo. Conjuntos de dados tornam mais fácil de acessar e trabalhar com os seus dados na cloud em vários cenários.
 
-**Conjunto de dados instantâneos** armazenar um perfil (estatísticas de resumo) dos dados no momento em que é criado. Pode optar por armazenar também uma cópia dos dados no seu instantâneo para a capacidade de reprodução. 
+**Conjunto de dados instantâneos** armazenar um perfil (estatísticas de resumo) dos dados no momento em que é criado. Pode optar por armazenar também uma cópia dos dados no seu instantâneo para a capacidade de reprodução.
 
 >[!Important]
 > Instantâneos de incorrer em custos de armazenamento. Armazenar uma cópia dos dados no seu instantâneo requer armazenamento ainda mais. Uso [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-) quando já não forem necessários.
@@ -29,9 +29,9 @@ Neste artigo, saiba como criar e gerir instantâneos dos seus [conjuntos de dado
 
 Existem três principais utilizações instantâneos:
 
-+ **Validação de modelo**: Compare o perfil de dados de instantâneos diferentes entre execuções de preparação ou em relação a dados de produção. 
++ **Validação de modelo**: Compare o perfil de dados de instantâneos diferentes entre execuções de preparação ou em relação a dados de produção.
 
-+ **Modelar a capacidade de reprodução**: Reproduza os resultados ao chamar um instantâneo que inclui dados durante o treinamento. 
++ **Modelar a capacidade de reprodução**: Reproduza os resultados ao chamar um instantâneo que inclui dados durante o treinamento.
 
 + **Controlar os dados ao longo do tempo**: Veja como o conjunto de dados evoluiu por [comparando perfis](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#compare-profiles-rhs-dataset-snapshot--include-columns-none--exclude-columns-none--histogram-compare-method--histogramcomparemethod-wasserstein--0--)
   
@@ -41,16 +41,17 @@ Para criar instantâneos de conjunto de dados, terá de um conjunto de dados de 
 
 ## <a name="create-dataset-snapshots"></a>Criar instantâneos de conjunto de dados
 
-Para criar um instantâneo de um conjunto de dados, utilize [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) do SDK do Azure Machine Learning. 
+Para criar um instantâneo de um conjunto de dados, utilize [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) do SDK do Azure Machine Learning.
 
 Por predefinição, o instantâneo armazena o perfil (estatísticas de resumo) dos dados com a versão mais recente [definição de conjunto de dados](how-to-manage-dataset-definitions.md) aplicada. Uma definição de conjunto de dados contém um registro de quaisquer passos de transformação definidos para os dados. É uma excelente forma de fazer a preparação de dados de trabalho reproduzível.
 
-Opcionalmente, também pode incluir uma cópia dos dados no seu instantâneo adicionando `create_data_snapshot = True`.  Estes dados podem ser úteis para a capacidade de reprodução. 
+Opcionalmente, também pode incluir uma cópia dos dados no seu instantâneo adicionando `create_data_snapshot = True`.  Estes dados podem ser úteis para a capacidade de reprodução.
 
 Este exemplo utiliza [crime dados de exemplo](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) e um conjunto de dados chamado `dataset_crime` criadas com o artigo ["Criar e registar os conjuntos de dados"](how-to-create-register-datasets.md).
 
 ```Python
-from azureml.core.dataset import Workspace, Dataset
+from azureml.core.workspace import Workspace
+from azureml.core.dataset import Dataset
 from azureml.data.dataset_snapshot import DatasetSnapshot
 import datetime
 
@@ -58,7 +59,7 @@ import datetime
 workspace = Workspace.from_config()
 
 # get existing, named dataset:
-dataset = workspace.Dataset['dataset_crime']
+dataset = workspace.datasets['dataset_crime']
 
 # assign name to snapshot
 snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
@@ -69,11 +70,10 @@ snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
                                    compute_target = remote_compute_target,
                                    create_data_snapshot = True)
 ```
- 
 
 Uma vez que os instantâneos são criados de forma assíncrona, utilize o [ `wait_for_completion()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) método para monitorizar o processo.
 
-```python
+```Python
 # monitor process every 10 seconds
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 
@@ -102,7 +102,7 @@ Uso [ `dataset.delete_snapshot()` ](https://docs.microsoft.com/python/api/azurem
 
 Para obter um instantâneo existente, utilize [ `get_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
 
-Para obter uma lista de sua guardados instantâneos de um determinado conjunto de dados, utilize [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). 
+Para obter uma lista de sua guardados instantâneos de um determinado conjunto de dados, utilize [ `get_all_snapshots()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--).
 
 ```Python
 # Get named snapshot for this dataset
@@ -141,12 +141,11 @@ Distrito|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24
 Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
 Área de Comunidade|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
 
-
 ### <a name="get-the-data-from-the-snapshot"></a>Obter os dados a partir do instantâneo
 
 Para obter uma cópia dos dados guardados no instantâneo de um conjunto de dados, gerar um pandas DataFrame com o [ `to_pandas_dataframe()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--) método.
 
-Este método falha se uma cópia dos dados não foi pedida durante a criação do instantâneo. 
+Este método falha se uma cópia dos dados não foi pedida durante a criação do instantâneo.
 
 ```Python
 snapshot.to_pandas_dataframe().head(3)
@@ -157,7 +156,6 @@ snapshot.to_pandas_dataframe().head(3)
 0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|ENGANOSA PRÁTICA|ROUBO DE IDENTIDADES FINANCEIRAS AO LONGO DE US $ 300|OUTROS|Falso|Falso|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
 1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|ROUBO|DESDE A CRIAÇÃO|RESIDÊNCIA|Falso|Falso|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
 2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|1154|ENGANOSA PRÁTICA|US $300 DE ROUBO DE IDENTIDADES FINANCEIRAS E, EM|RESIDÊNCIA|Falso|Falso|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

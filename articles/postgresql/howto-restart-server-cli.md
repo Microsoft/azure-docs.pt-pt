@@ -1,19 +1,19 @@
 ---
-title: Reinicie a base de dados do Azure para servidor PostgreSQL com a CLI do Azure
-description: Este artigo descreve como pode reiniciar uma base de dados do Azure para o servidor PostgreSQL com a CLI do Azure
+title: Reiniciar a base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure
+description: Este artigo descreve como pode reiniciar uma base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 3/28/2019
-ms.openlocfilehash: 51b3011c040db8576c13868f9fac26cb1e431515
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 0a7cd815724fcebd6311860576e620eb9273523b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420330"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068984"
 ---
-# <a name="restart-azure-database-for-postgresql-server-using-the-azure-cli"></a>Reinicie a base de dados do Azure para o servidor PostgreSQL com a CLI do Azure
+# <a name="restart-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Reinicie a base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure
 Este tópico descreve como pode reiniciar uma base de dados do Azure para o servidor PostgreSQL. Terá de reiniciar o servidor por motivos de manutenção, o que faz com que uma interrupção curta como o servidor executa a operação.
 
 O reinício do servidor será bloqueado se o serviço está ocupado. Por exemplo, o serviço poderá estar a processar uma operação de pedido anteriormente, como o dimensionamento vCores.

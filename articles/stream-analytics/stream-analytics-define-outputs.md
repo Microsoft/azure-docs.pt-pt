@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9663fb502d9eda4810c54a89a94481b7d00cd43
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3fab76613bb992b29ceeef12cf5f410c5c3b208d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926067"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205538"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 Este artigo descreve os tipos de saídas disponíveis para uma tarefa do Azure Stream Analytics. Saídas permitem-lhe armazenar e guardar os resultados da tarefa do Stream Analytics. Ao utilizar os dados de saída, pode fazer ainda mais análises de negócio e o armazenamento de dados dos seus dados.
@@ -228,7 +228,7 @@ A tabela seguinte lista os nomes de propriedade e suas descrições para a cria�
 | Nome da tabela |Nome da tabela. A tabela é criada, se não existir. |
 | Chave de partição |O nome da coluna de saída que contém a chave de partição. A chave de partição é um identificador exclusivo para a partição dentro de uma tabela que forma a primeira parte da chave primária de uma entidade. É um valor de cadeia de caracteres que pode ser até 1 KB de tamanho. |
 | Chave da fila |O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo de uma entidade dentro de uma partição. Isso constitui a segunda parte da chave primária de uma entidade. A chave de linha é um valor de cadeia de caracteres que pode ser até 1 KB de tamanho. |
-| Tamanho do batch |O número de registos para uma operação em lote. A predefinição (100) é suficiente para a maioria das tarefas. Consulte a [especificação de operação em lote tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar esta definição. |
+| Tamanho do batch |O número de registos para uma operação em lote. A predefinição (100) é suficiente para a maioria das tarefas. Consulte a [especificação de operação em lote tabela](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation) para obter mais detalhes sobre como modificar esta definição. |
 
 ## <a name="service-bus-queues"></a>Filas do Service Bus
 [Filas do Service Bus](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem uma entrega de mensagens FIFO para um ou mais consumidores concorrentes. Normalmente, as mensagens são recebidas e processadas pelos recetores na ordem temporal em que foram adicionados à fila. Cada mensagem é recebida e processada por apenas um consumidor de mensagens.

@@ -4,7 +4,7 @@ description: Saiba como ligar os dados de atividade do Azure ao Azure sentinela.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: d0cc13227bfe02594a57a7fb0ba8ee1cb3383d56
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 67e4bb2d0f308a3f20f0a29ec8b1f2a0d46fc082
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125192"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204344"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Ligue os dados do registo de atividades do Azure
 

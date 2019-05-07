@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: a887d6c69b9fa80f3144434e72a097e80d123a1b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b8ed75863087e077d483c792ac4134a0c3e1eb0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722294"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203645"
 ---
 # <a name="os-patching-for-hdinsight"></a>Sistema operacional a aplicação de patches para HDInsight 
 
@@ -23,29 +23,25 @@ ms.locfileid: "64722294"
 As máquinas virtuais num cluster do HDInsight tem de ser reiniciado, ocasionalmente, para que podem ser instaladas patches de segurança importantes. 
 
 Com a ação de script descrita neste artigo, pode modificar o sistema operacional a agenda de correção da seguinte forma:
-1. Ativar ou desativar reinícios automáticos
-2. Conjunto a frequência dos reinícios (dias entre reinícios)
-3. Definir o dia da semana quando ocorre uma reinicialização
+1. Instalar as atualizações do SO completas ou instalar apenas as atualizações de segurança
+2. Reinicie a VM
 
 > [!NOTE]  
-> Esta ação de script só funciona com clusters do HDInsight baseado em Linux criados após 1 de Agosto de 2016. Patches entrarão em vigor apenas quando as VMs são reiniciadas. 
+> Esta ação de script só funciona com clusters do HDInsight baseado em Linux criados após 1 de Agosto de 2016. Patches entrarão em vigor apenas quando as VMs são reiniciadas. Este script não será aplicado automaticamente as atualizações para todos os ciclos de atualização futura. Execute o script a que cada novas atualizações de tempo têm de ser aplicadas para instalar as atualizações e reinicie a VM.
 
 ## <a name="how-to-use-the-script"></a>Como utilizar o script 
 
 Quando utilizar este script requer as seguintes informações:
-1. A localização do script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv01/os-patching-reboot-config.sh.  HDInsight utiliza este URI para localizar e executar o script em todas as máquinas virtuais no cluster.
+1. A localização do script: https://hdiconfigactions.blob.core.windows.net/linuxospatchingrebootconfigv02/os-patching-reboot-config.sh.  HDInsight utiliza este URI para localizar e executar o script em todas as máquinas virtuais no cluster.
   
-2. Os tipos de nós de cluster que o script é aplicado a: nó principal, workernode, zookeeper. Este script deve ser aplicado a todos os tipos de nó do cluster. Se ele não se aplica a um tipo de nó, em seguida, as máquinas virtuais para esse tipo de nó vão continuar a utilizar a agenda de correções anterior.
+2. Os tipos de nós de cluster que o script é aplicado a: nó principal, workernode, zookeeper. Este script deve ser aplicado a todos os tipos de nó do cluster. Se ele não se aplica a um tipo de nó, em seguida, as máquinas virtuais para esse tipo de nó não serão atualizadas.
 
 
-3.  Parâmetro: Este script aceita três parâmetros numéricos:
+3.  Parâmetro: Este script aceita um parâmetro numérico:
 
     | Parâmetro | Definição |
     | --- | --- |
-    | Ativar/desativar reinícios automáticos |0 ou 1. Um valor de 0 desativa a reinícios automáticos enquanto 1 ativa reinícios automáticos. |
-    | Frequência |7 a 90 (inclusive). O número de dias a aguardar antes de reiniciar as máquinas virtuais para patches que requerem um reinício. |
-    | Dia da semana |1 a 7 (inclusive). Um valor de 1 indica que o reinício deve ocorrer numa segunda-feira e 7 indica um exemplo de Sunday.For, utilizando parâmetros de 2 de 60 1 resulta em automático é reiniciado a cada 60 dias (no máximo) na Terça-feira. |
-    | Persistência |Ao aplicar uma ação de script a um cluster existente, pode marcar o script como persistente. Os scripts persistentes são aplicados quando workernodes novos são adicionados ao cluster através de operações de dimensionamento. |
+    | Atualizações do SO completo de instalação/instalar apenas as atualizações de segurança |0 ou 1. Um valor de 0 instala atualizações de segurança apenas enquanto 1 instala as atualizações do SO completas. Se não for fornecido nenhum parâmetro, que a predefinição é 0. |
 
 > [!NOTE]  
 > Tem de marcar esse script como persistente ao aplicar a um cluster existente. Caso contrário, qualquer novos nós criado por meio de operações de dimensionamento irão utilizar a predefinição de agenda de correções.  Se aplicar o script como parte do processo de criação do cluster, ele é mantido automaticamente.

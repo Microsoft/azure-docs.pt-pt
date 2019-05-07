@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: 0506ef82a00b46bf9be14757f15195bcbf8ab432
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148890"
+ms.locfileid: "65202917"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona 
 
@@ -22,6 +22,8 @@ O novo SKU v2 inclui os seguintes melhoramentos:
 
 - **Dimensionamento automático**: Gateway de aplicação ou WAF as implementações ao abrigo do SKU do dimensionamento automático podem aumentar ou para baixo com base nos padrões de carga do tráfego a alteração. O dimensionamento automático também elimina o requisito de escolher um tamanho de implementação ou uma contagem de instâncias ou durante o aprovisionamento. Este SKU oferece verdadeira elasticidade. Na Standard_v2 e WAF_v2 SKU, o Gateway de aplicação pode operar em capacidade fixa (dimensionamento automático desativada) e no modo de dimensionamento automático ativado. Modo de capacidade fixo é útil para cenários com cargas de trabalho consistentes e previsíveis. Modo de dimensionamento automático é benéfico em aplicativos que veem a variação no tráfego de aplicativo.
 - **Redundância de zona**: Um Gateway de aplicação ou implementação de WAF pode abranger várias zonas de disponibilidade, eliminando a necessidade de aprovisionar instâncias separadas do Gateway de aplicação em cada zona com o Gestor de tráfego. Pode escolher uma zona única ou várias zonas de onde as instâncias de Gateway de aplicação estão implementadas, que torna mais resiliente a falhas de zona. Pode ser distribuído, da mesma forma, o conjunto de back-end para aplicações em zonas de disponibilidade.
+
+  Redundância de zona está disponível apenas em que estão disponíveis as zonas do Azure. Em outras regiões, todas as outras funcionalidades são suportadas. Para obter mais informações, consulte [quais são as zonas de disponibilidade no Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **VIP estático**: Tipo de gateway de aplicação v2 SKU suporta o VIP estático exclusivamente. Isto garante que o VIP associado ao gateway de aplicação não é alterado para o ciclo de vida da implementação, mesmo após um reinício.
 - **Cabeçalho reescrita**: Gateway de aplicação permite-lhe adicionar, remover ou atualizar os cabeçalhos de solicitação e resposta HTTP com o SKU da v2. Para obter mais informações, consulte [cabeçalhos de HTTP de reescrever com Gateway de aplicação](rewrite-http-headers.md)
 - **Integração do Key Vault (pré-visualização)**: V2 do Gateway de aplicação suporta a integração com o Key Vault (em pré-visualização pública) para certificados de servidor que estão anexados a serviços de escuta HTTPS ativado. Para obter mais informações, consulte [terminação de SSL com certificados do Key Vault](key-vault-certs.md).

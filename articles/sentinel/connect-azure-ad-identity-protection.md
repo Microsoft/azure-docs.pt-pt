@@ -4,7 +4,7 @@ description: Saiba como ligar a dados do Azure AD Identity Protection para Azure
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 91c870e5-2669-437f-9896-ee6c7fe1d51d
 ms.service: sentinel
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: d8306056655809c69af2ed39b5bbf8efebe05d3f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10dc31e21f20618450de6d99b3fce40d63272d31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445473"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204378"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Ligar dados a partir do Azure AD Identity Protection
 

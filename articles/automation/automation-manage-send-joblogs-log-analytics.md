@@ -1,6 +1,6 @@
 ---
 title: Reencaminhar dados de tarefa da Automatização do Azure para os registos do Azure Monitor
-description: Este artigo demonstra como enviar estado da tarefa e o runbook fluxos de trabalho para registos do Azure do Azure Monitor para fornecer informações adicionais e gestão.
+description: Este artigo demonstra como enviar estado da tarefa e o runbook fluxos de trabalho para registos do Azure Monitor para fornecer informações adicionais e gestão.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82baef7ce0d91713c8bef202ab0ea0925d290f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8672bc28ea5e8562472408810a38ea0de6778cfd
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739135"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65200634"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reencaminhar o estado da tarefa e fluxos de trabalho de automatização para registos do Azure Monitor
 

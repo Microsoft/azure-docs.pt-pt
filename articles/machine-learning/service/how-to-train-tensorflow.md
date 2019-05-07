@@ -9,151 +9,123 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: cedd45d4142633e48d0d9dd41870f57c16d860c8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c8865c851f394d73b5446ac159b5a7799c0c9ed2
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023847"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192353"
 ---
 # <a name="train-tensorflow-and-keras-models-with-azure-machine-learning-service"></a>Dar formação de TensorFlow e Keras modelos com o serviço Azure Machine Learning
 
-Para aprender de rede neurais profundas (DNN) com o TensorFlow, o Azure Machine Learning fornece um personalizado `TensorFlow` classe do `Estimator`. O Azure SDK [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator (para não ser conflated com o [ `tf.estimator.Estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) classe) permite-lhe submeter facilmente tarefas de formação de TensorFlow para execuções de nó único e distribuídas no Azure computação.
+Pode facilmente executar tarefas de formação de TensorFlow na computação do Azure utilizando o [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) classe estimator no SDK do Azure Machine Learning. O `TensorFlow` estimator direciona o serviço Azure Machine Learning para executar o seu trabalho num contêiner TensorFlow habilitado para treinamento de rede Neural profunda (DNN).
+
+O `TensorFlow` estimator também fornece uma camada de abstração sobre a execução, o que significa que pode configurar facilmente execuções parametrizadas destinos de computação diferentes sem alterar seus scripts de treinamento.
+
+## <a name="getting-started"></a>Introdução
+
+Submeter tarefas com o `TensorFlow` estimator é semelhante à utilização da base de [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py). Portanto, recomendamos que comece por ler o [artigo que mostra como base Estimator](how-to-train-ml-models.md) para compreender os conceitos de abrangente pela primeira vez.
+
+Se pretender começar com o serviço Azure Machine Learning [concluir o guia de introdução](quickstart-run-cloud-notebook.md). Terá um ambiente de trabalho carregá-lo com todos os nossos [blocos de notas de exemplo](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml).
 
 ## <a name="single-node-training"></a>Treinamento de nó único
-Treinamento com o `TensorFlow` estimator é semelhante à utilização do [base `Estimator` ](how-to-train-ml-models.md), leia o artigo que mostra como primeiro e certifique-se de que compreende os conceitos apresentados aqui.
-  
-Para executar uma tarefa do TensorFlow, instanciar um `TensorFlow` objeto. Deverá ter já criado seu [destino de computação](how-to-set-up-training-targets.md#amlcompute) objeto `compute_target`.
+
+Para executar uma tarefa do TensorFlow, instanciar um [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) de objeto e submetê-lo como uma experimentação.
+
+O código a seguir cria uma instância de um estimador de TensorFlow e submete-a como uma experimentação. O script de treinamento `train.py` será executada utilizando os parâmetros de script específico. A tarefa será executada num ativadas para GPU [destino de computação](how-to-set-up-training-targets.md)e scikit-saiba será instalado como uma dependência de `train.py`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# training script parameters passed as command-line arguments
 script_params = {
     '--batch-size': 50,
     '--learning-rate': 0.01,
 }
 
+# TensorFlow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
-                    entry_script='train.py',
-                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
+                    entry_script='train.py', # relative path to your TensorFlow job
+                    conda_packages=['scikit-learn'],
                     use_gpu=True)
-```
 
-Aqui, podemos especificar os parâmetros seguintes para o construtor do TensorFlow:
-
-Parâmetro | Descrição
---|--
-`source_directory` | Diretório de local que contém todos os seus códigos necessários para a tarefa de preparação. Esta pasta é copiada a partir do seu computador local para a computação remota
-`script_params` | Especificar os argumentos da linha de comandos para o script de treinamento de dicionário `entry_script`, na forma de < argumento da linha de comandos, valor > pares.  Para especificar um sinalizador detalhado no `script_params`, utilize `<command-line argument, "">`.
-`compute_target` | Destino de computação remota que o script de treinamento serão executados no, neste caso uma computação do Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
-`entry_script` | Caminho do ficheiro (relativa a `source_directory`) do script de treinamento para ser executado na computação remota. Este ficheiro e todos os arquivos adicionais depende, devem ser localizados na pasta
-`conda_packages` | Lista de pacotes de Python a serem instalados por meio de conda necessário ao seu script de treinamento. Nesse caso, o script de treinamento usa `sklearn` para carregar os dados, pelo que deve especificar esse pacote a ser instalado.  O construtor tem outro parâmetro chamado `pip_packages` que pode utilizar quaisquer pacotes de pip necessário
-`use_gpu` | Definir este sinalizador `True` para tirar partido de GPU para treinamento. Assume a predefinição `False`.
-
-Uma vez que estiver a utilizar o avaliador de TensorFlow, o contentor usado para treinamento usará como padrão incluem o pacote de TensorFlow e dependências relacionadas necessárias para treinamento em CPUs e GPUs.
-
-Em seguida, submeta a tarefa do TensorFlow:
-```Python
+# submit the TensorFlow job
 run = exp.submit(tf_est)
 ```
 
-## <a name="keras-support"></a>Suporte Keras
-[Keras](https://keras.io/) é uma API de Python de DNN de alto nível populares que suporta o TensorFlow, CNTK ou Theano como back-ends. Se usar o TensorFlow como back-end, pode facilmente usar o avaliador de TensFlow para preparar um modelo do Keras. Eis um exemplo de um estimador de TensorFlow com Keras adicionada a ele:
-
-```Python
-from azureml.train.dnn import TensorFlow
-
-keras_est = TensorFlow(source_directory='./my-keras-proj',
-                       script_params=script_params,
-                       compute_target=compute_target,
-                       entry_script='keras_train.py',
-                       pip_packages=['keras'], # just add keras through pip
-                       use_gpu=True)
-```
-O construtor de estimador de TensorFlow acima indica ao serviço Azure Machine Learning para instalar Keras através do pip para o ambiente de execução. E sua `keras_train.py` , em seguida, pode importar a API Keras para preparar um modelo do Keras. Para obter um exemplo completo, explore [este bloco de notas do Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
-
 ## <a name="distributed-training"></a>Formação distribuída
-O avaliador de TensorFlow também permite-lhe preparar seus modelos à escala em clusters GPU e CPU de VMs do Azure. Pode facilmente executar formação de TensorFlow distribuída com algumas chamadas de API, enquanto o Azure Machine Learning gerenciará em segundo plano, a infraestrutura e o necessário para executar estas cargas de trabalho de orquestração.
 
-O Azure Machine Learning suporta dois métodos de formação distribuída no TensorFlow:
-* Com base em MPI distribuídas de treinamento com o [Horovod](https://github.com/uber/horovod) framework
-* nativo [distribuídas do TensorFlow](https://www.tensorflow.org/deploy/distributed) por meio do método de servidor de parâmetro
+O [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator também suporta a formação distribuída em clusters GPU e CPU. Pode facilmente executar tarefas de TensorFlow distribuídas e o serviço Azure Machine Learning irão gerir a infraestrutura e orquestração para.
+
+O serviço de Machine Learning do Azure suporta dois métodos de formação distribuída no TensorFlow:
+
+* [Com base em MPI](https://www.open-mpi.org/) distribuído treinamento usando o [Horovod](https://github.com/uber/horovod) framework
+* Nativo [distribuídas do TensorFlow](https://www.tensorflow.org/deploy/distributed) usando o método de servidor de parâmetro
 
 ### <a name="horovod"></a>Horovod
-[Horovod](https://github.com/uber/horovod) é uma arquitetura de código-fonte aberto em anel-allreduce para treinamento distribuído desenvolvidos por Uber.
 
-Para executar o TensorFlow distribuída com o framework Horovod, crie o objeto do TensorFlow da seguinte forma:
+[Horovod](https://github.com/uber/horovod) é uma arquitetura de código-fonte aberto para treinamento distribuído desenvolvidos por Uber. Ele oferece uma forma fácil de tarefas de GPU TensorFlow distribuídas.
+
+O exemplo a seguir executa uma tarefa distribuídas com Horovod com duas funções de trabalho distribuídas entre dois nós.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# Tensorflow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params={},
                     compute_target=compute_target,
-                    entry_script='train.py',
+                    entry_script='train.py', # relative path to your TensorFlow job
                     node_count=2,
                     process_count_per_node=1,
-                    distributed_backend='mpi',
+                    distributed_backend='mpi', # specifies Horovod backend
                     use_gpu=True)
+
+# submit the TensorFlow job
+run = exp.submit(tf_est)
 ```
 
-O código acima expõe os seguintes novos parâmetros para o construtor do TensorFlow:
-
-Parâmetro | Descrição | Predefinição
---|--|--
-`node_count` | Número de nós a utilizar para a tarefa de preparação. | `1`
-`process_count_per_node` | Número de processos (ou "funcionários") para executar em cada nó.|`1`
-`distributed_backend` | Back-end para iniciar distribuído treinamento, o que o avaliador de oferece por meio de MPI. Se deseja realizar treinamento paralelo ou distribuído (por exemplo, `node_count`> 1 ou `process_count_per_node`> 1 ou ambos) com MPI (e Horovod), defina `distributed_backend='mpi'`. A implementação de MPI utilizada pelo Azure Machine Learning é [MPI aberto](https://www.open-mpi.org/). | `None`
-
-O exemplo acima executará formação distribuída com duas funções de trabalho, um operador por nó.
-
-Horovod e as respetivas dependências serão instaladas para, portanto, pode importá-lo no seu script de treinamento `train.py` da seguinte forma:
+Horovod e as respetivas dependências serão instaladas para, portanto, pode importá-lo no seu script de treinamento.
 
 ```Python
 import tensorflow as tf
 import horovod
 ```
 
-Por fim, submeta a tarefa do TensorFlow:
-```Python
-run = exp.submit(tf_est)
-```
-
 ### <a name="parameter-server"></a>Servidor de parâmetros
+
 Também pode executar [nativo distribuído TensorFlow](https://www.tensorflow.org/deploy/distributed), que utiliza o modelo de parâmetro de servidor. Nesse método, Treine num cluster de servidores de parâmetro e funções de trabalho. Os operadores de calculam os gradientes durante o treinamento, enquanto os servidores de parâmetro agregam os gradientes.
 
-Construa o objeto do TensorFlow:
+O exemplo a seguir executa uma tarefa de preparação distribuído usando o método de servidor de parâmetro com quatro funções de trabalho distribuídas entre dois nós.
 
 ```Python
 from azureml.train.dnn import TensorFlow
 
+# Tensorflow constructor
 tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params={},
                     compute_target=compute_target,
-                    entry_script='train.py',
+                    entry_script='train.py', # relative path to your TensorFlow job
                     node_count=2,
                     worker_count=2,
                     parameter_server_count=1,
-                    distributed_backend='ps',
+                    distributed_backend='ps', # specifies parameter server backend
                     use_gpu=True)
+
+# submit the TensorFlow job
+run = exp.submit(tf_est)
 ```
 
-Preste atenção para os parâmetros seguintes para o construtor do TensorFlow no código anterior:
-
-Parâmetro | Descrição | Predefinição
---|--|--
-`worker_count` | Número de workers. | `1`
-`parameter_server_count` | Número de servidores de parâmetro. | `1`
-`distributed_backend` | Back-end a utilizar para formação distribuída. Para fazer o treinamento distribuído por meio do servidor de parâmetros, defina `distributed_backend='ps'` | `None`
-
 #### <a name="note-on-tfconfig"></a>Tenha em atenção no `TF_CONFIG`
-Também terá dos endereços de rede e portas do cluster para o [ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), por isso, o Azure Machine Learning define o `TF_CONFIG` variável de ambiente para.
+
+Também precisará os endereços de rede e portas do cluster para o [ `tf.train.ClusterSpec` ](https://www.tensorflow.org/api_docs/python/tf/train/ClusterSpec), por isso, o Azure Machine Learning define o `TF_CONFIG` variável de ambiente para.
 
 O `TF_CONFIG` variável de ambiente é uma cadeia de caracteres do JSON. Eis um exemplo da variável para um servidor de parâmetro:
+
 ```
 TF_CONFIG='{
     "cluster": {
@@ -165,9 +137,9 @@ TF_CONFIG='{
 }'
 ```
 
-Se estiver a utilizar o nível mais alto do TensorFlow [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow analisar isso `TF_CONFIG` variável e o cluster de compilação especificar para. 
+Para o nível mais alto do TensorFlow [ `tf.estimator` ](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow analisar isso `TF_CONFIG` variável e o cluster de compilação especificar para.
 
-Se estiver a utilizar em vez disso, APIs de principais de nível inferior do TensorFlow para treinamento, deve analisar os `TF_CONFIG` variável e compilação o `tf.train.ClusterSpec` -se no seu código de treinamento. Na [neste exemplo](https://aka.ms/aml-notebook-tf-ps), faria, neste **seu script de treinamento** da seguinte forma:
+Para nível inferior APIs centrais do TensorFlow para treinamento, analisar o `TF_CONFIG` variável e compilação o `tf.train.ClusterSpec` em seu código de treinamento. Na [neste exemplo](https://aka.ms/aml-notebook-tf-ps), faria, neste **seu script de treinamento** da seguinte forma:
 
 ```Python
 import os, json
@@ -181,9 +153,21 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-Quando terminar de escrever o script de treinamento e criar o objeto do TensorFlow, pode submeter a tarefa de preparação:
+## <a name="keras-support"></a>Suporte Keras
+
+[Keras](https://keras.io/) é um popular de alto nível DNN Python API que suporta o TensorFlow, CNTK e Theano como back-ends. Se estiver a utilizar o TensorFlow como back-end, a adição de Keras é tão simples quanto incluindo um `pip_package` parâmetro de construtor.
+
+O exemplo seguinte cria um [ `TensorFlow` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator e submete-a como uma experimentação. O avaliador de executa o script de treinamento do Keras `keras_train.py`. A tarefa será executada num ativadas para gpu [destino de computação](how-to-set-up-training-targets.md) com Keras instalado como uma dependência através do pip.
+
 ```Python
-run = exp.submit(tf_est)
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py', # relative path to your TensorFlow job
+                       pip_packages=['keras'], # add keras through pip
+                       use_gpu=True)
 ```
 
 ## <a name="export-to-onnx"></a>Exportar para ONNX
@@ -192,11 +176,10 @@ Para obter inferência otimizada com o [ONNX Runtime](concept-onnx.md), pode con
 
 ## <a name="examples"></a>Exemplos
 
-Explore várias [blocos de notas na aprendizagem profunda distribuída no Github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+Pode encontrar exemplos de código de trabalho para o nó único e distribuídas execuções de TensorFlow com diversas estruturas no [nossa página do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning).
 
 ## <a name="next-steps"></a>Passos Seguintes
+
 * [Executar a métrica durante o treinamento do Roteiro](how-to-track-experiments.md)
 * [Otimizar hiperparâmetros](how-to-tune-hyperparameters.md)
 * [Implementar um modelo preparado](how-to-deploy-and-where.md)

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 987cd1e5860b0fe340ba8a5163d844bec29b541c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637736"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205109"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -264,7 +264,7 @@ Para criar um recurso de disco partilhado para um cluster:
 2. Execute o SIOS DataKeeper Cluster Edition em ambos os nós de máquina virtual.
 3. Configure o SIOS DataKeeper Cluster Edition, para que ele Espelha o conteúdo do volume de disco adicionais ligado da máquina virtual de origem para o volume de disco adicionais ligado de máquina virtual de destino. O SIOS DataKeeper abstrai os volumes de locais de origem e de destino e, em seguida, apresenta ao cluster como um disco partilhado de failover do Windows Server.
 
-Obtenha mais informações sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Obtenha mais informações sobre [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Figura 5: A configuração no Azure com o SIOS DataKeeper de clustering de ativação pós-falha do Windows Server][sap-ha-guide-figure-1002]
 

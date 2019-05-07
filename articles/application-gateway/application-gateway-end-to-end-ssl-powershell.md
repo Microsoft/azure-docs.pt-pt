@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59269355"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65198566"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurar SSL ponto a ponto com o Gateway de aplicação com o PowerShell
 
@@ -174,7 +174,7 @@ Todos os itens de configuração são definidos antes de criar o gateway de apli
    ```
 
    > [!NOTE]
-   > O certificado fornecido neste passo deve ser a chave pública do certificado. pfx presente no back-end. Exportar o certificado (não o certificado de raiz) instalado no servidor de back-end no formato de afirmação, evidência e Raciocinando (CER) e utilizá-lo neste passo. Este passo coloca o back-end com o gateway de aplicação.
+   > O certificado fornecido no passo anterior deve ser a chave pública do certificado. pfx presente no back-end. Exportar o certificado (não o certificado de raiz) instalado no servidor de back-end no formato de afirmação, evidência e Raciocinando (CER) e utilizá-lo neste passo. Este passo coloca o back-end com o gateway de aplicação.
 
    Se estiver a utilizar o SKU do Gateway de aplicação v2, em seguida, crie um certificado de raiz fidedigna em vez de um certificado de autenticação. Para obter mais informações, consulte [descrição geral do SSL ponto a ponto com o Gateway de aplicação](ssl-overview.md#end-to-end-ssl-with-the-v2-sku):
 

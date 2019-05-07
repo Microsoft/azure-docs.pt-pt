@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/26/2019
+ms.date: 06/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 688bcc02b14d101008afc76662fd6548446cb329
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870286"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205705"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Definir e configurar a integração de relatório de custos do AWS e utilização
 
 Com a integração de relatório de utilização e custo do Amazon Web Services, pode monitorizar e controlar os gastos de AWS no Azure Cost Management. A integração permite que uma única localização no portal do Azure onde pode monitorizar e controle de gastos do Azure e AWS. Este artigo explica como configurar a integração e configurá-la para que usar recursos de gestão de custos para analisar os custos e orçamentos de rever.
 
-Gestão de custos lê o relatório de custos do AWS e utilização armazenado no registo de S3 utilizando suas credenciais de acesso do AWS para obter definições de relatórios e transferir ficheiros CSV de GZIP de relatório.
+Processos de gestão de custos o relatório de custos do AWS e utilização armazenado no registo de S3 utilizando suas credenciais de acesso do AWS para obter definições de relatórios e transferir ficheiros CSV de GZIP de relatório.
 
 ## <a name="create-a-cost-and-usage-report-in-aws"></a>Criar um relatório de custo e a utilização no AWS
 
@@ -45,13 +45,15 @@ Utilize o **relatórios** página da consola de faturação e gestão de custos 
 14. Após ter examinado as definições para o relatório, clique em **revisão e concluída**.
     Tenha em atenção a **nome do relatório**. Irá utilizá-lo em passos posteriores.
 
-Pode demorar até 24 horas para AWS começar a entrega de relatórios para o bucket do Amazon S3. Após a entrega é iniciado, o AWS atualiza os ficheiros de relatório de custos do AWS e utilização, pelo menos, uma vez por dia.
+Pode demorar até 24 horas para AWS começar a entrega de relatórios para o bucket do Amazon S3. Após a entrega é iniciado, o AWS atualiza os ficheiros de relatório de custos do AWS e utilização, pelo menos, uma vez por dia. Pode continuar a configurar o seu ambiente de AWS sem esperar pela entrega iniciar.
 
 ## <a name="create-a-role-and-policy-in-aws"></a>Criar uma função e a política no AWS
 
 O Azure Cost Management acessa o registo de S3 onde o relatório de custo e a utilização se encontra várias vezes ao dia. Gestão de custos tem acesso às credenciais para verificar a existência de novos dados. Criar uma função e a política no AWS para permitir o acesso ao Cost Management.
 
 Para ativar o acesso baseado em funções para uma conta AWS no Azure Cost Management, a função é criada na consola do AWS. Tem de ter o _função ARN_ e _ID externo_ a partir da consola do AWS. Mais tarde, utilizá-los o criar uma página de conector AWS no Azure Cost Management.
+
+Utilize o criar um novo Assistente de função:
 
 1. Início de sessão para a consola do AWS e selecione **serviços**.
 2. Na lista de serviços, selecione **IAM**.
@@ -64,30 +66,42 @@ Para ativar o acesso baseado em funções para uma conta AWS no Azure Cost Manag
 8. Clique em **seguinte: Permissões**.
 9. Clique em **criar política**. Um novo separador do browser é aberto em que cria uma nova política.
 10. Clique em **escolher um serviço**.
-11. Tipo **custo e o relatório de utilização**.
-12. Selecione **nível de acesso**, **leitura** > **DescribeReportDefinitions**. Isso permite a que gestão de custos, leia o que repetir relatórios são definidos e determinar se eles correspondem o pré-requisito de definição de relatório.
-13. Clique em **adicionar permissões adicionais**.
-14. Clique em **escolher um serviço**.
-15. Tipo _S3_.
-16. Selecione **nível de acesso**, **lista** > **ListBucket**. Esta ação obtém a lista de objetos no registo de S3.
-17. Selecione **nível de acesso**, **leitura** > **GetObject**. Esta ação permite a transferência dos ficheiros de faturação.
-18. Selecione **recursos**.
-19. Selecione **bucket – adicionar ARN**.
-20. Na **nome do Bucket**, introduza o registo utilizado para armazenar os ficheiros ATUAIS.
-21. Selecione **objeto – adicionar ARN**.
-22. Na **nome do Bucket**, introduza o registo utilizado para armazenar os ficheiros ATUAIS.
-23. Na **nome do objeto**, selecione **qualquer**.
-24. Clique em **adicionar permissões adicionais**.
-25. Clique em **escolher um serviço**.
-26. Tipo _custo Explorer Service_.
-27. Selecione **ações de todos os serviços de Explorador de custo (ce:\*)**. Esta ação valida que a coleção está correta.
-28. Clique em **adicionar permissões adicionais**.
-29. Tipo **organizações**.
-30. Selecione **nível de acesso, lista** > **ListAccounts**. Esta ação obtém os nomes das contas.
-31. Na **rever política**, introduza um nome para a nova política. Verificação para certificar-se de que introduziu as informações corretas e, em seguida, clique em **criar política**.
-32. Volte ao separador anterior e atualizar a página da web do seu browser. Na barra de pesquisa, procure a nova política.
-33. Selecione **próxima: revisão**.
-34. Introduza um nome para a nova função. Verificação para certificar-se de que introduziu as informações corretas e, em seguida, clique em **criar função**.
+
+Configure as permissões de custo e o relatório de utilização:
+
+1. Tipo **custo e o relatório de utilização**.
+2. Selecione **nível de acesso**, **leitura** > **DescribeReportDefinitions**. Isso permite a que gestão de custos, leia o que repetir relatórios são definidos e determinar se eles correspondem o pré-requisito de definição de relatório.
+3. Clique em **adicionar permissões adicionais**.
+
+Configure a sua permissão de objetos e de registo de S3:
+
+1. Clique em **escolher um serviço**.
+2. Tipo _S3_.
+3. Selecione **nível de acesso**, **lista** > **ListBucket**. Esta ação obtém a lista de objetos no registo de S3.
+4. Selecione **nível de acesso**, **leitura** > **GetObject**. Esta ação permite a transferência dos ficheiros de faturação.
+5. Selecione **recursos**.
+6. Selecione **bucket – adicionar ARN**.
+7. Na **nome do Bucket**, introduza o registo utilizado para armazenar os ficheiros ATUAIS.
+8. Selecione **objeto – adicionar ARN**.
+9. Na **nome do Bucket**, introduza o registo utilizado para armazenar os ficheiros ATUAIS.
+10. Na **nome do objeto**, selecione **qualquer**.
+11. Clique em **adicionar permissões adicionais**.
+
+Configure as permissões de custo Explorer:
+
+1. Clique em **escolher um serviço**.
+2. Tipo _custo Explorer Service_.
+3. Selecione **ações de todos os serviços de Explorador de custo (ce:\*)**. Esta ação valida que a coleção está correta.
+4. Clique em **adicionar permissões adicionais**.
+
+Adicione a permissão de organizações:
+
+1. Tipo **organizações**.
+2. Selecione **nível de acesso, lista** > **ListAccounts**. Esta ação obtém os nomes das contas.
+3. Na **rever política**, introduza um nome para a nova política. Verificação para certificar-se de que introduziu as informações corretas e, em seguida, clique em **criar política**.
+4. Volte ao separador anterior e atualizar a página da web do seu browser. Na barra de pesquisa, procure a nova política.
+5. Selecione **próxima: revisão**.
+6. Introduza um nome para a nova função. Verificação para certificar-se de que introduziu as informações corretas e, em seguida, clique em **criar função**.
     Tenha em atenção a **função ARN** e o **ID externo** utilizado nos passos anteriores, quando criou a função. Irá utilizá-los mais tarde quando configurar o conector do Azure Cost Management.
 
 O JSON de política deve ser semelhante ao seguinte exemplo. Substitua _bucketname_ com o nome do seu registo de S3.

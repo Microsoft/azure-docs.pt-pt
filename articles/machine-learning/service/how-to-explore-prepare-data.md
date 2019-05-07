@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 683f916596b4c77ec1dbc2acf1f91876c0752c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f9087d1fda7574043879983e31d7b608dbe58798
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028834"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204977"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explore e preparar dados com a classe de conjunto de dados (pré-visualização)
 
@@ -44,7 +44,7 @@ Para explorar e prepare os seus dados, terá de:
 Dê um exemplo dos seus dados para obter uma compreensão inicial da sua arquitetura de dados e conteúdo. Neste momento, o [ `sample()` ](https://docs.microsoft.com//python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#sample-sample-strategy--arguments-) estratégias de amostragem de Top N simples aleatório e Stratified suporta o método da classe do conjunto de dados.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import random
 
 # create an in-memory Dataset from a local file
@@ -109,7 +109,6 @@ sample_dataset.to_pandas_dataframe()
 1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|ROUBO|...
 2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|ROUBO|...
 
-
 ## <a name="explore-with-summary-statistics"></a>Explore com estatísticas de resumo
 
  Detetar anomalias, falta de valores, ou contagem de erros com o [ `get_profile()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) método. Essa função obtém o perfil e estatísticas de resumo dos seus dados, que por sua vez ajuda a determinam as operações de preparação de dados necessários para aplicar.
@@ -152,7 +151,7 @@ O perfil de conjunto de dados gerados na secção anterior, Vemos que `Latitude`
 Primeiro, obtenha a definição mais recentes do conjunto de dados com [ `get_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-definition-version-id-none-) e diminuir os dados com [ `keep_columns()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#keep-columns-columns--multicolumnselection-----azureml-dataprep-api-dataflow-dataflow), por isso, podemos ver apenas as colunas que queremos para endereço.
 
 ```Python
-from azureml.core import Dataset
+from azureml.core.dataset import Dataset
 import azureml.dataprep as dprep
 
 # get the latest definition of Dataset
@@ -222,7 +221,6 @@ Conforme mostrado na seguinte tabela de saída, a latitude em falta foi imputed 
 1|10516598|Falso|41.744107|-87.664494
 2|10519196|Falso|41.780049|-87.000000
 
-
 Atualizar a definição do conjunto de dados, [ `update_definition()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#update-definition-definition--definition-update-message-) para manter os passos de transformação executada.
 
 ```Python
@@ -240,12 +238,13 @@ dataset.head(3)
 
 Com freqüência, os dados de nós Trabalhamos com durante a limpeza e preparação de dados é apenas um subconjunto do total de dados que precisamos para produção. Como resultado, algumas das suposições que fazemos como parte do nosso processo de limpeza podem se tornar falsa. Por exemplo, num conjunto de dados que atualiza continuamente, uma coluna que originalmente continha apenas números dentro de um determinado intervalo pode conter uma vasta gama de valores em execuções posteriores. Estes erros, muitas vezes, resultam em pipelines interrompidas ou dados incorretos.
 
-Conjuntos de dados suporta a criação de asserções sobre os dados, sendo estas avaliadas conforme o pipeline é executado. Essas declarações permitem-na verificar que nosso pressupostos relacionados com os dados continuam a ser precisos e, quando não, para lidar com falhas em conformidade.
+Suporte de conjuntos de dados, criação de asserções sobre os dados, sendo estas avaliadas conforme o pipeline executa. Essas declarações permitem-na verificar que nosso pressupostos relacionados com os dados continuam a ser precisos e, quando não, para lidar com falhas em conformidade.
 
 Por exemplo, se quiser restringir `Latitude` e `Longitude` valores no conjunto de dados a intervalos numéricos específicos, o [ `assert_value()` ](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#assert-value-columns--multicolumnselection--expression--azureml-dataprep-api-expressions-expression--policy--azureml-dataprep-api-engineapi-typedefinitions-assertpolicy----assertpolicy-errorvalue--1---error-code--str----assertionfailed------azureml-dataprep-api-dataflow-dataflow) método garante que sempre é esse o caso.
 
 ```Python
 from azureml.dataprep import value
+from azureml.core.dataset import Dataset
 
 # get the latest definition of the Dataset
 ds_def = dataset.get_definition()
@@ -282,7 +281,7 @@ print(error.originalValue)
 Uma das ferramentas mais avançadas para conjuntos de dados é a capacidade de derivar de colunas com exemplos de resultados desejados. Isto permite-lhe dar um exemplo, o SDK para que ele pode gerar o código para alcançar as transformações pretendidas.
 
 ```Python
-from azureml.dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
@@ -302,8 +301,8 @@ O código a seguir fornece dois exemplos de saída desejado, ("2016-04-04 23:56:
 ```Python
 ds_def = dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
-        source_columns = "Date", 
-        new_column_name = "Date_Time_Range", 
+        source_columns = "Date",
+        new_column_name = "Date_Time_Range",
         example_data = [("2016-04-04 23:56:00", "2016-04-04 10PM-12AM"), ("2016-04-15 17:00:00", "2016-04-15 4PM-6PM")]
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(3)
@@ -329,7 +328,7 @@ Quando colete os dados de origens diferentes que poderá encontrar variações n
 Por exemplo, a coluna `inspections.business.city` contém várias formas do nome de cidade "Francisco San".
 
 ```Python
-from azureml.Dataset import Dataset
+from azureml.core.dataset import Dataset
 
 # create an in-memory Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

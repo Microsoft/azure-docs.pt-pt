@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: fe8549027bb7fcf9fcfc2db26816c0b6646c9da6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916392"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205380"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -274,7 +274,7 @@ Se o teste tiver de iniciar sessão com a OAuth, a abordagem geral será:
 
 ## <a name="performance-tests"></a>Testes de desempenho
 > [!NOTE]  
-> A serviço de teste de carga baseado na nuvem foi preterida. Podem encontrar mais informações sobre a preterição, a disponibilidade do serviço e serviços alternativos [aqui](https://docs.microsoft.com/en-us/azure/devops/test/load-test/overview?view=azure-devops).
+> A serviço de teste de carga baseado na nuvem foi preterida. Podem encontrar mais informações sobre a preterição, a disponibilidade do serviço e serviços alternativos [aqui](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
 
 Pode executar um teste de carga no seu Website. Como o teste de disponibilidade, pode enviar pedidos simples ou pedidos com vários passos a partir dos nossos pontos a nível mundial. Ao contrário de um teste de disponibilidade, são enviados muitos pedidos, simulando vários utilizadores em simultâneo.
 

@@ -7,12 +7,12 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: bwren
-ms.openlocfilehash: dcac701f3c1b6d64a7017c31679c019b91103ba2
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 1cb3946a93cbeff6a9b95e0a21edbf0523b53d5e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904734"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203603"
 ---
 # <a name="analyze-log-data-in-azure-monitor"></a>Analisar dados de registo no Azure Monitor
 
@@ -36,7 +36,7 @@ As diferentes formas que irá utilizar consultas no Azure Monitor incluem o segu
 - **Modos de exibição.**  Pode criar visualizações de dados a serem incluídos nos dashboards do utilizador com [estruturador de vistas](../platform/view-designer.md).  Consultas de registo que fornecem os dados utilizados pelo [mosaicos](../platform/view-designer-tiles.md) e [partes de visualização](../platform/view-designer-parts.md) em cada vista.  
 
 - **Exportar.**  Quando importa dados de registo do Azure Monitor para o Excel ou [Power BI](../platform/powerbi.md), cria uma consulta de registo para definir os dados para exportar.
-- **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresults) para recuperar dados de registo do Azure Monitor.  Este cmdlet requer uma consulta para determinar os dados a obter.
+- **PowerShell.** Pode executar um script do PowerShell a partir de uma linha de comando ou um runbook da automatização do Azure que utiliza [Get-AzOperationalInsightsSearchResults](/powershell/module/az.operationalinsights/get-azoperationalinsightssearchresult) para recuperar dados de registo do Azure Monitor.  Este cmdlet requer uma consulta para determinar os dados a obter.
 - **API de Logs de Monitor do Azure.**  O [API do Azure Monitor registos](../platform/alerts-overview.md) permite que qualquer cliente de REST API recuperar dados de registo de área de trabalho.  O pedido de API inclui uma consulta que é executada no Azure Monitor para determinar os dados a obter.
 
 ![Pesquisas de registos](media/log-query-overview/queries-overview.png)

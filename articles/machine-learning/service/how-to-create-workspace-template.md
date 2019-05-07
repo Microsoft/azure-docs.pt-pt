@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 04/02/2019
+ms.date: 04/16/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abe497ed96515e8194fb2ddefd8e7f4cb9908758
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819555"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205141"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Utilizar um modelo Azure Resource Manager para criar uma área de trabalho para o serviço Azure Machine Learning
 
@@ -33,131 +33,7 @@ Para obter mais informações, consulte [implementar uma aplicação com o model
 
 O modelo do Resource Manager seguinte pode ser utilizado para criar uma área de trabalho do serviço do Azure Machine Learning e os recursos do Azure associados:
 
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "workspaceName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the Azure Machine Learning service workspace."
-            }
-        },
-        "location": {
-            "type": "string",
-            "allowedValues": [
-                "eastus",
-                "eastus2",
-                "southcentralus",
-                "southeastasia",
-                "westcentralus",
-                "westeurope",
-                "westus2"
-            ],
-            "metadata": {
-                "description": "The location where the workspace will be created."
-            }
-        }
-    },
-    "variables": {
-        "storageAccount": {
-            "name": "[concat('sa',uniqueString(resourceGroup().id))]",
-            "type": "Standard_LRS"
-        },
-        "keyVault": {
-            "name": "[concat('kv',uniqueString(resourceGroup().id))]",
-            "tenantId": "[subscription().tenantId]"
-        },
-        "applicationInsightsName": "[concat('ai',uniqueString(resourceGroup().id))]",
-        "containerRegistryName": "[concat('cr',uniqueString(resourceGroup().id))]"
-    },
-    "resources": [
-        {
-            "name": "[variables('storageAccount').name]",
-            "type": "Microsoft.Storage/storageAccounts",
-            "location": "[parameters('location')]",
-            "apiVersion": "2018-07-01",
-            "sku": {
-                "name": "[variables('storageAccount').type]"
-            },
-            "kind": "StorageV2",
-            "properties": {
-                "encryption": {
-                    "services": {
-                        "blob": {
-                            "enabled": true
-                        },
-                        "file": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                },
-                "supportHttpsTrafficOnly": true
-            }
-        },
-        {
-            "name": "[variables('keyVault').name]",
-            "type": "Microsoft.KeyVault/vaults",
-            "apiVersion": "2018-02-14",
-            "location": "[parameters('location')]",
-            "properties": {
-                "tenantId": "[variables('keyVault').tenantId]",
-                "sku": {
-                    "name": "standard",
-                    "family": "A"
-                },
-                "accessPolicies": []
-            }
-        },
-        {
-            "name": "[variables('applicationInsightsName')]",
-            "type": "Microsoft.Insights/components",
-            "apiVersion": "2015-05-01",
-            "location": "[if(or(equals(parameters('location'),'eastus2'),equals(parameters('location'),'westcentralus')),'southcentralus',parameters('location'))]",
-            "kind": "web",
-            "properties": {
-                "Application_Type": "web"
-            }
-        },
-        {
-            "name": "[variables('containerRegistryName')]",
-            "type": "Microsoft.ContainerRegistry/registries",
-            "apiVersion": "2017-10-01",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "Standard"
-            },
-            "properties": {
-                "adminUserEnabled": true
-            }
-        },
-        {
-            "name": "[parameters('workspaceName')]",
-            "type": "Microsoft.MachineLearningServices/workspaces",
-            "apiVersion": "2018-11-19",
-            "location": "[parameters('location')]",
-            "dependsOn": [
-                "[variables('storageAccount').name]",
-                "[variables('keyVault').name]",
-                "[variables('applicationInsightsName')]",
-                "[variables('containerRegistryName')]"
-            ],
-            "identity": {
-                "type": "systemAssigned"
-            },
-            "properties": {
-                "friendlyName": "[parameters('workspaceName')]",
-                "keyVault": "[resourceId('Microsoft.KeyVault/vaults',variables('keyVault').name)]",
-                "applicationInsights": "[resourceId('Microsoft.Insights/components',variables('applicationInsightsName'))]",
-                "containerRegistry": "[resourceId('Microsoft.ContainerRegistry/registries',variables('containerRegistryName'))]",
-                "storageAccount": "[resourceId('Microsoft.Storage/storageAccounts/',variables('storageAccount').name)]"
-            }
-        }
-    ]
-}
-```
+[!code-json[create-azure-machine-learning-service-workspace](~/quickstart-templates/101-machine-learning-create/azuredeploy.json)]
 
 Este modelo cria os seguintes serviços do Azure:
 

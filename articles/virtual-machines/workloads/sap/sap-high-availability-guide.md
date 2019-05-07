@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2b88ac9a728606581c3364ac536b6c3fc2691024
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb7919c6f4ff1b3cf2480333273a98f2cca9a223
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60720418"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65204927"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver
 
@@ -283,7 +283,7 @@ Precisa de cluster armazenamento partilhado para uma instância do SAP ASCS/SCS 
 2. Execute o SIOS DataKeeper Cluster Edition em ambos os nós de máquina virtual.
 3. Configure o SIOS DataKeeper Cluster Edition, para que ele Espelha o conteúdo do volume de disco adicionais ligado da máquina virtual de origem para o volume de disco adicionais ligado de máquina virtual de destino. O SIOS DataKeeper abstrai os volumes de locais de origem e de destino e, em seguida, apresenta ao Clustering de ativação pós-falha no Windows Server como um disco partilhado.
 
-Obtenha mais informações sobre [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
+Obtenha mais informações sobre [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
 
 ![Figura 3: Configuração de Clustering de ativação pós-falha do Windows Server no Azure com o SIOS DataKeeper][sap-ha-guide-figure-1002]
 
@@ -767,7 +767,7 @@ O Balanceador de carga do Azure tem um balanceador de carga interno que fecha li
 
 Para adicionar entradas de Registro em ambos os nós de cluster da instância do SAP ASCS/SCS, primeiro, adicione estas entradas de Registro do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -778,7 +778,7 @@ _**Tabela 3:** Alterar o primeiro parâmetro de TCP/IP_
 
 Em seguida, adicione este entradas de Registro do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |

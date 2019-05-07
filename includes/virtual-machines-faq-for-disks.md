@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6cd0c72f94c020f9243a1a95faa799f1f798f36c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728753"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199359"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -140,6 +140,20 @@ Para discos geridos não é possível mudar o nome-los. No entanto, pode mudar o
 **Posso utilizar o GPT criação de partições num disco do Azure?**
 
 A criação de partições de GPT pode ser usada apenas em discos de dados, não os discos de SO. Discos de SO tem de utilizar o estilo de partição MBR.
+
+## <a name="uploading-to-a-managed-disk"></a>A carregar para um disco gerido
+
+**Pode carregar dados para um disco gerido existente?**
+
+Não, carregamento só pode ser utilizado durante a criação de um disco novo vazio com o **ReadyToUpload** estado.
+
+**Posso anexar um disco a uma VM enquanto estiverem num Estado de carregamento?**
+
+Não.
+
+**Pode tirar um instantâneo de um disco gerido num Estado de carregamento?**
+
+Não.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD Standard
 

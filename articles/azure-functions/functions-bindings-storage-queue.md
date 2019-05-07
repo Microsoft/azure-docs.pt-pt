@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8b9cc112f51840a6bf2cf659863f61ab5962f6e6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72e51deb31ad2894ccfc0fc71884c99863184f5b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306854"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203665"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de filas do Azure para as funções do Azure
 
@@ -273,7 +273,7 @@ No JavaScript, utilize `context.bindings.<name>` para acessar o payload de item 
 
 ## <a name="trigger---message-metadata"></a>Acionador - metadados de mensagem
 
-O acionador de fila fornece vários [propriedades de metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser utilizadas como parte das expressões de associação nas outras associações, ou como parâmetros no seu código. Estas são as propriedades do [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage) classe.
+O acionador de fila fornece vários [propriedades de metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser utilizadas como parte das expressões de associação nas outras associações, ou como parâmetros no seu código. Estas são as propriedades do [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) classe.
 
 |Propriedade|Tipo|Descrição|
 |--------|----|-----------|
@@ -526,7 +526,7 @@ Se tentar fazer a ligação `CloudQueueMessage` e obter uma mensagem de erro, ce
 No c# e no c# script, escreva várias mensagens de fila utilizando um dos seguintes tipos: 
 
 * `ICollector<T>` ou `IAsyncCollector<T>`
-* [CloudQueue](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue)
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
 Nas funções de JavaScript, utilize `context.bindings.<name>` para aceder a mensagem de fila de saída. Pode usar uma cadeia de caracteres ou um objeto JSON serializável para o payload de item de fila.
 
@@ -586,4 +586,4 @@ Esta secção descreve as definições de configuração global disponíveis par
 
 <!-- LINKS -->
 
-[CloudQueueMessage]: /dotnet/api/microsoft.windowsazure.storage.queue.cloudqueuemessage
+[CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage

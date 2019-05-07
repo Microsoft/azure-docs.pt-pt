@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: kumud
-ms.openlocfilehash: 6b1d62f4cedb7add843a5ddae24125019130d58f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728339"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203543"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir padrão do Azure DDoS Protection através do portal do Azure
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-a-ddos-protection-plan"></a>Criar um plano de proteção contra DDoS
 
-Um plano de proteção contra DDoS define um conjunto de redes virtuais que têm a norma de proteção DDoS ativada, entre subscrições. Pode configurar um plano de proteção de DDoS para sua organização e redes virtuais ligação de várias subscrições para o mesmo plano. O plano de proteção contra DDoS em si também está associado uma subscrição que selecionou durante a criação do plano. A subscrição o plano é associado a implica a fatura mensal recorrente para o plano, bem como os custos da utilização excessiva, no caso do número de endereços IP públicos protegidos exceder 100. Para obter mais informações sobre os preços de DDoS, consulte [os detalhes dos preços](https://azure.microsoft.com/pricing/details/ddos-protection/).
+Um plano de proteção contra DDoS define um conjunto de redes virtuais que têm a norma de proteção DDoS ativada, entre subscrições. Pode configurar um plano de proteção de DDoS para sua organização e redes virtuais ligação de várias subscrições para o mesmo plano. O plano de proteção contra DDoS em si também está associado uma subscrição que selecionou durante a criação do plano. Plano de DDoS Protection funciona em regiões e subscrições. Exemplo-pode criar o plano na região Leste-US e ligação à subscrição #1 no seu inquilino. O mesmo plano pode ser associado às redes virtuais de outras subscrições em regiões diferentes, com o seu inquilino. A subscrição o plano é associado a implica a fatura mensal recorrente para o plano, bem como os custos da utilização excessiva, no caso do número de endereços IP públicos protegidos exceder 100. Para obter mais informações sobre os preços de DDoS, consulte [os detalhes dos preços](https://azure.microsoft.com/pricing/details/ddos-protection/).
 
 Criação de mais de um plano não é necessária para a maioria das organizações. Um plano não pode ser movido entre subscrições. Se pretender alterar a subscrição que pertença a um plano, precisa [eliminar o plano existente](#work-with-ddos-protection-plans) e criar um novo.
 
@@ -101,7 +101,7 @@ Pode selecionar qualquer uma das métricas de proteção contra DDoS disponívei
     |Name                     | myDdosAlert                                                                                        |
     |Subscrição             | Selecione a subscrição que contém o endereço IP público que pretende receber alertas para.        |
     |Grupo de recursos           | Selecione o grupo de recursos que contém o endereço IP público que pretende receber alertas para.      |
-    |Recurso                 | Selecione o endereço IP público que contém o endereço IP público que pretende receber alertas para. DDoS monitoriza os endereços IP públicos atribuídos aos recursos numa rede virtual. Se não tiver quaisquer recursos com endereços IP públicos na rede virtual, primeiro tem de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implementados através do Resource Manager (não clássica) listados na [rede Virtual para os serviços do Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), exceto para ambientes de serviço de aplicações do Azure e o Gateway de VPN do Azure. Para continuar com este tutorial, pode criar rapidamente um [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual.                   |
+    |Resource                 | Selecione o endereço IP público que contém o endereço IP público que pretende receber alertas para. DDoS monitoriza os endereços IP públicos atribuídos aos recursos numa rede virtual. Se não tiver quaisquer recursos com endereços IP públicos na rede virtual, primeiro tem de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implementados através do Resource Manager (não clássica) listados na [rede Virtual para os serviços do Azure](virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network), exceto para ambientes de serviço de aplicações do Azure e o Gateway de VPN do Azure. Para continuar com este tutorial, pode criar rapidamente um [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) máquina virtual.                   |
     |Métrica                   | Em DDoS de ataque ou não                                                                            |
     |Limiar                | 1 - **1** significa que está sob ataque. **0** significa que não estiver sob ataque.                         |
     |Período                   | Selecione qualquer valor que escolher.                                                                   |
@@ -127,6 +127,7 @@ Telemetria para um ataque é fornecida através do Azure Monitor em tempo real. 
 4. Selecione o **subscrição** e **grupo de recursos** que contêm o endereço IP público que pretende que a telemetria.
 5. Selecione **endereço IP público** para **tipo de recurso**, em seguida, selecione o endereço IP público específico que pretende que a telemetria.
 6. Uma série de **métricas disponíveis** aparecem no lado esquerdo do ecrã. Estas métricas, quando selecionada, são representados no gráfico a **gráfico de métricas do Azure Monitor** no ecrã de descrição geral.
+7. Selecione o **agregação** escreva como **máx.**
 
 Os nomes de métrica apresentam tipos diferentes de pacote e bytes versus pacotes, com uma construção básica de nomes de etiqueta em cada métrica da seguinte forma:
 
@@ -138,7 +139,7 @@ Para simular um ataque de DDoS para validar a telemetria, consulte [deteção de
 
 ## <a name="view-ddos-mitigation-policies"></a>Ver políticas de mitigação de DDoS
 
-Padrão de proteção de DDoS aplica-se três políticas de atenuação otimizadas (TCP SYN, TCP e UDP) para cada endereço IP público do recurso protegido, na rede virtual que tenha o DDoS ativada. Pode ver os limiares de política, selecionando o **pacotes de TCP de entrada para acionar a mitigação de DDoS** e **pacotes UDP de entrada para acionar a mitigação de DDoS** métricas, como mostrado na imagem seguinte:
+Padrão de proteção de DDoS aplica-se três políticas de atenuação otimizadas (TCP SYN, TCP e UDP) para cada endereço IP público do recurso protegido, na rede virtual que tenha o DDoS ativada. Pode ver os limiares de política, selecionando o **pacotes de TCP de entrada para acionar a mitigação de DDoS** e **pacotes UDP de entrada para acionar a mitigação de DDoS** métricas com **agregação** digitar como "Max", conforme mostrado na imagem seguinte:
 
 ![Ver políticas de atenuação](./media/manage-ddos-protection/view-mitigation-policies.png)
 

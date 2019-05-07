@@ -1,5 +1,5 @@
 ---
-title: Estruturar Aaplications elevada disponibilidade com armazenamento georredundante com acesso de leitura (RA-GRS) | Documentos da Microsoft
+title: Conceber aplicações de elevada disponibilidade com armazenamento georredundante com acesso de leitura (RA-GRS) | Documentos da Microsoft
 description: Como utilizar o armazenamento do Azure. o RA-GRS para arquitetar uma aplicação de elevada disponibilidade flexível o bastante para lidar com falhas.
 services: storage
 author: tamram
@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 6dc497ac2afd54965485ff553bb25f47d7cf0491
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139349"
+ms.locfileid: "65205488"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
 
@@ -148,7 +148,7 @@ Outra consideração é como lidar com várias instâncias de um aplicativo e o 
 
 Tem três opções principais para a monitorização a frequência de repetições na região primária para determinar quando mudar para a região secundária e altere o aplicativo seja executado no modo só de leitura.
 
-*   Adicionar um manipulador para o [ **repetir** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) eventos no [ **OperationContext** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) solicita que passar para o armazenamento de objeto – este é o método apresentado neste artigo e utilizado no exemplo que acompanha este artigo. Esses eventos são disparados sempre que o cliente tenta repetir um pedido, permitindo-lhe controlar a frequência com que o cliente encontra erros não permanente de um ponto final primário.
+*   Adicionar um manipulador para o [ **repetir** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.operationcontext.retrying) eventos no [ **OperationContext** ](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context.operationcontext) solicita que passar para o armazenamento de objeto – este é o método apresentado neste artigo e utilizado no exemplo que acompanha este artigo. Esses eventos são disparados sempre que o cliente tenta repetir um pedido, permitindo-lhe controlar a frequência com que o cliente encontra erros não permanente de um ponto final primário.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -159,7 +159,7 @@ Tem três opções principais para a monitorização a frequência de repetiçõ
     };
     ```
 
-*   Na [ **Evaluate** ](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) método uma política de repetição personalizada, pode executar código personalizado sempre que uma nova tentativa ocorre. Para além de gravação quando uma nova tentativa ocorre, isso também lhe dá a oportunidade de modificar seu comportamento de repetição.
+*   Na [ **Evaluate** ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.table.iextendedretrypolicy.evaluate) método uma política de repetição personalizada, pode executar código personalizado sempre que uma nova tentativa ocorre. Para além de gravação quando uma nova tentativa ocorre, isso também lhe dá a oportunidade de modificar seu comportamento de repetição.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

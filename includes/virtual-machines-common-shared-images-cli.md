@@ -8,23 +8,22 @@ ms.topic: include
 ms.date: 04/30/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 7e4ca54d8f97646192d19d5923bee24a906e8df7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 9647cdd584b53f581f46f728ca2d08f9a113ce92
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149676"
+ms.locfileid: "65199389"
 ---
+## <a name="before-you-begin"></a>Antes de começar
+
+Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente de uma VM generalizada. Para obter mais informações, consulte [Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI 2.0 do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Se a imagem gerida contém um disco de dados, o tamanho do disco de dados não pode ser mais de 1 TB.
+
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. 
 
 Para abrir o Cloud Shell, basta selecionar **Experimentar** no canto superior direito de um bloco de código. Também pode iniciar o Cloud Shell num separador do browser separado ao aceder a [https://shell.azure.com/bash](https://shell.azure.com/bash). Selecione **Copiar** para copiar os blocos de código, cole-o no Cloud Shell e prima Enter para executá-lo.
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente de uma VM generalizada. Para obter mais informações, consulte [Tutorial: Criar uma imagem personalizada de uma VM do Azure com a CLI 2.0 do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
-
 
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens 
 
@@ -77,3 +76,6 @@ az sig image-version create \
 
 > [!NOTE]
 > Terá de aguardar que a versão da imagem concluir completamente a ser criada e replicadas antes de poder utilizar a mesma imagem gerida para criar outra versão da imagem.
+>
+> Pode também armazenar sua versão de imagem na [armazenamento com redundância de zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) adicionando `--storage-account-type standard_zrs` ao criar a versão da imagem.
+>

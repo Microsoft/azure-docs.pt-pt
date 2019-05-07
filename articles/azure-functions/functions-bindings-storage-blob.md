@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 0294c7eefb6cad17ef83c24a59c37a42e68861b9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4ec13453c204885f38b10272e76245e641fbef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728544"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203585"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de armazenamento de Blobs do Azure para as funções do Azure
 
@@ -389,13 +389,13 @@ Se o blob com o nome  *{20140101}-soundfile.mp3*, o `name` é o valor da variáv
 
 ## <a name="trigger---metadata"></a>Acionador - metadados
 
-O acionador de blob fornece várias propriedades de metadados. Essas propriedades podem ser utilizadas como parte das expressões de associação nas outras associações, ou como parâmetros no seu código. Estes valores têm a mesma semântica de como o [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob?view=azure-dotnet) tipo.
+O acionador de blob fornece várias propriedades de metadados. Essas propriedades podem ser utilizadas como parte das expressões de associação nas outras associações, ou como parâmetros no seu código. Estes valores têm a mesma semântica de como o [CloudBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) tipo.
 
 |Propriedade  |Tipo  |Descrição  |
 |---------|---------|---------|
 |`BlobTrigger`|`string`|O caminho para o blob acionadora.|
 |`Uri`|`System.Uri`|O blob URI para a localização principal.|
-|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties)|Propriedades do sistema do blob. |
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobproperties)|Propriedades do sistema do blob. |
 |`Metadata` |`IDictionary<string,string>`|Os metadados definidos pelo utilizador para o blob.|
 
 Por exemplo, o seguinte script do c# e exemplos de JavaScript registo o caminho para o blob acionadora, incluindo o contentor:
@@ -426,7 +426,7 @@ Arquivos de funções do Azure de BLOBs num contentor com o nome do Editor *anfi
 * O nome do blob
 * O ETag (um identificador de versão de blob, por exemplo: "0x8D1DC6E70A277EF")
 
-Para forçar o reprocessamento de um blob, elimine o recebimento de BLOBs para esse blob a partir da *anfitriões de webjobs do azure* contentor manualmente. Embora o reprocessamento pode não ocorrer imediatamente, é garantida ocorra posteriormente no tempo.
+Para forçar o reprocessamento de um blob, elimine o recebimento de BLOBs para esse blob a partir da *anfitriões de webjobs do azure* contentor manualmente. Enquanto o reprocessamento pode não ocorrer imediatamente, de modo a garantir a ocorrer posteriormente no tempo.
 
 ## <a name="trigger---poison-blobs"></a>Acionador - blobs não processáveis
 
@@ -1068,7 +1068,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 |**tipo** | n/d | Tem de ser definido como `blob`. |
 |**direção** | n/d | Tem de ser definido como `out` para um enlace de saída. Exceções estão apontadas na [utilização](#output---usage) secção. |
 |**name** | n/d | O nome da variável que representa o blob no código de função.  Definido como `$return` para referenciar o valor de retorno da função.|
-|**path** |**BlobPath** | O caminho para o blobco. |
+|**path** |**BlobPath** | O caminho para o contentor de Blobs. |
 |**ligação** |**ligação**| O nome de uma definição de aplicação que contém a cadeia de ligação de armazenamento a utilizar para essa ligação. Se o nome da definição de aplicação começa com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o runtime das funções procura uma definição de aplicação com o nome "AzureWebJobsMyStorage." Se deixar `connection` vazio, o runtime das funções utiliza a cadeia de ligação de armazenamento predefinida na definição da aplicação com o nome `AzureWebJobsStorage`.<br><br>A cadeia de ligação tem de ser para uma conta de armazenamento para fins gerais, não uma [conta de armazenamento apenas de BLOBs](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/d | **Acesso** | Indica se será possível ler ou escrever. |
 

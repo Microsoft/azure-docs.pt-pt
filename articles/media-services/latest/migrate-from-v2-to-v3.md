@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2019
+ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 921d154226862d822802562442f59bf1c37c4745
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148912"
+ms.locfileid: "65205473"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Orientações de migração para mover de serviços de multimédia v2 para v3
 
@@ -71,7 +71,7 @@ Se tiver um serviço de vídeo desenvolvido hoje na parte superior dos [APIs de 
     * Localizador de transmissão em fluxo substitui o localizador.
     * Substitui o evento em direto canal.<br/>A faturação baseia-se a medidores de canal em direto de eventos em direto. Para obter mais informações, consulte [faturação](live-event-states-billing.md) e [preços](https://azure.microsoft.com/pricing/details/media-services/).
     * Saída em direto substitui o programa.
-* Saídas em direto não têm de ser iniciados explicitamente, iniciar a criação e parar quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
+* Início de saídas após a criação do Live e param quando eliminado. Programas de forma diferente se trabalhou nas v2 APIs, eles tinham que ser iniciado após a criação.
 *  Para obter informações sobre uma tarefa, precisa saber o nome de transformação sob as quais a criação da tarefa. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Intervalos de funcionalidades em relação a v2 APIs

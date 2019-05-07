@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/11/2019
+ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9d96bd76a4d284e9b4390c564446e8b27c43d591
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91e9d3a99224c09ecfb5cc3b477a71a7f7bfed7a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613706"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199376"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos geridos
 

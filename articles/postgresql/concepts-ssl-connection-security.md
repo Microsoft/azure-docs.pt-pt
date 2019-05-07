@@ -1,19 +1,19 @@
 ---
-title: Configurar a conectividade SSL na base de dados do Azure para PostgreSQL
-description: Instruções e informações para configurar a base de dados do Azure para PostgreSQL e aplicações associadas a corretamente utilizar ligações SSL.
+title: Configurar a conectividade SSL na base de dados do Azure para o PostgreSQL – servidor único
+description: Instruções e informações para configurar a base de dados do Azure para PostgreSQL - único servidor e os aplicativos associados corretamente utilizar ligações SSL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.openlocfilehash: 5a0fc99052b18dc1fa837147aa914a473d27d832
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 56611267872ca79d7d2fe3a08c9b9f49a9b1840b
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871416"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067414"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL na base de dados do Azure para PostgreSQL
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Configurar a conectividade SSL na base de dados do Azure para o PostgreSQL – servidor único
 Base de dados do Azure para PostgreSQL prefere ligar as suas aplicações de cliente para o serviço de PostgreSQL utilizando Secure Sockets Layer (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
 
 Por predefinição, o serviço de base de dados PostgreSQL está configurado para exigir conexão SSL. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suporta a conectividade SSL. 

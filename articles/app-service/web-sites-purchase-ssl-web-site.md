@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3e113639dbe4220b943d49dc610ee22b6416e12a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60832886"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65202929"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Comprar e configurar um certificado SSL para o serviço de aplicações do Azure
 
 Este tutorial mostra-lhe como proteger seus [aplicação de serviço de aplicações](https://docs.microsoft.com/azure/app-service/) ou [aplicação de funções](https://docs.microsoft.com/azure/azure-functions/) através da criação (compra) um certificado de serviço de aplicações no [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis) e, em seguida, vinculá-lo para um Aplicação de serviço de aplicações.
 
 > [!TIP]
-> Certificados de serviço de aplicações pode ser usado para qualquer do Azure ou serviços do Azure e não está limitados a serviços de aplicações. Para tal, terá de criar uma cópia PFX local de um certificado de serviço de aplicações que pode usá-lo em qualquer lugar que desejar. Para obter mais informações, consulte [criar uma cópia PFX local de um certificado de serviço de aplicações](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+> Certificados de serviço de aplicações pode ser usado para qualquer do Azure ou serviços do Azure e não está limitados a serviços de aplicações. Para tal, terá de criar uma cópia PFX local de um certificado de serviço de aplicações que pode usá-lo em qualquer lugar que desejar. Para obter mais informações, consulte [criar uma cópia PFX local de um certificado de serviço de aplicações](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos

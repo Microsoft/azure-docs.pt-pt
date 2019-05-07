@@ -5,15 +5,15 @@ services: functions
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/25/2018
+ms.date: 05/05/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 5070b6ced29599660afa28308239e1ba07c2cbd0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cecafb013b5d22557961e98935fc9a2fee2a79b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65199377"
 ---
 1. Selecione o **criar um recurso** botão encontrado no canto superior esquerdo do portal do Azure, em seguida, selecione **computação** > **aplicação de funções**.
 
@@ -42,6 +42,3 @@ ms.locfileid: "60710890"
     ![Definir novas definições da aplicação de funções](./media/functions-create-function-app-portal/function-app-create-notification.png)
 
 5. Selecione **Ir para o recurso** para ver a sua nova aplicação de funções.
-
-> [!TIP]
-> Está com dificuldade em encontrar as suas aplicações de funções no portal? Experimente [adicionar as Aplicações de Funções aos favoritos no portal do Azure](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#favorite).

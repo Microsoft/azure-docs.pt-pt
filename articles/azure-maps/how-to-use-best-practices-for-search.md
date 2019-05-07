@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e60b202a32745062d2078d9721dfeba7aba69bda
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9cb0f89b4a48d7139adb35dcef48c0115b005c57
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713890"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205612"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Melhores práticas para utilizar o serviço de pesquisa de mapas do Azure
 
