@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: shlo
-ms.openlocfilehash: 62c9a8e6375f6ac7db86ae81cdd4e5c9eb445770
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 09f80f69857ae17a0136229fe9bf13d4f63e7096
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432826"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151073"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que executa um pipeline com base numa agenda
 Este artigo fornece informações sobre o acionador de agenda e os passos para criar, iniciar e monitorizar um acionador de agenda. Para outros tipos de acionadores, veja [execuções de pipelines e acionadores](concepts-pipeline-execution-triggers.md).
@@ -274,7 +274,7 @@ A seguinte definição JSON mostra-lhe como criar um acionador de agenda com o a
         "timeZone": "UTC"
         "schedule": {                    // Optional (advanced scheduling specifics)
           "hours": [<<0-23>>],
-          "weekDays": : [<<Monday-Sunday>>],
+          "weekDays": [<<Monday-Sunday>>],
           "minutes": [<<0-59>>],
           "monthDays": [<<1-31>>],
           "monthlyOccurrences": [

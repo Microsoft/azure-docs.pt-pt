@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f2b307f662c0c9b94edc6bb8eb3ca299f5ad4620
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 41d3e72d978a210c2d68365ade5d8cb42c24aad5
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702642"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147606"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Adicionar uma origem de evento do hub de eventos ao seu ambiente do Time Series Insights
 
@@ -27,9 +27,9 @@ Este artigo descreve como utilizar o portal do Azure para adicionar uma origem d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Crie um ambiente do Time Series Insights. Para obter mais informações, consulte [criar um ambiente do Azure Time Series Insights](./time-series-insights-update-create-environment.md).
-- Crie um hub de eventos. Para obter mais informações sobre os Event Hubs, consulte [para criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md).
-- O hub de eventos tem de ter eventos de mensagem ativa, enviados para o mesmo. Para obter mais informações, consulte [enviar eventos para Hubs de eventos do Azure com o .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
+- Criar um ambiente do Time Series Insights, conforme descrito em [criar um ambiente do Azure Time Series Insights](./time-series-insights-update-create-environment.md).
+- Crie um hub de eventos. Ver [para criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md).
+- O hub de eventos tem de ter eventos de mensagem ativa, enviados para o mesmo. Saiba como [enviar eventos para Hubs de eventos do Azure com o .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
 - Crie um grupo de consumidores dedicado no hub de eventos que o ambiente do Time Series Insights pode consumir de. Cada origem de eventos do Time Series Insights tem de ter seu próprio grupo de consumidores dedicado que não seja partilhado com qualquer outro tipo de consumidor. Se vários leitores consumirem eventos a partir do mesmo grupo de consumidores, todos os leitores provável ver falhas. Existe um limite de 20 grupos de consumidores do hub de eventos. Para obter detalhes, consulte a [guia de programação dos Hubs de eventos](../event-hubs/event-hubs-programming-guide.md).
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Adicionar um grupo de consumidores ao seu hub de eventos
@@ -42,7 +42,7 @@ Para adicionar um novo grupo de consumidores do seu hub de eventos:
 
 1. Sob **entidades**, selecione **grupos de consumidores**e, em seguida, selecione **grupo de consumidores**.
 
-   ![Hub de eventos - adicionar um grupo de consumidores](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)
+   [![Hub de eventos - adicionar um grupo de consumidores](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/5-event-hub-consumer-group.png#lightbox)
 
 1. Sobre o **grupos de consumidores** página, introduza um novo valor exclusivo para **nome**.  Utilize este nome de mesmo quando cria uma nova origem de evento no ambiente do Time Series Insights.
 
@@ -56,7 +56,7 @@ Para adicionar um novo grupo de consumidores do seu hub de eventos:
 
 1. Sob **topologia do ambiente**, selecione **origens de eventos**e, em seguida, selecione **Add**.
 
-   ![Em origens de eventos, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)
+   [![Em origens de eventos, selecione o botão Adicionar](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/1-event-sources.png#lightbox)
 
 1. Introduza um valor para **nome da origem de evento** que é exclusivo para este ambiente do Time Series Insights, tal como **fluxo de eventos**.
 
@@ -66,11 +66,11 @@ Para adicionar um novo grupo de consumidores do seu hub de eventos:
    - Se tiver um hub de eventos existente em uma das suas subscrições, selecione **Hub de eventos de utilização de subscrições disponíveis**. Esta opção é a abordagem mais fácil.
    - Se o hub de eventos é externo para as suas subscrições ou se pretender selecionar opções avançadas, selecione **definições do Hub de eventos de fornecer manualmente**.
 
-   ![No novo painel de origem do evento, introduza os valores para os primeiros três parâmetros](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)
+   [![No novo painel de origem do evento, introduza os valores para os primeiros três parâmetros](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/2-import-option.png#lightbox)
 
 1. A tabela seguinte descreve as propriedades necessárias para o **Hub de eventos de utilização de subscrições disponíveis** opção:
 
-   ![Detalhes de hub de eventos e de subscrição](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)
+   [![Detalhes de hub de eventos e de subscrição](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/3-new-event-source.png#lightbox)
 
    | Propriedade | Descrição |
    | --- | --- |
@@ -101,7 +101,7 @@ Para adicionar um novo grupo de consumidores do seu hub de eventos:
 
 1. Selecione **Criar**.
 
-   ![Selecione Criar](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)
+   [![Selecione criar](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png)](media/time-series-insights-how-to-add-an-event-source-eventhub/4-create-button.png#lightbox)
 
    Depois de criar a origem do evento, o Time Series Insights inicia automaticamente a transmissão em fluxo de dados ao seu ambiente.
 

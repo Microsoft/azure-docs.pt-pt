@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fd9ae3ab1f50dc91118ba11bc357a0f6dc0e771
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813248"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141048"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidade e suas finalidades no LUIS
 
@@ -97,7 +97,6 @@ Assim que a entidade é extraída, os dados da entidade podem ser representados 
 |Ficou a saber de máquina|Pode marcar|Tutorial|Exemplo<br>Resposta|Tipo de entidade|Objetivo|
 |--|--|--|--|--|--|
 |✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composição**](#composite-entity)|Agrupamento de entidades, independentemente do tipo de entidade.|
-|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Hierárquica**](#hierarchical-entity)|Agrupamento de entidades simples.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**List**](#list-entity)|Lista de itens e seus sinónimos extraídos com correspondência exata de texto.|
 |Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidade em que é difícil determinar o fim da entidade.|
 |||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Prebuilt**](#prebuilt-entity)|Já preparado extrair os vários tipos de dados.|
@@ -112,7 +111,7 @@ Entidades mistas usar uma combinação de métodos de deteção de entidade.
 
 ## <a name="composite-entity"></a>entidade composta
 
-Uma entidade composta é constituída por outras entidades, como entidades previamente concebidas, simples, expressão regular, lista e entidades hierárquicas. As entidades separadas formam uma entidade inteira. 
+Uma entidade composta é constituída por outras entidades, como entidades previamente concebidas, simples, expressão regular e entidades de lista. As entidades separadas formam uma entidade inteira. 
 
 Esta entidade é uma boa ajustar quando os dados:
 
@@ -126,18 +125,6 @@ Esta entidade é uma boa ajustar quando os dados:
 
 [Tutorial](luis-tutorial-composite-entity.md)<br>
 [Resposta JSON de exemplo para a entidade](luis-concept-data-extraction.md#composite-entity-data)<br>
-
-## <a name="hierarchical-entity"></a>Entidade hierárquica
-
-**Entidades hierárquicas, eventualmente, vão ser preteridas. Uso [funções de entidade](luis-concept-roles.md) para determinar subtipos de entidade, em vez de entidades hierárquicas.**
-
-Uma entidade hierárquica é uma categoria de contextualmente aprendidas entidades simples chamada children.
-
-![entidades hierárquicas](./media/luis-concept-entities/hierarchical-entity.png)
-
-### <a name="roles-versus-hierarchical-entities"></a>Funções versus entidades hierárquicas
-
-[Funções](luis-concept-roles.md) resolver o mesmo problema como entidades hierárquicas, mas aplicam a todos os tipos de entidade.  
 
 ## <a name="list-entity"></a>Entidade de lista
 
@@ -171,10 +158,10 @@ Na tabela a seguir, cada linha tem duas versões da expressão. A expressão sup
 
 |Expressão|
 |--|
-|O homem quem identificou seu esposa um Hat e outras histórias Clinical foi escrita por um American deste ano?<br>Foi **o homem que identificou seu esposa um Hat e outras histórias Clinical** escrito por um American deste ano?|
-|Foi metade em modo de suspensão de Pijama Frog escrito por um American deste ano?<br>Foi **metade em modo de suspensão de Pijama Frog** escrito por um American deste ano?|
-|Foi a tristeza específica de bolo de Lemon: Uma nova escrita por um American deste ano?<br>Foi **a tristeza específica de bolo de Lemon: Uma nova** escrito por um American deste ano?|
-|Foi que há um Wocket no meu bolso! escrito por um American deste ano?<br>Foi **há um Wocket no meu bolso!** escrito por um American deste ano?|
+|"Foi o homem que identificou seu esposa um Hat e outras histórias clínica, escrito por um American deste ano?<br>Foi **o homem que identificou seu esposa um Hat e outras histórias Clinical** escrito por um American deste ano?|
+|`Was Half Asleep in Frog Pajamas written by an American this year?`<br>`Was **Half Asleep in Frog Pajamas** written by an American this year?`|
+|`Was The Particular Sadness of Lemon Cake: A Novel written by an American this year?`<br>`Was **The Particular Sadness of Lemon Cake: A Novel** written by an American this year?`|
+|`Was There's A Wocket In My Pocket! written by an American this year?`<br>`Was **There's A Wocket In My Pocket!** written by an American this year?`|
 
 ## <a name="prebuilt-entity"></a>Entidade pré-criados
 

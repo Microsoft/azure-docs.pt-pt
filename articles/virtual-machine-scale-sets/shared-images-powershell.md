@@ -13,17 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 3e6baedc28805117962aa8dda8edc6ff3419280e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 44cb068f1aa40169e728fc28787990b161e148ae
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188366"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150085"
 ---
-# <a name="preview-create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Pré-visualização: Criar e utilizar imagens partilhadas para conjuntos de dimensionamento de máquina virtual com o Azure PowerShell
+# <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Criar e utilizar imagens partilhadas para conjuntos de dimensionamento de máquina virtual com o Azure PowerShell
 
 Quando cria um conjunto de dimensionamento, tem de especificar uma imagem a ser utilizada quando as instâncias de VM são implementadas. O serviço de Galeria de imagens de partilhado simplifica bastante a imagem personalizada de partilha na sua organização. As imagens personalizadas são como imagens do marketplace, mas são criadas por si. As imagens personalizadas podem ser utilizadas para configurações do programa de arranque do sistema, como o pré-carregamento de aplicações, configurações de aplicação e outras configurações do SO. 
 
@@ -33,7 +33,7 @@ A galeria é um recurso de nível superior que fornece controlo de acesso comple
 
 O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Podemos será a utilizar ou criar neste artigo:
 
-| Recurso | Descrição|
+| Resource | Descrição|
 |----------|------------|
 | **Imagem gerida** | Esta é uma imagem básica que pode ser usada sozinha ou utilizada para criar uma **versão da imagem** na Galeria de imagens. Imagens geridas são criadas a partir de VMs generalizadas. Uma imagem gerida é um tipo especial de VHD que pode ser utilizado para fazer várias VMs e pode agora ser utilizado para criar versões de imagem partilhada. |
 | **Galeria de imagens** | Como o Azure Marketplace, um **Galeria de imagens** é um repositório de gerenciamento e compartilhamento de imagens, mas controlar quem tem acesso. |
@@ -74,15 +74,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 [!INCLUDE [virtual-machines-common-gallery-list-ps](../../includes/virtual-machines-common-gallery-list-ps.md)]
 
-
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Quando já não for necessário, pode utilizar o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet para remover o grupo de recursos, a VM e todos os recursos relacionados:
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name myGalleryRG
-Remove-AzResourceGroup -Name myVMSSRG
-```
+[!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 
 ## <a name="next-steps"></a>Passos Seguintes

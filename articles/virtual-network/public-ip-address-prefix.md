@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 3cc4933ae70ad1d661835749dd23e7e634ab54f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474441"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154473"
 ---
 # <a name="public-ip-address-prefix"></a>Prefixo do endereço IP público
 
@@ -29,9 +29,6 @@ Um prefixo de endereço IP público é um intervalo reservado de endereços IP p
 Endereços IP públicos são atribuídos a partir de um conjunto de endereços em cada região do Azure. Pode [transferir](https://www.microsoft.com/download/details.aspx?id=56519) a lista de intervalos que utiliza o Azure para cada região. Por exemplo, 40.121.0.0/16 é um dos mais de 100 intervalos que utiliza o Azure na região E.U.A. Leste. O intervalo inclui os endereços utilizáveis dos 40.121.0.1 - 40.121.255.254.
 
 Crie um prefixo de endereço IP público numa região do Azure e subscrição ao especificar um nome e quantos endereços que pretende que o prefixo para incluir. Por exemplo, se criar um prefixo de endereço IP público de/28, o Azure aloca 16 endereços de um dos seus intervalos para. Não sabe o intervalo Azure serão atribuídas depois de criar o intervalo, mas os endereços sejam contíguos. Prefixos de endereços IP públicos têm uma taxa. Para obter detalhes, consulte [preços de endereços IP públicos](https://azure.microsoft.com/pricing/details/ip-addresses).
-
-> [!IMPORTANT]
-> Prefixo de IP público é em pré-visualização pública em regiões limitadas. Pode [saber o que significa no modo de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Prefixo do IP público está atualmente disponível em: EUA Centro-Oeste, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Sudeste asiático. Para obter uma lista atualizada de regiões, visite [atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>Porquê criar um prefixo de endereço IP público?
 
@@ -49,7 +46,7 @@ Ao criar recursos de endereço IP público, Azure atribuir um endereço IP públ
 ## <a name="scenarios"></a>Cenários
 Pode associar os seguintes recursos para um endereço IP público estático a partir de um prefixo:
 
-|Recurso|Cenário|Passos|
+|Resource|Cenário|Passos|
 |---|---|---|
 |Virtual Machines| Associar IPs públicos de um prefixo para as máquinas virtuais no Azure reduz a sobrecarga de gerenciamento que diz respeito à lista de permissões IPs numa firewall. Pode simplesmente lista branca um prefixo de inteiro com uma única regra de firewall. À medida que aumenta com máquinas virtuais no Azure, pode associar IPs do mesmo prefixo, economizando custo, tempo e custos de gestão.| Para associar IPs de um prefixo para a máquina virtual: 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. [Associe o IP para a interface de rede da sua máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses)
 | Balanceador de Carga | Associar IPs públicos de um prefixo para o seu IP de front-end configuração ou a regra de saída de um balanceador de carga garante simplificação do seu espaço de endereço IP público do Azure. Pode simplificar o seu cenário pelo tratamento de ligações de saída para ser originado de um intervalo de endereços IP contíguos definido pelo prefixo IP público. | Para associar IPs de um prefixo para o Balanceador de carga: 1. [Crie um prefixo.](manage-public-ip-address-prefix.md) 2. [Crie um IP a partir do prefixo.](manage-public-ip-address-prefix.md) 3. Ao criar o Balanceador de carga, selecione ou atualizar o IP criado no passo 2 acima, como o IP de front-end do seu Balanceador de carga. |
@@ -58,6 +55,7 @@ Pode associar os seguintes recursos para um endereço IP público estático a pa
 ## <a name="constraints"></a>Restrições
 
 - Não é possível especificar os endereços IP para o prefixo. Azure atribui os endereços IP para o prefixo, com base no tamanho que especificar.
+- O tamanho predefinido de um prefixo é/28 ou 16 endereços IP públicos.
 - Não é possível alterar o intervalo de, depois de criar o prefixo.
 - O intervalo é de apenas endereços IPv4. O intervalo não contém endereços IPv6.
 - Apenas endereços IP públicos estáticos criados com o SKU Standard podem ser atribuídos a partir do intervalo do prefixo. Para saber mais sobre o IP público de endereços SKUs, veja [endereço IP público](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

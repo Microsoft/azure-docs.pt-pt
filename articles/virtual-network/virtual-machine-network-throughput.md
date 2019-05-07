@@ -3,8 +3,7 @@ title: Débito de rede de máquina virtual do Azure | Documentos da Microsoft
 description: Saiba mais sobre o débito de rede de máquina virtual do Azure.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: steveesp
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
-ms.author: kumud
-ms.openlocfilehash: 182b3b7dad828e67d006391e00986406729c959d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 4/26/2019
+ms.author: kumud,steveesp, mareat
+ms.openlocfilehash: 9d74e53c754367ecfa63642514db93354fcadf25
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689257"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153737"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquina virtual
 
@@ -43,6 +42,30 @@ O limite de débito aplicam-se à máquina virtual. Débito não é afetado pelo
 - **Funcionamento de rede acelerado**: Embora a funcionalidade pode ser útil atingir o limite de publicados, não altera o limite.
 - **Destino do tráfego**: Todos os destinos contam para o limite de saída.
 - **Protocolo**: Todo o tráfego de saída ao longo de todos os protocolos de conta para o limite.
+
+## <a name="network-flow-limits"></a>Limites de fluxo de rede
+
+Além de largura de banda, o número de ligações de rede presentes numa VM num determinado momento pode afetar o desempenho de rede. A pilha de rede do Azure mantém o estado para cada direção de uma ligação de TCP/UDP em estruturas de dados chamado 'fluxos'. Uma ligação de TCP/UDP típica terá 2 fluxos criados, um para a entrada e outro para a direção de saída. 
+
+Transferência de dados entre pontos de extremidade requer a criação de vários fluxos para além dos que realizar a transferência de dados. Alguns exemplos são fluxos criados para a resolução DNS e fluxos criados para as sondas de estado de funcionamento do Balanceador de carga. Também tenha em atenção que as aplicações virtuais (NVAs), como gateways, proxies, firewalls, de rede irá ver fluxos a ser criados para ligações terminada a aplicação e teve origem pela aplicação. 
+
+![Contagem de fluxo para conversação de TCP através de uma aplicação de reencaminhamento](media/virtual-machine-network-throughput/flow-count-through-network-virtual-appliance.png)
+
+## <a name="flow-limits-and-recommendations"></a>Limites de fluxo e recomendações
+
+Hoje em dia, a pilha de rede do Azure suporta fluxos de rede total de 250 mil com bom desempenho para as VMs com mais de 8 núcleos de CPU e 100 mil total de fluxos com bom desempenho para as VMs com menos de 8 núcleos de CPU. Anteriores esta rede limite desempenho executa uma redução suave para fluxos adicionais até um limite restritivo de 1 milhão total de fluxos, 500 K entrada e de 500 K saída, após o qual fluxos adicionais são ignorados.
+
+||As VMs com < 8 núcleos de CPU|VMs com 8 + núcleos de CPU|
+|---|---|---|
+|<b>Bom desempenho</b>|Fluxos de 100 mil |Fluxos de 250 mil|
+|<b>Degradação do desempenho</b>|Acima de 100 mil fluxos|Superior a 250 mil fluxos|
+|<b>Limite de fluxo</b>|Fluxos de 1 milhão|Fluxos de 1 milhão|
+
+As métricas estão disponíveis na [do Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para controlar o número de fluxos de rede e a taxa de criação de fluxo em suas instâncias VM ou VMSS.
+
+![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+
+As taxas de estabelecimento e a terminação de ligação também podem afetar o desempenho de rede como ligação estabelecimento e a terminação de partilhas de CPU com rotinas de processamento de pacotes. Recomendamos que benchmark cargas de trabalho em relação a cargas de trabalho de escalamento horizontal e padrões de tráfego esperado adequadamente para satisfazer as suas necessidades de desempenho. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

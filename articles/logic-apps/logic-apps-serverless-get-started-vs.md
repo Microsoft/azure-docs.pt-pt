@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/02/2019
-ms.openlocfilehash: 39b44668a89ce0c77c09a7fa20dc4d95b2164bf4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.openlocfilehash: 265ed220b023a9d81fc5af48920152d95d9cac08
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61323866"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136692"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Crie seu primeiro aplicativo sem servidor com o Azure Logic Apps e as funções do Azure - Visual Studio
 
@@ -25,33 +25,33 @@ Além disso, pode rapidamente desenvolver e implementar aplicações na cloud co
 
 Para criar uma aplicação sem servidor no Visual Studio, precisa destes itens:
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * Transfira e instale estas ferramentas, se ainda não as tiver:
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">O Visual Studio 2019, 2017 ou 2015 - Community edition ou superior</a>. 
+  * [O Visual Studio 2019, 2017 ou 2015 - Community edition ou superior](https://aka.ms/download-visual-studio). 
   Este início rápido utiliza o Visual Studio Community 2017, que é gratuito.
 
     > [!IMPORTANT]
     > Ao instalar o Visual Studio 2019 ou 2017, certifique-se de que seleciona os **desenvolvimento do Azure** carga de trabalho.
-    > Para Visual Studio 2019, o Cloud Explorer pode abrir o Estruturador da aplicação lógica no portal do Azure, mas ainda não é possível abrir o Estruturador da aplicação lógica incorporado.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK para .NET (2.9.1 ou posterior)</a>. Saiba mais sobre o <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">SDK do Azure para .NET</a>.
+  * [Microsoft Azure SDK para .NET (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/). 
+  Saiba mais sobre o [SDK do Azure para .NET](https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * Ferramentas de Azure Logic Apps para a versão do Visual Studio que pretende:
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
   
-    Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">como instalar esta extensão a partir do Visual Studio</a>. 
+    Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba [como instalar esta extensão a partir do Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Certifique-se de que reinicia o Visual Studio depois de concluir a instalação.
 
-  * <a href="https://www.npmjs.com/package/azure-functions-core-tools" target="_blank">As ferramentas de núcleo das funções do Azure</a> para funções de depuração localmente
+  * [As ferramentas de núcleo das funções do Azure](https://www.npmjs.com/package/azure-functions-core-tools) para funções de depuração localmente
 
 * Acesso à Web durante a utilização do Estruturador da Aplicação Lógica incorporado
 

@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: f361417f25579b0ca605b33bafa4a581f68b1798
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 21374e20a2ba2c9134ed12e4b1072ff5c320c75e
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024398"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149786"
 ---
 # <a name="api-versions-in-azure-search"></a>Versões de API no Azure Search
 O Azure Search implementa atualizações de funcionalidades regularmente. Às vezes, mas nem sempre, estas atualizações requerem uma nova versão da API para preservar a compatibilidade com versões anteriores. Publicar uma nova versão permite-lhe controlar quando e como integrar atualizações de serviço de pesquisa em seu código.
@@ -32,8 +32,8 @@ Abaixo é um instantâneo das versões atuais de todas as interfaces de programa
 
 | Interfaces | Versão principal mais recente | Estado |
 | --- | --- | --- |
-| [SDK do .NET](https://aka.ms/search-sdk) |9.0 |Geralmente disponível, lançado Maio de 2019. O conteúdo é ainda estão em construção.  |
-| [Pré-visualização do .NET SDK](https://aka.ms/search-sdk-preview) |8.0.0-preview |Pré-visualização, lançado Abril de 2019. O conteúdo é ainda estão em construção.|
+| [SDK do .NET](https://aka.ms/search-sdk) |9.0 |Disponível em geral, lançado Maio de 2019 |
+| [Pré-visualização do .NET SDK](https://aka.ms/search-sdk-preview) |8.0.0-preview |Pré-visualização, lançado de 2019 de Abril |
 | [API REST do Serviço](https://docs.microsoft.com/rest/api/searchservice/) |2019-05-06 |Disponível em Geral |
 | [Serviço REST API 2019-05-06-pré-visualização](search-api-preview.md) |2019-05-06-pré-visualização |Pré-visualização |
 | [SDK de Gestão .NET](https://aka.ms/search-mgmt-sdk) |3.0 |Disponível em Geral |
@@ -57,6 +57,6 @@ Funcionalidades de pré-visualização estão disponíveis para teste e experime
 
 Por esses motivos, recomendamos a escrever um código de produção que utiliza uma dependência em versões de pré-visualização. Se estiver a utilizar uma versão de pré-visualização mais antiga, recomendamos que migre para a versão em disponibilidade geral (GA).
 
-Para o SDK .NET: Orientações para a migração de código podem ser encontradas em [atualizar o SDK de .NET](search-dotnet-sdk-migration.md).
+Para o SDK .NET: Orientações para a migração de código podem ser encontradas em [atualizar o SDK de .NET](search-dotnet-sdk-migration-version-9.md).
 
 Disponibilidade geral, significa que o Azure Search agora está sob o contrato de nível de serviço (SLA). O SLA pode ser encontrado em [contratos de nível de serviço do Azure Search](https://azure.microsoft.com/support/legal/sla/search/v1_0/).

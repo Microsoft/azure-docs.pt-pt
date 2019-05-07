@@ -9,17 +9,17 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/02/2019
-ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/25/2019
+ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60323503"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136503"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
-Embora possa criar, editar, gerir e implementar aplicações lógicas no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, também pode utilizar o Visual Studio quando pretende adicionar as logic apps para controle de fonte, publicar versões diferentes e criar [Azure Gestor de recursos](../azure-resource-manager/resource-group-overview.md) modelos para vários ambientes de implantação. Com o Explorador de nuvem do Visual Studio, pode localizar e gerir as aplicações lógicas, juntamente com outros recursos do Azure. Por exemplo, pode abrir, transfira, editar, executar, ver o histórico de execuções, desativar e ativar logic apps que já estão implementados no portal do Azure. Se estiver familiarizado com a trabalhar com o Azure Logic Apps no Visual Studio, saiba [como criar aplicações lógicas com o Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Embora possa criar, editar, gerir e implementar aplicações lógicas no [portal do Azure](https://portal.azure.com), também pode utilizar o Visual Studio quando pretende adicionar as logic apps para controle de fonte, publicar versões diferentes e criar [Azure Gestor de recursos](../azure-resource-manager/resource-group-overview.md) modelos para vários ambientes de implantação. Com o Explorador de nuvem do Visual Studio, pode localizar e gerir as aplicações lógicas, juntamente com outros recursos do Azure. Por exemplo, pode abrir, transfira, editar, executar, ver o histórico de execuções, desativar e ativar logic apps que já estão implementados no portal do Azure. Se estiver familiarizado com a trabalhar com o Azure Logic Apps no Visual Studio, saiba [como criar aplicações lógicas com o Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Implementar ou publicar uma aplicação lógica a partir do Visual Studio substitui a versão dessa aplicação no portal do Azure. Portanto, se fizer alterações no portal do Azure que quer manter, certifique-se de que [atualizar a aplicação lógica no Visual Studio](#refresh) do portal do Azure antes da próxima vez que implementa ou publicar a partir do Visual Studio.
@@ -28,35 +28,33 @@ Embora possa criar, editar, gerir e implementar aplicações lógicas no <a href
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">inscreva-se para obter uma conta do Azure gratuita</a>.
+* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * Transfira e instale estas ferramentas, se ainda não as tiver: 
 
-  * <a href="https://aka.ms/download-visual-studio" target="_blank">O Visual Studio 2019, 2017 ou 2015 - Community edition ou superior</a>. 
+  * [O Visual Studio 2019, 2017 ou 2015 - Community edition ou superior](https://aka.ms/download-visual-studio). 
   Este início rápido utiliza o Visual Studio Community 2017, que é gratuito.
 
     > [!IMPORTANT]
     > Ao instalar o Visual Studio 2019 ou 2017, certifique-se de que seleciona os **desenvolvimento do Azure** carga de trabalho.
     > Para obter mais informações, consulte [gerir os recursos associados com suas contas do Azure no Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
-    >
-    > No Visual Studio 2019, o Cloud Explorer pode abrir o Estruturador da aplicação lógica no portal do Azure, mas ainda não é possível abrir o Estruturador da aplicação lógica incorporado.
 
     Para instalar o Cloud Explorer para Visual Studio 2015 [transferir o Cloud Explorer do Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Para obter mais informações, consulte [gerir os recursos associados com suas contas do Azure no Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">SDK do Azure (2.9.1 ou posterior)</a> 
+  * [SDK do Azure (2.9.1 ou posterior)](https://azure.microsoft.com/downloads/) 
 
-  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+  * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
   * Ferramentas de Azure Logic Apps para a versão do Visual Studio que pretende:
 
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
-    
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
-    
-    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+    * [Visual Studio 2019](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019)
 
-    Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">como instalar esta extensão a partir do Visual Studio</a>. 
+    * [Visual Studio 2017](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017)
+
+    * [Visual Studio 2015](https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015)
+
+    Pode transferir e instalar as Ferramentas do Azure Logic Apps diretamente a partir do Visual Studio Marketplace ou saiba [como instalar esta extensão a partir do Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Certifique-se de que reinicia o Visual Studio depois de concluir a instalação.
 
 * Acesso à web ao utilizar o estruturador de aplicações lógicas embedded
@@ -72,11 +70,11 @@ No Visual Studio, pode encontrar todas as aplicações lógicas que estão assoc
 
 1. Abra o Visual Studio. Sobre o **View** menu, selecione **Cloud Explorer**.
 
-2. No Cloud Explorer, escolha **gestão de contas**. Selecione a subscrição do Azure associada com as logic apps, em seguida, escolha **aplicar**. Por exemplo:
+1. No Cloud Explorer, escolha **gestão de contas**. Selecione a subscrição do Azure associada com as logic apps, em seguida, escolha **aplicar**. Por exemplo:
 
    ![Escolha "Gestão de contas"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
-2. Com base em se está a procurar por **grupos de recursos** ou **tipos de recurso**, siga estes passos:
+1. Com base em se está a procurar por **grupos de recursos** ou **tipos de recurso**, siga estes passos:
 
    * **Grupos de recursos**: Com a sua subscrição do Azure, o Cloud Explorer mostra todos os grupos de recursos que estão associados essa subscrição. 
    Expanda o grupo de recursos que contém a aplicação lógica e, em seguida, selecione a sua aplicação lógica.
@@ -91,7 +89,7 @@ No Visual Studio, é possível abrir as aplicações lógicas anteriormente cria
 
 1. Abra o Explorador de Cloud e encontre a sua aplicação lógica. 
 
-2. No menu de atalho da aplicação lógica, selecione **aberto com o Editor de aplicação lógica**.
+1. No menu de atalho da aplicação lógica, selecione **aberto com o Editor de aplicação lógica**.
 
    Este exemplo mostra as aplicações lógicas por tipo de recurso, para que as aplicações lógicas são apresentados no **Logic Apps** secção.
 
@@ -104,7 +102,7 @@ No Visual Studio, é possível abrir as aplicações lógicas anteriormente cria
 
 ## <a name="download-from-azure"></a>Transferir a partir do Azure
 
-Pode transferir as aplicações lógicas a partir da <a href="https://portal.azure.com" target="_blank">portal do Azure</a> e guarde-as como [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modelos. Pode, em seguida, localmente editar os modelos com o Visual Studio e personalizar aplicações lógicas para ambientes de implementação diferentes. Transferir as aplicações lógicas automaticamente *parametriza* as respetivas definições dentro [modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), que também utilizar JavaScript Object Notation (JSON).
+Pode transferir as aplicações lógicas a partir da [portal do Azure](https://portal.azure.com) e guarde-as como [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modelos. Pode, em seguida, localmente editar os modelos com o Visual Studio e personalizar aplicações lógicas para ambientes de implementação diferentes. Transferir as aplicações lógicas automaticamente *parametriza* as respetivas definições dentro [modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), que também utilizar JavaScript Object Notation (JSON).
 
 1. No Visual Studio, abra o Explorador de Cloud, em seguida, localize e selecione a aplicação lógica que pretende transferir a partir do Azure.
 
@@ -131,7 +129,7 @@ Se editar a sua aplicação lógica no portal do Azure e pretende manter essas a
 
   -ou-
 
-* No Explorador de nuvem do Visual Studio, abra o menu de atalho da sua aplicação lógica e selecione **atualizar**. 
+* No Explorador de nuvem do Visual Studio, abra o menu de atalho da sua aplicação lógica e selecione **atualizar**.
 
 ![Atualizar a aplicação lógica com as atualizações](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
 
@@ -155,14 +153,14 @@ Para verificar o estado e diagnosticar problemas com execuções da aplicação 
 
    ![Abra o histórico de execuções](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-2. Para ver os detalhes de uma execução específica, clique duas vezes numa execução. Por exemplo:
+1. Para ver os detalhes de uma execução específica, clique duas vezes numa execução. Por exemplo:
 
    ![Histórico de execução detalhado](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
   
    > [!TIP]
    > Para ordenar a tabela pela propriedade, escolha o cabeçalho de coluna para essa propriedade. 
 
-3. Expanda as etapas cuja entradas e saídas pretende rever. Por exemplo:
+1. Expanda as etapas cuja entradas e saídas pretende rever. Por exemplo:
 
    ![Ver entradas e saídas de cada passo](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
 

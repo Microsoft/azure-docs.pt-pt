@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: e000c034d10efc652f328fa8d1db8d1902fac693
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026120"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153057"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contentores do serviço de voz
 
@@ -178,7 +178,7 @@ Assim que o contentor estiver no [computador anfitrião](#the-host-computer), ut
 
 Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando para executar qualquer um dos três contentores. O comando utiliza os seguintes parâmetros:
 
-**Durante a pré-visualização privada**, as definições de faturas tem de ser válidas para iniciar o contentor, mas não são faturadas para utilização.
+**Durante a pré-visualização**, as definições de faturas tem de ser válidas para iniciar o contentor, mas não são faturadas para utilização.
 
 | Marcador de posição | Value |
 |-------------|-------|
@@ -226,7 +226,7 @@ Este comando:
 
 ### <a name="speech-to-text"></a>Conversão de voz em texto
 
-O contêiner fornece APIs, que são acedidas através de ponto final de consulta baseada em websocket [documentação do SDK dos serviços de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+O contêiner fornece APIs, que são acedidos através do ponto de extremidade do websocket com base na consulta a [SDK de voz](index.yml).
 
 Por predefinição, o SDK de voz utiliza serviços de voz online. Para usar o contêiner, terá de alterar o método de inicialização. Veja os exemplos abaixo.
 

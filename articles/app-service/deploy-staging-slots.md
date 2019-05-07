@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59266210"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65137885"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -265,6 +265,8 @@ Para permitir que os utilizadores que escolher para a sua aplicação de beta, d
 ```
 <webappname>.azurewebsites.net/?x-ms-routing-name=staging
 ```
+
+Por predefinição, os blocos de novo recebem uma regra de roteamento de `0%`, conforme apresentado a cinzento. Definindo explicitamente esse valor como `0%` (mostrado em texto preto), os utilizadores podem aceder o bloco de teste manualmente utilizando o `x-ms-routing-name` parâmetro de consulta, mas será não ser encaminhados para a ranhura automaticamente uma vez que a percentagem de encaminhamento está definida como 0. Este é um cenário avançado em que pode "Ocultar" seu bloco de teste do público, permitindo que as equipas internas testar as alterações no bloco de.
 
 <a name="Delete"></a>
 

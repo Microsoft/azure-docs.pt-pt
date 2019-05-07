@@ -2,20 +2,21 @@
 title: Gerir o ciclo de vida de armazenamento do Azure
 description: Saiba como criar regras de política de ciclo de vida aos dados de classificação por vencimento de transição de acesso frequente para esporádico e de arquivo.
 services: storage
-author: yzheng-msft
+author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.author: yzheng
+ms.author: mhopkins
+ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: f1fdd1b239301a5340716e1d5d098487afe27f9f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938571"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148323"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir a ciclo de vida de armazenamento de Blobs do Azure
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure
 
 Os conjuntos de dados têm ciclos de vida exclusivos. Logo no início do ciclo de vida, as pessoas acessar alguns dados com frequência. Mas a necessidade de acesso cai significativamente à medida que a sua idade aumenta. Alguns dados permanecem ociosos, na cloud e são raramente acedidos armazenados uma vez. Alguns dados expiram dias ou meses após a criação, enquanto outros conjuntos de dados são lidos e modificados durante seus tempos de vida ativamente. A gestão de ciclo de vida de armazenamento de Blobs do Azure oferece uma política avançada e baseada em regras para contas de armazenamento de BLOBs e GPv2. Utilize a política para fazer a transição de seus dados para os escalões de acesso apropriado ou expirar no final do ciclo de vida dos dados.
 

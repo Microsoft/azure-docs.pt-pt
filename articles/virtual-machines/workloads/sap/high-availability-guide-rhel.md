@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: c6746dc4bd5732a13c25793ed572a85acfca82d4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4e224a1abf72bfa068bebaf971e34c492b15d7c0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925790"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142999"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure máquinas virtuais elevada disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 
@@ -87,6 +87,9 @@ Para assegurar elevada disponibilidade, o SAP NetWeaver requer armazenamento par
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados do SAP HANA, utilizam o nome de anfitrião virtual e endereços IP virtuais. No Azure, um balanceador de carga é necessário utilizar um endereço IP virtual. A lista seguinte mostra a configuração do (A) SCS e ERS Balanceador de carga.
 
+> [!IMPORTANT]
+> Múltiplos SID clustering do SAP ASCS/ERS com Red Hat Linux como sistema de operativo convidado em VMs do Azure seja **nepodporuje**. Múltiplos SID clustering descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes num cluster de Pacemaker.
+
 ### <a name="ascs"></a>(A)SCS
 
 * Configuração de front-end
@@ -113,6 +116,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS e a base de dados do SA
 * Porta de sonda
   * Port 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
+  * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
   * 5<strong>&lt;nr&gt;</strong>14 TCP
@@ -124,11 +128,11 @@ SAP NetWeaver requer armazenamento partilhado para o diretório de transporte e 
 
 ## <a name="setting-up-ascs"></a>Configurar a (A) SCS
 
-Pode utilizar um modelo do Azure a partir do github para implementar todos os recursos do Azure necessários, incluindo as máquinas virtuais, conjunto de disponibilidade e o Balanceador de carga ou pode implementar os recursos manualmente.
+Pode utilizar um modelo do Azure a partir do GitHub para implementar todos os recursos do Azure necessários, incluindo as máquinas virtuais, conjunto de disponibilidade e o Balanceador de carga ou pode implementar os recursos manualmente.
 
 ### <a name="deploy-linux-via-azure-template"></a>Implementar o Linux através do modelo do Azure
 
-O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux que pode utilizar para implementar novas máquinas virtuais. Pode utilizar um dos modelos de início rápido no github para implementar todos os recursos necessários. O modelo implementa as máquinas virtuais, o Balanceador de carga, disponibilidade definida etc. Siga estes passos para implementar o modelo:
+O Azure Marketplace contém uma imagem do Red Hat Enterprise Linux que pode utilizar para implementar novas máquinas virtuais. Pode utilizar um dos modelos de início rápido no GitHub para implementar todos os recursos necessários. O modelo implementa as máquinas virtuais, o Balanceador de carga, disponibilidade definida etc. Siga estes passos para implementar o modelo:
 
 1. Abra o [modelo ASCS/SCS] [ template-multisid-xscs] no portal do Azure  
 1. Introduza os seguintes parâmetros
@@ -457,7 +461,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[A]**  Configurar Keep Alive de
 
-   A comunicação entre o servidor de aplicações SAP NetWeaver e ASCS/SCS é encaminhada através de um balanceador de carga de software. O Balanceador de carga desliga ligações inativas após um tempo limite configurável. Para impedir que isto terá de definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as definições do sistema Linux. Leia [1410736 de nota SAP] [ 1410736] para obter mais informações.
+   A comunicação entre o servidor de aplicações SAP NetWeaver e ASCS/SCS é encaminhada através de um balanceador de carga de software. O Balanceador de carga desliga ligações inativas após um tempo limite configurável. Para evitar esta situação, terá de definir um parâmetro no perfil do SAP NetWeaver ASCS/SCS e alterar as definições do sistema Linux. Leia [1410736 de nota SAP] [ 1410736] para obter mais informações.
 
    O ASCS/SCS perfil parâmetro colocar/encni/set_so_keepalive já foi adicionado no último passo.
 
@@ -527,7 +531,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo pcs property set maintenance-mode=false
    </code></pre>
 
-   Se estiver a atualizar a partir de uma versão mais antiga e mudar para o servidor de colocar em fila 2, consulte a nota sap [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
+   Se estiver a atualizar a partir de uma versão mais antiga e mudar para o servidor de colocar em fila 2, consulte o artigo SAP note [2641322](https://launchpad.support.sap.com/#/notes/2641322). 
 
    Certifique-se de que o estado do cluster está ok e que todos os recursos são iniciados. Não é importante no nó que os recursos estão em execução.
 

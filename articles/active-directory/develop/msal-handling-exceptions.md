@@ -16,12 +16,12 @@ ms.date: 04/10/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 43c98181c926410bea2acf64bf1ed4d588c12616
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 7c9a578cb3c3a59ae6bba13e585188020f35f03a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138972"
+ms.locfileid: "65080941"
 ---
 # <a name="handling-exceptions-and-errors-using-msal"></a>Manipulação de exceções e erros com MSAL
 Exceções no Microsoft Authentication Library (MSAL) destinam-se para os programadores de aplicações resolver problemas e não para apresentar aos utilizadores finais. Mensagens de exceção não estão localizadas.
@@ -82,18 +82,21 @@ Estão disponíveis os seguintes tipos de erro:
 
 * *InteractionRequiredAuthError:* Classe de erro estendendo ServerError para representar os erros de servidor que requerem uma chamada interativa. Isso é emitido pelo `acquireTokenSilent` se é pedido ao utilizador para interagir com o servidor para fornecer as credenciais ou consentimento para autenticação/autorização. Códigos de erro incluem "interaction_required", "login_required", "consent_required".
 
-Para redirecionar o tratamento de erros em fluxos de autenticação com métodos (`loginRedirect`, `acquireTokenRedirect`), terá de registar o retorno de chamada que é chamado com êxito ou falha depois de utilizar o redirecionamento `handleRedirectCallback()` método da seguinte forma:
+Para redirecionar o tratamento de erros em fluxos de autenticação com métodos (`loginRedirect`, `acquireTokenRedirect`), terá de registar os retornos de chamada de êxito e falha a ser chamado depois de utilizar o redirecionamento `handleRedirectCallbacks()` método da seguinte forma:
 
 ```javascript
-function authCallback(error, response) {
-    //handle redirect response
+function acquireTokenRedirectCallBack(response) {
+    // success response
 }
 
+function  acquireTokenErrorRedirectCallBack(error) {
+    console.log(error);
+}
 
 var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 
 // Register Callbacks for redirect flow
-myMSALObj.handleRedirectCallback(authCallback);
+myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
 
 myMSALObj.acquireTokenRedirect(request);
 ```
@@ -140,7 +143,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 ```
 
 ## <a name="conditional-access-and-claims-challenges"></a>Desafios de afirmações e acesso condicionais
-Ao obter tokens silenciosamente, seu aplicativo poderá receber erros quando um [desafio de afirmações de acesso condicional](conditional-access-dev-guide.md) como a política da MFA é necessária para uma API que está a tentar aceder.
+Ao obter tokens silenciosamente, seu aplicativo poderá receber erros quando um [desafio de afirmações de acesso condicional](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) como a política da MFA é necessária para uma API que está a tentar aceder.
 
 O padrão para lidar com este erro é interativamente adquirir um token através de MSAL. Interativamente adquirir um token pede ao utilizador e dá a eles a oportunidade para satisfazer a política de acesso condicional necessário.
 
@@ -152,7 +155,7 @@ Ao chamar uma API que necessitam de acesso condicional do MSAL.NET, seu aplicati
 Para lidar com o desafio de afirmação, terá de utilizar o `.WithClaim()` método da `PublicClientApplicationBuilder` classe.
 
 ### <a name="javascript"></a>JavaScript
-Ao obter os tokens silenciosamente (usando `acquireTokenSilent`) a utilizar a msal, seu aplicativo poderá receber erros quando um [desafio de afirmações de acesso condicional](conditional-access-dev-guide.md) como a política da MFA é necessária para uma API que está a tentar aceder.
+Ao obter os tokens silenciosamente (usando `acquireTokenSilent`) a utilizar a msal, seu aplicativo poderá receber erros quando um [desafio de afirmações de acesso condicional](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) como a política da MFA é necessária para uma API que está a tentar aceder.
 
 O padrão para lidar com este erro é fazer uma chamada interativa para adquirir o token no msal como `acquireTokenPopup` ou `acquireTokenRedirect` como no exemplo seguinte:
 

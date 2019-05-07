@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 1bdf73dc6a4edf0c170b51e70fca2128d22e0eb8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 104849557a8580e16fa1860b7919d1c0252debe9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59804855"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150295"
 ---
 A tabela seguinte lista os limites associados com os escalões de serviço diferentes S1, S2, S3 e F1. Para obter informações sobre o custo de cada *unidade* em cada escalão, consulte [preços do IoT Hub do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Recurso | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
+| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
 | Mensagens/dia |400,000 |6,000,000 |300,000,000 |8,000 |
 | Máximo de unidades |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ A tabela seguinte lista os limites associados com os escalões de serviço difer
 
 A tabela seguinte lista os limites que se aplicam a recursos do IoT Hub.
 
-| Recurso | Limite |
+| Resource | Limite |
 | --- | --- |
 | Máximo de hubs IoT pagos por subscrição do Azure |50 |
 | Máximo de hubs IoT gratuitos por subscrição do Azure |1 |
@@ -40,9 +40,9 @@ A tabela seguinte lista os limites que se aplicam a recursos do IoT Hub.
 | Contagem máxima de entrega da cloud para o dispositivo <br/> mensagens |100 |
 | Contagem máxima de entrega para mensagens de comentários <br/> em resposta a uma mensagem da cloud para o dispositivo |100 |
 | TTL máximo para mensagens de comentários em <br/> resposta a uma mensagem da cloud para o dispositivo |2 dias |
-| Tamanho máximo do dispositivo duplo <br/> (etiquetas, propriedades comunicadas e propriedades pretendidas) | 8 KB |
+| [Tamanho máximo do dispositivo duplo](../articles/iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) <br/> (etiquetas, propriedades comunicadas e propriedades pretendidas) | 8 KB |
 | Tamanho máximo do valor da cadeia do dispositivo duplo | 4 KB |
-| Profundidade máxima do objeto no dispositivo duplo | 5 |
+| [Profundidade máxima do objeto no dispositivo duplo](../articles/iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format) | 5 |
 | Tamanho máximo do payload de método direto | 128 KB |
 | Retenção máxima de histórico de tarefas | 30 dias |
 | Máximo de tarefas simultâneas | 10 (para S3), 5 (para S2), 1 (para S1) |
@@ -51,10 +51,8 @@ A tabela seguinte lista os limites que se aplicam a recursos do IoT Hub.
 | Número máximo de fluxos de dispositivos ligados em simultâneo | 50 (para S1, S2, S3 e F1 apenas) |
 | Transferência de dados de transmissão máxima de dispositivo | 300 MB por dia (para S1, S2, S3 e F1 apenas) |
 
-
 > [!NOTE]
 > Se precisar de mais de 50 hubs IoT pagos numa subscrição do Azure, contacte Support da Microsoft.
-
 
 > [!NOTE]
 > Atualmente, o número máximo de dispositivos, que pode ligar a um hub IoT individual é 1.000.000. Se deseja aumentar este limite, contacte [Support da Microsoft](https://azure.microsoft.com/support/options/).

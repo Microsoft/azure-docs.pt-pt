@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 100d50443c7ed839e57d80ceea3b8b86904e4ba7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d078ca181b2eed4b80d4f12f1c03b42f4e242194
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027874"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65154446"
 ---
 # <a name="manage-azure-blockchain-service-with-azure-cli"></a>Gerir o serviço do Azure Blockchain com a CLI do Azure
 
@@ -30,7 +30,7 @@ Nos exemplos a seguir, substitua o exemplo `<parameter names>` pelos seus própr
 Exemplo cria um membro de blockchain no Azure Blockchain Service que executa o protocolo de contabilidade de quórum num consórcio de novo.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties '{ "location": "<myBlockchainLocation>", "properties": {"password": "<myStrongPassword>", "protocol": "Quorum", "consortium": "<myConsortiumName>", "consortiumManagementAccountPassword": "<myConsortiumManagementAccountPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] }, "sku": { "name": "<skuName>" } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"<myBlockchainLocation>\", \"properties\": {\"password\": \"<myStrongPassword>\", \"protocol\": \"Quorum\", \"consortium\": \"<myConsortiumName>\", \"consortiumManagementAccountPassword\": \"<myConsortiumManagementAccountPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] }, \"sku\": { \"name\": \"<skuName>\" } }"
 ```
 
 | Parâmetro | Descrição |
@@ -38,7 +38,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName> --re
 | **resource-group** | Nome do grupo de recursos onde os recursos de serviço do Azure Blockchain são criados. |
 | **name** | Um nome exclusivo que identifica o membro de blockchain de serviço do Azure Blockchain. O nome é utilizado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`. |
 | **localização** | Região do Azure onde o membro de blockchain é criado. Por exemplo, `eastus`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure. |
-| **password** | A palavra-passe de conta de membro. A palavra-passe da conta de membro é utilizada para autenticar para ponto final público o membro de blockchain usando a autenticação básica. A palavra-passe tem de cumprir três dos quatro requisitos a seguir: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa ( \`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
+| **password** | A palavra-passe de conta de membro. A palavra-passe da conta de membro é utilizada para autenticar para ponto final público o membro de blockchain usando a autenticação básica. A palavra-passe tem de cumprir três dos quatro requisitos seguintes: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa (\`), faça duplo quote("), plica, travessão (-) e semicolumn(;)|
 | **protocol** | Pré-visualização pública suporta quórum. |
 | **consortium** | Nome do consortium para aderir ou criar. |
 | **consortiumManagementAccountPassword** | A palavra-passe de gestão de consortium. A palavra-passe é utilizada para associar um consórcio. |
@@ -58,7 +58,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos onde os recursos de serviço do Azure Blockchain são criados. |
 | **name** | Nome que identifica o membro de serviço do Azure Blockchain. |
-| **password** | A palavra-passe de conta de membro. A palavra-passe tem de cumprir três dos quatro requisitos a seguir: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa ( \`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
+| **password** | A palavra-passe de conta de membro. A palavra-passe tem de cumprir três dos quatro requisitos seguintes: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa (\`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
 
 
 ## <a name="create-transaction-node"></a>Criar o nó de transação
@@ -66,7 +66,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 Crie um nó de transação dentro de um membro de blockchain existente. Ao adicionar nós de transação, pode aumentar o isolamento de segurança e distribuir a carga. Por exemplo, poderia ter um ponto de extremidade de nó de transação para as aplicações cliente diferentes.
 
 ```azurecli
-az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties '{ "location": "<myRegion>", "properties": { "password": "<myStrongPassword>", "firewallRules": [ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ] } }'
+az resource create --resource-group <myResourceGroup> --name <myMemberName>/transactionNodes/<myTransactionNode> --resource-type Microsoft.Blockchain/blockchainMembers  --is-full-object --properties "{ \"location\": \"<myRegion>\", \"properties\": { \"password\": \"<myStrongPassword>\", \"firewallRules\": [ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ] } }"
 ```
 
 | Parâmetro | Descrição |
@@ -74,7 +74,7 @@ az resource create --resource-group <myResourceGroup> --name <myMemberName>/tran
 | **resource-group** | Nome do grupo de recursos onde os recursos de serviço do Azure Blockchain são criados. |
 | **name** | Nome do membro de blockchain de serviço do Azure Blockchain também inclui o novo nome de nó de transação. |
 | **localização** | Região do Azure onde o membro de blockchain é criado. Por exemplo, `eastus`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure. |
-| **password** | A palavra-passe de nó de transação. A palavra-passe tem de cumprir três dos quatro requisitos a seguir: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa ( \`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
+| **password** | A palavra-passe de nó de transação. A palavra-passe tem de cumprir três dos quatro requisitos seguintes: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa (\`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
 | **ruleName** | Nome da regra para a inclusão de um intervalo de endereços IP. Parâmetro opcional para as regras de firewall. |
 | **startIpAddress** | Início do intervalo de endereços IP para a inclusão. Parâmetro opcional para as regras de firewall. |
 | **endIpAddress** | Fim do intervalo de endereços IP para a inclusão. Parâmetro opcional para as regras de firewall.|
@@ -91,7 +91,7 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName>/tran
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos onde existem recursos de serviço do Azure Blockchain. |
 | **name** | Nome do membro de blockchain de serviço do Azure Blockchain também inclui o novo nome de nó de transação. |
-| **password** | A palavra-passe de nó de transação. A palavra-passe tem de cumprir três dos quatro requisitos a seguir: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa ( \`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
+| **password** | A palavra-passe de nó de transação. A palavra-passe tem de cumprir três dos quatro requisitos seguintes: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa (\`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
 
 ## <a name="change-consortium-management-account-password"></a>Palavra-passe de conta de gestão de consórcio alteração
 
@@ -105,12 +105,12 @@ az resource update --resource-group <myResourceGroup> --name <myMemberName> --re
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos onde os recursos de serviço do Azure Blockchain são criados. |
 | **name** | Nome que identifica o membro de serviço do Azure Blockchain. |
-| **consortiumManagementAccountPassword** | A senha da conta de gestão do consórcio. A palavra-passe tem de cumprir três dos quatro requisitos a seguir: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa ( \`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
+| **consortiumManagementAccountPassword** | A senha da conta de gestão do consórcio. A palavra-passe tem de cumprir três dos quatro requisitos seguintes: comprimento tem de ter entre 12 e 72 carateres, 1 carater em minúsculas, 1 caráter em maiúsculas, 1 número e 1 caráter especial que é o número não sign(#), percent(%), comma(,), star(*), criar uma aspa (\`), faça duplo quote("), plica, travessão (-) e semicolon(;). |
   
 ## <a name="update-firewall-rules"></a>Atualizar regras de firewall
 
 ```azurecli
-az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules='[ { "ruleName": "<myRuleName>", "startIpAddress": "<myStartIpAddress>", "endIpAddress": "<myEndIpAddress>" } ]' --remove properties.consortiumManagementAccountAddress
+az resource update --resource-group <myResourceGroup> --name <myMemberName> --resource-type Microsoft.Blockchain/blockchainMembers --set properties.firewallRules="[ { \"ruleName\": \"<myRuleName>\", \"startIpAddress\": \"<myStartIpAddress>\", \"endIpAddress\": \"<myEndIpAddress>\" } ]" --remove properties.consortiumManagementAccountAddress
 ```
 
 | Parâmetro | Descrição |

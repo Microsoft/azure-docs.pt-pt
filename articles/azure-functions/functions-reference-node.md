@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: 37d00abbbf726dc1b92bdcc5f39b16301de9b93d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2eea1a1d30558765a2f8320b0b23efdbe3368807
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697844"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140948"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do Programador de JavaScript de funções do Azure
 
@@ -204,7 +204,9 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Devolve um objeto nomeado que contém todos os seus dados de entrada e saídos. Por exemplo, as seguintes definições de ligação na sua Function permitem-lhe aceder o conteúdo de uma fila de `context.bindings.myInput` e atribua saídas para uma fila usando `context.bindings.myOutput`.
+Devolve um objeto nomeado que é utilizado para ler ou o atribuir a vinculação de dados. Acionador de vinculação de dados de entrada e podem ser acedidos por ler as propriedades no `context.bindings`. Vinculação de dados de saída pode ser atribuída ao adicionar dados a `context.bindings`
+
+Por exemplo, as seguintes definições de ligação na sua Function permitem-lhe aceder o conteúdo de uma fila de `context.bindings.myInput` e atribua saídas para uma fila usando `context.bindings.myOutput`.
 
 ```json
 {
@@ -290,7 +292,7 @@ Leia [monitorizar as funções do Azure](functions-monitoring.md) para saber mai
 
 ## <a name="writing-trace-output-to-the-console"></a>Escrever os resultados de rastreio na consola 
 
-As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. V2.x de funções, trace produz usando `console.log` são capturados ao nível da aplicação de função. Isso significa que produz de `console.log` não estão associadas a uma invocação de função específica e, por conseguinte, não são apresentados nos registos de uma função específica. Eles, no entanto, se propaguem para o Application Insights. Não pode utilizar as funções v1.x, `console.log` para escrever no console.
+As funções, vai utilizar o `context.log` métodos para escrever os resultados de rastreio no console. V2.x de funções, trace produz usando `console.log` são capturados ao nível da aplicação de função. Isso significa que produz de `console.log` não estão associadas a uma invocação de função específica e não são apresentados nos registos de uma função específica. Eles, no entanto, se propaguem para o Application Insights. Não pode utilizar as funções v1.x, `console.log` para escrever no console.
 
 Quando chama `context.log()`, a mensagem é escrita para a consola no nível de rastreio predefinido, que é o _informações_ rastrear nível. Escreve o código a seguir para a consola no nível de rastreio de informações:
 
@@ -352,7 +354,7 @@ O `context.req` (pedido) objeto tem as seguintes propriedades:
 | ------------- | -------------------------------------------------------------- |
 | _body_        | Um objeto que contém o corpo do pedido.               |
 | _headers_     | Um objeto que contém os cabeçalhos de pedido.                   |
-| _method_      | O método HTTP do pedido.                                |
+| _Método_      | O método HTTP do pedido.                                |
 | _originalUrl_ | O URL do pedido.                                        |
 | _params_      | Um objeto que contém os parâmetros de encaminhamento do pedido. |
 | _query_       | Um objeto que contém os parâmetros de consulta.                  |

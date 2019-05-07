@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: 391a5386a5ecc144b15c35a85d501dfb5ce2d172
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af04ca19961abcfc7ee218824a4a1a804f7ad79c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597408"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146165"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>Tutorial: Conjuntos de dados de teste do batch
 
@@ -28,7 +28,7 @@ Requisitos do teste de batch:
 
 * Máximo de 1000 discursos por teste. 
 * Não contém duplicados. 
-* Tipos de entidade permitidos: apenas as entidades gigantesca máquina acastanhada aprendidas simples, hierárquica (só de principal) e compostos. Teste de batch apenas é útil para gigantesca máquina acastanhada aprendidas intenções e entidades.
+* Tipos de entidade permitidos: apenas as entidades gigantesca máquina acastanhada aprendidas de simples e composição. Teste de batch apenas é útil para gigantesca máquina acastanhada aprendidas intenções e entidades.
 
 Ao utilizar uma aplicação que não seja neste tutorial, fazer *não* usar as expressões de exemplo já adicionadas a um objetivo. 
 
@@ -95,7 +95,7 @@ Utilize os passos seguintes:
 
 ## <a name="review-batch-results"></a>Rever os resultados de batch
 
-O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. Por predefinição, o filtro é definido para o primeiro objetivo na lista. O filtro contém todas as intenções e apenas simples, hierárquica (só de principal) e entidades compostas. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto no gráfico, a utterance(s) associado apresenta abaixo do gráfico. 
+O gráfico de batch apresenta quatro quadrantes de resultados. À direita do gráfico é um filtro. Por predefinição, o filtro é definido para o primeiro objetivo na lista. O filtro contém todas as intenções e entidades apenas simples e compostas. Quando seleciona uma [secção do gráfico](luis-concept-batch-test.md#batch-test-results) ou um ponto no gráfico, a utterance(s) associado apresenta abaixo do gráfico. 
 
 Ao passar o rato sobre o gráfico, a roda do rato pode aumentar ou reduzir a apresentar no gráfico. Isto é útil quando há muitos pontos no gráfico rigidamente agrupado. 
 
@@ -169,7 +169,7 @@ Para verificar que as expressões no teste de batch estão previstas corretament
 
 ## <a name="create-batch-file-with-entities"></a>Criar o arquivo em lotes com entidades 
 
-Para verificar as entidades num teste de lote, as entidades tem de ser o nome do arquivo em lotes JSON. Apenas as entidades aprendidas por máquina são utilizadas: simples, hierárquica (só de principal) e entidades compostas. Não adicione entidades não aprendidas máquina porque elas sempre são encontradas por meio de expressões regulares ou corresponde a texto explícito.
+Para verificar as entidades num teste de lote, as entidades tem de ser o nome do arquivo em lotes JSON. Apenas as entidades aprendidas por máquina são utilizadas: entidades simples e compostas. Não adicione entidades não aprendidas máquina porque elas sempre são encontradas por meio de expressões regulares ou corresponde a texto explícito.
 
 A variação de entidades para o total word ([token](luis-glossary.md#token)) contagem pode afetar a qualidade de previsão. Certifique-se de que os dados de treinamento fornecidos para a intenção com expressões etiquetados com incluem uma variedade de tamanhos de entidade. 
 
@@ -205,11 +205,11 @@ O valor de um **tarefa** entidade, fornecida nas expressões de teste, é normal
 
 ## <a name="review-entity-batch-results"></a>Reveja os resultados de entidade de batch
 
-O gráfico é aberto com todos os objetivos previstos corretamente. Role para baixo no filtro da direita para localizar o; são gerados erros previsões de entidade. 
+O gráfico é aberto com todos os objetivos previstos corretamente. Role para baixo no filtro da direita para encontrar as previsões de entidade com erros. 
 
 1. Selecione o **tarefa** entidade no filtro.
 
-    ![Previsões de entidade; são gerados erros no filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Previsões de entidade de erro no filtro](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     As alterações de gráfico para apresentar as previsões de entidade. 
 

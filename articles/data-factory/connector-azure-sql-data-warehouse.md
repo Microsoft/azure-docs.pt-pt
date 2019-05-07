@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 319ea3eaac2fcaa3c8e29680e125b7e29018ecc3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926609"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65153427"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -229,7 +229,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos:
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados do Azure SQL Data Warehouse.
 
-Para copiar dados de ou para o Azure SQL Data Warehouse, defina o **tipo** propriedade do conjunto de dados para **AzureSqlDWTable**. São suportadas as seguintes propriedades:
+Para copiar dados de ou para o Azure SQL Data Warehouse, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -248,6 +248,7 @@ Para copiar dados de ou para o Azure SQL Data Warehouse, defina o **tipo** propr
             "referenceName": "<Azure SQL Data Warehouse linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -375,7 +376,7 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 | rejectType | Especifica se o **rejectValue** opção é um valor literal ou uma percentagem.<br/><br/>Valores permitidos são **valor** (predefinição) e **percentagem**. | Não |
 | rejectSampleValue | Determina o número de linhas para obter antes de PolyBase recalcula a porcentagem das linhas rejeitadas.<br/><br/>Valores permitidos são 1, 2, etc. | Sim, se o **rejectType** é **percentagem**. |
 | useTypeDefault | Especifica como lidar com valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção argumentos na [criar ficheiro de formato externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Valores permitidos são **True** e **falso** (predefinição). | Não |
-| writeBatchSize | Insere dados na tabela SQL quando atinge o tamanho do buffer **writeBatchSize**. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **número inteiro** (número de linhas). | Não. A predefinição é 10000. |
+| writeBatchSize | Número de linhas para inserções na tabela de SQL **por lote**. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **número inteiro** (número de linhas). Por predefinição, o Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho de linha. | Não |
 | writeBatchTimeout | Tempo para a operação de inserção de lote ser concluídas antes de atingir o tempo limite de espera. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **timespan**. Exemplo: "00: 30:00" (30 minutos). | Não |
 | preCopyScript | Especifica uma consulta SQL para a atividade de cópia a executar antes da escrita de dados para o Azure SQL Data Warehouse em cada execução. Use essa propriedade para limpar os dados pré-carregado. | Não |
 
@@ -423,12 +424,13 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 
 2. O **formato de dados de origem** é do **Parquet**, **ORC**, ou **delimitados por texto**, com as seguintes configurações:
 
-   1. `folderPath` e `fileName` não contêm o filtro de carateres universais.
-   2. `rowDelimiter` tem de ser **\n**.
-   3. `nullValue` é definido **vazio a cadeia de caracteres** ("") ou à esquerda como padrão, e `treatEmptyAsNull` é deixado como predefinido ou definido como true.
-   4. `encodingName` está definido como **utf-8**, que é o valor predefinido.
-   5. `escapeChar`, `quoteChar` e `skipLineCount` não estão especificados. Suporte de PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
-   6. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
+   1. Caminho da pasta não contêm o filtro de carateres universais.
+   2. Nome de ficheiro aponta para um único arquivo ou é `*` ou `*.*`.
+   3. `rowDelimiter` tem de ser **\n**.
+   4. `nullValue` é definido **vazio a cadeia de caracteres** ("") ou à esquerda como padrão, e `treatEmptyAsNull` é deixado como predefinido ou definido como true.
+   5. `encodingName` está definido como **utf-8**, que é o valor predefinido.
+   6. `quoteChar`, `escapeChar`, e `skipLineCount` não estão especificados. Suporte de PolyBase ignorar a linha de cabeçalho que pode ser configurada como `firstRowAsHeader` no ADF.
+   7. `compression` pode ser **sem compressão**, **GZip**, ou **Deflate**.
 
 ```json
 "activities":[

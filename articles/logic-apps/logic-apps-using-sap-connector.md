@@ -8,29 +8,34 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
-ms.openlocfilehash: 468e73c64037a76da612cba8d6c2e9507dd3ac87
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0ee8b164aa46c4fe2f66f27d9a41d0282c676907
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120162"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136734"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar a sistemas SAP a partir do Azure Logic Apps
 
-Este artigo mostra como pode aceder os recursos SAP no local de dentro de uma aplicação lógica utilizando o conector de SAP ERP Central componente (ECC). O conector funciona com os sistemas ECC e S/4 HANA no local. O conector de SAP ECC suporta a integração de dados ou de mensagem de e para sistemas baseados em SAP Netweaver através do documento de intermediários (IDoc) ou Business Application Programming Interface (BAPI) ou a chamada de função remota (RFC).
+Este artigo mostra como pode aceder aos recursos SAP no local de dentro de uma aplicação lógica utilizando o conector SAP. O conector funciona do SAP clássicas versões tal R/3, ECC sistemas no local. O conector também permite a integração com o SAP do HANA mais recente com base em sistemas SAP como S/4 HANA, independentemente de onde estão alojadas - no local ou na cloud.
+O conector SAP suporta a integração de dados ou de mensagem de e para sistemas baseados em SAP Netweaver através do documento de intermediários (IDoc) ou Business Application Programming Interface (BAPI) ou a chamada de função remota (RFC).
 
-O conector de SAP ECC utiliza a <a href="https://support.sap.com/en/product/connectors/msnet.html">biblioteca de conectores de .NET de SAP (NCo)</a> e fornece essas operações ou ações:
+O conector SAP utiliza a <a href="https://support.sap.com/en/product/connectors/msnet.html">biblioteca de conectores de .NET de SAP (NCo)</a> e fornece essas operações ou ações:
 
 - **Enviar para o SAP**: Enviar IDoc ou chamar funções BAPI sobre tRFC em sistemas SAP.
 - **Receber do SAP**: Receba chamadas de função de IDoc ou BAPI pela tRFC de sistemas SAP.
 - **Gerar esquemas**: Gere esquemas para os artefactos SAP para IDoc ou BAPI ou RFC.
 
+Todas as operações acima, o conector do SAP suporta autenticação básica através do nome de utilizador e palavra-passe. O conector também suporta <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> comunicações de rede seguro (SNC)</a>, que podem ser utilizadas para SAP Netweaver início de sessão único ou para os recursos de segurança adicional fornecidos por um produto de segurança externas. 
+
 O conector SAP integra-se com os sistemas SAP no local através da [gateway de dados no local](https://www.microsoft.com/download/details.aspx?id=53127). Em cenários de envio, por exemplo, ao enviar uma mensagem a partir das aplicações lógicas a um sistema SAP, o gateway de dados age como um cliente RFC e encaminha os pedidos recebidos de aplicações lógicas para SAP.
 Da mesma forma, em cenários de receção, o gateway de dados age como um servidor RFC que recebe pedidos do SAP e a encaminha para a aplicação lógica. 
 
 Este artigo mostra como criar aplicações lógicas que se integram com o SAP ao abordar os cenários de integração descrito anteriormente de exemplo.
+
+<a name="pre-reqs"></a>
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,6 +48,12 @@ Para seguir este artigo, precisa destes itens:
 * Sua <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">servidor de aplicações SAP</a> ou <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">servidor de mensagens do SAP</a>
 
 * Transfira e instale a versão mais recente [gateway de dados no local](https://www.microsoft.com/download/details.aspx?id=53127) em qualquer computador no local. Certifique-se de que configurar o gateway no portal do Azure antes de continuar. O gateway ajuda-o em segurança aceder a dados e recursos estão no local. Para obter mais informações, consulte [instalação no local gateway de dados para o Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+* Se estiver a utilizar SNC com único início de sessão (SSO), em seguida, certifique-se do que gateway está em execução como um utilizador que está mapeado contra o utilizador SAP. Para alterar a conta predefinida, selecione **alterar conta** e introduza as credenciais de utilizador.
+
+   ![Alterar a conta de gateway](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* Se pretende ativar SNC com um produto de segurança externa, copie a biblioteca SNC ou os ficheiros na mesma máquina em que o gateway está instalado. Alguns exemplos de produtos SNC <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, e assim por diante.
 
 * Transfira e instale a biblioteca de cliente SAP mais recentes, o que está atualmente <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">conector do SAP (NCo) 3.0.21.0 para Microsoft .NET Framework 4.0 e Windows de 64 bits (x64)</a>, no mesmo computador que o gateway de dados no local. Instale esta versão ou posterior por esses motivos:
 
@@ -114,7 +125,7 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
       Se o **tipo de início de sessão** estiver definida como **grupo**, essas propriedades, que são apresentados normalmente opcionais, são necessárias: 
 
       ![Criar a ligação ao servidor SAP mensagem](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. Quando tiver terminado, escolha **Create** (Criar). 
    
       O Logic Apps configura e testa a ligação, certificar-se de que a ligação funciona corretamente.
@@ -375,23 +386,45 @@ Opcionalmente, pode transferir ou armazenar os esquemas gerados no repositório,
 
 2. Após o êxito executar, vá para a conta de integração e verifique que os esquemas gerados gerados existem.
 
+## <a name="enable-secure-network-communications-snc"></a>Ativar as comunicações de rede segura (SNC)
+
+Antes de começar, certifique-se de que cumpriu listadas anteriormente [pré-requisitos](#pre-reqs):
+
+* O gateway de dados no local é instalado num computador que está na mesma rede que seu sistema SAP.
+
+* Para o início de sessão único, o gateway está em execução como um utilizador que está mapeado para o utilizador SAP.
+
+* Biblioteca SNC que fornece as funções de segurança adicional foi instalada no mesmo computador como gateway de dados. Alguns dos exemplos deles incluem <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, e assim por diante.
+
+Para ativar SNC para seus pedidos de ou para o sistema SAP, selecione o **utilização SNC** caixa de seleção na conexão do SAP e fornecem estas propriedades:
+
+   ![Configurar o SAP SNC numa ligação](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
+
+   | Propriedade   | Descrição |
+   |------------| ------------|
+   | **Biblioteca SNC** | Nome da biblioteca SNC ou caminho relativo à localização da instalação NCo ou o caminho absoluto. Como exemplo sapsnc.dll ou.\security\sapsnc.dll ou c:\security\sapsnc.dll  | 
+   | **SNC SSO** | Ao ligar-se via SNC, a identidade SNC é normalmente utilizada para autenticar o chamador. Outra opção é substituir para que as informações de utilizador/palavra-passe podem ser utilizadas para autenticar o chamador, mas a linha ainda está encriptada.|
+   | **Meu nome SNC** | Na maioria dos casos isso pode ser omitido. A solução SNC instalada, normalmente, sabe o seu próprio nome SNC. Apenas para soluções de suporte "várias identidades", poderá ter de especificar a identidade a ser utilizado para este servidor/destino específico |
+   | **Nome do parceiro SNC** | Nome SNC o back-end |
+   | **SNC qualidade de proteção** | Qualidade de serviço para ser utilizado para comunicação de SNC deste servidor/destino específico. Valor predefinido é definido pelo sistema back-end. Valor máximo é definido pelo produto de segurança utilizado para SNC |
+   |||
+
+   > [!NOTE]
+   > As variáveis de ambiente SNC_LIB SNC_LIB_64 não devem ser definidas na máquina em que tiver o gateway de dados e biblioteca SNC. Se definido, eles seriam têm precedência sobre o valor de biblioteca SNC transmitido através do conector.
+   >
+
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
 
 Seguem-se a problemas atualmente conhecidos e limitações para o conector SAP:
+
+* Apenas uma única enviar para SAP chamada ou mensagem funciona com tRFC. O padrão de consolidação de Business Application Programming Interface (BAPI), como a realização de várias chamadas de tRFC na mesma sessão, não é suportado.
 
 * O acionador SAP não suporta a receber de batch IDOCs da SAP. Esta ação poderá resultar numa falha de ligação de RFC entre seu sistema SAP e o gateway de dados.
 
 * O acionador SAP não suporta clusters de gateway de dados. Em alguns casos de ativação pós-falha, o nó de gateway de dados que se comunique com o sistema SAP pode diferir a partir do nó ativo, resultando num comportamento inesperado. Para cenários de envio, são suportados clusters de gateway de dados.
 
-* Em cenários de receção, retornar uma resposta não nulo não é suportada. Uma aplicação lógica com um acionador e uma ação de resposta resulta em comportamentos inesperados. 
-
-* Apenas uma única enviar para SAP chamada ou mensagem funciona com tRFC. O padrão de consolidação de Business Application Programming Interface (BAPI), como a realização de várias chamadas de tRFC na mesma sessão, não é suportado.
-
-* RFCs com anexos não são suportados para ambos os enviar para o SAP e gerar as ações de esquemas.
-
 * O conector SAP atualmente não suporta cadeias de caracteres de router SAP. O gateway de dados no local tem de existir LAN do mesmo como o sistema SAP que pretende ligar.
 
-* A conversão para a ausência de valores de vazios, mínimo e máximo de (null), para campos DATS e TIMS SAP está sujeitas a alterações em atualizações posteriores para o gateway de dados no local.
 
 ## <a name="get-support"></a>Obter suporte
 

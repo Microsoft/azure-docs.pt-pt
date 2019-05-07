@@ -2,18 +2,17 @@
 title: Conceitos - aplicações à escala dos serviços de Kubernetes no Azure (AKS)
 description: Saiba mais sobre dimensionamento no Azure Kubernetes Service (AKS), incluindo o dimensionamento automático de horizontal de pods, dimensionamento automático de cluster e o conector do Azure Container Instances.
 services: container-service
-author: rockboyfor
+author: zr-msft
 ms.service: container-service
 ms.topic: conceptual
-origin.date: 02/28/2019
-ms.date: 04/08/2019
-ms.author: v-yeche
-ms.openlocfilehash: d7df4d2c7e824f143201e2c6af220730bcd38fb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 02/28/2019
+ms.author: zarhoads
+ms.openlocfilehash: 2070c79a6ce0627280b1793e412002783f385cc0
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466979"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074043"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opções de dimensionamento para aplicações no Azure Kubernetes Service (AKS)
 
@@ -57,6 +56,8 @@ Para responder às mudanças na procura de pod, Kubernetes, tem um dimensionamen
 ![Dimensionamento automático de cluster do Kubernetes](media/concepts-scale/cluster-autoscaler.png)
 
 Dimensionamento automático do cluster é normalmente utilizado em conjunto com o dimensionamento automático horizontal de pods. Quando combinadas, o dimensionamento automático horizontal de pods aumenta ou diminui o número de pods com base na demanda de aplicativo, e o dimensionamento automático de cluster ajusta o número de nós, conforme necessário para executar os pods adicionais em conformidade.
+
+Dimensionamento automático de cluster só deve ser testado em pré-visualização em clusters do AKS com um conjunto de nó único.
 
 Para começar a utilizar com o dimensionamento automático de cluster no AKS, veja [dimensionamento automático de Cluster no AKS][aks-cluster-autoscaler].
 

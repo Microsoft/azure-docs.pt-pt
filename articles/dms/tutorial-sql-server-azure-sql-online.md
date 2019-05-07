@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/24/2019
-ms.openlocfilehash: 1623d592751da191efa5125b8d7cf28e10431808
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/01/2019
+ms.openlocfilehash: 131b86fec5fb51c6ff6f29a8e0beed86145a24b7
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683871"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65136631"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migrar o SQL Server para um único banco de dados ou bases de dados agrupadas na base de dados do Azure SQL online com o DMS
 
@@ -234,9 +234,7 @@ Para migrar o **AdventureWorks2012** esquema a uma base de dados individual ou b
 
     Para obter mais informações sobre os custos e os escalões de preços, veja a [página de preços](https://aka.ms/dms-pricing).
 
-    Se precisar de ajuda para escolher o escalão certo do serviço de migração de base de dados do Azure, veja as recomendações apresentadas no lançamento [aqui](https://go.microsoft.com/fwlink/?linkid=861067).  
-
-     ![Configurar as definições da instância do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
+    ![Configurar as definições da instância do Azure Database Migration Service](media/tutorial-sql-server-to-azure-sql-online/dms-settings2.png)
 
 7. Selecione a **criar** para criar o serviço.
 

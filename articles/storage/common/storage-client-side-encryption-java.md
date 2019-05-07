@@ -2,19 +2,20 @@
 title: Encriptação do lado do cliente com o Java para o armazenamento do Microsoft Azure | Documentos da Microsoft
 description: Biblioteca de cliente de armazenamento do Azure para Java suporta a encriptação do lado do cliente e a integração com o Azure Key Vault para segurança máxima para as suas aplicações de armazenamento do Azure.
 services: storage
-author: lakasa
+author: tamram
 ms.service: storage
 ms.devlang: java
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: lakasa
+ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0a2088e603828a7850cb250c1874008d63fe9c89
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 058dc97054aad310135ccc1f51d765f0af3f571b
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992459"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147032"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Key Vault com o Java para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -118,7 +119,7 @@ Existem três pacotes de Key Vault:
 1. Criar um segredo offline e carregue-o ao Cofre de chaves.  
 2. Utilize o identificador de base do segredo como um parâmetro para resolver a versão atual do segredo para a encriptação e estas informações localmente em cache. Utilizar CachingKeyResolver para colocar em cache; os utilizadores não são esperados para implementar suas própria lógica de colocação em cache.  
 3. Utilize o Resolvedor de colocação em cache como uma entrada ao criar a política de encriptação.
-   Podem encontrar mais informações sobre a utilização do Cofre de chaves nos exemplos de código de criptografia. <fix URL>  
+   Podem encontrar mais informações sobre a utilização do Cofre de chaves nos exemplos de código de criptografia.
 
 ## <a name="best-practices"></a>Melhores práticas
 Suporte de encriptação está disponível apenas na biblioteca de cliente de armazenamento para Java.
@@ -142,7 +143,7 @@ Ao criar um objeto de EncryptionPolicy, os utilizadores podem fornecer apenas um
   * O Resolvedor de chave é invocado se especificada para obter a chave. Se o resolvedor for especificado, mas não tem um mapeamento para o identificador de chave, ocorrerá um erro.  
   * Se o resolvedor não for especificado, mas é especificada uma chave, a chave é utilizada se o seu identificador corresponde ao identificador de chave necessário. Se o identificador não corresponderem, ocorrerá um erro.  
     
-    O [exemplos de encriptação](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) <fix URL>demonstrar um cenário de ponto a ponto mais detalhado para blobs, filas e tabelas, juntamente com a integração do Cofre de chaves.
+    O [exemplos de encriptação](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstrar um cenário de ponto a ponto mais detalhado para blobs, filas e tabelas, juntamente com a integração do Cofre de chaves.
 
 ### <a name="requireencryption-mode"></a>Modo de RequireEncryption
 Os utilizadores podem, opcionalmente, ativar um modo de funcionamento em que todos os carregamentos e transferências tem de estar encriptadas. Neste modo, as tentativas para carregar dados sem uma política de encriptação ou transferir os dados que não estão encriptados no serviço irão falhar no cliente. O **requireEncryption** sinalizador do objeto de opções de pedido controla esse comportamento. Se seu aplicativo vai encriptar todos os objetos armazenados no armazenamento do Azure, em seguida, pode definir o **requireEncryption** propriedade sobre as opções de pedido predefinidas para o objeto de cliente do serviço.   

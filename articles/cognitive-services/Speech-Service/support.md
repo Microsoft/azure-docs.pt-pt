@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc03db268ab05c6718fb323bc30574a36d0ca092
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61460308"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138143"
 ---
 # <a name="support-and-help-options"></a>Opções de suporte e ajuda
 
@@ -71,6 +71,7 @@ Se não conseguir encontrar uma resposta para o seu problema através da pesquis
 |Tradução de Voz |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Intenção de voz |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
 |SDK de voz geral |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+| Assistentes de voz em primeiro lugar Virtual (pré-visualização) | [[microsoft-cognitive+virtual-assistant+botframework]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+virtual-assistant+botframework) | 
 
 > [!TIP]
 > As seguintes mensagens de Stack Overflow contêm dicas sobre como perguntas de formulário e adicione o código-fonte. Seguir essas diretrizes pode ajudar a aumentar as chances de membros da Comunidade, avaliar e respondem rapidamente a sua pergunta:  
