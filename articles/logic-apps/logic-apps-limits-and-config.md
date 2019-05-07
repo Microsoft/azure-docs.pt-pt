@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/16/2018
-ms.openlocfilehash: f371376a7c801eecb6231d551546b13dbc68dd26
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/06/2019
+ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916802"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147734"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -48,20 +48,20 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 Aqui estão os limites para uma execução da aplicação lógica única:
 
-| Name | Limite | Notas |
-|------|-------|-------|
-| Duração de execução | 90 dias | Para alterar este limite, consulte [a duração da execução de alteração](#change-duration). |
-| Intervalo de periodicidade mínimo | 1 segundo | |
-| Intervalo de periodicidade máximo | dias de 500 | |
-| Retenção de armazenamento | hora de início de 90 dias a partir da execução | Para alterar este limite para um valor entre 7 dias e 90 dias, consulte [alterar a retenção de armazenamento](#change-retention). |
-||||
+| Name | Limite de multi-inquilino | Limite de ambiente de serviço de integração | Notas |
+|------|--------------------|---------------------------------------|-------|
+| Duração de execução | 90 dias | 365 dias | Para alterar o limite predefinido, consulte [a duração da execução de alteração](#change-duration). |
+| Retenção de armazenamento | hora de início de 90 dias a partir da execução | 365 dias | Para alterar o limite predefinido, consulte [alterar a retenção de armazenamento](#change-retention). |
+| Intervalo de periodicidade mínimo | 1 segundo | 1 segundo ||
+| Intervalo de periodicidade máximo | dias de 500 | dias de 500 ||
+|||||
 
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
 ### <a name="change-run-duration-and-storage-retention"></a>Alterar a retenção de armazenamento e a duração da execução
 
-Para alterar o limite predefinido para entre 7 dias e 90 dias, siga estes passos. Se tiver de ir acima do limite máximo, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+Para alterar o limite predefinido para a duração de execução e retenção de armazenamento, siga estes passos. Se tiver de ir acima do limite máximo, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
 
 1. No portal do Azure, no menu da sua aplicação lógica, escolha **definições de fluxo de trabalho**.
 
@@ -91,7 +91,7 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 Aqui estão os limites para uma execução da aplicação lógica única:
 
-### <a name="global-logic-apps-service"></a>Serviço de aplicações lógicas global
+### <a name="multi-tenant-logic-apps-service"></a>Serviço de aplicações lógicas do multi-inquilino
 
 | Name | Limite | Notas |
 | ---- | ----- | ----- |
@@ -107,9 +107,9 @@ Aqui estão os limites para uma execução da aplicação lógica única:
 
 | Name | Limite | Notas |
 |------|-------|-------|
-| Limite de execução da unidade base | 10 000 execuções de ação por 5 minutos, <br>qual é a ~ 80 milhões de execuções de ação por mês | |
-| Limite de execução de unidade de escala | 5000 ações executadas por 5 minutos, <br>qual é a execuções de ação de ~ 40 milhões por mês | |
-| Unidades de dimensionamento máximo que pode adicionar | 3 | |
+| Limite de execução da unidade base | Sistema-limitado quando a capacidade de infraestrutura atinge 80% | Fornece as execuções de ação de ~ 4000 por minuto, o que é de ~ 160 milhões de execuções de ação por mês | |
+| Limite de execução de unidade de escala | Sistema-limitado quando a capacidade de infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~ 2.000 ações adicionais executadas por minuto, o que é 80 milhões de ~ mais execuções de ações por mês | |
+| Unidades de dimensionamento máximo que pode adicionar | 10 | |
 ||||
 
 Para passar destes limites no processamento normal ou executar o teste de carga que pode passar destes limites, [contacte a equipa de Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
@@ -124,20 +124,20 @@ Aqui estão os limites para uma única solicitação HTTP ou uma chamada síncro
 
 Algumas operações de conector fazem chamadas assíncronas ou escutam os pedidos de webhook, portanto, o tempo limite para essas operações pode ser maior do que estes limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [acionadores de fluxo de trabalho e as ações](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
-| Name | Limite | Notas |
-| ---- | ----- | ----- |
-| Pedido de saída | 120 Segundos | Para mais operações em execução, utilize um [padrão de consulta assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou uma [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
-| Resposta síncrona | 120 Segundos | Para a solicitação original obter a resposta, todos os passos na resposta deverá ser concluída dentro do limite, a menos que chamar outra aplicação de lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [chamar, acionar, ou aninhar aplicações lógicas](../logic-apps/logic-apps-http-endpoint.md). |
-|||| 
+| Name | Limite de multi-inquilino | Limite de ambiente de serviço de integração | Notas |
+|------|--------------------|---------------------------------------|-------|
+| Pedido de saída | 120 Segundos | 240 segundos | Para mais operações em execução, utilize um [padrão de consulta assíncrona](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou uma [até que o loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). |
+| Resposta síncrona | 120 Segundos | 240 segundos | Para a solicitação original obter a resposta, todos os passos na resposta deverá ser concluída dentro do limite, a menos que chamar outra aplicação de lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [chamar, acionar, ou aninhar aplicações lógicas](../logic-apps/logic-apps-http-endpoint.md). |
+|||||
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Name | Limite | Notas |
-| ---- | ----- | ----- |
-| Tamanho da mensagem | 100 MB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. |
-| Tamanho de mensagem com a segmentação | 1 GB | Este limite aplica-se a ações que nativamente suportam segmentação ou permitem-lhe ativar a divisão na respetiva configuração de tempo de execução. Para obter mais informações, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). |
-| Limite de avaliação da expressão | 131,072 carateres | O `@concat()`, `@base64()`, `@string()` expressões não podem ser superior a este limite. |
-||||
+| Name | Limite de multi-inquilino | Limite de ambiente de serviço de integração | Notas |
+|------|--------------------|---------------------------------------|-------|
+| Tamanho da mensagem | 100 MB | 200 MB | Para contornar este limite, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). No entanto, algumas APIs e conectores podem não suportar a segmentação ou até mesmo o limite predefinido. |
+| Tamanho de mensagem com a segmentação | 1 GB | 5 GB | Este limite aplica-se a ações que nativamente suportam segmentação ou permitem-lhe ativar a divisão na respetiva configuração de tempo de execução. <p>Para o ambiente de serviço de integração, o motor do Logic Apps oferece suporte a este limite, mas conectores têm suas próprias limites das secções até ao limite de mecanismo, por exemplo, consulte [conector de armazenamento de Blobs do Azure](/connectors/azureblob/). Para obter mais a segmentação de informações, consulte [processar mensagens grandes com a segmentação](../logic-apps/logic-apps-handle-large-messages.md). |
+| Limite de avaliação da expressão | 131,072 carateres | 131,072 carateres | O `@concat()`, `@base64()`, `@string()` expressões não podem ser superior a este limite. |
+|||||
 
 #### <a name="retry-policy"></a>Política de repetição
 
@@ -154,10 +154,10 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam os pedido
 
 Aqui estão os limites dos conectores personalizados que pode criar a partir de web APIs.
 
-| Name | Limite |
-| ---- | ----- |
-| Número de conectores personalizados | 1000 por subscrição do Azure |
-| Número de pedidos por minuto para cada ligação criada por um conector personalizado | 500 pedidos por ligação |
+| Name | Limite de multi-inquilino | Limite de ambiente de serviço de integração | Notas |
+|------|--------------------|---------------------------------------|-------|
+| Número de conectores personalizados | 1000 por subscrição do Azure | 1000 por subscrição do Azure ||
+| Número de pedidos por minuto para um conector personalizado | 500 pedidos por minuto para cada ligação | 2000 pedidos por minuto para cada *conector personalizado* ||
 |||
 
 <a name="managed-identity"></a>
@@ -216,13 +216,13 @@ Aqui estão os limites no número de artefactos para cada conta de integração.
 
 ### <a name="b2b-protocol-as2-x12-edifact-message-size"></a>Tamanho da mensagem de protocolo de B2B (AS2, X12, EDIFACT)
 
-Aqui estão os limites que se aplicam aos protocolos B2B:
+Aqui estão os limites de tamanho de mensagem que se aplicam aos protocolos B2B:
 
-| Name | Limite | Notas |
-| ---- | ----- | ----- |
-| AS2 | 50 MB | Aplica-se a descodificar e codificar |
-| X12 | 50 MB | Aplica-se a descodificar e codificar |
-| EDIFACT | 50 MB | Aplica-se a descodificar e codificar |
+| Name | Limite de multi-inquilino | Limite de ambiente de serviço de integração | Notas |
+|------|--------------------|---------------------------------------|-------|
+| AS2 | v2 - 100 MB<br>v1 - 50 MB | v2 - 200 MB <br>v1 - 50 MB | Aplica-se a descodificar e codificar |
+| X12 | 50 MB | 50 MB | Aplica-se a descodificar e codificar |
+| EDIFACT | 50 MB | 50 MB | Aplica-se a descodificar e codificar |
 ||||
 
 <a name="disable-delete"></a>

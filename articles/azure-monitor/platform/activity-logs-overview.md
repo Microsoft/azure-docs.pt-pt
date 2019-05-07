@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: d9583f232a7afd6ab64421d57bbf14a45299e374
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59995664"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65138216"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Monitorizar a atividade de subscrição com o registo de atividades do Azure
 
@@ -63,6 +63,7 @@ Aqui estão algumas das coisas que pode fazer com o registo de atividades:
 * Analise-o no Power BI com o [ **pacote de conteúdos do Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Guardá-lo para um **conta de armazenamento** para inspeção de arquivamento ou manual](../../azure-monitor/platform/archive-activity-log.md). Pode especificar o tempo (em dias) de retenção utilizando o **perfil de registo**.
 * Consultá-los através do Cmdlet do PowerShell, CLI ou REST API.
+* Ver os [histórico de alterações](#view-change-history) para determinados eventos
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consultar o registo de atividades no portal do Azure
 
@@ -183,6 +184,20 @@ Para obter a documentação completa para criar um perfil de monitor com a CLI, 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
+
+## <a name="view-change-history"></a>Ver histórico de alteração
+
+Ao revisar o registo de atividades, pode ajudar a ver o que aconteceram alterações durante essa hora do evento. Pode ver estas informações com o histórico de alterações.
+
+Navegue até ao registo de Atividades utilizando o menu no lado esquerdo do portal. Selecione um evento no registo de atividades que pretende ver mais aprofundadamente em. Selecione o **(pré-visualização) de histórico de alterações** separador para ver qualquer associados alterações ao evento.
+
+![Lista de histórico de alteração de um evento](./media/activity-logs-overview/change-history-event.png)
+
+Se existirem quaisquer alterações associadas com o evento, verá uma lista de alterações que pode selecionar. Esta ação abre o **(pré-visualização) de histórico de alterações** página. Nesta página Ver as alterações ao recurso. Como pode ver no exemplo seguinte, é possível não só vê que a VM foi alterada tamanhos, mas o que o tamanho da VM anterior foi antes da alteração e o que foi alterada para.
+
+![Página de histórico de alteração que mostra as diferenças](./media/activity-logs-overview/change-history-event-details.png)
+
+Para saber mais sobre o histórico de alterações, veja [obter as alterações de recursos](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Próximos Passos
 

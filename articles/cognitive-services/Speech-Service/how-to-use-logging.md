@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: amishu
-ms.openlocfilehash: 75eaea22c4809eda78e54514961d13113b4a5f3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f470647c218188705cfa65cba7077e62d1b2ac
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60696856"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148034"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Ativar o registo no SDK de voz
 
-Registar ficheiro é uma funcionalidade opcional para o SDK de voz. Durante o desenvolvimento registo fornece informações adicionais e de diagnóstico a partir de componentes do núcleo do SDK Speeck. Pode ser ativada, definindo a propriedade `Speech_LogFilename` num objeto de configuração de voz para a localização e o nome do ficheiro de registo. Registo será ativado globalmente assim que um reconhecedor é criado a partir de que a configuração e não pode ser desabilitado posteriormente. Não é possível alterar o nome de um ficheiro de registo durante uma execução de iniciar sessão.
+Registar ficheiro é uma funcionalidade opcional para o SDK de voz. Durante o desenvolvimento registo fornece informações adicionais e de diagnóstico a partir de componentes do núcleo do SDK de voz. Pode ser ativada, definindo a propriedade `Speech_LogFilename` num objeto de configuração de voz para a localização e o nome do ficheiro de registo. Registo será ativado globalmente assim que um reconhecedor é criado a partir de que a configuração e não pode ser desabilitado posteriormente. Não é possível alterar o nome de um ficheiro de registo durante uma execução de iniciar sessão.
 
 > [!NOTE]
 > O registo está disponível no SDK de voz suportadas todas as linguagens de programação, com exceção de JavaScript.

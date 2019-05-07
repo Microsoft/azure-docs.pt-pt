@@ -2,18 +2,19 @@
 title: Armazenamento georredundante (GRS) de durabilidade de inter-regional no armazenamento do Azure | Documentos da Microsoft
 description: Armazenamento georredundante (GRS) replica os dados entre duas regiões que distam centenas de quilómetros de distância. GRS protege contra falhas de hardware no Centro de dados, bem como de desastres regionais.
 services: storage
-author: tolandmike
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
-ms.author: jeking
+ms.author: tamram
+ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09b553f3ca64d8f5217f023c776ec848215366f9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60516269"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150996"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Armazenamento georredundante (GRS): Replicação de inter-regional do armazenamento do Azure
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]

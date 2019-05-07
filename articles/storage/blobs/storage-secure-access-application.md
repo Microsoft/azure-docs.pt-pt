@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 05/30/2018
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: ea865fe246bcb414dd1ab3f83b7135989bc0adf3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbbbf22af5d9ae6ca44acf20e21ce1752852aef8
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60391519"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150850"
 ---
 # <a name="secure-access-to-an-applications-data-in-the-cloud"></a>Proteger o acesso aos dados de uma aplicação na cloud
 

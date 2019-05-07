@@ -4,27 +4,29 @@ description: Saiba como criar um gateway de aplicação com um conjunto de dimen
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.topic: tutorial
-ms.date: 3/20/2019
+ms.topic: article
+ms.date: 5/1/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 83719ce0cddf3d77325b26fa40dd3cb2decaf921
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b1bf91a13d3327873efab475067029ee4ce47639
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129694"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145896"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gerir o tráfego da Web com um gateway de aplicação com o Azure PowerShell
 
 O gateway de aplicação serve para gerir e proteger o tráfego da Web para os servidores que mantém. Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](overview.md) que utiliza um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end para gerir o tráfego da Web. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
-Neste tutorial, ficará a saber como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
 > * Criar um gateway de aplicação
 > * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
+
+Se preferir, pode concluir este procedimento com [CLI do Azure](tutorial-manage-web-traffic-cli.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -32,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Se optar por instalar e utilizar o PowerShell localmente, este tutorial requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
+Se optar por instalar e utilizar o PowerShell localmente, este artigo requer o Azure PowerShell versão 1.0.0 do módulo ou posterior. Para localizar a versão, execute `Get-Module -ListAvailable Az`. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se estiver a executar localmente o PowerShell, também terá de executar o `Login-AzAccount` para criar uma ligação com o Azure.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -255,12 +257,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Criar um conjunto de dimensionamento de máquinas virtuais com o conjunto de back-end predefinido
-
-> [!div class="nextstepaction"]
-> [Restringir o tráfego da Web com uma firewall de aplicações Web](./tutorial-restrict-web-traffic-powershell.md)
+[Restringir o tráfego da Web com uma firewall de aplicações Web](./tutorial-restrict-web-traffic-powershell.md)
