@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2019
+ms.date: 05/06/2019
 ms.author: pareshmu
-ms.openlocfilehash: 44b22b4778db923f7acb295a5156e1eeb3d530a3
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 96839a42eb9dbd947b36522122a28ef81946a99c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150732"
+ms.locfileid: "65191179"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -43,7 +43,7 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | **Região geopolítica** | **zona** | **Regiões do Azure** | **Localizações do ExpressRoute** |
 | --- | --- | --- | --- |
 | **Governo da Austrália** | 1 | Austrália Central, Austrália Central 2 |Camberra, Camberra2 |
-| **Europa** | 1 |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Amsterdam2, Dublin, Londres, London2, Marselha, Newport(Wales), Paris, Zurique |
+| **Europa** | 1 |França Central, Sul de França, Europa do Norte, Europa Ocidental, Oeste do Reino Unido, Sul do Reino Unido |Amesterdão, Amsterdam2, Dublin, Frankfurt, Londres, London2, Marselha, Newport(Wales), Paris, Zurique |
 | **América do Norte** | 1 |E.U.A. Leste, E.U.A. Oeste, E.U.A. Leste 2, E.U.A. Oeste 2, E.U.A. Central, E.U.A. Centro-Sul, E.U.A. Centro-Norte, E.U.A. Centro-Oeste, Canadá Central, Canadá Leste |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, Nova Iorque, San Antonio, Seattle, Silicon Valley, Silicon Valley2, DC2 Washington DC, Washington, Montreal, cidade do Quebeque, Toronto |
 | **Ásia** | 2 |Ásia Oriental, Sudeste Asiático |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **Austrália** | 2 |Sudeste da Austrália, Leste da Austrália |Melbourne, Perth, Sydney | 
@@ -98,13 +98,14 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportadas |Amesterdão, Atlanta, Chicago, Dallas, Dublin, RAE de Hong Kong, Londres, London2, Los Angeles, Melbourne, Miami, Nova Iorque, Osaka, Paris, são Paulo, Seattle, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington D.C. |
 | **UAE Etisalat** |Suportadas |Suportadas |Dubai|
 | **euNetworks** |Suportado |Suportado |Amesterdão, Dublin, Londres |
+| **FarEasTone** |Suportadas |Suportadas |Taipé|
 | **GÉANT** |Suportado |Suportado |Amesterdão |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Suportadas| Suportado | Chennai, Mumbai |
 | **[InterCloud](https://www.intercloud.com/)** |Suportado |Suportadas |Amesterdão, Chicago, Londres, Nova Iorque, Paris, Silicon Valley, Singapura, Washington D.C. |
 | **Internet2** |Suportado |Suportadas |Chicago, Dallas, Washington D.C. |
 | **[Internet Initiative Japan Inc. – IIJ](https://www.iij.ad.jp/en/news/pressrelease/2015/1216-2.html)** |Suportado |Suportado |Osaka, Tóquio |
 | **[Internet Solutions - Cloud Connect](https://www.is.co.za/solution/cloud-connect/)** |Suportadas |Suportadas |Cidade do Cabo, Joanesburgo, Londres |
-| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportadas |Amesterdão, Amsterdam2, Dublin, Londres, Marselha, Paris, Zurique |
+| **[Interxion](https://www.interxion.com/why-interxion/colocate-with-the-clouds/Microsoft-Azure/)** |Suportado |Suportadas |Amesterdão, Amsterdam2, Dublin, Frankfurt, Londres, Marselha, Paris, Zurique |
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Suportado |Suportadas | Amesterdão, London2, Silicon Valley, Toronto |
 | **Jisc** |Suportado |Suportado |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Suportadas |Suportado |Seoul |
@@ -156,7 +157,7 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **Fornecedor de serviços** | **Microsoft Azure** | **Office 365** | **Localizações** |
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Suportado |Suportadas |Chicago, Phoenix,  Washington DC |
-| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportadas |Nova Iorque, Phoenix |
+| **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Suportado |Suportadas |Nova Iorque, Phoenix, San Antonio |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportado |Chicago, Dallas, Nova Iorque, Seattle, Silicon Valley, Washington DC |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Suportado | Suportadas | Chicago, Dallas, San Antonio, Seattle, Washington D.C. |

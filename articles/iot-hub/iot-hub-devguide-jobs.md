@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 397fb1d3934aad19b82f957b6994bd3c5ce4054c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740444"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65189972"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programar tarefas em vários dispositivos
 
@@ -48,7 +48,7 @@ User-Agent: <sdk-name>/<sdk-version>
 
 {
     "jobId": "<jobId>",
-    "type": "scheduleDirectMethod",
+    "type": "scheduleDeviceMethod",
     "cloudToDeviceMethod": {
         "methodName": "<methodName>",
         "payload": <payload>,
@@ -118,7 +118,7 @@ A lista seguinte mostra as propriedades e as descrições correspondentes, que p
 | **jobId** |Aplicação fornecida ID para a tarefa. |
 | **startTime** |Aplicação fornecida a hora de início (ISO-8601) para a tarefa. |
 | **endTime** |IoT Hub fornecidos data (ISO-8601) para quando a tarefa é concluída. Válido apenas depois que a tarefa de atinge o estado "concluído". |
-| **tipo** |Tipos de tarefas: |
+| **type** |Tipos de tarefas: |
 | | **scheduledUpdateTwin**: Uma tarefa utilizada para atualizar um conjunto de propriedades pretendidas ou etiquetas. |
 | | **scheduledDeviceMethod**: Uma tarefa utilizada para invocar um método de dispositivo num conjunto de dispositivos duplos. |
 | **status** |Estado atual da tarefa. Valores possíveis para obter o estado: |

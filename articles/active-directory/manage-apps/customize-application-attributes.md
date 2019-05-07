@@ -15,12 +15,12 @@ ms.date: 04/03/2019
 ms.author: celested
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b63118a7c5fae49edebe4ae4976a1362781ae8cf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c9db6babff3ae0c91f730e6ec2e6e2a41d55b0bf
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712859"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191517"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários
 Microsoft Azure AD fornece suporte para aprovisionamento de utilizadores para aplicações de SaaS de terceiros, como o Salesforce, o G Suite e outras pessoas. Se ativar o aprovisionamento de utilizadores para uma aplicação SaaS de terceiros, o portal do Azure controla os valores de atributo através de mapeamentos de atributos.
@@ -149,6 +149,8 @@ A seleção desta opção efetivamente forçará uma ressincronização de todos
 * A atualizar mapeamentos de atributo tem um impacto no desempenho de um ciclo de sincronização. Uma atualização para a configuração de mapeamento do atributo necessitar de todos os objetos geridos ser reavaliadas. 
 
 * Uma prática recomendada é manter o número de alterações consecutivas para seus mapeamentos de atributos no mínimo.
+
+* Adicionar um atributo de fotografia ser aprovisionada para uma aplicação não é suportado atualmente porque não é possível especificar o formato para sincronizar a fotografia. Pode pedir a funcionalidade no [voz do utilizador](https://feedback.azure.com/forums/169401-azure-active-directory)
 
 
 ## <a name="next-steps"></a>Passos Seguintes

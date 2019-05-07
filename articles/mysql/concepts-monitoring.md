@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
 ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "60525569"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na base de dados do Azure para MySQL
@@ -33,9 +33,9 @@ Estas métricas estão disponíveis para a base de dados do Azure para MySQL:
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|A quantidade de armazenamento de registo do servidor em utilização.|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|O armazenamento de registo de servidor máxima para este servidor.|
 |storage_limit|Limite de armazenamento|Bytes|O armazenamento máximo para este servidor.|
-|active_connections|Ligações ativas|Contagem|O número de ligações ativas para o servidor.|
-|connections_failed|Ligações com Falhas|Contagem|O número de ligações falhadas para o servidor.|
-|seconds_behind_master|Atraso de replicação em segundos|Contagem|O número de segundos que o servidor de réplica é lagging contra o servidor mestre.|
+|active_connections|Ligações ativas|Count|O número de ligações ativas para o servidor.|
+|connections_failed|Ligações com Falhas|Count|O número de ligações falhadas para o servidor.|
+|seconds_behind_master|Atraso de replicação em segundos|Count|O número de segundos que o servidor de réplica é lagging contra o servidor mestre.|
 |network_bytes_egress|Saída da Rede|Bytes|Rede horizontalmente através de ligações de Active Directory.|
 |network_bytes_ingress|Entrada na Rede|Bytes|Rede no através de ligações de Active Directory.|
 |backup_storage_used|Armazenamento de cópia de segurança utilizado|Bytes|A quantidade de armazenamento de cópia de segurança utilizado.|

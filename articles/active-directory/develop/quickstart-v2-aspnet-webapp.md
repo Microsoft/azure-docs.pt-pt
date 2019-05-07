@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 064c3e5fb7a65a7495c393db893e784548075daf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d63ff648f89a231f0077363c88709a17d157ae8c
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708212"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190905"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -68,13 +68,13 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 
 #### <a name="step-2-download-your-project"></a>Passo 2: Transfira o seu projeto
 
-[Transfira a solução do Visual Studio 2017](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
+[Transferir a solução do Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Abra a solução no Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Dependendo da versão do Visual Studio poderá ter de clique com o botão direito do rato no projeto `AppModelv2-WebApp-OpenIDConnect-DotNet` e **pacotes NuGet restaurar**
+1. Dependendo da versão do Visual Studio, poderá ter de clique com o botão direito do rato no projeto `AppModelv2-WebApp-OpenIDConnect-DotNet` e **pacotes NuGet restaurar**
 1. Abra a consola do Gestor de pacotes (visualização -> Other Windows -> Package Manager Console) e executar `Update-Package Microsoft.CodeDom.Providers.DotNetCompilerPlatform -r`
 1. Edite **Web.config** e substitua os parâmetros `ClientId` e `Tenant` por:
 
@@ -96,7 +96,7 @@ Selecione o menu **Autenticação**, defina os **tokens de ID** em **Concessão 
 
 ## <a name="more-information"></a>Mais informações
 
-Esta secção fornece uma descrição geral do código necessário para o início de sessão dos utilizadores. Pode ser útil para compreender como o código funciona, os principais argumentos e também se pretende adicionar início de sessão a uma aplicação ASP.NET existente.
+Esta secção fornece uma descrição geral do código necessário para o início de sessão dos utilizadores. Esta descrição geral pode ser útil para entender como o código funciona, os principais argumentos e também se pretende adicionar início de sessão para um aplicativo ASP.NET existente.
 
 ### <a name="owin-middleware-nuget-packages"></a>Pacotes NuGet de middleware OWIN
 
@@ -110,7 +110,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Classe de Arranque OWIN
 
-O middleware OWIN utiliza uma *classe de arranque* que é executada quando o processo de alojamento é inicializado (no caso deste início rápido, o ficheiro *startup.cs* localizado na pasta raiz). O código seguinte mostra o parâmetro utilizado por este início rápido:
+O middleware da OWIN utiliza um *classe de startup* que é executada quando o processo de hospedagem inicializa. Neste início rápido, o *startup.cs* localizado na pasta raiz do ficheiro. O código seguinte mostra o parâmetro utilizado por este início rápido:
 
 ```csharp
 public void Configuration(IAppBuilder app)

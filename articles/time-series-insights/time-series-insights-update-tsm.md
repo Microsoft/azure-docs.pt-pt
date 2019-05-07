@@ -8,48 +8,48 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: eeab01146c938ec118deae08a30af85af4186a2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a9de28c96c2833033a3811835f57cffcccdf4619
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714057"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190340"
 ---
 # <a name="time-series-model"></a>Modelo de Série de Tempo
 
 Este artigo descreve a parte do modelo de série de tempo da pré-visualização do Azure Time Series Insights. Ele aborda o modelo em si, as suas capacidades e como começar a criar e para atualizar o seu próprio modelo.
 
-Tradicionalmente, os dados que são recolhidos a partir de dispositivos IoT não possui informações contextuais, o que torna difícil localizar e analisar rapidamente os sensores. A principal motivação para o modelo de série de tempo é simplificar a localizar e analisar os dados de IoT. Este objetivo é alcançado, permitindo que a organização, manutenção e enriquecimento de dados de séries de tempo para o ajudar a preparar preparado para o consumidor conjuntos de dados. 
+Tradicionalmente, os dados que são recolhidos a partir de dispositivos IoT não possui informações contextuais, o que torna difícil localizar e analisar rapidamente os sensores. A principal motivação para o modelo de série de tempo é simplificar a localizar e analisar os dados de IoT. Este objetivo é alcançado, permitindo que a organização, manutenção e enriquecimento de dados de séries de tempo para o ajudar a preparar preparado para o consumidor conjuntos de dados.
 
 Modelos de série de tempo desempenham um papel fundamental em consultas e navegação porque eles contextualizar os dispositivos e o dispositivo não entidades. Dados que manteve no modelo de série de tempo alimentam os cálculos de consulta de séries de tempo ao tirar partido das fórmulas armazenados nas mesmas.
 
-![TSM][1]
+[![Descrição geral do modelo de série de tempo](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Principais capacidades
 
 Com o objetivo para que seja simples e sem esforço para gerir contextualization de série de tempo, o modelo de série de tempo permite as seguintes funcionalidades na pré-visualização do Time Series Insights. Ajuda-o a:
 
 * Criar e gerir computações ou fórmulas, transformar dados tirar partido das funções escalares, Agregar operações e assim por diante.
-
 * Defina relações pai-filho para ativar a navegação e de referência e fornecer contexto para a telemetria de série de tempo.
-
 * Definir propriedades que estão associadas a parte de instâncias da *campos de instância* e usá-los para criar hierarquias.
 
-## <a name="times-series-model-key-components"></a>Componentes principais do modelo de série de tempo
+## <a name="entity-components"></a>Componentes de entidade
 
-Modelo de série de tempo tem três componentes principais:
+Modelos de série de tempo tem três componentes principais:
 
-* Modelo de série de tempo *tipos*
-* Modelo de série de tempo *hierarquias*
-* Modelo de série de tempo *instâncias*
+* <a href="#time-series-model-types">Tipos de modelo de série de tempo</a>
+* <a href="#time-series-model-hierarchies">Hierarquias de modelo de série de tempo</a>
+* <a href="#time-series-model-instances">Instâncias do modelo de série de tempo</a>
+
+Esses componentes são combinados para especificar um modelo de série de tempo e organizar os dados do Azure Time Series Insights.
 
 ## <a name="time-series-model-types"></a>Tipos de modelo de série de tempo
 
 Modelo de série de tempo *tipos* ajudam a definir variáveis ou fórmulas para fazer cálculos. Os tipos estão associados uma instância específica do Time Series Insights. Um tipo pode ter uma ou mais variáveis. Por exemplo, uma instância do Time Series Insights pode ser do tipo *Sensor de temperatura*, que consiste as variáveis *temperatura média*, *min temperatura*e *máximo de temperatura*. Vamos criar um tipo de padrão quando os dados começaram a fluir para o Time Series Insights. O tipo de padrão pode ser obtido e atualizado de definições do modelo. Tipos predefinidos de ter uma variável que conte o número de eventos.
 
-## <a name="time-series-model-type-json-example"></a>Exemplo de JSON de tipo de modelo de série de tempo
+### <a name="time-series-model-type-json-example"></a>Exemplo de JSON de tipo de modelo de série de tempo
 
 Exemplo:
 
@@ -76,32 +76,20 @@ Exemplo:
 
 Para obter mais informações sobre os tipos de modelo de série de tempo, consulte a [documentação de referência](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
-## <a name="variables"></a>Variáveis
+### <a name="variables"></a>Variáveis
 
 Tipos de informações de série de tempo tem variáveis, que são nomeadas cálculos sobre os valores dos eventos. Definições de variável do Time Series Insights contêm regras de fórmula e computação. As definições de variável incluem *tipo*, *valor*, *filtro*, *redução*, e *limites*. As variáveis são armazenadas na definição de tipo no modelo de série de tempo e podem ser fornecidas inline através de APIs de consulta para substituir a definição armazenada.
 
 A matriz seguinte funciona como uma legenda para as definições de variável:
 
-![tabela][2]
+[![Tabela de definição de variável de tipo](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
-### <a name="variable-kind"></a>Tipo de variável
-
-São suportados os tipos de variáveis seguintes:
-
-* *Numeric*
-* *Agregado*
-
-### <a name="variable-filter"></a>Filtro de variável
-
-Filtros de variável especifique uma cláusula de filtro opcional para restringir o número de linhas a ser considerado para computação com base em condições.
-
-### <a name="variable-value"></a>Valor da variável
-
-Os valores das variáveis são e devem ser usados no cálculo. Esta é a coluna nos eventos que podemos devem consultar.
-
-### <a name="variable-aggregation"></a>Agregação de variável
-
-A função de agregação da variável permite que a parte de computação. Time Series Insights suporta agregações regulares (ou seja, ele *min*, *máximo*, *média*, *soma*, e *contagem*).
+| Definição | Descrição |
+| --- | ---|
+| Tipo de variável |  *Numérico* e *agregado* tipos são suportados |
+| Filtro de variável | Filtros de variável especifique uma cláusula de filtro opcional para restringir o número de linhas a ser considerado para computação com base em condições. |
+| Valor da variável | Os valores das variáveis são e devem ser usados no cálculo. O campo relevante para fazer referência para a ponto de dados em questão. |
+| Agregação de variável | A função de agregação da variável permite que a parte de computação. Time Series Insights suporta agregações regulares (ou seja, ele *min*, *máximo*, *média*, *soma*, e *contagem*). |
 
 ## <a name="time-series-model-hierarchies"></a>Hierarquias de modelo de série de tempo
 
@@ -146,7 +134,7 @@ Consoante a *campos de instância*, os valores de atributos de hierarquia e apar
 | ID4 | "Criar" = "1000", "piso" = "10"  |
 | ID5 | Nenhuma das "Criar", "floor" ou "espaço" está definida |
 
-No exemplo anterior, ID1 e do ID4 mostra como parte da hierarquia H1 no Explorador do Azure Time Series Insights, e como o resto *instâncias Unparented* porque elas não se ajustem à hierarquia de dados especificada.
+No exemplo anterior, **ID1** e **ID4** Mostrar como parte da hierarquia H1 no Explorador do Azure Time Series Insights, e como o rest *instâncias Unparented* porque eles não estão em conformidade com a hierarquia de dados especificada.
 
 ## <a name="time-series-model-instances"></a>Instâncias do modelo de série de tempo
 
@@ -156,9 +144,9 @@ Instâncias são definidas pelas *typeId*, *timeSeriesId*, *nome*, *Descrição*
 
 *instanceFields* são propriedades de uma instância e quaisquer dados estáticos que define uma instância. Elas definem valores de propriedades de hierarquia ou não da hierarquia, também dar suporte a indexação para realizar operações de pesquisa.
 
-O *nome* propriedade é opcional e maiúsculas de minúsculas. Se *nome* é não está disponível, a predefinição será a série de tempo de ID. Se um *nome* for fornecido, o ID de série de tempo continuarão a estar disponível no poço (a grade abaixo os gráficos no explorer). 
+O *nome* propriedade é opcional e diferencia maiúsculas de minúsculas. Se *nome* é não está disponível, a predefinição será a série de tempo de ID. Se um *nome* for fornecido, o ID de série de tempo continuarão a estar disponível no poço (a grade abaixo os gráficos no explorer).
 
-## <a name="time-series-model-instance-json-example"></a>Exemplo de JSON de instância de modelo de série de tempo
+### <a name="time-series-model-instance-json-example"></a>Exemplo de JSON de instância de modelo de série de tempo
 
 Exemplo:
 
@@ -180,7 +168,7 @@ Exemplo:
 
 Para obter mais informações sobre as instâncias de modelo de série de tempo, consulte a [documentação de referência](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
-## <a name="time-series-model-settings-example"></a>Exemplo de definições do modelo de série de tempo
+### <a name="time-series-model-settings-example"></a>Exemplo de definições do modelo de série de tempo
 
 Exemplo:
 
@@ -206,7 +194,3 @@ Para obter mais informações sobre as definições do modelo de série de tempo
 - Ver [armazenamento de pré-visualização do Azure Time Series Insights e entrada](./time-series-insights-update-storage-ingress.md).
 
 - Ver a nova [modelo de série de tempo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
-
-<!-- Images -->
-[1]: media/v2-update-tsm/tsm.png
-[2]: media/v2-update-tsm/table.png

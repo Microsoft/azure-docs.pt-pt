@@ -16,12 +16,12 @@ ms.date: 12/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2746775c72976159cdcdb6bdd86e39a5dbe3a4fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60348829"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190813"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -76,8 +76,8 @@ Para saber mais, consulte:
 * [Reduzir a superfície de ataque do Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>SQL Server utilizada pelo Azure AD Connect
-* O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express). SQL Server Express tem um limite de tamanho de 10GB que permite-lhe gerir aproximadamente 100 000 objetos. Se precisar de gerir um volume maior de objetos de diretório, tem de apontar o Assistente de instalação para uma instalação diferente do SQL Server.
-* Se utilizar um servidor SQL separado, em seguida, estes requisitos aplicam-se:
+* O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Por predefinição, é instalado um SQL Server 2012 Express LocalDB (uma versão leve do SQL Server Express). SQL Server Express tem um limite de tamanho de 10GB que permite-lhe gerir aproximadamente 100 000 objetos. Se precisar de gerir um volume maior de objetos de diretório, tem de apontar o Assistente de instalação para uma instalação diferente do SQL Server. O tipo de instalação do SQL Server pode afetar a [desempenho do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
+* Se utilizar uma instalação diferente do SQL Server, em seguida, estes requisitos aplicam-se:
   * O Azure AD Connect suporta todas as versões do Microsoft SQL Server 2008 R2 (com Service Pack mais recente) para SQL Server 2019. Base de dados do Microsoft Azure SQL **nepodporuje** como uma base de dados.
   * Tem de utilizar um agrupamento do SQL maiúsculas de minúsculas. Esses agrupamentos são identificados com um \_CI_ no respetivo nome. É **nepodporuje** para utilizar um agrupamento de maiúsculas e minúsculas, identificado por \_CS_ no respetivo nome.
   * Só pode ter um motor de sincronização por instância de SQL. É **nepodporuje** para partilhar uma instância do SQL com a sincronização do FIM/MIM, o DirSync ou o Azure AD Sync.

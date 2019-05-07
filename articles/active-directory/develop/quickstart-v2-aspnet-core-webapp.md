@@ -17,12 +17,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e51437a99217316ead50d4075be52f089225e618
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60302372"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190858"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET Core
 
@@ -73,13 +73,13 @@ Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pod
 
 #### <a name="step-2-download-your-aspnet-core-project"></a>Passo 2: Transfira o seu projeto ASP.NET Core
 
-- [Transfira a solução do Visual Studio 2017](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Transferir a solução do Visual Studio 2019](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o seu projeto do Visual Studio
 
 1. Por exemplo, a extrair o ficheiro zip para uma pasta local dentro da pasta de raiz - **C:\Azure-Samples**
-1. Se usar o Visual Studio 2017, abra a solução no Visual Studio (opcional).
-1. Editar a **appSettings** ficheiro. Encontrar `ClientId` e atualize o valor de `ClientId` com o **ID de aplicação (cliente)** valor da aplicação que acabou de registar. 
+1. Se usar o Visual Studio 2019, abra a solução no Visual Studio (opcional).
+1. Editar a **appSettings** ficheiro. Encontrar `ClientId` e atualize o valor de `ClientId` com o **ID de aplicação (cliente)** valor da aplicação que registou. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -99,7 +99,7 @@ Neste início rápido, ficará a saber como uma aplicação web ASP.NET Core pod
 
 ## <a name="more-information"></a>Mais informações
 
-Esta secção fornece uma descrição geral do código necessário para o início de sessão dos utilizadores. Isso pode ser útil para entender como o código funciona, os principais argumentos e também se pretende adicionar início de sessão a uma aplicação ASP.NET Core existente.
+Esta secção fornece uma descrição geral do código necessário para iniciar sessão dos utilizadores. Esta descrição geral pode ser útil para entender como o código funciona, os principais argumentos e também se pretende adicionar início de sessão a uma aplicação ASP.NET Core existente.
 
 ### <a name="startup-class"></a>Classe de inicialização
 
@@ -136,9 +136,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, o que é utilizada em cenários de browser, bem como definir o desafio para OpenID Connect. 
+O método `AddAuthentication` configura o serviço para adicionar a autenticação baseada em cookies, o que é utilizada em cenários de navegador e definir o desafio com OpenID Connect. 
 
-A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de identidade do Microsoft à sua aplicação. Em seguida, é configurado para início de sessão com o ponto de extremidade de plataforma de identidade Microsoft.
+A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de identidade do Microsoft à sua aplicação. Em seguida, é configurado para iniciar sessão com o ponto de extremidade de plataforma de identidade Microsoft.
 
 > |Onde  |  |
 > |---------|---------|
@@ -153,13 +153,13 @@ A linha que contém `.AddAzureAd` adiciona a autenticação de plataforma de ide
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Proteger um controlador ou o método de um controlador
 
-Pode proteger um controlador ou métodos de controlador usando o `[Authorize]` atributo. Este atributo restringe o acesso para o controlador ou métodos, permitindo apenas que usuários autenticados, que significa que o desafio de autenticação pode ser iniciado para acessar o controlador, se o usuário não é autenticado.
+Pode proteger um controlador ou métodos de controlador usando o `[Authorize]` atributo. Este atributo restringe o acesso para o controlador ou métodos, permitindo apenas que usuários autenticados, que significa que o desafio de autenticação pode ser iniciado para acessar o controlador, se o usuário não está autenticado.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Veja o repositório do GitHub para este tutorial de ASP.NET Core para obter mais informações, incluindo instruções sobre como adicionar autenticação para um aplicativo ASP.NET Core Web totalmente novo, como chamar o Microsoft Graph e outras APIs da Microsoft, como chamar as suas próprias APIs, como adicionar autorização, como início de sessão aos utilizadores em clouds nacionais ou com identidades sociais e muito mais:
+Veja o repositório do GitHub para este tutorial de ASP.NET Core para obter mais informações, incluindo instruções sobre como adicionar autenticação para um aplicativo ASP.NET Core Web totalmente novo, como chamar o Microsoft Graph e outras APIs da Microsoft, como chamar as suas próprias APIs, como adicionar autorização, como iniciar sessão dos utilizadores em clouds nacionais ou com identidades sociais e muito mais:
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicação Web do núcleo do ASP.NET](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e988d03b60469940d8750cc07188a61fc7ab8b3a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3973a35acb4cb95d3392a8daa59e7fd9a8c56eb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709606"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191530"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Referência de eventos de risco do Azure Active Directory Identity Protection
 
@@ -80,7 +80,9 @@ Esse tipo de evento de risco indica inícios de sessão de endereços IP infetad
 
 ## <a name="unfamiliar-sign-in-properties"></a>Propriedades de início de sessão não familiar
 
-**Tipo de Deteção:** Em tempo real **nome antigo:** Inícios de sessão de localizações desconhecidas
+**Tipo de Deteção:** Em tempo real  
+**Nome antigo:** Inícios de sessão de localizações desconhecidas
+
 
 Este tipo de evento de risco considera anteriores histórico de início de sessão (IP, Latitude / Longitude e o ASN) para procurar por inícios de sessão anómalos. O sistema armazena informações sobre localizações anteriores, utilizado por um utilizador e considera esses locais "familiares". O evento de risco é acionado quando o início de sessão ocorre a partir de uma localização que não ainda esteja na lista de localizações familiares. Criado recentemente os utilizadores serão no "modo de aprendizagem" durante um período de tempo em que propriedades de início de sessão não familiares eventos de risco serão desativados enquanto os nossos algoritmos saiba o comportamento do utilizador. A aprendizagem é dinâmica, duração de modo e depende em quanto tempo demora o algoritmo para recolher informações suficientes sobre os padrões de início de sessão do utilizador. A duração mínima é de cinco dias. Um utilizador pode voltar atrás no modo de aprendizagem após um longo período de inatividade. O sistema também ignora os inícios de sessão de dispositivos familiares e localizações geograficamente próximas uma localização familiar. 
 

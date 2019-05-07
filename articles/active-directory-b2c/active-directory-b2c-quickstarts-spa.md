@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 51e0f6b7162c9bfa6c34f091bdce2b896bd5e284
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2e5f16fa42e86442f6600e375df343f3b6369986
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688949"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190394"
 ---
 # <a name="quickstart-set-up-sign-in-for-a-single-page-app-using-azure-active-directory-b2c"></a>Início rápido: Configurar o início de sessão para uma aplicação de página única com o Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento ASP.NET e Web**.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o **desenvolvimento na web e ASP.NET** carga de trabalho.
 - Instalar o [Node. js](https://nodejs.org/en/download/)
 - Uma conta de rede social do Facebook, Google, Microsoft ou Twitter.
 - [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
@@ -64,7 +64,7 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 
     ![Fornecedor de Início de Sessão ou Inscrição](media/active-directory-b2c-quickstarts-spa/sign-in-or-sign-up-spa.png)
 
-    Efetue a autenticação (início de sessão) com as suas credenciais da rede social e autorize a aplicação a ler as informações da sua conta da rede social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
+    Autentica (início de sessão) com sua conta de redes sociais, credenciais e autorize a aplicação para ler as informações da sua conta de redes sociais. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
 
 3. Conclua o processo de início de sessão para o fornecedor de identidade.
 
@@ -82,7 +82,12 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros início
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, utilizou uma aplicação de página única de exemplo para iniciar sessão com uma página de início de sessão personalizado, iniciar sessão com um fornecedor de identidade de redes sociais, criar uma conta do Azure AD B2C e chamar uma API Web protegida pelo Azure AD B2C. 
+Neste início rápido, utilizou um aplicativo de página única de exemplo para:
+
+* Inicie sessão com uma página de início de sessão personalizado
+* Inicie sessão com um fornecedor de identidade social
+* Criar uma conta do Azure AD B2C
+* Chamar uma API web protegida pelo Azure AD B2C
 
 Comece a criar o seu próprio inquilino do Azure AD B2C.
 

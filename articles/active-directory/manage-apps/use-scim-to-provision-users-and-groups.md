@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/03/2019
+ms.date: 5/06/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bb7032c2741cc8c407c8d7d0285e58647f0bfd5
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918545"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191547"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
 
@@ -31,7 +31,7 @@ SCIM é padronizado de protocolo e o esquema que visa consistência maior de uni
 
 Muitos dos aplicativos para que suporte do Azure AD [pré-integradas aprovisionamento automático de utilizadores](../saas-apps/tutorial-list.md) implementar SCIM, conforme os meios para o utilizador de receber notificações de alteração.  Além destas, os clientes podem ligar-se aplicações que suportam um perfil específico do [SCIM 2.0 a especificação de protocolo](https://tools.ietf.org/html/rfc7644) utilizando a opção de integração de "externas à Galeria" genérico no portal do Azure. 
 
-O foco principal deste artigo é o perfil do SCIM 2.0, que implementa o Azure AD como parte do seu conector SCIM genérico para as aplicações externas à galeria. No entanto, com êxito de testes de um aplicativo que suporta SCIM com o Azure AD genérico o conector é um passo para um aplicativo listado na galeria do Azure AD como suportar o aprovisionamento de utilizadores. Para obter mais informações sobre como obter a sua aplicação na Galeria de aplicações do Azure AD, consulte a [uma rede de aplicações Microsoft](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx).
+O foco principal deste artigo é o perfil do SCIM 2.0, que implementa o Azure AD como parte do seu conector SCIM genérico para as aplicações externas à galeria. No entanto, com êxito de testes de um aplicativo que suporta SCIM com o Azure AD genérico o conector é um passo para um aplicativo listado na galeria do Azure AD como suportar o aprovisionamento de utilizadores. Para obter mais informações sobre como obter a sua aplicação na Galeria de aplicações do Azure AD, consulte [como: Inclua a sua aplicação na Galeria de aplicações do Azure AD](../develop/howto-app-gallery-listing.md).
  
 
 >[!IMPORTANT]

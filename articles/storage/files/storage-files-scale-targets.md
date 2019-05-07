@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 7/19/2018
+ms.date: 5/5/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: bd60d6453b71387578b880ad580fb1741e6e512b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c4928050f945ac88dd1f86e2a13b5d26d385e55a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697913"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190016"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
 
@@ -34,15 +34,15 @@ O recurso principal para uma partilha de ficheiros do Azure é uma conta de arma
 
 ## <a name="azure-files-scale-targets"></a>Alvos de dimensionamento de ficheiros do Azure
 
-### <a name="premium-files-scale-targets"></a>Ficheiros Premium Dimensionar destinos
+### <a name="premium-scale-targets"></a>Alvos de dimensionamento de Premium
 
-Existem três categorias de limitações a considerar para os ficheiros de premium: ficheiros, partilhas e contas de armazenamento.
+Existem três categorias de limitações a considerar para partilhas de ficheiros de premium: ficheiros, partilhas e contas de armazenamento.
 
 Por exemplo: Uma única partilha pode atingir 100 000 IOPS e um único ficheiro pode ser dimensionado até 5000 IOPS. Assim, por exemplo, se tiver três arquivos no compartilhamento de um, o IOPS máximo que pode obter a partir de que a partilha é 15 000.
 
-### <a name="premium-filestorage-account-limits"></a>Limites de conta do Premium filestorage
+### <a name="premium-filestorage-account-limits"></a>Limites de conta do Premium FileStorage
 
-Ficheiros Premium utilizam uma conta de armazenamento exclusivo denominada **filestorage (pré-visualização)**, esta conta tem destinos de escala ligeiramente diferente do que a conta de armazenamento utilizado por ficheiros padrão. Para os alvos de dimensionamento de conta de armazenamento, consulte a tabela a [metas de dimensionamento de conta de armazenamento do Azure](#azure-storage-account-scale-targets) secção.
+Partilhas de ficheiros de Premium são aprovisionadas numa conta de armazenamento especial chamada **filestorage (pré-visualização)**. Esta conta tem destinos de escala ligeiramente diferente do que a conta de armazenamento utilizada para partilhas de ficheiros padrão. Para os alvos de dimensionamento de conta de armazenamento, consulte a tabela a [metas de dimensionamento de conta de armazenamento do Azure](#azure-storage-account-scale-targets) secção.
 
 > [!IMPORTANT]
 > Limites de conta de armazenamento se aplicam a todas as partilhas. Dimensionar até o máximo para as contas de armazenamento só está alcançável se existir apenas uma partilha por conta de armazenamento.

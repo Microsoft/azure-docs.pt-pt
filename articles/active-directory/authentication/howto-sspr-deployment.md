@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2018
+ms.date: 05/06/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb9333845a78204ea1c6e56e17b3b6f9e5513c9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9c254ef3a71e95b33df2a779c728d47fff3c3759
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358012"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190379"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como implementar com êxito a reposição personalizada de palavras-passe
 
@@ -32,6 +32,10 @@ Para garantir uma suave implementação da funcionalidade de reposição persona
    * Fornecido-las os URLs para o registo e reposição?
       * Registo:  https://aka.ms/ssprsetup
       * Repor: https://aka.ms/sspr
+
+   > [!WARNING]
+   > Não é suportada a utilização da caixa de seleção "o utilizador deve alterar palavra-passe no próximo início de sessão" nas ferramentas administrativas de Active Directory no local, como o Active Directory utilizadores e computadores ou centro de administração do Active Directory. Quando alterar uma palavra-passe no local não verificar esta opção. 
+
 1. Formação aos seus utilizadores.
    * Este secções seguintes deste documento aceda através de comunicação de exemplo, portais de palavra-passe, a imposição de registo e preencher dados de autenticação.
    * O grupo de produtos do Azure Active Directory criou um [plano de implementação passo a passo](https://aka.ms/SSPRDeploymentPlan) que as organizações podem utilizar em paralelo com a documentação neste site para criar um caso comercial e um plano de implementação de reposição personalizada de palavra-passe.

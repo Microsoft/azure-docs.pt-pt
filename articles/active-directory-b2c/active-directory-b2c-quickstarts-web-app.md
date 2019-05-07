@@ -1,5 +1,5 @@
 ---
-title: Início Rápido - Configurar o início de sessão para uma aplicação ASP.NET através do Azure Active Directory B2C | Microsoft Docs
+title: Início rápido - configurar o início de sessão de uma aplicação ASP.NET com o Azure Active Directory B2C | Documentos da Microsoft
 description: Execute um exemplo de aplicação Web ASP.NET que utiliza o Azure Active Directory B2C para fornecer início de sessão na conta.
 services: active-directory-b2c
 author: davidmu1
@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0d82a174f9fcfab84b5caf71853242ce68ebb60d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1d2fbe4dbbd7f5549d6c98f8183df58fa3f34e9d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699513"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190461"
 ---
-# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início rápido: Configurar o início de sessão para uma aplicação de ASP.NET com o Azure Active Directory B2C
+# <a name="quickstart-set-up-sign-in-for-an-aspnet-application-using-azure-active-directory-b2c"></a>Início rápido: Configurar o início de sessão de uma aplicação ASP.NET com o Azure Active Directory B2C
 
 O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud para manter as aplicações, as empresas e os clientes protegidos. O Azure AD B2C permite às aplicações fazer a autenticação em contas de redes sociais e contas empresariais, através de protocolos padrão abertos. Neste início rápido, vai utilizar uma aplicação ASP.NET para iniciar sessão com um fornecedor de identidade de redes sociais e chamar uma API Web protegida pelo Azure AD B2C.
 
@@ -25,7 +25,7 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) com a carga de trabalho de **desenvolvimento ASP.NET e Web**. 
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) com o **desenvolvimento na web e ASP.NET** carga de trabalho. 
 - Uma conta de rede social do Facebook, Google, Microsoft ou Twitter.
 - [Transfira um ficheiro zip](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip) ou clone a aplicação Web de exemplo a partir do GitHub.
 
@@ -35,7 +35,7 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 
     Estes dois projetos estão na solução de exemplo:
 
-    - **TaskWebApp** - uma aplicação Web que cria e edita uma lista de tarefas. A aplicação web utiliza a **inscrição ou início de sessão** fluxo de utilizador para os utilizadores de inscrição ou início de sessão.
+    - **TaskWebApp** - uma aplicação Web que cria e edita uma lista de tarefas. A aplicação web utiliza a **inscrição ou início de sessão** fluxo de utilizador para inscrever-se ou iniciar sessão dos utilizadores.
     - **TaskService** - uma API Web que suporta a funcionalidade de criação, leitura, atualização e eliminação da lista de tarefas. A API Web é protegida pelo Azure AD B2C e chamada pela aplicação Web.
 
 ## <a name="run-the-application-in-visual-studio"></a>Execute a aplicação no Visual Studio
@@ -57,11 +57,11 @@ O Azure Active Directory (Azure AD) B2C fornece gestão de identidades na cloud 
 
     O exemplo suporta várias opções de inscrição, incluindo através de um fornecedor de identidade de redes sociais ou criando uma conta local com um endereço de e-mail. Neste início rápido, utilize uma conta de fornecedor de identidade de redes sociais do Facebook, Google, Microsoft ou Twitter.
 
-2. O Azure AD B2C apresenta uma página de início de sessão personalizada para uma marca fictícia com o nome Wingtip Toys para a aplicação Web de exemplo. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
+2. O Azure AD B2C apresenta uma página de início de sessão personalizada para uma marca fictícia chamada Wingtip Toys para a aplicação web. Para inscrever-se através de um fornecedor de identidade de redes sociais, clique no botão do fornecedor de identidade que pretende utilizar.
 
     ![Fornecedor de Início de Sessão ou Inscrição](media/active-directory-b2c-quickstarts-web-app/sign-in-or-sign-up-web.png)
 
-    Efetue a autenticação (início de sessão) com as suas credenciais da rede social e autorize a aplicação a ler as informações da sua conta da rede social. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
+    Autentica (início de sessão) com sua conta de redes sociais, credenciais e autorize a aplicação para ler as informações da sua conta de redes sociais. Ao conceder acesso, a aplicação pode obter as informações do perfil da conta de rede social, como o nome e a localidade. 
 
 3. Conclua o processo de início de sessão para o fornecedor de identidade.
 
@@ -95,7 +95,12 @@ Pode utilizar o inquilino do Azure AD B2C se planeia experimentar outros início
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, utilizou uma aplicação de exemplo ASP.NET para iniciar sessão com uma página de início de sessão personalizado, iniciar sessão com um fornecedor de identidade de redes sociais, criar uma conta do Azure AD B2C e chamar uma API Web protegida pelo Azure AD B2C. 
+Neste início rápido, utilizou um aplicativo ASP.NET de exemplo para:
+
+* Inicie sessão com uma página de início de sessão personalizado
+* Inicie sessão com um fornecedor de identidade social
+* Criar uma conta do Azure AD B2C
+* Chamar uma API web protegida pelo Azure AD B2C
 
 Comece a criar o seu próprio inquilino do Azure AD B2C.
 

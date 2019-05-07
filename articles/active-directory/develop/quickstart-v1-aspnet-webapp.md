@@ -1,6 +1,6 @@
 ---
 title: Adicionar início de sessão com a Microsoft a uma aplicação Web ASP.NET | Microsoft Docs
-description: Saiba como adicionar o início de sessão da Microsoft numa solução ASP.NET com uma aplicação tradicional baseada num browser através de OpenID Connect padrão.
+description: Saiba como adicionar o início de sessão Microsoft numa solução ASP.NET com tradicional baseada no browser e aplicações web utilizando o padrão de OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
@@ -16,18 +16,18 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299372"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191033"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-Neste início rápido, vai aprender a implementar o início de sessão com a Microsoft, através de uma solução ASP.NET MVC tradicional baseada no browser através de OpenID Connect. Vai aprender a permitir inícios de sessão das contas profissionais ou escolares na aplicação ASP.NET.
+Neste início rápido, irá aprender como implementar o início de sessão com a Microsoft a utilizar uma solução de ASP.NET Model View Controller (MVC) com tradicional baseada no browser e aplicações web utilizando OpenID Connect. Vai aprender a permitir inícios de sessão das contas profissionais ou escolares na aplicação ASP.NET.
 
 No final deste início rápido, a aplicação irá aceitar inícios de sessão de contas profissionais e escolares de organizações que se integraram no Azure Active Directory (Azure AD).
 
@@ -38,15 +38,15 @@ No final deste início rápido, a aplicação irá aceitar inícios de sessão d
 
 Para começar, certifique-se de que cumpre estes pré-requisitos:
 
-* Ter o Visual Studio 2015 Update 3 ou o Visual Studio 2017 instalado. Não o tem? [Transferir o Visual Studio 2017 gratuitamente](https://www.visualstudio.com/downloads/)
+* Ter o Visual Studio 2015 Update 3 ou instalado de 2019 do Visual Studio. Não o tem? [Transfira gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Cenário: Iniciar sessão dos utilizadores de contas profissionais e escolares na sua aplicação ASP.NET
 
 ![Como funciona este guia](./media/quickstart-v1-aspnet-webapp/aspnet-intro.png)
 
-Neste cenário, um browser acede a um site do ASP.NET e pede ao utilizador para autenticar com um botão de início de sessão. Neste cenário, a maior parte do trabalho para compor a página Web ocorre do lado do servidor.
+Um browser acede a um web site do ASP.NET e pedidos de um utilizador para autenticar com um início de sessão no botão neste cenário. Neste cenário, a maior parte do trabalho para compor a página Web ocorre do lado do servidor.
 
-O início rápido demonstra como iniciar a sessão dos utilizadores numa aplicação Web ASP.NET a partir de um modelo em branco e inclui passos de como adicionar um botão de início de sessão e cada controlador e os métodos, e aborda os conceitos subjacentes a estas tarefas. Em alternativa, também pode criar um projeto para iniciar a sessão de utilizadores do Azure AD (contas profissionais e escolares) através do [modelo Web do Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) e ao selecionar **contas organizacionais** e, em seguida, uma das opções da cloud. Esta opção utiliza um modelo mais avançado, com vistas, métodos e controladores adicionais.
+O guia de introdução demonstra como iniciar sessão dos utilizadores num aplicativo da web ASP.NET a partir de um modelo em branco. Também inclui passos, tais como adicionar um botão de início de sessão e cada controlador e os métodos e aborda os conceitos por trás dessas tarefas. Também pode criar um projeto para iniciar sessão de utilizadores do Azure AD (contas profissionais e escolares) com o [modelo de web do Visual Studio](https://docs.microsoft.com/aspnet/visual-studio/overview/2013/creating-web-projects-in-visual-studio#organizational-account-authentication-options) e selecionando **contas institucionais** e, em seguida, uma das opções na cloud - Isto opção usa um modelo mais avançado, com vistas, métodos e controladores adicionais.
 
 ## <a name="libraries"></a>Bibliotecas
 
@@ -158,7 +158,7 @@ Este controlador demonstra as utilizações do atributo `[Authorize]` para prote
 1. Selecione **Controlador MVC {versão} – Vazio**.
 1. Selecione **Adicionar**.
 1. Dê-lhe o nome **ClaimsController**.
-1. Substitua o código da sua classe de controlador pelo código seguinte - esta ação adiciona o atributo `[Authorize]` à classe:
+1. Substitua o código da sua classe de controlador com o código a seguir - este exemplo adiciona o `[Authorize]` à classe de atributo:
 
     [!code-csharp[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Controllers/ClaimsController.cs?name=ClaimsController "ClaimsController.cs")]
 
@@ -196,29 +196,29 @@ No Visual Studio, crie uma nova vista para apresentar as afirmações do utiliza
 4. Copie o URL de SSL do projeto para a área de transferência:<br/><br/>![Propriedades do projeto](./media/quickstart-v1-aspnet-webapp/visual-studio-project-properties.png)<br />
 5. Em <code>web.config</code>, substitua <code>Enter_the_Redirect_URL_here</code> pelo URL de SSL do projeto.
 
-### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registar a aplicação no Portal do Azure e adicionar as respetivas informações em *web.config*
+### <a name="register-your-application-in-the-azure-portal-then-add-its-information-to-webconfig"></a>Registar a sua aplicação no portal do Azure, em seguida, adicionar as suas informações em *Web. config*
 
 1. Aceda ao [portal do Microsoft Azure – Registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) para registar uma aplicação.
 2. Selecione **Novo registo de aplicação**.
 3. Introduza um nome para a aplicação.
-4. Cole o *URL de SSL* do projeto do Visual Studio no **URL de início de sessão**. Este URL é também adicionado automaticamente à lista de URLs de Resposta da aplicação que está a registar.
+4. Cole o *URL de SSL* do projeto do Visual Studio no **URL de início de sessão**. Este URL é também adicionado automaticamente à lista de URLs de resposta para a aplicação que está a registar.
 5. Selecione **Criar** para registar a aplicação. Esta ação direciona-o novamente para a lista de aplicações.
 6. Agora, pesquise e/ou selecione a aplicação que acabou de criar para abrir as respetivas propriedades.
 7. Copie o GUID em **ID da Aplicação** na área de transferência.
-8. Volte ao Visual Studio e, em `web.config`, substitua `Enter_the_Application_Id_here` pelo ID da aplicação que acabou de registar.
+8. Voltar ao Visual Studio e, em `web.config`, substitua `Enter_the_Application_Id_here` com o ID de aplicação a partir da aplicação que registou.
 
 > [!TIP]
 > Se a conta estiver configurada para aceder a vários diretórios, certifique-se de que selecionou o diretório correto para a organização na qual pretende registar a aplicação, ao clicar no nome da conta no canto superior direito no portal do Azure e, em seguida, verifique o diretório selecionado conforme indicado:<br/>![Selecionar o diretório correto](./media/quickstart-v1-aspnet-webapp/tenantselector.png)
 
 ## <a name="step-10-configure-sign-in-options"></a>Passo 10: Configurar as opções de início de sessão
 
-Pode configurar a sua aplicação para permitir que apenas os utilizadores que pertencem a uma instância do Azure AD de uma organização possam iniciar sessão, ou aceitar inícios de sessão de utilizadores que pertencem a qualquer organização. Siga as instruções de uma das seguintes opções:
+Pode configurar a sua aplicação para permitir que apenas os utilizadores que pertencem a instância do Azure AD de uma organização para iniciar sessão ou aceitar inícios de sessão dos utilizadores que pertencem a qualquer organização. Siga as instruções de uma das seguintes opções:
 
 ### <a name="configure-your-application-to-allow-sign-ins-of-work-and-school-accounts-from-any-company-or-organization-multi-tenant"></a>Configurar a aplicação para permitir inícios de sessão de contas profissionais e escolares de qualquer empresa ou organização (multi-inquilino)
 
-Siga os passos seguintes, se pretender aceitar inícios de sessão de contas profissionais e escolares de qualquer empresa ou organização que esteja integrada no Azure AD. Este é um cenário comum para *aplicações SaaS*:
+Siga os passos seguintes, se pretender aceitar inícios de sessão de contas profissionais e escolares de qualquer empresa ou organização que esteja integrada no Azure AD. Este cenário é comum *aplicações SaaS*:
 
-1. Volte ao [portal do Microsoft Azure – Registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) e localize a aplicação que acabou de registar.
+1. Volte ao [portal do Microsoft Azure – registos de aplicações](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) e localize a aplicação que registou.
 2. Em **Todas as Definições**, selecione **Propriedades**.
 3. Altere a propriedade **Com múltiplos inquilinos** para **Sim** e, em seguida, selecione **Guardar**.
 
@@ -238,7 +238,7 @@ Para permitir utilizadores de apenas uma lista de organizações específicas, s
 1. Defina `ValidateIssuer` como verdadeiro.
 1. Utilize o parâmetro `ValidIssuers` para especificar uma lista de organizações.
 
-Outra opção é implementar um método personalizado para validar os emissores com o parâmetro *IssuerValidator*. Para obter mais informações sobre `TokenValidationParameters`, veja [este artigo do MSDN](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "artigo do MSDN TokenValidationParameters").
+Outra opção é implementar um método personalizado para validar os emissores com o parâmetro *IssuerValidator*. Para obter mais informações sobre `TokenValidationParameters`, consulte [este artigo MSDN](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "artigo do TokenValidationParameters MSDN").
 
 <!--end-configure-->
 
@@ -278,7 +278,7 @@ Quando estiver pronto para testar, utilize uma conta profissional (Azure AD) par
 
 #### <a name="expected-results"></a>Resultados esperados
 
-Após o início de sessão, o utilizador é redirecionado para a página de boas-vindas do seu site, que é o URL HTTPS especificado nas informações de registo da sua aplicação no Portal de Registo de Aplicações da Microsoft. Esta página mostra agora *Olá {Utilizador}*, uma ligação para terminar sessão e uma ligação para ver as afirmações do utilizador – que é uma ligação para o controlador Autorizar criado anteriormente.
+Depois do utilizador inicia sessão, o utilizador é redirecionado para a home page do seu web site, que é o URL HTTPS especificado nas informações de registo da sua aplicação no Portal de registo de aplicação do Microsoft. Esta página mostra agora *Olá {Utilizador}*, uma ligação para terminar sessão e uma ligação para ver as afirmações do utilizador – que é uma ligação para o controlador Autorizar criado anteriormente.
 
 ### <a name="see-users-claims"></a>Ver as afirmações do utilizador
 
@@ -292,7 +292,7 @@ Selecione a hiperligação para ver as afirmações do utilizador. Esta ação d
 |---|---|---|
 | Name | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
 | Nome de utilizador | <span>user@domain.com</span> | O nome de utilizador utilizado para identificar o utilizador com sessão iniciada |
-| Assunto| {Assunto} |Uma cadeia de caracteres para identificar exclusivamente o início de sessão do utilizador na Web |
+| Assunto| {Assunto} |Uma cadeia de caracteres para identificar exclusivamente o utilizador iniciar sessão em toda a web |
 | ID do inquilino | {Guid} | Um *guid* que representa exclusivamente a organização do Azure AD do utilizador |
 
 Além disso, verá uma tabela que inclui todas as afirmações do utilizador incluídas no pedido de autenticação. Para obter uma lista de todas as afirmações no Token de ID e a respetiva explicação, veja [Lista de afirmações no token de ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

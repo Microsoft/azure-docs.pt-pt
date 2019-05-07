@@ -15,12 +15,12 @@ ms.date: 04/02/2019
 ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516faed0f41ae36079d0f26f0311b35d5582d57a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 67956b3369394f68d067fc4753a859c066428aea
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708297"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191500"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o aprovisionamento e desaprovisionamento para aplicações SaaS com o Azure Active Directory de utilizador
 
@@ -274,6 +274,10 @@ Não. Quando configurado para "utilizadores da sincronização só atribuído e 
 Esta é uma limitação "baseado no grupo de atribuições de aplicações", que também afeta o início de sessão único e está descrito [com um grupo para gerir o acesso a aplicações SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 
 Como solução, deve atribuir explicitamente (ou, caso contrário [definir o âmbito no](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) os grupos que contêm os utilizadores que precisam de ser aprovisionado.
+
+### <a name="is-provisioning-between-azure-ad-and-a-target-application-using-an-encrypted-channel"></a>Está a ser aprovisionada entre o Azure AD e um aplicativo de destino usando um canal encriptado?
+
+Sim. Utilizamos a encriptação SSL de HTTPS para o destino do servidor. 
 
 ## <a name="related-articles"></a>Artigos relacionados
 

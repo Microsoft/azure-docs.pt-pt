@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 87599b05a3569bf6f28880352185a131f48a7f52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f284fea701220906a994cf108ed58cb6998aef9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61436176"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65187662"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender o evento de filtragem para subscrições do Event Grid
 
@@ -43,7 +43,7 @@ Simples filtrar pelo requerente, especifique um valor inicial ou final para o as
 
 Quando publica eventos tópicos personalizados, crie assuntos para seus eventos que tornam fácil para os assinantes para saber se elas têm interesse no evento. Os subscritores utilizar a propriedade de assunto para filtrar e encaminhar eventos. Considere adicionar o caminho para onde o evento ter acontecido, para que os assinantes podem filtrar por segmentos de caminho. O caminho permite que os subscritores de foco menor ou amplamente filtrar eventos. Se fornecer um caminho de três segmento como `/A/B/C` no assunto, os assinantes podem filtrar pelo primeiro segmento `/A` para obter um amplo conjunto de eventos. Os subscritores recebem eventos com os assuntos como `/A/B/C` ou `/A/D/E`. Outros subscritores podem filtrar por `/A/B` para obter um conjunto mais estreito de eventos.
 
-A sintaxe JSON para filtrar por tipo de evento é:
+A sintaxe JSON para filtrar pelo requerente é:
 
 ```json
 "filter": {

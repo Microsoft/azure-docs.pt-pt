@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94fde7714f3efe0a460983966923071bce1afcc6
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60700244"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190510"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Monitorização em escala com o Azure Monitor
 
@@ -109,7 +109,7 @@ O principal aspecto é a condição de acionamento do alerta. Clicar em "Conditi
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Editar a consulta de Kusto, se necessário, selecione o limite direito (o que vai decidir quando o alerta será disparado), o período correto (janela de tempo para o qual a consulta é executada) e a frequência. Para por exemplo: Se o limiar for superior a 0, o período de é de 5 minutos e a frequência é de 5 minutos, em seguida, a regra é traduzida como "Execute a consulta a cada 5 minutos para os últimos 5 minutos e se o número de resultados for maior que 0, notificar-me através do grupo de ação selecionada"
+Editar a consulta de Kusto, se necessário, selecione o limite direito (o que vai decidir quando o alerta será disparado), o período correto (janela de tempo para o qual a consulta é executada) e a frequência. Por exemplo: Se o limiar for superior a 0, o período de é de 5 minutos e a frequência é de 5 minutos, em seguida, a regra é traduzida como "Execute a consulta a cada 5 minutos para os últimos 5 minutos e se o número de resultados for maior que 0, notificar-me através do grupo de ação selecionada"
 
 #### <a name="action-group-integration"></a>Integração do grupo de ação
 

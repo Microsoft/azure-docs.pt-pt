@@ -8,12 +8,12 @@ ms.date: 01/02/2019
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 4186af31e17acea09e6b3c1a0121d2fcbe63f800
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: cdffbfd11a0f1c7d99818fa00f550965774b9b31
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917617"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190074"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os ficheiros do Azure
 [Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que são acessíveis através da norma da indústria [protocolo Server Message Block (SMB)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Pode montar partilhas de ficheiros do Azure em simultâneo em implementações na cloud ou no local do Windows, Linux e macOS. Também pode colocar em cache partilhas de ficheiros do Azure em máquinas do Windows Server com o Azure File Sync para acesso rápido perto de onde os dados são utilizados.
@@ -145,7 +145,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 
 * <a id="afs-os-support"></a>
   **Posso utilizar o Azure File Sync com o Windows Server 2008 R2, o Linux ou o meu dispositivo de armazenamento ligados à rede (NAS)?**  
-    Atualmente, o Azure File Sync suporta apenas o Windows Server 2016 e o Windows Server 2012 R2. Neste momento, não temos outros planos que podemos compartilhar, mas estamos abertos para dar suporte a plataformas adicionais com base na procura dos clientes. Fale na [UserVoice de ficheiros do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files) que plataformas gostaria de ver para oferecer suporte.
+    Atualmente, o Azure File Sync suporta apenas 2019 do Windows Server, Windows Server 2016 e Windows Server 2012 R2. Neste momento, não temos outros planos que podemos compartilhar, mas estamos abertos para dar suporte a plataformas adicionais com base na procura dos clientes. Fale na [UserVoice de ficheiros do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files) que plataformas gostaria de ver para oferecer suporte.
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Por que os ficheiros em camadas existem fora do espaço de nomes de ponto final de servidor?**  
@@ -222,7 +222,7 @@ Este artigo responde a perguntas comuns sobre recursos de ficheiros do Azure e f
 * <a id="encryption-at-rest"></a>
 **Como garantir que a minha partilha de ficheiros do Azure é encriptada em descanso?**  
 
-    Encriptação do serviço de armazenamento do Azure está no processo de que está a ser ativado por predefinição em todas as regiões. Para estas regiões, não precisa realizar quaisquer ações para ativar a encriptação. Para outras regiões, consulte [encriptação do lado do servidor](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    Sim. Para obter mais informações, consulte [do Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * <a id="access-via-browser"></a>
 **Como pode fornecer acesso a um ficheiro específico usando um navegador da web?**  

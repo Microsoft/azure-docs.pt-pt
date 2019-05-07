@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: a42a56b8a4a54c33297461a427a2b64b72357020
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591451"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190162"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -176,13 +176,13 @@ Alocações de portas SNAT são específico de protocolo de transporte IP (TCP e
 
 ### <a name="tcp-snat-port-release"></a>Versão de porta de TCP SNAT
 
-- Se ambos os servidor/cliente enviar FIN/ACK, porta SNAT será lançada após 240 segundos.
+- Se o servidor/cliente enviar FINACK, porta SNAT será lançada após 240 segundos.
 - Se um RST é visto, porta SNAT será lançada após 15 segundos.
-- foi atingido o tempo limite de inatividade
+- Se for atingido o tempo limite de inatividade, a porta é lançada.
 
 ### <a name="udp-snat-port-release"></a>Versão de porta de SNAT de UDP
 
-- foi atingido o tempo limite de inatividade
+- Se for atingido o tempo limite de inatividade, a porta é lançada.
 
 ## <a name="problemsolving"></a> Resolução de problemas 
 

@@ -2,22 +2,22 @@
 title: Desempenho de ficheiros do Azure, guia de resolução de problemas
 description: Problemas de desempenho com partilhas de ficheiros do Azure premium (pré-visualização) e soluções associadas conhecidos.
 services: storage
-author: jeffpatt24
+author: gunjanj
 ms.service: storage
 ms.topic: article
 ms.date: 04/25/2019
-ms.author: jeffpatt
+ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 767473a037bf890756df68719698c3872fed6a9c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5ae0bb736a7cc0bbc38df5905abc5d8a71f60eb9
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577919"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190041"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Resolução de problemas de desempenho de ficheiros do Azure
 
-Este artigo lista alguns problemas comuns relacionados com partilhas de ficheiros de premium do Microsoft Azure (pré-visualização). Fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
+Este artigo lista alguns problemas comuns relacionados com partilhas de ficheiros do Azure premium (pré-visualização). Fornece possíveis causas e soluções alternativas quando esses problemas são encontrados.
 
 ## <a name="high-latency-low-throughput-and-general-performance-issues"></a>Alta latência, débito de baixo e problemas gerais de desempenho
 
@@ -27,7 +27,7 @@ A quota padrão num compartilhamento é 100 GiB, que fornece a linha de base de 
 
 Para confirmar se a partilha está a ser limitada, pode aproveitar as métricas do Azure no portal.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. Selecione **todos os serviços** e, em seguida, procure **métricas**.
 
@@ -80,7 +80,7 @@ Foi possível localizar o cliente VM numa região diferente do que a partilha de
 
 ## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Não é possível alcançar um débito máximo suportado pela rede de cliente
 
-Uma causa potencial disso é a falta fo SMB multicanal suporte. Atualmente, os ficheiros de premium só suportam canal único, portanto, há apenas uma ligação do cliente VM para o servidor. Esta ligação única é estabilizada para um único núcleo na VM cliente, para que o máximo débito alcançável a partir de uma VM está ligado por um único núcleo.
+Uma causa potencial disso é a falta fo SMB multicanal suporte. Atualmente, as partilhas de ficheiros do Azure só suportam canal único, portanto, há apenas uma ligação do cliente VM para o servidor. Esta ligação única é estabilizada para um único núcleo na VM cliente, para que o máximo débito alcançável a partir de uma VM está ligado por um único núcleo.
 
 ### <a name="workaround"></a>Solução
 
@@ -137,7 +137,7 @@ Aplicação cliente excede constantemente a linha de base de IOPS. Atualmente, n
 
 ### <a name="cause"></a>Causa
 
-Se o número de chamadas de DirectoryOpen/DirectoryClose está entre as chamadas de API superior e não quiser que o cliente a fazer que o número de chamadas, poderá ser um problema com o antivírus instalado na VM de cliente do Azure.
+Se o número de chamadas de DirectoryOpen/DirectoryClose está entre as chamadas de API superior e não quiser que o cliente a fazer que o número de chamadas, poderá ser um problema com o antivírus instalado na VM do cliente do Azure.
 
 ### <a name="workaround"></a>Solução
 

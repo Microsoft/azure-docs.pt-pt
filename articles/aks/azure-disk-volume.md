@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: iainfou
 ms.openlocfilehash: 02a863a4ddf59fb36c5f2ae7f3092896d2e1d860
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467532"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072146"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Crie manualmente e usar um volume com discos do Azure no Azure Kubernetes Service (AKS)
 

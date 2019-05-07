@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a04dfd7009028197bee2602394a34803b1f8c6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09c5bd217f852f7130888d03e3368278af8abce5
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190882"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código de plataforma do Microsoft identity (ponto final v2.0)
 
@@ -74,12 +74,12 @@ Os exemplos seguintes mostram cliente público aplicações (aplicações de amb
 
 | Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph | Chama uma API Web ASP.NET Core 2.0 |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Ambiente de trabalho (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Interativo | [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
-| Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NET.png) | Autenticação Integrada do Windows | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
-| Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Nome de utilizador/palavra-passe |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
-| Móveis (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interativo |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
-| Móveis (iOS)       | ![iOS / Objective C ou swift](media/sample-v2-code/logo_iOS.png) | Interativo |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
-| Móveis (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interativo |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
+| Ambiente de trabalho (WPF)      | ![.NET/C#](media/sample-v2-code/logo_NET.png) | [interativo](msal-authentication-flows.md#interactive)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NET.png) | [Autenticação integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
+| Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Nome de Utilizador/Palavra-passe](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
+| Móveis (Android, iOS, UWP)   | ![.NET/C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | [interativo](msal-authentication-flows.md#interactive) |[xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) |  |
+| Móveis (iOS)       | ![iOS / Objective C ou swift](media/sample-v2-code/logo_iOS.png) | [interativo](msal-authentication-flows.md#interactive) |[ios-swift-native-v2](https://github.com/azure-samples/active-directory-ios-swift-native-v2) </p> [ios-native-nxoauth2-v2](https://github.com/azure-samples/active-directory-ios-native-nxoauth2-v2) |  |
+| Móveis (Android)   | ![Android / Java](media/sample-v2-code/logo_Android.png) | [interativo](msal-authentication-flows.md#interactive) |  [android-native-v2](https://github.com/azure-samples/active-directory-android-native-v2 ) |  |
 
 ## <a name="daemon-applications"></a>Aplicações daemon
 
@@ -87,8 +87,8 @@ Os exemplos seguintes mostram uma aplicação que acede o Microsoft Graph API co
 
 | Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- | ---------- | -------------------- |
-| Consola | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | Credenciais de cliente | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
-| Aplicação Web | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | Credenciais de cliente | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
+| Consola | ![.NET Core](media/sample-v2-code/logo_NETcore.png)</p> ASP.NET  | [Credenciais de cliente](msal-authentication-flows.md#client-credentials) | [dotnetcore-daemon-v2](https://github.com/azure-samples/active-directory-dotnetcore-daemon-v2) |
+| Aplicação Web | ![ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET  | [Credenciais de cliente](msal-authentication-flows.md#client-credentials) | [dotnet-daemon-v2](https://github.com/azure-samples/active-directory-dotnet-daemon-v2) |
 
 ## <a name="headless-applications"></a>Aplicativos sem periféricos
 
@@ -96,7 +96,7 @@ O exemplo seguinte mostra uma aplicação de cliente pública em execução num 
 
 | Aplicação de cliente | Plataforma | Fluxo/concessão | Chamadas Microsoft Graph |
 | ------------------ | -------- |  ----------| ---------- |
-| Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NETcore.png) | Fluxo de código do dispositivo |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
+| Ambiente de trabalho (consola)   | ![.NET / c# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Fluxo de código de dispositivo](msal-authentication-flows.md#device-code) |[dotnetcore-devicecodeflow-v2](https://github.com/azure-samples/active-directory-dotnetcore-devicecodeflow-v2) |
 
 ## <a name="web-apis"></a>APIs da Web
 

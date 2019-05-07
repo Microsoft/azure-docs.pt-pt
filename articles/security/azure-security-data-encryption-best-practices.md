@@ -1,10 +1,10 @@
 ---
-title: Melhores práticas de segurança de dados e de encriptação | Documentos da Microsoft
+title: Segurança e encriptação de melhores práticas de dados - Microsoft Azure
 description: Este artigo fornece um conjunto de práticas recomendadas para segurança de dados e recursos do Azure através de encriptação internos.
 services: security
 documentationcenter: na
-author: barclayn
-manager: mbalwin
+author: TerryLanfear
+manager: barbkess
 editor: TomSh
 ms.assetid: 17ba67ad-e5cd-4a8f-b435-5218df753ca4
 ms.service: security
@@ -12,33 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
-ms.author: barclayn
-ms.openlocfilehash: 686d4a8ac5239af12206b57072cc00aa10114d79
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/06/2019
+ms.author: terrylan
+ms.openlocfilehash: 9955450b468ef38ba456d7ee73d9681de677494d
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125124"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190716"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Práticas recomendadas de segurança de dados do Azure e encriptação
+# <a name="azure-data-security-and-encryption-best-practices"></a>Melhores práticas de segurança de dados do Azure e encriptação
+Este artigo descreve as melhores práticas para segurança de dados e encriptação.
 
+As melhores práticas baseiam-se um consenso de opinião, e trabalhar com recursos atuais da plataforma do Azure e conjuntos de recursos. Opiniões e as tecnologias mudam ao longo do tempo e este artigo é atualizado regularmente para refletir essas alterações.
+
+## <a name="protect-data"></a>Proteger os dados
 Para ajudar a proteger os dados na cloud, precisa levar em conta para os Estados possíveis em que os dados podem ocorrer e quais controles estão disponíveis para esse Estado. Melhores práticas para segurança de dados do Azure e a encriptação se relacionam com os seguintes Estados de dados:
 
 - Inativos: Isto inclui todos os objetos de armazenamento de informações, contentores e tipos existentes estaticamente em mídia física, se magnético ou ótico disco.
 - Em trânsito: Quando os dados estão a ser transferidos entre componentes, locais ou programas, se encontram em trânsito. Os exemplos são transferência através da rede, num barramento de serviço (a partir de locais para a cloud e vice-versa, incluindo as ligações híbridas, como o ExpressRoute), ou durante um processo de entrada/saída.
-
-Neste artigo, abordaremos uma coleção de práticas de melhor segurança e encriptação de dados do Azure. Essas práticas recomendadas são derivadas da nossa experiência com a segurança de dados do Azure e a encriptação e as experiências dos clientes, como.
-
-Para cada melhor prática, vamos explicar:
-
-* O que é a melhor prática
-* Por que pretende ativar essa prática recomendada
-* Se efetuar a ativação para ativar a melhor prática, o que pode ser o resultado
-* Possíveis alternativas para a prática recomendada
-* Como pode aprender permitir a melhor prática
-
-Este artigo de melhores práticas de criptografia e segurança dos dados do Azure baseia-se numa opinião de consenso e capacidades da plataforma Azure e conjuntos de recursos, tal como existem no momento que este artigo foi escrito. Opiniões e as tecnologias mudam ao longo do tempo e este artigo será atualizado regularmente para refletir essas alterações.
 
 ## <a name="choose-a-key-management-solution"></a>Escolher uma solução de gestão de chaves
 
@@ -95,7 +87,7 @@ Uma vez que a grande maioria dos ataques visar o utilizador final, se torna o po
 
 Armazenamento do Azure e a base de dados do Azure SQL encriptam dados inativos, por padrão e muitos encriptação de oferta de serviços, como uma opção. Pode utilizar o Azure Key Vault para manter o controlo das chaves que acedem e encriptam os dados. Ver [suporte do modelo de encriptação de fornecedores do recurso do Azure para saber mais](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-**Melhores práticas**: Utilize encriptação para ajudar a reduzir os riscos relacionados com o acesso de dados não autorizado.
+**Melhores práticas**: Utilize encriptação para ajudar a reduzir os riscos relacionados com o acesso de dados não autorizado.   
 **Detalhe**: Encripte as suas unidades antes de escrever dados confidenciais aos mesmos.
 
 As organizações que não impõem a encriptação de dados são mais expostas a problemas de confidencialidade de dados. Por exemplo, os utilizadores não autorizados ou não autorizados podem roubar dados em contas comprometidas ou obter acesso não autorizado aos dados codificados em formato não encriptado. As empresas também tem de provar que eles são controles de segurança correto diligentes e utilização para melhorar a segurança de dados para cumprir os regulamentos da indústria.
@@ -118,7 +110,7 @@ Seguem-se as práticas recomendadas específicas para utilizar HTTPS, SSL/TLS e 
 **Detalhe**: Uso [ExpressRoute](../expressroute/expressroute-introduction.md). Se optar por utilizar o ExpressRoute, também pode criptografar os dados no nível do aplicativo usando [SSL/TLS](https://support.microsoft.com/kb/257591) ou outros protocolos para maior proteção.
 
 **Melhor prática**: Interagir com o armazenamento do Azure através do portal do Azure.   
-**Detalhe**: Todas as transações ocorrem através de HTTPS. Também pode utilizar [API do REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) através de HTTPS para interagir com [armazenamento do Azure](https://azure.microsoft.com/services/storage/) e [base de dados do Azure SQL](https://azure.microsoft.com/services/sql-database/).
+**Detalhe**: Todas as transações ocorrem através de HTTPS. Também pode utilizar [API do REST de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) através de HTTPS para interagir com [armazenamento do Azure](https://azure.microsoft.com/services/storage/).
 
 As organizações que não as protegem os dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [escutas](https://technet.microsoft.com/library/gg195641.aspx)e ao seqüestro de sessão. Esses ataques podem ser o primeiro passo para terem acesso aos dados confidenciais.
 

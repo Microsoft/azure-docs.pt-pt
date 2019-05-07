@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d90af62c8d6267001ede567c71b7e1204f6ce74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 73d3c2846ed97b725d745cc76714738ac34ed1a0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917220"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190194"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos iOS através da ADAL
 
@@ -165,7 +165,7 @@ Para não-mediador SSO assistido entre aplicativos, os SDKs gerir muito da compl
 
 Para ativar o SSO em aplicações que são suas que precisa fazer o seguinte:
 
-1. Certifique-se todos os seus utilizadores de aplicações, o mesmo ID de cliente ou o ID da aplicação.
+1. Certifique-se de que todos os seus aplicativos usarem o mesmo ID de cliente ou o ID da aplicação.
 2. Certifique-se de que todas as suas aplicações partilham o mesmo certificado de assinatura da Apple para que possam partilhar keychains.
 3. Solicite o mesmo direito de keychain para cada uma das suas aplicações.
 4. Conte-nos SDKs keychain partilhado que querem que utilizar.

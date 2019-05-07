@@ -15,10 +15,10 @@ ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: 0c43fb72829614af339f7dcc1bb36edfc80e6c80
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/06/2019
 ms.locfileid: "64993323"
 ---
 ## <a name="test-your-code"></a>Testar o seu código

@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485646"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190320"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mover a computação de mainframe para o Azure
 
@@ -47,7 +47,7 @@ IBM mainframes oferecem a capacidade de dimensionar até 240 núcleos (o tamanho
 
 Um CF permite que os clusters de cálculo partilhar dados com acesso direto. É utilizado para o bloqueio de informações, informações de cache e a lista de recursos de dados partilhados. Um Sysplex paralela usando um ou mais CFs pode ser considerado um "partilhado tudo" cluster de cálculo de escalamento horizontal. Para obter mais informações sobre estas funcionalidades, consulte [Sysplex paralela no IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources) no site da IBM.
 
-Aplicativos podem usar esses recursos para fornecer desempenho de escalamento horizontal e elevada disponibilidade. Para obter mais informações sobre como CICS pode utilizar o Sysplex paralela com CF, transfira o [IBM CICS e o recurso de acoplamento: Além do básico](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
+Aplicativos podem usar esses recursos para fornecer desempenho de escalamento horizontal e elevada disponibilidade. Para obter mais informações sobre como CICS pode utilizar o Sysplex paralela com CF, transfira o [IBM CICS e o recurso de acoplamento: Além do básico](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf) redbook.
 
 ## <a name="azure-compute-at-a-glance"></a>Computação do Azure rapidamente
 
@@ -121,10 +121,10 @@ Cada camada também pode fornecer desastre adequado dos serviços de recuperaç�
 ### <a name="ibm-resources"></a>Recursos da IBM
 
 - [Sysplex paralela no IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS e o recurso de acoplamento: Além do básico](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [IBM CICS e o recurso de acoplamento: Além do básico](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Criação de usuários necessários para uma instalação da funcionalidade de pureScale de Db2](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [Db2icrt - criar instância de comando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale solução de banco de dados agrupadas](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Db2 pureScale solução de banco de dados agrupadas](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government

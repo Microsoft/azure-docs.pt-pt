@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/04/2018
 ms.author: gsilva
-ms.openlocfilehash: c4567919490c8bc9094dea3dddbe22550d9eebb2
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: ef6086afa17f1ab864d70678a6da6df2a78e0c16
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57192910"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190278"
 ---
 # <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>Criar uma máquina virtual do Windows com redes aceleradas
 
@@ -230,7 +230,7 @@ Se tiver criado uma VM sem redes aceleradas, é possível ativar esta funcionali
 Primeiro parar/desalocar a VM ou, se um conjunto de disponibilidade, todas as VMs no conjunto de:
 
 ```azurepowershell
-Stop-AzVM -ResourceGroup "myResourceGroup" `
+Stop-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 
@@ -239,18 +239,18 @@ Importante,. tenha em atenção que se a VM foi criada individualmente, sem um c
 Depois de parado, ative a Accelerated Networking na NIC da VM:
 
 ```azurepowershell
-$nic = Get-AzNetworkInterface -ResourceGroupName "myResourceGroup" `
+$nic = Get-AzureRMNetworkInterface -ResourceGroupName "myResourceGroup" `
     -Name "myNic"
 
 $nic.EnableAcceleratedNetworking = $true
 
-$nic | Set-AzNetworkInterface
+$nic | Set-AzureRMNetworkInterface
 ```
 
 Reinicie a VM ou, se num conjunto de disponibilidade, todas as VMs no conjunto e confirme que o Accelerated Networking está ativado:
 
 ```azurepowershell
-Start-AzVM -ResourceGroup "myResourceGroup" `
+Start-AzureRmVM -ResourceGroup "myResourceGroup" `
     -Name "myVM"
 ```
 

@@ -1,6 +1,6 @@
 ---
-title: Aplicações de cliente (biblioteca de autenticação da Microsoft) | Azure
-description: Saiba mais sobre o cliente público e confidencial cliente aplicações no Microsoft Authentication Library (MSAL).
+title: Fluxos de autenticação (biblioteca de autenticação da Microsoft) | Azure
+description: Saiba mais sobre fluxos/concessões de autenticação utilizadas pelo Microsoft Authentication Library (MSAL).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 096aa5e5ce2f33467457cef22220f338ae49b708
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139108"
+ms.locfileid: "65191015"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -30,6 +30,7 @@ Este artigo descreve os fluxos de autenticação diferentes fornecidos pelo Micr
 
 | Fluxo | Descrição | Utilizado no|  
 | ---- | ----------- | ------- | 
+| [Interativo](#interactive) | Obtém o token através de um processo interativo que solicita ao utilizador as credenciais através de um browser ou janela de pop. | [Aplicações de ambiente de trabalho](scenario-desktop-overview.md), [aplicações móveis](scenario-mobile-overview.md) |
 | [Concessão implícita](#implicit-grant) | Permite que a aplicação obter os tokens sem efetuar uma troca de credenciais do servidor de back-end. Isso permite que a aplicação iniciar a sessão do utilizador, manter a sessão e obtenha tokens para outras APIs web tudo dentro do cliente código JavaScript.| [Aplicativos de página única (SPA)](scenario-spa-overview.md) |
 | [código de autorização](#authorization-code) | Utilizadas em aplicações que são instaladas num dispositivo para obter acesso a recursos protegidos, como as APIs web. Isto permite-lhe adicionar iniciar sessão e a API de acesso às suas aplicações móveis e de Desktops. | [Aplicações de ambiente de trabalho](scenario-desktop-overview.md), [aplicações móveis](scenario-mobile-overview.md), [aplicações Web](scenario-web-app-call-api-overview.md) | 
 | [On-behalf-of](#on-behalf-of) | Um aplicativo invoca um serviço/API web, que por sua vez tem de chamar outro serviço/API web. A idéia é propagar a identidade de utilizador delegado e permissões através da cadeia de pedido. | [APIs da Web](scenario-web-api-call-api-overview.md) |
@@ -38,6 +39,17 @@ Este artigo descreve os fluxos de autenticação diferentes fornecidos pelo Micr
 | [Autenticação integrada do Windows](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permite que aplicações no domínio ou do Azure AD associado computadores para adquirir um token automaticamente (sem qualquer interação da interface do Usuário do usuário).| [Aplicações de ambiente de trabalho/móvel](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
 | [Nome de utilizador/palavra-passe](scenario-desktop-acquire-token.md#username--password) | Permite que um aplicativo iniciar o utilizador ao lidar diretamente com a palavra-passe. Este fluxo não é recomendado. | [Aplicações de ambiente de trabalho/móvel](scenario-desktop-acquire-token.md#username--password) | 
 
+## <a name="interactive"></a>Interativo
+A MSAL suporta a capacidade de forma interativa solicitar ao utilizador as credenciais para iniciar sessão e obter um token com essas credenciais.
+
+![Fluxo interativo](media/msal-authentication-flows/interactive.png)
+
+Para obter mais informações sobre como utilizar MSAL.NET interativamente adquirir tokens em plataformas específicas, leia o seguinte:
+- [Xamarin Android](msal-net-xamarin-android-considerations.md)
+- [Xamarin iOS](msal-net-xamarin-ios-considerations.md)
+- [Plataforma Universal do Windows](msal-net-uwp-considerations.md)
+
+Para obter mais informações sobre as chamadas interativas no msal, leia [solicitar o comportamento em pedidos interativos de msal](msal-js-prompt-behavior.md)
 
 ## <a name="implicit-grant"></a>Concessão implícita
 
@@ -55,6 +67,9 @@ A MSAL suporta o [concessão do código de autorização de OAuth 2](v2-oauth2-a
 Quando os utilizadores iniciam sessão às aplicações web (web sites), o aplicativo web recebe um código de autorização.  O código de autorização é resgatado para adquirir um token para chamar as APIs web. No ASP.NET / aplicações web, o objetivo apenas de núcleo do ASP.NET `AcquireTokenByAuthorizationCode` é adicionar um token para a cache de tokens, para que, em seguida, pode ser utilizado pelo aplicativo (normalmente, os controladores) que simplesmente obter um token para utilizar uma API `AcquireTokenSilent`.
 
 ![Fluxo de código de autorização](media/msal-authentication-flows/authorization-code.png)
+
+1. Pedidos de um código de autorização, que é trocado por um token de acesso.
+2. Utiliza o token de acesso para chamar uma API web.
 
 ### <a name="considerations"></a>Considerações
 - O código de autorização é utilizável apenas uma vez utilizar um token. Não tente adquirir um token várias vezes com o mesmo código de autorização (explicitamente for proibido pela especificação de protocolo de padrão). Se resgatar o código várias vezes intencionalmente ou porque não está ciente de que uma estrutura também faz tudo por si, obterá um erro: `AADSTS70002: Error validating credentials. AADSTS54005: OAuth2 Authorization code was already redeemed, please retry with a new valid code or use an existing refresh token.`
@@ -83,14 +98,23 @@ Concessão de credenciais de cliente permite do fluxo que um serviço da web (cl
 > [!NOTE]
 > O fluxo de cliente confidencial não está disponível nas plataformas móveis (UWP, xamarin. IOS e xamarin. Android), uma vez que estes só suportam aplicações cliente público.  Aplicativos cliente público não sabem como provar a identidade da aplicação para o fornecedor de identidade. Uma ligação segura pode ser obtida na aplicação web ou web API back-ends, ao implementar um certificado.
 
-MSAL.NET suporta três tipos de credenciais de cliente:
+MSAL.NET suporta dois tipos de credenciais de cliente. Estas credenciais de cliente têm de ser registados com o Azure AD. As credenciais são passadas para os construtores do aplicativo cliente confidencial em seu código.
 
-- Segredos da aplicação <BR>![Cliente confidencial com palavra-passe](media/msal-authentication-flows/confidential-client-password.png)
-- Certificados <BR>![Cliente confidencial com certificado](media/msal-authentication-flows/confidential-client-certificate.png)
-- Declarações de cliente otimizadas<BR>![Cliente confidencial com asserções](media/msal-authentication-flows/confidential-client-assertions.png)
+### <a name="application-secrets"></a>Segredos da aplicação 
+
+![Cliente confidencial com palavra-passe](media/msal-authentication-flows/confidential-client-password.png)
+
+1. Adquirir um token com as credenciais de segredo/palavra-passe de aplicação.
+2. Utiliza o token para fazer pedidos do recurso.
+
+### <a name="certificates"></a>Certificados 
+
+![Cliente confidencial com certificado](media/msal-authentication-flows/confidential-client-certificate.png)
+
+1. Adquirir um token com as credenciais de certificado.
+2. Utiliza o token para fazer pedidos do recurso.
 
 Estas credenciais de cliente tem de ser:
-
 - Registado com o Azure AD.
 - Passado na construção do aplicativo cliente confidencial em seu código.
 
@@ -118,6 +142,9 @@ Ao utilizar o fluxo de código de dispositivo, o aplicativo obtém tokens atrav�
 A MSAL suporta a autenticação integrada do Windows (IWA) para o ambiente de trabalho ou aplicativos móveis que são executados num domínio associado ou do Azure AD associado a um computador Windows. Utilizar o IWA, esses aplicativos podem adquirir um token automaticamente (sem qualquer interação da interface do Usuário do usuário). 
 
 ![Autenticação Integrada do Windows](media/msal-authentication-flows/integrated-windows-authentication.png)
+
+1. Adquirir um token com a autenticação integrada do Windows.
+2. Utiliza o token para fazer pedidos do recurso.
 
 ### <a name="constraints"></a>Restrições
 
@@ -148,6 +175,9 @@ Para obter mais informações sobre o consentimento, consulte [v2.0 permissões 
 A MSAL suporta o [OAuth 2 credenciais de palavra-passe de proprietário do recurso concedem](v2-oauth-ropc.md), que permite que um aplicativo iniciar o utilizador ao lidar diretamente com a palavra-passe. Em seu aplicativo de desktop, pode utilizar o fluxo de nome de utilizador/palavra-passe para adquirir um token silenciosamente. Nenhuma interface do Usuário é necessária ao utilizar a aplicação.
 
 ![Fluxo de nome de utilizador/palavra-passe](media/msal-authentication-flows/username-password.png)
+
+1. Recebe um token através do envio de nome de utilizador e palavra-passe para o fornecedor de identidade.
+2. Chamar uma API com o token de web.
 
 > [!WARNING]
 > Este fluxo é **não recomendada** porque requer um alto grau de exposição de confiança e de utilizador.  Só deve utilizar este fluxo quando os fluxos de outros, mais seguros, não podem ser utilizados. Para obter mais informações sobre este problema, consulte [este artigo](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). 

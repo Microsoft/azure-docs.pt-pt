@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 53297a16889190383e0455c484339adc049c1cb1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700360"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190089"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -23,8 +23,6 @@ Este artigo destina-se para o ajudar a resolver problemas que podem surgir com a
 1. [Fórum de armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 2. [UserVoice de ficheiros do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Suporte da Microsoft. Para criar um novo pedido de suporte, no portal do Azure, no **ajudar** separador, selecione a **ajuda + suporte** botão e, em seguida, selecione **novo pedido de suporte**.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Estou a ter um problema com o Azure File Sync em meu servidor (sincronização, na cloud a disposição em camadas, etc.). Posso remover e recriar o ponto final do meu servidor?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -114,18 +112,17 @@ Este problema ocorre se o servidor está offline ou não tem conectividade de re
 Este problema pode ocorrer se uma operação de gestão, o ponto final de servidor falhar. Se a página de propriedades do ponto final de servidor não for aberto no portal do Azure, atualizar o ponto final de servidor utilizar comandos do PowerShell do servidor de pode corrigir este problema. 
 
 ```powershell
-Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
 Get-AzStorageSyncServerEndpoint `
-    -SubscriptionId mysubguid `
     -ResourceGroupName myrgname `
     -StorageSyncServiceName storagesvcname `
-    -SyncGroupName mysyncgroup
+    -SyncGroupName mysyncgroup | `
+Tee-Object -Variable serverEndpoint
 
 # Update the free space percent policy for the server endpoint
 Set-AzStorageSyncServerEndpoint `
-    -Id serverendpointid `
-    -CloudTiering true `
+    -InputObject $serverEndpoint
+    -CloudTiering `
     -VolumeFreeSpacePercent 60
 ```
 <a id="server-endpoint-noactivity"></a>**Ponto final do servidor tem um Estado de funcionamento de "Sem atividade" ou "Pendente" e o estado do servidor no painel servidores registados é "Aparece offline"**  
@@ -504,9 +501,7 @@ Se a hora do servidor estiver correta, execute os seguintes passos para resolver
 2. Execute os seguintes comandos do PowerShell no servidor:
 
     ```powershell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-    Login-AzStorageSync -SubscriptionID <guid> -TenantID <guid>
-    Reset-AzStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
+    Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**O volume onde está localizado o ponto final do servidor é baixo espaço em disco.**  
@@ -618,26 +613,13 @@ Este erro ocorre devido a um problema interno com a base de dados de sincroniza�
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
-$agentPath = "C:\Program Files\Azure\StorageSyncAgent"
 $region = "<Az_Region>"
 $resourceGroup = "<RG_Name>"
 $syncService = "<storage-sync-service>"
 $syncGroup = "<sync-group>"
 
-# Import the Azure File Sync management cmdlets
-Import-Module "$agentPath\StorageSync.Management.PowerShell.Cmdlets.dll"
-
-# Log into the Azure account and put the returned account information
-# in a reference variable.
-$acctInfo = Connect-AzAccount
-
-# this variable stores your subscription ID 
-# get the subscription ID by logging onto the Azure portal
-$subID = $acctInfo.Context.Subscription.Id
-
-# this variable holds your Azure Active Directory tenant ID
-# use Login-AzAccount to get the ID from that context
-$tenantID = $acctInfo.Context.Tenant.Id
+# Log into the Azure account
+Connect-AzAccount
 
 # Check to ensure Azure File Sync is available in the selected Azure
 # region.
@@ -653,7 +635,7 @@ if ($regions -notcontains $region) {
         " selected Azure Region or the region is mistyped.")
 }
 
-# Check to ensure resource group exists and create it if doesn't
+# Check to ensure resource group exists
 $resourceGroups = [System.String[]]@()
 Get-AzResourceGroup | ForEach-Object { 
     $resourceGroups += $_.ResourceGroupName 
@@ -663,24 +645,15 @@ if ($resourceGroups -notcontains $resourceGroup) {
     throw [System.Exception]::new("The provided resource group $resourceGroup does not exist.")
 }
 
-# the following command creates an AFS context 
-# it enables subsequent AFS cmdlets to be executed with minimal 
-# repetition of parameters or separate authentication 
-Login-AzStorageSync `
-    –SubscriptionId $subID `
-    -ResourceGroupName $resourceGroup `
-    -TenantId $tenantID `
-    -Location $region
-
 # Check to make sure the provided Storage Sync Service
 # exists.
 $syncServices = [System.String[]]@()
 
 Get-AzStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
-    $syncServices += $_.DisplayName
+    $syncServices += $_.StorageSyncServiceName
 }
 
-if ($storageSyncServices -notcontains $syncService) {
+if ($syncServices -notcontains $syncService) {
     throw [System.Exception]::new("The provided Storage Sync Service $syncService does not exist.")
 }
 
@@ -688,7 +661,7 @@ if ($storageSyncServices -notcontains $syncService) {
 $syncGroups = [System.String[]]@()
 
 Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
-    $syncGroups += $_.DisplayName
+    $syncGroups += $_.SyncGroupName
 }
 
 if ($syncGroups -notcontains $syncGroup) {
@@ -698,16 +671,16 @@ if ($syncGroups -notcontains $syncGroup) {
 # Get reference to cloud endpoint
 $cloudEndpoint = Get-AzStorageSyncCloudEndpoint `
     -ResourceGroupName $resourceGroup `
-    -StorageSyncServiceName $storageSyncService `
+    -StorageSyncServiceName $syncService `
     -SyncGroupName $syncGroup
 
 # Get reference to storage account
-$storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroup | Where-Object { 
+$storageAccount = Get-AzStorageAccount | Where-Object { 
     $_.Id -eq $cloudEndpoint.StorageAccountResourceId
 }
 
 if ($storageAccount -eq $null) {
-    Write-Host "The storage account referenced in the cloud endpoint does not exist."
+    throw [System.Exception]::new("The storage account referenced in the cloud endpoint does not exist.")
 }
 ```
 ---
@@ -722,7 +695,7 @@ if ($storageAccount -eq $null) {
 ```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
-    Write-Host ("The storage account referenced contains network " + `
+    throw [System.Exception]::new("The storage account referenced contains network " + `
         "rules which are not currently supported by Azure File Sync.")
 }
 ```
@@ -737,12 +710,12 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell
 $fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
-    $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
+    $_.Name -eq $cloudEndpoint.AzureFileShareName -and
     $_.IsSnapshot -eq $false
 }
 
 if ($fileShare -eq $null) {
-    Write-Host "The Azure file share referenced by the cloud endpoint does not exist"
+    throw [System.Exception]::new("The Azure file share referenced by the cloud endpoint does not exist")
 }
 ```
 ---
@@ -763,22 +736,10 @@ if ($fileShare -eq $null) {
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
-$foundSyncPrincipal = $false
-Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
-    if ($_.DisplayName -eq "Hybrid File Sync Service") {
-        $foundSyncPrincipal = $true
-        if ($_.RoleDefinitionName -ne "Reader and Data Access") {
-            Write-Host ("The storage account has the Azure File Sync " + `
-                "service principal authorized to do something other than access the data " + `
-                "within the referenced Azure file share.")
-        }
+$role = Get-AzRoleAssignment -Scope $storageAccount.Id | Where-Object { $_.DisplayName -eq "Hybrid File Sync Service" }
 
-        break
-    }
-}
-
-if (!$foundSyncPrincipal) {
-    Write-Host ("The storage account does not have the Azure File Sync " + `
+if ($role -eq $null) {
+    throw [System.Exception]::new("The storage account does not have the Azure File Sync " + `
                 "service principal authorized to access the data within the " + ` 
                 "referenced Azure file share.")
 }

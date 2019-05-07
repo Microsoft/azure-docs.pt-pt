@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 066863a49abc517019785a578d2761d1c50432a7
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 24ea6b2b44518b4cf75389585caf42ff6bc6722f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141303"
+ms.locfileid: "65191075"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM
 
@@ -178,6 +178,8 @@ Veja a [Comunidade dos serviços de multimédia do Azure](media-services-communi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+Veja
+
 > [!div class="nextstepaction"]
-> Veja como pode [proteger com AES-128](protect-with-aes128.md)
+> [Proteger com AES-128](protect-with-aes128.md)
 
