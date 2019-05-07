@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 380cd84cc5ec56fe54c12201b9c1db810ac457bf
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 14990cd4a066c126b5e4d498c5a109dac1b8820a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875929"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65140941"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -186,7 +186,7 @@ O ficheiro Settings armazena as definições da aplicação, as cadeias de liga�
 
 | Definição      | Descrição                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Quando definido como `true`, todos os valores são criptografados usando uma chave de computador local. Utilizado com `func settings` comandos. Valor predefinido é `false`. |
+| **`IsEncrypted`** | Quando definido como `true`, todos os valores são criptografados usando uma chave de computador local. Utilizado com `func settings` comandos. Valor predefinido é `true`. Quando `true`, todas as definições adicionadas utilizando `func settings add` são encriptados com a chave de computador local. Isso Espelha como definições da aplicação de função são armazenadas nas definições de aplicação no Azure. Valores de configurações locais de criptografia fornece proteção extra para dados valiosos deve o Settings estar publicamente exposto.  |
 | **`Values`** | Coleção de definições da aplicação e as cadeias de ligação utilizadas ao executar localmente. Esses valores correspondem às definições de aplicação na sua aplicação de função no Azure, tal como [ `AzureWebJobsStorage` ]. Muitos acionadores e enlaces de ter uma propriedade que se refere a uma definição de aplicação de cadeia de ligação, tal como `Connection` para o [acionador do armazenamento de BLOBs](functions-bindings-storage-blob.md#trigger---configuration). Para essas propriedades, precisa de uma definição da aplicação definida no `Values` matriz. <br/>[`AzureWebJobsStorage`] é uma aplicação necessária a configuração para acionadores que não seja o HTTP. <br/>Versão 2.x do runtime de funções requer o [ `FUNCTIONS_WORKER_RUNTIME` ] definição, que é gerada para o seu projeto por ferramentas de núcleo. <br/> Quando tem o [emulador de armazenamento do Azure](../storage/common/storage-use-emulator.md) instalados localmente, pode definir [ `AzureWebJobsStorage` ] para `UseDevelopmentStorage=true` e ferramentas de núcleo utiliza o emulador. Isto é útil durante o desenvolvimento, mas deve testar com uma ligação de armazenamento real antes da implantação. |
 | **`Host`** | As definições nesta secção personalizar o processo de host de funções ao executar localmente. |
 | **`LocalHttpPort`** | Define a porta predefinida utilizada ao executar o anfitrião local de funções (`func host start` e `func run`). O `--port` opção da linha de comandos tem precedência sobre este valor. |

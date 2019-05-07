@@ -4,14 +4,14 @@ description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e consul
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61054123"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148938"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -139,14 +139,14 @@ Os resultados da consulta são:
     }]
 ```
 
-A seguinte consulta devolve todos os nomes de elementos subordinados na família cujo `id` corresponde ao `WakefieldFamily`, ordenado pelo nível.
+A seguinte consulta devolve todos os nomes de elementos subordinados na família cujo `id` corresponde ao `WakefieldFamily`ordenadas por cidade de residência.
 
 ```sql
     SELECT c.givenName
     FROM Families f
     JOIN c IN f.children
     WHERE f.id = 'WakefieldFamily'
-    ORDER BY f.grade ASC
+    ORDER BY f.address.city ASC
 ```
 
 Os resultados são:
@@ -160,7 +160,7 @@ Os resultados são:
 
 Os exemplos anteriores mostram vários aspectos da linguagem de consulta do Cosmos DB:  
 
-* Uma vez que a API de SQL funciona em valores JSON, ele lida com entidades em forma de árvore, em vez de linhas e colunas. Pode consultar os nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3….Nodem`, semelhante a referência de duas partes de `<table>.<column>` em ANSI SQL.
+* Uma vez que a API de SQL funciona em valores JSON, ele lida com entidades em forma de árvore, em vez de linhas e colunas. Pode consultar os nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, semelhante a referência de duas partes de `<table>.<column>` em ANSI SQL.
 
 * Como funciona a linguagem de consulta com os dados sem esquemas, o sistema de tipo deve ser vinculado dinamicamente. A mesma expressão poderia resultar em diferentes tipos nos itens diferentes. O resultado de uma consulta é um valor JSON válido, mas não é garantido para ser de um esquema fixo.  
 
@@ -314,6 +314,70 @@ Os resultados são:
     ]
 ```
 
+## <a id="DistinctKeyword"></a>Palavra-chave DISTINCT
+
+A palavra-chave DISTINCT elimina duplicados na projeção da consulta.
+
+```sql
+SELECT DISTINCT VALUE f.lastName
+FROM Families f
+```
+
+Neste exemplo, a consulta projeta valores para cada apelido.
+
+Os resultados são:
+
+```json
+[
+    "Andersen"
+]
+```
+
+Pode também projetar objetos exclusivos. Neste caso, o campo lastName não existe em um dos dois documentos, para que a consulta retorna um objeto vazio.
+
+```sql
+SELECT DISTINCT f.lastName
+FROM Families f
+```
+
+Os resultados são:
+
+```json
+[
+    {
+        "lastName": "Andersen"
+    },
+    {}
+]
+```
+
+DISTINCT também pode ser usado na projecção dentro de uma subconsulta:
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
+```
+
+Esta consulta projeta uma matriz que contém o givenName cada filho com os duplicados removidos. Essa matriz tiver o alias ChildNames e previsto na consulta externa.
+
+Os resultados são:
+
+```json
+[
+    {
+        "id": "AndersenFamily",
+        "ChildNames": []
+    },
+    {
+        "id": "WakefieldFamily",
+        "ChildNames": [
+            "Jesse",
+            "Lisa"
+        ]
+    }
+]
+```
+
 ## <a name="aliasing"></a>Aliasing
 
 Pode explicitamente alias valores nas consultas. Se uma consulta tem duas propriedades com o mesmo nome, utilize o aliasing para mudar o nome de uma ou ambas as propriedades para que esteja a ambigüidade removidas no resultado previsto.
@@ -380,7 +444,7 @@ Os resultados são:
         }
       ],
       [
-        {
+       {
             "familyName": "Merriam",
             "givenName": "Jesse",
             "gender": "female",
@@ -599,7 +663,7 @@ Utilize o?? operador para procurar com eficiência uma propriedade num item ao c
 
 ## <a id="TopKeyword"></a>Operador TOP
 
-A palavra-chave superior devolve o primeiro `N` o número de resultados da consulta numa ordem indefinido. Como melhor prática, utilize superior com a cláusula ORDER BY para limitar os resultados para o primeiro `N` o número de valores ordenadas. Combinar essas duas cláusulas é a única forma de forma previsível indicar que linhas afeta superior. 
+A palavra-chave superior devolve o primeiro `N` o número de resultados da consulta numa ordem indefinido. Como melhor prática, utilize superior com a cláusula ORDER BY para limitar os resultados para o primeiro `N` o número de valores ordenadas. Combinar essas duas cláusulas é a única forma de forma previsível indicar que linhas afeta superior.
 
 Pode usar a parte superior com um valor constante, como no exemplo seguinte, ou com um valor de variável usando consultas parametrizadas. Para obter mais informações, consulte a [consultas parametrizadas](#parameterized-queries) secção.
 
@@ -679,6 +743,65 @@ Os resultados são:
       }
     ]
 ```
+
+Além disso, pode ordenar por várias propriedades. Necessita de uma consulta que ordena por várias propriedades de um [índice composto](index-policy.md#composite-indexes). Considere a seguinte consulta:
+
+```sql
+    SELECT f.id, f.creationDate
+    FROM Families f
+    ORDER BY f.address.city ASC, f.creationDate DESC
+```
+
+Esta consulta obtém a família `id` em ordem ascendente do nome de cidade. Se vários itens têm o mesmo nome de cidade, a consulta será ordenar pelo `creationDate` por ordem descendente.
+
+## <a id="OffsetLimitClause"></a>Cláusula de limite de deslocamento
+
+LIMITE de deslocamento é uma cláusula opcional para ignorar, dê algum número de valores da consulta. A contagem de deslocamento e a contagem de limite são necessários na cláusula de limite de deslocamento.
+
+Quando o limite de deslocamento é utilizado em conjunto com uma cláusula ORDER BY, o conjunto de resultados é produzido por ignorar a fazer e assumir os valores ordenados. Não se for utilizada nenhuma cláusula ORDER BY, irá resultar numa ordem determinista de valores.
+
+Por exemplo, eis uma consulta que ignora o primeiro valor e retorna o segundo valor (por ordem do nome da cidade residente):
+
+```sql
+    SELECT f.id, f.address.city
+    FROM Families f
+    ORDER BY f.address.city
+    OFFSET 1 LIMIT 1
+```
+
+Os resultados são:
+
+```json
+    [
+      {
+        "id": "AndersenFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+Eis uma consulta que ignora o primeiro valor e retorna o segundo valor (sem ordem):
+
+```sql
+   SELECT f.id, f.address.city
+    FROM Families f
+    OFFSET 1 LIMIT 1
+```
+
+Os resultados são:
+
+```json
+    [
+      {
+        "id": "WakefieldFamily",
+        "city": "Seattle"
+      }
+    ]
+```
+
+
+
+
 ## <a name="scalar-expressions"></a>Expressões escalares
 
 A cláusula SELECT oferece suporte a expressões escalares, como constantes, expressões aritméticas e expressões lógicas. A consulta seguinte utiliza uma expressão escalar:
@@ -1018,7 +1141,7 @@ O exemplo a seguir registra uma UDF num contêiner de item na base de dados do C
        {
            Id = "REGEX_MATCH",
            Body = @"function (input, pattern) {
-                       return input.match(pattern) !== null;
+                      return input.match(pattern) !== null;
                    };",
        };
 
