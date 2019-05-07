@@ -1,19 +1,19 @@
 ---
-title: Configurar alertas de métricas da base de dados do Azure para PostgreSQL no portal do Azure
-description: Este artigo descreve como configurar e alertas de métricas de acesso da base de dados do Azure para PostgreSQL no portal do Azure.
+title: Configurar alertas de métricas da base de dados do Azure para PostgreSQL - servidor único no portal do Azure
+description: Este artigo descreve como configurar e alertas de métricas de acesso da base de dados do Azure para PostgreSQL - servidor único a partir do portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
-ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422030"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067309"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Utilizar o portal do Azure para configurar alertas em métricas da base de dados do Azure para PostgreSQL 
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Utilizar o portal do Azure para configurar alertas em métricas da base de dados do Azure para PostgreSQL - servidor único
 
 Este artigo mostra-lhe como configurar a base de dados do Azure para os alertas de PostgreSQL no portal do Azure. Pode receber um alerta com base nas métricas para os seus serviços do Azure de monitorização.
 

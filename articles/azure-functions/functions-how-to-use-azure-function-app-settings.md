@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 7497255dcad55cea86e0c640e2f1423d7d763a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738098"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143195"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
 
@@ -25,24 +25,6 @@ Nas funções do Azure, uma aplicação de funções fornece o contexto de execu
 Para começar, vá para o [portal do Azure](https://portal.azure.com) e inicie sessão na sua conta do Azure. Na barra de pesquisa na parte superior do portal, escreva o nome da sua aplicação de função e selecione-a na lista. Depois de selecionar a sua aplicação function app, verá a página seguinte:
 
 ![Descrição geral da aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
-
-## <a name="favorite"></a>Funções favoritas no portal 
-
-Por vezes, pode ser difícil encontrar os recursos no [portal do Azure]. Para tornar mais fácil encontrar as aplicações de função que criou, adicione aplicações Function App aos seus favoritos no portal. 
-
-1. Inicie sessão no [Portal do Azure].
-
-2. Clique na seta no canto inferior esquerdo para expandir todos os serviços, escreva `Functions` no campo **Filtro** e clique na estrela junto a **Aplicações Function App**.  
- 
-    ![Criar uma aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/functions-favorite-function-apps.png)
-
-    É adicionado o ícone Functions ao menu no lado esquerdo do portal.
-
-3. Feche o menu e desloque-se para a parte inferior para ver o ícone Functions. Clique neste ícone para ver uma lista de todas as suas aplicações Function App. Clique na sua aplicação Function App para trabalhar com funções nesta aplicação. 
- 
-    ![Aplicações de funções nos Favoritos](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
- 
-[Portal do Azure]: https://portal.azure.com/
 
 ## <a name="manage-app-service-settings"></a>Separador de definições de aplicação de função
 

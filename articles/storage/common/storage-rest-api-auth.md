@@ -7,13 +7,14 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3018eb1dd968cdef7d972351aad656ea60695c65
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729346"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141184"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Utilizar a API REST do Armazenamento do Azure
 
@@ -318,33 +319,35 @@ Eis o código usado para criar essa saída:
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
-                    where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
-                    orderby kvp.Key
-                    select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
+        where kvp.Key.StartsWith("x-ms-", StringComparison.OrdinalIgnoreCase)
+        orderby kvp.Key
+        select new { Key = kvp.Key.ToLowerInvariant(), kvp.Value };
 
-    StringBuilder sb = new StringBuilder();
+    StringBuilder headersBuilder = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
     //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
-        StringBuilder headerBuilder = new StringBuilder(kvp.Key);
+        headersBuilder.Append(kvp.Key);
         char separator = ':';
 
         // Get the value for each header, strip out \r\n if found, then append it with the key.
-        foreach (string headerValues in kvp.Value)
+        foreach (string headerValue in kvp.Value)
         {
-            string trimmedValue = headerValues.TrimStart().Replace("\r\n", String.Empty);
-            headerBuilder.Append(separator).Append(trimmedValue);
+            string trimmedValue = headerValue.TrimStart().Replace("\r\n", string.Empty);
+            headersBuilder.Append(separator).Append(trimmedValue);
 
-            // Set this to a comma; this will only be used 
-            //   if there are multiple values for one of the headers.
+            // Set this to a comma; this will only be used
+            // if there are multiple values for one of the headers.
             separator = ',';
         }
-        sb.Append(headerBuilder.ToString()).Append("\n");
+
+        headersBuilder.Append("\n");
     }
-    return sb.ToString();
-}      
+
+    return headersBuilder.ToString();
+}
 ```
 
 **Recurso canonizado**

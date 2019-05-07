@@ -1,7 +1,7 @@
 ---
 title: O que é Personalizer
 titleSuffix: Azure Cognitive Services
-description: Personalizer do Azure é um serviço de API com base na cloud que permite-lhe escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.
+description: O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
 services: cognitive-services
 author: edjez
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: c969029bcc0412267507efe81549ec6f8b2988ce
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 7eb85aa38815b8fcdfbe68518122563e1b579e17
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027118"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150403"
 ---
-# <a name="what-is-personalizer"></a>O que é Personalizer?
+# <a name="what-is-personalizer"></a>O que é o Personalizador?
 
-Personalizer do Azure é um serviço de API com base na cloud que permite-lhe escolher a melhor experiência para mostrar aos seus utilizadores, aprendendo com o seu comportamento em tempo real.
+O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.
 
 * Fornecer informações sobre os seus utilizadores e o conteúdo e receber a ação superior para mostrar os seus utilizadores. 
 * Não é necessário para limpar e Etiquetar dados antes de utilizar Personalizer.
@@ -64,4 +64,5 @@ Serviço de personalizer tem duas APIs:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Quickstart: Criar um ciclo de comentários noC#](csharp-quickstart-commandline-feedback-loop.md)
+* [Quickstart: Criar um ciclo de comentários noC#](csharp-quickstart-commandline-feedback-loop.md)
+* [Utilizar a demo interativa](https://personalizationdemo.azurewebsites.net/)

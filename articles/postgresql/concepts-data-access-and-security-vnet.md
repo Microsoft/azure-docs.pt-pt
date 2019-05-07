@@ -1,20 +1,19 @@
 ---
-title: Descrição geral do ponto de extremidade dos serviços de base de dados do Azure para a vnet do servidor PostgreSQL
-description: Saiba como funcionam os pontos finais de serviço VNET para a base de dados do Azure para o servidor PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Rede virtual (VNet) dos serviços de descrição geral de ponto final na base de dados do Azure para PostgreSQL - servidor único
+description: Saiba como pontos finais de serviço de rede Virtual (VNet) funcionam para a base de dados do Azure para PostgreSQL - único servidor.
+author: bolzmj
+ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 08/20/2018
-ms.date: 04/22/2019
-ms.openlocfilehash: c6549ad170a0fc3b4387d5bc5163ca0548b92119
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: c873abcdf3c64f8357c584c8e24809270946bf74
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560134"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073483"
 ---
-# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql"></a>Utilizar pontos finais de serviço de rede Virtual e regras para a base de dados do Azure para PostgreSQL
+# <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Utilizar pontos finais de serviço de rede Virtual e regras para base de dados do Azure para PostgreSQL - servidor único
 
 *Regras de rede virtual* são um recurso de segurança de firewall que controla se a sua base de dados do Azure para o servidor PostgreSQL aceita comunicações que são enviadas as sub-redes específicas nas redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é sua melhor opção de forma segura que permite a comunicação para a base de dados do Azure para o servidor PostgreSQL.
 

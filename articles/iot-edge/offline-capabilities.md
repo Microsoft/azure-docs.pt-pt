@@ -9,19 +9,17 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: e82c842ec8fce703c48c98eaf09ea5c8d91be9be
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 74d2601c2319ccad9cc980b83894a3242705aa46
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60998530"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148109"
 ---
-# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Compreender as capacidades offline expandidas para dispositivos do IoT Edge, módulos e dispositivos de subordinado (pré-visualização)
+# <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Compreender as capacidades offline expandidas para dispositivos do IoT Edge, módulos e dispositivos de subordinados
 
 O Azure IoT Edge suporta operações offline expandidas nos seus dispositivos IoT Edge e permite operações offline nos dispositivos de subordinado de não-Edge demasiado. Desde que um dispositivo IoT Edge teve uma oportunidade para se ligar ao IoT Hub, ele e quaisquer dispositivos de subordinados podem continuar a função intermitente com ou sem ligação à internet. 
 
->[!NOTE]
->O suporte offline para o IoT Edge está em [pré-visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -61,24 +59,49 @@ Para um dispositivo IoT Edge expandir as suas capacidades offline expandidas par
 
 ### <a name="assign-child-devices"></a>Atribuir dispositivos de subordinados
 
-Dispositivos filho podem ser qualquer dispositivo de não-Edge registado no mesmo IoT Hub. Pode gerenciar a relação principal-subordinado sobre como criar um novo dispositivo ou a partir da página de detalhes do dispositivo de que o principal dispositivo IoT Edge ou o dispositivo de IoT filho. 
+Dispositivos filho podem ser qualquer dispositivo de não-Edge registado no mesmo IoT Hub. Dispositivos de principal podem ter vários dispositivos de subordinado, mas um dispositivo de subordinado só pode ter um elemento principal. Existem três opções para definir os dispositivos de subordinados para um dispositivo do edge:
+
+#### <a name="option-1-iot-hub-portal"></a>Opção 1: Portal do IoT Hub
+
+ Pode gerenciar a relação principal-subordinado sobre como criar um novo dispositivo ou a partir da página de detalhes do dispositivo de que o principal dispositivo IoT Edge ou o dispositivo de IoT filho. 
 
    ![Gerir dispositivos de subordinado a partir da página de detalhes do dispositivo IoT Edge](./media/offline-capabilities/manage-child-devices.png)
 
-Dispositivos de principal podem ter vários dispositivos de subordinado, mas um dispositivo de subordinado só pode ter um elemento principal.
+
+#### <a name="option-2-use-the-az-command-line-tool"></a>Opção 2: Utilize o `az` ferramenta da linha de comandos
+
+Utilizar o [interface de linha de comandos do Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) com [extensão de IoT](https://github.com/azure/azure-iot-cli-extension) (v0.7.0 ou mais recente), pode gerir as relações de subordinados de principal com o [identidade de dispositivo](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest) comandos secundárias. No exemplo a seguir, vamos executar uma consulta para atribuir o IoT Edge não-todos os dispositivos no hub como dispositivos de subordinados de um dispositivo IoT Edge. 
+
+```shell
+# Set IoT Edge parent device
+egde_device="edge-device1"
+
+# Get All IoT Devices
+device_list=$(az iot hub query \
+        --hub-name replace-with-hub-name \
+        --subscription replace-with-sub-name \
+        --resource-group replace-with-rg-name \
+        -q "SELECT * FROM devices WHERE capabilities.iotEdge = false" \
+        --query 'join(`, `, [].deviceId)' -o tsv)
+
+# Add all IoT devices to IoT Edge (as child)
+az iot hub device-identity add-children \
+  --device-id $egde_device \
+  --child-list $device_list \
+  --hub-name replace-with-hub-name \
+  --resource-group replace-with-rg-name \
+  --subscription replace-with-sub-name 
+```
+
+Pode modificar os [consulta](../iot-hub/iot-hub-devguide-query-language.md) para selecionar um subconjunto de diferente de dispositivos. O comando pode demorar vários segundos, se especificar um grande conjunto de dispositivos.
+
+#### <a name="option-3-use-iot-hub-service-sdk"></a>Opção 3: Utilizar o SDK do serviço IoT Hub 
+
+Por fim, pode gerir as relações de subordinados principal por meio de programação através de um C#, Java ou node. js SDK do serviço do Hub IoT. Aqui está uma [exemplo de atribuição de um dispositivo de subordinado](https://aka.ms/set-child-iot-device-c-sharp) utilizando o C# SDK.
 
 ### <a name="specifying-dns-servers"></a>Especificar os servidores DNS 
 
-Para melhorar a robustez, recomenda-se que especifique os endereços de servidor DNS utilizados no seu ambiente. Por exemplo, no Linux, atualize **/etc/docker/daemon.json** (poderá ter de criar o ficheiro) para incluir:
-
-```json
-{
-    "dns": ["1.1.1.1"]
-}
-```
-
-Se estiver a utilizar um servidor DNS local, substitua o 1.1.1.1 o endereço IP do servidor DNS local. Reinicie o serviço de docker para que as alterações entrem em vigor.
-
+Para melhorar a robustez, é altamente recomendável que especifique os endereços de servidor DNS utilizados no seu ambiente. Consulte a [duas opções para fazer isso partir do artigo de resolução de problemas](troubleshoot.md#resolution-7).
 
 ## <a name="optional-offline-settings"></a>Definições opcionais de offline
 
@@ -86,7 +109,7 @@ Se esperar recolher todas as mensagens que seus dispositivos geram durante perí
 
 ### <a name="time-to-live"></a>Time to live
 
-O tempo de duração a definição é a quantidade de tempo (em segundos) que uma mensagem pode aguardar para ser entregue antes de expirar. A predefinição é 7200 segundos (duas horas). 
+O tempo de duração a definição é a quantidade de tempo (em segundos) que uma mensagem pode aguardar para ser entregue antes de expirar. A predefinição é 7200 segundos (duas horas). O valor máximo é limitado apenas pelo valor máximo de uma variável integer, que é cerca de 2 mil milhões. 
 
 Esta definição é uma propriedade pretendida do hub IoT Edge, que é armazenado em duplo do módulo. Pode configurá-la no portal do Azure, no **configurar definições de Runtime do Edge avançadas** secção ou diretamente na implementação do manifesto. 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 00c8d7cefd7539cd53de8081f44fe861bd063bee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b9cc26b927f78598422575646c876d90954bed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60489770"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143309"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -205,8 +205,8 @@ Pode ver e atualizar o proxy HTTP utilizando a ferramenta do Configuration Manag
 ### <a name="configure-proxy-server-settings"></a>Configurar definições do servidor proxy
 Se selecionou **utilizar o proxy do sistema** definir para o proxy HTTP, o gateway utiliza a definição no diahost.exe.config e diawp.exe.config de proxy. Se não for especificado nenhum proxy no diahost.exe.config e diawp.exe.config, o gateway liga ao serviço em nuvem diretamente sem passar pelo proxy. O procedimento seguinte fornece instruções para atualizar o ficheiro de diahost.exe.config.
 
-1. No Explorador de ficheiros, faça uma cópia de segurança do C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config para fazer backup do arquivo original.
-2. Inicie Notepad.exe em execução como administrador e abrir o arquivo de texto "C:\Program Files\Microsoft Data Management Gateway\2.0\Shared\diahost.exe.config. Encontrará a etiqueta predefinida para system.net, conforme mostrado no seguinte código:
+1. No Explorador de ficheiros, faça uma cópia de segurança do *c:\\\\ficheiros de programa\\Microsoft Data Management Gateway\\2.0\\partilhado\\diahost.exe.config* para criar cópias de segurança o ficheiro original.
+2. Inicie o Notepad.exe em execução como administrador e abra o ficheiro de texto *c:\\\\ficheiros de programa\\Microsoft Data Management Gateway\\2.0\\partilhado\\ diahost.exe.config*. Encontrará a etiqueta predefinida para system.net, conforme mostrado no seguinte código:
 
     ```
     <system.net>
@@ -280,7 +280,7 @@ Pode desativar/ativar a funcionalidade de atualização automática, efetuando o
 
 [Para o gateway de nó único]
 1. Inicie o Windows PowerShell no computador gateway.
-2. Mude para a pasta C:\Program Files\Microsoft integração Runtime\3.0\PowerShellScript\.
+2. Mude para o *c:\\\\ficheiros de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  pasta.
 3. Execute o seguinte comando para ativar a atualização automática de funcionalidades DESATIVAR (desativar).
 
     ```powershell
@@ -293,7 +293,7 @@ Pode desativar/ativar a funcionalidade de atualização automática, efetuando o
     ```
    [Para o gateway de elevada disponibilidade e dimensionável de vários nó](data-factory-data-management-gateway-high-availability-scalability.md)
 1. Inicie o Windows PowerShell no computador gateway.
-2. Mude para a pasta C:\Program Files\Microsoft integração Runtime\3.0\PowerShellScript\.
+2. Mude para o *c:\\\\ficheiros de programa\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*  pasta.
 3. Execute o seguinte comando para ativar a atualização automática de funcionalidades DESATIVAR (desativar).
 
     Para o gateway com a funcionalidade de elevada disponibilidade, um parâmetro de AuthKey extra é necessário.
@@ -310,7 +310,7 @@ Pode desativar/ativar a funcionalidade de atualização automática, efetuando o
 Depois de instalar o gateway, pode iniciar o Gestor de configuração de Gateway de gestão de dados de uma das seguintes formas:
 
 1. Na **pesquisa** janela, escreva **Data Management Gateway** para acessar esse utilitário.
-2. Execute o ficheiro executável **ConfigManager.exe** na pasta: **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared**
+2. Execute o ficheiro executável *ConfigManager.exe* na pasta: *C:\\\\ficheiros de programa\\Microsoft Data Management Gateway\\2.0\\partilhado*.
 
 ### <a name="home-page"></a>Página de boas-vindas
 A Home page permite-lhe efetuar as seguintes ações:
@@ -511,7 +511,7 @@ Esta secção descreve como criar e registar um gateway com cmdlets do PowerShel
     Key               : ADF#00000000-0000-4fb8-a867-947877aef6cb@fda06d87-f446-43b1-9485-78af26b8bab0@4707262b-dc25-4fe5-881c-c8a7c3c569fe@wu#nfU4aBlq/heRyYFZ2Xt/CD+7i73PEO521Sj2AFOCmiI
     ```
 
-1. No Azure PowerShell, mude para a pasta: **C:\\programa Files\Microsoft dados gestão Gateway\2.0\PowerShellScript\\**. Execute **RegisterGateway.ps1** associadas com a variável local **$Key** conforme mostrado no comando seguinte. Este script regista o agente de cliente instalado no seu computador com o gateway lógico que criou anteriormente.
+1. No Azure PowerShell, mude para a pasta: *C:\\\\Program Files\\Microsoft Integration Runtime\\3.0\\PowerShellScript\\*. Execute *RegisterGateway.ps1* associadas com a variável local **$Key** conforme mostrado no comando seguinte. Este script regista o agente de cliente instalado no seu computador com o gateway lógico que criou anteriormente.
 
     ```powershell
     PS C:\> .\RegisterGateway.ps1 $MyDMG.Key

@@ -2,18 +2,19 @@
 title: Carregar, transferir, lista e eliminar blobs com o SDK do armazenamento do Azure v10 para JavaScript
 description: Criar, carregar e eliminar blobs e contentores em Node.js com o Armazenamento do Azure
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.author: tamram
-ms.openlocfilehash: f5f6e6dc1e8c0df88d69f9edbbdaf6e3421548df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.openlocfilehash: f426ee10017533c21021d618d613dc0931767988
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392352"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149438"
 ---
 # <a name="quickstart-upload-download-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascript"></a>Início rápido: Carregar, transferir, lista e eliminar blobs com o SDK do armazenamento do Azure v10 para JavaScript
 

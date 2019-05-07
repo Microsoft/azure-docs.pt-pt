@@ -1,23 +1,23 @@
 ---
-title: Conceitos de servidor na base de dados do Azure para PostgreSQL
-description: Este artigo fornece considerações e diretrizes para configurar e gerir a base de dados do Azure para servidores PostgreSQL.
+title: Conceitos de servidor na base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo fornece considerações e diretrizes para configurar e gerir a base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 11/07/2018
-ms.openlocfilehash: a5b6db9f4bfbe9a11119270e9236580b41fae8c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60422104"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067161"
 ---
-# <a name="azure-database-for-postgresql-servers"></a>Base de Dados do Azure para servidores PostgreSQL
-Este artigo fornece considerações e diretrizes para trabalhar com a base de dados do Azure para servidores PostgreSQL.
+# <a name="azure-database-for-postgresql---single-server"></a>Base de dados do Azure para PostgreSQL - servidor único
+Este artigo fornece considerações e diretrizes para trabalhar com a base de dados do Azure para PostgreSQL - único servidor.
 
 ## <a name="what-is-an-azure-database-for-postgresql-server"></a>O que é uma base de dados do Azure para o servidor PostgreSQL?
-Uma base de dados do Azure para o servidor PostgreSQL é um ponto administrativo central para várias bases de dados. É a construção de servidor PostgreSQL mesmo que talvez esteja familiarizado com o mundo no local. Especificamente, o serviço PostgreSQL é gerenciado, fornece garantias de desempenho, expõe o acesso e funcionalidades ao nível do servidor.
+Um servidor na base de dados do Azure para PostgreSQL - opção de implementação de servidor único é um ponto administrativo central para várias bases de dados. É a construção de servidor PostgreSQL mesmo que talvez esteja familiarizado com o mundo no local. Especificamente, o serviço PostgreSQL é gerenciado, fornece garantias de desempenho, expõe o acesso e funcionalidades ao nível do servidor.
 
 Uma base de dados do Azure para o servidor PostgreSQL:
 

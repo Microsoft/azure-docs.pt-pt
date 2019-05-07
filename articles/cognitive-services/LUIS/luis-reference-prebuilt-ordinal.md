@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 4992ca9d1a09fa751697d6608400eb4dda688108
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 752a26b21854ec9030fc1945024ae461445815a9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473173"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146721"
 ---
 # <a name="ordinal-prebuilt-entity-for-a-luis-app"></a>Ordinal entidade criados previamente para uma aplicação LUIS
 Número de ordinal é uma representação numérica de um objeto dentro de um conjunto: `first`, `second`, `third`. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém ordinal para os objetivos do aplicativo. Entidade ordinal é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
@@ -25,6 +25,9 @@ Número de ordinal é uma representação numérica de um objeto dentro de um co
 Ordinal é gerido a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-Numbers.yaml#L45) repositório do GitHub
 
 ## <a name="resolution-for-prebuilt-ordinal-entity"></a>Resolução de entidade ordinal pré-criados
+
+### <a name="api-version-2x"></a>Versão de API 2.x
+
 O exemplo seguinte mostra a resolução do **builtin.ordinal** entidade.
 
 ```json
@@ -58,6 +61,73 @@ O exemplo seguinte mostra a resolução do **builtin.ordinal** entidade.
 }
 ```
 
+### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+
+O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+
+```json
+{
+    "query": "Order the second option",
+    "prediction": {
+        "normalizedQuery": "order the second option",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "ordinal": [
+                {
+                    "offset": 2,
+                    "relativeTo": "start"
+                }
+            ]
+        }
+    }
+}
+```
+
+O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+
+```json
+{
+    "query": "Order the second option",
+    "prediction": {
+        "normalizedQuery": "order the second option",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.7124502
+            }
+        },
+        "entities": {
+            "ordinal": [
+                {
+                    "offset": 2,
+                    "relativeTo": "start"
+                }
+            ],
+            "$instance": {
+                "ordinal": [
+                  {
+                    "type": "builtin.ordinal",
+                    "text": "second",
+                    "startIndex": 10,
+                    "length": 6,
+                    "modelTypeId": 2,
+                    "modelType": "Prebuilt Entity Extractor",
+                    "recognitionSources": [
+                        "model"
+                    ]
+                  }
+                ]
+            }
+        }
+    }
+}
+```
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Saiba mais sobre o [percentagem](luis-reference-prebuilt-percentage.md), [phonenumber](luis-reference-prebuilt-phonenumber.md), e [temperatura](luis-reference-prebuilt-temperature.md) entidades. 
+Saiba mais sobre o [percentagem](luis-reference-prebuilt-percentage.md), [número de telefone](luis-reference-prebuilt-phonenumber.md), e [temperatura](luis-reference-prebuilt-temperature.md) entidades. 

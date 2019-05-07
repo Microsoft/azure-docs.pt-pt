@@ -1,20 +1,20 @@
 ---
-title: Ligar ao Windows Virtual Desktop pré-visualização com o Windows 7 e Windows 10 - Azure
-description: Como se pode ligar para o serviço de pré-visualização de ambiente de trabalho virtuais Windows com o Windows 7 ou Windows 10.
+title: Ligar a pré-visualização de área de trabalho virtuais Windows a partir do Windows 10 ou Windows 7 - Azure
+description: Como ligar à pré-visualização de ambiente de Trabalho Virtual do Windows a partir do Windows 10 ou Windows 7.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/27/2019
+ms.date: 04/24/2019
 ms.author: helohr
-ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7d7b25d0355f2379b90313f17e2b595234df827
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60328855"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145993"
 ---
-# <a name="connect-with-windows-7-and-windows-10"></a>Ligar com o Windows 7 e Windows 10
+# <a name="connect-from-windows-10-or-windows-7"></a>Ligar a partir do Windows 10 ou Windows 7
 
 > Aplica-se a O Windows 7 e Windows 10.
 
@@ -25,11 +25,11 @@ Está disponível um cliente disponível para download que fornece acesso a recu
 
 ## <a name="install-the-client"></a>Instalar o cliente
 
-[Baixe](https://go.microsoft.com/fwlink/?linkid=2068602) e instalar o cliente ao seu PC local. Isto requer direitos de administrador.
+[Baixe](https://go.microsoft.com/fwlink/?linkid=2068602) e instalar o cliente ao seu PC local. A instalação requer direitos de administrador.
 
 ## <a name="subscribe-to-a-feed"></a>Subscrever um feed
 
-Obter a lista de recursos disponíveis para do seu PC local ao subscrever o feed fornecido pelo seu administrador.
+Obter a lista de recursos gerenciados disponíveis para si ao subscrever o feed fornecido pelo seu administrador. Subscrever torna os recursos disponíveis no seu PC local.
 
 Para subscrever um feed:
 
@@ -44,6 +44,33 @@ Pode iniciar recursos por um dos dois métodos.
 - Na página de principal do cliente, faça duplo clique num recurso para iniciá-lo.
 - Inicie um recurso, tal como faria normalmente de outras aplicações do Menu Iniciar.
   - Também pode procurar as aplicações na barra de pesquisa.
+
+Depois de subscrever um feed, o conteúdo do feed é atualizado automaticamente em intervalos regulares. Podem ser adição, alteração ou removidos com base nas alterações feitas pelo seu administrador de recursos.
+
+## <a name="view-the-details-of-a-feed"></a>Ver os detalhes de um feed
+
+Depois de subscrever, pode ver informações adicionais sobre o feed acessando o painel de detalhes.
+
+1. Na página de principal do cliente, selecione as reticências (**...** ) à direita do nome do feed.
+1. No menu pendente, selecione **detalhes**.
+1. O painel de detalhes é apresentada no lado direito do cliente.
+
+O painel de detalhes contém informações úteis sobre o feed:
+
+- O URL e o nome de utilizador utilizada para subscrever
+- O número de aplicações e áreas de trabalho
+- A data/hora da última atualização
+- O estado da última atualização
+
+Se for necessário, pode iniciar uma atualização manual selecionando na **atualizar agora**.
+
+## <a name="unsubscribe-from-a-feed"></a>Anular a subscrição de um feed
+
+Esta secção irá ensiná-lo como anular a subscrição de um feed. Pode anular a subscrição para subscrever novamente com uma conta diferente ou remover os recursos do sistema.
+
+1. Na página de principal do cliente, selecione as reticências (**...** ) à direita do nome do feed.
+1. No menu pendente, selecione **Unsubscribe**.
+1. Reveja e selecione **continuar** na caixa de diálogo.
 
 ## <a name="update-the-client"></a>Atualizar o cliente
 

@@ -2,18 +2,19 @@
 title: Descrição geral dos blobs de páginas do Azure | Documentos da Microsoft
 description: Uma visão geral dos blobs de páginas do Azure e suas vantagens, incluindo casos de uso com scripts de exemplo.
 services: storage
-author: anasouma
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
-ms.author: wielriac
+ms.author: tamram
+ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: b03da04c97475dcb9ce15f2ed69d7ca333d6f431
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a0fc9a8356f4a322ae81a668515a6a60c6001011
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61428389"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141245"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Descrição geral dos blobs de páginas do Azure
 

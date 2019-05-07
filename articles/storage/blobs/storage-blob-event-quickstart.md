@@ -2,19 +2,20 @@
 title: Enviar eventos de armazenamento de Blobs do Azure para a web endpoint - CLI do Azure | Documentos da Microsoft
 description: Utilize a Azure Event Grid para subscrever a eventos de armazenamento de Blobs. Envie eventos para um Webhook. Manipular os eventos num aplicativo web.
 services: storage,event-grid
-author: cbrooksmsft
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
 ms.custom: seodec18
-ms.openlocfilehash: f38c6fec7ff98e7d5c46661741ff036edb791673
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d92614556fdc6822f749002d2e5a8fc92946d0a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756381"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141119"
 ---
 # <a name="quickstart-route-storage-events-to-web-endpoint-with-azure-cli"></a>Início rápido: Encaminhar eventos de armazenamento para o ponto final da web com a CLI do Azure
 

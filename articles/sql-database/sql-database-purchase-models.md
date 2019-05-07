@@ -12,22 +12,27 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: 89ff11246c7cd36732df1332da94ec5318d7f1d7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f17df53c1ea77bf99ab86329fe914d058eb00f64
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574089"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072686"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-model"></a>Escolher entre o vCore e o modelo de compra DTU
 
 Base de dados SQL do Azure permite-lhe comprar facilmente o motor de base de dados de PaaS totalmente gerido que se adeque às suas necessidades de desempenho e custo. Consoante o modelo de implementação de base de dados do Azure SQL, pode selecionar o modelo de compra que atende às suas necessidades:
+
+- [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) (recomendado). Este modelo de compra permite escolher entre o escalão de computação aprovisionada e a camada de computação sem servidor (pré-visualização). Com o escalão de computação aprovisionada, é possível escolher a quantidade exata de computação que é sempre aprovisionada para a sua carga de trabalho. Com o escalão de computação sem servidor, configurar o dimensionamento automático de computação através de um intervalo de computação configuráveis. Com este escalão de computação, também tem uma opção para colocar em pausa e retomar a base de dados com base na atividade de carga de trabalho automaticamente. O preço unitário de vCore por unidade de tempo é mais baixo na camada de computação aprovisionada, que o sem servidor no escalão de computação.
+- [Modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md). Este modelo de compra fornece pacotes de computação e armazenamento agrupadas, com balanceamento de cargas de trabalho comuns.
 
 Diferentes modelos de compras estão disponíveis em modelos de implementação de base de dados do Azure SQL:
 
 - O [base de dados individual](sql-database-single-databases-manage.md) e [conjunto elástico](sql-database-elastic-pool.md) opções de implementação na [SQL Database do Azure](sql-database-technical-overview.md) oferecem ambos o [o modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) e o [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 - O [instância gerida](sql-database-managed-instance.md) só oferece a opção de implementação na base de dados do Azure SQL a [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
+
+- O [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md) está atualmente disponível para bases de dados únicas com o[modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md).
 
 O gráfico e tabela seguintes comparam e contrastar o vCore e a DTU modelos de compra.
 
@@ -45,6 +50,9 @@ O gráfico e tabela seguintes comparam e contrastar o vCore e a DTU modelos de c
 
 Na camada de computação aprovisionada, o custo de computação reflete a capacidade de total de computação é aprovisionada para a aplicação.  Na camada de serviço críticos de negócio, podemos atribuir automaticamente, pelo menos, 3 réplicas. Para refletir esta adicional a alocação de recursos de computação, o preço no modelo de compra baseado em vCore é aproximadamente de 2,7 x maiores na camada de serviço crítico comercial que na camada de serviço de fins gerais. Pela mesma razão, o maior preço do armazenamento por GB na camada de serviço críticos de negócio reflete a e/s elevado e baixa latência de armazenamento SSD. Ao mesmo tempo, o custo de armazenamento de cópia de segurança não é diferente entre estas camadas de duas serviço porque em ambos os casos, podemos usar uma classe de armazenamento standard.
 
+### <a name="serverless-compute-costs"></a>Custos de computação sem servidor
+
+Para o escalão de computação sem servidor, consulte [base de dados SQL sem servidor (pré-visualização)](sql-database-serverless.md) para uma descrição de como a capacidade de computação é definida e os custos são calculados.
 
 ## <a name="storage-costs"></a>Custos de armazenamento
 
@@ -56,7 +64,7 @@ Para obter mais informações sobre os preços de armazenamento, consulte a [pre
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra baseado em vCore
 
-Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore dá-lhe flexibilidade, controlo, transparência de consumo de recursos individuais e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [crítico para a empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) camadas para de serviço [bases de dados únicas](sql-database-single-database-scale.md), [ conjuntos elásticos](sql-database-elastic-pool.md), e [instâncias geridas](sql-database-managed-instance.md). Para bases de dados individuais, também pode escolher o [camada de serviços de hiperescala (pré-visualização)](sql-database-service-tier-hyperscale.md).
+Um núcleo virtual representa a CPU lógica oferecida com a opção de escolher entre gerações de hardware e as características físicas de hardware (por exemplo, número de núcleos, memória, o tamanho de armazenamento). O modelo de compra baseado em vCore dá-lhe flexibilidade, controlo, transparência de consumo de recursos individuais e uma forma direta de traduzir os requisitos de carga de trabalho no local para a cloud. Este modelo permite-lhe escolher a computação, memória e armazenamento com base nas suas necessidades de carga de trabalho. No modelo de compra baseado em vCore, pode escolher entre [fins gerais](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) e [crítico para a empresa](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) camadas para de serviço [bases de dados únicas](sql-database-single-database-scale.md), [ conjuntos elásticos](sql-database-elastic-pool.md), e [instâncias geridas](sql-database-managed-instance.md). Para bases de dados individuais, também pode escolher o [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md).
 
 O modelo de compra baseado em vCore permite que escolha os recursos de computação e armazenamento, combine o desempenho no local e otimizar o preço de forma independente. No modelo de compra baseado em vCore, os clientes pagam pelo:
 

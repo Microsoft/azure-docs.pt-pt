@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: 1489048619fa8d650b30659a00ae7679c8d5109d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9ae46d623c0525edf93a4f984393060888fcd009
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446538"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143017"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster do Explorador de dados do Azure e a base de dados com oC#
 
@@ -49,7 +49,7 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
     AzureSku sku = new AzureSku("D13_v2", 5);
     Cluster cluster = new Cluster(location, sku);
     
-    ar authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
+    var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
     var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
     var result = authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential).Result;
     

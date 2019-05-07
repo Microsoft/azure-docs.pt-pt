@@ -5,23 +5,20 @@ services: container-service
 author: iainfoulds
 ms.topic: conceptual
 ms.service: container-service
-ms.date: 12/03/2018
+ms.date: 05/06/2019
 ms.author: iainfou
-ms.openlocfilehash: 38b2654c8f3e8d302a66cac335913583bd4426ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe837c4d89a59325040355e35f12c3499aee7d98
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61024559"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072815"
 ---
-# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Pré-visualizar - criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais com a CLI do Azure
+# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster de serviços de Kubernetes do Azure (AKS) para utilizar nós virtuais com a CLI do Azure
 
-Rapidamente, dimensionar cargas de trabalho de aplicação num cluster do Azure Kubernetes Service (AKS), pode utilizar nós virtuais. Connosco virtuais, tem o rápido provisionamento de pods e pague apenas por segundo para o tempo de execução. Não precisa de esperar para dimensionamento automático de cluster do Kubernetes para implementar nós de computação VM para executar os pods adicionais. Este artigo mostra-lhe como criar e configurar os recursos de rede virtual e o cluster do AKS, em seguida, ativar nós virtuais.
+Rapidamente, dimensionar cargas de trabalho de aplicação num cluster do Azure Kubernetes Service (AKS), pode utilizar nós virtuais. Connosco virtuais, tem o rápido provisionamento de pods e pague apenas por segundo para o tempo de execução. Não precisa de esperar para dimensionamento automático de cluster do Kubernetes para implementar nós de computação VM para executar os pods adicionais. Nós virtuais só são suportados com pods de Linux e nós.
 
-> [!IMPORTANT]
-> Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
->
-> Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
+Este artigo mostra-lhe como criar e configurar os recursos de rede virtual e o cluster do AKS, em seguida, ativar nós virtuais.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -52,10 +49,16 @@ az provider register --namespace Microsoft.ContainerInstance
 As seguintes regiões são suportadas para implementações de nó virtual:
 
 * Leste da Austrália (australiaeast)
+* Centro dos E.U.A. (centralus)
 * Este dos E.U.A. (eastus)
+* E.U.A. Leste 2 (eualeste2)
+* Leste do Japão (japaneast)
+* Europa do Norte (northeurope)
+* Sudeste Asiático (southeastasia)
 * E.u.a. Centro-Oeste (EUA)
 * Europa Ocidental (westeurope)
 * E.U.A. oeste (westus)
+* E.U.A. oeste 2 (westus2)
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 Funcionalidade de nós virtual é bastante dependente de conjunto de recursos do ACI. Os seguintes cenários ainda não são suportados conosco virtuais
@@ -183,11 +186,6 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
-> [!NOTE]
-> Se receber um erro sobre nó virtual não foi encontrado, terá de instalar a extensão CLI 
-> ```azurecli-interactive
-> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-> ```
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
@@ -266,7 +264,7 @@ aci-helloworld-9b55975f-bnmfl   1/1       Running   0          4m        10.241.
 O pod é atribuído um endereço IP da sub-rede da rede virtual do Azure delegada para utilização connosco virtuais.
 
 > [!NOTE]
-> Se utilizar imagens armazenadas no Azure Container Registry, [configurar e utilizar um segredo do Kubernetes][acr-aks-secrets]. Uma limitação atual dos nós virtuais de pré-visualização é que não é possível utilizar integrado a autenticação do principal de serviço do Azure AD. Se não usar um segredo, pods agendadas em nós virtuais não conseguem iniciar e reportar o erro `HTTP response status code 400 error code "InaccessibleImage"`.
+> Se utilizar imagens armazenadas no Azure Container Registry, [configurar e utilizar um segredo do Kubernetes][acr-aks-secrets]. Uma limitação atual de nós virtuais é que não é possível utilizar o Azure integrado autenticação de principal de serviço do AD. Se não usar um segredo, pods agendadas em nós virtuais não conseguem iniciar e reportar o erro `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>O pod do nó virtual de teste
 

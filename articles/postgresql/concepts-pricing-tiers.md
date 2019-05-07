@@ -1,19 +1,19 @@
 ---
-title: Escalões de preços para a base de dados do Azure para PostgreSQL
-description: Este artigo descreve os escalões de preço da base de dados do Azure para PostgreSQL.
+title: Escalões de preços para a base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve os escalões de preço da base de dados do Azure para o PostgreSQL – único servidor.
 author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 4109679c03b13303c16cef8edd92ecddb6ca5e5f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 5/6/2019
+ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712363"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073187"
 ---
-# <a name="azure-database-for-postgresql-pricing-tiers"></a>Base de dados do Azure para PostgreSQL escalões de preço
+# <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na base de dados do Azure para PostgreSQL - servidor único
 
 Pode criar uma base de dados do Azure para o servidor PostgreSQL dos três escalões de preço diferentes: Básico, fins gerais e com otimização de memória. Os escalões de preço são diferenciados pela quantidade de computação em vCores, que pode ser aprovisionado, memória por vCore e a tecnologia de armazenamento utilizada para armazenar os dados. Todos os recursos são aprovisionados ao nível do servidor PostgreSQL. Um servidor pode ter uma ou mais bases de dados.
 

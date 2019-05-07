@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f067bc005c4de9ddc87ed598b1717f8fbb29a6a
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196223"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072367"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para LUIS
 
@@ -102,7 +102,7 @@ As culturas seguintes têm versões atomizador personalizado:
 |Cultura|Version|Objetivo|
 |--|--|--|
 |Alemão<br>`de-de`|1.0.0|Divide as palavras, dividindo-los usando um atomizador de baseados em aprendizagem de máquina que tenta dividir palavras compostas em seus componentes únicos.<br>Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, ele é transformado `Ich fahre einen kranken wagen`. Permitir que a marcação de `kranken` e `wagen` independentemente como entidades diferentes.|
-|Alemão<br>`de-de`|1.0.1|Divide as palavras, dividindo-los em espaços.<br> Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único token. Assim, `krankenwagen` está marcado como uma única entidade. |
+|Alemão<br>`de-de`|1.0.2|Divide as palavras, dividindo-los em espaços.<br> Se um usuário insere `Ich fahre einen krankenwagen` como uma expressão, continua a ser um único token. Assim, `krankenwagen` está marcado como uma única entidade. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versões atomizador
 <!--

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 61d958ae4e53b5f2b123f3fa3660ef62a6cdcabe
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 241bda5c684197a43cc5564e950e924fed668b89
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021513"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147569"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Suporte para contentores nos serviços cognitivos do Azure
 
@@ -26,6 +26,7 @@ Suporte para contentores nos serviços cognitivos do Azure permite aos desenvolv
 * [Face](Face/Overview.md)
 * [Formulário reconhecedor](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Compreensão de idiomas](LUIS/luis-container-howto.md) (LUIS)
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [API de Serviço de Voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Análise de Texto](text-analytics/overview.md)
 
@@ -56,6 +57,7 @@ Contentores de serviços cognitivos do Azure fornecem o seguinte conjunto de con
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Deteta rostos humanos em imagens e identifica os atributos, incluindo pontos de referência do rosto (como noses e olhos), sexo, idade e outras funcionalidades faciais prevista de máquina. Além de deteção, Face pode verificar se dois rostos na mesma imagem ou imagens diferentes são o mesmo com uma pontuação de confiança, ou comparam rostos em relação a uma base de dados para ver se um aspeto semelhante ou idêntica face já existe. Ele também pode organizar o rostos semelhantes em grupos, com as características de visual partilhadas.<br>[Pedir acesso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Formulário reconhecedor** |Compreensão de formulário aplica-se a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e tabelas de formulários.<br>[Pedir acesso](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([imagem](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carrega um modelo de compreensão de idiomas treinado ou publicado, também conhecido como uma aplicação LUIS, para um contentor do docker e fornece acesso para as previsões de consulta a partir de pontos finais de API do contentor. Pode recolher registos de consulta do contêiner e carregar esses anterior para o [portal de LUIS](https://www.luis.ai) para melhorar a exatidão da previsão da aplicação.|
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|O Personalizador do Azure é um serviço de API com base na cloud que lhe permite escolher a melhor experiência para os seus utilizadores, ao aprender com o respetivo comportamento em tempo real.|
 |[API de Serviço de Voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Conversão de voz em texto** |Transcreve voz em tempo real contínua para texto.<br>[Pedir acesso](https://aka.ms/speechcontainerspreview/)|
 |[API de Serviço de Voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Conversão de texto em voz** |Converte texto em voz com som natural.<br>[Pedir acesso](https://aka.ms/speechcontainerspreview/)|
 |[Análise de Texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extração de expressões chave** ([imagem](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrai as expressões-chave para identificar os pontos principais. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. |
@@ -103,5 +105,6 @@ Instalar e explorar a funcionalidade fornecida pelo contentores nos serviços co
 * [Contentores de rostos](Face/face-how-to-install-containers.md)
 * [Contentores do reconhecedor de formulário](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Contentores do Language Understanding (LUIS)](LUIS/luis-container-howto.md)
+* [Contentores de personalizer](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Contentores de API do serviço de voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Contentores de análise de texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)

@@ -1,19 +1,19 @@
 ---
-title: Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL
+title: Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL - servidor único
 description: Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: b1d566ac571ddd2b2be3aff160f669e277887209
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a31112f3b6f7bd79785f89822e2881b152708254
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456279"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068920"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-postgresql"></a>Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL
+# <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Descrição geral da continuidade comercial com a base de dados do Azure para PostgreSQL - servidor único
 
 Esta descrição geral descreve as capacidades que a base de dados do Azure para PostgreSQL fornece para continuidade do negócio e recuperação após desastre. Saiba mais sobre as opções para recuperar de eventos problemáticos que podem causar perda de dados ou fazer com que a sua base de dados e a aplicação fiquem indisponíveis. Saiba o que fazer quando um erro de utilizador ou aplicação afeta a integridade dos dados, uma região do Azure fica indisponível ou a aplicação requerer manutenção.
 

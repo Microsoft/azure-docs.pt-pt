@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c11d2e6d9a902707d3fd98f09d3474a5d2a5f64
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392335"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150795"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Tutorial: Procurar dados não estruturados no armazenamento na cloud
 

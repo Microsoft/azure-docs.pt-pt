@@ -4,27 +4,53 @@ description: Utilize este artigo para aprender competências de diagnóstico pad
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60612290"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142868"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
-Se ocorrerem problemas com o Azure IoT Edge no seu ambiente, utilize este artigo como guia para a resolução de problemas. 
+Se ocorrerem problemas com o Azure IoT Edge no seu ambiente, utilize este artigo como guia para a resolução de problemas.
 
-## <a name="standard-diagnostic-steps"></a>Passos de diagnóstico padrão 
+## <a name="run-the-iotedge-check-command"></a>Execute o iotedge "verificar" comando
 
-Quando ocorrer um problema, saiba mais sobre o estado do seu dispositivo IoT Edge ao rever os registos de contentor e as mensagens que passam de e para o dispositivo. Utilize as ferramentas e comandos nesta secção para recolher informações. 
+O primeiro passo ao solucionar problemas do IoT Edge deve estar a utilizar o `check` comando, que executa uma coleção de testes de configuração e conetividade para problemas comuns. O `check` comando está disponível no [versão 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) e mais tarde.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Verifique o estado do Gestor de segurança do IoT Edge e os respetivos registos:
+Pode executar o `check` comando da seguinte forma, ou incluir o `--help` sinalizador para ver uma lista completa das opções:
+
+* No Linux:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* No Windows:
+
+  ```powershell
+  iotedge check
+  ```
+
+Os tipos de verificações de execução pela ferramenta podem ser classificados como:
+
+* Verificações de configuração: Examina os detalhes que poderiam impedir que dispositivos periféricos a ligação à cloud, incluindo problemas com o *config.yaml* e o motor de contentor.
+* Verifica a ligação: Verifica se o runtime do IoT Edge pode aceder a portas no dispositivo host e todos os componentes do IoT Edge podem ligar-se para o IoT Hub.
+* Verificações de preparação de produção: Procura produção recomendadas as práticas recomendadas, como o estado de certificados de autoridade de certificado do dispositivo e a configuração do ficheiro de registo de módulo.
+
+Para obter uma lista completa de verificações de diagnóstico, consulte [incorporadas de resolução de problemas de funcionalidade](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## <a name="standard-diagnostic-steps"></a>Passos de diagnóstico padrão
+
+Se ocorrer um problema, pode aprender mais sobre o estado do seu dispositivo IoT Edge ao rever os registos de contentor e as mensagens que passam de e para o dispositivo. Utilize as ferramentas e comandos nesta secção para recolher informações.
+
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Verificar o estado do Gestor de segurança do Microsoft Edge IoT e os respetivos registos
 
 No Linux:
 - Para ver o estado do Gestor de segurança de borda de IoT:
@@ -72,20 +98,13 @@ No Windows:
 - Para ver os registos do Gestor de segurança de borda de IoT:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Se o Gestor de segurança do IoT Edge não está em execução, verifique se o ficheiro de configuração yaml
 
 > [!WARNING]
-> Ficheiros YAML não podem conter separadores como identation. Utilize espaços de 2 em vez disso.
+> Ficheiros YAML não podem conter separadores como avanço. Utilize espaços de 2 em vez disso.
 
 No Linux:
 

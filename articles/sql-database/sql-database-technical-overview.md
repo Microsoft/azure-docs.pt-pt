@@ -13,12 +13,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed94677eea91e3543dced9825a1372f60550a524
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60580706"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073620"
 ---
 # <a name="what-is-azure-sql-database-service"></a>O que é o serviço de base de dados do Azure SQL
 
@@ -54,7 +54,7 @@ Base de dados SQL proporciona um desempenho previsível com vários tipos de rec
 
 ## <a name="scalable-performance-and-pools"></a>Dimensionar o desempenho e os conjuntos
 
-- Bases de dados individuais, cada base de dados é isolada umas das outras e portáteis, tendo cada um com seu próprio quantidade garantida de recursos de computação, memória e armazenamento. Base de dados SQL fornece recursos de computação, memória e armazenamento diferentes para diferentes necessidades - e a capacidade de forma dinâmica [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e reduzir verticalmente. O [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md) (pré-visualização) para a base de dados permite-lhe dimensionar para 100 TB, com a cópia de segurança rápida e recursos de restauração.
+- Bases de dados individuais, cada base de dados é isolada umas das outras e portáteis, tendo cada um com seu próprio quantidade garantida de recursos de computação, memória e armazenamento. Base de dados SQL fornece recursos de computação, memória e armazenamento diferentes para diferentes necessidades - e a capacidade de forma dinâmica [Dimensionar recursos de base de dados individual](sql-database-single-database-scale.md) e reduzir verticalmente. O [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md) para a base de dados permite-lhe dimensionar para 100 TB, com a cópia de segurança rápida e recursos de restauração.
 - Com os conjuntos elásticos, pode criar novas bases de dados ou mover bases de dados individuais para um conjunto de recursos para maximizar a utilização de recursos e poupar dinheiro – e a capacidade de dinamicamente [dimensionar os recursos do conjunto elástico](sql-database-elastic-pool-scale.md) e reduzir verticalmente.
 - Com as instâncias geridas, cada instância gerida está isolada das restantes instâncias com recursos garantidos. Dentro de uma instância gerida, os bancos de dados de instância partilham um conjunto de recursos - e a capacidade de forma dinâmica [Dimensionar recursos de instância gerida](sql-database-managed-instance-resource-limits.md) e reduzir verticalmente.
 
@@ -69,8 +69,7 @@ Base de dados SQL disponibiliza dois modelos de compras:
 - O [modelo de compra baseado em DTU](sql-database-service-tiers-dtu.md) oferece um blend de computação, memória, recursos de e/s em três escalões de serviço para suportar cargas de trabalho de base de dados de pedidos leves. Computação tamanhos dentro de cada camada fornecem uma mistura diferentes destes recursos, ao qual pode adicionar recursos de armazenamento adicionais.
 - O [modelo de compra baseado em vCore](sql-database-service-tiers-vcore.md) permite-lhe escolher o número de vCores a quantidade ou memória e a quantidade e velocidade de armazenamento. O modelo de compra baseado em vCore também permite que use [benefício híbrido do SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para obter poupanças de custos. Para obter mais informações sobre o benefício híbrido do Azure, consulte [perguntas mais frequentes sobre](#sql-database-frequently-asked-questions-faq).
 
-  > [!IMPORTANT]
-  > O [camada de serviços de hiperescala](sql-database-service-tier-hyperscale.md) para bases de dados individuais está atualmente em pré-visualização pública. Não recomendamos a execução de qualquer carga de trabalho de produção nos bancos de dados de hiperescala ainda. Não é possível atualizar uma base de dados de hiperescala para outros escalões de serviço. Para fins de teste, recomendamos que faça uma cópia da base de dados atual e atualizar a cópia para a camada de serviços de hiperescala.
+  
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Conjuntos elásticos para maximizar a utilização de recursos
 

@@ -1,7 +1,7 @@
 ---
 title: Configurar a opção contentor - reconhecedor de formulário
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar o contentor do reconhecedor de formulário para analisar dados de formulário e de tabela.
+description: Saiba como configurar o contentor do reconhecedor de formulário para analisar dados de formulário e de tabela.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: pafarley
-ms.openlocfilehash: 6066e7856ddf8ef757afc2072218c87420a37c10
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 3f6cc32f6fb2a9fb11220ac1a3134fb3ae4d2f84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027181"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147473"
 ---
 # <a name="configure-form-recognizer-containers"></a>Configurar os contentores do reconhecedor de formulário
 
@@ -70,7 +70,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 Monta o enlace de utilização para ler e escrever dados de e para o contentor. Pode especificar uma montagem de entrada ou saída de montagem, especificando o `--mount` opção da [docker run](https://docs.docker.com/engine/reference/commandline/run/) comando.
 
-Os contentores do reconhecedor de formulário exige uma montagem de entrada e saída. A montagem de entrada pode ser só de leitura e é necessário para acessar os dados que serão utilizados para a preparação e classificação. A montagem de saída tem de ser gravável e será utilizada para armazenar os modelos e dados temporários.
+O contentor do reconhecedor de formulário exige uma montagem de entrada e saída. A montagem de entrada pode ser só de leitura e é necessário para acessar os dados que serão utilizados para a preparação e classificação. A montagem de saída tem de ser gravável e será utilizada para armazenar os modelos e dados temporários.
 
 A sintaxe exata da localização de montagem do anfitrião varia consoante o sistema operativo anfitrião. Além disso, o [computador anfitrião](form-recognizer-container-howto.md#the-host-computer)da localização de montagem não estar acessível devido a um conflito entre as permissões usadas pela conta de serviço do Docker e o anfitrião montar permissões de localização.
 

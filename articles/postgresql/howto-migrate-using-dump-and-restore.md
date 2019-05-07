@@ -1,17 +1,17 @@
 ---
-title: Como capturar e restaurar na base de dados do Azure para PostgreSQL
-description: Descreve como extrair uma base de dados do PostgreSQL para um arquivo de despejo e restaurar a partir de um arquivo criado por pg_dump na base de dados do Azure para PostgreSQL.
+title: Como capturar e restaurar na base de dados do Azure para PostgreSQL - servidor único
+description: Descreve como extrair uma base de dados do PostgreSQL para um arquivo de despejo e restaurar a partir de um arquivo criado por pg_dump na base de dados do Azure para PostgreSQL - único servidor.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2018
-ms.openlocfilehash: d406132c4e359c78567ae47a3acba5b73aa39820
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: aa9485ec8fcabdc0276e0598bd3e19f04d70dfa1
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420347"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65066965"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrar a sua base de dados do PostgreSQL com a captura e restauro
 Pode usar [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) para extrair um banco de dados do PostgreSQL para um arquivo de despejo e [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) para restaurar a base de dados do PostgreSQL a partir de um ficheiro de arquivo criado pelo pg_dump.

@@ -5,15 +5,15 @@ services: virtual-machines
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/20/2018
+ms.date: 04/25/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0eb47c8ec470ef05f3c6ae37bdc75e5bb1043eb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1476830313296615591a69a2cadd04bcc56b22bc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418660"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149643"
 ---
 Se se deparar com problemas ao realizar qualquer operação em galerias de imagens partilhadas, definições de imagens e versões de imagens, execute o comando de falha novamente no modo de depuração. Modo de depuração está ativado, passando a **-debug** mudar com a CLI e o **-depurar** mudar com o PowerShell. Depois de ter de localizar o erro, siga este documento para resolver os erros.
 
@@ -62,20 +62,7 @@ Verifique se a imagem de origem existe e se está na mesma região que a versão
 
 Certifique-se o estado de aprovisionamento da imagem gerida de origem está **bem-sucedido**.
 
-*A região de origem ainda não é suportada.*
-
-Utilize a tabela abaixo para ver se é suportada a região de origem pretendido:
-<br>
-
-| Criar galeria no ou "região de origem"   | Replicar de versão para ou "região de destino" |
-|----------------------------------------|-------------------------------------------|
-| EUA Centro-Oeste                        | Todas as regiões de Cloud pública do Azure            |
-| EUA Centro-Sul                       |                                           |
-| EUA Leste 2                              |                                           |
-| Sudeste Asiático                         |                                           |
-| Europa Ocidental                            |                                           |
-
-<br>
+*A lista de região de destino não inclui a região de origem.*
 
 A lista de região de destino tem de incluir a região de origem da versão de imagem. Certifique-se de que tenha incluído a região de origem na lista de regiões de destino onde pretende que o Azure para replicar a sua versão de imagem para.
 

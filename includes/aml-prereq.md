@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 03/28/2019
 ms.openlocfilehash: 92ba6c6e875026d67c7ac7572d35a674659d0f1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819843"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072954"
 ---
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 

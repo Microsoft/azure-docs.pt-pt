@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8b446e3cfd3efc7d6f4c125747630cd3241fa804
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7b4fcf34831d17d35e9f4d8b38455ea22293076f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573935"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148088"
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device---preview"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge do portal do Azure para um dispositivo de Windows - pré-visualização
+# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-windows-device"></a>Início rápido: Implementar o seu primeiro módulo do IoT Edge do portal do Azure para um dispositivo Windows
 
 Neste guia de início rápido, utilize a interface cloud do Azure IoT Edge para implementar código pré-construído remotamente num dispositivo IoT Edge. Para realizar essa tarefa, primeiro criar e configurar uma máquina virtual do Windows para funcionar como um dispositivo IoT Edge, em seguida, pode implementar um módulo ao mesmo.
 
@@ -30,9 +30,6 @@ Neste início rápido, vai aprender a:
 ![Diagrama - arquitetura de início rápido para o dispositivo e na cloud](./media/quickstart/install-edge-full.png)
 
 O módulo que vai implementar neste início rápido é um sensor simulado que gera dados de temperatura, humidade e pressão. Os outros tutoriais do Azure IoT Edge tiram partido do seu trabalho aqui realizado, ao implementar módulos que analisam os dados simulados de informações empresariais.
-
-> [!NOTE]
-> O runtime do IoT Edge no Windows está em [pré-visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se não tiver uma subscrição ativa do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free) antes de começar.
 
@@ -71,6 +68,10 @@ Dispositivo IoT Edge
   1. Sobre o **RDP** separador, selecione **baixar arquivo RDP**.
 
   Abrir este ficheiro com a conexão de área de trabalho remoto para ligar à sua máquina de virtual do Windows com o nome de administrador e a palavra-passe que especificou com a `az vm create` comando.
+
+
+> [!NOTE]
+> Este início rápido utiliza uma área de trabalho de máquina virtual do Windows para manter a simplicidade. Para obter informações sobre o Windows a sistemas operativos estão geralmente disponíveis para cenários de produção, consulte [sistemas de suporte do Azure IoT Edge](support.md).
 
 ## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
@@ -130,30 +131,33 @@ Durante a instalação do runtime, é-lhe pedida a cadeia de ligação do dispos
 
 Os passos nesta secção todos os ocorrem no seu dispositivo IoT Edge, para que deseja se conectar a essa máquina virtual agora através do ambiente de trabalho remoto.
 
-### <a name="prepare-your-device-for-containers"></a>Preparar o seu dispositivo para contentores
-
-O script de instalação instala automaticamente o mecanismo de Moby no seu dispositivo antes de instalar o IoT Edge. Prepare o seu dispositivo, Ativando a funcionalidade de contentores.
-
-1. Na barra de início, procure **ou desativar funcionalidades do Windows ativar** e abrir o programa de painel de controle.
-1. Localize e selecione **contentores**.
-1. Selecione **OK**.
-
-Depois de concluído, é necessário reiniciar o Windows para que as alterações entrem em vigor, mas pode fazê-lo da sua sessão de ambiente de trabalho remoto em vez de reiniciar a máquina virtual a partir do portal do Azure.
-
-### <a name="download-and-install-the-iot-edge-service"></a>Transferir e instalar o serviço IoT Edge
+### <a name="install-and-configure-the-iot-edge-service"></a>Instalar e configurar o serviço de IoT Edge
 
 Utilize o PowerShell para transferir e instalar o runtime IoT Edge. Utilize a cadeia de ligação do dispositivo que obteve no hub IoT para configurar o dispositivo.
 
-1. No seu dispositivo IoT Edge, execute o PowerShell como administrador.
+1. Se ainda não o fez, siga os passos em [registar um novo dispositivo Azure IoT Edge](how-to-register-device-portal.md) para registar o seu dispositivo e obter a cadeia de ligação do dispositivo. 
 
-2. Transferir e instalar o serviço IoT Edge no dispositivo.
+2. Execute o PowerShell como administrador.
+
+3. O **Deploy IoTEdge** comando verifica que seu computador Windows é uma versão suportada, ativa a funcionalidade de contentores, transfere o tempo de execução moby e, em seguida, transfere o runtime do IoT Edge.
 
    ```powershell
    . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
-   Install-SecurityDaemon -Manual -ContainerOs Windows
+   Deploy-IoTEdge -ContainerOs Windows
    ```
 
-3. Quando lhe for pedido **DeviceConnectionString**, indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
+4. Seu computador pode reiniciar automaticamente. Se lhe for pedido pelo comando implementar IoTEdge para reiniciar o computador, faça-o agora. 
+
+5. Execute novamente o PowerShell como administrador.
+
+6. O **Initialize IoTEdge** comando configura o runtime do IoT Edge no seu computador. A comando assume a predefinição de aprovisionamento manual com contentores do Windows. 
+
+   ```powershell
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -ContainerOs Windows
+   ```
+
+7. Quando lhe for pedido **DeviceConnectionString**, indique a cadeia que copiou na secção anterior. Não inclua as aspas à volta da cadeia de ligação.
 
 ### <a name="view-the-iot-edge-runtime-status"></a>Ver o estado de runtime do IoT Edge
 
@@ -168,14 +172,7 @@ Verifique se o runtime foi instalado e configurado corretamente.
 2. Se precisar de resolver problemas relacionados com o serviço, obtenha os registos do serviço.
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
-
-   Get-WinEvent -ea SilentlyContinue `
-    -FilterHashtable @{ProviderName= "iotedged";
-      LogName = "application"; StartTime = [datetime]::Today} |
-    select TimeCreated, Message |
-    sort-object @{Expression="TimeCreated";Descending=$false} |
-    format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 3. Veja todos os módulos em execução no seu dispositivo IoT Edge. Uma vez que o serviço foi iniciado pela primeira vez, deverá ver apenas o módulo **edgeAgent** em execução. O módulo edgeAgent é executado por predefinição e ajuda a instalar e iniciar quaisquer módulos adicionais que implementar no seu dispositivo.

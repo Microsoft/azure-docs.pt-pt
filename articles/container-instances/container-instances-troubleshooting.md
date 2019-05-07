@@ -6,19 +6,19 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: bf783c988c0163fe562669a8331c332dbf8d535e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9dc3e19f9429a6055a799f3f013c732538fa370d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61067337"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070857"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Resolver problemas comuns no Azure Container Instances
 
-Este artigo mostra como resolver problemas comuns de gestão ou implementar contentores no Azure Container Instances.
+Este artigo mostra como resolver problemas comuns de gestão ou implementar contentores no Azure Container Instances. Consulte também [perguntas mais frequentes sobre](container-instances-faq.md).
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 
@@ -46,11 +46,7 @@ Se especificar uma imagem que não suportam o Azure Container Instances, um `OsV
 }
 ```
 
-Este erro for encontrado com mais freqüência quando implementar imagens do Windows que se baseiam num canal Semianual (SAC). Por exemplo, o Windows versões 1709 e versão 1803 são versões SAC e geram este erro após a implementação.
-
-Atualmente, o Azure Container Instances suporta imagens do Windows com base apenas nos **Windows Server 2016 term Servicing canal (LTSC)** de versão. Para atenuar este problema ao implementar contentores do Windows, implemente sempre as imagens baseadas no Windows Server 2016 LTSC. Imagens com base no 2019 do Windows Server (LTSC) não são suportadas.
-
-Para obter detalhes sobre as versões LTSC e SAC do Windows, consulte [descrição geral do Windows Server via de atualizações Semianuais][windows-sac-overview].
+Este erro for encontrado com mais freqüência quando implementar imagens do Windows que se baseiam em via de atualizações Semianuais versão 1709 ou versão 1803, que não são suportadas. Para imagens suportadas do Windows no Azure Container Instances, consulte [perguntas mais frequentes sobre](container-instances-faq.md#what-windows-base-os-images-are-supported).
 
 ## <a name="unable-to-pull-image"></a>Não é possível a imagem de extração
 
@@ -102,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -156,7 +152,7 @@ Os dois principais fatores que contribuem para o tempo de inicialização de con
 * [Tamanho da imagem](#image-size)
 * [Localização de imagem](#image-location)
 
-Imagens do Windows têm [considerações adicionais](#cached-windows-images).
+Imagens do Windows têm [considerações adicionais](#cached-images).
 
 ### <a name="image-size"></a>Tamanho da imagem
 
@@ -176,14 +172,12 @@ A chave para manter os tamanhos de imagem pequena consiste em garantir que sua i
 
 Outra forma de reduzir o impacto da solicitação de imagem no tempo de inicialização do seu contentor é alojar a imagem de contentor [Azure Container Registry](/azure/container-registry/) na mesma região onde pretende implementar instâncias de contentor. Isso encurta o caminho de rede que a imagem de contentor precisa de deslocação, reduzindo significativamente o tempo de transferência.
 
-### <a name="cached-windows-images"></a>Imagens do Windows em cache
+### <a name="cached-images"></a>Imagens em cache
 
-O Azure Container Instances utiliza um mecanismo de colocação em cache para ajudar a acelerar o tempo de inicialização contentor de imagens com base nas imagens comuns do Windows e Linux. Para obter uma lista detalhada de em cache de imagens e etiquetas, utilize o [lista de imagens em cache] [ list-cached-images] API.
+O Azure Container Instances utiliza um mecanismo de colocação em cache para ajudar a acelerar o tempo de inicialização contentor de imagens criadas no common [imagens de base do Windows](container-instances-faq.md#what-windows-base-os-images-are-supported), incluindo `nanoserver:1809`, `servercore:ltsc2019`, e `servercore:1809`. Usados, como imagens do Linux `ubuntu:1604` e `alpine:3.6` também são colocadas em cache. Para obter uma lista atualizada de em cache de imagens e etiquetas, utilize o [lista de imagens em cache] [ list-cached-images] API.
 
-Para garantir que o tempo de inicialização de contentor do Windows mais rápido, utilize um da **três mais recente** versões dos seguintes **duas imagens** como a imagem base:
-
-* [Windows Server Core 2016] [ docker-hub-windows-core] (LTSC apenas)
-* [Windows Server 2016 Nano Server][docker-hub-windows-nano]
+> [!NOTE]
+> Utilização de imagens baseadas no Windows Server 2019 no Azure Container Instances está em pré-visualização.
 
 ### <a name="windows-containers-slow-network-readiness"></a>Preparação de rede lenta de contentores do Windows
 

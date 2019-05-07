@@ -2,18 +2,19 @@
 title: Armazenamento imutável para Blobs de armazenamento do Azure | Documentos da Microsoft
 description: O armazenamento do Azure oferece suporte WORM (escrever uma vez, muitos de leitura) para armazenamento de Blob (objeto) que permite aos utilizadores armazenar dados num Estado não apagável e não modificável para um intervalo especificado.
 services: storage
-author: xyh1
+author: tamram
 ms.service: storage
 ms.topic: article
 ms.date: 04/18/2019
-ms.author: hux
+ms.author: tamram
+ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 716c6dfb613db2fa460c8d669bbb8addc73ea2e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59996035"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141226"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Store dados críticos da empresa no armazenamento de Blobs do Azure
 

@@ -9,16 +9,16 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: cc6e8cdb7cd1719a8cd14cbfe6e576e07c34b32c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027265"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143240"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a REST API com cURL
 
-Neste início rápido, irá utilizar com a API de REST do reconhecedor de formulário com o cURL para dar formação e Pontuar formulários para extrair os pares chave-valor e tabelas.
+Neste início rápido, irá utilizar a API de REST do reconhecedor de formulário com o cURL para dar formação e Pontuar formulários para extrair os pares chave-valor e tabelas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -90,7 +90,7 @@ Anote o `"modelId"` valor; irá precisar dele para obter os passos seguintes.
 
 Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabelas. Chamar o **modelar - analisar** API executando o comando cURL abaixo. Antes de executar o comando, efetue as seguintes alterações:
 
-* Substitua `<Endpoint>` com o ponto final de obteve a chave de subscrição do reconhecedor de formulário. Pode encontrá-lo no seu separador de descrição geral de recursos do reconhecedor de formulário.
+* Substitua `<Endpoint>` com o ponto final que obteve da sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
 * Substitua `<modelID>` com o ID de modelo que recebeu no passo anterior de treinar o modelo.
 * Substitua `<path to your form>` com o caminho do ficheiro ao seu formulário.
 * Substitua `<subscription key>` pela sua chave de subscrição.

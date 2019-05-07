@@ -1,19 +1,19 @@
 ---
-title: Registos do servidor na base de dados do Azure para PostgreSQL
-description: Este artigo descreve como base de dados do Azure para PostgreSQL gera registos de consulta e o erro e, como retenção de registo está configurado.
+title: Registos do servidor na base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve a base de dados como o Azure para PostgreSQL - único servidor gera a consulta e registos de erros e como a retenção do registo está configurada.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2019
-ms.openlocfilehash: 99deef907818ffdb1ce858c8e988e26cbd53a1a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4d1cf2c59e324cedd9b747b1ac65d6edcb9deb45
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60871536"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067397"
 ---
-# <a name="server-logs-in-azure-database-for-postgresql"></a>Registos do servidor na base de dados do Azure para PostgreSQL 
+# <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Registos do servidor na base de dados do Azure para PostgreSQL - servidor único
 Base de dados do Azure para PostgreSQL gera erro de consulta e registos. Registos de consulta e o erro podem ser utilizados para identificar, resolução de problemas e reparar erros de configuração e de desempenho inferior ao ideal. (O acesso aos logs de transação não está incluído.) 
 
 ## <a name="configure-logging"></a>Configurar o registo 
@@ -46,7 +46,7 @@ A tabela seguinte descreve as novidades em cada registo. Consoante o ponto final
 | ResourceProvider | Nome do fornecedor de recursos. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | URI do recurso |
-| Recurso | Nome do servidor |
+| Resource | Nome do servidor |
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Exemplo de nível de registo: LOG, ERROR, NOTICE |

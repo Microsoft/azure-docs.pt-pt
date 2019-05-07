@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc
-ms.openlocfilehash: 9bfe3cf78c7b8ac30088ffe6a5baa0d460d37607
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 7e2b3424c3d8edc931054dea062280ea7789dc44
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867357"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143062"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Criar uma função acionada por HTTP no Azure
 
@@ -120,7 +120,7 @@ O comando seguinte inicia a aplicação de função, o que é executada localmen
 func host start
 ```
 
-Quando o anfitrião de Funções começar, será apresentado algo semelhante ao resultado seguinte, que foi truncado para facilitar a leitura:
+Quando o anfitrião de funções é iniciado, ele escreve algo como o resultado seguinte, que foi truncado para melhorar a legibilidade:
 
 ```output
 

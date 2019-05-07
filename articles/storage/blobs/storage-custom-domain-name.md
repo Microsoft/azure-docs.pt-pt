@@ -2,22 +2,23 @@
 title: Configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure | Documentos da Microsoft
 description: Utilize o portal do Azure para mapear o seu próprio nome canónico (CNAME) para o ponto final web ou de armazenamento de BLOBs numa conta de armazenamento do Azure.
 services: storage
-author: tamram
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: tamram
+ms.author: normesta
+ms.reviewer: seguler
 ms.subservice: blobs
-ms.openlocfilehash: e40b6fe115d6b6dea38ead9f0b2550d96bd04c7a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4f6776a5f15cf391f3a65aceb6e9e783d87a2078
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112641"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148936"
 ---
 # <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Configurar um nome de domínio personalizado para a sua conta de armazenamento do Azure
 
-Pode configurar um domínio personalizado para aceder a dados de BLOBs na sua conta de armazenamento do Azure. É o ponto final predefinido para o armazenamento de Blobs do Azure  *\<nome da conta de armazenamento >. blob.core.windows.net*. Também pode utilizar o ponto final web que é gerado como parte da [funcionalidade de Web sites estáticos (pré-visualização)](storage-blob-static-website.md). Se mapear um domínio personalizado e o subdomínio, tal como *www\.contoso.com*, para o blob ou web ponto final para a sua conta de armazenamento, os utilizadores podem utilizar esse domínio para aceder a dados de BLOBs na sua conta de armazenamento.
+Pode configurar um domínio personalizado para aceder a dados de BLOBs na sua conta de armazenamento do Azure. É o ponto final predefinido para o armazenamento de Blobs do Azure  *\<nome da conta de armazenamento >. blob.core.windows.net*. Também pode utilizar o ponto final web que é gerado como parte da [funcionalidade de Web sites estáticos](storage-blob-static-website.md). Se mapear um domínio personalizado e o subdomínio, tal como *www\.contoso.com*, para o blob ou web ponto final para a sua conta de armazenamento, os utilizadores podem utilizar esse domínio para aceder a dados de BLOBs na sua conta de armazenamento.
 
 > [!IMPORTANT]
 > O armazenamento do Azure, mas nativamente suporta HTTPS com domínios personalizados. Pode atualmente [utilizar CDN do Azure para aceder a blobs através da utilização de domínios personalizados através de HTTPS](storage-https-custom-domain-cdn.md).

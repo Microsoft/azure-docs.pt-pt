@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 241e89ac7fa78184e7c55f9e8065e1534cea9143
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196137"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148719"
 ---
 # <a name="create-entities-without-utterances"></a>Criar entidades sem expressões com
 
@@ -66,29 +66,6 @@ Uma entidade de expressão regular é utilizada para extrair dados de expressão
 
     Essa expressão regular corresponde a caracteres literais `hrf-`, em seguida, de 6 dígitos para representar um formulário número para um formulário de recursos humanos.
 
-## <a name="add-hierarchical-entities"></a>Adicionar entidades hierárquicas
-
-Uma entidade hierárquica é uma categoria de entidades contextualmente aprendidas e conceitualmente relacionadas. No exemplo seguinte, a entidade contém localizações de origem e de destino. 
-
-Na expressão `Move John Smith from Seattle to Cairo`, Seattle é a localização de origem e Cairo é a localização de destino. Cada localização é diferente e aprendidas contextualmente de ordem das palavras e a escolha do word na expressão.
-
-Para adicionar entidades hierárquicas, conclua os seguintes passos: 
-
-1. Na sua aplicação, selecione **entidades** na navegação à esquerda e, em seguida, selecione **criar nova entidade**.
-
-1. Na caixa de diálogo pop-up, escreva `Location` no **nome da entidade** caixa e, em seguida, selecione **Hierarchical** partir a **tipo de entidade** lista.
-
-    ![Adicionar entidade hierárquica](./media/add-entities/hier-location-entity-creation.png)
-
-1. Selecione **adicionar secundário**e, em seguida, introduza `Origin` no **filho n. º 1** caixa. 
-
-1. Selecione **adicionar secundário**e, em seguida, introduza `Destination` no **filho n. º 2** caixa. Selecione **Done** (Concluído).
-
-    >[!CAUTION]
-    >Os nomes de entidades de subordinado tem de ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinadas com o mesmo nome. 
-
-    Depois de criar esta entidade, vá para todos os objetivos que tenham expressões de exemplo que contêm a entidade. Selecione o texto da expressão de exemplo e marcar o texto como a entidade. 
-
 <a name="add-composite-entities"></a>
 
 ## <a name="add-composite-entities-to-group-into-a-parent-child-relationship"></a>Adicionar entidades de compostos para agrupar numa relação principal-subordinado
@@ -137,9 +114,7 @@ Na expressão `Where is Request relocation from employee new to the company on t
 
 Uma função é um subtipo nomeado com base no contexto. Está disponível em todas as entidades, incluindo entidades pré-criados e não aprendidas máquina. 
 
-Usando o mesmo exemplo como a entidade hierárquica de origem e as cidades de destino, a diferença é que uma função com o nome origem em vez de um filho hierárquica. 
-
-A sintaxe para uma função é **{Entityname:Rolename}** onde o nome da entidade é seguido por dois-pontos, em seguida, o nome da função. Por exemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+A sintaxe para uma função é **`{Entityname:Rolename}`** onde o nome da entidade é seguido por dois-pontos, em seguida, o nome da função. Por exemplo, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
 
 1. Partir do **crie** secção, selecione **entidades** no painel esquerdo.
 

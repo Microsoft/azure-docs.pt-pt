@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 0f7765e5b13f2d9c1e1213064d778ce6db5ef115
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/06/2019
+ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572677"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148987"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Escolha de entre os escalões de serviço de vCore e migrar de escalões de serviço DTU
 
@@ -38,14 +38,16 @@ O modelo de vCore oferece três escalões de serviço para fins gerais, de Hiper
 
 A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
 
-||**Fins gerais**|**Crítico para a empresa**|**Hiperescala (pré-visualização)**|
+||**Fins gerais**|**Crítico para a empresa**|**Hiperescala**|
 |---|---|---|---|
 |Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
-|CPU|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80<br/>**Computação sem servidor**<br/>Gen5: 0,5 - 4 vCore|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 1 a 80|
-|Memória|**Aprovisionado computação**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5.1 GB por núcleo<br/>**Computação sem servidor**<br/>Gen5: 3 GB por núcleo|**Aprovisionado computação**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5.1 GB por núcleo |**Aprovisionado computação**:<br/>Gen4: 7 GB por núcleo<br/>Gen5: 5.1 GB por núcleo|
+|Computação|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80<br/>**Computação sem servidor**<br/>Gen5: 0,5 - 4 vCore|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80|
+|Memória|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore<br/>**Computação sem servidor**<br/>Gen5: 3 GB por vCore|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore |**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore|
 |Armazenamento|Utiliza o armazenamento remoto:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Computação sem servidor da base de dados individual**:<br/>5 GB – 1 TB<br/>**Instância gerida**: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Instância gerida**:<br/>32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo |Gen5: 5.1 GB por núcleo|
+|Armazenamento|Utiliza o armazenamento remoto:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
 |Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com 200 000 IOPS máximos|TBD|
-|Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|?|
+|Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|réplica de leitura/1 escrita e 0 a 4 [réplicas de escala de leitura](sql-database-read-scale-out.md)|
 |Cópias de segurança|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dias (7 dias por predefinição)|com base em instantâneo de cópia de segurança no armazenamento remoto do Azure e restaurações utilizar estes instantâneos para a recuperação rápida. As cópias de segurança são instantâneas e não afetam o desempenho de e/s de computação. Restauros são muito rápidos e não um tamanho de operação de dados (a demorar minutos em vez de horas ou dias).|
 |Dentro da memória|Não suportado|Suportadas|Não suportado|
 |||
@@ -56,8 +58,6 @@ A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
 - Para obter mais informações, consulte [limites de recursos de vCore na base de dados única](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos de vCore na instância gerida](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Para obter mais informações sobre os escalões de serviço para fins gerais e crítico para a empresa, consulte [escalões de serviço para fins gerais e crítico para a empresa](sql-database-service-tiers-general-purpose-business-critical.md).
 - Para obter detalhes sobre a camada de serviços de Hiperescala no modelo de compra baseado em vCore, consulte [camada de serviços de Hiperescala](sql-database-service-tier-hyperscale.md).  
-
-
 
 ## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 

@@ -1,19 +1,19 @@
 ---
-title: Como restaurar um servidor na base de dados do Azure para PostgreSQL
-description: Este artigo descreve como restaurar um servidor na base de dados do Azure para PostgreSQL com o portal do Azure.
+title: Como restaurar um servidor na base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve como restaurar um servidor na base de dados do Azure para PostgreSQL - servidor único com o portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 60489e3fc7fc6482a14a241e777066b3805a4d5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 1950b43e0922eebe34463c06db9a5d67dce76f56
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420545"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65068867"
 ---
-# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-portal"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL com o portal do Azure
+# <a name="how-to-backup-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL - servidor único com o portal do Azure
 
 ## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
 Base de dados do Azure para servidores PostgreSQL são uma cópia de segurança periodicamente para ativar funcionalidades de restauro. Ao utilizar esta funcionalidade pode restaurar o servidor e todas as suas bases de dados para um anterior ponto anterior no tempo, num servidor novo.

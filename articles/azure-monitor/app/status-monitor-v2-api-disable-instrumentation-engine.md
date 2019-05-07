@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 8166ee1549355f165c7c86c99bc40afdc299c9e2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 7d1b658da59c0e778c82301077ef27bdd9c9e614
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870541"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65144895"
 ---
 # <a name="status-monitor-v2-api-disable-instrumentationengine-v021-alpha"></a>API de v2 de Monitor de estado: Disable-InstrumentationEngine (v0.2.1-alpha)
 
@@ -59,3 +59,9 @@ Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\W3SVC[E
 Registry: removing 'HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WAS[Environment]'
 Configuring registry for instrumentation engine...
 ```
+
+
+## <a name="next-steps"></a>Passos Seguintes
+
+ Faça mais com a v2 de Monitor de estado:
+ - Utilize o nosso guia para [resolução de problemas](status-monitor-v2-troubleshoot.md) v2 de Monitor de estado.

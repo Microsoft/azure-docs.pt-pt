@@ -2,18 +2,19 @@
 title: 'Início rápido: Utilizar o .NET para criar uma fila no armazenamento do Azure'
 description: Este guia de introdução, saiba como utilizar a biblioteca de cliente de armazenamento do Azure para .NET para criar uma fila e adicionar mensagens a ele. Em seguida, irá aprender a ler e processar mensagens da fila.
 services: storage
-author: tamram
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
-ms.author: tamram
-ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: mhopkins
+ms.reviewer: cbrooks
+ms.openlocfilehash: c7edc64e6bacfc1ea9c2184e57a384152e02190a
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108700"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142493"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Início rápido: Utilizar o .NET para criar uma fila no armazenamento do Azure
 

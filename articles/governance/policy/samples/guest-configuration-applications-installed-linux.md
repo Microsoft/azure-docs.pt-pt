@@ -5,18 +5,18 @@ author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: b432d8557c4244d58c23e7b068874dd747f6249f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545100"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142846"
 ---
-# <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Exemplo - auditoria se aplicações especificadas não estão instaladas em VMs do Linux
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exemplo - auditoria se aplicações especificadas não estiverem instaladas em VMs do Linux
 
-Esta iniciativa de configuração de convidado de política audita que a aplicação especificada está instalada no interior de máquinas virtuais do Linux. O ID dessa iniciativa incorporada é `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Esta iniciativa de configuração de convidado de política cria um evento de auditoria quando as aplicações especificadas não são instaladas dentro de máquinas virtuais do Linux. O ID dessa iniciativa incorporada é `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
 > Todas as iniciativas de configuração de convidado são compostas por **auditar** e **deployIfNotExists** definições de política. Atribuir apenas uma das definições de política fazer com que a configuração de convidado para não funcionar corretamente.
@@ -32,9 +32,9 @@ Esta iniciativa de configuração de convidado de política audita que a aplica�
 
 Isso [configuração do convidado](../concepts/guest-configuration.md) iniciativa é constituída pelas seguintes políticas:
 
-- [auditar](#audit-definition) -se um aplicativo está instalado em VMs do Linux de auditoria
+- [auditar](#audit-definition) -de auditoria quando os aplicativos não são instalados em VMs do Linux
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) -extensão de VM de implementar para auditar que um aplicativo é instalado em VMs do Linux
+- [deployIfNotExists](#deployIfNotExists-definition) -extensão de VM de implementar a auditoria quando os aplicativos não são instalados em VMs do Linux
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Definição de iniciativa
@@ -45,7 +45,9 @@ A iniciativa é criada ao associar o **auditar** e **deployIfNotExists** defini�
 
 ### <a name="initiative-parameters"></a>Parâmetros de iniciativa
 
-| Nome | Tipo de | | Descrição | |---|---| | ---| | applicationName | Cadeia de caracteres | Nomes de aplicativo. Exemplo: "python", "powershell" ou uma lista separada por vírgulas como powershell "python". Uso \* correspondência de carateres universais, como "power\*". |
+|Name |Tipo |Descrição |
+|---|---|---|
+|applicationName |String |Nomes de aplicativo. Exemplo: "python", "powershell" ou uma lista separada por vírgulas como powershell "python". Uso \* correspondência de carateres universais, como "power\*'. |
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.

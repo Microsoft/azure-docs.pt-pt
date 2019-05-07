@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f117e02a063b93b8b1badbd9868f78da95c3c671
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925142"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142360"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -409,10 +409,10 @@ O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte 
 }
 ```
 
-## <a name="parquet-format"></a>Formato parquet
+## <a name="parquet-format"></a>Formato Parquet
 
 >[!NOTE]
->Fábrica de dados introduzidos novos datset de formato Parquet, consulte [formato Parquet](format-delimited-text.md) artigo com detalhes. As seguintes configurações no conjunto de dados de arquivo de dados de ficheiros ainda é suportado como-destina-se compabitility com versões anteriores. São sugeridas para usar o novo modelo daqui em diante.
+>Fábrica de dados introduzidos novos datset de formato Parquet, consulte [formato Parquet](format-parquet.md) artigo com detalhes. As seguintes configurações no conjunto de dados de arquivo de dados de ficheiros ainda é suportado como-destina-se compabitility com versões anteriores. São sugeridas para usar o novo modelo daqui em diante.
 
 Se quiser analisar os ficheiros Parquet ou escrever os dados em formato Parquet, defina a propriedade `format` `type` como **ParquetFormat**. Não precisa de especificar quaisquer propriedades na secção Formato no âmbito da secção typeProperties. Exemplo:
 

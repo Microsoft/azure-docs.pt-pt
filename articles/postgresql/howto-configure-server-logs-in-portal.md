@@ -1,21 +1,21 @@
 ---
-title: Configurar e aceder aos registos de servidor para o PostgreSQL no Portal do Azure
-description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para PostgreSQL no Portal do Azure.
+title: Configurar e aceder aos registos de servidor da base de dados do Azure para PostgreSQL - servidor único no Portal do Azure
+description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para PostgreSQL - único servidor a partir do Portal do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 509c3af66e8228f142126dae6938ad74daf1d7ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 13a8c1ee4b7ca114211f93245d74866e5aa5d52c
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421915"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067439"
 ---
-# <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurar e registos do servidor de acesso no portal do Azure
+# <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-in-the-azure-portal"></a>Configurar e aceder à base de dados do Azure para o PostgreSQL – registos de servidor único no portal do Azure
 
-Pode configurar, listar e transfira o [base de dados do Azure para os registos do servidor PostgreSQL](concepts-server-logs.md) do portal do Azure.
+Pode configurar, listar e transfira o [base de dados do Azure para PostgreSQL registos](concepts-server-logs.md) do portal do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para seguir este guia de procedimentos, terá de:

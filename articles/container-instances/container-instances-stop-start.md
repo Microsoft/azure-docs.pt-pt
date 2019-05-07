@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 50f3ecf69561313a5bda67827cfb02d2f61d461f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e62d106a42dfbec897e5e14cf68fd3d7fd823c4
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653666"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65070823"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Manualmente parar ou iniciar contentores no Azure Container Instances
 
@@ -24,7 +24,7 @@ Parar manualmente um grupo de contentor em execução - por exemplo, utilizando 
 
 *Quando um grupo de contentor entra no estado parado, ele termina e recicla todos os contentores no grupo. Ele não preservar o estado do contentor.*
 
-Embora os contentores num grupo de contentor parado sejam reciclados, o [recursos](container-instances-container-groups.md#resource-allocation) permanecem alocadas para a sua utilização. Por conseguinte, a faturação continua para um grupo de contentores de parado.
+Quando os contentores são reciclados, o [recursos](container-instances-container-groups.md#resource-allocation) são desalocadas e pára para o grupo de contentores de faturação.
 
 A ação de paragem não tem qualquer efeito se o grupo de contentores já terminada (está em estado de um com êxito ou falha). Por exemplo, um grupo de contentores com tarefas de execução única de contêiner que foi executado com êxito termina no Estado com êxito. Tenta parar o grupo em que o estado de não alterar o estado. 
 

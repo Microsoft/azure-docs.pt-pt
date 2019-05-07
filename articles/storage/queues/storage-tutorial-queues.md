@@ -1,21 +1,22 @@
 ---
-title: Tutorial - trabalho com as filas de armazenamento do Azure
+title: Tutorial - trabalho com as filas de armazenamento do Azure - armazenamento do Azure
 description: Um tutorial sobre como utilizar o serviço de fila do Azure para criar filas e insert, obter e eliminar as mensagens.
 services: storage
 author: mhopkins-msft
 ms.author: mhopkins
+ms.reviewer: cbrooks
 ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 5aa12c39b951ce65c4ef0a3f44de381c8961ed7f
-ms.sourcegitcommit: 1aab8b764d767d86fbf262bda34996189d00c7bb
+ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "64406169"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65151056"
 ---
-# <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com as filas de armazenamento do Azure
+# <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento do Azure
 
 Armazenamento de filas do Azure implementa filas com base na cloud para ativar a comunicação entre os componentes de uma aplicação distribuída. Cada fila mantém uma lista de mensagens que podem ser adicionados por um componente de remetente e processados por um componente de destinatário. Com uma fila, o seu aplicativo pode dimensionar imediatamente para satisfazer a procura. Este artigo mostra as etapas básicas para trabalhar com uma fila do armazenamento do Azure.
 

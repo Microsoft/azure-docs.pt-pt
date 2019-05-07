@@ -1,18 +1,18 @@
 ---
-title: Configurar e aceder aos registos de servidor para o PostgreSQL com a CLI do Azure
-description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para PostgreSQL com a linha de comando da CLI do Azure.
+title: Configurar e aceder aos registos de servidor para o PostgreSQL – único servidor com a CLI do Azure
+description: Este artigo descreve como configurar e aceder os registos do servidor na base de dados do Azure para PostgreSQL - único servidor com a linha de comando da CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 3ca77c1ffa5f5a3f384009299701f4aa674baf59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 4702db31ffeb15481584b9638f5be1aa640ff39e
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421198"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65067216"
 ---
 # <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos de servidor com a CLI do Azure
 Pode transferir os registos de erros de servidor PostgreSQL, utilizando a interface de linha de comandos (CLI do Azure). No entanto, o acesso aos logs de transação não é suportado. 
@@ -22,7 +22,7 @@ Para seguir este guia de procedimentos, terá de:
 - [Base de dados do Azure para o servidor PostgreSQL](quickstart-create-server-database-azure-cli.md)
 - O [CLI do Azure](/cli/azure/install-azure-cli) utilitário da linha de comandos ou o Azure Cloud Shell no browser
 
-## <a name="configure-logging-for-azure-database-for-postgresql"></a>Configurar o registo da base de dados do Azure para PostgreSQL
+## <a name="configure-logging"></a>Configurar o registo
 Pode configurar o servidor para aceder a registos de consulta e registos de erros. Registos de erros podem ter informações aspirador automática, ligação e ponto de verificação.
 1. Ative o registo.
 2. Para ativar o registo de consulta, atualize **log\_instrução** e **log\_min\_duração\_instrução**.
@@ -30,7 +30,7 @@ Pode configurar o servidor para aceder a registos de consulta e registos de erro
 
 Para obter mais informações, consulte [personalizar os parâmetros de configuração de servidor](howto-configure-server-parameters-using-cli.md).
 
-## <a name="list-logs-for-azure-database-for-postgresql-server"></a>Lista de registos da base de dados do Azure para o servidor PostgreSQL
+## <a name="list-logs"></a>Lista de registos
 Para listar os ficheiros de registo disponíveis para o seu servidor, execute o [lista do az postgres server-logs](/cli/azure/postgres/server-logs) comando.
 
 Pode listar os ficheiros de registo para o servidor **mydemoserver.postgres.database.azure.com** sob o grupo de recursos **myresourcegroup**. Em seguida, direcionar a lista de ficheiros de registo para um arquivo de texto chamado **log\_arquivos\_txt**.

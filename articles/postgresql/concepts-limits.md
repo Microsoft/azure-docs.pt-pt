@@ -1,19 +1,19 @@
 ---
-title: Limitações na base de dados do Azure para PostgreSQL
-description: Este artigo descreve as limitações na base de dados do Azure para PostgreSQL, como o número de ligação e opções de motor de armazenamento.
+title: Limitações na base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve as limitações na base de dados do Azure para PostgreSQL - único servidor, como o número de ligação e opções de motor de armazenamento.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 1/22/2019
-ms.openlocfilehash: 843107b8d251c2073ba9e02beacb16ab7615eca6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 01133662ca3a7364efd362f6db99d33243b2ad4b
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559882"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65073547"
 ---
-# <a name="limitations-in-azure-database-for-postgresql"></a>Limitações na base de dados do Azure para PostgreSQL
+# <a name="limitations-in-azure-database-for-postgresql---single-server"></a>Limitações na base de dados do Azure para PostgreSQL - servidor único
 As secções seguintes descrevem a capacidade e limites funcionais no serviço de base de dados.
 
 ## <a name="maximum-connections"></a>Número máximo de ligações

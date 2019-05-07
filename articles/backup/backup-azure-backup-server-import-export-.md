@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 8d15eb03055aed32c8a99121b750ee5767a87b50
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05e7dd11274bb120e40df4a63d428ac6b6d7489f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648114"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143340"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Fluxo de trabalho de cópia de segurança offline do DPM e o servidor de cópia de segurança do Azure
 O Azure Backup tem vários eficiências incorporadas que salvar os custos de armazenamento e de rede durante as cópias de segurança completas iniciais de dados para o Azure. Normalmente, as cópias de segurança completas iniciais transferem grandes quantidades de dados e exigem mais largura de banda de rede quando comparado com as cópias de segurança subsequentes que transferem apenas as deltas/incrementais. O Azure Backup compacta as cópias de segurança iniciais. O processo de propagação offline, cópia de segurança do Azure pode utilizar discos para carregar a iniciais cópia de segurança de dados comprimidos offline para o Azure.
@@ -98,7 +98,7 @@ As informações nesta secção ajudam-o a concluir o fluxo de trabalho de cópi
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Preparar unidades SATA e enviar para o Azure
 O *AzureOfflineBackupDiskPrep* utilitário é utilizado para preparar as unidades SATA, que são enviadas para o Datacenter mais próximo do Azure. Esse utilitário está disponível no diretório de instalação do agente dos serviços de recuperação no seguinte caminho:
 
-   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
+*\\Agente de serviços de recuperação do Microsoft Azure\\Utils\\*
 
 1. Vá para o diretório e copiar o **AzureOfflineBackupDiskPrep** diretório para um computador de cópia em que as unidades SATA para estar preparado estão ligadas. Certifique-se o seguinte com respeito o computador de cópia:
 

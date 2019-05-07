@@ -9,12 +9,12 @@ ms.date: 4/23/2019
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: jeanpaul.connock
-ms.openlocfilehash: 7f3bed454bce90d797ca5829043c7e5f8ce5b051
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 950f9ac89b9d3224db29b32fe2d1e403ccc98116
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728588"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143280"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Malha de recursos de infraestrutura do serviço perguntas mais frequentes
 
@@ -28,7 +28,7 @@ Faça perguntas, receba respostas dos engenheiros da Microsoft e reportar proble
 
 ### <a name="what-is-the-cost-of-participating-in-the-preview"></a>O que é o custo de participar na pré-visualização?
 
-Não existem custos para implementar aplicações ou contentores para a pré-visualização de malha atualmente. No entanto, Encorajamo-lo para eliminar os recursos a implementar e não deixá-los em execução, a menos que está testando intensamente o-los.
+Atualmente não existem custos para a implementação de aplicações ou contentores para a pré-visualização da malha. Preste atenção para as atualizações em Maio à ativação para faturação. No entanto, Encorajamo-lo para eliminar os recursos a implementar e não deixá-los em execução, a menos que está testando intensamente o-los.
 
 ### <a name="is-there-a-quota-limit-of-the-number-of-cores-and-ram"></a>Existe um limite de quota do número de núcleos e RAM?
 
@@ -88,10 +88,15 @@ Se estiver a desenvolver num Windows 10 de Abril de 2018 atualização máquina 
 As seguintes imagens de sistema operacional de contentor podem ser utilizadas para implementar serviços:
 
 - Windows - windowsservercore e nanoserver
-    - Versão 1709 do Windows Server
+    - Windows Server 1709
     - Windows Server versão 1803
+    - Windows Server 1809
+    - Windows Server 2019 LTSC
 - Linux
     - Não existem limitações conhecidas
+
+> [!NOTE]
+> Ferramentas para a malha do Visual Studio não suporta ainda a implantação no Windows Server 2019 e 1809 contentores.
 
 ### <a name="what-types-of-applications-can-i-deploy"></a>Os tipos de aplicações posso implementar? 
 
@@ -138,6 +143,10 @@ Pode encontrar a disponibilidade de CPU e os limites que está a ser corrigidos 
 Não não possível implementar várias aplicações para um cluster de um nó. Para mitigar:
 - Utilize um cluster de cinco nós, ao implementar várias aplicações num cluster local.
 - Remova aplicações que não está atualmente testando.
+
+### <a name="vs-tooling-has-limited-support-for-windows-containers"></a>As ferramentas do VS tem suporte limitado para contentores do Windows
+
+As ferramentas do Visual Studio só suportam a implementação de contentores do Windows com uma versão de SO base do Windows Server 1709 e versão 1803 hoje mesmo. 
 
 ## <a name="feature-gaps-and-other-known-issues"></a>Intervalos de funcionalidades e outros problemas conhecidos
 

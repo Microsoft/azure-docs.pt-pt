@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 3eb53fa88a0757d22fc4575e9d9f402d6eebee13
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719300"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65145023"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
@@ -64,6 +64,7 @@ Comece a criar seus testes para monitorizar a conectividade de rede para os pont
 
     * Selecione **Web** para monitorizar a conectividade a um serviço que responde a pedidos HTTP/S, como outlook.office365.com ou bing.com.<br>
     * Selecione **rede** para monitorizar a conectividade a um serviço que responde a pedidos TCP, mas não responder a pedidos HTTP/S, como um SQL server, o servidor de FTP ou a porta SSH. 
+    * Por exemplo: Para criar um teste web para uma conta de armazenamento de BLOBs, selecione **Web** e introduza o destino como <your storageaccount>. blob.core.windows.net. Da mesma forma, pode criar testes para outro armazenamento de tabelas, armazenamento de filas e ficheiros do Azure utilizando [esta ligação.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Se não pretender executar medições de rede, tais como latência de rede, perda de pacotes e descoberta de topologia, desmarque a **executar medições de rede** caixa de verificação. Ele selecionado para obter o máximo benefício da capacidade de manter. 
 5. Na **destino**, introduza o endereço URL/FQDN/IP ao qual pretende monitorizar a conectividade de rede.
 6. Na **número de porta**, introduza o número de porta de serviço de destino. 

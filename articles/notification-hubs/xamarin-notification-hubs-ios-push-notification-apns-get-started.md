@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 94268d47eaf23e1bac54bb9791ec149bb5cccacb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94f3d2345ad9ab8187a8c3eff8dc3684b9f4cc39
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60426677"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65141353"
 ---
 # <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Tutorial: Notificações push para aplicações xamarin. IOS com Notification Hubs do Azure
 
@@ -90,7 +90,7 @@ O Notification Hub já está configurado para trabalhar com APNs e tem as cadeia
 
     ![Configuração de Aplicação do Visual Studio-iOS][32]
 
-4. Na vista solução, faça duplo clique o `Entitlements.plist` e certifique-se de que **ativar notificações Push**"* * está selecionada.
+4. Na vista solução, faça duplo clique o `Entitlements.plist` e certifique-se de que **ativar notificações Push** está marcada.
 
     ![Configuração de Elegibilidade do Visual Studio-iOS][33]
 

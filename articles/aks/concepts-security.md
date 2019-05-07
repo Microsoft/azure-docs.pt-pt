@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: iainfou
-ms.openlocfilehash: 8fd5b726c01b056d38e7e187cec8270ee4e127a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e655627267546d88f76a2487817bca3153ee91d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60466742"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65074025"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceitos de segurança para aplicações e clusters no Azure Kubernetes Service (AKS)
 
@@ -34,9 +34,11 @@ Por predefinição, o servidor de API do Kubernetes utiliza um endereço IP púb
 
 ## <a name="node-security"></a>Segurança de nó
 
-Nós do AKS são máquinas virtuais do Azure, que a gerenciar e manter. Os nós executados uma distribuição Ubuntu Linux otimizada com o tempo de execução do contentor de Moby. Quando um cluster do AKS é criado ou verticalmente, os nós são implementados automaticamente com as mais recentes atualizações de segurança do sistema operacional e as configurações.
+Nós do AKS são máquinas virtuais do Azure, que a gerenciar e manter. Executar uma distribuição Ubuntu otimizada com o tempo de execução do contentor de Moby nós do Linux. Nós do Windows Server (atualmente em pré-visualização no AKS) executados um otimizada de 2019 de arranque do Windows Server de versão e utilizam também o tempo de execução do contentor de Moby. Quando um cluster do AKS é criado ou verticalmente, os nós são implementados automaticamente com as mais recentes atualizações de segurança do sistema operacional e as configurações.
 
-A plataforma do Azure aplica automaticamente patches de segurança do sistema operacional para os nós no noites. Se uma atualização de segurança do sistema operacional exige uma reinicialização do host, essa reinicialização não é realizada automaticamente. Pode reiniciar manualmente os nós ou uma abordagem comum é usar [Kured][kured], um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet] [ aks-daemonsets] e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Reinicializações são geridas no cluster com o mesmo [cordão e drenagem processo](#cordon-and-drain) como uma atualização do cluster.
+A plataforma do Azure aplica automaticamente patches de segurança do sistema operacional para nós do Linux de forma noturna. Se uma atualização de segurança do SO Linux requer um reinício do anfitrião, essa reinicialização não é realizada automaticamente. Pode reiniciar manualmente os nós do Linux ou uma abordagem comum é usar [Kured][kured], um daemon de reinício de código-fonte aberto do Kubernetes. Kured é executado como um [DaemonSet] [ aks-daemonsets] e monitoriza cada nó para a presença de um arquivo que indica que é necessário um reinício. Reinicializações são geridas no cluster com o mesmo [cordão e drenagem processo](#cordon-and-drain) como uma atualização do cluster.
+
+Para nós do Windows Server (atualmente em pré-visualização no AKS), o Windows Update automaticamente executar e aplicar as atualizações mais recentes. Com base numa agenda regular em todo o ciclo de lançamento de atualização do Windows e o seu próprio processo de validação, deve efetuar uma atualização em agrupamentos de nó do Windows Server no cluster do AKS. Este processo de atualização cria nós que executam a imagem do Windows Server mais recente e patches, em seguida, remove os nós mais antigos. Para obter mais informações sobre este processo, consulte [atualizar um conjunto de nós no AKS][nodepool-upgrade].
 
 Nós são implementados numa sub-rede de rede virtual privada, com não existem endereços IP públicos atribuídos. Para fins de resolução de problemas e de gestão, o SSH está ativado por predefinição. Este acesso SSH só está disponível com o endereço IP interno.
 
@@ -52,10 +54,10 @@ Para segurança e conformidade ou utilizar as funcionalidades mais recentes, o A
 
 Durante o processo de atualização, nós do AKS são isolados individualmente do cluster, para que novos pods não estão agendados nos mesmos. Os nós são, em seguida, drenados e atualizados da seguinte forma:
 
-- Pods existentes são corretamente terminadas e agendadas em nós restantes.
-- O nó é reiniciado, o processo de atualização foi concluída e, em seguida, associações de volta para o cluster do AKS.
-- Pods estão programados para executar novamente nos mesmos.
-- O próximo nó do cluster é isolado e drenados usando o mesmo processo até que todos os nós sejam atualizados com êxito.
+- Um novo nó é implementado num conjunto de nós. Este nó é executado a imagem de SO mais recente e patches.
+- Um de nós existentes é identificado para atualização. Pods neste nó são corretamente terminadas e agendadas nos outros nós no conjunto de nós.
+- Este nó existente é eliminado do AKS cluster.
+- O próximo nó do cluster é isolado e drenados usando o mesmo processo até que todos os nós são substituiu com êxito como parte do processo de atualização.
 
 Para obter mais informações, consulte [atualizar um cluster do AKS][aks-upgrade-cluster].
 
@@ -102,3 +104,4 @@ Para obter mais informações sobre principais Kubernetes e conceitos do AKS, co
 [aks-concepts-network]: concepts-network.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

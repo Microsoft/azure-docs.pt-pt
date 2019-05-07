@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 93803a7d885bb68c1d5d6637eaf90fb090dabeb2
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000271"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65072995"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -337,19 +337,28 @@ O envia de contentor do LUIS cobrança informações para o Azure, utilizando um
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](luis-container-configuration.md).
 
-## <a name="unsupported-dependencies"></a>Dependências não suportadas
+## <a name="supported-dependencies-for-latest-container"></a>Suportado dependências para `latest` contentor
+
+O contentor mais recente, lançado em 2019 / / compilar, irá suportar:
+
+* Verificação ortográfica do Bing: pedidos para o ponto de final de predição de consulta com o `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` parâmetros de cadeia de caracteres de consulta. Utilize o [verificação ortográfica do Bing tutorial de v7](luis-tutorial-bing-spellcheck.md) para saber mais. Se esta funcionalidade é utilizada, o contentor envia a expressão para o recurso de V7 de verificação de ortografia do Bing.
+* [Novos domínios criados previamente](luis-reference-prebuilt-domains.md): estes domínios destinados a empresas que incluem entidades, expressões de exemplo e padrões. Expanda estes domínios para sua utilização. 
+
+<a name="unsupported-dependencies"></a>
+
+## <a name="unsupported-dependencies-for-latest-container"></a>Não suportado dependências para `latest` contentor
+
+Se a sua aplicação LUIS tem não suportado dependências, não conseguir [exportar para o contentor](#export-packaged-app-from-luis) até remover as funcionalidades não suportadas. Quando tentar exportar para o contentor, o portal do LUIS relatórios funcionalidades não suportadas, que tem de remover.
 
 Pode utilizar uma aplicação do LUIS se ele **não inclui** qualquer uma das seguintes dependências:
 
 Configurações de aplicações não suportado|Detalhes|
 |--|--|
-|Culturas do contentor não suportado| Alemão (Alemanha-DE)<br>Holandês (nl-NL)<br>Japonês (ja-JP)<br>|
-|Domínios não suportados|Domínios pré-concebidos, incluindo o domínio pré-criado intenções e entidades|
+|Culturas do contentor não suportado| Holandês (nl-NL)<br>Japonês (ja-JP)<br>Alemão só é suportado com o [1.0.1 atomizador ou posterior](luis-language-support.md#custom-tokenizer-versions).|
 |Entidades não suportadas para todas as culturas|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) entidade criados previamente para todas as culturas|
 |Entidades não suportadas para a cultura inglês (en-US)|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) entidades pré-concebidas|
 |Priming de voz|Dependências externas não são suportadas no contentor.|
 |Análise de sentimentos|Dependências externas não são suportadas no contentor.|
-|Verificação ortográfica do Bing|Dependências externas não são suportadas no contentor.|
 
 ## <a name="summary"></a>Resumo
 

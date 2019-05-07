@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 1bbe89484d72a21c4432d452d4ddae83ea2d2553
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870477"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65146133"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Criar principais de serviço e atribuições de funções com o PowerShell
 
@@ -111,5 +111,5 @@ Seguem-se as credenciais de três que deve escrever para baixo e os cmdlets que 
 
 Neste tutorial, aprendeu a criar principal de um serviço e inicie sessão na área de Trabalho Virtual do Windows com o mesmo. Para saber mais sobre como iniciar sessão área de Trabalho Virtual do Windows, avance para ligar ao Windows procedimentos de ambiente de Trabalho Virtual.
 
-- [Ligar para o cliente de ambiente de trabalho remoto no Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Ligar para o cliente de web do Windows Virtual Desktop pré-visualização](connect-web.md)
+- [Ligar a partir do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
+- [Ligar a partir de um navegador da web](connect-web.md)

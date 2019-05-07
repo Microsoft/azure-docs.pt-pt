@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/21/2019
 ms.author: dekapur
-ms.openlocfilehash: 3e9e3afd5172783c6b5ed8e6342ce9927353d006
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed775bfca2db02b9bfddebb85bbd3f1f668cf3e0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386864"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65142684"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>Criar um cluster autónomo no Windows Server
 Pode utilizar o Azure Service Fabric para criar clusters do Service Fabric em máquinas virtuais ou computadores que executam o Windows Server. Isso significa que pode implementar e executar aplicações do Service Fabric em qualquer ambiente que contém um conjunto de computadores do Windows Server interconectadas, seja no local ou com qualquer fornecedor de cloud. O Service Fabric fornece um pacote de configuração para criar clusters do Service Fabric chamados pacote autónomo do Windows Server.
@@ -27,7 +27,7 @@ Pode utilizar o Azure Service Fabric para criar clusters do Service Fabric em m�
 Este artigo orienta-o através dos passos para criar um cluster autónomo do Service Fabric.
 
 > [!NOTE]
-> Este pacote do Windows Server autónomo está comercialmente disponível e pode ser utilizado para implementações de produção. Esse pacote pode conter os novos recursos do Service Fabric que estão em "Pré-visualização". Desloque para baixo para "[incluídas nesse pacote de funcionalidades de pré-visualização](#previewfeatures_anchor)." secção para obter a lista de funcionalidades de pré-visualização. Pode [transferir uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora.
+> Este pacote do Windows Server autónomo está comercialmente disponível sem custos e pode ser utilizada para implementações de produção. Esse pacote pode conter os novos recursos do Service Fabric que estão em "Pré-visualização". Desloque para baixo para "[incluídas nesse pacote de funcionalidades de pré-visualização](#previewfeatures_anchor)." secção para obter a lista de funcionalidades de pré-visualização. Pode [transferir uma cópia do EULA](https://go.microsoft.com/fwlink/?LinkID=733084) agora.
 > 
 > 
 
