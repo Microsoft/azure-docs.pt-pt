@@ -48,9 +48,9 @@ As seguintes propriedades são suportadas para a API do Azure Cosmos DB para o s
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade tem de ser definida como **CosmosDbMongoDbApi**. | Sim |
+| type | O **tipo** propriedade tem de ser definida como **CosmosDbMongoDbApi**. | Sim |
 | connectionString |Especifique a cadeia de ligação para o Azure Cosmos DB API para MongoDB. Pode encontrá-lo no portal do Azure -> painel do Cosmos DB -> cadeia de ligação primária ou secundária, com o padrão de `mongodb://<cosmosdb-name>:<password>@<cosmosdb-name>.documents.azure.com:10255/?ssl=true&replicaSet=globaldb`. <br/><br />Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| base de dados | Nome da base de dados que pretende aceder. | Sim |
+| database | Nome da base de dados que pretende aceder. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode usar o Runtime de integração do Azure ou um runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se esta propriedade não for especificada, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
 **Exemplo**
@@ -81,8 +81,8 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **CosmosDbMongoDbApiCollection**. |Sim |
-| CollectionName |O nome da coleção do Azure Cosmos DB. |Sim |
+| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **CosmosDbMongoDbApiCollection**. |Sim |
+| collectionName |O nome da coleção do Azure Cosmos DB. |Sim |
 
 **Exemplo**
 
@@ -114,8 +114,8 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **CosmosDbMongoDbApiSource**. |Sim |
-| filtro | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
+| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **CosmosDbMongoDbApiSource**. |Sim |
+| filter | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
 | cursorMethods.project | Especifica os campos a devolver em documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
 | cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte a [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
 | cursorMethods.limit | Especifica o número máximo de documentos, que o servidor devolve. Consulte a [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não | 
@@ -169,8 +169,8 @@ As seguintes propriedades são suportadas na atividade de cópia **sink** secç�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **CosmosDbMongoDbApiSink**. |Sim |
-| WriteBehavior |Descreve como escrever dados do Azure Cosmos DB. Valores permitidos: **inserir** e **upsert**.<br/><br/>O comportamento das **upsert** é substituir o documento se um documento com o mesmo ID já existe; caso contrário, insira o documento.<br /><br />**Nota**: Fábrica de dados gera automaticamente um ID de um documento se não for especificado um ID do documento original ou por mapeamento de colunas. Isso significa que é necessário garantir que, para **upsert** a funcionar conforme esperado, o seu documento tem um ID. |Não<br />(a predefinição é **inserir**) |
+| type | O **tipo** propriedade do coletor de atividade de cópia tem de ser definida como **CosmosDbMongoDbApiSink**. |Sim |
+| writeBehavior |Descreve como escrever dados do Azure Cosmos DB. Valores permitidos: **inserir** e **upsert**.<br/><br/>O comportamento das **upsert** é substituir o documento se um documento com o mesmo ID já existe; caso contrário, insira o documento.<br /><br />**Nota**: Fábrica de dados gera automaticamente um ID de um documento se não for especificado um ID do documento original ou por mapeamento de colunas. Isso significa que é necessário garantir que, para **upsert** a funcionar conforme esperado, o seu documento tem um ID. |Não<br />(a predefinição é **inserir**) |
 | writeBatchSize | O **writeBatchSize** propriedade controla o tamanho de documentos para escrever em cada lote. Pode experimentar aumentar o valor para **writeBatchSize** para melhorar o desempenho e a diminuição do valor se o tamanho do documento a ser grande. |Não<br />(a predefinição é **10.000**) |
 | writeBatchTimeout | O tempo de espera para o lote de inserção operação seja concluída antes de atingir o tempo limite. O valor permitido é o período de tempo. | Não<br/>(a predefinição é **00:00 30:** - 30 minutos) |
 
