@@ -18,9 +18,9 @@
   items:
     - name: Ligar a recursos do Windows Virtual Desktop
       items:
-        - name: Ligar com o Windows 7 e Windows 10
+        - name: Ligar a partir do Windows 10 ou Windows 7
           href: connect-windows-7-and-10.md
-        - name: Ligar com o cliente web
+        - name: Ligar a partir de um browser web
           href: connect-web.md
     - name: Criar um conjunto de anfitriões com um modelo do Azure Resource Manager
       href: create-host-pools-arm-template.md
@@ -34,6 +34,8 @@
       href: diagnostics-role-service.md
     - name: Preparar e personalizar uma imagem VHD principal
       href: set-up-customize-master-image.md
+    - name: Configurar GPU para o Windows Virtual Desktop
+      href: configure-vm-gpu.md
     - name: Dimensionar automaticamente os hosts de sessão
       href: set-up-scaling-script.md
 - name: Conceitos

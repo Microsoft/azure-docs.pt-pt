@@ -66,6 +66,10 @@
       items:
         - name: Ingerir dados de exemplo
           href: ingest-sample-data.md
+    - name: Implementação
+      items:
+        - name: Tarefa de DevOps
+          href: devops.md
     - name: Consultar dados
       items:
         - name: Escrever consultas

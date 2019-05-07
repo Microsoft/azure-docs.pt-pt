@@ -9,9 +9,9 @@ metadata:
   ms.author: raagyema
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 02/25/2019
+  ms.date: 04/26/2019
 abstract:
-  description: 'A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional baseado no motor de base de dados PostgreSQL de código aberto.  É uma oferta de base de dados como serviço totalmente gerida capaz de processar cargas de trabalho fundamentais com desempenho previsível, segurança, elevada disponibilidade e escalabilidade dinâmica.  Programe aplicações com a Base de Dados do Azure para PostgreSQL ao tirar partido das ferramentas de código aberto e da plataforma da sua preferência.  Saiba como utilizar a Base de Dados do Azure para PostgreSQL com os nossos guias de introdução, tutoriais e amostras.'
+  description: 'A Base de Dados do Azure para PostgreSQL é um serviço de base de dados relacional baseado no motor de base de dados PostgreSQL de código aberto.  É uma oferta de base de dados como serviço totalmente gerida capaz de processar cargas de trabalho fundamentais com desempenho previsível, segurança, elevada disponibilidade e escalabilidade dinâmica. Está disponível em duas opções de implementação, a de Servidor Único e Hyperscale (Citus) (pré-visualização). A opção de Hyperscale (Citus) dimensiona horizontalmente as consultas entre várias máquinas com o recurso à fragmentação e serve as aplicações que necessitem de uma maior escala e desempenho. Saiba como utilizar a Base de Dados do Azure para PostgreSQL com os nossos guias de introdução, tutoriais e amostras.'
 sections:
   - title: Inícios rápidos de cinco minutos
     items:
@@ -22,22 +22,33 @@ sections:
         items:
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
-            text: Portal do Azure
+            text: Portal do Azure de Servidor Único
             href: /azure/postgresql/quickstart-create-server-database-portal
           - image:
               src: 'https://docs.microsoft.com/azure/sql-database/media/index/cli.svg'
-            text: CLI do Azure
+            text: CLI do Azure de Servidor Único
             href: /azure/postgresql/quickstart-create-server-database-azure-cli
+          - image:
+              src: 'https://docs.microsoft.com/azure/sql-database/media/index/portal.svg'
+            text: Portal do Azure Hyperscale (Citus)
+            href: /azure/postgresql/quickstart-create-hyperscale-portal
   - title: Tutoriais Passo-a-Passo
     items:
       - type: paragraph
-        text: 'Aprenda a:'
+        text: 'Para um Único Servidor:'
       - type: list
         style: ordered
         items:
           - html: 'Estruturar uma base de dados &#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Portal do Azure</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">CLI do Azure</a>'
           - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Criar uma Aplicação Web com Python e CLI</a>
           - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Monitorizar e otimizar o serviço</a>
+      - type: paragraph
+        text: 'Para Hyperscale (Citus) (pré-visualização):'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">Conceber uma base de dados com vários inquilinos</a>
+          - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">Conceber uma base de dados em tempo real</a>
   - title: Desenvolva as suas competências com o Microsoft Learn
     items:
       - type: list

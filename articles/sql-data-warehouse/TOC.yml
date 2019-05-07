@@ -62,7 +62,7 @@
           href: quickstart-scale-compute-tsql.md
     - name: Gestão de Cargas de Trabalho
       items:
-        - name: Criar classificador de cargas de trabalho (Pré-visualização)
+        - name: Criar classificador de cargas de trabalho
           items:
             - name: T-SQL
               href: quickstart-create-a-workload-classifier-tsql.md
@@ -72,28 +72,48 @@
       items:
         - name: Descrição geral
           href: sql-data-warehouse-overview-manage-security.md
-        - name: Controlo de acesso
-          href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Regras da firewall
-          href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Pontos finais de serviço de rede virtual
-          href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Autenticação
-          href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Azure AD
-          href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Inícios de sessão e utilizadores
-          href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Autenticação multifator
-          href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Advanced Data Security
+          items:
+            - name: Descrição geral
+              href: ../sql-database/sql-database-advanced-data-security.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Deteção e Classificação de Dados
+              href: ../sql-database/sql-database-data-discovery-and-classification.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Avaliação de vulnerabilidades
+              href: ../sql-database/sql-vulnerability-assessment.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Proteção Avançada Contra Ameaças
+              href: ../sql-database/sql-database-threat-detection-overview.md?toc=/azure/sql-data-warehouse/toc.json
         - name: Auditoria
           href: ../sql-database/sql-database-auditing.md?toc=/azure/sql-data-warehouse/toc.json
-        - name: Deteção e Classificação de Dados
-          href: 'https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-classification?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
-        - name: Segurança ao nível da coluna
-          href: column-level-security.md
-        - name: Segurança ao Nível da Linha
-          href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json'
+        - name: Segurança de Rede
+          items:
+            - name: Regras da firewall
+              href: ../sql-database/sql-database-firewall-configure.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Pontos finais de serviço de rede virtual
+              href: ../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Autenticação
+          items:
+            - name: Descrição geral
+              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Azure Active Directory
+              href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Inícios de sessão e utilizadores
+              href: ../sql-database/sql-database-manage-logins.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Autenticação multifator
+              href: ../sql-database/sql-database-ssms-mfa-authentication.md?toc=/azure/sql-data-warehouse/toc.json
+        - name: Controlo de acesso
+          items:
+            - name: Descrição geral
+              href: ../sql-database/sql-database-control-access.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: Segurança ao nível da coluna
+              href: column-level-security.md
+            - name: Segurança ao Nível da Linha
+              href: 'https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json'
+        - name: Proteção de Dados
+          items:
+            - name: Descrição geral de Encriptação de Dados Transparente (TDE)
+              href: ../sql-database/transparent-data-encryption-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
+            - name: TDE com Bring Your Own Key
+              href: ../sql-database/transparent-data-encryption-byok-azure-sql.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Carregamento de dados
       items:
         - name: Descrição geral
@@ -158,9 +178,9 @@
       items:
         - name: Classes de recursos e gestão de cargas de trabalho
           href: resource-classes-for-workload-management.md
-        - name: Classificação de Cargas de Trabalho (Pré-visualização)
+        - name: Classificação da carga de trabalhos
           href: sql-data-warehouse-workload-classification.md
-        - name: Importância da Carga de Trabalho (Pré-visualização)
+        - name: Importâncias da carga de trabalhos
           href: sql-data-warehouse-workload-importance.md
         - name: Memória e limites de simultaneidade
           href: memory-and-concurrency-limits.md
@@ -204,8 +224,6 @@
           href: sql-data-warehouse-encryption-tde.md
         - name: Ativar a encriptação - T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-        - name: Deteção de ameaças
-          href: sql-data-warehouse-security-threat-detection.md
     - name: Carregar dados
       items:
         - name: Dados de táxis de Nova Iorque

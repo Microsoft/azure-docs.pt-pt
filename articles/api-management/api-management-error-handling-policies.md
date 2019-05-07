@@ -79,10 +79,10 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
   
 | Name     | Tipo   | Descrição                                                                                               | Necessário |
 |----------|--------|-----------------------------------------------------------------------------------------------------------|----------|
-| Origem   | string | Nomes do elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline interno.     | Sim      |
-| Razão   | string | Código de erro de máquina amigável, que poderia ser usado no tratamento de erros.                                       | Não       |
-| Mensagem  | string | Descrição do erro legível por humanos.                                                                         | Sim      |
-| Âmbito    | string | Nome do âmbito em que o erro ocorreu e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
+| Source   | string | Nomes do elemento onde ocorreu o erro. Pode ser política ou um nome de passo de pipeline interno.     | Sim      |
+| Reason   | string | Código de erro de máquina amigável, que poderia ser usado no tratamento de erros.                                       | Não       |
+| Message  | string | Descrição do erro legível por humanos.                                                                         | Sim      |
+| Scope    | string | Nome do âmbito em que o erro ocorreu e pode ser um dos "global", "produto", "api" ou "operação" | Não       |
 | Section  | string | Nome de secção onde ocorreu o erro. Valores possíveis: "entrada", "backend", "saída" ou "em erro".       | Não       |
 | `Path`     | string | Especifica a política de aninhadas, por exemplo "Escolha [3] / quando [2]".                                                        | Não       |
 | `PolicyId` | string | Valor da `id` de atributo, se for especificado pelo cliente, na política de onde ocorreu o erro             | Não       |
@@ -96,7 +96,7 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
 ## <a name="predefined-errors-for-built-in-steps"></a>Erros predefinidos para obter os passos incorporados  
  Os seguintes erros estão predefinidos para condições de erro que podem ocorrer durante a avaliação de passos de processamento interno.  
   
-| Origem        | Condição                                 | Razão                  | Mensagem                                                                                                                |
+| Source        | Condição                                 | Reason                  | Message                                                                                                                |
 |---------------|-------------------------------------------|-------------------------|------------------------------------------------------------------------------------------------------------------------|
 | configuração | URI não corresponde a qualquer API ou a operação | OperationNotFound       | Não é possível comparar a solicitação de entrada para uma operação de mensagens em fila.                                                                      |
 | Autorização | Chave de subscrição não fornecida             | SubscriptionKeyNotFound | Acesso negado devido à falta de chave de subscrição. Certifique-se incluir a chave de subscrição quando são efetuados pedidos para esta API. |
@@ -105,7 +105,7 @@ O `on-error` secção política pode ser utilizada em qualquer âmbito. Os publi
 ## <a name="predefined-errors-for-policies"></a>Erros predefinidos para as políticas  
  Os seguintes erros estão predefinidos para condições de erro que podem ocorrer durante a avaliação da política.  
   
-| Origem       | Condição                                                       | Razão                    | Mensagem                                                                                                                              |
+| Source       | Condição                                                       | Reason                    | Message                                                                                                                              |
 |--------------|-----------------------------------------------------------------|---------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | limite de taxa   | Limite de taxa foi excedido                                             | RateLimitExceeded         | Limite de taxa foi excedido                                                                                                               |
 | quota        | Quota excedida                                                  | QuotaExceeded             | Volume de chamadas fora da quota. Quota será seja reposta no xx:xx:xx. - ou - fora da quota de largura de banda. Quota será seja reposta no xx:xx:xx. |

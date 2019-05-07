@@ -109,8 +109,14 @@
           href: how-to-install-iot-edge-linux-arm.md
         - name: Windows X64
           href: how-to-install-iot-edge-windows.md
+        - name: Contentores de Linux no Windows X64
+          href: how-to-install-iot-edge-windows-with-linux.md
+        - name: VM do Windows Server
+          href: how-to-install-iot-edge-windows-server-vm.md
         - name: VM do Ubuntu
           href: how-to-install-iot-edge-ubuntuvm.md
+        - name: Utilizar o Kubernetes
+          href: how-to-install-iot-edge-kubernetes.md
         - name: Atualizar a versão do runtime
           href: how-to-update-iot-edge.md
     - name: Aprovisionamento automático com DPS

@@ -12,7 +12,7 @@ metadata:
   ms.date: 12/06/2018
   ms.custom: seodec18
 abstract:
-  description: 'Saiba como executar análises de Internet das Coisas (IoT) na cloud com o Stream Analytics, um motor processamento de eventos completamente gerido. Tutoriais e outra documentação mostram-lhe como analisar dados em tempo real a partir de aplicações, sensores, dispositivos, redes sociais e mais.'
+  description: 'O Stream Analytics é um motor de processamento de eventos sem servidor completamente gerido que lhe permite analisar fluxos de dados a partir de aplicações e dispositivos de IoT em tempo real. Saiba como utilizar o Azure Stream Analytics com os nossos inícios de sessão, tutoriais e amostras.'
   aside:
     image:
       alt: null

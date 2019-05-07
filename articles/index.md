@@ -6,12 +6,12 @@ description: Saiba como criar e gerir aplicações poderosas com os serviços cl
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: 73dda32c3f5f89a8b3e7465fbfdde28cb0ad2d6f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b36302e349327354e31ef4ea5adb9842d04ed4f1
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020831"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65149347"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1026,7 +1026,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                         </li>
                                         <li>
                                             <a href="/azure/open-datasets">
-                                                <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                <img src="media/index/open-data.svg" alt="" />
                                                 <p>Conjuntos de Dados Abertos</p>
                                             </a>
                                         </li>
@@ -1269,7 +1269,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                         </li>
                                         <li>
                                         <a href="/azure/open-datasets">
-                                            <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                            <img src="media/index/open-data.svg" alt="" />
                                             <p>Conjuntos de Dados Abertos</p>
                                         </a>
                                         </li>
@@ -2094,7 +2094,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                     </div>
                                 </a>
                             </li>
-<li>
+                            <li>
                                 <a href="/azure/vmware-cloudsimple/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2107,6 +2107,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                                 <div class="cardText">
                                                     <h3>Solução VMware no Azure da CloudSimple</h3>
                                                     <p>Executar a plataforma VMware no Azure</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>Serviço OpenShift totalmente gerido e operado em conjunto com a Red Hat</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3069,6 +3088,25 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/openshift/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/openshift.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Red Hat OpenShift</h3>
+                                                    <p>Serviço OpenShift totalmente gerido e operado em conjunto com a Red Hat</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -3656,7 +3694,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -3854,7 +3892,7 @@ Automatizar as tarefas do Azure com scripts com o PowerShell </a>
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="https://docs.microsoft.com/media/common/i_data-collection.svg" alt="" />
+                                                        <img src="media/index/open-data.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

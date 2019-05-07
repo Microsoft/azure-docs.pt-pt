@@ -26,8 +26,10 @@
     - name: Analisar o seu vídeo - .NET
       displayName: 'job, transform'
       href: analyze-videos-tutorial-with-api.md
-    - name: Encriptação dinâmica AES-128 - .NET
+    - name: Encriptar de forma dinâmica com AES-128 - .NET
       href: protect-with-aes128.md
+    - name: Encriptar de forma dinâmica com DRM - .NET
+      href: protect-with-drm.md
 - name: Amostras
   items:
     - name: Exemplos de código do Azure
@@ -56,10 +58,9 @@
         - name: Degraus de bitrate adaptativo auto-generativo
           href: autogen-bitrate-ladder.md
         - name: Codificação com reconhecimento de conteúdo
-          displayName: 'content, aware, cae'
           href: cae-experimental.md
         - name: Códigos de erro das tarefas
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: Análise de multimédia
       items:
         - name: Descrição geral
@@ -68,7 +69,7 @@
         - name: Transformações e Tarefas
           href: transforms-jobs-concept.md
         - name: Códigos de erro das tarefas
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
     - name: 'Empacotamento, entrega, proteção'
       items:
         - name: Empacotamento
@@ -150,7 +151,7 @@
             - name: Códigos de erro de origem
               href: origin-error-codes.md
             - name: Códigos de erro das tarefas
-              href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+              href: job-error-codes.md
     - name: Guia de migração de v2 para v3
       href: migrate-from-v2-to-v3.md
 - name: Guias de procedimentos
@@ -215,8 +216,6 @@
       items:
         - name: Obter política de chave de conteúdo - .NET
           href: get-content-key-policy-dotnet-howto.md
-        - name: Encriptação dinâmica DRM - .NET
-          href: protect-with-drm.md
         - name: FairPlay Offline para iOS
           href: offline-fairplay-for-ios.md
         - name: Offline Widevine para Android
@@ -258,7 +257,7 @@
         - name: Códigos de erro de origem
           href: origin-error-codes.md
         - name: Códigos de erro das tarefas
-          href: 'https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode'
+          href: job-error-codes.md
 - name: Recursos
   items:
     - name: Comunidade dos Serviços de Multimédia do Azure

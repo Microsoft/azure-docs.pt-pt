@@ -47,6 +47,8 @@
           href: howto-connect-raspberry-pi-csharp.md
         - name: Preparar e ligar um dispositivo Windows Core de IoT
           href: howto-connect-windowsiotcore.md
+        - name: Preparar e ligar um dispositivo SensorTile.box
+          href: howto-connect-sensortile.md
         - name: Monitorizar a conectividade do dispositivo com a linha de comandos
           href: howto-use-iotc-explorer.md
     - name: Gerir dispositivos

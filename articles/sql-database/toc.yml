@@ -120,6 +120,8 @@
           href: sql-database-service-tiers-vcore.md
         - name: Escalões de serviço de DTU
           href: sql-database-service-tiers-dtu.md
+        - name: Escalão de serviço de computação sem servidor
+          href: sql-database-serverless.md
         - name: Fazer pré-pagamento para a capacidade de reserva
           href: sql-database-reserved-capacity.md
         - name: Migrar do escalão de serviço Premium RS

@@ -51,6 +51,8 @@
           href: event-hubs-capture-python.md
     - name: Transmitir em fluxo para os Hubs de Eventos para o Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
+    - name: Criar um cluster de Hubs de Eventos dedicado
+      href: event-hubs-dedicated-cluster-create-portal.md
 - name: Tutoriais
   items:
     - name: Visualizar anomalias de dados nas transmissões de dados dos Hubs de Eventos

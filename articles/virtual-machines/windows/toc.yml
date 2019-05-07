@@ -112,6 +112,8 @@
           href: disk-scalability-targets.md
         - name: Cópia de Segurança e recuperação após desastre para discos
           href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+        - name: Discos de SO Efémeros
+          href: ephemeral-os-disks.md
     - name: Redes
       href: network-overview.md
     - name: Aplicações de dimensionamento automático
@@ -243,18 +245,38 @@
           href: reserved-vm-instance-size-flexibility.md
     - name: Utilizar Imagens
       items:
-        - name: Imagens partilhadas (pré-visualização)
+        - name: Imagens partilhadas
           items:
             - name: Descrição geral
               href: shared-image-galleries.md
-            - name: Criar imagens partilhadas com a PowerShell
+            - name: PowerShell
               href: shared-images.md
-            - name: Criar imagens partilhadas com a CLI
+            - name: Portal
+              href: shared-images-portal.md
+            - name: CLI
               href: ../linux/shared-images.md
             - name: Portal
               href: shared-images-portal.md
+            - name: Partilhar imagens entre inquilinos
+              href: share-images-across-tenants.md
             - name: Resolver problemas de imagens partilhadas
               href: troubleshooting-shared-images.md
+        - name: Construtor de imagens (pré-visualização)
+          items:
+            - name: Descrição geral
+              href: ../linux/image-builder-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Utilizar a CLI
+              href: image-builder.md
+            - name: Utilizar com galerias
+              href: image-builder-gallery.md
+            - name: Atualizar uma versão de imagem
+              href: image-builder-gallery-update-image-version.md
+            - name: Utilizar scripts no Armazenamento do Azure
+              href: ../linux/image-builder-user-assigned-identity.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Referência de modelo
+              href: ../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+            - name: Resolução de problemas
+              href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Localizar e utilizar imagens
           href: cli-ps-findimage.md
         - name: Preparar a VM para carregamento

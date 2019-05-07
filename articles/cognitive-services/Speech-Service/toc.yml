@@ -174,8 +174,12 @@
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Conversão de texto em voz
           items:
-            - name: Criar tipos de voz (voz de marca do bot)
-              href: how-to-customize-voice-font.md
+            - name: Introdução à Voz Personalizada
+              href: how-to-custom-voice.md
+            - name: Preparar dados
+              href: how-to-custom-voice-prepare-data.md
+            - name: Criar e utilizar modelos de Voz Personalizada
+              href: how-to-custom-voice-create-voice.md
             - name: Gravar amostras de voz
               href: record-custom-voice-samples.md
             - name: Ajustar a saída de conversão de texto em voz

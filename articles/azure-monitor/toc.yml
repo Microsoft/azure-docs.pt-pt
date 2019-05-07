@@ -555,6 +555,8 @@
                   href: app/usage-workbooks.md
             - name: Solução de Análise de Aplicações Web
               href: insights/azure-web-apps-analytics.md
+            - name: Aplicações alojadas do Kubernetes
+              href: app/kubernetes.md
         - name: Contentores de monitor
           items:
             - name: Azure Monitor para contentores
@@ -563,13 +565,19 @@
                   href: insights/container-insights-overview.md
                 - name: FAQ
                   href: insights/container-insights-faq.md
-                - name: Integrar
-                  href: insights/container-insights-onboard.md
+                - name: Ativar monitorização
+                  items:
+                    - name: Ativar descrição geral da monitorização
+                      href: insights/container-insights-onboard.md
+                    - name: Ativar para o novo cluster
+                      href: insights/container-insights-enable-new-cluster.md
+                    - name: Ativar para o cluster existente
+                      href: insights/container-insights-enable-existing-clusters.md
                 - name: Analisar
                   href: insights/container-insights-analyze.md
                 - name: Desativar a monitorização
                   href: insights/container-insights-optout.md
-                - name: Ver registos dinâmicos do contentor
+                - name: Ver registos em direto
                   href: insights/container-insights-live-logs.md
                 - name: Analisar dados com consultas de registo
                   href: insights/container-insights-log-search.md
@@ -585,8 +593,6 @@
               href: insights/containers.md
             - name: Monitorizar aplicações do Docker
               href: app/docker.md
-            - name: Application Insights para Kubernetes
-              href: app/kubernetes.md
         - name: Monitorize grupos de recursos
           href: insights/resource-group-insights.md
         - name: Monitorizar bases de dados

@@ -6,9 +6,6 @@
     - name: O que é o serviço Azure Machine Learning?
       displayName: AML services overview
       href: overview-what-is-azure-ml.md
-    - name: O que aconteceu ao Workbench
-      displayName: desktop ui Workbench upgrade update transfer
-      href: overview-what-happened-to-workbench.md
 - name: Configurar
   items:
     - name: Criar uma área de trabalho
@@ -92,6 +89,8 @@
     - name: Capacidade de interpretação do modelo
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
+    - name: Acelerar com GPUs
+      href: concept-accelerate-inferencing-with-gpus.md
     - name: Acelerar com FPGAs
       href: concept-accelerate-with-fpgas.md
     - name: Otimizar com o ONNX e o ONNX Runtime
@@ -117,6 +116,7 @@
         - name: Utilizar o portal para áreas de trabalho
           href: how-to-manage-workspace.md
         - name: Utilizar um modelo do Resource Manager
+          displayName: arm
           href: how-to-create-workspace-template.md
     - name: "Configurar o ambiente de desenvolvimento\_"
       items:
@@ -352,3 +352,6 @@
     - name: Comparar os nossos produtos de ML
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
       maintainContext: true
+    - name: O que aconteceu ao Workbench
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md

@@ -3,7 +3,7 @@
 - name: Descrição geral
   items:
     - name: Descrição geral do Azure Resource Graph
-      displayName: 'resource manager, query language, rbac, permissions'
+      displayName: 'Resource Manager, query language, rbac, permissions'
       href: overview.md
 - name: Inícios rápidos
   expanded: true
@@ -48,12 +48,24 @@
       href: /powershell/module/az.resourcegraph/
     - name: SDK do Azure para .NET
       href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+    - name: SDK do Azure para .NET (NuGet)
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.ResourceGraph/'
+    - name: SDK do Azure para Go
+      href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/resourcegraph/mgmt/2019-04-01/resourcegraph'
+    - name: SDK do Azure para Java
+      href: /java/api/overview/azure/resourcegraph/management?view=azure-java-stable
+    - name: SDK do Azure para Java (Maven)
+      href: 'https://search.maven.org/artifact/com.microsoft.azure.resourcegraph.v2019_04_01/azure-mgmt-resourcegraph/1.0.0-beta/jar'
+    - name: SDK do Azure para Node
+      href: /javascript/api/@azure/arm-resourcegraph
     - name: SDK do Azure para Python
       href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+    - name: SDK do Azure para Ruby (Gem)
+      href: 'https://rubygems.org/gems/azure_mgmt_resourcegraph'
     - name: REST
       href: /rest/api/azureresourcegraph/resources/resources
     - name: OpenAPI
-      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview'
+      href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
 - name: Recursos
   items:
     - name: Roteiro do Azure
@@ -61,6 +73,6 @@
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
+      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345061'
     - name: Canal do YouTube sobre Governação
       href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
