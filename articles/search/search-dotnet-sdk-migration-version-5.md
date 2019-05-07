@@ -10,18 +10,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 980f16680ecc65bf8ac30a49e02f39b0f18a15f6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 8382884b4ce2965dee4acf191f82eb012b670713
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024105"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147482"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Atualizar para o SDK .NET da Azure Search versão 5
-
-> [!Important]
-> Este conteúdo está ainda estão em construção. Versão 9.0 do SDK de .NET de pesquisa do Azure está disponível em NuGet. Estamos a trabalhar neste artigo para explicar como atualizar para 9.0. 
-> 
 
 Se estiver a utilizar versão 4.0-pré-visualização ou mais antiga do [SDK .NET da Azure Search](https://aka.ms/search-sdk), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 5.
 
@@ -103,6 +99,6 @@ Se seu aplicativo tiver uma dependência sobre estas funcionalidades, não será
 ## <a name="conclusion"></a>Conclusão
 Se precisar de obter mais detalhes sobre como utilizar o SDK .NET da Azure Search, consulte a [.NET procedimentos](search-howto-dotnet-sdk.md).
 
-Apreciamos os seus comentários sobre o SDK. Se tiver problemas, fique à vontade contacte-nos para obter ajuda sobre o [fórum MSDN do Azure Search](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch). Se encontrar um bug, comunique o assunto na [repositório do GitHub do Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se para o prefixo seu título do problema com o "[o Azure Search]".
+Apreciamos os seus comentários sobre o SDK. Se tiver problemas, fique à vontade contacte-nos para obter ajuda na [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-search). Se encontrar um bug, comunique o assunto na [repositório do GitHub do Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Certifique-se para o prefixo seu título do problema com o "[o Azure Search]".
 
 Obrigado por utilizar o Azure Search!

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a89cbe4a9c042b0cc7dac49c9153c8ce283ede55
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 50714f3fe6d30b4b93a0b42383b6f4634c86eafa
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927706"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65148062"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagem partilhada com o portal do Azure
 
@@ -33,7 +33,7 @@ A galeria é um recurso de nível superior que fornece controlo de acesso comple
 
 O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Podemos será a utilizar ou criar neste artigo:
 
-| Recurso | Descrição|
+| Resource | Descrição|
 |----------|------------|
 | **Imagem gerida** | Esta é uma imagem básica que pode ser usada sozinha ou utilizada para criar uma **versão da imagem** na Galeria de imagens. Imagens geridas são criadas a partir de VMs generalizadas. Uma imagem gerida é um tipo especial de VHD que pode ser utilizado para fazer várias VMs e pode agora ser utilizado para criar versões de imagem partilhada. |
 | **Galeria de imagens** | Como o Azure Marketplace, um **Galeria de imagens** é um repositório de gerenciamento e compartilhamento de imagens, mas controlar quem tem acesso. |

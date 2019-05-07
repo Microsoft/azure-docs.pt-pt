@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557159"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150299"
 ---
 >[!NOTE]
 >Para obter recursos que não estão corrigidos, abra um pedido de suporte para pedir um aumento de quotas. Não crie contas de serviços de multimédia do Azure adicionais numa tentativa de obter limites superiores.
 
-| Recurso | Limite predefinido | 
+| Resource | Limite predefinido | 
 | --- | --- | 
 | Contas de serviços de multimédia do Azure numa única subscrição | 25 (fixo) |
 | Unidades por conta dos serviços de multimédia reservadas de multimédia |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -50,12 +50,12 @@ A partir de 1 de Abril de 2017, qualquer registo de tarefa na sua conta mais de 
 >[!NOTE]
 > Se sempre utiliza os mesmos dias e as permissões de acesso, utilize o mesmo ID de política. Para informações e exemplos, consulte [gerir recursos com o SDK .NET dos Media Services](../articles/media-services/previous/media-services-dotnet-manage-entities.md#limit-access-policies).
 
-<sup>7</sup>se carregar conteúdo para um elemento nos serviços de multimédia para processá-lo com um dos processadores de multimédia no serviço, tenha em atenção os tamanhos de ficheiro máximo que são suportados. Ativos incluem codificadores como o Media Encoder Standard e o Media Encoder Premium Workflow ou motores de análise, como o detetor de rostos.
+<sup>7</sup>o tamanho máximo suportado para um único blob está atualmente até 5 TB de armazenamento de Blobs do Azure. Limites adicionais aplicam-se nos serviços de multimédia com base sobre os tamanhos VM que são utilizados pelo serviço. O limite de tamanho aplica-se para os ficheiros que é carregado e também os ficheiros que obterem gerados como resultado dos serviços de multimédia de processamento (codificação ou analisar). Se o ficheiro de origem for superior a 260 GB, o seu trabalho provavelmente falhará. 
 
-O tamanho máximo suportado para um único blob está atualmente até 5 TB de armazenamento de Blobs do Azure. Limites adicionais aplicam-se nos serviços de multimédia com base sobre os tamanhos VM que são utilizados pelo serviço. A tabela seguinte mostra os limites no reservadas de multimédia unidades de S1, S2 e S3. Se o ficheiro de origem for maior do que os limites definidos na tabela, falha a tarefa de codificação. Se a codificar fontes de resolução de 4K de longa duração, tem de utilizar unidades reservadas de multimédia S3 para alcançar o desempenho necessário. Se tiver conteúdo de 4K, que é maior do que o limite de 260 GB nas unidades reservadas de multimédia S3, contacte-nos em amshelp@microsoft.com para possíveis atenuações suportar o seu cenário.
+A tabela seguinte mostra os limites no reservadas de multimédia unidades de S1, S2 e S3. Se o ficheiro de origem for maior do que os limites definidos na tabela, falha a tarefa de codificação. Se a codificar fontes de resolução de 4K de longa duração, tem de utilizar unidades reservadas de multimédia S3 para alcançar o desempenho necessário. Se tiver conteúdo de 4K, que é maior do que o limite de 260 GB nas unidades reservadas de multimédia S3, contacte-nos em amshelp@microsoft.com para possíveis atenuações suportar o seu cenário.
 
-| Tipo de unidades reservadas de multimédia | Tamanho máximo de entrada (GB)| 
-| --- | --- | 
-|S1 | 325|
-|S2 | 640|
-|S3 | 260|
+|Tipo de unidades reservadas de multimédia   |Tamanho máximo de entrada (GB)|
+|---|---|
+|S1 |   26|
+|S2 | 60|
+|S3 |260|

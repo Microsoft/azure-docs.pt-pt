@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: monhaber
-ms.openlocfilehash: c4b2ed1269ef669def2b6f2036d34a40fb181c5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 581db3ebe3ce1cad5c8db3702af179e141f334b4
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60910469"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65143480"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Controlos de aplicações adaptáveis no Centro de Segurança do Azure
 Saiba como configurar o controlo de aplicações no Centro de Segurança do Azure com estas instruções.
@@ -154,6 +154,22 @@ A lista contém:
 
 Centro de segurança do Azure permite-lhe definir uma política de lista de permissões de aplicações em não recomendado grupos de VMs também. Siga os mesmos princípios, tal como foi descrito anteriormente, para configurar uma política de lista de permissões de aplicações nesses grupos também.
 
+## <a name="move-a-vm-from-one-group-to-another"></a>Mover uma VM de um grupo para outro
+
+ Ao mover uma VM de um grupo para outro, a política de controlo de aplicações aplicada à mesma alterações às definições do grupo que movê-la para. Também pode mover uma VM a partir de um grupo configurado para um grupo não configurado, o que resulta em qualquer política de controlo de aplicação que estava anteriormente aplicada à VM a remover.
+
+ 1. Do **controlos de aplicação adaptável** página, da **configurado** separador, clique no grupo ao qual pertence a VM ser movida atualmente.
+1. Clique em **configurado VMs e computadores**.
+1. Clique nos três pontos na linha da VM para mover e clique em **mover**. O **mover computador para outro grupo** é aberta a janela.
+
+    ![Proteção](./media/security-center-adaptive-application/adaptive-application-move-group.png)
+
+ 1. Selecione o grupo para mover a VM e clique em **mover computador**e clique em **guardar**.
+
+    ![Proteção](./media/security-center-adaptive-application/adaptive-application-move-group2.png)
+
+ > [!NOTE]
+> Certifique-se de que clique em **salvar** depois de clicar em **mover computador**. Se não clicar **guardar**, em seguida, o computador não será movido.
 
 ## <a name="next-steps"></a>Passos Seguintes
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativos no Centro de segurança do Azure a lista de permissões de aplicações em execução no Azure e VMs não Azure. Para saber mais acerca do Centro de Segurança do Azure, consulte o seguinte:

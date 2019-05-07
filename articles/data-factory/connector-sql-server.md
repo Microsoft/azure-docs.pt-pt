@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d28f6ed1957f8f6ae7ff7eb49f8ce4cbdec62266
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456823"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147408"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados para e do SQL Server com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -144,7 +144,7 @@ As seguintes propriedades são suportadas para o serviço ligado do SQL Server:
 
 Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo de conjuntos de dados. Esta seção fornece uma lista de propriedades suportadas pelo conjunto de dados do SQL Server.
 
-Para copiar dados de/para a base de dados do SQL Server, defina a propriedade de tipo de conjunto de dados para **SqlServerTable**. São suportadas as seguintes propriedades:
+Para copiar dados de/para o banco de dados do SQL Server, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
@@ -163,6 +163,7 @@ Para copiar dados de/para a base de dados do SQL Server, defina a propriedade de
             "referenceName": "<SQL Server linked service name>",
             "type": "LinkedServiceReference"
         },
+        "schema": [ < physical schema, optional, retrievable during authoring > ],
         "typeProperties": {
             "tableName": "MyTable"
         }
@@ -284,7 +285,7 @@ Para copiar dados para o SQL Server, defina o tipo de sink na atividade de cópi
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de sink de atividade de cópia tem de ser definida: **SqlSink** | Sim |
-| writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são: número inteiro (número de linhas). |Não (predefinição: 10000) |
+| writeBatchSize |Número de linhas para inserções na tabela de SQL **por lote**.<br/>Valores permitidos são: número inteiro (número de linhas). Por predefinição, o Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho de linha. |Não |
 | writeBatchTimeout |Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera.<br/>Valores permitidos são: intervalo de tempo. Exemplo: "00: 30:00" (30 minutos). |Não |
 | preCopyScript |Especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados no SQL Server. Apenas ser invocado uma vez por cópia executar. Pode utilizar esta propriedade para limpar os dados carregados previamente. |Não |
 | sqlWriterStoredProcedureName |Nome do procedimento armazenado que define como aplicar a origem de dados na tabela de destino, por exemplo, para fazer upserts ou transformação usando sua própria lógica de negócios. <br/><br/>Tenha em atenção de que este procedimento armazenado será **invocado por lote**. Se pretender efetuar a operação que só é executado uma vez e não tem nada a fazer com os dados de origem, por exemplo, eliminar/truncar, utilize `preCopyScript` propriedade. |Não |

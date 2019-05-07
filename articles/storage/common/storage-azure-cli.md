@@ -2,19 +2,20 @@
 title: Utilizar a CLI do Azure com o armazenamento do Azure | Documentos da Microsoft
 description: Saiba como utilizar a Interface de linha de comandos do Azure (CLI do Azure) com o armazenamento do Azure para criar e gerir contas de armazenamento e trabalhar com ficheiros e de blobs do Azure.
 services: storage
-author: roygara
+author: tamram
 ms.service: storage
 ms.devlang: azurecli
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: rogarana
+ms.author: tamram
+ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f485f38d4c580937b027bb76d0c34c98f699ed93
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea7e4757aac0fccf60a44c70e9de6a63c1ec9498
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483578"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147010"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Utilizar a CLI do Azure com o Storage do Azure
 

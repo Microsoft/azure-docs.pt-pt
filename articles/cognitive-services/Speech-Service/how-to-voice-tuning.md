@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2d56aba6d62d70c482ed1489a09276eeaa11f956
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025847"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147996"
 ---
-# <a name="fine-tune-text-to-speech-output"></a>Ajustar a saída de texto para discurso
+# <a name="fine-tune-text-to-speech-output"></a>Ajustar a saída de conversão de texto em voz
 
 Serviços de voz do Azure permitem-lhe ajustar a velocidade, pronúncia, volume, pitch e contour de voz de saída usando [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML é uma linguagem de marcação baseada em XML que usa marcas para informar o serviço sobre que funcionalidades preciso ajustar. Em seguida, é enviada a mensagem SSML no corpo de cada pedido para o serviço de texto para voz. Para simplificar o processo de personalização, os serviços de voz oferecem agora uma [otimização de voz](https://aka.ms/voicetuning) saídas de ferramenta que permite-lhe inspecionar visualmente e ajustar o texto para voz em tempo real.
 
@@ -43,7 +43,7 @@ Antes de começar a ajustar a saída de texto para voz com a ferramenta de otimi
    * Localize e selecione **todas as subscrições**.  
    * Selecione **ligar a subscrição existente**.  
      ![Ligar uma subscrição existente](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Introduza a chave de subscrição de serviços de voz do Azure no portal do Azure, em seguida, selecione **adicionar**. As chaves de subscrição estão disponíveis no portal do Azure a partir do painel de gestão de recursos.  Também obtém as chaves da lista de subscrição no portal do ajuste de voz.
+   * Introduza a chave de subscrição de serviços de voz do Azure, em seguida, selecione **adicionar**. As chaves de subscrição estão disponíveis no portal de personalização de voz na [página de subscrição](https://go.microsoft.com/fwlink/?linkid=2090458). Também foi possível obter as chaves a partir do painel de gestão de recursos no [portal do Azure](https://portal.azure.com/). 
    * Se tiver mais de uma subscrição de serviços de voz que planeia utilizar o, repita estes passos para cada subscrição.
 
 ## <a name="customize-the-text-to-speech-output"></a>Personalizar a saída de texto para discurso

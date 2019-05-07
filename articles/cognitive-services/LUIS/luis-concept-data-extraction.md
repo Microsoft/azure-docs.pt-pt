@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3bad247263af09462a44e04329e7f911afa3ad5c
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 15d6b0d28f926bdb39b35b763b89422cddcccc84
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867705"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65150688"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrair dados de texto de expressão com intenções e entidades
 LUIS dá-lhe a capacidade de obter informações de expressões de linguagem natural com um utilizador. As informações são extraídas de uma forma que pode ser utilizada por um programa, aplicação ou bot de bate-papo para tomar medidas. As secções seguintes, saiba quais dados são retornados de objetivos e entidades com exemplos de JSON.
@@ -172,34 +172,6 @@ Os dados devolvidos a partir do ponto final incluem o nome da entidade, o texto 
 |--|--|--|
 |Entidade Simple|`Customer`|`bob jones`|
 
-## <a name="hierarchical-entity-data"></a>Dados de entidades hierárquicas
-
-**Entidades hierárquicas, eventualmente, vão ser preteridas. Uso [funções de entidade](luis-concept-roles.md) para determinar subtipos de entidade, em vez de entidades hierárquicas.**
-
-[Hierárquica](luis-concept-entity-types.md) entidades são adquiridos de máquina e pode incluir uma palavra ou frase. Filhos são identificados por contexto. Se estiver procurando uma relação principal-subordinado com correspondência exata de texto, utilize um [lista](#list-entity-data) entidade.
-
-`book 2 tickets to paris`
-
-Na expressão anterior, `paris` assinalada como uma `Location::ToLocation` subordinado do `Location` entidades hierárquicas.
-
-Os dados devolvidos a partir do ponto final incluem o nome da entidade e nome de subordinado, o texto detetado da expressão, a localização do texto detetado e a pontuação:
-
-```JSON
-"entities": [
-  {
-    "entity": "paris",
-    "type": "Location::ToLocation",
-    "startIndex": 18,
-    "endIndex": 22,
-    "score": 0.6866132
-  }
-]
-```
-
-|Objeto de dados|Principal|Subordinado|Valor|
-|--|--|--|--|
-|Entidades hierárquicas|Localização|ToLocation|"paris"|
-
 ## <a name="composite-entity-data"></a>Dados de entidades compostos
 [Composto](luis-concept-entity-types.md) entidades são adquiridos de máquina e pode incluir uma palavra ou frase. Por exemplo, considere uma entidade composta de pré-criados `number` e `Location::ToLocation` com a seguinte expressão:
 
@@ -212,53 +184,54 @@ Tenha em atenção que `2`, o número e `paris`, o ToLocation ter palavras entre
 Entidades compostas são retornadas numa `compositeEntities` matriz e todas as entidades dentro de composição também são retornadas no `entities` matriz:
 
 ```JSON
-  "entities": [
+
+"entities": [
     {
-      "entity": "paris",
-      "type": "Location::ToLocation",
-      "startIndex": 18,
-      "endIndex": 22,
-      "score": 0.956998169
+    "entity": "2 tickets to cairo",
+    "type": "ticketInfo",
+    "startIndex": 0,
+    "endIndex": 17,
+    "score": 0.67200166
     },
     {
-      "entity": "2",
-      "type": "builtin.number",
-      "startIndex": 5,
-      "endIndex": 5,
-      "resolution": {
+    "entity": "2",
+    "type": "builtin.number",
+    "startIndex": 0,
+    "endIndex": 0,
+    "resolution": {
+        "subtype": "integer",
         "value": "2"
-      }
+    }
     },
     {
-      "entity": "2 tickets to paris",
-      "type": "Order",
-      "startIndex": 5,
-      "endIndex": 22,
-      "score": 0.7714499
+    "entity": "cairo",
+    "type": "builtin.geographyV2",
+    "startIndex": 13,
+    "endIndex": 17
     }
-  ],
-  "compositeEntities": [
+],
+"compositeEntities": [
     {
-      "parentType": "Order",
-      "value": "2 tickets to paris",
-      "children": [
+    "parentType": "ticketInfo",
+    "value": "2 tickets to cairo",
+    "children": [
         {
-          "type": "builtin.number",
-          "value": "2"
+        "type": "builtin.geographyV2",
+        "value": "cairo"
         },
         {
-          "type": "Location::ToLocation",
-          "value": "paris"
+        "type": "builtin.number",
+        "value": "2"
         }
-      ]
+    ]
     }
-  ]
+]
 ```    
 
 |Objeto de dados|Nome da entidade|Valor|
 |--|--|--|
 |Entidade pré-criados - número|"builtin.number"|"2"|
-|Entidades hierárquicas - localização|"Location::ToLocation"|"paris"|
+|Entidade pré-criados - GeographyV2|"Location::ToLocation"|"paris"|
 
 ## <a name="list-entity-data"></a>Dados de entidades de lista
 
@@ -268,8 +241,8 @@ Suponha que a aplicação tem uma lista, com o nome `Cities`, o que possibilita 
 
 |Item da lista|Sinónimos de item|
 |---|---|
-|Seattle|Mar-tac, mar, 98101, 206, + 1 |
-|Paris|cdg, roissy, ory, 75001, 1, +33|
+|`Seattle`|`sea-tac`, `sea`, `98101`, `206`, `+1` |
+|`Paris`|`cdg`, `roissy`, `ory`, `75001`, `1`, `+33`|
 
 `book 2 tickets to paris`
 

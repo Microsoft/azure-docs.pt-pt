@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: ccdb3e16ea60cf85ae28e533e3b2d9f473cc90c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
+ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450815"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65147452"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementar o monitorização remota acelerador de soluções localmente - IntelliJ
 
@@ -135,7 +135,7 @@ Para acessar o estado dos serviços, pode navegar para os seguintes URLs:
 Siga estes passos para iniciar a tarefa de Stream Analytics:
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
-1. Navegue para o **grupo de recursos** criado para a sua solução. O nome do grupo de recursos é o nome que escolheu para a sua solução quando executou o **start.cmd** script * *.
+1. Navegue para o **grupo de recursos** criado para a sua solução. O nome do grupo de recursos é o nome que escolheu para a sua solução quando executou o **start.cmd** script.
 1. Clique nas **tarefa do Stream Analytics** na lista de recursos.
 1. Na tarefa de Stream Analytics **descrição geral** página, clique nas **iniciar** botão. Em seguida, clique em **iniciar** para iniciar a tarefa agora.
 
