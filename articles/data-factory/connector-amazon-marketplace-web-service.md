@@ -119,7 +119,7 @@ Para copiar dados do serviço Web do Amazon Marketplace, defina o tipo de origem
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **AmazonMWSSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
