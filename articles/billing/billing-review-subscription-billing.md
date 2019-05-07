@@ -48,7 +48,7 @@ Os seguintes cabeçalhos são necessários:
 |Cabeçalho do pedido|Descrição|
 |--------------------|-----------------|
 |*Content-Type:*|Necessário. Definido como `application/json`.|
-|*Autorização:*|Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
+|*Authorization:*|Necessário. Definido como válido `Bearer` [token de acesso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |
 
 ## <a name="response"></a>Resposta
 
