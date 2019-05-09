@@ -56,11 +56,11 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics AX:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade tem de ser definida como **DynamicsAX**. |Sim |
+| type | O **tipo** propriedade tem de ser definida como **DynamicsAX**. |Sim |
 | url | O Dynamics AX (ou Dynamics 365 Finanças e operações) instância ponto final de OData. |Sim |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim |
 | servicePrincipalKey | Especifique a chave da aplicação. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
+| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
 | aadResourceId | Especifique o recurso do AAD que está a pedir para autorização. Por exemplo, se o seu URL do Dynamics for `https://sampledynamics.sandbox.operations.dynamics.com/data/`, o recurso do AAD correspondente é normalmente `https://sampledynamics.sandbox.operations.dynamics.com`. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode escolher o Runtime de integração do Azure ou um Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
@@ -100,8 +100,8 @@ Para copiar dados do Dynamics AX, defina o **tipo** propriedade do conjunto de d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **DynamicsAXResource**. | Sim |
-| caminho | O caminho para a entidade de OData do Dynamics AX. | Sim |
+| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **DynamicsAXResource**. | Sim |
+| path | O caminho para a entidade de OData do Dynamics AX. | Sim |
 
 **Exemplo**
 
@@ -133,8 +133,8 @@ Para copiar dados do Dynamics AX, defina o **origem** tipo de atividade de cópi
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **DynamicsAXSource**. | Sim |
-| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **DynamicsAXSource**. | Sim |
+| query | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo**
 
