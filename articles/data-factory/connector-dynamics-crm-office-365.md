@@ -61,11 +61,11 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **Dynamics**. | Sim |
+| type | A propriedade de tipo deve ser definida como **Dynamics**. | Sim |
 | deploymentType | O tipo de implementação da instância do Dynamics. Tem de ser **"Online"** do Dynamics online. | Sim |
 | serviceUri | Por exemplo, o URL do serviço de seu Dynamics instância `https://adfdynamics.crm.dynamics.com`. | Sim |
 | authenticationType | O tipo de autenticação para ligar a um servidor do Dynamics. Especifique **"Office 365"** do Dynamics online. | Sim |
-| o nome de utilizador | Especifique o nome de utilizador para ligar ao Dynamics. | Sim |
+| username | Especifique o nome de utilizador para ligar ao Dynamics. | Sim |
 | password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para sink se associada a origem de serviço não tem um runtime de integração |
 
@@ -104,13 +104,13 @@ As seguintes propriedades são suportadas para o serviço ligado do Dynamics.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **Dynamics**. | Sim |
+| type | A propriedade de tipo deve ser definida como **Dynamics**. | Sim |
 | deploymentType | O tipo de implementação da instância do Dynamics. Tem de ser **"OnPremisesWithIfd"** para Dynamics no local com IFD.| Sim |
 | hostName | O nome de anfitrião do servidor de Dynamics no local. | Sim |
-| porta | A porta do servidor de Dynamics no local. | Não, a predefinição é 443 |
+| port | A porta do servidor de Dynamics no local. | Não, a predefinição é 443 |
 | organizationName | O nome da organização da instância do Dynamics. | Sim |
 | authenticationType | O tipo de autenticação para ligar ao servidor do Dynamics. Especifique **"Ifd"** para Dynamics no local com IFD. | Sim |
-| o nome de utilizador | Especifique o nome de utilizador para ligar ao Dynamics. | Sim |
+| username | Especifique o nome de utilizador para ligar ao Dynamics. | Sim |
 | password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Pode escolher marcar este campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que a atividade de cópia pull a partir daí, quando efetuar a cópia de dados - Saiba mais a partir da [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para o sink |
 
@@ -150,7 +150,7 @@ Para copiar dados de e para o Dynamics, defina a propriedade de tipo de conjunto
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida **DynamicsEntity**. |Sim |
+| type | A propriedade de tipo do conjunto de dados tem de ser definida **DynamicsEntity**. |Sim |
 | entityName | O nome lógico da entidade para recuperar. | Não para a origem (se não for especificada "consulta" na origem de atividade), Sim para o sink |
 
 > [!IMPORTANT]
@@ -204,8 +204,8 @@ Para copiar dados do Dynamics, defina o tipo de origem na atividade de cópia pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **DynamicsSource**. | Sim |
-| consulta | FetchXML é uma linguagem de consulta de proprietários que é utilizada no Dynamics (online e no local). Veja o seguinte exemplo. Para obter mais informações, consulte [criar consultas com FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se for especificado "entityName" no conjunto de dados) |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **DynamicsSource**. | Sim |
+| query | FetchXML é uma linguagem de consulta de proprietários que é utilizada no Dynamics (online e no local). Veja o seguinte exemplo. Para obter mais informações, consulte [criar consultas com FeachXML](https://msdn.microsoft.com/library/gg328332.aspx). | Não (se for especificado "entityName" no conjunto de dados) |
 
 >[!NOTE]
 >A coluna de PK sempre será copiada mesmo que não contém a projeção de coluna que configurou a consultas de FetchXML-lo.
@@ -268,7 +268,7 @@ Para copiar dados para o Dynamics, defina o tipo de sink na atividade de cópia 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **DynamicsSink**. | Sim |
+| type | A propriedade de tipo de sink de atividade de cópia tem de ser definida **DynamicsSink**. | Sim |
 | writeBehavior | O comportamento da operação de escrita.<br/>Permitido é de valor **"Upsert"**. | Sim |
 | writeBatchSize | A contagem de linhas de dados escritos para o Dynamics em cada lote. | Não (a predefinição é 10) |
 | ignoreNullValues | Indica se a ignorar valores nulos de dados de entrada (exceto os campos de chave) durante uma operação de escrita.<br/>Valores permitidos são **true** e **falso**.<br>- **Verdadeiro**: Deixe os dados no objeto de destino inalterado quando faz uma operação de upsert/atualização. Inserir um valor padrão definido quando o fizer uma operação de inserção.<br/>- **False**: Atualize os dados no objeto de destino como NULL quando o fizer uma operação de upsert/atualização. Inserir um valor nulo ao fazer uma operação de inserção. | Não (a predefinição é falso) |
