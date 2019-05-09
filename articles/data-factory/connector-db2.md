@@ -62,10 +62,10 @@ As seguintes propriedades são suportadas para o serviço de DB2 ligado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **Db2** | Sim |
-| servidor |Nome do servidor DB2. Pode especificar o número da porta após o nome de servidor delimitado por vírgula, por exemplo, `server:port`. |Sim |
-| base de dados |Nome da base de dados DB2. |Sim |
+| server |Nome do servidor DB2. Pode especificar o número da porta após o nome de servidor delimitado por vírgula, por exemplo, `server:port`. |Sim |
+| database |Nome da base de dados DB2. |Sim |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados DB2.<br/>O valor permitido é: **Básico**. |Sim |
-| o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados DB2. |Sim |
+| username |Especifique o nome de utilizador para ligar à base de dados DB2. |Sim |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -133,7 +133,7 @@ Para copiar dados de DB2, definir o tipo de origem na atividade de cópia para *
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -174,10 +174,10 @@ Ao copiar dados de DB2, os seguintes mapeamentos são utilizados entre tipos de 
 | Tipo de base de dados DB2 | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binário |Byte[] |
-| Blobs |Byte[] |
-| char |String |
-| CLOB |String |
+| Binary |Byte[] |
+| Blob |Byte[] |
+| Char |String |
+| Clob |String |
 | Date |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
@@ -185,16 +185,16 @@ Ao copiar dados de DB2, os seguintes mapeamentos são utilizados entre tipos de 
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Gráfico |String |
-| Número inteiro |Int32 |
+| Graphic |String |
+| Integer |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
 | Numeric |Decimal |
 | Real |Single |
 | SmallInt |Int16 |
-| Hora |TimeSpan |
-| Carimbo de data/hora |DateTime |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | VarBinary |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
