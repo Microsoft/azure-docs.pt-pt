@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466911"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205410"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Início rápido: Transmitir ficheiros de vídeo - CLI
 
@@ -83,7 +83,7 @@ Obtém uma resposta como esta:
 
 ## <a name="start-the-streaming-endpoint"></a>Iniciar o ponto final da transmissão em fluxo
 
-O seguinte comando da CLI do Azure começa a predefinição **ponto final de Sstreaming**.
+O seguinte comando da CLI do Azure começa a predefinição **ponto final de transmissão em fluxo**.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -356,4 +356,4 @@ Ver [códigos de erro da tarefa](https://docs.microsoft.com/rest/api/media/jobs/
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [Amostras de CLI](cli-samples.md)
+[Descrição geral dos serviços de multimédia](media-services-overview.md)

@@ -39,7 +39,7 @@ Pode utilizar uma atividade de filtro num pipeline para aplicar uma expressão d
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome do `Filter` atividade. | String | Sim
+name | Nome do `Filter` atividade. | String | Sim
 type | Tem de ser definido como **filtro**. | String | Sim
 condition | Condição para ser utilizado para filtrar a entrada. | Expressão | Sim
 items | Matriz de entrada em que o filtro deve ser aplicado. | Expressão | Sim

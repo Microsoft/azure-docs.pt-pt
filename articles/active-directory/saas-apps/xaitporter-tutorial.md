@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: b9e1b98be55030c9936222aa66d204ab3abe3374
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ada93903113cedd68e23ec66a36dceef99ec1233
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920218"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192095"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Tutorial: Integração do Active Directory do Azure com XaitPorter
 
@@ -120,17 +120,25 @@ Para configurar o Azure AD início de sessão único com XaitPorter, execute os 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configurar XaitPorter Single Sign-On
 
-1. Numa janela do browser web diferente, inicie sessão no site da sua empresa XaitPorter como um administrador.
+1. Para automatizar a configuração no XaitPorter, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-2. Clique em **administrador**.
+    ![Extensão My apps](common/install-myappssecure-extension.png)
+
+2. Depois de adicionar a extensão para o navegador, clique em **XaitPorter configuração** irá direcioná-lo para o aplicativo XaitPorter. A partir daí, forneça as credenciais de administrador a iniciar sessão em XaitPorter. A extensão do browser irá configurar o aplicativo para e automatizar passos 3 a 6 automaticamente.
+
+    ![Configuração do programa de configuração](common/setup-sso.png)
+
+3. Se desejar configurar manualmente o XaitPorter, abra uma nova janela de browser e inicie sessão no site da sua empresa XaitPorter como administrador e execute os seguintes passos:
+
+4. Clique em **administrador**.
 
     ![Configurar o início de sessão único](./media/xaitporter-tutorial/user1.png)
 
-3. Selecione **gerir o início de sessão único** partir a **configuração do System** lista suspensa.
+5. Selecione **gerir o início de sessão único** partir a **configuração do System** lista suspensa.
 
     ![Configurar o início de sessão único](./media/xaitporter-tutorial/user2.png)
 
-4. Na **GERIR o início de sessão-único** secção, execute os seguintes passos:
+6. Na **GERIR o início de sessão-único** secção, execute os seguintes passos:
 
     ![Configurar o início de sessão único](./media/xaitporter-tutorial/user3.png)
 
@@ -196,7 +204,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no XaitPorter. Trabalhar com [equipa de suporte de cliente XaitPorter](https://www.xait.com/support/) para adicionar os utilizadores na plataforma XaitPorter. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

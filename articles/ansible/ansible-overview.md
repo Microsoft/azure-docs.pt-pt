@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 54d66a0ac425a9a0a63c91317ead0e02ecf9452c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/30/2019
+ms.openlocfilehash: 4d7e9f8a0527587106985d8a6f0a95e19e640245
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726011"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230132"
 ---
 # <a name="using-ansible-with-azure"></a>A utilização do Ansible com o Azure
 

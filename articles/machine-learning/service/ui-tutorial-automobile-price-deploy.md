@@ -2,19 +2,19 @@
 title: 'Tutorial: Implementar um modelo de machine learning com a interface visual'
 titleSuffix: Azure Machine Learning service
 description: Saiba como criar uma solução de Análise Preditiva na interface visual de serviço do Azure Machine Learning. Formar, Pontuar e implementar um modelo de aprendizagem automática com arrastar e largar módulos. Este tutorial é a parte dois de uma série de duas partes sobre prever preços de automóveis com regressão linear.
-author: peterlu
-ms.author: peterlu
+author: peterclu
+ms.author: peterclu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: e9ece81b1f663910fb3c051bd94c13c54ffa8470
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026866"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190908"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementar um modelo de machine learning com a interface visual
 
@@ -60,9 +60,9 @@ Quando seleciona **no serviço de Web**, várias coisas acontecem:
 
 * O modelo preparado é convertido numa única **modelo preparado** módulo. Ele é armazenado na paleta do módulo para a esquerda da tela de experimentação. Pode encontrá-lo sob **modelos de formação**.
 * Módulos que eram usados para treinamento são removidos; especificamente:
-  * Preparar modelo
-  * Dividir os dados
-  * Avaliar modelo
+  * Preparar Modelo
+  * Dividir Dados
+  * Avaliar Modelo
 * O modelo treinado guardado é adicionado novamente para a experimentação
 * **Entrada do serviço da Web** e **saída de serviço da Web** módulos são adicionados. Estes módulos de identificam em que os dados do utilizador irão introduzir o modelo e, em que os dados são retornados.
 

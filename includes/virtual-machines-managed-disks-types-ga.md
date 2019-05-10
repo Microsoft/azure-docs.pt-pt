@@ -2,25 +2,27 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-machines
-author: rockboyfor
+author: roygara
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/13/2019
-ms.author: v-yeche
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a4110d68dc8aa921d647f90de654d2ebb4e17d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 885bc1c627626ee7ba4f391be31131b18fa1ab39
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618071"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65212021"
 ---
-## <a name="premium-ssd"></a>SSD Premium
+## <a name="premium-ssd"></a>Premium SSD
 
 Premium do Azure SSDs fornecer suporte de disco de elevado desempenho e baixa latência para máquinas virtuais (VMs) com entrada/saída (e/s)-cargas de trabalho intensivas. Para tirar partido da velocidade e o desempenho de discos de armazenamento premium, pode migrar os discos de VM existentes para o Premium SSDs. Premium SSDs são adequadas para aplicações de produção de missão crítica.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
+
+Quando aprovisiona um disco de armazenamento premium, ao contrário do armazenamento standard, haverá a garantia de capacidade, IOPS e débito desse disco. Por exemplo, se criar um disco de P50, Azure Aprovisiona a capacidade de armazenamento de 4095 GB, 7.500 IOPS e débito de 250-MB/s desse disco. Seu aplicativo pode usar toda ou parte da capacidade e desempenho. Os discos SSD Premium foram concebidos para fornecer o destino desempenho 99,9% do tempo.
 
 ## <a name="standard-ssd"></a>SSD Standard
 
@@ -28,6 +30,8 @@ SSDs padrão do Azure são uma opção de armazenamento económico, otimizada pa
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
+
+SSDs padrão foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s e para disponibilizar o IOPS e débito até aos limites descrito na tabela anterior 99% do tempo. IOPS e o débito real podem variar, às vezes, consoante os padrões de tráfego. SSDs padrão irão proporcionar um desempenho mais consistente que os discos HDD com menor latência.
 
 ## <a name="standard-hdd"></a>HDD Standard
 

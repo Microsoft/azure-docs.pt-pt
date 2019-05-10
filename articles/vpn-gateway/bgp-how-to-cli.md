@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: f0367a360de97d3935c7fa8de9f3dafa6555811e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60390689"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209514"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Como configurar o BGP num gateway de VPN do Azure com a CLI
 
@@ -131,7 +131,7 @@ Para estabelecer uma ligação em vários locais, terá de criar um gateway de r
 Neste exercício continua a criar a configuração mostrada no diagrama. Confirme que substitui os valores pelos que pretende utilizar para a configuração. Quando está trabalhando com gateways de rede local, tenha em atenção os seguintes procedimentos:
 
 * O gateway de rede local pode ser na mesma localização e grupo de recursos como o gateway de VPN, ou pode ser um grupo de recursos e uma localização diferente. Este exemplo mostra os gateways em grupos de recursos diferentes em diferentes localizações.
-* O prefixo mínimo que precisa para declarar para o gateway de rede local é o endereço de anfitrião do seu endereço IP de peer BGP no seu dispositivo VPN. Neste caso, é um /32 prefixo de 10.52.255.254/32.
+* O prefixo mínimo que precisa para declarar para o gateway de rede local é o endereço de anfitrião do seu endereço IP de peer BGP no seu dispositivo VPN. Neste caso, é um /32 prefixo de 10.51.255.254/32.
 * Como lembrete, tem de utilizar ASNs diferentes de BGP entre as redes no local e a rede virtual do Azure. Se eles forem iguais, terá de alterar o ASN de VNet, se os dispositivos VPN no local ainda usem o ASN para se ligar à outros vizinhos BGP.
 
 Antes de continuar, certifique-se de que concluiu o [ativar o BGP para o seu gateway VPN](#enablebgp) secção deste exercício e que ainda está ligado à subscrição 1. Tenha em atenção que neste exemplo, crie um novo grupo de recursos. Além disso, observe os dois parâmetros adicionais para o gateway de rede local: `Asn` e `BgpPeerAddress`.
@@ -225,7 +225,7 @@ As instruções seguintes continuação dos passos nas secções anteriores. Par
 
 Neste exemplo, as redes virtuais pertencem à mesma subscrição. Pode configurar ligações de VNet a VNet entre diferentes subscrições. Para obter mais informações, consulte [configurar uma ligação VNet a VNet](vpn-gateway-howto-vnet-vnet-cli.md). Certifique-se de que adicione `-EnableBgp $True` ao criar as ligações para ativar o BGP.
 
-#### <a name="1-create-a-new-resource-group"></a>1. Criar um novo grupo de recursos
+#### <a name="1-create-a-new-resource-group"></a>1. Crie um novo grupo de recursos
 
 ```azurecli
 az group create -n TestBGPRG2 -l westus

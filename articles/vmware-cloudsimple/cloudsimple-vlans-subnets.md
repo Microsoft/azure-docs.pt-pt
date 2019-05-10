@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 448b2b51ef6c5f7aa0bd660eec580019714caf5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e88977cc4d99df176116e6be7d8e06adb6297782
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64577934"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209568"
 ---
 # <a name="vlans-and-subnets-overview"></a>Descrição geral de VLANs e sub-redes
 
@@ -76,4 +76,4 @@ Exemplo:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar e gerir VLANs e sub-redes](https://docs.azure.cloudsimple.com/vlansubnet/)
+* [Criar e gerir VLANs e sub-redes](https://docs.azure.cloudsimple.com/create-vlan-subnet/)

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 4fe859b1343e2aea71bd41a3b7742a29bbff389f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aea6f58c74d6e50e7936b949620912f3f587f004
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60464224"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205872"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="generate-a-template-using-the-portal"></a>Gerar um modelo com o portal
 
-Criar um modelo do Resource Manager a partir do zero não é uma tarefa fácil, especialmente se estiver familiarizado com a implementação do Azure e está a não estão familiarizada com o formato JSON. Utilizar o portal do Azure, pode configurar um recurso, por exemplo uma conta de armazenamento do Azure. Antes de implementar o recurso, pode exportar a configuração num modelo do Resource Manager. Pode guardar o modelo e reutilizá-lo no futuro.
+Criar um modelo do Resource Manager a partir do zero não é uma tarefa fácil, especialmente se estiver familiarizado com a implementação do Azure e não estiver familiarizado com o formato JSON. Utilizar o portal do Azure, pode configurar um recurso, por exemplo uma conta de armazenamento do Azure. Antes de implementar o recurso, pode exportar a configuração num modelo do Resource Manager. Pode guardar o modelo e reutilizá-lo no futuro.
 
 Muitos desenvolvedores experientes modelo utilizam este método para gerar modelos ao tentar implementar recursos do Azure que não estão familiarizados. Para obter mais informações sobre a exportação de modelos através do portal, consulte [exportar grupos de recursos para modelos](./manage-resource-groups-portal.md#export-resource-groups-to-templates). A outra forma para localizar um modelo de trabalho é partir [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/).
 

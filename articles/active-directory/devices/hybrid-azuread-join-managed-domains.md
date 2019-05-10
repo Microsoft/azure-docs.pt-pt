@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81a9726b73226cd940a55e316ae434aeaad6ff4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354035"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190799"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -52,7 +52,10 @@ Este tutorial parte do princípio de que está familiarizado com:
 -  [Como planear a sua implementação associada híbrida do Azure Active Directory](hybrid-azuread-join-plan.md)
 
 -  [Como controlar a associação híbrida do Azure AD dos seus dispositivos](hybrid-azuread-join-control.md)
-  
+
+> [!NOTE]
+> O Azure AD não suporta smart cards ou certificados em domínios geridos.
+
 
 Para configurar o cenário neste artigo, precisa:
 
@@ -126,7 +129,7 @@ Para configurar uma associação doi Azure AD híbrido com o Azure AD Connect, p
 
 8. Na página **Preparado para configurar**, clique em **Configurar**. 
 
-    ![Preparado para configurar](./media/hybrid-azuread-join-managed-domains/19.png)
+    ![Pronto para configurar](./media/hybrid-azuread-join-managed-domains/19.png)
 
 9. Na página **Configuração completa**, clique em **Sair**. 
 
@@ -148,7 +151,7 @@ Se alguns dos seus dispositivos associados a um domínio são dispositivos de n�
 - Controlar dispositivos de nível inferior do Windows 
 
 
-### <a name="update-device-settings"></a>Atualizar as definições do dispositivo 
+### <a name="update-device-settings"></a>Atualizar definições do dispositivo 
 
 Para registar dispositivos de nível inferior do Windows, terá de se certificar de que as definições do dispositivo para permitir que os utilizadores registem dispositivos no Azure AD estão configuradas. No portal do Azure, pode encontrar esta definição em:
 

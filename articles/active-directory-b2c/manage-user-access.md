@@ -1,6 +1,6 @@
 ---
 title: Gerir o acesso de utilizador no Azure Active Directory B2C | Documentos da Microsoft
-description: Saiba como identificar os menores, recolher a data de nascimento e país dados e obter aceitação dos termos de utilização na sua aplicação com o Azure AD B2C.
+description: Saiba como identificar os menores, recolher a data de nascimento e país/região de dados e obter aceitação dos termos de utilização na sua aplicação com o Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: celestedg
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cddaf59a1202c9c19018427c06639686e905bb64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88123cc24359daaf1c6fc7e3ceeed8f77f717c9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691088"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228013"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gerir o acesso de utilizador no Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ Este artigo descreve como gerir o acesso de utilizador às suas aplicações com
 
 - Identificar os menores e controlar o acesso de utilizador à sua aplicação.
 - Exigir consentimento dos pais para os menores utilizar as suas aplicações.
-- Recolha de dados de nascimento e país de utilizadores.
+- Recolha de dados de nascimento e país/região de utilizadores.
 - Captura de um contrato de termos de utilização e controlo de acesso.
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -58,11 +58,11 @@ Segue-se um exemplo de um fluxo de utilizador para a coleta de consentimento dos
 
 Para obter mais informações sobre **legalAgeGroupClassification**, **consentProvidedForMinor**, e **ageGroup**, consulte [o tipo de recurso de utilizador](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Para obter mais informações sobre os atributos personalizados, consulte [utilizar atributos personalizados para recolher informações sobre os consumidores](active-directory-b2c-reference-custom-attr.md). Quando resolver atributos expandidos, utilizando o Azure AD Graph API, tem de utilizar a versão mais longa do atributo, tal como *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
-## <a name="gather-date-of-birth-and-country-data"></a>Recolher a data de nascimento e país dados
+## <a name="gather-date-of-birth-and-countryregion-data"></a>Recolher a data de nascimento e país/região de dados
 
-Aplicativos podem basear-se no Azure AD B2C para reunir a data de nascimento (DOB) e informações de país de todos os utilizadores durante o registo. Se estas informações ainda não existir, o aplicativo pode solicitá-la do usuário durante a próxima jornada de autenticação (início de sessão). Os utilizadores não podem continuar sem fornecer seus DOB e informações de país. O Azure AD B2C utiliza as informações para determinar se a pessoa é considerada menor, de acordo com os padrões normativos desse país. 
+Aplicativos podem basear-se no Azure AD B2C para reunir a data de nascimento (DOB) e informações de país/região de todos os utilizadores durante o registo. Se estas informações ainda não existir, o aplicativo pode solicitá-la do usuário durante a próxima jornada de autenticação (início de sessão). Os utilizadores não podem continuar sem fornecer suas informações de DOB e país/região. O Azure AD B2C utiliza as informações para determinar se a pessoa é considerada menor, de acordo com os padrões normativos desse país/região. 
 
-Um fluxo de utilizador personalizada pode reunir DOB e informações de país e a utilização do Azure AD B2C afirmações de transformação para determinar a **ageGroup** e manter o resultado (ou manter o DOB e informações de país diretamente) no diretório.
+Um fluxo de utilizador personalizada pode reunir DOB e informações de país/região e a utilização do Azure AD B2C afirmações de transformação para determinar a **ageGroup** e manter o resultado (ou diretamente a manter as informações de DOB e país/região) no diretório.
 
 Os passos seguintes mostram a lógica que é utilizada para calcular **ageGroup** a contar da data do usuário de nascimento:
 
@@ -78,7 +78,7 @@ Os passos seguintes mostram a lógica que é utilizada para calcular **ageGroup*
 
 4. Se nenhum cálculo retorna true, o cálculo devolve **adulto**.
 
-Se um aplicativo tiver DOB fiável recolhido ou dados de país por outros métodos, a aplicação pode utilizar a Graph API para atualizar o registo de utilizador com essas informações. Por exemplo:
+Se uma aplicação fiável reunidas DOB ou país/região de dados por outros métodos, a aplicação pode utilizar a Graph API para atualizar o registo de utilizador com essas informações. Por exemplo:
 
 - Se um utilizador é conhecido por ser um adulto, atualizar o atributo de diretório **ageGroup** com um valor de **adulto**.
 - Se um utilizador é conhecido por ser menor, atualizar o atributo de diretório **ageGroup** com um valor de **pequenas** e defina **consentProvidedForMinor**, conforme adequado.

@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: c8ee73da16f4f3de2378e38d273051355c5c624c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142846"
+ms.locfileid: "65204020"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exemplo - auditoria se aplicações especificadas não estiverem instaladas em VMs do Linux
 
@@ -78,14 +78,14 @@ O JSON de definir as regras do **deployIfNotExists** definição de política.
 
 O **deployIfNotExists** definição de política define as imagens do Azure, a política foi validada em:
 
-|Publicador |Oferta |SKU |
+|Editor |Oferta |SKU |
 |-|-|-|
 |OpenLogic |CentOS\* |Tudo, exceto a 6\* |
 |RedHat |RHEL |Tudo, exceto a 6\* |
 |RedHat |osa | Todos |
 |credativ |Debian | Tudo, exceto a 7\* |
 |SUSE |SLES\* |Tudo, exceto a 11\* |
-|Canónico| UbuntuServer |Tudo, exceto a 12\* |
+|Canonical| UbuntuServer |Tudo, exceto a 12\* |
 |microsoft-dsvm |linux-data-science-vm-ubuntu |Todos |
 |microsoft-dsvm |azureml |Todos |
 |cloudera |cloudera-centos-os |Tudo, exceto a 6\* |
@@ -108,7 +108,7 @@ Depois do **auditar** e **deployIfNotExists** definições são criadas no porta
 
 ### <a name="create-copy-of-audit-definition"></a>Criar uma cópia de definição de auditoria
 
-[![Implementar a política de exemplo para o Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![implementar a política de exemplo para o Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Usando esses botões para implementar através do portal cria uma cópia dos **auditar** definição de política.
@@ -116,7 +116,7 @@ Sem o emparelhado **deployIfNotExists** definição de política, a configuraç�
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Criar uma cópia de definição de deployIfNotExists
 
-[![Implementar a política de exemplo para o Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![implementar a política de exemplo para o Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Usando esses botões para implementar através do portal cria uma cópia dos **deployIfNotExists** definição de política. Sem o emparelhado **auditar** definição de política, a configuração de convidado não funcionará corretamente.

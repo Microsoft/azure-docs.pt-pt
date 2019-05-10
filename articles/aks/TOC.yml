@@ -113,7 +113,7 @@
         - name: Eliminar um cluster do AKS
           href: '/cli/azure/aks#az-aks-delete'
           maintainContext: true
-        - name: Criar nós virtuais (pré-visualização)
+        - name: Criar nós virtuais
           items:
             - name: CLI do Azure
               href: virtual-nodes-cli.md
@@ -123,9 +123,13 @@
           href: virtual-kubelet.md
         - name: Utilizar o Cluster Autoscaler (pré-visualização)
           href: cluster-autoscaler.md
+        - name: Utilizar vários conjuntos de nós (pré-visualização)
+          href: use-multiple-node-pools.md
         - name: Implementar AKS com Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Utilizar o dashboard do Kubernetes
+          href: kubernetes-dashboard.md
     - name: Configurar volumes de dados
       items:
         - name: Azure Disk - Dinâmico
@@ -173,12 +177,16 @@
           href: kubernetes-service-principal.md
         - name: Limitar o acesso ao ficheiro de configuração do cluster
           href: control-kubeconfig-access.md
-        - name: Proteger o tráfego de pod com políticas de rede (pré-visualização)
+        - name: Proteger o tráfego de pod com as políticas de rede
           href: use-network-policies.md
         - name: Utilizar políticas de segurança de pod (pré-visualização)
           href: use-pod-security-policies.md
+        - name: Definir os intervalos de IP autorizados por servidor de API (pré-visualização)
+          href: api-server-authorized-ip-ranges.md
         - name: Atualizar as credenciais do principal de serviço do cluster
           href: update-credentials.md
+        - name: Restringir e controlar o tráfego de saída do cluster
+          href: limit-egress-traffic.md
         - name: Ativar a integração do Azure Active Directory
           items:
             - name: Utilizar a CLI do Azure
@@ -285,10 +293,6 @@
         - name: Projeto de DevOps do Azure
           href: ../devops-project/azure-devops-project-aks.md
           maintainContext: true
-    - name: Noções básicas do Kubernetes
-      items:
-        - name: Utilizar o dashboard do Kubernetes
-          href: kubernetes-dashboard.md
     - name: Resolução de problemas
       items:
         - name: Problemas comuns

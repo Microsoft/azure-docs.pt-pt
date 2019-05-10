@@ -2,19 +2,19 @@
 title: Melhores práticas para utilizar o Key Vault, Azure Key Vault | Documentos da Microsoft
 description: Este documento explica algumas das melhores práticas para utilizar o Key Vault
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: barbkess
 tags: azure-key-vault
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 27881758175ab698e4b713c0215383878272382f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eb7150d0b1c3a4a312b0c05ba7612960aaf640f6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700770"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227928"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Melhores práticas para utilizar o Key Vault
 
@@ -32,7 +32,7 @@ Sugestões ao controlar o acesso ao seu Cofre são os seguintes:
 
 A nossa recomendação é usar um cofre por aplicação por ambiente (desenvolvimento, pré-produção e produção). Isto ajuda-o a não partilham os segredos em ambientes e também reduz o risco em caso de uma violação.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Criar cópia de segurança
 
 Certifique-se de que voltar regular cumulativos de atualizações para seus [cofre](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) no update/delete/criação de objetos dentro de um cofre.
 

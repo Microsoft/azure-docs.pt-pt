@@ -1,21 +1,21 @@
 ---
 title: Transcrição de vários participantes conversas com o SDK de voz - serviços de voz
 titleSuffix: Azure Cognitive Services
-description: Saiba como utilizar o serviço de transcrição da conversação com o SDK de voz. Disponível para C++, C#e Java.
+description: Saiba como utilizar a transcrição de conversação com o SDK de voz. Disponível para C++, C#e Java.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/06/2019
 ms.author: jhakulin
-ms.openlocfilehash: 73ab4cfa92a1efc49dea16ba2941cf16b7a1cf3e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9de4faf18c54f7c7582ef5a8ab0648629d4f48e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025795"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65190157"
 ---
 # <a name="transcribe-multi-participant-conversations-with-the-speech-sdk"></a>Transcrição de vários participantes conversas com o SDK de voz
 
@@ -24,7 +24,7 @@ O SDK de voz **ConversationTranscriber** API permite-lhe a transcrição de reun
 ## <a name="limitations"></a>Limitações
 
 * Transcriber conversa é suportada para o C++, C#e o Java no Android, Linux e Windows.
-* O DevKit ROOBO é o ambiente de hardware suportado para a criação de conversações à medida que fornece a matriz de microfone multi circular que pode ser utilizado de forma eficiente pelo serviço de transcrição da conversação para a identificação de orador. [Para obter mais informações, consulte o SDK de dispositivos de voz](speech-devices-sdk.md). 
+* O DevKit ROOBO é o ambiente de hardware suportado para a criação de conversações à medida que fornece a matriz de microfone multi circular que pode ser utilizado de forma eficiente pelo serviço de transcrição da conversação para a identificação de orador. [Para obter mais informações, consulte o SDK de dispositivos de voz](speech-devices-sdk.md).
 * Suporte do SDK de voz está limitado a utilizar de solicitação de áudio e emitir fluxos de modo com oito canais de áudio PCM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -78,7 +78,7 @@ class Program
 
 A transcrição de conversas com vários participantes, criar o `ConversationTranscriber` objeto que está associado a `AudioConfig` objeto criado para a sessão de conversação e, em seguida, fluxo de áudio usando `PullAudioInputStream` ou `PushAudioInputStream`.
 
-Vamos supor que tem uma classe de ConversationTranscriber chamada `MyConversationTranscriber`. Seu código pode ter este aspeto: 
+Vamos supor que tem uma classe de ConversationTranscriber chamada `MyConversationTranscriber`. Seu código pode ter este aspeto:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
@@ -97,7 +97,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.
