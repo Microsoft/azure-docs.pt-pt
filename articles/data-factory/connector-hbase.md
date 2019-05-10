@@ -42,12 +42,12 @@ As seguintes propriedades são suportadas para o serviço ligado de HBase:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **HBase** | Sim |
-| anfitrião | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
-| porta | A porta TCP que a instância de HBase utiliza para escutar ligações de cliente. O valor predefinido é 9090. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
+| host | O nome ou endereço IP anfitrião do servidor de HBase. (ou seja  `[clustername].azurehdinsight.net`, `192.168.222.160`)  | Sim |
+| port | A porta TCP que a instância de HBase utiliza para escutar ligações de cliente. O valor predefinido é 9090. Se ligar ao Azure HDInsights, especifique a porta como 443. | Não |
 | httpPath | O URL parcial correspondente para o servidor de HBase, por exemplo, `/hbaserest0` ao utilizar o cluster do HDInsights. | Não |
 | authenticationType | O mecanismo de autenticação a utilizar para ligar ao servidor de HBase. <br/>Valores permitidos são: **Anónimo**, **básico** | Sim |
-| o nome de utilizador | O nome de utilizador utilizado para ligar à instância do HBase.  | Não |
-| palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| username | O nome de utilizador utilizado para ligar à instância do HBase.  | Não |
+| password | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
 | trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna para verificar o servidor ao ligar-se através de SSL. Esta propriedade só pode ser definida ao utilizar o SSL em Ir autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o IR.  | Não |
 | allowHostNameCNMismatch | Especifica se exige um nome de certificado SSL emitidos pela AC para coincidir com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é false.  | Não |
@@ -152,7 +152,7 @@ Para copiar dados do HBase, defina o tipo de origem na atividade de cópia para 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **HBaseSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 

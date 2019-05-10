@@ -45,8 +45,8 @@ As seguintes propriedades são suportadas para o Google BigQuery de serviço lig
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **GoogleBigQuery**. | Sim |
-| Projeto | O ID de projeto do projeto BigQuery padrão para consultas.  | Sim |
+| type | A propriedade de tipo deve ser definida como **GoogleBigQuery**. | Sim |
+| project | O ID de projeto do projeto BigQuery padrão para consultas.  | Sim |
 | additionalProjects | Uma lista separada por vírgulas de IDs de projeto do público BigQuery projetos para o acesso.  | Não |
 | requestGoogleDriveScope | Se pedir acesso para o Google Drive. Permitir o acesso do Google Drive ativa o suporte para tabelas federadas que combinam dados BigQuery com dados do Google Drive. O valor predefinido é **false**.  | Não |
 | authenticationType | O mecanismo de autenticação OAuth 2.0 utilizado para autenticação. ServiceAuthentication pode ser utilizado apenas no Runtime de integração autoalojado. <br/>Valores permitidos são **UserAuthentication** e **ServiceAuthentication**. Consulte a secções abaixo desta tabela em mais propriedades e exemplos JSON para esses tipos de autenticação, respetivamente. | Sim |
@@ -93,7 +93,7 @@ Defina a propriedade de "authenticationType" como **ServiceAuthentication**e esp
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| e-mail | O ID de e-mail de conta do serviço é utilizado para ServiceAuthentication. Ele pode ser usado apenas em Runtime de integração autoalojado.  | Não |
+| email | O ID de e-mail de conta do serviço é utilizado para ServiceAuthentication. Ele pode ser usado apenas em Runtime de integração autoalojado.  | Não |
 | keyFilePath | O caminho completo para o ficheiro de chave. p12 que é utilizado para autenticar o endereço de e-mail da conta de serviço. | Não |
 | trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna, utilizados para verificar se o servidor quando se liga através de SSL. Esta propriedade pode ser definida apenas se utilizar o SSL no Integration Runtime autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
 | useSystemTrustStore | Especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema ou de um ficheiro. pem especificado. O valor predefinido é **false**.  | Não |
@@ -157,8 +157,8 @@ Para copiar dados do Google BigQuery, defina o tipo de origem na atividade de c�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **GoogleBigQuerySource**. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **GoogleBigQuerySource**. | Sim |
+| query | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
