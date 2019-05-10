@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87a60ef196ee319b630d5713c593cfaa9cf8158
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2ea2ead29ba1945213871ab76a65e33a4d7b27cc
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158169"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-templafy"></a>Tutorial: Integração do Active Directory do Azure com Templafy
 
@@ -120,20 +120,20 @@ Para configurar o Azure AD início de sessão único com Templafy, execute os se
 
     | Name | Atributo de origem| Espaço de nomes  |
     | ---------------| --------------- | --------- |
-    | givenName | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | Apelido | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | emailaddress | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`
-    | streetaddress | user.streetaddress | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | city | user.city | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | código postal | user.postalcode | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | stateorprovince | user.state | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | País | user.country | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | jobtitle | user.jobtitle | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | Departamento | user.department | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | PhoneNumber | user.telephonenumber | `http://schemas.templafy.com/2016/06/identity/claims` |
-    | facsimilenumber | user.facsimiletelephonenumber | `http://schemas.templafy.com/2016/06/identity/claims`|
-    | upn | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-    | nameidentifier | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | givenName | user.givenname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | Apelido | user.surname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | emailaddress | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`
+    | streetaddress | user.streetaddress | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | city | user.city | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | código postal | user.postalcode | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | stateorprovince | user.state | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | País | user.country | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | jobtitle | user.jobtitle | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | Departamento | user.department | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | PhoneNumber | user.telephonenumber | `https://schemas.templafy.com/2016/06/identity/claims` |
+    | facsimilenumber | user.facsimiletelephonenumber | `https://schemas.templafy.com/2016/06/identity/claims`|
+    | upn | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
+    | nameidentifier | user.mail | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -216,7 +216,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Templafy. Templafy suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Templafy, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
@@ -224,8 +224,8 @@ Quando clica no mosaico Templafy no painel de acesso, deve ser automaticamente s
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [ Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [O que é o acesso a aplicações e início de sessão único com o Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

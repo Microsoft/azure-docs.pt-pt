@@ -15,14 +15,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: fc248292e2323d44a353473be87c2b0f1be8ea12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d125e0c0818efbc6ec8f317122859411a37a0d20
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880167"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232744"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs"></a>Tutorial: Notificação push para utilizadores específicos de aplicação Android ao utilizar os Hubs de notificação do Azure
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Notificação push para utilizadores específicos de aplicação Android com Notification Hubs do Azure e o Google Cloud Messaging (preterido)
+
+> [!WARNING]
+> A partir de 10 de Abril de 2018, o Google preteriu Google Cloud Messaging (GCM). O servidor do GCM e APIs de cliente foram preteridos e serão removidas assim, 29 de Maio de 2019. Para obter mais informações, consulte [GCM e o FCM perguntas mais frequentes](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -141,7 +144,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     ```xml
     <string name="usernameHint">Username</string>
     <string name="passwordHint">Password</string>
-    <string name="loginButton">1. Log in</string>
+    <string name="loginButton">1. Sign in</string>
     <string name="send_button">2. Send Notification</string>
     <string name="notification_message_hint">Notification message</string>
     <string name="notification_message_tag_hint">Recipient username</string>
@@ -257,7 +260,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     }
     ```
 
-    Este componente implementa as chamadas REST necessárias para contactar o back-end da aplicação, de modo a registar-se para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Utiliza um token de autorização armazenado no armazenamento local quando clica no botão **Iniciar sessão**.
+    Este componente implementa as chamadas REST necessárias para contactar o back-end da aplicação, de modo a registar-se para receber notificações push. Também armazena localmente os *registrationIds* criados pelo Hub de Notificação conforme detalhado em [Registar-se a partir do back-end da aplicação](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Ele usa um token de autorização armazenado no armazenamento local, ao clicar o **iniciar sessão** botão.
 4. Na sua classe, remova ou acrescente delimitadores de comentário ao campo privado para `NotificationHub` e adicione um campo para a classe `RegisterClient` e uma cadeia para o ponto final do back-end de ASP.NET. Certifique-se de que substitui `<Enter Your Backend Endpoint>` pelo ponto final do back-end propriamente dito que obteve antes. Por exemplo, `http://mybackend.azurewebsites.net`.
 
     ```java
@@ -319,7 +322,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     Button sendPush = (Button) findViewById(R.id.sendbutton);
     sendPush.setEnabled(false);
     ```
-9. Em seguida, adicione os seguintes métodos para processar o evento de clique no botão **Iniciar sessão** e o envio de notificações push.
+9. Em seguida, adicione os seguintes métodos para lidar com o **iniciar sessão** clique de botão, eventos e enviar notificações push.
 
     ```java
     public void login(View view) throws UnsupportedEncodingException {
@@ -401,7 +404,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
     }
     ```
 
-    O processador `login` para o botão **Iniciar sessão** gera um token de autenticação básica com base no nome de utilizador e na palavra-passe de entrada (representa qualquer token utilizado pelo seu esquema de autenticação). Em seguida, utiliza `RegisterClient` para chamar o back-end para o registo.
+    O `login` manipulador para o **iniciar sessão** botão gera uma autenticação básica do token usando na entrada de nome de utilizador e palavra-passe (representa qualquer token utiliza o seu esquema de autenticação), em seguida, ele usa `RegisterClient` para chamar o back-end para o registo.
 
     O método `sendPush` chama o back-end para acionar uma notificação segura para o utilizador com base na etiqueta do mesmo. O serviço de notificação de plataforma visado por `sendPush` depende da cadeia `pns` transmitida.
 
@@ -467,7 +470,7 @@ A próxima etapa é atualizar a aplicação Android criada no [Tutorial: Enviar 
 
 1. Execute a aplicação num dispositivo ou num emulador com o Android Studio.
 2. Na aplicação Android, introduza um nome de utilizador e uma palavra-passe. Ambos têm de ter o mesmo valor de cadeia e nenhum deles pode conter espaços ou carateres especiais.
-3. Na aplicação Android, clique em **Log in**. Aguarde por uma mensagem de alerta com a indicação **Logged in and registered**. Esta ativa o botão **Send Notification**.
+3. Na aplicação do Android, clique em **iniciar sessão**. Aguarde por uma mensagem de alerta com a indicação **Logged in and registered**. Esta ativa o botão **Send Notification**.
 
     ![][A2]
 4. Clique nos botões de alternar para ativar todas as plataformas em que executou a aplicação e registou um utilizador.

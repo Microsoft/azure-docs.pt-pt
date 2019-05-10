@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: iainfou
-ms.openlocfilehash: bababa723e70cdc5268fb04f1104cca9e254984d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467464"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230144"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
@@ -99,9 +99,11 @@ Para as práticas recomendadas associadas, consulte [melhores práticas para as 
 
 ### <a name="node-pools"></a>Conjuntos de nós
 
-Nós da mesma configuração são agrupadas em *conjuntos de nós*. Um cluster do Kubernetes contém um ou mais conjuntos de nós. O número inicial de nós e tamanho é definido quando cria um cluster do AKS, que cria um *predefinido o conjunto de nós*. Este conjunto de nós padrão no AKS contém as VMs subjacentes que executam o seu agente de nós.
+Nós da mesma configuração são agrupadas em *conjuntos de nós*. Um cluster do Kubernetes contém um ou mais conjuntos de nós. O número inicial de nós e tamanho é definido quando cria um cluster do AKS, que cria um *predefinido o conjunto de nós*. Este conjunto de nós padrão no AKS contém as VMs subjacentes que executam o seu agente de nós. Suporte para vários nós conjunto está atualmente em pré-visualização no AKS.
 
-Ao dimensionar ou atualizar um cluster do AKS, é executada a ação contra o conjunto de nós de predefinição. Para operações de atualização, os contentores em execução são agendadas nos outros nós no conjunto de nós até que todos os nós sejam atualizados com êxito.
+Ao dimensionar ou atualizar um cluster do AKS, é executada a ação contra o conjunto de nós de predefinição. Também pode optar por dimensionar ou atualizar um conjunto de nó específico. Para operações de atualização, os contentores em execução são agendadas nos outros nós no conjunto de nós até que todos os nós sejam atualizados com êxito.
+
+Para obter mais informações sobre como utilizar vários conjuntos de nós no AKS, consulte [criar e gerir vários conjuntos de nós de um cluster do AKS][use-multiple-node-pools].
 
 ## <a name="pods"></a>Pods
 
@@ -245,3 +247,4 @@ Este artigo aborda alguns dos componentes principais do Kubernetes e como eles s
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[use-multiple-node-pools]: use-multiple-node-pools.md

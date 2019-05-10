@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 028f16b480ceb57598c6499739ab0e5745b4a132
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f9f5b24a52ebfb8b87f1abaa3b60091d7f4690ab
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870013"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230650"
 ---
 # <a name="azure-maps-routing-coverage"></a>O Azure Maps cobertura de encaminhamento
 
@@ -27,9 +27,9 @@ Confira a cobertura para [ **compor**](render-coverage.md).
 
 | Símbolo             | Significado                                |
 |--------------------|----------------------------------------|
-| ✓                  | País fornecido com dados detalhados.   |
-| Ø                  | País fornecido com dados simplificada. |
-| País está em falta | Dados de país não foi fornecidos.          |
+| ✓                  | País/região fornecido com dados detalhados.   |
+| Ø                  | País/região fornecido com dados simplificada. |
+| País está em falta | Dados de país/região não foi fornecidos.          |
 
 <br>  
 
@@ -45,7 +45,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Angola                         |        ✓       |                       |             |
 | Benim                          |        ✓       |                       |             |
 | Botsuana                       |        ✓       |                       |             |
-| Burkina Faso                   |        ✓       |                       |             |
+| Burquina Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
 | Camarões                       |        ✓       |                       |             |
 | Cabo Verde                     |        ✓       |                       |             |
@@ -58,7 +58,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Gana                          |        ✓       |                       |             |
 | Quénia                          |        ✓       |         ✓            |             |
 | Lesoto                        |        Ø        |         ✓            |             |
-| Malawi                         |        ✓       |                       |              |
+| Malavi                         |        ✓       |                       |              |
 | Mali                           |        ✓       |                       |             |
 | Mauritânia                     |        ✓       |                       |             |
 | Maurícia, reunião e Mayotte, |        ✓      |                       |             |
@@ -97,7 +97,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Costa Rica                     |        ✓       |                      |             |
 | Cuba                           |        ✓       |                      |             |
 | Domínica                       |        ✓       |                      |             |
-| República Dominicana             |        ✓       |                      |             |
+| Republica Dominicana             |        ✓       |                      |             |
 | Equador                        |        ✓       |                      |             |
 | El Salvador                    |        ✓       |                      |             |
 | Guiana Francesa                  |        ✓       |                      |             |
@@ -111,7 +111,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Nicarágua                      |        ✓       |                      |             |
 | Panamá                         |        ✓       |                      |             |
 | Paraguai                       |        ✓       |                      |             |
-| Peru                           |        ✓       |         ✓            |             |
+| Perú                           |        ✓       |         ✓            |             |
 | São Cristóvão e Neves            |        ✓       |                      |             |
 | Santa Lúcia                      |        ✓       |                      |             |
 | São Vicente e Granadinas       |        ✓       |                      |             |
@@ -136,7 +136,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Camboja                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| RAE de Hong Kong                  |        ✓       |         ✓            |             |
+| R.A.E. Hong Kong                  |        ✓       |         ✓            |             |
 | Índia                          |        ✓       |         ✓            |             |
 | Indonésia                      |        ✓       |         ✓            |             |
 | Coreia                          |        Ø       |                      |             |
@@ -187,26 +187,26 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Itália                          |        ✓       |         ✓            |     ✓      | 
 | Jersey                         |        ✓       |                      |             |
 | Letónia                         |        ✓       |         ✓            |     ✓      | 
-| Liechtenstein                  |        ✓       |         ✓            |             |
+| Listenstaine                  |        ✓       |         ✓            |             |
 | Lituânia                      |        ✓       |         ✓            |     ✓      | 
 | Luxemburgo                     |        ✓       |         ✓            |     ✓      | 
 | Macedónia do Norte                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
-| Moldova                        |        ✓       |                      |             |
+| Moldávia                        |        ✓       |                      |             |
 | Mónaco                         |        ✓       |         ✓            |             |
 | Montenegro                     |        ✓       |                      |     ✓      | 
 | Países Baixos                    |        ✓       |         ✓            |     ✓      | 
 | +Aruba                         |        ✓       |                      |             | 
 | + Países Baixos Caraíbas         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| + Santa Maarten                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Noruega                         |        ✓       |         ✓            |     ✓      | 
 | Polónia                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Roménia                        |        ✓       |         ✓            |     ✓      | 
 | Federação Russa             |        ✓       |         ✓            |     ✓      | 
 | São Marino                     |        ✓       |         ✓            |             |
-| + Santa Maarten                  |        ✓       |                      |             |
+| + Sint Maarten                  |        ✓       |                      |             |
 | Sérvia                         |        ✓       |                      |     ✓      | 
 | Eslováquia                       |        ✓       |         ✓            |     ✓      | 
 | Eslovénia                       |        ✓       |         ✓            |     ✓      |
@@ -220,9 +220,9 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | + Bermudas                       |        ✓       |                      |             |
 | + Ilhas Virgens Britânicas        |        ✓       |                      |             |
 | + Ilhas Caimão '                |        ✓       |                      |             |
-| +Gibraltar                      |        ✓       |         ✓            |             | 
+| +Gibraltar                     |        ✓       |         ✓            |             | 
 | +Montserrat                    |        ✓       |                      |             |
-| + Ilhas Turcas e Caicos Ilhas        |        ✓       |                      |             |
+| + Ilhas Turcas e Caicos      |        ✓       |                      |             |
 | Cidade do Vaticano                   |        ✓       |         ✓            |             |
 | Ilha de Man                    |        ✓       |                      |             |
 

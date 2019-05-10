@@ -1,23 +1,23 @@
 ---
 title: 'Tutorial de classificação de imagem: Preparar modelos'
 titleSuffix: Azure Machine Learning service
-description: Este tutorial mostra como utilizar o serviço do Azure Machine Learning para preparar um modelo de classificação de imagens com scikit-learn num bloco de notas do Jupyter em Python. Este tutorial é a primeira parte de uma série composta por duas partes.
+description: Saiba como preparar um modelo de classificação de imagem com scikit-saiba num bloco de notas Jupyter do Python com o serviço Azure Machine Learning. Este tutorial é a primeira parte de uma série composta por duas partes.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 712b5a003d3542908698d7b69c636780f6cf1007
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 097fb3422ce3868d9ef499ad6c92c8b7fa12e852
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021739"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442059"
 ---
-# <a name="tutorial-train-an-image-classification-model-with-azure-machine-learning-service"></a>Tutorial: Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning
+# <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutorial: Treine modelos de classificação de imagens com dados MNIST e scikit-Saiba com o Azure Machine Learning
 
 Neste tutorial, preparar um modelo de machine learning nos recursos de computação remota. Vai utilizar o fluxo de trabalho de preparação e implementação do serviço do Azure Machine Learning (pré-visualização) num bloco de notas do Jupyter em Python.  Depois, pode utilizar o bloco de notas como um modelo para preparar o seu próprio modelo de machine learning com os seus dados. Este tutorial é a **primeira parte de uma série composta por duas partes**.  
 

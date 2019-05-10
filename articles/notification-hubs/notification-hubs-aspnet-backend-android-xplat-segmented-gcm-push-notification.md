@@ -15,14 +15,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 1c777f705d9b2d3df713642349fe4dbd413e48e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af08d3ca6eaa95663b0bb669f6dc82a13df5ab39
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560695"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233103"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Tutorial: Notificações push a determinados dispositivos Android com Notification Hubs do Azure e o Google Cloud Messaging
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Notificações push a determinados dispositivos Android com Notification Hubs do Azure e o Google Cloud Messaging (preterido)
+
+> [!WARNING]
+> A partir de 10 de Abril de 2018, o Google preteriu Google Cloud Messaging (GCM). O servidor do GCM e APIs de cliente foram preteridos e serão removidas assim, 29 de Maio de 2019. Para obter mais informações, consulte [GCM e o FCM perguntas mais frequentes](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 

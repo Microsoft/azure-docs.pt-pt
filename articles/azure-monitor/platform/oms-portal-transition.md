@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: 1496bf21ed1a81eedb44ca9cc9db777632e2a5cd
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: b4d67b64d8fc7c5063e96ed2a2502e9cbecd6065
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876014"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229880"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS para o Azure
 
 > [!NOTE]
 > Este artigo aplica-se para a cloud pública do Azure e a cloud de governo, exceto onde indicado o contrário.
 
-**Portal do OMS para a cloud pública do Azure foi extinto oficialmente. Portal do OMS para a cloud do Azure do Azure US Government vai ser descontinuado oficialmente 15 de Maio de 2019.** Temos o prazer de passar para o portal do Azure e esperar que a transição para ser fácil. Mas estamos cientes de alterações são difíceis e podem ser prejudicais. Envie dúvidas, comentários ou preocupações para **LAUpgradeFeedback\@microsoft.com**. O restante deste artigo passa pelos cenários-chave e o plano para essa transição.
+**Portal do OMS para a cloud pública do Azure foi extinto oficialmente. Portal do OMS para a cloud do Azure US Government vai ser descontinuado oficialmente 15 de Maio de 2019.** Temos o prazer de passar para o portal do Azure e esperar que a transição para ser fácil. Mas estamos cientes de alterações são difíceis e podem ser prejudicais. Envie dúvidas, comentários ou preocupações para **LAUpgradeFeedback\@microsoft.com**. O restante deste artigo passa pelos cenários-chave e o plano para essa transição.
 
 O portal do Azure é o hub para todos os serviços do Azure e oferece uma gestão avançada de experiência com recursos como os dashboards para fixar recursos, a pesquisa inteligente para localizar recursos e a identificação para gestão de recursos. Para consolidar e simplificar o fluxo de trabalho de monitorização e gestão, começamos a adicionar as capacidades de portais do OMS no portal do Azure. Todas as funcionalidades do portal do OMS agora fazem parte do portal do Azure. Na verdade, alguns dos novos recursos, tais como análise de tráfego só estão disponíveis no portal do Azure. Será capaz de realizar tudo que estava a fazer no portal do OMS com o portal do Azure e muito mais. Se ainda não o fez, deve começar a utilizar o portal do Azure hoje mesmo!
 

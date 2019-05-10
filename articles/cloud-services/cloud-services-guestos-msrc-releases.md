@@ -11,17 +11,47 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/26/2019
+ms.date: 5/8/2019
 ms.author: raiye
-ms.openlocfilehash: 42c241ce6b14eac2f76785b7b16b537d3e88bd8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623073"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465555"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+## <a name="april-2019-guest-os"></a>SO de convidado de Abril de 2019
+
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+| Rel 04 de 19 | [4493509] | Segurança do Windows 10 | 6.6 | 9 de Abril de 2019 |
+| Rel 04 de 19 | [4493470] | Segurança do Windows 10 | 5.30 | 9 de Abril de 2019 |
+| Rel 04 de 19 | [4493467] | Segurança do Windows | 4.65 | 9 de Abril de 2019 |
+| Rel 04 de 19 | [4493450] | Segurança do Windows | 3.72 | 9 de Abril de 2019 |
+| Rel 04 de 19 | [4493448] | Segurança do Windows | 2.85 | 9 de Abril de 2019 |
+| Rel 04 de 19 | [4493478] | Flash | 3.72, 4.65, 5.30, 6.6 | 9 de Abril de 2019 |
+| Rel 04 de 19 | [4493435] | Internet Explorer | 2.85, 3.72, 4.65 | 9 de Abril de 2019 |
+| Rel 04 de 19 | [KB4490628] | Atualização de pilha de manutenção | 2.85 | 12 de Março de 2019 |
+| Rel 04 de 19 | [KB4474419] | Suporte de SHA2 | 2.85 | 12 de Março de 2019 |
+| Rel 04 de 19 | [KB4489878] | Agregação de não-segurança de Março | 2.85 | 12 de Março de 2019 |
+| Rel 04 de 19 | [KB4489891] | Agregação de não-segurança de Março | 3.72 | 12 de Março de 2019 |
+| Rel 04 de 19 | [KB4489881] | Agregação de não-segurança de Março | 4.65 | 12 de Março de 2019 |
+
+[4493509]: https://support.microsoft.com/kb/4493509
+[4493470]: https://support.microsoft.com/kb/4493470
+[4493467]: https://support.microsoft.com/kb/4493467
+[4493450]: https://support.microsoft.com/kb/4493450
+[4493448]: https://support.microsoft.com/kb/4493448
+[4493478]: https://support.microsoft.com/kb/4493478
+[4493435]: https://support.microsoft.com/kb/4493435
+[KB4490628]: https://support.microsoft.com/kb/KB4490628
+[KB4474419]: https://support.microsoft.com/kb/KB4474419
+[KB4489878]: https://support.microsoft.com/kb/KB4489878
+[KB4489891]: https://support.microsoft.com/kb/KB4489891
+[KB4489881]: https://support.microsoft.com/kb/KB4489881
 
 ## <a name="march-2019-guest-os"></a>SO de convidado de Março de 2019
 
@@ -890,7 +920,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-075 |[3072633] |Vulnerabilidades no OLE poderiam permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 | MS15-076 |[3067505] |Vulnerabilidade na chamada de procedimento remoto do Windows poderia permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 | MS15-077 |[3077657] |Vulnerabilidade no Driver de tipo de letra de ATM poderia permitir elevação de privilégios |4.22, 3.29, 2.41 |14 de Julho de 2015 |
-| ND |[3057154] |Atualizar para restringir a utilização da encriptação DES |4.22, 3.29, 2.41 |14 de Julho de 2015 |
+| N/D |[3057154] |Atualizar para restringir a utilização da encriptação DES |4.22, 3.29, 2.41 |14 de Julho de 2015 |
 
 ## <a name="june-2015-guest-os"></a>SO de convidado de Junho de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
@@ -923,7 +953,7 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | MS15-040 |[3045711] |Vulnerabilidade no AD FS poderia permitir a divulgação de informações |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 | MS15-041 |[3048010] |Vulnerabilidade no .NET Framework poderia permitir a divulgação de informações |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 | MS15-042 |[3047234] |Vulnerabilidade no Windows Hyper-V poderia permitir Negação de serviço |4.20, 3.27, 2.39 |17 de Abril de 2015 |
-| ND |[3045755] |Atualização para melhorar de autenticação PKU2U |4.20, 3.27, 2.39 |17 de Abril de 2015 |
+| N/D |[3045755] |Atualização para melhorar de autenticação PKU2U |4.20, 3.27, 2.39 |17 de Abril de 2015 |
 
 ## <a name="april-2015-guest-os"></a>SO de convidado de Abril de 2015
 | ID do boletim | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |

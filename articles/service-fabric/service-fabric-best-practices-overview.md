@@ -12,18 +12,18 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.author: pepogors
-ms.openlocfilehash: a0174a5442de7a10e45e9dc2a2f43f5f401d1a69
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d6b1129724ce4e8a67bde4e56ebe61cd832f3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60803165"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231380"
 ---
 # <a name="azure-service-fabric-application-and-cluster-best-practices"></a>Melhores práticas de aplicação do Service Fabric do Azure e de cluster
 
-Para gerir clusters e aplicações do Azure Service Fabric com êxito, existem operações que é altamente recomendável que executar, para otimizar a fiabilidade do seu ambiente de produção; . executar operações definidas neste documento e selecione um dos nossos [modelos de Cluster do Service Fabric do Azure exemplos](https://github.com/Azure-Samples/service-fabric-cluster-templates) para começar a conceber a sua solução de produção ou modificar o modelo existente para incorporar essas práticas.
+Para gerir clusters e aplicações do Azure Service Fabric com êxito, existem operações que é altamente recomendável que efetuar para otimizar a fiabilidade do seu ambiente de produção; Volte a efetuar operações definidas neste documento e selecione um dos nossos [modelos de Cluster do Service Fabric do Azure exemplos](https://github.com/Azure-Samples/service-fabric-cluster-templates) para começar a conceber a sua solução de produção ou modificar o modelo existente para incorporar essas práticas.
 
 ## <a name="security"></a>Segurança 
 
@@ -45,6 +45,10 @@ Para gerir clusters e aplicações do Azure Service Fabric com êxito, existem o
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
 * [Melhores práticas para monitorização de clusters e diagnóstico](service-fabric-best-practices-monitoring.md)
+
+## <a name="application-design"></a>Design da aplicação
+
+* [Melhores práticas para o design do aplicativo](service-fabric-best-practices-applications.md)
 
 ## <a name="checklist"></a>Lista de verificação
 

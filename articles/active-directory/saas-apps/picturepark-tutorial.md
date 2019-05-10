@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 7a4db08a342bc4004d4957e26353ef810ebae4d3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 617c75024b45dab7ff2466b99bfb71c18cdd778a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689595"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230022"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-picturepark"></a>Tutorial: Integração do Active Directory do Azure com Picturepark
 
@@ -250,7 +250,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão em Picturepark, tem d
    
     e. Na **empresa** caixa de texto, tipo a **nome da empresa** do utilizador. 
    
-    f. Na **país** caixa de texto, selecione a **país** do utilizador.
+    f. Na **país** caixa de texto, selecione a **país/região** do utilizador.
   
     g. Na **ZIP** caixa de texto, tipo a **CEP** da cidade.
    
@@ -264,7 +264,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão em Picturepark, tem d
 >Pode utilizar quaisquer outras Picturepark utilizador conta criação ferramentas ou APIs fornecidas pelo Picturepark para aprovisionar contas de utilizador do Azure AD.
 >
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

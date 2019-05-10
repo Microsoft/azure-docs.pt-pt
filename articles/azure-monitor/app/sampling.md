@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d88de2bf660165022b39aaa0321ff5c62ea81cd3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60653812"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231841"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -61,7 +61,7 @@ Contagens de métrica, tais como a taxa de pedidos e taxa de exceções são aju
 
 ## <a name="configuring-adaptive-sampling-for-aspnet-applications"></a>Configuração de amostragem adaptável para aplicativos ASP.NET
 
-[Saiba](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) sobre a configuração de amostragem adaptável para os aplicativos de principais para ASP.NET. 
+[Saiba](../../azure-monitor/app/sampling.md#configuring-adaptive-sampling-for-aspnet-core-applications) sobre a configuração de amostragem adaptável para aplicativos do ASP.NET Core. 
 
 Na [applicationinsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), pode ajustar vários parâmetros nos `AdaptiveSamplingTelemetryProcessor` nó. Os números mostrados são os valores predefinidos:
 

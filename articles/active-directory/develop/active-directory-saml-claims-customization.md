@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411335"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231337"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar afirmações emitidas no token SAML para aplicações empresariais
 
@@ -75,12 +75,12 @@ Selecione a origem pretendida para o `NameIdentifier` (ou NameID) de afirmação
 
 | Name | Descrição |
 |------|-------------|
-| Email | Endereço de e-mail do utilizador |
+| Correio Electrónico | Endereço de e-mail do utilizador |
 | userprincipalName | Nome principal de utilizador (UPN) do utilizador |
 | onpremisessamaccount | Nome da conta SAM que tenha sido sincronizado a partir do Azure AD no local |
 | ObjectId | ObjectId do utilizador no Azure AD |
 | employeeid | employeeid do utilizador |
-| Extensões de diretórios | Extensões de diretório [sincronizados a partir do Active Directory no local com o Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Extensões de diretório | Extensões de diretório [sincronizados a partir do Active Directory no local com o Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Atributos de extensão 1-15 | Atributos de extensão usados para estender o esquema do Azure AD no local |
 
 Para obter mais informações, consulte [a tabela 3: Valores de ID válidos por origem](active-directory-claims-mapping.md#table-3-valid-id-values-per-source).
@@ -116,7 +116,7 @@ Também pode utilizar as funções de transformações de afirmações.
 | **ToUpper()** | Converte os caracteres do atributo selecionado em carateres maiúsculos. |
 | **Contains()** | Produz um atributo ou constante se a entrada corresponde ao valor especificado. Caso contrário, pode especificar a saída de outro se não houver nenhuma correspondência.<br/>Por exemplo, se pretender emitir uma afirmação onde o valor é o endereço de e-mail do utilizador, se ele contém o domínio "@contoso.com", caso contrário, queira produzir o nome principal de utilizador. Para fazer isso, poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: user.email<br/>*Valor*: "@contoso.com"<br/>O parâmetro 2 (saída): user.email<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.userprincipalname |
 | **EndWith()** | Produz um atributo ou constante se a entrada terminar com o valor especificado. Caso contrário, pode especificar a saída de outro se não houver nenhuma correspondência.<br/>Por exemplo, se pretender emitir uma afirmação onde o valor é employeeid do utilizador, se o campo IDdeEmpregado terminar com "000", caso contrário, queira produzir um atributo de extensão. Para fazer isso, poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: user.employeeid<br/>*Valor*: "000"<br/>O parâmetro 2 (saída): user.employeeid<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.extensionattribute1 |
-| **StartWith()** | Produz um atributo ou constante se a entrada for iniciado com o valor especificado. Caso contrário, pode especificar a saída de outro se não houver nenhuma correspondência.<br/>Por exemplo, se pretender emitir uma afirmação onde o valor é employeeid do utilizador, se o país começa com "US", caso contrário, queira produzir um atributo de extensão. Para fazer isso, poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: User. Country<br/>*Valor*: "US"<br/>O parâmetro 2 (saída): user.employeeid<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.extensionattribute1 |
+| **StartWith()** | Produz um atributo ou constante se a entrada for iniciado com o valor especificado. Caso contrário, pode especificar a saída de outro se não houver nenhuma correspondência.<br/>Por exemplo, se pretender emitir uma afirmação onde o valor é employeeid do utilizador, se o país/região começa com "US", caso contrário, queira produzir um atributo de extensão. Para fazer isso, poderia configurar os seguintes valores:<br/>*Parâmetro 1(input)*: User. Country<br/>*Valor*: "US"<br/>O parâmetro 2 (saída): user.employeeid<br/>O parâmetro 3 (se não houver nenhuma correspondência de saída): user.extensionattribute1 |
 | **Extract() - depois de correspondência** | Devolve a subcadeia após ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon", o valor correspondente é "Finance_", em seguida, é de saída da afirmação "BSimon". |
 | **Extract() - antes de correspondência** | Devolve a subcadeia até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "BSimon_US", o valor correspondente é "_US", em seguida, é de saída da afirmação "BSimon". |
 | **Extract() - entre correspondentes** | Devolve a subcadeia até que ele corresponde ao valor especificado.<br/>Por exemplo, se o valor da entrada é "Finance_BSimon_US", o primeiro valor correspondente é "Finance_", o segundo valor correspondente é "_US", então é de saída da afirmação "BSimon". |

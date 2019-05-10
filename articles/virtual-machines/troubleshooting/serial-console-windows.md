@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: harijay
-ms.openlocfilehash: c6611c75e61f7e381efd2e437b8281cc70601215
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 31811d3d48f791e11bd6b709f59f5f6aaa18be0e
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141063"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442105"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola de série do Azure para Windows
 
-A consola de série no portal do Azure fornece acesso a um console baseado em texto para máquinas virtuais do Windows (VMs) e (conjunto de dimensionamento de máquina virtual) instâncias de conjunto de dimensionamento de máquinas virtuais. Esta conexão serial liga-se para a porta serial de COM1 da VM ou instância de conjunto de dimensionamento de máquina virtual, fornecendo acesso ao mesmo independentemente do Estado de rede ou sistema operativo. A consola de série só pode ser acessada através do portal do Azure e é permitido apenas para os utilizadores que têm uma função de acesso de Contribuidor ou superior para o conjunto de dimensionamento VM ou numa máquina virtual.
+A consola de série no portal do Azure fornece acesso a um console baseado em texto para máquinas virtuais do Windows (VMs) e instâncias do conjunto de dimensionamento de máquinas virtuais. Esta conexão serial liga-se para a porta serial de COM1 da VM ou instância de conjunto de dimensionamento de máquina virtual, fornecendo acesso ao mesmo independentemente do Estado de rede ou sistema operativo. A consola de série só pode ser acessada através do portal do Azure e é permitido apenas para os utilizadores que têm uma função de acesso de Contribuidor ou superior para o conjunto de dimensionamento VM ou numa máquina virtual.
 
 Consola de série funciona da mesma forma para VMs e instâncias do conjunto de dimensionamento de máquinas virtuais. Neste documento, menções todas as VMS incluirá implicitamente instâncias do conjunto de dimensionamento de máquina virtual, a menos que indicado de outra forma.
 

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 316406b25558b7652329bf2690eaebfa4b52c4ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: HT
+ms.openlocfilehash: 1ff20322f1d4f6024d4f41037ca18c327a0cc21f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142937"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233194"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copiar dados de ou para armazenamento de Blobs do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -422,7 +422,7 @@ Para copiar dados de armazenamento de BLOBs no formato de texto delimitado ou de
 | maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não                                            |
 
 > [!NOTE]
-> Para o formato de texto delimitados/Parquet, **BlobSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-destina-se para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+> Para o formato de texto delimitados/Parquet, **BlobSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-é para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
 
 **Exemplo:**
 
@@ -523,7 +523,7 @@ Para copiar dados para armazenamento de BLOBs no formato de texto delimitado ou 
 | maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não       |
 
 > [!NOTE]
-> Para o formato de texto delimitados/Parquet, **BlobSink** continua a ser suportado como sink de atividade de cópia de tipo mencionado na secção seguinte-destina-se para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+> Para o formato de texto delimitados/Parquet, **BlobSink** continua a ser suportado como sink de atividade de cópia de tipo mencionado na secção seguinte-é para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
 
 **Exemplo:**
 

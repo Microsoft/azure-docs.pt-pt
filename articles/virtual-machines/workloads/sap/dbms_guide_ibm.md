@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5cbecdb39a35339bd0b3f4d3d29d7893cdab0ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d1de50e6b1b673a2613a893c19633bbd4bd43fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60835367"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409265"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Implementação em IBM DB2 do DBMS para Máquinas Virtuais do Azure para a carga de trabalho SAP
 
@@ -158,7 +158,7 @@ ms.locfileid: "60835367"
 [deploy-template-portal]:../../../resource-group-template-deploy-portal.md
 [deploy-template-powershell]:../../../resource-group-template-deploy.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [getting-started-dbms]:get-started.md#1343ffe1-8021-4ce6-a08d-3a1553a4db82
@@ -172,7 +172,7 @@ ms.locfileid: "60835367"
 [getting-started-windows-classic-ha-sios]:../../virtual-machines-windows-classic-sap-get-started.md#4bb7512c-0fa0-4227-9853-4004281b1037
 [getting-started-windows-classic-planning]:../../virtual-machines-windows-classic-sap-get-started.md#f2a5e9d8-49e4-419e-9900-af783173481c
 
-[ha-guide-classic]:http://go.microsoft.com/fwlink/?LinkId=613056
+[ha-guide-classic]:https://go.microsoft.com/fwlink/?LinkId=613056
 
 [install-extension-cli]:virtual-machines-linux-enable-aem.md
 
@@ -319,7 +319,7 @@ O são lançadas a vários artigos na carga de trabalho SAP no Azure.  É recome
 
 As seguintes notas de SAP estão relacionadas com o SAP no Azure em relação à área de abrangidas neste documento:
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e tipos de VM do Azure |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -364,7 +364,7 @@ Para os discos que contém os caminhos de armazenamento de Db2 para os diretóri
 
 Para VMS de série M do Azure, a latência de escrita nos logs de transação pode ser reduzida por fatores, em comparação comparadas o desempenho de armazenamento Premium do Azure, ao utilizar o acelerador de escrita do Azure. Por este motivo, deve implementar o acelerador de escrita do Azure para o VHD que formam o volume para os registos de transações de Db2. Detalhes podem ser lidos no documento [acelerador de escrita](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator).
 
-### <a name="backuprestore"></a>Backup/Restauro
+### <a name="backuprestore"></a>Cópia de segurança/Restauro
 A funcionalidade de cópia de segurança/restauro para IBM Db2 para LUW é suportada da mesma forma que no padrão sistemas operacionais Windows Server e Hyper-V.
 
 Deve certificar-se de que tem uma estratégia de cópia de segurança da base de dados válido em vigor. 

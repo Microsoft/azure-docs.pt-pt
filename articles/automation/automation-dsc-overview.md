@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: da746d80e3ae1fa5cc02683a8bb0ff0402722b8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 926629660c9593c59362bd1bc49c5115ac5e3187
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61071477"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441063"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Descrição geral da configuração de estado da automatização do Azure
 
@@ -82,6 +82,16 @@ Se os nós estão localizados numa rede privada, os seguintes URLs e portas são
 * URL global do US Gov Virgínia: *.azure automation.us
 * Serviço de agente: https://\<workspaceId\>.agentsvc.azure-automation.net
 
+#### <a name="proxy-support"></a>Suporte para o proxy
+
+Suporte para o proxy para o agente DSC está disponível no Windows versão 1809 e posterior.
+Para configurar esta opção, defina o valor de **ProxyURL** e **ProxyCredential** no [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) utilizada para registar nós.
+Proxy não está disponível no DSC para versões anteriores do Windows.
+
+Para nós do Linux, o agente DSC suporta proxy e passarão a utilizar a variável de http_proxy para determinar o url.
+
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Intervalos de rede de configuração de estado do Azure e o espaço de nomes
+
 É recomendado para utilizar os endereços listados quando definir exceções. Para endereços IP, pode baixar o [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e tem os intervalos implementados atualmente e as alterações futuras para os intervalos de IP.
 
 Se tiver uma conta de automatização que está definida para uma região específica, pode restringir a comunicação para esse datacenter regional. A tabela seguinte fornece o registo DNS para cada região:
@@ -99,7 +109,7 @@ Se tiver uma conta de automatização que está definida para uma região espec�
 | Leste do Japão |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sudeste da Austrália |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Reino Unido Sul | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| Gov (US) - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| US Gov - Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Para obter uma lista de endereços IP da região em vez de nomes de região, transfira o [endereço IP do Datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653) arquivo XML do Microsoft Download Center.
 

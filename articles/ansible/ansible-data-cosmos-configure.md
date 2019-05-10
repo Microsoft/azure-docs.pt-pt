@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 471b10a83d8da3b520f4a9dd00a5db4420fc504f
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.date: 04/30/2019
+ms.openlocfilehash: 06d416358c1886f09b0b2336cc1ea53ce89947ae
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63767216"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230822"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Tutorial: Configurar contas do Azure Cosmos DB com o Ansible
 
@@ -31,9 +31,9 @@ ms.locfileid: "63767216"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-random-postfix"></a>Criar um sufixo aleatório
 

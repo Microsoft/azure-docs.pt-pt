@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0749e1acba9f13f9e0e95dfc66f9cf818c752cff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2df72d03bae8987de4998276a0be0f3ce1ec0333
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60334783"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230037"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar a minha conta para verificação de dois passos
 Verificação de dois passos é uma etapa adicional de segurança que ajuda a proteger a sua conta, tornando mais difícil para outras pessoas a entrar na. Se estiver lendo este artigo, provavelmente recebeu uma mensagem de e-mail do seu administrador escolar ou profissionais sobre o multi-factor Authentication. Ou talvez tentou iniciar sessão e recebeu uma mensagem a pedir-lhe configurar a verificação de segurança adicional. Se for esse o caso **não pode iniciar sessão até ter concluído o processo de inscrição automática**.
@@ -30,7 +30,7 @@ Este artigo ajuda-o a configurar seus **conta escolar ou profissional**. Se pret
 
 Quando o suporte da empresa exige que começar a utilizar a verificação de dois passos, verá um ecrã que diz **o seu administrador necessita que configure esta conta para verificação de segurança adicional**:
 
-![Configurar](./media/multi-factor-authentication-end-user-first-time/first.png)
+![Configuração](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 Para começar a utilizar, selecione **configurá-lo agora.**
 
@@ -69,7 +69,7 @@ Ao utilizar este método requer que instale uma aplicação de autenticador no s
    ![Caixa para introduzir um PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. Depois de concluída a introdução de PIN, selecione **fechar**. Neste momento, a verificação deve ser concluída com êxito.
-9. Recomendamos que introduza o seu número de telemóvel no caso de perder o acesso à sua aplicação móvel. Especifique o seu país/região na lista pendente e introduza o seu número de telemóvel na caixa junto ao nome do país. Selecione **Seguinte**.
+9. Recomendamos que introduza o seu número de telemóvel no caso de perder o acesso à sua aplicação móvel. Especifique o seu país/região na lista pendente e introduza o seu número de telemóvel na caixa junto ao nome do país/região. Selecione **Seguinte**.
 10. Neste momento, lhe for pedido para configurar palavras-passe de aplicação para aplicações não baseadas no browser, tais como o Outlook 2010 ou anterior, ou a aplicação de e-mail nativas em dispositivos Apple. Isto acontece porque algumas aplicações não suportam a verificação de dois passos. Se não utilizar estas aplicações, clique em **feito** e ignore o resto dos passos.
 11. Se estiver a utilizar estas aplicações, copie a palavra-passe de aplicação fornecido e cole-o em seu aplicativo em vez da palavra-passe regular. Pode utilizar a mesma palavra-passe de aplicação para várias aplicações. Para obter mais informações, [ajuda com palavras-passe de aplicação].
 12. Clique em **Concluído**.
@@ -80,13 +80,13 @@ Se pretender adicionar uma conta para a aplicação móvel manualmente, em vez d
 1. Selecione o **introduzir manualmente a conta** botão.  
 2. Introduza o código e o URL que são fornecidos na mesma página que mostra o código de barras. Esta informação é incluído nos **código** e **URL** caixas na aplicação móvel.
 
-    ![Configurar](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
+    ![Configuração](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. Quando a ativação estiver concluída, selecione **contactar-me**. Este passo envia uma notificação ou um código de verificação para o seu telefone. Selecione **verificar**.
 
 ## <a name="use-your-mobile-phone-as-the-contact-method"></a>Utilizar o telemóvel como método de contacto
 1. Selecione **telefone de autenticação** na lista pendente.  
 
-    ![Configurar](./media/multi-factor-authentication-end-user-first-time/phone.png)  
+    ![Configuração](./media/multi-factor-authentication-end-user-first-time/phone.png)  
 2. Escolha o seu país/região na lista pendente e introduza o seu número de telefone celular.
 3. Selecione o método que prefere utilizar com o seu telemóvel - texto ou chamada.
 4. Selecione **contactar-me** para verificar o seu número de telefone. Dependendo do modo selecionado, podemos enviar-lhe uma mensagem de texto ou contactá-lo. Siga as instruções fornecidas na tela, em seguida, selecione **Verifique se**.
@@ -97,7 +97,7 @@ Se pretender adicionar uma conta para a aplicação móvel manualmente, em vez d
 ## <a name="use-your-office-phone-as-the-contact-method"></a>Utilizar o seu telefone do escritório como método de contacto
 1. Selecione **telefone do escritório** na lista suspensa  
 
-    ![Configurar](./media/multi-factor-authentication-end-user-first-time/office.png)  
+    ![Configuração](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. A caixa de número de telefone é preenchida automaticamente com as suas informações de contacto da empresa. Se o número está errado ou em falta, peça ao seu administrador para fazer alterações.
 3. Selecione **contactar-me** para verificar o seu telemóvel número e podemos chamará seu número. Siga as instruções fornecidas na tela, em seguida, selecione **Verifique se**.
 4. Neste momento, lhe for pedido para configurar palavras-passe de aplicação para aplicações não baseadas no browser, tais como o Outlook 2010 ou anterior, ou a aplicação de e-mail nativas em dispositivos Apple. Isto acontece porque algumas aplicações não suportam a verificação de dois passos. Se não utilizar estas aplicações, clique em **feito** e ignore o resto dos passos.
