@@ -14,25 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773371"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471770"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo do Windows no seu cluster do Service Fabric
-
-> [!div class="op_single_selector"]
-> * [Windows](service-fabric-patch-orchestration-application.md)
-> * [Linux](service-fabric-patch-orchestration-application-linux.md)
->
->
-
 
 > 
 > [!IMPORTANT]
 > Versão 1.2 da aplicação. * vai sem suporte, 30 de Abril de 2019. Atualize para a versão mais recente.
+
+> 
+> [!IMPORTANT]
+> Aplicação de patch Orchestration no linux foi preterida. Visite [atualizações automáticas da imagem de SO do conjunto de dimensionamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para orquestrar atualizações no linux.
 
 
 [Atualizações automáticas da imagem de SO do conjunto de dimensionamento de máquina virtual do Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) é a melhor prática para manter seus sistemas de operativos corrigidos no Azure e o Patch Orchestration Application (POA) é um wrapper em torno do serviço de sistemas de RepairManager de recursos de infraestrutura do serviço Isso permite a configuração baseada o agendamento de patch de SO para clusters de alojado não pertencente ao Azure. POA não é necessária para clusters de alojado não pertencente ao Azure, mas agendamento da instalação de patch por domínios de atualização, é necessário para corrigir o Service Fabric clusters anfitriões sem tempo de inatividade.
@@ -262,7 +259,7 @@ Para ativar o proxy inverso no cluster, siga os passos em [proxy no Azure Servic
 
 ## <a name="diagnosticshealth-events"></a>Eventos de diagnóstico/estado de funcionamento
 
-### <a name="diagnostic-logs"></a>Registos de diagnósticos
+### <a name="diagnostic-logs"></a>Registos de diagnóstico
 
 Registos de aplicações de orquestração do patch são recolhidos como parte dos registos de tempo de execução do Service Fabric.
 
@@ -388,7 +385,7 @@ Uma atualização do Windows com falhas pode prejudicar o estado de funcionament
 
 Um administrador deve intervir e determinar por que a aplicação ou o cluster se tornou mau estado de funcionamento devido a atualização do Windows.
 
-## <a name="release-notes"></a>Notas de Versão
+## <a name="release-notes"></a>Notas de versão
 
 ### <a name="version-110"></a>Versão 1.1.0
 - Lançamento público

@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8644c2c0d4ee5b6ee4dcf16e470e4f2fa478237
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0275d27a0a27d0279886f6f7fd15b14d312a44ea
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023738"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472011"
 ---
 # <a name="write-and-configure-data--with-the-azure-machine-learning-data-prep-sdk"></a>Escrever e configurar os dados com o SDK de preparação de dados do Azure Machine Learning
 
@@ -25,6 +25,7 @@ Neste artigo, vai aprender diferentes métodos para escrever dados com o [SDK Py
 
 > [!Important]
 > Se estiver a criar uma nova solução, tente o [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (pré-visualização) para transformar os seus dados, os dados de instantâneos e armazenar as definições do conjunto de dados com a versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para o gerenciamento de soluções de ia de conjuntos de dados de preparação de dados.
+> Se utilizar o `azureml-dataprep` pacote para criar um fluxo de dados com as transformações em vez de usar o `azureml-datasets` para criar um conjunto de dados do pacote, não poderá utilizar instantâneos ou conjuntos de dados com a versão mais tarde.
 
 Uma vez que existem sem limites de quantos escrever passos existem num pipeline, pode adicionar facilmente passos adicionais de escrita para obter os resultados intermediários para resolução de problemas ou para outros pipelines.
 

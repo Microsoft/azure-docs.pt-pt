@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 11/27/2017
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b5cdf8aebdf584216afef9f1d1421eea8c4ba4e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f73013b399dd2ca3d549e2ac2ec4ffba65b81
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685151"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471725"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorizar e mitigar limitação para reduzir a latência no Azure Time Series Insights
 
@@ -34,21 +34,21 @@ Que é mais provável que a experiência de latência e limitação quando:
 
 ## <a name="video"></a>Vídeo
 
-### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Neste vídeo, vamos abordar o comportamento de entrada de dados do Time Series Insights e como planejá-la.</br>
+### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Saiba mais sobre o comportamento de entrada de dados do Time Series Insights e como planejá-la.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Monitorizar a latência e limitação com alertas
 
-Alertas podem ajudar a ajudar a diagnosticar e mitigar problemas de latência provocados pelo seu ambiente. 
+Alertas podem ajudar a ajudar a diagnosticar e mitigar problemas de latência provocados pelo seu ambiente.
 
-1. No portal do Azure, clique em **métricas**. 
+1. No portal do Azure, clique em **métricas**.
 
-   ![Métricas](media/environment-mitigate-latency/add-metrics.png)
+   [![Métricas](media/environment-mitigate-latency/add-metrics.png)](media/environment-mitigate-latency/add-metrics.png#lightbox)
 
-2. Clique em **Adicionar alerta de métrica**.  
+1. Clique em **Adicionar alerta de métrica**.  
 
-    ![Adicionar alerta de métrica](media/environment-mitigate-latency/add-metric-alert.png)
+   [![Adicionar alerta de métrica](media/environment-mitigate-latency/add-metric-alert.png)](media/environment-mitigate-latency/add-metric-alert.png#lightbox)
 
 A partir daí, pode configurar alertas com as métricas seguintes:
 
@@ -64,19 +64,19 @@ A partir daí, pode configurar alertas com as métricas seguintes:
 
 ![Latência](media/environment-mitigate-latency/latency.png)
 
-Se estiver a ser limitada, verá um valor para o *desfasamento de tempo de mensagem recebida entrada*, informando-o de quantos segundos por trás do TSI é, desde a hora real, a mensagem chega a origem do evento (excluindo o tempo de indexação de appx. 30 a 60 segundos).  *Atraso de contagem de mensagens recebidas da entrada* também deve ter um valor, permitindo-lhe determinar quantas mensagens atrás de.  A maneira mais fácil de se envolva é aumentar a capacidade do seu ambiente para um tamanho que irá permitir-lhe ultrapassar a diferença.  
+* Se estiver a ser limitada, verá um valor para o *desfasamento de tempo de mensagem recebida entrada*, informando-o de quantos segundos por trás do TSI é, desde a hora real, a mensagem chega a origem do evento (excluindo o tempo de indexação de appx. 30 a 60 segundos).  *Atraso de contagem de mensagens recebidas da entrada* também deve ter um valor, permitindo-lhe determinar quantas mensagens atrás de.  A maneira mais fácil de se envolva é aumentar a capacidade do seu ambiente para um tamanho que irá permitir-lhe ultrapassar a diferença.  
 
-Por exemplo, se tiver um ambiente único de unidade de S1 e vê que existe um atraso de cinco milhões de mensagens, poderia aumentar o tamanho do seu ambiente para seis unidades, para, em torno de um dia para se envolva.  Poderia aumentar ainda mais catch cópia de segurança mais rapidamente.  O período de catch-up é uma ocorrência comum quando são aprovisionados inicialmente um ambiente, especialmente quando ligar a uma origem de evento já contém eventos no mesmo ou quando em massa muitas de carregamento de dados históricos.
+  Por exemplo, se tiver um ambiente único de unidade de S1 e vê que existe um desfasamento de 5,000,000 mensagem, poderia aumentar o tamanho do seu ambiente para seis unidades, para, em torno de um dia para se envolva.  Poderia aumentar ainda mais catch cópia de segurança mais rapidamente. O período de catch-up é uma ocorrência comum quando são aprovisionados inicialmente um ambiente, especialmente quando ligar a uma origem de evento já contém eventos no mesmo ou quando em massa muitas de carregamento de dados históricos.
 
-Outra técnica é definir um **eventos de entrada armazenados** alerta > = um limiar ligeiramente abaixo da capacidade do seu ambiente total durante um período de duas horas.  Este alerta pode ajudá-lo a compreender se é constantemente atingiu o limite, o que indica uma elevada probabilidade de latência.  
+* Outra técnica é definir um **eventos de entrada armazenados** alerta > = um limiar ligeiramente abaixo da capacidade do seu ambiente total durante um período de duas horas.  Este alerta pode ajudá-lo a compreender se é constantemente atingiu o limite, o que indica uma elevada probabilidade de latência. 
 
-Por exemplo, se tiver três unidades de S1 aprovisionadas (ou eventos de 2100 por capacidade de minuto de entrada), pode definir uma **eventos de entrada armazenados** alerta de > = 1900 eventos durante 2 horas. Se forem constantemente que excedem este limite e por isso, acionar o alerta, provavelmente em-aprovisionadas.  
+  Por exemplo, se tiver três unidades de S1 aprovisionadas (ou eventos de 2100 por capacidade de minuto de entrada), pode definir uma **eventos de entrada armazenados** alerta de > = 1900 eventos durante 2 horas. Se forem constantemente que excedem este limite e por isso, acionar o alerta, provavelmente em-aprovisionadas.  
 
-Além disso, se suspeitar que está a ser limitada, pode comparar seu **mensagens recebidas de entrada** com seu evento, origem do egressed mensagens.  Se a entrada para o Hub de eventos é maior do que seus **mensagens recebidas de entrada**, o Time Series Insights são provavelmente a ser limitado.
+* Se suspeitar que está a ser limitada, pode comparar o seu **mensagens recebidas de entrada** com seu evento, origem do egressed mensagens.  Se a entrada para o Hub de eventos é maior do que seus **mensagens recebidas de entrada**, o Time Series Insights são provavelmente a ser limitado.
 
 ## <a name="improving-performance"></a>Melhorando o desempenho
 
-Para reduzir a limitação ou a ter latência, a melhor forma para corrigi-lo é aumentar a capacidade do seu ambiente. 
+Para reduzir a limitação ou a ter latência, a melhor forma para corrigi-lo é aumentar a capacidade do seu ambiente.
 
 Pode evitar a latência e limitação ao configurar corretamente o seu ambiente para a quantidade de dados que pretende analisar. Para obter mais informações sobre como adicionar capacidade ao seu ambiente, consulte [dimensionar o seu ambiente](time-series-insights-how-to-scale-your-environment.md).
 

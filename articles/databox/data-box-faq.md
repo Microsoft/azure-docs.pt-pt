@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 01/25/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: c9cef479c1d4af55ae58c61a07ff1d5348ed7183
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868250"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473270"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -36,12 +36,12 @@ As perguntas e respostas estão organizadas pelas seguintes categorias:
 R.  O serviço Azure Data Box foi concebido para ingestão de dados offline. Este serviço gere uma panóplia de produtos de diferentes capacidades de armazenamento, feitos à medida para o transporte de dados. 
 
 ### <a name="q-what-is-azure-data-box"></a>P. O que é o Azure Data Box?
-R. O Azure Data Box permite a transferência rápida, económica e segura de terabytes de dados de e para o Azure. Pode encomendar o dispositivo Data Box no portal do Azure. Microsoft é fornecido um dispositivo de armazenamento de capacidade utilizável de 80 TB por meio de uma operadora regional. 
+R. O Azure Data Box permite um rápido, barato e a transferência segura de terabytes de dados para o Azure. Pode encomendar o dispositivo Data Box no portal do Azure. Microsoft é fornecido um dispositivo de armazenamento de capacidade utilizável de 80 TB por meio de uma operadora regional. 
 
 Quando receber o dispositivo, a configuração do mesmo na IU da Web local é rápida. Copie os dados dos seus servidores para o dispositivo e envie-o para o Azure. No datacenter do Azure, os seus dados são carregados automaticamente do dispositivo para o Azure. O serviço Data Box faz o acompanhamento do processo do início ao fim no portal do Azure.
 
 ### <a name="q-when-should-i-use-data-box"></a>P. Quando devo utilizar o Data Box?
-R. Se tiver entre 40 a 500 TB de dados e quiser transferi-los para o Azure, pode tirar partido do Data Box. Para tamanhos de dados inferiores a 40 TB, utilize o Data Box Disk. Para tamanhos de dados superiores a 500 TB, inscreva-se no Data Box Heavy.
+R. Se tiver entre 40 a 500 TB de dados e quiser transferi-los para o Azure, pode tirar partido do Data Box. Para dados tamanhos < 40 TB, utilize o disco de caixa de dados e para os tamanhos de dados > 500 TB, inscreva-se [dados de caixa pesada](data-box-heavy-overview.md).
 
 ### <a name="q-what-is-the-price-of-data-box"></a>P. Qual é o preço do Data Box?
 R. O Data Box está disponível a um custo nominal durante dez dias. Quando seleciona o modelo de produto durante a criação de uma encomenda no portal do Azure, são apresentados os custos do dispositivo. O envio também é gratuito; contudo, serão aplicados custos do armazenamento do Azure. Para obter mais informações, aceda aos [preços do Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/). 
@@ -124,7 +124,7 @@ R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, 
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>P. Configuração do canal de porta é suportada na caixa de dados? E quanto a MPIO?
 R. Não suportamos a configuração do canal de porta, a configuração de Multipath e/s (MPIO) ou a configuração de vLAN no Data Box.
 
-## <a name="track-status"></a>Acompanhar o estado
+## <a name="track-status"></a>Controlar o estado
 
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>P. Como posso fazer o acompanhamento do Data Box desde o momento em que fiz a encomenda até à devolução do dispositivo? 
 R.  Pode acompanhar o estado da encomenda do Data Box no portal do Azure. Quando cria a encomenda, também lhe é pedido que indique um e-mail para notificações. Se o tiver indicado, todas as alterações ao estado da encomenda são-lhe notificadas por e-mail. Mais informações sobre como [configurar os e-mails de notificações](data-box-portal-ui-admin.md#edit-notification-details).

@@ -9,12 +9,12 @@ ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: openshift
 manager: jeconnoc
-ms.openlocfilehash: 7c5fbf135c02abf04e90865e20e902a95174598c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3c265d6695af7ba1bc5833db59966a626cb29cb9
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65078119"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416080"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar o ambiente de desenvolvimento do Azure Red Hat OpenShift
 
@@ -80,7 +80,13 @@ Para registar manualmente estes fornecedores e recursos, utilize as seguintes in
     az provider register -n Microsoft.Network --wait
     ```
 
-5. Atualize o registo do fornecedor de recursos containerservice:
+5. Registe o fornecedor de Microsoft. keyvault:
+
+    ```bash
+    az provider register -n Microsoft.KeyVault --wait
+    ```
+
+6. Atualize o registo do fornecedor de recursos containerservice:
 
     ```bash
     az provider register -n Microsoft.ContainerService --wait

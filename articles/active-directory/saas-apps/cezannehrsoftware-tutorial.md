@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 949b5b1aaab60e5b1d160963ac3f024dbbfbe552
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fc4d96b900090cd217b4b49b1af2f09762c0da84
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834972"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de RH Cezanne
 
@@ -156,7 +156,7 @@ Para configurar o Azure AD início de sessão único com o Software de RH Cezann
 
     d. Na **segurança ponto final do serviço de Token** caixa de texto, cole o valor de **URL de início de sessão** que copiou do portal do Azure.
 
-    e. Na caixa de texto nome de atributo de ID de utilizador, introduza `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    e. Na caixa de texto nome de atributo de ID de utilizador, introduza `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     f. Clique em **carregar** ícone para carregar o certificado transferido a partir do portal do Azure.
 
@@ -265,7 +265,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Software de RH Cez
 
     ![Usuário](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "utilizador")
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

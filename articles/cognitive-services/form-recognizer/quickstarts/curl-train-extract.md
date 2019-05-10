@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 1afe9239dcc3f5a24d2e950ec7b563bf53d1f04c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 36f98a8dea2a732a7f8504b160da895637366fc8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143240"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471909"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a REST API com cURL
 
@@ -40,7 +40,7 @@ Para preparar um modelo de formulário reconhecedor usando os documentos no seu 
 * Substitua `<subscription key>` pela sua chave de subscrição.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \"<SAS URL>\"}"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
 ```
 
 Receberá um `200 (Success)` resposta com o seguinte resultado JSON:
@@ -97,7 +97,7 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
 * Substitua `<file type>` com o tipo de ficheiro - tipos com suporte de pdf, imagem/jpeg, png/imagem.
 
 ```bash
-cURL cmd: curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@<path to your form>;type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### <a name="examine-the-response"></a>Examinar a resposta

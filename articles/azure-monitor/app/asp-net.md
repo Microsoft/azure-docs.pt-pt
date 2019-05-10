@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 719cbe1ec8962b320aa2850053d44cdef7f56a8c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691691"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472045"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -29,7 +29,7 @@ A configuração demora apenas alguns cliques no Visual Studio. Tem a opção de
 Para adicionar o Application Insights ao site ASP.NET, é necessário:
 
 - Instale o [Visual Studio 2017 para Windows](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
-    - Desenvolvimento ASP.NET e Web
+    - Desenvolvimento na web e ASP.NET (não desmarque os componentes opcionais)
     - Desenvolvimento do Azure
 
 Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -101,7 +101,7 @@ No portal, clique em qualquer gráfico ou mosaico para ver mais detalhes.
 
 [Saiba mais sobre como utilizar o Application Insights no portal do Azure](../../azure-monitor/app/app-insights-dashboards.md).
 
-## <a name="step-4-publish-your-app"></a>Passo 4: Publicar a aplicação
+## <a name="step-4-publish-your-app"></a>Passo 4: Publicar a sua aplicação
 Publique a sua aplicação no seu servidor IIS ou no Azure. Veja o [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para garantir que não existem problemas.
 
 A telemetria acumula-se no portal do Application Insights, onde pode monitorizar métricas, pesquisar a sua telemetria e configurar [dashboards](../../azure-monitor/app/app-insights-dashboards.md). Também pode utilizar a poderosa [linguagem de consulta de Kusto](/azure/kusto/query/) para analisar a utilização e o desempenho ou para encontrar eventos específicos.
@@ -134,7 +134,7 @@ Se tiver realizado personalizações no ApplicationInsights.config, guarde uma c
 Existem tópicos alternativos que pode ver se estiver interessado em:
 
 * [Instrumentar aplicações Web no runtime](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Cloud Services](../../azure-monitor/app/cloudservices.md)
+* [Serviços em Nuvem do Azure](../../azure-monitor/app/cloudservices.md)
 
 ### <a name="more-telemetry"></a>Mais telemetria
 

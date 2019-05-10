@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 74cb1b3ec4e0570aa4316e6f45e99719f36815d1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d366f363b7bd1d5306d598c9b38258eb78076b7c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150705"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472056"
 ---
 # <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Explore Core.NET/.NET registos de rastreio no Application Insights
 
@@ -177,8 +177,8 @@ Pode, por exemplo:
 Utilize o [adaptadores de log Java](../../azure-monitor/app/java-trace-logs.md).
 
 ### <a name="theres-no-application-insights-option-on-the-project-context-menu"></a>Não existe nenhuma opção do Application Insights no menu de contexto do projeto
-* Certifique-se de que o Application Insights Tools está instalado na máquina de desenvolvimento. No Visual Studio **ferramentas** > **extensões e atualizações**, procure **Nástroje Application Insights**. Se não estiver no **instalada** separador, abra o **Online** separador e instalá-lo.
-* Isso pode ser um tipo de projeto que não suporta o Application Insights Tools. Uso [instalação manual](#manual-installation).
+* Certifique-se de que o do Developer Analytics Tools está instalado na máquina de desenvolvimento. No Visual Studio **ferramentas** > **extensões e atualizações**, procure **Developer Analytics Tools**. Se não estiver no **instalada** separador, abra o **Online** separador e instalá-lo.
+* Isso pode ser um tipo de projeto que ferramentas de análise de Devloper não suporta. Uso [instalação manual](#manual-installation).
 
 ### <a name="theres-no-log-adapter-option-in-the-configuration-tool"></a>Não existe nenhuma opção do adaptador de registo na ferramenta de configuração
 * Instale primeiro a arquitetura de registo.

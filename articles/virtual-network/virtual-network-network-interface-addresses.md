@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: a6635b811dfa9c46facfffee1c57b2871cb4c738
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4582f7be8e48e493a1adcb8ffc6c3a8bfe43a58e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719704"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506384"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para uma interface de rede do Azure
 
@@ -107,14 +107,14 @@ Pode remover [privada](#private) e [público](#public) endereços IP a partir de
 
 [Privada](#private) e (opcionalmente) [pública](#public) endereços IP são atribuídos a uma ou mais configurações de IP atribuídas a uma interface de rede. Existem dois tipos de configurações de IP:
 
-### <a name="primary"></a>Primária
+### <a name="primary"></a>Primário
 
 Cada interface de rede é atribuído uma configuração de IP primária. Uma configuração de IP primária:
 
 - Tem um [privada](#private) [IPv4](#ipv4) endereço atribuído ao mesmo. Não é possível atribuir uma privada [IPv6](#ipv6) endereço para uma configuração de IP primária.
 - Também pode ter uma [público](#public) endereço IPv4 atribuído a ele. Não é possível atribuir um endereço IPv6 público a uma configuração de IP primária ou secundária. No entanto, pode atribuir um endereço IPv6 público a um balanceador de carga do Azure, que pode balancear carga de tráfego para o endereço de IPv6 privado de uma máquina virtual. Para obter mais informações, consulte [detalhes e limitações do IPv6](../load-balancer/load-balancer-ipv6-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#details-and-limitations).
 
-### <a name="secondary"></a>Secundária
+### <a name="secondary"></a>Secundário
 
 Além de uma configuração de IP primária, uma interface de rede pode ter zero ou mais configurações de IP secundárias atribuídas ao mesmo. Uma configuração de IP secundária:
 
@@ -163,7 +163,7 @@ Existem limites ao número de endereços IP públicos e privados que pode atribu
 
 Endereços IP públicos e privados são atribuídos através de um dos seguintes métodos de atribuição:
 
-### <a name="dynamic"></a>Dinâmica
+### <a name="dynamic"></a>Dinâmico
 
 IPv4 privada dinâmico e IPv6 (opcionalmente) endereços são atribuídos por predefinição.
 
@@ -175,7 +175,7 @@ IPv4 privada dinâmico e IPv6 (opcionalmente) endereços são atribuídos por pr
 (Opcionalmente) pode atribuir um endereço de IPv4 estático público ou privado para uma configuração de IP. Não é possível atribuir um endereço de IPv6 estático público ou privado para uma configuração de IP. Para saber mais sobre como o Azure atribui endereços IPv4 públicos estáticos, consulte [endereços IP públicos](virtual-network-public-ip-address.md).
 
 - **Público apenas**: Azure atribui o endereço a partir de um intervalo exclusivo para cada região do Azure. Pode transferir a lista de intervalos (prefixos) das clouds [Pública](https://www.microsoft.com/download/details.aspx?id=56519), [US government](https://www.microsoft.com/download/details.aspx?id=57063), [China](https://www.microsoft.com/download/details.aspx?id=57062) e [Alemanha](https://www.microsoft.com/download/details.aspx?id=57064) do Azure. O endereço não é alterado até que o recurso de endereço IP público que está atribuída a é eliminado ou o método de atribuição é alterado para dinâmico. Se o recurso de endereço IP público está associado a uma configuração de IP, tem de ser desassociado da configuração de IP antes de alterar o seu método de atribuição.
-- **Apenas privada**: Pode selecionar e atribuir um endereço do intervalo de endereços da sub-rede. O endereço que atribuir pode ser qualquer endereço dentro do intervalo de endereços da sub-rede que não seja um dos primeiros quatro endereços no intervalo de endereços da sub-rede e que não esteja atualmente atribuído a qualquer outro recurso na sub-rede. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se o utilizador alterar o método de alocação para estático, o Azure atribui de forma dinâmica o endereço IP estático atribuído anteriormente como endereço dinâmico, mesmo que o endereço não seja o endereço seguinte disponível do intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
+- **Apenas privada**: Pode selecionar e atribuir um endereço do intervalo de endereços da sub-rede. O endereço que atribuir pode ser qualquer endereço dentro do intervalo de endereços da sub-rede que não seja um dos primeiros quatro endereços no intervalo de endereços da sub-rede e que não esteja atualmente atribuído a qualquer outro recurso na sub-rede. Os endereços estáticos só são lançados se uma interface de rede for eliminada. Se alterar o método de alocação para estático, Azure atribui de forma dinâmica o endereço IP dinâmico atribuído anteriormente como endereço estático, mesmo que o endereço não seja o endereço seguinte disponível no intervalo de endereços da sub-rede. O endereço também muda se a interface de rede for atribuída a uma sub-rede diferente dentro da mesma rede virtual, mas, para atribuir a interface de rede a uma sub-rede diferente, tem, primeiro, de alterar o método de alocação de estático para dinâmico. Assim que tiver atribuído a interface de rede a uma sub-rede diferente, pode alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ## <a name="ip-address-versions"></a>Versões de endereços IP
 

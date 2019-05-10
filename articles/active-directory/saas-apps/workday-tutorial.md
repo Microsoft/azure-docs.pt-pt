@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 8451fd692409933803f5f8023f1e1161c3a97daf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26a9aa4c32cff17dd157d65dce062309e73eb41f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60375038"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workday"></a>Tutorial: Integração do Active Directory do Azure com o Workday
 
@@ -116,7 +116,7 @@ Para configurar o Azure AD início de sessão único com o Workday, execute os s
 
     > [!NOTE]
     > Estes valores não são o real. Atualize estes valores com o URL de início de sessão real e o URL de resposta. O URL de resposta tem de ter um subdomínio por exemplo: www, wd2, wd3, wd3 impl, wd5, wd5 impl).
-    > Através de algo como `http://www.myworkday.com` funciona, mas `http://myworkday.com` não existir. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Através de algo como `http://www.myworkday.com` funciona, mas `https://myworkday.com` não existir. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 6. A aplicação de dia de trabalho espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação workday espera **nameidentifier** seja mapeado com **user.mail**, **UPN** etc, por isso terá de editar o mapeamento do atributo clicando no **editar**  ícone e altere o mapeamento do atributo.
 
@@ -291,7 +291,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Workday. Trabalhar com [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para adicionar os utilizadores na plataforma do Workday. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

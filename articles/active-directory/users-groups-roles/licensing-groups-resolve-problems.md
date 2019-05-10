@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dbfbd76d235cedd297a5ad54b51bc4ebb550bb1
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60470282"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466290"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificar e resolver problemas de atribuição de licença para um grupo no Azure Active Directory
 
@@ -107,9 +107,15 @@ Se utilizar o Exchange Online, alguns utilizadores no seu inquilino podem ser in
 > ```
 > Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
-> Para obter mais informações sobre este problema, consulte [mensagem de erro "o endereço de Proxy já está a ser utilizado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como ligar ao Exchange Online com o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx). Veja este artigo para obter mais informações [sobre como o atributo proxyAddresses é preenchido no Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+> Para obter mais informações sobre este problema, consulte [mensagem de erro "o endereço de Proxy já está a ser utilizado" no Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). O artigo também inclui informações sobre [como ligar ao Exchange Online com o PowerShell remoto](https://technet.microsoft.com/library/jj984289.aspx).
 
 Depois de resolver quaisquer problemas de endereço de proxy para os utilizadores afetados, certifique-se forçar o processamento de licença no grupo de certificar-se de que as licenças agora podem ser aplicadas.
+
+## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Alteração de atributo de correio do AD e ProxyAddresses do Azure
+
+**Problema:** Ao atualizar a atribuição de licenças num grupo ou um utilizador, poderá ver que o atributo de correio do Azure AD e ProxyAddresses de alguns utilizadores são alterados.
+
+A atualização da atribuição de licença num causas de utilizador cálculo sejam acionadas de endereços de proxy, que pode alterar os atributos do utilizador. Para compreender o motivo exato da alteração e resolver o problema, veja este artigo sobre [como o atributo proxyAddresses é preenchido no Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>O que acontece quando existe mais de uma licença de produto num grupo?
 

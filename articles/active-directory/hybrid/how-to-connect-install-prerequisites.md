@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4bf8df2374d373ad36eada8a7de08be76396a76
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f7219578932a259f48b0109d433dcba9ff28d1f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190813"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508057"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos para o Azure AD Connect
 Este tópico descreve os pré-requisitos e os requisitos de hardware para o Azure AD Connect.
@@ -51,6 +51,9 @@ Antes de instalar o Azure AD Connect, existem algumas coisas que precisa.
 * O Azure AD Connect não pode ser instalado no Small Business Server ou Windows Server Essentials, antes de 2019 (Windows Server Essentials 2019 é suportado). O servidor tem de utilizar Windows Server standard ou superior.
 * Instalar o Azure AD Connect num controlador de domínio não é recomendável por práticas de segurança e as definições mais restritivas que podem impedir que o Azure AD Connect instalar corretamente
 * O servidor do Azure AD Connect tem de ter uma GUI completa instalada. É **nepodporuje** para instalar no server core.
+>[!IMPORTANT]
+>Instalar o Azure AD Connect num servidor de pequena empresa, o server essentials ou o server core não é suportada.
+
 * O Azure AD Connect tem de estar instalado no Windows Server 2008 R2 ou posterior. Este servidor tem de ser associados a um e pode ser um controlador de domínio ou um servidor membro do domínio.
 * Se instalar o Azure AD Connect no Windows Server 2008 R2, em seguida, certifique-se aplicar as correções mais recentes do Windows Update. A instalação não é possível iniciar com um servidor sem patch.
 * Se planeia utilizar a funcionalidade **sincronização de palavra-passe**, em seguida, o servidor do Azure AD Connect tem de estar no Windows Server 2008 R2 SP1 ou posterior.
@@ -135,7 +138,7 @@ Para obter mais informações quando tiver problemas de conectividade, consulte 
 O Azure AD Connect depende do Microsoft PowerShell e .NET Framework 4.5.1. Precisa esta versão ou uma versão posterior instalado no seu servidor. Dependendo da versão do Windows Server, efetue o seguinte:
 
 * Windows Server 2012R2
-  * Microsoft PowerShell está instalado por predefinição. Não é necessário realizar qualquer ação.
+  * Microsoft PowerShell está instalado por predefinição. Não é necessária nenhuma ação.
   * .NET framework 4.5.1 e versões posteriores são oferecidas por meio do Windows Update. Certifique-se de que instalou as atualizações mais recentes para o Windows Server, no painel de controlo.
 * Windows Server 2008 R2 e Windows Server 2012
   * A versão mais recente do Microsoft PowerShell está disponível no **Windows Management Framework 4.0**, disponível no [Microsoft Download Center](https://www.microsoft.com/downloads).
@@ -207,8 +210,8 @@ A tabela abaixo mostra os requisitos mínimos para o computador de sincronizaç�
 
 | Número de objetos no Active Directory | CPU | Memória | Tamanho de disco rígido |
 | --- | --- | --- | --- |
-| Menos de 10 000 |1.6 GHz |4GB |70 GB |
-| 10,000–50,000 |1.6 GHz |4GB |70 GB |
+| Menos de 10 000 |1.6 GHz |4 GB |70 GB |
+| 10,000–50,000 |1.6 GHz |4 GB |70 GB |
 | 50,000–100,000 |1.6 GHz |16 GB |100 GB |
 | Para 100 000 ou mais objetos é necessária a versão completa do SQL Server | | | |
 | 100,000–300,000 |1.6 GHz |32 GB |300 GB |

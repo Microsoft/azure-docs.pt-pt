@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/24/2019
+ms.date: 05/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eaff996f5d0ad9c2eac00c9306ef8808b43e25c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146032"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501964"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -55,7 +55,7 @@ Existem determinadas permissões que um utilizador tem de ter para implementar o
 
 Para implementar o iniciar/parar VMs durante a solução de horas para uma conta de automatização e o Log Analytics, o usuário que está implantando a solução requer as seguintes permissões no **grupo de recursos**. Para saber mais sobre as funções, veja [funções personalizadas para recursos do Azure](../role-based-access-control/custom-roles.md).
 
-| Permissão | Âmbito|
+| Permissão | Scope|
 | --- | --- |
 | Microsoft.Automation/automationAccounts/read | Grupo de Recursos |
 | Microsoft.Automation/automationAccounts/variables/write | Grupo de Recursos |
@@ -75,14 +75,14 @@ Para implementar o iniciar/parar VMs durante a solução de horas para uma conta
 | Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de Recursos |
 | Microsoft.Resources/deployments/* | Grupo de Recursos |
 
-### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nova conta de automatização e uma nova área de trabalho do Log Analytics
+#### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>Nova conta de automatização e uma nova área de trabalho do Log Analytics
 
 Para implementar o iniciar/parar VMs durante as horas de inatividade solução para uma nova conta de automatização do Log Analytics área de trabalho e o usuário que está implantando a solução tem as permissões definidas na secção anterior, bem como as seguintes permissões:
 
 - Coadministrador na subscrição - isto é necessário para criar a conta Run as clássica
 - Fazer parte do **programador da aplicação** função. Para obter mais detalhes sobre como configurar contas Run as, consulte [permissões para configurar contas Run as](manage-runas-account.md#permissions).
 
-| Permissão |Âmbito|
+| Permissão |Scope|
 | --- | --- |
 | Microsoft.Authorization/roleAssignments/read | Subscrição |
 | Microsoft.Authorization/roleAssignments/write | Subscrição |
@@ -90,6 +90,30 @@ Para implementar o iniciar/parar VMs durante as horas de inatividade solução p
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de Recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de Recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de Recursos |
+
+### <a name="region-mappings"></a>Mapeamentos de região
+
+Ao ativar iniciar/parar VMs fora do horário comercial, apenas determinadas regiões são suportadas para ligar uma área de trabalho do Log Analytics e uma conta de automatização.
+
+A tabela seguinte mostra os mapeamentos suportados:
+
+|**Região de área de trabalho do log Analytics**|**Região de automatização do Azure**|
+|---|---|
+|Sudeste da Austrália.|Sudeste da Austrália.|
+|CanadaCentral|CanadaCentral|
+|CentralIndia|CentralIndia|
+|EastUS<sup>1</sup>|EastUS2|
+|JapanEast|JapanEast|
+|SoutheastAsia|SoutheastAsia|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
+|WestEurope|WestEurope|
+|UKSouth|UKSouth|
+|USGovVirginia|USGovVirginia|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> EastUS2EUAP e EastUS mapeamentos para áreas de trabalho do Log Analytics para contas de automatização não são um mapeamento de região para região exato, mas é o mapeamento correto.
+
+<sup>2</sup> devido a restrições de capacidade a região não está disponível durante a criação de novos recursos. Isto inclui áreas de trabalho de contas de automatização e o Log Analytics. No entanto, os recursos ligados preexistentes na região devem continuar a funcionar.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
@@ -101,6 +125,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
 
    > [!NOTE]
    > Também pode criá-la em qualquer lugar no portal do Azure, ao clicar em **criar um recurso**. Na página do Marketplace, escreva uma palavra-chave, como **começar** ou **iniciar/parar**. À medida que começa a escrever, a lista filtra com base na sua entrada. Em alternativa, pode digitar um ou mais palavras-chave do nome completo da solução e, em seguida, prima Enter. Selecione **iniciar/parar VMs fora do horário comercial** resultados da pesquisa.
+
 2. Na **iniciar/parar VMs fora do horário comercial** página da solução selecionada, reveja as informações de resumidas e, em seguida, clique em **criar**.
 
    ![Portal do Azure](media/automation-solution-vm-management/azure-portal-01.png)
@@ -317,7 +342,7 @@ A automatização cria dois tipos de registos na área de trabalho do Log Analyt
 |Category | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams.|
 |JobId | GUID que é o ID do trabalho do runbook.|
 |operationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho.|
-|ResourceGroup | Especifica o nome do grupo de recursos do trabalho do runbook.|
+|GrupoRecursos | Especifica o nome do grupo de recursos do trabalho do runbook.|
 |resourceId | Especifica o ID de recurso no Azure. Para a Automatização, o valor é a conta de Automatização associada ao runbook.|
 |ResourceProvider | Especifica o serviço do Azure que fornece os recursos que pode implementar e gerir. Para a Automatização, o valor é Automatização do Azure.|
 |ResourceType | Especifica o tipo de recurso no Azure. Para a Automatização, o valor é a conta de Automatização associada ao runbook.|

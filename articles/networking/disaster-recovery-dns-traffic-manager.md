@@ -4,7 +4,7 @@ description: Descrição geral das soluções de recuperação após desastre co
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a560cc526e73f3ce7e851f2a545f9b16fa53b423
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60507746"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501712"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Recuperação após desastre com o DNS do Azure e o Gestor de Tráfego
 
@@ -140,8 +140,9 @@ As medidas tomadas para configurar a ativação pós-falha com o Gestor de tráf
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>Passo 1: Criar um novo perfil do Gestor de tráfego do Azure
 Criar um novo perfil do Gestor de tráfego do Azure com o nome contoso123 e selecione o método de encaminhamento como prioridade. Se tiver um grupo de recursos já existente que pretende associar, em seguida, pode selecionar um grupo de recursos existente, caso contrário, crie um novo grupo de recursos.
 
-![Criar perfil do Gestor de tráfego](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
-*figura - criar um perfil do Gestor de tráfego*
+![Criar perfil do Gestor de Tráfego](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+
+*Figura - criar um perfil do Gestor de tráfego*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>Passo 2: Criar pontos finais no perfil do Gestor de tráfego
 

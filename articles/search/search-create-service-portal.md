@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817546"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471611"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
@@ -54,7 +54,7 @@ Requisitos do nome do serviço:
 * Evite hífenes ("-") nos primeiro 2 carateres ou como último caráter único
 * Sem hífenes consecutivos ("-") em qualquer parte
 
-## <a name="select-a-subscription"></a>Selecionar uma subscrição
+## <a name="select-a-subscription"></a>Selecione uma subscrição
 
 Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. O Azure Search pode deteção automática de tabelas do Azure e BLOBs de armazenamento, base de dados SQL e do Azure Cosmos DB para indexação através de [ *indexadores*](search-indexer-overview.md), mas apenas para serviços na mesma subscrição.
 
@@ -67,11 +67,13 @@ Se não é a combinação de recursos num único grupo, ou se os grupos de recur
 > [!TIP]
 > A eliminação de um grupo de recursos também elimina os serviços no mesmo. Para projetos de protótipo que utilizam múltiplos serviços, colocá-los a todos no mesmo grupo de recursos facilita a limpeza depois de o projeto terminar.
 
-## <a name="select-a-hosting-location"></a>Selecionar uma localização de alojamento
+## <a name="select-a-location"></a>Selecione uma localização
 
 Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. [Os preços podem ser diferentes](https://azure.microsoft.com/pricing/details/search/) por geografia.
 
-Se estiver indexando um conteúdo localizado no Azure service (o armazenamento do Azure, Azure Cosmos DB, base de dados do Azure SQL), crie o seu serviço de pesquisa do Azure na mesma região que seus dados para evitar custos de largura de banda. Não existem custos para dados de saída quando os serviços estão na mesma região.
+Se estiver indexando dados fornecidos pelo Azure outro serviço (o armazenamento do Azure, Azure Cosmos DB, base de dados do Azure SQL), criar o serviço Azure Search na mesma região para evitar custos de largura de banda. Não existem custos para dados de saída quando os serviços estão na mesma região.
+
+Se estiver a utilizar o possível de ia de pesquisa cognitiva, crie o seu serviço na mesma região que o recurso dos serviços cognitivos. Colocalização de serviços é um requisito para a melhoria de IA.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um escalão de preço (SKU)
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 04/09/2018
+ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ad739041ebd20f9940e305efb19807df4c73cb8e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725797"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471678"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no seu ambiente do Time Series Insights
 
@@ -24,11 +24,11 @@ Este artigo descreve alguns problemas que poderá encontrar no seu ambiente do A
 
 ## <a name="video"></a>Vídeo
 
-### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Neste vídeo, vamos abordar os desafios de cliente do Time Series Insights e atenuações comuns:</br>
+### <a name="learn-about-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Saiba mais sobre as dificuldades de cliente do comum Time Series Insights e atenuações.</br>
 
 > [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
-## <a name="problem-one-no-data-is-shown"></a>Problema um: não existem dados são apresentados
+## <a name="problem-no-data-is-shown"></a>Problema: não existem dados são mostrados
 
 Sem dados na [Explorador do Azure Time Series Insights](https://insights.timeseries.azure.com) poderão ocorrer por diversos motivos comuns:
 
@@ -40,17 +40,17 @@ O Azure Time Series Insights suporta apenas os dados JSON. Para exemplos de JSON
 
 * Para um hub IoT no IoT Hub do Azure, tem de fornecer a chave que tenha **ligação de serviço** permissões. Qualquer um da **iothubowner** ou **service** políticas funcionam porque os dois têm **serviço ligar** permissões.
 
-   ![Permissões de ligação do serviço IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
+   [![Permissões de ligação do serviço IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Para um hub de eventos nos Hubs de eventos do Azure, tem de fornecer a chave que tenha **escutar** permissões. Qualquer um da **ler** ou **gerir** políticas funcionam porque os dois têm **escutar** permissões.
 
-   ![Permissões de escuta do hub de eventos](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)
+   [![Permissões de escuta do hub de eventos](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Causa c: o grupo de consumidores fornecido não é exclusivo para o Time Series Insights
 
 Quando se registra um hub IoT ou de um hub de eventos, é importante definir o grupo de consumidores que pretende utilizar para ler os dados. Este grupo de consumidores *não é possível partilhar*. Se o grupo de consumidores for partilhado, o hub de IoT subjacente ou o hub de eventos aleatoriamente e automaticamente desliga um dos leitores. Forneça um grupo de consumidores exclusivo para ler a partir do Time Series Insights.
 
-## <a name="problem-two-some-data-is-shown-but-data-is-missing"></a>Problema dois: alguns dados são apresentados, mas está em falta
+## <a name="problem-some-data-is-shown-but-data-is-missing"></a>Problema: a alguns dados são apresentados, mas está em falta
 
 Quando dados são apresentados apenas parcialmente e são apresentados os dados ser lagging, deve considerar várias possibilidades.
 
@@ -69,13 +69,13 @@ O limite de limitação é imposto com base no tipo de SKU do ambiente e a capac
 
 A figura seguinte mostra um ambiente do Time Series Insights que tenha uma SKU S1 e uma capacidade de 3. É possível 3 milhões de eventos de entrada por dia.
 
-![Capacidade atual de SKU de ambiente](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)
+![Capacidade atual de SKU de ambiente](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Por exemplo, partem do princípio de que este ambiente ingere mensagens a partir de um hub de eventos. A figura seguinte mostra a taxa de entrada:
 
-![Taxa de entrada de exemplo para um hub de eventos](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)
+[![Taxa de entrada de exemplo para um hub de eventos](media/diagnose-and-solve-problems/eventhub-ingress-rate.png)](media/diagnose-and-solve-problems/eventhub-ingress-rate.png#lightbox)
 
-A taxa de entrada diária é ~ 67,000 mensagens. Essa taxa se traduz em aproximadamente 46 mensagens a cada minuto. Se cada mensagem do hub de eventos foi simplificada para um único evento de Time Series Insights, a limitação não ocorre. Se cada mensagem do hub de eventos foi simplificada para 100 eventos do Time Series Insights, devem ser ingeridos 4,600 eventos a cada minuto. Um ambiente de S1 SKU que tem a capacidade de 3 pode 2.100 apenas eventos de entrada a cada minuto (1 milhão de eventos por dia = 700 eventos por minuto em três unidades = 2.100 eventos por minuto). Para esta configuração, verá um atraso devido à limitação. 
+A taxa de entrada diária é ~ 67,000 mensagens. Essa taxa se traduz em aproximadamente 46 mensagens a cada minuto. Se cada mensagem do hub de eventos foi simplificada para um único evento de Time Series Insights, a limitação não ocorre. Se cada mensagem do hub de eventos foi simplificada para 100 eventos do Time Series Insights, devem ser ingeridos 4,600 eventos a cada minuto. Um ambiente de S1 SKU que tem a capacidade de 3 pode 2.100 apenas eventos de entrada a cada minuto (1 milhão de eventos por dia = 700 eventos por minuto em três unidades = 2.100 eventos por minuto). Para esta configuração, verá um atraso devido à limitação.
 
 Para uma compreensão geral de como funciona a mesclar lógica, consulte [formas JSON suportadas](./how-to-shape-query-json.md).
 
@@ -85,24 +85,24 @@ Para corrigir o atraso, aumente a capacidade SKU do seu ambiente. Para obter mai
 
 ### <a name="cause-b-initial-ingestion-of-historical-data-slows-ingress"></a>Causa b: a ingestão inicial de dados históricos diminui a entrada
 
-Se ligar uma origem de evento existente, é provável que o seu IoT hub ou hub de eventos já contém dados. O ambiente começa a extrair dados desde o início do período de retenção de mensagem de origem do evento. Este é o processamento padrão e não pode ser substituída. Pode envolver a limitação. A limitação pode demorar algum tempo para acompanhar à medida que ingere dados históricos.
+Se ligar uma origem de evento existente, é provável que o seu IoT hub ou hub de eventos já contém dados. O ambiente começa a extrair dados desde o início do período de retenção de mensagem de origem do evento. Este processamento padrão não pode ser substituído. Pode envolver a limitação. A limitação pode demorar algum tempo para acompanhar à medida que ingere dados históricos.
 
 #### <a name="recommended-resolutions-for-large-initial-ingestion"></a>Resoluções recomendadas para grandes ingestão inicial
 
 Para corrigir o atraso:
 
-1. Aumente a capacidade SKU para o valor máximo permitido (10, neste caso). Depois de aumentar a capacidade, o processo de entrada é iniciado acompanhar muito mais rapidamente. É-lhe cobrada a maior capacidade. Para visualizar rapidamente como estamos obtendo até, pode ver o gráfico de disponibilidade na [Explorador do Time Series Insights](https://insights.timeseries.azure.com). 
+1. Aumente a capacidade SKU para o valor máximo permitido (10, neste caso). Depois de aumentar a capacidade, o processo de entrada é iniciado acompanhar muito mais rapidamente. É-lhe cobrada a maior capacidade. Para visualizar rapidamente como estamos obtendo até, pode ver o gráfico de disponibilidade na [Explorador do Time Series Insights](https://insights.timeseries.azure.com).
 
 2. Quando o atraso é atualizado com, diminua a capacidade SKU para a taxa de entrada normal.
 
-## <a name="problem-three-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema três: definição de nome de propriedade de timestamp minha origem de evento não funciona
+## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema: a definição de nome de propriedade de timestamp minha origem de evento não funciona
 
 Certifique-se de que o nome da propriedade timestamp e o valor está em conformidade com as seguintes regras:
 
 * O nome da propriedade timestamp diferencia maiúsculas de minúsculas.
 * O valor da propriedade timestamp que vem da origem de evento como uma cadeia de caracteres do JSON deve ter o formato _aaaa-MM-ddTHH. FFFFFFFK_. Um exemplo é **2008-04-12T12:53Z**.
 
-A maneira mais fácil para garantir que seu nome de propriedade timestamp é capturado e a funcionar corretamente é utilizar o Explorador do Time Series Insights. No Explorador do Time Series Insights, com o gráfico, selecione um período de tempo após introduzir o nome da propriedade timestamp. Com o botão direito a seleção e, em seguida, selecione o **explorar eventos** opção. 
+A maneira mais fácil para garantir que seu nome de propriedade timestamp é capturado e a funcionar corretamente é utilizar o Explorador do Time Series Insights. No Explorador do Time Series Insights, com o gráfico, selecione um período de tempo após introduzir o nome da propriedade timestamp. Com o botão direito a seleção e, em seguida, selecione o **explorar eventos** opção.
 
 No cabeçalho da coluna primeiro deve ser o nome da propriedade timestamp. Junto a palavra **Timestamp**, deverá ver **($ts)**.
 

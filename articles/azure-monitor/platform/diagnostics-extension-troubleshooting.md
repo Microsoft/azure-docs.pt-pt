@@ -6,14 +6,14 @@ author: rboucher
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/08/2019
 ms.author: robb
-ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 99ac4ffc288773e52183d371ef2c20f6153bc0f3
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60395055"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471784"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Resolução de problemas de diagnóstico do Azure
 Este artigo descreve as informações de resolução de problemas que são relevantes para a utilização de diagnóstico do Azure. Para obter mais informações sobre o diagnóstico do Azure, consulte [descrição geral de diagnóstico do Azure](diagnostics-extension-overview.md).
@@ -28,8 +28,8 @@ Este artigo descreve as informações de resolução de problemas que são relev
 ## <a name="logartifact-paths"></a>Caminhos de registo/artefacto
 Seguem-se os caminhos para alguns registos de importantes e artefactos. Fazemos referência a essas informações em todo o resto do documento.
 
-### <a name="azure-cloud-services"></a>Cloud Services do Azure
-| Artefacto | Caminho |
+### <a name="azure-cloud-services"></a>Serviços Cloud do Azure
+| Artefacto | `Path` |
 | --- | --- |
 | **Ficheiro de configuração de diagnósticos do Azure** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Ficheiros de registo** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
@@ -40,7 +40,7 @@ Seguem-se os caminhos para alguns registos de importantes e artefactos. Fazemos 
 | **Ficheiro de registo de MonAgentHost** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-| Artefacto | Caminho |
+| Artefacto | `Path` |
 | --- | --- |
 | **Ficheiro de configuração de diagnósticos do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Ficheiros de registo** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
@@ -48,7 +48,7 @@ Seguem-se os caminhos para alguns registos de importantes e artefactos. Fazemos 
 | **Ficheiro de configuração do agente de monitorização** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
 | **Ficheiro de estado** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\Status |
 | **Pacote de extensão de diagnóstico do Azure** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>|
-| **Caminho de utilitário de coleção de registo** | C:\WindowsAzure\Packages |
+| **Caminho de utilitário de coleção de registo** | C:\WindowsAzure\Logs\WaAppAgent.log |
 | **Ficheiro de registo de MonAgentHost** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Dados de métrica não aparecem no portal do Azure

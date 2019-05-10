@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 8cb044397cf439e97f3630b5c1c3f53fbf3f356d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/08/2019
+ms.openlocfilehash: 783a8f0bc25717f1c2bf78a9c0d40b209a07939b
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61468402"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473350"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Controlo de acesso de base de dados SQL e SQL Data Warehouse do Azure
 
@@ -43,7 +43,7 @@ A Base de Dados SQL suporta dois tipos de autenticação:
   Este método de autenticação utiliza um nome de utilizador e palavra-passe. Quando criou o servidor de base de dados SQL da base de dados, especificou um início de sessão "administrador do servidor" com um nome de utilizador e palavra-passe. Com estas credenciais, pode autenticar-se em qualquer base de dados nesse servidor como o proprietário da base de dados ou "dbo". 
 - **O Azure Active Directory Authentication**:
 
-  Este método de autenticação utiliza identidades geridas pelo Azure Active Directory e é suportado para domínios geridos e integrados. Utilize a autenticação do Active Directory (segurança integrada) [sempre que possível](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). Se pretender utilizar a autenticação do Azure Active Directory, tem de criar outro administrador de servidor, denominado "Administrador do Azure AD", que tem permissão para administrar utilizadores e grupos do Azure AD. Este administrador também pode fazer todas as operações que um administrador de servidor normal faz. Veja [Connecting to SQL Database By Using Azure Active Directory Authentication (Utilizar a Autenticação do Azure Active Directory para Ligar à Base de Dados SQL)](sql-database-aad-authentication.md) para obter instruções sobre como criar um administrador do Azure AD e ativar a Autenticação do Azure Active Directory.
+  Este método de autenticação utiliza identidades geridas pelo Azure Active Directory e é suportado para domínios geridos e integrados. Se pretender utilizar a autenticação do Azure Active Directory, tem de criar outro administrador de servidor, denominado "Administrador do Azure AD", que tem permissão para administrar utilizadores e grupos do Azure AD. Este administrador também pode fazer todas as operações que um administrador de servidor normal faz. Veja [Connecting to SQL Database By Using Azure Active Directory Authentication (Utilizar a Autenticação do Azure Active Directory para Ligar à Base de Dados SQL)](sql-database-aad-authentication.md) para obter instruções sobre como criar um administrador do Azure AD e ativar a Autenticação do Azure Active Directory.
 
 O Motor de Base de Dados fecha ligações que permanecem inativas durante mais de 30 minutos. A ligação tem de iniciar sessão novamente antes de poder ser utilizada. As ligações continuamente ativas à Base de Dados SQL precisam de reautorização (realizada pelo motor de base de dados) pelo menos a cada 10 horas. O motor de base de dados tenta a reautorização com a palavra-passe originalmente submetida e sem intervenção do utilizador. Por motivos de desempenho, quando uma palavra-passe é reposta na base de dados SQL, a ligação não é reautenticar, mesmo que a ligação seja reposta devido ao agrupamento de ligações. Isto é diferente do comportamento do SQL Server no local. Se a palavra-passe tiver sido alterada porque a ligação foi inicialmente autorizada, a ligação tem de ser terminada e uma nova ligação efetuada com a nova palavra-passe. Um utilizador com permissão `KILL DATABASE CONNECTION` pode terminar uma ligação explicitamente na Base de Dados SQL com o comando [ELIMINAR](https://docs.microsoft.com/sql/t-sql/language-elements/kill-transact-sql).
 

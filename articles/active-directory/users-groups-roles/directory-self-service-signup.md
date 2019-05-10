@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0cfc31705909710e6a60e0d2fd3963e74e9397ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472269"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501901"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é a inscrição self-service do Azure Active Directory?
 
@@ -52,7 +52,7 @@ Um administrador pode configurar estas capacidades utilizando os seguintes parâ
 AllowEmailVerifiedUsers e AllowAdHocSubscriptions são as definições de todo o diretório que podem ser aplicadas a um gerido ou um diretório não gerido. Eis um exemplo em que:
 
 * Administra um diretório com um domínio verificado, tal como contoso.com
-* Utilizar a colaboração B2B de outro diretório para convidar um utilizador que já não existe (userdoesnotexist@contoso.com) no diretório principal do constoso.com
+* Utilizar a colaboração B2B de outro diretório para convidar um utilizador que já não existe (userdoesnotexist@contoso.com) no diretório principal do contoso.com
 * O diretório de raiz tem AllowEmailVerifiedUsers ativada
 
 Se condições anteriores forem verdadeiras, em seguida, um utilizador de membro é criado no diretório principal e um utilizador de convidado de B2B é criado no diretório de convite.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 66d0d791e4f32fc0828d400db7b59d836d221aee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c919d02a72565f42c125e6d123b48e2cedaea508
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60315647"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407967"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-textmagic"></a>Tutorial: Integração do Active Directory do Azure com TextMagic
 
@@ -116,10 +116,10 @@ Para configurar o Azure AD início de sessão único com TextMagic, execute os s
 
     | Name |   Atributo de origem| Espaço de nomes  |
     | --------------- | --------------- | --------------- |
-    | Empresa | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | firstName               | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | lastName            | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | telefone               | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Empresa | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | firstName               | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | lastName            | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | telefone               | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -231,7 +231,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 Aplicação suporta **Just-in de aprovisionamento de utilizadores de tempo** e depois dos utilizadores de autenticação serão criados no aplicativo automaticamente. Tem de preencher as informações de uma vez no primeiro início de sessão para ativar a conta secundárias no sistema.
 Não existe nenhum item de ação para nesta secção.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

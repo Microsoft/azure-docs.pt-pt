@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/29/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 50714f3fe6d30b4b93a0b42383b6f4634c86eafa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d46c545db9e1950988b49cdb577d074b6d04380c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148062"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236591"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagem partilhada com o portal do Azure
 
@@ -43,7 +43,9 @@ O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Pod
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente. Pode seguir [Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell](tutorial-custom-images.md) para criar um, se necessário. Quando trabalhar com este artigo, substitua o grupo de recursos e a VM nomes onde necessário.
+Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente. Pode seguir [Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell](tutorial-custom-images.md) para criar um, se necessário. Se a imagem gerida contém um disco de dados, o tamanho do disco de dados não pode ser mais de 1 TB.
+
+Quando trabalhar com este artigo, substitua o grupo de recursos e a VM nomes onde necessário.
 
 
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]

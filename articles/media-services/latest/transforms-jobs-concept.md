@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 3c3687ceff10baec028435d1e6c513e72ca5da86
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e64e980d42086603c9eb8ce39a96a9766a78afcb
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149089"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472467"
 ---
 # <a name="transforms-and-jobs"></a>Transformações e Tarefas
 
@@ -53,19 +53,21 @@ R **transformar** ajuda-o a criar uma vez a receita (passo 1) e submeter tarefas
 
 ## <a name="transforms"></a>Transformações
 
+Uso **transforma** para configurar as tarefas comuns de codificação ou analisar vídeos. Cada **transformar** descreve uma recipe ou um fluxo de trabalho de tarefas para processar os ficheiros de vídeos ou áudio. Uma transformação única pode aplicar mais do que uma regra. Por exemplo, uma transformação poderia especificar que cada vídeo seja codificada num arquivo MP4 num determinado de velocidade de transmissão e que uma imagem em miniatura gerado a partir do primeiro quadro do vídeo. Adicionaria uma entrada de TransformOutput para cada regra que pretende incluir na sua transformação. Utilizar configurações predefinidas para informar a transformação como os ficheiros de suporte de dados de entrada devem ser processados.
+
+Em serviços de multimédia v3, suas configurações predefinidas são com rigidez de tipos de entidades na API propriamente dita. Pode encontrar a definição de "schema" para esses objetos no [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **StandardEncoderPreset**) na [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou outra documentação de referência do serviços de multimédia v3 SDK).
+
+Pode criar transformações usando REST, da CLI, ou utilizar qualquer um dos SDKs publicados. Transforma os serviços de multimédia v3 que API é orientada pelo Azure Resource Manager, para que também pode utilizar modelos do Resource Manager para criar e implementar na sua conta de Media Services. Controlo de acesso baseado em funções pode ser utilizado para bloquear o acesso às transformações.
+
+Se precisar de atualizar seus [transformar](https://docs.microsoft.com/rest/api/media/transforms), utilize o **atualizar** operação. Destina-se para fazer alterações para a descrição ou as prioridades do TransformOutputs subjacente. Recomenda-se que essas atualizações ser executadas quando forem concluídas todas as tarefas em curso. Se pretende reescrever a receita, terá de criar uma nova transformação.
+
+### <a name="transform-object-diagram"></a>Diagrama de objetos de transformação
+
 O diagrama seguinte mostra os **transformar** objeto e os objetos, incluindo as relações de derivação faz referência. As setas cinzentos mostram um tipo que as referências de tarefa e as setas verde mostram relações de derivação de classe.<br/>Clique na imagem para visualizá-lo tamanho completo.  
 
 <a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
-Uso **transforma** para configurar as tarefas comuns de codificação ou analisar vídeos. Cada **transformar** descreve uma recipe ou um fluxo de trabalho de tarefas para processar os ficheiros de vídeos ou áudio. Uma transformação única pode aplicar mais do que uma regra. Por exemplo, uma transformação poderia especificar que cada vídeo seja codificada num arquivo MP4 num determinado de velocidade de transmissão e que uma imagem em miniatura gerado a partir do primeiro quadro do vídeo. Adicionaria uma entrada de TransformOutput para cada regra que pretende incluir na sua transformação. Pode criar transformações na sua conta de serviços de multimédia com a API do serviços de multimédia v3 ou utilizar qualquer um dos SDKs publicados. Transforma os serviços de multimédia v3 que API é orientada pelo Azure Resource Manager, para que também pode utilizar modelos do Resource Manager para criar e implementar na sua conta de Media Services. Controlo de acesso baseado em funções pode ser utilizado para bloquear o acesso às transformações.
-
-A operação de atualização no [transformar](https://docs.microsoft.com/rest/api/media/transforms) entidade destina-se para efetuar alterações para a descrição ou as prioridades do TransformOutputs subjacente. Recomenda-se que essas atualizações ser executadas quando forem concluídas todas as tarefas em curso. Se pretende reescrever a receita, terá de criar uma nova transformação.
-
 ## <a name="jobs"></a>Tarefas
-
-O diagrama seguinte mostra os **tarefa** objeto e os objetos, incluindo as relações de derivação faz referência.<br/>Clique na imagem para visualizá-lo tamanho completo.  
-
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
 R **tarefa** é o pedido real para os serviços de multimédia do Azure para aplicar a **transformar** para um determinado conteúdo vídeo ou áudio de entrada. Quando a transformação tiver sido criada, pode submeter trabalhos com APIs de serviços de suporte de dados ou qualquer um dos SDKs publicados. O **tarefa** Especifica informações como a localização do vídeo de entrada e a localização para a saída. Pode especificar a localização da sua utilização vídeo entrada: URLs HTTPS, URLs SAS, ou [ativos](https://docs.microsoft.com/rest/api/media/assets).  
 
@@ -76,6 +78,12 @@ Uso [Asset como entrada da tarefa](job-input-from-local-file-how-to.md) se o con
 O progresso e o estado das tarefas podem ser obtidos através da monitorização de eventos com o Event Grid. Para obter mais informações, consulte [monitorar eventos usando EventGrid](job-state-events-cli-how-to.md).
 
 A operação de atualização no [tarefa](https://docs.microsoft.com/rest/api/media/jobs) entidade pode ser usada para modificar a *Descrição*e o *prioridade* propriedades depois da tarefa foi submetida. Uma alteração para o *prioridade* propriedade é eficaz apenas se a tarefa ainda estiver num Estado em fila. Se a tarefa foi iniciada processamento ou foi concluída, a alteração de prioridade não tem qualquer efeito.
+
+### <a name="job-object-diagram"></a>Diagrama de objeto de tarefa
+
+O diagrama seguinte mostra os **tarefa** objeto e os objetos, incluindo as relações de derivação faz referência.<br/>Clique na imagem para visualizá-lo tamanho completo.  
+
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
 ## <a name="configure-media-reserved-units"></a>Configurar unidades reservadas de multimédia
 
@@ -94,5 +102,8 @@ Veja a [Comunidade dos serviços de multimédia do Azure](media-services-communi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) (Tutorial: carregar, codificar e transmitir vídeos em fluxo com .NET)
-- [Tutorial: Analisar vídeos com os serviços de multimédia v3 através do .NET](analyze-videos-tutorial-with-api.md)
+- Antes de começar a desenvolver, reveja [desenvolver com os serviços de multimédia v3 APIs](media-services-apis-overview.md) (inclui informações sobre como aceder a APIs, as convenções de nomenclatura, etc.)
+- Veja estes tutoriais:
+
+    - [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) (Tutorial: carregar, codificar e transmitir vídeos em fluxo com .NET)
+    - [Tutorial: Analisar vídeos com os serviços de multimédia v3 através do .NET](analyze-videos-tutorial-with-api.md)

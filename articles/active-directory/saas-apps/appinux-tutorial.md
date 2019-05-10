@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e40890459315bacf88fa6a12bc5eed7c0708b1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7d3e53224b5de32003cef29433a257ddfc99d88
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284353"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406731"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appinux"></a>Tutorial: Integração do Active Directory do Azure com Appinux
 
@@ -121,16 +121,16 @@ Para configurar o Azure AD início de sessão único com Appinux, execute os seg
 
     | **Nome** | **Namespace** | **Atributo de origem**|
     | ---------|---------------| --------- |
-    | `givenname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
-    | `surname` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
-    | `emailaddress` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
-    | `name` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
+    | `givenname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.givenname` |
+    | `surname` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.surname` |
+    | `emailaddress` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.mail` |
+    | `name` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.userprincipalname` |
     | `UserType` | `http://bcv.appinux.com/claims` | `Provide the value as per your organization` |
     | `Tag` | `http://appinux.com/Tag` | `Provide the value as per your organization` |
     | `Role` | `http://schemas.microsoft.com/ws/2008/06/identity/claims/role` | `user.assignedroles` |
-    | `email` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
+    | `email` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/email` | `user.mail` |
     | `wanshort` | `http://appinux.com/windowsaccountname2` | `extractmailprefix([userprincipalname])` |
-    | `nameidentifier` | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
+    | `nameidentifier` | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` | `user.employeeid` |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -226,7 +226,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Appinux. Appinu
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Appinux](https://support.appinux.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

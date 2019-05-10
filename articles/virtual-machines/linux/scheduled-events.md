@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: b35a06fc4e100d71e787e183299825b61d342e69
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 0831f08eaa3e8e6f6a0d3f68bc50cd927167b7ba
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993154"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507930"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Linux
 
@@ -46,7 +46,7 @@ Com eventos agendados, seu aplicativo pode detetar quando manutenção irá ocor
 
 Eventos agendados fornece eventos nos seguintes casos de utilização:
 
-- [Manutenção iniciada de plataforma](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, VM reinicialização, migração em direto ou atualizações para o anfitrião de preservação de memória)
+- [Manutenção iniciada de plataforma](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (por exemplo, VM reinicialização, migração em direto ou atualizações para o anfitrião de preservação de memória)
 - Hardware degradado
 - Manutenção iniciada pelo utilizador (por exemplo, um utilizador for reiniciado ou reimplementa uma VM)
 - [Expulsão de baixa prioridade VM](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
@@ -55,7 +55,7 @@ Eventos agendados fornece eventos nos seguintes casos de utilização:
 
   Serviço de metadados expõe informações sobre como executar as VMs ao utilizar um ponto final REST, que é acessível a partir de dentro da VM. As informações estão disponíveis por meio de um IP nonroutable para que não está exposta fora da VM.
 
-### <a name="scope"></a>Âmbito
+### <a name="scope"></a>Scope
 Eventos agendados são entregues para:
 
 - Máquinas virtuais autónomas.
@@ -75,11 +75,11 @@ Se a VM não é criada numa rede Virtual, os casos de padrão para serviços clo
 ### <a name="version-and-region-availability"></a>Versão e a disponibilidade de região
 O serviço de eventos agendados tem a mesma versão. Versões são obrigatórias; a versão atual é `2017-11-01`.
 
-| Version | Tipo de versão | Regiões | Notas de Versão | 
+| Version | Tipo de versão | Regiões | Notas de versão | 
 | - | - | - | - | 
 | 2017-11-01 | Disponibilidade Geral | Todos | <li> Foi adicionado suporte para expulsão de baixa prioridade VM EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade Geral | Todos | <li> Removido o caráter de sublinhado antecedendo nomes de recursos para IaaS VMs<br><li>Requisito de cabeçalho de metadados imposto a todos os pedidos | 
-| 2017-03-01 | Pré-visualização | Todos | <li>Versão inicial
+| 2017-03-01 | Pré-visualizar | Todos | <li>Versão inicial
 
 
 > [!NOTE] 
@@ -143,7 +143,7 @@ Cada evento está agendado uma quantidade mínima de tempo no futuro, com base n
 | - | - |
 | Congelamento| 15 minutos |
 | Reiniciar | 15 minutos |
-| Voltar a implementar | 10 minutos |
+| Implementar novamente | 10 minutos |
 | Tomar o lugar | 30 segundos |
 
 ### <a name="start-an-event"></a>Iniciar um evento 

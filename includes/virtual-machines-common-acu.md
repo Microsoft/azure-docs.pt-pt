@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/21/2018
 ms.author: cynthn;davberg
 ms.custom: include file
-ms.openlocfilehash: 366dec6c687c0b9f40d61e0debb7c15910b9fa99
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ca0c45b5d74140e0398595070df71da669caab53
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036143"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468411"
 ---
 O conceito de computação do Azure unidade (ACU) fornece uma forma de comparar o desempenho de computação (CPU) nos SKUs do Azure. Isto ajudará a identificar facilmente que SKU é mais provável de satisfazer as suas necessidades de desempenho.  A ACU está atualmente normalizada numa VM Pequena (Standard_A1) de 100 e todos os outros SKUs representam aproximadamente a velocidade máxima a que esse SKU consegue executar um teste de desempenho padrão. 
 
@@ -24,7 +24,7 @@ O conceito de computação do Azure unidade (ACU) fornece uma forma de comparar 
 
 <br>
 
-| Família de SKU | ACU \ vCPU | vCPU: Principal |
+| Família de SKU | ACU \ vCPU | vCPU: Núcleo |
 | --- | --- |---|
 | [A0](../articles/virtual-machines/windows/sizes-general.md) |50 | 1:1 |
 | [A1 - A4](../articles/virtual-machines/windows/sizes-general.md) |100 | 1:1 |
@@ -46,6 +46,8 @@ O conceito de computação do Azure unidade (ACU) fornece uma forma de comparar 
 | [G1 - G5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
 | [GS1 - GS5](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) |180 - 240* | 1:1 |
 | [H](../articles/virtual-machines/windows/sizes-hpc.md) |290 - 300* | 1:1 |
+| [HB](../articles/virtual-machines/windows/sizes-hpc.md) |199 - 216** | 1:1 |
+| [HC](../articles/virtual-machines/windows/sizes-hpc.md) |297 - 315* | 1:1 |
 | [L4s - L32s](../articles/virtual-machines/windows/sizes-storage.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](../articles/virtual-machines/windows/sizes-storage.md) |150 - 175** | 2:1 |
 | [M](../articles/virtual-machines/virtual-machines-windows-sizes-memory.md) | 160 - 180 | 2:1\*\*\* |

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 14990cd4a066c126b5e4d498c5a109dac1b8820a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140941"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508238"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -193,13 +193,7 @@ O ficheiro Settings armazena as definições da aplicação, as cadeias de liga�
 | **`CORS`** | Define as origens permitidas para [recursos de várias origens (CORS) de partilha](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Origens são fornecidas como uma lista separada por vírgulas, sem espaços. O valor de caráter universal (\*) é suportado, que permite que os pedidos a partir de qualquer origem. |
 | **`ConnectionStrings`** | Não utilize esta coleção para as cadeias de ligação utilizadas pelo seu enlaces de funções. Esta coleção só é utilizada por estruturas que normalmente obtém cadeias de ligação do `ConnectionStrings` secção de uma configuração de ficheiros, tais como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Cadeias de ligação desse objeto são adicionadas ao ambiente com o tipo de fornecedor de [SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Itens dessa coleção não são publicadas no Azure com outras definições de aplicação. Tem de adicionar explicitamente esses valores para o `Connection strings` coleção das definições de aplicação de função. Se estiver a criar uma [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) no código da função, deve armazenar o valor da cadeia de ligação **configurações de aplicativo** no portal com as outras ligações. |
 
-Os valores de definições de aplicação de função também podem ser lidos em seu código como variáveis de ambiente. Para obter mais informações, consulte a secção de variáveis de ambiente destes tópicos de referência de idioma específico:
-
-* [C# pré-compiladas](functions-dotnet-class-library.md#environment-variables)
-* [Script do c# (.csx)](functions-reference-csharp.md#environment-variables)
-* [F#script (.fsx)](functions-reference-fsharp.md#environment-variables)
-* [Java](functions-reference-java.md#environment-variables)
-* [JavaScript](functions-reference-node.md#environment-variables)
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
 
 Quando nenhuma cadeia de ligação de armazenamento válida é definida para [ `AzureWebJobsStorage` ] e o emulador não está a ser utilizado, é apresentada a seguinte mensagem de erro:
 

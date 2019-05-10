@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: bf36de1965a8c819af0ef5af98a2393d4cefa1b3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: b072314bdbec1d5a6184e6f20e98c35a9135a5b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205724"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508410"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Rede Virtual do Azure perguntas mais frequentes (FAQ)
 
@@ -67,7 +67,9 @@ Sim. Para obter mais informações sobre intervalos de endereços IP públicos, 
 Sim. Ver [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereços de sub-rede não podem sobrepor um do outro.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Existem restrições sobre como utilizar endereços IP dentro destas sub-redes?
-Sim. O Azure reserva cinco endereços IP em cada sub-rede. Os endereços IP do próprio e apelidos de cada sub-rede estão reservados para conformidade com o protocolo, juntamente com os endereços de x.x.x.1 x.x.x.3 de cada sub-rede, que são utilizadas para serviços do Azure.
+Sim. O Azure reserva cinco endereços IP em cada sub-rede. Estas são x.x.x.0 x.x.x.3 e o último endereço da sub-rede.    
+- x.x.x.0 e o último endereço da sub-rede está reservado para conformidade com o protocolo.
+- x.x.x.1 x.x.x.3 está reservada em cada sub-rede para serviços do Azure.
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Como pequenos e grandes como podem ser VNets e sub-redes?
 A sub-rede menor suportada é /29, sendo o maior /8 (através de definições de sub-rede CIDR).
@@ -244,7 +246,7 @@ Os seguintes recursos utilizam balanceadores de carga básico, que significa que
 - SQL MI
 - Gestão de API
 - Serviço de domínio do Active Directory (ADDS)
-- Aplicações Lógicas
+- Logic Apps
 - HD Insight
 -   Azure Batch
 - AKS
@@ -281,6 +283,9 @@ Não. Peering transitivo não é suportada. Deve configurar o peering também e 
 
 ### <a name="are-there-any-bandwidth-limitations-for-peering-connections"></a>Existem limitações de largura de banda para ligações de peering?
 Não. VNet peering, sejam locais ou globais, não impõe quaisquer restrições de largura de banda. Largura de banda é limitada apenas pela VM ou o recurso de computação.
+
+### <a name="how-can-i-troubleshoot-vnet-peering-issues"></a>Como posso resolver problemas de VNet Peering?
+Aqui está um [guia de resolução de problemas] (https://support.microsoft.com/en-us/help/4486956/troubleshooter-for-virtual-network-peering-issues) pode experimentar.
 
 ## <a name="virtual-network-tap"></a>TAP de rede virtual
 
@@ -390,12 +395,12 @@ Não existe nenhum limite no número total de pontos finais de serviço de VNet 
 |---|---|
 |Serviço do Azure| Limites para as regras de VNet|
 |Storage do Azure| 100|
-|SQL do Azure| 128|
-|Azure SQL Data Warehouse|  128|
+|Azure SQL| 128|
+|SQL Data Warehouse do Azure|  128|
 |Azure KeyVault|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
-|Service Bus do Azure| 128|
+|Azure Service Bus| 128|
 |Azure Data Lake Store V1|  100|
  
 >[!NOTE]

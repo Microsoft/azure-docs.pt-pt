@@ -1,7 +1,7 @@
 ---
 title: Arquitetura e conceitos-chave
 titleSuffix: Azure Machine Learning service
-description: Saiba mais sobre a arquitetura, os termos, conceitos e fluxo de trabalho que formam o serviço Azure Machine Learning.
+description: Saiba mais sobre a arquitetura, termos, conceitos e fluxo de trabalho que formam o serviço Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b06e3ff50eba4763403450a807aa90ef6335f1a9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cb716e0d9f97d3ea2e9584a9fc3d7a6f57da9179
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025225"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65502080"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Como funciona o serviço Azure Machine Learning: Conceitos e arquitetura
 
@@ -32,21 +32,19 @@ O fluxo de trabalho do machine learning em geral, segue essa seqüência:
 1. **Submeter os scripts** para o destino de computação configurada para ser executado nesse ambiente. Durante o treinamento, os scripts podem ler ou escrever **arquivo de dados**. E os registos de execução são guardados como **executa** no **área de trabalho** e agrupados sob **experimentações**.
 1. **Consultar a experimentação** para as métricas registadas de execuções a atuais e anteriores. Se as métricas não indicam um resultado desejado, fazer um loop novamente para o passo 1 e iterar em seus scripts.
 1. Após encontra uma execução satisfatória, registe o modelo persistente na **registo de modelo**.
-1. Desenvolva um script de classificação.
-1. **Criar uma imagem** e registe-na **registo de imagem**.
-1. **Implementar a imagem** como uma **serviço web** no Azure.
+1. Desenvolver um script de classificação que utiliza o modelo e **implementar o modelo** como um **serviço web** no Azure ou para um **dispositivo IoT Edge**.
 
 
 > [!NOTE]
 > Embora este artigo define os termos e conceitos utilizados pelo serviço Azure Machine Learning, não definir termos e conceitos para a plataforma Azure. Para obter mais informações sobre a terminologia da plataforma do Azure, consulte a [Glossário do Microsoft Azure](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
-## <a name="workspace"></a>Área de trabalho
+## <a name="workspace"></a>Área de Trabalho
 
 A área de trabalho é o recurso de nível superior para o serviço Azure Machine Learning. Ele fornece um local centralizado para trabalhar com todos os artefactos que criar quando utilizar o serviço Azure Machine Learning.
 
 A área de trabalho mantém uma lista de destinos de computação que pode utilizar para preparar o seu modelo. Além disso, mantém um histórico de execuções de preparação, incluindo registos, métricas, saída e um instantâneo dos seus scripts. Utilize estas informações para determinar qual execução de treinamento produz o melhor modelo.
 
-Registe-se de modelos com a área de trabalho. Utilize um modelo registado e scripts de classificação para criar uma imagem. Pode, em seguida, implementar a imagem no Azure Container Instances, Azure Kubernetes Service, ou a uma matriz de porta de campos programáveis (FPGA) como um ponto de final HTTP baseado em REST. Também pode implementar a imagem para um dispositivo Azure IoT Edge como um módulo.
+Registe-se de modelos com a área de trabalho. Utilize um modelo registado e scripts de classificação para implementar um modelo no Azure Container Instances, Azure Kubernetes Service, ou a uma matriz de porta de campos programáveis (FPGA) como um ponto de final HTTP baseado em REST. Também pode implementar a imagem para um dispositivo Azure IoT Edge como um módulo. Internamente, é criada uma imagem de docker para alojar a imagem implementada. Se for necessário, pode especificar sua própria imagem.
 
 Pode criar várias áreas de trabalho, e cada área de trabalho pode ser partilhada por várias pessoas. Quando partilha uma área de trabalho, pode controlar o acesso ao mesmo através da atribuição de utilizadores para as seguintes funções:
 
@@ -94,7 +92,7 @@ Modelos são identificados pelo nome e versão. Sempre que registar um modelo co
 
 Quando registra o modelo, pode fornecer marcas de metadados adicionais e, em seguida, utilizar as etiquetas quando procurar modelos.
 
-Não é possível eliminar modelos que estão a ser utilizados por uma imagem.
+Não é possível eliminar modelos que estão a ser utilizados por uma implementação ativa.
 
 Para obter um exemplo de um modelo de registo, consulte [preparar um modelo de classificação de imagem com o Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -208,11 +206,11 @@ O registo de imagem mantém um registo de imagens que são criadas a partir de s
 
 ## <a name="deployment"></a>Implementação
 
-Uma implementação é uma instanciação de sua imagem em qualquer um de um serviço da web que pode ser alojado na cloud ou um módulo de IoT para Implantações de dispositivos integrada.
+Uma implementação é uma instanciação do seu modelo em qualquer um de um serviço da web que pode ser alojado na cloud ou um módulo de IoT para Implantações de dispositivos integrada.
 
 ### <a name="web-service"></a>Serviço Web
 
-Um serviço web implementado pode utilizar o Azure Container Instances, Azure Kubernetes Service ou FPGAs. Criar o serviço a partir de uma imagem que encapsula o seu modelo, com scripts e ficheiros associados. A imagem tem um ponto final do HTTP com balanceamento de carga, recebe pedidos de classificação que são enviados para o serviço web.
+Um serviço web implementado pode utilizar o Azure Container Instances, Azure Kubernetes Service ou FPGAs. Criar o serviço a partir do seu modelo, com scripts e ficheiros associados. Eles são encapsulados numa imagem, que fornece o ambiente de tempo de execução para o serviço web. A imagem tem um ponto final do HTTP com balanceamento de carga, recebe pedidos de classificação que são enviados para o serviço web.
 
 Azure ajuda-o a monitorizar a implementação do serviço web através da recolha de telemetria do Application Insights ou telemetria de modelo, se tiver escolhido para ativar esta funcionalidade. Os dados de telemetria estão acessíveis apenas para si e é armazenado no Application Insights e instâncias de conta de armazenamento.
 

@@ -2,19 +2,19 @@
 title: Tutorial – utilizar o Azure Key Vault com uma aplicação web do Azure em .NET | Documentos da Microsoft
 description: Neste tutorial, irá configurar uma aplicação ASP.NET core para ler um segredo a partir do seu Cofre de chaves.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 42c8d863a58c5f5d8f47f6686aa9a5b8f80277d2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9a59255097c6cb2a6728a14c3dbe19dbcbb0932a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64710513"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236802"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Utilizar o Azure Key Vault com uma aplicação web do Azure no .NET
 

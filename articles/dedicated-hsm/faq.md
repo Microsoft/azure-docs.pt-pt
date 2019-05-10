@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 4/15/2019
+ms.date: 5/8/2019
 ms.author: barclayn
-ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b73b6bdc0158591565281ca2e86a9a474c4196d9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118983"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467727"
 ---
 # <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
@@ -75,7 +75,7 @@ A partir do final de Março de 2019, HSM dedicados está disponível em 14 regi�
 * Europa do Norte
 * Europa Ocidental
 * Reino Unido Sul
-* Reino Unido Oeste
+* Oeste do R.U.
 * Canadá Central
 * Leste do Canadá
 * Leste da Austrália
@@ -201,7 +201,7 @@ Não.
 
 16 membros de um grupo HA tem em foram, Acelerador completo de teste com resultados excelentes.
 
-## <a name="support"></a>Suporte
+## <a name="support"></a>Apoio ao cliente
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>P. O que é o SLA para o serviço HSM dedicados?
 
@@ -233,7 +233,7 @@ Microsoft não tem a capacidade de conexão para HSMs alocadas para os clientes.
 
 ### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>P. E se eu precisar de reiniciar a minha HSM?
 
- O HSM tem uma opção de reinício de linha de comandos e é importante observar que a opção de "reinício" tem de ser utilizada. Se isso falhar por algum motivo, faça um pedido de suporte com a Microsoft e podemos ter o dispositivo fisicamente reiniciado. 
+O HSM tem uma opção de reinício de linha de comandos, no entanto, está a ter problemas de travamento de reinício intermitentemente e por esse motivo, que recomenda-se para a mais segura de reinício de que faça um pedido de suporte com a Microsoft para que o dispositivo fisicamente reiniciado. 
 
 ## <a name="cryptography-and-standards"></a>Padrões e criptografia
 

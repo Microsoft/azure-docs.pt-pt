@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404705"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510533"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos DB nas funções do Azure
 
@@ -27,17 +27,19 @@ O acionador do Azure Cosmos DB e os enlaces dependem os pacotes de extensão ao 
 
 Este artigo irá sempre se referir a V2 de funções do Azure sempre que o tempo de execução é mencionado, a menos que explicitamente especificado.
 
-## <a name="consuming-the-cosmos-db-sdk-separately-from-the-trigger-and-bindings"></a>Consumindo o SDK do Cosmos DB em separado do acionador e enlaces
+## <a name="consume-the-azure-cosmos-db-sdk-independently"></a>Consumir o SDK do Azure Cosmos DB de forma independente
 
 É a principal funcionalidade do pacote de extensão fornecer suporte para o acionador do Azure Cosmos DB e enlaces. Ele também inclui a [SDK de .NET do Azure Cosmos DB](sql-api-sdk-dotnet-core.md), que é útil se pretender interagir com o Azure Cosmos DB através de programação sem utilizar o acionador e os enlaces.
 
-Se pretende utilizar o SDK do Azure Cosmos DB, certifique-se de que não adicionar ao seu projeto outra referência de pacote de NuGet. Em vez disso, **permitir que a referência do SDK resolver por meio do pacote de extensão das funções do Azure**.
+Se pretende utilizar o SDK do Azure Cosmos DB, certifique-se de que não adicionar ao seu projeto outra referência de pacote de NuGet. Em vez disso, **permitir que a referência do SDK resolver por meio do pacote de extensão das funções do Azure**. Consumir o SDK do Azure Cosmos DB em separado do acionador e enlaces
 
 Além disso, se estiver a criar sua própria instância do manualmente os [cliente SDK do Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), deve seguir o padrão de ter apenas uma instância do cliente [usando uma abordagem de padrão de Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Este processo irá evitar potenciais problemas de socket em suas operações.
 
-## <a name="common-known-scenarios-and-workarounds"></a>Cenários comuns de conhecidos e soluções alternativas
+## <a name="common-scenarios-and-workarounds"></a>Cenários e soluções alternativas comuns
 
-### <a name="azure-function-fails-with-error-message-either-the-source-collection-collection-name-in-database-database-name-or-the-lease-collection-collection2-name-in-database-database2-name-does-not-exist-both-collections-must-exist-before-the-listener-starts-to-automatically-create-the-lease-collection-set-createleasecollectionifnotexists-to-true"></a>Função do Azure falhar com mensagem de erro "de qualquer coleção de origem"coleção-name"(na base de dados"da base de dados-name") ou a coleção de concessão"coleção2-name"(na base de dados"base de dados2-name") não existe. Ambas as coleções têm de existir antes de inicia o serviço de escuta. Para criar automaticamente a coleção de concessão, definir 'CreateLeaseCollectionIfNotExists' como 'true' "
+### <a name="azure-function-fails-with-error-message-collection-doesnt-exist"></a>Falha de função do Azure com a recolha de mensagem de erro não existe
+
+Função do Azure falhar com mensagem de erro "de qualquer coleção de origem"coleção-name"(na base de dados"da base de dados-name") ou a coleção de concessão"coleção2-name"(na base de dados"base de dados2-name") não existe. Ambas as coleções têm de existir antes de inicia o serviço de escuta. Para criar automaticamente a coleção de concessão, definir 'CreateLeaseCollectionIfNotExists' como 'true' "
 
 Isso significa que um ou ambos dos contentores do Azure Cosmos necessários para o acionador trabalhar, não existem ou não sejam encontram acessíveis para a função do Azure. **O próprio erro lhe dirá qual banco de dados do Cosmos do Azure e contentores é o acionador à procura de** com base na sua configuração.
 
@@ -78,7 +80,8 @@ Se algumas alterações estão em falta no destino, isto pode significar que é 
 
 Neste cenário, o melhor curso de ação é adicionar `try/catch blocks` em seu código e dentro os loops que poderão estar a processar as alterações, para detetar qualquer falha para um determinado subconjunto de itens e manipulá-las em conformidade (enviá-los para outro armazenamento para outra análise ou tente novamente). 
 
-> **Acionador do Azure Cosmos DB, por predefinição, não repita um lote de alterações se Ocorreu uma exceção não processada** durante a execução de seu código. Isso significa que o motivo que as alterações não chegou no destino é porque o que estão a falhar para processá-las.
+> [!NOTE]
+> Acionador do Azure Cosmos DB, por predefinição, não repita um lote de alterações se Ocorreu uma exceção não processada durante a execução de seu código. Isso significa que o motivo que as alterações não chegou no destino é porque o que estão a falhar para processá-las.
 
 Se, achar que algumas alterações não foram recebidas em todos os pelo seu acionador, o cenário mais comum é que há **outra execução de função do Azure**. É possível que outra função do Azure implementadas no Azure ou uma função do Azure em execução localmente no computador de um desenvolvedor que tenha **exatamente a mesma configuração** (mesmo monitorizados e contentores da concessão), e esta função do Azure é aquele que rouba um subconjunto das alterações que esperaria que a função do Azure vai processar.
 

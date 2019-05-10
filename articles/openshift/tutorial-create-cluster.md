@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/06/2019
-ms.openlocfilehash: 5bc71a2d0f29fed163fb5c93ebd27df7f66a1325
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/08/2019
+ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080759"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466186"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Azure Red Hat OpenShift
 
@@ -35,12 +35,12 @@ Nesta série de tutoriais, ficará a saber como:
 Antes de começar este tutorial:
 
 Certifique-se de que [configurar o ambiente de desenvolvimento](howto-setup-environment.md), que inclui:
-- Instalar a CLI mais recente
+- Instalar a CLI mais recente (versão 2.0.64 ou superior)
 - Criação de um inquilino
 - Criação de um objeto de aplicativo do Azure
 - Criar um utilizador do Active Directory utilizado para iniciar sessão em aplicações em execução no cluster.
 
-## <a name="step-1-sign-in-to-azure"></a>Passo 1: Iniciar sessão no Azure
+## <a name="step-1-sign-in-to-azure"></a>Passo 1: Inicie sessão no  Azure
 
 Se estiver a executar localmente a CLI do Azure, abra um comando do Bash shell e execute `az login` para iniciar sessão no Azure.
 
@@ -101,7 +101,7 @@ az group create --name $CLUSTER_NAME --location $LOCATION
 
 ### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Opcional: Ligar uma rede virtual do cluster para uma rede virtual existente
 
-Se não precisar de ligar a rede virtual (VNET) no cluster que cria uma VNET já existente, ignore este passo.
+Se não precisar de ligar a rede virtual (VNET) do cluster que cria para uma VNET existente por meio de peering, ignore este passo.
 
 Em primeiro lugar, obtenha o identificador da VNET existente. O será do formulário: `/subscriptions/{subscription id}/resourceGroups/{resource group of VNET}/providers/Microsoft.Network/virtualNetworks/{VNET name}`.
 
@@ -132,7 +132,7 @@ Após alguns minutos, `az openshift create` será concluído com êxito e devolv
 
 ## <a name="step-3-sign-in-to-the-openshift-console"></a>Passo 3: Inicie sessão consola do OpenShift
 
-Agora, está pronto para iniciar sessão na consola do OpenShift para o novo cluster. O [consola de Web do OpenShift](https://docs.openshift.com/dedicated/architecture/infrastructure_components/web_console.html) permite-lhe visualizar, navegar e gerenciar o conteúdo dos seus projetos do OpenShift.
+Agora, está pronto para iniciar sessão na consola do OpenShift para o novo cluster. O [consola de Web do OpenShift](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) permite-lhe visualizar, navegar e gerenciar o conteúdo dos seus projetos do OpenShift.
 
 Vai iniciar sessão como o [novo utilizador do Azure AD](howto-aad-app-configuration.md#create-a-new-active-directory-user) criadas para testar. Para tal, terá uma instância do navegador nova que ainda não armazenados em cache a identidade que normalmente utiliza para iniciar sessão no portal do Azure.
 
@@ -147,13 +147,13 @@ Inicie sessão com o utilizador e palavra-passe que criou no [criar um novo util
 
 Agora são registadas para a consola de cluster.
 
-[Captura de ecrã da consola de cluster do OpenShift](./media/aro-console.png)
+![Captura de ecrã da consola de cluster do OpenShift](./media/aro-console.png)
 
- Pode saber mais sobre [utilizando a consola do OpenShift](https://docs.openshift.com/dedicated/getting_started/developers_console.html) para criar e incorporado imagens a [Red Hat OpenShift](https://docs.openshift.com/dedicated/welcome/index.html) documentação.
+ Saiba mais sobre [utilizando a consola do OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) para criar e incorporado imagens a [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) documentação.
 
 ## <a name="step-4-install-the-openshift-cli"></a>Passo 4: Instalar a CLI do OpenShift
 
-O [OpenShift CLI](https://docs.openshift.com/dedicated/cli_reference/get_started_cli.html) (ou *ferramentas de OC*) fornecer comandos para gestão de aplicações e os utilitários de nível inferior para interagir com os vários componentes do seu cluster do OpenShift.
+O [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (ou *ferramentas de OC*) fornecer comandos para gestão de aplicações e os utilitários de nível inferior para interagir com os vários componentes do seu cluster do OpenShift.
 
 Na consola do OpenShift, clique com o ponto de interrogação no canto superior direito por seu nome de início de sessão e selecione **ferramentas de linha de comandos**.  Siga os **versão mais recente** link para baixar e instalar a CLI de oc suportado para o Linux, MacOS ou Windows.
 

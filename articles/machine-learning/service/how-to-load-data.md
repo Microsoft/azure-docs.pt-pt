@@ -12,15 +12,15 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 02/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7dc07ba7f1d62b49232b1cd892070804099fab8c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e7c330846cd907f35bb23ae5e453383d7c35222e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024007"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471884"
 ---
 # <a name="load-and-read-data-with-the-azure-machine-learning-data-prep-sdk"></a>Carregar e ler dados com o SDK de preparação de dados do Azure Machine Learning
-Neste artigo, vai aprender diferentes métodos de carregamento de dados com o SDK do Azure Machine Learning Data Prep. Para ver a documentação de referência para o SDK, consulte a [descrição geral](https://aka.ms/data-prep-sdk). O SDK oferece suporte a vários recursos de ingestão de dados, incluindo:
+Neste artigo, vai aprender diferentes métodos de carregamento de dados com o SDK do Azure Machine Learning Data Prep.  O SDK oferece suporte a vários recursos de ingestão de dados, incluindo:
 
 * Carregar a partir de muitos tipos de ficheiro com a inferência de tipos de parâmetro (codificação, separador, cabeçalhos) de análise
 * Conversão de tipo usando inferência durante o carregamento de ficheiro
@@ -28,6 +28,7 @@ Neste artigo, vai aprender diferentes métodos de carregamento de dados com o SD
 
 > [!Important]
 > Se estiver a criar uma nova solução, tente o [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (pré-visualização) para preparação e exploração de dados. Conjuntos de dados é a próxima versão da preparação de dados SDK, oferecendo funcionalidade expandida para gerir conjuntos de dados em soluções de IA.
+> Se utilizar o `azureml-dataprep` pacote para criar um fluxo de dados com as transformações em vez de usar o `azureml-datasets` para criar um conjunto de dados do pacote, não poderá utilizar instantâneos ou conjuntos de dados com a versão mais tarde.
 
 A tabela seguinte mostra uma seleção de funções usadas para carregar dados de tipos de ficheiros comuns.
 
@@ -315,5 +316,4 @@ dflow.to_pandas_dataframe().head()
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Consulte o SDK [descrição geral](https://aka.ms/data-prep-sdk) para padrões de design e exemplos de utilização
 * Consulte o SDK do Azure Machine Learning Data Prep [tutorial](tutorial-data-prep.md) para obter um exemplo de resolver um cenário específico

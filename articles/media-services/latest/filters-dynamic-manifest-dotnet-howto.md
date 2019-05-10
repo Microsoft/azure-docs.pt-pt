@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 3517a9c0aabf9e8ec029405f14461626d32335a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c786f46308848c6b9182453510744942a8eb9e8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322741"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472423"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Criar filtros com o SDK .NET dos Media Services
 
@@ -76,6 +76,40 @@ O código seguinte mostra como utilizar o .NET para criar um filtro de elemento 
 AssetFilter assetFilterParams = new AssetFilter(tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, encodedOutputAsset.Name, "assetFilterName1", assetFilterParams);
 ```
+
+## <a name="associate-filters-with-streaming-locator"></a>Associar filtros localizador de transmissão em fluxo
+
+Pode especificar uma lista dos filtros de ativo ou a conta, que seria aplicada para o localizador de transmissão em fluxo. O [packager dinâmico (transmissão em fluxo o ponto de extremidade)](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [manifesto dinâmico](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. Recomendamos que utilize esta funcionalidade se pretenda aplicar filtros, mas não pretende expor os nomes de filtro no URL.
+
+O seguinte C# código mostra como criar um localizador de transmissão em fluxo e especifique `StreamingLocator.Filters`. Esta é uma propriedade opcional que usa um `IList<string>` dos nomes de filtro.
+
+```csharp
+IList<string> filters = new List<string>();
+filters.Add("filterName");
+
+StreamingLocator locator = await client.StreamingLocators.CreateAsync(
+    resourceGroup,
+    accountName,
+    locatorName,
+    new StreamingLocator
+    {
+        AssetName = assetName,
+        StreamingPolicyName = PredefinedStreamingPolicy.ClearStreamingOnly,
+        Filters = filters
+    });
+```
+      
+## <a name="stream-using-filters"></a>Utilizar os filtros de Stream
+
+Depois de definir filtros, os clientes podem utilizá-los o URL de transmissão em fluxo. Filtros podem ser aplicados a velocidade de transmissão adaptável, protocolos de transmissão em fluxo: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
+
+A tabela seguinte mostra alguns exemplos de URLs com filtros:
+
+|Protocolo|Exemplo|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

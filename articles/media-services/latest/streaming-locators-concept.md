@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24ee700e326ef61aa6a93aae725e85e7b4780edf
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466736"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465043"
 ---
 # <a name="streaming-locators"></a>Localizadores de Transmissão em Fluxo
 
@@ -34,7 +34,7 @@ Se pretender especificar opções de encriptação no seu fluxo, crie o [políti
 
 ## <a name="associate-filters-with-streaming-locators"></a>Associar filtros localizadores de transmissão em fluxo
 
-Pode especificar uma lista de [filtros de conta ou asset](filters-concept.md), que seria se aplicam a seu [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [packager dinâmica](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [dyanamic manifesto](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. Recomendamos que utilize esta funcionalidade se pretenda aplicar filtros, mas não pretende expor os nomes de filtro no URL.
+Pode especificar uma lista de [filtros de conta ou asset](filters-concept.md), que seria se aplicam a seu [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [packager dinâmica](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [manifesto dinâmico](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. Recomendamos que utilize esta funcionalidade se pretenda aplicar filtros, mas não pretende expor os nomes de filtro no URL.
 
 ## <a name="filter-order-page-streaming-locator-entities"></a>Filtrar, ordem, entidades de localizador de transmissão em fluxo de página
 
@@ -43,4 +43,4 @@ Ver [filtragem, ordenação, a paginação de entidades de serviços de multimé
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md) (Tutorial: carregar, codificar e transmitir vídeos em fluxo com .NET)
-* [Use DRM dynamic encryption and license delivery service](protect-with-drm.md) (Procedimentos: utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM)
+* [Utilizar DRM dinâmico licença e de encriptação de serviço de entrega](protect-with-drm.md)

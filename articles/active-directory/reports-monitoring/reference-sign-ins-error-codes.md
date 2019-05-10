@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 04/25/2019
+ms.date: 05/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdf28418e7e1335dcb1f664964fa6ef03174aa1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0986610007f5c470589eb94d6761b8d31dd79e72
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709206"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463500"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro de relatório de atividades de início de sessão 
 
@@ -177,6 +177,7 @@ Pode também acessar programaticamente os dados de início de sessão com o [rep
 |90051| Token de delegação inválido. ID de Cloud nacional inválido ({cloudId}) está especificado.|
 |90072| A conta tem de ser adicionado como um utilizador externo no inquilino pela primeira vez. Fim de sessão e inicie sessão novamente com um diferente do Azure AD conta.|
 |90094| A concessão de permissões de administrador. Peça ao administrador de inquilino para fornecer o consentimento para esta aplicação.|
+|500021|Inquilino está restringido pelo proxy da empresa. Negar o acesso aos recursos.|
 |500121| Falha na autenticação durante o pedido de autenticação forte.|
 |500133| A declaração não está dentro do seu intervalo de tempo válida. Certifique-se de que o token de acesso não expirou antes de o utilizar para a asserção de utilizador ou pedir um novo token.|
 |530021|Aplicação não cumpre os requisitos de aplicação de acesso condicional aprovado.|

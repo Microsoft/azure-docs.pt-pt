@@ -8,26 +8,26 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3ab3c680f7279ff78e0319f28f67c1cc8c203b47
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e4a63bfd4e82147fe3324e146f2aaff8889da87e
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708028"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472356"
 ---
 # <a name="diagnose-and-troubleshoot"></a>Diagnosticar e resolver problemas
 
 Este artigo resume vários problemas comuns que poderá encontrar quando trabalha com o seu ambiente de pré-visualização do Azure Time Series Insights. O artigo também descreve possíveis causas e soluções para cada problema.
 
-## <a name="problem-i-cant-find-my-environment-in-the-time-series-insights-preview-explorer"></a>Problema: Não consigo encontrar meu ambiente no Explorador do Time Series Insights pré-visualização
+## <a name="problem-i-cant-find-my-environment-in-the-preview-explorer"></a>Problema: Não consigo encontrar meu ambiente no Gerenciador de pré-visualização
 
 Esse problema pode ocorrer se não tiver permissões para aceder ao ambiente do Time Series Insights. Os utilizadores têm uma função de acesso de leitor de nível para ver o seu ambiente do Time Series Insights. Para verificar os atuais níveis de acesso e conceder acesso adicional, visite a secção de políticas de acesso de dados do recurso de Time Series Insights na [portal do Azure](https://portal.azure.com/).
 
-  ![Ambiente][1]
+  [![Environment](media/v2-update-diagnose-and-troubleshoot/environment.png)](media/v2-update-diagnose-and-troubleshoot/environment.png#lightbox)
 
-## <a name="problem-no-data-is-seen-in-the-time-series-insights-preview-explorer"></a>Problema: Nenhum dado é visto no Explorador do Time Series Insights pré-visualização
+## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problema: não existem dados são vistos no Gerenciador de pré-visualização
 
 Há vários motivos comuns, por que não poderá ver os dados no [Explorador de pré-visualização do Azure Time Series Insights](https://insights.timeseries.azure.com/preview).
 
@@ -35,7 +35,7 @@ Há vários motivos comuns, por que não poderá ver os dados no [Explorador de 
 
     Certifique-se de que a origem do evento, que é um hub de eventos ou de um hub IoT, está a receber dados da sua etiquetas ou instâncias. Para verificar, vá para a página de descrição geral do seu recurso no portal do Azure.
 
-    ![informações de dashboard][2]
+    [![informações de dashboard](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png)](media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png#lightbox)
 
 - Os dados de origem do evento não estão no formato JSON.
 
@@ -45,12 +45,12 @@ Há vários motivos comuns, por que não poderá ver os dados no [Explorador de 
 
   * Para um hub IoT, tem de fornecer a chave que tenha **ligação de serviço** permissão.
 
-    ![Configuração][3]
+    [![Configuração (Configuration)](media/v2-update-diagnose-and-troubleshoot/configuration.png)](media/v2-update-diagnose-and-troubleshoot/configuration.png#lightbox)
 
   * Conforme mostrado na imagem anterior, ambas as políticas **iothubowner** e **service** funcionam porque têm **serviço ligar** permissão.
   * Para um hub de eventos, tem de fornecer a chave que tenha **escutar** permissão.
   
-    ![Permissões][4]
+    [![Permissões](media/v2-update-diagnose-and-troubleshoot/permissions.png)](media/v2-update-diagnose-and-troubleshoot/permissions.png#lightbox)
 
   * Conforme mostrado na imagem anterior, ambos os **ler** e **gerir** políticas funcionam porque têm **escutar** permissão.
 
@@ -62,7 +62,7 @@ Há vários motivos comuns, por que não poderá ver os dados no [Explorador de 
 
     Esse problema pode ocorrer se a propriedade de ID de série de tempo não está configurada corretamente ao tempo de aprovisionamento do ambiente. Para obter mais informações, consulte [melhores práticas para a escolha de um ID de série de tempo](./time-series-insights-update-how-to-id.md). Neste momento, não é possível atualizar um ambiente de Time Series Insights existente para utilizar um ID de série de tempo diferente
 
-## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: Alguns dados mostra, mas alguns está em falta
+## <a name="problem-some-data-shows-but-some-is-missing"></a>Problema: alguns dados mostra, mas alguns está em falta
 
 Pode estar a enviar dados sem a série de tempo de ID.
 
@@ -73,7 +73,7 @@ Pode estar a enviar dados sem a série de tempo de ID.
     > [!NOTE]
     > Neste momento, o Time Series Insights suporta uma taxa máxima de ingestão de 6 Mbps.
 
-## <a name="problem-my-event-sources-timestamp-property-name-setting-doesnt-work"></a>Problema: Definição de nome de propriedade de Timestamp minha origem de evento não funciona
+## <a name="problem-my-event-sources-timestamp-property-name-doesnt-work"></a>Problema: o nome da propriedade Timestamp minha origem de evento não funciona
 
 Certifique-se de que o nome e o valor está em conformidade com as seguintes regras:
 
@@ -88,34 +88,26 @@ A maneira mais fácil para garantir que seu nome de propriedade Timestamp é cap
 
 Se a propriedade Timestamp explicitamente não for especificada, o IoT hub ou hub de eventos colocados em fila de tempo de um evento é utilizado como o carimbo de hora padrão.
 
-## <a name="problem-i-cant-edit-or-view-my-time-series-model"></a>Problema: Não consigo editar ou ver o meu modelo de série de tempo
+## <a name="problem-i-cant-view-or-edit-my-time-series-model"></a>Problema: Não consigo ver ou editar o meu modelo de série de tempo
 
 - Que pode ser aceder a um ambiente de S2 ou Time Series Insights S1.
 
    Modelos de série de tempo são suportados apenas em ambientes de PAYG. Para obter mais informações sobre como acessar o seu ambiente de S1/S2 partir do Explorador de pré-visualização do Time Series Insights, veja [visualizar dados no explorer](./time-series-insights-update-explorer.md).
 
-   ![Access][5]
+   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - Poderá não ter permissões para ver e editar o modelo.
 
    Os utilizadores têm acesso no nível de Contribuidor para editar e ver o seu modelo de série de tempo. Para verificar os atuais níveis de acesso e conceder acesso adicional, visite a secção de políticas de acesso de dados no seu recurso do Time Series Insights no portal do Azure.
 
-## <a name="problem-all-my-instances-in-the-time-series-insights-preview-explorer-dont-have-a-parent"></a>Problema: Todas as minhas instâncias no Gerenciador de pré-visualização do Time Series Insights não tem um elemento principal
+## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problema: um elemento principal não têm todas as minhas instâncias no Gerenciador de pré-visualização
 
 Esse problema pode ocorrer se o seu ambiente não tiver uma hierarquia de modelo de série de tempo definida. Para obter mais informações, consulte [trabalhar com modelos de série de tempo](./time-series-insights-update-how-to-tsm.md).
 
-  ![Modelos de série de tempo][6]
+  [![Modelos de série de tempo](media/v2-update-diagnose-and-troubleshoot/tsm.png)](media/v2-update-diagnose-and-troubleshoot/tsm.png#lightbox)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Leia [trabalhar com modelos de série de tempo](./time-series-insights-update-how-to-tsm.md).
 
 - Saiba mais sobre [suportado formas JSON](./how-to-shape-query-json.md).
-
-<!-- Images -->
-[1]: media/v2-update-diagnose-and-troubleshoot/environment.png
-[2]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
-[3]: media/v2-update-diagnose-and-troubleshoot/configuration.png
-[4]: media/v2-update-diagnose-and-troubleshoot/permissions.png
-[5]: media/v2-update-diagnose-and-troubleshoot/access.png
-[6]: media/v2-update-diagnose-and-troubleshoot/tsm.png

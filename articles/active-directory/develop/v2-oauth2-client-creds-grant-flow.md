@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3073d34a6ffeadd1c1c0022b5c1636f06cc6210a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: df75d692bc61d155b35f5ce4e2bf08da6e4cbcc3
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190825"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507112"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>Plataforma de identidade da Microsoft e o fluxo de credenciais de cliente OAuth 2.0
 
@@ -251,7 +251,7 @@ Uma resposta de erro tem esta aparência:
 | `correlation_id` | Um identificador exclusivo para o pedido para com o diagnóstico de componentes. |
 
 > [!NOTE]
-> Para que o aplicativo seja capaz de receber o token de v2, é possível atualizar o ficheiro de manifesto da aplicação no portal do azure. Pode adicionar o atributo `accessTokenAcceptedVersion` e defina o valor como 2 como `"accessTokenAcceptedVersion": 2`. Verifique o artigo [manifesto do aplicativo](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest#manifest-reference) para saber mais sobre o mesmo. Por predefinição, o aplicativo atualmente recieves um token de v1. Se isso não está definido no manifesto da aplicação/API Web, ela o valor deste atributo no manifesto é predefinido como 1 e, por conseguinte, a aplicação receberá o token de v1.  
+> Para que o aplicativo seja capaz de receber o token de v2, é possível atualizar o ficheiro de manifesto da aplicação no portal do azure. Pode adicionar o atributo `accessTokenAcceptedVersion` e defina o valor como 2 como `"accessTokenAcceptedVersion": 2`. Verifique o artigo [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-reference) para saber mais sobre o mesmo. Por predefinição, o aplicativo atualmente recieves um token de v1. Se isso não está definido no manifesto da aplicação/API Web, ela o valor deste atributo no manifesto é predefinido como 1 e, por conseguinte, a aplicação receberá o token de v1.  
 
 
 ## <a name="use-a-token"></a>Utilizar um token

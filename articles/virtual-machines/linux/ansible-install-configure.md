@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: e7a664be48d1e26e09faf4f330fd1267ec003315
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/30/2019
+ms.openlocfilehash: 60cefe24feab9de4262e81eb1bc313aeadc7eb05
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685604"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409244"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>Início rápido: Instalar o Ansible em máquinas virtuais do Linux no Azure
 
@@ -21,8 +21,8 @@ O Ansible permite-lhe automatizar a implementação e a configuração de recurs
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [open-source-devops-prereqs-create-sp.md](../../../includes/open-source-devops-prereqs-create-service-principal.md)]
 - **Aceder ao Linux ou a uma máquina virtual do Linux** - se não tiver uma máquina virtual do Linux, crie uma [máquina virtual do Linux](/azure/virtual-network/quick-create-cli).
 
 ## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Instalar o Ansible numa máquina virtual do Linux para o Azure
@@ -155,7 +155,7 @@ Nesta secção, vai exportar os valores de principal de serviço para configurar
     export AZURE_TENANT=<security-principal-tenant>
     ```
 
-## <a name="verify-the-configuration"></a>Verificar a configuração
+## <a name="verify-the-configuration"></a>Verifique a configuração
 
 Para verificar a configuração com êxito, utilize o Ansible para criar um grupo de recursos do Azure.
 

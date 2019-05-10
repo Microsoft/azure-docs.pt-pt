@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 895fb0d83e383618818325263ac80c5919a0ee7b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f2a3bb666e40f1aafd921d70d93133ca9139b38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60429244"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406963"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integrar o Azure Active Directory E Gestor de vendas Remix
 
@@ -158,7 +158,7 @@ Ativar o Azure AD início de sessão único no portal do Azure e configurar o in
     
     b. Na **item de colaboração** secção, na lista pendente, selecione **e-mail**.
 
-    c. Na **item de colaboração** caixa, cole o valor de afirmação que copiou anteriormente no portal do Azure (ou seja, **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
+    c. Na **item de colaboração** caixa, cole o valor de afirmação que copiou anteriormente no portal do Azure (ou seja, **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**).
 
     d. Na **emissor (ID de entidade)** caixa, cole o valor do identificador que copiou anteriormente do **Remix domínio do Gestor de vendas E e URLs** seção do portal do Azure.
 
@@ -262,7 +262,7 @@ Nesta secção, vai ativar utilizador Eduarda Almeida a utilizar do Azure-iníci
 
 1. Na **adicionar atribuição** janela, selecione **atribuir**.
     
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD utilizando o painel de acesso.
 

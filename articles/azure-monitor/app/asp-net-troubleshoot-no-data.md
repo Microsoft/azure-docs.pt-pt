@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691212"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471856"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -42,7 +42,7 @@ ms.locfileid: "60691212"
 * Nem todos os tipos de projeto do .NET são suportados pelas ferramentas. Projetos da Web e WCF são suportados. Para outros tipos de projeto, como aplicativos de área de trabalho ou serviços específico, ainda pode [adicionar manualmente um SDK do Application Insights ao seu projeto](../../azure-monitor/app/windows-desktop.md).
 * Certifique-se de que tem [Visual Studio 2013 atualização 3 ou posterior](https://docs.microsoft.com/visualstudio/releasenotes/vs2013-update3-rtm-vs). Ele vem pré-instalada com ferramentas de análise de programador, que fornecem o Application Insights SDK.
 * Selecione **ferramentas**, **extensões e atualizações** e verifique se **Developer Analytics Tools** está instalado e ativado. Se assim for, clique em **atualizações** para ver se existe uma atualização disponível.
-* Abra a caixa de diálogo novo projeto e escolha a aplicação ASP.NET Web. Se vir a opção Application Insights, em seguida, as ferramentas são instaladas. Caso contrário, tente desinstalar e reinstalar o Application Insights Tools.
+* Abra a caixa de diálogo novo projeto e escolha a aplicação ASP.NET Web. Se vir a opção Application Insights, em seguida, as ferramentas são instaladas. Caso contrário, tente desinstalar e reinstalar as ferramentas de análise de programador.
 
 ## <a name="q02"></a>Falha ao adicionar o Application Insights
 *Ao tentar ao adicionar o Application Insights para um projeto existente, vejo uma mensagem de erro.*
@@ -85,7 +85,7 @@ CORREÇÃO:
 * Selecione **ferramentas**, **extensões e atualizações** e verifique se **ferramentas de análise de programador** está instalado e ativado. Se assim for, clique em **atualizações** para ver se existe uma atualização disponível.
 * Com o botão direito do rato no Explorador de soluções. Se vir o comando **Application Insights > configurar o Application Insights**, utilizá-lo para ligar o seu projeto para o recurso no serviço do Application Insights.
 
-Caso contrário, seu tipo de projeto não é suportado diretamente pelas ferramentas do Application Insights. Para ver a telemetria, inicie sessão para o [portal do Azure](https://portal.azure.com), escolha Application Insights na barra de navegação à esquerda e selecione a aplicação.
+Caso contrário, seu tipo de projeto não seja diretamente suportado pelas ferramentas de análise de programador. Para ver a telemetria, inicie sessão para o [portal do Azure](https://portal.azure.com), escolha Application Insights na barra de navegação à esquerda e selecione a aplicação.
 
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>"Acesso negado" sobre como abrir o Application Insights a partir do Visual Studio
 *O comando de menu "Abrir o Application Insights" me leva ao portal do Azure, mas recebo um erro "acesso negado".*

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: d7737f73ee4eb9ae9dc8c4845020b7543a5b3495
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 47407df90a83501b8739a428789e20cddc59e83d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159169"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65468410"
 ---
 Discos de SO efémeros são criados no armazenamento de Máquina Virtual (VM) local e não persistente para o armazenamento remoto do Azure. Discos de SO efémeros funcionam bem para cargas de trabalho sem monitorização de estado, em que aplicativos são tolerantes a de falhas VM individuais, mas estiver mais preocupado com o tempo necessário para implementações em grande escala ou tempo a recriar imagem das instâncias VM individuais. Também é adequado para aplicativos, implantados usando o modelo de implementação clássica, para mover para o modelo de implementação do Resource Manager. Com disco de SO efémero, teria de observar o menor latência de leitura/escrita para o disco do SO e recriação de imagem de VM mais rápida. Além disso, o disco de SO efémero é gratuito, pode incorrer sem custos de armazenamento do disco do SO. 
  
@@ -30,7 +30,7 @@ Principais diferenças entre discos de SO persistentes e efêmeras:
 |                             | Disco de SO persistente                          | Disco de SO Efémero                              |    |
 |-----------------------------|---------------------------------------------|------------------------------------------------|
 | Limite de tamanho do disco do SO      | 2 TiB                                                                                        | Cache de tamanho para o tamanho da VM ou 2TiB, que for menor - [DS](../articles/virtual-machines/linux/sizes-general.md), [ES](../articles/virtual-machines/linux/sizes-memory.md), [M](../articles/virtual-machines/linux/sizes-memory.md), [FS](../articles/virtual-machines/linux/sizes-compute.md), e [GS](../articles/virtual-machines/linux/sizes-memory.md)              |
-| Tamanhos VM suportados          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv2, Fs, FsV2, GS, M                                               |
+| Tamanhos VM suportados          | Todos                                                                                          | DSv1, DSv2, DSv3, Esv3, Fs, FsV2, GS, M                                               |
 | Suporte de tipo de disco           | Discos de SO geridos e                                                                | Disco de SO gerido apenas                                                               |
 | Suporte de região              | Todas as regiões                                                                                  | Todas as regiões                              |
 | Persistência de dados            | Dados do disco de SO escritos para o disco do SO são armazenados no armazenamento do Azure                                  | Dados escritos no disco do SO são armazenados no armazenamento de VM local e não são mantidos no armazenamento do Azure. |
@@ -48,13 +48,13 @@ Self-se registe na pré-visualização de discos de SO efémero usando a versão
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-Register-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Register-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 Para verificar se está registado para a pré-visualização:
 
 ```azurepowershell-interactive
-Get-AzRmProviderFeature –FeatureName LocalDiffDiskPreview
+Get-AzProviderFeature –FeatureName LocalDiffDiskPreview -ProviderNamespace Microsoft.Compute
 ```
 
 ### <a name="cli"></a>CLI
@@ -67,7 +67,7 @@ az feature register --namespace Microsoft.Compute --name LocalDiffDiskPreview
 Para verificar se está registado para a pré-visualização:
  
 ```azurecli-interactive
-az provider show –namespace ‘Microsoft.Compute’
+az provider show --namespace Microsoft.Compute
 ```
 
 

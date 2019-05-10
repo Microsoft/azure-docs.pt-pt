@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 067bdcfc496fc986ae87620b7d57d7cad3a0f734
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/09/2019
+ms.openlocfilehash: 22015d1e838e940cbf5a79323f4046c4a7e1719e
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694167"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506809"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Utilizar a geração 1 do Data Lake armazenamento com clusters do HDInsight do Azure
 
@@ -220,8 +220,8 @@ if($addNewCertKeyCredential)
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
-    Start-Sleep -s 30
+    Write-Host "Waiting for 7 minutes for the permissions to get propagated"
+    Start-Sleep -s 420 #7 minutes
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."

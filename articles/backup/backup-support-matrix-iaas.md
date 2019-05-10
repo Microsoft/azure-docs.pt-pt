@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 05/08/2019
 ms.author: raynew
-ms.openlocfilehash: eaad582dc6484cb62d0bebf1af447ff61301a3bb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2267a4e836fe1aff214f40e34afa830de50fa2d5
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685937"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471654"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para cópia de segurança de VM do Azure
 Pode utilizar o [serviço de cópia de segurança do Azure](backup-overview.md) para fazer uma cópia de segurança de máquinas no local e cargas de trabalho e máquinas virtuais do Azure (VMs). Este artigo resume as definições de suporte e limitações quando cria cópias de segurança de VMs do Azure com o Azure Backup.
@@ -38,12 +38,12 @@ Saiba mais sobre a cópia de segurança [a utilizar um servidor de cópia de seg
 
 ## <a name="supported-backup-actions"></a>Ações de cópia de segurança suportadas
 
-**Ação** | **Suporte**
+**ação** | **Suporte**
 --- | ---
 Ativar cópia de segurança quando criar uma VM do Windows Azure | Suporte para:  Windows Server de 2019 (núcleos de Datacenter/Datacenter), Windows Server 2016 (núcleos de Datacenter/Datacenter); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (RTM e SP1)
-Ativar cópia de segurança, quando cria uma VM do Linux | Suporte para:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
+Ativar cópia de segurança, quando cria uma VM do Linux | Suporte para:<br/><br/> - Ubuntu Server: 18.04, 17.10, 17.04, 16.04 (LTS), 14.04 (LTS)<br/><br/> -Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3, 15 <br/><br/> -Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> -Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
 Fazer uma cópia de segurança de uma VM que está encerramento/offline VM | Suportado.<br/><br/> Instantâneo é consistente de falhas única, não consistente com a aplicação.
-Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. Não é necessário realizar qualquer ação.
+Criar cópias de segurança discos depois de migrar para discos geridos | Suportado.<br/><br/> Cópia de segurança continuarão a funcionar. Não é necessária nenhuma ação.
 Fazer cópias de segurança de discos geridos depois de ativar o bloqueio do grupo de recursos | Não suportado.<br/><br/> O Azure Backup não é possível eliminar os pontos mais antigos do recurso e as cópias de segurança começarão a falhar quando for atingido o limite máximo de pontos de restauro.
 Modificar a política de cópia de segurança para uma VM | Suportado.<br/><br/> A VM será efetuada utilizando as definições de agendamento e retenção na nova política. Se as definições de retenção estão expandidas, pontos de recuperação existentes são marcados e mantidos. Se eles estão reduzidos, pontos de recuperação existentes serão eliminados na tarefa de limpeza seguinte e, eventualmente, eliminados.
 Cancelar uma tarefa de cópia de segurança | Suportado durante o processo de instantâneo.<br/><br/> Não é suportada quando o instantâneo é que está a ser transferido para o cofre.
@@ -69,7 +69,7 @@ Criar cópias de segurança com o DPM/MABS | Sistemas operativos suportados para
 
 Eis o que é suportado se quiser fazer uma cópia de segurança de máquinas do Linux.
 
-**Ação** | **Suporte**
+**ação** | **Suporte**
 --- | ---
 Fazer cópias de segurança de VMs do Linux do Azure com o agente de VM do Linux do Azure | Cópia de segurança consistente de ficheiros.<br/><br/> A utilizar a cópia de segurança consistente com a aplicação [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Durante o restauro, pode criar uma nova VM, restaurar um disco e utilizá-lo para criar uma VM, ou restaurar um disco e utilizá-lo para substituir um disco numa VM existente. Também pode restaurar ficheiros e pastas individuais.
 Fazer cópias de segurança de VMs do Linux do Azure com o agente MARS | Não suportado.<br/><br/> O agente de MARS só pode ser instalado em máquinas do Windows.
@@ -150,6 +150,7 @@ Cópia de segurança de VMs implementadas a partir do [Azure Marketplace](https:
 Cópia de segurança de VMs que são implementadas a partir de uma imagem personalizada (de terceiros) |   Suportado.<br/><br/> A VM tem de executar um sistema operativo suportado.<br/><br/> Quando a recuperação de arquivos na VM, pode restaurar apenas a um sistema de operacional compatível (não um SO anterior ou posterior).
 Fazer uma cópia de segurança de VMs que são migradas para o Azure  | Suportado.<br/><br/> Para fazer backup da VM, o agente da VM deve ser instalado na máquina migrada.
 Criar cópias de segurança consistência multi-VM | Cópia de segurança do Azure não fornece consistência de dados e aplicações em várias VMs.
+Cópia de segurança com [definições de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)  | não suportado. <br/><br/> Se o restauro da VM do Azure com definições de diagnóstico é acionado usando [criar novo](backup-azure-arm-restore-vms.md#create-a-vm) opção, em seguida, o restauro falhará.
 
 
 ## <a name="vm-storage-support"></a>Suporte de armazenamento VM
@@ -183,7 +184,7 @@ VMs com endereços IP públicos    | Suportado.<br/><br/> Associar um endereço 
 Grupo de segurança de rede (NSG) na sub-rede/NIC. |   Suportado.
 Endereço IP reservado (estático) | Não suportado.<br/><br/> Não pode criar uma VM com um endereço IP reservado e nenhum ponto de extremidade definido.
 Endereço IP dinâmico |    Suportado.<br/><br/> Se a NIC na origem da VM utiliza endereçamento IP dinâmico, por predefinição o NIC à VM restaurada irá utilizá-lo demasiado.
-Traffic Manager do Azure   | Suportado.<br/><br/>Se a VM de cópia de segurança estiver no Gestor de tráfego, adicione manualmente a VM restaurada para a mesma instância do Gestor de tráfego.
+Gestor de Tráfego do Azure   | Suportado.<br/><br/>Se a VM de cópia de segurança estiver no Gestor de tráfego, adicione manualmente a VM restaurada para a mesma instância do Gestor de tráfego.
 DNS do Azure | Suportado.
 DNS Personalizado |    Suportado.
 Conectividade de saída através do proxy de HTTP | Suportado.<br/><br/> Não é suportado um proxy autenticado.
@@ -230,8 +231,8 @@ Cópia de segurança suporta a compactação do tráfego de cópia de segurança
 
 **Machine** | **Comprimir para o MABS/DPM (TCP)** | **Comprimir cofre (HTTPS)**
 --- | --- | ---
-Máquinas do Windows sem DPM/MABS no local | ND | ![Sim][green]
-VMs do Azure | ND | ND
+Máquinas do Windows sem DPM/MABS no local | N/D | ![Sim][green]
+VMs do Azure | N/D | N/D
 VMs no local/Azure com o DPM | ![Sim][green] | ![Sim][green]
 VMs no local/Azure com o MABS | ![Sim][green] | ![Sim][green]
 

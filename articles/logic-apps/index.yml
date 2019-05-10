@@ -19,7 +19,7 @@ sections:
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
-        text: Saiba como criar uma aplicação lógica no Azure.
+        text: Saiba como criar uma aplicação lógica que executa no Azure.
       - type: list
         style: icon48
         items:
@@ -27,7 +27,15 @@ sections:
               src: 'https://docs.microsoft.com/media/common/i_portal.svg'
             text: Portal do Azure
             href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
-  - title: Tutoriais passo a passo
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
+            text: Visual Studio
+            href: /azure/logic-apps/quickstart-create-logic-apps-with-visual-studio
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Visual Studio Code
+            href: /azure/logic-apps/quickstart-create-logic-apps-visual-studio-code
+  - title: Tutoriais Passo-a-Passo
     items:
       - type: paragraph
         text: 'Saiba como criar aplicações lógicas que executem numa agenda e integrar dados pelos serviços do Azure, serviços Microsoft e outras aplicações de software como serviço (SaaS).'

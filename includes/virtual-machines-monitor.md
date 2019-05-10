@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: 2978da7f2e7ec27ded6b5994570fa50a9032d0d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473985"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65404994"
 ---
 Pode tirar partido das muitas oportunidades para monitorizar as suas VMs por recolher, visualizar e analisar o diagnóstico e registos de dados. Para fazer simples [monitorização](../articles/azure-monitor/overview.md) da sua VM, pode utilizar o ecrã de descrição geral para a VM no portal do Azure. Pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar os diagnósticos nas suas VMs para recolher dados de métricos adicionais. Também pode utilizar as opções de monitorização mais avançadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [do Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -23,7 +23,7 @@ Pode configurar e monitorizar a coleção de [dados de diagnóstico](https://doc
 
     Como as VMs de arranque, o agente de diagnóstico de arranque captura a saída de arranque e guarda-a no armazenamento do Azure. Estes dados podem ser utilizados para resolver problemas de arranque das VMs. Diagnóstico de arranque não é ativado automaticamente quando cria uma VM a partir das ferramentas da linha de comandos. Antes de ativar os diagnósticos de arranque, tem de ser criada uma conta de armazenamento para guardar os registos de arranque. Se ativar o diagnóstico de arranque no portal do Azure, uma conta de armazenamento é criada automaticamente para.
 
-    Se não tiver ativado o diagnóstico de arranque quando a VM foi criada, pode sempre ativá-la mais tarde, utilizando [CLI do Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostics), ou um [modelo Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
+    Se não tiver ativado o diagnóstico de arranque quando a VM foi criada, pode sempre ativá-la mais tarde, utilizando [CLI do Azure](https://docs.microsoft.com/cli/azure/vm/boot-diagnostics), [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmbootdiagnostic), ou um [modelo Azure Resource Manager](../articles/virtual-machines/windows/extensions-diagnostics-template.md).
 
 - **Ative a recolha de dados de diagnóstico do SO convidado.** Quando cria uma VM, terá a oportunidade no ecrã de definições para ativar o diagnóstico de SO convidado. Quando ativa a recolha de dados de diagnóstico, o [IaaSDiagnostics extensão para Linux](../articles/virtual-machines/linux/diagnostic-extension.md) ou o [IaaSDiagnostics extensão para Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) é adicionado à VM, que permite-lhe recolher adicionais dados de disco, da CPU e memória.
 
@@ -33,7 +33,7 @@ Pode configurar e monitorizar a coleção de [dados de diagnóstico](https://doc
 
 Pode criar [alertas](../articles/azure-monitor/platform/alerts-overview.md) com base em métricas de desempenho específicos. Os problemas que pode ser alertado sobre exemplos de quando a utilização média da CPU excede um determinado limiar ou espaço em disco livre disponível cai abaixo de um determinado período. Alertas podem ser configurados no [portal do Azure](../articles/azure-monitor/platform/alerts-classic-portal.md), utilizando [Azure PowerShell](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell), ou o [da CLI do Azure](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
 
-## <a name="azure-service-health"></a>Azure Service Health
+## <a name="azure-service-health"></a>Estado de Funcionamento de Serviço do Azure
 
 [O Azure Service Health](../articles/service-health/service-health-overview.md) fornece orientação e suporte personalizados quando é afetado por problemas nos serviços do Azure e ajuda a preparar para a próxima a manutenção planeada. O Azure Service Health alerta-o e as suas equipas através de notificações flexíveis e direcionadas.
 

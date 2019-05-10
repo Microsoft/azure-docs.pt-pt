@@ -1,6 +1,6 @@
 ---
 title: Meu perfil (pré-visualização) Descrição geral do portal - Azure Active Directory | Documentos da Microsoft
-description: Uma visão geral sobre o portal de meu perfil, incluindo links para outros artigos sobre a funcionalidade.
+description: Uma descrição geral de alto nível e ligações para obter mais informações sobre o portal de meu perfil e as respetivas funcionalidades.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,33 +9,30 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/19/2019
+ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59bd14b52124282e1e07d60daa4b891c2bab938
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c686dc0af893259d942527d318f3dd7d98fd752d
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60475338"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470728"
 ---
 # <a name="my-profile-preview-portal-overview"></a>Descrição geral do portal meu perfil (pré-visualização)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-myprofile.md)]
 
-Pode utilizar o **meu perfil** portal (pré-visualização) para gerir a sua conta escolar ou profissional para:
-
-- Configurar e gerir as suas informações de segurança para a reposição de verificação e a palavra-passe de dois passos.
-
-- Gerir os seus dispositivos e as organizações ligadas.
-
-- Veja como a sua organização utiliza seus dados.
+O **meu perfil** portal (pré-visualização) ajuda-o a gerir a sua conta escolar ou profissional ao configurar e gerir as suas informações de segurança, gerenciamento de seus dispositivos e as organizações ligadas e ver como a sua organização utiliza os dados.
 
 >[!Important]
 >Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="access-the-my-profile-portal"></a>Aceder ao portal de meu perfil
-Pode obter para o **meu perfil** portal, acedendo a https://myprofile.microsoft.com, da versão atual de qualquer um dos seguintes browsers:
+![Minha página de descrição geral de portal, do perfil](media/myprofile-portal/myprofile-portal-overview.png)
+
+## <a name="go-to-the-my-profile-portal"></a>Aceda ao portal do meu perfil
+
+Pode obter para o **meu perfil** portal (https://myprofile.microsoft.com), da versão atual de qualquer um dos seguintes browsers:
 
 - Chrome
 - Microsoft Edge
@@ -43,14 +40,13 @@ Pode obter para o **meu perfil** portal, acedendo a https://myprofile.microsoft.
 - Firefox
 - Internet Explorer 11
 
-    ![Minha página de descrição geral de portal, do perfil](media/myprofile-portal/myprofile-portal-overview.png)
+## <a name="my-profile-portal-articles"></a>Meus artigos de portais de perfil
 
-## <a name="in-this-section"></a>Nesta secção
-Pode encontrar mais informações sobre o **meu perfil** portal e suas páginas, nos seguintes artigos.
+Para obter informações detalhadas e instruções sobre o que está disponível a partir da **meu perfil** portal, veja os artigos seguintes:
 
 |Artigo |Descrição |
 |------|------------|
-|[Gerir as suas informações de segurança (pré-visualização)](user-help-security-info-overview.md)|Descreve como configurar e gerir as suas informações de segurança.|
-|[Gerir as suas organizações](myprofile-portal-organizations-page.md)|Descreve como gerir as organizações ligadas à sua conta escolar ou profissional.|
-|[Gerir os seus dispositivos ligados](myprofile-portal-devices-page.md)| Descreve como gerir os dispositivos que se ligar à sua conta escolar ou profissional.|
-|[Ver as suas informações relacionadas com a privacidade](myprofile-portal-privacy-page.md)|Descreve como ver o que sua organização faz com os seus dados.|
+|[Adicionar as suas informações de segurança](user-help-security-info-overview.md)| Vários artigos com instruções sobre como configurar a aplicação Microsoft Authenticator, mensagens de texto ou chamadas telefónicas como método de verificação. Também inclui artigos sobre como adicionar um endereço de e-mail ou perguntas de segurança predefinidas para repor a sua própria palavra-passe esquecida, se necessário.|
+|[Ver ou deixar suas organizações ligadas](myprofile-portal-organizations-page.md)| Instruções sobre como ver e deixar que as organizações ligado à sua conta escolar ou profissional.|
+|[Ver ou desativar os seus dispositivos ligados](myprofile-portal-devices-page.md)| Instruções sobre como visualizar ou desativar todos os dispositivos se ligar à sua conta escolar ou profissional.|
+|[Ver as suas informações relacionadas com a privacidade](myprofile-portal-privacy-page.md)| Instruções sobre como para ver quais os serviços online estão ligados à sua conta escolar ou profissional, juntamente com os termos da sua organização de usar a instrução.|

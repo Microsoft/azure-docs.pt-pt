@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 04/29/2019
 ms.author: assafi
-ms.openlocfilehash: e7b07472623cc459c31906aeaa6ccfb4388b4b50
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c521be03f884227116a21c8c5396d47cdd1ae253
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146092"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466543"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Utilizar o C# para chamar o serviço cognitivos de análise de texto
 <a name="HOLTop"></a>
@@ -136,17 +136,11 @@ As secções seguintes descreve como chamar cada uma das funcionalidades de API.
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
 1. Criar uma nova função chamada `SentimentAnalysisExample()` que usa o cliente criado anteriormente.
-2. Criar uma nova `TextAnalyticsClient` objeto com `ApiKeyServiceClientCredentials` como um parâmetro e, em seguida, gerar uma lista de `MultiLanguageInput` objetos, que contém os documentos que pretende analisar.
+2. Gerar uma lista de `MultiLanguageInput` objetos, que contém os documentos que pretende analisar.
 
     ```csharp
-    public static async Task SentimentAnalysisExample(string endpoint, string key)
+    public static async Task SentimentAnalysisExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         // The documents to be analyzed. Add the language of the document. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
             new List<MultiLanguageInput>
@@ -172,7 +166,7 @@ As secções seguintes descreve como chamar cada uma das funcionalidades de API.
     }
     ```
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 Document ID: 1 , Sentiment Score: 0.87
@@ -184,16 +178,11 @@ Document ID: 4 , Sentiment Score: 1.00
 ## <a name="language-detection"></a>Deteção de idioma
 
 1. Criar uma nova função chamada `DetectLanguageExample()` que usa o cliente criado anteriormente.
-2. Criar uma nova `TextAnalyticsClient` objeto com `ApiKeyServiceClientCredentials` como um parâmetro e, em seguida, gerar uma lista de `LanguageInput` objetos, que contém os seus documentos.
+2. Gerar uma lista de `LanguageInput` objetos, que contém os seus documentos.
 
     ```csharp
-    public static async Task DetectLanguageExample(string endpoint, string key)
+    public static async Task DetectLanguageExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for language detection. The ID can be any value.
         var inputDocuments = new LanguageBatchInput(
@@ -219,7 +208,7 @@ Document ID: 4 , Sentiment Score: 1.00
     }
     ```
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 ===== LANGUAGE EXTRACTION ======
@@ -231,16 +220,11 @@ Document ID: 3 , Language: Chinese_Simplified
 ## <a name="entity-recognition"></a>Reconhecimento de entidades
 
 1. Criar uma nova função chamada `RecognizeEntitiesExample()` que usa o cliente criado anteriormente.
-2. Criar uma nova `TextAnalyticsClient` objeto com `ApiKeyServiceClientCredentials` como um parâmetro e, em seguida, gerar uma lista de `MultiLanguageBatchInput` objetos, que contém os seus documentos.
+2. Gerar uma lista de `MultiLanguageBatchInput` objetos, que contém os seus documentos.
 
     ```csharp
-    public static async Task RecognizeEntitiesExample(string endpoint, string key)
+    public static async Task RecognizeEntitiesExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
 
         // The documents to be submitted for entity recognition. The ID can be any value.
         var inputDocuments = new MultiLanguageBatchInput(
@@ -275,7 +259,7 @@ Document ID: 3 , Language: Chinese_Simplified
     }
     ```
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 Document ID: 1
@@ -309,17 +293,11 @@ Document ID: 2
 ## <a name="key-phrase-extraction"></a>Extração de expressões chave
 
 1. Criar uma nova função chamada `KeyPhraseExtractionExample()` que usa o cliente criado anteriormente.
-2. Criar uma nova `TextAnalyticsClient` objeto com `ApiKeyServiceClientCredentials` como um parâmetro e, em seguida, gerar uma lista de `MultiLanguageBatchInput` objetos, que contém os seus documentos.
+2. Gerar uma lista de `MultiLanguageBatchInput` objetos, que contém os seus documentos.
 
     ```csharp
-    public static async Task KeyPhraseExtractionExample(string endpoint, string key)
+    public static async Task KeyPhraseExtractionExample(TextAnalyticsClient client)
     {
-        var credentials = new ApiKeyServiceClientCredentials(key);
-        var client = new TextAnalyticsClient(credentials)
-        {
-            Endpoint = endpoint
-        };
-
         var inputDocuments = new MultiLanguageBatchInput(
                     new List<MultiLanguageInput>
                     {
@@ -351,7 +329,7 @@ Document ID: 2
     }
     ```
 
-### <a name="output"></a>Saída
+### <a name="output"></a>Resultado
 
 ```console
 Document ID: 1

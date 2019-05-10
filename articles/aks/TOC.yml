@@ -140,6 +140,8 @@
           href: azure-files-dynamic-pv.md
         - name: Ficheiros do Azure - Estático
           href: azure-files-volume.md
+        - name: Servidor NFS - Estático
+          href: azure-nfs-volume.md
     - name: Configurar rede
       items:
         - name: Criar ou utilizar uma rede virtual existente

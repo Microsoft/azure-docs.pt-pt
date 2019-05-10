@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8c0291997c1ce301083f7d5c19b5067a85cfd0f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4d588374c0195e7da373766f93f6829ac2160269
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024954"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471614"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento do Azure Machine Learning
 
@@ -299,7 +299,7 @@ Quando o cluster estiver em execução, [criar uma biblioteca](https://docs.data
 
 1. Escolher **apenas uma** opção (outra instalação do SDK não são suportadas)
 
-   |SDK&nbsp;pacote&nbsp;extras|Origem|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;pacote&nbsp;extras|Source|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Para o Databricks| Carregar Python ovo ou PyPI | azureml-sdk[databricks]|
    |Para o Databricks - com-<br> funcionalidades de ML automatizadas| Carregar Python ovo ou PyPI | azureml-sdk[automl_databricks]|
@@ -396,5 +396,5 @@ Pode criar o ficheiro de configuração de três formas:
 
 - [Preparar um modelo](tutorial-train-models-with-aml.md) no Azure Machine Learning com o conjunto de dados MNIST
 - Ver os [do Azure Machine Learning SDK para Python](https://aka.ms/aml-sdk) referência
-- Saiba mais sobre o [SDK de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk)
+- Saiba mais sobre o [pacote de preparação de dados do Azure Machine Learning](https://aka.ms/data-prep-sdk)
 - 

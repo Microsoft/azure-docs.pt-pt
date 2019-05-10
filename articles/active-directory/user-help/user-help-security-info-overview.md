@@ -1,6 +1,6 @@
 ---
 title: Descrição geral das informações de segurança (pré-visualização) - Azure Active Directory | Microsoft Docs
-description: Uma visão geral sobre a área de informações de segurança, incluindo links para outros artigos sobre a funcionalidade.
+description: Uma lista de links para artigos sobre a página de informações de segurança e a funcionalidade.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -9,34 +9,36 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/11/2019
+ms.date: 05/08/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 234c7244f438926f43ddf31234a38c9034a6ca52
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e471f447b0c50c9c65923d7135b2b48789728df
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60473244"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470703"
 ---
 # <a name="security-info-preview-overview"></a>Descrição geral das informações de segurança (pré-visualização)
-Pode configurar as informações de segurança para verificação de dois passos e reposição de palavra-passe a **informações de segurança** página. Também pode editar as informações de segurança e alterar o seu método de padrão dessa página
+
+O **informações de segurança** página ajuda-o a configurar seus métodos de verificação de dois passos e informações de reposição da palavra-passe. Também ajuda-o a atualizar suas informações de segurança pessoal e seu método de verificação padrão.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Important]
 >Este conteúdo destina-se aos utilizadores. Se for um administrador, pode encontrar mais informações sobre como configurar e gerir o ambiente do Azure Active Directory (Azure AD) na [Documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
-## <a name="in-this-section"></a>Nesta secção
-Pode encontrar mais informações sobre como adicionar, atualizar, e a eliminar as informações de segurança, com base no método que pretende utilizar nos seguintes artigos.
+## <a name="security-info-articles"></a>Artigos sobre informações de segurança
+
+Para obter informações detalhadas e instruções sobre como adicionar, atualizar e excluir as informações de segurança, consulte os seguintes artigos (com base no método que pretende utilizar):
 
 |Artigo |Descrição |
 |------|------------|
-|[Configurar informações de segurança durante o início de sessão](security-info-setup-signin.md)|Descreve como configurar as informações de segurança, se lhe for pedido a partir da sua página de início de sessão.|
-|[Configurar informações de segurança para uma aplicação de autenticação](security-info-setup-auth-app.md)|Descreve como configurar as suas informações de segurança para utilizar uma aplicação Microsoft Authenticator como seu método.|
-|[Configurar informações de segurança de mensagens de texto](security-info-setup-text-msg.md)|Descreve como configurar as suas informações de segurança para utilizar como o seu método de mensagens de texto.|
-|[Configurar as informações de segurança para utilizar chamadas telefónicas](security-info-setup-phone-number.md)| Descreve como configurar o número de telefone como o seu método.|
-|[Configurar as informações de segurança para utilizar o e-mail](security-info-setup-email.md)|Descreve como configurar o endereço de e-mail para ajudar a repor a sua palavra-passe.|
-|[Configurar as informações de segurança para utilizar perguntas de segurança predefinidas](security-info-setup-questions.md)|Descreve como utilizar perguntas de segurança para ajudar a repor a sua palavra-passe.|
-|[Gerir as palavras-passe das aplicações](security-info-app-passwords.md)|Descreve como utilizar as informações de segurança para configurar as palavras-passe das aplicações.|
-|[Como iniciar sessão](user-help-sign-in.md)|Descreve como iniciar sessão com o método que especificou.|
+|[Adicionar o seu método de segurança a partir de uma linha de comandos na sua página de início de sessão](security-info-setup-signin.md)| Instruções sobre como configurar as suas informações de segurança quando lhe for pedido a partir da sua página de início de sessão. Só verá esta linha de comandos se ainda não configurou as informações de segurança exigida pela sua organização. Se não vir a linha de comandos, pode ainda alterar e adicionar métodos de verificação com os outros artigos nesta tabela.|
+|[Adicionar a aplicação Microsoft Authenticator como um método de verificação](security-info-setup-auth-app.md)| Instruções sobre como configurar a aplicação Microsoft Authenticator como um método de verificação.|
+|[Adicionar como um método de verificação de mensagens de texto](security-info-setup-text-msg.md)| Instruções sobre como configurar como um método de verificação de mensagens de texto.|
+|[Adicionar chamadas telefónicas como um método de verificação](security-info-setup-phone-number.md)| Instruções sobre como configurar o seu número de telefone como um método de verificação.|
+|[Adicionar um endereço de e-mail para repor a sua própria palavra-passe](security-info-setup-email.md)| Instruções sobre como adicionar o seu endereço de e-mail, para que pode redefinir sua própria palavra-passe.|
+|[Adicionar perguntas de segurança para repor a sua própria palavra-passe](security-info-setup-questions.md)| Instruções sobre como adicionar perguntas de segurança predefinidas, portanto, pode repor a própria palavra-passe.|
+|[Gerir palavras-passe de aplicação para aplicações que não suportam a verificação de dois passos](security-info-app-passwords.md)| Instruções sobre como criar palavras-passe de aplicação para aplicações que não suportam a verificação de dois passos numa organização que utiliza a verificação de dois passos.|
+|[Como iniciar sessão](user-help-sign-in.md)|Descreve como iniciar sessão com o método de verificação que tiver especificado.|

@@ -10,15 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d297addbeffcc530ba676e4132f9f0ebdceac3c9
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461518"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467000"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Início rápido: Reconhecer a conversão de voz com o SDK de voz para .NET Framework (Windows)
 
+Também estão disponíveis para inícios Rápidos [voz](quickstart-text-to-speech-dotnet-windows.md) e [tradução de voz](quickstart-translate-speech-dotnetframework-windows.md).
+
+Se assim o desejar, escolha uma linguagem de programação diferente e/ou o ambiente:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Utilize este guia para criar uma aplicação de consola de voz em texto com o .NET framework para Windows e o SDK de Voz. Quando terminar, pode utilizar o microfone do seu computador para converter voz em texto em tempo real.

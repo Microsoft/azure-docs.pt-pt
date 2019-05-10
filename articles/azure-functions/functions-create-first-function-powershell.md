@@ -10,12 +10,12 @@ ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
-ms.openlocfilehash: 21fe1d654b802cb2bcb1a1fd3d5ffc4d04112334
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 24640c9013f7a5b81cd5b1b6f45de49c5baad0e6
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530469"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65473273"
 ---
 # <a name="create-your-first-powershell-function-in-azure-preview"></a>Criar a sua primeira função do PowerShell no Azure (pré-visualização)
 
@@ -50,24 +50,7 @@ Para concluir este guia de início rápido:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)]
-
-## <a name="enable-powershell-in-the-extension"></a>Ativar o PowerShell na extensão
-
-Utilize os seguintes passos para ativar o PowerShell na extensão de funções do Azure:
-
-1. No Visual Studio Code, escolha um dos seguintes comandos de menu:
-
-    * No Windows ou Linux, escolha **arquivo** > **preferências** > **definições**.
-    * No macOS, escolha **código** > **preferências** > **definições**.
-
-1. No campo de definições de pesquisa, escreva `powershell`.
-
-1. Na **as definições de utilizador** separador, expanda **extensões** > **as funções do Azure**, em seguida, **ativar o suporte de pré-visualização para o PowerShell**.
-
-    ![Código de funções do Azure num projeto do Visual Studio](./media/functions-create-first-function-powershell/enable-powershell-support-vs-code.png)
-
-Feche as definições. PowerShell está agora ativado.  
+[!INCLUDE [functions-install-vs-code-extension](../../includes/functions-install-vs-code-extension.md)] 
 
 ## <a name="create-a-function-app-project"></a>Criar um projeto de aplicação de função
 
@@ -120,6 +103,9 @@ Depois de verificar que a função é executada corretamente no computador local
 
 > [!NOTE]
 > Não se esqueça de remover todas as chamadas para `Wait-Debugger` antes de publicar as suas funções no Azure. 
+
+> [!NOTE]
+> Nome da aplicação de funções só pede ao criar uma aplicação de funções no Azure. Defina azureFunctions.advancedCreation como true para ser-lhe pedido para todos os outros valores.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

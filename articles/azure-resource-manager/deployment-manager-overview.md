@@ -12,14 +12,14 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: a615ab26e4ea046ced70ce2c154a0c304b741986
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550929"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466564"
 ---
-# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-private-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização privada)
+# <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização pública)
 
 Para implementar o seu serviço entre várias regiões e certificar-se de que está a ser executado conforme esperado em cada região, pode utilizar o Gestor de implementação do Azure para coordenar uma implementação faseada do serviço. Tal como faria para qualquer implementação do Azure, definir os recursos para o seu serviço no [modelos do Resource Manager](resource-group-authoring-templates.md). Depois de criar os modelos, utilize o Gestor de implementação para descrever a topologia para o seu serviço e como ele deve ser implementado.
 
@@ -200,7 +200,9 @@ O modelo de implementação, vai criar uma origem de artefacto para os binários
 
 ### <a name="steps"></a>Passos
 
-Pode definir um passo para executar antes ou depois da operação de implementação. Atualmente, apenas o `wait` passo está disponível. O passo de espera interrompe a implementação antes de continuar. Ele permite-lhe verificar que seu serviço está em execução conforme esperado antes de implementar a seguinte unidade de serviço. O exemplo seguinte mostra o formato geral de um passo de espera.
+Pode definir um passo para executar antes ou depois da operação de implementação. Atualmente, apenas o `wait` passo e o passo de "healthCheck" estão disponíveis. 
+
+O passo de espera interrompe a implementação antes de continuar. Ele permite-lhe verificar que seu serviço está em execução conforme esperado antes de implementar a seguinte unidade de serviço. O exemplo seguinte mostra o formato geral de um passo de espera.
 
 ```json
 {
@@ -219,7 +221,7 @@ Pode definir um passo para executar antes ou depois da operação de implementa�
 
 Utiliza a propriedade duration [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). O exemplo anterior Especifica uma espera de um minuto.
 
-Para obter mais informações, consulte [passos referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
+Para obter mais informações sobre o passo de verificação de estado de funcionamento, consulte [ ]() e [ ]() para obter mais informações, consulte [passos referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Implementações
 

@@ -139,8 +139,8 @@
       displayName: 'recognize speech, speech recognition, speech-to-text, stt'
     - name: Consumir fluxos de entrada de áudio (SDK)
       href: how-to-use-audio-input-streams.md
-    - name: Consumir fluxos de entrada de áudio comprimido (SDK)
-      href: how-to-use-compressed-audio-input-streams.md
+    - name: Consuma transmissões de entrada com codecs de áudio comprimido (SDK)
+      href: how-to-use-codec-compressed-audio-input-streams.md
       displayName: 'mp3, opus, ogg, flac'
     - name: Selecionar um dispositivo de entrada de áudio (SDK)
       href: how-to-select-audio-input-devices.md
@@ -184,7 +184,7 @@
               href: record-custom-voice-samples.md
             - name: Ajustar a saída de conversão de texto em voz
               href: how-to-voice-tuning.md
-        - name: Criar uma palavra personalizada para iniciar a interação (SDK de Dispositivos)
+        - name: Criar uma palavra personalizada para reativação (deteção de palavra-chave)
           href: speech-devices-sdk-create-kws.md
           displayName: 'roobo, speech devices sdk, wake word, keyword spotting, kws'
     - name: Migração
@@ -195,9 +195,9 @@
           href: how-to-migrate-from-custom-speech-service.md
         - name: Da API de Tradução de Voz
           href: how-to-migrate-from-translator-speech-api.md
-    - name: Utilizar contentores
+    - name: Utilizar contentores locais
       items:
-        - name: Instalar e executar contentores
+        - name: Instalar e executar contentores locais
           displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull'
           href: speech-container-howto.md
         - name: Configurar contentores
@@ -220,6 +220,8 @@
         - name: Descrição geral
           href: speech-sdk.md
           displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+        - name: Disponibilidade de cenário
+          href: scenario-availability.md
         - name: Notas de versão
           href: releasenotes.md
         - name: C++
@@ -255,6 +257,9 @@
         - name: Transcrição em lote e personalização
           href: 'https://westus.cris.ai/swagger/ui/index'
           displayName: 'Batch transcription, transcription, custom models, customization, model management'
+        - name: Transcrição de conversas
+          href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
+          displayName: 'Conversation transcription, signature generation'
         - name: Webhooks
           href: webhooks.md
           displayName: Webhooks

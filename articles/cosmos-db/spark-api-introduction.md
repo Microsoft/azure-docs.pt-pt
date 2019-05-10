@@ -1,28 +1,26 @@
 ---
-title: Introdução ao Spark Azure Cosmos DB API
-description: Saiba como pode utilizar a API de Spark do Azure Cosmos DB para executar análises operacionais e de IA
+title: Introdução à análise operacional integrada no Azure Cosmos DB com o Apache Spark
+description: Saiba como pode utilizar o suporte incorporado para o Apache Spark no Azure Cosmos DB para executar análises operacionais e de IA
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 05/06/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: de920f40f2968942b7ac66414170b43bd9317cfb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 504f463f55edf1a22f99e1ba02449121e8bf5efc
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081095"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472260"
 ---
-# <a name="introduction-to-the-azure-cosmos-db-spark-api-preview"></a>Introdução à API de Spark do Cosmos DB no Azure (pré-visualização) 
+# <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Análise operacional incorporada no Azure Cosmos DB com o Apache Spark (pré-visualização) 
 
-A API do Spark no Azure Cosmos DB permite-lhe executar análises do Apache Spark relativamente aos seus dados armazenados numa conta do Cosmos do Azure.
-
-A API do Spark no Azure Cosmos DB fornece o suporte nativo para tarefas do Apache Spark executar diretamente em seus bancos de dados globalmente distribuídos do Cosmos. Com estas capacidades, os desenvolvedores, engenheiros de dados e os cientistas de dados podem utilizar do Azure Cosmos DB como um flexível, dimensionável e plataforma de dados de elevado desempenho para executar os dois **OLTP e OLAP/HTAP** cargas de trabalho. 
+O suporte incorporado para o Apache Spark no Azure Cosmos DB permite-lhe executar análises do Apache Spark relativamente aos seus dados armazenados numa conta do Cosmos do Azure. Ele fornece o suporte nativo para tarefas do Apache Spark executar diretamente em seus bancos de dados globalmente distribuídos do Cosmos. Com estas capacidades, os desenvolvedores, engenheiros de dados e os cientistas de dados podem utilizar do Azure Cosmos DB como um flexível, dimensionável e plataforma de dados de elevado desempenho para executar os dois **OLTP e OLAP/HTAP** cargas de trabalho. 
 
 > [!NOTE]
-> API de Spark do Azure Cosmos DB está atualmente em pré-visualização limitada. Para se inscrever na pré-visualização, navegue até [Inscreva-se na pré-visualização](https://aka.ms/cosmos-spark-preview) página. 
+> O suporte incorporado para o Apache Spark no Azure Cosmos DB está atualmente em pré-visualização limitada. Para se inscrever na pré-visualização, navegue até [Inscreva-se na pré-visualização](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) página. 
 
-A API do Spark no Azure Cosmos DB oferece as seguintes vantagens:
+O suporte do Apache Spark no Azure Cosmos DB oferece as seguintes vantagens:
 
 * Pode obter o tempo mais rápido para obter conhecimentos aprofundados para os utilizadores distribuídos geograficamente e os dados.
 
@@ -32,13 +30,13 @@ A API do Spark no Azure Cosmos DB oferece as seguintes vantagens:
 
 * Fornece "sempre ativa" ou [elevada disponibilidade](high-availability.md) análises de utilizador final que são apoiados por SLAs rigorosas.
 
-![Visualização de API de Spark do Cosmos DB do Azure](./media/spark-api-introduction/spark-api-visualization.png)
+![Suporte para Apache Spark na visualização do Azure Cosmos DB](./media/spark-api-introduction/spark-api-visualization.png)
  
-Utilizar a API de Spark do Azure Cosmos DB, pode criar e implementar soluções de IA e aprendizagem, modelos, Análise Preditiva, recomendações, IoT, o cliente 360, deteção de fraudes, análises clickstream de sentimentos de texto. Esses recursos funcionam diretamente nos seus dados do Azure Cosmos DB.
+Usando o suporte do Apache Spark no Azure Cosmos DB, pode criar e implementar soluções de IA e aprendizagem, modelos, Análise Preditiva, recomendações, IoT, o cliente 360, deteção de fraudes, análises clickstream de sentimentos de texto. Essas soluções funcionam diretamente nos seus dados do Azure Cosmos DB.
 
 Pode configurar o batch e transmissão em fluxo de trabalho ETL no Azure Cosmos DB, sem ter de sair do serviço de base de dados ou adicionar mais serviços de computação. Pode dimensionar o ambiente de computação quando tiver de executar a tarefa ETL e dimensioná-lo a voltar a reduzir quando a tarefa está concluída.
 
-A API do Spark no Azure Cosmos DB suporta o suporte de Machine Learning incorporado nos tempos de execução do Apache Spark. Os tempos de execução incluem Spark MLLib, Microsoft Machine Learning para Spark, Azure Machine Learning e os serviços cognitivos. Com esses recursos, os cientistas de dados, engenheiros de dados e analistas de dados podem criar e operacionalizar modelos de aprendizagem automática diretamente no Azure Cosmos DB, numa fração de tempo e com baixo custo.
+O suporte do Apache Spark no Azure Cosmos DB oferece suporte incorporado de Machine Learning nos tempos de execução do Apache Spark. Os tempos de execução incluem Spark MLLib, Microsoft Machine Learning para Spark, Azure Machine Learning e os serviços cognitivos. Com esses recursos, os cientistas de dados, engenheiros de dados e analistas de dados podem criar e operacionalizar modelos de aprendizagem automática diretamente no Azure Cosmos DB, numa fração de tempo e com baixo custo.
 
 
 ## <a name="key-benefits"></a>Principais vantagens
@@ -57,7 +55,7 @@ Com o Apache Spark na base de dados globalmente distribuído do Cosmos do Azure,
 
 Como uma base de dados com múltiplos modelo, Azure Cosmos DB agora se expande o suporte de OSS APIs, fornecendo uma **experiência sem servidor para o Apache Spark unificada** com chave-valor, documentos, gráfico, modelos de dados de famílias de coluna. Vários modelos de dados são suportados com o MongoDB, Cassandra, Gremlin, Etcd e APIs de SQL - operando todos os mesmos dados subjacentes. 
 
-Com a API do Spark, nativamente pode oferecer suporte a aplicativos escritos em Scala, Python, Java e utilizar várias bibliotecas estreitamente integradas para SQL. Estas bibliotecas incluem ([Spark SQL](https://spark.apache.org/sql/)), de machine learning (Spark [MLlib](https://spark.apache.org/mllib/)), processamento de fluxo ([Spark Structured Streaming](https://spark.apache.org/streaming/)) e o processamento de gráficos (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html)). Essas ferramentas facilitam a tirar partido da API do Spark para uma variedade de casos de utilização. Não precisa lidar com gestão de Spark ou clusters do Spark. Pode utilizar as familiares APIs de Spark do Apache e **blocos de notas do Jupyter** para análise e a API de SQL ou a qualquer uma das APIs OSS NoSQL como Cassandra para processamento transacional nos mesmos dados subjacentes ao mesmo tempo.
+Com o suporte do Apache Spark no Azure Cosmos DB, nativamente pode oferecer suporte a aplicativos escritos em Scala, Python, Java e utilizar várias bibliotecas estreitamente integradas para SQL. Estas bibliotecas incluem ([Spark SQL](https://spark.apache.org/sql/)), de machine learning (Spark [MLlib](https://spark.apache.org/mllib/)), processamento de fluxo ([Spark Structured Streaming](https://spark.apache.org/streaming/)) e o processamento de gráficos (Spark [GraphFrames]( https://docs.databricks.com/spark/latest/graph-analysis/graphframes/user-guide-python.html)). Essas ferramentas facilitam a tirar partido do Apache Spark para uma variedade de casos de utilização. Não precisa lidar com gestão de Spark ou clusters do Spark. Pode utilizar as familiares APIs de Spark do Apache e **blocos de notas do Jupyter** para análise e a API de SQL ou a qualquer uma das APIs OSS NoSQL como Cassandra para processamento transacional nos mesmos dados subjacentes ao mesmo tempo.
 
 ### <a name="no-schema-or-index-management"></a>Sem gestão de índices ou esquemas
 

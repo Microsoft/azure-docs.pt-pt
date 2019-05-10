@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: cawa
-ms.openlocfilehash: 6b60e03c8888ad2c9726116f1f3b2e49d9a4e1e8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9763a14e84d88be1d6f09fb9f16b6b7c9eeffd2d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722753"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506432"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Guardar em segurança as definições da aplicação secreta para uma aplicação web
 
@@ -49,14 +49,16 @@ Se estiver desenvolvendo um projeto e precisar compartilhar o código-fonte com 
 
     ![Adicione o segredo do Key Vault](./media/vs-secure-secret-appsettings/add-keyvault-secret.png)
 
-4. Instalar o [extensão de autenticação de serviços do Azure para Visual Studio](https://go.microsoft.com/fwlink/?linkid=862354). Por essa extensão, a aplicação pode aceder Key Vault com a identidade de início de sessão no Visual Studio.
-
-5. Adicione os seguintes pacotes NuGet ao seu projeto:
+    > [!NOTE] 
+    > Antes de V15.6 de 2017 do Visual Studio, nós usamos Recomendamos a instalação da extensão de autenticação de serviços do Azure para Visual Studio. Mas foi preterido agora a funcionalidade está integrada no Visual Studio. Por conseguinte, se tiver uma versão anterior do visual Studio 2017, sugerimos que Atualize para, pelo menos, VS 2017 15,6 ou até para que possa utilizar esta funcionalidade nativamente e aceder ao Cofre de chave de utilizar a Visual Studio início de sessão identidade propriamente dita.
+    >
+ 
+4. Adicione os seguintes pacotes NuGet ao seu projeto:
 
     ```
     Microsoft.Azure.Services.AppAuthentication
     ```
-6. Adicione o seguinte código ao ficheiro Program.cs:
+5. Adicione o seguinte código ao ficheiro Program.cs:
 
     ```csharp
     public static IWebHost BuildWebHost(string[] args) =>
@@ -79,11 +81,11 @@ Se estiver desenvolvendo um projeto e precisar compartilhar o código-fonte com 
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-7. Adicione o seu URL do Key Vault ao ficheiro de launchsettings.json. O nome da variável de ambiente *KEYVAULT_ENDPOINT* é definida no código adicionado no passo 6.
+6. Adicione o seu URL do Key Vault ao ficheiro de launchsettings.json. O nome da variável de ambiente *KEYVAULT_ENDPOINT* é definida no código adicionado no passo 6.
 
     ![Adicionar o URL do Key Vault como uma variável de ambiente de projeto](./media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-8. Inicie a depuração do projeto. Deve ser executado com êxito.
+7. Inicie a depuração do projeto. Deve ser executado com êxito.
 
 ## <a name="aspnet-and-net-applications"></a>Aplicativos ASP.NET e .NET
 

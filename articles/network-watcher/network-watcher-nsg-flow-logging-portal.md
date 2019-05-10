@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 550755b1215dd25045845d78ab3d6248ef840062
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705945"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467437"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar tráfego de rede de e para uma máquina virtual utilizando o portal do Azure
 
@@ -93,6 +93,9 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     | Grupo de recursos | Selecione **Utilizar existente** e, em seguida, **myResourceGroup** |
 
     A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento.
+    
+    > [!NOTE]
+    > Embora fornecedores Microsoft.Insight e Network atualmente são suportadas para o armazenamento do Azure, registos de fluxo de NSG é ainda não totalmente carregada. Para ativar o registo de fluxo de NSG, **todas as redes** devem ser selecionados até que esta funcionalidade é totalmente integrado. 
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 5. Em **REGISTOS**, selecione **Registos de fluxo do NSG**, conforme mostrado na imagem seguinte:
 
@@ -206,7 +209,7 @@ O valor de **mac** na saída anterior é o endereço MAC da interface de rede qu
 | 443         | Porta de destino       | A porta de destino à qual se destinava o fluxo. Uma vez que o tráfego foi destinado à porta 443, a regra com o nome **UserRule_default-allow-rdp**, no registo de ficheiros processados o fluxo.                                                |
 | T            | Protocolo               | Indica se o protocolo do fluxo era TCP (T) ou UDP (U).                                  |
 | O            | Direction              | Indica se o tráfego era de entrada (I) ou de saída (O).                                     |
-| A            | Ação                 | Indica se o tráfego era permitido (I) ou proibido (O).  
+| A            | Acção                 | Indica se o tráfego era permitido (I) ou proibido (O).  
 | C            | Estado do fluxo de **apenas a versão 2** | Captura o estado do fluxo. Estados possíveis **B**: Iniciar, quando um fluxo é criado. Estatísticas não são fornecidas. **C**: Continuar para um fluxo em curso. As estatísticas são fornecidas em intervalos de 5 minutos. **E**: Fim, quando um fluxo é terminado. As estatísticas são fornecidas. |
 | 30 | Pacotes enviados - origem para destino **apenas 2 da versão** | O número total de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. |
 | 16978 | Bytes enviados - origem para destino **apenas 2 da versão** | O número total de bytes de pacotes TCP ou UDP enviados da origem para destino, desde a última atualização. Bytes de pacote incluem o cabeçalho de pacote e o payload. | 
