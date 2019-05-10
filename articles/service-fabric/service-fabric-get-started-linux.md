@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 49d06c05af085624a0d495a65e139d3857a13fc4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a063461d9da66d57a7bdc3311ae80dec7f2c98f1
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712615"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470234"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -334,7 +334,6 @@ Para remover os SDKs do Service Fabric, execute os seguintes comandos.
 * [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md) (Preparar um ambiente de desenvolvimento do Linux no Windows)
 * [Gerir as aplicações com a CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 * [Diferenças do Service Fabric no Windows e no Linux](service-fabric-linux-windows-differences.md)
-* [Automatizar a aplicação de patches do sistema operativo no seu cluster do Linux](service-fabric-patch-orchestration-application-linux.md)
 * [Introdução à CLI do Service Fabric](service-fabric-cli.md)
 
 <!-- Links -->

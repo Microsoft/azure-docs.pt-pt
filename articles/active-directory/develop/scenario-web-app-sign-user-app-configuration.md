@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 516d1c3440548b43bf6df21dbf5757794634fb12
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b2204fe3e08b3c4b909ddc8b7ade4cec219d34fb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074579"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406638"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>Aplicação Web que inicia sessão os utilizadores - configuração de código
 
@@ -143,7 +143,7 @@ No ASP.NET, a aplicação está configurada por meio do `Web.Config` ficheiro
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   For more information on how to configure your ASP.NET application, please visit
-  http://go.microsoft.com/fwlink/?LinkId=301880
+  https://go.microsoft.com/fwlink/?LinkId=301880
   -->
 <configuration>
   <appSettings>

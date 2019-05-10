@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ca13bdd8e3677f559bac373efa078f3b951be
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0d0295162acdf358bd798e86bd7d3479f5e78d72
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920355"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---secure"></a>Tutorial: Integração do Active Directory do Azure com TOPdesk - seguro
 
@@ -184,7 +184,7 @@ Para configurar o Azure AD início de sessão único com TOPdesk - proteger, exe
 
     d. Para carregar o ficheiro do logótipo da equipe de suporte do TOPdesk, tem em **ícone de logótipo**, clique em **procurar**.
 
-    e. Na **atributo de nome de utilizador** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Na **atributo de nome de utilizador** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     f. Na **nome a apresentar** caixa de texto, escreva um nome para a sua configuração.
 
@@ -271,7 +271,7 @@ No caso TOPdesk - seguros, aprovisionamento é uma tarefa manual.
 > [!NOTE]
 > Pode usar qualquer outra TOPdesk - ferramentas de criação de conta de usuário segura ou APIs fornecidas pelos TOPdesk - segura para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 414200462d3575aa576b5ef2268a3ac0b01063ba
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 73d97b45217da4bbf4b8c0e857b817911484f29c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190766"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231088"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Visão geral do Microsoft identity platform (v2.0)
 
@@ -43,7 +43,7 @@ Com a plataforma de identidade da Microsoft, pode escrever código uma vez e che
 
 ## <a name="getting-started"></a>Introdução
 
-Trabalhar com a identidade não precisa ser difícil. Escolha um cenário que se aplica a si — cada caminho de cenário tem um início rápido e uma página de descrição geral para ajudá-lo em funcionamento em minutos:
+Trabalhar com a identidade não tem de ser tão difícil. Escolha um cenário que se aplica a si — cada caminho de cenário tem um início rápido e uma página de descrição geral para ajudá-lo em funcionamento em minutos:
 
 - [Criar uma aplicação de página única](scenario-spa-overview.md)
 - [Criar uma aplicação web que inicia sessão dos utilizadores](scenario-web-app-sign-user-overview.md)
@@ -56,7 +56,7 @@ Trabalhar com a identidade não precisa ser difícil. Escolha um cenário que se
 
 A tabela a seguir descreve cenários comuns de aplicação de autenticação – utilizá-la como uma referência ao integrar a plataforma de identidade da Microsoft com a sua aplicação.
 
-[![Cenários de aplicativos na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.png#lightbox)
+[![Cenários de aplicativos na plataforma de identidade da Microsoft](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -77,6 +77,6 @@ Quando estiver pronto para iniciar a sua aplicação para um **ambiente de produ
 - Ativar [proxies e personalizar clientes HTTP](msal-net-provide-httpclient.md).
 - Testar a sua integração ao seguir a [lista de verificação do Microsoft identity platform integração](identity-platform-integration-checklist.md).
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 Se tivesse de planeamento para criar uma aplicação do lado do cliente que inicia sessão identidades sociais e locais, veja a [descrição geral do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

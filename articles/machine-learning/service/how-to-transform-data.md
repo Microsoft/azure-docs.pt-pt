@@ -12,19 +12,19 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b8cba8d0a400efb720d8374cdca886a2a638938
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: db23c8af7eaa4a86691ccb0bb831ce2cc28d635c
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023789"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65471840"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformar dados com o SDK de preparação de dados do Azure Machine Learning
 
-Neste artigo, vai aprender diferentes métodos de transformar dados com o SDK do Azure Machine Learning Data Prep. O SDK oferece funções que tornam mais fácil adicionar colunas, filtrar indesejadas linhas ou colunas e impute valores em falta. Para ver a documentação de referência para o SDK, consulte a [descrição geral](https://aka.ms/data-prep-sdk).
+Neste artigo, vai aprender diferentes métodos de transformar dados com o `azureml-dataprep` pacote. O pacote oferece funções que tornam mais fácil adicionar colunas, filtrar indesejadas linhas ou colunas e impute valores em falta. Consulte a documentação de referência completa para o [azureml dataprep pacote](https://aka.ms/data-prep-sdk).
 
 > [!Important]
-> Se estiver a criar uma nova solução, tente o [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (pré-visualização) para transformar os seus dados, os dados de instantâneos e armazenar as definições do conjunto de dados com a versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para o gerenciamento de soluções de ia de conjuntos de dados de preparação de dados.
+> Se estiver a criar uma nova solução, tente o [conjuntos de dados do Azure Machine Learning](how-to-explore-prepare-data.md) (pré-visualização) para transformar os seus dados, os dados de instantâneos e armazenar as definições do conjunto de dados com a versão. Conjuntos de dados é a próxima versão da SDK, oferecendo funcionalidade expandida para o gerenciamento de soluções de ia de conjuntos de dados de preparação de dados. Se utilizar o `azureml-dataprep` pacote para criar um fluxo de dados com as transformações em vez de usar o `azureml-datasets` para criar um conjunto de dados do pacote, não poderá utilizar instantâneos ou conjuntos de dados com a versão mais tarde.
 
 Nesta explicação de procedimento mostra exemplos para as seguintes tarefas:
 
@@ -196,7 +196,7 @@ Agora, passar o número de linhas que quer `skip` da parte superior para ver as 
 builder.preview(skip=30, count=5)
 ```
 
-||DATA|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/1/2015 22 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
 |1|1/1/2015 23 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
@@ -211,7 +211,7 @@ builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2
 builder.preview(skip=30, count=5)
 ```
 
-||DATA|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/1/2015 22 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
 |1|1/1/2015 23 minutos e 54|1 de Janeiro de 2015 10 PM - 12 AM|
@@ -226,7 +226,7 @@ builder.preview(skip=75, count=5)
 ```
 
 
-||DATA|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/3/2015 7:00|3 de Janeiro de 2015 6 da Manhã - 8 AM|
 |1|1/3/2015 7:54|3 de Janeiro de 2015 6 da Manhã - 8 AM|
@@ -239,7 +239,7 @@ builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-
 builder.preview(skip=75, count=5)
 ```
 
-||DATA|date_timerange|
+||DATE|date_timerange|
 |-----|-----|-----|
 |0|1/3/2015 7:00|3 de Janeiro de 2015 6 da Manhã - 8 AM|
 |1|1/3/2015 7:54|3 de Janeiro de 2015 6 da Manhã - 8 AM|
@@ -253,7 +253,7 @@ builder.preview(skip=75, count=5)
 examples = builder.list_examples()
 ```
 
-| |DATA|Exemplo|example_id|
+| |DATE|Exemplo|example_id|
 | -------- | -------- | -------- | -------- |
 |0|1/1/2015 1:00|1 de Janeiro de 2015 12AM -2AM|-1|
 |1|1/2/2015 0:54|2 de Janeiro de 2015 12AM -2AM|-2|
@@ -500,5 +500,4 @@ dflow.head(2)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Consulte o SDK [descrição geral](https://aka.ms/data-prep-sdk) para padrões de design e exemplos de utilização
 * Consulte o SDK do Azure Machine Learning Data Prep [tutorial](tutorial-data-prep.md) para obter um exemplo de resolver um cenário específico

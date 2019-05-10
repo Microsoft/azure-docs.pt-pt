@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 65fe89bf775a649d5654ce739d8d18e05d3048ca
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60428150"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416138"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticar e aceder a recursos com identidades geridas no Azure Logic Apps
 
@@ -66,7 +66,7 @@ Para ativar uma identidade gerida atribuído de sistema para a sua aplicação l
 
 <a name="template"></a>
 
-### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
+### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
 Quando deseja automatizar a criação e a implementar recursos do Azure como o logic apps, pode utilizar [modelos Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). Para criar uma identidade gerida atribuído de sistema para a sua aplicação lógica com o modelo, adicione a `"identity"` elemento e `"type"` propriedade para a definição de fluxo de trabalho de aplicação lógica no seu modelo de implementação: 
 
@@ -132,7 +132,7 @@ Para dar acesso a outro recurso do Azure para a identidade gerida de atribuído 
 
 1. No portal do Azure, vá para o recurso do Azure onde pretende atribuir acesso para a sua identidade gerida. 
 
-1. No menu do recurso, selecione **controlo de acesso (IAM)** e escolha **adicionar atribuição de função**. 
+1. No menu do recurso, selecione **controlo de acesso (IAM)**. Na barra de ferramentas, escolha **Add** > **adicionar atribuição de função**.
 
    ![Adicionar atribuição de função](./media/create-managed-service-identity/add-permissions-logic-app.png)
 

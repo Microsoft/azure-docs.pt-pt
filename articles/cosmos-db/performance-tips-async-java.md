@@ -5,14 +5,14 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 05/01/2019
 ms.author: sngun
-ms.openlocfilehash: 07da7f8905d7b8952db852d3da1dab12884de509
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0da5f503c13ce03854964c0d18edd0031e25bb62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60932923"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235601"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-async-java"></a>Sugestões de desempenho para o Azure Cosmos DB e Java assíncrono
 
@@ -162,7 +162,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
     <dependency>
       <groupId>io.netty</groupId>
       <artifactId>netty-tcnative</artifactId>
-      <version>2.0.7.Final</version>
+      <version>2.0.20.Final</version>
       <classifier>linux-x86_64</classifier>
     </dependency>
     ```

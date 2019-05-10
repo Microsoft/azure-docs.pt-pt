@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 30186d0f8197a35db409684775e2ec78288b8818
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726658"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236352"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereços IP e métodos de alocação no Azure
 
@@ -57,7 +57,7 @@ Os endereços IP públicos são criados com um dos SKUs seguintes:
 >[!IMPORTANT]
 > Têm de ser utilizados SKUs de correspondência para o balanceador de carga e os recursos de IP público. Não é possível ter uma mistura de recursos de SKU básicos e recursos de SKU standard. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.  Os novos designs devem ponderar a utilização de recursos SKU Standard.  Veja [Balanceador de Carga Standard](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para obter mais detalhes.
 
-#### <a name="basic"></a>Básica
+#### <a name="basic"></a>Básico
 
 Todos os endereços IP públicos criados antes da introdução de SKUs são endereços IP públicos de SKU Básico. Com a introdução de SKUs, tem a opção de especificar que SKU pretende que o endereço IP público seja. Os endereços de SKU Básico:
 
@@ -105,11 +105,14 @@ Normalmente, os endereços IP públicos são utilizados nos cenários seguintes:
 >
 
 ### <a name="dns-hostname-resolution"></a>Resolução de nomes de anfitrião DNS
-Pode especificar uma etiqueta de nome de domínio DNS par um recurso IP público, que cria um mapeamento para *domainnamelabel*.*location*.cloudapp.azure.com para o endereço IP público nos servidores DNS geridos pelo Azure. Por exemplo, se criar um recurso de IP público com **contoso** como *domainnamelabel* na **localização** *E.U.A. Oeste* do Azure, o nome de domínio completamente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** é resolvido para o endereço IP público do recurso. Pode utilizar o FQDN para criar um registo CNAME de domínio personalizado que aponte para o endereço IP público no Azure. Em vez de, ou além de, utilizar a etiqueta de nome DNS com o sufixo predefinido, pode utilizar o serviço DNS do Azure para configurar um nome DNS com um sufixo personalizado que é resolvido para o endereço IP público. Para obter mais informações, veja [Utilizar o DNS do Azure com um endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
+Pode especificar uma etiqueta de nome de domínio DNS par um recurso IP público, que cria um mapeamento para *domainnamelabel*.*location*.cloudapp.azure.com para o endereço IP público nos servidores DNS geridos pelo Azure. Por exemplo, se criar um recurso de IP público com **contoso** como *domainnamelabel* na **localização** *E.U.A. Oeste* do Azure, o nome de domínio completamente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** é resolvido para o endereço IP público do recurso.
 
 > [!IMPORTANT]
 > Cada etiqueta de nome de domínio criada tem de ser exclusiva no âmbito da respetiva localização do Azure.  
 >
+
+### <a name="dns-best-practices"></a>Melhores práticas DNS
+Se alguma vez precisar de migrar para uma região diferente, não é possível migrar o FQDN do seu endereço IP público. Como melhor prática, pode utilizar o FQDN para criar um registo CNAME de domínio personalizado que aponta para o endereço IP público no Azure. Se precisar de mover para um IP público diferente, esta operação requer uma atualização para o registo CNAME, em vez de precisar de atualizar manualmente o FQDN para o novo endereço. Pode usar [DNS do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) ou um fornecedor DNS externo para o registo de DNS. 
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -119,7 +122,7 @@ Pode associar um endereço IP público a uma máquina virtual do [Windows](../vi
 
 Pode associar um endereço IP público criado com qualquer [SKU](#sku) a um [Balanceador de Carga do Azure](../load-balancer/load-balancer-overview.md) ao atribuí-lo à configuração do **front-end** do balanceador de carga. O endereço IP público serve como endereço IP virtual (VIP) com balanceamento de carga. Pode atribuir um endereço IP público dinâmico ou estático a um front-end de balanceador de carga. Também pode atribuir múltiplos endereços IP públicos a um front-end de balanceador de carga, que permite cenários de [vários VIPs](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), como um ambiente multi-inquilinos com Web sites baseados em SSL. Para obter mais informações sobre os SKUs de balanceador de carga do Azure, veja [SKU standard de balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-### <a name="vpn-gateways"></a>Gateways de VPN
+### <a name="vpn-gateways"></a>Gateways VPN
 
 Um [Gateway de VPN do Azure](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json) liga uma rede virtual do Azure a outras redes virtuais do Azure ou a uma rede no local. Um endereço IP público é atribuído ao Gateway de VPN para que possa comunicar com a rede remota. Só pode atribuir um endereço IP público básico *dinâmico* a um gateway de VPN.
 
@@ -130,11 +133,11 @@ Pode associar um endereço IP público a um [Gateway de Aplicação](../applicat
 ### <a name="at-a-glance"></a>De relance
 A tabela seguinte mostra a propriedade específica através da qual os endereços IP públicos podem ser associados a recursos de nível superior e os métodos de alocação possíveis (dinâmico ou estático) que podem ser utilizados.
 
-| Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
+| Recurso de nível superior | Associação de endereço IP | Dinâmico | Estático |
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
 | Balanceador de carga com acesso à Internet |Configuração de front-end |Sim |Sim |
-| Gateway de VPN |Configuração de IP do gateway |Sim |Sim |
+| Gateway de VPN |Configuração de IP do gateway |Sim |Não |
 | Gateway de aplicação |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
 
 ## <a name="private-ip-addresses"></a>Endereços IP Privados
@@ -181,7 +184,7 @@ A tabela seguinte mostra a propriedade específica através da qual os endereço
 | Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
 | --- | --- | --- | --- |
 | Máquina virtual |Interface de rede |Sim |Sim |
-| Load balancer |Configuração de front-end |Sim |Sim |
+| Balanceador de carga |Configuração de front-end |Sim |Sim |
 | Gateway de aplicação |Configuração de front-end |Sim |Sim |
 
 ## <a name="limits"></a>Limits

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 4/17/2019
+ms.date: 5/02/2019
 ms.author: monhaber
-ms.openlocfilehash: b5eafd15344156965d0a191688f602ffe1b5a498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4e334af353e1d9556641914056ab0a3071ca361e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703579"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233593"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plataformas e funcionalidades suportadas pelo centro de segurança do Azure
 
@@ -70,7 +70,7 @@ VMs que são executadas num serviço cloud também são suportadas. Apenas funç
 > [!div class="mx-tableFixed"]
 > 
 
-|Servidor|Windows||Linux||
+|Servidor |Windows||Linux||
 |----|----|----|----|----|
 |Ambiente|Azure|Não Pertencente ao Azure|Azure|Não Pertencente ao Azure|
 |Alertas de deteção de ameaças VMBA|✔|✔|✔ (em versões suportadas)|✔|
@@ -78,11 +78,11 @@ VMs que são executadas num serviço cloud também são suportadas. Apenas funç
 |Integração do Windows Defender ATP|✔ (em versões suportadas)|✔|X|X|
 |Patches em falta|✔|✔|✔|✔|
 |Configurações de segurança|✔|✔|✔|✔|
-|Endpoint protection|✔|✔|X|X|
+|Proteção de ponto final|✔|✔|X|X|
 |Acesso JIT da VM|✔|X|✔|X|
-|Controlos de aplicações adaptáveis|✔|X|X|X|
+|Controlos de aplicação adaptável|✔|✔|✔|✔|
 |FIM|✔|✔|✔|✔|
-|Encriptação de disco|✔|X|✔|X|
+|Encriptação de discos|✔|X|✔|X|
 |Implantação de terceiros|✔|X|✔|X|
 |NSGs|✔|X|✔|X|
 |Deteção de ameaças fileless|✔|✔|X|X|
@@ -122,10 +122,10 @@ A tabela seguinte fornece uma matriz de:
 |O Azure Blob storage contas *|✔| ✔|
 |Serviços aplicacionais|✔| ✔|
 |Serviços Cloud|✔| X|
-|VNets|✔| ND|
-|Sub-redes|✔| ND|
+|VNets|✔| N/D|
+|Sub-redes|✔| N/D|
 |NICs|✔| ✔|
-|NSGs|✔| ND|
+|NSGs|✔| N/D|
 |Subscrição|✔| ✔|
 
 \* Estas funcionalidades são suportadas atualmente em pré-visualização pública. 

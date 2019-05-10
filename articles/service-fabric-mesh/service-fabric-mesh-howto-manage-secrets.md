@@ -5,16 +5,16 @@ services: service-fabric-mesh
 keywords: segredos
 author: aljo-microsoft
 ms.author: aljo
-ms.date: 11/28/2018
+ms.date: 4/2/2019
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: chackdan
-ms.openlocfilehash: 36d0b49f1b9fb1ca5d13283146d134137a5cb028
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 251611e814f890e3cebf0fda2d33ab548a8ff213
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419072"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506439"
 ---
 # <a name="manage-service-fabric-mesh-application-secrets"></a>Gerir segredos da aplicação do Service Fabric malha
 Malha do Service Fabric suporta segredos como recursos do Azure. Um segredo de malha do Service Fabric pode ser qualquer informação de texto confidenciais, como cadeias de ligação de armazenamento, as palavras-passe ou outros valores que devem ser armazenados e transmitidos de forma segura. Este artigo mostra como utilizar o serviço de Store seguro do Service Fabric para implementar e manter segredos.
@@ -31,37 +31,42 @@ Gerir segredos inclui os seguintes passos:
 5. Comandos do Azure de utilização "az" CLI para a gestão de ciclo de vida do serviço de Store seguro.
 
 ## <a name="declare-a-mesh-secrets-resource"></a>Declare um recurso de segredos de malha
-Um recurso de segredos de malha é declarado num JSON de modelo de recursos do Azure ou o ficheiro YAML usando o tipo de inlinedValue e definições de contentType SecretsStoreRef. O recurso de segredos de malha suporta segredos de serviço Store seguro obtido. 
+Um recurso de segredos de malha é declarado num JSON de modelo de recursos do Azure ou o ficheiro YAML usando inlinedValue definição de tipo. O recurso de segredos de malha suporta segredos de serviço Store seguro obtido. 
 >
 Segue-se um exemplo de como declarar os recursos de malha segredos num ficheiro JSON:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
-    },
+    }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
       "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
-    },
+    }
   ]
 }
 ```
@@ -103,49 +108,49 @@ Segue-se um exemplo de como declarar os recursos de malha segredos/valores num f
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
       "type": "string",
-      "defaultValue": "eastus",
+      "defaultValue": "WestUS",
       "metadata": {
-        "description": "Location of the resources."
-      }
-    },
-    "my-secret-value-v1": {
-      "type": "string",
-      "metadata": {
-        "description": "My Mesh Application Secret Value."
+        "description": "Location of the resources (e.g. westus, eastus, westeurope)."
       }
     }
+  },
+  "sfbpHttpsCertificate": {
+      "type": "string",
+      "metadata": {
+        "description": "Plain Text Secret Value that your container ingest"
+      }
   },
   "resources": [
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "MySecret.txt",
+      "name": "sfbpHttpsCertificate.pfx",
       "type": "Microsoft.ServiceFabricMesh/secrets",
-      "location": "[parameters('location')]",
+      "location": "[parameters('location')]", 
+      "dependsOn": [],
       "properties": {
         "kind": "inlinedValue",
-        "description": "My Mesh Application Secret",
-        "contentType": "SecretsStoreRef",
-        "value": "mysecret",
+        "description": "SFBP Application Secret",
+        "contentType": "text/plain",
       }
     },
     {
       "apiVersion": "2018-07-01-preview",
-      "name": "mysecret:1.0",
+      "name": "sfbpHttpsCertificate.pfx/2019.02.28",
       "type": "Microsoft.ServiceFabricMesh/secrets/values",
       "location": "[parameters('location')]",
       "dependsOn": [
-        'Microsoft.ServiceFabricMesh/secrets/MySecret.txt'
+        "Microsoft.ServiceFabricMesh/secrets/sfbpHttpsCertificate.pfx"
       ],
       "properties": {
-        "value": "[parameters('my-secret-value-v1)]"
+        "value": "[parameters('sfbpHttpsCertificate')]"
       }
     }
-  ]
+  ],
 }
 ```
 Segue-se um exemplo de como declarar os recursos de malha segredos/valores num ficheiro YAML:

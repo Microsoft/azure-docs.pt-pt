@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: 09ab154494ad3e1276239e36068255c2042358c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61487543"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233517"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -37,11 +37,11 @@ Instância de gerida de base de dados de SQL do Azure pode ser implementada na g
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
 | Hardware | V3 Intel E5-2673 processadores de 2,4 GHz (Haswell), anexado SSD vCore = 1 PP (núcleos físicos) | Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores, rápida de NVMe SSD, vCore = 1 LP (hyper-thread) |
-| Computação | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
+| vCores | 8, 16, 24 vCores | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memória | 7 GB por vCore | 5.1 GB por vCore |
-| Memória de OLTP dentro da memória | 3 GB por vCore | 2.6 GB por vCore |
-| Armazenamento máximo (fins gerais) |  8 TB | 8 TB |
-| Armazenamento máximo (crítico para a empresa) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
+| Memória de OLTP máximo em memória | 3 GB por vCore | 2.6 GB por vCore |
+| Armazenamento de instância de máximo (fins gerais) |  8 TB | 8 TB |
+| Armazenamento de instância de máximo (crítico para a empresa) | 1 TB | 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 ### <a name="service-tier-characteristics"></a>Características de camada de serviço
 
@@ -50,12 +50,12 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | **Funcionalidade** | **Fins gerais** | **Crítico para a empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Memória | Gen4: 56 GB - 168 GB<br/>Gen5: 40.8 GB - 408 GB<br/>\*Proporcional ao número de vCores | Gen4: 56 GB - 168 GB <br/> Gen5: 40.8 GB - 408 GB<br/>\*Proporcional ao número de vCores |
-| Tamanho máximo de armazenamento | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
+| Memória | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 40.8 GB - 408 GB (5.1 GB/vCore) |
+| Tamanho máximo de armazenamento de instância | 8 TB | Gen4: 1 TB <br/> Gen5: <br/>-1 TB para 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Armazenamento máximo por base de dados | Determinado pelo tamanho de armazenamento máximo por instância | Determinado pelo tamanho de armazenamento máximo por instância |
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
-| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 mil (1,375 por vCore) |
+| IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 K (1375/vCore) |
 | Taxa de transferência do registo | 22 MB/s por instância | 3 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
 | Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 - 48 MB/s por vCore |
 | Latência de e/s (aproximada) | 5-10 ms | 1-2 ms |

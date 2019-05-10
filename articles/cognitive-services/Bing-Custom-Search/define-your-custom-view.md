@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: c4cb93e39a67e13646a339af6ac999a8fd96b383
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129645"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236254"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurar a sua experiência de pesquisa personalizada do Bing
 
@@ -27,7 +27,7 @@ Quando definir as partes da web, utilize o seguinte:
 
 | Nome do setor | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domain     | Um setor de domínio inclui todo o conteúdo encontrado dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. A omissão `www.` faz com que o Bing para pesquisar também subdomínios do domínio. Por exemplo, se especificar `microsoft.com`, o Bing devolve também os resultados da `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domínio     | Um setor de domínio inclui todo o conteúdo encontrado dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. A omissão `www.` faz com que o Bing para pesquisar também subdomínios do domínio. Por exemplo, se especificar `microsoft.com`, o Bing devolve também os resultados da `support.microsoft.com` ou `technet.microsoft.com`. |
 | Subpáginas    | Um setor de subpáginas inclui todo o conteúdo encontrado na subpáginas e caminhos abaixo dele. Pode especificar um máximo de dois subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página Web    | Um setor de página da Web pode incluir apenas essa página da Web numa pesquisa personalizada. Opcionalmente, pode especificar se pretende incluir subpáginas.                                                                                                                                                                                  |
 
@@ -40,7 +40,7 @@ Quando cria a instância de pesquisa personalizada, pode especificar os setores 
 
 Se souber os setores de que pretende incluir na sua instância de pesquisa personalizada, adicioná-los à sua instância **Active Directory** lista. 
 
-Se não tiver a certeza de que setores para incluir, pode enviar consultas de pesquisa para o Bing na **pré-visualização** painel e selecione os setores de que pretende. Para efetuar este procedimento: 
+Se não tiver a certeza de que setores para incluir, pode enviar consultas de pesquisa para o Bing na **pré-visualização** painel e selecione os setores de que pretende. Para tal: 
 
 1. Selecione "Bing" na lista pendente, no painel de pré-visualização e introduza uma consulta de pesquisa
 
@@ -118,9 +118,9 @@ O portal também permite-lhe afixar os URLs para a parte superior dos resultados
 
 Pode afixar uma página Web à parte superior de duas formas:
 
-* Na **Pinned** separador, introduza o URL da página Web para afixar na parte superior e a sua consulta correspondente.
+* Na **Pinned** separador, introduza o URL da página Web para afixar na parte superior e a sua consulta correspondente.
 
-* Na **pré-visualização** painel, introduza uma consulta de pesquisa e clique em Procurar. Encontrar a página Web que pretende afixar na sua consulta e clique em **Pin ao início**. a página da Web e a consulta serão adicionadas para o **Pinned** lista.
+* Na **pré-visualização** painel, introduza uma consulta de pesquisa e clique em Procurar. Encontrar a página Web que pretende afixar na sua consulta e clique em **Pin ao início**. a página da Web e a consulta serão adicionadas para o **Pinned** lista.
 
 ### <a name="specify-the-pins-match-condition"></a>Especifique a condição de correspondência do pin
 
@@ -133,7 +133,7 @@ Por predefinição, páginas Web apenas é afixada a parte superior dos resultad
 |---------------|----------------------------------------------------------------------------------|
 | Começa por | O pin é uma correspondência, se a cadeia de consulta do usuário começa com a cadeia de consulta do pin |
 | Termina com   | O pin é uma correspondência, se a cadeia de consulta do utilizador termina com a cadeia de consulta o pin.  |
-| Contains    | O pin é uma correspondência, se a cadeia de consulta do utilizador contém a cadeia de consulta o pin.   |
+| contém    | O pin é uma correspondência, se a cadeia de consulta do utilizador contém a cadeia de consulta o pin.   |
 
 
 Para alterar a condição de correspondência do pin, clique no ícone de edição do pin. Na **condição de correspondência de consulta** coluna, clique na lista pendente e selecione a nova condição a utilizar. Em seguida, clique em salvar ícone para guardar a alteração.

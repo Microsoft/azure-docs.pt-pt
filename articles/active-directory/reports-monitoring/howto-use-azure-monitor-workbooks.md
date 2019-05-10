@@ -1,6 +1,6 @@
 ---
 title: Usar pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory | Documentos da Microsoft
-description: Saiba como utilizar as pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory
+description: Saiba como utilizar pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory.
 services: active-directory
 author: MarkusVi
 manager: daveba
@@ -14,74 +14,73 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2c9b3d0ef110fea0629af345a71d0d7b7cce7313
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ae14ec152975717af5d55780bcc39aa87c4b01a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287324"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406601"
 ---
-# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como: Usar pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory
+# <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar as pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory
 
 Deseja:
 
-- Compreender o impacto dos seus [políticas de acesso condicional](../conditional-access/overview.md) na experiência de início de sessão dos seus utilizadores?
+- Compreender o efeito da sua [políticas de acesso condicional](../conditional-access/overview.md) na experiência de início de sessão dos seus utilizadores?
 
-- Resolver problemas de falhas de início de sessão para obter uma visão melhor de sua organização iniciar sessão no estado de funcionamento, bem como resolver problemas rapidamente?
+- Resolver problemas de falhas de início de sessão para obter uma visão melhor de iniciar sessão no estado de funcionamento sua organização e resolver problemas rapidamente?
 
-- Saber quem está a utilizar as autenticações herdadas para iniciar sessão seu ambiente? Por [antigos de autenticação de bloqueio](../conditional-access/block-legacy-authentication.md), pode melhorar a proteção do seu inquilino.
+- Saber quem está a utilizar as autenticações herdadas para iniciar sessão no seu ambiente? (Por [antigos de autenticação de bloqueio](../conditional-access/block-legacy-authentication.md), pode melhorar a proteção do seu inquilino.)
 
-
-[Pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinar o texto, consultas de análise, métricas do Azure e parâmetros em relatórios interativos avançados. O Azure Active Directory fornece pastas de trabalho de monitorização que ajudam a encontrar respostas às perguntas acima.
+Para ajudá-lo a atender essas perguntas, o Active Directory fornece as pastas de trabalho para monitorização. [Pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combinar o texto, consultas de análise, métricas e parâmetros em relatórios interativos avançados. 
 
 Este artigo:
 
-- Parte do princípio de que está familiarizado com a [criar relatórios interativos com pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+- Pressupõe que esteja familiarizado com a [criar relatórios interativos com livros do Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Explica como pode utilizar as pastas de trabalho do Azure Monitor sobre a monitorização de responder às perguntas acima.
+- Explica como utilizar pastas de trabalho do Monitor para compreender o efeito das suas políticas de acesso condicional, para resolver problemas de falhas de início de sessão e para identificar as autenticações de legado.
  
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar esta funcionalidade, precisa de:
+Para utilizar pastas de trabalho do Monitor, tem de:
 
-- Um inquilino do Azure Active Directory, com uma licença premium (P1/P2). Saiba como [obter uma licença premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Um inquilino do Active Directory com uma licença do premium (P1 ou P2). Saiba como [obter uma licença premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 - R [área de trabalho do Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## <a name="access-workbooks"></a>Pastas de trabalho de acesso 
+## <a name="workbook-access"></a>Acesso da pasta de trabalho 
 
 Para aceder a pastas de trabalho:
 
-1. Inicie sessão no seu [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Na barra de navegação esquerda, clique em **do Azure Active Directory**.
+2. No painel de navegação esquerdo, selecione **do Azure Active Directory**.
 
-3. Na **monitorização** secção, clique em **Insights**. 
+3. Na **monitorização** secção, selecione **Insights**. 
 
-    ![Informações](./media/howto-use-azure-monitor-workbooks/41.png)
+    ![Selecione o Insights](./media/howto-use-azure-monitor-workbooks/41.png)
 
-4. Clique num relatório ou modelo ou clique em **aberto** na barra de ferramentas. 
+4. Selecione um relatório ou modelo ou na barra de ferramentas, selecione **aberto**. 
 
-    ![Galeria](./media/howto-use-azure-monitor-workbooks/42.png)
+    ![Selecione abrir](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
 ## <a name="sign-in-analysis"></a>Análise de início de sessão
 
-Para acessar a pasta de trabalho de análise de início de sessão, clique em **inícios de sessão** no **utilização** secção. 
+Para acessar a pasta de trabalho de análise de início de sessão, o **utilização** secção, selecione **inícios de sessão**. 
 
 Este livro mostra as tendências de início de sessão seguintes:
 
 - Todos os inícios de sessão
 
-- Êxito
+- Com êxito
 
 - Ação de utilizador pendente
 
 - Falha
 
-Pode filtrar cada tendência por:
+Pode filtrar cada tendência por categorias a seguir:
 
 - Intervalo de tempo
 
@@ -89,33 +88,33 @@ Pode filtrar cada tendência por:
 
 - Utilizadores
 
-![Galeria](./media/howto-use-azure-monitor-workbooks/43.png)
+![Análise de início de sessão](./media/howto-use-azure-monitor-workbooks/43.png)
 
 
-Para cada tendência, para obter uma análise detalhada:
+Para cada tendência, para obter uma análise detalhada das categorias seguintes:
 
 - Location
 
-    ![Galeria](./media/howto-use-azure-monitor-workbooks/45.png)
+    ![Inícios de sessão por localização](./media/howto-use-azure-monitor-workbooks/45.png)
 
 - Dispositivo
 
-    ![Galeria](./media/howto-use-azure-monitor-workbooks/46.png)
+    ![Inícios de sessão por dispositivo](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
 ## <a name="sign-ins-using-legacy-authentication"></a>Inícios de sessão através da autenticação de legado 
 
 
-Para utilizar o acesso os inícios de sessão [antigos de autenticação](../conditional-access/block-legacy-authentication.md) pasta de trabalho, clique em **inícios de sessão através da autenticação legada** no **utilização** secção. 
+Para acessar a pasta de trabalho para inícios de sessão que utilizam [antigos de autenticação](../conditional-access/block-legacy-authentication.md), na **utilização** secção, selecione **inícios de sessão através da autenticação de legado**. 
 
 Este livro mostra as tendências de início de sessão seguintes:
 
 - Todos os inícios de sessão
 
-- Êxito
+- Com êxito
 
 
-Pode filtrar cada tendência por:
+Pode filtrar cada tendência por categorias a seguir:
 
 - Intervalo de tempo
 
@@ -123,25 +122,23 @@ Pode filtrar cada tendência por:
 
 - Utilizadores
 
-- Protocolos 
+- Protocolos
 
-![Galeria](./media/howto-use-azure-monitor-workbooks/47.png)
+![Inícios de sessão por autenticação](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
 Para cada tendência, obtém uma análise detalhada através da aplicação e protocolo.
 
-![Galeria](./media/howto-use-azure-monitor-workbooks/48.png)
+![Autenticação de legado-inícios de sessão por aplicação e o protocolo](./media/howto-use-azure-monitor-workbooks/48.png)
 
 
 
 ## <a name="sign-ins-by-conditional-access"></a>Inícios de sessão pelo acesso condicional 
 
 
-Para aceder os inícios de sessão por [políticas de acesso condicional](../conditional-access/overview.md) pasta de trabalho, clique em **inícios de sessão pelo acesso condicional** no **acesso condicional** secção. 
+Para acessar a pasta de trabalho para inícios de sessão por [políticas de acesso condicional](../conditional-access/overview.md), na **acesso condicional** secção, selecione **inícios de sessão pelo acesso condicional**. 
 
-Este livro mostra a tendência para inícios de sessão desativados.
-
-Pode filtrar cada tendência por:
+Este livro mostra as tendências de inícios de sessão desativados. Pode filtrar cada tendência por categorias a seguir:
 
 - Intervalo de tempo
 
@@ -149,10 +146,10 @@ Pode filtrar cada tendência por:
 
 - Utilizadores
 
-![Galeria](./media/howto-use-azure-monitor-workbooks/49.png)
+![Inícios de sessão através do acesso condicional](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-Para os inícios de sessão desativados, receberá uma divisão pelo Estado de acesso condicional.
+Para inícios de sessão desativados, receberá uma divisão pelo Estado de acesso condicional.
 
 ![Estado do acesso condicional](./media/howto-use-azure-monitor-workbooks/conditional-access-status.png)
 
@@ -165,7 +162,7 @@ Para os inícios de sessão desativados, receberá uma divisão pelo Estado de a
 
 ## <a name="sign-ins-by-grant-controls"></a>Inícios de sessão por conceder controlos
 
-Para aceder os inícios de sessão por [conceder controlos](../conditional-access/controls.md) pasta de trabalho, clique em **inícios de sessão por conceder controlos** no **acesso condicional** secção. 
+Para acessar a pasta de trabalho para inícios de sessão por [conceder controlos](../conditional-access/controls.md), na **acesso condicional** secção, selecione **inícios de sessão por conceder controlos de**. 
 
 Este livro mostra as seguintes desativadas início de sessão tendências:
 
@@ -178,7 +175,7 @@ Este livro mostra as seguintes desativadas início de sessão tendências:
 - Outros
 
 
-Pode filtrar cada tendência por:
+Pode filtrar cada tendência por categorias a seguir:
 
 - Intervalo de tempo
 
@@ -186,39 +183,39 @@ Pode filtrar cada tendência por:
 
 - Utilizadores
 
-![Galeria](./media/howto-use-azure-monitor-workbooks/50.png)
+![Inícios de sessão por conceder controlos](./media/howto-use-azure-monitor-workbooks/50.png)
 
 
 Para cada tendência, obtém uma análise detalhada através da aplicação e protocolo.
 
-![Galeria](./media/howto-use-azure-monitor-workbooks/51.png)
+![Divisão de inícios de sessão recentes](./media/howto-use-azure-monitor-workbooks/51.png)
 
 
 
 
 ## <a name="sign-ins-failure-analysis"></a>Análise de falhas de inícios de sessão
 
-Utilize o **análise de falhas de inícios de sessão** livro para resolver problemas de erros com:
+Utilize o **análise de falhas de inícios de sessão** livro para resolver problemas de erros com o seguinte:
 
 - Inícios de sessão
 - Políticas de acesso condicional
-- Autenticação de legado. 
+- Autenticação legada 
 
 
-Para aceder os inícios de sessão, dados de acesso condicional, clique em **inícios de sessão através da autenticação de legado** no **resolução de problemas** secção. 
+Para aceder os inícios de sessão por dados de acesso condicional, o **resolução de problemas** secção, selecione **inícios de sessão através da autenticação de legado**. 
 
 Este livro mostra as tendências de início de sessão seguintes:
 
 - Todos os inícios de sessão
 
-- Êxito
+- Com êxito
 
 - Ação pendente
 
 - Falha
 
 
-Pode filtrar cada tendência por:
+Pode filtrar cada tendência por categorias a seguir:
 
 - Intervalo de tempo
 
@@ -226,18 +223,18 @@ Pode filtrar cada tendência por:
 
 - Utilizadores
 
-![Galeria](./media/howto-use-azure-monitor-workbooks/52.png)
+![Inícios de sessão de resolução de problemas](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-Para resolver problemas de inícios de sessão, para obter uma análise detalhada:
+Para ajudar a resolver problemas de inícios de sessão, Monitor do Azure dá-lhe uma divisão por categorias a seguir:
 
 - Erros principais
 
-    ![Galeria](./media/howto-use-azure-monitor-workbooks/53.png)
+    ![Resumo dos erros principais](./media/howto-use-azure-monitor-workbooks/53.png)
 
 - Inícios de sessão à espera de ação do utilizador
 
-    ![Galeria](./media/howto-use-azure-monitor-workbooks/54.png)
+    ![Resumo dos inícios de sessão à espera de ação do utilizador](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
 
@@ -246,4 +243,4 @@ Para resolver problemas de inícios de sessão, para obter uma análise detalhad
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Criar relatórios interativos com pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
+[Criar relatórios interativos com livros do Monitor](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).

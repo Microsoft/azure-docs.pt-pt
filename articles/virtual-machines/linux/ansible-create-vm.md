@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/22/2019
-ms.openlocfilehash: 4bf7d43b682a2a42d9909f9cd33aa9542a1a9330
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 04/30/2019
+ms.openlocfilehash: ce99b537dd5958c2bec43759c58a9c182dd05142
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711633"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65237014"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>Início rápido: Configurar máquinas virtuais do Linux no Azure com o Ansible
 
@@ -21,8 +21,8 @@ Ao utilizar uma linguagem declarativa, o Ansible permite-lhe automatizar a cria�
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
+[!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)]
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

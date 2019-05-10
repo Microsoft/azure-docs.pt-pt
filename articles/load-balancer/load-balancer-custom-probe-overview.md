@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
+ms.date: 05/07/2019
 ms.author: kumud
-ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e488a4a6438279270f3d86dafa16c45eda184059
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60884763"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415713"
 ---
 # <a name="load-balancer-health-probes"></a>As sondas de estado de funcionamento do Balanceador de carga
 
@@ -30,7 +30,7 @@ Sondas de estado de funcionamento suportam vários protocolos. A disponibilidade
 | | SKU Standard | SKU Básico |
 | --- | --- | --- |
 | [Tipos de sonda](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Sonda de comportamento](#probedown) | Todas as sondas, continuam a todos os fluxos TCP. | Todas as sondas para baixo, terminam a todos os fluxos TCP. | 
+| [Sonda de comportamento](#probedown) | Todas as sondas, continuam a todos os fluxos TCP. | Todas as sondas para baixo, todos os fluxos TCP expirarem. | 
 
 > [!IMPORTANT]
 > As sondas de estado de funcionamento do Balanceador de carga provêm do endereço IP 168.63.129.16 e não tem de ser bloqueadas para sondas marcar a sua instância.  Revisão [endereço IP de origem de sonda](#probesource) para obter detalhes.
@@ -178,7 +178,7 @@ Balanceador de carga utiliza um serviço de pesquisa distribuído para o modelo 
 
 A etiqueta de serviço de AzureLoadBalancer identifica este endereço IP de origem no seu [grupos de segurança de rede](../virtual-network/security-overview.md) e permite o tráfego de sonda de estado de funcionamento por predefinição.
 
-Além de sondas de estado de funcionamento do Balanceador de carga, as seguintes operações de utilizam este endereço IP:
+Para além das sondas de estado de funcionamento do Balanceador de carga, o [seguintes operações utilizem este endereço IP](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Permite que o agente da VM para comunicar com a plataforma sinalizar que está num estado "Pronto"
 - Permite a comunicação com o servidor virtual de DNS para fornecer a resolução de nomes filtrada para os clientes que não defina servidores DNS personalizados.  Esta filtragem garante que os clientes só podem resolver os nomes de anfitrião da implementação deles.

@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: cc598afbbdf7f3a1b12089b50ba747c5220ba1fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ce7eb546c342ffd20557a95d5293d83b39ec3afb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922933"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507187"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia de programadores de Java de funções do Azure
 
@@ -113,6 +113,37 @@ Transferir e utilizar o [Azul Zulu Enterprise para o Azure](https://assets.azul.
 
 [Suporte do Azure](https://azure.microsoft.com/support/) problemas com o JDKs e a função de aplicações está disponível com um [plano de suporte qualificado](https://azure.microsoft.com/support/plans/).
 
+## <a name="customize-jvm"></a>Personalizar o JVM
+
+As funções permitem-lhe personalizar a máquina de virtual de Java (JVM) utilizada para executar as suas funções do Java. O [as opções de JVM seguintes](https://github.com/Azure/azure-functions-java-worker/blob/master/worker.config.json#L7) são utilizadas por predefinição:
+
+* `-XX:+TieredCompilation`
+* `-XX:TieredStopAtLevel=1`
+* `-noverify` 
+* `-Djava.net.preferIPv4Stack=true`
+* `-jar`
+
+Pode fornecer argumentos adicionais num aplicativo definição denominada `JAVA_OPTS`. Pode adicionar as definições da aplicação para a sua aplicação de função implementada no Azure de uma das seguintes formas:
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Na [portal do Azure](https://portal.azure.com), utilize o [separador de definições da aplicação](functions-how-to-use-azure-function-app-settings.md#settings) para adicionar o `JAVA_OPTS` definição.
+
+### <a name="azure-cli"></a>CLI do Azure
+
+O [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) comando pode ser utilizado para definir `JAVA_OPTS`, como no exemplo a seguir:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <APP_NAME> \
+    --resource-group <RESOURCE_GROUP> \
+    --settings "JAVA_OPTS=-Djava.awt.headless=true"
+    ```
+Este exemplo permite que o modo sem periféricos. Substitua `<APP_NAME>` com o nome da sua aplicação de função e `<RESOURCE_GROUP> ` com o grupo de recursos.
+
+> [!WARNING]  
+> Quando em execução [plano de consumo](functions-scale.md#consumption-plan), tem de adicionar o `WEBSITE_USE_PLACEHOLDER` definição com um valor de `0`.  
+Esta definição de aumentar os tempos de arranque a frio para funções do Java.
+
 ## <a name="third-party-libraries"></a>Bibliotecas de terceiros 
 
 As funções do Azure suporta a utilização de bibliotecas de terceiros. Por predefinição, todas as dependências especificado no seu projeto `pom.xml` ficheiro serão automaticamente agrupado durante o [ `mvn package` ](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) objetivo. Para bibliotecas não especificadas como dependências a `pom.xml` de ficheiros, colocá-los num `lib` diretório no diretório de raiz da função. Dependências colocadas o `lib` directory será adicionado ao carregador de classe do sistema no tempo de execução.
@@ -189,7 +220,7 @@ Esta função é invocada por uma solicitação HTTP.
 - Payload de pedido HTTP é passado como um `String` para o argumento `inputReq`
 - Uma entrada é obtida a partir do armazenamento de tabelas do Azure e é passada como `TestInputData` para o argumento `inputData`.
 
-Para receber um lote de entradas, é possível vincular à `String[]`, `POJO[]`, `List<String>` ou `List<POJO>`.
+Para receber um lote de entradas, é possível vincular à `String[]`, `POJO[]`, `List<String>`, ou `List<POJO>`.
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -263,7 +294,7 @@ Para enviar vários valores de saída, utilize `OutputBinding<T>` definidos no `
     }
 ```
 
-Acima da função é invocado num objeto HttpRequest e escreve vários valores para a fila do Azure
+Esta função é invocada num objeto HttpRequest e escreve vários valores para a fila do Azure.
 
 ## <a name="httprequestmessage-and-httpresponsemessage"></a>HttpRequestMessage e HttpResponseMessage
 
@@ -363,7 +394,7 @@ Para transferir os ficheiros de registo como um ficheiro ZIP único utilizando a
 az webapp log download --resource-group resourcegroupname --name functionappname
 ```
 
-Tem de ter ativado o sistema de ficheiros de registo no Portal do Azure ou na CLI do Azure antes de executar este comando.
+Tem de ter ativado o sistema de ficheiros de registo no portal do Azure ou da CLI do Azure antes de executar este comando.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
 

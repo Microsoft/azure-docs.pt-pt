@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a787e896016b3230d389b2ec140ae6c03477d875
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb2a2aa8204ef442bbe3a0e6ff9018cd3f153910
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293052"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406500"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Compreender os conectores de Proxy de aplicações do Azure AD
 
@@ -29,7 +29,7 @@ Os conectores são agentes leves que residem no local e facilitam a ligação de
 
 ## <a name="requirements-and-deployment"></a>Requisitos e Implantações.
 
-Para implementar o Proxy de aplicações com êxito, terá de, pelo menos, um conector, mas recomendamos dois ou mais para maior resiliência. Instale o conector no Windows Server 2012 R2 ou 2016 numa máquina. O conector tem de comunicar com o serviço de Proxy de aplicações e as aplicações no local que publicar. 
+Para implementar o Proxy de aplicações com êxito, terá de, pelo menos, um conector, mas recomendamos dois ou mais para maior resiliência. Instalar o conector num computador a executar o Windows Server 2012 R2 ou posterior. O conector tem de comunicar com o serviço de Proxy de aplicações e as aplicações no local que publicar. 
 
 ### <a name="windows-server"></a>Servidor do Windows
 É necessário um servidor com o Windows Server 2012 R2 ou posterior, no qual pode instalar o conector de Proxy de aplicações. O servidor tem de ligar a serviços de Proxy de aplicações no Azure e as aplicações no local que está a publicar.
@@ -85,7 +85,7 @@ Grupos de conectores tornam mais fácil de gerenciar grandes Implantações. Ele
 
 Para saber mais sobre os grupos de conector, veja [publicar aplicações em redes separadas e localizações de utilização de grupos de conector](application-proxy-connector-groups.md).
 
-## <a name="capacity-planning"></a>Planeamento da Capacidade 
+## <a name="capacity-planning"></a>Planeamento de Capacidade 
 
 É importante certificar-se de que tenha se planejado capacidade suficiente entre conectores para processar o volume de tráfego esperado. Em geral, quanto mais usuários que tiver, o maior uma máquina será necessário. Segue-se uma tabela, fornecendo uma descrição do volume máquinas diferentes pode processar. Tenha em atenção de que tudo se baseia no esperado transações por segundo (TPS) em vez de por utilizador desde utilização padrões variam e não podem ser utilizados para prever a carga. Também haverá algumas diferenças com base no tamanho das respostas e o tempo de resposta da aplicação de back-end - tamanhos maiores de resposta e tempos de resposta mais lentos irão resultar num TPS máximo inferior. Recomendamos ter máquinas adicionais para que a carga distribuída pelas máquinas é cerca de 50%. A capacidade extra serão Certifique-se de que tem elevada disponibilidade e resiliência.
 
@@ -103,7 +103,7 @@ Para saber mais sobre os grupos de conector, veja [publicar aplicações em rede
 
 ## <a name="security-and-networking"></a>Rede e de segurança
 
-Conectores podem ser instalados em qualquer lugar da rede que permita que sejam enviar pedidos para o serviço de Proxy de aplicações. O que é importante é que o computador que executa o conector também tem acesso às suas aplicações. Pode instalar os conectores dentro da sua rede empresarial ou numa máquina virtual que é executado na cloud. Conectores podem ser executados dentro de uma zona desmilitarizada (DMZ), mas não é necessário porque todo o tráfego é de saída para que a sua rede se mantém segura.
+Conectores podem ser instalados em qualquer lugar da rede que permita que sejam enviar pedidos para o serviço de Proxy de aplicações. O que é importante é que o computador que executa o conector também tem acesso às suas aplicações. Pode instalar os conectores dentro da sua rede empresarial ou numa máquina virtual que é executado na cloud. Conectores podem ser executados dentro de uma rede de perímetro, também conhecido como uma zona desmilitarizada (rede de Perímetro), mas não é necessário porque todo o tráfego é de saída para que a sua rede se mantém segura.
 
 Conectores só enviam solicitações de saída. O tráfego de saída é enviado para o serviço de Proxy da aplicação e para as aplicações publicadas. Não tem de abrir portas porque o tráfego flui ambos os sentidos depois de uma sessão é estabelecida. Também não tem de configurar o acesso de entrada através de seus firewalls. 
 

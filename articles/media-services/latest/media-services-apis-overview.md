@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: b80f11ef97a10728f07cebe1fe80b954e506da52
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4c5b30ab075bbca22b6a58ccf65e55d332820937
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147897"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406552"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desenvolvimento com os serviços de multimédia de v3 APIs
 
@@ -25,7 +25,11 @@ Este artigo discute as regras que se aplicam às entidades e APIs ao desenvolver
 
 ## <a name="accessing-the-azure-media-services-api"></a>Acessar a API dos serviços de multimédia do Azure
 
-Para acessar os recursos de serviços de multimédia do Azure, pode utilizar a autenticação do principal de serviço do Azure Active Directory (AD).
+Para ficar autorizada a aceder a recursos de serviços de multimédia e a API de serviços de suporte de dados, tem primeiro de ser autenticado. Serviços de multimédia suportam [do Azure Active Directory (Azure AD)-com base](../../active-directory/fundamentals/active-directory-whatis.md) autenticação. Duas opções de autenticação comuns são:
+ 
+* **Autenticação do principal de serviço** - utilizado para autenticar um serviço (por exemplo: web apps, aplicações de funções, aplicações lógicas, API e microsserviços). Aplicativos geralmente usam este método de autenticação são as aplicações que executem serviços de daemon, serviços de camada intermediária ou tarefas agendadas. Por exemplo, para a Web há aplicativos devem ser sempre um escalão médio que se liga a serviços de multimédia com um Principal de serviço.
+* **Autenticação de utilizador** - utilizado para autenticar uma pessoa que está a utilizar a aplicação para interagir com os recursos de serviços de multimédia. O aplicativo interativo deve primeiro solicitar ao utilizador as credenciais do utilizador. Um exemplo é uma aplicação de consola de gestão utilizada por utilizadores autorizados para monitorizar tarefas de codificação ou transmissão em direto.
+
 A API de serviços de suporte de dados requer que o utilizador ou aplicação que faz a API REST solicita tem acesso ao recurso de conta dos serviços de multimédia e utilizar um **contribuinte** ou **proprietário** função. A API pode ser acessada com o **leitor** função, mas apenas **obter** ou **lista**   operações estarão disponíveis. Para obter mais informações, consulte [controlo de acesso baseado em funções para contas de serviços de multimédia](rbac-overview.md).
 
 Em vez de criar um principal de serviço, considere a utilização de identidades geridas para recursos do Azure para aceder à API de serviços de multimédia através do Gestor de recursos do Azure. Para saber mais sobre identidades geridas para recursos do Azure, veja [o que há de identidades geridas para recursos do Azure](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -52,6 +56,16 @@ Na figura a seguir, os números representam o fluxo de pedidos por ordem cronol�
 2. O token de acesso do Azure AD é enviado para a camada intermediária.
 4. A camada média envia o pedido à API de REST de multimédia do Azure com o token do Azure AD.
 5. A camada média volta obtém os dados dos serviços de multimédia.
+
+### <a name="samples"></a>Exemplos
+
+Consulte os seguintes exemplos que mostram como ligar com o principal de serviço do Azure AD:
+
+* [Ligar com REST](media-rest-apis-with-postman.md)  
+* [Connect with Java](configure-connect-java-howto.md) (Ligar com Java)
+* [Connect with .NET](configure-connect-dotnet-howto.md) (Ligar com .NET)
+* [Connect with Node.js](configure-connect-nodejs-howto.md) (Ligar com Node.js)
+* [Connect with Python](configure-connect-python-howto.md) (Ligar com Python)
 
 ## <a name="naming-conventions"></a>Convenções de nomenclatura
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77118edd08faf6d40897a916ee85e2b6e20d3bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 58a8d3b62fab7614375436846888b78113740ce2
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298262"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406618"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referência de token SAML do AD do Azure
 
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no
 > |Audiência | `aud` |O destinatário do token. O aplicativo que recebe o token tem de verificar que o valor de público-alvo está correto e rejeitar quaisquer tokens que se destina a um público-alvo diferente. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 > | Autenticação Instantânea | |Regista a data e hora em que ocorreu a autenticação. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 
 > |Método de Autenticação | `amr` |Identifica a forma como o assunto do token foi autenticado. | `<AuthnContextClassRef>`<br>`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod/password`<br>`</AuthnContextClassRef>` |
-> |Nome Próprio | `given_name` |Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto de utilizador do Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
+> |Nome | `given_name` |Fornece a primeira ou "fixados" nome do utilizador, conforme definido no objeto de utilizador do Azure AD. | `<Attribute Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname">`<br>`<AttributeValue>Frank<AttributeValue>`  |
 > |Grupos | `groups` |Fornece os IDs de objeto que representam as associações de grupo do requerente. Estes valores são exclusiva (veja a ID de objeto) e podem ser usados com segurança para gerir o acesso, como a imposição de autorização para aceder a um recurso. Os grupos incluídos na afirmação grupos são configurados numa base por aplicação, por meio da propriedade de "groupMembershipClaims" de manifesto do aplicativo. Um valor nulo será excluir todos os grupos, um valor de "SecurityGroup" irá incluir apenas as associações de grupo de segurança do Active Directory e um valor de "All" irá incluem grupos de segurança e listas de distribuição do Office 365. <br><br> **Notas de**: <br> Se o número de grupos que o usuário estiver no exceder um limite (150 para SAML, 200 para JWT), em seguida, uma afirmação de utilização excedida será adicionada as origens de afirmação apontando para o ponto de extremidade do gráfico que contém a lista de grupos do utilizador. (em. | `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/groups">`<br>`<AttributeValue>07dd8a60-bf6d-4e17-8844-230b77145381</AttributeValue>` |
 > | Indicador de utilização excedida de grupos | `groups:src1` | Para pedidos de token que não estão limitado de comprimento (consulte `hasgroups` acima), mas ainda demasiado grande para o token, uma ligação para a lista de grupos de completa para o utilizador serão incluída. Para SAML este valor é adicionado como uma nova afirmação em vez do `groups` de afirmação. | `<Attribute Name=" http://schemas.microsoft.com/claims/groups.link">`<br>`<AttributeValue>https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects<AttributeValue>` |
 > |Fornecedor de Identidade | `idp` |Regista o fornecedor de identidade que autenticou o requerente do token. Este valor é idêntico ao valor de afirmação do emissor, a menos que a conta de utilizador estiver num inquilino diferente do que o emissor. | `<Attribute Name=" http://schemas.microsoft.com/identity/claims/identityprovider">`<br>`<AttributeValue>https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/<AttributeValue>` |
@@ -56,12 +56,12 @@ Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no
 Este é um exemplo de um token SAML típico.
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <t:RequestSecurityTokenResponse xmlns:t="http://schemas.xmlsoap.org/ws/2005/02/trust">
+    <t:RequestSecurityTokenResponse xmlns:t="https://schemas.xmlsoap.org/ws/2005/02/trust">
       <t:Lifetime>
         <wsu:Created xmlns:wsu="https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T05:15:47.060Z</wsu:Created>
         <wsu:Expires xmlns:wsu="https://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">2014-12-24T06:15:47.060Z</wsu:Expires>
       </t:Lifetime>
-      <wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:AppliesTo xmlns:wsp="https://schemas.xmlsoap.org/ws/2004/09/policy">
         <EndpointReference xmlns="https://www.w3.org/2005/08/addressing">
           <Address>https://contoso.onmicrosoft.com/MyWebApp</Address>
         </EndpointReference>
@@ -151,7 +151,7 @@ Este é um exemplo de um token SAML típico.
         </SecurityTokenReference>
       </t:RequestedUnattachedReference>
       <t:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</t:TokenType>
-      <t:RequestType>http://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
+      <t:RequestType>https://schemas.xmlsoap.org/ws/2005/02/trust/Issue</t:RequestType>
       <t:KeyType>http://schemas.xmlsoap.org/ws/2005/05/identity/NoProofKey</t:KeyType>
     </t:RequestSecurityTokenResponse>
 

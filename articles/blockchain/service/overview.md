@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 4416c30f57b469ee125400c696e8b34311a94926
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028189"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406411"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o serviço do Azure Blockchain?
 
@@ -51,7 +51,7 @@ Como um serviço gerido, o serviço do Azure Blockchain garante que nós de seu 
 
 Além disso, Azure Blockchain Service fornece métricas avançadas através do serviço do Azure Monitor fornecendo informações acerca de nós de CPU, memória e utilização de armazenamento, bem como fornece informações úteis sobre a atividade de rede de blockchain como transações e os blocos são explorados, profundidade de fila de transações, bem como ligações ativas.  As métricas podem ser personalizadas para fornecer vistas das informações que são importantes para a sua aplicação de blockchain.  Além disso, podem definir os limiares através de alertas, permitindo que os usuários acionar ações como enviar uma mensagem de e-mail ou de texto, executar uma aplicação lógica, a função do Azure ou enviar para um webhook personalizado.
 
-![Métricas](./media/overview/metrics.png)
+![Métrica](./media/overview/metrics.png)
 
 Com o Azure Log Analytics, os utilizadores podem ver os registos relacionados com a razão de quórum, ou outras ligações de informações importantes, como tentativas para os nós de transação.
 
@@ -65,7 +65,7 @@ Ações de gestão de consórcio como adicionar e remover membros de um consórc
 
 ## <a name="develop-using-familiar-development-tools"></a>Desenvolver com as ferramentas de programação familiar
 
-Com base em razão de quórum Ethereum aberto, pode desenvolver aplicativos para o serviço do Azure Blockchain da mesma forma para aplicativos de Ethereum existentes. Trabalhar com parceiros líderes do setor, a extensão do Azure Blockchain Development Kit Visual Studio Code permite que os desenvolvedores tirar partido de ferramentas conhecidas, como Truffle Suite para criar contratos inteligentes. Com a extensão do Kit de desenvolvimento do Azure Blockchain, os desenvolvedores podem criar ou ligar a e consortium existente para que possa criar e implementar o smart contratos todos num IDE. Utilizar a extensão do Azure Blockchain Visual Studio Code, pode criar ou ligar a um consórcio existente para que possa criar e implementar seus contratos inteligentes tudo a partir de um IDE. Para obter mais informações, consulte [Development Kit do Azure Blockchain no mercado do VS Code](http://aka.ms/vscodebcextension) e o [Guia do usuário do Kit de desenvolvimento do Azure Blockchain](http://aka.ms/vscodebcextensionwiki ).
+Com base em razão de quórum Ethereum aberto, pode desenvolver aplicativos para o serviço do Azure Blockchain da mesma forma para aplicativos de Ethereum existentes. Trabalhar com parceiros líderes do setor, a extensão do Azure Blockchain Development Kit Visual Studio Code permite que os desenvolvedores tirar partido de ferramentas conhecidas, como Truffle Suite para criar contratos inteligentes. Com a extensão do Kit de desenvolvimento do Azure Blockchain, os desenvolvedores podem criar ou ligar a e consortium existente para que possa criar e implementar o smart contratos todos num IDE. Utilizar a extensão do Azure Blockchain Visual Studio Code, pode criar ou ligar a um consórcio existente para que possa criar e implementar seus contratos inteligentes tudo a partir de um IDE. Para obter mais informações, consulte [Development Kit do Azure Blockchain no mercado do VS Code](https://aka.ms/vscodebcextension) e o [Guia do usuário do Kit de desenvolvimento do Azure Blockchain](https://aka.ms/vscodebcextensionwiki ).
 
 ## <a name="support-and-feedback"></a>Suporte e comentários
 

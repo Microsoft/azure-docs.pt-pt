@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 256215b1976598b961ada7210e5ee92c9f72d440
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414835"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506862"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementar proteção de palavras-passe do Azure AD
 
@@ -39,6 +39,9 @@ Após a funcionalidade de execução no modo de auditoria durante um período ra
 * Todos os controladores de domínio que obtenham o agente de controlador de domínio de serviço para proteção de palavra-passe do Azure AD instalada deve executar o Windows Server 2012 ou posterior. Este requisito não implica que o domínio do Active Directory ou a floresta também tem de ser ao nível funcional Windows Server 2012 domínio ou floresta. Conforme mencionado na [princípios de Design](concept-password-ban-bad-on-premises.md#design-principles), não existe mínimo DFL ou FFL necessário para qualquer um do DC proxy ou agente de software ser executado.
 * Todas as máquinas que obtém o serviço de agente do controlador de domínio instalado tem de ter .NET 4.5 instalado.
 * Todas as máquinas que obtenham o proxy de serviço para proteção de palavra-passe do Azure AD instalada deve executar o Windows Server 2012 R2 ou posterior.
+   > [!NOTE]
+   > Implementação do serviço de proxy é um requisito obrigatório para a implementação da proteção de palavra-passe do Azure AD, apesar do controlador de domínio pode ter saída conectividade à internet direta. 
+   >
 * Todas as máquinas onde será instalado o serviço de Proxy de proteção de palavra-passe do Azure AD tem de ter .NET 4.7 instalado.
   .NET 4.7 já deve estar instalado num servidor do Windows totalmente atualizado. Se não for este o caso, transfira e execute o instalador adrese [o .NET Framework 4.7 instalador offline para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Todas as máquinas, incluindo controladores de domínio, o que obtém os componentes de proteção de palavra-passe do Azure AD instalados tem de ter o tempo de execução do C Universal instalado. Pode obter o tempo de execução, tornando-se de que tem todas as atualizações do Windows Update. Ou pode obtê-lo num pacote de atualização específicas do sistema operacional. Para obter mais informações, consulte [atualização para o tempo de execução do C Universal no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).

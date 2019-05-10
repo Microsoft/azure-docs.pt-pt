@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.openlocfilehash: 7324ab1d7aa6e42100c9c6760c17b0ea6445f21d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f3473d83678ffea888dad736a9620006b2961f7
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080745"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406395"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: Criar um dashboard de análise em tempo real através da utilização da base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
 
@@ -170,7 +170,7 @@ DO $$
       ip_address, status_code, response_time_msec
     ) VALUES (
       trunc(random()*32), clock_timestamp(),
-      concat('http://example.com/', md5(random()::text)),
+      concat('https://example.com/', md5(random()::text)),
       ('{China,India,USA,Indonesia}'::text[])[ceil(random()*4)],
       concat(
         trunc(random()*250 + 2), '.',

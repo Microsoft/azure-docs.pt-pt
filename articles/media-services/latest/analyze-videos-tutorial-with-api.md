@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 04/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: cf1ea32e9b023db2e1a066c2baa6adf46ab51066
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ead6fdc0ade4a24d162603b9dc3749726c0d8002
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152754"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415633"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3-using-net"></a>Tutorial: Analisar vídeos com os serviços de multimédia v3 através do .NET
 
@@ -98,9 +98,9 @@ O [Elemento](https://docs.microsoft.com/rest/api/media/assets) de saída armazen
 
 Ao codificar ou processar conteúdos nos Serviços de Multimédia, é comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao submeter novas Tarefas para cada vídeo novo, está a aplicar essa receita a todos os vídeos na biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and jobs](transform-concept.md) (Transformações e tarefas). O exemplo descrito neste tutorial define uma receita que analisa o vídeo especificado. 
 
-#### <a name="transform"></a>Transformar
+#### <a name="transform"></a>Transformação
 
-Ao criar uma nova instância [Transformar](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar a saída resultante que pretende. O parâmetro necessário é um objeto **TransformOutput**, conforme apresentado no código acima. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, a predefinição **VideoAnalyzerPreset** é utilizada e o idioma ("en-US") é transmitido para o construtor. Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo. 
+Ao criar um novo [transformar](https://docs.microsoft.com/rest/api/media/transforms) instância, tem de especificar o que deseja produzir como uma saída **TransformOutput** é um parâmetro necessário. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. Neste exemplo, o **VideoAnalyzerPreset** configuração predefinida é usada e o idioma ("en-US") é passado para seu construtor (`new VideoAnalyzerPreset("en-US")`). Esta predefinição permite-lhe extrair múltiplas informações de vídeo e áudio a partir de um vídeo. Pode utilizar a predefinição **AudioAnalyzerPreset** se precisar de extrair múltiplas informações de áudio a partir de um vídeo. 
 
 Ao criar uma **Transformação**, primeiro deve verificar se já existe uma com o método **Get**, conforme apresentado no código que se segue.  Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 

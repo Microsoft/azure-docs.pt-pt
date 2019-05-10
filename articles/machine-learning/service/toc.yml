@@ -224,6 +224,9 @@
       items:
         - name: Criar um pipeline de ML
           href: how-to-create-your-first-pipeline.md
+        - name: Preparar e implementar modelos de ML com os Pipelines do Azure
+          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          mainContext: true
     - name: Gerir quotas de recursos
       displayName: limits
       href: how-to-manage-quotas.md

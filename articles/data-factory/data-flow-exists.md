@@ -1,26 +1,25 @@
 ---
-title: Mapeamento de fluxo de dados de fábrica de dados do Azure existe transformação
-description: Mapeamento de fluxo de dados de fábrica de dados do Azure existe transformação
+title: Transformação de dados fábrica mapeamento de fluxo que existem dados do Azure
+description: Como verificar a existência de linhas existentes com dados de mapeamento de fábrica de dados de fluxos com a transformação de Exists
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 6ce27ba699ae766ed4d2428f67d91379464bb9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b98b7afb21f2f50d44ba93ed793b6efb20f75164
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730991"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235975"
 ---
-# <a name="azure-data-factory-mapping-data-flow-exists-transformation"></a>Mapeamento de fluxo de dados de fábrica de dados do Azure existe transformação
+# <a name="mapping-data-flow-exists-transformation"></a>Mapeamento de fluxo de dados existe transformação
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-A transformação de Exists é uma transformação que interrompe ou permite linhas nos seus dados a fluir através de filtragem de linha. Existe transformar é semelhante à ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```. Depois de uma transformação de filtro, as linhas resultantes do seu fluxo de dados irão optar por incluir todas as linhas onde os valores de coluna da origem 1 existem na origem 2 ou não existem na origem 2.
+A transformação de Exists é uma transformação que interrompe ou permite linhas nos seus dados a fluir através de filtragem de linha. Existe transformar é semelhante à ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```. Após a transformação existe, as linhas resultantes do seu fluxo de dados irão optar por incluir todas as linhas onde os valores de coluna da origem 1 existem na origem 2 ou não existem na origem 2.
 
-![Definições de existe](media/data-flow/exsits.png "existe 1")
+![Definições de existe](media/data-flow/exists.png "existe 1")
 
 Escolha a segunda origem para sua Exists, de modo a que o fluxo de dados pode comparar valores de 1 de Stream contra Stream 2.
 
@@ -28,7 +27,14 @@ Selecione a coluna a partir de 1 de origem e de origem 2 cujos valores que prete
 
 ## <a name="multiple-exists-conditions"></a>Existe de várias condições
 
-Junto a cada linha nas suas condições de coluna para Exsits, encontrará um + início de sessão disponíveis quando focaliza alcançar a linha. Isso permitirá que adicionar várias linhas para condições de Exists.
+Junto a cada linha nas suas condições de coluna para Exists, encontrará um + início de sessão disponíveis quando focaliza alcançar a linha. Isso permitirá que adicionar várias linhas para condições de Exists. Cada condição adicional é um "E".
+
+## <a name="custom-expression"></a>Expressão personalizada
+
+![Definições personalizadas de existe](media/data-flow/exists1.png "existe personalizado")
+
+Pode clicar em "Expressão personalizada", em vez disso, criar uma expressão de forma livre como sua existe ou não-existe condição. Selecionar esta caixa permitirá que escreva sua própria expressão como uma condição.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+São semelhantes [Lookup](data-flow-lookup.md) e [associar](data-flow-join.md).

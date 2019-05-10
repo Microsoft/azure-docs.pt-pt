@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 2e0a4b51e9140b9b3c0032980b7c6cd5a4d55638
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b99513cad34bba1b050a24795ecb21d0357d19c1
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128945"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416081"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Criar uma aplicação Xamarin.Forms com o Azure
 
@@ -34,9 +34,9 @@ Para concluir este tutorial, precisa do seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma conta, pode inscrever-se para uma versão de avaliação do Azure e obter até 10 Mobile Apps gratuitas, que pode continuar a utilizar mesmo após o final do período de avaliação. Para obter mais informações, veja [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/) (Avaliação Gratuita do Azure).
 
-* Ferramentas do Visual Studio para Xamarin, no Visual Studio 2017 ou Visual Studio para Mac. Veja a [página de instalação do Xamarin][Install Xamarin] para obter instruções.
+* Do Visual Studio Tools for Xamarin, no Visual Studio 2017 ou posterior, ou o Visual Studio para Mac. Veja a [página de instalação do Xamarin][Install Xamarin] para obter instruções.
 
-* (opcional) Para compilar uma aplicação iOS, precisa de um Mac com Xcode 9.0 ou posterior. O Visual Studio para Mac pode servir para desenvolver aplicações iOS ou pode utilizar o Visual Studio 2017 (desde que o Mac esteja disponível na rede).
+* (opcional) Para compilar uma aplicação iOS, precisa de um Mac com Xcode 9.0 ou posterior. Visual Studio para Mac pode ser usado para desenvolver aplicações iOS ou o Visual Studio 2017 ou mais tarde pode ser usado (desde que o Mac está disponível na rede).
 
 ## <a name="create-a-new-mobile-apps-back-end"></a>Criar um novo back-end de Aplicações Móveis
 
@@ -64,7 +64,7 @@ As Ferramentas do Visual Studio para Xamarin são precisas para abrir a soluçã
 
    Esta ação transfere um projeto que contém uma aplicação cliente que está ligada à sua aplicação móvel. Guarde o ficheiro de projeto comprimido no computador local e tome nota do local onde o guardou.
 
-3. Extraia o projeto que transferiu e, em seguida, abra-o no Visual Studio 2017.
+3. Extraia o projeto que transferiu e, em seguida, abra-o no Visual Studio.
 
    ![Projeto extraído no Visual Studio][8]
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: f25b0f2c7b5e3148bae778c4b50a3f0bd0c148da
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: a668bb2e0e3381abefaac93a0fb63f0d33bac5a1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875952"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234059"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copiar dados de um ponto final HTTP através do Azure Data Factory
 
@@ -217,8 +217,8 @@ Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, são suportadas
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
 | requestBody | O corpo do pedido HTTP. | Não |
-| Formato | Se pretender recuperar dados do ponto de extremidade HTTP como-é sem análise e copie os dados para um armazenamento baseado em arquivo, ignore o **formato** secção em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Sob **formato**, defina o **tipo** propriedade para um dos seguintes valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos suportados: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis de suporte:  **Ideal** e **mais rápida**. |Não |
+| format | Se pretender recuperar dados do ponto de extremidade HTTP como-é sem análise e copie os dados para um armazenamento baseado em arquivo, ignore o **formato** secção em ambas as definições do conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar o conteúdo de resposta HTTP durante a cópia, são suportados os seguintes tipos de formato de ficheiro: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, e **ParquetFormat**. Sob **formato**, defina o **tipo** propriedade para um dos seguintes valores. Para obter mais informações, consulte [formato JSON](supported-file-formats-and-compression-codecs.md#json-format), [formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Para obter mais informações, consulte [formatos de arquivo e codecs de compressão suportados](supported-file-formats-and-compression-codecs.md#compression-support).<br/><br/>Tipos suportados: **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**.<br/>Níveis de suporte:  **Ideal** e **mais rápida**. |Não |
 
 > [!NOTE]
 > O tamanho de payload de pedido HTTP suportado é de cerca de 500 KB. Se o tamanho da carga que pretende passar para o ponto final de web for superior a 500 KB, considere a criação de batches o payload em segmentos mais pequenos.
@@ -287,7 +287,7 @@ Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consult
 | maxConcurrentConnections | O número de ligações para ligar ao arquivo de armazenamento em simultâneo. Especifique apenas quando pretender limitar a ligação em simultâneo ao arquivo de dados. | Não       |
 
 > [!NOTE]
-> Para o formato de texto delimitados/Parquet, **HttpSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-destina-se para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
+> Para o formato de texto delimitados/Parquet, **HttpSource** continua a ser suportada como origem da atividade de cópia de tipo mencionada na secção seguinte-é para compatibilidade com versões anteriores. São sugeridas para usar este novo modelo daqui em diante, e o ADF criação da interface do Usuário mudou para gerar esses novos tipos.
 
 **Exemplo:**
 

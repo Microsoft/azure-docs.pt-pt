@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 559c1874c119eabef2c35a954961c1e669df3c06
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551285"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507235"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerir grupos de recursos do Azure Resource Manager com o portal do Azure
 
@@ -31,7 +31,7 @@ Outros artigos sobre a gestão de grupos de recursos:
 
 ## <a name="what-is-a-resource-group"></a>O que é um grupo de recursos
 
-Um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Em geral, adicione recursos que partilham o mesmo ciclo de vida no mesmo grupo de recursos para que possa facilmente implantar, atualizar e eliminá-los como um grupo.
+Um grupo de recursos é um contentor que detém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização. Em geral, adicione recursos que partilham o mesmo ciclo de vida no mesmo grupo de recursos para que possa facilmente implantar, atualizar e eliminá-los como um grupo.
 
 O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quando especifica uma localização para o grupo de recursos, está a especificar onde esses metadados estão armazenados. Por motivos de conformidade, poderá ter de certificar que os dados estão armazenados numa determinada região.
 
@@ -108,64 +108,7 @@ Pode aplicar etiquetas a grupos de recursos e recursos para organizar logicament
 
 ## <a name="export-resource-groups-to-templates"></a>Grupos de recursos de exportação para modelos
 
-Depois de configurar o seu grupo de recursos com êxito, poderá ver o modelo do Resource Manager para o grupo de recursos. Exportar o modelo oferece duas vantagens:
-
-- Automatize implementações futuras da solução porque o modelo contém toda a infraestrutura completa.
-- Aprenda a sintaxe do modelo ao procurar em JavaScript Object Notation (JSON) que representa a sua solução.
-
-Existem duas formas de exportar um modelo:
-
-- Pode exportar o modelo utilizado para a implementação. O modelo exportado inclui todos os parâmetros e variáveis exatamente como apareciam no modelo original. Esta abordagem é útil se tiver implementado recursos através do portal e agora pretende ver o modelo para criar esses recursos. Este modelo pode ser utilizado imediatamente. 
-- Pode exportar um modelo gerado que representa o estado atual do grupo de recursos. O modelo exportado não é baseado em qualquer modelo que utilizou para a implementação. Em vez disso, ele cria um modelo que é um "instantâneo" ou "cópia de segurança" do grupo de recursos. O modelo exportado tem muitos valores codificados e provavelmente não tantos parâmetros como normalmente seriam definidos. Utilize esta opção para voltar a implementar recursos para o mesmo grupo de recursos. Para utilizar este modelo para outro grupo de recursos, poderá ter de significativamente modificá-lo.
-
-### <a name="export-templates-from-deployment-history"></a>Exportar modelos do histórico de implementação
-
-Este método exporta os modelos para determinadas implementações. Se tiver alterado os recursos a partir do portal ou adicionadas/removidas recursos em várias implementações, veja [exportar modelos de grupos de recursos](#export-templates-from-resource-groups).
-
-1. Abra o grupo de recursos que pretende exportar.  Ver [abrir grupos de recursos](#open-resource-groups).
-2. No painel esquerdo, selecione **implementações**, ou selecione a ligação sob **implementações**.  Na captura de ecrã seguinte, mostra **bem-sucedido 4** porque havia quatro implementações separadas com quatro nomes de implementação diferentes. Poderá ver **1 com êxito**.
-
-    ![modelos de exportação do grupo de recursos do Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
-
-3. Selecione uma das implementações da lista.
-4. No painel esquerdo, selecione **modelo**. O Resource Manager obtém os seguintes seis ficheiros para si:
-
-   - **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
-   - **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.
-   - **CLI** -ficheiro de script de uma CLI do Azure que pode utilizar para implementar o modelo.
-   - **PowerShell** - Um ficheiro de script do Azure PowerShell que pode utilizar para implementar o modelo.
-   - **.NET** - Uma classe .NET que pode utilizar para implementar o modelo.
-   - **.NET** - Uma classe Ruby que pode utilizar para implementar o modelo.
-
-     Por predefinição, o portal apresenta o modelo.
-
-5. Selecione **transferir** para exportar um modelo para o computador local.
-
-    ![modelos de exportação do grupo de recursos do Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history-download.png)
-
-<a name="export-templates-from-resource-groups"></a>
-### <a name="export-templates-from-resource-groups"></a>Exportar modelos de grupos de recursos
-
-Se tiver alterado os recursos do portal ou adicionar/remover recursos em várias implementações, obter um modelo a partir do histórico de implementação não reflete o estado atual do grupo de recursos. Esta secção mostra-lhe como exportar um modelo que reflita o estado atual do grupo de recursos. Destina-se como um instantâneo do grupo de recursos, que pode utilizar para Reimplementar no mesmo grupo de recursos. Para utilizar o modelo exportado para outras soluções, tem de modificá-lo significativamente.
-
-1. Abra o grupo de recursos que pretende exportar.  Ver [abrir grupos de recursos](#open-resource-groups).
-2. No painel esquerdo, selecione **exportar modelo**. O Resource Manager obtém os seguintes seis ficheiros para si:
-
-   - **Modelo** - O modelo que define a infraestrutura para a sua solução. Quando criou a conta do Storage através do portal, o Resource Manager utilizou um modelo para a implementar e guardou esse modelo para consulta futura.
-   - **Parâmetros** - Um ficheiro de parâmetros que pode utilizar para transmitir valores durante a implementação. Contém os valores que indicou durante a primeira implementação. Pode alterar qualquer um destes valores quando reimplementar o modelo.
-   - **CLI** -ficheiro de script de uma CLI do Azure que pode utilizar para implementar o modelo.
-   - **PowerShell** - Um ficheiro de script do Azure PowerShell que pode utilizar para implementar o modelo.
-   - **.NET** - Uma classe .NET que pode utilizar para implementar o modelo.
-   - **.NET** - Uma classe Ruby que pode utilizar para implementar o modelo.
-
-     Por predefinição, o portal apresenta o modelo.
-3. Selecione **transferir** para exportar um modelo para o computador local.
-
-Alguns modelos exportados tem algumas edições para que poderem ser utilizados. Para saber como desenvolver modelos, veja a [tutoriais passo a passo](/azure/azure-resource-manager/).
-
-### <a name="export-template-before-deploying"></a>Exportar modelo antes de implementar
-
-Pode utilizar o portal para definir um recurso.  Antes de implementar o recurso, pode ver e exportar um modelo. Para obter instruções, consulte [início rápido: Criar e implementar modelos Azure Resource Manager com o portal do Azure](./resource-manager-quickstart-create-templates-use-the-portal.md).
+Para obter informações sobre a exportação de modelos, consulte [exportação única e vários recurso para o modelo - Portal](export-template-portal.md).
 
 ### <a name="fix-export-issues"></a>Corrigir problemas de exportação
 

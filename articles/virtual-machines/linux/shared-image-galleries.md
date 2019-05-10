@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 253c9403e2a5a85d4307a72b38c69a833bd38657
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ca625093ce85e63042a92dec07b6bcb8968f3fda
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138385"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235993"
 ---
 # <a name="shared-image-galleries-overview"></a>Descrição geral de galerias de imagem partilhada
 

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: cf285c18d2204da625c970a367177f86474149ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/08/2019
+ms.openlocfilehash: c768b7548b9759e85ebfb050f0ead2dfd3c1a6a6
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791939"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415113"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: Migrar o SQL Server para uma instância gerida da base de dados do Azure SQL offline com o DMS
 
@@ -40,17 +40,17 @@ Este artigo descreve uma migração offline do SQL Server para uma instância ge
 
 Para concluir este tutorial, precisa de:
 
-- Criar uma rede Virtual do Azure (VNET) para o serviço de migração de base de dados do Azure com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local, utilizando um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Saiba as topologias de rede para migrações de instância de base de dados do SQL do Azure geridos com o Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+- Criar uma rede Virtual do Azure (VNet) para o serviço de migração de base de dados do Azure com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local, utilizando um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Saiba as topologias de rede para migrações de instância de base de dados do SQL do Azure geridos com o Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Para obter mais informações sobre como criar uma VNet, veja a [documentação das redes virtuais](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
-    > Durante a configuração VNET, se utilizar o ExpressRoute com peering de rede para a Microsoft, adicione o seguinte serviço [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) à sub-rede na qual o serviço será aprovisionado:
+    > Durante a configuração de VNet, se utilizar o ExpressRoute com peering de rede para a Microsoft, adicione o seguinte serviço [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) à sub-rede na qual o serviço será aprovisionado:
     > - Ponto de extremidade de destino da base de dados (por exemplo, ponto de extremidade do SQL, ponto final do Cosmos DB etc.)
     > - Ponto final de armazenamento
     > - Ponto final de barramento de serviço
     >
     > Esta configuração é necessária porque o serviço de migração de base de dados do Azure não tem conectividade à internet.
 
-- Certifique-se de que as regras do grupo de segurança de rede de VNET não bloqueiam as seguintes portas de comunicação de entrada para o Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego dos NSGs das VNETs do Azure, veja o artigo [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (Filtrar tráfego de rede com grupos de segurança de rede).
+- Certifique-se de que as regras do grupo de segurança de rede de VNet não bloqueiam as seguintes portas de comunicação de entrada para o Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do Azure VNet NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurar a sua Firewall do Windows para acesso ao motor de bases de dados. Veja [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abrir a Firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
 - Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
@@ -74,7 +74,7 @@ Para concluir este tutorial, precisa de:
 
 3. Procure por migração e, à direita de **Microsoft.DataMigration**, selecione **Registar**.
 
-    ![Registar o fornecedor de recursos](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)   
+    ![Registar o fornecedor de recursos](media/tutorial-sql-server-to-managed-instance/portal-register-resource-provider.png)
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Criar uma instância do Azure Database Migration Service
 
@@ -90,11 +90,11 @@ Para concluir este tutorial, precisa de:
 
 4. Selecione a localização em que pretende criar a instância do DMS.
 
-5. Selecione uma rede virtual (VNET) já existente ou crie uma.
+5. Selecionar uma VNet já existente ou criar um.
 
-    A VNET fornece o serviço de migração de base de dados do Azure com o acesso a origem do SQL Server e a instância gerida de base de dados do Azure SQL de destino.
+    A VNet fornece o serviço de migração de base de dados do Azure com o acesso a origem do SQL Server e a instância gerida de base de dados do Azure SQL de destino.
 
-    Para obter mais informações sobre como criar uma VNET no portal do Azure, veja o artigo [Criar uma rede virtual com o portal do Azure](https://aka.ms/DMSVnet).
+    Para obter mais informações sobre como criar uma VNet no portal do Azure, consulte o artigo [criar uma rede virtual com o portal do Azure](https://aka.ms/DMSVnet).
 
     Para obter detalhes adicionais, consulte o artigo [topologias de rede para o Azure SQL DB geridos migrações de instância com o Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
@@ -158,26 +158,26 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 
 2. Selecione **Guardar**.
 
-## <a name="select-source-databases"></a>Selecionar as bases de dados de origem
+## <a name="select-source-databases"></a>Selecionar bases de dados de origem
 
 1. No ecrã **Selecionar as base de dados de origem**, selecione a base de dados de origem que quer migrar.
 
-    ![Selecionar as bases de dados de origem](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
+    ![Selecionar bases de dados de origem](media/tutorial-sql-server-to-managed-instance/select-source-databases.png)
 
 2. Selecione **Guardar**.
 
-## <a name="select-logins"></a>Selecionar os inícios de sessão
+## <a name="select-logins"></a>Selecione os inícios de sessão
 
 1. No ecrã **Selecionar os inícios de sessão**, selecione os inícios de sessão que quer migrar.
 
     >[!NOTE]
     >Esta versão só suporta a migração de inícios de sessão do SQL.
 
-    ![Selecionar os inícios de sessão](media/tutorial-sql-server-to-managed-instance/select-logins.png)
+    ![Selecione os inícios de sessão](media/tutorial-sql-server-to-managed-instance/select-logins.png)
 
 2. Selecione **Guardar**.
 
-## <a name="configure-migration-settings"></a>Configurar as definições da migração
+## <a name="configure-migration-settings"></a>Configurar definições de migração
 
 1. No ecrã **Configurar as definições da migração**, indique os detalhes seguintes:
 
@@ -215,7 +215,7 @@ Após a criação de uma instância do serviço, localize-a no portal do Azure, 
 ## <a name="monitor-the-migration"></a>Monitorizar a migração
 
 1. No ecrã de atividade da migração, selecione **Atualizar**, para atualizar o ecrã.
- 
+
    ![Atividade de migração em curso](media/tutorial-sql-server-to-managed-instance/dms-monitor-migration1.png)
 
     Pode expandir ainda mais as categorias de bases de dados e inícios de sessão para monitorizar o estado da migração dos respetivos objetos de servidor.

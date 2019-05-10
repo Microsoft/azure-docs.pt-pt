@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5aab5fea5a80eb3ab1b37e08a5e22ca296cb633e
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 05432f5a38c3d907afa95ac7b1b3adfe9c5515fe
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680303"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236331"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer uma cópia de segurança de uma máquina virtual no Azure com o PowerShell
 
@@ -72,11 +72,11 @@ Agora, crie um cofre:
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
-3. Alterar a configuração de redundância de armazenamento (LRS/GRS) do cofre com [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0), da seguinte forma:
+3. Alterar a configuração de redundância de armazenamento (LRS/GRS) do cofre com [Set-AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperty), da seguinte forma:
     
     ```powershell
     Get-AzRecoveryServicesVault `
-        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperty -BackupStorageRedundancy LocallyRedundant/GeoRedundant
     ```
     > [!NOTE]
     > Redundância de armazenamento pode ser modificada apenas se não existem itens de cópia de segurança protegido para o cofre.

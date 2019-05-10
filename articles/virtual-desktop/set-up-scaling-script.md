@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 379e73c33aa4570c3e56f902b011d75944c94a8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7687abf5fc4af0eea9fa6aa210cfd6734cec2b36
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870728"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410575"
 ---
 # <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
 
@@ -26,9 +26,9 @@ O ambiente em que executar o script tem de ter os seguintes procedimentos:
 
 - Um inquilino de área de Trabalho Virtual do Windows e a conta ou um principal de serviço com permissões para consultar esse inquilino (por exemplo, o colaborador de RDS).
 - As VMs do conjunto de host de sessão configurados e registado com o serviço de área de Trabalho Virtual do Windows.
-- Uma parte do scaler adicional VM que executa a tarefa agendada por meio de agendamento de tarefas e que tem acesso à rede para hosts de sessão.
-- O módulo PowerShell do Resource Manager do Microsoft Azure instalado na VM em execução a tarefa agendada.
-- O módulo do PowerShell de ambiente de Trabalho Virtual de Windows instalado na VM em execução a tarefa agendada.
+- Uma máquina virtual adicional que executa a tarefa agendada por meio do agendador de tarefas e tem acesso à rede para hosts de sessão. Este será reffered para posteriormente no documento como parte do scaler VM.
+- O [módulo do Microsoft Azure Resource Manager PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) instalado na VM em execução a tarefa agendada.
+- O [módulo do Windows PowerShell de ambiente de Trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) instalado na VM em execução a tarefa agendada.
 
 ## <a name="recommendations-and-limitations"></a>Recomendações e limitações
 
@@ -37,7 +37,7 @@ Quando executar o script de dimensionamento, tenha em mente, os seguintes proced
 - Este script de dimensionamento pode apenas tratar de um conjunto de anfitrião por instância da tarefa agendada que esteja a executar o script de dimensionamento.
 - As tarefas agendadas que executam scripts de dimensionamento tem de ser numa VM que está sempre ativada.
 - Crie uma pasta separada para cada instância do script de dimensionamento e a respetiva configuração.
-- Este script não suporta contas com multi-factor authentication. É recomendável que utilizar principais de serviço para aceder ao serviço de área de Trabalho Virtual do Windows e o Azure.
+- Este script não suporta a iniciar sessão como administrador para a área de Trabalho Virtual do Windows com contas de utilizador do Azure AD que requerem a autenticação multifator. É recomendável que utilizar principais de serviço para aceder ao serviço de área de Trabalho Virtual do Windows e o Azure. Siga [deste tutorial](create-service-principal-role-powershell.md) para criar um principal de serviço e uma atribuição de função com o PowerShell.
 - Garantia de SLA do Azure só se aplica a VMs num conjunto de disponibilidade. A versão atual do documento descreve um ambiente com uma única VM ao fazer o dimensionamento, o que talvez não atendam aos requisitos de disponibilidade.
 
 ## <a name="deploy-the-scaling-script"></a>Implementar o script de dimensionamento
@@ -48,26 +48,34 @@ Os procedimentos seguintes indicam como implementar o script de dimensionamento.
 
 Em primeiro lugar, prepare seu ambiente para o script de dimensionamento:
 
-1. Entrar para a VM (**dimensionamento VM**) que será executada a tarefa agendada com uma conta de administrador de domínio.
-2. Crie uma pasta na VM do dimensionamento para manter o script de dimensionamento e a respetiva configuração (por exemplo, **c:\\HostPool1 dimensionamento**).
-3. Transfira o **basicScaler.ps1**, **Config. XML**, e **funções PSStoredCredentials.ps1** arquivos e a **PowershellModules** pasta a partir da [dimensionamento repositório de scripts](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiá-los para a pasta que criou no passo 2.
+1. Inicie sessão na VM (scaler VM) que será executada a tarefa agendada com uma conta de administrador de domínio.
+2. Crie uma pasta no scaler VM para conter o script de dimensionamento e a respetiva configuração (por exemplo, **c:\\HostPool1 dimensionamento**).
+3. Transfira o **basicScale.ps1**, **Config. XML**, e **funções PSStoredCredentials.ps1** arquivos e a **PowershellModules** pasta a partir da [dimensionamento repositório de scripts](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) e copiá-los para a pasta que criou no passo 2. Existem duas formas principais para obter os ficheiros antes de copiá-los para a parte do scaler VM:
+    - Clone o repositório de git no seu computador local.
+    - Ver os **Raw** versão de cada ficheiro, copie e cole o conteúdo de cada ficheiro para um editor de texto, em seguida, guardar os ficheiros com o nome de ficheiro correspondente e o tipo de ficheiro. 
 
 ### <a name="create-securely-stored-credentials"></a>Criar credenciais armazenadas com segurança
 
 Em seguida, terá de criar as credenciais armazenadas com segurança:
 
 1. Abra o ISE do PowerShell como administrador.
-2. Abra o painel de edição e carregue o **PSStoredCredentials.ps1 função** ficheiro.
-3. Execute o seguinte cmdlet:
+2. Importe o módulo do PowerShell de RDS, execute o seguinte cmdlet:
+
+    ```powershell
+    Install-Module Microsoft.RdInfra.RdPowershell
+    ```
+    
+3. Abra o painel de edição e carregue o **PSStoredCredentials.ps1 função** ficheiro.
+4. Execute o seguinte cmdlet:
     
     ```powershell
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
     Por exemplo, **Set-Variable - nome KeyPath-escopo Global-valor "c:\\HostPool1 dimensionamento"**
-4. Executar o **New StoredCredential - KeyPath \$KeyPath** cmdlet. Quando lhe for pedido, introduza as credenciais de área de Trabalho Virtual do Windows com permissões para consultar o conjunto de anfitrião (o conjunto de host é especificado na **Config. XML**).
+5. Executar o **New StoredCredential - KeyPath \$KeyPath** cmdlet. Quando lhe for pedido, introduza as credenciais de área de Trabalho Virtual do Windows com permissões para consultar o conjunto de anfitrião (o conjunto de host é especificado na **Config. XML**).
     - Se utilizar principais de serviço diferentes ou conta padrão, execute o **New StoredCredential - KeyPath \$KeyPath** cmdlet, uma vez para cada conta criar local armazenado as credenciais.
-5. Execute **Get StoredCredentials-lista** para confirmar as credenciais foram criadas com êxito.
+6. Execute **Get StoredCredentials-lista** para confirmar as credenciais foram criadas com êxito.
 
 ### <a name="configure-the-configxml-file"></a>Configurar o arquivo Config. XML
 
@@ -87,7 +95,7 @@ Introduza os valores de relevantes para os campos seguintes para atualizar as de
 | BeginPeakTime                 | Quando começa o tempo de utilização de pico                                                            |
 | EndPeakTime                   | Quando termina o tempo de utilização de pico                                                              |
 | TimeDifferenceInHours         | Diferença de tempo entre a hora local e UTC, em horas                                   |
-| SessionThresholdPerCPU        | Número máximo de sessões por limite de CPU utilizado para determinar quando um novo servidor RDSH tem de ser iniciada durante o horário de pico.  |
+| SessionThresholdPerCPU        | Número máximo de sessões por limite de CPU utilizado para determinar quando um host de sessão novo VM tem de ser iniciada durante o horário de pico.  |
 | MinimumNumberOfRDSH           | Número mínimo de VMs para continuar a executar durante o tempo de pico de utilização do agrupamento de anfitrião             |
 | LimitSecondsToForceLogOffUser | Número de segundos a aguardar antes de forçar os utilizadores para terminar sessão. Se definido como 0, os utilizadores não é forçado a fim de sessão.  |
 | LogOffMessageTitle            | Título da mensagem enviada para um utilizador antes de eles são forçados a terminar sessão                  |
@@ -111,11 +119,11 @@ Depois de configurar o ficheiro. XML de configuração, terá de configurar o ag
 
 Este script dimensionamento lê as definições de um arquivo Config. XML, incluindo o início e fim do período de utilização de pico durante o dia.
 
-Durante o tempo de utilização de pico, o script verifica o número atual de sessões e a capacidade RDSH atual em execução para cada coleção. Ele calcula se os servidores RDSH em execução tem capacidade suficiente para suportar sessões existentes com base no parâmetro SessionThresholdPerCPU definido no arquivo Config. XML. Caso contrário, o script começa servidores adicionais de RDSH na coleção.
+Durante o tempo de utilização de pico, o script verifica o número atual de sessões e a capacidade RDSH atual em execução para cada conjunto de anfitrião. Ele calcula que se o anfitrião de sessões em execução VMs tem capacidade suficiente para suportar sessões existentes com base no parâmetro SessionThresholdPerCPU definido no arquivo Config. XML. Caso contrário, o script começa o anfitrião de sessões adicionais de VMs no conjunto de anfitrião.
 
-Durante a hora de pico de utilização, o script determina quais os servidores de RDSH devem encerrar com base no parâmetro MinimumNumberOfRDSH no arquivo Config. XML. O script irá definir os servidores RDSH a drenar modo para impedir que novas sessões ligar aos anfitriões. Se definir o **LimitSecondsToForceLogOffUser** parâmetro no arquivo Config. XML para um valor positivo diferente de zero, o script será notificado qualquer atualmente com sessão iniciada sessão dos utilizadores para guardar o trabalho, aguardar o período de tempo configurado e, em seguida, forçar o utilizadores para terminar sessão. Depois de todas as sessões de utilizador tiveram sido terminou a sessão num servidor RDSH, o script irá encerrar o servidor.
+Durante a hora de pico de utilização, o script determina qual host de sessão VMs devem encerrar com base no parâmetro MinimumNumberOfRDSH no arquivo Config. XML. O script irá definir a sessão de VMs de anfitrião para drenar modo para impedir que novas sessões ligar aos anfitriões. Se definir o **LimitSecondsToForceLogOffUser** parâmetro no arquivo Config. XML para um valor positivo diferente de zero, o script será notificado qualquer atualmente com sessão iniciada sessão dos utilizadores para guardar o trabalho, aguardar o período de tempo configurado e, em seguida, forçar o utilizadores para terminar sessão. Depois de todas as sessões de utilizador tem sido terminou a sessão no anfitrião de sessões de uma VM, o script irá encerrar o servidor.
 
-Se definir o **LimitSecondsToForceLogOffUser** parâmetro no arquivo Config. XML para zero, o script irá permitir a definição de configuração de sessão nas propriedades da coleção para processar a aceitação de sessões de utilizador. Se existirem quaisquer sessões num servidor RDSH, ele deixará o servidor RDSH em execução. Caso haja qualquer sessões, o script irá encerrar o servidor RDSH.
+Se definir o **LimitSecondsToForceLogOffUser** parâmetro no arquivo Config. XML para zero, o script irá permitir que a definição de configuração de sessão no anfitrião de propriedades do conjunto processar a aceitação de sessões de utilizador. Se existirem quaisquer sessões no anfitrião de sessões de uma VM, ele deixará o anfitrião de sessões de VM em execução. Caso haja qualquer sessões, o script será encerrado o VM de anfitrião de sessões.
 
 O script foi concebido para ser executado periodicamente no servidor VM de scaler usando o agendador de tarefas. Selecione o intervalo de tempo adequado com base no tamanho do seu ambiente de serviços de ambiente de trabalho remoto e lembre-se de que a iniciar e encerrar as máquinas virtuais podem demorar algum tempo. Recomendamos executar o script de dimensionamento a cada 15 minutos.
 
@@ -125,6 +133,6 @@ O script de dimensionamento cria dois ficheiros de registo **WVDTenantScale.log*
 
 O **WVDTenantUsage.log** ficheiro registrará o Active Directory número de núcleos e o Active Directory número de máquinas virtuais sempre que executar o script de dimensionamento. Pode usar essas informações para calcular a utilização real de VMs do Microsoft Azure e o custo. O ficheiro é formatado como valores separados por vírgulas, com cada item que contém as seguintes informações:
 
->tempo, coleção, núcleos, VMs
+>tempo, o conjunto de anfitrião, núcleos, VMs
 
 O nome do ficheiro também pode ser modificado para ter uma extensão. csv, carregados no Microsoft Excel e analisados.

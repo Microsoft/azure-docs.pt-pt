@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 47778576099d8fab1692f9dd733311dcb44babdb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917517"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406711"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Active Directory do Azure com Leapsome
 
@@ -126,10 +126,10 @@ Para configurar o Azure AD início de sessão único com Leapsome, execute os se
 
     | Name | Atributo de origem | Espaço de nomes |
     | ---------------| --------------- | --------- |  
-    | FirstName | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Apelido | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | título | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | imagem | URL para imagem o funcionário | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | FirstName | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Apelido | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | título | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | imagem | URL para imagem o funcionário | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -246,7 +246,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Leapsome. Trabalhar com [equipa de suporte de cliente Leapsome](mailto:support@leapsome.com) para adicionar os utilizadores ou o domínio, o qual tem de estar na lista de permissões na plataforma Leapsome. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de Leapsome. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

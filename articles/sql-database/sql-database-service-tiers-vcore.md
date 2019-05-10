@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 981198063b8e0951d4a4a4c4627d4b7966f34154
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c85ee31a54cdbbb09686a2d20200f65fdcd8994a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148987"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235903"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-dtu-service-tiers"></a>Escolha de entre os escalões de serviço de vCore e migrar de escalões de serviço DTU
 
@@ -40,11 +40,11 @@ A tabela seguinte ajuda-o a compreender as diferenças entre as três camadas:
 
 ||**Fins gerais**|**Crítico para a empresa**|**Hiperescala**|
 |---|---|---|---|
-|Melhor para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
+|Melhores para|A maioria das cargas de trabalho da empresa. Ofertas de orçamento orientadas opções de equilibradas e dimensionáveis de computação e armazenamento.|Aplicações empresariais com requisitos elevados de E/S. Oferece maior resiliência a falhas com várias réplicas isoladas.|A maioria das cargas de trabalho empresariais com requisitos de escala de leitura e de armazenamento altamente escalável|
 |Computação|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80<br/>**Computação sem servidor**<br/>Gen5: 0,5 - 4 vCore|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80|**Aprovisionado computação**:<br/>Gen4: vCore de 1 a 24<br/>Gen5: vCore de 2 a 80|
 |Memória|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore<br/>**Computação sem servidor**<br/>Gen5: 3 GB por vCore|**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore |**Aprovisionado computação**:<br/>Gen4: 7 GB por vCore<br/>Gen5: 5.1 GB por vCore|
 |Armazenamento|Utiliza o armazenamento remoto:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Computação sem servidor da base de dados individual**:<br/>5 GB – 1 TB<br/>**Instância gerida**: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>**Base de dados aprovisionada computação**:<br/>5 GB – 4 TB<br/>**Instância gerida**:<br/>32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
-|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo |Gen5: 5.1 GB por núcleo|
+|Memória|Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo | Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo |Gen4: 7 GB por núcleo<br>Gen5: 5.1 GB por núcleo|
 |Armazenamento|Utiliza o armazenamento remoto:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 8 TB |Utiliza o armazenamento SSD local:<br/>Base de dados: 5 GB – 4 TB<br/>Instância gerida: 32 GB - 4 TB |Flexível, o aumento automático do armazenamento, conforme necessário. Suporta até 100 TB de armazenamento e muito mais. Armazenamento SSD local para a cache de pool de local buffer e o armazenamento de dados local. Armazenamento remoto do Azure como arquivo de dados de longo prazo final. |
 |Débito de e/s (aproximado)|Base de dados: 500 IOPS por vCore com IOPS máximos de 7000</br>Instância gerida: Depende [tamanho do ficheiro](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS por núcleo com 200 000 IOPS máximos|TBD|
 |Disponibilidade|1 réplica, sem uma escala de leitura|3 réplicas, 1 [réplica de uma escala de leitura](sql-database-read-scale-out.md),<br/>HA com redundância de zona|réplica de leitura/1 escrita e 0 a 4 [réplicas de escala de leitura](sql-database-read-scale-out.md)|
@@ -109,12 +109,12 @@ A tabela seguinte fornece orientações para os cenários de migração específ
 |---|---|---|---|
 |Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas certifique-se de um dimensionamento apropriado vCore *|
 |Premium|Crítico para a Empresa|Lateral|Pode migrar em qualquer ordem, mas certifique-se de dimensionamento apropriado vCore *|
-|Standard|Crítico para a Empresa|Atualizar|Deve migrar primeiro secundário|
+|Standard|Crítico para a Empresa|Actualizar|Deve migrar primeiro secundário|
 |Crítico para a Empresa|Standard|Mudar para uma versão anterior|Deve migrar primeiro primário|
 |Premium|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
-|Fins gerais|Premium|Atualizar|Deve migrar primeiro secundário|
+|Fins gerais|Premium|Actualizar|Deve migrar primeiro secundário|
 |Crítico para a Empresa|Fins gerais|Mudar para uma versão anterior|Deve migrar primeiro primário|
-|Fins gerais|Crítico para a Empresa|Atualizar|Deve migrar primeiro secundário|
+|Fins gerais|Crítico para a Empresa|Actualizar|Deve migrar primeiro secundário|
 ||||
 
 \* Cada 100 DTUS no escalão Standard requer, pelo menos, 1 vCore e cada 125 DTU no escalão Premium requer, pelo menos, 1 vCore

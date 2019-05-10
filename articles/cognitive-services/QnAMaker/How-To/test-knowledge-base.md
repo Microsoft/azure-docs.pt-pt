@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 05/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ea2381287729579e10d457912c4147f59716bcc4
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 2c596b49d5587b07fe75cefde72e897478dc3dc8
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875698"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472118"
 ---
 # <a name="test-your-knowledge-base-interactively-in-qna-maker"></a>Testar a sua base de dados de conhecimento interativamente em QnA Maker
 
@@ -24,14 +24,10 @@ Teste a sua base de dados de conhecimento do QnA Maker é uma parte importante d
 
 ## <a name="test-answer-matching"></a>Correspondência de resposta de teste
 
-1.  Aceder à sua base de dados de conhecimento, selecionando o respetivo nome na **meu bases de dados de conhecimento** página.
-2.  Para acessar o painel de slide-out de teste, selecione **teste** no painel superior do seu aplicativo.
-
-    ![Painel de teste de acesso](../media/qnamaker-how-to-test-kb/access-test.png)
-
-3.  Introduza uma consulta na caixa de texto e selecione Enter.
-
-4.  A resposta mais correspondente a partir da base de dados de conhecimento é retornada como a resposta.
+1. Aceder à sua base de dados de conhecimento, selecionando o respetivo nome na **meu bases de dados de conhecimento** página.
+1. Para acessar o painel de slide-out de teste, selecione **teste** no painel superior do seu aplicativo.
+1. Introduza uma consulta na caixa de texto e selecione Enter.
+1. A resposta mais correspondente a partir da base de dados de conhecimento é retornada como a resposta.
 
 ## <a name="clear-test-panel"></a>Painel de teste clara
 
@@ -65,14 +61,20 @@ Pode adicionar formas alternativas de uma pergunta para uma determinada resposta
 
 ## <a name="add-a-new-answer"></a>Adicionar uma nova resposta
 
-Pode adicionar uma nova resposta, se qualquer uma das respostas existentes que foram correspondidas estão incorretas ou a resposta não existe na base de dados de conhecimento (encontrada nenhuma correspondência boa no KB). Introduza a nova resposta à pergunta atual na caixa de texto e prima enter para adicioná-lo. 
+Pode adicionar uma nova resposta, se qualquer uma das respostas existentes que foram correspondidas estão incorretas ou a resposta não existe na base de dados de conhecimento (encontrada nenhuma correspondência boa no KB). 
 
-Selecione **guardar e treinar** para manter esta resposta. Agora foi adicionado um novo par de pergunta-resposta à sua base de dados de conhecimento.
+Na parte inferior da lista de respostas, utilize a caixa de texto para introduzir uma nova resposta e prima enter para adicioná-lo. 
 
-![Adicionar novo par de perguntas e respostas](../media/qnamaker-how-to-test-kb/add-answer.png)
+Selecione **guardar e treinar** para manter esta resposta. Agora foi adicionado um novo par de pergunta-resposta à sua base de dados de conhecimento. 
 
 > [!NOTE]
 > Todas as edições em sua base de dados de conhecimento apenas serão salvos de quando pressiona o **guardar e treinar** botão.
+
+## <a name="test-the-published-knowledge-base"></a>Testar a base de dados de conhecimento publicada
+
+Pode testar a versão publicada da base de dados de conhecimento no painel de teste. Assim que tiver publicado a KB, selecione o **publicados KB** caixa e enviará uma consulta para obter resultados do KB publicado.
+
+![O teste com um KB publicado](../media/qnamaker-how-to-test-kb/test-against-published-kb.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/05/2019
+ms.date: 05/06/2019
 ms.author: helohr
-ms.openlocfilehash: e550111e04ea77e35a4554bcc6e3bffaf4d543d2
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 165980da2b78e7514ea1938bdbeb6fda82dd123d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924964"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236655"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
@@ -100,17 +100,6 @@ Para registar os agentes da área de Trabalho Virtual do Windows, faça o seguin
    - Transfira o [carregador de inicialização do Windows agente de ambiente de Trabalho Virtual](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
    - Com o botão direito no instalador que transferiu, selecione **propriedades**, selecione **desbloqueio**, em seguida, selecione **OK**. Isso permitirá que o sistema para o instalador de confiança.
    - Execute o instalador.
-4. Instalar ou ativar a pilha de lado a lado de área de Trabalho Virtual do Windows. Os passos serão diferentes consoante a versão SO da máquina virtual utiliza.
-   - Se o SO da sua máquina virtual é o Windows Server 2016:
-     - Transfira o [pilha de lado a lado de área de Trabalho Virtual do Windows](https://go.microsoft.com/fwlink/?linkid=2084270).
-     - Com o botão direito no instalador que transferiu, selecione **propriedades**, selecione **desbloqueio**, em seguida, selecione **OK**. Isso permitirá que o sistema para o instalador de confiança.
-     - Execute o instalador.
-   - Se o SO da sua máquina virtual é o Windows 10 1809 ou posterior ou Windows Server 2019 ou posterior:
-     - Transfira o [script](https://go.microsoft.com/fwlink/?linkid=2084268) para ativar a pilha de lado a lado.
-     - O script transferido com o botão direito, selecione **propriedades**, selecione **desbloqueio**, em seguida, selecione **OK**. Isso permitirá que o sistema para o script de confiança.
-     - Partir do **começar** menu, procure o ISE do Windows PowerShell, faça duplo clique nele, em seguida, selecione **executar como administrador**.
-     - Selecione **arquivo**, em seguida, **abra...** e, em seguida, localize o script do PowerShell dos ficheiros transferidos e abri-lo.
-     - Selecione o botão verde play para executar o script.
 
 >[!IMPORTANT]
 >Para ajudar a proteger o ambiente de área de Trabalho Virtual do Windows no Azure, recomendamos que não abrir a porta 3389 de entrada nas suas VMs. Área de Trabalho Virtual do Windows não precisa de uma porta de entrada aberta 3389 para os utilizadores acedam a VMs do conjunto de anfitrião. Se é necessário abrir a porta 3389 para fins de resolução de problemas, recomendamos que utilize [o acesso à VM just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).

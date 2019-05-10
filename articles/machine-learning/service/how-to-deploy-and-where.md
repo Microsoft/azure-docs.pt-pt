@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 05/02/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 113c894122fe2b0673dfb47f8a9c0cbecf4c6290
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 45421a249642abf37c89aa33e2e8a1b4a9e5e497
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205069"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507014"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementar modelos com o serviço Azure Machine Learning
 
@@ -25,8 +25,8 @@ Saiba como implementar o modelo de machine learning como um serviço web na clou
 | Destino de computação | Tipo de implementação | Descrição |
 | ----- | ----- | ----- |
 | [Serviço local web](#local) | Teste/depuração | Vale a limitado de teste e resolução de problemas.
-| [Azure Kubernetes Service (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
-| [Azure Container Instances (ACI)](#aci) | Testes | Vale a pequena escala, com base na CPU a cargas de trabalho. |
+| [Serviço Kubernetes do Azure (AKS)](#aks) | Inferência de tipos em tempo real | Ideal para implementações de produção de grande escala. Fornece o dimensionamento automático e tempos de resposta rápidos. |
+| [Azure Container Instances (ACI)](#aci) | A testar | Vale a pequena escala, com base na CPU a cargas de trabalho. |
 | [Computação do Azure Machine Learning](how-to-run-batch-predictions.md) | (Pré-visualização) Inferência de tipos do batch | Execute a computação sem servidor de classificação de batch. Suporta VMs normais e de baixa prioridade. |
 | [Azure IoT Edge](#iotedge) | (Pré-visualização) Módulo de IoT | Implementar e servir os modelos de ML em dispositivos IoT. |
 
@@ -42,7 +42,7 @@ Para obter mais informações sobre os conceitos envolvidos no fluxo de trabalho
 
 ## <a name="prerequisites-for-deployment"></a>Pré-requisitos para implementação
 
-- Um modelo. Se não tiver um modelo preparado, pode usar o modelo e os ficheiros de dependência fornecida no [deste tutorial](http://aka.ms/azml-deploy-cloud).
+- Um modelo. Se não tiver um modelo preparado, pode usar o modelo e os ficheiros de dependência fornecida no [deste tutorial](https://aka.ms/azml-deploy-cloud).
 
 - O [extensão de CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), ou o [SDK de Python do Azure Machine Learning](https://aka.ms/aml-sdk).
 
@@ -212,7 +212,7 @@ A tabela seguinte fornece um exemplo de criação de uma configuração de imple
 | ----- | ----- |
 | Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Instância de Contentor do Azure | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
-| Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
+| Serviço Kubernetes do Azure | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
 As secções seguintes demonstram como criar a configuração de implementação e, em seguida, utilizá-lo para implementar o serviço web.
 
@@ -458,7 +458,7 @@ Destinos de computação do Machine Learning do Azure são criados e geridos pel
 Para obter instruções de inferência de tipos do batch com a computação do Azure Machine Learning, leia os [como executar o Batch previsões](how-to-run-batch-predictions.md) artigo.
 
 ## <a id="iotedge"></a> Inferência de tipos do IoT Edge
-O suporte para implementar no Edge está em pré-visualização. Para obter mais informações, consulte a [implementar o Azure Machine Learning como um módulo do IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-machine-learning) artigo.
+O suporte para implementar no Edge está em pré-visualização. Para obter mais informações, consulte a [implementar o Azure Machine Learning como um módulo do IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-machine-learning) artigo.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Resolução de problemas de implementação](how-to-troubleshoot-deployment.md)

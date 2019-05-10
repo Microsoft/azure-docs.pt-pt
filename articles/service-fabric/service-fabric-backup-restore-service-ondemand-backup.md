@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: c80a9ac30e79607d2a255debf73f6542df7c6498
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bed3402de83984cae9134fe44058980ec18861b3
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310898"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413943"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Cópia de segurança a pedido no Azure Service Fabric
 
@@ -28,6 +28,22 @@ Pode fazer backup de dados de serviços com estado fiável e Reliable Actors par
 O Azure Service Fabric tem recursos para o [cópia de segurança periódica de dados](service-fabric-backuprestoreservice-quickstart-azurecluster.md) e a cópia de segurança de dados de forma necessidade. Cópia de segurança a pedido é útil porque ele protege contra _perda de dados_/_danos nos dados_ devido a alterações planeadas no serviço subjacente ou seu ambiente.
 
 As funcionalidades de cópia de segurança a pedido são úteis para capturar o estado dos serviços antes de acionar manualmente um serviço ou operação de ambiente de serviço. Por exemplo, se fizer uma alteração em binários de serviço ao atualizar ou fazer downgrade o serviço. Nesse caso, cópia de segurança a pedido pode ajudar a proteger os dados contra corrupção por bugs de código do aplicativo de mensagens em fila.
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Instale o módulo de Microsoft.ServiceFabric.Powershell.Http [na pré-visualização] para fazer chamadas de configuração.
+
+```powershell
+    Install-Module -Name Microsoft.ServiceFabric.Powershell.Http -AllowPrerelease
+```
+
+- Certifique-se de que o Cluster está ligado a utilizar o `Connect-SFCluster` comando antes de efetuar qualquer pedido de configuração através do módulo Microsoft.ServiceFabric.Powershell.Http.
+
+```powershell
+
+    Connect-SFCluster -ConnectionEndpoint 'https://mysfcluster.southcentralus.cloudapp.azure.com:19080'   -X509Credential -FindType FindByThumbprint -FindValue '1b7ebe2174649c45474a4819dafae956712c31d3' -StoreLocation 'CurrentUser' -StoreName 'My' -ServerCertThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'  
+
+```
+
 
 ## <a name="triggering-on-demand-backup"></a>Acionar cópia de segurança a pedido
 
@@ -38,6 +54,16 @@ Cópia de segurança a pedido requer detalhes de armazenamento para carregar fic
 Pode configurar a política de cópia de segurança periódica a utilizar uma partição de um serviço com estado fiável ou dos Reliable Actors para cópia de segurança extra sob demanda para o armazenamento.
 
 Caso seguinte é a continuação do cenário [cópia de segurança periódica do ativação de serviço com estado fiável e Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). Neste caso, ativar uma política de cópia de segurança utilizar uma partição e uma cópia de segurança ocorre com uma frequência de conjunto no armazenamento do Azure.
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' 
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Chamada de REST com o Powershell
 
 Utilize o [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar o acionamento para a cópia de segurança a pedido para o ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`.
 
@@ -52,6 +78,17 @@ Utilize o [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/
 ### <a name="on-demand-backup-to-specified-storage"></a>Cópia de segurança a pedido para o armazenamento especificado
 
 Pode pedir uma cópia de segurança a pedido para uma partição de um serviço com estado fiável ou Reliable Actor. Forneça as informações de armazenamento como parte do pedido de cópia de segurança a pedido.
+
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+Backup-SFPartition -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22' -AzureBlobStore -ConnectionString  'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' -ContainerName 'backup-container'
+
+```
+
+#### <a name="rest-call-using-powershell"></a>Chamada de REST com o Powershell
 
 Utilize o [BackupPartition](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API para configurar o acionamento para a cópia de segurança a pedido para o ID de partição `974bd92a-b395-4631-8a7f-53bd4ae9cf22`. Inclua as seguintes informações de armazenamento do Azure:
 
@@ -80,6 +117,16 @@ Uma partição de um serviço com estado fiável ou Reliable Actor aceita soment
 
 Partições diferentes podem acionar a pedidos de cópia de segurança a pedido, um mesmo tempo.
 
+
+#### <a name="powershell-using-microsoftservicefabricpowershellhttp-module"></a>PowerShell com o módulo de Microsoft.ServiceFabric.Powershell.Http
+
+```powershell
+
+Get-SFPartitionBackupProgress -PartitionId '974bd92a-b395-4631-8a7f-53bd4ae9cf22'
+
+```
+#### <a name="rest-call-using-powershell"></a>Chamada de REST com o Powershell
+
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetBackupProgress?api-version=6.4"
 
@@ -101,7 +148,7 @@ Pedidos de cópia de segurança a pedido podem ser os seguintes Estados:
   FailureError            :
   ```
 - **Sucesso**, **falha**, ou **tempo limite**: Uma cópia de segurança a pedido pedida pode ser concluída em qualquer um dos seguintes Estados:
-  - **Success**: R _êxito_ cópia de segurança estado de funcionamento indica que o estado de partição tem uma cópia de segurança com êxito. A resposta fornece _BackupEpoch_ e _BackupLSN_ para a partição juntamente com a hora em UTC.
+  - **Êxito**: R _êxito_ cópia de segurança estado de funcionamento indica que o estado de partição tem uma cópia de segurança com êxito. A resposta fornece _BackupEpoch_ e _BackupLSN_ para a partição juntamente com a hora em UTC.
     ```
     BackupState             : Success
     TimeStampUtc            : 2018-11-21T20:00:01Z

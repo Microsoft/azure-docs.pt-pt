@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: bf5126360140580282ebc1cb2bf73e1afa4d8829
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920533"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407597"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -158,7 +158,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|de|A cadeia a procurar.|Sim|N/A|
+|from|A cadeia a procurar.|Sim|N/A|
 |para|A cadeia de substituição. Especifique uma zero cadeia de substituição de comprimento para remover a cadeia de procura.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
@@ -375,7 +375,7 @@ O `set-body` política pode ser configurada para utilizar o [líquidos](https://
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Converter o JSON para SOAP através de um modelo de líquidos
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -514,7 +514,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o cabeçalho já está especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do cabeçalho existente.<br />-skip - não substitui o valor de cabeçalho existente.<br />-Acrescentar - acrescenta o valor para o valor de cabeçalho existente.<br />-delete - remove o cabeçalho do pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no cabeçalho que está a ser definido de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
-|nome|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
+|name|Especifica o nome do cabeçalho de ser definido.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
@@ -574,7 +574,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |ação existe|Especifica a ação a tomar quando o parâmetro de consulta já foi especificado. Este atributo tem de ter um dos seguintes valores.<br /><br /> -Ignorar - substitui o valor do parâmetro existente.<br />-skip - não substitui o valor de parâmetro de consulta existente.<br />-Acrescentar - acrescenta o valor para o valor de parâmetro de consulta existente.<br />-delete - remove o parâmetro de consulta no pedido.<br /><br /> Quando definido como `override` Transaction múltiplas entradas com o mesmo nome resulta no parâmetro de consulta que está a ser definido, de acordo com todas as entradas (que serão listadas várias vezes); apenas valores listados serão definidos no resultado.|Não|substituir|
-|nome|Especifica o nome do parâmetro de consulta seja definido.|Sim|N/A|
+|name|Especifica o nome do parâmetro de consulta seja definido.|Sim|N/A|
 
 ### <a name="usage"></a>Utilização
  Esta política pode ser utilizada na política de seguinte [secções](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e [âmbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).

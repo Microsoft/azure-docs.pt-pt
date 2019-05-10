@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 55b18051f2376a59fa79b11cccc9e71cad5debbc
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/06/2019
+ms.openlocfilehash: 4f0691dcc8a0c4b0ebbfe26a49b75b86fa50f597
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067810"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236012"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>FAQ sobre bases de dados de Hiperescala de SQL do Azure
 
@@ -73,11 +73,7 @@ A camada de serviços de Hiperescala foi criada primariamente para os clientes q
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Que regiões atualmente suportam grande escala
 
-O escalão de Hiperescala de base de dados do SQL Azure está atualmente disponível nas seguintes regiões:
-
-Leste da Austrália, Sudeste da Austrália, sul do Brasil, Canadá Central, E.U.A. Central, Ásia Oriental, E.U.A. leste, Leste E.u.a. 2, França Central, leste do Japão, oeste do Japão, Norte dos E.U.A., Norte da Europa, África do Sul norte, EUA Centro-Sul, Sudeste asiático, do Reino Unido Sul, oeste do Reino Unido, Europa Ocidental , E.U.A. oeste, E.U.A. oeste 2
-
-Ver [descrição geral do Azure SQL Database Hiperescala](sql-database-service-tier-hyperscale-faq.md) para o procedimento se precisar de acesso noutra região.
+O escalão de Hiperescala de base de dados do SQL Azure está atualmente disponível nas regiões listados na [descrição geral do Azure SQL Database Hiperescala](sql-database-service-tier-hyperscale.md#regions).
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Pode criar várias bases de dados de grande dimensão por servidor lógico
 

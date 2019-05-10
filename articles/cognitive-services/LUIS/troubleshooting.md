@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: ea3bb551a32fdfb7e4a378c36858860808e27419
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 132ba922fa73c73d0e001e84659b5a24996d406b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072779"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235788"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
@@ -24,7 +24,7 @@ Este artigo contém respostas para perguntas mais frequentes sobre a compreensã
 
 <a name="luis-authoring"></a>
 
-## <a name="authoring"></a>Criação
+## <a name="authoring"></a>Criação de conteúdos
 
 ### <a name="what-are-the-luis-best-practices"></a>Quais são as práticas recomendadas do LUIS?
 Começar com o [ciclo de criação](luis-concept-app-iteration.md), em seguida, leia o [melhores práticas](luis-concept-best-practices.md).
@@ -294,7 +294,7 @@ As seguintes funcionalidades foram lançadas na conferência de 2019 compilaçã
 
 * [Pré-visualização do guia de migração de V3 API](luis-migration-api-v3.md)
 * [Dashboard de análises melhoradas](luis-how-to-use-dashboard.md)
-* [Melhorada a domínios pré-concebidos](luis-reference-prebuilt-domains.md) funcionam com a V2 e V3 APIs
+* [Domínios pré-concebidos melhorados](luis-reference-prebuilt-domains.md) 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

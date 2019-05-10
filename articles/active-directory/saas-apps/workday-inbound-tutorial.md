@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 267b6afd7cd3131dcd138dfb631335f58cec833a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386082"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407917"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o dia de trabalho para aprovisionamento automático de utilizadores
 
@@ -310,9 +310,9 @@ Neste passo, terá de conceder permissões de política para os dados de trabalh
    | ---------- | ---------- |
    | Get e Put | Dados de trabalho: Relatórios de trabalho público |
    | Get e Put | Dados de pessoa: Informações de contacto de trabalho |
-   | Get | Dados de trabalho: Todas as posições |
-   | Get | Dados de trabalho: Informações de equipe atuais |
-   | Get | Dados de trabalho: Título de negócios no perfil de trabalho |
+   | Obter | Dados de trabalho: Todas as posições |
+   | Obter | Dados de trabalho: Informações de equipe atuais |
+   | Obter | Dados de trabalho: Título de negócios no perfil de trabalho |
 
 ### <a name="configuring-business-process-security-policy-permissions"></a>Configurar permissões de política de segurança de processo de negócio
 
@@ -368,7 +368,7 @@ Para aprovisionar ao Active Directory no local, um agente deve ser instalado num
 
 Assim que tiver implementado 4.7.1+ de .NET, pode baixar o **[agente aprovisionamento aqui locais](https://go.microsoft.com/fwlink/?linkid=847801)** e siga os passos abaixo para concluir a configuração do agente.
 
-1. Inicie sessão no Windows Server onde pretende instalar o agente de novo.
+1. Inicie sessão para o Windows Server onde pretende instalar o agente de novo.
 2. Inicie o instalador do agente de aprovisionamento, aceitar os termos e clique nas **instalar** botão.
 
    ![Instalar o ecrã](./media/workday-inbound-tutorial/pa_install_screen_1.png "instalar ecrã")
@@ -868,7 +868,7 @@ Sim, um agente de aprovisionamento pode ser configurado para lidar com vários d
 
 * A partir do portal do Azure, recebe o *ID de inquilino* do seu inquilino do Azure AD.
 * Inicie sessão no servidor do Windows que executa o agente de aprovisionamento.
-* Abra o powershell como administrador do Windows.
+* Abra o PowerShell como administrador do Windows.
 * Altere o diretório que contém os scripts de registo e execute os seguintes comandos, substituindo os \[ID de inquilino\] parâmetro com o valor do seu ID de inquilino.
 
   ```powershell
@@ -878,7 +878,7 @@ Sim, um agente de aprovisionamento pode ser configurado para lidar com vários d
   ```
 
 * Na lista de agentes que aparecem – copiar o valor de "id" campo desse recurso cujos *resourceName* é igual a para o seu nome de domínio do AD.
-* Cole o id para este comando e executá-lo no Powershell.
+* Cole o valor de ID para este comando e execute o comando no PowerShell.
 
   ```powershell
   Remove-PublishedResource -ResourceId "[resource ID]" -TenantId "[tenant ID]"
@@ -946,9 +946,9 @@ A solução atualmente não suporta a definição atributos binários, tal como 
 
 #### <a name="how-do-i-format-display-names-in-ad-based-on-the-users-departmentcountrycity-attributes-and-handle-regional-variances"></a>Como eu formate os nomes a apresentar no AD com base em atributos de departamento/país/cidade e variações regionais do identificador do usuário?
 
-É um requisito comum para configurar o *displayName* de atributos no AD para que ele também fornece informações sobre o departamento do usuário e o país. Para por exemplo, se John Smith trabalha no departamento de Marketing nos EUA, talvez tenha seu *displayName* ser apresentado como *Smith, John (Marketing-US)*.
+É um requisito comum para configurar o *displayName* de atributos no AD para que ele também fornece informações sobre o departamento e país/região do utilizador. Para por exemplo, se John Smith trabalha no departamento de Marketing nos EUA, talvez tenha seu *displayName* ser apresentado como *Smith, John (Marketing-US)*.
 
-Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* para incluir atributos como empresa, unidade de negócios, cidade ou país.
+Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* para incluir atributos como empresa, unidade de negócios, cidade ou país/região.
 
 * Cada atributo de dia de trabalho é recuperado usando uma expressão XPATH API subjacente, que pode ser configurada no **mapeamento do atributo -> Avançadas secção -> lista de atributos de edição para Workday**. Segue-se a expressão de XPATH API padrão para Workday *PreferredFirstName*, *PreferredLastName*, *empresa* e *SupervisoryOrganization* atributos.
 
@@ -976,7 +976,7 @@ Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* par
 
   Confirme com a sua equipa de dia de trabalho que as expressões de API acima são válidas para a sua configuração de inquilino do Workday. Se necessário, pode editá-los conforme descrito na secção [personalizar a lista de atributos de utilizador do Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Para construir a expressão de mapeamento do atributo certo, identifique o atributo que Workday "forma autoritativa" representa o utilizador nome próprio, último nome, o país e departamento. Vamos supor que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization* , respetivamente. Pode utilizá-lo para criar uma expressão do AD *displayName* atributo da seguinte forma para obter um nome a apresentar como *Smith, John (Marketing-US)*.
+* Para construir a expressão de mapeamento do atributo certo, identifique o atributo que Workday "forma autoritativa" representa o utilizador nome próprio, último nome, país/região e departamento. Vamos supor que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisoryOrganization* , respetivamente. Pode utilizá-lo para criar uma expressão do AD *displayName* atributo da seguinte forma para obter um nome a apresentar como *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
@@ -1236,7 +1236,7 @@ Para fazer esta alteração, tem de utilizar [Workday Studio](https://community.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
-    <env:Envelope xmlns:env="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
+    <env:Envelope xmlns:env="https://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="https://www.w3.org/2001/XMLSchema">
       <env:Body>
         <wd:Get_Workers_Request xmlns:wd="urn:com.workday/bsvc" wd:version="v21.1">
           <wd:Request_References wd:Skip_Non_Existing_Instances="true">
@@ -1349,7 +1349,7 @@ No Microsoft Graph Explorer, execute a seguinte consulta GET substituindo [servi
 
 Obterá uma resposta conforme mostrado abaixo. Copie o atributo"id" presente na resposta. Este valor é o **ProvisioningJobId** e será utilizado para obter os metadados de esquema subjacente.
 
-   [![Id da tarefa de aprovisionamento](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
+   [![ID da tarefa de aprovisionamento](./media/workday-inbound-tutorial/wd_export_03.png)](./media/workday-inbound-tutorial/wd_export_03.png#lightbox)
 
 #### <a name="step-4-download-the-provisioning-schema"></a>Passo 4: Transferir o esquema de aprovisionamento
 

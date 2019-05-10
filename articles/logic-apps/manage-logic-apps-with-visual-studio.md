@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/25/2019
-ms.openlocfilehash: d47c073eb6bfc3012d42d6add8a15029271120f4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/07/2019
+ms.openlocfilehash: 6a36770ff623e35c56a972a482e24ebb24849051
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65136503"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467404"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gerir aplicações lógicas com o Visual Studio
 
@@ -36,8 +36,7 @@ Embora possa criar, editar, gerir e implementar aplicações lógicas no [portal
   Este início rápido utiliza o Visual Studio Community 2017, que é gratuito.
 
     > [!IMPORTANT]
-    > Ao instalar o Visual Studio 2019 ou 2017, certifique-se de que seleciona os **desenvolvimento do Azure** carga de trabalho.
-    > Para obter mais informações, consulte [gerir os recursos associados com suas contas do Azure no Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    > Ao instalar o Visual Studio 2019 ou 2017, certifique-se de que seleciona os **desenvolvimento do Azure** carga de trabalho. Para Visual Studio 2019, o Cloud Explorer pode abrir o Estruturador da aplicação lógica no portal do Azure, mas ainda não é possível abrir o Estruturador da aplicação lógica incorporado. Para obter mais informações, consulte [gerir os recursos associados com suas contas do Azure no Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
 
     Para instalar o Cloud Explorer para Visual Studio 2015 [transferir o Cloud Explorer do Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
     Para obter mais informações, consulte [gerir os recursos associados com suas contas do Azure no Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
@@ -105,6 +104,9 @@ No Visual Studio, é possível abrir as aplicações lógicas anteriormente cria
 Pode transferir as aplicações lógicas a partir da [portal do Azure](https://portal.azure.com) e guarde-as como [do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modelos. Pode, em seguida, localmente editar os modelos com o Visual Studio e personalizar aplicações lógicas para ambientes de implementação diferentes. Transferir as aplicações lógicas automaticamente *parametriza* as respetivas definições dentro [modelos do Resource Manager](../azure-resource-manager/resource-group-overview.md#template-deployment), que também utilizar JavaScript Object Notation (JSON).
 
 1. No Visual Studio, abra o Explorador de Cloud, em seguida, localize e selecione a aplicação lógica que pretende transferir a partir do Azure.
+
+   > [!NOTE]
+   > Para Visual Studio 2019, o Cloud Explorer pode abrir o Estruturador da aplicação lógica no portal do Azure, mas ainda não é possível abrir o Estruturador da aplicação lógica incorporado para transferir a aplicação lógica.
 
 2. No menu de atalho essa aplicação, selecione **aberto com o Editor de aplicação lógica**.
 

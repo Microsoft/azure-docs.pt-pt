@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2018
 ms.author: rkarlin
-ms.openlocfilehash: 28a9b90e23d0d182197450e6449b8d3296fe99d6
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 582912160c8ed514401be3522e52dcc6eb45d263
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111394"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235756"
 ---
 # <a name="managing-and-responding-to-security-alerts-in-azure-security-center"></a>Gerir e responder a alertas de segurança no Centro de Segurança do Azure
 Este documento ajuda-o a utilizar o Centro de Segurança do Azure para gerir e responder a alertas de segurança.
@@ -67,16 +67,16 @@ Na parte inferior desta página encontram-se os detalhes de cada alerta. Para or
 
 ### <a name="alert-severity"></a>Gravidade do alerta
 
-> [!NOTE]
-> Gravidade do alerta é apresentada de forma diferente no portal e a API REST, as diferenças são assinaladas na lista abaixo.
-
 -   **Alta**: Há uma grande probabilidade de que o recurso é comprometido. Deve analisar o problema imediatamente. Centro de segurança tem alta confiança as más intenções e as descobertas utilizadas para emitir o alerta. Por exemplo, um alerta que Deteta a execução de uma ferramenta maliciosa conhecida, como o Mimikatz, uma ferramenta de comum usada para roubo de credenciais. 
--   **Médio (baixa na REST API)**: Isto é, provavelmente, uma atividade suspeita que possam indicar que um recurso é comprometido.
+-   **Médio**: Isto é, provavelmente, uma atividade suspeita que possam indicar que um recurso é comprometido.
 Confiança do Centro de segurança na análise ou finding é médio e a confiança de más intenções é médio a alto. Normalmente, seriam o machine learning ou deteções de anomalias com base. Por exemplo, um tentativa de uma localização anómala de início de sessão.
--   **Baixa (informações na REST API)**: Pode ser um positivo benigno ou um ataque de bloqueado. 
+-   **Baixa**: Pode ser um positivo benigno ou um ataque de bloqueado. 
     - Centro de segurança não é suficientemente seguro que a intenção é maliciosa e a atividade pode ser inofensiva. Por exemplo, o log claro é uma ação que pode ocorrer quando um atacante tenta ocultar os ataques, mas em muitos casos é uma operação de rotina realizada por administradores.
     - Centro de segurança não normalmente indicam quando foram bloqueados ataques, a menos que seja um caso interessante que sugerimos que examinar. 
--   **(Silencioso na REST API) informativo**: Apenas verá alertas informativos quando desagregar para um incidente de segurança, ou se usar a API de REST com um ID de alerta específico. Um incidente é geralmente constituído por um número de alertas, alguns dos quais podem aparecer na sua própria conta para ser apenas informativa, mas no contexto dos outros alertas podem ser digna de uma análise detalhada. 
+-   **Informativa**: Apenas verá alertas informativos quando desagregar para um incidente de segurança, ou se usar a API de REST com um ID de alerta específico. Um incidente é geralmente constituído por um número de alertas, alguns dos quais podem aparecer na sua própria conta para ser apenas informativa, mas no contexto dos outros alertas podem ser digna de uma análise detalhada.  
+
+> [!NOTE]
+> Se estiver a utilizar o **2015-06-01-pré-visualização** versão de API, em seguida, existem diferenças no qual alarme tipos de gravidade são aplicados aos quais cenários, de que está listado acima.  
 
 ### <a name="filtering-alerts"></a>Filtragem de alertas
 Pode filtrar os alertas com base na data, no estado e na gravidade. A filtragem de alertas pode ser útil para cenários onde necessita de limitar o âmbito dos alertas de segurança mostrados. Por exemplo, pode pretender resolver alertas de segurança que ocorreram nas últimas 24 horas, porque está a investigar uma potencial violação no sistema.

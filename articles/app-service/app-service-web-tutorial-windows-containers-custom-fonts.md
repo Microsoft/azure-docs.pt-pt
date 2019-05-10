@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15a1e388b17a66bf22fc0fd51744cb0aaa1b36d4
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853770"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415547"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
 
@@ -34,8 +34,8 @@ Para concluir este tutorial:
 - <a href="https://hub.docker.com/" target="_blank">Inscrever numa conta do Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Instale o Docker para Windows</a>.
 - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Mude o Docker para executar contentores do Windows</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Instale o Visual Studio 2017</a> com as cargas de trabalho **ASP.NET e de desenvolvimento na Web** e de **desenvolvimento no Azure**. Se já instalou o Visual Studio 2017:
-    - Instale as atualizações mais recentes do Visual Studio ao clicar em **Ajuda** > **Procurar Atualizações**.
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Instalar o Visual Studio 2019</a> com o **desenvolvimento web e em ASP.NET** e **desenvolvimento do Azure** cargas de trabalho. Se tiver instalado o Visual Studio 2019 já:
+    - Instale as atualizações mais recentes no Visual Studio ao clicar em **Ajuda** > **Procurar Atualizações**.
     - Adicione as cargas de trabalho ao Visual Studio, ao clicar em **Ferramentas** > **Obter Ferramentas e Funcionalidades**.
 
 ## <a name="set-up-the-app-locally"></a>Configurar a aplicação localmente
@@ -111,24 +111,24 @@ No assistente de publicação, selecione **Container Registry** > **Criar um Nov
 
 Na caixa de diálogo **Criar um Novo Registo de Contentor do Azure**, selecione **Adicionar uma conta** e inicie sessão na sua subscrição do Azure. Se já tem sessão iniciada, selecione a conta que contém a subscrição pretendida na lista pendente.
 
-![Iniciar sessão no Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/add-an-account.png)
+![Inicie sessão no  Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/add-an-account.png)
 
 ### <a name="configure-the-registry"></a>Configurar o registo
 
 Configure o novo registo de contentor com base nos valores sugeridos na tabela seguinte. Quando terminar, clique em **Criar**.
 
-| Definição  | Valor sugerido | Para obter mais informações: |
+| Definição  | Valor sugerido | Para mais informações |
 | ----------------- | ------------ | ----|
 |**Prefixo DNS**| Mantenha o nome do registo gerado ou altere-o para outro nome exclusivo. |  |
 |**Grupo de Recursos**| Clique em **Novo**, escreva **myResourceGroup** e clique em **OK**. |  |
-|**SKU**| Básica | [Escalões de preços](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Básico | [Escalões de preços](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Localização do registo**| Europa Ocidental | |
 
 ![Configurar o registo de contentor do Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
 
 É aberta uma janela de terminal que mostra o progresso de implementação da imagem. Aguarde pela conclusão da implementação.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -140,7 +140,7 @@ No menu à esquerda, selecione **Criar um recurso** > **Web** > **Aplicação We
 
 Na interface de criação, configure as definições de acordo com a tabela seguinte:
 
-| Definição  | Valor sugerido | Para obter mais informações: |
+| Definição  | Valor sugerido | Para mais informações |
 | ----------------- | ------------ | ----|
 |**Nome da Aplicação**| Escreva um nome exclusivo. | O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação. |
 |**Grupo de Recursos**| Selecione **Utilizar existente** e escreva **myResourceGroup**. |  |

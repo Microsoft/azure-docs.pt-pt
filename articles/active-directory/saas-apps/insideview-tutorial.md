@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 91e1780462021430913a1354b4add7c5f047ec15
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76db7381985853a81843df812dffcd8ab2bd8f9a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271923"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407469"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Active Directory do Azure com InsideView
 
@@ -142,13 +142,13 @@ Para configurar o Azure AD início de sessão único com InsideView, execute os 
 
     c. Abra o seu certificado com codificação base 64, que transferiu do portal do Azure, copie o conteúdo do mesmo para a área de transferência e, em seguida, cole-os para o **certificado STS** caixa de texto.
 
-    d. Na **mapeamento de Id de utilizador do Crm** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. Na **mapeamento de Id de utilizador do Crm** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    e. Na **mapeamento de E-Mail de Crm** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    e. Na **mapeamento de E-Mail de Crm** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    f. Na **mapeamento de nome de Crm** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    f. Na **mapeamento de nome de Crm** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    g. Na **Crm lastName mapeamento** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
+    g. Na **Crm lastName mapeamento** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.  
 
     h. Clique em **Guardar**.
 
@@ -211,7 +211,7 @@ Para obter os utilizadores ou contatos criados no InsideView, contacte [equipa d
 > [!NOTE]
 > Pode utilizar quaisquer outras InsideView utilizador conta criação ferramentas ou APIs fornecidas pelo InsideView para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

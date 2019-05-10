@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: c8424743f30ec1bbf8d8096f6630c7451bc910c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0c1b877a9468ce9c3b851bce62cb87c64c04260
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363726"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472742"
 ---
 # <a name="send-cloud-to-device-messages-from-iot-hub"></a>Enviar mensagens de cloud para dispositivo a partir do Hub IoT
 
@@ -71,10 +71,11 @@ Uma maneira comum de tirar partido da expiração da mensagem e evitar o envio d
 
 ## <a name="message-feedback"></a>Comentários de mensagem
 
-Quando envia uma mensagem de cloud para o dispositivo, o serviço pode solicitar o fornecimento de comentários por mensagem sobre o estado final dessa mensagem.
+Quando envia uma mensagem de cloud para o dispositivo, o serviço pode solicitar o fornecimento de comentários por mensagem sobre o estado final dessa mensagem. Isso é feito definindo a `iothub-ack` propriedade da aplicação na mensagem C2D a ser enviada para um dos seguintes valores:
 
-| Propriedade de ACK | Comportamento |
+| Valor da propriedade ACK | Comportamento |
 | ------------ | -------- |
+| **Nenhum**     | IoT Hub não gera uma mensagem de comentários (comportamento predefinido). |
 | **positive** | Se a mensagem de cloud-para-dispositivo atingir a **concluído** de estado, o IoT Hub gera uma mensagem de comentários. |
 | **negative** | Se a mensagem de cloud-para-dispositivo atingir a **inutilizado lettered** de estado, o IoT Hub gera uma mensagem de comentários. |
 | **full**     | IoT Hub gera uma mensagem de comentários em ambos os casos. |

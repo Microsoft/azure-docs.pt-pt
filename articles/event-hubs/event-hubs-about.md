@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 80c98bea08018780ba1d439e369ab42343d1e615
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83a1026cd9426e1b1651e0ec4f556b8babccb107
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822637"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236236"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Hubs de Eventos do Azure – Uma plataforma de transmissão em fluxo de macrodados e um serviço de ingestão de eventos
 Os Hubs de eventos do Azure é um serviço de ingestão de eventos e plataforma de transmissão em fluxo grandes quantidades de dados. Ele pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches.
@@ -86,7 +86,8 @@ Para começar a utilizar os Hubs de eventos, consulte a **enviar e receber event
 - [Node.js](event-hubs-node-get-started-send.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C (apenas para o envio)](event-hubs-c-getstarted-send.md)
-- [O Apache Storm (reecive apenas)](event-hubs-storm-getstarted-receive.md)
+- [O Apache Storm (receber apenas)](event-hubs-storm-getstarted-receive.md)
+
 
 Para saber mais sobre os Hub de Eventos, veja os artigos seguintes:
 

@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/15/2019
-ms.openlocfilehash: c11f52d2bbc55187a16227cf9553cc7ba6013e1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/22/2019
+ms.openlocfilehash: 7f3afec0425033fba174e000195fa26b295aaef1
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331099"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507949"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-based-purchasing-model-limits"></a>Limites de recursos para conjuntos elásticos com os limites de compra modelo baseado em vCore
 
@@ -52,7 +52,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|500|1000|1500|2000|2500|3000|
-|Limites de velocidade de registo (MBps)|2.5|5|7.5|10|12.5|15|
+|Limites de velocidade de registo (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) * |210|420|630|840|1050|1260|
 |Inícios de sessão simultâneos máx. por conjunto * |210|420|630|840|1050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -80,7 +80,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
 |Destino IOPS (64 KB)|3500|4000|4500|5000|7000|7000|
-|Limites de velocidade de registo (MBps)|17.5|20|20|20|20|20|
+|Limites de velocidade de registo (MBps)|32.8125|37.5|37.5|37.5|37.5|37.5|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Conjunto de inícios de sessão simultâneos máx. (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -107,8 +107,8 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |TempDB tamanho (GB)|64|128|192|256|320|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
-|Destino IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Limites de velocidade de registo (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
+|Destino IOPS (64 KB)|1000|2000|3000|4000|5000|6000|7000|
+|Limites de velocidade de registo (MBps)|4.6875|9.375|14.0625|18.75|23.4375|28.125|32.8125|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Inícios de sessão simultâneos máx. por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
@@ -135,8 +135,8 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |TempDB tamanho (GB)|384|384|384|384|384|384|384|
 |Tipo de armazenamento|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|Armazenamento Premium (remoto)|
 |Latência de e/s (aproximada)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|ms de 5 a 7 (escrita)<br>ms de 5 a 10 (ler)|
-|Destino IOPS (64 KB)|4000|4500|5000|6000|7000|7000|7000|
-|Limites de velocidade de registo (MBps)|20|20|20|20|20|20|20|
+|Destino IOPS (64 KB)|7000|7000|7000|7000|7000|7000|7000|
+|Limites de velocidade de registo (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1680|1890|2100|2520|33600|4200|8400|
 |Inícios de sessão simultâneos máx. por conjunto (pedidos) *|1680|1890|2100|2520|33600|4200|8400|
 |Número de DBs máximo por conjunto|500|500|500|500|500|500|500|
@@ -165,7 +165,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |TempDB tamanho (GB)|32|64|96|128|160|192|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|
-|Limites de velocidade de registo (MBps)|7.5|15|22.5|30|37.5|45|
+|Limites de velocidade de registo (MBps)|10|20|30|40|50|60|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|
 |Inícios de sessão simultâneos máx. por conjunto (pedidos) *|210|420|630|840|1050|1260|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -193,7 +193,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |TempDB tamanho (GB)|224|256|288|320|384|384|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|35000|40000|45000|50000|80000|120000|
-|Limites de velocidade de registo (MBps)|52.5|60|67.5|75|80|80|
+|Limites de velocidade de registo (MBps)|70|80|80|80|80|80|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Inícios de sessão simultâneos máx. por conjunto (pedidos) *|1470|1680|1890|2100|3360|5040|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|
@@ -221,7 +221,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|5000|10000|15 000|20000|25000|30000|35000|
-|Limites de velocidade de registo (MBps)|7.5|15|22.5|30|37.5|45|52.5|
+|Limites de velocidade de registo (MBps)|15|30|45|60|75|90|105|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Inícios de sessão simultâneos máx. por conjunto (pedidos) *|210|420|630|840|1050|1260|1470|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|
@@ -249,7 +249,7 @@ Pode definir o escalão de serviço, o tamanho de computação e quantidade de a
 |Tipo de armazenamento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Latência de e/s (aproximada)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|1 a 2 ms (escrita)<br>ms de 1 a 2 (ler)|
 |Destino IOPS (64 KB)|40000|45000|50000|60000|80000|100000|200000|
-|Limites de velocidade de registo (MBps)|60|67.5|75|90|120|120|120|
+|Limites de velocidade de registo (MBps)|120|120|120|120|120|120|120|
 |Máximo de trabalhadores simultâneos por conjunto (pedidos) *|1680|1890|2100|2520|3360|4200|8400|
 |Inícios de sessão simultâneos máx. por conjunto (pedidos) *|1680|1890|2100|2520|3360|4200|8400|
 |Máximo permitido de sessões|30000|30000|30000|30000|30000|30000|30000|

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: ''
-ms.openlocfilehash: 40ac8badfac3c004d3451c598d7cd2a17982a585
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f69b1aff28165b9bf37c49fe62d1fb5aada91285
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138920"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236415"
 ---
 # <a name="create-a-shared-image-gallery-with-the-azure-cli"></a>Criar uma galeria de imagem partilhada com a CLI do Azure
 
@@ -61,7 +61,9 @@ az vm create\
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-cli](../../../includes/virtual-machines-common-shared-images-update-delete-cli.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
-Também pode criar recursos de Galeria de imagens de partilhado através de modelos. Vários modelos de início rápido do Azure estão disponíveis: 
+[Construtor de imagens do Azure (pré-visualização)](image-builder-overview.md) podem ajudar a automatizar a criação de imagens de versão, ainda pode usá-lo para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente](image-builder-gallery-update-image-version.md). 
+
+Também pode criar recursos de Galeria de imagens de partilhado com modelos. Vários modelos de início rápido do Azure estão disponíveis: 
 
 - [Criar uma galeria de imagem partilhada](https://azure.microsoft.com/resources/templates/101-sig-create/)
 - [Criar uma definição de imagem numa galeria de imagem partilhada](https://azure.microsoft.com/resources/templates/101-sig-image-definition-create/)

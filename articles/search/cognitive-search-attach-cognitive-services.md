@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bad64f439d45581f8f4b55ea1ac849db1e27cb76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b979609374afbd11bde0e15ce540e8930315482f
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024591"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472485"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso de serviços cognitivos com um conjunto de capacidades no Azure Search 
 
@@ -60,7 +60,7 @@ Para cargas de trabalho mais de 20 possível de numeração diariamente, terá d
 
    ![Criar um recurso de serviços cognitivos](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "criar um recurso de serviços cognitivos")
 
-1. Na localização, escolha a mesma região que o Azure Search para evitar custos de largura de banda de saída em várias regiões.
+1. Na localização, escolha a mesma região que o Azure Search. Isto é necessário por motivos de desempenho, mas ele também voids custos de largura de banda de saída em várias regiões.
 
 1. No escalão de preço, escolha **S0** para obter a coleção de tudo-em-um dos recursos de serviços cognitivos, incluindo os recursos de visão e a linguagem que apoiam as competências predefinidas utilizadas pelo Azure Search. 
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 72505cfc0a86c00882de37c35dff61a12a9c3fbe
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 35fc4e855ef53bd7e667fc8de7146916b4d05acb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565755"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407067"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Tutorial: Integração do Active Directory do Azure com o DocuSign
 
@@ -178,7 +178,7 @@ Para configurar o Azure AD início de sessão único com o DocuSign, execute os 
 
     ![A configurar o início de sessão único][62]
 
-    i. Escolha o campo que deseja mapear com afirmações do Azure AD. Neste exemplo, o **emailaddress** mapeada com o valor de afirmação **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. É o nome de afirmação padrão do Azure AD para a afirmação de e-mail e clique em **guardar**.
+    i. Escolha o campo que deseja mapear com afirmações do Azure AD. Neste exemplo, o **emailaddress** mapeada com o valor de afirmação **https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. É o nome de afirmação padrão do Azure AD para a afirmação de e-mail e clique em **guardar**.
 
     ![A configurar o início de sessão único][57]
 
@@ -260,7 +260,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado no DocuSign. DocuS
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte do DocuSign](https://support.docusign.com/).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

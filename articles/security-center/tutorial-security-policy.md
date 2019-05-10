@@ -3,7 +3,7 @@ title: Trabalhar com políticas de segurança | Documentos da Microsoft
 description: Este artigo descreve como trabalhar com políticas de segurança no Centro de segurança do Azure.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/28/2019
+ms.date: 5/05/2019
 ms.author: monhaber
-ms.openlocfilehash: 1931026869e930caef2ff2f92fb85dade15a9c8c
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111515"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236300"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -110,6 +110,9 @@ Para obter mais informações sobre as recomendações, veja [recomendações de
    ![Gestão de políticas](./media/tutorial-security-policy/policy-management.png)
 
 2. Clique no grupo de gestão ou de subscrição para o qual pretende desativar a recomendação.
+
+   > [!Note]
+   > Lembre-se de que um grupo de gestão se aplica as políticas para as respetivas subscrições. Por conseguinte, se desativar a política de uma subscrição e a subscrição pertence a um grupo de gestão que ainda usa a mesma política, em seguida, continuará a receber as recomendações de política. Continuará a ser aplicada a política de nível de gestão e as recomendações ainda serão geradas.
 
 1. Clique em política atribuída.
 
@@ -230,13 +233,13 @@ Este exemplo mostra como remover uma atribuição:
 |Atualizações do sistema |Monitorizar atualizações de sistema em falta no Centro de segurança do Azure |systemUpdatesMonitoringEffect|
 |Encriptação do armazenamento |Auditar encriptação de BLOBs em falta para contas de armazenamento |storageEncryptionMonitoringEffect|
 |Acesso à rede JIT |Monitorizar o acesso de apenas no Time (JIT) de rede possível no Centro de segurança do Azure |jitNetworkAccessMonitoringEffect |
-|Controlos de aplicações adaptáveis |Monitorizar aplicação possíveis listas de permissões no Centro de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
+|Controlos de aplicação adaptável |Monitorizar aplicação possíveis listas de permissões no Centro de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |Monitorizar o acesso de rede permissivo no Centro de segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorizar vulnerabilidades do SO no Centro de segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Endpoint protection |Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure |endpointProtectionMonitoringEffect |
-|Encriptação de disco |Monitorizar discos de VM não encriptados no Centro de segurança do Azure |diskEncryptionMonitoringEffect|
+|Proteção de ponto final |Monitorizar o Endpoint Protection em falta no Centro de segurança do Azure |endpointProtectionMonitoringEffect |
+|Encriptação de discos |Monitorizar discos de VM não encriptados no Centro de segurança do Azure |diskEncryptionMonitoringEffect|
 |Avaliação de vulnerabilidades |Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
-|Firewall de aplicação Web |Monitorizar aplicações web desprotegidas no Centro de segurança do Azure |webApplicationFirewallMonitoringEffect |
+|Firewall de aplicações Web |Monitorizar aplicações web desprotegidas no Centro de segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorizar pontos finais de redes desprotegidos no Centro de segurança do Azure| |
 
 

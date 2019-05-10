@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 797d0cdb8d164955991de321d8df22e43f5c6a40
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024331"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65467069"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 O Azure Search é uma solução de pesquisa como serviço na cloud que oferece aos programadores APIs e ferramentas para apresentarem uma experiência de pesquisa avançada para os seus conteúdos privados e heterogéneos nas aplicações Web, móveis e empresariais. A execução da consulta é feita através de um índice definido pelo utilizador.
@@ -44,7 +44,7 @@ A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchs
 | AI&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funcionalidades |
 |-------------------|----------|
 |Documentos de IA enriquecida | [**Pesquisa cognitiva** ](cognitive-search-concept-intro.md) para análise de texto e imagem pode ser aplicada a um pipeline de indexação para extrair informações de texto de conteúdo não processado. Alguns exemplos das [competências incorporadas](cognitive-search-predefined-skills.md) incluem reconhecimento ótico de carateres (ao tornar JPEGs digitalizados pesquisáveis), reconhecimento de entidade (ao identificar uma organização, nome ou localização) e ao reconhecer frases-chave. Também pode [criar código de competências personalizadas](cognitive-search-create-custom-skill-example.md) para associar ao pipeline. |
-| Possível armazenados para análise e consumo| [**Dados de conhecimento Store** ](knowledge-store-concept-intro.md) é uma extensão de indexação baseada em IA. Com o armazenamento do Azure como um back-end, pode salvar possível criadas durante a indexação. Estes artefactos podem ser utilizados para o ajudar a melhor conjuntos de habilidades de design ou criar de forma e a estrutura dos dados concretos ou é ambíguas. Pode criar projeções dessas estruturas que cargas de trabalho específicas de destino ou os utilizadores. Também diretamente pode analisar os dados extraídos ou carregá-los para outras aplicações.<br/><br/> |
+| Possível armazenados para análise e consumo| [**Dados de conhecimento Store (pré-visualização)** ](knowledge-store-concept-intro.md) é uma extensão de indexação baseada em IA. Com o armazenamento do Azure como um back-end, pode salvar possível criadas durante a indexação. Estes artefactos podem ser utilizados para o ajudar a melhor conjuntos de habilidades de design ou criar de forma e a estrutura dos dados concretos ou é ambíguas. Pode criar projeções dessas estruturas que cargas de trabalho específicas de destino ou os utilizadores. Também diretamente pode analisar os dados extraídos ou carregá-los para outras aplicações.<br/><br/> |
 
 | Dados&nbsp;indexação/importação | Funcionalidades |
 |----------------------------------|----------|
@@ -57,7 +57,7 @@ A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchs
 |-------------------|----------|
 | Ferramentas para criação de protótipos e inspeção | No portal, pode utilizar o [**Assistente de importação de dados**](search-import-data-portal.md) para configurar os indexados, o estruturador de índice para funcionar como índice e o [**Explorador de pesquisa**](search-explorer.md) para testar as consultas e refine os perfis de classificação. Também pode abrir qualquer índice para ver o seu esquema. |
 | Monitorização e diagnóstico | [**Ativar funcionalidades de monitorização** ](search-monitor-usage.md) ultrapassem a métricas em-rápidas que são sempre visível no portal. As métricas sobre as consultas por segundo, latência e limitação são recolhidas e comunicadas em páginas de portal sem ser necessária configuração adicional. <br/><br/>[**Análise de tráfego de pesquisa** ](search-traffic-analytics.md) é outra alternativa de monitorização, no qual o servidor e dados do lado do cliente são recolhidos e analisados para desbloquear informações sobre o que os utilizadores estão a escrever na caixa de pesquisa. |
-| Encriptação do lado do servidor | [**Gerida pela Microsoft encriptação em repouso** ](search-security-overview.md#encrypted-transmission-and-storage) baseia-se a camada de armazenamento interno e é irrevogável. Opcionalmente, pode complementar a encriptação de padrão com [ **as chaves de encriptação gerida pelo cliente**](search-security-manage-encryption-keys.md). As chaves que criar e gerir no Azure Key Vault são utilizadas para encriptar os índices e mapas de sinónimos no Azure Search. |
+| Encriptação do lado do servidor | [**Gerida pela Microsoft encriptação em repouso** ](search-security-overview.md#encrypted-transmission-and-storage) baseia-se a camada de armazenamento interno e é irrevogável. Opcionalmente, pode complementar a encriptação de padrão com [ **chaves de encriptação gerida pelo cliente (pré-visualização)**](search-security-manage-encryption-keys.md). As chaves que criar e gerir no Azure Key Vault são utilizadas para encriptar os índices e mapas de sinónimos no Azure Search. |
 | Infraestrutura | A **plataforma altamente disponível** garante uma experiência de serviço de pesquisa extremamente fiável. Quando dimensionado corretamente, o [Azure Search oferece um SLA de 99,9%](https://azure.microsoft.com/support/legal/sla/search/v1_0/).<br/><br/> **Completamente gerido e dimensionável** como uma solução de ponto-a-ponto, o Azure Search não necessita absolutamente de nenhuma gestão de infraestrutura. O seu serviço pode ser ajustado às suas necessidades ao dimensionar em duas dimensões para processar mais armazenamento de documentos, maiores cargas de consulta ou ambos.<br/><br/>|
 
 ## <a name="how-to-use-azure-search"></a>Como utilizar o Azure Search

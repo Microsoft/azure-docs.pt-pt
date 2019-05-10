@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f259d8438b7500d5d007bbb972f859e187ccd08a
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1e9a48b114d328e0405a2f03764df4ce29b166
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081032"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65407040"
 ---
 # <a name="token-cache-serialization-in-msalnet"></a>Serialização de cache de token em MSAL.NET
 Depois de um [token é obtido](msal-acquire-cache-tokens.md), é colocado em cache pelo Microsoft Authentication Library (MSAL).  Código da aplicação deve tentar obter um token da cache antes de adquirir um token por outro método.  Este artigo aborda o padrão e serialização personalizada da cache do token no MSAL.NET.
@@ -290,5 +290,5 @@ As seguintes amostras ilustram a serialização de cache de tokens.
 
 | Exemplo | Plataforma | Descrição|
 | ------ | -------- | ----------- |
-|[active-directory-dotnet-desktop-msgraph-v2](http://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Ambiente de trabalho (WPF) | Aplicações de .NET de Desktop do Windows (WPF), chamar a API do Microsoft Graph. ![Topologia](media/msal-net-token-cache-serialization/topology.png)|
+|[active-directory-dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | Ambiente de trabalho (WPF) | Aplicações de .NET de Desktop do Windows (WPF), chamar a API do Microsoft Graph. ![Topologia](media/msal-net-token-cache-serialization/topology.png)|
 |[active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2) | Ambiente de trabalho (consola) | Conjunto de soluções do Visual Studio que ilustra a migração de aplicativos de versão 1.0 do Azure AD (usando ADAL.NET) para aplicações de versão 2.0 do Azure AD, também denominadas convergido aplicativos (com MSAL.NET), em particular [Token de Cache de migração](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2/blob/master/TokenCacheMigration/README.md)|

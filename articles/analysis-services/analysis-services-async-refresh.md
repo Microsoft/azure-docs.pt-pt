@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5e9558eae43b351aa198b64bb2a7903c756064c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63b64df457af5b7d3d2bd5901f73d89ccd3c913a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61025316"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506978"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -104,7 +104,7 @@ Não é necessário especificar parâmetros. O padrão é aplicado.
 | `CommitMode`     | Enum  | Determina se os objetos serão consolidados em lotes ou apenas quando terminar. Incluem modos: partialBatch transacional, do padrão,.  |  transacional       |
 | `MaxParallelism` | Int   | Este valor determina o número máximo de threads para executar comandos de processamento em paralelo. Este valor alinhado com a propriedade MaxParallelism que pode ser definida no TMSL [de sequência de comando](https://docs.microsoft.com/sql/analysis-services/tabular-models-scripting-language-commands/sequence-command-tmsl) ou usando outros métodos.       | 10        |
 | `RetryCount`     | Int   | Indica o número de vezes que a operação será repetida antes de falhar.      |     0    |
-| `Objects`        | Array | Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partition" ao processar uma partição. Se forem especificados não existem objetos, o modelo de todo é atualizado. |   A todo o modelo de processo      |
+| `Objects`        | Matriz | Uma matriz de objetos a serem processados. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partition" ao processar uma partição. Se forem especificados não existem objetos, o modelo de todo é atualizado. |   A todo o modelo de processo      |
 
 CommitMode é igual ao partialBatch. É utilizado ao fazer uma carga inicial de grandes conjuntos de dados que o processo poderá demorar horas. Se a operação de atualização falhar após a confirmação com êxito um ou mais lotes, serão permanecem confirmados, os lotes consolidados com êxito (ele não irá reverter lotes consolidadas com êxito).
 
@@ -201,42 +201,9 @@ Eis um exemplo de código c# para começar, [RestApiSample no GitHub](https://gi
 1.  Clonar ou transferir o repositório. Abra a solução de RestApiSample.
 2.  Localize a linha **cliente. BaseAddress="NET.TCP://localhost:6080/vmmhelperservice/ =...** e fornecer sua [URL de base](#base-url).
 
-O exemplo de código pode utilizar o início de sessão interativo, o nome de utilizador/palavra-passe, ou [principal de serviço](#service-principal).
+O código de exemplo usa [principal de serviço](#service-principal) autenticação.
 
-#### <a name="interactive-login-or-usernamepassword"></a>Início de sessão interativo ou nome de utilizador/palavra-passe
-
-Essa forma de autenticação requer uma aplicação do Azure ser criada com as permissões API necessárias atribuídas. 
-
-1.  No portal do Azure, clique em **criar um recurso** > **do Azure Active Directory** > **registos das aplicações**  >   **Novo registo de aplicação**.
-
-    ![Novo registo de aplicação](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.  Na **Create**, escreva um nome, selecione **nativo** tipo de aplicação. Para **URI de redirecionamento**, introduza **urn: ietf:wg:oauth:2.0:oob**e, em seguida, clique em **criar**.
-
-    ![Definições](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.  Selecione a sua aplicação e, em seguida, copie e guarde o **ID da aplicação**.
-
-    ![Copie o ID da aplicação](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.  Na **configurações**, clique em **permissões obrigatórias** > **adicionar**.
-
-    ![Adicionar acesso à API](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.  Na **selecionar uma API**, tipo **Azure Analysis Services** para a pesquisa caixa e, em seguida, selecioná-lo.
-
-    ![Selecionar API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.  Selecione **ler e escrever todos os modelos**e, em seguida, clique em **selecione**. Quando ambos estiverem selecionadas, clique em **feito** para adicionar as permissões. Pode demorar alguns minutos para propagar.
-
-    ![Selecione a ler e escrever todos os modelos](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.  O exemplo de código, localize a **UpdateToken()** método. Observe o conteúdo deste método.
-8.  Encontrar **clientID de cadeias de caracteres =...** e, em seguida, introduza o **ID da aplicação** que copiou no passo 3.
-9.  Execute o exemplo.
-
-#### <a name="service-principal"></a>Principal de serviço
+### <a name="service-principal"></a>Principal de serviço
 
 Ver [criar principal de serviço - portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [adicionar um principal de serviço para a função de administrador de servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar um principal de serviço e atribuir as permissões necessárias nas do Azure . Depois de concluir os passos, conclua os seguintes passos adicionais:
 

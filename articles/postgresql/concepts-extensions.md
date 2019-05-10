@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 1e3a27f953246ce29de419949362c23b8932b0d5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 962e2b10136cf1cbab7cc5d3d06059922c363b15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073496"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410278"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensões do PostgreSQL na base de dados do Azure para PostgreSQL - servidor único
 PostgreSQL fornece a capacidade de estender a funcionalidade da sua base de dados a utilizar extensões. As extensões permitem para agrupar vários objetos relacionados do SQL em conjunto num único pacote que pode ser carregado ou removido da sua base de dados com um único comando. Após a ser carregado no banco de dados, as extensões podem funcionar tal como as funcionalidades incorporadas. Para obter mais informações sobre as extensões do PostgreSQL, consulte [empacotamento objetos relacionados numa extensão](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -73,7 +73,6 @@ As tabelas seguintes listam as extensões de PostgreSQL padrão que são atualme
 > | **Extensão** | **Descrição** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL carregável linguagem de procedimento. |
-> | [plv8](https://plv8.github.io/) | Uma extensão de linguagem do Javascript para o PostgreSQL que pode ser utilizada para procedimentos armazenados, acionadores, etc. |
 
 ### <a name="miscellaneous-extensions"></a>Diversas extensões
 

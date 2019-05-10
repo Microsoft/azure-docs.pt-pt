@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 216eae383c704125cd32d9ed4cb1309299af7336
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153385"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472444"
 ---
 # <a name="encoding-with-media-services"></a>Encoding com Media Services
 
@@ -86,6 +86,10 @@ Serviços de multimédia suporta totalmente a personalizar todos os valores nas 
 - [Personalizar suas configurações predefinidas com .NET](customize-encoder-presets-how-to.md)
 - [Personalizar suas configurações predefinidas, com a CLI](custom-preset-cli-howto.md)
 - [Personalizar suas configurações predefinidas com REST](custom-preset-rest-howto.md)
+
+## <a name="preset-schema"></a>Esquema predefinida
+
+Em serviços de multimédia v3, suas configurações predefinidas são com rigidez de tipos de entidades na API propriamente dita. Pode encontrar a definição de "schema" para esses objetos no [especificação de API aberta (ou Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). Também pode ver as definições predefinidas (como **StandardEncoderPreset**) na [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (ou outra documentação de referência do serviços de multimédia v3 SDK).
 
 ## <a name="scaling-encoding-in-v3"></a>Dimensionar codificação da v3
 

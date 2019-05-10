@@ -5,19 +5,19 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaf819870e2b70cc6238af6d1e9fa1dcb5caab8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483663"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236747"
 ---
 # <a name="azure-storage-account-overview"></a>Descrição geral da conta de armazenamento do Azure
 
-Uma conta de armazenamento do Azure contém todos os seus objetos de dados do armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. Dados na sua conta de armazenamento do Azure são durável e elevada disponibilidade, seguro, dimensionável em massa e acessível a partir de qualquer lugar no mundo através de HTTP ou HTTPS.
+Uma conta de armazenamento do Azure contém todos os seus objetos de dados do armazenamento do Azure: blobs, ficheiros, filas, tabelas e discos. A conta de armazenamento fornece um espaço de nomes exclusivo para os seus dados de armazenamento do Azure que é acessíveis a partir de qualquer lugar no mundo através de HTTP ou HTTPS. Dados da sua conta de armazenamento do Azure são durável e altamente disponível, segura e dimensionável em massa.
 
 Para saber como criar uma conta de armazenamento do Azure, veja [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 

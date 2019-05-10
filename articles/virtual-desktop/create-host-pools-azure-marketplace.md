@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924981"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236774"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
 
@@ -22,7 +22,7 @@ Este artigo descreve como criar um conjunto de anfitriões dentro de um inquilin
 
 Antes de começar, [transferir e importar o módulo do Windows PowerShell de ambiente de Trabalho Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) a utilizar na sua sessão do PowerShell, se ainda não o fez.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no portal do Azure em <https://portal.azure.com>.
 
@@ -36,7 +36,7 @@ Para executar a oferta para aprovisionar um novo conjunto de anfitrião do Azure
 
 Siga as indicações para introduzir as informações para os painéis apropriados.
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Noções Básicas
 
 Eis o que fazer para o painel Noções básicas:
 
@@ -70,7 +70,7 @@ Para o painel de informações do inquilino de área de Trabalho Virtual do Wind
 
 1. Introduza o **nome do grupo de inquilino de área de Trabalho Virtual do Windows** para o grupo de inquilino que contém o seu inquilino. Se não tiver um nome de grupo de inquilino específico planejado, deixá-lo como predefinição.
 2. Introduza o **nome do inquilino de área de Trabalho Virtual do Windows** para o inquilino, criará este conjunto de anfitrião no.
-3. Especifique o tipo de credenciais que pretende utilizar para efetuar a autenticação como o proprietário de RDS de inquilino de área de Trabalho Virtual do Windows. Se selecionou **principal de serviço**, também tem de fornecer a **ID de inquilino do Azure AD** associados com o principal de serviço.
+3. Especifique o tipo de credenciais que pretende utilizar para efetuar a autenticação como o proprietário de RDS de inquilino de área de Trabalho Virtual do Windows. Se concluiu a [criar principais de serviço e as atribuições de funções com o PowerShell tutorial](./create-service-principal-role-powershell.md), selecione **principal de serviço**. Agora tem de introduzir o **ID de inquilino do Azure AD** do Azure Active Directory que contém o principal de serviço.
 4. Introduza as credenciais de qualquer um para a conta de administrador inquilino. Apenas os principais de serviço com uma credencial de palavra-passe são suportados.
 5. Selecione **OK**.
 

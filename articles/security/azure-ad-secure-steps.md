@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 92546e6aabdf43c2f9cb0339fb21dd2dfc641d44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e9101a1e23d361e66c5c30969069cbd4b971590
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60587874"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236758"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco etapas para proteger a sua infraestrutura de identidade
 
@@ -59,12 +59,12 @@ Tendo em conta a frequência de senhas que está a ser percebido, phished, rouba
 
 Muitas organizações utilizam a complexidade tradicional (exigir carateres especiais, números, letras maiúsculas e minúsculas) e as regras de expiração de palavra-passe. [Pesquisa da Microsoft](https://aka.ms/passwordguidance) tenha mostrado aos utilizadores escolher palavras-passe que são mais fáceis de adivinhar de com que estas políticas.
 
-O Azure AD [palavra-passe de banidas dinâmica](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) recurso usa o comportamento atual do invasor para impedir que os utilizadores a definição de palavras-passe que podem ser facilmente adivinhadas. Esta capacidade está sempre ativado quando os utilizadores são criados na cloud, mas agora também está disponível para organizações híbridas quando implementam [proteção de palavra-passe do Azure AD para o Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Proteção de palavra-passe do Azure AD bloqueia os utilizadores escolham estas palavras-passe comuns e pode ser estendida para bloquear a palavra-passe que contém palavras-chave personalizadas que especificar. Por exemplo, pode impedir que os utilizadores escolher palavras-passe que contém nomes de produtos da sua empresa ou uma equipe de esporte local.
+O Azure AD [palavra-passe de banidas dinâmica](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) recurso usa o comportamento atual do invasor para impedir que os utilizadores a definição de palavras-passe que podem ser facilmente adivinhadas. Esta capacidade está sempre ativado quando os utilizadores são criados na cloud, mas agora também está disponível para organizações híbridas quando implementam [proteção de palavra-passe do Azure AD para o Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Proteção de palavra-passe do Azure AD bloqueia os utilizadores escolham estas palavras-passe comuns e pode ser estendida para bloquear a palavra-passe que contém palavras-chave personalizadas que especificar. Por exemplo, pode impedir que os utilizadores escolher palavras-passe que contém nomes de produtos da sua empresa ou uma equipe de esporte local.
 
 A Microsoft recomenda a adotar a seguinte política de palavra-passe modernas com base na [documentação de orientação do NIST](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Exigir que as senhas têm, pelo menos, 8 carateres. Já não é necessariamente a melhor, pois estes provocarem aos utilizadores escolher palavras-passe previsível, guardar palavras-passe nos ficheiros ou anotá-las.
-2. Desativar regras de expiração, o que levar os seus utilizadores para palavras-passe facilmente adivinháveis como **Summer2018!**
+2. Desativar regras de expiração, o que levar os seus utilizadores para palavras-passe facilmente adivinháveis como **Spring2019!**
 3. Desative a requisitos de composição de caracteres e impedir que os utilizadores escolham normalmente atacadas palavras-passe, como eles fazem com que os usuários escolham substituições de caráter previsível em palavras-passe.
 
 Pode usar [PowerShell para impedir que as palavras-passe prestes a expirar](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) para os utilizadores se criar as identidades no Azure AD diretamente. Organizações híbridas devem implementar estas políticas usando [definições de política de grupo do domínio](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -166,7 +166,7 @@ O Azure AD Identity Protection fornece dois relatórios importantes, que deve mo
 
 ### <a name="audit-apps-and-consented-permissions"></a>Aplicações de auditoria e permissões autorizadas
 
-Os utilizadores podem ser induzidos a navegar para um web site comprometido ou as aplicações que irão obter acesso aos seus informações e utilizador dados de perfil, como o respetivo e-mail. Um ator malicioso pode utilizar as permissões autorizadas recebida para encriptar o seu conteúdo da caixa de correio e exigem uma ransom para recuperar os dados de caixa de correio. [Os administradores devem rever e auditar](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) as permissões concedidas por utilizadores.
+Os utilizadores podem ser induzidos a navegar para um web site comprometido ou as aplicações que irão obter acesso aos seus informações e utilizador dados de perfil, como o respetivo e-mail. Um ator malicioso pode utilizar as permissões autorizadas recebida para encriptar o seu conteúdo da caixa de correio e exigem uma ransom para recuperar os dados de caixa de correio. [Os administradores devem rever e auditar](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) as permissões concedidas por utilizadores.
 
 ## <a name="step-5---enable-end-user-self-help"></a>Passo 5 – ativar auto-ajuda de utilizador final
 

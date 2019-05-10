@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 8c3ef3f115d37400eb72fdaca5df4f326382df5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519992"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415903"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de registo do Azure Monitor
 
@@ -138,7 +138,7 @@ SecurityEvent
 ### <a name="time-picker"></a>Selecionador de hora
 O selecionador de hora é junto ao botão de execução e indica que estiver a consultar apenas os registos das últimas 24 horas. Este é o intervalo de tempo predefinido aplicado a todas as consultas. Para obter apenas os registos de última hora, selecione _última hora_ e execute a consulta novamente.
 
-![Selecionador de hora](media/get-started-queries/timepicker.png)
+![Seletor de Intervalo de Tempo](media/get-started-queries/timepicker.png)
 
 
 ### <a name="time-filter-in-query"></a>Filtro de tempo na consulta
@@ -184,7 +184,7 @@ SecurityEvent
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated-8h
+| extend localtime = TimeGenerated -8h
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Resumindo: agregar a grupos de linhas
@@ -224,7 +224,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>Resumir por uma coluna de tempo
 Agrupar os resultados também pode ser baseado numa coluna de tempo ou outro valor contínuo. Simplesmente resumir `by TimeGenerated` porém seria criar grupos para cada milissegundo único ao longo do intervalo de tempo, uma vez que estes são valores exclusivos. 
 
-Para criar grupos com base nos valores contínuas, é melhor dividir o intervalo em unidades geríveis usando **bin**. A seguinte consulta analisa *Perf* registos que medem a memória livre (*MBytes disponíveis*) num computador específico. Ele calcula o valor médio para cada período se 1 hora, nos últimos 7 dias:
+Para criar grupos com base nos valores contínuas, é melhor dividir o intervalo em unidades geríveis usando **bin**. A seguinte consulta analisa *Perf* registos que medem a memória livre (*MBytes disponíveis*) num computador específico. Ele calcula o valor médio de cada período de 1 hora nos últimos 7 dias:
 
 ```Kusto
 Perf 

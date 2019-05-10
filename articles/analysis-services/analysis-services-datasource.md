@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60327144"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506820"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
 
@@ -24,7 +24,7 @@ Origens de dados e conectores mostradas em obter dados ou o Assistente de import
 |Origem de dados  |Dentro da memória  |DirectQuery  |
 |---------|---------|---------|
 |Base de dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
-|Azure SQL Data Warehouse     |   Sim      |   Sim       |
+|SQL Data Warehouse do Azure     |   Sim      |   Sim       |
 |Armazenamento de Blobs do Azure<sup>[1](#tab1400a)</sup>     |   Sim       |    Não      |
 |Armazenamento de tabelas do Azure<sup>[1](#tab1400a)</sup>    |   Sim       |    Não      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Sim        |  Não        |
@@ -52,7 +52,7 @@ A ligar no local origens de dados de e o servidor do Azure requerem um gateway n
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o fornecedor de dados do .NET Framework para o SQL Server | Fornecedor de dados do .NET framework para o SQL Server |
 | Armazém de dados do SQL Server |SQL Server Native Client 11.0, fornecedor Microsoft OLE DB para SQL Server, o fornecedor de dados do .NET Framework para o SQL Server | Fornecedor de dados do .NET framework para o SQL Server |
-| Oracle |Fornecedor Microsoft OLE DB para Oracle, o provedor de dados Oracle para .NET |Fornecedor de dados do Oracle para .NET |
+| Oracle | Fornecedor OLE DB para Oracle, o provedor de dados Oracle para .NET |Fornecedor de dados do Oracle para .NET |
 | Teradata |Fornecedor OLE DB para Teradata, fornecedor de dados do Teradata para .NET |Fornecedor de dados do Teradata para .NET |
 | | | |
 

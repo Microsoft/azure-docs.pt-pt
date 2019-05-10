@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: c8444fd57fe939dfb212d88c22a071c13dac691e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a20662c2fc9b416fefce89a6ebe706307ee71bb7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60519223"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236477"
 ---
 # <a name="prepare-and-upload-images-to-your-azure-iot-central-application"></a>Preparar e carregar imagens para a sua aplicação do Azure IoT Central
 
@@ -74,7 +74,7 @@ Para carregar uma imagem a utilizar no **meus aplicativos** página, navegue par
 
 ![Carregar a imagem de aplicação](media/howto-prepare-images/uploadapplicationmanager.png)
 
-Selecione o mosaico de imagem de aplicação para carregar a sua imagem preparada (268 x 160 px) do seu computador local.
+Selecione o **imagem de aplicativo** mosaico para carregar uma imagem (268 x 160 px) do seu computador local.
 
 ### <a name="application-dashboard"></a>Dashboard de aplicações
 
@@ -82,7 +82,7 @@ Para carregar uma imagem no dashboard do aplicativo, navegue para o **Dashboard*
 
 ![Carregar a imagem do dashboard](media/howto-prepare-images/uploadhomepage.png)
 
-Em configurar a imagem, selecione o mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Sob **configurar a imagem**, selecione a **imagem** mosaico para carregar uma imagem do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
 **Guardar** a imagem carregada. Pode redimensioná-la no modo de edição. Selecione **feito** quando terminar.
 
@@ -92,7 +92,7 @@ Para carregar uma imagem num modelo de dispositivo, navegue até **modelos de di
 
 ![Carregar a imagem de modelo do dispositivo](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Selecione o mosaico de imagem para carregar a sua imagem preparada (64 x 64 px) do seu computador local.
+Selecione o mosaico de imagem para carregar uma imagem (64 x 64 px) do seu computador local.
 
 ### <a name="device-dashboard"></a>Dashboard do dispositivo
 
@@ -100,7 +100,7 @@ Para carregar uma imagem num dashboard do dispositivo, navegue até **modelos de
 
 ![Carregar a imagem do dashboard de dispositivo](media/howto-prepare-images/uploaddevicedashboard.png)
 
-Em configurar a imagem, selecione o mosaico de imagem e, em seguida, escolha o ficheiro para carregar a partir do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Sob **configurar a imagem**, selecione a **imagem** mosaico e, em seguida, escolha o ficheiro para carregar a partir do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
 **Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Selecione **feito** quando terminar.
 
@@ -110,13 +110,14 @@ Para carregar uma imagem num dashboard dispositivos conjunto, navegue até **con
 
 ![Carregar a imagem do dashboard de conjunto de dispositivo](media/howto-prepare-images/uploaddevicesetdashboard.png)
 
-Em configurar a imagem, selecione o mosaico de imagem para carregar a sua imagem preparada do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
+Sob **configurar a imagem**, selecione a **imagem** mosaico para carregar uma imagem do seu computador local. O mosaico de tamanho menor é 200 x 200 px, mosaicos maior podem ser o quadrado ou retangulares múltiplos de mosaicos pequenos. Por exemplo, 200 x 400 px, 400 x 200 px ou 400 x 400 px.
 
 **Guardar** a imagem carregada. Pode redimensionar e reposicionar ele enquanto estiver no modo de edição. Selecione **feito** quando terminar.
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora que aprendeu como preparar e carregar imagens para a aplicação Azure IoT Central, este é o passo seguinte sugerido:
+Agora que aprendeu como preparar e carregar imagens para a aplicação Azure IoT Central, aqui estão os passos sugeridos seguintes:
 
-> [!div class="nextstepaction"]
-> [Gerir dispositivos na sua aplicação do Azure IoT Central](howto-manage-devices.md)
+* [Personalizar o Azure IoT Central da interface do Usuário](./howto-customize-ui.md)
+* [Configurar o dashboard de aplicações](./howto-configure-homepage.md)
+* [Gerir dispositivos na sua aplicação do Azure IoT Central](howto-manage-devices.md)

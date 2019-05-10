@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: markvi
-ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ee8891eae108256875660cc3f2256b65703a1aa
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440833"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406768"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Como parar de utilizar a máquina virtual gerido extensão de identidades e comece a utilizar o serviço de metadados de instância do Azure
 
@@ -35,7 +35,7 @@ Devido a várias limitações descritas na secção seguinte, a extensão VM de 
 
 ### <a name="provision-the-extension"></a>Aprovisionar a extensão 
 
-Ao configurar uma máquina virtual ou um conjunto de ter uma identidade gerida de dimensionamento de máquina virtual, poderá opcional escolha, opcionalmente, pode optar por aprovisionar as identidades geridas para a utilização da extensão VM de recursos do Azure a `-Type` parâmetro sobre a [ Conjunto AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. Pode transmitir o `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, dependendo do tipo de máquina virtual e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
+Ao configurar uma máquina virtual ou o dimensionamento de máquinas virtuais definido para ter uma identidade gerida, opcionalmente, pode optar por aprovisionar as identidades geridas para a utilização da extensão VM de recursos do Azure a `-Type` parâmetro no [ Conjunto AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) cmdlet. Pode transmitir o `ManagedIdentityExtensionForWindows` ou `ManagedIdentityExtensionForLinux`, dependendo do tipo de máquina virtual e nomeie-o usando o `-Name` parâmetro. O `-Settings` parâmetro especifica a porta utilizada pelo ponto de final do token do OAuth para aquisição do token:
 
 ```powershell
    $settings = @{ "port" = 50342 }

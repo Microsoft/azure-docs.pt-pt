@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 05/09/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2e78a837588ef177182f0c13db49e480845f772
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918756"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413595"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início rápido: Registar uma aplicação com a plataforma de identidade da Microsoft
 
@@ -30,21 +30,17 @@ Os programadores empresariais e os fornecedores de software como serviço (SaaS)
 
 Este início rápido mostra como adicionar e registe-se de uma aplicação com o **registos das aplicações** experiência no portal do Azure, para que a sua aplicação pode ser integrada com a plataforma de identidade da Microsoft. Para saber mais sobre os novos recursos e aprimoramentos na nova experiência de registos de aplicação, veja [nesta mensagem de blogue](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
-## <a name="prerequisite"></a>Pré-requisito
-
-Para começar, tem de se inscrever na experiência de Pré-visualização para registos de aplicações no portal do Azure. Os passos neste início rápido correspondem à nova IU e apenas funcionam se tiver optado pela experiência de Pré-visualização.
-
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registar uma nova aplicação através do portal do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino do Azure AD que pretende.
-1. No painel de navegação do lado esquerdo, selecione o serviço **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização) > Novo registo**.
+1. No painel de navegação do lado esquerdo, selecione o **do Azure Active Directory** serviço e, em seguida, selecione **registos das aplicações > novo registo**.
 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 
    - **Nome** - Introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação.
    - **Tipos de conta suportados** - Selecione as contas que quer que a sua aplicação suporte.
 
-       | Tipos de conta suportados | Descrição |
+       | Tipos de contas suportadas | Descrição |
        |-------------------------|-------------|
        | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a criar uma aplicação de linha de negócio (LOB). Esta opção não está disponível se não estiver a registar a aplicação num diretório.<br><br>Esta opção mapeia para o inquilino único do Azure AD.<br><br>Esta é a opção predefinida, a menos que esteja a registar a aplicação fora de um diretório. Nos casos em que a aplicação é registada fora de um diretório, a predefinição é contas da Microsoft pessoais e de multi-inquilino do Azure AD. |
        | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser visar todos os clientes comerciais ou pedagógicos.<br><br>Esta opção mapeia para um multi-inquilino único do Azure AD.<br><br>Se registou a aplicação como inquilino único do Azure AD, pode atualizá-la para multi-inquilino do Azure AD e voltar ao inquilino único através do painel **Autenticação**. |

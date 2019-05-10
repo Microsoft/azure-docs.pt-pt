@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: 3ddda89b19a04bdcd45f392f297ee5e930833538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8fa461d8c3a70d4b0d2d9973a840ffc7d1ff6470
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60711615"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65472771"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>A atualizar e a atualizar um cluster do Azure Service Fabric
 
@@ -99,7 +99,7 @@ Pode especificar as políticas de estado de funcionamento personalizado ou revej
 Várias definições de configuração diferentes podem ser personalizadas num cluster, como o nível de fiabilidade das propriedades do cluster e nó. Para obter mais informações, leia [definições de recursos de infraestrutura de cluster do Service Fabric](service-fabric-cluster-fabric-settings.md).
 
 ## <a name="patch-the-os-in-the-cluster-nodes"></a>Patch do SO de nós de cluster
-O aplicativo de orquestração do patch (POA) é uma aplicação do Service Fabric que automatiza o sistema operativo, aplicação de patches no cluster do Service Fabric sem tempo de inatividade. O [Patch Orchestration Application para Windows](service-fabric-patch-orchestration-application.md) ou [Patch Orchestration Application para Linux](service-fabric-patch-orchestration-application-linux.md) pode ser implementado no seu cluster para instalar os patches de forma organizada, mantendo os serviços disponível sempre. 
+O aplicativo de orquestração do patch (POA) é uma aplicação do Service Fabric que automatiza o sistema operativo, aplicação de patches no cluster do Service Fabric sem tempo de inatividade. O [Patch Orchestration Application para Windows](service-fabric-patch-orchestration-application.md) pode ser implementado no seu cluster para instalar os patches de forma organizada, mantendo os serviços disponíveis, o tempo todo.
 
 
 ## <a name="next-steps"></a>Passos Seguintes

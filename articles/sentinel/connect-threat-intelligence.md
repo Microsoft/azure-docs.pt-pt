@@ -3,7 +3,7 @@ title: Ligar a dados de inteligência de ameaças para a pré-visualização de 
 description: Saiba mais sobre como ligar a dados de inteligência de ameaças ao Azure sentinela.
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 ms.assetid: 56412543-5664-44c1-b026-2dbaf78a9a50
 ms.service: security-center
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a33b00e4e553824f1f719be2c8518487241f0a11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266e487a7c345f75e966afbde567c5bc4683b5c0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714528"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233760"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Ligar dados a partir de fornecedores de inteligência de ameaças 
 

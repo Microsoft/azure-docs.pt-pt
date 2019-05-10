@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146133"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236939"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Criar principais de serviço e atribuições de funções com o PowerShell
 
@@ -38,7 +38,7 @@ Antes de poder criar principais de serviço e as atribuições de funções, ter
     Install-Module AzureAD
     ```
 
-2. Execute os seguintes cmdlets com os valores são aspas substituído pelos valores relevantes à sua sessão.
+2. Execute os seguintes cmdlets com os valores são aspas substituído pelos valores relevantes à sua sessão. Se acabou de criar o inquilino de área de Trabalho Virtual do Windows do [tutorial de área de Trabalho Virtual do Windows, criar um inquilino](./tenant-setup-azure-active-directory.md), em seguida, utilize o "Grupo de inquilino predefinido" como o nome do grupo de inquilino.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Seguem-se as credenciais de três que deve escrever para baixo e os cmdlets que 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a criar principal de um serviço e inicie sessão na área de Trabalho Virtual do Windows com o mesmo. Para saber mais sobre como iniciar sessão área de Trabalho Virtual do Windows, avance para ligar ao Windows procedimentos de ambiente de Trabalho Virtual.
+Depois de criado o principal de serviço e atribuído ele uma função no seu inquilino de área de Trabalho Virtual do Windows, pode usá-lo para criar um conjunto de anfitrião. Para saber mais sobre conjuntos de anfitrião, avance para o tutorial para criar um agrupamento de anfitrião na área de Trabalho Virtual do Windows.
 
-- [Ligar a partir do Windows 10 ou Windows 7](connect-windows-7-and-10.md)
-- [Ligar a partir de um navegador da web](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Tutorial de conjunto de anfitrião de área de Trabalho Virtual do Windows](./create-host-pools-azure-marketplace.md)

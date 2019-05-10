@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: fec6a7e3433eb5d657deac8c1b2ceb327f8d32e4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f79bc083105f997b08f7cfa6f8e08a8f4f455455
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159409"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470564"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configurar o sinal de dinâmico para aprovisionamento automático de utilizadores
 
@@ -84,7 +84,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-dynamic-signal-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores por sinal dinâmico no Azure AD:
 
-1. Entrar para o [portal do Azure](https://portal.azure.com) e selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **sinal dinâmica**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações empresariais**, em seguida, selecione **todos os aplicativos**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
@@ -104,11 +104,11 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 6. Na consola de administração do sinal dinâmica, navegue até **administrador > Avançadas > API**.
 
-    ![Aprovisionamento dinâmico sinal](./media/dynamicsignal-provisioning-tutorial/secret-token-1.png)
+    ![Aprovisionamento dinâmico sinal](./media/dynamic-signal-provisioning-tutorial/secret-token-1.png)
 
     Cópia a **URL de API SCIM** ao **URL de inquilino**. Clique em **gerar novo Token** para gerar um **Token de portador** e copie o valor de **segredo de Token**.
 
-    ![Aprovisionamento dinâmico sinal](./media/dynamicsignal-provisioning-tutorial/secret-token-2.png)
+    ![Aprovisionamento dinâmico sinal](./media/dynamic-signal-provisioning-tutorial/secret-token-2.png)
 
 7. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar-se dinâmico sinal. Se a ligação falhar, certifique-se de que a conta de sinal dinâmico tem permissões de administrador e tente novamente.
 
@@ -122,11 +122,11 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 10. Sob o **mapeamentos** secção, selecione **sincronizar do Azure Active Directory Users para sinal dinâmica**.
 
-    ![Mapeamentos de utilizador de sinal dinâmico](media/dynamicsignal-provisioning-tutorial/user-mappings.png)
+    ![Mapeamentos de utilizador de sinal dinâmico](media/dynamic-signal-provisioning-tutorial/user-mappings.png)
 
 11. Reveja os atributos de utilizador que são sincronizados a partir do Azure AD para sinal dinâmico no **mapeamento do atributo** secção. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no sinal de dinâmico para operações de atualização. Selecione o **guardar** botão para consolidar as alterações.
 
-    ![Atributos de utilizador de extinção do responsável](media/dynamicsignal-provisioning-tutorial/user-mapping-attributes.png)
+    ![Atributos de utilizador de sinal dinâmico](media/dynamic-signal-provisioning-tutorial/user-mapping-attributes.png)
 
 12. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -160,7 +160,3 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 * [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

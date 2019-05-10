@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 747e177b0fbbfb9049959c3194ee39c3234bba50
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870494"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234025"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificar problemas com a funcionalidade de diagnóstico
 
@@ -118,7 +118,7 @@ O **-resultado** parâmetro também pode ser combinado com outros parâmetros de
 
 Cenários de erro são categorizados em interno para o serviço e externo a área de Trabalho Virtual do Windows.
 
-* Problema interno: Especifica os cenários que não podem ser atenuados pelo administrador de inquilinos e precisam ser resolvida como o problema de suporte. Quando criar um pedido de fornecer o ID de atividade, o nome de inquilino e o período de tempo aproximado o problema ocorreu.
+* Problema interno: Especifica os cenários que não podem ser atenuados pelo administrador de inquilinos e tem de ser resolvido como um problema de suporte. Ao fornecer comentários através do [Comunidade tecnológica da área de Trabalho Virtual do Windows](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop), inclui o ID de atividade e fazer uma aproximação período de tempo de quando ocorreu o problema.
 * Problema externo: estão relacionadas com a cenários que podem ser atenuados pelo administrador do sistema. Estes são externos à área de Trabalho Virtual do Windows.
 
 A tabela seguinte lista erros comuns que os administradores podem ocorrer.

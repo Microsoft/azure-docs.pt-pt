@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 183c6aea5aaf84c9d0ed635cac55074a5256851e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 93a83545699e3536eb0045d538225d01cd1a96a2
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872547"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235637"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis de sistema suportadas pelo Azure Data Factory
 Este artigo descreve as variáveis de sistema suportadas pelo Azure Data Factory. Pode utilizar estas variáveis em expressões de quando definir entidades do Data Factory.
@@ -45,6 +45,7 @@ Estas variáveis de sistema podem ser referenciadas em qualquer lugar no acionad
 
 ## <a name="tumbling-window-trigger-scope"></a>Âmbito de Acionador de janela em cascata
 Estas variáveis de sistema podem ser referenciadas em qualquer lugar no acionador de JSON se o acionador é do tipo: "TumblingWindowTrigger."
+(Nota: O carimbo de hora está por predefinição no formato ISO 8601)
 
 | Nome da variável | Descrição |
 | --- | --- |

@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7fc945a00360e4eea4a5cf1e3962da2390d3bfeb
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331901"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506854"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transações distribuídas entre bases de dados de nuvem
 
@@ -99,7 +99,7 @@ Transações de bases de dados elásticas para o SQL DB também suportam a coord
 
 ## <a name="net-installation-for-azure-cloud-services"></a>Instalação do .NET para serviços Cloud do Azure
 
-O Azure fornece várias ofertas para alojar aplicações .NET. Uma comparação das ofertas diferentes está disponível no [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](../app-service/overview-compare.md). Se o SO convidado da oferta é menor do que o .NET 4.6.1 necessários para transações elásticas, terá de atualizar o SO convidado para 4.6.1. 
+O Azure fornece várias ofertas para alojar aplicações .NET. Uma comparação das ofertas diferentes está disponível no [comparação do serviço de aplicações do Azure, serviços Cloud e máquinas virtuais](/azure/architecture/guide/technology-choices/compute-decision-tree). Se o SO convidado da oferta é menor do que o .NET 4.6.1 necessários para transações elásticas, terá de atualizar o SO convidado para 4.6.1. 
 
 Para serviços de aplicações do Azure, as atualizações para o SO convidado não são atualmente suportadas. Para máquinas de virtuais do Azure, basta iniciar sessão na VM e execute o instalador para o .NET framework mais recente. Serviços Cloud do Azure, terá de incluir a instalação de uma versão mais recente do .NET para as tarefas de arranque da sua implementação. Os conceitos e passos documentados em [instalar o .NET numa função de serviço Cloud](../cloud-services/cloud-services-dotnet-install-dotnet.md).  
 

@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2019
+ms.date: 05/08/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86c90f05734f793842cf506721db9c4fd5b2b1a3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918554"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413743"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Início rápido: Remover uma aplicação registada com a plataforma de identidade da Microsoft
 
@@ -35,10 +35,7 @@ Neste início rápido, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, certifique-se de que cumpre estes pré-requisitos:
-
-* Ter um inquilino com aplicações registadas. Para saber como adicionar e registar aplicações, veja [Registar uma aplicação com a plataforma de identidade da Microsoft](quickstart-register-app.md).
-* Inscreva-na experiência de Pré-visualização para registos de aplicações no portal do Azure. Os passos neste início rápido correspondem à nova IU e apenas funcionam se tiver optado pela experiência de Pré-visualização.
+Tem de ter um inquilino com aplicações registadas ao mesmo. Para saber como adicionar e registar aplicações, veja [Registar uma aplicação com a plataforma de identidade da Microsoft](quickstart-register-app.md).
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Remover uma aplicação criada por si ou pela sua organização
 
@@ -48,7 +45,7 @@ As aplicações que o utilizador ou a sua organização registaram são represen
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 2. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-3. No painel de navegação do lado esquerdo, selecione o serviço do **Azure Active Directory** e, em seguida, selecione **Registos de aplicações (Pré-visualização)**. Encontre e selecione a aplicação que pretende configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação.
+3. No painel de navegação do lado esquerdo, selecione o **do Azure Active Directory** do serviço, em seguida, selecione **registos das aplicações**. Encontre e selecione a aplicação que pretende configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação.
 4. Na página **Descrição geral**, selecione **Eliminar**.
 5. Selecione **Sim** para confirmar que pretende eliminar a aplicação.
 

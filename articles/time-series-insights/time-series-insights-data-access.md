@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 05/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd4c5e1652eb4dbff66591aa4bbe74e51be3e6c0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: adb30cc3af50b71cdc03e41d847bd4d824cffea6
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716712"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236387"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Conceder acesso a dados a um ambiente
 
@@ -34,11 +34,11 @@ Siga estes passos para conceder acesso a dados para um principal de utilizador.
 
 1. Selecione **políticas de acesso de dados**e, em seguida, selecione **+ adicionar**.
 
-    ![um de acesso de dados][1]
+    [![um de acesso de dados](media/data-access/data-access-one.png)](media/data-access/data-access-one.png#lightbox)
 
 1. Escolher **selecionar utilizador**. Procure o endereço de e-mail ou nome de utilizador localizar o utilizador que pretende adicionar. Clique em **selecione** para confirmar a seleção.
 
-    ![dois de acesso de dados][2]
+    [![Data-access-two](media/data-access/data-access-two.png)](media/data-access/data-access-two.png#lightbox)
 
 1. Escolher **selecionar função**. Escolha a função de acesso apropriados para o utilizador:
 
@@ -48,15 +48,15 @@ Siga estes passos para conceder acesso a dados para um principal de utilizador.
 
    Selecione **OK** para confirmar a escolha de função.
 
-    ![acesso a dados-três][3]
+    [![acesso a dados-três](media/data-access/data-access-three.png)](media/data-access/data-access-three.png#lightbox)
 
 1. Selecione **OK** sobre o **selecionar função de utilizador** página.
 
-    ![quarto de acesso de dados][4]
+    [![quarto de acesso de dados](media/data-access/data-access-four.png)](media/data-access/data-access-four.png#lightbox)
 
 1. Confirme que o **políticas de acesso de dados** página lista os utilizadores e as funções para cada utilizador.
 
-    ![Quinto de acesso de dados][5]
+    [![Data-access-five](media/data-access/data-access-five.png)](media/data-access/data-access-five.png#lightbox)
 
 ## <a name="provide-guest-access-from-another-aad-tenant"></a>Fornecer acesso de convidado de outro inquilino do AAD
 
@@ -66,19 +66,19 @@ Siga estes passos para conceder acesso de convidado para um ambiente do Time Ser
 
 1. Selecione **políticas de acesso de dados**e, em seguida, selecione **+ convidar**.
 
-    ![acesso de dados-seis][6]
+    [![Data-access-six](media/data-access/data-access-six.png)](media/data-access/data-access-six.png#lightbox)
 
 1. Introduza o endereço de e-mail do utilizador que pretende convidar. Este endereço de e-mail tem de ser associado com o Azure AD. Opcionalmente, pode incluir uma mensagem pessoal com o convite.
 
-    ![acesso de dados-sete][7]
+    [![Data-access-seven](media/data-access/data-access-seven.png)](media/data-access/data-access-seven.png#lightbox)
 
 1. Procure a bolha de confirmação que aparece na tela.
 
-    ![acesso de dados-oito][8]
+    [![Data-access-eight](media/data-access/data-access-eight.png)](media/data-access/data-access-eight.png#lightbox)
 
 1. Escolher **selecionar utilizador**. Procure o endereço de e-mail do utilizador convidado que convidou para localizar o utilizador que pretende adicionar. Clique em **selecione** para confirmar a seleção.
 
-    ![dados e acesso-nove][9]
+    [![dados e acesso-nove](media/data-access/data-access-nine.png)](media/data-access/data-access-nine.png#lightbox)
 
 1. Escolher **selecionar função**. Escolha a função de acesso apropriados para o utilizador convidado:
 
@@ -88,29 +88,29 @@ Siga estes passos para conceder acesso de convidado para um ambiente do Time Ser
 
    Selecione **OK** para confirmar a escolha de função.
 
-    ![acesso de dados-dez][10]
+    [![Data-access-ten](media/data-access/data-access-ten.png)](media/data-access/data-access-ten.png#lightbox)
 
 1. Selecione **OK** sobre o **selecionar função de utilizador** página.
 
 1. Confirme que o **políticas de acesso de dados** página lista o utilizador convidado e as funções para cada utilizador convidado.
 
-    ![acesso de dados-11][11]
+    [![Data-access-eleven](media/data-access/data-access-eleven.png)](media/data-access/data-access-eleven.png#lightbox)
 
 1. Agora, o utilizador convidado terá de seguir os passos para aceder ao ambiente localizado no inquilino do Azure para o qual convidado. Em primeiro lugar, eles aceitarem o convite enviado-los. Este convite é enviado por e-mail para o endereço de e-mail utilizado no passo 5. Eles selecionam **começar** para aceitar.
 
-    ![Data-access-twelve][12]
+    [![Data-access-twelve](media/data-access/data-access-twelve.png)](media/data-access/data-access-twelve.png#lightbox)
 
 1. Em seguida, o utilizador convidado aceita as permissões associadas a organização do administrador.
 
-    ![treze dados-acesso][13]
+    [![treze dados-acesso](media/data-access/data-access-thirteen.png)](media/data-access/data-access-thirteen.png#lightbox)
 
 1. Depois do utilizador convidado é iniciar sessão para o endereço de e-mail que utilizou para convidá-los e eles aceitarem o convite, eles vão para insights.azure.com. Uma vez lá, eles selecionam o avatar junto ao respetivo endereço de e-mail no canto superior direito da tela.
 
-    ![data-access-quatorze][14]
+    [![data-access-quatorze](media/data-access/data-access-fourteen.png)](media/data-access/data-access-fourteen.png#lightbox)
 
 1. Em seguida, o utilizador selecionar de convidado de inquilino do Azure no menu de lista pendente de diretório. Este inquilino é aquela à qual convidado.
 
-    ![acesso de dados-quinze][15]
+    [![acesso de dados-quinze](media/data-access/data-access-fifteen.png)](media/data-access/data-access-fifteen.png#lightbox)
 
 Após o utilizador convidado seleciona o seu inquilino, verão o ambiente do Time Series Insights para que que forneceu-lhes acesso. Tem agora todas as funcionalidades associadas à função que forneceu-os na **passo 5**.
 
@@ -121,20 +121,3 @@ Após o utilizador convidado seleciona o seu inquilino, verão o ambiente do Tim
 * Envie [eventos para a origem do evento](./time-series-insights-send-events.md).
 
 * Modo de exibição [seu ambiente no Explorador do Time Series Insights pré-visualização](./time-series-insights-update-explorer.md).
-
-<!-- Images -->
-[1]: media/data-access/data-access-one.png
-[2]: media/data-access/data-access-two.png
-[3]: media/data-access/data-access-three.png
-[4]: media/data-access/data-access-four.png
-[5]: media/data-access/data-access-five.png
-[6]: media/data-access/data-access-six.png
-[7]: media/data-access/data-access-seven.png
-[8]: media/data-access/data-access-eight.png
-[9]: media/data-access/data-access-nine.png
-[10]: media/data-access/data-access-ten.png
-[11]: media/data-access/data-access-eleven.png
-[12]: media/data-access/data-access-twelve.png
-[13]: media/data-access/data-access-thirteen.png
-[14]: media/data-access/data-access-fourteen.png
-[15]: media/data-access/data-access-fifteen.png

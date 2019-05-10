@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7db73ff8bef553b36408cfae90e32014f875bd3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191015"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406658"
 ---
 # <a name="authentication-flows"></a>Fluxos de autenticação
 
@@ -126,7 +126,7 @@ Ao utilizar o fluxo de código de dispositivo, o aplicativo obtém tokens atrav�
 
 ![Fluxo de código do dispositivo](media/msal-authentication-flows/device-code.png)
 
-1. Sempre que for necessária a autenticação de utilizador, a aplicação fornece um código e pede ao utilizador para utilizar outro dispositivo (por exemplo, um smartphone ligados à internet) para navegar para uma URL (por exemplo, http://microsoft.com/devicelogin), onde o usuário será solicitado para introduzir o código. Que terminar, a página da web direciona o utilizador através de uma experiência de autenticação normal, incluindo pedidos de consentimento e a autenticação multifator, se necessário.
+1. Sempre que for necessária a autenticação de utilizador, a aplicação fornece um código e pede ao utilizador para utilizar outro dispositivo (por exemplo, um smartphone ligados à internet) para navegar para uma URL (por exemplo, https://microsoft.com/devicelogin), onde o usuário será solicitado para introduzir o código. Que terminar, a página da web direciona o utilizador através de uma experiência de autenticação normal, incluindo pedidos de consentimento e a autenticação multifator, se necessário.
 
 2. Após a autenticação com êxito, a aplicação de linha de comandos irá receber os tokens necessários através de um canal de back e irá utilizá-lo para efetuar as chamadas à API web que precisa.
 
