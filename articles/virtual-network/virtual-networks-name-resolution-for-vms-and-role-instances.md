@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 763fc2952d7a1e2eac209cc9df53713c58ad83c9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e0f3de95cfd4a18294e5e8e2adcf3b52a7487dbb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925242"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411364"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Resolução de nomes de recursos em redes virtuais do Azure
 
@@ -169,11 +169,11 @@ Se o reencaminhamento de consultas para o Azure não se adequar às suas necessi
 * Estar protegida contra acesso a partir da internet, para atenuar as ameaças impostas por agentes externos.
 
 > [!NOTE]
-> Para obter melhor desempenho, quando estiver a utilizar as VMs do Azure como servidores DNS, IPv6 devem ser desativados. R [endereço IP público](virtual-network-public-ip-address.md) deve ser atribuída a cada VM do servidor DNS. Para análise de desempenho adicionais e otimizações quando estiver a utilizar o Windows Server que o seu servidor DNS, consulte [nomear o desempenho de resolução de um recursiva Windows DNS Server 2012 R2](http://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
+> Para obter melhor desempenho, quando estiver a utilizar as VMs do Azure como servidores DNS, IPv6 devem ser desativados. R [endereço IP público](virtual-network-public-ip-address.md) deve ser atribuída a cada VM do servidor DNS. Para análise de desempenho adicionais e otimizações quando estiver a utilizar o Windows Server que o seu servidor DNS, consulte [nomear o desempenho de resolução de um recursiva Windows DNS Server 2012 R2](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx).
 > 
 > 
 
-### <a name="web-apps"></a>Web Apps
+### <a name="web-apps"></a>Aplicações Web
 Suponha que precisa efetuar a resolução de nome da sua aplicação web criada pelo serviço de aplicações, ligada a uma rede virtual, para as VMs na mesma rede virtual. Para além de configurar um DNS personalizado o servidor que tenha um reencaminhador DNS que encaminha consultas para o Azure (virtual IP 168.63.129.16), execute os seguintes passos:
 1. Ativar a integração da rede virtual para a sua aplicação web, se não fez, conforme descrito em [integrar a sua aplicação com uma rede virtual](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. No portal do Azure, para o plano do serviço de aplicações que aloja a aplicação web, selecione **rede de sincronização** sob **redes**, **integração da rede Virtual**.

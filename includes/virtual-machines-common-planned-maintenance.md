@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 4/30/2019
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: 747fb9a38cc0c27d162192f4f3ed928e8a968f27
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: adf99b941a775f105d8c65da3ac6c11dc7257120
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993130"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416346"
 ---
 Azure atualiza periodicamente uma plataforma para melhorar a fiabilidade, desempenho e segurança da infraestrutura do anfitrião para máquinas virtuais. Estes variam de atualizações de componentes de software no ambiente de alojamento, atualizando os componentes de rede, a desativação de hardware de aplicação de patches. A maioria destas atualizações não tiver nenhum impacto para as máquinas virtuais alojadas. No entanto, existem casos em que as atualizações têm um impacto e Azure escolhe o método com menos impacto de atualizações:
 
 - Se uma atualização no rebootful não for possível, que a VM está em pausa enquanto o anfitrião é atualizado ou encontra-se em direto migrado para um anfitrião já atualizado.
 
-- Se a manutenção requer uma reinicialização, receberá um aviso de quando a manutenção está prevista. Azure também dá uma janela de tempo em que pode iniciar a manutenção por conta própria, ao mesmo tempo que funcione para si. Janela de tempo de manutenção automática é, normalmente, quatro semanas, a menos que seja urgente para efetuar a manutenção. Azure também está a investir em tecnologias para reduzir os casos, quando as VMs têm de ser reiniciado para manutenção planeada de plataforma. 
+- Se a manutenção requer uma reinicialização, receberá um aviso de quando a manutenção está prevista. Azure também dá uma janela de tempo em que pode iniciar a manutenção por conta própria, ao mesmo tempo que funcione para si. Janela de tempo de manutenção automática, normalmente, é 30 dias, a menos que seja urgente para efetuar a manutenção. Azure também está a investir em tecnologias para reduzir os casos, quando as VMs têm de ser reiniciado para manutenção planeada de plataforma. 
 
 Esta página descreve a forma como o Azure executa ambos os tipos de manutenção. Para obter mais informações sobre eventos não planeados (falhas), consulte Gerir a disponibilidade das máquinas virtuais para [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
 
@@ -29,13 +29,13 @@ Para obter informações "procedimentos" sobre o gerenciamento de manutenção p
 
 ## <a name="maintenance-not-requiring-a-reboot"></a>Manutenção não exigir um reinício
 
-O objetivo de manutenção de impacto mais diferente de zero que não requer uma reinicialização é inferior a 10 segundos colocar em pausa para a VM. Azure escolhe o mecanismo de atualização, pelo menos, causa um impacto no cliente VMs. Em certos casos, são utilizados mecanismos de manutenção preservando de memória, que interrompe a VM para até 30 segundos e preserva a memória RAM. A VM é retomada, em seguida, e seu relógio é sincronizado automaticamente. O Azure é cada vez mais usando tecnologias de migração em direto e melhorando a memória, preservando o mecanismo de manutenção para reduzir a duração de pausa.  
+Conforme afirmamos acima, a maior parte das atualizações de plataforma são feitas com impacto zero na VMs de cliente. Quando a atualização de impacto zero não é possível Azure escolhe o mecanismo de atualização que é o mínimo impacto para VMs de cliente. A maioria da manutenção impacto diferente de zero faz com que menos de 10 segundos colocar em pausa para a VM. Em certos casos, são utilizados mecanismos de manutenção preservando de memória, que interrompe a VM para até 30 segundos e preserva a memória RAM. A VM é retomada, em seguida, e seu relógio é sincronizado automaticamente. Preservação da manutenção de memória funciona, para mais de 90%, as VMs do Azure, exceto a série G, M, N e H. O Azure é cada vez mais usando tecnologias de migração em direto e melhorando a memória, preservando o mecanismo de manutenção para reduzir a duração de pausa.  
 
 Essas operações de manutenção não rebootful são o domínio de falha aplicada por domínio de falha e o progresso é interrompido se qualquer sinais de estado de funcionamento de aviso são recebidas. 
 
 Alguns aplicativos podem ser afetados por estes tipos de atualizações. No caso da VM estiver em direto migrado para outro anfitrião, algumas cargas de trabalho confidenciais podem observar uma degradação do desempenho de pequenas em alguns minutos que levou à pausa VM. Tais aplicativos podem se beneficiar usando eventos agendados para [Windows](../articles/virtual-machines/windows/scheduled-events.md) ou [Linux](../articles/virtual-machines/linux/scheduled-events.md) para se prepararem para a manutenção da VM e não tiver nenhum impacto durante a manutenção do Azure. Azure também está trabalhando em recursos de controle de manutenção para essas aplicações Ultra confidenciais. 
 
-## <a name="live-migration"></a>Migração em direto
+### <a name="live-migration"></a>Migração em direto
 
 Migração em direto é uma operação de não-rebootful que preserva a memória para a VM e resulta numa limitada colocar em pausa ou congelar, duração, normalmente, não mais de 5 segundos. Hoje em dia, toda a infraestrutura como um máquinas de virtuais de serviço (IaaS), além da série G, M, N e H, são elegíveis para migração em direto. Tal equivale a mais de 90% das VMs IaaS implementado à frota do Azure. 
 

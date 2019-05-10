@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: ca3f537ed52da547f64aa1fb98eb82c4ea73d81d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5f3b0094834b1ca547ba5ddf9726068c9ea36079
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021429"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409091"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Sobre os dispositivos de voz SDK
 
@@ -32,7 +32,7 @@ O SDK de dispositivos de voz consome os [SDK de voz](speech-sdk.md). Ele usa o S
 
 Também pode utilizar o SDK de dispositivos de voz para criar dispositivos de ambiente que têm seu próprio [personalizado do word de reativação](speech-devices-sdk-create-kws.md) , de modo a indicação de que inicia uma interação do utilizador é exclusiva para a sua marca.
 
-O SDK de dispositivos de voz facilita uma variedade de cenários habilitados para voz, como [assistentes de Virtual de voz em primeiro lugar personalizada](https://aka.ms/sdsdk-assistant), a unidade através da ordenação de sistemas, [transcrição da conversação](conversation-transcription-service.md), inteligente e oradores. Pode responder a utilizadores com texto, falar para si num padrão ou [voz personalizada](how-to-customize-voice-font.md), forneça os resultados da pesquisa, [traduzir](speech-translation.md) para outros idiomas e muito mais. Estamos ansiosos por ver o que cria!
+O SDK de dispositivos de voz facilita uma variedade de cenários habilitados para voz, como [assistentes de Virtual de voz em primeiro lugar personalizada](https://aka.ms/bots/speech/va), a unidade através da ordenação de sistemas, [transcrição da conversação](conversation-transcription-service.md), inteligente e oradores. Pode responder a utilizadores com texto, falar para si num padrão ou [voz personalizada](how-to-customize-voice-font.md), forneça os resultados da pesquisa, [traduzir](speech-translation.md) para outros idiomas e muito mais. Estamos ansiosos por ver o que cria!
 
 ## <a name="next-steps"></a>Passos Seguintes
 

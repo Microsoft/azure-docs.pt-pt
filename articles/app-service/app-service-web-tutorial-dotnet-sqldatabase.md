@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60854211"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415584"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Tutorial: Criar uma aplicação ASP.NET no Azure com a Base de Dados SQL
 
@@ -44,7 +44,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial:
 
-Instale o <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> com a carga de trabalho de **desenvolvimento na Web e em ASP.NET**.
+Instale <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2019</a> com o **desenvolvimento na web e ASP.NET** carga de trabalho.
 
 Se já tiver instalado o Visual Studio, adicione as cargas de trabalho no Visual Studio clicando em **Ferramentas** > **Obter Ferramentas e Funcionalidades**.
 
@@ -79,7 +79,7 @@ Certifique-se de que o **Serviço de Aplicações do Microsoft Azure** está sel
 
 Publicação abre o **criar serviço de aplicações** caixa de diálogo, que ajuda a criar todos os recursos do Azure, tem de executar a aplicação ASP.NET no Azure.
 
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Na caixa de diálogo **Criar Serviço de Aplicações**, clique em **Adicionar uma conta** e inicie sessão na sua subscrição do Azure. Se já tiver sessão iniciada numa conta Microsoft, confirme que esta inclui a sua subscrição do Azure. Se a subscrição do Azure não estiver na conta Microsoft em que tem sessão iniciada, clique nesta para adicionar a conta correta. 
 
@@ -88,7 +88,7 @@ Na caixa de diálogo **Criar Serviço de Aplicações**, clique em **Adicionar u
 >
 >
    
-![Iniciar sessão no Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
+![Inicie sessão no  Azure](./media/app-service-web-tutorial-dotnet-sqldatabase/sign-in-azure.png)
 
 ### <a name="configure-the-web-app-name"></a>Configurar o nome da aplicação Web
 
@@ -116,7 +116,7 @@ Na caixa de diálogo **Configurar o Plano do Serviço de Aplicações**, configu
 
 ![Criar plano do App Service](./media/app-service-web-tutorial-dotnet-sqldatabase/configure-app-service-plan.png)
 
-| Definição  | Valor sugerido | Para obter mais informações: |
+| Definição  | Valor sugerido | Para mais informações |
 | ----------------- | ------------ | ----|
 |**App Service Plan** (Plano do Serviço de Aplicações)| myAppServicePlan | [Planos do Serviço de Aplicações](../app-service/overview-hosting-plans.md) |
 |**Localização**| Europa Ocidental | [Regiões do Azure](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |

@@ -1,6 +1,6 @@
 ---
 title: Erros do Azure de empacotamento e a origem de serviços de multimédia | Documentos da Microsoft
-description: Este tópico descreve os erros que possa receber do serviço de empacotamento de serviços de multimédia do Azure.
+description: Este tópico descreve os erros que possa receber do serviço de suporte de dados dos serviços de transmissão em fluxo ponto final do Azure (Orgin).
 author: Juliako
 manager: femila
 editor: ''
@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/28/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: e30c51ff3526bb5ed193b65b3f36a64c552024ff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebcda6026f79bc88df91471d8be88316ba57bfc6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204169"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411379"
 ---
-# <a name="media-services-packaging-errors"></a>Erros de empacotamento de serviços de multimédia 
+# <a name="streaming-endpoint-origin-errors"></a>Erros de ponto final (origem) de transmissão em fluxo 
 
-Este tópico descreve os erros que possa receber dos serviços de multimédia do Azure [serviço de empacotamento](streaming-endpoint-concept.md).
+Este tópico descreve os erros que possa receber dos serviços de multimédia do Azure [serviço de ponto final de transmissão em fluxo](streaming-endpoint-concept.md).
 
 ## <a name="400-bad-request"></a>400 pedido inválido
 

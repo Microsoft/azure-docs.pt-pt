@@ -12,14 +12,14 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 39367cbe6c001fc782fd899ee3a99b37ece70a77
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699907"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408747"
 ---
-# <a name="key-value-store"></a>Arquivo de chave-valor
+# <a name="keys-and-values"></a>As chaves e valores
 
 Configuração de aplicações do Azure armazena dados de configuração como pares chave-valor. Pares chave-valor são uma forma simples e flexível para representar vários tipos de configurações de aplicativo que os desenvolvedores estão familiarizados.
 
@@ -86,7 +86,7 @@ Cada valor da chave é identificado exclusivamente pela respetiva chave além de
 
 Também pode incluir os seguintes padrões de etiqueta:
 
-| Label | |
+| Etiqueta | |
 |---|---|
 | `label` for omitido ou `label=*` | Corresponde a qualquer etiqueta, que inclui `null` |
 | `label=%00` | Correspondências `null` etiqueta |
@@ -104,5 +104,5 @@ Dados de configuração armazenados num arquivo de configuração de aplicação
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Instantâneo de ponto no tempo](./concept-point-time-snapshot.md)  
+* [Instantâneo de ponto no tempo](./concept-point-time-snapshot.md)  
+* [Gestão de recursos](./concept-feature-management.md)  

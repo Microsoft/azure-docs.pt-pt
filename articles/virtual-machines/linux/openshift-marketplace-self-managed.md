@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/18/2019
+ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 1228c770799de37c85b8a48b1dc923ac8294eeca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9b981924dcaf715dd1d05d452b756a40b63f8dac
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773555"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233094"
 ---
 # <a name="configure-prerequisites"></a>Configurar os pré-requisitos
 
@@ -39,8 +39,8 @@ Esta opção é a mais simples, mas ele também tem limitada capacidades de pers
 - **Tipo de disco**: Discos geridos são utilizados.
 - **Funcionamento em rede**: Suporte para a rede nova ou existente e o intervalo CIDR personalizado.
 - **CNS**: CNS pode ser ativado.
-- **Métricas**: As métricas podem ser ativadas.
-- **Registo**: O registo pode ser ativado.
+- **Métricas**: Métricas hawkular podem ser ativadas.
+- **Registo**: Registo de EFK pode ser ativado.
 - **Fornecedor de Cloud do Azure**: Ativado por predefinição, pode ser desativado.
 
 No canto superior esquerdo do portal do Azure, clique em **criar um recurso**, introduza "openshift container platform" na caixa de pesquisa e pressione Enter.
@@ -81,7 +81,7 @@ Introduza valores para os parâmetros de entrada e clique em **OK**.
 
 | Parâmetro de entrada | Descrição do parâmetro |
 |-----------------------|-----------------|
-| Prefixo do nome do Cluster OCP | O utilizador de administrador a ser criada em todas as instâncias VM |
+| Prefixo do nome do Cluster OCP | O prefixo utilizado para configurar nomes de anfitriões para todos os nós do cluster. Entre 1 e 20 carateres |
 | Tamanho do nó principal | Aceite o tamanho VM predefinido ou clique em **alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM adequado para sua carga de trabalho |
 | Tamanho do nó de infraestrutura | Aceite o tamanho VM predefinido ou clique em **alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM adequado para sua carga de trabalho |
 | Número de nós de aplicação | Aceite o tamanho VM predefinido ou clique em **alterar o tamanho** para selecionar um tamanho VM diferente.  Selecione o tamanho VM adequado para sua carga de trabalho |

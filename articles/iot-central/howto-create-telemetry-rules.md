@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0fb7cdaa24d139549545c93c920d60936d3c9fc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de4fba88784f41485b446f0f31cccb9a43092a3c
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60886124"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464404"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Criar uma regra de telemetria e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -31,19 +31,19 @@ Para criar uma regra de telemetria, o modelo do dispositivo tem de ter pelo meno
 
 1. Se ainda não criou quaisquer regras, verá o ecrã seguinte:
 
-    ![Ainda não existem regras](media/howto-create-telemetry-rules/Rules_Landing_Page.png)
+    ![Ainda não existem regras](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
 1. Sobre o **regras** separador, selecione **+ nova regra** para ver os tipos de regras, pode criar.
 
 1. Selecione **telemetria** para criar uma regra para monitorizar a telemetria do dispositivo.
 
-    ![Tipos de regra](media/howto-create-telemetry-rules/Rule_Types.png)
+    ![Tipos de regra](media/howto-create-telemetry-rules/rule_types1.png)
 
 1. Introduza um nome que ajuda a identificar a regra neste modelo de dispositivo.
 
 1. Para ativar imediatamente a regra para todos os dispositivos que criou para este modelo, alternar **ativar regra para todos os dispositivos para este modelo**.
 
-   ![Detalhes da regra](media/howto-create-telemetry-rules/Rule_Detail.png)
+   ![Detalhes da regra](media/howto-create-telemetry-rules/rule_detail1.png)
 
     A regra aplica-se automaticamente a todos os dispositivos sob o modelo de dispositivo.
 
@@ -59,7 +59,7 @@ Condição define os critérios que é monitorizado pela regra.
    - Agregação é opcional. Sem agregação, a regra é acionada para cada ponto de dados de telemetria que atenda à condição. Por exemplo, se a regra está configurada para o acionador quando a temperatura for superior a 80, em seguida, a regra é acionada quase instantaneamente quando o dispositivo comunica temperatura > 80.
    - Se uma função de agregação, como média, Mín, Máx, contagem for escolhida, em seguida, o utilizador tem de fornecer uma **janela de tempo agregado** ao longo do que a condição tem de ser avaliada. Por exemplo, se definir o período como "5 minutos" e a sua regra de procura de temperatura média superior a 80, a regra é acionada quando a temperatura média for superior a 80, para, pelo menos, 5 minutos. A frequência de avaliação da regra é igual a **janela de tempo agregado**, que significa que, neste exemplo, a regra é avaliada uma vez a cada 5 minutos.
 
-     ![Condição](media/howto-create-telemetry-rules/Aggregate_Condition_Filled_Out.png)
+     ![Condição](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >É possível adicionar mais do que uma medida de telemetria em **condição**. Quando são especificadas várias condições, todas as condições têm de ser cumpridas para a regra acionar. Cada conditon obtém associado implicitamente por uma cláusula 'E'. Ao utilizar o agregado, cada medida tem de ser agregada.
@@ -70,14 +70,14 @@ Esta secção mostra como configurar as ações a tomar quando a regra é dispar
 
 1. Escolha o **+** junto a **ações**. Aqui ver a lista de ações disponíveis.  
 
-    ![Adicionar ação](media/howto-create-telemetry-rules/Add_Action.png)
+    ![Adicionar ação](media/howto-create-telemetry-rules/add_action1.png)
 
 1. Escolha o **E-Mail** ação, introduza um endereço de e-mail válido no **para** campo e fornecer uma nota a aparecer no corpo da mensagem de e-mail quando a regra for acionada.
 
     > [!NOTE]
     > Os e-mails são enviados apenas para os utilizadores que foram adicionados à aplicação e tem iniciado sessão pelo menos uma vez. Saiba mais sobre [gestão de utilizadores](howto-administer.md) no Azure IoT Central.
 
-   ![Configurar ação](media/howto-create-telemetry-rules/Configure_Action.png)
+   ![Configurar ação](media/howto-create-telemetry-rules/configure_action1.png)
 
 1. Para guardar a regra, escolha **guardar**. A regra for executada dentro de alguns minutos e inicia a monitorização de envio de telemetria para seu aplicativo. Quando for cumprida a condição especificada na regra, a regra for acionada a ação de e-mail configurado.
 

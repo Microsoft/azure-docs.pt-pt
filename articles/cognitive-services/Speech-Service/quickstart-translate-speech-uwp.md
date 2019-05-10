@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 6195d9c978ccb7d9ff16454cbff9f46dbe08dbb8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 123a05012db1494799bf523bda2972a18c8f2ff4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871769"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465613"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Início rápido: Tradução de voz com o SDK de voz para C# (UWP)
+
+Também estão disponíveis para inícios Rápidos [voz em texto](quickstart-csharp-uwp.md) e [Assistente de voz em primeiro lugar virtual](quickstart-virtual-assistant-csharp-uwp.md).
 
 Neste início rápido, irá criar uma aplicação plataforma Universal do Windows (UWP) simples que captura a voz do utilizador do microfone do seu computador, traduz-se a conversão de voz e converte o texto traduzido para a linha de comandos em tempo real. Esta aplicação foi concebida para ser executado no Windows de 64 bits e baseia-se com o [pacote NuGet do SDK de voz](https://aka.ms/csspeech/nuget) e Microsoft Visual Studio 2017.
 

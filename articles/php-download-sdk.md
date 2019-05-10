@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 06/01/2016
 ms.author: allclark;yaqiyang
-ms.openlocfilehash: 4f2c242e27d8a0ed6687eb4a3510bbce6e07694f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6b21f288b94e06414fe66ff775ebb264368c0b8
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61457639"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411573"
 ---
 # <a name="download-the-azure-sdk-for-php"></a>Transfira o Azure SDK para PHP
 
@@ -81,7 +81,7 @@ A CLI do Azure é um conjunto de comandos para implementar e gerir serviços do 
 
 Para obter mais informações, consulte a [Centro de programadores PHP](https://azure.microsoft.com/develop/php/).
 
-[install-php]: http://www.php.net/manual/en/install.php
+[install-php]: https://www.php.net/manual/en/install.php
 [composer-github]: https://github.com/composer/composer
 [composer-phar]: https://getcomposer.org/composer.phar
 [nodejs-org]: https://nodejs.org/

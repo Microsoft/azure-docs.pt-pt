@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: c419ee1eec9e451cad835d8b4a56818101dc853a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d9f814a49924ca95078f3b3decca4f3922c74c2b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62120862"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413646"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 
@@ -35,6 +35,9 @@ Controlo de aplicações do identificador é essencial, porque é só isso permi
 Para um processo comercial em que várias mensagens são enviadas no decorrer de lidar com algum contexto do aplicativo, o *MessageId* pode ser uma composição do identificador de contexto de nível de aplicativo, como um número de ordem de compra e o assunto da mensagem, por exemplo, **12345.2017/pagamento**.
 
 O *MessageId* sempre pode ser um GUID, mas ancorar o identificador para o processo de negócios produz repetibilidade previsível, o que for o pretendido para tirar partido da funcionalidade de deteção de duplicados com eficiência.
+
+> [!NOTE]
+> Se a deteção de duplicados está ativada e a chave de partição ou ID de sesion não estão definidas, o ID da mensagem é utilizado como a chave de partição. Se o ID da mensagem não seja também definido, as bibliotecas .NET e AMQP geram automaticamente um ID de mensagem para a mensagem. Para obter mais informações, consulte [utilização de chaves de dividir em partições](service-bus-partitioning.md#use-of-partition-keys).
 
 ## <a name="enable-duplicate-detection"></a>Ativar a deteção de duplicados
 

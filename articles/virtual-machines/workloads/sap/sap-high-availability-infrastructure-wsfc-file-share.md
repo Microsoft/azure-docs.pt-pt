@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 58cd76e93b9d0888211e8339ae17170685e71e74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1c6b1d55a4fbc673980908a981a9a96c869bee9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60637759"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409603"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para elevada disponibilidade SAP através de uma partilha de ficheiros e de cluster de ativação pós-falha do Windows para as instâncias do SAP ASCS/SCS
 
@@ -36,6 +36,7 @@ ms.locfileid: "60637759"
 [arm-sofs-s2d-managed-disks]:https://github.com/robotechredmond/301-storage-spaces-direct-md
 [arm-sofs-s2d-non-managed-disks]:https://github.com/Azure/azure-quickstart-templates/tree/master/301-storage-spaces-direct
 [deploy-cloud-witness]:https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -218,7 +219,7 @@ Antes de iniciar a instalação, consulte o seguinte artigo:
 
 ## <a name="host-names-and-ip-addresses"></a>Endereços IP e nomes de anfitrião
 
-| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de disponibilidade |
+| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de Disponibilidade |
 | --- | --- | --- | --- |
 | Cluster do ASCS/SCS primeiro nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
 | Segundo cluster do ASCS/SCS de nós de cluster | ascs-2 | 10.0.6.5 | ascs-as |
@@ -235,7 +236,7 @@ Antes de iniciar a instalação, consulte o seguinte artigo:
 **Tabela 2**: Detalhes de instância do SAP ASCS/SCS
 
 
-| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de disponibilidade |
+| Função de nome de anfitrião virtual | Nome de anfitrião virtual | Endereço IP estático | Conjunto de Disponibilidade |
 | --- | --- | --- | --- |
 | Primeiro nó de cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |
@@ -341,6 +342,16 @@ O modelo Azure Resource Manager para implementar o servidor de ficheiros de esca
 _**Figura 2**: Ecrã de interface do Usuário para o modelo de Gestor de recursos de Azure de servidor de ficheiros de escalamento horizontal sem discos geridos_
 
 Na **tipo de conta de armazenamento** caixa, selecione **o armazenamento Premium**. Todas as outras definições são os mesmos que as definições para os discos geridos.
+
+## <a name="adjust-cluster-timeout-settings"></a>Ajustar as definições de tempo limite do cluster
+
+Depois de instalar com êxito o cluster de servidor de ficheiros de escalamento horizontal do Windows, adapte os limites de tempo limite de ativação pós-falha de deteção para condições no Azure. Os parâmetros de ser alteradas estão documentados em [ajuste os limites de rede de cluster de ativação pós-falha][tuning-failover-cluster-network-thresholds]. Supondo que as VMs em cluster estão na mesma sub-rede, altere os parâmetros seguintes para estes valores:
+
+- SameSubNetDelay = 2000
+- SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
+
+Estas definições foram testadas com os clientes e oferecem uma boa solução. Eles são flexíveis o suficiente, mas também fornecem rapidamente suficiente de ativação pós-falha em condições de erro real ou a falha VM.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

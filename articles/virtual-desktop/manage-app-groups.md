@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870154"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233903"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Gerir grupos de aplicações para Windows Virtual Desktop pré-visualização
 
@@ -73,7 +73,7 @@ Antes de começar, [transferir e importar o módulo do Windows PowerShell de amb
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Depois de criar os grupos de aplicações, pode criar principais de serviço e atribuir funções aos seus utilizadores. Para saber como fazer isso, veja o tutorial para saber como criar principais de serviço e as atribuições de funções com o PowerShell.
+Neste tutorial, aprendeu a criar grupos de aplicações, preenchê-lo com RemoteApps e atribuir utilizadores ao grupo de aplicações. Para saber mais sobre como iniciar sessão área de Trabalho Virtual do Windows, avance para ligar ao Windows procedimentos de ambiente de Trabalho Virtual.
 
-> [!div class="nextstepaction"]
-> [Criar principais de serviço e atribuições de funções com o PowerShell](create-service-principal-role-powershell.md)
+- [Ligar para o cliente de ambiente de trabalho remoto no Windows 7 e Windows 10](connect-windows-7-and-10.md)
+- [Ligar para o cliente de web do Windows Virtual Desktop pré-visualização](connect-web.md)

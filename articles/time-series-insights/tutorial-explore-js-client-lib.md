@@ -6,15 +6,15 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 05/06/2019
 ms.author: anshan
 ms.custom: seodec18
-ms.openlocfilehash: a91afdbeaa2ced37b237b4f2b80a8dbbe2c4a05c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cb1d06872f7eae04bac934220da9d58982d0f4b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717232"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233726"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 
@@ -32,6 +32,7 @@ Especificamente, aprenderá sobre:
 > [!NOTE]
 > * O Tutorial utiliza uma gratuita e hospedada, [demonstração de web do Time Series Insights](https://insights.timeseries.azure.com/clientsample).
 > * Os ficheiros de origem de aplicação de exemplo do Time Series Insights são fornecidos na [repositório de exemplo do GitHub](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
+> * Leitura a [documentação de referência de cliente do TSI](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
 ## <a name="video"></a>Vídeo
 
@@ -60,8 +61,6 @@ Neste tutorial, uma aplicação de exemplo do Time Series Insights gratuita e ho
    [![Página principal do exemplo de cliente do TSI após o início de sessão](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png)](media/tutorial-explore-js-client-lib/tcs-main-after-signin.png#lightbox)
 
 ### <a name="page-source-and-structure"></a>Origem e estrutura da página
-
-<div id="page-source-and-structure"></div>
 
 Primeiro, vamos ver o [código-fonte HTML e JavaScript](https://github.com/Microsoft/tsiclient/blob/tutorial/pages/tutorial/index.html) da web composto paginada:
 
@@ -119,6 +118,9 @@ O [aplicação de exemplo do Time Series Insights](https://insights.timeseries.a
 
    [!code-javascript[head-sample](~/samples-javascript/pages/tutorial/index.html?range=147-204&highlight=3-7,34-37)]
 
+> [!TIP]
+> Para saber mais sobre o suporte Microsoft bibliotecas ADAL, consulte a [documentação de referência da ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries#microsoft-supported-client-libraries).
+
 ### <a name="control-identification"></a>Identificação dos controlos
 
 No exemplo fornecido, `<div>` elementos são dispostos num grafo pai `<body>` elemento para fornecer um layout adequado para todos os controles de gráfico renderizados na página.
@@ -163,7 +165,7 @@ A povoar e composição de controlos de gráfico segue um padrão geral. Esse pa
    | `splitByObject`   | A propriedade da cadeia pela qual pretende dividir (opcional — pode ser nula). | `{property: 'Station', type: 'String'}` |
    | `color`         | A cor dos objetos que pretende compor. | `'pink'` |
    | `alias`           | Um nome amigável para a expressão agregada. | `'Factory3Temperature'` |
-   | `contextMenuActions` | Uma matriz das ações a serem vinculadas aos objetos de séries de tempo numa visualização (opcional). | Para obter mais informações, consulte a secção [menus de contexto de pop-up](#contextMenu) |
+   | `contextMenuActions` | Uma matriz das ações a serem vinculadas aos objetos de séries de tempo numa visualização (opcional). | Para obter mais informações, consulte a secção [menus de contexto de pop-up](#pop-up-context-menus) |
 
 1. Faça uma chamada de consulta TSI utilizando as APIs `TsiClient.Server` para pedir os dados agregados:
 
@@ -255,8 +257,6 @@ Visualmente, os marcadores/janelas de pop-up de diamante são utilizados para in
 
 ### <a name="pop-up-context-menus"></a>Menus de contexto pop-up
 
-<div id="contextMenu"></div>
-
 Outra funcionalidade avançada é a capacidade de criar menus de contexto personalizados (menus pop-up com botão direito do mouse). Menus de contexto personalizado são úteis para ativar ações e passos seguintes lógicos no âmbito da sua aplicação.
 
 Olhar o código em volta a `// Example 13/14/15` comentário. Este código renderiza inicialmente um gráfico de linhas sob o título `"Line Chart with Context Menu to Create Pie/Bar Chart"` e o gráfico está vinculado ao `<div>` elemento com o HTML `id` valor `chart13`.
@@ -321,3 +321,8 @@ Ou ver os ficheiros de origem do aplicativo de exemplo TSI:
 
 > [!div class="nextstepaction"]
 > [Repositório de aplicação de exemplo do TSI](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+
+Leia o documentação de referência da API de cliente do TSI:
+
+> [!div class="nextstepaction"]
+> [Documentação de referência de API do TSI](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)

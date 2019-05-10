@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 04/26/2019
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cbd40f2ab91f854f46dc3e62bccbc8a3264f97f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bdf19d2001f84fab6978bfc34ef14a361b89edea
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291284"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441419"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Atribuir utilizadores e grupos a uma aplicação no Azure Active Directory
 Este artigo mostra-lhe como atribuir utilizadores ou grupos a uma aplicação no Azure Active Directory (Azure AD). Os usuários primeiro devem ser atribuídos a uma aplicação antes de um administrador pode conceder-lhes acesso para fazer o seguinte:
@@ -31,6 +31,8 @@ Este artigo mostra-lhe como atribuir utilizadores ou grupos a uma aplicação no
 -   Ver uma aplicação que aparecem no seu [painel de acesso de aplicação](https://myapps.microsoft.com/) ou aplicações móveis.
 
 -   Veja um aplicativo são apresentadas na respetiva [iniciador de aplicações do Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
+
+A disponibilidade da atribuição baseada em grupo é determinada pelo seu contrato de licença. Atribuição baseada em grupo é suportada para apenas os grupos de segurança e associações a grupos aninhados não são atualmente suportadas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de poder atribuir utilizadores e grupos a uma aplicação, deve exigir a atribuição de utilizadores. Para exigir a atribuição de utilizadores:

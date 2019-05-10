@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: d5ff1809886198f7f1e4f4b9c36f877ce61d512e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 10364d014431a500e7c38a02d47f432cd464feb6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029434"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411457"
 ---
 # <a name="multiclass-decision-forest-module"></a>Módulo de floresta de decisão de várias classes
 
@@ -36,7 +36,7 @@ O algoritmo de floresta de decisão é um método para classificação de aprend
 + Eles executar classificação e seleção de funcionalidades integradas.
 + Eles são flexíveis na presença de funcionalidades ruidosos.
 
-O classificador de floresta de decisão no Azure Machine Learning é composta por um ensemble das árvores de decisão. Em geral, os modelos de ensemble fornecem uma melhor cobertura e precisão do que as árvores de decisão única. Para obter mais informações, consulte [árvores de decisões](http://go.microsoft.com/fwlink/?LinkId=403677).
+O classificador de floresta de decisão no Azure Machine Learning é composta por um ensemble das árvores de decisão. Em geral, os modelos de ensemble fornecem uma melhor cobertura e precisão do que as árvores de decisão única. Para obter mais informações, consulte [árvores de decisões](https://go.microsoft.com/fwlink/?LinkId=403677).
 
 ## <a name="how-to-configure-multiclass-decision-forest"></a>Como configurar a floresta de decisão de várias classes
 

@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f2019dd5a810a9e9099fd9f9e171fd5af21d1dc5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 985845197f8a1ece76fe0a620f05194109f51bd6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715060"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408670"
 ---
 # <a name="what-is-azure-app-configuration"></a>O que é a configuração de aplicações do Azure?
 
-Configuração de aplicações do Azure fornece um serviço para gerir centralmente as definições da aplicação. Programas modernos, especialmente os programas em execução numa nuvem, geralmente têm vários componentes que são distribuídos por natureza. Propagação de definições de configuração nesses componentes pode levar a erros de resolução de problemas é difícil durante a implementação de uma aplicação. Utilize configuração de aplicações para armazenar todas as definições para a sua aplicação e proteger seus acessos num único local.
+Configuração de aplicações do Azure fornece um serviço para gerir definições da aplicação e sinalizadores de recursos de forma centralizada. Programas modernos, especialmente os programas em execução numa nuvem, geralmente têm vários componentes que são distribuídos por natureza. Propagação de definições de configuração nesses componentes pode levar a erros de resolução de problemas é difícil durante a implementação de uma aplicação. Utilize configuração de aplicações para armazenar todas as definições para a sua aplicação e proteger seus acessos num único local.
 
-Configuração de aplicações é gratuita durante o período de pré-visualização. Se quiser experimentar, [registar](https://aka.ms/azconfig/register) na pré-visualização.
+Configuração de aplicações está atualmente em pré-visualização pública. É gratuito para utilizar durante o período de pré-visualização. Pode inscrever-se para o mesmo no [portal do Azure](https://portal.azure.com).
 
 ## <a name="why-use-app-configuration"></a>Por que usar a configuração de aplicações?
 
-Aplicativos baseados na nuvem, muitas vezes, executar em várias máquinas virtuais ou contentores em várias regiões e utilizam múltiplos serviços externos. Criar uma aplicação distribuída que é robusta e escalonável é um desafio. 
+Aplicativos baseados na nuvem, muitas vezes, executar em várias máquinas virtuais ou contentores em várias regiões e utilizam múltiplos serviços externos. Criar uma aplicação distribuída que é robusta e escalonável é um desafio.
 
 Várias metodologias de programação ajudam os desenvolvedores a lidar com a crescente complexidade da criação de aplicativos. Por exemplo, a aplicação de 12 fatores descreve vários padrões de arquitetura bem testados e melhores práticas para utilização com aplicações na cloud. Uma recomendação de chave deste guia é separar a configuração a partir do código. Neste caso, as definições de configuração de um aplicativo devem ser mantidas fora do seu executável e ler a partir do seu ambiente de tempo de execução ou de uma origem externa.
 
@@ -44,6 +44,7 @@ Configuração de aplicações oferece as seguintes vantagens:
 * Representações de chave flexíveis e mapeamentos
 * Marcação com etiquetas
 * Repetição de ponto no tempo de definições
+* Interface do Usuário dedicado para gestão de sinalizador de funcionalidade
 * Comparação de dois conjuntos de configurações em dimensões personalizado
 * Maior segurança por meio de identidades geridas do Azure
 * Dados completos encriptações, Inativos ou em trânsito
@@ -51,9 +52,9 @@ Configuração de aplicações oferece as seguintes vantagens:
 
 Configuração de aplicações complementa [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que é utilizado para armazenar segredos da aplicação. Configuração de aplicações torna mais fácil de implementar os seguintes cenários:
 
-* Gestão centralizada e a distribuição dos dados de configuração hierárquica para ambientes diferentes e localizações geográficas
-* Alterações de configuração dinâmica sem a necessidade de voltar a implementar ou reiniciar uma aplicação
-* Gestão de recursos
+* Centralize a gestão e distribuição de dados de configuração hierárquica para ambientes diferentes e localizações geográficas
+* Alterar dinamicamente as definições da aplicação sem a necessidade de voltar a implementar ou reiniciar uma aplicação
+* Disponibilidade de funcionalidades de controlo em tempo real
 
 ## <a name="use-app-configuration"></a>Utilizar configuração de aplicações
 
@@ -71,5 +72,6 @@ A maneira mais fácil de adicionar um arquivo de configuração de aplicação �
 * [Início rápido do ASP.NET Core](./quickstart-aspnet-core-app.md)
 * [Guia de introdução do .NET core](./quickstart-dotnet-core-app.md)
 * [Guia de introdução do .NET framework](./quickstart-dotnet-app.md)
-* [Início rápido de Java Spring](./quickstart-java-spring-app.md)
 * [Início rápido de função do Azure](./quickstart-azure-function-csharp.md)
+* [Início rápido de Java Spring](./quickstart-java-spring-app.md)
+* [Início rápido de sinalizador de funcionalidade do ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)

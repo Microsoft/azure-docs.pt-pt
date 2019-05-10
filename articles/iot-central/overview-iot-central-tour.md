@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 654528ed6137ee62ea22d552d36fda5ac5331adc
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688654"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233442"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
 
@@ -33,7 +33,6 @@ Como _operador_, utilize a IU do Azure IoT Central para gerir a sua solução do
 - Resolver e remediar problemas nos seus dispositivos.
 - Aprovisionar novos dispositivos.
 
-
 ## <a name="use-the-left-navigation-menu"></a>Utilizar o menu de navegação à esquerda
 
 Utilize o menu de navegação à esquerda para aceder as áreas diferentes do aplicativo. Pode expandir ou fechar barra de navegação, selecionando **<** ou **>**:
@@ -46,7 +45,7 @@ Utilize o menu de navegação à esquerda para aceder as áreas diferentes do ap
 
 O menu superior é apresentado em todas as páginas:
 
-![Barra de ferramentas](media/overview-iot-central-tour/toolbar.png)
+![Barra de Ferramentas](media/overview-iot-central-tour/toolbar.png)
 
 - Para procurar dispositivos e modelos de dispositivos, introduza um **pesquisa** valor.
 - Para alterar o idioma de interface do Usuário ou o tema, escolha o **definições** ícone.
@@ -56,6 +55,9 @@ O menu superior é apresentado em todas as páginas:
 Pode escolher entre um tema claro ou um tema escuro para a IU:
 
 ![Escolher um tema para a IU](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> A opção de escolher entre temas claros e escuros não está disponível se o administrador tiver configurado um tema personalizado para a aplicação.
 
 ## <a name="dashboard"></a>Dashboard
 
