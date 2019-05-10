@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 18ec59200d3cf820794ac353e38106ad26aca697
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6742bf64ce26e6cce93dfcdfd06756f3c340d9e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598035"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522972"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>Códigos de resposta de API comuns e o respetivo significado
 
-O [criação](https://aka.ms/luis-authoring-apis) e [endpoint](https://aka.ms/luis-endpoint-apis) APIs devolvem os códigos de resposta HTTP. Mensagens de resposta inclui informações específicas a um pedido, o código de estado de resposta HTTP é geral. 
+O [criação](https://go.microsoft.com/fwlink/?linkid=2092087) e [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs devolvem os códigos de resposta HTTP. Mensagens de resposta inclui informações específicas a um pedido, o código de estado de resposta HTTP é geral. 
 
 ## <a name="common-status-codes"></a>Códigos de status comuns
-A tabela seguinte lista algumas dos códigos de estado de resposta HTTP mais comuns para o [criação](https://aka.ms/luis-authoring-apis) e [endpoint](https://aka.ms/luis-endpoint-apis) APIs:
+A tabela seguinte lista algumas dos códigos de estado de resposta HTTP mais comuns para o [criação](https://go.microsoft.com/fwlink/?linkid=2092087) e [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) APIs:
 
 |Código|API|Explicação|
 |:--|--|--|

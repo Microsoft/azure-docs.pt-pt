@@ -8,14 +8,14 @@ manager: ''
 ms.service: automation
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 05/10/2019
 ms.author: eamono
-ms.openlocfilehash: d0764131f0e7e321a87ed383636606b2124ef7d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f99ce5862850c2453e9e72241fff77fe091616f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562737"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521431"
 ---
 # <a name="tutorial-integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Tutorial: Integrar a Automatização do Azure com a Event Grid e o Microsoft Teams
 
@@ -52,10 +52,13 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 
 4. Selecione **Importar** e atribua o nome **Watch-VMWrite**.
 
-5. Após a importação, selecione **Editar** para ver a origem do runbook. Selecione o botão **Publicar**.
+5. Após a importação, selecione **Editar** para ver a origem do runbook. 
+6. Atualizar a linha 74 no script para utilizar `Tag` em vez de `Tags`.
 
-> [!NOTE]
-> A linha 74 no script precisa de ser alterada para `Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose`. O parâmetro `-Tags` é agora `-Tag`.
+    ```powershell
+    Update-AzureRmVM -ResourceGroupName $VMResourceGroup -VM $VM -Tag $Tag | Write-Verbose
+    ```
+7. Selecione o botão **Publicar**.
 
 ## <a name="create-an-optional-microsoft-teams-webhook"></a>Criar um webhook opcional do Microsoft Teams
 
@@ -67,7 +70,7 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 
 3. Introduza **AzureAutomationIntegration** para o nome e selecione **Criar**.
 
-4. Copie o webhook para a área de transferência e guarde-o. O URL do webhook é utilizado para enviar informações para o Microsoft Teams.
+4. Copie o URL do webhook para a área de transferência e guarde-o. O URL do webhook é utilizado para enviar informações para o Microsoft Teams.
 
 5. Selecione **Concluído** para guardar o webhook.
 
@@ -96,14 +99,16 @@ Para concluir este tutorial, é necessária uma [conta de Automatização do Azu
 2. Clique em **+ Subscrição de Evento**.
 
 3. Configure a subscrição com as seguintes informações:
+    1. No **Tipo de Tópico**, selecione **Subscrições do Azure**.
+    2. Desmarque a caixa de verificação **Subscrever todos os tipos de eventos**.
+    3. Introduza **AzureAutomation** para o nome.
+    4. Na lista pendente **Tipos de Eventos Definidos**, desmarque todas as opções, exceto **Êxito da Escrita de Recurso**.
 
-   * No **Tipo de Tópico**, selecione **Subscrições do Azure**.
-   * Desmarque a caixa de verificação **Subscrever todos os tipos de eventos**.
-   * Introduza **AzureAutomation** para o nome.
-   * Na lista pendente **Tipos de Eventos Definidos**, desmarque todas as opções, exceto **Êxito da Escrita de Recurso**.
-   * No **Tipo de Ponto Final**, selecione **Webhook**.
-   * Clique em **Selecionar um ponto final**. Na página **Selecionar Webhook** que se abre, cole o url do webhook criado para o runbook Watch-VMWrite.
-   * Em **FILTROS**, introduza a subscrição e o grupo de recursos em que quer procurar as novas VMs criadas. Deve ter o seguinte aspeto: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+        > [!NOTE] 
+        > O Azure Resource Manager não atualmente distingue entre criar e a atualização, para que implementar este tutorial para todos os eventos de Microsoft.Resources.ResourceWriteSuccess na sua subscrição do Azure pode resultar num grande volume de chamadas.
+    1. No **Tipo de Ponto Final**, selecione **Webhook**.
+    2. Clique em **Selecionar um ponto final**. Na página **Selecionar Webhook** que se abre, cole o url do webhook criado para o runbook Watch-VMWrite.
+    3. Em **FILTROS**, introduza a subscrição e o grupo de recursos em que quer procurar as novas VMs criadas. Deve ter o seguinte aspeto: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Selecione **Criar** para guardar a subscrição do Event Grid.
 

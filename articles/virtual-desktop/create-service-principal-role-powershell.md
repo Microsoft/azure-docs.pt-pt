@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1e53f76f564c0970ac1f291d2125807441500de6
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236939"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523316"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Criar principais de serviço e atribuições de funções com o PowerShell
 
@@ -38,10 +38,9 @@ Antes de poder criar principais de serviço e as atribuições de funções, ter
     Install-Module AzureAD
     ```
 
-2. Execute os seguintes cmdlets com os valores são aspas substituído pelos valores relevantes à sua sessão. Se acabou de criar o inquilino de área de Trabalho Virtual do Windows do [tutorial de área de Trabalho Virtual do Windows, criar um inquilino](./tenant-setup-azure-active-directory.md), em seguida, utilize o "Grupo de inquilino predefinido" como o nome do grupo de inquilino.
+2. Execute os seguintes cmdlets com os valores são aspas substituído pelos valores relevantes à sua sessão.
 
     ```powershell
-    $myTenantGroupName = "<my-tenant-group-name>"
     $myTenantName = "<my-tenant-name>"
     ```
 
@@ -68,8 +67,7 @@ Execute os seguintes cmdlets do PowerShell para ligar a área de Trabalho Virtua
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-Set-RdsContext -TenantGroupName $myTenantGroupName
-New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantGroupName $myTenantGroupName -TenantName $myTenantName
+New-RdsRoleAssignment -RoleDefinitionName "RDS Owner" -ApplicationId $svcPrincipal.AppId -TenantName $myTenantName
 ```
 
 ## <a name="sign-in-with-the-service-principal"></a>Inicie sessão com o principal de serviço

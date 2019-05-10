@@ -8,93 +8,90 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 04/16/2019
+ms.date: 05/09/2019
 ms.author: aahi
-ms.openlocfilehash: 69eb3789586233b824da1ef6a9c338b07281f324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d6dfb79d02df3eebe33e67743ceaf97fc0a2a77
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60828110"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519356"
 ---
-# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com o Python para chamar o serviço cognitivos de análise de texto 
+# <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com a API de REST do Python para chamar o serviço cognitivos de análise de texto 
 <a name="HOLTop"></a>
 
-Este tutorial explica como [detetar idiomas](#Detect), [analisar sentimentos](#SentimentAnalysis) e [extrair expressões-chave](#KeyPhraseExtraction) através das [API de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com o Python.
+Utilize este guia de introdução para começar a analisar a linguagem com a API de REST de análise de texto e Python. Este artigo mostra-lhe como ao [detetar o idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction), e [identificar entidades associadas](#Entities).
 
 Pode executar este exemplo da linha de comando ou como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org) clicando no lançamento associador de destaque:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
-### <a name="command-line"></a>Linha de comandos
-
-Poderá ter de atualizar [IPython](https://ipython.org/install.html), o kernel para o Jupyter:
-```bash
-pip install --upgrade IPython
-```
-
-Poderá ter de atualizar o [pedidos](http://docs.python-requests.org/en/master/) biblioteca:
-```bash
-pip install requests
-```
-
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+* [Python 3.x](https://python.org)
 
 * O [chave de acesso e de ponto final](../How-tos/text-analytics-how-to-access-key.md) que foi gerado para durante a inscrição.
 
-* As seguintes importações, a chave de subscrição, e `text_analytics_base_url` são utilizados para todos os inícios rápidos de abaixo. Adicione as importações.
+* Biblioteca de pedidos de Python
+    
+    Pode instalar a biblioteca com este comando:
 
-    ```python
-    import requests
-    # pprint is pretty print (formats the JSON)
-    from pprint import pprint
-    from IPython.display import HTML
+    ```console
+    pip install --upgrade requests
     ```
+
+* Se estiver a executar o bloco de notas do associador localmente, poderá ter de atualizar [IPython](https://ipython.org/install.html):
     
-    Adicione estas linhas, em seguida, substitua `subscription_key` com uma chave de subscrição válido que obteve anteriormente.
-    
-    ```python
-    subscription_key = '<ADD KEY HERE>'
-    assert subscription_key
+    ```console
+    pip install --upgrade IPython
     ```
+
+* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+
+
+## <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova
+
+Crie uma aplicação Python nova no seu editor favorito ou IDE. Adicione as seguintes importações ao seu ficheiro.
+
+```python
+import requests
+# pprint is used to format the JSON response
+from pprint import pprint
+from IPython.display import HTML
+```
+
+Crie variáveis para a sua chave de subscrição e o ponto final para a API de REST de análise de texto. Certifique-se de que a região em que o ponto de extremidade corresponde ao utilizado quando se inscreveu no (por exemplo `westcentralus`). Se estiver a utilizar uma chave de avaliação gratuita, não precisa alterar nada.
     
-    Em seguida, adicione esta linha, em seguida, certifique-se de que a região em `text_analytics_base_url` corresponde ao utilizado ao configurar o serviço. Se estiver a utilizar uma chave de avaliação gratuita, não precisa alterar nada.
-    
-    ```python
-    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
-    ```
+```python
+subscription_key = "<ADD YOUR KEY HERE>"
+text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
+```
+
+As secções seguintes descrevem como chamar cada uma das funcionalidades da API.
 
 <a name="Detect"></a>
 
 ## <a name="detect-languages"></a>Detetar idiomas
 
-A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7). O ponto final do serviço da API de deteção de idioma para a sua região está disponível através do URL seguinte:
-
+Acrescentar `languages` para o ponto final base de análise de texto para formar o URL de deteção de idioma. Por exemplo: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
+    
 ```python
 language_api_url = text_analytics_base_url + "languages"
-print(language_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages
-
-
-O payload para a API consiste numa lista de `documents`, cada um dos quais, por sua vez, contém um `id` e um atributo `text`. O atributo `text` armazena o texto a ser analisado. 
-
-Substitua o `documents` dicionário por qualquer outro texto para deteção de idioma.
+O payload para a API consiste numa lista de `documents`, que são as tuplas que contém um `id` e um `text` atributo. O `text` o texto a ser analisados, os arquivos de atributo e o `id` pode ser qualquer valor. 
 
 ```python
-documents = { 'documents': [
-    { 'id': '1', 'text': 'This is a document written in English.' },
-    { 'id': '2', 'text': 'Este es un document escrito en Español.' },
-    { 'id': '3', 'text': '这是一个用中文写的文件' }
+documents = { "documents": [
+    { "id": "1", "text": "This is a document written in English." },
+    { "id": "2", "text": "Este es un document escrito en Español." },
+    { "id": "3", "text": "这是一个用中文写的文件" }
 ]}
 ```
 
-As linhas de código seguintes chamam a API de deteção de idioma através da biblioteca `requests` do Python para determinar o idioma dos documentos.
+Utilize a biblioteca de pedidos para enviar documentos para a API. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho e enviar o pedido com `requests.post()`. 
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -103,208 +100,223 @@ languages = response.json()
 pprint(languages)
 ```
 
-As linhas de código seguintes compõem os dados JSON como uma tabela HTML.
-
-```python
-table = []
-for document in languages["documents"]:
-    text  = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]
-    langs = ", ".join(["{0}({1})".format(lang["name"], lang["score"]) for lang in document["detectedLanguages"]])
-    table.append("<tr><td>{0}</td><td>{1}</td>".format(text, langs))
-HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table>".format("\n".join(table)))
-```
-
-Resposta JSON com êxito:
+### <a name="output"></a>Resultado
 
 ```json
-    {'documents': [{'detectedLanguages': [{'iso6391Name': 'en',
-                                           'name': 'English',
-                                           'score': 1.0}],
-                    'id': '1'},
-                   {'detectedLanguages': [{'iso6391Name': 'es',
-                                           'name': 'Spanish',
-                                           'score': 1.0}],
-                    'id': '2'},
-                   {'detectedLanguages': [{'iso6391Name': 'zh_chs',
-                                           'name': 'Chinese_Simplified',
-                                           'score': 1.0}],
-                    'id': '3'}],
-     'errors': []}
+{
+"documents":[
+    {
+        "detectedLanguages":[
+        {
+            "iso6391Name":"en",
+            "name":"English",
+            "score":1.0
+        }
+        ],
+        "id":"1"
+    },
+    {
+        "detectedLanguages":[
+        {
+            "iso6391Name":"es",
+            "name":"Spanish",
+            "score":1.0
+        }
+        ],
+        "id":"2"
+    },
+    {
+        "detectedLanguages":[
+        {
+            "iso6391Name":"zh_chs",
+            "name":"Chinese_Simplified",
+            "score":1.0
+        }
+        ],
+        "id":"3"
+    }
+],
+"errors":[]
+}
 ```
 
 <a name="SentimentAnalysis"></a>
 
 ## <a name="analyze-sentiment"></a>Analisar sentimento
 
-A API de análise de sentimentos Deteta o sentimento (intervalo entre positivo ou negativo) de um conjunto de registos de texto, a utilizar o [método de sentimento](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). O seguinte exemplo classifica dois documentos, um em inglês e outro em espanhol.
-
-O ponto final de serviço para análise de sentimentos está disponível para a sua região através do URL seguinte:
-
+Para detetar o sentimento (que varia entre positivo ou negativo) de um conjunto de documentos, acrescente `sentiment` para o ponto final base de análise de texto para formar o URL de deteção de idioma. Por exemplo: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
+    
 ```python
-sentiment_api_url = text_analytics_base_url + "sentiment"
-print(sentiment_api_url)
+sentiment_url = text_analytics_base_url + "sentiment"
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment
-
-Como com o exemplo de deteção de idioma, o serviço é fornecido com um dicionário com uma chave `documents` que consiste numa lista de documentos. Cada documento é uma cadeia de identificação que consiste no `id`, no `text` a ser analisado e no `language` do texto. Pode utilizar a API de deteção de idioma da seção anterior para preencher este campo.
+Como com o exemplo de deteção de idioma, criar um dicionário com uma `documents` chave que consiste numa lista de documentos. Cada documento é uma cadeia de identificação que consiste no `id`, no `text` a ser analisado e no `language` do texto. 
 
 ```python
-documents = {'documents' : [
-  {'id': '1', 'language': 'en', 'text': 'I had a wonderful experience! The rooms were wonderful and the staff was helpful.'},
-  {'id': '2', 'language': 'en', 'text': 'I had a terrible time at the hotel. The staff was rude and the food was awful.'},  
-  {'id': '3', 'language': 'es', 'text': 'Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos.'},  
-  {'id': '4', 'language': 'es', 'text': 'La carretera estaba atascada. Había mucho tráfico el día de ayer.'}
+documents = {"documents" : [
+  {"id": "1", "language": "en", "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+  {"id": "2", "language": "en", "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},  
+  {"id": "3", "language": "es", "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},  
+  {"id": "4", "language": "es", "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
 ]}
 ```
 
-A API de sentimento pode agora ser utilizada para analisar os sentimentos nos documentos.
+Utilize a biblioteca de pedidos para enviar documentos para a API. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho e enviar o pedido com `requests.post()`. 
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(sentiment_api_url, headers=headers, json=documents)
+response  = requests.post(sentiment_url, headers=headers, json=documents)
 sentiments = response.json()
 pprint(sentiments)
 ```
 
-Resposta JSON com êxito:
-
-```json
-{'documents': [{'id': '1', 'score': 0.7673527002334595},
-                {'id': '2', 'score': 0.18574094772338867},
-                {'id': '3', 'score': 0.5}],
-    'errors': []}
-```
+### <a name="output"></a>Resultado
 
 A classificação de sentimento de um documento é entre 0,0 e 1,0, com uma pontuação superior que indicam um sentimento positivo mais.
 
-<a name="KeyPhraseExtraction"></a>
+```json
+{
+  "documents":[
+    {
+      "id":"1",
+      "score":0.9708490371704102
+    },
+    {
+      "id":"2",
+      "score":0.0019068121910095215
+    },
+    {
+      "id":"3",
+      "score":0.7456425428390503
+    },
+    {
+      "id":"4",
+      "score":0.334433376789093
+    }
+  ],
+  "errors":[
 
-## <a name="extract-key-phrases"></a>Extrair expressões-chave
-
-A API de Extração de Expressões-Chave extrai expressões-chave de um documento de texto através do [método Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). Esta secção do tutorial extrai expressões-chave dos documentos em inglês e em espanhol.
-
-É possível aceder ao ponto final de serviço do serviço de extração de frases-chave através do URL seguinte:
-
-```python
-key_phrase_api_url = text_analytics_base_url + "keyPhrases"
-print(key_phrase_api_url)
+  ]
+}
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases
+<a name="KeyPhraseExtraction"></a>
 
-A coleção de documentos é a mesma que foi utilizada para a análise de sentimentos.
+## <a name="extract-key-phrases"></a>Extrair frases-chave
+ 
+Para extrair expressões-chave a partir de um conjunto de documentos, acrescente `keyPhrases` para o ponto final base de análise de texto para formar o URL de deteção de idioma. Por exemplo: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+    
+```python
+keyphrase_url = text_analytics_base_url + "keyPhrases"
+```
+
+Esta coleção de documentos é o mesmo usado no exemplo de análise de sentimentos.
 
 ```python
-documents = {'documents' : [
-  {'id': '1', 'language': 'en', 'text': 'I had a wonderful experience! The rooms were wonderful and the staff was helpful.'},
-  {'id': '2', 'language': 'en', 'text': 'I had a terrible time at the hotel. The staff was rude and the food was awful.'},  
-  {'id': '3', 'language': 'es', 'text': 'Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos.'},  
-  {'id': '4', 'language': 'es', 'text': 'La carretera estaba atascada. Había mucho tráfico el día de ayer.'}
+documents = {"documents" : [
+  {"id": "1", "language": "en", "text": "I had a wonderful experience! The rooms were wonderful and the staff was helpful."},
+  {"id": "2", "language": "en", "text": "I had a terrible time at the hotel. The staff was rude and the food was awful."},  
+  {"id": "3", "language": "es", "text": "Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos."},  
+  {"id": "4", "language": "es", "text": "La carretera estaba atascada. Había mucho tráfico el día de ayer."}
 ]}
 ```
 
-O objeto JSON pode ser composto como uma tabela HTML usando as seguintes linhas de código:
+Utilize a biblioteca de pedidos para enviar documentos para a API. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho e enviar o pedido com `requests.post()`. 
 
 ```python
-table = []
-for document in key_phrases["documents"]:
-    text    = next(filter(lambda d: d["id"] == document["id"], documents["documents"]))["text"]    
-    phrases = ",".join(document["keyPhrases"])
-    table.append("<tr><td>{0}</td><td>{1}</td>".format(text, phrases))
-HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
-```
-
-As linhas de código seguintes chamam a API de deteção de idioma através da biblioteca `requests` do Python para determinar o idioma dos documentos.
-```python
-headers   = {'Ocp-Apim-Subscription-Key': subscription_key}
-response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
+headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
+response  = requests.post(keyphrase_url, headers=headers, json=documents)
 key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-Resposta JSON com êxito:
+### <a name="output"></a>Resultado
+
 ```json
-{'documents': [
-    {'keyPhrases': ['wonderful experience', 'staff', 'rooms'], 'id': '1'},
-    {'keyPhrases': ['food', 'terrible time', 'hotel', 'staff'], 'id': '2'},
-    {'keyPhrases': ['Monte Rainier', 'caminos'], 'id': '3'},
-    {'keyPhrases': ['carretera', 'tráfico', 'día'], 'id': '4'}],
-    'errors': []
+{
+  "documents":[
+    {
+      "keyPhrases":[
+        "wonderful experience",
+        "staff",
+        "rooms"
+      ],
+      "id":"1"
+    },
+    {
+      "keyPhrases":[
+        "food",
+        "terrible time",
+        "hotel",
+        "staff"
+      ],
+      "id":"2"
+    },
+    {
+      "keyPhrases":[
+        "Monte Rainier",
+        "caminos"
+      ],
+      "id":"3"
+    },
+    {
+      "keyPhrases":[
+        "carretera",
+        "tráfico",
+        "día"
+      ],
+      "id":"4"
+    }
+  ],
+  "errors":[
+
+  ]
 }
 ```
 
+<a name="Entities"></a>
+
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método Entidades](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). O seguinte exemplo identifica as entidades dos documentos em inglês.
-
-É possível aceder ao ponto final de serviço do serviço de associação de entidades através do URL seguinte:
-
+Para identificar as entidades conhecidas (pessoas, lugares e coisas) em documentos de texto, acrescente `keyPhrases` para o ponto final base de análise de texto para formar o URL de deteção de idioma. Por exemplo: `https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
+    
 ```python
-entity_linking_api_url = text_analytics_base_url + "entities"
-print(entity_linking_api_url)
+entities_url = text_analytics_base_url + "keyPhrases"
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities
-
-A coleção de documentos é apresentada abaixo:
+Crie uma coleção de documentos, como nos exemplos anteriores. 
 
 ```python
-documents = {'documents' : [
-  {'id': '1', 'text': 'Microsoft is an It company.'}
+documents = {"documents" : [
+  {"id": "1", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."}
 ]}
 ```
-Agora, os documentos podem ser enviados para a API de Análise de Texto para receber a resposta.
+
+Utilize a biblioteca de pedidos para enviar documentos para a API. Adicionar a chave de subscrição para o `Ocp-Apim-Subscription-Key` cabeçalho e enviar o pedido com `requests.post()`.
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
-response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
+response  = requests.post(entities_url, headers=headers, json=documents)
 entities = response.json()
 ```
 
-Resposta JSON com êxito:
+### <a name="output"></a>Resultado
+
 ```json
-{  
-   "documents":[  
-      {  
-         "id":"1",
-         "entities":[  
-            {  
-               "name":"Microsoft",
-               "matches":[  
-                  {  
-                     "wikipediaScore":0.20872054383103444,
-                     "entityTypeScore":0.99996185302734375,
-                     "text":"Microsoft",
-                     "offset":0,
-                     "length":9
-                  }
-               ],
-               "wikipediaLanguage":"en",
-               "wikipediaId":"Microsoft",
-               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
-               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
-               "type":"Organization"
-            },
-            {  
-               "name":"Technology company",
-               "matches":[  
-                  {  
-                     "wikipediaScore":0.82123868042800585,
-                     "text":"It company",
-                     "offset":16,
-                     "length":10
-                  }
-               ],
-               "wikipediaLanguage":"en",
-               "wikipediaId":"Technology company",
-               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
-               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
-            }
-         ]
-      }
-   ],
-    "errors":[]
+{
+  "documents":[
+    {
+      "id":"1",
+      "keyPhrases":[
+        "Bill Gates",
+        "Paul Allen",
+        "BASIC interpreters",
+        "Altair",
+        "Microsoft"
+      ]
+    }
+  ],
+  "errors":[]
 }
 ```
 

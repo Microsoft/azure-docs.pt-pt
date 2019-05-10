@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: ac9a748742bda6b1e7a321a427090662542f1032
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60643359"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518910"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
@@ -56,7 +56,7 @@ Este tutorial parte do princípio que já estabeleceu uma partilha de ficheiros 
 
     ![Escolher a Partilha de Ficheiros do Azure como o Objetivo de cópia de segurança](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
-3. Clique em **Cópia de segurança** para configurar a partilha de ficheiros do Azure para o cofre dos Serviços de Recuperação. 
+3. Clique em **Cópia de segurança** para configurar a partilha de ficheiros do Azure para o cofre dos Serviços de Recuperação.
 
    ![clique em Cópia de segurança para associar a partilha de ficheiros do Azure com o cofre](./media/backup-file-shares/set-backup-goal.png)
 
@@ -77,7 +77,7 @@ Este tutorial parte do princípio que já estabeleceu uma partilha de ficheiros 
     Depois de estabelecer uma política de cópia de segurança, será captado um instantâneo das Partilhas de Ficheiros à hora agendada e o ponto de recuperação é retido para o período de escolhido.
 
 ## <a name="create-an-on-demand-backup"></a>Criar uma cópia de segurança a pedido
-Ocasionalmente, poderá gerar um instantâneo de cópia de segurança ou um ponto de recuperação fora das horas agendadas na política de cópia de segurança. Uma hora comum para gerar uma cópia de segurança a pedido é logo depois de configurar a política de cópia de segurança. Com base na agenda na política de cópia de segurança, poderá demorar horas ou dias até tirar um instantâneo. Para proteger os dados até que a política de cópia de segurança seja aplicada, inicie uma cópia de segurança a pedido. Criar uma cópia de segurança a pedido é frequentemente preciso antes de fazer alterações planeadas às partilhas de ficheiros.
+Ocasionalmente, poderá gerar um instantâneo de cópia de segurança ou um ponto de recuperação fora das horas agendadas na política de cópia de segurança. Uma hora comum para gerar uma cópia de segurança a pedido é logo depois de configurar a política de cópia de segurança. Com base na agenda na política de cópia de segurança, poderá demorar horas ou dias até tirar um instantâneo. Para proteger os dados até que a política de cópia de segurança seja aplicada, inicie uma cópia de segurança a pedido. Criar uma cópia de segurança a pedido, muitas vezes, é necessário antes de fazer alterações planeadas às partilhas de ficheiros.
 
 ### <a name="to-create-an-on-demand-backup"></a>Para criar uma cópia de segurança a pedido
 
@@ -123,10 +123,12 @@ Pode monitorizar o progresso de todas as tarefas na página **Tarefas de Cópia 
 Para abrir a página **Tarefas de Cópia de Segurança**:
 
 - Abra o cofre dos Serviços de Recuperação que quer monitorizar e no menu do cofre dos Serviços de Recuperação, clique em **Tarefas** e, em seguida, clique em **Tarefas de Cópia de Segurança**.
+
    ![Selecionar a tarefa que quer monitorizar](./media/backup-file-shares/open-backup-jobs.png)
 
     É apresentada a lista de Tarefas de cópia de segurança e o estado dessas tarefas.
-   ![Selecionar a tarefa que quer monitorizar](./media/backup-file-shares/backup-jobs-progress-list.png)
+
+    ![Selecionar a tarefa que quer monitorizar](./media/backup-file-shares/backup-jobs-progress-list.png)
 
 ### <a name="create-a-new-policy"></a>Criar uma nova política
 

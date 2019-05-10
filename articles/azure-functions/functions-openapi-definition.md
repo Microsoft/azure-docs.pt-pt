@@ -11,12 +11,12 @@ ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 255a7c9d0b9da15176fca90c6934a84fa0f863ed
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
-ms.translationtype: HT
+ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501862"
+ms.locfileid: "65510453"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Criar uma definição de OpenAPI para uma função de API Management do Azure
 
@@ -30,6 +30,7 @@ Neste tutorial, ficará a saber como:
 > * Criar uma função no Azure
 > * Gerar uma definição de OpenAPI com a API Management do Azure
 > * Testar a definição, chamando a função
+> * Transferir a definição de OpenAPI
 
 ## <a name="create-a-function-app"></a>Criar uma aplicação de função
 
@@ -164,11 +165,11 @@ Agora, está pronto para gerar a definição de OpenAPI.
 
 A API está agora criada para a função.
 
-## <a name="test-the-openapi-definition"></a>Testar a definição de OpenAPI
+## <a name="test-the-api"></a>Testar a API
 
-Antes de utilizar a definição de API, deve verificar-se de que ele funciona.
+Antes de utilizar a definição OpenAPI, deve verificar que a API funciona.
 
-1. Sobre o **teste** separador da sua função, selecione **POST** operação
+1. Sobre o **teste** separador da sua função, selecione **POST** operação.
 
 1. Introduza os valores para **horas** e **capacidade**
 
@@ -183,9 +184,21 @@ Antes de utilizar a definição de API, deve verificar-se de que ele funciona.
 
     ![Testar a função de API](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## <a name="download-the-openapi-definition"></a>Transferir a definição de OpenAPI
+
+Se a sua API funciona conforme esperado, pode baixar a definição de OpenAPI.
+
+1. Selecione **definição de OpenAPI transferir** na parte superior da página.
+   
+   ![Transferir a definição OpenAPI](media/functions-openapi-definition/download-definition.png)
+
+2. Abra o ficheiro transferido do JSON e reveja a definição.
+
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 
+Utilizou a integração da gestão de API para gerar uma definição de OpenAPI das suas funções. Agora pode editar a definição na gestão de API no portal. Também pode [Saiba mais sobre a gestão de API](../api-management/api-management-key-concepts.md).
+
 > [!div class="nextstepaction"]
-> [Saiba mais sobre a gestão de API](../api-management/api-management-key-concepts.md)
+> [Editar a definição de OpenAPI na gestão de API](../api-management/edit-api.md)

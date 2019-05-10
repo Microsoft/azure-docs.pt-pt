@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ced83b83c2d64ba5c4816f378c66dae9f4210391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fc14b821064719f39eb877aa2253f8084496a66
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193633"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523502"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Glossário de compreensão de linguagem de vocabulário comum e conceitos
 A compreensão de idiomas (LUIS) explica de glossário de termos que poderá encontrar ao trabalhar com o serviço de API de LUIS.
@@ -26,7 +26,7 @@ A versão de LUIS Active Directory é a versão que recebe todas as alterações
 
 ## <a name="authoring"></a>Criação
 
-A criação é a capacidade de criar, gerir e implementar um [aplicação LUIS](#luis-app), usando o [LUIS](luis-reference-regions.md) Web site ou o [APIs de criação](https://aka.ms/luis-authoring-api).
+A criação é a capacidade de criar, gerir e implementar um [aplicação LUIS](#luis-app), usando o [LUIS](luis-reference-regions.md) Web site ou o [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Chave de criação
 
@@ -74,7 +74,7 @@ No contexto do LUIS, um **domínio** é uma área de dados de conhecimento. O do
 
 ## <a name="endpoint"></a>Ponto final
 
-O [ponto final de LUIS](https://aka.ms/luis-endpoint-apis) URL é onde enviar consultas de LUIS após o [aplicação LUIS](#luis-app) é criou e publicou. O URL de ponto final contém a região da aplicação publicada, bem como o ID da aplicação. Pode encontrar o ponto final sobre o **[chaves e os pontos finais](luis-how-to-azure-subscription.md)** página da sua aplicação, ou pode obter o URL de ponto final da [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+O [ponto final de LUIS](https://go.microsoft.com/fwlink/?linkid=2092356) URL é onde enviar consultas de LUIS após o [aplicação LUIS](#luis-app) é criou e publicou. O URL de ponto final contém a região da aplicação publicada, bem como o ID da aplicação. Pode encontrar o ponto final sobre o **[chaves e os pontos finais](luis-how-to-azure-subscription.md)** página da sua aplicação, ou pode obter o URL de ponto final da [obter as informações da aplicação](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Um ponto de extremidade de exemplo é semelhante a:
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02c079e9cda88c969e5382b2c70c551cf9a88e14
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710631"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522498"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Teste de expressões de exemplo no LUIS
 
@@ -46,7 +46,7 @@ Todos os ponto final teste contagens para sua quota de utilização.
 Se o teste com um ponto final e não pretender que a expressão com sessão iniciada, não se esqueça de utilizar o `logging=false` configuração de cadeia de caracteres de consulta.
 
 ## <a name="where-to-find-utterances"></a>Onde encontrar expressões com
-LUIS armazena expressões com tudo com sessão iniciadas no log de consulta, disponível para download no [LUIS](luis-reference-regions.md) site **Apps** página de lista, bem como o LUIS [APIs de criação](https://aka.ms/luis-authoring-apis). 
+LUIS armazena expressões com tudo com sessão iniciadas no log de consulta, disponível para download no [LUIS](luis-reference-regions.md) site **Apps** página de lista, bem como o LUIS [APIs de criação](https://go.microsoft.com/fwlink/?linkid=2092087). 
 
 Qualquer expressões com os LUIS não tem certeza de que estão listados na **[rever expressões de ponto final](luis-how-to-review-endpoint-utterances.md)** página do [LUIS](luis-reference-regions.md) Web site. 
 

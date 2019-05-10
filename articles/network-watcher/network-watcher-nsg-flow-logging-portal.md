@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3c62ad66a29943e26d1cb2f15ca71631d2feabe3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: bba263b65344672808487ae6de4c3f475a871842
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467437"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523947"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registar tráfego de rede de e para uma máquina virtual utilizando o portal do Azure
 
@@ -95,7 +95,7 @@ O registo de fluxo do NSG precisa do fornecedor do **Microsoft.Insights**. Para 
     A criação da conta de armazenamento pode demorar cerca de um minuto. Não continue com os restantes passos até que a conta de armazenamento seja criada. Se utilizar uma conta de armazenamento existente em vez de criar uma nova, confirme que seleciona uma conta de armazenamento que tenha a opção **Todas as redes** (predefinição) selecionada para **Firewalls e redes virtuais**, em **DEFINIÇÕES** da conta de armazenamento.
     
     > [!NOTE]
-    > Embora fornecedores Microsoft.Insight e Network atualmente são suportadas para o armazenamento do Azure, registos de fluxo de NSG é ainda não totalmente carregada. Para ativar o registo de fluxo de NSG, **todas as redes** devem ser selecionados até que esta funcionalidade é totalmente integrado. 
+    > Embora os fornecedores de Microsoft.Insight e Network atualmente são suportados como fidedigna Microsoft Services para armazenamento do Azure, registos de fluxo de NSG é ainda não totalmente integrado. Para ativar o registo de fluxo de NSG, **todas as redes** devem ser selecionados até que esta funcionalidade é totalmente integrado. 
 4. No canto superior esquerdo do portal, selecione **Todos os serviços**. Na **caixa Filtro**, escreva *Observador de Rede*. Quando o **Observador de Rede** aparecer nos resultados de pesquisa, selecione-o.
 5. Em **REGISTOS**, selecione **Registos de fluxo do NSG**, conforme mostrado na imagem seguinte:
 

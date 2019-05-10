@@ -10,15 +10,14 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 30f009f76c25d80281d748e1e484175380ca9743
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b65073c0646db0cd0c27a71005bb4f74b091ae09
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027174"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506890"
 ---
 # <a name="what-is-reinforcement-learning"></a>O que é a aprendizagem por reforço?
-
 
 Aprendizagem por reforço é uma abordagem para machine learning que aprende a comportamentos obtendo comentários da sua utilização.
  
@@ -64,7 +63,7 @@ Atualmente, utiliza personalizer [Vowpal Wabbit](https://github.com/VowpalWabbit
 
 * [Tomada de decisões contextuais com baixa dívida técnica](https://arxiv.org/abs/1606.03966)
 * [Uma abordagem de reduções a classificação justa](https://arxiv.org/abs/1803.02453)
-* [Eficientes Bandits contextuais em mundos não estacionários](https://arxiv.org/abs/1708.01799ds)
+* [Eficientes Bandits contextuais em mundos não estacionários](https://arxiv.org/abs/1708.01799)
 * [Predição de perda residuais: Por reforço: com não Incremental comentários de aprendizagem](https://openreview.net/pdf?id=HJNMYceCW)
 * [Mapeamento de instruções e observações sobre o Visual para ações com aprendizagem por reforço](https://arxiv.org/abs/1704.08795)
 * [Melhor do que sua professora de aprendizagem para pesquisa](https://arxiv.org/abs/1502.02206)

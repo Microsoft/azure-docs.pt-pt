@@ -3,22 +3,21 @@ title: Copiar dados de forma incremental utilizando o Azure Data Factory | Micro
 description: Estes tutoriais mostram-lhe como copiar dados de forma incremental de um arquivo de dados de origem para um arquivo de dados de destino. O primeiro copia dados a partir de uma tabela.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: dearandyxu
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-origin.date: 01/22/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: cb75e943416c227730589ab5e7feeb7b8ba5e245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/22/2018
+ms.author: yexu
+ms.openlocfilehash: 1d8b31e55a2a230385730c924d3e6bcc6072e7ea
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335985"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520447"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>Carrega dados de forma incremental a partir de um arquivo de dados de origem para um arquivo de dados de destino
 
@@ -45,13 +44,13 @@ Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
 [Copiar dados de forma incremental da Base de Dados SQL do Azure para o armazenamento de Blobs do Azure utilizando a tecnologia de Controlo de Alterações](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## <a name="loading-new-and-changed-files-only-by-using-lastmodifieddate"></a>A carregar ficheiros de novos e alterados apenas através de LastModifiedDate
-Pode obter os metadados (LastModifiedDate) dos seus ficheiros primeiro e, em seguida, copie os ficheiros novos e alterados apenas para o arquivo de destino.
+Pode copiar os ficheiros de novos e alterados apenas através de LastModifiedDate para o arquivo de destino. ADF irá analisar todos os ficheiros de arquivo de origem, aplique o filtro de ficheiros pelo respetivo LastModifiedDate e apenas copie o ficheiro de novo e atualizado desde a última vez para o arquivo de destino.  Lembre-se permitir que enormes quantidades da ADF análise de ficheiros, mas apenas copiar alguns arquivos para o destino, ainda poderia esperar que a duração de tempo devido a análise do ficheiro é demorada também.   
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
 [Copiar ficheiros novos e alterados com base em LastModifiedDate do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure de forma incremental](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>A carregar novos ficheiros utilizando apenas a hora particionados de nome de ficheiro ou pasta.
-Pode copiar ficheiros novos apenas, onde ficheiros ou pastas já foi particionado com informações de timeslice como parte do nome do ficheiro ou pasta (por exemplo, /yyyy/mm/dd/file.csv) de tempo. 
+Pode copiar ficheiros novos apenas, onde ficheiros ou pastas já foi particionado com informações de timeslice como parte do nome do ficheiro ou pasta (por exemplo, /yyyy/mm/dd/file.csv) de tempo. É a abordagem de desempenho a maioria para novos ficheiros de carregamento incremental. 
 
 Para obter instruções passo a passo, veja o seguinte tutorial: <br/>
 [Copiar novos ficheiros com base na pasta particionada de tempo ou nome de ficheiro do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure de forma incremental](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

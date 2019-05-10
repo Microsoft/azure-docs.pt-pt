@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 04/19/2019
+ms.date: 05/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a33734af34814772fdd8c391d0ee19a79b47d856
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b3d53b7d5fceb303259823198731b5198cfce82c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925018"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508289"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>Tutorial: Copiar dados para o armazenamento de BLOBs de caixa de dados do Azure através de REST APIs  
 
@@ -46,7 +46,7 @@ Pode ligar ao armazenamento de BLOBs de caixa de dados ao longo *http* ou *https
 - *Https* é a maneira segura e recomendada para ligar ao armazenamento de BLOBs de caixa de dados.
 - *Http* é utilizado ao estabelecer ligação através da fidedigno redes.
 
-Os passos para ligar são diferentes quando se liga ao armazenamento de BLOBs de caixa de dados ao longo *http* ou *https*,.
+Os passos para ligar são diferentes quando se liga ao armazenamento de BLOBs de caixa de dados ao longo *http* ou *https*.
 
 ## <a name="connect-via-http"></a>Ligar através de http
 

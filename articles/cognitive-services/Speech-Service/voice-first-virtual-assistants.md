@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: c9ed6f898f4bcf8a5d4b2548cc1f3cf51f71bb2a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138170"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523483"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sobre a pré-visualização de assistentes de virtual primeiro de voz personalizada
 
@@ -24,7 +24,7 @@ Assistentes de virtual personalizados, usando os serviços de voz do Azure permi
 
    ![Diagrama conceptual do fluxo de serviço de linha direta de voz orquestração](media/voice-first-virtual-assistants/overview.png "fluxo o canal de voz")
 
-Direto de linha de voz e sua funcionalidade associada para os assistentes de virtual de voz-first personalizadas são um suplemento ideal para o [Virtual solução Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) e [modelo empresarial](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Apesar de voz de linha direta pode trabalhar com qualquer bot compatíveis, estes recursos fornecem uma linha de base reutilizável para experiências de conversação de alta qualidade, bem como as habilidades de suporte comuns e modelos para começar a trabalhar rapidamente.
+Direto de linha de voz e sua funcionalidade associada para os assistentes de virtual de voz-first personalizadas são um suplemento ideal para o [Virtual solução Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) e [modelo empresarial](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Apesar de voz de linha direta pode trabalhar com qualquer bot compatíveis, estes recursos fornecem uma linha de base reutilizável para experiências de conversação de alta qualidade, bem como as habilidades de suporte comuns e modelos para começar a trabalhar rapidamente.
 
 ## <a name="core-features"></a>Principais recursos
 

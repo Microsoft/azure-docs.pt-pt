@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8e6991201b3cda5699849ac00cc92217c6b7bf72
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236774"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65524003"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
 
@@ -68,7 +68,7 @@ Para o painel de definição de Máquina Virtual:
 
 Para o painel de informações do inquilino de área de Trabalho Virtual do Windows:
 
-1. Introduza o **nome do grupo de inquilino de área de Trabalho Virtual do Windows** para o grupo de inquilino que contém o seu inquilino. Se não tiver um nome de grupo de inquilino específico planejado, deixá-lo como predefinição.
+1. Introduza o **nome do grupo de inquilino de área de Trabalho Virtual do Windows** para o grupo de inquilino que contém o seu inquilino. Deixe-o como predefinição, a menos que foram fornecidos específicas de uma nome de grupo do inquilino.
 2. Introduza o **nome do inquilino de área de Trabalho Virtual do Windows** para o inquilino, criará este conjunto de anfitrião no.
 3. Especifique o tipo de credenciais que pretende utilizar para efetuar a autenticação como o proprietário de RDS de inquilino de área de Trabalho Virtual do Windows. Se concluiu a [criar principais de serviço e as atribuições de funções com o PowerShell tutorial](./create-service-principal-role-powershell.md), selecione **principal de serviço**. Agora tem de introduzir o **ID de inquilino do Azure AD** do Azure Active Directory que contém o principal de serviço.
 4. Introduza as credenciais de qualquer um para a conta de administrador inquilino. Apenas os principais de serviço com uma credencial de palavra-passe são suportados.
@@ -94,12 +94,6 @@ Execute o seguinte cmdlet para iniciar sessão no ambiente de área de Trabalho 
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
-```
-
-Defina o contexto para o grupo de inquilino de área de Trabalho Virtual do Windows que especificou no Azure Marketplace oferece com o seguinte cmdlet. Se marcou o inquilino de área de Trabalho Virtual do Windows valor de grupo como o valor predefinido no Azure Marketplace da oferta, pode ignorar este passo.
-
-```powershell
-Set-RdsContext -TenantGroupName <tenantgroupname>
 ```
 
 Depois de fazer essas duas coisas, pode adicionar utilizadores ao grupo de área de trabalho de aplicação com este cmdlet:

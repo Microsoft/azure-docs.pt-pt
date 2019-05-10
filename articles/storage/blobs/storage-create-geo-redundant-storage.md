@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: ff23e5e2c4f0b55121d5310c7fbf99b3ee3b1087
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.openlocfilehash: b884eab6d2d5a2c768991aa82f5a33d2792abd97
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65209654"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508112"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs
 
@@ -50,15 +50,14 @@ Para concluir este tutorial:
 * Instalar o [Python](https://www.python.org/downloads/)
 * Transfira e instale o [SDK de Armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python).
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-* Instale e configure o [Maven](https://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos
-* instalar e configurar um [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 * Instale e configure o [Maven](https://maven.apache.org/download.cgi) para funcionar a partir da linha de comandos
 * instalar e configurar um [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+* Instale [node. js](https://nodejs.org).
 
 ---
 
@@ -108,14 +107,6 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-[Transferir o projeto de exemplo](https://github.com/Azure-Samples/storage-java-ha-ra-grs) e extrair o ficheiro storage-java-ragrs.zip. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação Java básica.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
-```
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 [Transferir o projeto de exemplo](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) e extrair o ficheiro storage-java-ragrs.zip. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação Java básica.
@@ -124,60 +115,54 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+[Transfira o projeto de exemplo](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e Descomprima o ficheiro. Também pode utilizar o [git](https://git-scm.com/) para transferir uma cópia da aplicação para o seu ambiente de desenvolvimento. O projeto de exemplo contém uma aplicação node. js básica.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
+```
+
 ---
+
+## <a name="configure-the-sample"></a>Configurar o exemplo
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Recomenda-se que armazenar esta cadeia de ligação numa variável de ambiente no computador local executando o aplicativo. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
+Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Pode armazenar esta cadeia de ligação numa variável de ambiente no computador local que executa a aplicação. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
 
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Substitua \<yourconnectionstring\> pela cadeia de ligação real ao executar um dos comandos seguintes, consoante o seu Sistema Operativo. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **linha de comandos** ou shell estiver a utilizar. Substitua **\<storageConnectionString\>** no exemplo seguinte:
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Execute um dos seguintes comandos com base no seu sistema operativo, substituindo \<yourconnectionstring\> pela cadeia de ligação real. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **linha de comandos** ou shell estiver a utilizar.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\>
+export storageconnectionstring=<yourconnectionstring>
 ```
 
 ### <a name="windows"></a>Windows
 
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+```powershell
+setx storageconnectionstring "<yourconnectionstring>"
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Recomenda-se que armazenar esta cadeia de ligação numa variável de ambiente no computador local executando o aplicativo. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
+Na aplicação, tem de fornecer as credenciais da conta de armazenamento. Pode armazenar estas informações nas variáveis de ambiente no computador local executando o aplicativo. Siga um dos exemplos abaixo, consoante o sistema operativo para criar as variáveis de ambiente.
 
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Substitua \<yourconnectionstring\> pela cadeia de ligação real ao executar um dos comandos seguintes, consoante o seu Sistema Operativo. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **linha de comandos** ou shell estiver a utilizar. Substitua **\<storageConnectionString\>** no exemplo seguinte:
-
-### <a name="linux"></a>Linux
-
-```
-export storageconnectionstring=\<yourconnectionstring\>
-```
-
-### <a name="windows"></a>Windows
-
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
-```
-
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-Na aplicação, tem de indicar a cadeia de ligação da sua conta de armazenamento. Recomenda-se que armazenar esta cadeia de ligação numa variável de ambiente no computador local executando o aplicativo. Siga um dos exemplos abaixo, consoante o Sistema Operativo para criar a variável de ambiente.
-
-No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Copie a **cadeia de ligação** da chave primária ou secundária. Substitua \<yourconnectionstring\> pela cadeia de ligação real ao executar um dos comandos seguintes, consoante o seu Sistema Operativo. Este comando guarda uma variável de ambiente no computador local. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **linha de comandos** ou shell estiver a utilizar. Substitua **\<storageConnectionString\>** no exemplo seguinte:
+No portal do Azure, navegue para a sua conta de armazenamento. Selecione **Chaves de acesso**, em **Definições**, na conta de armazenamento. Colar o **nome da conta de armazenamento** e **chave** valores para os seguintes comandos, substituindo o \<youraccountname\> e \<youraccountkey\>marcadores de posição. Este comando guarda as variáveis de ambiente no computador local. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **linha de comandos** ou shell estiver a utilizar.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\>
+export accountname=<youraccountname>
+export accountkey=<youraccountkey>
 ```
 
 ### <a name="windows"></a>Windows
 
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+```powershell
+setx accountname "<youraccountname>"
+setx accountkey "<youraccountkey>"
 ```
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
@@ -193,10 +178,23 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 
 ### <a name="windows-example"></a>Exemplo do Windows
 
-```
+```powershell
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Para executar este exemplo, tem de adicionar as credenciais da conta de armazenamento para o `.env.example` de ficheiros e, em seguida, mude o nome para `.env`.
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
+```
+
+Pode encontrar estas informações no portal do Azure ao navegar para a sua conta de armazenamento e selecionar **chaves de acesso** no **definições** secção.
+
+Também tem de instalar as dependências necessárias. Para tal, abra uma linha de comandos, navegue para a pasta de exemplo, em seguida, insira `npm install`.
 
 ---
 
@@ -223,12 +221,6 @@ No código de exemplo, o método `run_circuit_breaker` no ficheiro `circuitbreak
 A função de repetição do objeto de armazenamento está definida como uma política de repetição linear. A função de repetição determina se deve repetir um pedido e especifica o número de segundos a aguardar antes da repetição. Defina o valor **retry\_to\_secondary** como verdadeiro se pretender repetir o pedido para o ponto final secundário, caso o pedido inicial para o primário falhe. A aplicação de exemplo, é definida uma política de repetição personalizada na função `retry_callback` do objeto de armazenamento.
 
 Antes da transferência, são definidas as funções [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) do objeto Serviço. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
-
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-Pode executar a aplicação abrindo um terminal ou âmbito de linha de comandos para a pasta de aplicação transferida. A partir daí, introduza `mvn compile exec:java` para executar a aplicação. A aplicação, em seguida, carrega a imagem **HelloWorld.png** do diretório para a conta de armazenamento e efetua uma verificação para assegurar-se de que a imagem foi replicada para o ponto final RA-GRS secundário. Assim que a verificação estiver concluída, a aplicação irá iniciar a transferência da imagem repetidamente, reportando para o ponto final do qual está a transferir.
-
-A função de repetição do objeto de armazenamento está definida para utilizar uma política de repetição linear. A função de repetição determina se deve repetir um pedido e especifica o número de segundos a aguardar entre cada tentativa. A propriedade **LocationMode** da sua **BlobRequestOptions** está definida como **PRIMÁRIA\_ SEGUIDA DE \_SECUNDÁRIA**. Isto permite que a aplicação mude automaticamente para a localização secundária se não conseguir alcançar a localização primária ao tentar transferir **HelloWorld.png**.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -273,6 +265,33 @@ Cleaning up the sample and exiting!
 ```
 
 Tem controlo do exemplo, por isso, introduza comandos para o código ser executado. Entradas diferenciam maiúsculas de minúsculas.
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Para executar o exemplo, abra uma linha de comandos, navegue para a pasta de exemplo, em seguida, introduza `node index.js`.
+
+O exemplo cria um contentor na sua conta de armazenamento de Blob, carrega **Helloworld** para o contentor, em seguida, repetidamente verifica se o contentor e a imagem foram replicadas para a região secundária. Após a replicação, pede-lhe para introduzir **1!d** ou **p** (seguida de ENTER) para transferir ou sair. O resultado deverá ter um aspeto semelhante ao seguinte exemplo:
+
+```
+Created container successfully: newcontainer1550799840726
+Uploaded blob: HelloWorld.png
+Checking to see if container and blob have replicated to secondary region.
+[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+...
+[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[32] Container found, but blob has not replicated to secondary region yet.
+...
+[67] Container found, but blob has not replicated to secondary region yet.
+[68] Blob has replicated to secondary region.
+Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
+> D
+Attempting to download blob...
+Blob downloaded from primary endpoint.
+> Q
+Exiting...
+Deleted container newcontainer1550799840726
+```
 
 ---
 
@@ -371,22 +390,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdktabjava-v7"></a>[Java V7 SDK](#tab/java-v7)
-
-Com o Java, a definição de processadores de chamada de retorno é desnecessária se a propriedade **LocationMode** das **BlobRequestOptions** estiver definida como **PRIMARY\_THEN\_SECONDARY**. Isto permite que a aplicação mude automaticamente para a localização secundária se não conseguir alcançar a localização primária ao tentar transferir **HelloWorld.png**.
-
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
-
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
-```
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Com V10 o Java SDK, definir os manipuladores de retorno de chamada é ainda necessário e o SDK agora tem algumas diferenças fundamentais do V7 SDK. Em vez de LocationMode, temos uma secundária **Pipeline**. Pode definir um pipeline secundário através da **RequestRetryOptions** e, se definido, irá permitir que a aplicação mude automaticamente para o pipeline secundário se não conseguir aceder aos dados através do pipeline principal.
+Com V10 o Java SDK, a definição de manipuladores de retorno de chamada é desnecessário e o SDK agora tem algumas diferenças fundamentais do V7 SDK. Em vez de LocationMode, temos uma secundária **Pipeline**. Pode definir um pipeline secundário através da **RequestRetryOptions** e, se definido, irá permitir que a aplicação mude automaticamente para o pipeline secundário se não conseguir aceder aos dados através do pipeline principal.
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -394,6 +400,29 @@ PipelineOptions myOptions = new PipelineOptions();
 myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
+```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Com V10 o node. js SDK, os manipuladores de retorno de chamada são desnecessárias. Em vez disso, o exemplo cria um pipeline configurado com as opções de repetição e um ponto final secundário. Isso permite que a aplicação mude automaticamente para o pipeline secundário se não conseguir aceder aos dados através do pipeline principal.
+
+```javascript
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
+
+const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
+const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
+
+const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
+  retryOptions: {
+    maxTries: 3,
+    tryTimeoutInMs: 10000,
+    retryDelayInMs: 500,
+    maxRetryDelayInMs: 1000,
+    secondaryHost: secondaryAccountURL
+  }
+});
 ```
 
 ---

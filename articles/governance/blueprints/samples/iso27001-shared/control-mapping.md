@@ -7,12 +7,12 @@ ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 9290609136d1314762d9f716531464ad2496fb63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c40efca9abd418c8b48f931d327b1f81805b38fb
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60876030"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520409"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico ISO 27001 Shared Services
 
@@ -24,7 +24,7 @@ Os seguintes mapeamentos são para o **ISO 27001:2013** controles. Utilize a nav
 
 Ter apenas um proprietário da subscrição do Azure não permite para redundância administrativa. Por outro lado, se ter existem demasiados proprietários de subscrição do Azure, pode aumentar o potencial de falhas de segurança por meio de uma conta de proprietário comprometido. Este esquema ajuda a manter um número adequado de proprietários de subscrições do Azure através da atribuição de dois [do Azure Policy](../../../policy/overview.md) definições de que o número de proprietários das subscrições do Azure de auditoria. Gerir permissões de proprietário da subscrição pode ajudar a implementar a separação apropriada de atribuições.
 
-- [Pré-visualização]: Audit minimum number of owners for subscription
+- [Pré-visualização]: Audit minimum number of owners for a subscription
 - [Pré-visualização]: Audit maximum number of owners for a subscription
 
 ## <a name="a821-classification-of-information"></a>Classificação de A.8.2.1 de informações
@@ -118,7 +118,7 @@ Noções básicas sobre onde os recursos do Azure podem ter configurações de c
 - [Pré-visualização]: Audit HTTPS only access for an API App
 - [Pré-visualização]: Audit missing blob encryption for storage accounts
 - [Pré-visualização]: Deploy VM extension to audit Windows VM should not store passwords using reversible
-  Encriptaçãon
+  encriptaçãon
 - [Pré-visualização]: Audit Windows VM should not store passwords using reversible encryption
 - [Pré-visualização]: Monitor unencrypted SQL database in Azure Security Center
 - [Pré-visualização]: Monitor unencrypted VM Disks in Azure Security Center
@@ -126,7 +126,7 @@ Noções básicas sobre onde os recursos do Azure podem ter configurações de c
 - Auditoria de ativação apenas de ligações seguras à Cache de Redis
 - Auditoria de transferência segura para contas de armazenamento
 - Auditar a definição da propriedade ClusterProtectionLevel para EncryptAndSign no Service Fabric
-- Auditar o estado de encriptação de dados transparente
+- Estado de encriptação de dados transparentes de auditoria
 
 ## <a name="a1241-event-logging"></a>Registo de eventos A.12.4.1
 

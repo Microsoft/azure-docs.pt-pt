@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: fc4db12f722d1330f0642e155c02a1936373e256
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050982"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520494"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS num domínio personalizado de porta de entrada
 
@@ -82,7 +82,6 @@ Pode utilizar o seu próprio certificado para ativar a funcionalidade HTTPS. Est
 
 > [!WARNING]
 > </br> - Atualmente, o Azure Front Door Service suporta apenas contas do Key Vault na mesma subscrição que a configuração do Front Door. Escolher um Key Vault numa subscrição diferente do que o Front Door resultará numa falha.
-> </br> - Atualmente, o Azure Front Door Service suporta apenas certificados do Key Vault armazenados na seção Segredos. A importação do certificado irá falhar se o armazenar na secção Certificados em vez da seção Segredos.
 > </br> - Atualmente, o Azure Front Door Service suporta apenas certificados carregados com um PFX **sem** uma palavra-passe.
 
 #### <a name="register-azure-front-door-service"></a>Registar o Azure Front Door Service
@@ -142,7 +141,7 @@ Se utilizar o seu próprio certificado, a validação de domínio não é necess
 
 O registo CNAME deve estar no seguinte formato, em que *Nome* é o nome do seu domínio personalizado e *Valor* é o nome de anfitrião .azurefd.net predefinido do Front Door:
 
-| Name            | Tipo  | Valor                 |
+| Name            | Tipo  | Value                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -166,9 +165,9 @@ Depois de ativar o HTTPS no domínio personalizado, a CA do DigiCert valida a pr
 DigiCert também envia um e-mail de verificação para endereços de e-mail adicionais. Se as informações do registo em WHOIS forem privadas, confirme que pode aprovar diretamente a partir de um dos endereços seguintes:
 
 admin@&lt;o-seu-nome-de-domínio.com&gt;  
-administrador@&lt;o-seu-nome-de-domínio.com&gt;  
-webmaster@&lt;o-seu-nome-de-domínio.com&gt;  
-hostmaster@&lt;o-seu-nome-de-domínio.com&gt;  
+administrator@&lt;your-domain-name.com&gt;  
+webmaster@&lt;your-domain-name.com&gt;  
+hostmaster@&lt;your-domain-name.com&gt;  
 postmaster@&lt;o-seu-nome-de-domínio.com&gt;  
 
 Deverá receber um e-mail passados alguns minutos, semelhante ao seguinte exemplo, que lhe pede para aprovar o pedido. Se estiver a utilizar um filtro de spam, adicione admin@digicert.com à lista de permissões. Se não receber um e-mail passadas 24 horas, contacte o suporte da Microsoft.

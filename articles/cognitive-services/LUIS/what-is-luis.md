@@ -9,12 +9,12 @@ ms.subservice: language-understanding
 ms.topic: overview
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c26f3d6c3b34ed90a5455bb94ea71d7556b47751
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2bb50f985b99a3fb62e7b8a61bb0f9ce2dd402e1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309467"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522009"
 ---
 # <a name="what-is-language-understanding-luis"></a>O que é o Language Understanding (LUIS)?
 
@@ -53,7 +53,7 @@ As aplicações de LUIS contêm um modelo de idioma natural específico de domí
 * **Entidades personalizadas** O LUIS oferece-lhe vários modos de identificar as suas próprias intenções e entidades personalizadas, incluindo entidades de aprendizagem de machine learning, e entidades específicas ou literais ou uma combinação de entidades de aprendizagem de machine learning e literais.
 
 ## <a name="build-the-luis-model"></a>Compilar o modelo do LUIS
-Compile o modelo com as APIs de [criação](https://aka.ms/luis-authoring-apis) ou com o portal do LUIS.
+Compile o modelo com as APIs de [criação](https://go.microsoft.com/fwlink/?linkid=2092087) ou com o portal do LUIS.
 
 O modelo do LUIS começa com categorias de intenções do utilizador, denominadas **[intenções](luis-concept-intent.md)**. Cada intenção precisa de exemplos de **[expressões](luis-concept-utterance.md)** do utilizador. Cada expressão pode fornecer diversos dados que têm de ser extraídos com as **[entidades](luis-concept-entity-types.md)**. 
 
@@ -65,7 +65,7 @@ O modelo do LUIS começa com categorias de intenções do utilizador, denominada
 
 ## <a name="query-prediction-endpoint"></a>Ponto final de predição da consulta
 
-Após a compilação e publicação do modelo no ponto final, a aplicação cliente envia expressões para a API de [ponto final](https://aka.ms/luis-endpoint-apis) de predição publicada. A API aplica o modelo ao texto, para análise. A API responde com os resultados da predição em formato JSON.  
+Após a compilação e publicação do modelo no ponto final, a aplicação cliente envia expressões para a API de [ponto final](https://go.microsoft.com/fwlink/?linkid=2092356) de predição publicada. A API aplica o modelo ao texto, para análise. A API responde com os resultados da predição em formato JSON.  
 
 A resposta mínima do ponto final do JSON contém a expressão da consulta e a intenção com a melhor classificação. Também pode extrair dados, como a entidade **Contact Type** seguinte. 
 
@@ -126,6 +126,6 @@ Crie uma aplicação do LUIS nova com um domínio [pré-criado](luis-get-started
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

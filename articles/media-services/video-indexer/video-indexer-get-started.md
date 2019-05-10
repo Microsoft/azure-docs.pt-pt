@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: c0c1f9e4b8ed854c562ad7af16222e726b3b4293
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe15773d2f49e7ac1378122aa19ae28f7cdd09c9
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560303"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519815"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início rápido: Como inscrever-se e carregar o seu primeiro vídeo
 
@@ -31,7 +32,7 @@ Para começar a criar com o Video Indexer, aceda ao site do [Video Indexer](http
 1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/).
 2. Para carregar um vídeo, selecione o botão ou ligação **Upload** (Carregar)
 
-    ![Carregar](./media/video-indexer-get-started/video-indexer-upload.png)
+    ![Carregamento](./media/video-indexer-get-started/video-indexer-upload.png)
 
     Após carregar o seu vídeo, o Video Indexer iniciará a indexação e análise do vídeo.
 

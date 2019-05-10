@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: ee539b87c08dd00545060cb30d28ac7fcd01e61b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408820"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518994"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Utilizar a configuração dinâmica de uma aplicação ASP.NET Core
 
@@ -63,6 +63,9 @@ Para fazer este tutorial, instale o [.NET Core SDK](https://dotnet.microsoft.com
     ```
 
     O segundo parâmetro no `.Watch` método é o intervalo de consulta em que a biblioteca de cliente do ASP.NET consulta um arquivo de configuração de aplicação. A biblioteca de cliente verifica a definição de configuração específica para ver se qualquer alteração ocorreu.
+    
+    > [!NOTE]
+    > O intervalo de consulta padrão para o `Watch` método de extensão é de 30 segundos, se não for especificado.
 
 2. Adicionar uma *Settings.cs* ficheiro que define e implementa um novo `Settings` classe.
 
