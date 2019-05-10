@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 096f39eeef54f3a4a1e3d8928dd13b7c22847c8d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143195"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511246"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
 
@@ -26,15 +26,23 @@ Para começar, vá para o [portal do Azure](https://portal.azure.com) e inicie s
 
 ![Descrição geral da aplicação de função no portal do Azure](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
-## <a name="manage-app-service-settings"></a>Separador de definições de aplicação de função
+Pode navegar para todo o necessário para gerir a sua aplicação de função em particular na página Descrição geral, o **[definições da aplicação](#settings)** e **[defuncionalidadesdeplataforma](#platform-features)**.
 
-![Função descrição geral da aplicação no portal do Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+## <a name="settings"></a>Definições da aplicação
 
-O **definições** separador é onde pode atualizar a versão de runtime das funções utilizada pela sua aplicação de função. Também é onde pode gerir as chaves de anfitrião utilizadas para restringir o acesso HTTP para todas as funções alojadas pela aplicação de funções.
+O **as definições da aplicação** separador mantém as definições que são utilizadas pela sua aplicação de função.
 
-As funções suportam alojamento de consumo e planos de alojamento de serviço de aplicações. Para obter mais informações, consulte [escolher o plano de serviço correto para as funções do Azure](functions-scale.md). Para melhor previsibilidade no plano de consumo, o funções permite limitar a utilização da plataforma definindo uma quota de utilização diária, em segundos de gigabytes. Assim que a quota de utilização diária é atingida, a function app é parada. Uma aplicação de função parada como resultado de atingir o quota de gastos pode ser ativada novamente no mesmo contexto como estabelecer o diário de quota de gastos. Consulte a [funções do Azure, página de preços](https://azure.microsoft.com/pricing/details/functions/) para obter detalhes sobre a faturação.   
+![Definições da aplicação de funções no portal do Azure.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-## <a name="platform-features-tab"></a>Guia de funcionalidades de plataforma
+Estas definições são armazenadas de forma encriptada e tem de selecionar **Mostrar valores** para ver os valores no portal.
+
+Para adicionar uma definição, selecione **nova definição de aplicação** e adicione o novo par de chave-valor.
+
+[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+
+Ao desenvolver uma aplicação de funções localmente, estes valores são mantidos no arquivo de projeto Settings.
+
+## <a name="platform-features"></a>Funcionalidades de plataforma
 
 ![Guia de funcionalidades de plataforma de aplicação de função.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
@@ -46,7 +54,6 @@ Aplicações de funções executados em e são mantidas pela plataforma do App S
 O resto deste tópico concentra-se as seguintes funcionalidades de serviço de aplicações no portal do Azure, que são úteis para as funções:
 
 + [Editor do serviço de aplicações](#editor)
-+ [Definições da aplicação](#settings) 
 + [Console](#console)
 + [Ferramentas Avançadas (Kudu)](#kudu)
 + [Opções de implementação](#deployment)
@@ -63,14 +70,6 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 | ![Aplicação de função de editor do serviço de aplicações.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | O editor do serviço de aplicações é um editor no portal avançado que pode utilizar para modificar ficheiros de configuração JSON e arquivos de código semelhantes. Escolher esta opção inicia um separador do browser separado com um editor básico. Isto permite-lhe integrar com o repositório de Git, executar e depurar o código e modificar as definições de aplicação de função. Este editor fornece um ambiente de desenvolvimento avançado para as suas funções em comparação com o painel de aplicação de função predefinido.    |
 
 ![O editor do serviço de aplicações](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
-
-### <a name="settings"></a>Definições da aplicação
-
-| | |
-|-|-|
-| ![Definições de aplicação da aplicação de funções.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | O serviço de aplicações **as definições da aplicação** painel é onde pode configurar e gerir versões de estrutura, depuração remota, as definições da aplicação e as cadeias de ligação. Quando integrar a sua aplicação de função com outros serviços de terceiros e do Azure, pode modificar essas definições aqui. Para eliminar uma definição, desloque-se para a direita e selecione o **X** ícone na extremidade direita da linha (não mostrada na imagem seguinte).
-
-![Configurar definições da aplicação](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
 ### <a name="console"></a>Console
 

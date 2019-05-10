@@ -4,23 +4,35 @@
   items:
     - name: Sobre a Configuração da Aplicação Azure
       href: overview.md
+    - name: FAQ
+      href: faq.md
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Criar uma aplicação ASP.NET Core
-      href: quickstart-aspnet-core-app.md
-    - name: Criar uma aplicação .NET Core
-      href: quickstart-dotnet-core-app.md
-    - name: Criar uma aplicação .NET Framework
-      href: quickstart-dotnet-app.md
-    - name: Criar uma função do Azure
-      href: quickstart-azure-function-csharp.md
-    - name: Criar uma aplicação Java Spring
-      href: quickstart-java-spring-app.md
+    - name: Configuração
+      items:
+        - name: Núcleo de ASP.NET
+          href: quickstart-aspnet-core-app.md
+        - name: .NET Core
+          href: quickstart-dotnet-core-app.md
+        - name: .NET Framework
+          href: quickstart-dotnet-app.md
+        - name: Função do Azure no .NET Core
+          href: quickstart-azure-function-csharp.md
+        - name: Java Spring
+          href: quickstart-java-spring-app.md
+    - name: Gestão de funcionalidades
+      items:
+        - name: Núcleo de ASP.NET
+          href: quickstart-feature-flag-aspnet-core.md
 - name: Tutoriais
   items:
     - name: Ativar a configuração dinâmica no ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
+    - name: Utilizar sinalizadores de funcionalidades numa aplicação .NET Core
+      href: use-feature-flags-dotnet-core.md
+    - name: Gerir sinalizadores de funcionalidades
+      href: manage-feature-flags.md
     - name: Integrar num pipeline CI/CD
       href: integrate-ci-cd-pipeline.md
 - name: Amostras
@@ -33,24 +45,36 @@
       href: concept-key-value.md
     - name: Instantâneo para um ponto anterior no tempo
       href: concept-point-time-snapshot.md
+    - name: Gestão de funcionalidades
+      href: concept-feature-management.md
 - name: Guias de procedimentos
   items:
     - name: Integrar na Identidade de Serviço Gerida do Azure
       href: howto-integrate-azure-managed-service-identity.md
     - name: Importar ou exportar dados de configuração
       href: howto-import-export-data.md
+    - name: Melhores práticas
+      href: howto-best-practices.md
 - name: Referência
   items:
-    - name: Fornecedor de configuração do .NET Core
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
-    - name: Criador de configuração do .NET Framework
-      href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
-    - name: Fornecedor de configuração do Java Spring
-      href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
-    - name: SDK do Azure em .NET
-      href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
-    - name: REST
-      href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Configuração
+      items:
+        - name: Fornecedor de configuração do .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074664'
+        - name: Criador de configuração do .NET Framework
+          href: 'https://go.microsoft.com/fwlink/?linkid=2074663'
+        - name: Fornecedor de configuração do Java Spring
+          href: 'https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config'
+        - name: SDK do Azure em .NET
+          href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane'
+        - name: REST
+          href: 'https://go.microsoft.com/fwlink/?linkid=2078296'
+    - name: Gestão de funcionalidades
+      items:
+        - name: Biblioteca de .NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091700'
+        - name: Biblioteca de ASP.NET Core
+          href: 'https://go.microsoft.com/fwlink/?linkid=2091410'
 - name: Recursos
   items:
     - name: Vídeo de Introdução

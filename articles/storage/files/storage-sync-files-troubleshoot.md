@@ -2,20 +2,20 @@
 title: Resolver problemas da sincronização de ficheiros do Azure | Documentos da Microsoft
 description: Resolva problemas comuns com o Azure File Sync.
 services: storage
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: article
 ms.date: 01/31/2019
-ms.author: rogarana
+ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: e399566a67161219e1d778ba1c6f874f7cede251
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190089"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510845"
 ---
-# <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
+# <a name="troubleshoot-azure-file-sync"></a>Resolver problemas do Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
 
 Este artigo destina-se para o ajudar a resolver problemas que podem surgir com a sua implementação do Azure File Sync. Também descreveremos como recolher registos importantes do sistema, se for necessária uma investigação mais aprofundada do problema. Se não vir a resposta à sua pergunta, pode contactar-nos através dos canais seguintes (em ordem de cada vez maiores):
@@ -84,14 +84,14 @@ Se vir esta mensagem e a partilha de ficheiros do Azure atualmente não está em
 Este problema ocorre se a sua conta de utilizador não tem direitos suficientes para criar um ponto final da cloud. 
 
 Para criar um ponto final da cloud, sua conta de utilizador tem de ter as seguintes permissões de Authorization da Microsoft:  
-* Leitura: Obter a definição de função
+* Leitura: Obter definição de função
 * Escreva: Criar ou atualizar uma definição de função personalizada
-* Leitura: Obter a atribuição de função
+* Leitura: Obter atribuição de função
 * Escreva: Criar atribuição de função
 
 As seguintes funções incorporadas têm as permissões necessárias do Authorization da Microsoft:  
 * Proprietário
-* Administrador de Acesso de Utilizador
+* Administrador de Acesso dos Utilizadores
 
 Para determinar se a sua função de conta de utilizador tem as permissões necessárias:  
 1. No portal do Azure, selecione **grupos de recursos**.
@@ -153,7 +153,7 @@ Um ponto final do servidor não poderá iniciar a atividade de sincronização p
 > [!Note]  
 > Se o estado do servidor no painel servidores registados é "Aparece Offline", execute os passos documentados no [ponto final do servidor tem um Estado de funcionamento de "Sem atividade" ou "Pendente" e o estado do servidor no painel servidores registados é "Aparece offline" ](#server-endpoint-noactivity) secção.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Sincronizar
 <a id="afs-change-detection"></a>**Se tiver criado um ficheiro diretamente na minha partilha de ficheiros do Azure através de SMB ou através do portal, quanto tempo é necessário para o ficheiro para sincronizar com servidores no grupo de sincronização?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -166,7 +166,7 @@ Em cada grupo de sincronização, pode desagregar para seus pontos de extremidad
 
 ![Uma captura de ecrã do portal do Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# <a name="servertabserver"></a>[Servidor](#tab/server)
+# <a name="servertabserver"></a>[servidor](#tab/server)
 Aceda aos registos de telemetria do servidor, o que podem ser encontrados, além de eventos, Visualizador em `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. Evento 9102 corresponde a uma sessão de sincronização concluída; Para obter o estado mais recente da sincronização, procure o evento mais recente com ID 9102. SyncDirection indica se esta sessão foi um carregamento ou transferência. Se o HResult for 0, a sessão de sincronização foi concluída com êxito. Um HResult diferente de zero, significa que ocorreu um erro durante a sincronização; Veja abaixo para obter uma lista dos erros comuns. Se o PerItemErrorCount for maior que 0, isso significa que alguns ficheiros ou pastas não foram sincronizados corretamente. É possível que tenha um HResult de 0, mas um PerItemErrorCount maior que 0.
 
 Segue-se um exemplo de um carregamento com êxito. Por questão de brevidade, apenas alguns dos valores contidos em cada evento 9102 estão listados abaixo. 
@@ -201,7 +201,7 @@ TransferredFiles: 0, TransferredBytes: 0, FailedToTransferFiles: 0, FailedToTran
 # <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 No seu grupo de sincronização, vá para o ponto final do servidor em questão e veja a secção de atividade de sincronização para ver a contagem de ficheiros carregados ou transferidos na sessão de sincronização atual. Tenha em atenção que este estado será adiado cerca de 5 minutos e, se a sua sessão de sincronização é pequena o suficiente para ser concluída durante este período, pode não será possível reportar no portal. 
 
-# <a name="servertabserver"></a>[Servidor](#tab/server)
+# <a name="servertabserver"></a>[servidor](#tab/server)
 Veja o que é mais recente 9302 na telemetria do registo de eventos no servidor (no Visualizador de eventos, vá para aplicações e serviços Logs\Microsoft\FileSync\Agent\Telemetry). Este evento indica o estado da sessão de sincronização atual. TotalItemCount indica quantos ficheiros estão a ser sincronizados, AppliedItemCount o número de ficheiros que foram sincronizados até agora e PerItemErrorCount o número de ficheiros que estão a falhar para sincronização (veja abaixo para saber como lidar com isso).
 
 ```
@@ -223,7 +223,7 @@ Para cada servidor num grupo de sincronização de determinado, certifique-se:
 - O campo de atividade de sincronização mostra muito poucos ou nenhum arquivo restantes para sincronização.
 - O campo de ficheiros não sincronizar é 0 para carregamento e transferência.
 
-# <a name="servertabserver"></a>[Servidor](#tab/server)
+# <a name="servertabserver"></a>[servidor](#tab/server)
 Veja as sessões de sincronização concluída, o que estão marcadas pelo 9102 eventos no registo de eventos de telemetria para cada servidor (no Visualizador de eventos, aceda a `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
 1. Em qualquer determinado servidor, que pretende certificar-se de que o carregamento mais recente e baixe sessões foi concluídas com êxito. Para tal, verifique que o HResult e PerItemErrorCount são 0 para carregamento e transferência (o campo de SyncDirection indica se uma determinada sessão é uma sessão de carregamento ou transferência). Tenha em atenção que, se não vir uma sessão de sincronização concluídas recentemente, é provável que uma sessão de sincronização está atualmente em curso, o que é esperado se simplesmente adicionado ou modificado uma grande quantidade de dados.

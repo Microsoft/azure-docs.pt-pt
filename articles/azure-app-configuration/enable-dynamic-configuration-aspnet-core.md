@@ -16,7 +16,7 @@ ms.author: yegu
 ms.custom: mvc
 ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
 ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/08/2019
 ms.locfileid: "65408820"

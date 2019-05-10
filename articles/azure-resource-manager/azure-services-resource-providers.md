@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 04/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 057e8d78b531abc4ee6d1b16c25a1a6f3b382977
-ms.sourcegitcommit: 9ad75f83bbf0fc4623b7995794f33bbf823b31c0
+ms.openlocfilehash: 54493efdc0bffcbb4654b65676554f6707716968
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64537461"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235571"
 ---
 # <a name="resource-providers-for-azure-services"></a>Fornecedores de recursos para serviços do Azure
 
@@ -56,7 +56,7 @@ Este artigo mostra como o mapeamento de espaços de nomes de fornecedor de recur
 | Microsoft.Consumption | [Gestão de custos](/azure/cost-management/) |
 | Microsoft.ContainerInstance | [Instâncias de contentor](/azure/container-instances/) |
 | Microsoft.ContainerRegistry | [Registo de contentor](/azure/container-registry/) |
-| Microsoft.ContainerService | [Azure Kubernetes Service (AKS)](/azure/aks/) |
+| Microsoft.ContainerService | [Serviço Kubernetes do Azure (AKS)](/azure/aks/) |
 | Microsoft.ContentModerator | [Azure Content Moderator](../cognitive-services/content-moderator/index.yml) |
 | Microsoft.CostManagement | [Gestão de custos](/azure/cost-management/) |
 | Microsoft.CustomerInsights | Informações do Cliente |
@@ -115,7 +115,7 @@ Este artigo mostra como o mapeamento de espaços de nomes de fornecedor de recur
 | Microsoft.Migrate | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.MixedReality | [Âncoras espaciais do Azure](/azure/spatial-anchors/) |
 | Microsoft.NetApp | [Ficheiros do Azure NetApp](../azure-netapp-files/index.yml) |
-| Microsoft.Network | [Rede Virtual](../virtual-network/index.yml)<br />[Balanceador de Carga](../load-balancer/index.yml)<br />[Gateway de Aplicação](/application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[Gateway de VPN](../vpn-gateway/index.yml)<br />[Gestor de Tráfego](../traffic-manager/index.yml)<br />[Observador de rede](../network-watcher/index.yml)<br />[Firewall do Azure](../firewall/index.yml)<br />[Serviço de porta de entrada do Azure](../frontdoor/index.yml) |
+| Microsoft.Network | [Rede Virtual](../virtual-network/index.yml)<br />[Balanceador de Carga](../load-balancer/index.yml)<br />[Gateway de Aplicação](../application-gateway/index.yml)<br />[Azure DNS](../dns/index.yml)<br />[ExpressRoute](../expressroute/index.yml)<br />[Gateway de VPN](../vpn-gateway/index.yml)<br />[Gestor de Tráfego](../traffic-manager/index.yml)<br />[Observador de rede](../network-watcher/index.yml)<br />[Firewall do Azure](../firewall/index.yml)<br />[Serviço de porta de entrada do Azure](../frontdoor/index.yml) |
 | Microsoft.NotificationHubs | [Hubs de Notificação](../notification-hubs/index.yml) |
 | Microsoft.OffAzure | [Azure Migrate](../migrate/migrate-overview.md) |
 | Microsoft.OperationalInsights | [Azure Monitor](../azure-monitor/index.yml) |

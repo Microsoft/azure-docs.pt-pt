@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: a7a020284f44eda0da62f307866c74b0a8df493d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: e87e95ec9e4e20ee4785c2b1f448a7ca5f442b8a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205705"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409200"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Definir e configurar a integração de relatório de custos do AWS e utilização
 
@@ -38,7 +38,7 @@ Utilize o **relatórios** página da consola de faturação e gestão de custos 
 7. Para **ativar o suporte para**, nenhuma seleção é necessária.
 8. Para **definições de atualização de dados**, selecione **atualiza automaticamente os seus custos &amp; relatório de utilização quando custos são detetados durante meses anteriores com fechado faturas**.
 9. Clique em **Seguinte**.
-10. Para **bucket do Amazon S3**, escreva o nome do bucket do Amazon S3 onde pretende que os relatórios fornecidos para e clique em **verificar**. O registo tem de ter permissões adequadas para ser válida. Para obter mais informações sobre como adicionar permissões para o registo, consulte [Bucket de definição e permissões de acesso de objeto](http://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
+10. Para **bucket do Amazon S3**, escreva o nome do bucket do Amazon S3 onde pretende que os relatórios fornecidos para e clique em **verificar**. O registo tem de ter permissões adequadas para ser válida. Para obter mais informações sobre como adicionar permissões para o registo, consulte [Bucket de definição e permissões de acesso de objeto](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/set-permissions.html).
 11. Para **prefixo do caminho de relatório**, escreva o prefixo do caminho de relatório que pretende ser adicionado ao nome do seu relatório.
 12. Para **compressão**, selecione **GZIP**.
 13. Clique em **Seguinte**.

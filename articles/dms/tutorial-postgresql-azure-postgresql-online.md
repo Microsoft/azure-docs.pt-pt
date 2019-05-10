@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 67212986e0478a03ac2ef1b5f30488cc1c7f869d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137421"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415693"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL para a Base de Dados do Azure para PostgreSQL online com o DMS
 
@@ -24,7 +24,6 @@ Pode utilizar o serviço de migração de base de dados do Azure para migrar as 
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-
 > * Migre o esquema de exemplo usando o utilitário de pg_dump.
 > * Criar uma instância do Azure Database Migration Service.
 > * Utilizar o Azure Database Migration Service para criar um projeto de migração.
@@ -46,10 +45,10 @@ Para concluir este tutorial, precisa de:
     Além disso, a versão do PostgreSQL no local tem de corresponder à versão da Base de Dados do Azure para PostgreSQL. Por exemplo, o PostgreSQL 9.5.11.5 só pode ser migrado para a Base de Dados do Azure para PostgreSQL 9.5.11 e não para a versão 9.6.7.
 
     > [!NOTE]
-    > Para o PostgreSQL versão 10, atualmente DMS só suporta a migração da versão 10.3 à base de dados do Azure para PostgreSQL. Pretendemos oferecer suporte à versões mais recentes do PostgreSQL muito em breve.
+    > Para o PostgreSQL versão 10, atualmente DMS só suporta a migração da versão 10.3 à base de dados do Azure para PostgreSQL.
 
 * [Criar uma instância na Base de Dados do Azure para PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Criar uma rede Virtual do Azure (VNet) para o Azure Database Migration Service com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Criar uma rede Virtual do Azure (VNet) para o Azure Database Migration Service com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local através de um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para obter mais informações sobre como criar uma VNet, veja a [documentação das redes virtuais](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
     > Durante a configuração de VNet, se utilizar o ExpressRoute com peering de rede para a Microsoft, adicione o seguinte serviço [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) à sub-rede na qual o serviço será aprovisionado:
@@ -65,6 +64,7 @@ Para concluir este tutorial, precisa de:
 * Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração.
 * Criar ao nível do servidor [regra de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) para base de dados do Azure para PostgreSQL permitir que o serviço de migração de base de dados do Azure aceder às bases de dados de destino. Forneça o intervalo de sub-rede da VNet utilizada para o Azure Database Migration Service.
 * Existem dois métodos para invocar a CLI:
+
     * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:
 
        ![Botão Cloud Shell no portal do Azure](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
@@ -210,6 +210,7 @@ Para concluir todos os objetos de base de dados, como esquemas de tabela, índic
    ```
 
    Por exemplo, o seguinte comando vai criar um serviço em:
+
    * Localização: E.U.A. Leste 2
    * Subscrição: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nome do Grupo de Recursos: PostgresDemo

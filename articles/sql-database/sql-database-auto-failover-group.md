@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 04/19/2019
-ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61417363"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415946"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
-Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor de base de dados SQL ou todas as bases de dados numa instância gerida para outra região (atualmente em pré-visualização pública para a instância gerida). Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
+Grupos de ativação pós-falha automática é uma funcionalidade de base de dados SQL permite-lhe gerir a replicação e ativação pós-falha de um grupo de bases de dados num servidor de base de dados SQL ou todas as bases de dados numa instância gerida para outra região. Ele usa a mesma tecnologia subjacente [georreplicação ativa](sql-database-active-geo-replication.md). Pode iniciar a ativação pós-falha manualmente ou pode delegá-lo para o serviço de base de dados SQL com base numa política definida pelo utilizador. A última opção permite-lhe recuperar automaticamente de várias bases de dados relacionados numa região secundária, após uma falha catastrófica ou outro evento não planeado, que resulta em perda total ou parcial de disponibilidade do serviço de base de dados SQL na região primária. Além disso, pode utilizar as bases de dados secundárias legíveis para a descarga de cargas de trabalho de consulta só de leitura. Uma vez que os grupos de ativação pós-falha automática envolvem várias bases de dados, esses bancos de dados tem de ser configurados no servidor primário. Os servidores primários e secundários para as bases de dados no grupo de ativação pós-falha têm de estar na mesma subscrição. Grupos de ativação pós-falha automática suportam a replicação de todas as bases de dados no grupo de apenas um servidor secundário numa região diferente.
 
 > [!NOTE]
 > Ao trabalhar com bancos de dados individuais ou agrupados num servidor de base de dados SQL e quiser que várias bases de dados secundárias nas regiões idêntica ou diferentes, utilize [georreplicação ativa](sql-database-active-geo-replication.md).
@@ -42,15 +42,11 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Grupo de ativação pós-falha (NÉVOA)**
 
-  Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária.
+  Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária. Quando é criado para instâncias geridas, um grupo de ativação pós-falha contém todas as bases de dados de utilizador na instância e, portanto, os grupos de ativação pós-falha apenas um podem ser configurados numa instância.
 
-  - **Servidores de base de dados SQL**
+- **Servidores de base de dados SQL**
 
      Com os servidores de base de dados SQL, algumas ou todas as bases de dados do usuário num único servidor de base de dados SQL podem ser colocadas num grupo de ativação pós-falha. Além disso, um servidor de base de dados SQL suporta vários grupos de ativação pós-falha num único servidor de base de dados SQL.
-
-  - **Instâncias geridas**
-  
-     Com a instância gerida, um grupo de ativação pós-falha contém todas as bases de dados de utilizador na instância gerida e, portanto, uma instância gerida suporta apenas um grupo de ativação pós-falha único.
 
 - **Primário**
 
@@ -64,36 +60,27 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   Pode colocar várias bases de dados individuais no mesmo servidor de base de dados SQL no mesmo grupo de ativação pós-falha. Se adicionar uma base de dados para o grupo de ativação pós-falha, este cria automaticamente uma base de dados secundária com o mesmo tamanho de edição e de computação no servidor secundário.  Esse servidor que especificou quando foi criado o grupo de ativação pós-falha. Se adicionar uma base de dados que já tenha uma base de dados secundária no servidor secundário, essa ligação de georreplicação é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, um secundário novo é criado no servidor secundário.
   
-> [!IMPORTANT]
-  > Na instância gerida, todas as bases de dados do utilizador são replicadas. Não é possível escolher um subconjunto de bases de dados de utilizador para a replicação no grupo de ativação pós-falha.
+  > [!IMPORTANT]
+  > Numa instância gerida, todas as bases de dados do utilizador são replicadas. Não é possível escolher um subconjunto de bases de dados de utilizador para a replicação no grupo de ativação pós-falha.
 
 - **Adicionar bases de dados num conjunto elástico ao grupo de ativação pós-falha**
 
   Pode colocar todas ou várias bases de dados dentro de um conjunto elástico no mesmo grupo de ativação pós-falha. Se a base de dados primária num conjunto elástico, secundário é criado automaticamente no conjunto elástico com o mesmo nome (conjunto secundário). Tem de se certificar de que o servidor secundário contém um conjunto elástico com o mesmo nome exato e a capacidade livre suficiente para alojar as bases de dados secundários que vão ser criadas pelo grupo de ativação pós-falha. Se adicionar uma base de dados no conjunto que já tem uma base de dados secundária no agrupamento de secundário, essa ligação de georreplicação é herdada pelo grupo. Quando adiciona uma base de dados que já tenha uma base de dados secundário num servidor que não faz parte do grupo de ativação pós-falha, é criado um secundário novo no agrupamento de secundário.
   
-  - **Serviço de escuta de leitura / escrita de grupo de ativação pós-falha**
+- **Zona DNS**
 
-  Um registo CNAME de DNS formado que aponta para o URL da principal atual. Ele permite que os aplicativos de SQL de leitura / escrita de forma transparente voltar a ligar à base de dados primária quando primário é alterado após a ativação pós-falha.
+  Um ID exclusivo que é gerado automaticamente quando é criada uma nova instância. Um certificado de (SAN) de vários domínio para esta instância é aprovisionado para autenticar as ligações de cliente para qualquer instância na mesma zona de DNS. As duas instâncias geridas no mesmo grupo de ativação pós-falha têm de partilhar a zona DNS. 
+  
+  > [!NOTE]
+  > Um ID de zona DNS não é necessário para os grupos de ativação pós-falha criados para servidores de base de dados SQL.
 
-  - **Servidor de base de dados SQL registo CNAME de DNS para o serviço de escuta de leitura / escrita**
+- **Serviço de escuta de leitura / escrita de grupo de ativação pós-falha**
 
-     Num servidor de base de dados SQL, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `<fog-name>.database.windows.net`.
-
-  - **Gerido registo CNAME de DNS de instância para o serviço de escuta de leitura / escrita**
-
-     Na instância gerida, o registo CNAME no DNS para o grupo de ativação pós-falha que aponta para URL o primário atual está formado como `<fog-name>.zone_id.database.windows.net`.
+  Um registo CNAME de DNS formado que aponta para o URL da principal atual. Ele permite que os aplicativos de SQL de leitura / escrita de forma transparente voltar a ligar à base de dados primária quando primário é alterado após a ativação pós-falha. Quando é criado o grupo de ativação pós-falha num servidor de base de dados SQL, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.database.windows.net`. Quando é criado o grupo de ativação pós-falha numa instância gerida, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.zone_id.database.windows.net`.
 
 - **Escuta de só de leitura do grupo de ativação pós-falha**
 
-  Um registo CNAME de DNS formado que aponta para o serviço de escuta só de leitura que aponta para URL o secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para o secundário com as regras de balanceamento de carga especificadas.
-
-  - **Servidor de base de dados SQL registo CNAME de DNS para o serviço de escuta só de leitura**
-
-     Num servidor de base de dados SQL, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `'.secondary.database.windows.net`.
-
-  - **Gerido registo CNAME de DNS de instância para o serviço de escuta só de leitura**
-
-     Na instância gerida, o registo CNAME no DNS para o serviço de escuta só de leitura que aponta para URL o secundário está formado como `<fog-name>.zone_id.database.windows.net`.
+  Um registo CNAME de DNS formado que aponta para o serviço de escuta só de leitura que aponta para URL o secundário. Ele permite que os aplicativos de SQL só de leitura ligar de forma transparente para o secundário com as regras de balanceamento de carga especificadas. Quando é criado o grupo de ativação pós-falha num servidor de base de dados SQL, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.secondary.database.windows.net`. Quando é criado o grupo de ativação pós-falha numa instância gerida, o registo CNAME no DNS para o URL do serviço de escuta é formado como `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Política de ativação pós-falha automática**
 
@@ -101,7 +88,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Política de ativação pós-falha só de leitura**
 
-  Por predefinição, a ativação pós-falha do serviço de escuta só de leitura está desativada. Ele garante que o desempenho dos principais não é afetado quando secundário está offline. No entanto, isso também significa que as sessões de só de leitura não será possível se conectar até que o elemento secundário for recuperado. Se não pode tolerar o período de indisponibilidade para as sessões de só de leitura e OK para usar temporariamente a principal para tráfego de só de leitura e leitura / escrita às custas da degradação do desempenho potencial dos principais, pode ativar a ativação pós-falha para o serviço de escuta só de leitura. Nesse caso o tráfego de só de leitura será automaticamente redirecionado para o primário se secundário não está disponível.
+  Por predefinição, a ativação pós-falha do serviço de escuta só de leitura está desativada. Ele garante que o desempenho dos principais não é afetado quando secundário está offline. No entanto, isso também significa que as sessões de só de leitura não será possível se conectar até que o elemento secundário for recuperado. Se não pode tolerar o período de indisponibilidade para as sessões de só de leitura e OK para usar temporariamente a principal para tráfego de só de leitura e leitura / escrita às custas da degradação do desempenho potencial dos principais, pode ativar a ativação pós-falha para o serviço de escuta só de leitura. Nesse caso, o tráfego de só de leitura será automaticamente redirecionado para o primário se secundário não está disponível.
 
 - **Ativação pós-falha planeada**
 
@@ -127,7 +114,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
   Pode configurar vários grupos de ativação pós-falha para o mesmo par de servidores para controlar a escala de ativações pós-falha. Cada grupo faz a ativação pós-falha independentemente. Se a sua aplicação multi-inquilino utiliza conjuntos elásticos, pode utilizar esta capacidade misturar bases de dados primários e secundários em cada agrupamento. Dessa forma pode reduzir o impacto de uma indisponibilidade para apenas metade dos inquilinos.
 
-  > [!IMPORTANT]
+  > [!NOTE]
   > Instância gerida não suporta vários grupos de ativação pós-falha.
   
 ## <a name="permissions"></a>Permissões
@@ -173,8 +160,8 @@ Ao projetar um serviço com a continuidade do negócio em mente, siga estas Dire
 
   Se for detetada uma falha, o SQL espera para o período especificado por **GracePeriodWithDataLossHours**. O valor predefinido é 1 hora. Se não podem estar perda de dados, certifique-se definir **GracePeriodWithDataLossHours** para um número grande o suficiente, por exemplo, 24 horas. Utilize o manual do grupo de ativação pós-falha para reativação pós-falha a partir de secundário para o primário.
 
-> [!IMPORTANT]
-> Conjuntos elásticos com DTUs 800 ou menos e mais de 250 bancos de dados com georreplicação poderão encontrar problemas, incluindo já as ativações pós-falha planeadas e degradação do desempenho.  Esses problemas têm maior probabilidade de ocorrer para cargas de trabalho intensivas de escrita, quando os pontos finais de georreplicação amplamente são separados por geografia, ou quando vários pontos de extremidade secundários são utilizados para cada base de dados.  Os sintomas desses problemas são indicados quando o desfasamento de georreplicação aumenta ao longo do tempo.  Este atraso pode ser monitorizado com [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se ocorrer estes problemas, atenuações incluem aumento do número de DTUs do conjunto, ou reduzir o número de bases de dados georreplicada no mesmo conjunto.
+  > [!IMPORTANT]
+  > Conjuntos elásticos com DTUs 800 ou menos e mais de 250 bancos de dados com georreplicação poderão encontrar problemas, incluindo já as ativações pós-falha planeadas e degradação do desempenho.  Esses problemas têm maior probabilidade de ocorrer para cargas de trabalho intensivas de escrita, quando os pontos finais de georreplicação amplamente são separados por geografia, ou quando vários pontos de extremidade secundários são utilizados para cada base de dados.  Os sintomas desses problemas são indicados quando o desfasamento de georreplicação aumenta ao longo do tempo.  Este atraso pode ser monitorizado com [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Se ocorrer estes problemas, atenuações incluem aumento do número de DTUs do conjunto, ou reduzir o número de bases de dados georreplicada no mesmo conjunto.
 
 ## <a name="best-practices-of-using-failover-groups-with-managed-instances"></a>Melhores práticas de utilização de grupos de ativação pós-falha com instâncias geridas
 
@@ -185,13 +172,13 @@ O grupo de ativação pós-falha automática tem de ser configurado na instânci
 > [!IMPORTANT]
 > Grupos de ativação pós-falha automática para a instância gerida está em pré-visualização pública.
 
-Se a sua aplicação utilizar a instância gerida como a camada de dados, siga estas Diretrizes gerais quando conceber para continuidade do negócio:
+Se a sua aplicação utilizar a instância gerida, como a camada de dados, siga estas Diretrizes gerais quando conceber para continuidade do negócio:
 
 - **Criar a segunda instância na mesma zona de DNS como a instância principal**
 
-  Quando é criada uma nova instância, um id exclusivo é automaticamente gerado como a zona DNS e incluído no nome DNS da instância. Um domínio multi (SAN) de certificado para esta instância é aprovisionada com o campo de SAN na forma de `zone_id.database.windows.net`. Este certificado pode ser utilizado para autenticar as ligações de cliente para uma instância na mesma zona de DNS. Para garantir a conectividade não é interrompido para a instância primária após a ativação pós-falha a primária e secundária instâncias tem de ser na mesma zona de DNS. Quando o aplicativo está pronto para implantação de produção, criar uma instância secundária numa região diferente e certifique-se de que partilha a zona DNS com a instância primária. Isso é feito ao especificar um `DNS Zone Partner` parâmetro opcional com o portal do Azure, PowerShell ou a API REST.
+  Para garantir a conectividade não é interrompido para a instância primária após a ativação pós-falha a primária e secundária instâncias tem de ser na mesma zona de DNS. Ele garantirá que o mesmo certificado de (SAN) de vários domínio pode ser utilizado para autenticar as ligações de cliente para qualquer uma das duas instâncias, no grupo de ativação pós-falha. Quando o aplicativo está pronto para implantação de produção, criar uma instância secundária numa região diferente e certifique-se de que partilha a zona DNS com a instância primária. Pode fazê-lo ao especificar um `DNS Zone Partner` parâmetro opcional com o portal do Azure, PowerShell ou a API REST. 
 
-  Para obter mais informações sobre como criar a segunda instância na mesma zona de DNS como a instância principal, consulte [gerenciamento de grupos de ativação pós-falha com instâncias de geridas (pré-visualização)](#powershell-managing-failover-groups-with-managed-instances-preview).
+  Para obter mais informações sobre como criar a segunda instância na mesma zona de DNS como a instância principal, consulte [gestão de grupos de ativação pós-falha com o managed instances (pré-visualização)](#powershell-managing-failover-groups-with-managed-instances-preview).
 
 - **Ativar o tráfego de replicação entre duas instâncias**
 
@@ -206,7 +193,7 @@ Se a sua aplicação utilizar a instância gerida como a camada de dados, siga e
 
 - **Utilizar o serviço de escuta de leitura / escrita para a carga de trabalho OLTP**
 
-  Quando executar operações de OLTP, utilize `<fog-name>.zone_id.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. A ativação pós-falha envolve a atualizar o registo DNS, para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado. Uma vez que a instância secundária compartilha a zona DNS com o principal, a aplicação cliente poderá voltar a ligar ao mesmo com o mesmo certificado de SAN.
+  Quando executar operações de OLTP, utilize `<fog-name>.zone_id.database.windows.net` que o servidor de URL e as ligações automaticamente são direcionadas para o primário. Este URL não é alterada após a ativação pós-falha. A ativação pós-falha envolve a atualizar o registo DNS, para que as ligações de cliente são redirecionadas para a nova principal apenas depois do cache DNS do cliente é atualizado. Uma vez que a instância secundária compartilha a zona DNS com o principal, a aplicação de cliente será possível restabelecer a ligação ao mesmo com o mesmo certificado de SAN.
 
 - **Ligar diretamente a georreplicação secundária para consultas só de leitura**
 
@@ -225,14 +212,14 @@ Se a sua aplicação utilizar a instância gerida como a camada de dados, siga e
 
   Se for detetada uma falha, o SQL aciona automaticamente ativação pós-falha de leitura e escrita se houver perda de dados para o melhor dos nossos dados de conhecimento. Caso contrário, ele aguarda o período especificado pelo `GracePeriodWithDataLossHours`. Se tiver especificado `GracePeriodWithDataLossHours`, estar preparado para perda de dados. Em geral, durante as falhas, o Azure favorece disponibilidade. Se não podem estar perda de dados, certifique-se de definir GracePeriodWithDataLossHours como um número grande o suficiente, por exemplo, 24 horas.
 
-  A atualização DNS do serviço de escuta de leitura / escrita acontecerá imediatamente após a ativação pós-falha é iniciada. Esta operação não irá resultar na perda de dados. No entanto, o processo de mudança de funções de base de dados pode demorar até 5 minutos em condições normais. Até estar concluída, algumas bases de dados na nova instância principal continuará a ser só de leitura. Se a ativação pós-falha é iniciada com o PowerShell, em seguida, toda a operação é síncrona. Se for iniciada através do portal do Azure, em seguida, a interface do Usuário irá indicar o estado de conclusão. Se for iniciada através da API REST, utilize o mecanismo de consulta padrão do Azure Resource Manager para monitorizar para conclusão.
+  A atualização DNS do serviço de escuta de leitura / escrita acontecerá imediatamente após a ativação pós-falha é iniciada. Esta operação não irá resultar na perda de dados. No entanto, o processo de mudança de funções de base de dados pode demorar até 5 minutos em condições normais. Até estar concluída, algumas bases de dados na nova instância principal continuará a ser só de leitura. Se a ativação pós-falha é iniciada com o PowerShell, toda a operação é síncrona. Se for iniciada com o portal do Azure, a interface do Usuário irá indicar o estado de conclusão. Se for iniciada através da API REST, utilize o mecanismo de consulta padrão do Azure Resource Manager para monitorizar para conclusão.
 
   > [!IMPORTANT]
   > Utilize o manual do grupo de ativação pós-falha para mover cores primárias de volta para a localização original. Quando a indisponibilidade que causou a ativação pós-falha é atenuada, pode mover as bases de dados primárias para a localização original. Para fazer isso deve iniciar a ativação pós-falha manual do grupo.
 
 ## <a name="failover-groups-and-network-security"></a>Grupos de ativação pós-falha e de segurança de rede
 
-Para alguns aplicativos, que as regras de segurança requerem que o acesso à rede para a camada de dados está restrito a um componente específico ou de componentes, como uma VM, web service etc. Este requisito apresenta alguns desafios para o design de continuidade do negócio e a utilização dos grupos de ativação pós-falha. Deve considerar as seguintes opções ao implementar esse acesso restrito.
+Para alguns aplicativos, que as regras de segurança requerem que o acesso à rede para a camada de dados está restrito a um componente específico ou de componentes, como uma VM, web service etc. Este requisito apresenta alguns desafios para o design de continuidade do negócio e a utilização dos grupos de ativação pós-falha. Considere as seguintes opções ao implementar esse acesso restrito.
 
 ### <a name="using-failover-groups-and-virtual-network-rules"></a>Utilização de grupos de ativação pós-falha e regras de rede virtual
 
@@ -266,25 +253,25 @@ A configuração acima serão Certifique-se de que a ativação pós-falha autom
 
 ## <a name="enabling-geo-replication-between-managed-instances-and-their-vnets"></a>Ativar a georreplicação entre instâncias geridas e as VNets
 
-Quando configurar um grupo de ativação pós-falha entre a primárias e secundárias instâncias geridas em duas regiões diferentes, cada instância é isolada usando uma VNet independente. Para permitir o tráfego de replicação nestas VNets, certifique-se de seguir estes pré-requisitos são cumpridos:
+Quando configurar um grupo de ativação pós-falha entre a primárias e secundárias instâncias geridas em duas regiões diferentes, cada instância é isolada usando uma VNet independente. Para permitir o tráfego de replicação entre nestas VNets, certifique-se destes pré-requisitos são cumpridos:
 
 1. As duas instâncias geridas tem de estar em diferentes regiões do Azure.
 2. Sua secundário tem de estar vazio (não existem bases de dados do utilizador).
-3. As instâncias de geridas primária e secundária tem de estar no mesmo grupo de recursos.
+3. As instâncias geridas primárias e secundárias tem de estar no mesmo grupo de recursos.
 4. As VNets que as instâncias geridas fazem parte de precisam estar conectados por meio de um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md). Não é suportado para o global VNet Peering.
-5. As duas VNets de instância gerida não pode ter a sobreposição de endereços IP.
-6. É necessário configurar a sua rede grupos de segurança (NSG) desse tipo que portas 5022 e o intervalo de 11000 ~ 12000 são conexões abertas de entrada e saídas para a partir da sub-rede geridos instanciados. Isso é para permitir o tráfego de replicação entre as instâncias
+5. A instância gerida duas VNets não pode ter endereços IP sobrepostos.
+6. Terá de configurar a sua rede grupos de segurança (NSG) desse tipo que portas 5022 e o intervalo de 11000 ~ 12000 são abrir a entrada e saída para ligações a partir de outro geridos solicitei sub-rede. Isso é para permitir o tráfego de replicação entre as instâncias
 
-    > [!IMPORTANT]
-    > Configurado incorretamente oportunidades potenciais de regras do NSG segurança para operações de cópia da base de dados paralisado.
+   > [!IMPORTANT]
+   > Configurado incorretamente oportunidades potenciais de regras do NSG segurança para operações de cópia da base de dados paralisado.
 
-7. Tem de configurar o parceiro de zona DNS na instância secundária. Uma zona DNS é uma propriedade de uma instância gerida. Ele representa a parte do nome de anfitrião que segue o nome de instância gerida e que precede o `.database.windows.net` prefixo. Este é gerado como cadeia de caracteres aleatória durante a criação da primeira instância gerida em cada VNet. A zona DNS não pode ser modificada após a criação de instância gerida e todas as instâncias geridas na mesma sub-rede partilham o mesmo valor de zona DNS. Para a configuração do grupo de ativação pós-falha de instância gerida, a instância gerida primária e a instância gerida secundário têm de partilhar o mesmo valor de zona DNS. Para tal, especificando o parâmetro DnsZonePartner ao criar a instância gerida secundário. A propriedade de parceiro de zona DNS define a instância gerida para partilhar um grupo de ativação pós-falha de instância com. Ao passar para o id de recurso de outra instância gerida, como a entrada de DnsZonePartner, a instância gerida, atualmente a ser criada herda o mesmo valor de zona DNS de parceiro de instância gerida.
+7. A instância secundária está configurada com o ID de zona DNS correto. Zona DNS é uma propriedade de uma instância gerida e o respetivo ID está incluído no endereço de nome de anfitrião. O ID de zona é gerado como uma cadeia de caracteres aleatória quando a primeira instância gerida é criada em cada VNet e o mesmo ID é atribuído a todas as outras instâncias na mesma sub-rede. Após atribuída, não é possível modificar a zona DNS. Instâncias geridas incluídas no mesmo grupo de ativação pós-falha têm de partilhar a zona DNS. Para tal, passando o ID de zona a instância principal como o valor do parâmetro de DnsZonePartner ao criar a instância secundária. 
 
 ## <a name="upgrading-or-downgrading-a-primary-database"></a>Atualizar ou fazer downgrade uma base de dados primária
 
 Pode atualizar ou mudar a versão de uma base de dados principal para um tamanho de computação diferentes (dentro do mesmo escalão de serviço, não entre fins gerais e crítico para a empresa) sem desligar a quaisquer bases de dados secundários. Ao atualizar, recomendamos que Atualize todas as bases de dados secundárias primeiro e, em seguida, atualizar o primário. Ao fazer downgrade, inverter a ordem: mudar para a versão principal primeiro e, em seguida, mudar todas as bases de dados secundários. Quando atualizar ou mudar para a versão da base de dados para um escalão de serviço diferente, esta recomendação é imposta.
 
-Esta sequência recomenda-se especificamente para evitar o problema em que o secundário num SKU inferior fica sobrecarregado e tem de ser propagados novamente durante um processo de atualização ou a mudança para versão anterior. Também pode evitar o problema, tornando o primário só de leitura, às custas de afetar todas as cargas de trabalho de leitura e escrita em relação a principal. 
+Esta sequência recomenda-se especificamente para evitar o problema em que o secundário num SKU inferior fica sobrecarregado e tem de ser reseeded durante um processo de atualização ou a mudança para versão anterior. Também pode evitar o problema, tornando o primário só de leitura, às custas de afetar todas as cargas de trabalho de leitura e escrita em relação a principal. 
 
 > [!NOTE]
 > Se criou a base de dados secundária como parte da configuração do grupo de ativação pós-falha não é recomendado para mudar para a versão da base de dados secundário. Isso é para garantir que sua camada de dados tem capacidade suficiente para processar a carga de trabalho regular depois de ativação pós-falha está ativado.

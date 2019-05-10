@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 30de4da43569abf4d7bd668fd0fa481ecac23f4d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4271d94f07125a870cc4aa859b01db819d583f40
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081102"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406438"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início rápido: Criar uma base de dados do Azure para PostgreSQL - Hiperescala (Citus) (pré-visualização) no portal do Azure
 
@@ -169,7 +169,7 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora, as consultas envolvesse o github\_eventos exclusivamente, mas podemos combinar essas informações com o github\_utilizadores. Desde em partição horizontal que os utilizadores e os eventos do mesmo identificador (`user_id`), as linhas de ambas as tabelas com o ID de utilizador correspondentes serão [colocalizados](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) no mesmo nós de base de dados e podem facilmente ser associadas.
+Até agora, as consultas envolvesse o github\_eventos exclusivamente, mas podemos combinar essas informações com o github\_utilizadores. Desde em partição horizontal que os utilizadores e os eventos do mesmo identificador (`user_id`), as linhas de ambas as tabelas com o ID de utilizador correspondentes serão [colocalizados](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) no mesmo nós de base de dados e podem facilmente ser associadas.
 
 Se, Junte-se no `user_id`, Hiperescala pode empurrar a execução de associação em partições horizontais para execução em paralelo em nós de trabalho. Por exemplo, vamos descobrir quando os utilizadores que criou ao maior número de repositórios:
 

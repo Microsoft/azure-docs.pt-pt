@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d1704220a13b6d6b5a48b7167d7912a38057127d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097144"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466483"
 ---
 # <a name="set-up-a-device-template"></a>Configurar um modelo de dispositivo
 
@@ -68,10 +68,9 @@ Para adicionar uma nova medida de telemetria, selecione **+ nova medida**, escol
 
 > [!NOTE]
 > Os nomes de campo no modelo do dispositivo tem de corresponder os nomes de propriedade no código de dispositivo correspondente para que a medição de telemetria a apresentar na aplicação quando está ligado um dispositivo real. Fazer o mesmo ao configurar as definições de propriedades do dispositivo e comandos enquanto continua a definir o modelo de dispositivo nas seções a seguir.
+. png, por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
 
-Por exemplo, pode adicionar uma nova medida de telemetria de temperatura:
-
-| Nome a Apresentar        | Nome do Campo    |  Unidades    | Mín.   |Máx.|
+| Nome a apresentar        | Nome do Campo    |  Unidades    | Mín.   |Máx.|
 | --------------------| ------------- |-----------|-------|---|
 | Temperatura         | temp          |  degC     |  0    |100|
 
@@ -92,7 +91,7 @@ Forneça o **nome a apresentar**, **nome do campo**, e **gravidade** detalhes do
 
 Por exemplo, pode adicionar um novo **erro de Motor de ventoinha** eventos.
 
-| Nome a Apresentar        | Nome do Campo    |  Gravidade Predefinida |
+| Nome a apresentar        | Nome do Campo    |  Gravidade Predefinida |
 | --------------------| ------------- |-----------|
 | Erro de Motor da Ventoinha     | fanmotorerror |  Erro    |
 
@@ -115,9 +114,9 @@ Forneça os detalhes para **nome a apresentar**, **nome do campo**, e **valores*
 
 Por exemplo, pode adicionar um novo **ventoinha modo** estado de que tem dois valores possíveis que o dispositivo pode enviar, **operacional** e **parado**.
 
-| Nome a Apresentar | Nome do Campo    |  Valor 1   | Nome a Apresentar | Valor 2    |Nome a Apresentar  | 
+| Nome a apresentar | Nome do Campo    |  Valor 1   | Nome a apresentar | Valor 2    |Nome a apresentar  | 
 | -------------| ------------- |----------- | -------------| -----------| -------------|
-| Modo da Ventoinha     | fanmode       |  1         | Em funcionamento    |     0      | Parada      |
+| Modo da Ventoinha     | fanmode       |  1         | Em funcionamento    |     0      | Parado      |
 
 ![Formulário de "Estado de edição" com detalhes para o modo de ventoinha](./media/howto-set-up-template/statemeasurementsform.png)
 
@@ -142,7 +141,7 @@ Elas podem estar em um de três Estados. O dispositivo comunica esses Estados.
 
 Por exemplo, pode adicionar uma nova definição de velocidade de ventoinha selecionando **configurações** e introduzir no novo **número** definição:
 
-| Nome a Apresentar  | Nome do Campo    |  Unidades  | Casas decimais |Inicial|
+| Nome a apresentar  | Nome do Campo    |  Unidades  | Casas decimais |Inicial|
 | --------------| ------------- |---------| ---------|---- |
 | Ventoinha velocidade     | fanSpeed      | RPM     | 2        | 0   |
 
@@ -161,7 +160,7 @@ Existem duas categorias de propriedades:
 
 Por exemplo, pode adicionar a última data de serviço para o dispositivo como uma nova **data** propriedade (uma propriedade de aplicação) no **propriedades** separador:
 
-| Nome a Apresentar  | Nome do Campo | Valor Inicial   |
+| Nome a apresentar  | Nome do Campo | Valor Inicial   |
 | --------------| -----------|-----------------|
 | Última assistência      | lastServiced        | 01/29/2019     |
 
@@ -190,7 +189,7 @@ Pode criar uma propriedade de localização como uma propriedade de aplicação 
 
 3. Configurar **nome a apresentar**, **nome do campo**e (opcionalmente) **valor inicial** para a localização.
 
-    | Nome a Apresentar  | Nome do Campo | Valor Inicial |
+    | Nome a apresentar  | Nome do Campo | Valor Inicial |
     | --------------| -----------|---------| 
     | Endereço de instalação | installAddress | Microsoft, 1 Microsoft Way, Redmond, WA 98052   |
 
@@ -212,9 +211,9 @@ Pode criar uma propriedade de localização como uma propriedade de dispositivo 
 
 3. Configurar o nome a apresentar e o nome de campo e selecione **localização** como o tipo de dados:
 
-    | Nome a Apresentar  | Nome do Campo | Tipo de Dados |
+    | Nome a apresentar  | Nome do Campo | Tipo de Dados |
     | --------------| -----------|-----------|
-    | Localização do dispositivo | deviceLocation | localização  |
+    | Localização do dispositivo | deviceLocation | location  |
 
    > [!NOTE]
    > Os nomes de campo tem de corresponder aos nomes de propriedade no código de dispositivo correspondente
@@ -235,11 +234,11 @@ Como é que um comando diferente a partir de uma definição?
 
 Por exemplo, pode adicionar um novo **eco** comando ao selecionar o **comandos** separador, em seguida, selecionando **+ novo comando**e introduzir os novos detalhes do comando:
 
-| Nome a Apresentar  | Nome do Campo | Tempo Limite Predefinido | Tipo de Dados |
+| Nome a apresentar  | Nome do Campo | Tempo Limite Predefinido | Tipo de Dados |
 | --------------| -----------|---------------- | --------- |
 | Comando Echo  | echo       |  30             | texto      |
 
-![Formulário de "Configurar o comando" com detalhes para eco](./media/howto-set-up-template/commandsecho.png)
+![Formulário de "Configurar o comando" com detalhes para eco](./media/howto-set-up-template/commandsecho1.png)
 
 Depois de selecionar **salvar**, o **eco** comando aparece como um mosaico e está pronto para ser utilizada a partir do **Device Explorer** quando se liga o seu dispositivo real. Os nomes de campos do comando de têm de corresponder os nomes de propriedade no código de dispositivo correspondente na ordem de comandos para ser executada com êxito.
 
@@ -255,7 +254,7 @@ O dashboard é onde um operador pode ir para ver informações sobre um disposit
 
 Por exemplo, pode adicionar um **definições e propriedades** mosaico para mostrar uma seleção dos valores atuais das definições e propriedades, selecionando o **Dashboard** guia e o mosaico da biblioteca:
 
-![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
+![Formulário de "Configurar os detalhes do dispositivo" com detalhes para as definições e propriedades](./media/howto-set-up-template/dashboardsettingsandpropertiesform1.png)
 
 Agora quando um operador visualiza o dashboard na **Device Explorer**, eles podem ver o mosaico.
 

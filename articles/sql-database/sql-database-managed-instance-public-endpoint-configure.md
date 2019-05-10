@@ -10,13 +10,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: ea16efbb846f21ec7c3fa39b2efeac741d8f8ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: d3e68a5287e59c576f85491e6e5eba33fac080ca
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928366"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465220"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Configurar o ponto final público na instância gerida da base de dados do Azure SQL
 
@@ -100,8 +100,8 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
     |**Destino**     |Qualquer         |Deixando de destino como qualquer para permitir o tráfego para a sub-rede de instância gerida |
     |**Intervalos de portas de destino**     |3342         |Porta de destino âmbito para 3342, que é o instância gerida TDS ponto final público |
     |**Protocolo**     |TCP         |Geridas protocolo TCP de usos de instância do TDS |
-    |**Ação**     |Permitir         |Permitir tráfego de entrada para a instância gerida através do ponto final público |
-    |**Prioridade**     |1300         |Certifique-se de que esta regra é uma prioridade mais alta do que o **deny_all_inbound** regra |
+    |**ação**     |Permitir         |Permitir tráfego de entrada para a instância gerida através do ponto final público |
+    |**prioridade**     |1300         |Certifique-se de que esta regra é uma prioridade mais alta do que o **deny_all_inbound** regra |
 
     ![mi-nsg-rules.png](media/sql-database-managed-instance-public-endpoint-configure/mi-nsg-rules.png)
 

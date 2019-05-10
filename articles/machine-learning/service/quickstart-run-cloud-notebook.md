@@ -10,32 +10,34 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ecb97860e70141a744833aa9b9a4fcea3f3688f0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149833"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510624"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning
 
 Criar um servidor de bloco de notas com base na cloud e, em seguida, utilizá-lo.  Neste início rápido, vai executar código Python que efetua login valores a [área de trabalho do Azure Machine Learning serviço](concept-azure-machine-learning-architecture.md). A área de trabalho é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática com o Machine Learning. 
 
 Este início rápido mostra como criar um recurso da nuvem na sua área de trabalho do Azure Machine Learning, configurado com o ambiente do Python necessário para executar o Azure Machine Learning. Para utilizar em vez disso, o seu próprio ambiente, consulte [início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning](quickstart-run-local-notebook.md).  
- 
+
 Neste início rápido, efetuar as seguintes ações:
 
 * Crie um novo servidor de bloco de notas com base na cloud na sua área de trabalho.
 * Inicie a interface de web do Jupyter.
 * Abra um bloco de notas que contém o código para calcular o instalador de plataforma e registos de erros em cada iteração.
 * Execute o bloco de notas.
-* Ver os valores de erro com sessão iniciada na sua área de trabalho. Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo das informações geradas num script. 
+* Ver os valores de erro com sessão iniciada na sua área de trabalho. Este exemplo mostra como a área de trabalho pode ajudá-lo a manter o controlo das informações geradas num script.
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-- Uma área de trabalho do Azure Machine Learning.  [Criar a sua área de trabalho](setup-create-workspace.md#portal) agora, se não tiver uma.
+Se tiver uma área de trabalho do serviço do Azure Machine Learning, avance para o [próxima seção](#create-a-cloud-based-notebook-server). Caso contrário, crie uma agora.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## <a name="create-a-cloud-based-notebook-server"></a>Criar um servidor de bloco de notas com base na cloud
 
@@ -57,7 +59,6 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
     ![Criar uma nova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Aguarde aproximadamente 4 a 5 minutos, até que o estado muda para **em execução**.
-
 
 ## <a name="launch-jupyter-web-interface"></a>Iniciar a interface de web do Jupyter
 
@@ -102,10 +103,9 @@ Execute um bloco de notas que as estimativas de instalador de plataforma e regis
 
     Na maior célula de código, verá `run.log` utilizado em vários locais. Cada `run.log` adiciona o seu valor à sua área de trabalho.
 
-
 ## <a name="view-logged-values"></a>Ver valores registados
 
-1. A saída do `run` célula contém uma ligação para o portal do Azure para ver os resultados da experimentação na sua área de trabalho. 
+1. A saída do `run` célula contém uma ligação para o portal do Azure para ver os resultados da experimentação na sua área de trabalho.
 
     ![Ver experimentações](./media/quickstart-run-cloud-notebook/view-exp.png)
 
@@ -117,7 +117,7 @@ Execute um bloco de notas que as estimativas de instalador de plataforma e regis
 
 Uma vez que o código para pi aproximado utiliza valores aleatórios, seus gráficos irão mostrar valores diferentes.  
 
-## <a name="clean-up-resources"></a>Limpar recursos 
+## <a name="clean-up-resources"></a>Limpar recursos
 
 ### <a name="stop-the-notebook-vm"></a>Parar o bloco de notas VM
 

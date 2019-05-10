@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: f00a8a02ac7f9468516506b6e6a376209d24c270
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60946794"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510268"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chamar a sua instância de pesquisa personalizada do Bing do Portal
 
@@ -26,7 +26,7 @@ Após configurar a sua experiência de pesquisa personalizada, pode testá-lo de
 
 Depois de se para a pesquisa personalizada do Bing [portal](https://customsearch.ai), selecione a sua instância de pesquisa e clique nas **produção** separador. Sob **pontos de extremidade**, selecione um ponto final de API (por exemplo, API Web). A subscrição determina quais pontos de extremidade são exibidos.
 
-Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o ponto final. Tenha em atenção que os parâmetros apresentados no portal do podem ser alterados dependendo do ponto final que escolher. Consulte a[referência da API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. 
+Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o ponto final. Tenha em atenção que os parâmetros apresentados no portal do podem ser alterados dependendo do ponto final que escolher. Consulte a[referência da API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que utiliza a sua instância de pesquisa, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou o idioma apropriados.
 
 Alguns parâmetros importantes estão abaixo:
 
@@ -44,7 +44,7 @@ Clicar **parâmetros adicionais** revela os seguintes parâmetros:
 |---------|---------|
 |Safe Search     | Um filtro utilizado para filtrar as páginas Web para o conteúdo para adultos. Apenas disponível para os pontos de extremidade da Web, imagem, vídeo e hospedado da interface do Usuário.        |
 |Idioma da Interface do usuário    | O idioma usado para cadeias de caracteres de interface de utilizador. Por exemplo, se ativar imagens e vídeos na interface do Usuário do hospedado, o **imagem** e **vídeo** separadores utilizam o idioma especificado.        |
-|Contagem     | O número de resultados da pesquisa para devolver na resposta. Disponível apenas para pontos finais de Web, imagem e vídeo.         |
+|Count     | O número de resultados da pesquisa para devolver na resposta. Disponível apenas para pontos finais de Web, imagem e vídeo.         |
 |Offset    | O número de resultados de pesquisa a ignorar antes de retornar resultados. Disponível apenas para pontos finais de Web, imagem e vídeo.        |
     
 Depois de especificar todas as opções necessárias, clique em **chamar** para ver a resposta JSON no painel da direita. Se selecionar o ponto de extremidade hospedado da interface do Usuário, pode testar a experiência de pesquisa no painel inferior.

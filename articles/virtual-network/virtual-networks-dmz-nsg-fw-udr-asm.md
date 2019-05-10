@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0a7927868a9a4bebc80ec995baefbae4c45d747f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363177"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410482"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Exemplo 3: Criar uma rede de perímetro para proteger redes com uma firewall, UDR e NSGs
 
@@ -203,7 +203,7 @@ Set-AzureNetworkSecurityGroupToSubnet -Name $NSGName `
     -SubnetName $BESubnet -VirtualNetworkName $VNetName
 ```
 
-## <a name="firewall-rules"></a>Regras da firewall
+## <a name="firewall-rules"></a>Regras de firewall
 
 Tem de criar regras de reencaminhamento na firewall. Uma vez que a firewall bloqueia ou encaminha todo o tráfego de entrada, saído e intra virtual rede, terá de muitas regras de firewall. Além disso, o firewall deve processar todo o tráfego de entrada para o endereço IP público do serviço de segurança (em portas diferentes). Para evitar mais tarde voltar a trabalhar, siga a prática recomendada por fluxos de lógicos antes de configurar as sub-redes e regras de firewall de criação de diagramas. A figura a seguir é uma visão lógica das regras de firewall para este exemplo:
 
@@ -356,7 +356,7 @@ Aqui estão as especificidades de cada regra necessário para concluir este exem
 
     Crie regras RDP quatro:
 
-    | Nome da Regra | Servidor | Serviço | Lista de destino |
+    | Nome da Regra | Servidor  | Serviço | Lista de destino |
     | --- | --- | --- | --- |
     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
@@ -989,7 +989,7 @@ Execute este PowerShell script localmente num internet ligado PC ou servidor.
 Guarde este ficheiro XML com localização atualizada. Alterar o `$NetworkConfigFile` variáveis no script completo acima para ligar ao ficheiro de configuração de rede guardado.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

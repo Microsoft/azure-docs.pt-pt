@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: d7020299bbd52f5e7ba22809847815cb04048cb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2a491cd303cccd94cbb489654890d55c03912a63
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59259410"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408050"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-moveit-transfer---azure-ad-integration"></a>Tutorial: Integração do Active Directory do Azure com transferência de MOVEit - integração do Azure AD
 
@@ -174,7 +174,7 @@ Para configurar o Azure AD início de sessão único com transferência de MOVEi
     
     b. Selecione **outras** como **nome completo** e, no **nome de atributo** caixa de texto, coloque o valor: `http://schemas.microsoft.com/identity/claims/displayname`.
     
-    c. Selecione **outras** como **E-Mail** e, no **nome de atributo** caixa de texto, coloque o valor: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Selecione **outras** como **E-Mail** e, no **nome de atributo** caixa de texto, coloque o valor: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
     
     d. Selecione **Sim** como **Auto-criar conta no início de sessão**.
     
@@ -238,7 +238,7 @@ O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na tran
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar o [MOVEit transferência - equipa de suporte de cliente de integração do Azure AD](https://community.ipswitch.com/s/support).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

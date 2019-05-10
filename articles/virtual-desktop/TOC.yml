@@ -8,12 +8,12 @@
   items:
     - name: 1. Criar um inquilino no Windows Virtual Desktop
       href: tenant-setup-azure-active-directory.md
-    - name: 2. Criar um conjunto de anfitriões com o Azure Marketplace
-      href: create-host-pools-azure-marketplace.md
-    - name: 3. Gerir grupos de aplicações
-      href: manage-app-groups.md
-    - name: 4. Criar principais de serviço e atribuições de funções com o PowerShell
+    - name: 2. Criar principais de serviço e atribuições de funções com o PowerShell
       href: create-service-principal-role-powershell.md
+    - name: 3. Criar um conjunto de anfitriões com o Azure Marketplace
+      href: create-host-pools-azure-marketplace.md
+    - name: 4. Gerir grupos de aplicações
+      href: manage-app-groups.md
 - name: Procedimentos
   items:
     - name: Ligar a recursos do Windows Virtual Desktop

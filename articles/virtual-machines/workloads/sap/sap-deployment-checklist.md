@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93fae0babdee5eac87d50679fdd5b2b938c4df2e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648793"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236880"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Carga de trabalho SAP na lista de verificação de planejamento e implantação do Azure 
 
@@ -140,9 +140,10 @@ O piloto pode ser executado antes ou em paralelo para planejamento de projetos e
       2. Para evitar a GUI detalhes sobre o tempo entre um local implementado interfaces de GUI do SAP e camadas de aplicação SAP implementadas no Azure, verifique se os seguintes parâmetros estão definidos no default.pfl ou no perfil de instância:
          1.   rdisp/keepalive_timeout = 3600
          2.   rdisp/keepalive = 20
-      3. Se utilizar uma configuração de Cluster de ativação pós-falha do Windows, certifique-se de que o tempo para reagir em nós não responsivo está corretamente definido para o Azure. O artigo da Microsoft [otimização limiares de rede de Cluster de ativação pós-falha](https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/) apresenta uma lista de parâmetros e como afetam aqueles sensitivities de ativação pós-falha. Os parâmetros listados esses dois parâmetros devem ser definidos com os valores:
-         1.   SameSubNetDelay = 2
+      3. Se utilizar uma configuração de Cluster de ativação pós-falha do Windows, certifique-se de que o tempo para reagir em nós não responsivo está corretamente definido para o Azure. O artigo da Microsoft [otimização limiares de rede de Cluster de ativação pós-falha](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834) apresenta uma lista de parâmetros e como afetam aqueles sensitivities de ativação pós-falha. Partindo do princípio de que os nós de cluster estão na mesma sub-rede, devem ser alterados os seguintes parâmetros:
+         1.   SameSubNetDelay = 2000
          2.   SameSubNetThreshold = 15
+         3.   RoutingHistorylength = 30
 4. Testar seus procedimentos de recuperação após desastre e de disponibilidade elevados
    1. Simule situações de ativação pós-falha ao encerrar VMs (Windows SO convidado) ou colocando os sistemas operativos no modo entre em pânico (no SO do Linux convidado) para descobrir se as configurações de ativação pós-falha funcionem conforme projetado. 
    2. Medir os tempos que demora a executar uma ativação pós-falha. Se os tempos de demorarem demasiado tempo, considere:

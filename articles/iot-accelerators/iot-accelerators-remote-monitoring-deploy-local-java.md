@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 209a91453875531e81ddbcead8c1ed2fb309a0a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 996111fbe23000182dab774ba3bbad0cc6435824
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147452"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412735"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>Implementar o monitorização remota acelerador de soluções localmente - IntelliJ
 
@@ -100,9 +100,9 @@ Os passos seguintes mostram como executar os microsserviços de monitorização 
     * WebService (services\iothub-manager)
     * Serviço Web (placa de services\storage)
 
-Como exemplo a imagem seguinte, mostra a configuração para um serviço a adicionar:
+Por exemplo, a imagem seguinte mostra a adicionar configuração de um serviço:
 
-[![Add-Configuration](./media/deploy-locally-intelliJ/run-configurations.png)](./media/deploy-locally-intelliJ/run-configurations.png#lightbox)
+[![Add-Configuration](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 
 #### <a name="create-compound-configuration"></a>Criar configuração composta
@@ -111,14 +111,11 @@ Como exemplo a imagem seguinte, mostra a configuração para um serviço a adici
 1. Introduza o **Name** e **adicionar sbt tarefas**
 1. Clique em **aplicar > Ok** para guardar as suas opções.
 
-Por exemplo a imagem seguinte, mostra a adição de todas as tarefas de sbt à configuração única:
+Por exemplo, a imagem seguinte mostra a adição de todas as tarefas de sbt a única configuração:
 
+[![Add-All-Services](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
-[![Add-All-Services](./media/deploy-locally-intelliJ/all-services.png)](./media/deploy-locally-intelliJ/all-services.png#lightbox)
-
-
-
-1. Clique em **executar** para compilar e executar os serviços web no computador local.
+Clique em **executar** para compilar e executar os serviços web no computador local.
 
 Cada serviço web é aberta uma janela do browser web e de linha de comandos. No prompt de comando, verá os resultados do serviço em execução e a janela do browser permite-lhe monitorizar o estado. Não feche o prompts de comando ou páginas da web, esta ação para o serviço de web.
 

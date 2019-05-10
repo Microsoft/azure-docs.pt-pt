@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2019
+ms.date: 05/07/2019
 ms.author: juliako
-ms.openlocfilehash: 4f8851248c395a1f03c46490c8eb5e71221dd133
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733305"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409285"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nuvens e regiões nos quais serviços de multimédia do Azure v3 existe
 
@@ -26,19 +26,16 @@ Serviços de multimédia do Azure v3 está disponível através do Azure Resourc
 
 | Funcionalidade|Regiões globais do Azure | Azure Government|Azure Alemanha|Azure China 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Disponível | Não disponível | Não disponível | Não disponível |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Não disponível | Não disponível | Não disponível |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Não disponível | Não disponível | Não disponível |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Disponível | Indisponível | Indisponível | Indisponível |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Indisponível | Indisponível | Indisponível |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Disponível | Indisponível | Indisponível | Indisponível |
 | [StandardEncoderPreset](encoding-concept.md) | Disponível | Disponível | Disponível | Disponível |
 | [LiveEvents](live-streaming-overview.md) | Disponível | Disponível | Disponível | Disponível |
 | [StreamingEndpoints](streaming-endpoint-concept.md) | Disponível | Disponível | Disponível | Disponível |
 
 ## <a name="regionsgeographieslocations"></a>As geografias/regiões/localizações
 
-* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Produtos por região](https://azure.microsoft.com/global-infrastructure/services/)
-* [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
-* [Localizações do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
+[Regiões em que o serviço de serviços de multimédia do Azure é implementado](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
 ### <a name="region-code-name"></a>Nome do código de região 
 
@@ -98,6 +95,12 @@ Os pontos finais seguintes são importantes para saber quando ligar a contas de 
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autenticação | `https://login.chinacloudapi.cn/` |
 | Audiência do token |  `https://management.core.chinacloudapi.cn/` |
+
+## <a name="see-also"></a>Consulte também
+
+* [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
+* [Geografias do Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Localizações do Azure](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

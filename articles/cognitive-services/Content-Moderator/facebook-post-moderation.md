@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/18/2019
 ms.author: pafarley
-ms.openlocfilehash: 662eca2a727f3112f169ab8d669bf18c81700275
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5d31285ca305ba7fefdf31b4a97e3183f58b3e3b
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60699571"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233801"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutorial: Moderado publicações do Facebook e comandos do Azure Content moderator
 
@@ -33,6 +33,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Este diagrama ilustra cada componente deste cenário:
 
 ![Diagrama do Content Moderator recebe informações do Facebook por meio de "FBListener" e enviar informações por "CMListener"](images/tutorial-facebook-moderation.png)
+
+> [!IMPORTANT]
+> Em 2018, o Facebook implementado um verificar mais estrita de aplicações do Facebook. Não será capaz de concluir os passos deste tutorial, se a aplicação não foi revisada e aprovada pela equipe de revisão do Facebook.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,68 +62,71 @@ Testar o seu fluxo de trabalho com o **executar o fluxo de trabalho** botão.
 
 ## <a name="create-azure-functions"></a>Criar Funções do Azure
 
-Inicie sessão para o [Portal do Azure](https://portal.azure.com/) e siga estes passos:
+Inicie sessão para o [portal do Azure](https://portal.azure.com/) e siga estes passos:
 
 1. Crie uma Function App do Azure, tal como mostra a página [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal).
-2. Vá para a aplicação de funções recentemente criado.
-3. Na aplicação, vá para o **funcionalidades de plataforma** separador e selecione **configurações de aplicativo**. Na **as configurações do aplicativo** secção da página seguinte, desloque para baixo da lista e clique em **Adicionar nova definição**. Adicionar os seguintes pares de chave/valor
+1. Vá para a aplicação de funções recentemente criado.
+1. Na aplicação, vá para o **funcionalidades de plataforma** separador e selecione **configuração**. Na **as configurações do aplicativo** secção da página seguinte, selecione **nova definição de aplicação** para adicionar os seguintes pares de chave/valor:
     
     | Nome da definição de aplicação | value   | 
     | -------------------- |-------------|
     | cm:TeamId   | O TeamId do Content Moderator  | 
-    | cm:SubscriptionKey | A chave de subscrição do Content Moderator. Veja [Credenciais](review-tool-user-guide/credentials.md) | 
-    | cm:Region | O nome da região do Content Moderator, sem os espaços. Veja a nota anterior. |
+    | cm:SubscriptionKey | A chave de subscrição do Content Moderator. Veja [Credenciais](review-tool-user-guide/credentials.md) |
+    | cm:Region | O nome da região do Content Moderator, sem os espaços. |
     | cm:ImageWorkflow | Nome do fluxo de trabalho a executar em Imagens |
     | cm:TextWorkflow | Nome do fluxo de trabalho a executar em Texto |
-    | cm:CallbackEndpoint | URL da Function App CMListener que irá criar mais à frente neste guia |
-    | fb:VerificationToken | O token secreto, também utilizado para subscrever os eventos do feed do Facebook |
-    | fb:PageAccessToken | O token de acesso da Graph API do Facebook não expira e permite que a função Ocultar/Eliminar mensagens em seu nome. |
+    | cm:CallbackEndpoint | URL da aplicação de função de CMListener que irá criar mais tarde neste guia |
+    | fb:VerificationToken | Um token secreto que criar, utilizada para subscrever o Facebook eventos do feed |
+    | fb:PageAccessToken | O token de acesso da Graph API do Facebook não expira e permite que a função Ocultar/Eliminar mensagens em seu nome. Obterá isto num passo posterior. |
 
     Clique nas **guardar** botão na parte superior da página.
 
-1. Utilizar o **+** botão no painel esquerdo, para abrir o novo painel de função.
+1. Volte para o **funcionalidades de plataforma** separador. Utilize o **+** botão no painel da esquerda para abrir o **nova função** painel. A função que está prestes a criar irá receber eventos do Facebook.
 
     ![Painel de funções do Azure com o botão Adicionar função realçado.](images/new-function.png)
-
-    Em seguida, clique em **+ nova função** na parte superior da página. Esta função recebe eventos do Facebook. Crie esta função, seguindo estes passos:
 
     1. Clique no mosaico que diz **acionador Http**.
     1. Introduza o nome **FBListener**. O campo **Nível de Autorização** deve ser definido como **Função**.
     1. Clique em **Criar**.
     1. Substitua os conteúdos do **csx** com o conteúdo de **FbListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-160)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/FbListener/run.csx?range=1-154)]
 
 1. Criar uma nova **acionador de Http** função chamada **CMListener**. Esta função recebe eventos do Content Moderator. Substitua os conteúdos do **csx** com o conteúdo de **CMListener/run.csx**
 
-    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-106)]
+    [!code-csharp[FBListener: csx file](~/samples-fbPageModeration/CmListener/run.csx?range=1-110)]
 
 ---
 
 ## <a name="configure-the-facebook-page-and-app"></a>Configurar a página e Aplicação do Facebook
+
 1. Crie uma Aplicação do Facebook.
 
     ![página de desenvolvedor do Facebook](images/facebook-developer-app.png)
 
     1. Navegue até ao [site do Facebook para programadores](https://developers.facebook.com/)
-    2. Clique em **My Apps** (As minhas Aplicações).
-    3. Adicione uma Nova Aplicação.
+    1. Clique em **My Apps** (As minhas Aplicações).
+    1. Adicione uma Nova Aplicação.
     1. der um nome
     1. Selecione **Webhooks -> o conjunto de cópia de segurança**
     1. Selecione **página** no menu pendente e selecione **subscrever este objeto**
     1. Forneça o **FBListener Url** como o URL de chamada de retorno e o **Token de Verificação** que configurou em **Definições da Aplicação de Funções**
     1. Depois de subscrito, desloque o ecrã para baixo até ao feed e selecione **subscribe** (subscrever).
+    1. Clique nas **testar** botão da **feed** linha para enviar uma mensagem de teste para a sua função de Azure FBListener, em seguida, prima a **enviar para My Server** botão. Deverá ver o pedido sejam recebido na sua FBListener.
 
-2. Crie uma Página do Facebook.
+1. Crie uma Página do Facebook.
+
+    > [!IMPORTANT]
+    > Em 2018, o Facebook implementado um verificar mais estrita de aplicações do Facebook. Não será capaz de executar as secções 2, 3 e 4 se a sua aplicação não foi revisada e aprovada pela equipe de revisão do Facebook.
 
     1. Navegue até ao [Facebook](https://www.facebook.com/bookmarks/pages) e crie uma **nova Página do Facebook**.
-    2. Permita que a Aplicação do Facebook aceda a esta página, seguindo estes passos:
+    1. Permita que a Aplicação do Facebook aceda a esta página, seguindo estes passos:
         1. Navegue até ao [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
-        2. Selecione **Application** (Aplicação).
-        3. Selecione **Page Access Token** (Token de Acesso de Página) e envie um pedido **Get**.
-        4. Clique no **ID de Página** na resposta.
-        5. Agora, acrescente **/subscribed_apps** ao URL e envie um pedido **Get** (resposta vazia).
-        6. Submeta um pedido **Post**. Obtém a resposta como **success: true**.
+        1. Selecione **Application** (Aplicação).
+        1. Selecione **Page Access Token** (Token de Acesso de Página) e envie um pedido **Get**.
+        1. Clique no **ID de Página** na resposta.
+        1. Agora, acrescente **/subscribed_apps** ao URL e envie um pedido **Get** (resposta vazia).
+        1. Submeta um pedido **Post**. Obtém a resposta como **success: true**.
 
 3. Crie um token de acesso da Graph API que não expira.
 

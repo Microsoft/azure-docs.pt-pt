@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880054"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466304"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager (pré-visualização privada)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Utilizar o Gestor de implementação do Azure com modelos do Resource Manager (pré-visualização pública)
 
 Saiba como utilizar o [Gestor de Implementações do Azure](./deployment-manager-overview.md) para implementar as suas aplicações em várias regiões. Para utilizar o Gestor de implementação, terá de criar dois modelos:
 
 * **Um modelo de topologia**: descreve os recursos do Azure que compõem as suas aplicações e onde os implementar.
 * **Um modelo de lançamento**: descreve os passos a seguir durante a implementação das aplicações.
+
+> [!IMPORTANT]
+> Se a sua subscrição está marcada para Canárias testar novas funcionalidades do Azure, só pode utilizar o Gestor de implementação do Azure para implementar para as regiões Canary. 
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -432,4 +435,4 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, aprendeu a utilizar o Gestor de Implementações do Azure. Para saber mais, veja a [Documentação do Azure Resource Manager](/azure/azure-resource-manager/).
+Neste tutorial, aprendeu a utilizar o Gestor de Implementações do Azure. Para integrar a monitorização de estado de funcionamento no Gestor de implementação do Azure, consulte [Tutorial: Utilizar a verificação de estado de funcionamento no Gestor de implementação do Azure](./deployment-manager-tutorial-health-check.md).

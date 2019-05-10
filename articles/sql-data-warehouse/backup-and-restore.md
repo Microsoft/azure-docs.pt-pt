@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/01/2019
+ms.date: 04/30/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 914513bc19cc81da29efef12d50a6485233d169f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679312"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236574"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Cópia de segurança e restauro no Azure SQL Data Warehouse
 
@@ -83,7 +83,7 @@ O total de custos para o seu armazém de dados primária e sete dias de alteraç
 
 Se estiver a utilizar o armazenamento georredundante, receberá uma fatura de armazenamento separada. O armazenamento georredundante é cobrado à tarifa padrão de acesso de leitura geograficamente com redundância de armazenamento (RA-GRS).
 
-Para obter mais informações sobre os preços do SQL Data Warehouse, consulte [preços do SQL Data Warehouse](https://azure.microsoft.com/pricing/details/sql-data-warehouse/) e [custos de saída](https://azure.microsoft.com/pricing/details/bandwidth/) durante a restauração entre regiões.
+Para obter mais informações sobre os preços do SQL Data Warehouse, consulte [SQL Data Warehouse preços]. Não é cobrada a saída de dados durante a restauração entre regiões.
 
 ## <a name="restoring-from-restore-points"></a>Restaurar a partir de pontos de restauro
 

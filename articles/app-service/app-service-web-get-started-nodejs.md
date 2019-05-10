@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dbd65a391bdc5726436ba461a34e1ca7cab87b0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c103e6cb3626750414ee5083dad3e34b6be4986c
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129536"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408950"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -54,7 +54,7 @@ const port = process.env.PORT || 1337;
 
 O Serviço de Aplicações injeta process.env.PORT na sua aplicação, para que o código utilize a variável de modo a saber que porta escutar. 
 
-Numa janela do terminal, navegue para o diretório de raiz do projeto Node.js de exemplo (o que contém _index.js_).
+Na janela do terminal, navegue para o **diretório de raiz** do projeto de node. js de exemplo (o diretório que contém _Index_).
 
 ## <a name="run-the-app-locally"></a>Executar a aplicação localmente
 
@@ -75,7 +75,19 @@ Na janela do terminal, prima **Ctrl+C** para desligar o servidor Web.
 > [!NOTE]
 > No Serviço de Aplicações do Azure, a aplicação é executada no IIS usando [iisnode](https://github.com/Azure/iisnode). Para ativar a aplicação a ser executada com o iisnode, o diretório da aplicação de raiz contém um arquivo web.config. O ficheiro é lido pelo IIS e as definições relacionadas com o iisnode são documentadas no [repositório do GitHub iisnode](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
-[!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
+## <a name="create-a-project-zip-file"></a>Criar um ficheiro ZIP do projeto
+
+Verifique se está ainda na **diretório de raiz** do projeto de exemplo (o diretório que contém _Index_). Crie um arquivo ZIP de tudo no seu projeto. O comando seguinte utiliza a ferramenta predefinida no seu terminal:
+
+```
+# Bash
+zip -r myAppFiles.zip .
+
+# PowerShell
+Compress-Archive -Path * -DestinationPath myAppFiles.zip
+```
+
+Mais tarde, carregue este ficheiro ZIP para o Azure e implemente-o no Serviço de Aplicações.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -153,7 +165,7 @@ Utilizando um editor de texto, abra o ficheiro `index.js` na aplicação Node.js
 response.end("Hello Azure!");
 ```
 
-Na janela local do terminal, navegue para o diretório de raiz da sua aplicação e crie um novo ficheiro ZIP para o projeto atualizado.
+Na janela de terminal local, navegue para seu aplicativo **diretório de raiz** (o diretório que contém _Index_), crie um novo ficheiro ZIP para o projeto atualizado.
 
 ```azurecli-interactive
 # Bash

@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65081046"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466173"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,9 +38,9 @@ Nós do Azure de Red Hat OpenShift executam em máquinas virtuais do Azure. Pode
 
 ## <a name="virtual-networks-and-ingress"></a>Redes virtuais e entrada
 
-Pode implementar um cluster do Azure Red Hat OpenShift numa rede virtual existente. Nesta configuração, cada pod do cluster é atribuído um endereço IP na rede virtual e pode comunicar diretamente com outros pods no cluster e de outros nós na rede virtual. Pods também podem ligar a outros serviços numa rede virtual em modo de peering e redes no local através de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou site a site (S2S) ligações VPN.
+Pode ligar um cluster do Azure Red Hat OpenShift a uma rede virtual existente através do peering. Nesta configuração, pods podem ligar-se para outros serviços numa rede virtual em modo de peering e redes no local através de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) ou site a site (S2S) ligações VPN.
 
-Para obter mais informações, consulte [criar um cluster do Microsoft Red Hat OpenShift no Azure](tutorial-create-cluster.md).
+Ver [ligar uma rede virtual de um cluster a uma rede virtual existente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obter detalhes.
 
 ## <a name="kubernetes-certification"></a>Certificação Kubernetes
 

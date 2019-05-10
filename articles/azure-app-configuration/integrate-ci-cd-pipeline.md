@@ -12,14 +12,22 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8b77cea34344062c981d8f452094cffabe1e568
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 26bd49af7245d6e6dde3162a2e1d95c54f13e35b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572504"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415953"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
+
+Este artigo descreve várias formas de utilizar dados de configuração de aplicações do Azure num sistema de implementação contínua e a integração contínua.
+
+## <a name="use-app-configuration-in-your-azure-devops-pipeline"></a>Utilizar configuração de aplicações no seu Pipeline de DevOps do Azure
+
+Se tiver um Pipeline de DevOps do Azure, pode obter valores de chave de configuração de aplicações e defini-las como variáveis de tarefas. O [extensão de DevOps de configuração de aplicações do Azure](https://go.microsoft.com/fwlink/?linkid=2091063) é um módulo de suplemento que fornece essa funcionalidade. Basta seguir suas instruções para usar a extensão de uma compilação ou a sequência de tarefas de lançamento.
+
+## <a name="deploy-app-configuration-data-with-your-application"></a>Implementar dados de configuração de aplicação com a sua aplicação
 
 Seu aplicativo poderá não conseguir executar se ela depende da configuração de aplicações do Azure e não é possível aceder ao mesmo. Pode melhorar a resiliência do seu aplicativo para lidar com o caso, no entanto improvável é acontecer. Para fazer isso, o pacote para um ficheiro que é implementado com a aplicação e carregá-lo localmente durante o arranque do seu os dados de configuração atual. Essa abordagem garante que seu aplicativo tem, pelo menos, os valores de definição de predefinição. Estes valores são substituídos por quaisquer alterações mais recentes feitas num arquivo de configuração de aplicação quando estiver disponível.
 
@@ -29,13 +37,13 @@ O exemplo seguinte mostra como incluir a configuração de aplicações passo de
 
 Pode utilizar qualquer editor de código para realizar os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível no Windows, macOS e plataformas Linux.
 
-## <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 
 Se criar localmente, transferir e instalar o [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não o fez.
 
 Para fazer uma compilação de cloud, com o Azure DevOps, por exemplo, certifique-se a [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) está instalado no seu sistema de compilação.
 
-## <a name="export-an-app-configuration-store"></a>Exportar um arquivo de configuração de aplicação
+### <a name="export-an-app-configuration-store"></a>Exportar um arquivo de configuração de aplicação
 
 1. Abra sua *. csproj* de ficheiros e adicione o seguinte script:
 
@@ -64,7 +72,7 @@ Para fazer uma compilação de cloud, com o Azure DevOps, por exemplo, certifiqu
             .UseStartup<Startup>();
     ```
 
-## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
+### <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
 
 1. Definir uma variável de ambiente com o nome **ConnectionString**e defina-o para a chave de acesso ao seu arquivo de configuração de aplicação. Se utilizar a linha de comandos do Windows, execute o seguinte comando e reinicie o prompt de comando para permitir que a alteração tenha efeito:
 

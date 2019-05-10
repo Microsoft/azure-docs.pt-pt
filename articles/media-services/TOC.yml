@@ -6,7 +6,7 @@
 - name: Video Indexer dos Serviços de Multimédia do Azure
   href: video-indexer/
 - name: Media Player do Azure
-  href: 'http://amp.azure.net/libs/amp/latest/docs/index.html'
+  href: 'https://amp.azure.net/libs/amp/latest/docs/index.html'
 - name: Recursos
   items:
     - name: Mapa do Azure

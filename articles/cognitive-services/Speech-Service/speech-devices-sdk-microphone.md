@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: c8bc11b8f81fe034ceaa93c7bd8a49771d9407f9
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 63dd64e900cf68e708032569ca75ac2e8b221491
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025782"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236998"
 ---
 # <a name="speech-devices-sdk-microphone-array-recommendations"></a>Recomendações de matriz de microfone do SDK de dispositivos de voz
 
@@ -29,9 +29,11 @@ Geometrias de matriz seguintes são recomendadas para utilização com a pilha d
 
 |          | Matriz circular    |       |  Matriz linear              |                |
 |----------|-------------------|-------------------|----------------|----------------|
-|          |![7 matriz circular de mic](media/speech-devices-sdk/7-mic-c.png)|![4 matriz circular de mic](media/speech-devices-sdk/4-mic-c.png)|![4 matriz linear de mic](media/speech-devices-sdk/4-mic-l.png)|![2 matriz linear de mic](media/speech-devices-sdk/2-mic-l.png)|
+|          |<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|<img src="media/speech-devices-sdk/4-mic-l.png" alt="4 mic linear array" width="150"/>|<img src="media/speech-devices-sdk/2-mic-l.png" alt="2 mic linear array" width="150"/>|
 | \# Microfones  | 7                 | 4                 | 4              | 2              |
 | Geometry | 6 1 externa, centro, Radius = 42.5 mm, espaçado| 3 1 externa, centro, Radius = 42.5 mm, espaçado | Comprimento = 120 mm, espaçamento = 40 mm | Espaçamento = 40 mm |
+
+Canais de microfone devem ser ordenados de acordo com a numeração descrito para cada acima matriz, o aumento de 0.  A pilha de áudio do Microsoft exigirá um fluxo de referência adicionais de reprodução de áudio para efetuar o cancelamento de eco.
 
 ## <a name="component-selection"></a>Seleção do componente
 
@@ -110,4 +112,4 @@ Alta velocidade 2.0 classe áudio USB deve ser suportada dentro de qualquer MCUs
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> Saiba mais sobre o [SDK de dispositivos de voz](speech-devices-sdk.md)
+> [Saiba mais sobre o SDK de dispositivos de voz](speech-devices-sdk.md)

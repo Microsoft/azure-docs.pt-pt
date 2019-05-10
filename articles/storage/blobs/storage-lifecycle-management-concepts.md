@@ -9,12 +9,12 @@ ms.date: 4/29/2019
 ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: common
-ms.openlocfilehash: 130eb9cc8bec4681f5c0d165735c6c3b2357576c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 560f7eb8a8809cdd6ef410a610be9806f9709754
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148323"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409959"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida de armazenamento de Blobs do Azure
 
@@ -87,7 +87,7 @@ Pode definir e implementar a gestão de ciclo de vida como parte da sua implemen
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {},
   "variables": {
@@ -156,7 +156,7 @@ Cada regra na política tem vários parâmetros:
 
 | Nome do parâmetro | Tipo de parâmetro | Notas | Necessário |
 |----------------|----------------|-------|----------|
-| nome           | String |Um nome de regra pode incluir até 256 carateres de alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas.  Tem de ser exclusivo dentro de uma política. | Verdadeiro |
+| name           | String |Um nome de regra pode incluir até 256 carateres de alfanuméricos. Nome da regra diferencia maiúsculas de minúsculas.  Tem de ser exclusivo dentro de uma política. | Verdadeiro |
 | enabled | Boolean | Um booleano opcional para permitir que uma regra para ser temporário desativada. Valor predefinido é verdadeiro se não estiver definido. | Falso | 
 | tipo           | Um valor de enumeração | O tipo de válido atual for `Lifecycle`. | Verdadeiro |
 | definição     | Um objeto que define a regra de ciclo de vida | Cada definição é constituída por um conjunto de filtros e um conjunto de ação. | Verdadeiro |
@@ -219,11 +219,11 @@ Ações são aplicadas para os blobs filtrados quando for cumprida a condição 
 
 Gestão de ciclo de vida oferece suporte a disposição em camadas e eliminação de blobs e a eliminação de instantâneos de blob. Defina pelo menos uma ação para cada regra em blobs ou instantâneos de blob.
 
-| Ação        | Base de Blob                                   | Instantâneo      |
+| Acção        | Base de Blob                                   | Instantâneo      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | Suporta os blobs atualmente na camada de acesso frequente         | Não suportado |
 | tierToArchive | Suporta os blobs atualmente na camada de acesso frequente ou esporádica | Não suportado |
-| delete        | Suportadas                                   | Suportadas     |
+| eliminar        | Suportadas                                   | Suportadas     |
 
 >[!NOTE] 
 >Se definir mais de uma ação no mesmo blob, gerenciamento de ciclo de vida aplica-se a ação menos dispendiosa para o blob. Por exemplo, a ação `delete` é mais barato do que a ação `tierToArchive`. Ação `tierToArchive` é mais barato do que a ação `tierToCool`.

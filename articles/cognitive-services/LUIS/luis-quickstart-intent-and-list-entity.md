@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 04/01/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 9083227dd81dca219666e07b70f487069413855d
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: df37e7aad2420d0bc280121634d49675ae29ee5a
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521276"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236420"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>Tutorial: Obter exatamente os dados correspondentes de texto de uma expressão
 
@@ -94,7 +94,7 @@ O principal _canônico_, nome para cada item é o nome do departamento. São exe
 |Operações de desenvolvimento|Devops<br>4949|
 |Engenharia|engenharia<br>motor<br>4567|
 |Finanças|FIN<br>2020|
-|Tecnologia da informação|TI<br>2323|
+|Tecnologia da informação|it<br>2323|
 |Vendas por dentro|isale<br>insale<br>1414|
 |Pesquisa e desenvolvimento|P &AMP; D<br>1234|
 
@@ -108,11 +108,7 @@ O principal _canônico_, nome para cada item é o nome do departamento. São exe
 
 1. Na página de entidade de departamento, introduza `Accounting` como o novo valor.
 
-    [![Captura de ecrã da introdução de valor](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png "captura de ecrã da introdução de valor")](media/luis-quickstart-intent-and-list-entity/hr-emp1-value.png#lightbox)
-
 1. Para sinónimos, adicione os sinónimos da tabela anterior.
-
-    [![Captura de ecrã da introdução de sinónimos](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png "captura de ecrã da introdução sinónimos")](media/luis-quickstart-intent-and-list-entity/hr-emp1-synonyms.png#lightbox)
 
 1. Continue a adicionar todos os nomes canonical e seus sinónimos. 
 

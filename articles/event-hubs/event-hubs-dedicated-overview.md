@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a5184b9980dd9f83764950445c10e8bdfea6d71a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4f721dc4fda5bef002c794d79dfd2f054f9eaf38
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203954"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511184"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Descrição geral dos Hubs de eventos dedicados
 
@@ -52,29 +52,20 @@ A oferta de Hubs de eventos dedicados é faturada por um preço mensal fixo, com
 
 | Funcionalidade | Standard | Dedicado |
 | --- |:---:|:---:|
-| Largura de Banda | 20 TUs (até 40 TUs) | 20 CUs |
+| Largura de banda | 20 TUs (até 40 TUs) | 20 CUs |
 | Espaços de nomes |  1 | 50 por CU |
-| Hubs de Eventos |  10 | Sem limite |
-| Eventos de entrada | Pagar por milhão de eventos | Incluída |
+| Hubs de Eventos |  10 | Sem limite sobre os hubs de eventos/tópicos |
+| Eventos de entrada | Pagar por milhão de eventos | Incluído |
 | Tamanho da Mensagem | 1 milhão de Bytes | 1 milhão de Bytes |
-| Partições | 40 por espaço de nomes | 2000 por CU, 1024 por hub de eventos |
+| Partições | 40 por espaço de nomes | 2000 por CU |
 | Grupos de consumidores | 20 por Hub de eventos | Sem limite por CU, 1000 por hub de eventos |
 | Ligações mediadas | 1000 incluídos | 100 mil incluídos |
 | Retenção de Mensagens | 7 dias, 84 GB incluído por TU | 90 dias, 10 TB, incluído por CU |
-| Captura | Pagar por hora | Incluída |
+| Capturar | Pagar por hora | Incluído |
 
 ## <a name="how-to-onboard"></a>Como integrar
 
-A experiência de gestão personalizada para a integração para dedicado está em pré-visualização, por meio do qual pode criar 1 CU clusters nas seguintes regiões:
-  - Canadá Central
-  - Europa Ocidental
-  - Centro dos EUA
-  - E.U.A Leste
-  - Este dos EUA 2
-  - Centro Norte dos EUA
-  - E.U.A. Oeste
-
-Vamos ativamente a adicionar novas regiões, mas enquanto isso se a sua região preferencial não estiver na lista, submeta um pedido de suporte para o [equipa dos Hubs de eventos](https://ms.portal.azure.com/#create/Microsoft.Support) sob *técnicos > dos Hubs de eventos > Quota > pedir para o Dedicado SKU*. O plano dedicado é o único que irá ocorrer uma integração mais prática da equipe de produto dos Hubs de eventos para obter a implementação flexível, que é adequada para si. 
+A carregar para os Hubs de eventos dedicados, entre em contato com o [equipa dos Hubs de eventos](mailto:askeventhubs@microsoft.com). O plano dedicado é o único que irá ocorrer uma integração mais prática da equipe de produto dos Hubs de eventos para obter a implementação flexível, que é adequada para si. 
 
 ## <a name="faqs"></a>FAQs
 
@@ -86,19 +77,15 @@ Tabela a seguir mostra os resultados do benchmark que obtivemos durante os nosso
 
 | Forma de payload | Recetores | Largura de banda de entrada| Mensagens de entrada | Largura de banda de saída | Mensagens de saída | Total TUs | TUs por CU |
 | ------------- | --------- | ---------------- | ------------------ | ----------------- | ------------------- | --------- | ---------- |
-| Lotes de 100x1KB | 2 | 400 MB/seg | 400 mil msgs/seg | 800 MB/seg | 800 k msgs/seg | 400 TUs | 100 TUs | 
-| Lotes de 10x10KB | 2 | 666 MB/seg | 66.6 k msgs/seg | 1.33 GB/seg | 133 k msgs/seg | 666 TUs | 166 TUs |
-| Lotes de 6x32KB | 1 | 1,05 GB/seg | 34 k msgs / seg | 1,05 GB/seg | 34 k msgs/seg | 1000 TUs | 250 TUs |
+| Lotes de 100x1KB | 2 | 400 MB/seg | 400 mil mensagens/seg | 800 MB/seg | 800 mil mensagens/seg | 400 TUs | 100 TUs | 
+| Lotes de 10x10KB | 2 | 666 MB/seg | 66.6 mil mensagens/seg | 1.33 GB/seg | 133 mil mensagens/seg | 666 TUs | 166 TUs |
+| Lotes de 6x32KB | 1 | 1,05 GB/seg | 34 mil mensagens / seg | 1,05 GB/seg | 34 mil mensagens/seg | 1000 TUs | 250 TUs |
 
 No teste, utilizou-se os seguintes critérios:
 
 - Um cluster de Hubs de eventos de escalão dedicado com quatro unidades de capacidade (CUs) foi utilizado. 
 - O hub de eventos utilizado para ingestão tinha 200 partições. 
 - Os dados que foi ingeridos recebeu dois aplicativos de recetor recebimento de todas as partições.
-
-#### <a name="how-do-i-create-a-cluster-larger-than-1-cu"></a>Como posso criar um cluster maior do que 1 CU?
-
-Na versão de pré-visualização da experiência de Self-Service, pode pedir para aumentar verticalmente o cluster depois de criar o cluster. Depois de criar um cluster CU 1, contacte o suporte de Hubs de eventos ao arquivamento uma [pedido de suporte](https://ms.portal.azure.com/#create/Microsoft.Support) sob *técnicos > Quota > pedido para aumentar verticalmente ou dimensionar para baixo dedicado Cluster*. Na nossa versão de disponibilidade geral, será capaz de aumentar verticalmente o seu cluster diretamente através do portal. 
 
 #### <a name="can-i-scale-down-my-cluster"></a>Pode dimensionar para baixo do meu cluster?
 
@@ -107,7 +94,6 @@ Após a criação, os clusters são cobrados por um mínimo de 4 horas de utiliz
 #### <a name="how-will-geo-dr-work-with-my-cluster"></a>Como o Geo-DR irá funcionar com meu cluster?
 
 Pode geo-par um espaço de nomes num cluster de escalão dedicado com outro espaço de nomes num cluster de escalão dedicado. Não é recomendável emparelhamento um espaço de nomes do escalão dedicado com um espaço de nomes na nossa oferta padrão, uma vez que o limite de taxa de transferência estará incompatíveis que irá resultar em erros. 
-
 
 #### <a name="can-i-migrate-my-standard-namespaces-to-belong-to-a-dedicated-tier-cluster"></a>Posso migrar meu espaços de nomes Standard pertence a um cluster de escalão dedicado?
 Nós não suportam atualmente um processo de migração automatizada para migrar os dados de hubs de eventos de um espaço de nomes padrão para um dedicado um. Para migrar para um cluster de escalão dedicado, recomendamos que qualquer esquerda de mensagens nos seus hubs de eventos do escalão Standard a ser drenado e substituir os pontos de extremidade de ligação do seu espaço de nomes dedicado.

@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: f4f9ecec3876fa84abf420a2ef9b147132e7fe2a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.date: 05/07/2019
+ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925203"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466265"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: Criar uma instância gerida da base de dados do Azure SQL
 
@@ -48,7 +48,7 @@ Os passos seguintes mostram como criar uma instância gerida.
    |**Nome da instância gerida**|Qualquer nome válido.|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Início de sessão de administração da instância gerida**|Qualquer nome de utilizador válido.|Para nomes válidos, veja [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Não utilize "serveradmin", porque essa é uma função ao nível do servidor reservada.|
    |**Palavra-passe**|Qualquer palavra-passe válida.|A palavra-passe tem de ter, pelo menos, 16 carateres e cumprir os [requisitos de complexidade definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Time zone** (Fuso horário)|Fuso horário a ser observado pela sua instância gerida.|Para obter mais informações, consulte [fusos horários](sql-database-managed-instance-timezone.md).|
+   |**Fuso horário**|Fuso horário a ser observado pela sua instância gerida.|Para obter mais informações, consulte [fusos horários](sql-database-managed-instance-timezone.md).|
    |**Agrupamento**|O agrupamento que pretende utilizar para a sua instância gerida.|Se migrar bases de dados do SQL Server, verificar o agrupamento de origem com `SELECT SERVERPROPERTY(N'Collation')` e use esse valor. Para obter informações sobre agrupamentos, veja [conjunto ou altere o agrupamento de servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Localização**|A localização na qual pretende criar a instância gerida.|Para obter informações sobre regiões, consulte [regiões do Azure](https://azure.microsoft.com/regions/).|
    |**Rede virtual**|Selecione **criar nova rede virtual** ou uma rede virtual válido e uma sub-rede.| Se não estiver disponível uma rede ou sub-rede, tem de ser [modificado para satisfazer os requisitos de rede](sql-database-managed-instance-configure-vnet-subnet.md) antes de selecioná-lo como um destino para a nova instância gerida. Para obter informações sobre os requisitos para configurar o ambiente de rede para uma instância gerida, veja [configurar uma rede virtual para uma instância gerida](sql-database-managed-instance-connectivity-architecture.md). |
@@ -93,7 +93,7 @@ Após a implementação é concluída, reveja os recursos que foram criados e re
 
    ![Grupo de segurança de rede](./media/sql-database-managed-instance-get-started/network-security-group.png)
 
-5. Reveja as regras de segurança de entrada e saída. 
+5. Reveja as regras de segurança de entrada e saída. Se tiver configurado os pontos finais públicos para a sua instância gerida, veja o artigo [configurar o ponto final público](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) para obter mais informações.
 
    ![Regras de segurança](./media/sql-database-managed-instance-get-started/security-rules.png)
 

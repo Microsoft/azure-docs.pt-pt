@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 968bb5317e06b5cf9ac1f939eaf56288122a1ae0
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00d40b9910f9b549443373c84b079c543037ce62
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724399"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236317"
 ---
 # <a name="manage-your-application-preferences"></a>Gerir as suas preferências de aplicação
 
@@ -23,13 +23,16 @@ Centro de IoT fornece a flexibilidade para personalizar as suas aplicações de 
 
 ## <a name="changing-language"></a>Alterar idioma
 
-Centro de IoT é suportado em vários idiomas. Pode mudar o seu idioma preferencial ao utilizar o **Seletor de idioma** no ícone das definições na barra de navegação superior. Assim que alterou o idioma, o IoT Central lembra a sua seleção e aplica-se ele em todas as suas aplicações. Tenha em atenção essa personalização na aplicação que dessas imagens de dashboard não são localizadas.
+Centro de IoT é suportado em vários idiomas. Pode mudar o seu idioma preferencial ao utilizar o **Seletor de idioma** no ícone das definições na barra de navegação superior. Assim que alterou o idioma, o IoT Central lembra a sua seleção e aplica-se ele em todas as suas aplicações. Personalização na aplicação que dessas imagens de dashboard não são localizadas.
 
 ## <a name="changing-theme"></a>Alterar o tema
 
-Temos suporte para o tema escuro e o tema claro. Embora o tema no claro é o padrão, pode alterar isto ao selecionar o ícone de definições na barra de navegação superior.
+Temos suporte para o tema escuro e o tema claro. Embora o tema no claro é o padrão, pode alterar o tema, selecionando o ícone de definições na barra de navegação superior.
 
 ![Seletor de temas do Centro de IoT](media/howto-manage-preferences/settings.png)
+
+> [!NOTE]
+> A opção de escolher entre temas claros e escuros não está disponível se o administrador tiver configurado um tema personalizado para a aplicação.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

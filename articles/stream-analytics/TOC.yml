@@ -442,6 +442,9 @@
             - name: Janela em Cascata
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
               maintainContext: true
+            - name: Agregar funções de janelas
+              href: /stream-analytics-query/windows-azure-stream-analytics
+              maintainContext: true
     - name: Tipos de Dados
       items:
         - name: Descrição Geral dos Tipos de Dados

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b729327187a52f36d50f8a754f5521527bb07ac6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae3d1b36b89bb1bce1ff384bfa12a1bf643614fd
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717922"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408783"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Preparar a infraestrutura do Azure para SAP HA através de um cluster de ativação pós-falha do Windows e o disco partilhado para o SAP ASCS/SCS
 
@@ -33,7 +33,7 @@ ms.locfileid: "60717922"
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
-[tuning-failover-cluster-network-thresholds]:https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/
+[tuning-failover-cluster-network-thresholds]:https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834
 
 [azure-subscription-service-limits]:../../../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../../../azure-subscription-service-limits.md
@@ -551,7 +551,7 @@ O Balanceador de carga do Azure tem um balanceador de carga interno que fecha li
 
 Para adicionar entradas de Registro em ambos os nós de cluster da instância do SAP ASCS/SCS, primeiro, adicione estas entradas de Registro do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveTime` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -562,7 +562,7 @@ Para adicionar entradas de Registro em ambos os nós de cluster da instância do
 
 Em seguida, adicione esta entrada de registo do Windows em ambos os nós de cluster do Windows para o SAP ASCS/SCS:
 
-| Caminho | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| `Path` | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
 | Nome da variável |`KeepAliveInterval` |
 | Tipo de variável |REG_DWORD (Decimal) |
@@ -739,8 +739,9 @@ Configurar um testemunho de partilha de ficheiros do cluster envolve estas taref
 
 Depois de instalar com êxito o cluster de ativação pós-falha do Windows, terá de alterar alguns limites para que eles se adaptar a deteção de ativação pós-falha para condições no Azure. Os parâmetros de ser alteradas estão documentados em [ajuste os limites de rede de cluster de ativação pós-falha][tuning-failover-cluster-network-thresholds]. Supondo que as duas VMs que constituem a configuração de cluster do Windows para ASCS/SCS estão na mesma sub-rede, altere os parâmetros seguintes para estes valores:
 
-- SameSubNetDelay = 2
+- SameSubNetDelay = 2000
 - SameSubNetThreshold = 15
+- RoutingHistoryLength = 30
 
 Estas definições foram testadas com os clientes e oferecem uma boa solução. Eles são flexíveis o suficiente, mas também fornecem ativação pós-falha for rápida o suficiente em condições de erro real numa software SAP ou num nó ou uma falha VM.
 

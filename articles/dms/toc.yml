@@ -54,6 +54,8 @@
       href: resource-network-topologies.md
     - name: Problemas conhecidos
       items:
+        - name: Resolver problemas e erros comuns
+          href: known-issues-troubleshooting-dms.md
         - name: Problemas Conhecidos - Migração online para a BD SQL do Azure
           href: known-issues-azure-sql-online.md
         - name: Problemas Conhecidos - Migração online para a BD do Azure para MySQL

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: pullabhk
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 8d3e3257f16fe4e0f846c2268bfefc2771387de6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab7d2c0af4bc71733a7995b7e781f0facbfbb29f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809051"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236447"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Cargas de trabalho de cópia de segurança do Azure
 
@@ -49,7 +49,7 @@ Os alertas são principalmente cenários onde os utilizadores são avisados para
 Os cenários seguintes são definidos pelo serviço como cenários de alerta.
 
   - Falhas de cópia de segurança/restauro
-  - Cópia de segurança foi concluída com êxito com avisos
+  - Cópia de segurança foi concluída com êxito com avisos para agente do Azure Backup (MAB)
   - Pare a proteção com reter dados/pare a proteção com eliminação de dados
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando não for gerado um alerta
@@ -71,7 +71,7 @@ As exceções acima sejam criadas, desde a compreensão que o resultado destas o
 > [!NOTE]
 > Os alertas do System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup Server (MABS) não são apresentados aqui.
 
-### <a name="alert-types"></a>Tipos de alerta
+### <a name="alert-types"></a>Tipos de alertas
 Com base na gravidade do alerta, alertas podem ser definidos em três tipos:
 
   - **Crítico**: Em princípio, qualquer cópia de segurança ou recuperação de falha (agendadas ou acionadas de usuário) poderia levar à geração de um alerta e seria mostrada como um alerta crítico e também operações destrutivas como eliminar cópia de segurança.
@@ -92,7 +92,7 @@ Quando a notificação está configurada, receberá um e-mail de boas-vindos ou 
 Se a frequência foi definida para um resumo de hora a hora e um alerta foi emitido e resolvido dentro de uma hora, não é uma parte do resumo de hora a hora futura.
 
 > [!NOTE]
-> 
+>
 > * Se uma operação destrutiva, tal como **parar a proteção com eliminação de dados** é executada, é gerado um alerta e é enviado um e-mail para proprietários de subscrições, os administradores e coadministradores, mesmo que não as notificações estão configuradas para o serviço de recuperação cofre.
 > * Para configurar a notificação para tarefas concluídas com êxito de utilização [do Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace).
 

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 84dddf5ed9c31e8585480319af189d31e39163e5
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: ff098ebd23d2ce5a8c9c39f154375be1dae6a262
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59998996"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408885"
 ---
-# <a name="tutorial-integrate-with-azure-managed-identities"></a>Tutorial: Integrar com o Azure managed identidades
+# <a name="integrate-with-azure-managed-identities"></a>Integrar com o Azure managed identidades
 
 O Azure Active Directory [geridos identidades](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) ajudar a simplificar a gestão de segredos de seu aplicativo em nuvem. Com uma identidade gerida, pode configurar o seu código para utilizar o principal de serviço que foi criado para o serviço de computação do Azure que é executada no. Utilizar uma identidade gerida em vez de uma credencial separada armazenada no Azure Key Vault ou uma cadeia de ligação local. 
 
@@ -61,7 +61,7 @@ Para configurar uma identidade gerida no portal, primeiro crie uma aplicação c
 
 1. Na [portal do Azure](https://aka.ms/azconfig/portal), selecione **todos os recursos** e selecione o arquivo de configuração de aplicação que criou no guia de introdução.
 
-2. Selecione **Controlo de acesso (IAM)**.
+2. Selecione **controlo de acesso (IAM)**.
 
 3. Na **verificar acesso** separador, selecione **Add** no **adicionar atribuição de função** cartão de interface do Usuário.
 

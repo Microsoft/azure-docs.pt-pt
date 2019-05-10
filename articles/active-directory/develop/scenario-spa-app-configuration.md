@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6236f0fa2400113225e04ffd4884cf743d1e250a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b71454fc553a0f81c26426a6a9588f15d5311e38
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138295"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406420"
 ---
 # <a name="single-page-application---code-configuration"></a>Aplicação de página única - configuração de código
 
@@ -47,7 +47,7 @@ Na biblioteca MSAL, as informações de registo de aplicação são passadas com
 // Configuration object constructed.
 const config = {
     auth: {
-        clientID: 'your_app_id',
+        clientId: 'your_app_id',
         redirectUri: "your_app_redirect_uri" //defaults to application start page
     }
 }
@@ -63,7 +63,7 @@ Para obter mais detalhes sobre as opções configuráveis disponíveis, consulte
 //In app.module.ts
 @NgModule({
   imports: [ MsalModule.forRoot({
-                clientID: 'your_app_id'
+                clientId: 'your_app_id'
             })]
          })
 

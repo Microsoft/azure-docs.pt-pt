@@ -9,12 +9,12 @@ ms.subservice: ink-recognizer
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: aahi
-ms.openlocfilehash: 43dc388c9f24e3975d6efddbeec6e096bf062548
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6237253922544dc47bb11aec4dd58139f99eb0da
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026276"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518619"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Início rápido: Reconhecer tinta digital com a API de REST do reconhecedor de tinta e o Java
 
@@ -30,13 +30,13 @@ O código-fonte para este início rápido, pode ser encontrado no [GitHub](https
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- O [Java&trade; desenvolvimento Kit(JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
+- O [Java&trade; desenvolvimento Kit(JDK) 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou posterior.
 
 - Estas bibliotecas de importação do repositório Maven
     - [JSON em Java](https://mvnrepository.com/artifact/org.json/json) pacote
     - [Apache HttpClient](https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient) pacote
 
-- Os dados de traços de tinta de exemplo para este início rápido, podem ser encontrados no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+- Os dados de traços de tinta de exemplo para este início rápido, podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-ink-strokes.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -134,7 +134,7 @@ static void recognizeInk(String requestData) {
 
 ## <a name="run-the-application-and-view-the-response"></a>Executar o aplicativo e ver a resposta
 
-Execute a aplicação. Uma resposta com êxito, é devolvida no formato JSON. Também pode encontrar a resposta JSON no [GitHub](https://go.microsoft.com/fwlink/?linkid=2089904).
+Execute a aplicação. Uma resposta com êxito, é devolvida no formato JSON. Também pode encontrar a resposta JSON no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/InkRecognition/quickstart/example-response.json).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
@@ -143,8 +143,8 @@ Execute a aplicação. Uma resposta com êxito, é devolvida no formato JSON. Ta
 
 
 Para ver como a API de reconhecimento de tinta funciona num aplicativo de escrita a tinta digital, veja as seguintes aplicações de exemplo no GitHub:
-* [C#e Platform(UWP) Windows Universal](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#e o Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Aplicação de navegador da web de JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Aplicação móvel, Java e Android](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Aplicação móvel do SWIFT e iOS](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [C# e Plataforma Universal do Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# e Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Aplicação de browser Javascript](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Aplicação para dispositivos móveis Java e Android](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Aplicação para dispositivos móveis Swift e iOS](https://go.microsoft.com/fwlink/?linkid=2089805)

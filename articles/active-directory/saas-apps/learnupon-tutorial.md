@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a8b894a5b790321c0af8527bf77e07b9923d577
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 574c21dc2713f10513ac296e7db538e20a94c9d6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686767"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65406537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learnupon"></a>Tutorial: Integração do Active Directory do Azure com LearnUpon
 
@@ -165,9 +165,9 @@ Para configurar o Azure AD início de sessão único com LearnUpon, execute os s
 
      ![Configurar o início de sessão único](./media/learnupon-tutorial/tutorial_learnupon_11.png)  
 
-    a. Na **formato de identificador de nome próprio** caixa de texto, tipo, o valor que indica onde no seu asserção de SAML a firstname utilizadores reside - por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    a. Na **formato de identificador de nome próprio** caixa de texto, tipo, o valor que indica onde no seu asserção de SAML a firstname utilizadores reside - por exemplo: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
   
-    b. Na **formato de identificador de nome passado** caixa de texto, tipo, o valor que indica onde no seu asserção de SAML lastname utilizadores reside - por exemplo: `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    b. Na **formato de identificador de nome passado** caixa de texto, tipo, o valor que indica onde no seu asserção de SAML lastname utilizadores reside - por exemplo: `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -223,7 +223,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na LearnUpon. LearnUpon suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no LearnUpon, é criado um novo após a autenticação. Se precisar de criar manualmente um utilizador, terá de contactar [equipa de suporte de LearnUpon](https://www.learnupon.com/features/support/).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

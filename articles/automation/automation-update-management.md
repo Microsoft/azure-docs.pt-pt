@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b39d9788372fb0f682bc1e5b737542b400dd4035
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 43ca5bbfd789c1c41826c9a13a0030b80c72d4bc
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919682"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510657"
 ---
 # <a name="update-management-solution-in-azure"></a>Solução de gestão de atualizações no Azure
 
@@ -229,7 +229,7 @@ Para criar uma nova implementação de atualização, selecione **agendar a impl
 | Propriedade | Descrição |
 | --- | --- |
 | Name |O nome exclusivo para identificar a implementação de atualizações. |
-|Sistema Operativo| Linux ou Windows|
+|Sistema operativo| Linux ou Windows|
 | Grupos de atualização |Para máquinas do Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e as etiquetas para criar um grupo dinâmico de VMs do Azure para incluir na sua implementação. </br></br>Para as máquinas não Azure, selecione um existente já guardado pesquisa para selecionar um grupo de computadores não pertencentes ao Azure para incluir na implementação. </br></br>Para obter mais informações, consulte [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
 | Computadores a atualizar |Selecione uma pesquisa guardada, grupo importada, ou escolher máquina da lista pendente e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores nos registos do Azure Monitor, consulte o artigo [grupos de computadores nos registos do Azure Monitor](../azure-monitor/platform/computer-groups.md) |
 |Classificações de atualizações|Selecione todas as classificações de atualização que precisa|
@@ -281,7 +281,7 @@ As tabelas seguintes listam as classificações de atualização na gestão de a
 |Update rollups     | Um conjunto cumulativo de correções que são agrupadas para facilitar a implementação.        |
 |Pacotes de funcionalidades     | Novas funcionalidades do produto que são distribuídas fora de uma versão do produto.        |
 |Service packs     | Um conjunto cumulativo de correções que são aplicadas a uma aplicação.        |
-|Atualizações de definições     | Uma atualização para vírus ou outros ficheiros de definição.        |
+|Atualizações da definição     | Uma atualização para vírus ou outros ficheiros de definição.        |
 |Ferramentas     | Um utilitário ou funcionalidade que ajuda a concluir tarefas de um ou mais.        |
 |Atualizações     | Uma atualização para uma aplicação ou ficheiro que está instalado atualmente.        |
 
@@ -584,7 +584,7 @@ Estes grupos são definidos por uma consulta, quando uma implementação de atua
 * Subscrição
 * Grupos de recursos
 * Localizações
-* Etiquetas
+* Sinalizadores
 
 ![Selecionar grupos](./media/automation-update-management/select-groups.png)
 
@@ -634,7 +634,7 @@ No entanto, a gestão de atualizações ainda podem comunicar que a máquina com
 
 Implantação de atualizações por classificação da atualização não funciona no CentOS prontos a utilizar. Para implementar corretamente as atualizações para CentOS, selecione todas as classificações para garantir que as atualizações são aplicadas. Para o SUSE, selecionando *apenas* "Outras atualizações" como a classificação pode resultar em alguma segurança atualiza também a ser instalada se as atualizações de segurança relacionados com o zypper (Gestor de pacotes) ou as respetivas dependências são necessárias em primeiro lugar. Este comportamento é uma limitação do zypper. Em alguns casos, poderá ter de voltar a executar a implementação da atualização. Para verificar, verifique o registo de atualização.
 
-## <a name="remove-a-vm-for-update-management"></a>Remover uma VM para gestão de atualizações
+## <a name="remove-a-vm-from-update-management"></a>Remover uma VM de gestão de atualizações
 
 Para remover uma VM de gestão de atualizações:
 

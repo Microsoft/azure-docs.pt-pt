@@ -15,19 +15,19 @@ ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 737c72e6225cdfc9fdeec59810ffd9100c48d1ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4113d582647b5bea86980824714936d24dafc870
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61305122"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511151"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expanda os discos rígidos virtuais numa VM do Linux com a CLI do Azure
 
 Este artigo descreve como expandir os discos geridos para uma máquina virtual (VM) do Linux com a CLI do Azure. Pode [adicionar discos de dados](add-disk.md) para fornecer armazenamento adicional de espaço e também pode expandir um disco de dados existente. O tamanho de disco rígido virtual padrão para o sistema operativo (SO) é, normalmente, 30 GB numa VM do Linux no Azure. 
 
 > [!WARNING]
-> Sempre Certifique-se de que o seu sistema de ficheiros está em bom estado de funcionamento e certifique-se de que seus dados de cópia de segurança antes de efetuar operações de redimensionamento do disco. Para obter mais informações, consulte [cópia de segurança de VMs do Linux no Azure](tutorial-backup-vms.md).
+> Sempre Certifique-se de que seu sistema de ficheiros está em bom estado de funcionamento, o seu tipo de tabela de partição de disco irá suportar o novo tamanho e certifique-se de que seus dados de cópia de segurança antes de efetuar operações de redimensionamento do disco. Para obter mais informações, consulte [cópia de segurança de VMs do Linux no Azure](tutorial-backup-vms.md). 
 
 ## <a name="expand-an-azure-managed-disk"></a>Expandir um disco gerido do Azure
 Certifique-se de que tem a versão mais recente [CLI do Azure](/cli/azure/install-az-cli2) instalou e iniciou sessão a uma conta do Azure utilizando [início de sessão az](/cli/azure/reference-index#az-login).

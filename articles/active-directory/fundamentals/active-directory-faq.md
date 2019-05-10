@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f602b5f9809e5bbe0b1efb52cfa66877a31a2170
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f29ab7b908184533885929040ca8eccf56cda92d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249555"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464420"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas mais frequentes sobre o Azure Active Directory
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -145,7 +145,7 @@ Refere-se a palavras-passe que são globalmente comuns, como as variantes de “
 
 Temos um gateway que filtra os pedidos e que oferece alguma proteção contra botnets, que é aplicado a todos os inquilinos B2C.
 
-## <a name="application-access"></a>Acesso à aplicação
+## <a name="application-access"></a>Acesso às aplicações
 
 **P: Onde posso encontrar uma lista de aplicações previamente integradas com o Azure AD e as respetivas funcionalidades?**
 
@@ -210,4 +210,4 @@ Para obter mais informações, consulte [Automate user provisioning and deprovis
 - - -
 **P:  Posso configurar uma ligação LDAP segura com o Azure AD?**
 
-**R:**  Não. O Azure AD não suporta o protocolo LDAP. No entanto, pode configurar o secure LDAP com os serviços de domínio do Azure AD.
+**R:**  Não. O Azure AD não suporta o protocolo de Lightweight Directory Access Protocol (LDAP). No entanto, é possível utilizar o Azure AD Domain Services (Azure AD DS) com grupos de segurança de rede corretamente configuradas por meio de redes do Azure para alcançar a conectividade LDAP. Para obter mais informações, consulte https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap.

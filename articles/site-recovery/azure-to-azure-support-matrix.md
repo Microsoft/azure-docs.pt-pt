@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: raynew
-ms.openlocfilehash: 9b905d532dfe71fea7c4ec0377eb53b9e3073907
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1118d1de72ca7cd44844a0b526efd85eb419bc67
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926595"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412763"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -47,7 +47,7 @@ Pode replicar e recuperar VMs entre quaisquer duas regiões dentro do mesmo clus
 **Cluster geográfica** | **Regiões do Azure**
 -- | --
 América | Leste do Canadá, Canadá Central, Centro-Sul dos E.U.A., EUA Centro-Oeste, E.U.A. leste, E.U.A. Leste 2, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Centro-Norte
-Europa | Oeste do Reino Unido, sul do Reino Unido, Europa do Norte, Europa Ocidental, França, Sul de França
+Europa | Oeste do Reino Unido, sul do Reino Unido, Europa do Norte, Europa Ocidental, França, Sul de França, África do Sul Ocidental, Norte da África do Sul
 Ásia | Sul da Índia, Índia Central, Sudeste asiático, leste do Japão, Ásia Oriental, oeste do Japão, Coreia Central, Sul da Coreia
 Austrália   | Leste da Austrália, Sudeste da Austrália, Austrália Central, Austrália Central 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD leste, US DOD Centro
@@ -156,10 +156,11 @@ Imagens da galeria do Azure - publicado de terceiros | Suportadas | Suportada se
 Imagens personalizadas - publicado de terceiros | Suportadas | Suportada se a VM é executado num sistema operativo suportado.
 VMs migradas com o Site Recovery | Suportadas | Se uma VM de VMware ou máquina física foi migrada para o Azure com o Site Recovery, terá de desinstalar a versão mais antiga do serviço de mobilidade em execução na máquina e reinicie a máquina antes de replicá-los para outra região do Azure.
 Políticas RBAC | Não suportado | Políticas de controlo (RBAC) em VMs não são replicadas para a ativação pós-falha da VM na região de destino de acesso baseado em funções.
+Extensões | Não suportado | Extensões não são replicadas para a ativação pós-falha da VM na região de destino. Ele precisa ser instalado manualmente após a ativação pós-falha.
 
 ## <a name="replicated-machines---disk-actions"></a>Replicar máquinas - ações de disco
 
-**Ação** | **Detalhes**
+**ação** | **Detalhes**
 -- | ---
 Redimensionar disco numa VM replicada | Suportadas
 Adicionar um disco a uma VM replicada | Não suportado.<br/><br/> Precisa para desativar a replicação para a VM, adicione o disco e, em seguida, ative novamente a replicação.
@@ -244,7 +245,7 @@ Proxy autenticado | Não suportado | Se a VM estiver a utilizar um proxy autenti
 Ligação de site-site VPN no local<br/><br/>(com ou sem o ExpressRoute)| Suportadas | Certifique-se de que as UDRs e NSGs estão configurados de forma que o tráfego do Site Recovery não é encaminhado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Ligação VNET a VNET | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos Finais de Serviço de Rede Virtual | Suportadas | Se estão a restringir o acesso de rede virtual para contas de armazenamento, certifique-se de que os serviços Microsoft fidedignos tenham permissão para aceder à conta de armazenamento.
-Redes aceleradas | Suportadas | Funcionamento em rede acelerado tem de estar ativado na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Funcionamento em rede acelerado | Suportadas | Funcionamento em rede acelerado tem de estar ativado na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

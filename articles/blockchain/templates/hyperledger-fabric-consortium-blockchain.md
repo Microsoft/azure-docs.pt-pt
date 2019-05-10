@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/23/2019
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: caleteet
 manager: femila
-ms.openlocfilehash: ce1afbd5499e798888e77f52d7b652e7e1f548fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690659"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510755"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Rede de consórcio Hyperledger recursos de infraestrutura
 
@@ -70,13 +70,13 @@ Na **Hyperledger Fabric Consortium** modelo, selecione **criar**.
 
 A implementação do modelo irá guiá-lo por meio de configuração do nó Multi [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) rede. O fluxo de implementação é dividido em quatro etapas: Noções básicas, as definições de rede de consórcio, configuração de recursos de infraestrutura e componentes opcionais.
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Noções Básicas
 
 Na **Noções básicas**, especifique os valores de parâmetros padrão para qualquer implementação. Como, por exemplo de subscrição, grupo de recursos e basic virtual machine propriedades.
 
-![Noções básicas](./media/hyperledger-fabric-consortium-blockchain/basics.png)
+![Noções Básicas](./media/hyperledger-fabric-consortium-blockchain/basics.png)
 
-| Nome do Parâmetro | Descrição | Valores permitidos |
+| Nome do parâmetro | Descrição | Valores permitidos |
 |---|---|---|
 **Prefixo de recursos** | Prefixo do nome para os recursos aprovisionados como parte da implementação |6 carateres ou menos |
 **Nome de Utilizador** | O nome de utilizador do administrador para cada uma das máquinas virtuais implementadas para este membro |1 - 64 carateres |
@@ -95,11 +95,11 @@ Na **as definições de rede**, especificar as entradas para criar ou associar u
 
 ![Definições de rede de consórcio](./media/hyperledger-fabric-consortium-blockchain/network-settings.png)
 
-| Nome do Parâmetro | Descrição | Valores permitidos |
+| Nome do parâmetro | Descrição | Valores permitidos |
 |---|---|---|
 **Configuração da rede** |Pode optar por criar uma nova rede ou ingresse num existente. Se escolher *associar existente*, tem de fornecer valores adicionais. |Nova rede <br/> Associar existente |
 **Palavra-passe de AC HLF** |Uma palavra-passe utilizada para os certificados gerados pelas autoridades de certificação que são criadas como parte da implementação. A palavra-passe tem de conter três dos seguintes tipos de carateres: 1 caráter em maiúsculas, 1 carater em minúsculas, 1 número e 1 caráter especial.<br /><br />Embora todas as máquinas virtuais tenha, inicialmente, a mesma palavra-passe, pode alterar a palavra-passe após o aprovisionamento.|1 - 25 caracteres |
-**Configuração da organização** |Pode personalizar o nome da sua organização e do certificado ou têm valores padrão a ser utilizado.|Predefinição <br/> Avançado |
+**Configuração da organização** |Pode personalizar o nome da sua organização e do certificado ou têm valores padrão a ser utilizado.|Predefinição <br/> Avançadas |
 **Definições de rede VPN** | Aprovisionar um gateway de túnel VPN para acessar as VMs | Sim <br/> Não |
 
 Selecione **OK**.
@@ -110,16 +110,16 @@ Na **configuração de recursos de infraestrutura**, configure o tamanho de rede
 
 ![Definições de recursos de infraestrutura](./media/hyperledger-fabric-consortium-blockchain/fabric-specific-settings.png)
 
-| Nome do Parâmetro | Descrição | Valores permitidos |
+| Nome do parâmetro | Descrição | Valores permitidos |
 |---|---|---|
 **Tipo de dimensionamento** |O tipo de implementação de uma única máquina virtual com vários contentores ou várias máquinas virtuais num modelo de escalamento horizontal.|VM única ou várias VM |
-**Tipo de disco da VM** |O tipo de armazenamento de segurança cada um de nós implementados. <br/> Para saber mais sobre os tipos de disco disponível, visite [selecionar um tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> SSD Premium |
+**Tipo de disco da VM** |O tipo de armazenamento de segurança cada um de nós implementados. <br/> Para saber mais sobre os tipos de disco disponível, visite [selecionar um tipo de disco](../../virtual-machines/windows/disks-types.md).|SSD Standard <br/> Premium SSD |
 
 ### <a name="multiple-vm-deployment-additional-settings"></a>Implementação de várias VMS (configurações adicionais)
 
 ![Definições de recursos de infraestrutura para várias implementações de vm](./media/hyperledger-fabric-consortium-blockchain/multiple-vm-deployment.png)
 
-| Nome do Parâmetro | Descrição | Valores permitidos |
+| Nome do parâmetro | Descrição | Valores permitidos |
 |---|---|---|
 **Número de nós de orderer** |O número de nós que solicite (organizar) transações num bloco. <br />Para obter detalhes adicionais sobre o serviço de ordenação, visite o Hyperledger [documentação](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html) |1 a 4 |
 **Tamanho de máquina virtual do nó orderer** |O tamanho de máquina virtual utilizado para nós orderer na rede|Standard Bs,<br />Standard Ds,<br />Standard FS |
@@ -135,7 +135,7 @@ Este modelo permite-lhe escolher seu mecanismo de persistência por nó de mesmo
 
 Selecione **OK**.
 
-### <a name="deploy"></a>Implementação
+### <a name="deploy"></a>Implementar
 
 Na **resumo**, reveja as entradas especificadas e para executar a validação de pré-implementação básica.
 
