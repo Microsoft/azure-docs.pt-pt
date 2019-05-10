@@ -67,7 +67,7 @@
     - name: Faturação e subscrições
       href: 'https://docs.microsoft.com/azure/billing/billing-getting-started'
     - name: Comparações de alojamento
-      href: 'https://docs.microsoft.com/azure/app-service/overview-compare'
+      href: /azure/architecture/guide/technology-choices/compute-decision-tree
     - name: O que é o Serviço de Aplicações?
       href: 'https://docs.microsoft.com/azure/app-service/overview'
     - name: Máquinas virtuais

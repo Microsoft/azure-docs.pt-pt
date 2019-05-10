@@ -55,7 +55,7 @@ sections:
         className: cardsD
         items:
           - title: APIs REST
-            html: '<p><a href="https://aka.ms/personalizer-rest-api-docs">API do Personalizador</a></p>'
+            html: '<p><a href="https://go.microsoft.com/fwlink/?linkid=2092082">API do Personalizador</a></p>'
           - title: PowerShell
             html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
           - title: CLI
