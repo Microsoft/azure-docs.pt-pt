@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: tutorial
 ms.date: 04/24/2019
-ms.openlocfilehash: 81d7572f800f191791158f2c1f99e1f072980116
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 6b833ef56b890eb4ea0db6b48fe8c2622e211498
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65151056"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233874"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento do Azure
 
@@ -206,7 +206,7 @@ Adicione a cadeia de ligação para a aplicação para que ele possa acessar a c
 
 ## <a name="insert-messages-into-the-queue"></a>Inserir mensagens na fila
 
-Crie um novo método para enviar uma mensagem na fila. Adicione o método seguinte à sua **programa** classe. Este método obtém uma referência de fila, em seguida, cria uma nova fila se ainda não exista chamando [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Em seguida, adiciona a mensagem à fila chamando [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
+Crie um novo método para enviar uma mensagem na fila. Adicione o método seguinte à sua **programa** classe. Este método obtém uma referência de fila, em seguida, cria uma nova fila se ainda não exista chamando [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Em seguida, adiciona a mensagem à fila chamando [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
 1. Adicione as seguintes **SendMessageAsync** método para sua **programa** classe.
 
@@ -229,7 +229,7 @@ Crie um novo método para enviar uma mensagem na fila. Adicione o método seguin
 
 ## <a name="dequeue-messages"></a>Remover da fila de mensagens
 
-Criar um novo método chamado **ReceiveMessageAsync**. Esse método recebe uma mensagem da fila chamando [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Assim que a mensagem é recebida com êxito, é importante para eliminá-lo da fila, para que ele não é processado mais do que uma vez. Depois da mensagem é recebida, eliminá-lo da fila chamando [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+Criar um novo método chamado **ReceiveMessageAsync**. Esse método recebe uma mensagem da fila chamando [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Assim que a mensagem é recebida com êxito, é importante para eliminá-lo da fila, para que ele não é processado mais do que uma vez. Depois da mensagem é recebida, eliminá-lo da fila chamando [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
 
 1. Adicione as seguintes **ReceiveMessageAsync** método para sua **programa** classe.
 

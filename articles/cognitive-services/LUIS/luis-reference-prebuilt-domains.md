@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6c0ecf70935d4504472156f6bda726d94f130dbb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3265477108b7e74d65050408add6c5d5c94b4852
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148187"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233889"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referência de domínio pré-criado para a sua aplicação LUIS
 Esta referência disponibiliza informações sobre o [domínios pré-concebidos](luis-how-to-use-prebuilt-domains.md), que são coleções pré-criados de objetivos e entidades que oferece o LUIS.
@@ -56,13 +56,12 @@ The table below summarizes the currently supported domains. Support for English 
 |--|--|
 |Calendário|Calendário é qualquer coisa sobre reuniões pessoais e de compromissos, _não_ eventos públicos (como agendas de cup do mundo, calendários de eventos de Seattle ou calendários genéricos (por exemplo, que dia é hoje em dia, o que Outono começar, quando é dia de trabalho).|
 |Comunicação|Pedidos para fazer chamadas, envie textos ou mensagens instantâneas, localize e adicione a contactos e vários outros pedidos relacionados com a comunicação (geralmente de saída). Consultas de nome de contato único não pertencem ao domínio de comunicação.|
-|Email|O e-mail é um subdomínio do domínio de comunicação. Ela contém principalmente pedidos para enviar e receber mensagens através de e-mails.|
+|Correio Electrónico|O e-mail é um subdomínio do domínio de comunicação. Ela contém principalmente pedidos para enviar e receber mensagens através de e-mails.|
 |HomeAutomation|O domínio de HomeAutomation fornece intenções e entidades relacionadas para controlar os dispositivos de casa inteligentes. Principalmente suporta o comando de controle relacionados com luzes e ar-condicionado, mas tem algumas capacidades de generalização para outras aplicações electric.|
 |Notas|Domínio de nota fornece intenções e entidades para criar notas e escrever itens para os utilizadores.|
 |Locais|Locais incluem as empresas, instituições, restaurantes, espaços públicos e endereços. O domínio suporta local localizar e perguntar sobre as informações de local público, tais como localidade, horas e a distância a funcionar.|
 |RestaurantReservation|Domínio de reserva do restaurante suporta objetivos para a manipulação de reservas de restaurantes.|
 |ToDo|ToDo domínio fornece tipos de listas de tarefas para os utilizadores adicionar, marcar e eliminar os seus itens de afazeres.|
-|ToDo_IPA|Com base no domínio de ToDo, ToDo_IPA é uma versão personalizada para expandir as entidades na lista de tarefas. A versão de IPA fornece intenções e entidades para suportar o reconhecimento de um tipo de lista de tarefas. O modelo define três tipos de listas de tarefas: acessar a lista, a lista de compra e a lista de tarefas que abordam outros casos.|
 |Serviços Públicos|Domínio de utilitários é um domínio geral entre todos os LUIS modelos pré-construídos que contém expressões em cenários de diferença e objetivos comuns.|
 |Meteorologia|Domínio de Meteorologia enfoca a verificação da condição meteorológica e consultorias com localização e a hora ou a verificação de tempo por condições meteorológicas.|
 |Web|O domínio da Web fornece a intenção e as entidades de pesquisa para um Web site.|

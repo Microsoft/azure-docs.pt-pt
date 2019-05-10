@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 8fd73b1e0fcde6bcd69c7ce76b888d1adda37de4
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939556"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233977"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 
@@ -37,7 +37,7 @@ Utilizar atribuições de funções do RBAC é um poderoso mecanismo para contro
 Quando uma entidade de segurança é concedida permissões de dados RBAC por meio de um [função incorporada](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou por meio de uma função personalizada, estas permissões são avaliadas pela primeira vez após a autorização de um pedido. Se a operação pedida é autorizada pelas atribuições de RBAC a entidade de segurança, em seguida, a autorização é resolvido imediatamente e não adicionais são executadas verificações ACL. Em alternativa, se a entidade de segurança não tem uma atribuição de RBAC ou operação do pedido não coincide com a permissão atribuída, em seguida, ACL são executadas verificações para determinar se a entidade de segurança está autorizada a efetuar a operação pedida.
 
 > [!NOTE]
-> Se a entidade de segurança tiver sido atribuída a [dados de armazenamento de BLOBs]() atribuição de função incorporada de proprietário, em seguida, a entidade de segurança é considerado um *Superutilizador* e é concedido acesso total a modificação de todos os operações, incluindo a definir o proprietário de um diretório ou arquivo, bem como as ACLs para ficheiros para o qual não é o proprietário e diretórios. O acesso de Superutilizador é a única maneira autorizada para alterar o proprietário de um recurso.
+> Se a entidade de segurança foi atribuída a atribuição de função incorporada de proprietário de dados de Blob de armazenamento, em seguida, a entidade de segurança é considerada uma *Superutilizador* e é concedido acesso total a todas as operações de mutação, incluindo a definição do proprietário de um diretório ou arquivo, bem como as ACLs para ficheiros para o qual não é o proprietário e diretórios. O acesso de Superutilizador é a única maneira autorizada para alterar o proprietário de um recurso.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>Autenticação de chave partilhada e assinatura de acesso partilhado (SAS)
 
@@ -101,7 +101,7 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 | 7            | `RWX`        | Leitura + Escrita + Execução |
 | 5            | `R-X`        | Leitura + Execução         |
 | 4            | `R--`        | Leitura                   |
-| 0            | `---`        | Sem permissões         |
+| 0            | `---`        | Não existem permissões         |
 
 #### <a name="permissions-inheritance"></a>Herança de permissões
 

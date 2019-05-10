@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 04/25/2019
+ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a3c035715de736b816027b08a1e242e6a65d1f13
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a44f7d9c18e406850e2dbfb091088be0b8c2113
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148759"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235913"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Criar uma galeria de imagem partilhada com o Azure PowerShell 
 
@@ -44,7 +44,9 @@ O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Pod
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente. Pode seguir [Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell](tutorial-custom-images.md) para criar um, se necessário. Quando trabalhar com este artigo, substitua o grupo de recursos e a VM nomes onde necessário.
+Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente. Pode seguir [Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell](tutorial-custom-images.md) para criar um, se necessário. Se a imagem gerida contém um disco de dados, o tamanho do disco de dados não pode ser mais de 1 TB.
+
+Quando trabalhar com este artigo, substitua o grupo de recursos e a VM nomes onde necessário.
 
 [!INCLUDE [virtual-machines-common-shared-images-powershell](../../../includes/virtual-machines-common-shared-images-powershell.md)]
  
@@ -72,6 +74,7 @@ New-AzVm `
 [!INCLUDE [virtual-machines-common-shared-images-update-delete-ps](../../../includes/virtual-machines-common-shared-images-update-delete-ps.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
+[Construtor de imagens do Azure (pré-visualização)](image-builder-overview.md) podem ajudar a automatizar a criação de imagens de versão, ainda pode usá-lo para atualizar e [criar uma nova versão de imagem a partir de uma versão de imagem existente](image-builder-gallery-update-image-version.md). 
 
 Também pode criar recursos de Galeria de imagens de partilhado através de modelos. Vários modelos de início rápido do Azure estão disponíveis: 
 

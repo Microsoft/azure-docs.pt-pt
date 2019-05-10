@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 10c015a9aee4ed8be54805f7adaae5bb4b5c422f
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 12de4ef31084d8ac8586c79ffe3d0a8e891727bf
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64870391"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411391"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Ativar um ponto final SSL num grupo de contentor
 
@@ -66,7 +66,7 @@ Na `location`, certifique-se de que definir `proxy_pass` com a porta correta par
 
 ```console
 # nginx Configuration File
-# http://wiki.nginx.org/Configuration
+# https://wiki.nginx.org/Configuration
 
 # Run as a less privileged user for security reasons.
 user nginx;
@@ -128,7 +128,7 @@ http {
 
 ### <a name="base64-encode-secrets-and-configuration-file"></a>Codificar em Base64 segredos e arquivo de configuração
 
-Base64-codificar o ficheiro de configuração Nginx, o certificado SSL e a chave SSL. Utilize o conteúdo codificado para configurar o contentor de Nginx.
+Base64-codificar o ficheiro de configuração Nginx, o certificado SSL e a chave SSL. Na secção seguinte, introduza o conteúdo codificado num ficheiro YAML utilizados para implementar o grupo de contentores.
 
 ```console
 cat nginx.conf | base64 -w 0 > base64-nginx.conf
@@ -148,7 +148,7 @@ Copie o YAML seguinte para um novo ficheiro designado `deploy-aci.yaml`. No Azur
 code deploy-aci.yaml
 ```
 
-Introduza o conteúdo de com codificação base64 ficheiros onde seja indicado em `secret`. Durante a implementação, estes ficheiros são adicionados a uma [volume secreto](container-instances-volume-secret.md) no grupo de contentores. Neste exemplo, o volume secreto está montado para o contentor de Nginx.
+Introduza o conteúdo de com codificação base64 ficheiros onde seja indicado em `secret`. Por exemplo, `cat` cada um dos arquivos codificada em base64 para ver o respetivo conteúdo. Durante a implementação, estes ficheiros são adicionados a uma [volume secreto](container-instances-volume-secret.md) no grupo de contentores. Neste exemplo, o volume secreto está montado para o contentor de Nginx.
 
 ```YAML
 api-version: 2018-10-01
@@ -181,9 +181,9 @@ properties:
           memoryInGB: 1.5
   volumes:
   - secret:
-      ssl.crt: <base64-ssl.crt>
-      ssl.key: <base64-ssl.key>
-      nginx.conf: <base64-nginx.conf>
+      ssl.crt: <Enter contents of base64-ssl.crt here>
+      ssl.key: <Enter contents of base64-ssl.key here>
+      nginx.conf: <Enter contents of base64-nginx.conf here>
     name: nginx-config
   ipAddress:
     ports:

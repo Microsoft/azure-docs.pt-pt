@@ -40,6 +40,9 @@
     - name: Utilize as práticas recomendadas de implementação segura
       displayName: adm
       href: deployment-manager-tutorial.md
+    - name: Utilizar a verificação de estado de funcionamento no Gestor de Implementação
+      displayName: adm
+      href: deployment-manager-tutorial-health-check.md
     - name: Resolver problemas da implementação de modelos
       href: resource-manager-tutorial-troubleshoot.md
 - name: Amostras
@@ -62,6 +65,9 @@
     - name: Gestor de Implementação
       displayName: adm
       href: deployment-manager-overview.md
+    - name: Verificação de estado de funcionamento do Gestor de Implementação
+      displayName: adm
+      href: deployment-manager-health-check.md
     - name: Modos de implementação
       href: deployment-modes.md
     - name: Eliminação de recursos

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 2ab8f272fc264f153144803be772d381c1780512
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65143276"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235752"
 ---
 # <a name="sql-database-serverless-preview"></a>Base de dados SQL sem servidor (pré-visualização)
 
@@ -72,7 +72,7 @@ A tabela seguinte compara o escalão de computação sem servidor com o escalão
 
 ## <a name="purchasing-model-and-service-tier"></a>Escalão de serviço e modelo de compra
 
-Sem servidor da base de dados SQL é atualmente suportada apenas no escalão fins gerais em hardware de geração 5 no vcore modelo de compra.
+Sem servidor da base de dados SQL é atualmente suportada apenas no escalão fins gerais em hardware de geração 5 no vCore modelo de compra.
 
 ## <a name="autoscaling"></a>Dimensionamento automático
 
@@ -111,7 +111,7 @@ Autoresume é acionada se uma das seguintes condições for verdadeira, a qualqu
 |Autotuning|Aplicação e a verificação de recomendações de autotuning como indexa automaticamente|
 |Copiar a base de dados|Criar base de dados como cópia<br>Exportar para um ficheiro BACPAC|
 |Sincronização de dados SQL|Sincronização entre o hub e member bases de dados que são executados numa agenda configurável ou são executadas manualmente|
-|Modificar determinados metadados de base de dados|Adicionar novas etiquetas de base de dados<br>Alterar vcores max, min vcores, atraso autopause|
+|Modificar determinados metadados de base de dados|Adicionar novas etiquetas de base de dados<br>Alterar vCores max, min vCores, atraso autopause|
 |SQL Server Management Studio (SSMS)|Com o SSMS versão 18 e abrir uma nova janela de consulta para qualquer base de dados no servidor retomará a qualquer base de dados em pausa automaticamente no mesmo servidor. Este comportamento não ocorre se com o SSMS versão 17.9.1 com o IntelliSense ativado-off.|
 
 ### <a name="connectivity"></a>Conectividade
@@ -225,7 +225,7 @@ O pacote de aplicação é o limite da gestão recursos, a maioria dos e externa
 
 O agrupamento de recursos de utilizador é interno, a maioria dos limites de gestão de recursos para uma base de dados, independentemente se a base de dados está numa camada de computação sem servidor ou aprovisionado. O agrupamento de recursos de utilizador examina a CPU e e/s para carga de trabalho de utilizador gerada por consultas DDL (por exemplo, CREATE, ALTER, etc.) e consultas DML (por exemplo, SELECT, INSERT, UPDATE, DELETE, etc.). Estas consultas geralmente representam a proporção mais substancial de utilização dentro do pacote de aplicação.
 
-### <a name="metrics"></a>Métricas
+### <a name="metrics"></a>Métrica
 
 |Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|

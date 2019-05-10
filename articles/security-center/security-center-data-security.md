@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7a327c963f32d6bf5b0cf7751557c61327fd26e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd91b83bc808d811fc50293fbf1726d609ad5b46
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60911549"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234079"
 ---
 # <a name="azure-security-center-data-security"></a>Segurança de Dados do Centro de Segurança do Azure
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
@@ -42,16 +42,22 @@ O Centro de Segurança do Azure analisa dados das origens seguintes para proporc
 
 **A utilização de dados**: A Microsoft utiliza os padrões e informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção; podemos fazê-lo de acordo com os compromissos de privacidade descritos na nossa [declaração de privacidade](https://www.microsoft.com/privacystatement/en-us/OnlineServices/Default.aspx).
 
-## <a name="data-location"></a>Localização dos dados
+## <a name="data-location"></a>Localização de dados
 
 **Suas áreas de trabalho**: Uma área de trabalho está especificada para as seguintes áreas geográficas e os dados recolhidos das suas máquinas virtuais do Azure, incluindo informações de falhas e alguns tipos de dados de alertas, são armazenados na área de trabalho mais próxima.
 
-| Área Geográfica da VM                        | Área Geográfica da Área de Trabalho |
-|-------------------------------|---------------|
-| Estados Unidos, Brasil, Canadá | Estados Unidos |
-| Europa, Reino Unido        | Europa        |
-| Ásia-Pacífico, Japão, Índia    | Ásia-Pacífico  |
-| Austrália                     | Austrália     |
+| Área Geográfica da VM                              | Área Geográfica da Área de Trabalho |
+|-------------------------------------|---------------|
+| África do Sul de Estados Unidos, Brasil, | Estados Unidos |
+| Canadá                              | Canadá        |
+| Europa (excluindo o Reino Unido)   | Europa        |
+| Reino Unido                      | Reino Unido |
+| Asiático (excluindo a Índia, Japão, Coreia, China)   | Ásia-Pacífico  |
+| Coreia                              | Ásia-Pacífico  |
+| Índia                               | Índia         |
+| Japão                               | Japão         |
+| China                               | China         |
+| Austrália                           | Austrália     |
 
 
 Instantâneos de disco da VM são armazenados na mesma conta de armazenamento como disco de VM.

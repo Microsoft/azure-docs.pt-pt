@@ -2,19 +2,19 @@
 title: Tutorial - como utilizar o Azure Key Vault com uma Linux Máquina Virtual do Azure no .NET - Azure Key Vault | Documentos da Microsoft
 description: Tutorial para configurar uma aplicação ASP.NET Core para ler um segredo do Key Vault
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 969213f4006aa842711459fed7a76d08a9d3ce37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 88d06518c6cabe1f796dbdef6d954db83bc5ae28
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707065"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234016"
 ---
 # <a name="tutorial-how-to-use-azure-key-vault-with-azure-linux-virtual-machine-in-net"></a>Tutorial: Como utilizar o Azure Key Vault com o Linux Máquina Virtual do Azure no .NET
 
@@ -52,7 +52,7 @@ Eis como funciona: Quando ativa o MSI para um serviço do Azure, como as Máquin
 Depois, o código chama um serviço de metadados local que está disponível no recurso do Azure, para obter um token.
 O código utiliza o token de acesso que obtém do MSI_ENDPOINT local para se autenticar no serviço Azure Key Vault. 
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Para iniciar sessão no Azure com a CLI do Azure, introduza:
 

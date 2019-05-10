@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c55839f7ec4e4c28086912c476a193e31561c3f4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62127765"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234125"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch com a API .NET
 
@@ -43,7 +43,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 * [Windows versão de 64 bits do ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, terá apenas o ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
@@ -140,7 +140,7 @@ As secções seguintes dividem a aplicação de exemplo nos passos que executa p
 
 ### <a name="authenticate-blob-and-batch-clients"></a>Autenticar clientes Blob e Batch
 
-Para interagir com a conta de armazenamento associada, a aplicação utiliza a Biblioteca de Cliente de Armazenamento do Azure para .NET. Cria uma referência para a conta com [CloudStorageAccount](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount) e autentica através da autenticação de chave partilhada. Em seguida, cria um [CloudBlobClient](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobclient).
+Para interagir com a conta de armazenamento associada, a aplicação utiliza a Biblioteca de Cliente de Armazenamento do Azure para .NET. Cria uma referência para a conta com [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount) e autentica através da autenticação de chave partilhada. Em seguida, cria um [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
 
 ```csharp
 // Construct the Storage account connection string

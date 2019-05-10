@@ -8,18 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92f4616a415c4ddebd0d9b2e466536b2f30c486f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146412"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413706"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters do HDInsight do Azure (pré-visualização)
 
 Funcionalidade de dimensionamento automático do Azure HDInsight cluster dimensiona-se automaticamente o número de nós de trabalho num cluster e reduzir verticalmente. Outros tipos de nós do cluster não podem ser dimensionados atualmente.  Durante a criação de um novo cluster do HDInsight, pode ser definido um número mínimo e máximo de nós de trabalho. Dimensionamento automático, em seguida, monitoriza os requisitos de recursos da carga de análise e aumenta o número de nós de trabalho ou para baixo. Não é sem custos adicionais para esta funcionalidade.
 
 ## <a name="cluster-compatibility"></a>Compatibilidade de cluster
+
+> [!Important]
+> A funcionalidade de dimensionamento automático só funciona nos clusters criados após a disponibilidade pública do recurso em Maio de 2019. Isso não funcionará para clusters já existentes.
 
 A tabela seguinte descreve os tipos de cluster e versões que são compatíveis com a funcionalidade de dimensionamento automático.
 
@@ -199,7 +202,7 @@ Todas as mensagens de estado de cluster que poderá ver são explicadas na lista
 
 | Estado do cluster | Explicação |
 |---|---|
-| A executar | O cluster está a funcionar normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
+| Em Execução | O cluster está a funcionar normalmente. Todas as atividades de dimensionamento automático anteriores foram concluídas com êxito. |
 | A atualizar  | A configuração de dimensionamento automático do cluster está a ser atualizada.  |
 | Configuração do HDInsight  | Um cluster de aumentar ou reduzir verticalmente a operação está em curso.  |
 | Erro de atualização  | HDInsight detetou problemas durante a atualização de configuração de dimensionamento automático. Os clientes podem optar por repita a atualização ou desativar o dimensionamento automático.  |

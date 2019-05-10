@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 82a2330aeadb14bb421260a290a25581232293e5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 82c0aa53fa8905e0e58cb784a478ade474ec5601
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073362"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232773"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -94,7 +94,7 @@ Partilhas de ficheiros de Premium (pré-visualização) são aprovisionadas com 
 
 Na base de melhor esforço, todas as partilhas podem ultrapassar os limites até três IOPS por GiB de armazenamento aprovisionado durante 60 minutos ou mais consoante o tamanho da partilha. Novas partilhas de começam com o crédito de rajada completo com base na capacidade aprovisionada.
 
-Partilhas de tem de ser aprovisionadas em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, o próximo tamanho é 101 GIB e assim por diante.
+Partilhas de tem de ser aprovisionadas em incrementos de 1 GiB. Tamanho mínimo é de 100 GiB, o próximo tamanho é 101 GiB e assim por diante.
 
 > [!TIP]
 > Linha de base de IOPS = 1 * aprovisionado GiB. (Até um máximo de 100 000 IOPS).
@@ -120,7 +120,7 @@ A tabela seguinte ilustra alguns exemplos destes viramos para os tamanhos de par
 |10,240      | 10,240  | Até 30,720  | 675 | 450   |
 |33,792      | 33,792  | Até 100 000 | 2,088 | 1,392   |
 |51,200      | 51,200  | Até 100 000 | 3,132 | 2,088   |
-|102,400     | 100 000 | Até 100 000 | 6,204 | 4,136   |
+|102,400     | 100,000 | Até 100 000 | 6,204 | 4,136   |
 
 ### <a name="bursting"></a>Extrapolação
 

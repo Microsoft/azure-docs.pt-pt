@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/07/2019
 ms.author: raynew
-ms.openlocfilehash: ea9f6a65ae804d4d2e5004ff4e2c61a2a85b976d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e311a328c1c3d78fa8e5ba7065dcc6484006eaaf
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60748990"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235873"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de Hyper-V no local para o Azure
 
@@ -31,10 +31,10 @@ Hyper-V sem o Virtual Machine Manager | Pode executar a recuperação após desa
 
 ## <a name="on-premises-servers"></a>Servidores no local
 
-**Servidor** | **Requisitos** | **Detalhes**
+**servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
-Hyper-V (sem o Gestor de Máquina Virtual a ser executada) | Windows Server 2016 (incluindo instalação server core), Windows Server 2012 R2 com as atualizações mais recentes | Se já tiver configurado o Windows Server 2012 R2 com / ou o SCVMM 2012 R2 com o Azure Site Recovery e o plano para atualizar o sistema operacional, siga as orientações [documentação.](upgrade-2012R2-to-2016.md) 
-Hyper-V (em execução com o Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se for utilizado do Virtual Machine Manager, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (sem o Gestor de Máquina Virtual a ser executada) |  Windows Server 2019, Windows Server 2016 (incluindo instalação server core), Windows Server 2012 R2 com as atualizações mais recentes | Se já tiver configurado o Windows Server 2012 R2 com / ou o SCVMM 2012 R2 com o Azure Site Recovery e o plano para atualizar o sistema operacional, siga as orientações [documentação.](upgrade-2012R2-to-2016.md) 
+Hyper-V (em execução com o Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se o Virtual Machine Manager é utilizado, anfitriões do Windows Server 2019 devem ser geridos no Virtual Machine Manager 2019. Da mesma forma, os anfitriões do Windows Server 2016 devem ser geridos no Virtual Machine Manager 2016.<br/><br/>
 
 
 ## <a name="replicated-vms"></a>VMs replicadas
@@ -50,7 +50,7 @@ Sistema operativo convidado | Qualquer SO convidado [suportada para o Azure](htt
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
-**Ação** | **Detalhes**
+**ação** | **Detalhes**
 --- | ---
 Redimensionar o disco na VM de Hyper-V replicada | Não suportado. Desative a replicação, efetuar a alteração e, em seguida, reativar a replicação para a VM.
 Adicionar o disco na VM de Hyper-V replicada | Não suportado. Desative a replicação, efetuar a alteração e, em seguida, reativar a replicação para a VM.
@@ -79,7 +79,7 @@ Rede de VM do convidado: Multi-NIC | Sim | Sim
 Azure ExpressRoute | Sim | Sim
 ILB | Sim | Sim
 ELB | Sim | Sim
-Traffic Manager do Azure | Sim | Sim
+Gestor de Tráfego do Azure | Sim | Sim
 Multi-NIC | Sim | Sim
 IP Reservado | Sim | Sim
 IPv4 | Sim | Sim
@@ -92,7 +92,7 @@ Redes Aceleradas | Não | Não
 
 **Armazenamento** | **Hyper-V com o Virtual Machine Manager** | **Hyper-V sem o Virtual Machine Manager**
 --- | --- | --- 
-NFS | ND | ND
+NFS | N/D | N/D
 SMB 3.0 | Sim | Sim
 SAN (ISCSI) | Sim | Sim
 Múltiplos caminhos (o MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM para CLARiiON | Sim | Sim
@@ -101,15 +101,15 @@ Múltiplos caminhos (o MPIO). Testado com:<br></br> Microsoft DSM, EMC PowerPath
 
 **Armazenamento** | **Hyper-V com o Virtual Machine Manager** | **Hyper-V sem o Virtual Machine Manager**
 --- | --- | ---
-VMDK | ND | ND
+VMDK | N/D | N/D
 VHD/VHDX | Sim | Sim
 Geração 2 VM | Sim | Sim
 EFI/UEFI| Sim | Sim
 Partilhado o disco de cluster | Não | Não
 Disco encriptado | Não | Não
-NFS | ND | ND
+NFS | N/D | N/D
 SMB 3.0 | Não | Não
-RDM | ND | ND
+RDM | N/D | N/D
 Disco > 1 TB | Sim, até 4095 GB | Sim, até 4095 GB
 Disco: Setor de lógico e físico de 4K | Não suportado: Gen 1/Gen 2 | Não suportado: Gen 1/Gen 2
 Disco: 4K lógico e o setor físico de 512 bytes | Sim |  Sim
@@ -161,12 +161,12 @@ VHD partilhado | Não suportado | A verificação de pré-requisitos falha se n�
 Disco FC | Não suportado | A verificação de pré-requisitos falha se não suportado.
 Formato de disco rígido | VHD <br/><br/> VHDX | Recuperação de sites converte automaticamente VHDX em VHD quando efetuar a ativação pós-falha para o Azure. Quando a reativação pós-falha para no local, as máquinas virtuais é continuar a utilizar o formato VHDX.
 BitLocker | Não suportado | O BitLocker tem de ser desativado antes de ativar a replicação para uma VM.
-o nome da VM | Entre 1 e 63 carateres. Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número. | Atualize o valor nas propriedades da VM no Site Recovery.
+Nome da VM | Entre 1 e 63 carateres. Limitado a letras, números e hífenes. O nome da VM tem de começar e terminar com uma letra ou um número. | Atualize o valor nas propriedades da VM no Site Recovery.
 Tipo de VM | Geração 1<br/><br/> Geração 2 – Windows | VMs de geração 2, com um tipo de disco de SO do basic (que inclui um ou dois volumes de dados formatados como VHDX) e menos de 300 GB de espaço em disco são suportadas.<br></br>VMs de Linux geração 2 não são suportadas. [Saiba mais](https://azure.microsoft.com/blog/2015/04/28/disaster-recovery-to-azure-enhanced-and-were-listening/).|
 
 ## <a name="recovery-services-vault-actions"></a>Ações de Cofre de serviços de recuperação
 
-**Ação** |  **Hyper-V com o Virtual Machine Manager** | **Hyper-V sem o Virtual Machine Manager**
+**ação** |  **Hyper-V com o Virtual Machine Manager** | **Hyper-V sem o Virtual Machine Manager**
 --- | --- | ---
 Mover o Cofre entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não | Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não | Não

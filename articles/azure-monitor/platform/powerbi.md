@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 05/01/219
 ms.author: bwren
-ms.openlocfilehash: 53e24a6874a1e43b0de07893a6ace3a44b81d373
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2db6ddf57802f6fcf38cfc3ad7094ed94eaca3d8
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454055"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65234197"
 ---
 # <a name="import-azure-monitor-log-data-into-power-bi"></a>Importar dados de registo do Azure Monitor para o Power BI
 
@@ -60,7 +60,9 @@ O ambiente de trabalho do Power BI é um aplicativo de desktop permite-lhe criar
 ## <a name="publish-to-power-bi"></a>Publicar no Power BI
 Ao publicar no Power BI, um conjunto de dados e um relatório serão criados.  Se criar um relatório no Power BI Desktop, em seguida, isso será publicado com os seus dados.  Caso contrário, em seguida, será criado um relatório em branco.  Pode modificar o relatório no Power BI ou crie um novo com base no conjunto de dados.
 
-1. Crie um relatório com base nos seus dados.  Uso [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ele.  Quando estiver pronto para enviar para o Power BI, clique em **publicar**.  Quando lhe for pedido, selecione um destino na sua conta do Power BI.  A menos que tenha um destino específico em mente, utilize **minha área de trabalho**.
+1. Crie um relatório com base nos seus dados.  Uso [documentação do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-report-view) se não estiver familiarizado com ele.  
+1. Quando estiver pronto para enviar para o Power BI, clique em **publicar**.  
+1. Quando lhe for pedido, selecione um destino na sua conta do Power BI.  A menos que tenha um destino específico em mente, utilize **minha área de trabalho**.
 
     ![Publicar do Power BI Desktop](media/powerbi/desktop-publish.png)
 
@@ -70,7 +72,10 @@ Ao publicar no Power BI, um conjunto de dados e um relatório serão criados.  S
 ### <a name="configure-scheduled-refresh"></a>Configurar a atualização agendada
 O conjunto de dados criado no Power BI terão os mesmos dados que viu anteriormente no Power BI Desktop.  Terá de atualizar o conjunto de dados periodicamente para executar novamente a consulta e preenchê-lo com os dados mais recentes do Azure Monitor.  
 
-1. Clique na área de trabalho em que carregou o relatório e selecione o **conjuntos de dados** menu. Selecione o menu de contexto junto ao seu novo conjunto de dados e selecione **definições**. Sob **credenciais da origem de dados** deve ter uma mensagem que as credenciais são inválidas.  Isso é porque ainda não forneceu credenciais ainda para o conjunto de dados a utilizar quando ele atualiza os seus dados.  Clique em **editar credenciais** e especifique as credenciais com acesso à área de trabalho do Log Analytics no Azure Monitor.
+1. Clique na área de trabalho em que carregou o relatório e selecione o **conjuntos de dados** menu. 
+1. Selecione o menu de contexto junto ao seu novo conjunto de dados e selecione **definições**. 
+1. Sob **credenciais da origem de dados** deve ter uma mensagem que as credenciais são inválidas.  Isso é porque ainda não forneceu credenciais ainda para o conjunto de dados a utilizar quando ele atualiza os seus dados.  
+1. Clique em **editar credenciais** e especifique as credenciais com acesso à área de trabalho do Log Analytics no Azure Monitor. Se necessitar de autenticação de dois fatores, selecione **OAuth2** para o **método de autenticação** para ser solicitado a iniciar sessão com as suas credenciais.
 
     ![Agenda do Power BI](media/powerbi/powerbi-schedule.png)
 

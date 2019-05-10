@@ -12,22 +12,22 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/02/2017
+ms.date: 04/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 1e02e4fdf0dbe04d8756fc6355c6a9e414b27d2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: feb82d2abb756d636aeb77042cc817b7b05f6b0c
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60719155"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233676"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que um microsserviços aborda a criação de aplicações?
 
-Como os desenvolvedores de software, não é nada de novo na forma como acreditamos sobre o cálculo de um aplicativo em partes de componente. Normalmente, uma abordagem em camadas é feita com um armazenamento de back-end, a lógica de negócios de camada intermediária e uma interface de front-end de utilizador (IU). O que *tem* alterado ao longo dos últimos anos é que estamos, como desenvolvedores, a criar aplicações distribuídas para a cloud.
+Como os desenvolvedores de software, a pensar sobre o cálculo de um aplicativo em partes de componente é nada de novo. Normalmente, uma abordagem em camadas é feita com um armazenamento de back-end, a lógica de negócios de camada intermediária e uma interface de front-end de utilizador (IU). O que *tem* alterado ao longo dos últimos anos é que estamos, como desenvolvedores, a criar aplicações distribuídas para a cloud.
 
 As necessidades comerciais variáveis são:
 
-* Um serviço que é criado e funciona em escala para alcançar clientes em novas regiões geográficas.
+* Um serviço que é criado e operado em escala para alcançar clientes em novas regiões geográficas.
 * Entrega mais rápida de funcionalidades e capacidades para poder responder às necessidades dos clientes de forma ágil.
 * Utilização de recursos aperfeiçoado para reduzir os custos.
 
@@ -37,15 +37,15 @@ Para obter mais informações sobre a abordagem do Azure para os microsserviços
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Monolíticos vs. a abordagem de design de microsserviços
 
-Aplicativos evoluam ao longo do tempo. Aplicativos bem-sucedidos evoluem pelo facto de ser úteis para pessoas. Aplicativos sem êxito não evoluir e, eventualmente, são preteridos. A pergunta é: Quanto sabe sobre os requisitos de hoje e o que eles estarão no futuro? Por exemplo, digamos que está criando um aplicativo de geração de relatórios para um departamento. Tem a certeza de que o aplicativo só se aplica no âmbito da sua empresa e que os relatórios são curta duração. À sua escolha da abordagem é diferente de, digamos, criando um serviço que disponibiliza conteúdos de vídeo para dezenas de milhões de clientes.
+Aplicativos evoluam ao longo do tempo. Aplicativos bem-sucedidos evoluem pelo facto de ser úteis para pessoas. Aplicativos sem êxito não evoluir e, eventualmente, são preteridos. A pergunta é: Quanto sabe sobre os requisitos de hoje e quais serão eles no futuro? Por exemplo, digamos que está criando um aplicativo de geração de relatórios para um departamento. Tem a certeza de que o aplicativo só se aplica no âmbito da sua empresa e que os relatórios são curta duração. À sua escolha da abordagem é diferente de, digamos, criando um serviço que disponibiliza conteúdos de vídeo para dezenas de milhões de clientes.
 
-Às vezes, obter algo para trás como prova de conceito é o fator de condução, enquanto sabe que o aplicativo pode ser projetado novamente mais tarde. Há muito sentido em excesso de engenharia algo que nunca é usado. É o compromisso de engenharia habitual. Por outro lado, quando as empresas falam sobre como criar para a nuvem, a expectativa é de crescimento e utilização. O problema é que o crescimento e dimensionamento são imprevisíveis. Gostaríamos de ser capaz de protótipo rapidamente também sabendo que estamos num caminho para lidar com sucesso no futuro. Essa é a abordagem de "lean startup": compilar, medir, aprender e iterar.
+Às vezes, a obter algo para trás como prova de conceito é o fator de condução, sabendo que o aplicativo pode ser projetado novamente mais tarde. Há muito sentido em excesso de engenharia algo que nunca é usado. Por outro lado, quando as empresas falam sobre como criar para a nuvem, a expectativa é de crescimento e utilização. O problema é que o crescimento e dimensionamento são imprevisíveis. Gostaríamos de ser capaz de protótipo rapidamente também sabendo que estamos num caminho que possa lidar com sucesso no futuro. Essa é a abordagem de "lean startup": compilar, medir, aprender e iterar.
 
-Durante a era do cliente-servidor, tendemos de se concentrar na criação de aplicativos em camadas através de tecnologias específicas em cada escalão. O termo *monolítica* aplicação surgiu para essas abordagens. As interfaces tendiam a ser entre as camadas e um design mais rigidamente acoplado foi utilizado entre os componentes em cada camada. Os desenvolvedores projetado e decomposto classes que foram compilados em bibliotecas e vinculados juntos em alguns executáveis e DLLs. 
+Durante a era do cliente-servidor, tendemos de se concentrar na criação de aplicativos em camadas através de tecnologias específicas em cada escalão. O termo *monolítica* aplicação surgiu para essas abordagens. As interfaces tendiam a ser entre as camadas e um design mais rigidamente acoplado foi utilizado entre os componentes em cada camada. Os desenvolvedores projetado e decomposto classes que foram compilados em bibliotecas e vinculados juntos em alguns executáveis e DLLs.
 
 Há benefícios para uma abordagem de design monolítico. Muitas vezes, é mais simples de design e tem mais rápidas chamadas entre os componentes como essas chamadas são, muitas vezes, ao longo do (IPC interprocess communication). Além disso, todas as pessoas testa um único produto, o que tende a ser mais pessoas-recurso eficiente. A desvantagem é que há uma grande União entre camadas em camadas, e não é possível dimensionar a componentes individuais. Se precisar de efetuar as correções ou atualizações, terá de aguardar por outras pessoas ao fim dos testes. É mais difícil de ser ágil.
 
-Microsserviços resolver essas desvantagens e muito mais alinham com os requisitos de negócios anterior, mas também têm vantagens e passivos. As vantagens dos microsserviços são a que cada um deles encapsula, normalmente, a funcionalidade de negócios mais simples, que pode aumentar ou reduzir verticalmente, testar, implementar e gerir de forma independente. Uma vantagem importante de uma abordagem de microsserviços é que as equipes são mais ligadas a cenários de negócios que pela tecnologia – que incentiva a abordagem em camadas. Na prática, equipas mais pequenas desenvolver um microsserviço com base num cenário de cliente e utilizam qualquer tecnologia que escolher.
+Microsserviços resolver essas desvantagens e muito mais alinham com os requisitos de negócios anterior, mas também têm vantagens e passivos. As vantagens dos microsserviços são a que cada um deles encapsula, normalmente, a funcionalidade de negócios mais simples, que pode aumentar ou reduzir verticalmente, testar, implementar e gerir de forma independente. Uma vantagem importante de uma abordagem de microsserviços é que as equipes são mais ligadas a cenários de negócios que pela tecnologia. Na prática, equipas mais pequenas desenvolver um microsserviço com base num cenário de cliente e utilizam qualquer tecnologia que escolher.
 
 Em outras palavras, a organização não precisa de padronizar tech para manter as aplicações de microsserviços. Equipas individuais que os próprios serviços podem fazer o que lhes faça sentido com base nos conhecimentos de equipe ou o que é mais adequado para resolver o problema. Na prática, um conjunto de tecnologias recomendadas, como um determinado NoSQL armazenar ou estrutura de aplicativo da web, é preferível.
 
@@ -71,11 +71,11 @@ Que são produzidas de mais aplicações em cloud, as pessoas tenham detetados q
 
 Conceber com um microsserviço abordagem não é uma solução completa para todos os projetos, mas alinhar mais de perto com os objetivos de negócio descritos anteriormente. Começando com uma abordagem monolítica pode ser aceitável se souber que terá a oportunidade de Refazer o código mais tarde num design de microsserviços. Em geral, começar com uma aplicação monolítica e lentamente dividi-lo em fases, começando com as áreas funcionais que precisam ser mais escalonável ou ágil.
 
-A abordagem de microsserviços significa que compõem a sua aplicação de vários serviços pequenos. Os serviços são executados em contentores que são implementadas em clusters de máquinas. Equipas mais pequenas desenvolver um serviço que se concentra num cenário e testar a forma independente, versão, implementarem e dimensionar cada serviço, para que todo o aplicativo pode evoluir.
+A abordagem de microsserviços significa que compõem a sua aplicação de vários serviços pequenos. Estes serviços são executados em contentores que são implementadas em clusters de máquinas. Equipas mais pequenas desenvolver um serviço que se concentra num cenário e testar a forma independente, versão, implementarem e dimensionar cada serviço, para que todo o aplicativo pode evoluir.
 
 ## <a name="what-is-a-microservice"></a>O que é um microsserviço?
 
-Existem definições diferentes de microsserviços. No entanto, a maioria das seguintes características dos microsserviços é amplamente acordada:
+Existem definições diferentes de microsserviços. No entanto, a maioria das seguintes características dos microsserviços é amplamente aceitas:
 
 * Encapsula um cenário de negócio ou do cliente. O que é o problema que está a resolver?
 * Desenvolvido por uma pequena equipa de engenharia.
@@ -97,7 +97,7 @@ Depois de optar por uma tecnologia, que são fornecidos para a gestão operacion
 
 ### <a name="allows-code-and-state-to-be-independently-versioned-deployed-and-scaled"></a>Permite que o código e o estado ser com versões independentes, implementados e dimensionados
 
-No entanto, optar por escrever os microsserviços, o código e, opcionalmente, o estado, devem independentemente implementar, atualizar e dimensionar. Este é um dos problemas mais difícil porque trata-se à sua escolha de tecnologias. Para compreensão de dimensionamento, como partição (ou fragmentar) o código e o estado é um desafio. Quando o código e o estado de usam tecnologias separadas, o que é comum hoje em dia, os scripts de implantação para os microsserviços tem de ser capaz de dimensionar ambos. Isso também é sobre agilidade e flexibilidade, que pode atualizar algumas dos microsserviços sem ter de atualizar todos eles ao mesmo tempo.
+Não importa o que escolhe para escrever os microsserviços, o código e, opcionalmente, o estado, deve independentemente implementar, atualizar e dimensionar. Este é um dos problemas mais difícil porque trata-se à sua escolha de tecnologias. Para compreensão de dimensionamento, como partição (ou fragmentar) o código e o estado é um desafio. Quando o código e o estado de usam tecnologias separadas, o que é comum hoje em dia, os scripts de implantação para os microsserviços tem de ser capaz de dimensionar ambos. Isso também é sobre agilidade e flexibilidade, que pode atualizar algumas dos microsserviços sem ter de atualizar todos eles ao mesmo tempo.
 
 Retornando monolíticos versus a abordagem de microsserviços para por um momento, o diagrama seguinte mostra as diferenças na abordagem para armazenar o estado.
 
@@ -121,7 +121,7 @@ Extensa literatura sobre arquitetura orientada a serviço tiver sido publicada n
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Tem um nome exclusivo utilizado para resolver a localização (URL)
 
-Os microsserviços tem de ser endereçável onde quer que está a ser executado. Se está pensando em máquinas e qual delas está em execução um microsserviço particular, as coisas correm ruins rapidamente. 
+Os microsserviços tem de ser endereçável onde quer que está a ser executado. Se está pensando em máquinas e qual delas está em execução um microsserviço particular, as coisas correm ruins rapidamente.
 
 Da mesma forma que o DNS resolve um URL específico a um determinado computador, os microsserviços tem um nome exclusivo para que a sua localização atual seja detectável. Microsserviços tem nomes endereçáveis que são independentes da infraestrutura que são executadas. Isso implica que existe uma interação entre a forma como o seu serviço é implementado e como é detetado, porque deve haver um registo de serviço. Quando ocorre uma falha numa máquina, o serviço de registo tem indicam onde o serviço foi movido.
 
@@ -138,6 +138,9 @@ A resiliência é difícil de materializar quando as falhas ocorrem durante uma 
 Pode parecer óbvio e são muitas vezes ignorada, mas um microsserviço deve comunicar o estado de funcionamento e diagnóstico. Caso contrário, não há pouco insight para seu estado de funcionamento de uma perspectiva de operações. Correlacionar eventos de diagnóstico num conjunto de serviços independentes e lidar com os desvios de relógio de máquina dar sentido a ordem dos eventos, é um desafio. Da mesma forma que interage com um microsserviço sobre acordado protocolos e formatos de dados, terá de padronizar como iniciar o estado de funcionamento e eventos de diagnóstico que em última análise, acabará num arquivo de eventos para consultar e visualizar. Numa abordagem de microsserviços, ele tem chave que diferentes equipes chegarem a acordo num formato de registo único. Deve haver uma abordagem consistente para visualização de eventos de diagnóstico do aplicativo como um todo.
 
 Estado de funcionamento é diferente do diagnóstico. Estado de funcionamento é sobre os microsserviços reporting seu estado atual para executar as ações apropriadas. Um bom exemplo está trabalhando com mecanismos de atualização e implantação para manter a disponibilidade. Embora um serviço pode estar danificado devido a uma falha de processo ou reinicialização do computador, o serviço poderá ainda estar operacional. É a última coisa que precisa facilitar o pior executar uma atualização. A melhor abordagem é fazer primeiro uma investigação ou aguarde algum tempo para os microsserviços recuperar. Eventos de estado de funcionamento de um microsserviço ajudam-na tomar decisões informadas e, em vigor, ajudar a criar serviços de recuperação.
+
+## <a name="microservices-design-guidance-on-azure"></a>Orientações de conceção de Microsserviços no Azure
+Visite o Centro de arquitetura do Azure para obter orientações de design no [a criação de microsserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/)
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Recursos de infraestrutura do serviço como uma plataforma de microsserviços
 
@@ -170,8 +173,8 @@ Service Fabric permite-lhe reutilizar o código existente, o que, em seguida, po
 **Migração lift- and -Shift**  
 Um grande número de empresas é elevação e está mudando aplicativos monolíticos existentes em contentores por dois motivos:
 
-- Redução de custos devido a consolidação e a remoção dos aplicativos existentes de hardware ou de execução na densidade superior.
-- Contrato de implementação consistente entre desenvolvimento e operações.
+* Redução de custos devido a consolidação e a remoção dos aplicativos existentes de hardware ou de execução na densidade superior.
+* Contrato de implementação consistente entre desenvolvimento e operações.
 
 Reduções de custos são compreensíveis e dentro da Microsoft, um grande número de aplicativos existentes está a ser em contentores simplesmente para poupar milhões de dólares. Implantação consistente é mais difícil avaliar, mas igualmente importante. Isso significa que os desenvolvedores podem ainda ser livres para escolher a tecnologia ideal para eles, no entanto, as operações irão aceitar apenas uma única maneira de implementar e gerir estas aplicações. Minimiza as operações de ter que lidar com a complexidade de várias tecnologias diferentes ou forçar os desenvolvedores a escolha apenas determinadas aplicações. Essencialmente, cada aplicativo estiver em contentor nas imagens de implantação autônomo.
 
@@ -181,23 +184,24 @@ Muitas organizações parar por aqui. Que já têm os benefícios de contentores
 A adição de novos serviços em conjunto com existente em contentores de código. Se pretender escrever novo código, é melhor optar por adotar pequenas etapas para baixo o caminho de microsserviços. Isto pode estar adicionando um novo ponto final de REST API ou a nova lógica de negócios. Dessa forma, começar a jornada de criar novos microsserviços e prática de desenvolvimento e implantá-los.
 
 **Inove**  
-Uma abordagem de microsserviços permite a necessidades empresariais em evolução. Nesta fase, a decisão é se precisa para começar a dividir a aplicação monolítica em serviços ou a inovar. Aqui um exemplo é quando uma base de dados a ser utilizado como uma fila de fluxo de trabalho se tornar um afunilamento de processamento. Como o número de fluxo de trabalho solicitações aumenta, o trabalho tem de ser distribuídos para dimensionamento. Para esse componente específico do aplicativo que não é escalonável, ou que precisam de ser atualizada com mais frequência, dividir isso num microsserviço e inove.
+Uma abordagem de microsserviços permite a necessidades empresariais em evolução. Nesta fase, a decisão é se precisa para começar a dividir a aplicação monolítica em serviços ou a inovar. Aqui um exemplo clássico é quando uma base de dados a ser utilizado como uma fila de fluxo de trabalho se tornar um afunilamento de processamento. Como o número de fluxo de trabalho solicitações aumenta, o trabalho tem de ser distribuídos para dimensionamento. Para esse componente específico do aplicativo que não é escalonável, ou que precisam de ser atualizada com mais frequência, dividir isso num microsserviço e inove.
 
 **Transformado em microsserviços**  
-Esta funcionalidade é onde a aplicação é totalmente composto (ou decomposta em) microsserviços. Para chegar aqui, efetuar a viagem de microsserviços. Pode começar aqui, mas para fazer isso sem um microsserviços plataforma para o ajudar a é um investimento significativo. 
+Esta funcionalidade é onde a aplicação é totalmente composto (ou dividir em) microsserviços. Para chegar aqui, efetuar a viagem de microsserviços. Pode começar aqui, mas para fazer isso sem um microsserviços plataforma para o ajudar a é um investimento significativo.
 
 ### <a name="are-microservices-right-for-my-application"></a>São os microsserviços diretamente para a minha aplicação?
 
 Talvez. O que podemos teve foi que, como cada vez mais equipas da Microsoft começaram a criar para a cloud por razões de negócio, muitos deles perceberam os benefícios de usar uma abordagem de microsserviços semelhantes. Bing, por exemplo, desenvolve através dos microsserviços há anos. Para outras equipes, a abordagem de microsserviços era nova. As equipes que lá localizadas eram problemas difíceis de resolver fora suas áreas de núcleo de força. Este é o motivo pelo qual o Service Fabric obtidas força como a tecnologia à escolha para a criação de serviços.
 
 O objetivo do Service Fabric é reduzir as complexidades de criar aplicações de microsserviços, para que não tem de passar por tantos reformulações dispendiosas. Comece por algo pequeno, dimensione quando necessário, preterir serviços, adicionar novos e evoluem com a utilização do cliente. Também Sabemos que existem muitos outros problemas de ser resolvidos para que os microsserviços mais acessível para a maioria dos desenvolvedores. Contentores e o modelo de programação de ator são exemplos de pequenas etapas nessa direção, e estamos-se de que as inovações mais surgirão para facilitar o processo.
- 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Descrição geral da terminologia do Service Fabric](service-fabric-technical-overview.md)
 * [Microsserviços: Uma revolução de aplicação com a tecnologia de cloud](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Centro de arquitetura do Azure: Criar microsserviços no Azure](https://docs.microsoft.com/azure/architecture/microservices/)
+* [Melhores práticas de aplicação do Service Fabric do Azure e de cluster](service-fabric-best-practices-overview.md)
+* [Descrição geral da terminologia do Service Fabric](service-fabric-technical-overview.md)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

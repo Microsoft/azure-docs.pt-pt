@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: b6bcd8afe9bbf58addf3e41173cfd011eddb3ce0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1b760612d8d9a5ed0817ce662ed190f3477cd125
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927166"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65235842"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Criar uma galeria de imagem partilhada com o portal do Azure
 
@@ -33,7 +33,7 @@ A galeria é um recurso de nível superior que fornece controlo de acesso comple
 
 O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Podemos será a utilizar ou criar neste artigo:
 
-| Recurso | Descrição|
+| Resource | Descrição|
 |----------|------------|
 | **Imagem gerida** | Esta é uma imagem básica que pode ser usada sozinha ou utilizada para criar uma **versão da imagem** na Galeria de imagens. Imagens geridas são criadas a partir de VMs generalizadas. Uma imagem gerida é um tipo especial de VHD que pode ser utilizado para fazer várias VMs e pode agora ser utilizado para criar versões de imagem partilhada. |
 | **Galeria de imagens** | Como o Azure Marketplace, um **Galeria de imagens** é um repositório de gerenciamento e compartilhamento de imagens, mas controlar quem tem acesso. |
@@ -43,7 +43,9 @@ O recurso da Galeria de imagens de partilhado tem vários tipos de recursos. Pod
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente. Pode seguir [Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell](tutorial-custom-images.md) para criar um, se necessário. Quando trabalhar com este artigo, substitua o grupo de recursos e a VM nomes onde necessário.
+Para concluir o exemplo neste artigo, tem de ter uma imagem gerida existente. Pode seguir [Tutorial: Criar uma imagem personalizada de uma VM do Azure com o Azure PowerShell](tutorial-custom-images.md) para criar um, se necessário. Se a imagem gerida contém um disco de dados, o tamanho do disco de dados não pode ser mais de 1 TB.
+
+Quando trabalhar com este artigo, substitua o grupo de recursos e a VM nomes onde necessário.
 
  
 [!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]

@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f3e7cab6e33fa9373095441685f6ecb04f1d91a5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 73b7822c56e2b07eeefdedce1bce6d410d110ebc
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029374"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65411486"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de floresta de decisão de duas classes
 
@@ -46,7 +46,7 @@ Existem várias formas de criar modelos individuais e combiná-los num ensemble.
 
 No entanto, as árvores de decisão simples sobre podem overfit nos dados e são menos generalizable de árvores de árvore.
 
-Para obter mais informações, consulte [florestas de decisão](http://go.microsoft.com/fwlink/?LinkId=403677).  
+Para obter mais informações, consulte [florestas de decisão](https://go.microsoft.com/fwlink/?LinkId=403677).  
 
 ## <a name="how-to-configure"></a>Como configurar
   

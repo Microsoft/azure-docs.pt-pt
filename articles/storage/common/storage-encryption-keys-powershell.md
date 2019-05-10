@@ -9,12 +9,12 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0eeae1451e77d9000c87b1aff7ad73323e74f7ee
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: be876b370cd476bee2af7d90a9f0433fd80de3b4
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154132"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233691"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Configurar chaves geridas pelo cliente para a encriptação de armazenamento do Azure a partir do PowerShell
 
@@ -75,7 +75,7 @@ $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination
 
 Por predefinição, a encriptação de armazenamento do Azure utiliza as chaves geridas pela Microsoft. Neste passo, configure a conta de armazenamento do Azure para utilizar chaves geridas pelo cliente e especifique a chave para associar a conta de armazenamento.
 
-Chamar [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) ao atualizar as definições de encriptação da conta de armazenamento. Lembre-se de que substitui os valores de marcador de posição entre parênteses Retos pelos seus próprios valores e como utilizar as variáveis definidas nos exemplos anteriores.
+Chamar [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) ao atualizar as definições de encriptação da conta de armazenamento. Lembre-se de que substitui os valores de marcador de posição entre parênteses Retos pelos seus próprios valores e como utilizar as variáveis definidas nos exemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -88,7 +88,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="update-the-key-version"></a>Atualizar a versão da chave
 
-Quando cria uma nova versão de uma chave, terá de atualizar a conta de armazenamento a utilizar a nova versão. Em primeiro lugar, chamar [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, chame [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento para utilizar a versão nova da chave, como mostrado na secção anterior.
+Quando cria uma nova versão de uma chave, terá de atualizar a conta de armazenamento a utilizar a nova versão. Em primeiro lugar, chamar [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obter a versão mais recente da chave. Em seguida, chame [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para atualizar as definições de encriptação da conta de armazenamento para utilizar a versão nova da chave, como mostrado na secção anterior.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

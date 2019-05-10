@@ -9,12 +9,12 @@ ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: aahi
-ms.openlocfilehash: 5dcec0d5f313b1c746c0674d0f9bf4d30ed19e5c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: cc82e091ae4c033bda7f1d91c9aed36bb081de88
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026315"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233626"
 ---
 # <a name="install-and-run-anomaly-detector-containers"></a>Instalar e executar contentores detetor de anomalias
 
@@ -49,11 +49,8 @@ Primeiro tem de concluir e submeter o [formulário de pedido de contentor deteto
 
 ## <a name="the-host-computer"></a>O computador anfitrião
 
-O **anfitrião** é o computador que executa o contentor do docker. Pode ser um computador no local ou um docker a alojar o serviço no Azure incluindo:
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Serviço Kubernetes do Azure](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy)
-* [Azure Container Instances](https://docs.microsoft.com/container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster implementado [do Azure Stack](https://docs.microsoft.com/azure-stack/index.yml). Para obter mais informações, consulte [implementar o Kubernetes no Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
 <!--* [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/). For instructions of deploying Anomaly Detector module in IoT Edge, see [How to deploy Anomaly Detector module in IoT Edge](how-to-deploy-anomaly-detector-module-in-iot-edge.md).-->
 
 ### <a name="container-requirements-and-recommendations"></a>Requisitos do contentor e recomendações

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: 8d7fa7bbb501675ee38ccc9183e981ce7bb714cf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150291"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233702"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites de serviço, quotas e restrições
 Este documento lista algumas das limitações mais comuns do Microsoft Azure, que também são chamadas quotas. Este documento atualmente não abrange todos os serviços do Azure. Ao longo do tempo, a lista será expandida e atualizada para abordar mais serviços.
@@ -48,7 +48,7 @@ Na lista seguinte de limites, uma nova tabela reflete as diferenças em limites 
 * [Application Insights](#application-insights-limits)
 * [Automatização](#automation-limits)
 * [Cache do Azure para Redis](#azure-cache-for-redis-limits)
-* [Azure Cloud Services](#azure-cloud-services-limits)
+* [Serviços em Nuvem do Azure](#azure-cloud-services-limits)
 * [BD do Cosmos para o Azure](#azure-cosmos-db-limits)
 * [Base de Dados do Azure para MySQL](#azure-database-for-mysql)
 * [Base de Dados do Azure para PostgreSQL](#azure-database-for-postgresql)
@@ -127,9 +127,9 @@ Os limites seguintes aplicam-se ao utilizar o Azure Resource Manager e os grupos
 #### <a name="shared-image-gallery-limits"></a>Partilhado limites da Galeria de imagens
 
 Existem limites, por subscrição, para implementar recursos através de galerias de imagem partilhada:
-- 10 galerias de imagem partilhada, por subscrição, por região
-- 200 definições de imagem, por subscrição, por região
-- versões de imagem de 2000, por subscrição, por região
+- 100 galerias de imagem partilhada, por subscrição, por região
+- 1000 definições de imagem, por subscrição, por região
+- 10 000 versões de imagem, por subscrição, por região
 
 ### <a name="virtual-machine-scale-sets-limits"></a>Limites dos conjuntos de dimensionamento de máquina virtual
 [!INCLUDE [virtual-machine-scale-sets-limits](../includes/azure-virtual-machine-scale-sets-limits.md)]
