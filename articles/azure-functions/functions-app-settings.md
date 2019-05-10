@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 573e6ea857ef17a6160f7e03f52f9c64f903530a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60347523"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65511081"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -217,7 +217,7 @@ Eis um exemplo de proxies na aplicação de função em myfunction.com o URL
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Saiba como atualizar as definições da aplicação](functions-how-to-use-azure-function-app-settings.md#manage-app-service-settings)
+[Saiba como atualizar as definições da aplicação](functions-how-to-use-azure-function-app-settings.md#settings)
 
 [Ver definições globais no arquivo Host. JSON.](functions-host-json.md)
 

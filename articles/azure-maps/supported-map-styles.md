@@ -3,17 +3,17 @@ title: Suporte a estilos de mapa no Azure Maps | Documentos da Microsoft
 description: Estilos de mapa suportados pelo Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/12/2019
+ms.date: 05/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 76ab49c7f28260249483bf3bc4387e8cbaca13b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db396ad06bf46cbbaf486696b68393a6a4214c2f
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60767245"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230840"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Estilos de mapa de suporte do Azure Maps
 Mapas do Azure suporta vários estilos de mapa incorporados diferentes, conforme descrito abaixo.
@@ -56,6 +56,17 @@ Esse estilo de mapa é uma mistura de estradas e as etiquetas sobrepostas sobre 
 **APIs aplicável:**
 * Controlo de mapas JS 
 * Controlo de mapas de Android
+
+
+## <a name="grayscalelight"></a>grayscale_light
+**em tons de cinzento claro** é uma versão leve do estilo de mapa da estrada.
+
+![em tons de cinzento claro](./media/supported-map-styles/grayscale_light.png)
+
+**APIs aplicável:**
+* Controlo de mapas JS
+* Controlo de mapas de Android
+
 
 ## <a name="night"></a>noite
 **noite** é uma versão escura do estilo de mapa da estrada com estradas coloridas e símbolos.

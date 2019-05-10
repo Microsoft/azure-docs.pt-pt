@@ -1,21 +1,24 @@
 ---
-title: Gerir réplicas de leitura da base de dados do Azure para PostgreSQL a partir da CLI do Azure
-description: Saiba como gerir a base de dados do Azure para PostgreSQL ler réplicas a partir da CLI do Azure.
+title: Gerir réplicas de leitura da base de dados do Azure para PostgreSQL - servidor único a partir da CLI do Azure
+description: Saiba como gerir réplicas de leitura na base de dados do Azure para PostgreSQL - servidor único a partir da CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/05/2019
-ms.openlocfilehash: b5e0336a290090ed6bd7f5af508e691677780a80
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9730faf3191ef2e2bd0b6c3caddefa0492b33fc5
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420245"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510241"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli"></a>Criar e gerir réplicas de leitura a partir da CLI do Azure
 
 Neste artigo, saiba como criar e gerir réplicas de leitura na base de dados do Azure para PostgreSQL a partir da CLI do Azure. Para saber mais acerca das réplicas de leitura, veja a [descrição geral](concepts-read-replicas.md).
+
+> [!NOTE]
+> Da CLI do Azure não suporta ainda a criação de réplicas numa região diferente do servidor principal. Para criar uma réplica em várias regiões, utilize o [portal do Azure](howto-read-replicas-portal.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Uma [base de dados do Azure para o servidor PostgreSQL](quickstart-create-server-up-azure-cli.md) deve ser o servidor principal.
@@ -49,7 +52,7 @@ O [criar réplica do az postgres server](/cli/azure/postgres/server/replica?view
 | Definição | Valor de exemplo | Descrição  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  O grupo de recursos onde o servidor de réplica será criado.  |
-| nome | mydemoserver-replica | O nome do novo servidor de réplica, que é criado. |
+| name | mydemoserver-replica | O nome do novo servidor de réplica, que é criado. |
 | source-server | mydemoserver | O nome ou o recurso ID do servidor mestre existente para replicar a partir do. |
 
 ```azurecli-interactive

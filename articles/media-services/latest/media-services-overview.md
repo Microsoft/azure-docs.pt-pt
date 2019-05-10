@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148701"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414031"
 ---
 # <a name="azure-media-services-v3-overview"></a>Descrição geral da v3 de serviços de multimédia do Azure
 
@@ -48,9 +48,10 @@ Os Serviços de Multimédia permitem-lhe criar uma variedade de fluxos de trabal
 
 Saiba como codificar e criar pacotes de conteúdos, transmitir vídeos em fluxo a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 
-Antes de começar a desenvolver, reveja [conceitos fundamentais](concepts-overview.md)<br/>
+> [!TIP]
+> Antes de começar a desenvolver, consulte:<br/>* [Conceitos fundamentais](concepts-overview.md) (conceitos importantes do incudes: empacotamento, codificação, proteger, etc.)<br/>* [Programar com APIs do serviços de multimédia v3](media-services-apis-overview.md) (inclui informações sobre como aceder a APIs, as convenções de nomenclatura, etc.)
 
-### <a name="quickstarts"></a>Inícios rápidos  
+### <a name="quickstarts"></a>Guias de Introdução  
 
 Os inícios rápidos mostram instruções de 1 dia fundamentais para os novos clientes experimentar rapidamente o serviços de multimédia.
 
@@ -86,9 +87,5 @@ Veja a [Comunidade dos serviços de multimédia do Azure](media-services-communi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Como posso começar a utilizar a v3? 
-
-> [!div class="nextstepaction"]
-> [Saiba mais sobre os conceitos fundamentais](concepts-overview.md)<br/>
-> [Desenvolver com a API de v3 de serviços de multimédia através de SDKs](developers-guide.md) 
+[Saiba mais sobre os conceitos fundamentais](concepts-overview.md)
 

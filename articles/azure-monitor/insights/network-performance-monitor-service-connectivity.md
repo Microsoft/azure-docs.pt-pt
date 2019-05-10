@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 01410fb59135e9b1f54e4a3c75b206c7d30abeed
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85a35207293f5afda40c78d105fc58732f06b626
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145023"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509807"
 ---
-# <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
+# <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
 Pode utilizar a capacidade de Monitor de conectividade do serviço no [Monitor de desempenho de rede](network-performance-monitor.md) para monitorizar a conectividade de rede para qualquer ponto final que tem uma porta TCP aberta. Esses pontos de extremidade incluem Web sites, aplicações SaaS, PaaS aplicações e bases de dados SQL. 
 
@@ -33,7 +33,7 @@ Pode executar as seguintes funções com o Monitor de conectividade do serviço:
 - Identifica pontos de acesso na rede que podem estar provocando o desempenho da aplicação insatisfatório visualizando a latência contribuída cada salto num mapa de topologia.
 
 
-![Monitor de Conectividade do Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
+![Monitor de Conectividade de Serviço](media/network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuração 
@@ -64,7 +64,7 @@ Comece a criar seus testes para monitorizar a conectividade de rede para os pont
 
     * Selecione **Web** para monitorizar a conectividade a um serviço que responde a pedidos HTTP/S, como outlook.office365.com ou bing.com.<br>
     * Selecione **rede** para monitorizar a conectividade a um serviço que responde a pedidos TCP, mas não responder a pedidos HTTP/S, como um SQL server, o servidor de FTP ou a porta SSH. 
-    * Por exemplo: Para criar um teste web para uma conta de armazenamento de BLOBs, selecione **Web** e introduza o destino como <your storageaccount>. blob.core.windows.net. Da mesma forma, pode criar testes para outro armazenamento de tabelas, armazenamento de filas e ficheiros do Azure utilizando [esta ligação.](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview#storage-account-endpoints)
+    * Por exemplo: Para criar um teste web para uma conta de armazenamento de BLOBs, selecione **Web** e introduza o destino como *yourstorageaccount*. blob.core.windows.net. Da mesma forma, pode criar testes para outro armazenamento de tabelas, armazenamento de filas e ficheiros do Azure utilizando [esta ligação.](https://docs.microsoft.com/azure/storage/common/storage-account-overview#storage-account-endpoints)
 4. Se não pretender executar medições de rede, tais como latência de rede, perda de pacotes e descoberta de topologia, desmarque a **executar medições de rede** caixa de verificação. Ele selecionado para obter o máximo benefício da capacidade de manter. 
 5. Na **destino**, introduza o endereço URL/FQDN/IP ao qual pretende monitorizar a conectividade de rede.
 6. Na **número de porta**, introduza o número de porta de serviço de destino. 
@@ -128,6 +128,16 @@ Se observar um abnormality, siga estes passos:
 
 * Se a aplicação está em execução lenta, determine se o desempenho da aplicação insatisfatório é devido à rede ou um problema no final do fornecedor de aplicações.
 
+## <a name="gcc-office-urls-for-us-government-customers"></a>GCC URLs do Office para os clientes do Governo dos EUA
+Para a região do US Government Virginia, apenas os URLs do DOD são NPM incorporada. Clientes que utilizam o GCC URLs tem de criar testes personalizados e adicionar cada inidividually de URL.
+
+| Campo | GCC |
+|:---   |:--- |
+| Portal do Office 365 e partilhado | portal.apps.mil |
+| Identidade e autenticação do Office 365 | * login.microsoftonline.us <br> * api.login.microsoftonline.com <br> * clientconfig.microsoftonline-p.net <br> * login.microsoftonline.com <br> * login.microsoftonline-p.com <br> * login.windows.net <br> * loginex.microsoftonline.com <br> * login-us.microsoftonline.com <br> * nexus.microsoftonline-p.com <br> * mscrl.microsoft.com <br> * secure.aadcdn.microsoftonline-p.com |
+| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
+| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
+| MS Teams | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Passos Seguintes
 [Pesquisar registos](../../azure-monitor/log-query/log-query-overview.md) para ver os registos de dados de desempenho de rede detalhada.

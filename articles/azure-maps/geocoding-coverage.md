@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2a2df8b47b60f29d8ecd3c040e8ef979ee23afa8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b8caa5cd7476489a92ce97570794a1d397f32630
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575398"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230901"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificação do Azure Maps
 
 Quando procurar uma localização com o Azure Maps, o serviço de pesquisa demora seus termos de pesquisa e devolve as coordenadas de latitude e longitude, um processo chamado geocodificação. No entanto, o Maps não tem o mesmo nível de informações e a precisão para todas as regiões e países. Utilize este artigo para determinar que tipo de localizações pode fiável Procurar em cada região. 
 
-A capacidade de geocode num país é dependente da cobertura de dados de estrada e a precisão da geocodificação do serviço de geocodificação. São utilizadas as seguintes categorizações especificar o nível de suporte de geocodificação em cada país.
+A capacidade de geocode num país/região é dependente da cobertura de dados de estrada e a precisão da geocodificação do serviço de geocodificação. São utilizadas as seguintes categorizações especificar o nível de suporte de geocodificação em cada país/região.
 * **Pontos de endereços** -dados de endereços podem ser resolvidos para uma coordenadas de latitude/longitude dentro do parcel de endereço (limite de propriedade). Por vezes referido como "Rooftop' precisa. Este é o maior nível de precisão disponível para endereços. 
 * **Hospedar números** -endereços são interpolados para uma coordenada de latitude/longitude na rua.
 * **Nível de rua** -endereços são resolvidos para as coordenadas de latitude/longitude da rua que contém o endereço. O número de casa não pode ser processado.
@@ -30,14 +30,14 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | País/Região                                       | Pontos de endereço | Números de casa | Nível de rua | Nível de cidade | Pontos de interesse |
 |-----------------------------------------------------|:---------------:|:--------------:|:------------:|:----------:|:------------------:|
 | Anguila                                            |                 |                |              |      ✓     |          ✓         |
-| Antártida                                          |                 |                |              |      ✓     |          ✓         |
+| Antártica                                          |                 |                |              |      ✓     |          ✓         |
 | Antígua e Barbuda                                 |                 |                |       ✓      |      ✓     |          ✓         |
 | Argentina                                           |       ✓         |        ✓       |       ✓      |      ✓     |          ✓         |
 | Aruba                                               |                 |                |              |      ✓     |          ✓         |
 | Baamas                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Barbados                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Belize                                              |                 |                |              |      ✓     |          ✓         |
-| Bermudas                                             |                 |                |       ✓      |      ✓     |          ✓         |
+| Bermuda                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bolívia                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Bonaire, Santo Eustáquio e Saba                   |                 |                |              |      ✓     |          ✓         |
 | Brasil                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -51,7 +51,7 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Dominicana                                          |                 |                |       ✓      |      ✓     |          ✓         |
 | Equador                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | El Salvador                                         |                 |                |       ✓      |      ✓     |          ✓         |
-| Ilhas Falkland (Malvinas)                                    |                 |                |              |      ✓     |          ✓         |
+| Ilhas Falkland                                    |                 |                |              |      ✓     |          ✓         |
 | Guiana Francesa                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | Granada                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Guadalupe                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -67,7 +67,7 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Nicarágua                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Panamá                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Paraguai                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Peru                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Perú                                                |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Porto Rico                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | São Bartolomeu                                    |                 |                |       ✓      |      ✓     |          ✓         |
 | São Cristóvão e Neves                               |                 |                |       ✓      |      ✓     |          ✓         |
@@ -79,7 +79,7 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Ilhas Geórgia do Sul e Sandwich do Sul        |                 |                |              |      ✓     |          ✓         |
 | Suriname                                            |                 |                |              |      ✓     |          ✓         |
 | Trindade e Tobago                                 |                 |                |       ✓      |      ✓     |          ✓         |
-| Ilhas Menores Afastadas dos Estados Unidos                |                 |                |              |      ✓     |          ✓         |
+| Ilhas Menores Distantes dos Estados Unidos                |                 |                |              |      ✓     |          ✓         |
 | Estados Unidos da América                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Uruguai                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
@@ -105,11 +105,11 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Fiji                                                |                  |                |              |      ✓     |          ✓        |
 | Polinésia Francesa                                    |                 |                |              |      ✓     |          ✓         |
 | Ilhas Heard e McDonald                   |                 |                |              |      ✓     |          ✓         |
-| RAE de Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| R.A.E. Hong Kong                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonésia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Índia                                               |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japão                                               |                 |                |              |      ✓     |          ✓         |
-| Kiribati                                            |                 |                |              |      ✓     |          ✓         |
+| Quiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Coreia                                         |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
 | R.A.E. de Macau                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -117,7 +117,7 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Micronésia                                          |                 |                |              |      ✓     |          ✓         |
 | Mongólia                                            |                 |                |              |      ✓     |          ✓         |
 | Nauru                                               |                 |                |              |      ✓     |          ✓         |
-| Nepal                                               |                 |                |              |      ✓     |          ✓         |
+| República Democrática Federal do Nepal                                               |                 |                |              |      ✓     |          ✓         |
 | Nova Caledónia                                       |                 |                |              |      ✓     |          ✓         |
 | Nova Zelândia                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Niue                                                |                 |                |              |      ✓     |          ✓         |
@@ -125,7 +125,7 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Coreia do Norte                                         |                 |                |              |      ✓     |          ✓         |
 | Ilhas Marianas do Norte                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Paquistão                                            |                 |                |              |      ✓     |          ✓         |
-| Palau                                               |                 |                |              |      ✓     |          ✓         |
+| Ilhas Palaus                                               |                 |                |              |      ✓     |          ✓         |
 | Papua-Nova Guiné                                    |                 |                |              |      ✓     |          ✓         |
 | Ilhas Paracel                                     |                 |                |              |      ✓     |                    |
 | Filipinas                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -136,10 +136,10 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Ilhas Salomão                                     |                 |                |              |      ✓     |          ✓         |
 | Territórios Austrais Kurils                                     |        ✓        |                |              |      ✓     |          ✓         |
 | Ilhas spratly                                     |                 |                |              |      ✓     |                    |
-| Sri Lanka                                           |                 |                |              |      ✓     |          ✓         |
+| Sri Lanca                                           |                 |                |              |      ✓     |          ✓         |
 | Taiwan                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Tailândia                                            |        ✓        |                |       ✓      |      ✓     |          ✓         |
-| Toquelau                                             |                 |                |              |      ✓     |          ✓         |
+| Tokelau                                             |                 |                |              |      ✓     |          ✓         |
 | Tonga                                               |                 |                |              |      ✓     |          ✓         |
 | Ilhas Turcas e Caicos                            |                 |                |              |      ✓     |          ✓         |
 | Tuvalu                                              |                 |                |              |      ✓     |          ✓         |
@@ -183,14 +183,14 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Jersey                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cazaquistão                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Kosovo                                              |                 |                |       ✓      |      ✓     |          ✓         |
-| Quirguistão                                          |                 |                |              |      ✓     |          ✓         |
+| Quirguizistão                                          |                 |                |              |      ✓     |          ✓         |
 | Letónia                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Listenstaine                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituânia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Macedónia do Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Moldávia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montenegro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Países Baixos                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -228,14 +228,14 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Benim                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Botsuana                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilha Bouvet                                       |                 |                |              |      ✓     |          ✓         |
-| Burkina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
+| Burquina Faso                                        |                 |                |       ✓      |      ✓     |          ✓         |
 | Burundi                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Camarões                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Cabo Verde                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| República Centro-Africana                            |                 |                |       ✓      |      ✓     |          ✓         |
+| República Centro Africana                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Chade                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | República do Congo                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Costa do Marfim (Côte d’Ivoire)                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Côte d’Ivoire (Costa do Marfim)                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | República Democrática do Congo                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Jibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egito                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -259,12 +259,12 @@ A capacidade de geocode num país é dependente da cobertura de dados de estrada
 | Libéria                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Líbia                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Madagáscar                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Malawi                                              |                 |                |       ✓      |      ✓     |          ✓         |
+| Malavi                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Maldivas                                            |                 |                |              |      ✓     |          ✓         |
 | Mali                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Ilhas Marshall                                    |                 |                |              |      ✓     |          ✓         |
 | Mauritânia                                          |                 |                |       ✓      |      ✓     |          ✓         |
-| Maurícia                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Maurícias                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Mayotte                                             |                 |                |       ✓      |      ✓     |          ✓         |
 | Marrocos                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moçambique                                          |                 |                |       ✓      |      ✓     |          ✓         |

@@ -205,6 +205,8 @@
           href: restore-sql-database-azure-vm.md
         - name: Gerir bases de dados do SQL Server guardadas na cópia de segurança
           href: manage-monitor-sql-database-backup.md
+    - name: Fazer cópias de segurança de bases de dados SAP HANA em VMs do Azure
+      href: backup-azure-sap-hana-database.md
     - name: Windows Server
       items:
         - name: Fazer cópias de segurança de ficheiros e pastas do Windows Server

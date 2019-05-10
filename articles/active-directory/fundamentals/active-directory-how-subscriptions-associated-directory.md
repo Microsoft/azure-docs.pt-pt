@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06b6fdf7a3d21a6b7dc84c4347824d4eaeac046f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7f37c501bb53b3b73c30d02d00d49515f907e4ae
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918401"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463633"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associar ou adicionar uma subscrição do Azure com o seu inquilino do Azure Active Directory
 
@@ -64,8 +64,8 @@ Antes de poder associar ou adicionar a sua subscrição, tem de efetuar as segui
 
     O diretório é alterado para a subscrição e obtém uma mensagem de êxito.
 
-    ![Mensagem de êxito sobre alterações de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
-4. Utilize o **alternador de diretório** para aceder ao seu novo diretório. Poderá demorar até 10 minutos para que tudo seja apresentado corretamente.
+    ![Mensagem de êxito sobre alterações de diretório](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)
+4. Utilize o **alternador de diretório** para aceder ao seu novo diretório. Pode demorar várias horas para que tudo seja apresentado corretamente. Se ele parece estar a demorar demasiado tempo, certifique-se de que verifique os **filtro de subscrição Global** para a subscrição movida, para garantir que este é simplesmente não oculto.
 
     ![Página de alternador de diretório, com informações de exemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 

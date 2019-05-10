@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/08/2019
 ms.author: alkohli
-ms.openlocfilehash: cac451634bfa357784f9fd3d3a24e06ef3a4ee19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8932097bcdef782b1a551d386c2872e02d8abfd
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60754698"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442378"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisitos de sistema de Gateway de caixa de dados do Azure
 
@@ -50,7 +50,7 @@ O sistema anfitrião subjacente para o Gateway de caixa de dados é capaz de ded
 
 | **Sistema operativo/plataforma**  |**Versões**   |**Notas**  |
 |---------|---------|---------|
-|Hyper-V  |  2012 R2 <br> 2016  |         |
+|Hyper-V  |  2012 R2 <br> 2016 <br> 2019 |         |
 |VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |As ferramentas VMware não são suportadas.         |
 
 

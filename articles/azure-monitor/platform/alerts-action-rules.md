@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: e5d04fd136848684e866fae9768b252e3b6ca77f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137994"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227984"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -46,7 +46,7 @@ Agora, deverá ver o fluxo de criação de regra de ação abrir. Configure os s
 
 ![Novo fluxo de criação de regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Âmbito
+### <a name="scope"></a>Scope
 
 Em primeiro lugar, escolha o âmbito, ou seja, o recurso de destino, grupo de recursos ou subscrição. Tem também a capacidade para selecionar uma combinação de qualquer um dos acima (dentro de uma única subscrição). 
 
@@ -142,11 +142,11 @@ A partir daqui, pode regras de ação de ativar/desativar/eliminar em escala, se
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Registar alertas criados com o [número de resultados](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opção gerar **uma única instância de alerta** usando o resultado de pesquisa inteiro (que poderia ser em vários computadores por exemplo). Neste cenário, se uma regra de ação utiliza o filtro de "Contexto de alerta (payload)", ele se aplica a instância de alerta, desde que existe uma correspondência. Cenário 2, tal como descrito anteriormente, se os resultados da pesquisa para o alerta de registo gerado contêm "Computador-01" e 'Computador-02', a notificação toda suprimida (ou seja, não há nenhuma notificação gerada para o computador-02 de todo).
+Registar alertas criados com o [número de resultados](alerts-unified-log.md) opção gerar **uma única instância de alerta** usando o resultado de pesquisa inteiro (que poderia ser em vários computadores por exemplo). Neste cenário, se uma regra de ação utiliza o filtro de "Contexto de alerta (payload)", ele se aplica a instância de alerta, desde que existe uma correspondência. Cenário 2, tal como descrito anteriormente, se os resultados da pesquisa para o alerta de registo gerado contêm "Computador-01" e 'Computador-02', a notificação toda suprimida (ou seja, não há nenhuma notificação gerada para o computador-02 de todo).
 
 ![Regras de ação e alertas de registo (número de resultados)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-A alertas de registo de tirar partido das melhores com regras de ação, Aconselhamo-lo para criar alertas de registo com o ['medida da métrica'](https://docs.microsoft.com/azure-monitor/platform/alerts-unified-log) opção. Utilizar esta opção, instâncias separadas de alertas são geradas com base no campo grupo definido. Em seguida, no cenário 2, instâncias separadas de alerta geradas para "Computador-01" e 'Computador-02'. Com a regra de ação descrita no cenário, apenas a notificação para o computador-01 poderia ser suprimida enquanto a notificação para o computador-02 continuaria a ser disparado normalmente.
+A alertas de registo de tirar partido das melhores com regras de ação, Aconselhamo-lo para criar alertas de registo com o ['medida da métrica'](alerts-unified-log.md) opção. Utilizar esta opção, instâncias separadas de alertas são geradas com base no campo grupo definido. Em seguida, no cenário 2, instâncias separadas de alerta geradas para "Computador-01" e 'Computador-02'. Com a regra de ação descrita no cenário, apenas a notificação para o computador-01 poderia ser suprimida enquanto a notificação para o computador-02 continuaria a ser disparado normalmente.
 
 ![Regras de ação e alertas de registo (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 

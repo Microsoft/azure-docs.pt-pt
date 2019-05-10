@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache
 ms.devlang: na
 ms.topic: article
-ms.date: 07/27/2017
+ms.date: 04/29/2019
 ms.author: yegu
-ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdf0ce26ab3a8056fb40bc54ba6336b7cfd69ec0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60552085"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230114"
 ---
 # <a name="azure-cache-for-redis-faq"></a>FAQ da Cache do Azure para Redis
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas para a Cache do Azure para Redis.
@@ -105,10 +105,10 @@ Cada Cache do Azure para a oferta de Redis fornece diferentes níveis de **taman
 Seguem-se as considerações para escolher uma oferta de Cache.
 
 * **Memória**: Os escalões básico e Standard oferecem 250 MB – 53 GB. O escalão Premium oferece até 530 GB. Para obter mais informações, consulte [do Azure na Cache de Redis preços](https://azure.microsoft.com/pricing/details/cache/).
-* **Desempenho de rede**: Se tiver uma carga de trabalho que precisa de débito elevado, o escalão Premium oferece mais largura de banda em comparação comparada a Standard ou Basic. Também dentro de cada camada, caches de tamanho maior tem mais largura de banda por causa da VM subjacente que aloja a cache. Consulte a [seguinte tabela](#cache-performance) para obter mais informações.
+* **Desempenho de rede**: Se tiver uma carga de trabalho que precisa de débito elevado, o escalão Premium oferece mais largura de banda em comparação comparada a Standard ou Basic. Também dentro de cada camada, caches de tamanho maior tem mais largura de banda por causa da VM subjacente que aloja a cache. Para obter mais informações, consulte a [seguinte tabela](#cache-performance).
 * **Débito**: O escalão Premium oferece o débito máximo de disponível. Se o cliente ou servidor de cache atingir os limites de largura de banda, poderá receber tempos limite no lado do cliente. Para obter mais informações, consulte a tabela seguinte.
 * **Elevada disponibilidade/SLA**: A Cache de Redis do Azure garante que uma cache Standard/Premium está disponível, pelo menos, 99,9% do tempo. Para saber mais sobre o nosso SLA, consulte [do Azure na Cache de Redis preços](https://azure.microsoft.com/support/legal/sla/cache/v1_0/). O SLA cobre apenas a conectividade aos pontos finais do Cache. O SLA não engloba a proteção contra perda de dados. Recomendamos que utilize a funcionalidade de persistência de dados de Redis no escalão Premium para aumentar a resiliência contra a perda de dados.
-* **Persistência de dados de redis**: O escalão Premium permite-lhe manter os dados de cache numa conta de armazenamento do Azure. Em cache básico/Standard, todos os dados são armazenados apenas na memória. Se existirem problemas de infraestrutura subjacentes lá podem ser a potencial perda de dados. Recomendamos que utilize a funcionalidade de persistência de dados de Redis no escalão Premium para aumentar a resiliência contra a perda de dados. A Cache de Redis do Azure oferece RDB e AOF (brevemente) as opções de persistência de Redis. Para obter mais informações, consulte [como configurar a persistência para uma Cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
+* **Persistência de dados de redis**: O escalão Premium permite-lhe manter os dados de cache numa conta de armazenamento do Azure. Em cache básico/Standard, todos os dados são armazenados apenas na memória. Subjacente a problemas de infra-estrutura pode resultar em potencial perda de dados. Recomendamos que utilize a funcionalidade de persistência de dados de Redis no escalão Premium para aumentar a resiliência contra a perda de dados. A Cache de Redis do Azure oferece RDB e AOF (brevemente) as opções de persistência de Redis. Para obter mais informações, consulte [como configurar a persistência para uma Cache do Azure Premium para Redis](cache-how-to-premium-persistence.md).
 * **Cluster de redis**: Criar caches superiores a 53 GB ou dividir os dados em vários nós de Redis, pode utilizar o clustering de Redis, que está disponível no escalão Premium. Cada nó é composta por um par de cache primário/réplica para elevada disponibilidade. Para obter mais informações, consulte [como configurar o clustering para uma Cache do Azure Premium para Redis](cache-how-to-premium-clustering.md).
 * **Avançada de isolamento de segurança e rede**: Implementação de rede Virtual (VNET) do Azure fornece maior segurança e isolamento para a sua Cache do Azure para Redis, bem como sub-redes, políticas de controlo de acesso e outras funcionalidades adicionais para restringem o acesso. Para obter mais informações, consulte [como configurar o suporte de rede Virtual para uma Cache do Azure Premium para Redis](cache-how-to-premium-vnet.md).
 * **Configurar Redis**: Nos escalões Standard e Premium, pode configurar Redis para notificações Keyspace.
@@ -129,25 +129,26 @@ A tabela seguinte mostra os valores de largura de banda máxima observados enqua
 
 Esta tabela, preste as seguintes conclusões:
 
-* Taxa de transferência para as caches que têm o mesmo tamanho é maior no escalão Premium em comparação com o escalão Standard. Por exemplo, com uma Cache de 6 GB, o débito de P1 é 180,000 RPS em comparação com a 100.000 para C3.
-* Com o clustering de Redis, débito aumenta linearmente, à medida que aumenta o número de shards (nós) no cluster. Por exemplo, se criar um cluster de P4 de 10 shards, em seguida, a taxa de transferência disponível é 400 000 * 10 = 4 milhões RPS.
+* Taxa de transferência para as caches que têm o mesmo tamanho é maior no escalão Premium em comparação com o escalão Standard. Por exemplo, com uma Cache de 6 GB, o débito de P1 é 180,000 pedidos por segundo (RPS) em comparação com a 100.000 RPS para C3.
+* Com o clustering de Redis, débito aumenta linearmente, à medida que aumenta o número de shards (nós) no cluster. Por exemplo, se criar um cluster de P4 de 10 shards, em seguida, o débito disponível é 400 000 * 10 = 4 milhões RPS.
 * Débito para tamanhos de chave maiores é superior no escalão Premium em comparação com o escalão Standard.
 
 | Escalão de preço | Tamanho | Núcleos de CPU | Largura de banda disponível | Tamanho do valor de 1 KB | Tamanho do valor de 1 KB |
 | --- | --- | --- | --- | --- | --- |
 | **Tamanhos de cache padrão** | | |**Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS) não SSL** |**Pedidos por segundo (RPS) SSL** |
-| C0 |250 MB |Partilhado |100 / 12.5 |15 000 |7.500 |
-| C1 |1 GB |1 |500 / 62.5 |38,000 |20,720 |
-| C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
-| C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
-| C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
-| C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
+| C0 | 250 MB | Partilhado | 100 / 12.5  |  15,000 |   7,500 |
+| C1 |   1 GB | 1      | 500 / 62.5  |  38,000 |  20,720 |
+| C2 | 2,5 GB | 2      | 500 / 62.5  |  41,000 |  37,000 |
+| C3 |   6 GB | 4      | 1000 / 125  | 100,000 |  90,000 |
+| C4 |  13 GB | 2      | 500 / 62.5  |  60,000 |  55,000 |
+| C5 |  26 GB | 4      | 1,000 / 125 | 102,000 |  93,000 |
+| C6 |  53 GB | 8      | 2,000 / 250 | 126,000 | 120,000 |
 | **Tamanhos de cache Premium** | |**Núcleos de CPU por shard** | **Megabits por segundo (Mb/s) / Megabytes por segundo (MB/s)** |**Pedidos por segundo (RPS) não SSL, por shard** |**Pedidos por segundo (RPS) SSL, por shard** |
-| P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
-| P2 |13 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P3 |26 GB |4 |3,000 / 375 |350,000 |341,000 |
-| P4 |53 GB |8 |6,000 / 750 |400,000 |373,000 |
+| P1 |   6 GB |  2 | 1,500 / 187.5 | 180,000 | 172,000 |
+| P2 |  13 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P3 |  26 GB |  4 | 3,000 / 375   | 350,000 | 341,000 |
+| P4 |  53 GB |  8 | 6,000 / 750   | 400,000 | 373,000 |
+| P5 | 120 GB | 20 | 6,000 / 750   | 400,000 | 373,000 |
 
 Para obter instruções sobre como configurar o túnel ou baixar as ferramentas de Redis, tal como `redis-benchmark.exe`, consulte a [como executar comandos da Redis?](#cache-commands) secção.
 
@@ -162,22 +163,22 @@ Para obter o melhor desempenho e latência mais baixa, localize a sua Cache do A
 Cache do Azure para obter preços de Redis está [aqui](https://azure.microsoft.com/pricing/details/cache/). A página de preços apresenta uma lista de preços como uma tarifa por hora. Caches são faturadas numa base por minuto desde o momento em que a cache é criada até o momento em que um cache é eliminada. Não existe nenhuma opção para parar ou pausar a faturação de uma cache.
 
 ### <a name="can-i-use-azure-cache-for-redis-with-azure-government-cloud-azure-china-cloud-or-microsoft-azure-germany"></a>Pode utilizar a Cache do Azure para Redis com o Azure Government Cloud, Azure China Cloud ou Microsoft Azure Alemanha?
-Sim, a Cache de Redis do Azure está disponível no Azure Government Cloud, Azure China Cloud e no Microsoft Azure Alemanha. Os URLs para aceder e gerir a Cache do Azure para Redis são diferentes nessas nuvens em comparação com a Cloud pública do Azure. 
+Sim, a Cache de Redis do Azure está disponível na Cloud do Azure Government, Azure China 21Vianet Cloud e Microsoft Azure Alemanha. Os URLs para aceder e gerir a Cache do Azure para Redis são diferentes nessas nuvens em comparação com a Cloud pública do Azure.
 
-| Nuvem   | Sufixo DNS para Redis            |
+| Cloud   | Sufixo DNS para Redis            |
 |---------|---------------------------------|
 | Público  | *.redis.cache.windows.net       |
-| Governo dos EUA  | *.redis.cache.usgovcloudapi.net |
+| US Gov  | *.redis.cache.usgovcloudapi.net |
 | Alemanha | *.redis.cache.cloudapi.de       |
 | China   | *.redis.cache.chinacloudapi.cn  |
 
 Para obter mais informações sobre considerações ao utilizar o Azure Cache de Redis com outras clouds, consulte os links a seguir.
 
 - [Bases de dados do Azure Government - a Cache de Redis do Azure](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [O Azure na China Cloud - a Cache de Redis do Azure](https://www.azure.cn/home/features/redis-cache/)
+- [O Azure na China 21Vianet Cloud - a Cache de Redis do Azure](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/)
 
-Para obter informações sobre como utilizar o Azure Cache de Redis com o PowerShell no Azure Government Cloud, Azure China Cloud e no Microsoft Azure Alemanha, consulte [como ligar a outras clouds - Cache do Azure para Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
+Para obter informações sobre como utilizar o Azure Cache de Redis com o PowerShell no Azure Government Cloud, Azure China 21Vianet Cloud e Microsoft Azure Alemanha, consulte [como ligar a outras clouds - Cache do Azure para Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
 <a name="cache-configuration"></a>
 
@@ -257,7 +258,7 @@ Pode utilizar qualquer um dos comandos listados na [comandos da Redis](https://r
 <a name="cache-reference"></a>
 
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Por que não a Cache de Redis do Azure tem uma referência de biblioteca de classe do MSDN, como alguns dos outros serviços do Azure?
-Cache do Microsoft Azure para Redis baseia-se em abrir popular da origem de Cache do Azure para Redis e podem ser acedidos por uma grande variedade de [clientes da Redis](https://redis.io/clients) para muitas linguagens de programação. Cada cliente tem sua própria API que faz chamadas para a Cache do Azure para a utilização de instância de Redis [comandos da Redis](https://redis.io/commands).
+Cache de Redis do Microsoft Azure baseia-se na popular Cache de Azure de código-fonte aberto para Redis. Pode ser acedido por uma grande variedade de [clientes da Redis](https://redis.io/clients) para muitas linguagens de programação. Cada cliente tem sua própria API que faz chamadas para a Cache do Azure para a utilização de instância de Redis [comandos da Redis](https://redis.io/commands).
 
 Uma vez que cada cliente é diferente, não não uma referência de classe centralizado no MSDN, e cada cliente mantém sua própria documentação de referência. Além da documentação de referência, existem vários tutoriais que mostram como introdução à Cache do Azure para Redis que utilizam idiomas diferentes e colocar em cache os clientes. Para aceder a estes tutoriais, consulte [como utilizar a Cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e isso artigos colateral na tabela de conteúdos.
 
@@ -309,7 +310,7 @@ Para obter instruções sobre como baixar as ferramentas de Redis, consulte a [c
 * Reutilizar o ConnectionMultiplexer - não crie um novo para cada solicitação. O `Lazy<ConnectionMultiplexer>` padrão [mostrada aqui](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache) é recomendado.
 * Redis funciona melhor com valores menores, por isso considere talhar dos dados de maiores em várias chaves. Na [essa discussão de Redis](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ), 100 kb é considerado grandes. Leia [este artigo](https://gist.github.com/JonCole/db0e90bedeb3fc4823c2#large-requestresponse-size) para um problema de exemplo que pode ser causado por valores grandes.
 * Configurar o seu [definições de ThreadPool](#important-details-about-threadpool-growth) para evitar tempos limite.
-* Utilize, pelo menos, o connectTimeout predefinida de 5 segundos. Este intervalo forneceria stackexchange. redis tempo suficiente para restabelecer a ligação, em caso de um blip de rede.
+* Utilize, pelo menos, o connectTimeout predefinida de 5 segundos. Este intervalo dá tempo suficiente do stackexchange. redis para restabelecer a ligação em caso de um blip de rede.
 * Lembre-se de que os custos de desempenho associada com operações diferentes, que está a executar. Por exemplo, o `KEYS` comando é uma operação (n) e deve ser evitado. O [redis.io site](https://redis.io/commands/) tem detalhes sobre a complexidade de tempo para cada operação que suporta. Clique em cada comando para ver a complexidade para cada operação.
 
 #### <a name="configuration-and-concepts"></a>Configuração e conceitos
@@ -328,9 +329,9 @@ Para obter instruções sobre como baixar as ferramentas de Redis, consulte a [c
 <a name="cache-redis-commands"></a>
 
 ### <a name="what-are-some-of-the-considerations-when-using-common-redis-commands"></a>Quais são algumas das considerações ao utilizar comandos da Redis comuns?
-* Não deve executar determinados comandos da Redis que demorar muito tempo a concluir, sem compreender o impacto desses comandos.
-  * Por exemplo, não execute o [chaves](https://redis.io/commands/keys) comando na produção, como pode demorar muito tempo para retornar dependendo do número de chaves. O redis é um servidor de thread único e processa comandos um por vez. Se tiver outros comandos emitidos depois de chaves, eles não serão processados até que o Redis processa o comando de chaves. O [redis.io site](https://redis.io/commands/) tem detalhes sobre a complexidade de tempo para cada operação que suporta. Clique em cada comando para ver a complexidade para cada operação.
-* Tamanhos de chave - devo usar pequenas chaves/valores ou chaves/valores grandes? Em geral, ele depende do cenário. Se o seu cenário requer chaves maiores, pode ajustar o ConnectionTimeout e repita a valores e ajustar sua lógica de repetição. Da perspectiva do servidor Redis, valores menores são respeitadas para ter um desempenho melhor.
+
+* Evite utilizar determinados comandos da Redis que demoram muito tempo a concluir, a menos que entenda o impacto desses comandos. Por exemplo, não execute o [chaves](https://redis.io/commands/keys) comando na produção. Dependendo do número de chaves, pode demorar muito tempo a devolver. O redis é um servidor de thread único e processa comandos um por vez. Se tiver outros comandos emitidos depois de chaves, eles não serão processados até que o Redis processa o comando de chaves. O [redis.io site](https://redis.io/commands/) tem detalhes sobre a complexidade de tempo para cada operação que suporta. Clique em cada comando para ver a complexidade para cada operação.
+* Tamanhos de chave - devo usar pequenas chaves/valores ou chaves/valores grandes? Ele depende do cenário. Se o seu cenário requer chaves maiores, pode ajustar o ConnectionTimeout, em seguida, repita os valores e ajustar sua lógica de repetição. Da perspectiva do servidor Redis, valores menores dão um melhor desempenho.
 * Estas considerações não significam que não é possível armazenar valores maiores no Redis; deve estar ciente as seguintes considerações. Latências será mais. Se tiver um conjunto de dados que é maiores e um que seja mais pequenos, pode utilizar várias instâncias de ConnectionMultiplexer, cada um configurado com um conjunto diferente de valores de tempo limite e tente novamente, conforme descrito no anterior [o que fazer o stackexchange. redis Opções de configuração fazer](#cache-configuration) secção.
 
 <a name="cache-benchmarking"></a>
@@ -356,19 +357,19 @@ Os comandos seguintes fornecem um exemplo de uso redis benchmark.exe. Para obter
 <a name="threadpool"></a>
 
 ### <a name="important-details-about-threadpool-growth"></a>Detalhes importantes sobre o crescimento de ThreadPool
-O ThreadPool do CLR tem dois tipos de threads - "Trabalho" e "Porta de conclusão e/s" (também conhecido como IOCP) threads.
+O ThreadPool do CLR tem dois tipos de threads - "Trabalho" e "Porta de conclusão e/s" (IOCP) threads.
 
 * Threads de trabalho são utilizados para ações como o processamento da `Task.Run(…)`, ou `ThreadPool.QueueUserWorkItem(…)` métodos. Esses threads também são usados por vários componentes do CLR, quando o trabalho tem de ser efetuadas num thread em segundo plano.
-* Threads IOCP são utilizados quando acontece de e/s assíncrona (por exemplo, ler a partir da rede).
+* Threads IOCP são utilizados quando acontece de e/s assíncrona, como quando ler a partir da rede.
 
 O pool de segmentos fornece novos threads de trabalho ou threads de conclusão de e/s sob demanda (sem qualquer limitação) até atingir a definição de "Mínimo" para cada tipo de thread. Por predefinição, o número mínimo de threads é definido como o número de processadores num sistema.
 
-Assim que o número de threads (ocupados) existentes chega o "minimum" número de threads, o ThreadPool irá limitar a taxa a que ele injeta novos threads para um thread por 500 milissegundos. Normalmente, se o seu sistema obtém um fluxo de trabalho que precisam de um thread IOCP, ele processa esse trabalho muito rapidamente. No entanto, se o fluxo de trabalho é mais do que a definição de "Mínimo" configurada, haverá algum atraso no processamento parte do trabalho, como o ThreadPool aguarda uma das duas coisas acontecer.
+Assim que o número de threads (ocupados) existentes chega o "minimum" número de threads, o ThreadPool irá limitar a taxa a que ele injeta novos threads para um thread por 500 milissegundos. Normalmente, se o seu sistema obtém um fluxo de trabalho que precisam de um thread IOCP, ele processa esse trabalho rapidamente. No entanto, se o fluxo de trabalho é mais do que a definição de "Mínimo" configurada, haverá algum atraso no processamento parte do trabalho, como o ThreadPool aguarda uma das duas coisas acontecer.
 
 1. Um thread existente seja liberada processar o trabalho.
-2. Nenhum thread existente seja liberada para 500 MS, pelo que é criado um novo thread.
+2. Nenhum thread existente seja liberada por 500 ms, pelo que é criado um novo thread.
 
-Basicamente, isso significa que quando o número de threads ocupados é superior ao mínimo de threads, provavelmente pagar um atraso de 500 MS antes do tráfego de rede é processado pela aplicação. Além disso, é importante observar que, quando um thread existente permanece inativo durante mais de 15 segundos (com base no que eu me lembro), ele será limpo e este ciclo de crescimento e shrinkage pode repetir.
+Basicamente, isso significa que quando o número de threads ocupados é superior ao mínimo de threads, provavelmente pagar um atraso de 500 ms antes do tráfego de rede é processado pela aplicação. Além disso, é importante observar que, quando um thread existente permanece inativo durante mais de 15 segundos (com base no que eu me lembro), ele será limpo e este ciclo de crescimento e shrinkage pode repetir.
 
 Se observarmos uma mensagem de erro de exemplo do stackexchange. redis (criar 1.0.450 ou posterior), verá que agora imprime as estatísticas de ThreadPool (ver detalhes IOCP e de trabalho abaixo).
 
@@ -377,25 +378,38 @@ Se observarmos uma mensagem de erro de exemplo do stackexchange. redis (criar 1.
     IOCP: (Busy=6,Free=994,Min=4,Max=1000),
     WORKER: (Busy=3,Free=997,Min=4,Max=1000)
 
-No exemplo anterior, pode ver que o segmento de IOCP existem 6 threads ocupados e o sistema está configurado para permitir 4 threads mínimos. Neste caso, o cliente iria provavelmente viu dois atrasos de 500 ms porque 6 > 4.
+No exemplo anterior, pode ver que o segmento de IOCP Existem seis threads ocupados e o sistema estiver configurado para permitir que os quatro threads mínimos. Neste caso, o cliente iria provavelmente viu dois atrasos de 500 ms, porque 6 > 4.
 
 Tenha em atenção que o stackexchange. redis alcançam tempos limite se obtém otimizado crescimento de threads IOCP ou de trabalho.
 
 ### <a name="recommendation"></a>Recomendação
-Tendo em conta estas informações, é altamente recomendável que os clientes definir o valor de configuração mínima de threads de trabalho e IOCP para algo maior do que o valor predefinido. Não podemos dar único orientações sobre o que este valor deve ser porque o valor correto para um aplicativo será demasiado alta/baixa para outra aplicação. Esta definição também pode afetar o desempenho de outras partes de aplicações complicadas, pelo que cada cliente tem de ajustar esta definição para suas necessidades específicas. Um bom ponto de partida é 200 ou 300, em seguida, testar e ajustar conforme necessário.
+
+Tendo em conta estas informações, é altamente recomendável que os clientes definir o valor de configuração mínima de threads de trabalho e IOCP para algo maior do que o valor predefinido. Não podemos dar único orientações sobre o que este valor deve ser porque o valor correto para um aplicativo deverá ser demasiado alta ou baixa para outra aplicação. Esta definição também pode afetar o desempenho de outras partes de aplicações complicadas, pelo que cada cliente tem de ajustar esta definição para suas necessidades específicas. Um bom ponto de partida é 200 ou 300, em seguida, testar e ajustar conforme necessário.
 
 Como configurar esta definição:
 
-* No ASP.NET, utilize o ["minIoThreads" ou "minWorkerThreads" definição de configuração] [ "minIoThreads" configuration setting] sob o `<processModel>` elemento de configuração em Web. config. Se estiver executando dentro de Web sites do Azure, esta definição não está exposta através de opções de configuração. No entanto, ainda deve ser capaz de configurar esta definição através de programação (veja abaixo) de seu método Application_Start em global.asax.cs.
+* Recomendamos que altere esta definição através de programação, utilizando o [ThreadPool.SetMinThreads (...) ](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) método na `global.asax.cs`. Por exemplo:
 
-  > [!NOTE] 
-  > O valor especificado neste elemento de configuração é um *por núcleo* definição. Por exemplo, se tem uma máquina 4 core e quer sua definição minIOThreads esteja 200 em tempo de execução, usaria `<processModel minIoThreads="50"/>`.
-  >
-
-* Fora do ASP.NET e global. asax de Web sites do Azure, utilize o [ThreadPool.SetMinThreads (...)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) API.
+```cs
+private readonly int minThreads = 200;
+void Application_Start(object sender, EventArgs e)
+{
+    // Code that runs on application startup
+    AreaRegistration.RegisterAllAreas();
+    RouteConfig.RegisterRoutes(RouteTable.Routes);
+    BundleConfig.RegisterBundles(BundleTable.Bundles);
+    ThreadPool.SetMinThreads(minThreads, minThreads);
+}
+```
 
   > [!NOTE]
-  > O valor especificado por esta API é uma configuração global, afetar todo o AppDomain. Se tiver uma máquina 4 core e defina o minWorkerThreads e minIOThreads para 50 por CPU durante o tempo de execução, usaria ThreadPool.SetMinThreads (200, 200).
+  > O valor especificado por este método é uma configuração global, afetar todo o AppDomain. Por exemplo, se tiver uma máquina de 4 núcleos e defina *minWorkerThreads* e *minIoThreads* para 50 por CPU durante o tempo de execução, usaria **ThreadPool.SetMinThreads (200, 200)**.
+
+* Também é possível especificar os threads mínimos, definição de utilizando o [ *minIoThreads* ou *minWorkerThreads* definição de configuração](https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx) sob o `<processModel>` elemento de configuração no `Machine.config`, geralmente localizado em `%SystemRoot%\Microsoft.NET\Framework\[versionNumber]\CONFIG\`. **Definir o número de threads mínimos desta forma, geralmente, não é recomendada, porque se trata de uma definição de todo o sistema.**
+
+  > [!NOTE]
+  > O valor especificado neste elemento de configuração é um *por núcleo* definição. Por exemplo, se tem uma máquina de 4 núcleos e quer sua *minIoThreads* definir para ser 200 em tempo de execução, usaria `<processModel minIoThreads="50"/>`.
+  >
 
 <a name="server-gc"></a>
 
@@ -439,7 +453,7 @@ Seguem-se alguns motivo comum para desligar uma cache.
 * Faz com que o lado do cliente
   * A aplicação de cliente foi reimplementada.
   * A aplicação cliente efetuar uma operação de dimensionamento.
-    * No caso dos serviços Cloud ou aplicações Web, isso pode ser devido a escala automática.
+    * No caso dos serviços Cloud ou aplicações Web, isto pode dever-se o dimensionamento automático.
   * Alterar a camada de rede no lado do cliente.
   * Erros transitórios ocorreram no cliente ou em nós de rede entre o cliente e o servidor.
   * Os limites de limiar de largura de banda foram atingidos.
@@ -462,7 +476,7 @@ A Cache de Redis do Azure oferece aos clientes a capacidade de utilizar uma Cach
 
 Ao contrário das caches tradicionais que lidam apenas com pares chave-valor, o Redis é conhecido por seu altamente eficiente os tipos de dados. Redis também suporta a execução de operações atómicas nestes tipos, como acrescentar uma cadeia de caracteres; deixa de aumentar o valor num hash; Enviar para uma lista; computação União, interseção do conjunto e diferença; ou obtendo o membro com classificação mais alta de um conjunto ordenado. Outros recursos incluem suporte para transações, pub/sub, Lua scripts, de chaves com limitado de tempo de vida e as definições de configuração para que o Redis se comportem mais como uma cache tradicional.
 
-Outro aspecto fundamental para o sucesso de Redis é o ecossistema de bom estado de funcionamento, vibrante de código fonte aberto criado com ela. Isso é refletido ao conjunto variado de clientes Redis disponíveis em vários idiomas. Este ecossistema e uma grande variedade de clientes que a Cache do Azure para Redis a ser utilizada por praticamente qualquer carga de trabalho que iria criar no Azure.
+Outro aspecto fundamental para o sucesso de Redis é o ecossistema de código-fonte aberto de bom estado de funcionamento e vibrante, criado com ela. Isso é refletido ao conjunto variado de clientes Redis disponíveis em vários idiomas. Este ecossistema e uma grande variedade de clientes que a Cache do Azure para Redis a ser utilizada por praticamente qualquer carga de trabalho que iria criar no Azure.
 
 Para obter mais informações sobre como começar a Cache do Azure para Redis, consulte [como utilizar a cache do Azure para Redis](cache-dotnet-how-to-use-azure-redis-cache.md) e [Cache do Azure para a documentação do Redis](index.md).
 

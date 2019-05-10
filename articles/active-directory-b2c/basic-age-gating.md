@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 083ed7209efd88d3d221b55cfb53fe3998dd2987
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b594dc6eadce5093c58d693492f8e86eb92ae4e3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64703275"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228002"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Ativar o controlo de idade no Azure Active Directory B2C
 
@@ -25,14 +25,14 @@ ms.locfileid: "64703275"
 
 Controlo de idade no Azure Active Directory (Azure AD) B2C permite-lhe identificar os menores que pretende utilizar a sua aplicação. Pode optar por bloquear o menor de iniciar sessão na aplicação. Os utilizadores também podem voltar para a aplicação e identificar o respetivo grupo etário e o respetivo estado de consentimento dos pais. O Azure AD B2C, pode bloquear os menores sem o consentimento dos pais. O Azure AD B2C também pode ser configurado para permitir que o aplicativo decidir o que fazer com os menores.
 
-Depois de ativar o controlo de idade no seu [fluxo de utilizador](active-directory-b2c-reference-policies.md), é pedido aos utilizadores quando eles nasceram e quais país residem em. Se um utilizador inicia sessão que ainda não foram inseridas anteriormente as informações, precisam de introduzi-lo da próxima vez que iniciarem sessão. As regras são aplicadas sempre que um utilizador inicia sessão.
+Depois de ativar o controlo de idade no seu [fluxo de utilizador](active-directory-b2c-reference-policies.md), é pedido aos utilizadores quando eles nasceram e em que país/região residem em. Se um utilizador inicia sessão que ainda não foram inseridas anteriormente as informações, precisam de introduzi-lo da próxima vez que iniciarem sessão. As regras são aplicadas sempre que um utilizador inicia sessão.
 
 O Azure AD B2C utiliza as informações que o usuário insere para identificar se eles são menor. O **ageGroup** campo, em seguida, é atualizado na respetiva conta. O valor pode ser `null`, `Undefined`, `Minor`, `Adult`, e `NotAdult`.  O **ageGroup** e **consentProvidedForMinor** campos, em seguida, são utilizados para calcular o valor de **legalAgeGroupClassification**.
 
 Controlo de idade envolve dois valores de idade: a idade que alguém já não é considerado menor e a idade em que menor tem de ter o consentimento dos pais. A tabela seguinte lista as regras de idade que são utilizadas para a definição de pequenas e uma janela de consentimento que exigem que pequenas.
 
-| País | Nome do país | Consentimento do menor de idade | Idade secundária |
-| ------- | ------------ | ----------------- | --------- |
+| País/Região | Nome do país/região | Consentimento do menor de idade | Idade secundária |
+| -------------- | ------------------- | ----------------- | --------- |
 | Predefinição | Nenhuma | Nenhuma | 18 |
 | AE | Emirados Árabes Unidos | Nenhuma | 21 |
 | AT | Áustria | 14 | 18 |
@@ -53,13 +53,13 @@ Controlo de idade envolve dois valores de idade: a idade que alguém já não é
 | HR | Croácia | 16 | 18 |
 | HU | Hungria | 16 | 18 |
 | IE | Irlanda | 13 | 18 |
-| TI | Itália | 16 | 18 |
+| it | Itália | 16 | 18 |
 | KR | Coreia, República da | 14 | 18 |
 | LT | Lituânia | 16 | 18 |
 | LU | Luxemburgo | 16 | 18 |
 | LV | Letónia | 16 | 18 |
 | MT | Malta | 16 | 18 |
-| ND | Namíbia | Nenhuma | 21 |
+| N/D | Namíbia | Nenhuma | 21 |
 | NL | Países Baixos | 16 | 18 |
 | PL | Polónia | 13 | 18 |
 | PT | Portugal | 16 | 18 |

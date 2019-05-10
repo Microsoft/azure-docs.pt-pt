@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: c6416e36d7d2723577ca0d2009fb7bbad24f3b6a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 18c52a47c291181547a9005c273dc1a329b8c207
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154706"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510958"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notas de versão do Explorador de armazenamento do Microsoft Azure
 
@@ -35,7 +35,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 - [Explorador de armazenamento do Azure 1.8.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Explorador de armazenamento do Azure 1.8.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Novo
+### <a name="new"></a>Nova
 
 * A versão integrada do AzCopy foi atualizada para a versão 10.1.0.
 * CTRL / Cmd + R pode agora ser utilizado para atualizar o editor atualmente focado. [#1097](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1097)
@@ -82,7 +82,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
     ./StorageExplorer.exe --disable-gpu
     ```
 
-* Executar o Explorador de armazenamento no Linux exige determinadas dependências para ser instalado primeiro. Verifique o Explorador de armazenamento [guia de resolução de problemas](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) para obter mais informações.
+* Executar o Explorador de armazenamento no Linux exige determinadas dependências para ser instalado primeiro. Verifique o Explorador de armazenamento [guia de resolução de problemas](https://docs.microsoft.com/azure/storage/common/storage-explorer-troubleshooting?tabs=1804#linux-dependencies) para obter mais informações.
 
 ## <a name="previous-releases"></a>Versões anteriores
 
@@ -130,7 +130,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 - [Explorador de armazenamento do Azure 1.7.0 para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Explorador de armazenamento do Azure 1.7.0 para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
-### <a name="new"></a>Novo
+### <a name="new"></a>Nova
 
 * Agora pode alterar o proprietário e o grupo proprietário ao gerir o acesso para um contentor de geração 2 do ADLS, ficheiro ou pasta.
 * No Windows, a atualização Explorador de armazenamento a partir de dentro do produto é agora uma instalação incremental. Isso deve resultar numa experiência de atualização mais rápida. Se preferir uma instalação limpa, então pode baixar o [instalador](https://azure.microsoft.com/features/storage-explorer/) por conta própria e, em seguida, instale manualmente. #1089
@@ -212,7 +212,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 * AzCopy Falha ao tentar baixar uma pasta de um contentor de BLOBs de geração 2 do ADLS, se a pasta tivesse espaços no nome. Isto foi corrigido. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * O editor do cosmos DB foi dividido em 1.6.0. Agora é fixa. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Novo
+### <a name="new"></a>Nova
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
@@ -281,7 +281,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 * AzCopy Falha ao tentar baixar uma pasta de um contentor de BLOBs de geração 2 do ADLS, se a pasta tivesse espaços no nome. Isto foi corrigido. [#990](https://www.github.com/Microsoft/AzureStorageExplorer/issues/990)
 * O editor do cosmos DB foi dividido em 1.6.0. Agora é fixa. [#950](https://www.github.com/Microsoft/AzureStorageExplorer/issues/950)
         
-### <a name="new"></a>Novo
+### <a name="new"></a>Nova
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
@@ -336,7 +336,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ## <a name="version-160"></a>Versão 1.6.0
 12/5/2018
 
-### <a name="new"></a>Novo
+### <a name="new"></a>Nova
 
 * Agora pode utilizar o Explorador de armazenamento para aceder aos dados de BLOBs por meio [RBAC](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se tem sessão iniciada e o Explorador de armazenamento é não é possível obter as chaves para a sua conta de armazenamento, em seguida, um token de OAuth será utilizado para autenticar ao interagir com os seus dados.
 * Explorador de armazenamento agora suporta contas de armazenamento de geração 2 do ADLS. Quando o Explorador de armazenamento detecta esse espaço de nomes hierárquico está ativado para uma conta de armazenamento, irá ver "(pré-visualização de geração 2 ADLS)" junto ao nome da conta de armazenamento. Explorador de armazenamento é capaz de detetar se é ou não espaço de nomes hierárquico é ativado quando tem sessão iniciada, ou se tiver ligado a conta de armazenamento com o nome e a chave. Para contas de armazenamento do ADLS geração 2, pode utilizar o Explorador de armazenamento:
@@ -391,7 +391,7 @@ Este artigo contém as notas de versão para versão de Explorador de armazename
 ## <a name="version-150"></a>Versão 1.5.0
 10/29/2018
 
-### <a name="new"></a>Novo
+### <a name="new"></a>Nova
 
 * Agora, pode utilizar [AzCopy v10 (pré-visualização)](https://github.com/Azure/azure-storage-azcopy) para carregar e transferir Blobs. Para ativar esta funcionalidade vá para o menu "Experimental" e, em seguida, clique em "Utilizar AzCopy para melhorada Blob carregar e transferir". Quando ativada, o AzCopy será utilizado nos seguintes cenários:
    * Carregar pastas e arquivos para os contentores de BLOBs, através da barra de ferramentas ou arraste e largue.

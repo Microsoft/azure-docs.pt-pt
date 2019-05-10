@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: 5edeebd9698384785082e5a441c24e136ed22481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61317080"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228391"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades geridas para recursos do Azure com o Service Bus 
 
@@ -29,7 +29,7 @@ Com identidades geridas, a plataforma do Azure gere esta identidade de tempo de 
 
 ## <a name="service-bus-roles-and-permissions"></a>Permissões e funções do Service Bus
 
-Só pode adicionar uma identidade gerida para as funções de "Proprietário" ou "Contribuinte" de um espaço de nomes do Service Bus. Ele concede o controlo total de identidade em todas as entidades no espaço de nomes. No entanto, o gerenciamento de operações que alteram a topologia de espaço de nomes são inicialmente apenas entanto suportados do Azure Resource Manager. Não é por meio da interface de gestão do REST do Service Bus nativa. Esse suporte também significa que não é possível utilizar o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objeto dentro de uma identidade gerida.
+Só pode adicionar uma identidade gerida para as funções de "Proprietário" ou "Contribuinte" de um espaço de nomes do Service Bus. Ele concede o controlo total de identidade em todas as entidades no espaço de nomes. No entanto, o gerenciamento de operações que alteram a topologia de espaço de nomes são inicialmente apenas entanto suportados do Azure Resource Manager. Não é por meio da interface de gestão do REST do Service Bus nativa. Esse suporte também significa que não é possível utilizar o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou o cliente .NET Standard [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objetos dentro de uma identidade gerida.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Utilizar o Service Bus com identidades geridas para recursos do Azure
 

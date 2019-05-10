@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 1a82b9256405e2cac12f4c5611ee3bdad459162b
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: e6a376803d8617e01ee279e40a33f6c1c3b748fd
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64992927"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508202"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Serviço de metadados do Azure: Eventos agendados para VMs do Windows
 
@@ -45,7 +45,7 @@ Muitos aplicativos podem beneficiar de tempo para se preparar para a manutençã
 Através dos eventos agendados seu aplicativo podem detetar quando manutenção irá ocorrer e acionar tarefas para limitar seu impacto. Ativar eventos agendados dá a sua máquina virtual uma quantidade mínima de tempo antes que seja efetuada a atividade de manutenção. Consulte a secção de agendamento eventos abaixo para obter detalhes.
 
 Eventos agendados fornece eventos nos seguintes casos de utilização:
-- [Manutenção iniciada de plataforma](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, VM reinicialização, migração em direto ou atualizações para o anfitrião de preservação de memória)
+- [Manutenção iniciada de plataforma](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates) (por exemplo, VM reinicialização, migração em direto ou atualizações para o anfitrião de preservação de memória)
 - Hardware degradado
 - (Por exemplo, usuário será reiniciado e reimplementa uma VM) de manutenção iniciada pelo utilizador
 - [Expulsão de baixa prioridade VM](https://azure.microsoft.com/blog/low-priority-scale-sets) conjuntos de dimensionamento
@@ -64,11 +64,11 @@ Se a Máquina Virtual não for criada dentro de uma rede Virtual, os casos de pa
 ### <a name="version-and-region-availability"></a>Versão e a disponibilidade de região
 O serviço de eventos agendados tem a mesma versão. Versões são obrigatórias e a versão atual é `2017-11-01`.
 
-| Version | Tipo de versão | Regiões | Notas de Versão | 
+| Version | Tipo de versão | Regiões | Notas de versão | 
 | - | - | - | - |
 | 2017-11-01 | Disponibilidade Geral | Todos | <li> Foi adicionado suporte para expulsão de baixa prioridade VM EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilidade Geral | Todos | <li> Removido o caráter de sublinhado antecedendo nomes de recursos para IaaS VMs<br><li>Requisito de cabeçalho de metadados imposto a todos os pedidos | 
-| 2017-03-01 | Pré-visualização | Todos |<li>Versão inicial
+| 2017-03-01 | Pré-visualizar | Todos |<li>Versão inicial
 
 > [!NOTE] 
 > Versões anteriores de pré-visualização de eventos agendados suportados {mais recente} como a api-version. Este formato já não é suportado e será preterido no futuro.
@@ -91,7 +91,7 @@ Quando consulta o serviço de metadados, tem de fornecer o cabeçalho `Metadata:
 ### <a name="query-for-events"></a>Consulta para eventos
 Pode consultar para eventos agendados simplesmente fazendo a seguinte chamada:
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01 -H @{"Metadata"="true"}
 ```
@@ -132,7 +132,7 @@ Cada evento está agendado uma quantidade mínima de tempo no futuro, com base n
 | - | - |
 | Congelamento| 15 minutos |
 | Reiniciar | 15 minutos |
-| Voltar a implementar | 10 minutos |
+| Implementar novamente | 10 minutos |
 | Tomar o lugar | 30 segundos |
 
 ### <a name="event-scope"></a>Âmbito de eventos     
@@ -159,7 +159,7 @@ Segue-se o json esperado para o `POST` corpo do pedido. O pedido deve conter uma
 }
 ```
 
-#### <a name="powershell"></a>PowerShell
+#### <a name="powershell"></a>Powershell
 ```
 curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```

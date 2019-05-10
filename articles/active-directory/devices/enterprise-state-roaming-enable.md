@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97d0be1dfd77035a3522ef8a6b3f4ac93ae20741
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60353874"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230942"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 Roaming de estado empresarial está disponível para qualquer organização com um Azure AD Premium ou Enterprise Mobility + licença Security (EMS). Para obter mais informações sobre como obter uma subscrição do Azure AD, consulte a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -46,9 +46,9 @@ Dados de Roaming de estado empresarial são hospedados num ou mais [regiões do 
 
 Valor de país/região | tem dos dados hospedados em
 ---------------------|-------------------------
-Um país EMEA como França ou Zâmbia | Uma ou mais das regiões do Azure dentro da Europa 
-Um país América do Norte, como Estados Unidos ou Canadá | uma ou mais das regiões do Azure nos E.U.A.
-Um país APAC, como Austrália e Nova Zelândia | uma ou mais das regiões do Azure na Ásia
+Uma país/região do EMEA como França ou Zâmbia | Uma ou mais das regiões do Azure dentro da Europa 
+Um país/região da América do Norte, como Estados Unidos ou Canadá | uma ou mais das regiões do Azure nos E.U.A.
+Uma país/região do APAC, como Austrália e Nova Zelândia | uma ou mais das regiões do Azure na Ásia
 Regiões da América do Sul e Antárctica | um ou mais regiões do Azure nos E.U.A.
 
 O valor de país/região está definido como parte do processo de criação de diretório do Azure AD e não pode ser modificado posteriormente. Se precisar de obter mais detalhes na sua localização de armazenamento de dados, um ticket [suporte do Azure](https://azure.microsoft.com/support/options/).

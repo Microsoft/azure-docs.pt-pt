@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: a8512e128d757e2faf4c3f63c5ad113b1d67b4ee
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ad285d71c2bb90f4b5a59eba25c6cc6a6d8588d6
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204900"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501851"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
@@ -33,13 +33,13 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 ## <a name="database-objects"></a>Objetos de base de dados
 | Category | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Base de Dados |Tamanho máximo | Gen1: 240 TB compactado no disco. Este espaço é independente de espaço em tempdb ou de registo e, portanto, este espaço dedicado para tabelas permanentes.  Estima-se em 5 X compressão columnstore em cluster.  Esta compressão permite que a base de dados aumentar de aproximadamente 1 PB quando todas as tabelas columnstore em cluster (o tipo de tabela do padrão). <br/><br/> Gen2: 240TB para rowstore e armazenamento ilimitada para tabelas columnstore |
+| Base de dados |Tamanho máximo | Gen1: 240 TB compactado no disco. Este espaço é independente de espaço em tempdb ou de registo e, portanto, este espaço dedicado para tabelas permanentes.  Estima-se em 5 X compressão columnstore em cluster.  Esta compressão permite que a base de dados aumentar de aproximadamente 1 PB quando todas as tabelas columnstore em cluster (o tipo de tabela do padrão). <br/><br/> Gen2: 240TB para rowstore e armazenamento ilimitada para tabelas columnstore |
 | Tabela |Tamanho máximo |60 TB compactado no disco |
-| Tabela |Tabelas por base de dados | 100 000 |
+| Tabela |Tabelas por base de dados | 100,000 |
 | Tabela |Colunas por tabela |1024 colunas |
 | Tabela |Bytes por coluna |Dependentes na coluna [tipo de dados](sql-data-warehouse-tables-data-types.md). Limite é 8000 para tipos de dados char, 4000 para nvarchar ou 2 GB para tipos de dados de máx. |
 | Tabela |Bytes por linha, o tamanho definido |8060 bytes<br/><br/>O número de bytes por linha é calculado da mesma forma como está para o SQL Server com a compactação page. Como o SQL Server, SQL Data Warehouse suporta o armazenamento de estouro de linha, que permite **colunas de comprimento variável** para ser enviado fora da linha. Quando as linhas de comprimento variável são enviados por push fora da linha, apenas 24 bytes raiz é armazenado no registo principal. Para obter mais informações, consulte [exceder de dados de estouro de linha 8 KB](https://msdn.microsoft.com/library/ms186981.aspx). |
-| Tabela |Partições por tabela |15 000<br/><br/>Elevado desempenho, recomendamos minimizar o número de partições precisa enquanto ainda dar suporte a seus requisitos empresariais. À medida que cresce o número de partições, a sobrecarga para operações de linguagem DDL (Data Definition) e a linguagem de manipulação de dados (DML) cresce e faz com que o desempenho mais lento. |
+| Tabela |Partições por tabela |15,000<br/><br/>Elevado desempenho, recomendamos minimizar o número de partições precisa enquanto ainda dar suporte a seus requisitos empresariais. À medida que cresce o número de partições, a sobrecarga para operações de linguagem DDL (Data Definition) e a linguagem de manipulação de dados (DML) cresce e faz com que o desempenho mais lento. |
 | Tabela |Carateres por valor de limite de partição. |4000 |
 | Índice |Índices não agrupados por tabela. |50<br/><br/>Aplica-se às tabelas de rowstore apenas. |
 | Índice |Índices em cluster por tabela. |1<br><br/>Aplica-se às tabelas rowstore e columnstore. |
@@ -49,12 +49,12 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 | Estatísticas |Colunas por objeto de estatísticas. |32 |
 | Estatísticas |Estatísticas criadas em colunas por tabela. |30,000 |
 | Procedimentos Armazenados |Máximos níveis de aninhamento. |8 |
-| Vista |Colunas por visualização |1,024 |
+| Visualizar |Colunas por visualização |1,024 |
 
 ## <a name="loads"></a>Cargas
 | Category | Descrição | Máximo |
 |:--- |:--- |:--- |
-| Carregamentos do Polybase |MB por linha |1<br/><br/>O Polybase carrega linhas que são mais pequenas do que 1 MB.<br/><br/> |
+| Carregamentos do Polybase |MB por linha |1<br/><br/>O Polybase carrega linhas que são mais pequenas do que 1 MB. Carregar tipos de dados LOB em tabelas com um índice de Columnstore em cluster (CCI) não é suportada.<br/><br/> |
 
 ## <a name="queries"></a>Consultas
 | Category | Descrição | Máximo |
@@ -63,7 +63,7 @@ Valores máximos permitidos para vários componentes do Azure SQL Data Warehouse
 | Consulta |Consultas em simultâneo em vistas de sistema. |100 |
 | Consulta |Consultas em fila nos modos de exibição do sistema |1000 |
 | Consulta |Parâmetros máximos |2098 |
-| Batch |Tamanho máximo |65,536*4096 |
+| Lote |Tamanho máximo |65,536*4096 |
 | SELECIONADOS resultados |Colunas por linha |4096<br/><br/>Nunca pode ter mais de 4096 colunas por linha no resultado SELECIONE. Não é garantido que sempre pode ter 4096. Se o plano de consulta necessita de uma tabela temporária, as colunas de 1024 por tabela máxima podem ser aplicadas. |
 | SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca pode ter mais do que 32 subconsultas aninhadas numa instrução SELECT. Não é garantido que sempre pode ter 32. Por exemplo, uma JUNÇÃO pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado por memória disponível. |
 | SELECIONAR |Colunas por associação |1024 colunas<br/><br/>Nunca pode ter mais de 1024 colunas na associação. Não é garantido que sempre pode ter 1024. Se o plano de JUNÇÃO necessita de uma tabela temporária com mais colunas do que o resultado da JUNÇÃO, o limite de 1024 aplica-se a tabela temporária. |

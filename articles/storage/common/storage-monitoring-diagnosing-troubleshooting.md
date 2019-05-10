@@ -2,18 +2,19 @@
 title: Monitorizar, diagnosticar e resolver problemas do armazenamento do Azure | Documentos da Microsoft
 description: Utilize funcionalidades como a análise de armazenamento, registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas relacionados com o armazenamento do Azure.
 services: storage
-author: fhryo-msft
+author: normesta
 ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
-ms.author: fhryo-msft
+ms.author: normesta
+ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103864"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65192158"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -425,7 +426,7 @@ Se o **PercentThrottlingError** métrica apresentam um aumento na percentagem de
 Um aumento **PercentThrottlingError** muitas vezes ocorre ao mesmo tempo que um aumento no número de pedidos de armazenamento, ou quando são inicialmente carga testar a sua aplicação. Isto pode também se manifestar no cliente como "503 servidor ocupado" ou mensagens de estado HTTP "500 tempo limite da operação" de operações de armazenamento.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitório percentthrottlingerror
-Se vir um aumento de valor de **PercentThrottlingError** que ela coincida com períodos de grande atividade para o aplicativo, implementar uma exponencial (não linear) estratégia de término para repetições em seu cliente. Término repetições reduzem a carga de imediato na partição e ajudar a sua aplicação para suavizar os picos no tráfego. Para obter mais informações sobre como implementar as políticas de repetição usando a biblioteca de cliente de armazenamento, consulte [espaço de nomes de retrypolicies, se](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.retrypolicies.aspx).
+Se vir um aumento de valor de **PercentThrottlingError** que ela coincida com períodos de grande atividade para o aplicativo, implementar uma exponencial (não linear) estratégia de término para repetições em seu cliente. Término repetições reduzem a carga de imediato na partição e ajudar a sua aplicação para suavizar os picos no tráfego. Para obter mais informações sobre como implementar as políticas de repetição usando a biblioteca de cliente de armazenamento, consulte [espaço de nomes de retrypolicies, se](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
 
 > [!NOTE]
 > Talvez também veja picos no valor da **PercentThrottlingError** que não coincidam com períodos de grande atividade para a aplicação: aqui a causa mais provável é o serviço de armazenamento mover partições para melhorar o balanceamento de carga.
@@ -466,7 +467,7 @@ A causa mais comum deste erro é um cliente a desligar antes de um tempo limite 
 ### <a name="the-client-is-receiving-403-messages"></a>O cliente está a receber mensagens HTTP 403 (proibido)
 Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das causas prováveis é o cliente estar a utilizar uma Assinatura de Acesso Partilhado (SAS) expirada quando envia um pedido de armazenamento (embora outras causas possíveis incluam distorção do relógio, chaves inválidas e cabeçalhos vazios). Se uma chave de SAS expirada for a causa, não verá entradas nos dados do Registo de Armazenamento do lado do servidor. A tabela seguinte mostra um exemplo de registo do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra este problema ocorrer:
 
-| Origem | Verbosidade | Verbosidade | ID de pedido de cliente | Texto de operação |
+| Origem | Verbosidade | Verbosidade | ID de pedido do cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A iniciar a operação com a localização primária por modo de local PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
@@ -504,7 +505,7 @@ Pode utilizar o registo do lado do cliente da biblioteca de cliente de armazenam
 
 O registo do lado do cliente seguinte gerado pela biblioteca cliente de armazenamento ilustra o problema quando o cliente não é possível localizar o contentor para o blob está a criar. Este registo inclui detalhes sobre as seguintes operações de armazenamento:
 
-| ID do pedido | Operação |
+| ID do Pedido | Operação |
 | --- | --- |
 | 07b26a5d-... |**DeleteIfExists** método para eliminar o contentor de Blobs. Tenha em atenção que esta operação inclui um **HEAD** pedido para verificar a existência do contentor. |
 | e2d06d78… |**CreateIfNotExists** método para criar o contentor de Blobs. Tenha em atenção que esta operação inclui um **HEAD** pedido que verifica a existência do contentor. O **HEAD** devolve uma mensagem 404, mas continua. |
@@ -512,7 +513,7 @@ O registo do lado do cliente seguinte gerado pela biblioteca cliente de armazena
 
 Entradas de registo:
 
-| ID do pedido | Texto de operação |
+| ID do Pedido | Texto de operação |
 | --- | --- |
 | 07b26a5d-... |A partir de uma solicitação síncrona para https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
 | 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
@@ -567,11 +568,11 @@ A tabela seguinte mostra uma mensagem de registo do lado do servidor de exemplo 
 | Estado do pedido     | SASAuthorizationError        |
 | Código de estado de HTTP   | 404                          |
 | Tipo de autenticação| SAs                          |
-| Tipo de serviço       | Blobs                         |
-| URL do Pedido        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
+| Tipo de serviço       | Blob                         |
+| URL do pedido        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Cabeçalho de ID do pedido  | a1f348d5-8032-4912-93ef-b393e5252a3b |
-| ID de pedido de cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
+| ID de pedido do cliente  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
 Investigar por que a aplicação cliente está a tentar realizar uma operação para o qual ele não foram concedido permissões.
@@ -625,7 +626,7 @@ Se este problema ocorrer com freqüência, deve investigar por que o cliente est
 ### <a name="the-client-is-receiving-409-messages"></a>O cliente está a receber mensagens HTTP 409 (conflito)
 A tabela seguinte mostra um extrato de registo do lado do servidor para duas operações de cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de contentor de Blobs. Cada operação de cliente resulta em dois pedidos enviados para o servidor, primeiro uma **GetContainerProperties** pedido para verificar se o contentor existe, seguido da **DeleteContainer** ou  **CreateContainer** pedido.
 
-| Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido de cliente |
+| Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido do cliente |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |

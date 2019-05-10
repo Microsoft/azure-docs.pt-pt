@@ -11,16 +11,16 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 72e43ac295fcb007dd58b2b7792a16c639ee9c08
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023717"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510591"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizadas de ML de experimentações no Python
 
-Neste guia, saiba como definir várias definições de configuração de seu automatizada experimentações de machine learning com o [do Azure Machine Learning SDK](https://docs.microsoft.com/en-us/python/api/overview/azure/ml/intro?view=azure-ml-py). Aprendizagem automática escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning.
+Neste guia, saiba como definir várias definições de configuração de seu automatizada experimentações de machine learning com o [do Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Aprendizagem automática escolhe um algoritmo e hiperparâmetros para e gera um modelo pronto para implantação. Existem várias opções que pode utilizar para configurar automatizada experimentações de machine learning.
 
 Para ver exemplos de um automatizada experimentações de machine learning, consulte [Tutorial: Preparar um modelo de classificação automatizada de machine Learning](tutorial-auto-train-models.md) ou [formar modelos com aprendizagem automática na cloud](how-to-auto-train-remote.md).
 
@@ -418,7 +418,7 @@ Utilize estes 2 APIs no primeiro passo do modelo ajustado para saber mais.  Ver 
   
    Em que:
    
-   |Saída|Definição|
+   |Resultado|Definição|
    |----|--------|
    |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.| 
    |TypeDetected|Tipo de dados detetado da funcionalidade de entrada.|

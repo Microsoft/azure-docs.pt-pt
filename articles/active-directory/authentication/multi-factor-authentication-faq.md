@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbebbeaad681618e8420ad842ec370ce62bc9eba
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3517f90d97a19740f5be8c2a755532d305522d7
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570828"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228182"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas mais frequentes sobre o Azure multi-factor Authentication
 
@@ -146,11 +146,11 @@ Se sua organização não tiver clientes legados, não deve permitir que os util
 
 **P: Os meus utilizadores dizem que às vezes, não receber a mensagem de texto, ou eles respondem às mensagens de texto bidirecional, mas a verificação de exceder o tempo limite.**
 
-Entrega de mensagens de texto e de receção de respostas no SMS bidirecional não são garantidos porque há fatores incontroláveis para que possam afetar a confiabilidade do serviço. Estes fatores incluem o país de destino, a operadora de celular e a intensidade do sinal.
+Entrega de mensagens de texto e de receção de respostas no SMS bidirecional não são garantidos porque há fatores incontroláveis para que possam afetar a confiabilidade do serviço. Estes fatores incluem o país/região de destino, a operadora de celular e a intensidade do sinal.
 
 Se os utilizadores têm problemas frequentes com a receção fiável de mensagens de texto, peça-lhes para usar o método de chamada telefónica ou aplicação móvel em vez disso. A aplicação móvel pode receber notificações, tanto pela rede móvel e ligações Wi-Fi. Além disso, a aplicação móvel pode gerar códigos de verificação, mesmo quando o dispositivo não tem nenhum sinal de todo. A aplicação Microsoft Authenticator está disponível para [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), e [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-Se tiver de utilizar mensagens de texto, recomendamos que utilize SMS unidirecional, em vez de SMS bidirecional, sempre que possível. SMS unidirecional é mais fiável e evita que os utilizadores a incorrer em custos globais de SMS de responder a uma mensagem de texto que foi enviada a partir de outro país.
+Se tiver de utilizar mensagens de texto, recomendamos que utilize SMS unidirecional, em vez de SMS bidirecional, sempre que possível. SMS unidirecional é mais fiável e evita que os utilizadores a incorrer em custos globais de SMS de responder a uma mensagem de texto que foi enviada a partir de outro país/região.
 
 **P: Pode alterar a quantidade de meus usuários tenham de introduzir o código de verificação de uma mensagem de texto, antes do sistema exceder o tempo limite de tempo?**
 

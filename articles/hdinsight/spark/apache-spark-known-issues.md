@@ -67,7 +67,7 @@ Os clusters do HDInsight Spark não suportam o conector do Spark-Phoenix.
 
 **Atenuação:**
 
-Em vez disso, tem de utilizar o conector do Spark-HBase. Para obter instruções, consulte [como utilizar o conector do Spark-HBase](https://web.archive.org/web/20190112153146/ https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
+Em vez disso, tem de utilizar o conector do Spark-HBase. Para obter instruções, consulte [como utilizar o conector do Spark-HBase](https://web.archive.org/web/20190112153146/https://blogs.msdn.microsoft.com/azuredatalake/2016/07/25/hdinsight-how-to-use-spark-hbase-connector/).
 
 ## <a name="issues-related-to-jupyter-notebooks"></a>Problemas relacionados com blocos de notas do Jupyter
 Seguem-se alguns problemas conhecidos relacionados com blocos de notas do Jupyter.

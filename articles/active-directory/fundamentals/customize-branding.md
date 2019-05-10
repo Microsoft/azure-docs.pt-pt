@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 277e7663c978e64ee1440e14583e884b768b3139
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247781"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441633"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicionar identidade visual à página da sua organização do Azure Active Directory início de sessão
 Utilize o logótipo e esquemas de cores personalizada da sua organização para fornecer uma consistente aspeto e funcionalidade em suas páginas de início de sessão no Azure Active Directory (Azure AD). As páginas de início de sessão são apresentadas quando os utilizadores iniciam sessão em aplicações de baseada na web da sua organização, como o Office 365, que utiliza o Azure AD como fornecedor de identidade.
@@ -70,7 +70,7 @@ A imagem corporativa personalizada deixa de aparecer imediatamente quando os uti
 
         - **Cor de fundo de página de início de sessão.** Especificar a cor hexadecimal (por exemplo, branco é #FFFFFF) que irá aparecer em vez de sua imagem de fundo em situações de ligação de largura de banda baixa. Recomendamos que utilize a cor primária do logótipo de faixa ou a cor da organização.
 
-        - **Imagem do logótipo quadrado.** Selecione um formato. PNG (preferidas) ou. jpg imagem do logótipo da sua organização para que sejam apresentadas aos utilizadores durante o processo de instalação para novos dispositivos Windows 10 Enterprise. Esta imagem só é utilizada para a autenticação do Windows e é apresentada apenas nos inquilinos que utilizam [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) experiências de páginas em outros com o Windows 10 para a implementação ou para a entrada de palavra-passe.
+        - **Imagem do logótipo quadrado.** Selecione um formato. PNG (preferidas) ou. jpg imagem do logótipo da sua organização para que sejam apresentadas aos utilizadores durante o processo de instalação para novos dispositivos Windows 10 Enterprise. Esta imagem só é utilizada para a autenticação do Windows e é apresentada apenas nos inquilinos que utilizam [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) experiências de páginas em outros com o Windows 10 para a implementação ou para a entrada de palavra-passe. Em alguns casos que elas talvez apareçam na caixa de diálogo de consentimento.
         
             A imagem não pode ser maior do que os pixels de 240 x 240 no tamanho e tem de ter um tamanho de ficheiro de menos de 10 KB. Recomendamos que utilize uma imagem transparente, uma vez que o plano de fundo pode não corresponder aos seu plano de fundo do logótipo. Também recomendamos que não adicione preenchimento em torno da imagem ou pode fazer o logótipo parecer pequeno.
     

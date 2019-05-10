@@ -5,27 +5,81 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 6e33c7571dc735ce9984a0ce1b37275a6c4c7eca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 04/30/2019
+ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093221"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510931"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na base de dados do Azure para MySQL
 
-A funcionalidade de réplica de leitura permite-lhe replicar dados de uma base de dados do Azure para o servidor MySQL (principal) para até cinco só de leitura servidores (réplicas) na mesma região do Azure. Réplicas só de leitura assíncrona são atualizadas utilizando a tecnologia de replicação baseada em posição de ficheiro de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação de binlog, consulte a [descrição geral de replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
+A funcionalidade de réplica de leitura permite-lhe replicar dados de uma base de dados do Azure para o servidor MySQL para um servidor de só de leitura. Pode replicar do servidor mestre para até cinco réplicas. As réplicas são atualizadas de forma assíncrona utilizando a tecnologia de replicação baseada em posição de ficheiro de registo binário nativo (binlog) do motor MySQL. Para saber mais sobre a replicação de binlog, consulte a [descrição geral de replicação do MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Réplicas criadas na base de dados do Azure para o serviço MySQL são novos servidores que podem ser geridos da mesma forma como servidores de MySQL normal/autónomos. Para cada réplica de leitura, é-lhe faturada a computação aprovisionada em vCores e o armazenamento aprovisionado em GB/mês.
+> [!IMPORTANT]
+> Pode criar uma réplica de leitura na mesma região que o servidor principal ou em qualquer outra região do Azure à sua escolha. A replicação entre regiões está atualmente em pré-visualização pública.
+
+Réplicas são novos servidores que gerencie semelhante regular a base de dados do Azure para servidores MySQL. Para cada réplica, leia, é-lhe cobrada a computação aprovisionada em vCores e o armazenamento em GB / mês.
 
 Para saber mais sobre os recursos de replicação do MySQL e problemas, consulte a [documentação de replicação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 
-## <a name="when-to-use-read-replicas"></a>Quando a utilização de réplicas de leitura
+## <a name="when-to-use-a-read-replica"></a>Quando utilizar uma réplica de leitura
 
-Aplicações e cargas de trabalho que são de leitura intensiva podem ser atendidas pelas réplicas só de leitura. Réplicas de leitura ajudam a aumentar a quantidade de capacidade de leitura disponível em comparação comparada se fosse usar apenas um único servidor para leitura e escrita. As cargas de trabalho de leitura podem ser isoladas para as réplicas, enquanto as cargas de trabalho de escrita podem ser direcionadas para o mestre.
+A funcionalidade de réplica de leitura ajuda a melhorar o desempenho e dimensionamento de cargas de trabalho de leitura intensiva. Cargas de trabalho de leitura podem ser isoladas para as réplicas, enquanto as cargas de trabalho de escrita podem ser direcionadas para o mestre.
 
 Um cenário comum é fazer com que o BI e cargas de trabalho analíticas utilizam a réplica de leitura como a origem de dados de relatórios.
+
+Uma vez que as réplicas são só de leitura, eles não reduzem diretamente nem encargos de escrita-capacidade no mestre de. Esta funcionalidade não está direcionada para cargas de trabalho intensivas de escrita.
+
+A funcionalidade de réplica de leitura utiliza os replicação assíncrona do MySQL. A funcionalidade não foi criada para cenários de replicação síncrona. Haverá um atraso mensurável entre o mestre e a réplica. Os dados na réplica torna-se, eventualmente, consistentes com os dados no mestre de. Utilize esta funcionalidade para cargas de trabalho que podem acomodar este atraso.
+
+Réplicas de leitura podem melhorar o seu plano de recuperação após desastre. Se houver um desastre regional e o servidor principal estiver indisponível, pode direcionar sua carga de trabalho para uma réplica noutra região. Para tal, primeiro permitem que a réplica aceitar escritas utilizando a função de replicação de paragem. Em seguida, pode redirecionar o seu aplicativo ao atualizar a cadeia de ligação. Saiba mais no [parar a replicação](#stop-replication) secção.
+
+## <a name="create-a-replica"></a>Criar uma réplica
+
+Se um servidor principal tiver não existem servidores de réplica existente, o mestre pela primeira vez será reiniciado para se preparar para a replicação.
+
+Quando inicia o fluxo de trabalho de réplica de criar, é criada uma base de dados do Azure em branco para o servidor MySQL. O novo servidor é preenchido com os dados que estava no servidor principal. Hora de criação depende da quantidade de dados sobre o modelo global e o tempo desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas.
+
+> [!NOTE]
+> Se não tiver um conjunto de alerta de armazenamento a cópia de segurança nos seus servidores, recomendamos que o faça. O alerta informa-o quando um servidor está a atingir o seu limite de armazenamento, o que irá afetar a replicação.
+
+Saiba como [criar uma réplica de leitura no portal do Azure](howto-read-replicas-portal.md).
+
+## <a name="connect-to-a-replica"></a>Ligar a uma réplica
+
+Quando cria uma réplica, ele não herda as regras de firewall ou um ponto final de serviço de VNet do servidor mestre. Estas regras tem de ser definidas independentemente para a réplica.
+
+A réplica herda a conta de administrador do servidor mestre. Todas as contas de utilizador no servidor principal são replicadas para as réplicas de leitura. Só se pode ligar para uma réplica de leitura utilizando as contas de utilizador que estão disponíveis no servidor principal.
+
+Pode ligar para a réplica com o seu nome de anfitrião e uma conta de utilizador válido, tal como faria numa base de dados do Azure normal para o servidor MySQL. Para um servidor com o nome **myreplica** com o nome de utilizador de administrador **myadmin**, pode ligar-se para a réplica com o mysql CLI:
+
+```bash
+mysql -h myreplica.mysql.database.azure.com -u myadmin@myreplica -p
+```
+
+Na linha de comandos, introduza a palavra-passe da conta de utilizador.
+
+## <a name="monitor-replication"></a>Monitor de replicação
+
+Base de dados do Azure para MySQL fornece a **desfasamento em segundos** métricas no Azure Monitor. Esta métrica está disponível para apenas as réplicas.
+
+Esta métrica é calculada usando o `seconds_behind_master` métricas disponíveis em do MySQL `SHOW SLAVE STATUS` comando.
+
+Defina um alerta para o informar de quando o desfasamento de atinge um valor que não é aceitável para a sua carga de trabalho.
+
+## <a name="stop-replication"></a>Parar replicação
+
+Pode parar a replicação entre um mestre e uma réplica. Depois de parar a replicação entre um servidor principal e uma réplica de leitura, a réplica torna-se um servidor autónomo. Os dados no servidor autónomo são os dados que estava disponíveis na réplica no momento, que o comando de replicação de paragem foi iniciado. O servidor autónomo não fique atualizado com o servidor mestre.
+
+Quando optar por parar a replicação para uma réplica, ele perde todas as ligações para o mestre de anterior e outras réplicas. Não é sem failover automático entre um mestre e sua réplica.
+
+> [!IMPORTANT]
+> O servidor autónomo não pode se transformar numa réplica novamente.
+> Antes de parar a replicação numa réplica de leitura, certifique-se de que a réplica tem todos os dados que necessita.
+
+Saiba como [parar a replicação para uma réplica](howto-read-replicas-portal.md).
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
@@ -37,38 +91,22 @@ Réplicas de leitura só estão atualmente disponíveis nos escalões de preços
 
 Quando cria uma réplica para um modelo que tenha não réplicas existentes, o mestre pela primeira vez será reiniciado para se preparar para a replicação. . Levar isso em consideração e executar estas operações durante um período de ponta.
 
-### <a name="stopping-replication"></a>A parar a replicação
+### <a name="new-replicas"></a>Novo réplicas
 
-Pode optar por parar a replicação entre um mestre e um servidor de réplica. A parar a replicação remove a relação de replicação entre o servidor mestre e de réplica.
+É criada uma réplica de leitura como uma nova base de dados do Azure para o servidor MySQL. Um servidor existente não pode se transformar numa réplica. Não é possível criar uma réplica de outra réplica de leitura.
 
-Assim que a replicação foi interrompida, o servidor de réplica se torna um servidor autónomo. Os dados no servidor autónomo são os dados que estava disponíveis na réplica no momento, que o comando "parar a replicação" foi iniciado. O servidor autónomo não captura com o servidor mestre. Este servidor não pode se transformar numa réplica novamente.
+### <a name="replica-configuration"></a>Configuração da réplica
 
-### <a name="replicas-are-new-servers"></a>As réplicas são novos servidores
+Ao utilizar a mesma configuração de servidor como o mestre, é criada uma réplica. Depois de criar uma réplica, várias configurações podem ser alteradas independentemente do servidor mestre: geração, vCores, armazenamento, período de retenção de cópia de segurança e a versão do MySQL motor de computação. O escalão de preço também pode ser alterado de forma independente, exceto de ou para o escalão básico.
 
-As réplicas são criadas como nova base de dados do Azure para servidores MySQL. Servidores existentes não podem ser feitos em réplicas.
+> [!IMPORTANT]
+> Antes de uma configuração de servidor mestre é atualizada para novos valores, atualize a configuração de réplica para valores iguais ou superior. Esta ação garante que a réplica pode acompanhar todas as alterações efetuadas a mestre.
 
-### <a name="replica-server-configuration"></a>Configuração do servidor de réplica
+### <a name="stopped-replicas"></a>Réplicas paradas
 
-Servidores de réplica são criados usando as mesmas configurações de servidor como o modelo, que inclui as seguintes configurações:
+Se parar a replicação entre um servidor principal e uma réplica de leitura, a réplica parada torna-se um servidor autónomo que aceita as leituras e gravações. O servidor autónomo não pode se transformar numa réplica novamente.
 
-- Escalão de preço
-- Geração de computação
-- vCores
-- Armazenamento
-- Período de retenção de cópia de segurança
-- Opção de redundância de cópia de segurança
-- Versão de motor do MySQL
-- Regras da firewall
-
-Depois de ter sido criada uma réplica, pode alterar o escalão de preço (exceto para e do Basic), geração, vCores, armazenamento e retenção de cópia de segurança independentemente do servidor mestre de computação.
-
-### <a name="master-server-configuration"></a>Configuração do servidor mestre
-
-Se um mestre configuração do servidor (ex. vCores ou armazenamento) é atualizado, a configuração dos réplicas também deve ser atualizada para valores iguais ou superior. Sem isso, o servidor de réplica pode não ser capaz de acompanhar as alterações efetuadas a mestre e pode falhar assim.
-
-Novas regras de firewall adicionadas ao servidor mestre, depois de criar um servidor de réplica não são replicadas para a réplica. A réplica deve ser atualizada com esta regra de firewall novas.
-
-### <a name="deleting-the-master-server"></a>A eliminar o servidor mestre
+### <a name="deleted-master-and-standalone-servers"></a>Eliminado servidores mestre e autónomo
 
 Quando um servidor mestre for eliminado, a replicação é parada para todas as réplicas de leitura. Essas réplicas tornam-se a servidores autónomos. O servidor mestre em si é eliminado.
 
@@ -76,15 +114,23 @@ Quando um servidor mestre for eliminado, a replicação é parada para todas as 
 
 Os utilizadores no servidor principal são replicados para as réplicas de leitura. Só pode ligar a uma réplica de leitura, com as contas de utilizador disponíveis no servidor principal.
 
+### <a name="server-parameters"></a>Parâmetros do servidor
+
+Para impedir que os dados se torne fora de sincronização e para evitar a potencial perda de dados ou danos, alguns parâmetros de servidor estão bloqueados de serem actualizados quando utilizar réplicas de leitura.
+
+Os seguintes parâmetros de servidor estão bloqueados em servidores mestre e de réplica:
+- [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) 
+- [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators)
+
+O [ `event_scheduler` ](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parâmetro está bloqueado nos servidores de réplica. 
+
 ### <a name="other"></a>Outros
 
 - Identificadores de transação global (GTID) não são suportadas.
 - Não é suportada a criação de uma réplica de uma réplica.
 - Tabelas em memória podem tornar as réplicas fora de sincronia. Esta é uma limitação da tecnologia de replicação do MySQL. Leia mais no [documentação de referência do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações.
-- Ajuste a [ `innodb_file_per_table` ](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parâmetro num servidor principal após a criação de um servidor de réplica pode fazer com que a réplica se torna fora de sincronia. O servidor de réplica não está ciente do tablespaces diferentes.
 - Certifique-se de que o servidor mestre tabelas tiverem chaves primárias. Falta de chaves primárias pode resultar numa latência de replicação entre o mestre e as réplicas.
 - Reveja a lista completa de limitações de replicação do MySQL no [documentação do MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

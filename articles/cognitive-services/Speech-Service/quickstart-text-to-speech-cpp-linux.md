@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: yinhew
-ms.openlocfilehash: 211394186fe8fc0fd1514a5ce1dbc1e0efc10b7e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b5db21d40f1e270fb6771ba47af28a9e90228ea4
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020611"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465593"
 ---
 # <a name="quickstart-synthesize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Início rápido: Sintetizar voz em C++ no Linux com o SDK de voz
+
+Também estão disponíveis para inícios Rápidos [reconhecimento de fala](quickstart-cpp-linux.md).
 
 Neste artigo, vai criar um C++ consola de aplicação para Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9). Utiliza os serviços cognitivos [SDK de voz](speech-sdk.md) sintetizar a voz do texto em tempo real e reproduzir a conversão de voz no orador do seu PC. A aplicação é criada com o [SDK de Voz para Linux](https://aka.ms/csspeech/linuxbinary) e o compilador de C++ da sua distribuição Linux (por exemplo, `g++`).
 

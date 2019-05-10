@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: jrasnik
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 2dd3b9f0d1d8d61b2311977774c8b0f7267caa9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7f742b094575b78f453fb735b23cc5319a27fa7e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331017"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65206657"
 ---
 # <a name="extended-events-in-sql-database"></a>Eventos expandidos na base de dados SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -170,7 +170,7 @@ Tem de ter **controlo** permissão na base de dados para emitir uma **CREATE EVE
 
 O token SAS é gerar para o contentor de armazenamento do Azure tem de especificar **rwl** para as permissões. O **rwl** valor fornece as seguintes permissões:
 
-- Leitura
+- Ler
 - Escrita
 - Lista
 
@@ -197,7 +197,7 @@ O **o ficheiro de evento** destino poderá deparar-se a latência de rede ou fal
 - [Como utilizar o armazenamento de Blobs do .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
-- [Mensagens do blogue de Jonathan Kehayias ' Acerca de eventos expandidos no Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Mensagens do blogue de Jonathan Kehayias ' Acerca de eventos expandidos no Microsoft SQL Server](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
 - O Azure *atualizações de serviço* página da Web, reduzida pelo parâmetro para a base de dados do Azure SQL:

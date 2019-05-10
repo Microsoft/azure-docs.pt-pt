@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 6d602491c66669007ae220c3b8143ce3e805246f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147996"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508392"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ajustar a saída de conversão de texto em voz
 
@@ -28,9 +28,9 @@ A ferramenta de otimização de voz oferece suporte da Microsoft [padrão](langu
 Antes de começar a ajustar a saída de texto para voz com a ferramenta de otimização de voz, terá de concluir estes passos:
 
 1. Criar uma [Microsoft conta gratuita](https://account.microsoft.com/account) se ainda não tiver uma.
-2. Criar uma [conta gratuita do Azure](https://azure.microsoft.com/en-us/free/) se ainda não tiver uma. Clique em **começar gratuitamente**e criar uma nova conta do Azure com a sua conta Microsoft.
+2. Criar uma [conta gratuita do Azure](https://azure.microsoft.com/free/) se ainda não tiver uma. Clique em **começar gratuitamente**e criar uma nova conta do Azure com a sua conta Microsoft.
 
-3. Crie uma subscrição de serviços de voz no portal do Azure. Instruções passo a passo para [como criar um recurso de voz](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) estão disponíveis.
+3. Crie uma subscrição de serviços de voz no portal do Azure. Instruções passo a passo para [como criar um recurso de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) estão disponíveis.
    >[!NOTE]
    >Quando cria um recurso de voz no portal do Azure, as informações de localização do Azure tem de corresponder com a região de voz TTS. Voz TTS neural suporta um conjunto de sub-rotina de localizações do Azure. Para obter uma lista completa de suporte, consulte [regiões](regions.md#text-to-speech).
 
@@ -70,6 +70,6 @@ Otimização de voz neural é ligeiramente diferente de ajuste para vozes padrã
 > A ferramenta de otimização de voz fornece informações contextuais sobre recursos e a otimização.
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Criar um recurso de fala no Azure](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
+* [Criar um recurso de fala no Azure](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure)
 * [Iniciar a otimização de voz](https://speech.microsoft.com/app.html#/VoiceTuning)
 * [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)

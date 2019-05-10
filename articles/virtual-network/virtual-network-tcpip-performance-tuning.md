@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: 31ca0ee666ff37afa37fb9636860c557d92a52c7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924793"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410054"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para as VMs do Azure
 
@@ -237,7 +237,7 @@ Estas são as definições de TCP em vigor para `AutoTuningLevel`:
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Fator de dimensionamento**|**Multiplicador de dimensionamento**|**Fórmula para<br/>calcular o tamanho máximo da janela**|
-|Desativado|Nenhuma|Nenhuma|Tamanho da janela|
+|Desactivado|Nenhuma|Nenhuma|Tamanho da janela|
 |Restringido|4|2^4|Tamanho da janela * (2 ^ 4)|
 |Altamente restritos|2|2^2|Tamanho da janela * (2 ^ 2)|
 |Normal|8|2^8|Tamanho da janela * (2 ^ 8)|
@@ -256,7 +256,7 @@ Uma vez que uma MTU maior significa um MSS maiores, deve estar imaginando se aum
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Accelerated networking e dimensionamento do lado da receção
 
-#### <a name="accelerated-networking"></a>Redes aceleradas
+#### <a name="accelerated-networking"></a>Funcionamento em rede acelerado
 
 Funções de rede de máquina virtual tem sido historicamente CPU intensiva em VM do convidado e anfitrião de hipervisor /. Cada pacote que transits através do anfitrião do é processado no software através do anfitrião da CPU, incluindo todos os encapsulamento da rede virtual e descapsulação. Para que mais o tráfego que atravessa o anfitrião, maior será a CPU de carga. E se a CPU do anfitrião está ocupada com outras operações, que também irá afetar o débito de rede e a latência. Azure resolve esse problema com o funcionamento em rede acelerado.
 
@@ -276,7 +276,7 @@ Para utilizar as redes aceleradas, terá de ativá-lo explicitamente em cada VM 
 
 Receba lado que dimensionamento (RSS) é uma tecnologia de controlador de rede que distribui a receção de tráfego de rede com mais eficiência ao distribuir o processamento de receber entre várias CPUs num sistema com vários processadores. Em termos simples, o RSS permite que um sistema processar mais tráfego de recebimento, porque utiliza a todas as CPUs disponíveis em vez de apenas um. Para ver um debate mais técnico de RSS, consulte [introdução ao dimensionamento do lado da receção](https://docs.microsoft.com/windows-hardware/drivers/network/introduction-to-receive-side-scaling).
 
-Para obter o melhor desempenho quando o funcionamento em rede acelerado é habilitado numa VM, terá de ativar o RSS. RSS também pode fornecer benefícios em VMs que não usam accelerated networking. Para uma descrição geral de como determinar se o RSS está ativado e como ativá-lo, consulte [otimizar o débito de rede para máquinas virtuais do Azure](http://aka.ms/FastVM).
+Para obter o melhor desempenho quando o funcionamento em rede acelerado é habilitado numa VM, terá de ativar o RSS. RSS também pode fornecer benefícios em VMs que não usam accelerated networking. Para uma descrição geral de como determinar se o RSS está ativado e como ativá-lo, consulte [otimizar o débito de rede para máquinas virtuais do Azure](https://aka.ms/FastVM).
 
 ### <a name="tcp-timewait-and-timewait-assassination"></a>TCP TIME_WAIT e TIME_WAIT assassination
 
@@ -316,7 +316,7 @@ O limite de débito aplicam-se à máquina virtual. Débito não é afetado por 
 
 - **Protocolo**: Todo o tráfego de saída ao longo de todos os protocolos de conta para o limite.
 
-Para obter mais informações, consulte [largura de banda de rede de Máquina Virtual](http://aka.ms/AzureBandwidth).
+Para obter mais informações, consulte [largura de banda de rede de Máquina Virtual](https://aka.ms/AzureBandwidth).
 
 ### <a name="internet-performance-considerations"></a>Considerações de desempenho de Internet
 

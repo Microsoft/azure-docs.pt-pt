@@ -7,12 +7,12 @@ ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 0de3e0add804290cdfe27e2e97d8b1a0f240e0a6
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: dc72113a8f5ed978d64d35c43e94dc9e19e4cdb1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63769305"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209416"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funções para utilização com esquemas do Azure
 
@@ -41,11 +41,11 @@ Devolve que um objeto de propriedades preenchido com esse artefactos de esquema 
 
 ### <a name="return-value"></a>Valor de retorno
 
-Um objeto de propriedades de saída. As propriedades de saída são dependentes do tipo de artefacto de esquema a ser referenciado. Todos os tipos de seguem o formato:
+Um objeto de propriedades de saída. O **produz** propriedades são dependentes do tipo de artefacto de esquema a ser referenciado. Todos os tipos de seguem o formato:
 
 ```json
 {
-  "output": {collectionOfOutputProperties}
+  "outputs": {collectionOfOutputProperties}
 }
 ```
 
@@ -53,7 +53,7 @@ Um objeto de propriedades de saída. As propriedades de saída são dependentes 
 
 ```json
 {
-    "output": {
+    "outputs": {
         "policyAssignmentId": "{resourceId-of-policy-assignment}",
         "policyAssignmentName": "{name-of-policy-assignment}",
         "policyDefinitionId": "{resourceId-of-policy-definition}",
@@ -63,13 +63,13 @@ Um objeto de propriedades de saída. As propriedades de saída são dependentes 
 
 #### <a name="resource-manager-template-artifact"></a>Artefactos de modelo do Resource Manager
 
-O **saída** propriedades do objeto devolvido são definidas no modelo do Resource Manager e devolvidas pela implantação.
+O **produz** propriedades do objeto devolvido são definidas no modelo do Resource Manager e devolvidas pela implantação.
 
 #### <a name="role-assignment-artifact"></a>Artefacto de atribuição de função
 
 ```json
 {
-    "output": {
+    "outputs": {
         "roleAssignmentId": "{resourceId-of-role-assignment}",
         "roleDefinitionId": "{resourceId-of-role-definition}",
         "principalId": "{principalId-role-is-being-assigned-to}",
@@ -109,12 +109,12 @@ Alguns exemplos de obter dados a partir da _myTemplateArtifact_ exemplo são:
 
 | Expressão | Type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").output.myArray]` | Array | \["first", "second"\] |
-|`[artifacts("myTemplateArtifact").output.myArray[0]]` | String | "first" |
-|`[artifacts("myTemplateArtifact").output.myString]` | String | "meu valor de cadeia de caracteres" |
-|`[artifacts("myTemplateArtifact").output.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
-|`[artifacts("myTemplateArtifact").output.myObject.myProperty]` | String | "meu valor" |
-|`[artifacts("myTemplateArtifact").output.myObject.anotherProperty]` | Booleano | Verdadeiro |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Matriz | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | String | "first" |
+|`[artifacts("myTemplateArtifact").outputs.myString]` | String | "meu valor de cadeia de caracteres" |
+|`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
+|`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | String | "meu valor" |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Booleano | Verdadeiro |
 
 ## <a name="concat"></a>concat
 

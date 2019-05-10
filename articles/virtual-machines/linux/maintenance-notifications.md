@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: b1764eaf3f496b52bdd73afb5489843ab15cacbd
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 40ae8f0fb9c0c5980c4db1471b2bbad56a57d486
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993048"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410483"
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Notificações de manutenção de manipulação planeada para máquinas virtuais do Linux
 
@@ -27,13 +27,13 @@ O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o des
 
 - Se a manutenção não requer um reinício, o Azure utiliza migração no local para colocar em pausa a VM, enquanto o anfitrião está atualizado. Essas operações de manutenção não rebootful são o domínio de falha aplicada por domínio de falha e o progresso é interrompido se qualquer sinais de estado de funcionamento de aviso são recebidas.
 
-- Se a manutenção requer uma reinicialização, receberá um aviso de quando a manutenção está prevista. Nestes casos, é-lhe dada uma janela de tempo em que pode iniciar a manutenção por conta própria, quando ele funciona melhor para si.
+- Se a manutenção requer uma reinicialização, receberá um aviso de quando a manutenção está prevista. Nestes casos, é-lhe dada uma janela de tempo que é normalmente 30 dias em que pode iniciar a manutenção por conta própria, quando ele funciona melhor para si.
 
 
 Manutenção planeada, que requer uma reinicialização é agendada em etapas. Cada fase tem escopo diferente (regiões).
 
 - Uma onda começa com uma notificação para os clientes. Por predefinição, a notificação é enviada para o proprietário da subscrição e os coproprietários. Pode adicionar mais opções de mensagens, como e-mail, SMS e webhooks e os destinatários de notificações através do Azure [alertas de registo de atividade](../../azure-monitor/platform/activity-logs-overview.md).  
-- No momento da notificação, um *janela de self-service* é disponibilizado. Durante esta janela que é, normalmente, quatro semanas, pode encontrar quais das suas máquinas virtuais estão incluídos nessa onda e iniciar proativamente a manutenção, de acordo com suas próprias necessidades de agendamento.
+- No momento da notificação, um *janela de self-service* é disponibilizado. Durante esta janela que é normalmente de 30 dias, pode encontrar quais das suas máquinas virtuais estão incluídos nessa onda e iniciar proativamente a manutenção, de acordo com suas próprias necessidades de agendamento.
 - Depois da janela de self-service, um *janela de manutenção agendada* começa. Em algum momento durante este período, o Azure agendas e aplica-se a manutenção necessária à máquina virtual. 
 
 O objetivo de ter duas janelas é para lhe dar tempo suficiente para iniciar a manutenção e reiniciar a máquina de virtual sabendo quando o Azure irá automaticamente iniciar manutenção.

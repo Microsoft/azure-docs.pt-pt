@@ -8,14 +8,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/15/2019
+ms.date: 05/02/2019
 ms.author: gwallace
-ms.openlocfilehash: e2b36633996f961d100f0a98abb09135fd4393e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b71ba69bcf4965ea607e097c392573e77aab6865
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60869865"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408279"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script personalizado para Windows
 
@@ -28,7 +28,7 @@ Este documento fornece detalhes sobre como utilizar a extensão de Script person
 > [!NOTE]  
 > Utilize a extensão de Script personalizado para executar o cmdlet Update-AzVM com a mesma VM como seu parâmetro, uma vez que ele irá esperar em si mesmo.  
 
-### <a name="operating-system"></a>Sistema Operativo
+### <a name="operating-system"></a>Sistema operativo
 
 O Custom Script extensão para o Windows irá executar a extensão de extensão suportada OSs, para obter mais informações, consulte este [sistemas operativos suportados de extensão do Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems).
 
@@ -133,7 +133,7 @@ Utilizar definições públicas pode ser útil para depuração, mas é recomend
 
 Definições de públicas são enviadas em texto não criptografado para a VM em que o script será executado.  Definições protegidas são encriptadas com uma chave só conhecida o Azure e a VM. As definições são guardadas para a VM à medida que eles sejam encaminhados, ou seja, se as definições foram encriptadas vez salvos encriptados na VM. O certificado utilizado para desencriptar os valores criptografados é armazenado na VM e utilizado para desencriptar as definições (se necessário) em tempo de execução.
 
-## <a name="template-deployment"></a>Implementação de modelos
+## <a name="template-deployment"></a>Implementação de modelo
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON, que se encontra detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager para executar a extensão de Script personalizado durante a implementação. Os exemplos seguintes mostram como utilizar a extensão de Script personalizado:
 
@@ -206,6 +206,16 @@ Se quiser executar a extensão de script personalizado mais de uma vez, apenas p
 
 * A extensão **nome** parâmetro é o mesmo que a implementação anterior da extensão.
 * Atualize a configuração, caso contrário, que o comando não será novamente executado. Pode adicionar uma propriedade dinâmica para o comando, como um carimbo.
+
+Em alternativa, pode definir o [ForceUpdateTag](/dotnet/api/microsoft.azure.management.compute.models.virtualmachineextension.forceupdatetag) propriedade **verdadeiro**.
+
+### <a name="using-invoke-webrequest"></a>Usando o Invoke-WebRequest
+
+Se estiver a utilizar [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) no seu script, tem de especificar o parâmetro `-UseBasicParsing` ou outro receberá o seguinte erro ao verificar o estado detalhado:
+
+```error
+The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
+```
 
 ## <a name="classic-vms"></a>VMs clássicas
 
@@ -280,6 +290,6 @@ Informações de caminho após o primeiro segmento URI é mantido por arquivos b
 
 <sup>1</sup> os caminhos de diretório absoluto mudam ao longo do tempo de vida da VM, mas não numa única execução da extensão CustomScript.
 
-### <a name="support"></a>Suporte
+### <a name="support"></a>Apoio ao cliente
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Também pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

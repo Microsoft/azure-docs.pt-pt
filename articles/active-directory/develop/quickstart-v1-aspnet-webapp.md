@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191033"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231162"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Início rápido: Adicionar início de sessão com a Microsoft a uma aplicação web ASP.NET
 
@@ -38,7 +38,7 @@ No final deste início rápido, a aplicação irá aceitar inícios de sessão d
 
 Para começar, certifique-se de que cumpre estes pré-requisitos:
 
-* Ter o Visual Studio 2015 Update 3 ou instalado de 2019 do Visual Studio. Não o tem? [Transfira gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/)
+* Ter o Visual Studio 2015 Update 3 ou posterior instalado. Não o tem? [Transfira gratuitamente o Visual Studio 2019](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Cenário: Iniciar sessão dos utilizadores de contas profissionais e escolares na sua aplicação ASP.NET
 
@@ -70,9 +70,10 @@ Para transferir o projeto do Visual Studio deste exemplo em vez disso, siga este
 ## <a name="step-2-create-your-aspnet-project"></a>Passo 2: Criar o seu projeto ASP.NET
 
 1. No Visual Studio, aceda a **Ficheiro -> Novo -> Projeto**.
-2. Em **Visual C#\Web**,selecione **Aplicação Web ASP.NET (.NET Framework)**.
-3. Dê um nome à aplicação e selecione **OK**.
-4. Selecione **Vazio** e, em seguida, selecione a caixa de verificação para adicionar referências **MVC**.
+2. Para **tipo de projeto**, selecione **Web**, em seguida, selecione **aplicação Web ASP.NET (.NET Framework)**.
+3. Nome à aplicação e selecione **criar**.
+4. Selecione **vazio** e, em seguida, selecione **MVC** sob **adicionar pastas e referências de núcleo** para adicionar referências MVC.
+5. Selecione **Criar**.
 
 ## <a name="step-3-add-authentication-components"></a>Passo 3: Adicionar componentes de autenticação
 
@@ -125,7 +126,7 @@ Para criar uma *Classe de Arranque* de middleware OWIN:
 Crie um novo controlador para expor os métodos de início de sessão e fim de sessão.
 
 1.  Clique com o botão direito do rato na pasta **Controladores** e selecione **Adicionar > Controlador**
-2.  Selecione **Controlador MVC (versão .NET) – Vazio**.
+2.  Selecione **Controlador MVC {versão} – Vazio**.
 3.  Selecione **Adicionar**.
 4.  Dê-lhe o nome `HomeController` e selecione **Adicionar**.
 5.  Adicione espaços de nomes **OWIN** à classe:
@@ -292,7 +293,7 @@ Selecione a hiperligação para ver as afirmações do utilizador. Esta ação d
 |---|---|---|
 | Name | {Nome Completo do Utilizador} | O nome próprio e apelido do utilizador |
 | Nome de utilizador | <span>user@domain.com</span> | O nome de utilizador utilizado para identificar o utilizador com sessão iniciada |
-| Assunto| {Assunto} |Uma cadeia de caracteres para identificar exclusivamente o utilizador iniciar sessão em toda a web |
+| Assunto| {Subject} |Uma cadeia de caracteres para identificar exclusivamente o utilizador iniciar sessão em toda a web |
 | ID do inquilino | {Guid} | Um *guid* que representa exclusivamente a organização do Azure AD do utilizador |
 
 Além disso, verá uma tabela que inclui todas as afirmações do utilizador incluídas no pedido de autenticação. Para obter uma lista de todas as afirmações no Token de ID e a respetiva explicação, veja [Lista de afirmações no token de ID](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/7/2019
 ms.author: victorh
-ms.openlocfilehash: b1cdcfc9e81938f3f562046b971407b31a593525
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202917"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510823"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona 
 
@@ -62,7 +62,7 @@ Orientações de unidade de computação:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-O [página de preços](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) será atualizado para refletir os preços regionais de 14 de Maio de 2019. Faturação está agendada para começar a partir de 1 de Junho de 2019.
+O [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/) será atualizado para refletir os preços regionais de 14 de Maio de 2019. Faturação está agendada para começar a partir de 1 de Junho de 2019.
 
 **Exemplo 1**
 
@@ -93,7 +93,7 @@ Preço da unidade de capacidade = 744(hours) * Max (computação unidade Max(25/
 
 Preço total = us $267.84 + us $85.71 = us $353.55
 
-O [página de preços](https://azure.microsoft.com/en-us/pricing/details/application-gateway/) será atualizado para refletir os preços regionais de 14 de Maio de 2019. Faturação está agendada para começar a partir de 1 de Junho de 2019.
+O [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/) será atualizado para refletir os preços regionais de 14 de Maio de 2019. Faturação está agendada para começar a partir de 1 de Junho de 2019.
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Dimensionar o Gateway de aplicação e WAF v2
 
@@ -112,7 +112,7 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 | Redundância de zona                                   |          | &#x2713; |
 | VIP estático                                        |          | &#x2713; |
 | Controlador do Azure Kubernetes Service (AKS) de entrada |          | &#x2713; |
-| Integração do Cofre de Chaves do Azure                       |          | &#x2713; |
+| Integração do Azure Key Vault                       |          | &#x2713; |
 | Reescreva os cabeçalhos de HTTP (S)                           |          | &#x2713; |
 | Encaminhamento com base no URL                                 | &#x2713; | &#x2713; |
 | Alojamento de vários sites                             | &#x2713; | &#x2713; |

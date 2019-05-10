@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: eaaaa5c2fe87b419bf38d6e6522ef745476ac1ad
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 226986fb7c41c19b58f0163414628ad08ddeda15
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204947"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409989"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Elevada disponibilidade para SAP NetWeaver em VMs do Azure
 
@@ -470,7 +470,7 @@ Estes artigos abrangem implementações de SAP no Azure:
 
 Estas notas de SAP estão relacionadas ao tópico de SAP no Azure:
 
-| Número de nota | Título |
+| Número de nota | Cargo |
 | --- | --- |
 | [1928533] |Aplicações de SAP no Azure: Produtos suportados e o dimensionamento |
 | [2015553] |SAP no Microsoft Azure: Pré-requisitos de suporte |
@@ -1229,9 +1229,10 @@ Configurar um testemunho de partilha de ficheiros do cluster envolve estas taref
 
    _**Figura 38:** Confirmação de que já reconfigurado o cluster_
 
-Depois de instalar o Cluster de ativação pós-falha do Windows com êxito, as alterações precisam ser feitas para alguns limites para se adaptar a deteção de ativação pós-falha para condições no Azure. Os parâmetros de ser alteradas estão documentados neste blogue: https://blogs.msdn.microsoft.com/clustering/2012/11/21/tuning-failover-cluster-network-thresholds/ . Supondo que as duas VMs que criar a configuração de Cluster do Windows para ASCS/SCS estão na mesma sub-rede, tem de ser alterada para esses valores os seguintes parâmetros:
-- SameSubNetDelay = 2
-- SameSubNetThreshold = 15
+Depois de instalar o Cluster de ativação pós-falha do Windows com êxito, as alterações precisam ser feitas para alguns limites para se adaptar a deteção de ativação pós-falha para condições no Azure. Os parâmetros de ser alteradas estão documentados neste blogue: [ https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834 ](https://techcommunity.microsoft.com/t5/Failover-Clustering/Tuning-Failover-Cluster-Network-Thresholds/ba-p/371834). Supondo que as duas VMs que criar a configuração de Cluster do Windows para ASCS/SCS estão na mesma sub-rede, tem de ser alterada para esses valores os seguintes parâmetros:  
+- SameSubNetDelay = 2000  
+- SameSubNetThreshold = 15  
+- RoutingHistoryLength = 30  
 
 Estas definições foram testadas com os clientes e forneceu uma boa solução para que seja resiliente do lado. Por outro lado essas definições estavam a fornecer rapidamente suficiente de ativação pós-falha em condições de erro real em caso de falha SAP, software ou o nó/VM. 
 

@@ -67,7 +67,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
 STORED AS TEXTFILE LOCATION '/example/data/';
 ```
 
-Hive também oferece suporte a custom **serializador/desserializadores (SerDe)** para dados complexos ou forma irregular. Para obter mais informações, consulte a [como utilizar um SerDe de JSON personalizado com o HDInsight](https://web.archive.org/web/20190217104719/ https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) documento.
+Hive também oferece suporte a custom **serializador/desserializadores (SerDe)** para dados complexos ou forma irregular. Para obter mais informações, consulte a [como utilizar um SerDe de JSON personalizado com o HDInsight](https://web.archive.org/web/20190217104719/https://blogs.msdn.microsoft.com/bigdatasupport/2014/06/18/how-to-use-a-custom-json-serde-with-microsoft-azure-hdinsight/) documento.
 
 Para obter mais informações sobre formatos de ficheiro suportados do Hive, consulte o [(idioma de manuais https://cwiki.apache.org/confluence/display/Hive/LanguageManual)](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)
 

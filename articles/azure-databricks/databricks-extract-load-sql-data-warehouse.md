@@ -7,18 +7,17 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
-ms.workload: Active
-ms.date: 02/15/2019
-ms.openlocfilehash: e306245da2c76560ad447358fa1a57e491c370ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/07/2019
+ms.openlocfilehash: e2110378d16ff5826b8ded4620276b784ef1d68e
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60239402"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65203361"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados com o Azure Databricks
 
-Neste tutorial, vai realizar um ETL (extração, transformação e carregamento de dados) operação ao utilizar o Azure Databricks. Extrair dados de geração 2 de armazenamento do Azure Data Lake para o Azure Databricks, executar transformações nos dados no Azure Databricks e, em seguida, carregá-los para o Azure SQL Data Warehouse.
+Neste tutorial, vai realizar um ETL (extração, transformação e carregamento de dados) operação ao utilizar o Azure Databricks. Extrair dados de geração 2 de armazenamento do Azure Data Lake para o Azure Databricks, executar transformações nos dados no Azure Databricks e carregá-los para o Azure SQL Data Warehouse.
 
 Os passos neste tutorial utilizam o conector SQL Data Warehouse para o Azure Databricks para transferir dados para este último serviço. Por sua vez, este conector utiliza o Armazenamento de Blobs do Azure como armazenamento temporário para os dados que estão a ser transferidos entre um cluster do Azure Databricks e o Azure SQL Data Warehouse.
 
@@ -48,13 +47,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Conclua estas tarefas antes de começar este tutorial:
 
-* Criar um armazém de dados SQL do Azure, criar uma regra de firewall ao nível do servidor e ligar ao servidor como um administrador do servidor. Consulte [início rápido: Criar um armazém de dados SQL do Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Criar um armazém de dados SQL do Azure, criar uma regra de firewall ao nível do servidor e ligar ao servidor como um administrador do servidor. Consulte [início rápido: Criar e consultar um armazém de dados SQL do Azure no portal do Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
 
 * Crie uma chave mestra de base de dados para o armazém de dados SQL do Azure. Ver [crie uma chave mestra do banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Crie uma conta de armazenamento de Blobs do Azure e um contentor no mesmo. Obtenha também a chave de acesso para aceder à conta de armazenamento. Consulte [início rápido: Criar uma conta de armazenamento de Blobs do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Crie uma conta de armazenamento de Blobs do Azure e um contentor no mesmo. Obtenha também a chave de acesso para aceder à conta de armazenamento. Consulte [início rápido: Carregar, transferir e listar os blobs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Crie uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake. Ver [criar uma conta de geração 2 de armazenamento do Azure Data Lake](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+* Crie uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake. Consulte [início rápido: Criar uma conta de armazenamento de geração 2 de armazenamento do Azure Data Lake](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
 *  Crie um principal de serviço. Consulte [como: Utilizar o portal para criar um Azure AD principal de aplicações e serviço que pode aceder a recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -355,6 +354,11 @@ Conforme mencionado anteriormente, o conector SQL Data Warehouse utiliza o armaz
        .mode("overwrite")
        .save()
    ```
+
+   > [!NOTE]
+   > Este exemplo utiliza o `forward_spark_azure_storage_credentials` sinalizador, que faz com que o SQL Data Warehouse para aceder a dados do armazenamento de Blobs com uma chave de acesso. Este é o único método suportado de autenticação.
+   >
+   > Se o seu armazenamento de Blobs do Azure é restrito para selecionar as redes virtuais, o SQL Data Warehouse requer [identidade do serviço gerido, em vez de chaves de acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isso fará com que o erro "este pedido não está autorizado a efetuar esta operação."
 
 6. Ligar à base de dados SQL e certifique-se de que consegue ver uma base de dados com o nome **SampleTable**.
 

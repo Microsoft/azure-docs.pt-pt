@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: e21ed77a80892da22c380787dc64ea07db756fdf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a029ad3fc253f35fb34bc2dd0ddbeb9614e5dc33
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917640"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231409"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) do Centro de Segurança do Azure
 Encontre respostas para perguntas sobre o Centro de segurança do Azure, um serviço que o ajuda a prevenir, detetar e responder a ameaças com maior visibilidade e controlo da segurança dos seus recursos do Microsoft Azure.
@@ -303,7 +303,7 @@ Centro de segurança do Azure monitoriza os seguintes recursos do Azure:
 
 Além disso, os computadores não Azure (incluindo no local) também podem ser monitorizados pelo centro de segurança do Azure (ambos [computadores Windows](./quick-onboard-windows-computer.md) e [computadores Linux](./quick-onboard-linux-computer.md) são suportados)
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>Máquinas Virtuais
 ### <a name="what-types-of-virtual-machines-are-supported"></a>Que tipos de máquinas virtuais são suportados?
 Monitorização e recomendações estão disponíveis para máquinas virtuais (VMs) criadas com ambos os [clássico e modelos de implementação do Resource Manager](../azure-classic-rm.md).
 
@@ -323,6 +323,11 @@ A latência no Centro de segurança verifica a existência de vulnerabilidades, 
 - Problemas de proteção de ponto de extremidade – dados serão atualizados dentro de 8 horas
 
 Normalmente, o Centro de segurança verifica a existência de novos dados a cada hora e atualiza as recomendações em conformidade. 
+
+> [!NOTE]
+> A partir do início de junho de 2017, o Centro de Segurança irá utilizar o Microsoft Monitoring Agent para recolher e armazenar dados. Para obter mais informações, consulte [migração de plataforma do Centro de segurança do Azure](security-center-platform-migration.md). As informações neste artigo representam a funcionalidade do Centro de Segurança após a transição para o Agente de Monitorização da Microsoft.
+>
+>
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Por que motivo recebo a mensagem "O agente da VM está em falta?"
 O agente da VM tem de ser instalado em VMs para ativar a recolha de dados. O Agente de VM é instalado por predefinição em VMs que são implementadas a partir do Azure Marketplace. Para obter informações sobre como instalar o agente da VM em outras VMs, consulte a mensagem de blogue [agente da VM e extensões](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).

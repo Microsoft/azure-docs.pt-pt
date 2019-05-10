@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 04/29/2019
-ms.openlocfilehash: 96ee3f5e1b3cfe67cb75e50c6247e41f0d901393
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: d83410efd26f8c2078d3abdb01d061db0b83d33d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867922"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233733"
 ---
 # <a name="migrate-sql-server-on-premises-to-an-azure-sql-database-managed-instance-using-azure-powershell"></a>Migrar o SQL Server no local para uma instância gerida da base de dados do Azure SQL com o Azure PowerShell
 Neste artigo, migra os **Adventureworks2016** base de dados restaurada para uma instância no local do SQL Server 2005 ou superior para uma base de dados do SQL Azure instância gerida com o Microsoft Azure PowerShell. Pode migrar bases de dados de uma instância do SQL Server no local para uma instância gerida da base de dados do Azure SQL usando o `Az.DataMigration` módulo no Microsoft Azure PowerShell.
@@ -86,7 +86,7 @@ O exemplo seguinte cria um serviço com o nome *MyDMS* no grupo de recursos *MyD
 > O trecho de código abaixo é para uma migração offline, o que não necessite de uma instância do serviço de migração de base de dados do Azure com base num SKU Premium. Para uma migração online, o valor do parâmetro - Sku tem de incluir um SKU Premium.
 
 ```powershell
- $vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
+$vNet = Get-AzVirtualNetwork -ResourceGroupName MyDMSResourceGroup -Name MyVNET
 
 $vSubNet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vNet -Name MySubnet
 

@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/22/2018
-ms.openlocfilehash: c7cee3dfd3b091d75f4dadcaa62513fddf0c0e68
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/07/2019
+ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692137"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510985"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utilizar uma consulta interativa com o HDInsight
 Consulta interativa (também denominado LLAP do Hive do Apache, ou [processamento analítico de baixa latência](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um HDInsight do Azure [tipo de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Consulta interativa suporta a colocação em cache na memória, que torna o Apache Hive consultas muito mais rápidas e interativas.
@@ -34,10 +34,6 @@ Para executar consultas do Hive, tem as seguintes opções:
 * Utilize o Microsoft Power BI
 
     Ver [visualizar Interactive Query Apache Hive dados com o Power BI no Azure HDInsight](./apache-hadoop-connect-hive-power-bi-directquery.md) veja [visualizar grandes volumes de dados com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
- 
-* Utilizar Apache Zeppelin
-
-    Ver [utilização Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
 
 * Utilizar o Visual Studio
 
@@ -61,7 +57,7 @@ Para executar consultas do Hive, tem as seguintes opções:
 
 Para localizar a cadeia de ligação de conectividade de banco de dados de Java (JDBC):
 
-1. Inicie sessão no Apache Ambari, com o seguinte URL: https://\<nome do cluster\>. AzureHDInsight.net.
+1. Inicie sessão no Apache Ambari, com o seguinte URL: `https://<cluster name>.AzureHDInsight.net`.
 2. No menu da esquerda, selecione **Hive**.
 3. Para copiar o URL, selecione o ícone de área de transferência:
    

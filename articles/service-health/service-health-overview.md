@@ -9,12 +9,12 @@ ms.service: service-health
 ms.topic: article
 ms.workload: Supportability
 ms.date: 03/27/2018
-ms.openlocfilehash: 465e8751d02692648234a7a90b84b68f41522cb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5385777134b911aa08b751978c44597f79acbc7
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60620809"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442393"
 ---
 # <a name="service-health"></a>Service Health
 Serviço de estado de funcionamento fornece um dashboard personalizável que controla o estado de funcionamento dos seus serviços do Azure nas regiões onde usá-los. Neste dashboard, pode controlar o Active Directory eventos como problemas de serviço em curso, futura manutenção planeada ou aconselhamentos sobre o estado de funcionamento relevantes. Quando eventos tornam-se inativos, eles serão colocados no seu histórico de estado de funcionamento até 90 dias. Por fim, pode utilizar o dashboard de estado de funcionamento do serviço para criar e gerir alertas de estado de funcionamento do serviço que proativamente notificá-lo quando os problemas de serviço estão a afetar.
@@ -60,5 +60,7 @@ Filtre o estado de funcionamento do serviço para mostrar as suas subscrições 
 ## <a name="configure-service-health-alerts"></a>Configurar alertas de estado de funcionamento do serviço
 Service Health integra-se com o Azure Monitor para alertá-lo através de e-mails, mensagens de texto e notificações de webhook quando os seus recursos críticos para o negócio são afetados. Configure um alerta de registo de atividade para o evento de estado de funcionamento do serviço apropriado. Encaminhe esse alerta para as pessoas adequadas na sua organização utilizando grupos de ação. Para obter mais informações, consulte [configurar alertas de estado de funcionamento do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
-# <a name="next-steps"></a>Próximos Passos
-Configure alertas para que seja notificado de problemas de estado de funcionamento. Para obter mais informações, consulte [configurar alertas de estado de funcionamento do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md). 
+>[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
+
+## <a name="next-steps"></a>Passos Seguintes
+Configure alertas para que seja notificado de problemas de estado de funcionamento. Para obter mais informações, consulte [melhores práticas para configurar alertas de estado de funcionamento do serviço do Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

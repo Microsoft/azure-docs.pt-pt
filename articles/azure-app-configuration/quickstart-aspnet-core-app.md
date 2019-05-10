@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 90a39693778e01da76baf19765be8801f55813b7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e53f0bd1af3940b4d2f653b5ef43170212c09a43
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64683060"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408689"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar uma aplicação ASP.NET Core com a configuração de aplicações do Azure
 
@@ -41,7 +41,7 @@ Para fazer este início rápido, instale o [.NET Core SDK](https://dotnet.micros
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Explorador de chave/valor** > **+ criar** para adicionar os seguintes pares de chave-valor:
+6. Selecione **Explorador de configuração** > **+ criar** para adicionar os seguintes pares de chave-valor:
 
     | Chave | Value |
     |---|---|
@@ -66,7 +66,7 @@ Utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microso
 
 Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
 
-- Abra o ficheiro *.csproj*. Adicionar um `UserSecretsId` elemento, conforme mostrado aqui e substitua o respetivo valor com os seus próprios, que é normalmente um GUID. Guarde o ficheiro.
+- Abra o *. csproj* ficheiro. Adicionar um `UserSecretsId` elemento, conforme mostrado aqui e substitua o respetivo valor com os seus próprios, que é normalmente um GUID. Guarde o ficheiro.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -88,7 +88,7 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 
 1. Adicionar uma referência para o `Microsoft.Extensions.Configuration.AzureAppConfiguration` pacote NuGet ao executar o seguinte comando:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-008520001
 
 2. Execute o seguinte comando para restaurar pacotes para o seu projeto:
 
@@ -102,7 +102,7 @@ Adicionar a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspne
 
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
-    Segredo Manager é utilizada apenas para testar a aplicação web localmente. Quando a aplicação for implementada, por exemplo, a [App Service do Azure](https://azure.microsoft.com/services/app-service/web), utilize uma aplicação de definir, por exemplo, **cadeias de ligação** no serviço de aplicações. Utilize esta definição em vez de armazenar a cadeia de ligação com o Gestor de segredo.
+    Segredo Manager é utilizada apenas para testar a aplicação web localmente. Quando a aplicação é implementada [App Service do Azure](https://azure.microsoft.com/services/app-service/web), por exemplo, utilizar uma definição da aplicação **cadeias de ligação** no serviço de aplicações em vez de com o Gestor de segredo para armazenar a cadeia de ligação.
 
     Este segredo é acessado com a API de configuração. Dois pontos (:) funciona no nome da configuração com a API de configuração nas plataformas suportadas. Ver [configuração pelo ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 

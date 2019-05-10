@@ -9,23 +9,23 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 892906089ae3538b3427d97165173fd82621f58a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5d8e7bba6d43ba1daa3173ce5d7e043e2310a482
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920018"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65229972"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Utilize um alerta para acionar um runbook da automatização do Azure
 
 Pode usar [do Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomation%2ftoc.json) para monitorizar as métricas de nível de base e registos para a maioria dos serviços do Azure. Pode chamar runbooks de automatização do Azure, utilizando [grupos de ação](../azure-monitor/platform/action-groups.md?toc=%2fazure%2fautomation%2ftoc.json) ou através de alertas clássicos para automatizar tarefas com base em alertas. Este artigo mostra-lhe como configurar e executar um runbook através de alertas.
 
-## <a name="alert-types"></a>Tipos de alerta
+## <a name="alert-types"></a>Tipos de alertas
 
 Pode utilizar runbooks de automatização com quatro tipos de alertas:
 
 * Alertas comuns
-* Alertas do registo de atividades
+* Alertas de registo de atividade
 * Perto de alertas de métricas em tempo real
 
 > [!NOTE]
@@ -60,6 +60,14 @@ Utilize este exemplo para criar um runbook denominado **Stop-AzureVmInResponseto
 5. Copie o seguinte exemplo do PowerShell para o **editar** página.
 
     ```powershell-interactive
+    [OutputType("PSAzureOperationResponse")]
+    param
+    (
+        [Parameter (Mandatory=$false)]
+        [object] $WebhookData
+    )
+    $ErrorActionPreference = "stop"
+
     if ($WebhookData)
     {
         # Get the data object from WebhookData

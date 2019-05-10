@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/07/2019
 ms.author: zchia
-ms.openlocfilehash: b7b096bd1ecf0a4df37ed4de0cf618216dccc2bc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 445579eb780b49f536ef1a9e13e5ca43db6f98f6
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159469"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508476"
 ---
 # <a name="tutorial-configure-keeper-password-manager--digital-vault-for-automatic-user-provisioning"></a>Tutorial: Configure o Gestor de palavra-passe de extinção do responsável e cofre Digital para aprovisionamento automático de utilizadores
 
@@ -84,7 +84,7 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-keeper-password-manager--digital-vault-in-azure-ad"></a>Para configurar o aprovisionamento automático de utilizadores para o Gestor de palavra-passe de extinção do responsável & cofre Digital no Azure AD:
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Gestor de palavra-passe de extinção do responsável & Digital Cofre**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações empresariais**, em seguida, selecione **todos os aplicativos**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
@@ -104,19 +104,19 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 6. Inicie sessão no seu [consola de administração de extinção do responsável](https://keepersecurity.com/console/#login). Clique em **administrador** e selecione um nó existente ou crie um novo. Navegue para o **aprovisionamento** separador e selecione **Add Method**.
 
-    ![Consola de administração de extinção do responsável](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-admin-console.png)
+    ![Consola de administração de extinção do responsável](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-admin-console.png)
 
     Selecione **SCIM (sistema de gestão de identidade entre domínios**.
 
-    ![Extinção do responsável adicionar SCIM](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-add-scim.png)
+    ![Extinção do responsável adicionar SCIM](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-add-scim.png)
 
     Clique em **criar Token de aprovisionamento**.
 
-    ![Extinção do responsável criar o ponto final](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-endpoint.png)
+    ![Extinção do responsável criar o ponto final](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-endpoint.png)
 
     Copie os valores de **URL** e **Token** e cole-os no **URL de inquilino** e **segredo de Token** no Azure AD. Clique em **guardar** para concluir a configuração de aprovisionamento no extinção do responsável.
 
-    ![Extinção do responsável criar Token](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-create-token.png)
+    ![Extinção do responsável criar Token](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-create-token.png)
 
 7. Após preencher os campos mostrados no passo 5, clique em **Testar ligação** para garantir que o Azure AD pode ligar ao Gestor de palavra-passe de extinção do responsável & Digital de cofre. Se a ligação falhar, certifique-se de que a conta de Gestor de palavra-passe de extinção do responsável & Digital cofre tem permissões de administrador e tente novamente.
 
@@ -130,19 +130,19 @@ Esta secção orienta-o pelos passos para configurar o Azure AD do serviço de a
 
 10. Sob o **mapeamentos** secção, selecione **sincronizar utilizadores do Azure Active Directory Directory para o Gestor de palavra-passe de extinção do responsável & cofre Digital**.
 
-    ![Mapeamentos de utilizador de extinção do responsável](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-mappings.png)
+    ![Mapeamentos de utilizador de extinção do responsável](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-mappings.png)
 
 11. Reveja os atributos de utilizador que são sincronizados a partir do Azure AD para o Gestor de palavra-passe de extinção do responsável & cofre Digital no **mapeamento do atributo** secção. Os atributos selecionados como **correspondência** propriedades são usadas de acordo com as contas de utilizador no Gestor de palavra-passe de extinção do responsável & Digital de cofre para operações de atualização. Selecione o **guardar** botão para consolidar as alterações.
 
-    ![Atributos de utilizador de extinção do responsável](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-user-attributes.png)
+    ![Atributos de utilizador de extinção do responsável](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-user-attributes.png)
 
 12. Sob o **mapeamentos** secção, selecione **sincronizar Azure grupos do Active Directory para o Gestor de palavra-passe de extinção do responsável & cofre Digital**.
 
-    ![Mapeamentos de grupo de extinção do responsável](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-mappings.png)
+    ![Mapeamentos de grupo de extinção do responsável](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-mappings.png)
 
 13. Reveja os atributos de grupo que são sincronizados a partir do Azure AD para o Gestor de palavra-passe de extinção do responsável & cofre Digital no **mapeamento do atributo** secção. Os atributos selecionados como **correspondência** propriedades são usadas para fazer corresponder os grupos no Gestor de palavra-passe de extinção do responsável & Digital de cofre para operações de atualização. Selecione o **guardar** botão para consolidar as alterações.
 
-    ![Atributos do grupo de extinção do responsável](media/keeperpasswordmanagerdigitalvault-provisioning-tutorial/keeper-group-attributes.png)
+    ![Atributos do grupo de extinção do responsável](media/keeper-password-manager-digitalvault-provisioning-tutorial/keeper-group-attributes.png)
 
 14. Para configurar filtros de âmbito, consulte as seguintes instruções fornecidas a [tutorial de filtro de Scoping](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -176,7 +176,3 @@ Para obter mais informações sobre como ler o registos de aprovisionamento do A
 
 * [Saiba como rever os registos e obter relatórios de atividade de aprovisionamento](../manage-apps/check-status-user-account-provisioning.md)
 
-<!--Image references-->
-[1]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-01.png
-[2]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-02.png
-[3]: ./media/atlassian-cloud-provisioning-tutorial/tutorial-general-03.png

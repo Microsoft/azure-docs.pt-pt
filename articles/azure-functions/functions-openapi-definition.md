@@ -5,19 +5,18 @@ services: functions
 keywords: OpenAPI, Swagger, aplicações na nuvem, serviços cloud,
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 255a7c9d0b9da15176fca90c6934a84fa0f863ed
+ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141449"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65501862"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Criar uma definição de OpenAPI para uma função de API Management do Azure
 
@@ -133,13 +132,9 @@ Agora, tem uma função que determina a rentabilidade das reparações de emerg�
 
 Agora, está pronto para gerar a definição de OpenAPI.
 
-1. Selecione a aplicação de função e, em seguida, selecione **funcionalidades de plataforma**, **todas as definições**
+1. Selecione a aplicação de função, em seguida, na **funcionalidades de plataforma**, escolha **gestão de API** e selecione **criar novo** sob **gestão de API**.
 
-    ![Testar a função no portal do Azure](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. Desloque para baixo, em seguida, escolha **gestão de API** > **criar novo** para criar uma nova instância de gestão de API.
-
-    ![Função de ligação](media/functions-openapi-definition/link-apim-openapi.png)
+    ![Escolha a gestão de API em recursos da plataforma](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. Utilize as definições de gestão de API conforme especificado na tabela abaixo da imagem.
 
@@ -150,11 +145,10 @@ Agora, está pronto para gerar a definição de OpenAPI.
     | **Nome** | Nome globalmente exclusivo | É gerado um nome com base no nome da sua aplicação de funções. |
     | **Subscrição** | A sua subscrição | A subscrição sob a qual este novo recurso é criado. |  
     | **[Grupo de Recursos](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | O mesmo recurso que a sua aplicação de função, o que deve obter definido por si. |
-    | **Localização** | EUA Oeste | Escolha a localização E.U.A. oeste |
+    | **Localização** | EUA Oeste | Escolha a localização E.U.A. oeste. |
     | **Nome da organização** | Contoso | O nome da organização utilizada no portal do programador e para notificações por e-mail. |
     | **E-mail do administrador** | o seu e-mail | Mensagem de correio eletrónico recebido notificações do sistema de gestão de API. |
-    | **Escalão de preço** | Consumo (pré-visualização) | Para obter os detalhes de preços completos, veja o [página de preços de gestão de API](https://azure.microsoft.com/pricing/details/api-management/) |
-    | **Application Insights** | A instância | Utilize o Application Insights, mesmo que é utilizado pela sua aplicação function app. |
+    | **Escalão de preço** | Consumo (pré-visualização) | Escalão de consumo está em pré-visualização e não está disponível em todas as regiões. Para obter os detalhes de preços completos, veja o [página de preços de gestão de API](https://azure.microsoft.com/pricing/details/api-management/) |
 
 1. Escolher **criar** para criar a instância de gestão de API, que poderá demorar vários minutos.
 
@@ -178,27 +172,20 @@ Antes de utilizar a definição de API, deve verificar-se de que ele funciona.
 
 1. Introduza os valores para **horas** e **capacidade**
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Clique em **enviar**, em seguida, ver a resposta HTTP.
 
     ![Testar a função de API](media/functions-openapi-definition/test-function-api-openapi.png)
 
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Criar uma função no Azure
-> * Gerar uma definição de OpenAPI com a API Management do Azure
-> * Testar a definição, chamando a função
-
-Avance para o próximo tópico para saber mais sobre a gestão de API.
-
 > [!div class="nextstepaction"]
-> [Gestão de API](../api-management/api-management-key-concepts.md)
+> [Saiba mais sobre a gestão de API](../api-management/api-management-key-concepts.md)

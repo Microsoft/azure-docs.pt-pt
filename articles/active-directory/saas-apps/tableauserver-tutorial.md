@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 539a06398675dc7851017ec5d428e0942e54ce1f
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: 480e799e0fe307b39ce8a2f0b026a04f507a6beb
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564770"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-server"></a>Tutorial: Integração do Active Directory do Azure com o Tableau Server
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD início de sessão único com o Tableau Server, execu
 
     | Name | Atributo de origem | Espaço de nomes |
     | ---------------| --------------- | ----------- |
-    | o nome de utilizador | user.userprincipalname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | username | user.userprincipalname | `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | | |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -183,7 +183,7 @@ Para configurar o Azure AD início de sessão único com o Tableau Server, execu
 
     g. Introduza os nomes para os atributos que o IdP utiliza para armazenar os nomes de utilizador, nomes a apresentar e endereços de e-mail.
 
-    h. Clicar em **Guardar**
+    h. Clique em **Guardar**
 
     > [!NOTE]
     > Cliente tem de carregar qualquer certificado na configuração da Tableau Server SAML SSO e irá obter ignorada no fluxo SSO. Se precisar de ajudar a configurar o SAML no servidor da Tableau, em seguida, leia este artigo [configurar SAML](https://onlinehelp.tableau.com/v2018.2/server/en-us/saml_config_steps_tsm_ui.htm).
@@ -248,7 +248,7 @@ Esse nome de utilizador do utilizador deve corresponder ao valor que tiver confi
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o administrador de servidor da Tableau na sua organização.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

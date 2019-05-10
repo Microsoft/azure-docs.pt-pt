@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 87f86f861ffc036077b25a2514fbd2d0c57da735
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716764"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65506700"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -46,7 +46,7 @@ Por exemplo, o JSON seguinte mostra uma política que limita a onde os recursos 
                     "strongType": "location",
                     "displayName": "Allowed locations"
                 },
-                "defaultValue": "westus2"
+                "defaultValue": [ "westus2" ]
             }
         },
         "displayName": "Allowed locations",
@@ -114,7 +114,7 @@ Por exemplo, pode definir uma definição de política para limitar as localiza�
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "westus2",
+        "defaultValue": [ "westus2" ],
         "allowedValues": [
             "eastus2",
             "westus2",
@@ -229,6 +229,10 @@ A condição for avaliada se um **campo** ou o **valor** acessador atende a cert
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 Ao utilizar o **, como** e **notLike** condições, que fornece um caráter universal `*` no valor.
@@ -416,15 +420,25 @@ Para obter detalhes completos sobre cada efeito, a ordem de avaliação, proprie
 
 ### <a name="policy-functions"></a>Funções de política
 
-Todos os [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política, exceto as seguintes funções:
+Todos os [funções de modelo do Resource Manager](../../../azure-resource-manager/resource-group-template-functions.md) estão disponíveis para uso dentro de uma regra de política, exceto as seguintes funções e as funções definidas pelo utilizador:
 
 - copyIndex()
 - deployment()
 - list*
+- newGuid()
+- pickZones()
 - Providers()
 - reference()
 - resourceId()
 - variables()
+
+As seguintes funções estão disponíveis para utilizar uma regra de política, mas são diferentes de uso num modelo Azure Resource Manager:
+
+- addDays(dateTime, numberOfDaysToAdd)
+  - **dateTime**: [Povinné] cadeia - cadeia de caracteres no formato DateTime de 8601 ISO Universal ' aaaa-MM-ddTHH:mm:ss.fffffffZ'
+  - **numberOfDaysToAdd**: inteiro [necessário] - número de dias a adicionar
+- Utcnow – ao contrário de um modelo do Resource Manager, pode ser utilizado fora defaultValue.
+  - Devolve uma cadeia que está definida como a data e hora atuais no formato DateTime de 8601 ISO Universal ' aaaa-MM-ddTHH:mm:ss.fffffffZ'
 
 Além disso, o `field` função está disponível para as regras de política. `field` é utilizado principalmente com **AuditIfNotExists** e **DeployIfNotExists** aos campos de referência no recurso que estão a ser avaliados. Um exemplo desta utilização pode ser visto na [DeployIfNotExists exemplo](effects.md#deployifnotexists-example).
 

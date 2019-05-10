@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/08/2019
 ms.author: edjez
-ms.openlocfilehash: f0aca3e387d675064cf798b4efdeb66cfe906520
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 85252680fcc4d2592d242762d01040c3859b14a2
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153540"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65442084"
 ---
 # <a name="quickstart-personalize-content-using-c"></a>Início rápido: Personalizar o conteúdo usandoC# 
 
 Apresentar conteúdo personalizado neste C# início rápido com o serviço de Personalizer.
 
-Este exemplo demonstra como utilizar a biblioteca de cliente de personalização para C# para efetuar as seguintes ações: 
+Este exemplo demonstra como utilizar a biblioteca de cliente Personalizer para C# para efetuar as seguintes ações: 
 
  * Classificar uma lista de ações para personalização.
  * Relatório recompensa alocar à parte superior com a classificação de ações com base na seleção do usuário para o evento especificado.
 
-Introdução à personalização envolve os seguintes passos:
+Guia de introdução Personalizer envolve os seguintes passos:
 
 1. Referenciar o SDK 
 1. Escrever código para classificar as ações que pretende mostrar aos seus utilizadores
@@ -34,9 +34,15 @@ Introdução à personalização envolve os seguintes passos:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* É necessário um [serviço Personalizer](how-to-settings.md) para preparar a sua subscrição chave e a emissão de tokens url de serviço. 
+* É necessário um [serviço Personalizer](how-to-settings.md) para obter o url de serviço de chave e o ponto final da subscrição. 
 * [Visual Studio 2015 ou 2017](https://visualstudio.microsoft.com/downloads/).
-* O pacote NuGet do SDK Microsoft.Azure.CognitiveServices.Personalization. Abaixo, são fornecidas as instruções de instalação.
+* O pacote NuGet do SDK Microsoft.Azure.CognitiveServices.Personalizer. Abaixo, são fornecidas as instruções de instalação.
+
+## <a name="change-the-model-update-frequency"></a>Alterar a frequência de atualização do modelo
+
+No recurso de Personalizer no portal do Azure, alterar os **frequência de atualização do modelo** para 10 segundos. Isto irá preparar o serviço rapidamente, permitindo que veja como a ação superior é alterada para cada iteração
+
+![Alterar a frequência de atualização do modelo](./media/settings/configure-model-update-frequency-settings.png)
 
 ## <a name="creating-a-new-console-app-and-referencing-the-personalizer-sdk"></a>Criar uma nova aplicação de consola e referenciar o SDK de Personalizer 
 
@@ -45,9 +51,9 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 -->
 
 1. Crie uma nova Aplicação da Consola Visual C# no Visual Studio.
-1. Instale o pacote de NuGet da biblioteca de cliente de personalização. No menu, selecione **ferramentas**, selecione **Gestor de pacote de Nuget**, em seguida, **gerir pacotes NuGet para solução**.
-1. Selecione o **navegue** separador e, no **pesquisa** caixa tipo `Microsoft.Azure.CognitiveServices.Personalization`.
-1. Selecione **Microsoft.Azure.CognitiveServices.Personalization** quando for apresentada.
+1. Instale o pacote de NuGet da biblioteca de cliente de Personalizer. No menu, selecione **ferramentas**, selecione **Gestor de pacote de Nuget**, em seguida, **gerir pacotes NuGet para solução**.
+1. Selecione o **navegue** separador e, no **pesquisa** caixa tipo `Microsoft.Azure.CognitiveServices.Personalizer`.
+1. Selecione **Microsoft.Azure.CognitiveServices.Personalizer** quando for apresentada.
 1. Selecione a caixa de verificação junto ao nome do seu projeto e selecione **instalar**.
 
 ## <a name="add-the-code-and-put-in-your-personalizer-and-azure-keys"></a>Adicione o código e colocar as suas chaves Personalizer e o Azure
@@ -62,35 +68,32 @@ Get the latest code as a Visual Studio solution from [GitHub] (add link).
 O seguinte C# código é uma listagem completa para transmitir informações de utilizador e obter informações sobre o seu conteúdo, _features _ações_, para Personalizer utilizando o SDK. Personalizer devolve a parte superior com a classificação de ação para mostrar o utilizador.  
 
 ```csharp
-using Microsoft.Azure.CognitiveServices.Personalization;
-using Microsoft.Azure.CognitiveServices.Personalization.Models;
+using Microsoft.Azure.CognitiveServices.Personalizer;
+using Microsoft.Azure.CognitiveServices.Personalizer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http;
 
-namespace PersonalizationExample
+namespace PersonalizerExample
 {
     class Program
     {
-        // The key specific to your personalization service instance; e.g. "0123456789abcdef0123456789ABCDEF"
-        private const string serviceKey = "";
+        // The key specific to your personalizer service instance; e.g. "0123456789abcdef0123456789ABCDEF"
+        private const string ApiKey = "";
 
-        // The endpoint specific to your personalization service instance; e.g. https://westus2.api.cognitive.microsoft.com/
-        private const string serviceEndpoint = "";
+        // The endpoint specific to your personalizer service instance; e.g. https://westus2.api.cognitive.microsoft.com/
+        private const string ServiceEndpoint = "";
 
         static void Main(string[] args)
         {
             int iteration = 1;
             bool runLoop = true;
 
-            Uri url = new Uri(serviceEndpoint);
-
-            // Get the actions list to choose from personalization with their features.
+            // Get the actions list to choose from personalizer with their features.
             IList<RankableAction> actions = GetActions();
 
-            // Initialize Personalization client.
-            PersonalizationClient client = InitializePersonalizationClient(url);
+            // Initialize Personalizer client.
+            PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
 
             do
             {
@@ -106,7 +109,7 @@ namespace PersonalizationExample
                     new { taste = tasteFeature }
                 };
 
-                // Exclude an action for personalization ranking. This action will be held at its current position.
+                // Exclude an action for personalizer ranking. This action will be held at its current position.
                 IList<string> excludeActions = new List<string> { "juice" };
 
                 // Generate an ID to associate with the request.
@@ -116,7 +119,7 @@ namespace PersonalizationExample
                 var request = new RankRequest(actions, currentContext, excludeActions, eventId);
                 RankResponse response = client.Rank(request);
 
-                Console.WriteLine("\nPersonalization service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
+                Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
 
                 float reward = 0.0f;
                 string answer = GetKey();
@@ -136,7 +139,7 @@ namespace PersonalizationExample
                     Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
                 }
 
-                Console.WriteLine("\nPersonalization service ranked the actions with the probabilities as below:");
+                Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
                 foreach (var rankedResponse in response.Ranking)
                 {
                     Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
@@ -152,15 +155,14 @@ namespace PersonalizationExample
         }
 
         /// <summary>
-        /// Initializes the personalization client.
+        /// Initializes the personalizer client.
         /// </summary>
         /// <param name="url">Azure endpoint</param>
-        /// <returns>Personalization client instance</returns>
-        static PersonalizationClient InitializePersonalizationClient(Uri url)
+        /// <returns>Personalizer client instance</returns>
+        static PersonalizerClient InitializePersonalizerClient(string url)
         {
-            PersonalizationClient client = new PersonalizationClient(url,
-            new ApiKeyServiceClientCredentials(serviceKey),
-            new DelegatingHandler[] { });
+            PersonalizerClient client = new PersonalizerClient(
+                new ApiKeyServiceClientCredentials(ApiKey)) {Endpoint = url};
 
             return client;
         }
@@ -202,9 +204,9 @@ namespace PersonalizationExample
         }
 
         /// <summary>
-        /// Creates personalization actions feature list.
+        /// Creates personalizer actions feature list.
         /// </summary>
-        /// <returns>List of actions for personalization.</returns>
+        /// <returns>List of actions for personalizer.</returns>
         static IList<RankableAction> GetActions()
         {
             IList<RankableAction> actions = new List<RankableAction>

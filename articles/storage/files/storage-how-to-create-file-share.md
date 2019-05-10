@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 6440e5c2cf534ea431387bcdfed8b218919bf627
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d945d5b79c274aa8e142203c56b27eb673e36741
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701537"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510517"
 ---
 # <a name="create-a-file-share-in-azure-files"></a>Criar uma partilha de ficheiros nos Ficheiros do Azure
 Pode criar partilhas de ficheiros do Azure com o [portal do Azure](https://portal.azure.com/), os cmdlets do PowerShell do armazenamento do Azure, as bibliotecas de cliente de armazenamento do Azure ou a API de REST de armazenamento do Azure. Neste tutorial, irá aprender:
@@ -73,7 +73,7 @@ Para preparar para utilizar o PowerShell, transfira e instale os cmdlets do Azur
     Substitua ```<storage-account>``` e ```<resource_group>``` com o seu grupo de recursos e o nome da conta de armazenamento no exemplo a seguir:
 
    ```azurecli
-    current_env_conn_string = $(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
+    current_env_conn_string=$(az storage account show-connection-string -n <storage-account> -g <resource-group> --query 'connectionString' -o tsv)
 
     if [[ $current_env_conn_string == "" ]]; then  
         echo "Couldn't retrieve the connection string."

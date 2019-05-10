@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cb7a13d9abcf7c677d51f03df002ea06b543014e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615864"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65232473"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Cenários de automação para a gestão de faturação e de custo
 
@@ -85,9 +85,9 @@ Os clientes Web Direct e Enterprise, podem utilizar todas as APIs seguintes, exc
 -   [Não classificados de API de utilização](/previous-versions/azure/reference/mt219003(v=azure.100)): Obtenha informações de utilização não processados antes do Azure faz qualquer medição/cobrar.
 
 ### <a name="billing"></a>Faturação
--   [Períodos de faturação API](https://docs.microsoft.com/rest/api/billing/billingperiods): Determine um período de faturação para analisar, juntamente com a nota fiscal IDs durante esse período. Pode usar o IDs de fatura com a API de notas fiscais.
+-   [Períodos de faturação API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): Determine um período de faturação para analisar, juntamente com a nota fiscal IDs durante esse período. Pode usar o IDs de fatura com a API de notas fiscais.
 
--   [Notas fiscais de API](https://docs.microsoft.com/rest/api/billing/invoices): Obtenha o URL de transferência para uma nota fiscal para um período de faturação no formato PDF.
+-   [Notas fiscais de API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): Obtenha o URL de transferência para uma nota fiscal para um período de faturação no formato PDF.
 
 ### <a name="enterprise-consumption"></a>Consumo de Enterprise
 As APIs seguintes destinam-se apenas ao Enterprise:
@@ -126,7 +126,7 @@ Estas APIs fornecem dados fundamentalmente diferentes:
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>O que é a diferença entre a API de nota fiscal e a API de detalhes de utilização?
 Essas APIs proporcionam uma exibição diferente dos mesmos dados:
 
-- O [API de nota fiscal](https://docs.microsoft.com/rest/api/billing/invoices) destina-se somente a clientes Web Direct. Ele fornece um rollup mensal da fatura com base nos custos de agregação para cada tipo de medidor. 
+- O [API de nota fiscal](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices) destina-se somente a clientes Web Direct. Ele fornece um rollup mensal da fatura com base nos custos de agregação para cada tipo de medidor. 
 
 - O [API de detalhes de utilização](https://docs.microsoft.com/rest/api/consumption/usagedetails) fornece uma vista granular dos registos de utilização/custo para cada dia. Os clientes empresariais e de Web Direct podem utilizá-lo.
 

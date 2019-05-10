@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: b609a0ace0b428e1af81634c6a25485e3a5e89bb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dc76f56b6c05f22a380ff33715fe22e8c72e4891
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916663"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508437"
 ---
-# <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
+# <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de Tráfego
 O Gestor de tráfego do Microsoft Azure permite-lhe controlar a forma como o tráfego de rede é distribuído para implementações de aplicações em execução em datacenters diferentes. Configurar a cada implementação de aplicação como um ponto 'final' no Gestor de tráfego. Quando o Gestor de tráfego recebe um pedido DNS, ele escolhe um ponto de extremidade disponível para devolver na resposta DNS. O Gestor de tráfego bases a escolha sobre o estado atual do ponto final e o método de encaminhamento de tráfego. Para obter mais informações, consulte [como funciona o Gestor de tráfego](traffic-manager-how-it-works.md).
 
 Existem três tipos de ponto de extremidade suportada pelo Gestor de tráfego:
 * **Pontos finais do Azure** são utilizados para os serviços alojados no Azure.
-* **Pontos finais externos** são utilizados para endereços IPv4/IPv6 ou, para os serviços alojados fora do Azure que pode ser local ou num fornecedor de alojamento diferentes.
+* **Pontos finais externos** são utilizadas para endereços IPv4/IPv6, FQDNs, ou para os serviços alojados fora do Azure que pode ser local ou num fornecedor de alojamento diferentes.
 * **Aninhados pontos finais** são utilizados para combinar os perfis do Gestor de tráfego para criar esquemas de encaminhamento de tráfego de mensagens em fila mais flexíveis para suportar as necessidades de Implantações maiores e mais complexas.
 
 Não existe nenhuma restrição como pontos finais de diferentes tipos são combinados num único perfil do Gestor de tráfego. Cada perfil pode conter qualquer combinação de tipos de ponto final.
@@ -46,7 +46,7 @@ Quando utilizar pontos finais do Azure, o Gestor de tráfego Deteta quando uma a
 
 ## <a name="external-endpoints"></a>Pontos finais externos
 
-Pontos finais externos são utilizados para qualquer um dos endereços IPv4/IPv6 ou, para serviços fora do Azure. Uso de pontos finais do endereço IPv4/IPv6 permite tráfego manager verificar o estado de funcionamento dos pontos finais sem a necessidade de um nome DNS para os mesmos. Como resultado, o Gestor de tráfego pode responder a consultas com registos de A/AAAA ao retornar esse ponto final numa resposta. Serviços fora do Azure podem incluir um serviço alojado no local ou com um fornecedor diferente. Pontos finais externos podem ser utilizados individualmente ou combinados com pontos finais do Azure no perfil do Gestor de tráfego do mesmo, exceto para pontos de extremidade especificado como endereços IPv4 ou IPv6, que só podem ser a pontos finais externos. A combinação de pontos finais do Azure com pontos finais externos permite vários cenários:
+Pontos finais externos são utilizados para qualquer um dos endereços IPv4/IPv6, o FQDN, ou para serviços fora do Azure. Uso de pontos finais do endereço IPv4/IPv6 permite tráfego manager verificar o estado de funcionamento dos pontos finais sem a necessidade de um nome DNS para os mesmos. Como resultado, o Gestor de tráfego pode responder a consultas com registos de A/AAAA ao retornar esse ponto final numa resposta. Serviços fora do Azure podem incluir um serviço alojado no local ou com um fornecedor diferente. Pontos finais externos podem ser utilizados individualmente ou combinados com pontos finais do Azure no perfil do Gestor de tráfego do mesmo, exceto para pontos de extremidade especificado como endereços IPv4 ou IPv6, que só podem ser a pontos finais externos. A combinação de pontos finais do Azure com pontos finais externos permite vários cenários:
 
 * Fornece redundância de maior para uma aplicação no local existente em qualquer um de um modelo de ativação pós-falha ativa-ativa ou ativa-passiva com o Azure. 
 * Encaminhar o tráfego para pontos de extremidade que não tem um nome DNS associado a eles. Além disso, diminua a latência de pesquisa DNS global, removendo a necessidade de executar uma segunda consulta DNS para obter um endereço IP de um nome DNS devolvido. 

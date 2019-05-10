@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: ac677a7f9586dbe893cbcbc480564aceac0149a0
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 614dabe842c7fe99da3ddb486c27003c79382ea1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147930"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231386"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Extinção dos recursos de centro de segurança (Julho de 2019)
 
@@ -81,6 +81,7 @@ Um clique na área de trabalho abre o "Acesso e identidades" log analytics dashb
 ![Página de identidade - dashboard][8]
 
 Daqui em diante todas as três telas acima, será descontinuado. Os dados permanecerão disponíveis da solução de segurança do log analytics e serão não modificados ou removidos.
+As consultas do Log Analytics originais utilizadas para preencher o dashboard de identidade e acesso estão disponíveis no Centro de segurança [repositório do GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="classic-identity--access-preview---new-experience"></a>Identidade e acesso (pré-visualização) - nova experiência clássicos
 Embora o dashboard de análise de registo forneceu informações numa área de trabalho específica apenas, os recursos nativos do Centro de segurança fornecem visibilidade de todas as subscrições e todas as áreas de trabalho associadas a eles, numa fácil-para utilizar a vista que lhe permite se concentrar no que do importante, de acordo com a classificação de segurança da sua identidade e acesso (aram).
@@ -96,13 +97,14 @@ O botão, juntamente com o dashboard por área de trabalho, será removido após
 
 Hoje em dia quando clica em "Ir para o mapa de eventos de segurança" é aberto o dashboard de informações sobre ameaças. O dashboard de informações sobre ameaças vai ser descontinuado.  
 
-![Dashboard Informações sobre ameaças][11]
+![Dashboard Informações sobre Ameaças][11]
 
 Ao escolher uma área de trabalho para ver o seu dashboard de inteligência de ameaças, a segurança alertas ecrã map(Preview) *no Log Analytics* é aberto. Este ecrã, será descontinuado.
 
 ![Mapa de alertas de segurança no Log Analytics][12]
 
 Os dados existentes permanecerão disponíveis na solução de segurança de análise de registo e não irão ser modificados nem removidos.
+As consultas do Log Analytics originais utilizadas para preencher o dashboard de informações sobre ameaças estão disponíveis no Centro de segurança [repositório do GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ### <a name="security-events-map---new-experience"></a>Mapa de eventos de segurança - nova experiência
 Nós o encorajamos os nossos clientes para utilizar a funcionalidade de mapa de alertas incorporada no Centro de segurança – "mapeiam de alertas de segurança (pré-visualização)". Isto proporciona uma experiência otimizada e funciona em todas as subscrições e áreas de trabalho associadas, permitindo uma macro ver no seu ambiente e não se concentrar num único espaço de trabalho.
@@ -165,6 +167,8 @@ O dashboard de segurança no Log analytics fornece uma visão geral de por área
 
 ### <a name="security--audit-dashboard---new-experience"></a>Dashboard de segurança e auditoria - nova experiência
 Os nossos clientes são aconselhados a utilizar o Centro de segurança do Azure, que fornece a mesma descrição geral da segurança em várias subscrições e áreas de trabalho associadas a eles, juntamente com um conjunto de funcionalidades mais avançado.
+
+As consultas do Log Analytics originais utilizadas para preencher a segurança e auditoria dashboard estão disponíveis no Centro de segurança [repositório do GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Legacy%20Log%20Analytics%20dashboards).
 
 ## <a name="next-steps"></a>Passos Seguintes
 - Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/)

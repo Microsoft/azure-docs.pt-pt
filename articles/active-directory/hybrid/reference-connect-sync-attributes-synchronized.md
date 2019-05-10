@@ -16,12 +16,12 @@ ms.date: 04/24/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d32564808151c4895d2b3802fb48d2bd2d8f753
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6120637bdf52db4b6863fb87feb1d52c78ca088
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729528"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508118"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Sincronização do Azure AD Connect: Atributos sincronizados com o Azure Active Directory
 Este tópico lista os atributos que estão sincronizados com a sincronização do Azure AD Connect.  
@@ -48,11 +48,11 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | pwdLastSet |X |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 |samAccountName|X| |
 | sourceAnchor |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
-| usageLocation |X |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X |propriedade mecânica. . O país/região o utilizador. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 
 ## <a name="exchange-online"></a>Exchange Online
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | Assistente |X |X | | |
@@ -168,14 +168,14 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
 | unauthOrig |X |X |X | |
-| usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X | | |propriedade mecânica. . O país/região o utilizador. Utilizado para a atribuição de licenças. |
 | userCertificate |X |X | | |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 | userSMIMECertificates |X |X | | |
 | wWWHomePage |X |X | | |
 
 ## <a name="sharepoint-online"></a>SharePoint Online
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | authOrig |X |X |X | |
@@ -251,12 +251,13 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | título |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X | | |propriedade mecânica. . O país/região o utilizador
+. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="lync-online-subsequently-known-as-skype-for-business"></a>O Lync Online (, em seguida, conhecido como o Skype para empresas)
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
@@ -299,12 +300,12 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | telephoneNumber |X |X | | |
 | thumbnailphoto |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X | | |propriedade mecânica. . O país/região o utilizador. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 | wWWHomePage |X |X | | |
 
 ## <a name="azure-rms"></a>Azure RMS
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | CN |X | |X |Nome comum ou alias. Com mais freqüência é o prefixo do valor de [email]. |
@@ -315,11 +316,11 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | proxyAddresses |X |X |X |propriedade mecânica. Utilizado pelo Azure AD. Contém todos os endereços de e-mail secundário para o utilizador. |
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
-| usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X | | |propriedade mecânica. . O país/região o utilizador. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |Este UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 
 ## <a name="intune"></a>Intune
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
@@ -333,11 +334,11 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | proxyAddresses |X |X |X | |
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
-| usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X | | |propriedade mecânica. . O país/região o utilizador. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 
 ## <a name="dynamics-crm"></a>Dynamics CRM
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | c |X |X | | |
@@ -365,7 +366,7 @@ Neste caso, comece com a lista de atributos neste tópico e identificar esses at
 | streetAddress |X |X | | |
 | telephoneNumber |X |X | | |
 | título |X |X | | |
-| usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X | | |propriedade mecânica. . O país/região o utilizador. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 
 ## <a name="3rd-party-applications"></a>3º aplicativos de terceiros
@@ -376,11 +377,12 @@ Este grupo é um conjunto de atributos utilizado como os atributos mínimos nece
 
 Este grupo é um conjunto de atributos que pode ser utilizado se o diretório do Azure AD não é utilizado para suportar o Office 365, Dynamics ou no Intune. Ele tem um pequeno conjunto de atributos principais.
 
-| Nome do Atributo | Utilizador | Contacto | Grupo | Comentário |
+| Nome do Atributo | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |
 | accountEnabled |X | | |Define se uma conta está ativada. |
 | CN |X | |X | |
 | displayName |X |X |X | |
+| employeeID |X |  |  | |
 | givenName |X |X | | |
 | mail |X | |X | |
 | managedBy | | |X | |
@@ -391,7 +393,7 @@ Este grupo é um conjunto de atributos que pode ser utilizado se o diretório do
 | pwdLastSet |X | | |propriedade mecânica. Utilizado para saber quando invalidar tokens emitidos já. Utilizado por sincronização de hash de palavra-passe, autenticação pass-through e Federação. |
 | sn |X |X | | |
 | sourceAnchor |X |X |X |propriedade mecânica. Identificador imutável para manter a relação entre o ADDS e o Azure AD. |
-| usageLocation |X | | |propriedade mecânica. País do usuário. Utilizado para a atribuição de licenças. |
+| usageLocation |X | | |propriedade mecânica. . O país/região o utilizador. Utilizado para a atribuição de licenças. |
 | userPrincipalName |X | | |UPN é o ID de início de sessão do utilizador. Com mais freqüência é o valor igual a [email]. |
 
 ## <a name="windows-10"></a>Windows 10
@@ -420,7 +422,7 @@ Esses atributos para **utilizador** estão além de outras aplicações que sele
 ## <a name="exchange-hybrid-writeback"></a>Repetição de escrita do Exchange híbrido
 Esses atributos são repetidos do AD do Azure Active Directory no local quando optar por ativar **híbrida do Exchange**. Dependendo da versão do Exchange, poderão estar sincronizados menos atributos.
 
-| Nome de atributo (ligar a interface do Usuário) |Nome de atributo (AD no local) | Utilizador | Contacto | Grupo | Comentário |
+| Nome de atributo (AD no local) | Nome de atributo (ligar a interface do Usuário) | Utilizador | Contacto | Agrupar | Comentário |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Deriva cloudAnchor no Azure AD. Este atributo é novo no Exchange 2016 e Windows Server 2016 AD. |
 | msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Arquivo online: Permite aos clientes arquivar emails. |
@@ -444,7 +446,7 @@ Esses atributos são sincronizados a partir do Active Directory no local para o 
 | proxyAddresses | X |  |
 | targetAddress | X |  |
 
-## <a name="device-writeback"></a>Repetição de escrita do dispositivo
+## <a name="device-writeback"></a>Repetição de escrita de dispositivos
 Objetos de dispositivo são criados no Active Directory. Estes objetos podem ser dispositivos associados ao Azure AD ou a computadores associados a domínios do Windows 10.
 
 | Nome do Atributo | Dispositivo | Comentário |

@@ -10,12 +10,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 201ee251b195845e33ed3829be8540664811f2ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c9ebacd8caf992874969106df58531538ea399ed
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025295"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510433"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>O que é o serviço Azure Machine Learning?
 
@@ -38,7 +38,7 @@ Explorar e preparar dados, formar e testar modelos e implementá-las com ferrame
 
 ## <a name="what-can-i-do-with-azure-machine-learning-service"></a>O que posso fazer com o serviço Azure Machine Learning?
 
-Com o <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> com código-fonte aberto pacotes de Python ou utilizando o [interface visual (pré-visualização)](ui-quickstart-run-experiment.md), que pode criar e treinar a aprendizagem automática altamente precisos e de aprendizagem profunda modelos-se num área de trabalho de serviço do Azure Machine Learning.
+Utilizar o <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> com pacotes Python de código-fonte aberto, ou utilize o [interface visual (pré-visualização)](ui-quickstart-run-experiment.md) para criar e treinar a aprendizagem automática altamente precisos e modelos de aprendizagem profunda -se num área de trabalho de serviço do Azure Machine Learning.
 
 Pode escolher entre vários componentes de aprendizado de máquina disponíveis em pacotes de Python de código-fonte aberto, como <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-Saiba</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>e <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -80,7 +80,7 @@ O serviço do Azure Machine Learning fornece os dois SDKs **- e -** um interface
 
 Aqui está uma comparação rápida.
 
-|| Machine Learning Studio | Azure Machine Learning service:<br/>Visual interface|
+|| Machine Learning Studio | Azure Machine Learning service:<br/>Interface visual|
 |---| --- | --- |
 || Geralmente disponível (GA) | Em pré-visualização|
 |Módulos para interface de rede| Muitos | Conjunto inicial de módulos populares|
@@ -93,7 +93,7 @@ Experimente a interface visual (pré-visualização) com [início rápido: Prepa
 > [!NOTE]
 > Modelos criados no Studio não podem ser implementados ou gerenciados pelo serviço Azure Machine Learning. No entanto, os modelos criados e implementados na interface visual do serviço podem ser geridos através a área de trabalho do serviço do Azure Machine Learning.
 
-## <a name="free-trial"></a>Avaliação gratuita
+## <a name="free-trial"></a>Versão de avaliação gratuita
 
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente o [uma versão gratuita ou paga do serviço Azure Machine Learning](https://aka.ms/AMLFree) hoje mesmo.
 
@@ -106,8 +106,6 @@ Receberá créditos para gastar em serviços do Azure. Depois de serem utilizado
 - Siga os tutoriais completo: 
   + [Preparar um modelo de classificação de imagem com o serviço Azure Machine Learning](tutorial-train-models-with-aml.md) 
   + [Preparar dados e utilizar automatizada de machine learning para auto-preparar um modelo de regressão](tutorial-data-prep.md)
-
-- Utilize o [SDK do Azure Machine Learning Data Prep](https://aka.ms/data-prep-sdk) para preparar seus dados.
 
 - Saiba mais sobre [pipelines de aprendizagem automática](/azure/machine-learning/service/concept-ml-pipelines) para criar, otimizar e gerir cenários da aprendizagem automática.
 

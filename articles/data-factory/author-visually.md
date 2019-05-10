@@ -12,12 +12,12 @@ author: sharonlo101
 ms.author: shlo
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: d2e51551643e154714b9d2368e63d7af9ebfa204
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32e4abebdfb93312c60a25ca8b483f071e5e73c
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60592920"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65507798"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Criação no Azure Data Factory
 O Azure Data Factory utilizador interface experiência (UX) permite criar e implementar recursos da sua fábrica de dados sem ter de escrever qualquer código visualmente. Pode arrastar atividades para uma tela de pipeline, realizar execuções de testes, depurar iterativamente e implementar e monitorizar as execuções de pipeline. Existem duas abordagens para utilizar a experiência do Usuário para executar a criação visual:
@@ -60,7 +60,7 @@ O painel mostra o seguinte código de repositórios do Azure, as definições de
 
 | Definição | Descrição | Value |
 |:--- |:--- |:--- |
-| **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/>**Nota**: GitHub não é atualmente suportado. | Azure repositórios Git |
+| **Tipo de repositório** | O tipo de repositório de código de repositórios do Azure.<br/> | Azure repositórios Git |
 | **Azure Active Directory** | Nome do seu inquilino do Azure AD. | `<your tenant name>` |
 | **Organização de repositórios do Azure** | O nome de organização de repositórios do Azure. Pode localizar o nome de organização de repositórios do Azure em `https://{organization name}.visualstudio.com`. Pode [iniciar sessão na sua organização de repositórios de Azure](https://www.visualstudio.com/team-services/git/) para aceder ao seu perfil do Visual Studio e verá os repositórios e os projetos. | `<your organization name>` |
 | **ProjectName** | O nome do projeto de Repos do Azure. Pode localizar o nome do projeto de Repos de Azure no `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
@@ -269,7 +269,7 @@ Para obter informações sobre as expressões suportadas, consulte [expressões 
 ## <a name="provide-feedback"></a>Enviar comentários
 Selecione **comentários** para comentar sobre as funcionalidades ou para notificar a Microsoft sobre problemas com a ferramenta:
 
-![Comentários](media/author-visually/provide-feedback.png)
+![Feedback](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre monitorização e gestão de pipelines, consulte [monitorizar e gerir pipelines de forma programática](monitor-programmatically.md).

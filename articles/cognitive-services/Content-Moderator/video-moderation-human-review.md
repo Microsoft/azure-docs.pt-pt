@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/20/2018
+ms.date: 04/30/2019
 ms.author: sajagtap
-ms.openlocfilehash: 43a43ddcbfc656a3eb5a274e1bb63a473b7c89a2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a6c467d3153400815e37a5d461766140abd1fa32
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62098206"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65228122"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeos com revisão humana
 
@@ -28,52 +28,53 @@ Classificação de vídeo assistida optar por é obtida com modelos treinados de
 ## <a name="shot-detection"></a>Deteção de captura
 
 Na saída dos detalhes de classificação, ajuda a inteligência adicional de vídeo com mais flexibilidade na análise de vídeos. Em vez de saída apenas os quadros, o serviço de moderação de vídeo da Microsoft fornece informações de nível de captura demasiado. Tem agora a opção de analisar os seus vídeos em nível de captura e o nível de quadro.
- 
+
 ## <a name="key-frame-detection"></a>Deteção de quadro-chave
 
 Em vez de saída de quadros em intervalos regulares, o serviço de moderação de vídeos identifica e produz apenas potencialmente completos quadros (boas). A funcionalidade permite a geração de quadro eficiente para análise de nível de quadro para adultos.
 
 O extrato seguinte mostra uma resposta parcial com capturas de potenciais, quadros-chave e as pontuações de adultos:
 
-    "fragments": [
-    {
-      "start": 0,
-      "duration": 18000
-    },
-    {
-      "start": 18000,
-      "duration": 3600,
-      "interval": 3600,
-      "events": [
-        [
-          {
-            "reviewRecommended": false,
-            "adultScore": 0.00001,
-            "racyScore": 0.03077,
-            "index": 5,
-            "timestamp": 18000,
-            "shotIndex": 0
-          }
-        ]
+```json
+"fragments":[  
+  {  
+    "start":0,
+    "duration":18000
+  },
+  {  
+    "start":18000,
+    "duration":3600,
+    "interval":3600,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":false,
+          "adultScore":0.00001,
+          "racyScore":0.03077,
+          "index":5,
+          "timestamp":18000,
+          "shotIndex":0
+        }
       ]
-    },
-    {
-      "start": 18386372,
-      "duration": 119149,
-      "interval": 119149,
-      "events": [
-        [
-          {
-            "reviewRecommended": true,
-            "adultScore": 0.00000,
-            "racyScore": 0.91902,
-            "index": 5085,
-            "timestamp": 18386372,
-            "shotIndex": 62
-          }
-        ]
+    ]
+  },
+  {  
+    "start":18386372,
+    "duration":119149,
+    "interval":119149,
+    "events":[  
+      [  
+        {  
+          "reviewRecommended":true,
+          "adultScore":0.00000,
+          "racyScore":0.91902,
+          "index":5085,
+          "timestamp":18386372,
+          "shotIndex":62
+        }
       ]
-
+    ]
+```
 
 ## <a name="visualization-for-human-reviews"></a>Visualização de revisões realizadas por pessoas
 
@@ -101,10 +102,7 @@ Vídeos têm normalmente voz através de que precisa de moderação também para
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Comece com o [guia de introdução de moderação de vídeos](video-moderation-api.md). 
-
-Saiba como gerar [revisões de vídeo](video-reviews-quickstart-dotnet.md) para os revisores humanos da sua saída moderada.
-
-Adicione [revisões de transcrição de vídeo](video-transcript-reviews-quickstart-dotnet.md) para suas revisões de vídeo.
-
-Veja o tutorial detalhado sobre como desenvolver um [concluir a solução de moderação de vídeos](video-transcript-moderation-review-tutorial-dotnet.md). 
+- Comece com o [guia de introdução de moderação de vídeos](video-moderation-api.md).
+- Saiba como gerar [revisões de vídeo](video-reviews-quickstart-dotnet.md) para os revisores humanos da sua saída moderada.
+- Adicione [revisões de transcrição de vídeo](video-transcript-reviews-quickstart-dotnet.md) para suas revisões de vídeo.
+- Veja o tutorial detalhado sobre como desenvolver um [concluir a solução de moderação de vídeos](video-transcript-moderation-review-tutorial-dotnet.md).

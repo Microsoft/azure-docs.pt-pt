@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: 961904c6988596a5ba73940a154d96856636a0db
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 5d4ba32b3074098b3e3c1f2a4f42ac0e069e0a5f
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150918"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65409904"
 ---
 # <a name="supported-service-fabric-versions"></a>Versões suportadas do Service Fabric
 
@@ -68,26 +68,26 @@ A tabela seguinte lista os nomes de versão de Service Fabric e seus números de
 
 | Nome da versão | Número de versão do Windows | Número de versão do Linux |
 | --- | --- | --- |
-| 5.3 RTO | 5.3.121.9494 | ND |
-| 5.3 CU1 | 5.3.204.9494 | ND |
-| 5.3 CU2 | 5.3.301.9590 | ND |
-| 5.3 CU3 | 5.3.311.9590 | ND |
-| 5.4 CU2 | 5.4.164.9494 | ND |
-| 5.5 CU1 | 5.5.216.0    | ND |
-| 5.5 CU2 | 5.5.219.0    | ND |
-| 5.5 CU3 | 5.5.227.0    | ND |
-| 5.5 CU4 | 5.5.232.0    | ND |
-| 5.6 RTO | 5.6.204.9494 | ND |
-| 5.6 CU2 | 5.6.210.9494 | ND |
-| 5.6 CU3 | 5.6.220.9494 | ND |
-| 5.7 RTO | 5.7.198.9494 | ND |
-| 5.7 CU4 | 5.7.221.9494 | ND |
+| 5.3 RTO | 5.3.121.9494 | N/D |
+| 5.3 CU1 | 5.3.204.9494 | N/D |
+| 5.3 CU2 | 5.3.301.9590 | N/D |
+| 5.3 CU3 | 5.3.311.9590 | N/D |
+| 5.4 CU2 | 5.4.164.9494 | N/D |
+| 5.5 CU1 | 5.5.216.0    | N/D |
+| 5.5 CU2 | 5.5.219.0    | N/D |
+| 5.5 CU3 | 5.5.227.0    | N/D |
+| 5.5 CU4 | 5.5.232.0    | N/D |
+| 5.6 RTO | 5.6.204.9494 | N/D |
+| 5.6 CU2 | 5.6.210.9494 | N/D |
+| 5.6 CU3 | 5.6.220.9494 | N/D |
+| 5.7 RTO | 5.7.198.9494 | N/D |
+| 5.7 CU4 | 5.7.221.9494 | N/D |
 | 6.0 RTO | 6.0.211.9494 | 6.0.120.1 |
 | 6.0 CU1 | 6.0.219.9494 | 6.0.127.1 |
 | 6.0 CU2 | 6.0.232.9494 | 6.0.133.1 |
 | 6.1 CU1 | 6.1.456.9494 | 6.1.183.1 |
 | 6.1 CU2 | 6.1.467.9494 | 6.1.185.1 |
-| 6.1 CU3 | 6.1.472.9494 | ND |
+| 6.1 CU3 | 6.1.472.9494 | N/D |
 | 6.1 CU4 | 6.1.480.9494 | 6.1.187.1 |
 | 6.2 RTO | 6.2.269.9494 | 6.2.184.1 | 
 | 6.2 CU1 | 6.2.274.9494 | 6.2.191.1 |
@@ -97,7 +97,8 @@ A tabela seguinte lista os nomes de versão de Service Fabric e seus números de
 | 6.3 CU1 | 6.3.176.9494 | 6.3.124.1 |
 | 6.3 CU1 | 6.3.187.9494 | 6.3.129.1 |
 | 6.4 RTO | 6.4.617.9590 | 6.4.625.1 |
-| 6.4 CU2 | 6.4.622.9590 | ND |
+| 6.4 CU2 | 6.4.622.9590 | N/D |
 | 6.4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6.4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6.4 CU5 | 6.4.654.9590 | 6.4.649.1 |
+| 6.4 CU6 | 6.4.658.9590 | N/D |

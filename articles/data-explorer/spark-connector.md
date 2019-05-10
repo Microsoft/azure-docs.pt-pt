@@ -7,12 +7,12 @@ ms.reviewer: michazag
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 4/29/2019
-ms.openlocfilehash: 8cb1489a0663556f9dd9e6026a036df2468d656d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 854e29b67b6e24c583a98b5851bf17551cfcbf61
+ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928336"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65441342"
 ---
 # <a name="azure-data-explorer-connector-for-apache-spark-preview"></a>Conector do Explorador de dados do Azure para o Apache Spark (pré-visualização)
 
@@ -200,7 +200,7 @@ Para obter mais informações sobre funções de principais do Explorador de dad
     display(df)
     ```
 
-1. Quando Lemos grandes quantidades de dados, tem de fornecer armazenamento de BLOBs transitório. Forneça a chave SAS do contentor de armazenamento, ou nome de conta de armazenamento, a chave da conta e nome do contentor. 
+1. Quando Lemos grandes quantidades de dados, tem de fornecer armazenamento de BLOBs transitório. Forneça a chave SAS do contentor de armazenamento, ou nome de conta de armazenamento, a chave da conta e nome do contentor. Este passo só é necessário para a versão de pré-visualização atual do conector do Spark.
 
     ```scala
     // Use either container/account-key/account name, or container SaS

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: iainfou
-ms.openlocfilehash: d8e095303161002d10914ca7c3213ac0c6894e5d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5a287a8da884290e94e9ac1c864abe28e47d53d
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60467141"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65508144"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Pré-visualizar - Dimensionar automaticamente um cluster para atender às necessidades de aplicações no Azure Kubernetes Service (AKS)
 
 Para se manter atualizado com pedidos de aplicações no Azure Kubernetes Service (AKS), terá de ajustar o número de nós que executam cargas de trabalho. O componente de dimensionamento automático do cluster pode ver para pods no seu cluster que não é possível agendar devido a restrições de recursos. Quando forem detetados problemas, aumenta o número de nós para satisfazer a procura da aplicação. Nós também regularmente são verificados relativamente à falta de execução pods, com o número de nós, em seguida, diminuída conforme necessário. Essa capacidade de dimensionar automaticamente ou reduzir verticalmente o número de nós no cluster do AKS permite-lhe executar um cluster de eficiente e econômico.
 
-Este artigo mostra como ativar e gerir o dimensionamento automático de cluster num cluster do AKS.
+Este artigo mostra como ativar e gerir o dimensionamento automático de cluster num cluster do AKS. Dimensionamento automático de cluster só deve ser testado em pré-visualização em clusters do AKS com um conjunto de nó único.
 
 > [!IMPORTANT]
 > Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
@@ -59,6 +59,12 @@ Quando estiver pronto, atualize o registo do *containerservice* fornecedor de re
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
+
+## <a name="limitations"></a>Limitações
+
+As seguintes limitações aplicam-se ao criar e gerir clusters do AKS que utilizam conjuntos de dimensionamento de máquina virtual:
+
+* Não é possível utilizar o suplemento de encaminhamento de aplicação de HTTP.
 
 ## <a name="about-the-cluster-autoscaler"></a>Sobre o dimensionamento automático de cluster
 
@@ -101,7 +107,6 @@ az group create --name myResourceGroup --location canadaeast
 az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.12.6 \
   --node-count 1 \
   --enable-vmss \
   --enable-cluster-autoscaler \

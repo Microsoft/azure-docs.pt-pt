@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/19/2018
 ms.author: rogarana
-ms.openlocfilehash: 7010425ba8acff4ed223e2a402d7a927a91c06b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: af903ce3ce7cfa165c278e415827dda36630e7b4
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687150"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209734"
 ---
 # <a name="overview-of-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Descrição geral da autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -51,7 +51,7 @@ O Azure AD através de SMB para ficheiros do Azure oferece vários benefícios c
     Pode utilizar ficheiros do Azure para criar cópias de segurança suas partilhas de ficheiros no local existente. Os ficheiros do Azure preserva suas ACLs, juntamente com os seus dados quando efetuar cópias de segurança um ficheiro de partilha de ficheiros do Azure através de SMB.
 
 ## <a name="how-it-works"></a>Como funciona
-Os ficheiros do Azure utiliza o Azure AD Domain Services para suportar a autenticação Kerberos com credenciais do Azure AD associado a um domínio VMS. Antes de poder utilizar o Azure AD com ficheiros do Azure, tem de ativar os serviços de domínio do Azure AD e associar o domínio das VMs a partir do qual pretende aceder a dados de ficheiros. A VM associados a um domínio têm de residir na mesma rede virtual (VNET), como serviços de domínio do Azure AD. 
+Os ficheiros do Azure utiliza o Azure AD Domain Services para suportar a autenticação Kerberos com credenciais do Azure AD associado a um domínio VMS. Antes de poder utilizar o Azure AD com ficheiros do Azure, tem de ativar os serviços de domínio do Azure AD e associar o domínio das VMs a partir do qual pretende aceder a dados de ficheiros. A VM associados a um domínio têm de residir na mesma rede virtual (VNET) como o Azure AD Domain Services. 
 
 Quando uma identidade associada uma aplicação em execução numa VM tenta aceder a dados nos ficheiros do Azure, a solicitação é enviada aos serviços de domínio do Azure AD para autenticar a identidade. Se a autenticação for bem-sucedida, o Azure AD Domain Services devolve um token de Kerberos. A aplicação envia um pedido que inclui o token de Kerberos e ficheiros do Azure utiliza esse token para autorizar a solicitação. Os ficheiros do Azure recebe apenas o token e não persiste as credenciais do Azure AD.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: dekapur
-ms.openlocfilehash: f94a65e469fdb3cee4f02bc5a8f6f5a4a1ea5a16
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae7fbef864634e47866de13384871a98b8ce4675
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386725"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209711"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autónomo do Windows
 Este artigo descreve as definições de configuração de um cluster autónomo de Azure Service Fabric que podem ser definidos na *ClusterConfig.json* ficheiro. Irá utilizar este ficheiro para especificar as informações sobre nós do cluster, configurações de segurança, bem como a topologia de rede em termos de domínios de falha e atualização.  Depois de alterar ou adicionar as definições de configuração, é possível [criar um cluster autónomo](service-fabric-cluster-creation-for-windows-server.md) ou [atualizar a configuração de um cluster autónomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -122,7 +122,7 @@ A secção de segurança é necessária para um cluster do Service Fabric seguro
 }
 ```
 
-Os metadados é uma descrição do seu cluster seguro e podem ser definido de acordo com sua configuração. O ClusterCredentialType e ServerCredentialType determinam o tipo de segurança que implementam o cluster e os nós. Eles podem ser definidos para o *X509* para uma segurança baseada em certificado ou *Windows* para segurança baseada no Azure Active Directory. O restante da secção de segurança baseia-se no tipo de segurança. Para obter informações sobre como preencher o resto da secção de segurança, consulte [segurança baseada em certificados num cluster autónomo](service-fabric-windows-cluster-x509-security.md) ou [segurança do Windows num cluster autónomo](service-fabric-windows-cluster-windows-security.md).
+Os metadados é uma descrição do seu cluster seguro e podem ser definido de acordo com sua configuração. O ClusterCredentialType e ServerCredentialType determinam o tipo de segurança que implementam o cluster e os nós. Eles podem ser definidos para o *X509* para uma segurança baseada em certificado ou *Windows* para segurança baseada no Active Directory. O restante da secção de segurança baseia-se no tipo de segurança. Para obter informações sobre como preencher o resto da secção de segurança, consulte [segurança baseada em certificados num cluster autónomo](service-fabric-windows-cluster-x509-security.md) ou [segurança do Windows num cluster autónomo](service-fabric-windows-cluster-windows-security.md).
 
 ### <a name="node-types"></a>Tipos de nó
 A secção de nodeTypes descreve o tipo de nós que tem o seu cluster. Pelo menos um tipo de nó tem de ser especificado para um cluster, conforme mostrado no seguinte fragmento: 

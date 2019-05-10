@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: ad891f99-179e-4487-834d-35f3bc01c1ec
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 05/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fffaa266a29a500f27759adb7526d1aa6d61ccd0
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 211e11b5bfd6a8bb7b1d61fec120566d60b9c5c0
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915242"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191198"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cherwell"></a>Tutorial: Integração do Active Directory do Azure com o Cherwell
 
@@ -38,7 +39,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 Para configurar a integração do Azure AD com Cherwell, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
 * Cherwell logon único habilitado subscrição
 
 ## <a name="scenario-description"></a>Descrição do cenário
@@ -67,7 +68,7 @@ Para configurar a integração do Cherwell com o Azure AD, terá de adicionar Ch
 
 4. Na caixa de pesquisa, escreva **Cherwell**, selecione **Cherwell** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Cherwell na lista de resultados](common/search-new-app.png)
+    ![Cherwell na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -120,13 +121,13 @@ Para configurar o Azure AD início de sessão único com o Cherwell, execute os 
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
 ### <a name="configure-cherwell-single-sign-on"></a>Configurar o Cherwell Single Sign-On
 
-Para configurar o início de sessão único num **Cherwell** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de Cherwell](https://csm.cherwell.com/contact). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **Cherwell** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de Cherwell](https://cherwellsupport.com/CherwellPortal). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 > [!NOTE]
 > A equipa de suporte de Cherwell tem de fazer a configuração real do SSO. Receberá uma notificação quando SSO foi ativado para a sua subscrição.
@@ -147,10 +148,9 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. Na **Name** , insira **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** , digite `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -176,20 +176,20 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
 6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
 ### <a name="create-cherwell-test-user"></a>Criar utilizador de teste Cherwell
 
-Para ativar a utilizadores do Azure AD iniciar sessão no Cherwell, tem de ser aprovisionados em Cherwell. No caso de Cherwell, as contas de utilizador têm de ser criadas por sua [equipa de suporte de Cherwell](https://csm.cherwell.com/contact).
+Para ativar a utilizadores do Azure AD iniciar sessão no Cherwell, tem de ser aprovisionados em Cherwell. No caso de Cherwell, as contas de utilizador têm de ser criadas por sua [equipa de suporte de Cherwell](https://cherwellsupport.com/CherwellPortal).
 
 > [!NOTE]
 > Pode utilizar quaisquer outras Cherwell utilizador conta criação ferramentas ou APIs fornecidas pelo Cherwell para aprovisionar o Azure Active Directory contas de utilizador.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

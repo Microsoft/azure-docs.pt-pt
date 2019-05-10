@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 45ffcaa1d5bccb0746ce86ec0f98342ce5e9bcc9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 33fd6b8b7423f8640910e02383bba8397d2f8336
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59270103"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408083"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Tutorial: Integração do Active Directory do Azure com QuickHelp
 
@@ -150,11 +150,11 @@ Para configurar o Azure AD início de sessão único com QuickHelp, execute os s
    
     b. Para carregar o ficheiro transferido de metadados do Azure, clique em **navegue**, navegue para o ficheiro, terminar clique em **carregar metadados**.
    
-    c. Na **E-Mail** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. Na **E-Mail** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
    
-    d. Na **nome próprio** caixa de texto, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Na **nome próprio** caixa de texto, `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    
-    e. Na **sobrenome** caixa de texto, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Na **sobrenome** caixa de texto, `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. Na **barra de ação**, clique em **guardar**.
 
@@ -212,7 +212,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na QuickHelp. QuickHelp suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no QuickHelp, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

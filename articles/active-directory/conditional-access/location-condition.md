@@ -12,12 +12,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7b12f5c7736307f0b62b6f6c2b526eb0108569c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 27309c08fe4419197faa17dcceb3645b00387e93
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190187"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65227915"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>O que é a condição de localização no acesso condicional do Azure Active Directory? 
 
@@ -32,7 +32,7 @@ O Azure AD permite início de sessão único em dispositivos, aplicações e ser
 - Exigir autenticação multifator para os utilizadores que acedem um serviço, quando estiverem desconectados da rede corporativa.
 - Bloquear o acesso de utilizadores que acedem um serviço de países ou regiões específicos.
 
-Uma localização é uma etiqueta, para uma localização de rede que qualquer um representa uma localização com o nome ou a autenticação multifator de IPs fidedignos.
+Uma localização é uma etiqueta para uma localização de rede que qualquer um representa uma localização com o nome ou a autenticação multifator fidedigna IPs.
 
 ## <a name="named-locations"></a>Localizações com nome
 
@@ -54,7 +54,7 @@ Um local nomeado tem os seguintes componentes:
 
 - **Marcar como localização fidedigna** -um sinalizador pode ser definido para um local nomeado indicar a localização fidedigna. Normalmente, os locais confiáveis são áreas de rede que são controladas pelo seu departamento de TI. Além do acesso condicional, localizações com nome confiáveis também são utilizadas pelos relatórios de segurança do Azure Identity Protection e o Azure AD para reduzir [falsos positivos](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 - **Países/regiões** -esta opção permite-lhe selecionar um ou mais país ou região para definir um local nomeado.
-- **Incluir áreas desconhecidas** -endereços IP alguns não são mapeados para um país específico. Esta opção permite-lhe escolher se estes endereços IP devem ser incluídos na localização com nome. Utilize esta definição se a política a utilizar a localização com o nome deve aplicar a localizações desconhecidas.
+- **Incluir áreas desconhecidas** -endereços IP alguns não são mapeados para uma região ou país específico. Esta opção permite-lhe escolher se estes endereços IP devem ser incluídos na localização com nome. Utilize esta definição se a política a utilizar a localização com o nome deve aplicar a localizações desconhecidas.
 
 O número de localizações com nome, que pode configurar é restrito pelo tamanho do objeto relacionado no Azure AD. As organizações podem configurar até 90 localizações com nome, cada um configurado com até 12000 intervalos IP.
 
@@ -69,7 +69,7 @@ Se uma política é configurada para aplicar para "Qualquer localização", ser�
 
 Também pode configurar os intervalos de endereços IP que representa a intranet local de sua organização no [definições do serviço de autenticação multifator](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx). Esta funcionalidade permite-lhe configurar até 50 intervalos de endereços IP. Os intervalos de endereços IP estão no formato CIDR. Para obter mais informações, consulte [IPs fidedignos](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
 
-Ter fidedignas IPs configurada, eles aparecem como **IPS fidedignos de MFA** na lista de localizações para a condição de localização.
+Se tiver configurado de IPs fidedignos, eles apresentado como **IPS fidedignos de MFA** na lista de localizações para a condição de localização.
 
 ### <a name="skipping-multi-factor-authentication"></a>A ignorar a autenticação multifator
 

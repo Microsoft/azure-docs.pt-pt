@@ -8,12 +8,12 @@ ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: f81ca34931e2ee4bce35fa06195fb64c47ef9a7b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ae57b8ab26780ea975ad74f3348a0deaf8c9cc8
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682037"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65464633"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar os dados para o armazenamento de Blobs do Azure
 
@@ -57,14 +57,14 @@ Agora que tem um destino de armazenamento para exportar dados para, siga estes p
     > [!Note]
     > Se não vir a exportação contínua de dados no menu à esquerda, não for um administrador na sua aplicação. Fale com o administrador para configurar a exportação de dados.
 
-    ![Criar novo cde Hub de eventos](media/howto-export-data/export_menu.PNG)
+    ![Criar novo cde Hub de eventos](media/howto-export-data/export_menu1.png)
 
 3. Selecione o **+ novo** botão no canto superior direito. Escolher **armazenamento de Blobs do Azure** como o destino da exportação. 
 
     > [!NOTE] 
     > O número máximo de exportações por aplicação é cinco. 
 
-    ![Criar nova exportação contínua de dados](media/howto-export-data/export_new.PNG)
+    ![Criar nova exportação contínua de dados](media/howto-export-data/export_new1.png)
 
 4. Na caixa de lista pendente, selecione seu **espaço de nomes de conta de armazenamento**. Também pode escolher a última opção na lista que é **introduza uma cadeia de ligação**. 
 
@@ -87,7 +87,7 @@ Agora que tem um destino de armazenamento para exportar dados para, siga estes p
 
 6. Para ativar a exportação contínua de dados, certifique-se **exportar dados** é **no**. Selecione **Guardar**.
 
-  ![Configurar a exportação contínua de dados](media/howto-export-data/export-list-blob.png)
+   ![Configurar a exportação contínua de dados](media/howto-export-data/export-list-blob.png)
 
 7. Após alguns minutos, os dados serão apresentados no seu destino escolhido.
 

@@ -7,12 +7,12 @@ ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 05/01/2019
 ms.author: evanhi
-ms.openlocfilehash: 34dd5efda2c9f6cc9a7b5ddcde06e8f7d27de901
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: e4196cf59537be5194ceb510a1b7b066c97de19a
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158428"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410211"
 ---
 # <a name="tutorial-create-custom-provider-and-deploy-custom-resources"></a>Tutorial: Criar fornecedor personalizado e implementar recursos personalizados
 
@@ -48,7 +48,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName `
 Em alternativa, pode implementar a solução com o botão seguinte:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-docs-json-samples%2Fmaster%2Fcustom-providers%2Fcustomprovider.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
+    <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
 ## <a name="view-custom-provider-and-resource"></a>Provedor de exibição personalizado e recursos

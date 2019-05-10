@@ -131,7 +131,7 @@
           items:
             - name: Criar um fornecedor de sugestões
               href: index-add-suggesters.md
-            - name: 'Exemplos (sugestões, preenchimento automático)'
+            - name: Adicionar sugestões ou preenchimento automático
               href: search-autocomplete-tutorial.md
         - name: Sinónimos
           items:

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 1310ecd15498c4c319febc87cbc3b18e0a7ca524
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fa722d749ec27a72a8be3bf8fcfd8097a1404458
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65020347"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65465608"
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -24,7 +24,7 @@ ms.locfileid: "65020347"
 
 **Novos recursos**
 
-* Palavra-chave, detetar funcionalidade (KWS) está disponível para Windows e Linux. Funcionalidade KWS pode funcionar com qualquer tipo de microfone, oficial KWS suportar, no entanto, é atualmente limitado para as matrizes de microfone encontrado no hardware de Azure Kinect DK ou o SDK de dispositivos de voz.
+* Funcionalidade do word (palavra-chave detetar/KWS) de reativação está agora disponível para Windows e Linux. Funcionalidade KWS pode funcionar com qualquer tipo de microfone, oficial KWS suportar, no entanto, é atualmente limitado para as matrizes de microfone encontrado no hardware de Azure Kinect DK ou o SDK de dispositivos de voz.
 * Funcionalidade de sugestão de frase está disponível através do SDK. Para obter mais informações, consulte [aqui](how-to-phrase-lists.md).
 * Funcionalidades de transcrição da conversação estão disponível através do SDK. Ver [aqui](conversation-transcription-service.md).
 * Adicione suporte para os assistentes de virtual de voz em primeiro lugar usando o canal direto de linha de voz.
@@ -58,7 +58,7 @@ Esta é uma versão só de JavaScript. Não existem recursos foram adicionados. 
 **Novos recursos** 
 
 * O SDK suporta agora o serviço de texto para voz como uma versão beta. É suportada no Windows e Linux a área de trabalho de C++ e C#. Para obter mais informações, consulte a [descrição geral do texto para discurso](text-to-speech.md#get-started-with-text-to-speech).
-* O SDK suporta agora arquivos de áudio MP3 e Opus/Ogg como ficheiros de fluxo de entrada. Esta funcionalidade só está disponível no Linux a partir de C++ e C# e está atualmente na versão beta (mais detalhes [aqui](how-to-use-compressed-audio-input-streams.md)).
+* O SDK suporta agora arquivos de áudio MP3 e Opus/OGG como ficheiros de fluxo de entrada. Esta funcionalidade só está disponível no Linux a partir de C++ e C# e está atualmente na versão beta (mais detalhes [aqui](how-to-use-codec-compressed-audio-input-streams.md)).
 * O SDK de voz para Java, .NET core, Objective-C e C++ passaram a suporte de macOS. O suporte de Objective-C para macOS está atualmente na versão beta.
 * iOS: O SDK de voz para iOS (Objective-C) agora também é publicado como um CocoaPod.
 * JavaScript: Suporte para microfone não padrão como um dispositivo de entrada.

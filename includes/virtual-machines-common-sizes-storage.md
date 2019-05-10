@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 17806abe60236a9c9face1ee16e1d9982975fff6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64734690"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65509856"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  Os exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento local débito e de rede da largura de banda para cada tamanho otimizada.
 
@@ -40,8 +40,8 @@ Cache de armazenamento Premium: Não suportado
 | Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
 | Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
 | Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 M / 8.000    | 32,000/640 | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3,8 M / 20.000   | 80,000/1,400 | 32 | 8 / 32,000 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 16,600+ |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3,8 M / 20.000   | 80,000/1,400 | 32 | 8 / 16,000+ |
 
 <sup>1</sup> VMs da série Lsv2 tem um disco de recursos temporário com base de SCSI padrão para utilização do ficheiro de paginação/troca de SO (d no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, de 4.000 IOPS e velocidade para cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece GiB 800 40.000 IOPS e 800 MBPS) de transferência de 80 MBps. Isto garante que as unidades de nvme, algo podem ser completamente dedicadas para a utilização de aplicações. Este disco é Efêmera e todos os dados serão perdidos em Parar/desalocar.
 

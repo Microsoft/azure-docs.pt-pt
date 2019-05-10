@@ -1,22 +1,24 @@
 ---
-title: Gerir réplicas de leitura da base de dados do Azure para PostgreSQL no portal do Azure
-description: Saiba como gerir a base de dados do Azure para PostgreSQL ler réplicas a partir do portal do Azure.
-author: WenJason
-ms.author: v-jay
+title: Gerir réplicas de leitura da base de dados do Azure para PostgreSQL - servidor único a partir do portal do Azure
+description: Saiba como gerir a leitura de réplicas de base de dados do Azure para PostgreSQL - servidor único a partir do portal do Azure.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/22/2019
-ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 87371f91d9ea1f556d0f78beebd73b8a28977b71
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420809"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510399"
 ---
-# <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Criar e gerir réplicas de leitura a partir do portal do Azure
+# <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Criar e gerir réplicas de leitura na base de dados do Azure para PostgreSQL - servidor único a partir do portal do Azure
 
 Neste artigo, saiba como criar e gerir réplicas de leitura na base de dados do Azure para PostgreSQL a partir do portal do Azure. Para saber mais acerca das réplicas de leitura, veja a [descrição geral](concepts-read-replicas.md).
+
+> [!IMPORTANT]
+> Pode criar uma réplica de leitura na mesma região que o servidor principal ou em qualquer outra região do Azure à sua escolha. A replicação entre regiões está atualmente em pré-visualização pública.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -59,9 +61,15 @@ Para criar uma réplica de leitura, siga estes passos:
 
    ![Adicionar uma réplica](./media/howto-read-replicas-portal/add-replica.png)
 
-4. Introduza um nome para a réplica de leitura. Selecione **OK** para confirmar a criação da réplica.
+4. Introduza um nome para a réplica de leitura. 
 
-   ![Nome da réplica](./media/howto-read-replicas-portal/name-replica.png) 
+    ![Nome da réplica](./media/howto-read-replicas-portal/name-replica.png)
+
+5. Selecione uma localização para a réplica. Pode criar uma réplica em qualquer região do Azure. A localização predefinida é o mesmo que o servidor mestre.
+
+    ![Selecione uma localização](./media/howto-read-replicas-portal/location-replica.png)
+
+6. Selecione **OK** para confirmar a criação da réplica.
 
 Ao utilizar a mesma configuração de servidor como o mestre, é criada uma réplica. Depois de criar uma réplica, várias configurações podem ser alteradas independentemente do servidor mestre: computação geração, vCores, armazenamento e período de retenção de cópia de segurança. O escalão de preço também pode ser alterado de forma independente, exceto de ou para o escalão básico.
 

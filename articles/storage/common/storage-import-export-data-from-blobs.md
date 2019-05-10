@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e542ad59f6fd64b52aef9438ed0f646e9e36fc4a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61479291"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65209627"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilize o serviço importar/exportar do Azure para exportar dados do armazenamento de Blobs do Azure
 Este artigo fornece instruções passo a passo sobre como utilizar o serviço importar/exportar do Azure em segurança exportar grandes quantidades de dados do armazenamento de Blobs do Azure. O serviço exige que envie discos vazios para o datacenter do Azure. O serviço exporta os dados da sua conta de armazenamento para as unidades e, em seguida, é fornecido as unidades de volta.
@@ -55,7 +55,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
     - Selecione uma subscrição.
     - Introduza ou selecione um grupo de recursos.
 
-        ![Noções básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
+        ![Noções Básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png) 
     
 3. Na **detalhes da tarefa**:
 
@@ -83,7 +83,7 @@ Execute os seguintes passos para criar uma tarefa de exportação no portal do A
 4. Na **devolver informações sobre o envio**:
 
     - Selecione a operadora na lista pendente. Se pretender utilizar uma operadora que não seja FedEx/DHL, escolha uma opção existente na lista pendente. Equipe de operações de caixa de dados do contacto do Azure em `adbops@microsoft.com` com as informações sobre a operadora que pretende utilizar.
-    - Introduza um número de conta de operadora válida que tenha criado com esse operadora. A Microsoft utiliza esta conta para enviar as unidades-se ao assim que a tarefa de importação estiver concluída. 
+    - Introduza um número de conta de operadora válida que tenha criado com esse operadora. A Microsoft utiliza esta conta para enviar as unidades-se ao depois de concluída a tarefa de exportação. 
     - Forneça um nome de contato completo e válido, telefone, e-mail, rua, cidade, zip, estado/província e país/região.
 
         > [!TIP] 

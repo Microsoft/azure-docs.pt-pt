@@ -15,16 +15,21 @@ ms.workload: identity
 ms.date: 01/24/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd2e30f7ae96ff38b0ded11c158fcef636e3a26
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 147ee2450a6a67f8ca02149105533401d038a53a
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448805"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65191087"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Tutorial: Utilize uma VM do Windows atribuídos de sistema identidade gerida para aceder ao armazenamento do Azure por meio da chave de acesso
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+
+
+> [!IMPORTANT] 
+> O armazenamento do Azure agora suporta autenticação do Azure AD. Como melhor prática, utilize [autenticação do Azure AD](tutorial-vm-windows-access-storage.md) em vez de chaves de acesso. 
+
 
 Este tutorial mostra-lhe como utilizar a identidade gerida atribuída pelo sistema de uma máquina virtual (VM) do Windows para recuperar as chaves de acesso à conta de armazenamento. Pode utilizar as chaves de acesso ao armazenamento como habitualmente ao fazer operações de armazenamento, por exemplo, ao utilizar o SDK de Armazenamento. Neste tutorial, vamos carregar e transferir blobs com o PowerShell do Armazenamento do Azure. Vai aprender a:
 

@@ -1,6 +1,6 @@
 ---
-title: Proteger implementações PaaS | Documentos da Microsoft
-description: " Compreenda as vantagens de segurança de PaaS versus outros modelos de serviço de nuvem e Aprenda as práticas recomendadas para proteger a sua implementação de PaaS do Azure. "
+title: Práticas recomendadas para implementações seguras de PaaS - Microsoft Azure
+description: Aprenda as melhores práticas de design, criação e o gerenciamento seguro na cloud a aplicações no Azure e compreender as vantagens de segurança de PaaS versus outros modelos de serviço em nuvem.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: e833317fa16576fa0006a774226d12974fd93ed8
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9da7a3b91223b8a6fd25814a10a0cbafd645d132
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107451"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231118"
 ---
 # <a name="securing-paas-deployments"></a>Proteger implementações de PaaS
 
@@ -29,6 +29,8 @@ Este artigo fornece informações que lhe permite:
 - Avaliar as vantagens de segurança da plataforma como serviço (PaaS) em relação a outros modelos de serviço em nuvem
 - Alterar o foco de segurança de uma rede de centrada para uma abordagem de segurança de perímetro voltada para a identidade
 - Implementar gerais PaaS melhores práticas recomendações de segurança
+
+[Desenvolvimento de aplicações seguras no Azure](abstract-develop-secure-apps.md) é um guia Geral para as perguntas de segurança e controles, deve considerar em cada fase do ciclo de vida de desenvolvimento de software durante o desenvolvimento de aplicativos para a nuvem.
 
 ## <a name="cloud-security-advantages"></a>Vantagens de segurança da cloud
 Há vantagens de segurança em ser na cloud. Num ambiente no local, as organizações prováveis ter responsabilidades por cumprir e recursos limitados disponíveis para investir em segurança, que cria um ambiente em que os invasores estejam habilitados a explorar vulnerabilidades em todas as camadas.
@@ -155,6 +157,10 @@ Uso [do Azure Application Insights](https://azure.microsoft.com/documentation/se
 
 O Application Insights tem um vasto conjunto ferramentas para interagir com os dados que recolhe. O Application Insights armazena os dados num repositório comum. Pode tirar partido da funcionalidade partilhada, como alertas, dashboards e análises detalhadas com a linguagem de consulta de Kusto.
 
+## <a name="perform-security-penetration-testing"></a>Executar testes de penetração de segurança
+A validar defesas de segurança é tão importante quanto testar todas as outras funcionalidades. Tornar [testes de penetração](azure-security-pen-testing.md) faz parte de seu processo de compilação e implementação. Agende testes de segurança regulares e análise em aplicações implementadas de vulnerabilidades e monitorizar para abrir portas, pontos finais e ataques.
+
+O teste de difusão é um método para localizar falhas do programa (erros de código), fornecendo dados de entrada tem um formato incorreto para interfaces de programação (pontos de entrada) que analisam e consumam estes dados. [Deteção de risco de segurança da Microsoft](https://www.microsoft.com/en-us/security-risk-detection/) é uma ferramenta baseada na nuvem que pode utilizar para procurar por bugs e outras vulnerabilidades de segurança no seu software antes de o implementar no Azure. A ferramenta foi criada para detectar vulnerabilidades antes de implementar software para que não tenha que corrigir um bug, lidar com falhas ou responder a um ataque após o lançamento do software.
 
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -164,8 +170,10 @@ Neste artigo, nos concentramos nos vantagens de segurança de uma implementaçã
 - [Base de dados SQL do Azure e o armazém de dados SQL do Azure](security-paas-applications-using-sql.md)
 - [Armazenamento do Azure](security-paas-applications-using-storage.md)
 - Cache do Azure para Redis
-- Service Bus do Azure
+- Azure Service Bus
 - Firewalls de aplicações Web
+
+Ver [desenvolver aplicações seguras no Azure](abstract-develop-secure-apps.md) para perguntas de segurança e controlos, deve considerar em cada fase do ciclo de vida de desenvolvimento de software durante o desenvolvimento de aplicativos para a nuvem.
 
 Ver [padrões e práticas recomendadas de segurança do Azure](security-best-practices-and-patterns.md) para obter mais melhores práticas de segurança a utilizar quando estiver conceber, implementar e gerir soluções na cloud ao utilizar o Azure.
 

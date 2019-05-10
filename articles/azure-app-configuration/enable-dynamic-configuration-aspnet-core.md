@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: b8a466234489e65458b0136619076154fa4c9f37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cae29fe045d1bdc17f414ff016642635b74320df
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64688914"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408820"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutorial: Utilizar a configuração dinâmica de uma aplicação ASP.NET Core
 
@@ -166,7 +166,7 @@ Para fazer este tutorial, instale o [.NET Core SDK](https://dotnet.microsoft.com
 
 4. Inicie sessão no [portal do Azure](https://aka.ms/azconfig/portal). Selecione **todos os recursos**e selecione a instância de arquivo de configuração de aplicação que criou no guia de introdução.
 
-5. Selecione **Explorador de chave/valor**e atualize os valores das seguintes chaves:
+5. Selecione **Explorador de configuração**e atualize os valores das seguintes chaves:
 
     | Chave | Value |
     |---|---|
