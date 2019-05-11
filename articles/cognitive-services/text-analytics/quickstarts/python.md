@@ -10,21 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 05/09/2019
 ms.author: aahi
-ms.openlocfilehash: 9d6dfb79d02df3eebe33e67743ceaf97fc0a2a77
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: fb411b7e36d8658c5f46294a3b7025c3e93928e7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519356"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540119"
 ---
 # <a name="quickstart-using-the-python-rest-api-to-call-the-text-analytics-cognitive-service"></a>Início rápido: Com a API de REST do Python para chamar o serviço cognitivos de análise de texto 
 <a name="HOLTop"></a>
 
 Utilize este guia de introdução para começar a analisar a linguagem com a API de REST de análise de texto e Python. Este artigo mostra-lhe como ao [detetar o idioma](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction), e [identificar entidades associadas](#Entities).
-
-Pode executar este exemplo da linha de comando ou como um bloco de notas do Jupyter no [MyBinder](https://mybinder.org) clicando no lançamento associador de destaque:
-
-[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter acesso à documentação técnica sobre APIs.
 
@@ -42,13 +38,7 @@ Veja as [definições de API](//go.microsoft.com/fwlink/?LinkID=759346) para ter
     pip install --upgrade requests
     ```
 
-* Se estiver a executar o bloco de notas do associador localmente, poderá ter de atualizar [IPython](https://ipython.org/install.html):
-    
-    ```console
-    pip install --upgrade IPython
-    ```
-
-* [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
 
 ## <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 98d1870105038c4314a6b038ec198342bb2ca1d0
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bbc285c35c010c9c0a38e9b3d6938c5dd3b76fe4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027188"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544862"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a REST API com Python
 
@@ -24,9 +24,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
--  Tem de obter acesso à pré-visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário de serviços cognitivos](https://aka.ms/FormRecognizerRequestAccess) formulário. 
+- Tem de obter acesso à pré-visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário de serviços cognitivos](https://aka.ms/FormRecognizerRequestAccess) formulário. 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição para o reconhecedor de formulário. Para obter uma chave de subscrição, veja [Obter Chaves de Subscrição](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- Tem de ter uma chave de subscrição para o reconhecedor de formulário. Siga as instruções de subscrição de serviço único em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) para subscrever o reconhecedor de formulário e obtenha a chave. Não utilize a subscrição de múltiplos serviço, como isso não incluirá o serviço do reconhecedor de formulário.
 - Tem de ter um conjunto mínimo de cinco formulários do mesmo tipo. Pode utilizar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo

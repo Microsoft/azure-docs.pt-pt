@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b64315d8639cf8a7204ee809598567ec76fd188
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61373575"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541803"
 ---
 # <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Início rápido: Criar uma base de dados de conhecimento com o portal de serviço de API do QnA Maker
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
     - Carregar ficheiros para dados que pretende extraídos. Consulte a [obter informações sobre preços](https://aka.ms/qnamaker-pricing) pode adicionar ver o número de documentos.
     - Se pretender adicionar manualmente QnAs, pode avançar **passo 4** mostrado na imagem anterior.
 
-1. Adicione **Chit-bate-papo** para sua KB. Opte por adicionar o suporte para o bot, chit chat ao escolher entre uma as 3 personalidades. 
+1. Adicione **Chit-bate-papo** para sua KB. Opte por adicionar o suporte para o bot, chit chat escolhendo uma das personalidades. 
 
     ![Adicionar chit-bate-papo para KB](../media/qnamaker-how-to-create-kb/create-kb-chit-chat.png)
 

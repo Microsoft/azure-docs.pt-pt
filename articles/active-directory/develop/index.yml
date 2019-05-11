@@ -6,7 +6,7 @@ metadata:
   description: 'Saiba como pode utilizar a plataforma de identidades da Microsoft para compilar aplicações de forma a que os utilizadores iniciem sessão de forma segura em todas as identidades da Microsoft, obter tokens para chamar o Microsoft Graph, outras APIs da Microsoft ou as APIs compiladas por outros programadores.'
   services: active-directory
   author: CelesteDG
-  manager: mtillman
+  manager: CelesteDG
   ms.service: active-directory
   ms.subservice: develop
   ms.tgt_pltfrm: na

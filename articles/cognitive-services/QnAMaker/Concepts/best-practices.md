@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61379227"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541516"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 O [ciclo de vida de desenvolvimento de base de dados de conhecimento](../Concepts/development-lifecycle-knowledge-base.md) orienta-o sobre como gerir a sua BDC do início ao fim. Utilize estas melhores práticas para melhorar a sua base de dados de conhecimento e fornecer os melhores resultados para os utilizadores finais do seu bot de aplicação/bate-papo.
@@ -39,18 +39,20 @@ Adicione tantas perguntas alternativas conforme necessário, mas manter as alter
 As melhores respostas são respostas simples, mas não muito simples, como Sim e não existem respostas. Se a sua resposta deve ligar a outras origens ou fornecer uma experiência avançada com suporte de dados e links, utilize [marcação](../how-to/metadata-generateanswer-usage.md) para distinguir o tipo de resposta esperado, em seguida, enviar essa etiqueta com a consulta para obter a versão de resposta correta.
 
 ## <a name="chit-chat"></a>Chit-bate-papo
-Adicionar chit-bate-papo ao seu bot, para tornar o seu bot mais conversacionais e apelativas, com esforço reduzido. Pode facilmente adicionar conjuntos de dados de chit chat para 3 personalidades predefinidas ao criar a sua BDC e alterá-los em qualquer altura. Saiba como [adicionar chit-bate-papo para sua BDC](../How-To/chit-chat-knowledge-base.md). 
+Adicionar chit-bate-papo ao seu bot, para tornar o seu bot mais conversacionais e apelativas, com esforço reduzido. Pode facilmente adicionar conjuntos de dados de chit-bate-papo de personalidades predefinidas ao criar a sua BDC e alterá-los em qualquer altura. Saiba como [adicionar chit-bate-papo para sua BDC](../How-To/chit-chat-knowledge-base.md). 
 
 ### <a name="choosing-a-personality"></a>Escolher uma personalidade
-Chit-bate-papo é suportada para 3 personalidades predefinidas: 
+Chit-bate-papo é suportada para vários personalidades predefinidas: 
 
-|Personalidades|
-|--|
-|O Professional|
-|O amigo|
-|Revista em Quadrinhos|
+|Personalidade |Ficheiro de conjunto de dados do QnA Maker |
+|---------|-----|
+|Profissional |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|Amigável |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Witty |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|Se importar com |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|Entusiástica |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
-O intervalo de respostas de formal a informal e irreverente. Deve selecionar a personalidade que mais se aproxima está alinhada com o tom que pretende para o bot. Pode ver os conjuntos de dados e escolha uma que funciona como uma base para o bot e, em seguida, personalizar as respostas. 
+O intervalo de respostas de formal a informal e irreverente. Deve selecionar a personalidade que mais se aproxima está alinhada com o tom que pretende para o bot. Pode ver o [conjuntos de dados](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)e escolha uma que funciona como uma base para o bot e, em seguida, personalizar as respostas. 
 
 ### <a name="edit-bot-specific-questions"></a>Editar perguntas específicas de bot
 Existem algumas questões específicas de bot que fazem parte do conjunto de dados chit-bate-papo e tem sido preenchidos com respostas genéricas. Altere essas respostas para melhor refletir os detalhes do seu bot. 

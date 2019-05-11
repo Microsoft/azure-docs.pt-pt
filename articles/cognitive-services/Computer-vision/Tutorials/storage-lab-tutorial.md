@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: a755a0bada0dbf6797465ea40ddbb30a84e3f289
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75e52398386e7ef1b338d13a8cfe8f20c06abcc6
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202098"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541530"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Tutorial: Utilizar imagem digitalizada para gerar metadados de imagem no armazenamento do Azure
 
@@ -40,17 +40,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-a-computer-vision-resource"></a>Criar um recurso de imagem digitalizada
 
-Terá de criar um recurso de imagem digitalizada para a sua conta do Azure; Este recurso gere o seu acesso ao serviço de visão do computador do Azure.
+Terá de criar um recurso de imagem digitalizada para a sua conta do Azure; Este recurso gere o seu acesso ao serviço de visão do computador do Azure. 
 
-1. Inicie sessão para o [portal do Azure](https://ms.portal.azure.com) e clique em **criar um recurso**, seguido **IA + Machine Learning** e **de imagem digitalizada**.
+1. Siga as instruções em [criar um recurso de serviços cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) para criar um recurso de imagem digitalizada.
 
-    ![Criar uma nova subscrição de API de imagem digitalizada](../Images/new-vision-api.png)
-
-1. Na janela da caixa de diálogo, introduza "chave de api de imagem digitalizada" no **Name** campo e selecione **F0** como o **escalão de preço**. Selecione o mesmo **localização** que selecionou quando configurou a sua conta de armazenamento do Azure. Sob **grupo de recursos**, selecione **utilizar existente** e selecione o mesmo grupo de recursos também. Verifique os **confirmo** caixa e, em seguida, clique em **criar**.
-
-    ![Subscrever a API de imagem digitalizada](../Images/create-vision-api.png)
-
-1. Regresse ao menu de grupo de recursos e clique na subscrição de API de imagem digitalizada que acabou de criar. Copie o URL sob **ponto final** para algum lugar pode facilmente recuperá-lo em breve. Em seguida, clique em **Mostrar chaves de acesso**.
+1. Em seguida, vá para o menu do seu grupo de recursos e clique na subscrição de API de imagem digitalizada que acabou de criar. Copie o URL sob **ponto final** para algum lugar pode facilmente recuperá-lo em breve. Em seguida, clique em **Mostrar chaves de acesso**.
 
     ![Página do portal do Azure com o ponto final URL e acesso chaves ligação descrita](../Images/copy-vision-endpoint.png)
 

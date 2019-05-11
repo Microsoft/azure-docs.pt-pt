@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 4/08/2019
+ms.date: 05/10/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e3c645ea748834340a2e6cfb8d3e7e1b1e876dcf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60565676"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540840"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação após desastre para o Azure das VMs VMware no local
 
@@ -172,7 +172,7 @@ Selecione e verifique os recursos de destino.
 - A política é associada automaticamente ao servidor de configuração.
 - Uma política correspondente é criada automaticamente para reativação pós-falha por predefinição. Por exemplo, se a política de replicação for **rep-policy**, a política de reativação pós-falha é **rep-policy-failback**. Esta política não é utilizada depois de iniciar uma reativação pós-falha a partir do Azure.
 
-## <a name="enable-replication"></a>Ativar a replicação
+## <a name="enable-replication"></a>Ativar replicação
 
 Ative a replicação para as VMs da seguinte forma:
 
@@ -180,7 +180,7 @@ Ative a replicação para as VMs da seguinte forma:
 1. Em **Origem**, selecione **No local** e selecione o servidor de configuração na **Localização de origem**.
 1. Em **Tipo de máquina**, selecione **Máquinas Virtuais**.
 1. Em **vCenter/vSphere Hypervisor**, selecione o anfitrião vSphere ou o servidor vCenter que gere o anfitrião.
-1. Selecione o servidor de processo (instalado por predefinição na VM do servidor de configuração). Em seguida, selecione **OK**.
+1. Selecione o servidor de processo (instalado por predefinição na VM do servidor de configuração). Em seguida, selecione **OK**. Estado de funcionamento de cada servidor de processo será indicado de acordo com os limites de recomendada e outros parâmetros. Escolha um servidor de processos de bom estado de funcionamento. R [críticos](vmware-physical-azure-monitor-process-server.md#process-server-alerts) servidor de processos não pode ser escolhido. Pode [resolver](vmware-physical-azure-troubleshoot-process-server.md) os erros **ou** configurar uma [servidor de processos de escalamento horizontal](vmware-azure-set-up-process-server-scale.md).
 1. Em **Destino**, selecione a subscrição e o grupo de recursos no qual pretende criar as VMs de ativação pós-falha. Utilizamos o modelo de implementação do Resource Manager. 
 1. Selecione a rede e a sub-rede do Azure às quais as VMs do Azure se ligam quando forem criadas após a ativação pós-falha.
 1. Selecione **Configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as VMs em que ativa a replicação. Selecione **Configurar mais tarde** para selecionar a rede do Azure por máquina.
