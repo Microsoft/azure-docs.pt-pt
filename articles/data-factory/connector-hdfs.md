@@ -122,7 +122,7 @@ Para copiar dados do HDFS no **Parquet ou formato de texto delimitado**, consult
 
 | Propriedade   | Descrição                                                  | Necessário |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade de tipo sob `location` no conjunto de dados deve ser definida como **HdfsLocation**. | Sim      |
+| type       | A propriedade de tipo sob `location` no conjunto de dados deve ser definida como **HdfsLocation**. | Sim      |
 | folderPath | O caminho para a pasta. Se pretender utilizar o caráter universal para a pasta de filtro, ignorar esta definição e especifique nas definições da origem de atividade. | Não       |
 | fileName   | O nome de ficheiro em determinado folderPath. Se pretender utilizar o caráter universal para filtrar os ficheiros, ignorar esta definição e especifique nas definições da origem de atividade. | Não       |
 
@@ -217,7 +217,7 @@ Para copiar dados do HDFS no **Parquet ou formato de texto delimitado**, consult
 
 | Propriedade                 | Descrição                                                  | Necessário                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| tipo                     | A propriedade de tipo sob `storeSettings` deve ser definida como **HdfsReadSetting**. | Sim                                           |
+| type                     | A propriedade de tipo sob `storeSettings` deve ser definida como **HdfsReadSetting**. | Sim                                           |
 | recursive                | Indica se os dados são lidos recursivamente das subpastas ou apenas a partir da pasta especificada. Tenha em atenção que quando recursiva é definida como true e o sink é um arquivo baseado em arquivo, uma pasta vazia ou uma subpasta não é copiada ou criada no coletor. Valores permitidos são **true** (predefinição) e **falso**. | Não                                            |
 | wildcardFolderPath       | O caminho de pasta com carateres universais para filtrar as pastas de origem. <br>Permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual); utilize `^` para se o seu nome de pasta real tem carateres universais ou esse caractere de escape dentro de escape. <br>Veja mais exemplos [exemplos de filtro de ficheiros e pastas](#folder-and-file-filter-examples). | Não                                            |
 | wildcardFileName         | O nome de ficheiro com carateres universais em determinado folderPath/wildcardFolderPath para ficheiros de origem do filtro. <br>Permitidos carateres universais são: `*` (corresponde a zero ou mais carateres) e `?` (corresponde a zero ou caráter individual); utilize `^` para se o seu nome de pasta real tem carateres universais ou esse caractere de escape dentro de escape.  Veja mais exemplos [exemplos de filtro de ficheiros e pastas](#folder-and-file-filter-examples). | Se Sim `fileName` não está especificado no conjunto de dados |
