@@ -45,10 +45,10 @@ As seguintes propriedades são suportadas para o serviço de Jira ligado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **Jira** | Sim |
-| anfitrião | O nome ou endereço IP anfitrião do serviço Jira. (por exemplo, jira.example.com)  | Sim |
-| porta | A porta TCP que o servidor de Jira utiliza para escutar ligações de cliente. O valor predefinido é 443 se ligar através de HTTPS ou 8080 se ligar através de HTTP.  | Não |
-| o nome de utilizador | O nome de utilizador que utiliza para aceder ao serviço do Jira.  | Sim |
-| palavra-passe | A palavra-passe correspondente ao nome do usuário fornecida no campo de nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| host | O nome ou endereço IP anfitrião do serviço Jira. (por exemplo, jira.example.com)  | Sim |
+| port | A porta TCP que o servidor de Jira utiliza para escutar ligações de cliente. O valor predefinido é 443 se ligar através de HTTPS ou 8080 se ligar através de HTTP.  | Não |
+| username | O nome de utilizador que utiliza para aceder ao serviço do Jira.  | Sim |
+| password | A palavra-passe correspondente ao nome do usuário fornecida no campo de nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
@@ -111,7 +111,7 @@ Para copiar dados do Jira, defina o tipo de origem na atividade de cópia para *
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **JiraSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
