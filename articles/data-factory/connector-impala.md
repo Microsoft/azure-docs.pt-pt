@@ -44,12 +44,12 @@ As seguintes propriedades são suportadas para o serviço ligado de Impala.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **Impala**. | Sim |
-| anfitrião | O nome ou endereço IP anfitrião do servidor Impala (ou seja, 192.168.222.160).  | Sim |
-| porta | A porta TCP que o servidor de Impala utiliza para escutar ligações de cliente. O valor predefinido é 21050.  | Não |
+| type | A propriedade de tipo deve ser definida como **Impala**. | Sim |
+| host | O nome ou endereço IP anfitrião do servidor Impala (ou seja, 192.168.222.160).  | Sim |
+| port | A porta TCP que o servidor de Impala utiliza para escutar ligações de cliente. O valor predefinido é 21050.  | Não |
 | authenticationType | O tipo de autenticação a utilizar. <br/>Valores permitidos são **anónimo**, **SASLUsername**, e **UsernameAndPassword**. | Sim |
-| o nome de utilizador | O nome de utilizador utilizado para aceder ao servidor de Impala. O valor predefinido é anônimo ao utilizar SASLUsername.  | Não |
-| palavra-passe | A palavra-passe que corresponde ao nome do utilizador quando utiliza UsernameAndPassword. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| username | O nome de utilizador utilizado para aceder ao servidor de Impala. O valor predefinido é anônimo ao utilizar SASLUsername.  | Não |
+| password | A palavra-passe que corresponde ao nome do utilizador quando utiliza UsernameAndPassword. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é **false**.  | Não |
 | trustedCertPath | O caminho completo do ficheiro. pem que contém os certificados de AC fidedigna, utilizados para verificar se o servidor quando se liga através de SSL. Esta propriedade pode ser definida apenas se utilizar o SSL no Integration Runtime autoalojado. O valor predefinido é o arquivo de cacerts.pem instalado com o runtime de integração.  | Não |
 | useSystemTrustStore | Especifica se pretende utilizar um certificado de AC a partir da loja de confiança do sistema ou a partir de um ficheiro PEM especificado. O valor predefinido é **false**.  | Não |
@@ -119,8 +119,8 @@ Para copiar dados de Impala, definir o tipo de origem na atividade de cópia par
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **ImpalaSource**. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **ImpalaSource**. | Sim |
+| query | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
