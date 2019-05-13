@@ -58,7 +58,7 @@ As seguintes propriedades são suportadas para o serviço ligado de HTTP:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade tem de ser definida como **HttpServer**. | Sim |
+| type | O **tipo** propriedade tem de ser definida como **HttpServer**. | Sim |
 | url | O URL de base para o servidor web. | Sim |
 | enableServerCertificateValidation | Especifique se pretende ativar a validação de certificado SSL do servidor quando se liga a um ponto final HTTP. Se o seu servidor HTTPS utiliza um certificado autoassinado, defina esta propriedade como **false**. | Não<br /> (a predefinição é **true**) |
 | authenticationType | Especifica o tipo de autenticação. Valores permitidos são **anónimo**, **básica**, **Digest**, **Windows**, e **ClientCertificate**. <br><br> Veja as secções que se seguem esta tabela para obter mais propriedades e exemplos JSON para esses tipos de autenticação. | Sim |
@@ -171,7 +171,7 @@ Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consult
 
 | Propriedade    | Descrição                                                  | Necessário |
 | ----------- | ------------------------------------------------------------ | -------- |
-| tipo        | A propriedade de tipo sob `location` no conjunto de dados deve ser definida como **HttpServerLocation**. | Sim      |
+| type        | A propriedade de tipo sob `location` no conjunto de dados deve ser definida como **HttpServerLocation**. | Sim      |
 | relativeUrl | Um URL relativo ao recurso que contém os dados.       | Não       |
 
 > [!NOTE]
@@ -212,7 +212,7 @@ Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, são suportadas
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **HttpFile**. | Sim |
+| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **HttpFile**. | Sim |
 | relativeUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não for especificada, é utilizado apenas o URL especificado na definição do serviço ligado. | Não |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
@@ -279,7 +279,7 @@ Para copiar dados de HTTP na **Parquet ou formato de texto delimitado**, consult
 
 | Propriedade                 | Descrição                                                  | Necessário |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| tipo                     | A propriedade de tipo sob `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
+| type                     | A propriedade de tipo sob `storeSettings` deve ser definida como **HttpReadSetting**. | Sim      |
 | requestMethod            | O método HTTP. <br>Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não       |
 | addtionalHeaders         | Cabeçalhos de pedido HTTP adicionais.                             | Não       |
 | requestBody              | O corpo do pedido HTTP.                               | Não       |
@@ -336,7 +336,7 @@ Para copiar dados de HTTP na **formato ORC/Avro/JSON/binário**, as seguintes pr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **HttpSource**. | Sim |
+| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **HttpSource**. | Sim |
 | httpRequestTimeout | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. O valor predefinido é **01:00:40**.  | Não |
 
 **Exemplo**
