@@ -45,7 +45,7 @@ As seguintes propriedades são suportadas para o serviço de Magento ligado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **Magento** | Sim |
-| anfitrião | O URL da instância do Magento. (ou seja, 192.168.222.110/magento3)  | Sim |
+| host | O URL da instância do Magento. (ou seja, 192.168.222.110/magento3)  | Sim |
 | accessToken | O token de acesso do Magento. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
@@ -110,7 +110,7 @@ Para copiar dados do Magento, defina o tipo de origem na atividade de cópia par
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MagentoSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Customers"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Customers"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
