@@ -55,11 +55,11 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type |A propriedade de tipo tem de ser definida como: **MongoDb** |Sim |
-| servidor |Nome anfitrião ou endereço IP do servidor do MongoDB. |Sim |
-| porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Não (a predefinição é 27017) |
+| server |Nome anfitrião ou endereço IP do servidor do MongoDB. |Sim |
+| port |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Não (a predefinição é 27017) |
 | databaseName |Nome da base de dados do MongoDB que pretende aceder. |Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados do MongoDB.<br/>Valores permitidos são: **Básica**, e **anônimo**. |Sim |
-| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada autenticação básica). |
+| username |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada autenticação básica). |
 | password |A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim (se for utilizada autenticação básica). |
 | authSource |Nome da base de dados do MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Não. Para a autenticação básica, a predefinição é utilizar a conta de administrador e a base de dados especificada, utilizando a propriedade databaseName. |
 | enableSsl | Especifica se as ligações ao servidor são encriptadas com SSL. O valor predefinido é false.  | Não |
@@ -98,7 +98,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo do conjunto de dados deve ser definida como: **MongoDbCollection** | Sim |
-| CollectionName |Nome da coleção na base de dados do MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados do MongoDB. |Sim |
 
 **Exemplo:**
 
@@ -129,7 +129,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MongoDbSource** | Sim |
-| consulta |Utilize a consulta de SQL-92 personalizada para ler os dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "collectionName" no conjunto de dados) |
+| query |Utilize a consulta de SQL-92 personalizada para ler os dados. Por exemplo: selecionar * de MyTable. |Não (se for especificado "collectionName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -176,14 +176,14 @@ Ao copiar dados do MongoDB, os seguintes mapeamentos são utilizados entre tipos
 
 | Tipo de dados do MongoDB | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| Binário |Byte[] |
+| Binary |Byte[] |
 | Boolean |Boolean |
 | Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |String |
-| Cadeia |String |
+| String |String |
 | UUID |Guid |
 | Object |Renormalized em colunas com "_" como separador aninhada de nivelamento |
 
