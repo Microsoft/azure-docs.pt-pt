@@ -46,8 +46,8 @@ As seguintes propriedades são suportadas para o serviço de Eloqua Oracle ligad
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **Eloqua** | Sim |
 | endpoint | O ponto final do servidor Eloqua. Eloqua oferece suporte a vários centros de dados, para determinar o ponto final, o início de sessão https://login.eloqua.com com a credencial, em seguida, copie o **URL de base** parte da URL redirecionada com o padrão de `xxx.xxx.eloqua.com`. | Sim |
-| o nome de utilizador | O nome do site e o nome de utilizador da sua conta de Eloqua sob a forma: `SiteName\Username` por exemplo, `Eloqua\Alice`.  | Sim |
-| palavra-passe | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| username | O nome do site e o nome de utilizador da sua conta de Eloqua sob a forma: `SiteName\Username` por exemplo, `Eloqua\Alice`.  | Sim |
+| password | A palavra-passe correspondente ao nome do usuário. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
@@ -109,7 +109,7 @@ Para copiar dados do Oracle Eloqua, defina o tipo de origem na atividade de cóp
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **EloquaSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
