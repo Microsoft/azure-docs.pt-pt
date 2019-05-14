@@ -45,9 +45,9 @@ As seguintes propriedades são suportadas para o serviço Oracle Cloud de servi�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **OracleServiceCloud** | Sim |
-| anfitrião | O URL da instância de Oracle serviço Cloud.  | Sim |
-| o nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor Oracle serviço Cloud.  | Sim |
-| palavra-passe | A palavra-passe correspondente ao nome do usuário fornecida na chave do nome de utilizador. Pode optar por marcar esse campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que o ADF copiar extração de atividade a partir daí, quando efetuar a cópia de dados – Saiba mais no [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| host | O URL da instância de Oracle serviço Cloud.  | Sim |
+| username | O nome de utilizador que utiliza para aceder ao servidor Oracle serviço Cloud.  | Sim |
+| password | A palavra-passe correspondente ao nome do usuário fornecida na chave do nome de utilizador. Pode optar por marcar esse campo como uma SecureString armazena de forma segura no ADF ou armazenar a palavra-passe no Azure Key Vault e permitir que o ADF copiar extração de atividade a partir daí, quando efetuar a cópia de dados – Saiba mais no [Store credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
 | useHostVerification | Especifica se exige o nome de anfitrião no certificado do servidor de acordo com o nome de anfitrião do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
 | usePeerVerification | Especifica se pretende verificar a identidade do servidor ao ligar-se através de SSL. O valor predefinido é verdadeiro.  | Não |
@@ -114,7 +114,7 @@ Para copiar dados do Oracle Cloud de serviço, defina o tipo de origem na ativid
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **OracleServiceCloudSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
