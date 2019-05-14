@@ -57,7 +57,7 @@ As seguintes propriedades são suportadas para o serviço ligado do Oracle.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **Oracle**. | Sim |
+| type | A propriedade de tipo deve ser definida como **Oracle**. | Sim |
 | connectionString | Especifica as informações necessárias para ligar à instância de base de dados Oracle. <br/>Marca esse campo como uma SecureString armazena de forma segura no Data Factory. Também pode colocar a palavra-passe no Azure Key Vault e obter o `password` configuração fora de cadeia de ligação. Consulte os exemplos seguintes e [Store credenciais no Azure Key Vault](store-credentials-in-key-vault.md) artigo com mais detalhes. <br><br>**Tipo de ligação suportado**: Pode usar **SID do Oracle** ou **nome do serviço Oracle** para identificar a sua base de dados:<br>– Se utilizar o SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>– Se utilizar o nome do serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -162,7 +162,7 @@ Para copiar dados de e para a Oracle, defina a propriedade de tipo de conjunto d
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida **OracleTable**. | Sim |
+| type | A propriedade de tipo do conjunto de dados tem de ser definida **OracleTable**. | Sim |
 | tableName |O nome da tabela na base de dados Oracle que o serviço ligado refere-se a. | Sim |
 
 **Exemplo:**
@@ -194,7 +194,7 @@ Para copiar dados do Oracle, defina o tipo de origem na atividade de cópia para
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **OracleSource**. | Sim |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **OracleSource**. | Sim |
 | oracleReaderQuery | Utilize a consulta SQL personalizada para ler os dados. Um exemplo é `"SELECT * FROM MyTable"`. | Não |
 
 Se não especificar "oracleReaderQuery", as colunas definidas na secção "estrutura" do conjunto de dados são utilizadas para construir uma consulta (`select column1, column2 from mytable`) para ser executado na base de dados Oracle. Se a definição do conjunto de dados não tiver "estrutura", todas as colunas são selecionadas da tabela.
@@ -237,7 +237,7 @@ Para copiar dados para a Oracle, defina o tipo de sink na atividade de cópia pa
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **OracleSink**. | Sim |
+| type | A propriedade de tipo de sink de atividade de cópia tem de ser definida **OracleSink**. | Sim |
 | writeBatchSize | Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Valores permitidos são um número inteiro (número de linhas). |Não (a predefinição é 10 000) |
 | writeBatchTimeout | Tempo para a operação de inserção de lote seja concluída antes de atingir o tempo limite de espera.<br/>Valores permitidos são Timespan. Um exemplo é 30: 00:00 (30 minutos). | Não |
 | preCopyScript | Especifica uma consulta SQL para a atividade de cópia executar antes de escrever dados para o Oracle em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregado. | Não |
@@ -283,21 +283,21 @@ Quando copia dados de e para a Oracle, os seguintes mapeamentos são utilizados 
 | BLOB |Byte[]<br/>(suportado apenas no Oracle 10g e superior) |
 | CHAR |String |
 | CLOB |String |
-| DATA |DateTime |
-| NÚMERO DE VÍRGULA FLUTUANTE |Número decimal, cadeia de caracteres (se precisão > 28) |
-| NÚMERO INTEIRO |Número decimal, cadeia de caracteres (se precisão > 28) |
-| LONGA |String |
-| HÁ MUITO TEMPO NÃO PROCESSADOS |Byte[] |
+| DATE |DateTime |
+| FLOAT |Decimal, String (se precisão > 28) |
+| INTEGER |Decimal, String (se precisão > 28) |
+| LONG |String |
+| LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NÚMERO |Número decimal, cadeia de caracteres (se precisão > 28) |
+| NUMBER |Decimal, String (se precisão > 28) |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |
-| CARIMBO DE DATA/HORA |DateTime |
-| TIMESTAMP COM O FUSO HORÁRIO LOCAL |String |
-| TIMESTAMP COM O FUSO HORÁRIO |String |
-| NÚMERO INTEIRO NÃO ASSINADO |Number |
+| TIMESTAMP |DateTime |
+| TIMESTAMP WITH LOCAL TIME ZONE |String |
+| TIMESTAMP WITH TIME ZONE |String |
+| UNSIGNED INTEGER |Number |
 | VARCHAR2 |String |
 | XML |String |
 
