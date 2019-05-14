@@ -51,7 +51,7 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 |:--- |:--- |:--- |
 | type |A propriedade de tipo tem de ser definida como: **MongoDbV2** |Sim |
 | connectionString |Por exemplo, a especificar a cadeia de ligação do MongoDB `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte a [MongoDB manual na cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br />Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| base de dados | Nome da base de dados que pretende aceder. | Sim |
+| database | Nome da base de dados que pretende aceder. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**
@@ -83,7 +83,7 @@ Para obter uma lista completa de seções e as propriedades que estão disponív
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo do conjunto de dados deve ser definida como: **MongoDbV2Collection** | Sim |
-| CollectionName |Nome da coleção na base de dados do MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados do MongoDB. |Sim |
 
 **Exemplo:**
 
@@ -114,7 +114,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **MongoDbV2Source** | Sim |
-| filtro | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
+| filter | Especifica o filtro de seleção usando operadores de consulta. Para devolver todos os documentos numa coleção, omitir este parâmetro ou transmita um documento vazio ({}). | Não |
 | cursorMethods.project | Especifica os campos a devolver em documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
 | cursorMethods.sort | Especifica a ordem em que a consulta devolve documentos correspondentes. Consulte a [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
 | cursorMethods.limit | Especifica o número máximo de documentos, que o servidor devolve. Consulte a [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não |
