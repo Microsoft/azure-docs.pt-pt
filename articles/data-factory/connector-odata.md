@@ -48,17 +48,17 @@ As seguintes propriedades são suportadas para um serviço ligado de OData:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade tem de ser definida como **OData**. |Sim |
+| type | O **tipo** propriedade tem de ser definida como **OData**. |Sim |
 | url | O URL de raiz do serviço OData. |Sim |
 | authenticationType | O tipo de autenticação utilizado para ligar à origem de OData. Valores permitidos são **anónimo**, **básica**, **Windows**, **AadServicePrincipal**, e **ManagedServiceIdentity** . Utilizador com base OAuth não é suportada. | Sim |
 | userName | Especifique **nome de utilizador** se utilizar autenticação básica ou do Windows. | Não |
-| palavra-passe | Especifique **palavra-passe** para o utilizador da conta que especificou para **userName**. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
+| password | Especifique **palavra-passe** para o utilizador da conta que especificou para **userName**. Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação do Azure Active Directory | Não |
 | aadServicePrincipalCredentialType | Especifique o tipo de credencial a utilizar para autenticação do principal de serviço. Valores permitidos são: `ServicePrincipalKey` ou `ServicePrincipalCert`. | Não |
 | servicePrincipalKey | Especifique a chave da aplicação do Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | servicePrincipalEmbeddedCert | Especifique o certificado com codificação base64 do seu aplicativo registado no Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
 | servicePrincipalEmbeddedCertPassword | Especifique a palavra-passe do certificado se o certificado estiver protegido com uma palavra-passe. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md).  | Não|
-| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Não |
+| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Não |
 | aadResourceId | Especifique o recurso do AAD que está a pedir para autorização.| Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a utilizar para ligar ao arquivo de dados. Pode escolher o Runtime de integração do Azure ou um Runtime de integração autoalojado (se o seu armazenamento de dados está localizado numa rede privada). Se não for especificado, é utilizada a predefinição de Runtime de integração do Azure. |Não |
 
@@ -197,8 +197,8 @@ Para copiar dados do OData, defina o **tipo** propriedade do conjunto de dados p
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **ODataResource**. | Sim |
-| caminho | O caminho para o recurso de OData. | Sim |
+| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **ODataResource**. | Sim |
+| path | O caminho para o recurso de OData. | Sim |
 
 **Exemplo**
 
@@ -232,8 +232,8 @@ Para copiar dados do OData, defina o **origem** tipo de atividade de cópia para
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **RelationalSource**. | Sim |
-| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector de OData copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **RelationalSource**. | Sim |
+| query | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector de OData copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo**
 
