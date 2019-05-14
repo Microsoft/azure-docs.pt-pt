@@ -163,7 +163,7 @@
         - name: Acionar Funções do Azure
           displayName: change feed
           href: change-feed-functions.md
-    - name: Análise com Apache Spark
+    - name: Análise incorporada com o Apache Spark
       href: spark-api-introduction.md
     - name: Programação do lado do servidor
       items:
@@ -517,6 +517,8 @@
           href: how-to-sql-subquery.md
     - name: Feed de Alterações
       items:
+        - name: Registos de acionador do Azure Cosmos DB
+          href: how-to-configure-cosmos-db-trigger-logs.md
         - name: Vários Acionadores do Azure Cosmos DB
           href: how-to-create-multiple-cosmos-db-triggers.md
         - name: Resolver problemas do acionador do Azure Cosmos BD

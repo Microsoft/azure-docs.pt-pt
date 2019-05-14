@@ -314,8 +314,9 @@
                 - name: Monitor de Estado
                   href: app/monitor-performance-live-website-now.md
                 - name: Monitor de Estado v2
-                  href: app/status-monitor-v2-overview.md
                   items:
+                    - name: Descrição geral
+                      href: app/status-monitor-v2-overview.md
                     - name: Introdução
                       href: app/status-monitor-v2-get-started.md
                     - name: Instruções detalhadas
@@ -557,7 +558,7 @@
                   href: app/usage-workbooks.md
             - name: Solução de Análise de Aplicações Web
               href: insights/azure-web-apps-analytics.md
-            - name: Aplicações alojadas do Kubernetes
+            - name: Monitorizar aplicações do Kubernetes
               href: app/kubernetes.md
         - name: Contentores de monitor
           items:
@@ -631,8 +632,18 @@
                   href: insights/vminsights-known-issues.md
                 - name: FAQ
                   href: insights/vminsights-faq.md
-                - name: Integrar
-                  href: insights/vminsights-onboard.md
+                - name: Ativar monitorização
+                  items:
+                    - name: Ativar descrição geral da monitorização
+                      href: insights/vminsights-enable-overview.md
+                    - name: Ativar para uma única VM do Azure
+                      href: insights/vminsights-enable-single-vm.md
+                    - name: Ativar com o Azure Policy
+                      href: insights/vminsights-enable-at-scale-policy.md
+                    - name: Ativar com o Azure PowerShell
+                      href: insights/vminsights-enable-at-scale-powershell.md
+                    - name: Ativar para o ambiente Híbrido
+                      href: insights/vminsights-enable-hybrid-cloud.md
                 - name: Monitorizar o estado de funcionamento
                   href: insights/vminsights-health.md
                 - name: Mapear dependências

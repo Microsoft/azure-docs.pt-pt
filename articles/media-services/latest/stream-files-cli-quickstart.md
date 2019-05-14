@@ -1,6 +1,6 @@
 ---
 title: Stream ficheiros de vídeo com os serviços de multimédia do Azure e a CLI do Azure | Documentos da Microsoft
-description: Siga os passos deste início rápido para criar uma nova conta dos Serviços de Multimédia do Azure, codificar um ficheiro e transmiti-lo para o Leitor de Multimédia do Azure.
+description: Siga os passos deste tutorial para criar uma nova conta de Media Services do Azure, um arquivo de codificar e transmitir para o leitor de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,24 +9,24 @@ editor: ''
 keywords: serviços de multimédia do azure, transmitir
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: cce424b11cc4cd587c6e7c50bc8bdf988004a43a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205410"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550206"
 ---
-# <a name="quickstart-stream-video-files---cli"></a>Início rápido: Transmitir ficheiros de vídeo - CLI
+# <a name="tutorial-stream-video-files---cli"></a>Tutorial: Transmitir ficheiros de vídeo - CLI
 
-Este guia de introdução mostra como facilmente codificar e transmitir vídeos numa variedade de navegadores e dispositivos através da utilização dos serviços de multimédia do Azure e a CLI do Azure. Pode especificar o conteúdo de entrada através de HTTPS ou URLs de SAS ou caminhos para ficheiros no armazenamento de Blobs do Azure.
+Este tutorial mostra como facilmente codificar e transmitir vídeos numa variedade de navegadores e dispositivos através da utilização dos serviços de multimédia do Azure e a CLI do Azure. Pode especificar o conteúdo de entrada através de HTTPS ou URLs de SAS ou caminhos para ficheiros no armazenamento de Blobs do Azure.
 
 O exemplo neste artigo codifica o conteúdo que disponibilizar através de um URL HTTPS. Serviços de multimédia v3 atualmente não suporta a codificação através de HTTPS URLs da transferência.
 
-No final deste início rápido, vai ser capaz de transmitir um vídeo.  
+No final deste tutorial, será capaz de transmitir um vídeo.  
 
 ![Reproduzir o vídeo](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -342,7 +342,7 @@ Segue-se um exemplo:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de qualquer um dos recursos no grupo de recursos, incluindo os serviços de suporte de dados e contas de armazenamento que criou neste início rápido, elimine o grupo de recursos.
+Se já não precisar de qualquer um dos recursos no grupo de recursos, incluindo os serviços de suporte de dados e contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
 
 Execute este comando da CLI:
 
@@ -350,10 +350,7 @@ Execute este comando da CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="see-also"></a>Consulte também
-
-Ver [códigos de erro da tarefa](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
-
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Descrição geral dos serviços de multimédia](media-services-overview.md)
+

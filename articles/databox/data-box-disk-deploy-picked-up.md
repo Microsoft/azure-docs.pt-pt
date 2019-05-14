@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 05/06/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 023542dbc22234fc57e4ce8b662a9760be4efe04
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8df9c2a5e45cf222debc733b3e051c3f707715c5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150751"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603081"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o disco do Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -56,7 +56,7 @@ Siga os passos seguintes se retornando o dispositivo nos EUA ou Canadá.
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
 3. Agende uma recolha no-BREAK. Para agendar uma recolha:
 
-    - Chame no-BREAK local (número gratuito de incidir específico do país).
+    - Chame no-BREAK local (número gratuito de ligação específicos por país/região).
     - Em sua chamada citar a remessa inversa número, como mostra a sua etiqueta impressa de controle.
     - Se o número de controlo não é indicado, UPS exigirá que paga um custo adicional durante a recolha.
     - Em vez da recolha de agendamento, também pode remover o fora do disco de caixa de dados no local de entrega mais próximo.
@@ -78,7 +78,7 @@ Siga os passos seguintes se retornando o dispositivo na Europa.
 
 2. Feche a caixa de envio e certifique-se de que a etiqueta para envio de devolução se encontra visível.
 3. Se estiver a devolver o dispositivo na Europa com a DHL, solicite uma recolha à DHL acedendo ao respetivo site e especificando o número de carta de porte aéreo.
-4. Aceda ao site da DHL Express do seu país e selecione **Book a Courier Collection (Agendar uma Recolha por Estafeta) > eReturn Shipment (Envio eReturn)**.
+4. Aceda ao Web site DHL Express país/região e escolha **reservar uma coleção de Courier > eReturn remessa**.
 
     ![Devolução de DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
@@ -98,7 +98,7 @@ Os datacenters do Azure na Austrália tem uma notificação de segurança adicio
 2. Deve ser o assunto do e-mail - *pedido de etiqueta de envio reversa com o código TAU*. Certifique-se incluir os seguintes detalhes do e-mail: 
 
     - Nome do pedido
-    - Endereço
+    - Morada
     - Nome do contacto
 
 #### <a name="pick-up-in-japan"></a>Escolher no Japão
@@ -157,7 +157,7 @@ Quando a cópia for concluída, o estado da encomenda será atualizado para **Co
 
 ![Cópia de dados concluída](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de eliminá-los da origem. Os dados podem estar:
+Certifique-se de que os dados estão na(s) conta(s) de armazenamento antes de o eliminá-los da origem. Os dados podem estar:
 
 - Sua conta de armazenamento do Azure (s). Quando copia os dados para o Data Box, consoante o tipo, os dados são carregados para um dos seguintes caminhos na sua conta de Armazenamento do Azure.
 

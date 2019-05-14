@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 04/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 05d522550b96813c6b8326d83f09d7028466c835
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: b0204673c0706403c8c5a7367be19e590d9cb134
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926221"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604085"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Pedido do Azure Data Box
 
@@ -66,7 +66,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
     |---------|---------|
     |Subscrição     | Selecione uma subscrição de patrocínio EA, CSP ou do Azure para o serviço do Data Box. <br> A subscrição está ligada à sua conta de faturação.       |
     |Tipo de transferência     | Selecione **Importar para o Azure**.        |
-    |País de origem     |   Selecione o país onde os dados residem atualmente.         |
+    |País de origem     |   Selecione o país/região onde residem atualmente seus dados.         |
     |Região do Azure de destino     |     Selecione a região do Azure para onde pretende transferir os dados.        |
 
 5. Selecione o Data **Box**. A capacidade máxima utilizável para uma única encomenda é 80 TB. Pode criar várias encomendas para tamanhos de dados maiores.

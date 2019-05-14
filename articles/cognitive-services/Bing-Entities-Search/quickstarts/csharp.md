@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 211f33d5b217714b26dc39ad63f9d1427950589a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473387"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595771"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Início rápido: Enviar um pedido de pesquisa para utilizar a API de REST de pesquisa de entidades do BingC#
 
@@ -26,14 +26,15 @@ Apesar de esta aplicação estar escrita em C#, a API é um serviço Web RESTful
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
-    * Para instalar o pacote NuGet no Visual studio:
-        1. Clique com o botão direito do rato no Explorador de soluções
-        2. Clique em **gerir pacotes NuGet...**
-        3. Procure **newtonsoft** e instalar o pacote
+- Qualquer edição dos [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 
-* Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
+- O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet. Para instalar o pacote NuGet no Visual Studio:
+
+   1. Clique com o botão direito do rato no **Explorador de soluções**.
+   2. Selecione **gerir pacotes NuGet**.
+   3. Procure *newtonsoft* e instalar o pacote.
+
+- Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](https://www.mono-project.com/).
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

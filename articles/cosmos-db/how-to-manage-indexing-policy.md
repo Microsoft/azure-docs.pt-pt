@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: thweiss
-ms.openlocfilehash: 48d67c765a8a76a6058592f59eb61770e2f23df5
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0b47ffd77ee23f997bb7de2ea41f83c2854cba72
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068663"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550894"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 
@@ -22,6 +22,9 @@ No Azure Cosmos DB, os dados forem indexados seguindo [políticas de indexação
 - através de um dos SDKs
 
 Uma [atualização da política de indexação](index-policy.md#modifying-the-indexing-policy) aciona uma transformação de índice. O progresso dessa transformação também pode ser controlado dos SDKs.
+
+> [!NOTE]
+> Como parte da atualização do SDK e o Portal, estamos a desenvolver a política de índice para alinhar com um novo esquema de índice, que podemos ter implementadas em novos contentores. Com este novo esquema, todos os tipos de dados primitivos são indexados como intervalo com total precisão (-1). Por conseguinte, os tipos de índice e a precisão não são expostos ao utilizador deixa de poder. No futuro, os utilizadores terão simplesmente adicionar caminhos para a secção de includedPaths e ignorar indexKinds e precisão. Esta alteração não tem qualquer impacto no desempenho e pode continuar a atualizar a política de indexação com a mesma sintaxe. Pode continuar a utilizar todos os exemplos na documentação do existente ao atualizar a política de índice.
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 

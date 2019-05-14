@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 04/15/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d9f736b0b976ac6ec0da45a672d2e992405625cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 92a37133d84833c43fff5b1a6c31e003ef53f7de
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829706"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619763"
 ---
 # <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Criar uma aplicação de blockchain no Azure Blockchain Workbench
 
@@ -213,7 +213,7 @@ O início do ficheiro de configuração contém informações sobre a aplicaçã
 
 A seção de funções de aplicação define as funções de utilizador que podem agir ou tem participação na aplicação de blockchain. Definir um conjunto de funções distintas com base na funcionalidade. No cenário de solicitação-resposta, há uma distinção entre a funcionalidade de um requerente como uma entidade que produz pedidos e um dispositivo de resposta como uma entidade que produz respostas.
 
-### <a name="workflows"></a>Fluxos de trabalho
+### <a name="workflows"></a>Fluxos de Trabalho
 
 Fluxos de trabalho definem um ou mais fases e ações do contrato. No cenário de solicitação-resposta, a primeira fase (estado) do fluxo de trabalho é que um requerente (função) efetua uma ação (transição) para enviar um pedido (função). O próximo estágio (estado) é que um dispositivo de resposta (função) efetua uma ação (transição) para enviar uma resposta (função). Fluxo de trabalho de um aplicativo pode envolver a propriedades, funções, e os Estados necessários descrevem o fluxo de um contrato. 
 
@@ -271,7 +271,7 @@ Adicione as variáveis de estado para o contrato em seu `HelloBlockchain.sol` ar
 
 ### <a name="constructor"></a>Construtor
 
-O construtor define parâmetros de entrada para uma nova instância de contrato inteligente de um fluxo de trabalho. O construtor é declarado como uma função com o mesmo nome que o contrato. Parâmetros necessários para o construtor são definidos como parâmetros do construtor no ficheiro de configuração. O número, a ordem e o tipo de parâmetros devem corresponder em ambos os ficheiros.
+O construtor define parâmetros de entrada para uma nova instância de contrato inteligente de um fluxo de trabalho. Parâmetros necessários para o construtor são definidos como parâmetros do construtor no ficheiro de configuração. O número, a ordem e o tipo de parâmetros devem corresponder em ambos os ficheiros.
 
 A função do construtor, escreva qualquer lógica de negócios que pretende executar antes de criar o contrato. Por exemplo, inicialize as variáveis de estado com a partir de valores.
 

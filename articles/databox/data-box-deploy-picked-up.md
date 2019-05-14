@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 659dfbec1f73ca713cf03a2945361b794b8aaea6
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 5b43241be4e161cd6051dce02a3574fbdb580f28
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924946"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606242"
 ---
 # <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutorial: Devolver o Azure Data Box e verifique se o carregamento de dados para o Azure
 
@@ -23,7 +23,7 @@ Neste tutorial, irá obter informações sobre tópicos, como:
 
 > [!div class="checklist"]
 > * Pré-requisitos
-> * Preparar para enviar
+> * preparação para envioPreparação para envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminação de dados do Data Box
@@ -35,7 +35,7 @@ Antes de começar, certifique-se:
 - Já tiver concluído a [Tutorial: Copiar dados para o Azure Data Box e certifique-se](data-box-deploy-copy-data.md). 
 - Tarefas de cópia estejam concluídas. Preparação para envio não é possível executar se tarefas de cópia estão em curso.
 
-## <a name="prepare-to-ship"></a>Preparar para enviar
+## <a name="prepare-to-ship"></a>preparação para envioPreparação para envio
 
 [!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
@@ -45,7 +45,7 @@ Antes de começar, certifique-se:
 2. Certifique-se de que a etiqueta de envio é apresentada no ecrã de tinta eletrónica e agende uma recolha com a sua operadora. Se a etiqueta está danificada ou perdida ou não é apresentada no ecrã do E-tinta, contacte o Support da Microsoft. Se o suporte sugere, em seguida, pode aceder à **descrição geral > Download etiqueta de envio** no portal do Azure. Transfira a etiqueta de envio e affix no dispositivo. 
 3. Agende uma recolha com UPS se retornando o dispositivo. Para agendar uma recolha:
 
-    - Chame no-BREAK local (número gratuito de incidir específico do país).
+    - Chame no-BREAK local (número gratuito de ligação específicos por país/região).
     - Em sua chamada citar a remessa inversa número, como mostra a exibição de tinta E ou a etiqueta impressa de controle.
     - Se o número de controlo não é indicado, UPS exigirá que paga um custo adicional durante a recolha.
 
@@ -91,7 +91,7 @@ Neste tutorial, ficou a conhecer tópicos do Azure Data Box, como:
 
 > [!div class="checklist"]
 > * Pré-requisitos
-> * Preparar para enviar
+> * preparação para envioPreparação para envio
 > * Enviar o Data Box para a Microsoft
 > * Verificar o carregamento de dados para o Azure
 > * Eliminação de dados do Data Box

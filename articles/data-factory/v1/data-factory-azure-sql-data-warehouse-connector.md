@@ -276,9 +276,9 @@ A tabela seguinte fornece exemplos sobre como especificar a **tableName** propri
 
 | Esquema da BD | Nome da tabela | propriedade JSON tableName |
 | --- | --- | --- |
-| dbo |MyTable |MyTable ou dbo. MyTable ou [dbo]. [MyTable] |
-| dbo1 |MyTable |dbo1. MyTable ou [dbo1]. [MyTable] |
-| dbo |My.Table |[My.Table] ou [dbo]. [My.Table] |
+| dbo |MyTable |MyTable ou dbo. MyTable ou [dbo].[MyTable] |
+| dbo1 |MyTable |dbo1.MyTable ou [dbo1].[MyTable] |
+| dbo |My.Table |[My.Table] ou [dbo].[My.Table] |
 | dbo1 |My.Table |[dbo1].[My.Table] |
 
 Se vir o seguinte erro, pode ser um problema com o valor especificado para a propriedade tableName. Consulte a tabela para a maneira correta de especificar valores para a propriedade JSON tableName.

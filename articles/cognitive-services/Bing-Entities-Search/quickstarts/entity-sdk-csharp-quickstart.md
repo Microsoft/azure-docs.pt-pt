@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: v-gedod
-ms.openlocfilehash: 99b7f05304b48b7d885a80705d05fbe24854150f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0390ef5b9364aaa54c4d46abf3164728b3a4126a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60708419"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595817"
 ---
 # <a name="send-a-search-request-with-the-bing-entity-search-sdk-for-c"></a>Enviar um pedido de pesquisa com o SDK de pesquisa de entidades do Bing paraC#
 
@@ -24,7 +24,7 @@ Utilize este guia de introdução para começar a pesquisa de entidades com o SD
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualquer edição dos [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * O framework [Json.NET](https://www.newtonsoft.com/json), disponível como um pacote NuGet.
 * Se estiver a utilizar o Linux/MacOS, esta aplicação pode ser executada com o [Mono](https://www.mono-project.com/).
 * O [pacote NuGet do SDK de pesquisa do Bing notícias](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.EntitySearch/1.2.0). Também instalar este pacote instala o seguinte:
@@ -32,7 +32,7 @@ Utilize este guia de introdução para começar a pesquisa de entidades com o SD
     * Microsoft.Rest.ClientRuntime.Azure
     * Newtonsoft.Json
 
-Para adicionar o SDK de pesquisa de entidades do Bing ao seu projeto do Visual Studio, utilize o `Manage NuGet Packages` opção no Explorador de soluções e adicione o `Microsoft.Azure.CognitiveServices.Search.EntitySearch` pacote.
+Para adicionar o SDK de pesquisa de entidades do Bing ao seu projeto do Visual Studio, utilize o **gerir pacotes NuGet** opção partir **Explorador de soluções**e adicione o `Microsoft.Azure.CognitiveServices.Search.EntitySearch` pacote.
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]

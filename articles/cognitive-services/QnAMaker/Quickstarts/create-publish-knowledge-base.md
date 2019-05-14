@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 05/10/2019
 ms.author: diberry
-ms.openlocfilehash: cf6b0cd99254d5b034687598c588ce5ef13dbd53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1411576d078115921cb04b41347264bccdc390f4
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60914516"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593967"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Criar, preparar e publicar a sua base de dados de conhecimento do Criador de FAQ
 
@@ -66,7 +66,7 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 
 1. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é utilizada para testar as suas alterações para a base de dados de conhecimento, antes de publicadas.
 
-    ![Painel de Teste](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Painel de Teste](../media/qnamaker-quickstart-kb/inspect.png)
 
 1. Selecione **Testar** novamente para fechar a pop-up **Testar**.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2f382c31c6bfb6ab71afd495c4c3f702715633c0
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d81b01992bd3bdd49a48a873281d1be1e795497a
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661893"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556023"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Utilizar a CLI do Azure e o portal do Azure para configurar o encaminhamento de mensagens do IoT Hub
 
@@ -220,7 +220,7 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 
 ## <a name="create-a-simulated-device"></a>Criar um dispositivo simulado
 
-[!INCLUDE [iot-hub-include-create- imulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
+[!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

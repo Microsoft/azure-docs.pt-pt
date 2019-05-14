@@ -66,6 +66,8 @@
     - name: Tipos e tamanhos de VM
       href: sizes.md
       items:
+        - name: VMs de 2ª Geração
+          href: generation-2.md
         - name: Fins gerais
           href: sizes-general.md
           items:

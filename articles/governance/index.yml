@@ -8,7 +8,7 @@ metadata:
   manager: carmonm
   ms.service: governance
   ms.topic: landing-page
-  ms.date: 09/18/2018
+  ms.date: 05/07/2019
   ms.author: dacoulte
 abstract:
   description: 'A Governação do Azure é um conjunto de conceitos e serviços que foram concebidos para permitir a gestão dos seus vários recursos do Azure à escala. Estes serviços oferecem a capacidade de organizar e estruturar as suas subscrições de forma lógica, criar e implementar pacotes nativos de recursos reutilizáveis e do Azure, definir, auditar e remediar os seus recursos, entre muitas outras capacidades. Utilize esta página para saber mais sobre estes conceitos e serviços e como ativar e utilizar hoje mesmo cada um deles no seu ambiente.'
@@ -53,16 +53,16 @@ sections:
               alt: Esquemas
               src: ./media/blueprints-illustration.svg
             title: Esquemas
-  - title: Implementações
+  - title: Framework de Adoção da Cloud
   - items:
       - type: list
         style: cards
         className: cardsZ
         columns: 3
         items:
-          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-            html: '<p>No passado, as empresas assumiam a propriedade e a responsabilidade de todos os níveis da tecnologia, desde a infraestrutura ao software. Agora, a cloud oferece o potencial para transformar a forma como as empresas utilizam a tecnologia, ao aprovisionar e consumir recursos conforme necessário.</p>'
-            title: Adoção do Enterprise Cloud
-          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-            html: <p>Permite aos administradores garantir que as cargas de trabalho cumprem os requisitos mínimos de governação de uma organização sem impedir que os grupos de empresas e de programadores atinjam rapidamente os seus próprios objetivos.<br /><br /></p>
-            title: Estrutura Empresarial
+          - href: /azure/architecture/cloud-adoption/index?toc=/azure/governance/toc.json
+            html: '<p>A Estrutura de Adoção da Cloud fornece diretrizes técnicas ao Microsoft Azure. Por os clientes poderem ainda estar no processo de escolher um fornecedor de cloud, esta estrutura fornece diretrizes agnósticas à cloud para decisões de nível superior, sempre que possível.</p>'
+            title: Descrição geral
+          - href: /azure/architecture/cloud-adoption/governance/index?toc=/azure/governance/toc.json
+            html: '<p>Para as empresas com políticas existentes a governar ambientes locais de TI, a governação da cloud deve complementar essas políticas empresariais.<br /><br /></p>'
+            title: Descrição Geral de Governação

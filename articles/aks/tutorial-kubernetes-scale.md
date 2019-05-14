@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 74cd73cd7f9d5be9da552fb22ef2a2750ddc8321
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ed82c214e2fbb2a1efc5917eb74ffe9b29abb115
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61029861"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560332"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Aplicações no Azure Kubernetes Service (AKS)
 
@@ -83,7 +83,7 @@ git clone https://github.com/kubernetes-incubator/metrics-server.git
 kubectl create -f metrics-server/deploy/1.8+/
 ```
 
-Para utilizar o dimensionamento automático, os seus pods têm de ter os pedidos de CPU e os limites definidos. Na `azure-vote-front` implementação, o contentor de front-end já pede 0,25 de CPU, com um limite de 0,5 de CPU. Estes pedidos de recursos e os limites são definidos como mostrado no seguinte fragmento de exemplo:
+Para utilizar o dimensionamento automático, todos os contentores em seus pods e seus pods tem de ter os pedidos de CPU e os limites definidos. Na `azure-vote-front` implementação, o contentor de front-end já pede 0,25 de CPU, com um limite de 0,5 de CPU. Estes pedidos de recursos e os limites são definidos como mostrado no seguinte fragmento de exemplo:
 
 ```yaml
 resources:

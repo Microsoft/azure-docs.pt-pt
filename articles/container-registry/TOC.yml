@@ -23,8 +23,10 @@
       items:
         - name: 1 - Criar imagens no Azure
           href: container-registry-tutorial-quick-task.md
-        - name: 2 - Automatizar compilações de imagem
+        - name: 2a - Compilação automática na consolidação de código
           href: container-registry-tutorial-build-task.md
+        - name: 2b - Tarefa de várias etapas em consolidação de código
+          href: container-registry-tutorial-multistep-task.md
         - name: 3 - Basear as atualizações de compilações de imagem
           href: container-registry-tutorial-base-image-update.md
     - name: Georreplicação de um registo
@@ -84,7 +86,7 @@
               href: container-registry-auth-aci.md
             - name: Autenticação no Azure Kubernetes Service (AKS)
               href: container-registry-auth-aks.md
-        - name: Fidedignidade do conteúdo (pré-visualização)
+        - name: Confiança de conteúdo
           href: container-registry-content-trust.md
     - name: Compilação e aplicação de patches
       items:

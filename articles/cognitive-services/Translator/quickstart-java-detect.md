@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: ed10c673e0cc76c6ed195027c9b28f7ab6084176
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 33e60161deb54f1df3f9e2bf0182ba494005bdb9
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916730"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604334"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-java"></a>Início rápido: Utilizar a API de texto do Translator para detetar o idioma de texto com Java
 
@@ -181,7 +181,7 @@ gradle run
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Encontre a abreviatura de país nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Encontre a abreviatura de país/região desta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

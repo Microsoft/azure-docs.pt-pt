@@ -4,51 +4,62 @@
   items:
     - name: Sobre os Serviços de Multimédia
       href: media-services-overview.md
-- name: Inícios rápidos
+- name: Tutoriais
   expanded: true
   items:
-    - name: Transmitir ficheiros de vídeo - .NET
-      href: stream-files-dotnet-quickstart.md
-    - name: Transmitir ficheiros de vídeo - CLI
-      href: stream-files-cli-quickstart.md
-    - name: Transmitir ficheiros de vídeo - Node.js
-      href: stream-files-nodejs-quickstart.md
-- name: Tutoriais
-  items:
-    - name: Codificar o ficheiro remoto e transmitir o vídeo - REST
-      displayName: 'encoding, job, transform'
-      href: stream-files-tutorial-with-rest.md
-    - name: Codificar o ficheiro carregado e transmitir o vídeo - .NET
-      displayName: 'encode, encoding, job, transform'
-      href: stream-files-tutorial-with-api.md
-    - name: Transmitir em direto - .NET
-      href: stream-live-tutorial-with-api.md
-    - name: Analisar o seu vídeo - .NET
-      displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
-      href: analyze-videos-tutorial-with-api.md
-    - name: Encriptar de forma dinâmica com AES-128 - .NET
-      href: protect-with-aes128.md
-    - name: Encriptar de forma dinâmica com DRM - .NET
-      displayName: 'PlayReady, Widevine'
-      href: protect-with-drm.md
+    - name: Codificar um ficheiro remoto e transmitir o vídeo
+      items:
+        - name: Com o REST
+          displayName: 'encoding, job, transform'
+          href: stream-files-tutorial-with-rest.md
+        - name: Com a CLI
+          href: stream-files-cli-quickstart.md
+        - name: Com o .NET
+          href: stream-files-dotnet-quickstart.md
+        - name: Com o Node.js
+          href: stream-files-nodejs-quickstart.md
+    - name: Codificar o ficheiro carregado e transmitir o vídeo
+      items:
+        - name: Com o .NET
+          displayName: 'encode, encoding, job, transform'
+          href: stream-files-tutorial-with-api.md
+    - name: Transmissão em direto
+      items:
+        - name: Com o .NET
+          href: stream-live-tutorial-with-api.md
+    - name: Analisar o seu vídeo
+      items:
+        - name: Com o .NET
+          displayName: 'job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset'
+          href: analyze-videos-tutorial-with-api.md
+    - name: Encriptar de forma dinâmica com AES-128
+      items:
+        - name: Com o .NET
+          href: protect-with-aes128.md
+    - name: Encriptar dinamicamente com o DRM
+      items:
+        - name: Com o .NET
+          displayName: 'PlayReady, Widevine, FairPlay'
+          href: protect-with-drm.md
 - name: Conceitos
-  href: concepts-overview.md
   items:
+    - name: Descrição geral
+      href: concepts-overview.md
     - name: Carregamento e armazenamento na cloud
       items:
         - name: Armazenamento
           href: storage-account-concept.md
-        - name: Elementos
+        - name: API de Recursos
           href: assets-concept.md
     - name: Codificação
       items:
         - name: Descrição geral
           href: encoding-concept.md
           displayName: 'encoding, presets, jobs, adaptive, bitrate'
-        - name: Transformações e Tarefas
+        - name: API de Transformações e de Tarefas
           href: transforms-jobs-concept.md
           displayName: 'preset, schema'
-        - name: Formatos do Media Encoder Standard
+        - name: Codificador de Codificador Standard
           displayName: 'containers, codecs'
           href: media-encoder-standard-formats.md
         - name: Degraus de bitrate adaptativo auto-generativo
@@ -62,53 +73,53 @@
         - name: Descrição geral
           href: analyzing-video-audio-files-concept.md
           displayName: 'analyzing, presets, jobs'
-        - name: Transformações e Tarefas
+        - name: API de Transformações e de Tarefas
           href: transforms-jobs-concept.md
         - name: Códigos de erro das tarefas
           href: job-error-codes.md
-    - name: 'Empacotamento, entrega, proteção'
+    - name: Empacotamento e entrega
       items:
-        - name: Empacotamento
-          items:
-            - name: Empacotamento dinâmico
-              displayName: 'origin, packager'
-              href: dynamic-packaging-overview.md
-            - name: Manifestos dinâmicos
-              href: filters-dynamic-manifest-overview.md
-            - name: Filtros
-              href: filters-concept.md
-        - name: Proteção de conteúdo
-          items:
-            - name: Protocolos de transmissão em fluxo e tipos de encriptação
-              displayName: 'dynamic, encryption'
-              href: content-protection-overview.md
-            - name: Sistema multi-DRM com controlo de acesso
-              href: design-multi-drm-system-with-access-control.md
-            - name: Licenças DRM
-              items:
-                - name: Modelo de licença PlayReady
-                  href: playready-license-template-overview.md
-                - name: Modelo de licença do Widevine
-                  href: widevine-license-template-overview.md
-                - name: Requisitos de licença do FairPlay
-                  href: fairplay-license-overview.md
-        - name: Pontos Finais de Transmissão em Fluxo/Origem
+        - name: Empacotamento dinâmico
+          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest'
+          href: dynamic-packaging-overview.md
+        - name: Manifestos dinâmicos
+          href: filters-dynamic-manifest-overview.md
+        - name: API de Filtros
+          href: filters-concept.md
+        - name: API de Pontos Finais de Transmissão em Fluxo
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
-        - name: Localizadores de Transmissão em Fluxo
+        - name: API de Localizadores de Transmissão em Fluxo
           displayName: URLs
           href: streaming-locators-concept.md
-        - name: Políticas de Transmissão em Fluxo
+        - name: API de Políticas de Transmissão em Fluxo
           href: streaming-policy-concept.md
-        - name: Políticas de Chave de Conteúdo
-          href: content-key-policy-concept.md
         - name: Códigos de erro do Ponto Final de Transmissão em Fluxo
           href: streaming-endpoint-error-codes.md
+    - name: Encriptação dinâmica e entrega de chaves
+      items:
+        - name: Protocolos de transmissão em fluxo e tipos de encriptação
+          displayName: 'dynamic, encryption, content protection, PlayReady, Widevine, FairPlay'
+          href: content-protection-overview.md
+        - name: Sistema multi-DRM com controlo de acesso
+          href: design-multi-drm-system-with-access-control.md
+        - name: Licenças DRM
+          items:
+            - name: Modelo de licença PlayReady
+              href: playready-license-template-overview.md
+            - name: Modelo de licença do Widevine
+              href: widevine-license-template-overview.md
+            - name: Requisitos de licença do FairPlay
+              href: fairplay-license-overview.md
+        - name: API de Políticas de Transmissão em Fluxo
+          href: streaming-policy-concept.md
+        - name: API de Políticas de Chave de Conteúdo
+          href: content-key-policy-concept.md
     - name: Transmissão em direto
       items:
         - name: Descrição geral
           href: live-streaming-overview.md
-        - name: Eventos em Direto e Saídas em Direto
+        - name: API de Eventos e Saídas ao Vivo
           href: live-events-outputs-concept.md
         - name: Codificadores em direto recomendados
           href: recommended-on-premises-live-encoders.md
@@ -136,9 +147,10 @@
         - name: Media Player do Azure
           href: use-azure-media-player.md
     - name: Desenvolver com APIs v3
-      href: media-services-apis-overview.md
-      displayName: 'access, naming, long-running'
       items:
+        - name: Descrição geral
+          href: media-services-apis-overview.md
+          displayName: 'accessing, naming, long-running'
         - name: 'Paginar, filtrar e ordenar entidades'
           href: entities-overview.md
         - name: RBAC
@@ -235,10 +247,13 @@
       items:
         - name: Com o .NET
           href: filters-dynamic-manifest-dotnet-howto.md
+          displayName: filters
         - name: Com o REST
           href: filters-dynamic-manifest-rest-howto.md
+          displayName: filters
         - name: Com a CLI
           href: filters-dynamic-manifest-cli-howto.md
+          displayName: filters
     - name: Entregar conteúdo
       items:
         - name: Publicar um recurso - CLI
@@ -297,6 +312,8 @@
           href: 'https://aka.ms/ams-v3-python-sdk'
         - name: Node.js
           href: 'https://aka.ms/ams-v3-nodejs-sdk'
+        - name: Ir
+          href: 'https://aka.ms/ams-v3-go-sdk'
         - name: Ruby
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Explorador dos Serviços de Multimédia do Azure

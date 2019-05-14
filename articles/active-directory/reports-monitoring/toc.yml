@@ -9,52 +9,38 @@
 - name: Inícios rápidos
   expanded: true
   items:
-    - name: Relatórios
-      items:
-        - name: Transferir um relatório de início de sessão
-          href: quickstart-download-sign-in-report.md
-        - name: Transferir um relatório de auditoria
-          href: quickstart-download-audit-report.md
-        - name: Configurar localizações com nome
-          href: quickstart-configure-named-locations.md
-        - name: Instalar pacote de conteúdos do Power BI
-          href: quickstart-install-power-bi-content-pack.md
-    - name: Monitorização
-      items:
-        - name: Encaminhar registos para a conta de armazenamento
-          href: quickstart-azure-monitor-route-logs-to-storage-account.md
+    - name: Transferir um relatório de início de sessão
+      href: quickstart-download-sign-in-report.md
+    - name: Transferir um relatório de auditoria
+      href: quickstart-download-audit-report.md
+    - name: Configurar localizações com nome
+      href: quickstart-configure-named-locations.md
+    - name: Instalar pacote de conteúdos do Power BI
+      href: quickstart-install-power-bi-content-pack.md
+    - name: Encaminhar registos para a conta de armazenamento
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Tutoriais
   items:
-    - name: Relatórios
-      items:
-        - name: Aceder à API de Relatórios com certificados
-          href: tutorial-access-api-with-certificates.md
-    - name: Monitorização
-      items:
-        - name: Transmitir registos no hub de eventos
-          href: tutorial-azure-monitor-stream-logs-to-event-hub.md
-        - name: Integrar os registos de atividade com o Splunk
-          href: tutorial-integrate-activity-logs-with-splunk.md
+    - name: Aceder à API de Relatórios com certificados
+      href: tutorial-access-api-with-certificates.md
+    - name: Transmitir registos no hub de eventos
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
 - name: Conceitos
   items:
-    - name: Relatórios
-      items:
-        - name: Registos de auditoria
-          href: concept-audit-logs.md
-        - name: Registos de início de sessão
-          href: concept-sign-ins.md
-        - name: Inícios de sessão de risco
-          href: concept-risky-sign-ins.md
-        - name: Eventos de risco
-          href: concept-risk-events.md
-        - name: Utilizadores em risco
-          href: concept-user-at-risk.md
-        - name: APIs de Relatórios
-          href: concept-reporting-api.md
-    - name: Monitorização
-      items:
-        - name: Registos do Azure AD no Azure Monitor
-          href: concept-activity-logs-azure-monitor.md
+    - name: Registos de auditoria
+      href: concept-audit-logs.md
+    - name: Registos de início de sessão
+      href: concept-sign-ins.md
+    - name: Inícios de sessão de risco
+      href: concept-risky-sign-ins.md
+    - name: Eventos de risco
+      href: concept-risk-events.md
+    - name: Utilizadores em risco
+      href: concept-user-at-risk.md
+    - name: APIs de Relatórios
+      href: concept-reporting-api.md
+    - name: Registos do Azure AD no Azure Monitor
+      href: concept-activity-logs-azure-monitor.md
 - name: Guias de procedimentos
   expanded: true
   items:
@@ -74,16 +60,18 @@
           href: howto-use-azure-monitor-workbooks.md
     - name: Monitorização
       items:
-        - name: Integrar os registos de atividade com os registos do Azure Monitor
-          href: howto-integrate-activity-logs-with-log-analytics.md
         - name: Analisar os registos de atividade com os registos do Azure Monitor
           href: howto-analyze-activity-logs-log-analytics.md
         - name: Instalar e utilizar as vistas da análise de registos para o Azure AD
           href: howto-install-use-log-analytics-views.md
-        - name: Integrar registos de atividade com o SumoLogic
-          href: howto-integrate-activity-logs-with-sumologic.md
+        - name: Integrar os registos de atividade com os registos do Azure Monitor
+          href: howto-integrate-activity-logs-with-log-analytics.md
         - name: Integrar os registos de atividades com o ArcSight
           href: howto-integrate-activity-logs-with-arcsight.md
+        - name: Integrar os registos de atividade com o Splunk
+          href: howto-integrate-activity-logs-with-splunk.md
+        - name: Integrar registos de atividade com o SumoLogic
+          href: howto-integrate-activity-logs-with-sumologic.md
     - name: Resolução de problemas
       items:
         - name: Dados de auditoria em falta
@@ -97,25 +85,21 @@
 - name: Referência
   expanded: true
   items:
-    - name: Relatórios
-      items:
-        - name: Referência de API de registos de auditoria
-          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
-        - name: Referência de API de registos de início de sessão
-          href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
-        - name: Atividades de auditoria
-          href: reference-audit-activities.md
-        - name: Políticas de retenção de dados
-          href: reference-reports-data-retention.md
-        - name: Latências dos relatórios
-          href: reference-reports-latencies.md
-        - name: Códigos de erro de início de sessão
-          href: reference-sign-ins-error-codes.md
-        - name: Perguntas mais frequentes
-          href: reports-faq.md
-    - name: Monitorização
-      items:
-        - name: Esquema de registo de auditoria
-          href: reference-azure-monitor-audit-log-schema.md
-        - name: Esquema de início de sessão do registo
-          href: reference-azure-monitor-sign-ins-log-schema.md
+    - name: Referência de API de registos de auditoria
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+    - name: Referência de API de registos de início de sessão
+      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+    - name: Atividades de auditoria
+      href: reference-audit-activities.md
+    - name: Políticas de retenção de dados
+      href: reference-reports-data-retention.md
+    - name: Latências dos relatórios
+      href: reference-reports-latencies.md
+    - name: Códigos de erro de início de sessão
+      href: reference-sign-ins-error-codes.md
+    - name: Perguntas mais frequentes
+      href: reports-faq.md
+    - name: Esquema de registo de auditoria
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: Esquema de início de sessão do registo
+      href: reference-azure-monitor-sign-ins-log-schema.md

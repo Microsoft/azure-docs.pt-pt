@@ -13,7 +13,7 @@
       items:
         - name: Carregar e consultar um índice
           href: search-get-started-portal.md
-        - name: Melhorar com a IA (Pesquisa Cognitiva)
+        - name: Enriquecer com IA (pesquisa cognitiva)
           href: cognitive-search-quickstart-blob.md
     - name: 'C#'
       items:
@@ -33,7 +33,7 @@
       href: search-indexer-tutorial.md
     - name: Indexar blobs de JSON do Azure
       href: search-semi-structured-data.md
-    - name: Melhorar com a IA (Pesquisa Cognitiva)
+    - name: Enriquecer com IA (pesquisa cognitiva)
       items:
         - name: REST
           href: cognitive-search-tutorial-blob.md
@@ -57,7 +57,7 @@
       href: search-lucene-query-architecture.md
     - name: Pesquisa cognitiva
       href: cognitive-search-concept-intro.md
-    - name: Knowledge Store
+    - name: Arquivo de dados de conhecimento
       href: knowledge-store-concept-intro.md
     - name: Projeções
       href: knowledge-store-projection-overview.md
@@ -207,7 +207,7 @@
           href: cognitive-search-concept-troubleshooting.md
         - name: Ligações de documentação
           href: cognitive-search-resources-documentation.md
-    - name: Knowledge Store (pré-visualização)
+    - name: Arquivo de dados de conhecimento (pré-visualização)
       items:
         - name: Como começar
           href: knowledge-store-howto.md

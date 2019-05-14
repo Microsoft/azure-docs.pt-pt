@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: e46dae199f4d45c325e41fa5432e98cba9a2f4ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 90357c13003820a25ee52aab5cda83029c9d85ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61367491"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601553"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Utilize o Azure Application Insights para compreender de que forma os clientes estão a utilizar a sua aplicação
 
@@ -35,7 +35,7 @@ O Azure Application Insights recolhe informações de utilização que o ajudam 
 
 Para concluir este tutorial:
 
-- Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 - Transfira e instale o [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
@@ -59,11 +59,11 @@ O painel **Users** (Utilizadores) permite-lhe ficar a par de detalhes importante
 
     ![Alterar o Intervalo de Tempo](media/tutorial-users/TimeRange.png)
 
-4. Clique no menu pendente **Split by** (Dividir por) para adicionar uma discriminação por propriedade do utilizador ao gráfico.  Selecione **Country or region** (País ou região).  O gráfico inclui os mesmos dados, mas permite ver uma discriminação do número de utilizadores de cada país.
+4. Clique no menu pendente **Split by** (Dividir por) para adicionar uma discriminação por propriedade do utilizador ao gráfico.  Selecione **Country or region** (País ou região).  O gráfico inclui os mesmos dados, mas permite-lhe ver uma divisão do número de utilizadores para cada país/região.
 
     ![Gráfico de País ou Região](media/tutorial-users/CountryorRegion.png)
 
-5. Posicione o cursor por cima das diferentes barras no gráfico e repare que a contagem de cada país reflete apenas o período de tempo que as barras representam.
+5. Posicione o cursor sobre diferentes barras no gráfico e tenha em atenção que a contagem para cada país/região reflete apenas a janela de tempo representada por essa barra.
 6. Veja a coluna **Insights** (Informações), no lado direito, que analisam os seus dados de utilizador.  Essas análises disponibilizam informações como o número de sessões únicas durante o período de tempo e registos com propriedades comuns significativas dos dados dos utilizadores 
 
     ![Coluna Informações](media/tutorial-users/insights.png)

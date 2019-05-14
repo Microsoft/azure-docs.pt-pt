@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 7619b8831d75ce639c6f6c773c7c7d491abc93e7
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 636993879422edaf08051be61b9d4770effdcae0
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62116210"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556061"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -74,7 +74,7 @@ Neste tutorial, irá:
 
    - [Grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
    - [Balanceadores de carga](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-   - [IP público](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [IP público](../virtual-network/virtual-network-public-ip-address.md)
     
      Para outros componentes de rede, consulte a [documentação de rede](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
@@ -106,7 +106,7 @@ O site Recovery obtém uma lista de VMs que estão associadas a subscrição e g
 1. Para este tutorial, aceite as outras predefinições.
 1. Selecione **ativar a replicação**. Este passo inicia uma tarefa para ativar a replicação para a VM.
 
-    ![Ativar a replicação](media/tutorial-migrate-azure-to-azure/settings.png)
+    ![Ativar replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
 ## <a name="test-the-configuration"></a>Testar a configuração
 

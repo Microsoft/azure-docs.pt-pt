@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 2830e95f042d5c83d91d6c026d2fa2e70eb3e3b2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65463533"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integração do Active Directory do Azure com BlueJeans
 
@@ -108,7 +108,7 @@ Para configurar o Azure AD início de sessão único com BlueJeans, execute os s
 
     ![BlueJeans domínio e URLs únicas início de sessão em informações](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-   - Na **identificador** texto, escreva o seguinte: `https://samlsp.bluejeans.com`
+   - Na **identificador** texto, escreva o seguinte: `http://samlsp.bluejeans.com`
     
    - Na **URL de início de sessão** caixa de texto, escreva o URL da página de aterrissagem fornecido pela BlueJeans (para obter este valor, pode contactar o [equipa de suporte de cliente BlueJeans](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
     
@@ -160,9 +160,9 @@ Para configurar o Azure AD início de sessão único com BlueJeans, execute os s
 
     ![Guardar alterações](./media/bluejeans-tutorial/ic785874.png "guardar alterações")
 
-    a. Na **Id de utilizador** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    a. Na **Id de utilizador** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. Na **E-Mail** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Na **E-Mail** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Clique em **guardar alterações**.
 

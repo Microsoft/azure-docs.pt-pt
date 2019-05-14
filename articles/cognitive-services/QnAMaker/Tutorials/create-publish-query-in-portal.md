@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 85f8643a0936209c8f280498df92555a7b40c533
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: a80a815d4a1a892b5258aef1c1fc7ef4ab881fe7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149961"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594157"
 ---
 # <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: No portal do QnA Maker, criar uma base de dados de conhecimento
 
@@ -68,7 +68,7 @@ Este tutorial requer um [serviço Criador de FAQ](../How-To/set-up-qnamaker-serv
     |--|--|--|
     |do IdP|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs` |Os conteúdos de FAQ nesse URL estão formatados com uma pergunta, seguida de uma resposta. O Criador de FAQ consegue interpretar este formato para extrair perguntas e as respostas associadas.|
     |Ficheiro |_não utilizado neste tutorial_|Esta definição carrega ficheiros para perguntas e respostas. |
-    |Personalidade de Chit-chat|Amigável|Esta definição dá uma personalidade informal e amigável a perguntas e respostas comuns. Pode editar estas perguntas e respostas mais tarde. |
+    |Personalidade de Chit-chat|Amigável|Isso dá um amigável e informais [personalidade](../Concepts/best-practices.md#chit-chat) para perguntas e respostas comuns. Pode editar estas perguntas e respostas mais tarde. |
 
     ![Passo 4 do processo de criação da BDC](../media/qnamaker-tutorial-create-publish-query-in-portal/create-kb-step-4.png)
 

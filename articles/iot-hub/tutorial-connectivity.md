@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 02/22/2019
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: cd60129e2da0b0c2130b300159953bd81c4aeb82
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: caa249dda4215dfcef13df96d2dd4245cae49efd
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077569"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595749"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutorial: Utilizar um dispositivo simulado para testar a conectividade com o seu hub IoT
 
@@ -39,7 +39,7 @@ Os scripts da CLI que executa neste tutorial utilizam a [Extensão do Microsoft 
 az extension add --name azure-cli-iot-ext
 ```
 
-A aplicação de simulador de dispositivos que irá executar neste tutorial é escrita com Node.js. Precisa do Node.js. v4.X.X ou posterior no seu computador de desenvolvimento.
+A aplicação de simulador de dispositivos que irá executar neste tutorial é escrita com Node.js. Terá de node. js v10.x.x ou posterior no seu computador de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -154,7 +154,7 @@ Efetuou a autenticação com êxito a partir de um dispositivo através de um to
 
 Um dispositivo pode utilizar qualquer um dos seguintes protocolos para estabelecer ligação ao hub do IoT:
 
-| Protocolo | Porta de saída |
+| Protocol | Porta de saída |
 | --- | --- |
 | MQTT |8883 |
 | MQTT através de WebSockets |443 |

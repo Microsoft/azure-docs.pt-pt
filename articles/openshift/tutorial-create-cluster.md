@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/08/2019
-ms.openlocfilehash: baada8a5238725456ca4a2ec7e8257c229066115
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/13/2019
+ms.openlocfilehash: dda5df0e5b9b9509482cb6dcdcda242b4daa230f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466186"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596347"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Azure Red Hat OpenShift
 
@@ -32,13 +32,17 @@ Nesta série de tutoriais, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+> [!IMPORTANT]
+> Este tutorial requer a versão 2.0.65 da CLI do Azure
+
 Antes de começar este tutorial:
 
 Certifique-se de que [configurar o ambiente de desenvolvimento](howto-setup-environment.md), que inclui:
-- Instalar a CLI mais recente (versão 2.0.64 ou superior)
-- Criação de um inquilino
-- Criação de um objeto de aplicativo do Azure
-- Criar um utilizador do Active Directory utilizado para iniciar sessão em aplicações em execução no cluster.
+- Instalar a CLI mais recente (versão 2.0.65 ou superior)
+- Criação de um inquilino se ainda não tiver uma
+- Criar um objeto de aplicativo do Azure, se ainda não tiver uma
+- Criar um grupo de segurança
+- Criar um utilizador do Active Directory para iniciar sessão no cluster.
 
 ## <a name="step-1-sign-in-to-azure"></a>Passo 1: Inicie sessão no  Azure
 
@@ -55,33 +59,31 @@ az login
 Na janela de comando Bash, defina as seguintes variáveis:
 
 > [!IMPORTANT]
-> O nome do cluster tem de estar todo em minúsculo ou a criação do cluster irá falhar.
+> Escolha um nome para cluster que é exclusivo e a criação de cluster ou em minúsculas todos os irá falhar.
 
 ```bash
 CLUSTER_NAME=<cluster name in lowercase>
 ```
 
- Utilize o mesmo nome para o cluster que escolheu no passo 6 de [criar novo registo de aplicação](howto-aad-app-configuration.md#create-a-new-app-registration).
+Escolha uma localização para criar o cluster. Para obter uma lista de regiões do azure que suporta o OpenShift no Azure, consulte [regiões suportadas](supported-resources.md#azure-regions). Por exemplo: `LOCATION=eastus`.
 
 ```bash
 LOCATION=<location>
 ```
 
-Escolha uma localização para criar o cluster. Para obter uma lista de regiões do azure que suporta o OpenShift no Azure, consulte [regiões suportadas](supported-resources.md#azure-regions). Por exemplo: `LOCATION=eastus`.
-
-Definir `FQDN` para o nome completamente qualificado do seu cluster. Este nome é composto pelo nome do cluster, a localização, e `.cloudapp.azure.com` acrescentado ao fim. Este é o mesmo que o URL de início de sessão que criou no passo 6 de [criar novo registo de aplicação](howto-aad-app-configuration.md#create-a-new-app-registration). Por exemplo:  
-
-```bash
-FQDN=$CLUSTER_NAME.$LOCATION.cloudapp.azure.com
-```
-
-Definir `APPID` para o valor que guardou no passo 9 [criar um novo registo de aplicação](howto-aad-app-configuration.md#create-a-new-app-registration).  
+Definir `APPID` para o valor que guardou no passo 5 da [criar um registo de aplicação do Azure AD](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
 
 ```bash
 APPID=<app ID value>
 ```
 
-Definir `SECRET` para o valor que guardou no passo 6 de [criar um segredo de cliente](howto-aad-app-configuration.md#create-a-client-secret).  
+Definir 'GROUPID' para o valor que guardou no passo 10 da [criar um grupo de segurança do Azure AD](howto-aad-app-configuration.md#create-an-azure-ad-security-group).
+
+```bash
+GROUPID=<group ID value>
+```
+
+Definir `SECRET` para o valor que guardou no passo 8 [criar um segredo de cliente](howto-aad-app-configuration.md#create-a-client-secret).  
 
 ```bash
 SECRET=<secret value>
@@ -93,7 +95,7 @@ Definir `TENANT` para o valor de ID de inquilino que guardou no passo 7 da [cria
 TENANT=<tenant ID>
 ```
 
-Crie o grupo de recursos para o cluster. Execute o seguinte comando a partir da shell de Bash que utilizou para definir as variáveis acima:
+Crie o grupo de recursos para o cluster. Execute o seguinte comando a partir da shell de Bash mesmo que utilizou para definir as variáveis acima:
 
 ```bash
 az group create --name $CLUSTER_NAME --location $LOCATION
@@ -117,33 +119,59 @@ Por exemplo: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 
 ### <a name="create-the-cluster"></a>Criar o cluster
 
-Agora, está pronto para criar um cluster.
+Agora, está pronto para criar um cluster. O seguinte irá criar o cluster no Azure AD especificado de inquilino, especifique o objeto de aplicação do Azure AD e o segredo para utilizar como uma entidade de segurança e o grupo de segurança que contém os membros que tenham acesso de administrador para o cluster.
 
- Se a rede virtual do cluster não estiver a ligar a uma rede virtual existente, omita à direita `--vnet-peer-id $VNET_ID` parâmetro no exemplo a seguir.
+Se estiver **não** peering seu cluster a uma rede virtual, utilize o seguinte comando:
 
 ```bash
-az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --fqdn $FQDN --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --vnet-peer-id $VNET_ID
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-Após alguns minutos, `az openshift create` será concluído com êxito e devolver uma resposta JSON que contém os detalhes do seu cluster.
+Se **estão** peering seu cluster a uma rede virtual, utilize o seguinte comando que adiciona o `--vnet-peer` sinalizador:
+ 
+```bash
+az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
+```
 
 > [!NOTE]
-> Se obtiver um erro que o nome do anfitrião não está disponível, poderá ser porque o nome do cluster não é exclusivo. Tente eliminar o registo de aplicação original e refazer os passos em [criar um novo registo de aplicações] (howto-aad-app-configuration.md#create-a-new-app-registration) (omitindo o último passo da criação de um novo utilizador, desde que já criou um) com um nome do cluster diferente.
+> Se obtiver um erro que o nome do anfitrião não está disponível, poderá ser porque o nome do cluster não é exclusivo. Tente eliminar o registo de aplicação original e refazer as etapas com outro nome de cluster no [criar um novo registo de aplicações] (howto-aad-app-configuration.md#create-a-new-app-registration), omitindo o passo de criação de um novo grupo de segurança e utilizadores.
 
-## <a name="step-3-sign-in-to-the-openshift-console"></a>Passo 3: Inicie sessão consola do OpenShift
+Após alguns minutos, `az openshift create` será concluída.
+
+### <a name="get-the-sign-in-url-for-your-cluster"></a>Obter o início de sessão no URL do seu cluster
+
+Obter o URL para iniciar sessão no seu cluster, executando o seguinte comando:
+
+```bash
+az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
+```
+
+Procure o `publicHostName` na saída, por exemplo: `"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
+
+URL de início de sessão para o seu cluster estará `https://` seguido do `publicHostName` valor.  Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Irá utilizar este URI no próximo passo como parte do URI de redirecionamento do registo da aplicação.
+
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>Passo 3: Atualizar o seu URI de redirecionamento registo de aplicação
+
+Agora que tem o início de sessão no URL para o cluster, defina o redirecionamento de registo de aplicação da interface do Usuário:
+
+1. Abra o [painel de registos de aplicação](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview).
+2. Clique no seu objeto de registo de aplicação.
+3. Clique em **adicionar um URI de redirecionamento**.
+4. Certifique-se de que **tipo** é **Web** e defina o **URI de REDIRECIONAMENTO** usando o seguinte padrão: `https://<public host name>/oauth2callback/Azure%20AD`. Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
+5. Clique em **Guardar**
+
+## <a name="step-4-sign-in-to-the-openshift-console"></a>Passo 4: Inicie sessão consola do OpenShift
 
 Agora, está pronto para iniciar sessão na consola do OpenShift para o novo cluster. O [consola de Web do OpenShift](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) permite-lhe visualizar, navegar e gerenciar o conteúdo dos seus projetos do OpenShift.
 
-Vai iniciar sessão como o [novo utilizador do Azure AD](howto-aad-app-configuration.md#create-a-new-active-directory-user) criadas para testar. Para tal, terá uma instância do navegador nova que ainda não armazenados em cache a identidade que normalmente utiliza para iniciar sessão no portal do Azure.
+Precisará de uma instância do navegador nova que ainda não armazenados em cache a identidade que normalmente utiliza para iniciar sessão no portal do Azure.
 
 1. Abra um *incognito* janela (cromado) ou *InPrivate* janela (Microsoft Edge).
-2. Navegue para o URL de início de sessão que criou no passo 6 de [criar um novo registo de aplicação](howto-aad-app-configuration.md#create-a-new-app-registration). Por exemplo, https://constoso.eastus.cloudapp.azure.com
+2. Navegue para o URL de início de sessão que obteve anteriormente, por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`
 
-> [!NOTE]
-> A consola do OpenShift utiliza um certificado autoassinado.
-> Quando lhe for pedido no seu browser, ignore o aviso e aceitar o certificado "não confiável".
+Inicie sessão com o nome de utilizador que criou no passo 3 [criar um novo utilizador do Azure Active Directory](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user).
 
-Inicie sessão com o utilizador e palavra-passe que criou no [criar um novo utilizador do Active Directory](howto-aad-app-configuration.md#create-a-new-active-directory-user) quando o **permissões solicitadas** for apresentada a caixa de diálogo, selecione **consentir em nome da sua organização**  e, em seguida **aceitar**.
+R **permissões solicitadas** será apresentada a caixa de diálogo. Clique em **consentir em nome da sua organização** e, em seguida, clique em **Accept**.
 
 Agora são registadas para a consola de cluster.
 
@@ -151,7 +179,7 @@ Agora são registadas para a consola de cluster.
 
  Saiba mais sobre [utilizando a consola do OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) para criar e incorporado imagens a [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) documentação.
 
-## <a name="step-4-install-the-openshift-cli"></a>Passo 4: Instalar a CLI do OpenShift
+## <a name="step-5-install-the-openshift-cli"></a>Passo 5: Instalar a CLI do OpenShift
 
 O [OpenShift CLI](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (ou *ferramentas de OC*) fornecer comandos para gestão de aplicações e os utilitários de nível inferior para interagir com os vários componentes do seu cluster do OpenShift.
 

@@ -89,8 +89,6 @@
     - name: Capacidade de interpretação do modelo
       displayName: explainability
       href: machine-learning-interpretability-explainability.md
-    - name: Acelerar com GPUs
-      href: concept-accelerate-inferencing-with-gpus.md
     - name: Acelerar com FPGAs
       href: concept-accelerate-with-fpgas.md
     - name: Otimizar com o ONNX e o ONNX Runtime
@@ -197,6 +195,8 @@
         - name: Onde e como implementar
           displayName: publish azure kubernetes azure container instances
           href: how-to-deploy-and-where.md
+        - name: GPUs
+          href: how-to-deploy-inferencing-gpus.md
         - name: FPGAs
           href: how-to-deploy-fpga-web-service.md
         - name: IoT Edge
@@ -226,7 +226,7 @@
           href: how-to-create-your-first-pipeline.md
         - name: CI/CD de fluxos de trabalho do ML com os Pipelines do Azure
           displayName: 'continuous, integration, delivery'
-          href: /azure/devops/pipelines/targets/azure-machine-learning?view=azure-devop
+          href: /azure/devops/pipelines/targets/azure-machine-learning
           mainContext: true
     - name: Gerir quotas de recursos
       displayName: limits

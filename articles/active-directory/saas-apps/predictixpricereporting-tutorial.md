@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do Active Directory do Azure com os relatórios de preço Predictix | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e o preço de Predictix relatórios.
+description: Neste tutorial, irá aprender como configurar o início de sessão único entre o Azure Active Directory e o preço de Predictix relatórios.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,192 +15,193 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: aa96bcbc7c75f1a4dcd28a5dbe7479f99aabe908
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8074919a61ed4f2e3d0b127c13e733b0c485bf62
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341935"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-predictix-price-reporting"></a>Tutorial: Integração do Active Directory do Azure com os relatórios de preço Predictix
 
-Neste tutorial, saiba como integrar o preço de Predictix relatórios com o Azure Active Directory (Azure AD).
-Integrar o preço de Predictix relatórios no Azure AD fornece as seguintes vantagens:
+Neste tutorial, irá aprender como integrar o preço de Predictix relatórios com o Azure Active Directory (Azure AD).
 
-* Pode controlar no Azure AD que tenha acesso aos relatórios de preço Predictix.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Predictix preço Reporting (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+Esta integração oferece estes benefícios:
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Pode utilizar o Azure AD para controlar quem tem acesso aos relatórios de preço Predictix.
+* Pode permitir que os utilizadores ter automaticamente sessão iniciada no Predictix preço Reporting (início de sessão único) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central: portal do Azure.
+
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Se não tiver uma subscrição do Azure, [criar uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com os relatórios de preço Predictix, terá dos seguintes itens:
+Para configurar a integração do Azure AD com os relatórios de preço Predictix, terá de:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Relatórios de preço Predictix logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode inscrever-se para obter um [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/) subscrição.
+* Uma subscrição de relatórios de preço Predictix que tem início de sessão único ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, irá configurar e testar o Azure AD início de sessão único num ambiente de teste.
 
-* Oferece suporte a relatórios de preço Predictix **SP** iniciada SSO
+* Relatórios de preço Predictix suporta SSO iniciado por SP.
 
 ## <a name="adding-predictix-price-reporting-from-the-gallery"></a>Adicionando relatórios de preço Predictix da Galeria
 
 Para configurar a integração dos relatórios de preço Predictix com o Azure AD, terá de adicionar relatórios de preço Predictix partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar relatórios de preço Predictix partir da galeria, execute os seguintes passos:**
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+    ![Selecione Azure Active Directory](common/select-azuread.png)
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
-
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+2. Aceda a **aplicações empresariais** > **todas as aplicações**:
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar uma aplicação, selecione **nova aplicação** na parte superior da janela:
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![Selecionar novo aplicativo](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Reporting de preço Predictix**, selecione **relatórios de preço Predictix** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+4. Na caixa de pesquisa, introduza **Reporting de preço Predictix**. Selecione **Reporting de preço Predictix** nos resultados da pesquisa e, em seguida, selecione **Add**.
 
-     ![Relatórios de preço Predictix na lista de resultados](common/search-new-app.png)
+     ![Resultados da pesquisa](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com os relatórios de preço de Predictix com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no relatório de preço Predictix deve ser estabelecido.
+Nesta secção, irá configurar e testar o Azure AD início de sessão único com os relatórios de preço Predictix com um utilizador de teste com o nome Eduarda Almeida.
+Para ativar o início de sessão único, tem de estabelecer uma relação entre um utilizador do Azure AD e o utilizador correspondente no relatório de preço Predictix.
 
-Para configurar e testar o Azure AD início de sessão único com os relatórios de preço Predictix, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com os relatórios de preço Predictix, tem de concluir estes passos:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Predictix preço relatórios de início de sessão único](#configure-predictix-price-reporting-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste de relatórios de preço Predictix](#create-predictix-price-reporting-test-user)**  - para ter um equivalente da Eduarda Almeida na Predictix preço relatórios que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  para ativar a funcionalidade para os seus utilizadores.
+2. **[Configurar relatórios de preço Predictix início de sessão único](#configure-predictix-price-reporting-single-sign-on)**  no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar o Azure AD início de sessão único para o utilizador.
+5. **[Criar um utilizador de teste relatórios de preço Predictix](#create-a-predictix-price-reporting-test-user)**  associado a representação do Azure AD do utilizador.
+6. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, irá ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com os relatórios de preço Predictix, execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com os relatórios de preço Predictix, siga estes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **relatórios de preço Predictix** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na **relatórios de preço Predictix** página de integração de aplicações, selecione **início de sessão único**:
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Selecione início de sessão único](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Selecione um método de início de sessão único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Ícone editar](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na **configuração básica de SAML** diálogo caixa, conclua os passos seguintes.
 
-    ![Predictix preço Reporting domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
+    ![Caixa de diálogo de configuração de SAML básica](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<companyname-pricing>.predictix.com/sso/request`
+    1. Na **iniciar sessão no URL** , introduza um URL neste padrão:
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
+       `https://<companyname-pricing>.predictix.com/sso/request`
 
-    | |
-    |--|
-    | `https://<companyname-pricing>.predictix.com` |
-    | `https://<companyname-pricing>.dev.predictix.com` |
-    | |
+    1. Na **identificador (ID de entidade)** , introduza um URL neste padrão:
+
+        | |
+        |--|
+        | `https://<companyname-pricing>.predictix.com` |
+        | `https://<companyname-pricing>.dev.predictix.com` |
+        | |
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente de relatórios de preço de Predictix](https://www.infor.com/company/customer-center/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores são marcadores de posição. Tem de utilizar o URL de início de sessão real e o identificador. Contacte os [equipa de suporte a relatórios de preço Predictix](https://www.infor.com/company/customer-center/) para obter os valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** caixa de diálogo no portal do Azure.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, selecione o **transferir** ligação junto a **certificado (Base64)** acordo com suas necessidades e guarde o certificado no seu computador:
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![Ligação de transferência do certificado](common/certificatebase64.png)
 
-6. Sobre o **configurar os relatórios de preço Predictix** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na **configurar os relatórios de preço Predictix** secção, copie os URLs adequados, com base nos seus requisitos.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copie os URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    1. **URL de início de sessão**.
 
-    b. Identificador do Azure AD
+    1. **Azure AD Identifier**.
 
-    c. URL de fim de sessão
+    1. **URL de fim de sessão**.
 
-### <a name="configure-predictix-price-reporting-single-sign-on"></a>Configurar o preço de Predictix relatórios de início de sessão único
+### <a name="configure-predictix-price-reporting-single-sign-on"></a>Configurar relatórios de preço Predictix início de sessão único
 
-Para configurar o início de sessão único num **Reporting de preço Predictix** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [Predictix preço Relatórios a equipa de suporte](https://www.infor.com/company/customer-center/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único no lado do preço de Predictix relatórios, terá de enviar o certificado que transferiu e os URLs que copiou do portal do Azure para o [equipa de suporte a relatórios de preço Predictix](https://www.infor.com/company/customer-center/). Esta equipe garante que a ligação de SAML SSO está definida corretamente em ambos os lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, selecione **do Azure Active Directory** no painel esquerdo, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**:
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Selecione todos os utilizadores](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **novo utilizador** na parte superior do ecrã:
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Selecione o novo utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Na **utilizador** diálogo caixa, siga os passos seguintes.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![Caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    1. Na **Name** , introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >**. (Por exemplo, BrittaSimon@contoso.com.)
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    1. Selecione **mostrar palavra-passe**e, em seguida, anote o valor que está a **palavra-passe** caixa.
 
-    d. Clique em **Criar**.
+    1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso aos relatórios de preço Predictix.
+Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure AD início de sessão único, concedendo acesso aos relatórios de preço Predictix.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **relatórios de preço Predictix**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **relatórios de preço Predictix**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![Aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Reporting de preço Predictix**.
 
-    ![A ligação de relatórios de preço Predictix na lista de aplicações](common/all-applications.png)
+    ![Lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No painel esquerdo, selecione **utilizadores e grupos**:
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![Selecionar utilizadores e grupos](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Selecione **adicionar utilizador**e, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![Selecione adicionar utilizador](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores e, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se um valor de função na asserção de SAML, que espera do **selecionar função** diálogo caixa, selecione a função adequada para o utilizador a partir da lista. Clique nas **selecione** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
 
-### <a name="create-predictix-price-reporting-test-user"></a>Criar relatórios de preço Predictix utilizador de teste
+### <a name="create-a-predictix-price-reporting-test-user"></a>Criar um utilizador de teste Predictix relatórios de preço
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no relatório de preço Predictix. Trabalhar com [equipa de suporte a relatórios de preço Predictix](https://www.infor.com/company/customer-center/) para adicionar os utilizadores na plataforma do preço de Predictix relatórios. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Em seguida, terá de criar um utilizador com o nome Eduarda Almeida no relatório de preço Predictix. Trabalhar com o [equipa de suporte a relatórios de preço Predictix](https://www.infor.com/company/customer-center/) para adicionar utilizadores. Os utilizadores têm de ser criado e ativado antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 
-Quando clica no mosaico de relatórios de preço Predictix de mensagens em fila no painel de acesso, deve ser automaticamente sessão iniciada do preço de Predictix Reporting para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o mosaico de relatório de preço Predictix no painel de acesso, deve ser automaticamente conectado para a instância de relatórios de preço Predictix de mensagens em fila para o qual configura o SSO. Para obter mais informações, consulte [aplicações de acesso e a utilização no portal minhas aplicações](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

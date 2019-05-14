@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   ms.date: 04/10/2019
 abstract:
-  description: 'Saiba como utilizar o Azure NetApp Files para criar e gerir contas NetApp, conjuntos de capacidade e volumes, configurar a política de exportação, montar um volume para uma máquina virtual e gerir instantâneos. <p>Para utilizar o Azure NetApp Files, tem de aderir ao programa de Pré-visualização Pública. Também tem de estar na lista de permissões para aceder ao Fornecedor de Recursos do Azure de Microsoft.NetApp. Para pedir a associação ao programa de Pré-visualização Pública, veja <a href="azure-netapp-files-register">Registar no Azure NetApp Files</a>.</p>'
+  description: 'Saiba como utilizar o Azure NetApp Files para criar e gerir contas NetApp, conjuntos de capacidade e volumes, configurar a política de exportação, montar um volume para uma máquina virtual e gerir instantâneos. <p>Para utilizar os Azure NetApp Files, precisa de aceder ao serviço Azure NetApp Files. Para pedir acesso, veja <a href="azure-netapp-files-register#waitlist">Enviar um pedido de lista de espera</a>.</p>'
 sections:
   - title: Inícios rápidos de 5 minutos
     items:

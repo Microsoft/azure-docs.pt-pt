@@ -1,6 +1,6 @@
 ---
 title: Transmitir ficheiros de vídeo com os Serviços de Multimédia do Azure – .NET | Microsoft Docs
-description: Siga os passos deste início rápido para criar uma nova conta dos Serviços de Multimédia do Azure, codificar um ficheiro e transmiti-lo para o Leitor de Multimédia do Azure.
+description: Siga os passos deste tutorial para criar uma nova conta de Media Services do Azure, um arquivo de codificar e transmitir para o leitor de multimédia do Azure.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,23 +9,23 @@ editor: ''
 keywords: serviços de multimédia do azure, transmitir
 ms.service: media-services
 ms.workload: media
-ms.topic: quickstart
+ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a50d78645630e499b11f012da122b12b026ae6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3834b4f07f6450f498831accfa6640f55bc5855a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466872"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550183"
 ---
-# <a name="quickstart-stream-video-files---net"></a>Início rápido: Transmitir ficheiros de vídeo - .NET
+# <a name="tutorial-stream-video-files---net"></a>Tutorial: Transmitir ficheiros de vídeo - .NET
 
-Este início rápido mostra como é fácil codificar e começar a transmitir vídeos numa ampla variedade de browsers e dispositivos com os Serviços de Multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
+Este tutorial mostra-lhe como é fácil codificar e iniciar a transmissão em fluxo de vídeos numa grande variedade de navegadores e dispositivos usando os serviços de multimédia do Azure. Um conteúdo de entrada pode ser especificado com URLs HTTPS, URLs SAS ou caminhos de ficheiros localizados no Armazenamento de blobs do Azure.
 O exemplo neste tópico codifica o conteúdo que torna acessível através de um URL HTTPS. Note que, atualmente, o AMS v3 não suporta a codificação de transferência segmentada através de URLs HTTPS.
 
-No final do início rápido, será capaz de transmitir um vídeo.  
+No final do tutorial, poderá transmitir um vídeo.  
 
 ![Reproduzir o vídeo](./media/stream-files-dotnet-quickstart/final-video.png)
 
@@ -68,7 +68,7 @@ Quando executar a aplicação, os URLs que podem ser utilizados para reproduzir 
 1. Prima Ctrl + F5 para executar a aplicação *EncodeAndStreamFiles*.
 2. Escolha o protocolo **HLS** da Apple (termina com *manifest(format=m3u8-aapl)*) e copie o URL de transmissão da consola.
 
-![Saída](./media/stream-files-tutorial-with-api/output.png)
+![Resultado](./media/stream-files-tutorial-with-api/output.png)
 
 No [código de origem](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) do exemplo, pode ver como é criado o URL. Para criar o código, terá de concatenar o nome do anfitrião do ponto final da transmissão e o caminho de localizador da transmissão.  
 
@@ -89,7 +89,7 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou neste Início Rápido, elimine o grupo de recursos.
+Se já não precisar de qualquer um dos recursos no grupo de recursos, incluindo os serviços de suporte de dados e contas de armazenamento que criou para este tutorial, elimine o grupo de recursos.
 
 Execute o seguinte comando da CLI:
 
@@ -103,7 +103,7 @@ Para obter uma explicação sobre o que faz cada função no exemplo, examine o 
 
 O tutorial [Upload, encode, and stream files](stream-files-tutorial-with-api.md) (Carregar, codificar e transmitir ficheiros) dá-lhe um exemplo mais avançado de transmissão com explicações detalhadas. 
 
-### <a name="job-error-codes"></a>Códigos de erro da tarefa
+### <a name="job-error-codes"></a>Códigos de erro das tarefas
 
 Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 

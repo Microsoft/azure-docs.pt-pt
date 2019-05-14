@@ -1,7 +1,7 @@
 ---
-title: 'Início rápido: Preparar um modelo e extrair dados de formulário com a REST API com Python - reconhecedor de formulário'
+title: 'Início rápido: Preparar um modelo e extrair dados de formulário com a API de REST com Python - reconhecedor de formulário'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá utilizar a API de REST do reconhecedor de formulário com o Python para preparar um modelo e extrair dados de formulários.
+description: Neste início rápido, vai utilizar a API de REST do reconhecedor de formulário com o Python para preparar um modelo e extrair dados de formulários.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,34 +9,32 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bbc285c35c010c9c0a38e9b3d6938c5dd3b76fe4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 39ff12a853b38b843a73f4a87a24db0292d1accd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544862"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601604"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a REST API com Python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com Python
 
-Neste início rápido, irá utilizar a API de REST do reconhecedor de formulário com o Python para dar formação e Pontuar formulários para extrair os pares chave-valor e tabelas.
+Neste início rápido, vai utilizar a API de REST do reconhecedor de formulário do Azure com o Python para dar formação e Pontuar formulários para extrair os pares chave-valor e tabelas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-- Tem de obter acesso à pré-visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário de serviços cognitivos](https://aka.ms/FormRecognizerRequestAccess) formulário. 
-- Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição para o reconhecedor de formulário. Siga as instruções de subscrição de serviço único em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) para subscrever o reconhecedor de formulário e obtenha a chave. Não utilize a subscrição de múltiplos serviço, como isso não incluirá o serviço do reconhecedor de formulário.
-- Tem de ter um conjunto mínimo de cinco formulários do mesmo tipo. Pode utilizar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido.
+Para concluir este início rápido, tem de ter:
+- Aceder à pré-visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) formulário.
+- [Python](https://www.python.org/downloads/) instalado (se quiser executar o exemplo localmente).
+- Uma chave de subscrição para o reconhecedor de formulário. Siga as instruções de subscrição de serviço único em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) para subscrever o reconhecedor de formulário e obtenha a chave. Não utilize uma subscrição de múltiplos serviço, porque ele não inclui o serviço do reconhecedor de formulário.
+- Um conjunto de formulários, pelo menos, cinco do mesmo tipo. Pode utilizar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
-Para criar e executar o exemplo, introduza as seguintes alterações para o fragmento de código abaixo:
-
-1. Substitua o valor de `<subscription_key>` pela chave de subscrição.
-1. Substitua o valor do `<Endpoint>` com o URL de ponto final para o recurso do reconhecedor de formulário na região do Azure, onde obteve as chaves de subscrição.
-1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS), onde os dados de treinamento estão localizados.  
-
+Para criar e executar o exemplo, efetue estas alterações para o fragmento de código que se segue:
+1. Substitua `<Endpoint>` com o URL de ponto final para o recurso do reconhecedor de formulário na região do Azure, onde obteve as chaves de subscrição.
+1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS) da localização de dados de treinamento.  
+1. Substitua `<Subscription Key>` pela sua chave de subscrição.
     ```python
     ########### Python Form Recognizer Train #############
     from requests import post as http_post
@@ -58,11 +56,11 @@ Para criar e executar o exemplo, introduza as seguintes alterações para o frag
     except Exception as e:
         print(str(e))
     ```
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `form-recognize-train.py`.
+1. Guarde o código num arquivo com uma extensão. PY. Por exemplo, *train.py formulário reconhecer*.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognize-train.py`.
 
-Receberá um `200 (Success)` resposta com o seguinte resultado JSON:
+Receberá um `200 (Success)` resposta com esta saída JSON:
 
 ```json
 {
@@ -103,16 +101,16 @@ Receberá um `200 (Success)` resposta com o seguinte resultado JSON:
 }
 ```
 
-Anote o `"modelId"` valor; irá precisar dele para obter os passos seguintes.
+Tenha em atenção o `"modelId"` valor. Precisará das mesmas para os seguintes passos.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extrair pares chave-valor e tabelas de formulários
 
-Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabelas. Chamar o **modelar - analisar** API executando o script de Python abaixo. Antes de executar o comando, efetue as seguintes alterações:
+Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabelas. Chamar o **modelar - analisar** API ao executar o script de Python que se segue. Antes de executar o comando, efetue estas alterações:
 
-1. Substitua `<Endpoint>` com o ponto final de obteve com a sua chave de subscrição do reconhecedor de formulário. Pode encontrá-lo no seu separador de descrição geral de recursos do reconhecedor de formulário.
-1. Substitua `<File Path>` com a localização do caminho de ficheiro ou URL onde está localizado o formulário para extrair dados.
-1. Substitua `<modelID>` com o ID de modelo que recebeu no passo anterior de treinar o modelo.
-1. Substitua `<file type>` com o tipo de ficheiro - tipos com suporte de pdf, imagem/jpeg, png/imagem.
+1. Substitua `<Endpoint>` com o ponto final que obteve com a sua chave de subscrição do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
+1. Substitua `<File Path>` com o caminho do ficheiro ou URL da localização de formulário a partir do qual vai extrair dados.
+1. Substitua `<modelID>` com o ID de modelo que recebeu na secção anterior.
+1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: pdf, imagem/jpeg, png/imagem.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 
     ```python
@@ -140,13 +138,13 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
         print(str(e))
     ```
 
-1. Guarde o código como um ficheiro com uma extensão `.py`. Por exemplo, `form-recognize-analyze.py`.
+1. Guarde o código num arquivo com uma extensão. PY. Por exemplo, *analyze.py formulário reconhecer*.
 1. Abra uma janela da linha de comandos.
 1. Na linha de comandos, utilize o comando `python` para executar o exemplo. Por exemplo, `python form-recognize-analyze.py`.
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta com êxito é devolvida em JSON e representa os pares de chave-valor extraídos e as tabelas extraídas do formulário.
+Uma resposta de êxito é devolvida em JSON. Ele representa os pares chave-valor e as tabelas extraídas do formulário:
 
 ```bash
 {
@@ -471,7 +469,7 @@ Uma resposta com êxito é devolvida em JSON e representa os pares de chave-valo
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia, utilizou as APIs de REST do reconhecedor de formulário com o Python para preparar um modelo e executá-lo num caso de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de forma mais detalhadamente.
+Neste início rápido, utilizou a API de REST do reconhecedor de formulário com o Python para preparar um modelo e executá-lo num cenário de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de forma mais detalhadamente.
 
 > [!div class="nextstepaction"]
 > [Documentação de referência da REST API](https://aka.ms/form-recognizer/api)

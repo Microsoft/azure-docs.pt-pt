@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: Preparar um modelo e extrair dados de formulário com o cURL - reconhecedor de formulário'
 titleSuffix: Azure Cognitive Services
-description: Neste início rápido, irá utilizar a API de REST do reconhecedor de formulário com o cURL para preparar um modelo e extrair dados de formulários.
+description: Neste início rápido, usará a API de REST do reconhecedor de formulário com o cURL para preparar um modelo e extrair dados de formulários.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,35 +9,35 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: f5c87457f5d19b107f5722bc8c6a95174555332a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 4a030e1bf35f38b6aba859eb538eb7d7580d255d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546355"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603118"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-using-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a REST API com cURL
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com cURL
 
-Neste início rápido, irá utilizar a API de REST do reconhecedor de formulário com o cURL para dar formação e Pontuar formulários para extrair os pares chave-valor e tabelas.
+Neste início rápido, usará a API de REST do reconhecedor de formulário do Azure com o cURL para dar formação e Pontuar formulários para extrair os pares chave-valor e tabelas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-- Obteve acesso à pré-visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário de serviços cognitivos](https://aka.ms/FormRecognizerRequestAccess) formulário.
-- Tem de ter o [cURL](https://curl.haxx.se/windows/).
-- Tem de ter uma chave de subscrição para o reconhecedor de formulário. Siga as instruções de subscrição de serviço único em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) para subscrever o reconhecedor de formulário e obtenha a chave. Não utilize a subscrição de múltiplos serviço, como isso não incluirá o serviço do reconhecedor de formulário.
-- Tem de ter um conjunto mínimo de cinco formulários do mesmo tipo. Pode utilizar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido.
+Para concluir este início rápido, tem de ter:
+- Aceder à pré-visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à pré-visualização, preencha e envie os [pedido de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) formulário.
+- [cURL](https://curl.haxx.se/windows/) instalado.
+- Uma chave de subscrição para o reconhecedor de formulário. Siga as instruções de subscrição de serviço único em [criar uma conta dos serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription) para subscrever o reconhecedor de formulário e obtenha a chave. Não utilize uma subscrição de múltiplos serviço, porque ele não inclui o serviço do reconhecedor de formulário.
+- Um conjunto de formulários, pelo menos, cinco do mesmo tipo. Pode utilizar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este início rápido.
 
 ## <a name="train-a-form-recognizer-model"></a>Preparar um modelo de formulário reconhecedor
 
-Em primeiro lugar, terá um conjunto de dados de treinamento. Pode utilizar dados num Blob do Azure ou os seus dados de treinamento locais. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio; nome de ficheiro do formulário inclui a palavra "vazia".
+Em primeiro lugar, terá um conjunto de dados de treinamento. Pode utilizar dados num blob do Azure ou os seus dados de treinamento locais. Deve ter um mínimo de cinco exemplo formulários (documentos PDF e/ou imagens) da mesma tipo/estrutura como seus dados de entrada principais. Em alternativa, pode utilizar um único formulário vazio. Nome de ficheiro do formulário tem de incluir a palavra "vazia".
 
-Para preparar um modelo de formulário reconhecedor usando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API executando o comando cURL abaixo. Antes de executar o comando, efetue as seguintes alterações:
+Para preparar um modelo de formulário reconhecedor utilizando os documentos no seu contentor de Blobs do Azure, chame o **treinar** API ao executar o comando cURL que se segue. Antes de executar o comando, efetue estas alterações:
 
-* Substitua `<Endpoint>` com o ponto final que obteve da sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu separador de descrição geral de recursos do reconhecedor de formulário.
-* Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS), onde os dados de treinamento estão localizados.  
-* Substitua `<subscription key>` pela sua chave de subscrição.
+1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
+1. Substitua `<SAS URL>` com um contentor de armazenamento de Blobs do Azure partilhado aceder ao URL de assinatura (SAS) da localização de dados de treinamento.  
+1. Substitua `<subscription key>` pela sua chave de subscrição.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -84,17 +84,18 @@ Receberá um `200 (Success)` resposta com o seguinte resultado JSON:
 }
 ```
 
-Anote o `"modelId"` valor; irá precisar dele para obter os passos seguintes.
+Tenha em atenção o `"modelId"` valor. Precisará das mesmas nas etapas a seguir.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extrair pares chave-valor e tabelas de formulários
 
-Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabelas. Chamar o **modelar - analisar** API executando o comando cURL abaixo. Antes de executar o comando, efetue as seguintes alterações:
+Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabelas. Chamar o **modelar - analisar** API ao executar o comando cURL que se segue. Antes de executar o comando, efetue estas alterações:
 
-* Substitua `<Endpoint>` com o ponto final que obteve da sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
-* Substitua `<modelID>` com o ID de modelo que recebeu no passo anterior de treinar o modelo.
-* Substitua `<path to your form>` com o caminho do ficheiro ao seu formulário.
-* Substitua `<subscription key>` pela sua chave de subscrição.
-* Substitua `<file type>` com o tipo de ficheiro - tipos com suporte de pdf, imagem/jpeg, png/imagem.
+1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
+1. Substitua `<modelID>` com o ID de modelo que recebeu na secção anterior.
+1. Substitua `<path to your form>` com o caminho do seu formulário.
+1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: pdf, imagem/jpeg, png/imagem.
+1. Substitua `<subscription key>` pela sua chave de subscrição.
+
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
@@ -102,7 +103,7 @@ curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<mode
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 
-Uma resposta bem-sucedida é devolvida em JSON e representa as tabelas e pares de chave-valor extraídos do formulário.
+Uma resposta de êxito é devolvida em JSON. Ele representa os pares chave-valor e as tabelas extraídas do formulário:
 
 ```bash
 {
@@ -427,7 +428,7 @@ Uma resposta bem-sucedida é devolvida em JSON e representa as tabelas e pares d
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste guia, utilizou as APIs de REST do reconhecedor de formulário com o cURL para preparar um modelo e executá-lo num caso de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de forma mais detalhadamente.
+Neste início rápido, utilizou a API de REST do reconhecedor de formulário com o cURL para preparar um modelo e executá-lo num cenário de exemplo. Em seguida, consulte a documentação de referência para explorar a API do reconhecedor de forma mais detalhadamente.
 
 > [!div class="nextstepaction"]
 > [Documentação de referência da REST API](https://aka.ms/form-recognizer/api)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: ad11dba43e7e1561a74e04cd4f05b26569cc10d9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d25ea2ce6e365e0d04fab325f9c13bb37382758
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924922"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603178"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Tutorial: Solicite um disco de caixa de dados do Azure
 
@@ -65,7 +65,7 @@ Execute os seguintes passos no [portal do Azure](https://aka.ms/azuredataboxfrom
     |---|---|
     |Subscrição|Selecione a subscrição para o qual o serviço Data Box está ativado.<br> A subscrição está ligada à sua conta de faturação. |
     |Tipo de transferência| Importar para o Azure|
-    |País de origem | Selecione o país onde os dados residem atualmente.|
+    |País de origem | Selecione o país/região onde residem atualmente seus dados.|
     |Região do Azure de destino|Selecione a região do Azure para onde pretende transferir os dados.|
 
   
