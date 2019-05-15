@@ -55,7 +55,7 @@ As seguintes propriedades são suportadas para o serviço REST ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade tem de ser definida como **RestService**. | Sim |
+| type | O **tipo** propriedade tem de ser definida como **RestService**. | Sim |
 | url | O URL de base do serviço REST. | Sim |
 | enableServerCertificateValidation | Se é necessário validar o certificado SSL de lado do servidor ao ligar-se para o ponto final. | Não<br /> (a predefinição é **true**) |
 | authenticationType | Tipo de autenticação utilizado para ligar ao serviço REST. Valores permitidos são **anónimo**, **básica**, **AadServicePrincipal** e **ManagedServiceIdentity**. Consulte as secções correspondentes abaixo sobre mais propriedades e exemplos, respetivamente. | Sim |
@@ -102,7 +102,7 @@ Definir o **authenticationType** propriedade **AadServicePrincipal**. Além de p
 |:--- |:--- |:--- |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação do Azure Active Directory | Sim |
 | servicePrincipalKey | Especifique a chave da aplicação do Azure Active Directory. Marcar esse campo como um **SecureString** armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
-| inquilino | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
+| tenant | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim |
 | aadResourceId | Especificar o recurso do AAD que está a pedir para autorização, por exemplo, `https://management.core.windows.net`.| Sim |
 
 **Exemplo**
@@ -169,7 +169,7 @@ Para copiar dados de REST, são suportadas as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade do conjunto de dados tem de ser definida como **RestResource**. | Sim |
+| type | O **tipo** propriedade do conjunto de dados tem de ser definida como **RestResource**. | Sim |
 | relativeUrl | Um URL relativo ao recurso que contém os dados. Quando esta propriedade não for especificada, é utilizado apenas o URL especificado na definição do serviço ligado. | Não |
 | requestMethod | O método HTTP. Valores permitidos são **Obtenha** (predefinição) e **Post**. | Não |
 | additionalHeaders | Cabeçalhos de pedido HTTP adicionais. | Não |
@@ -232,7 +232,7 @@ As seguintes propriedades são suportadas na atividade de cópia **origem** sec�
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **RestSource**. | Sim |
+| type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **RestSource**. | Sim |
 | httpRequestTimeout | O tempo limite (o **TimeSpan** valor) para o pedido HTTP para obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. O valor predefinido é **01:00:40**.  | Não |
 | requestInterval | O tempo de espera antes de enviar o pedido para a página seguinte. O valor predefinido é **00:00:01** |  Não |
 
