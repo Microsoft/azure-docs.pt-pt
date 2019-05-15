@@ -61,7 +61,7 @@
           href: cdn-create-endpoint-how-to.md
         - name: Gerir com o Azure PowerShell
           href: cdn-manage-powershell.md
-        - name: Restringir acesso por país
+        - name: Restringir acesso por país/região
           href: cdn-restrict-access-by-country.md
         - name: Comprimir ficheiros para melhorar o desempenho
           href: cdn-improve-performance.md
