@@ -45,7 +45,7 @@ As seguintes propriedades são suportadas para o serviço de PayPal ligado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **PayPal** | Sim |
-| anfitrião | O URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | Sim |
+| host | O URL da instância PayPal. (ou seja, api.sandbox.paypal.com)  | Sim |
 | clientId | O ID de cliente associado à sua aplicação de PayPal.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação de PayPal. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | useEncryptedEndpoints | Especifica se os pontos de extremidade de origem de dados são encriptados através de HTTPS. O valor predefinido é verdadeiro.  | Não |
@@ -109,7 +109,7 @@ Para copiar dados de PayPal, definir o tipo de origem na atividade de cópia par
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **PayPalSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Payment_Experience"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Payment_Experience"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
