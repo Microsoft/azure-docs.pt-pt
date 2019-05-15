@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/16/2019
+ms.date: 05/10/2019
 ms.author: tulasim
-ms.openlocfilehash: b634467381dc97e4a733e862e86632a089bf5f67
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 278040cb487df6731df1ad3e18435f6e12ca9d50
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64727325"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594049"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obter uma resposta de dados de conhecimento com a API de GenerateAnswer e metadados
 
@@ -113,7 +113,7 @@ Uma resposta com êxito retorna um status de 200 e uma resposta JSON.
 |Propriedade de respostas (classificada por classificação)|Objetivo|
 |--|--|
 |pontuação|Uma pontuação de classificação, entre 0 e 100.|
-|Id|Um ID exclusivo atribuído para a resposta.|
+|ID|Um ID exclusivo atribuído para a resposta.|
 |Perguntas|As perguntas fornecidas pelo usuário.|
 |Resposta|A resposta à pergunta.|
 |source|O nome da origem do qual a resposta foi extraída ou guardada na base de dados de conhecimento.|
@@ -148,7 +148,7 @@ Uma resposta com êxito retorna um status de 200 e uma resposta JSON.
 
 ## <a name="using-metadata-allows-you-to-filter-answers-by-custom-metadata-tags"></a>Utilizando os metadados permite-lhe filtrar respostas por etiquetas de metadados personalizados
 
-Adicionar metadados permite-lhe filtrar as respostas por estas etiquetas de metadados. Considere o abaixo dados de FAQ. Adicione metadados a sua base de dados de conhecimento ao clicar no ícone de metadados.
+Adicionar metadados permite-lhe filtrar as respostas por estas etiquetas de metadados. Adicionar a coluna de metadados a partir da **opções de visualização** menu. Adicionar metadados a sua base de dados de conhecimento ao clicar nos metadados **+** ícone para adicionar um par de metadados. Esse par consiste numa chave e um valor.
 
 ![adicionar metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 

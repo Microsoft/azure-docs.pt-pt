@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 2352594b168f5d37ddb6a46064f9ac5801fb035f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 8d3e25f8217f3cc8772de9fbbb06a407008ca6f6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508392"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593886"
 ---
 # <a name="fine-tune-text-to-speech-output"></a>Ajustar a saída de conversão de texto em voz
 
@@ -35,7 +35,7 @@ Antes de começar a ajustar a saída de texto para voz com a ferramenta de otimi
    >Quando cria um recurso de voz no portal do Azure, as informações de localização do Azure tem de corresponder com a região de voz TTS. Voz TTS neural suporta um conjunto de sub-rotina de localizações do Azure. Para obter uma lista completa de suporte, consulte [regiões](regions.md#text-to-speech).
 
    >[!NOTE]
-   >Tem de ter um F0 ou uma chave de S0 criada no portal do Azure antes de poder utilizar o serviço. Ajuste de voz **não** suporta o [chave de avaliação gratuita de 30 dias](https://review.docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
+   >Tem de ter um F0 ou uma chave de S0 criada no portal do Azure antes de poder utilizar o serviço. Ajuste de voz **não** suporta o [chave de avaliação gratuita de 30 dias](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started?branch=release-build-cogserv-speech-services#free-trial).
 
 4. Inicie sessão para o [otimização de voz](https://aka.ms/voicetuning) portal e ligue-se a sua subscrição de serviços de voz. Escolha uma única subscrição de serviços de voz e, em seguida, crie um projeto.
 5. Selecione **novo ajuste**. Em seguida, siga estes passos:
@@ -43,7 +43,7 @@ Antes de começar a ajustar a saída de texto para voz com a ferramenta de otimi
    * Localize e selecione **todas as subscrições**.  
    * Selecione **ligar a subscrição existente**.  
      ![Ligar uma subscrição existente](./media/custom-voice/custom-voice-connect-subscription.png).
-   * Introduza a chave de subscrição de serviços de voz do Azure, em seguida, selecione **adicionar**. As chaves de subscrição estão disponíveis no portal de personalização de voz na [página de subscrição](https://go.microsoft.com/fwlink/?linkid=2090458). Também foi possível obter as chaves a partir do painel de gestão de recursos no [portal do Azure](https://portal.azure.com/). 
+   * Introduza a chave de subscrição de serviços de voz do Azure, em seguida, selecione **adicionar**. As chaves de subscrição estão disponíveis no portal de personalização de voz na [página de subscrição](https://go.microsoft.com/fwlink/?linkid=2090458). Também foi possível obter as chaves a partir do painel de gestão de recursos no [portal do Azure](https://portal.azure.com/).
    * Se tiver mais de uma subscrição de serviços de voz que planeia utilizar o, repita estes passos para cada subscrição.
 
 ## <a name="customize-the-text-to-speech-output"></a>Personalizar a saída de texto para discurso

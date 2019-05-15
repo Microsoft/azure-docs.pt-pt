@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 07fb655af25fe590effcb885e7b366346724b50a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85087ce5a4fa3dd733f47a35bc18d76f1f4bc652
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642825"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606698"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipos de estrutura e a resposta de resposta de API de pesquisa Web Bing  
 
@@ -330,7 +330,7 @@ Se o usuário inserir uma consulta de hora ou data, a resposta pode conter uma [
 
 O `timeZone` resposta fornece o nome da localização, a atual data e hora UTC na localização especificada e o UTC de deslocamento. Se o limite da localização é dentro de vários fusos horários, a resposta contém a atual data e hora UTC de todos os fusos horários, dentro do limite. Por exemplo, porque o estado da Flórida se encontrem dentro de dois fusos horários, a resposta contém a data local e a hora de ambos os fusos horários.  
 
-Se a consulta solicitar o tempo de um Estado ou país, Bing determina a cidade principal dentro do limite da localização geográfica e devolve-na `primaryCityTime` campo. Se o limite contém vários fusos horários, os fusos horários restantes são retornados no `otherCityTimes` campo.
+Se a consulta solicitar o tempo de um Estado ou país/região, Bing determina a cidade principal dentro do limite da localização geográfica e devolve-na `primaryCityTime` campo. Se o limite contém vários fusos horários, os fusos horários restantes são retornados no `otherCityTimes` campo.
 
 O exemplo a seguir mostra consultas que devolvem o `timeZone` resposta.
 

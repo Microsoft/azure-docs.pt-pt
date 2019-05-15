@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: ''
-ms.openlocfilehash: 1344de526564ab623a51eb903951b6a2e866048d
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 1c5712fa8bbdb158992127f8f48d810a0a9b6f79
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523483"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603475"
 ---
 # <a name="about-custom-voice-first-virtual-assistants-preview"></a>Sobre a pré-visualização de assistentes de virtual primeiro de voz personalizada
 
@@ -24,7 +24,9 @@ Assistentes de virtual personalizados, usando os serviços de voz do Azure permi
 
    ![Diagrama conceptual do fluxo de serviço de linha direta de voz orquestração](media/voice-first-virtual-assistants/overview.png "fluxo o canal de voz")
 
-Direto de linha de voz e sua funcionalidade associada para os assistentes de virtual de voz-first personalizadas são um suplemento ideal para o [Virtual solução Assistant](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) e [modelo empresarial](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Apesar de voz de linha direta pode trabalhar com qualquer bot compatíveis, estes recursos fornecem uma linha de base reutilizável para experiências de conversação de alta qualidade, bem como as habilidades de suporte comuns e modelos para começar a trabalhar rapidamente.
+
+Conversão de voz de linha direta e sua funcionalidade associada para os assistentes de virtual de voz-first personalizadas são um suplemento ideal para o [solução assistente Virtual e o modelo de Enterprise](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Apesar de voz de linha direta pode trabalhar com qualquer bot compatíveis, estes recursos fornecem uma linha de base reutilizável para experiências de conversação de alta qualidade, bem como as habilidades de suporte comuns e modelos para começar a trabalhar rapidamente.
+
 
 ## <a name="core-features"></a>Principais recursos
 

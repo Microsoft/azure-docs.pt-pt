@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: maheshb
-ms.openlocfilehash: ed34b20073a150e38b5d5992ab4e4b8c80453fb2
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7a60ea934c6bb9008889992726ddca5dad21a640
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510268"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595624"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chamar a sua instância de pesquisa personalizada do Bing do Portal
 
@@ -26,7 +26,7 @@ Após configurar a sua experiência de pesquisa personalizada, pode testá-lo de
 
 Depois de se para a pesquisa personalizada do Bing [portal](https://customsearch.ai), selecione a sua instância de pesquisa e clique nas **produção** separador. Sob **pontos de extremidade**, selecione um ponto final de API (por exemplo, API Web). A subscrição determina quais pontos de extremidade são exibidos.
 
-Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o ponto final. Tenha em atenção que os parâmetros apresentados no portal do podem ser alterados dependendo do ponto final que escolher. Consulte a[referência da API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que utiliza a sua instância de pesquisa, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou o idioma apropriados.
+Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o ponto final. Tenha em atenção que os parâmetros apresentados no portal do podem ser alterados dependendo do ponto final que escolher. Consulte a [referência da API de pesquisa personalizada](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que utiliza a sua instância de pesquisa, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou o idioma apropriados.
 
 Alguns parâmetros importantes estão abaixo:
 
@@ -48,6 +48,10 @@ Clicar **parâmetros adicionais** revela os seguintes parâmetros:
 |Offset    | O número de resultados de pesquisa a ignorar antes de retornar resultados. Disponível apenas para pontos finais de Web, imagem e vídeo.        |
     
 Depois de especificar todas as opções necessárias, clique em **chamar** para ver a resposta JSON no painel da direita. Se selecionar o ponto de extremidade hospedado da interface do Usuário, pode testar a experiência de pesquisa no painel inferior.
+
+## <a name="change-your-bing-custom-search-subscription"></a>Alterar a sua subscrição de pesquisa personalizada do Bing
+
+Pode alterar a subscrição associada à sua instância de pesquisa personalizada do Bing sem criar uma nova instância. Para que as chamadas de API enviados sendo cobrado uma nova subscrição, crie um novo recurso de pesquisa personalizada do Bing no portal do Azure. Utilizar a nova chave de subscrição nos seus pedidos de API, juntamente com o ID de configuração personalizada. da sua instância
 
 ## <a name="next-steps"></a>Passos Seguintes
 

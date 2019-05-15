@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/13/2019
 ms.author: diberry
-ms.openlocfilehash: 3e54e8dcb6efa9251262c651730376a0d04edcf9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f80e6a765cc165033a548ba6a5ee7bead0de872e
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65144978"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594080"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Utilizar o Active Directory de aprendizagem para melhorar a sua base de dados de conhecimento
 
@@ -60,7 +60,7 @@ O algoritmo para determinar a proximidade não é um cálculo simple. Os interva
 
 Aprendizagem ativa está desativada por predefinição. A ativá-lo para ver perguntas sugeridas. 
 
-1. Selecione **publicar** para publicar a base de dados de conhecimento. Consultas de aprendizagem ativa são recolhidas a partir do GenerateAnswer predição ponto final de API apenas. As consultas para o painel de teste no portal do Qna Maker não afetam aprendizagem ativa.
+1. Selecione **publicar** para publicar a base de dados de conhecimento. Consultas de aprendizagem ativa são recolhidas a partir do GenerateAnswer predição ponto final de API apenas. As consultas para o painel de teste no portal do QnA Maker não afetam aprendizagem ativa.
 
 1. Para ativar o Active Directory de aprendizado no, clique no seu **Name**, aceda a [ **definições de serviço** ](https://www.qnamaker.ai/UserSettings) no portal do QnA Maker, no canto superior direito.  
 
@@ -208,7 +208,7 @@ Uma resposta com êxito retorna um status de 204 e nenhum corpo de resposta JSON
 
 Quando a aplicação tem a aprendizagem ativa ativada e exportar a aplicação, o `SuggestedQuestions` coluna no ficheiro tsv retém os dados de aprendizagem ativa. 
 
-O `SuggestedQuestions` coluna é um objeto JSON de informações de implícito (`autosuggested`) e explícito (`usersuggested`) comentários. Um exemplo deste objeto JSON para uma utilizador submeteu pergunta de `help` é:
+O `SuggestedQuestions` coluna é um objeto JSON de informações de implícito, o `autosuggested`e explícito, `usersuggested` comentários. Um exemplo deste objeto JSON para uma utilizador submeteu pergunta de `help` é:
 
 ```JSON
 [
