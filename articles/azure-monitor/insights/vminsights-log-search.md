@@ -15,7 +15,7 @@ ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
 ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 04/28/2019
 ms.locfileid: "64702508"
@@ -204,7 +204,7 @@ Registos com um tipo de *ServiceMapProcess_CL* tiver dados de inventário para p
 | CommandLine_s | A linha de comandos |
 | ExecutablePath_s | O caminho para o ficheiro executável |
 | WorkingDirectory_s | O diretório de trabalho |
-| Nome de Utilizador | A conta sob a qual o processo está em execução |
+| UserName | A conta sob a qual o processo está em execução |
 | UserDomain | O domínio em que o processo está em execução |
 
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
