@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415946"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522861"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utilizar grupos de ativação pós-falha automática para ativar a ativação pós-falha transparente e coordenada de várias bases de dados
 
@@ -42,7 +42,7 @@ Para alcançar a continuidade do negócio real, a adição de redundância da ba
 
 - **Grupo de ativação pós-falha (NÉVOA)**
 
-  Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária. Quando é criado para instâncias geridas, um grupo de ativação pós-falha contém todas as bases de dados de utilizador na instância e, portanto, os grupos de ativação pós-falha apenas um podem ser configurados numa instância.
+  Um grupo de ativação pós-falha é um grupo de bases de dados geridas por um único servidor de base de dados SQL ou dentro de uma única instância gerida que pode efetuar a ativação pós-falha como uma unidade para outra região no caso de todos ou alguns bases de dados primárias ficam indisponíveis devido a uma falha na região primária. Quando é criado para instâncias geridas, um grupo de ativação pós-falha contém todas as bases de dados de utilizador na instância e, portanto, apenas um grupo de ativação pós-falha pode ser configurado numa instância.
 
 - **Servidores de base de dados SQL**
 

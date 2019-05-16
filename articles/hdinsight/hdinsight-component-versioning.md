@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: d1f4996bd389a1c792f8dd7966dde6ccdfddbcc1
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
-ms.translationtype: MT
+ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872997"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755081"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -78,12 +78,11 @@ As tabelas seguintes listam as versões do HDInsight. As versões HDP que corres
 
 A tabela seguinte lista as versões do HDInsight que estão disponíveis no portal do Azure, bem como outros métodos de implantação, como o PowerShell e o SDK de .NET.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | SO DE VM | Data de lançamento | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
 
-*&ast; Suporte de HDInsight 3.5 foi expandido apenas para tipos de cluster do Spark*
 
 > [!NOTE]  
 > Depois de suporte para uma versão tiver expirado, poderá não ser disponível através do portal do Microsoft Azure. No entanto, a versões de cluster continuam a estar disponíveis através da `Version` parâmetro no Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) comando e o SDK de .NET até a data de retirada de versão.
@@ -93,7 +92,7 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no port
 
 A tabela seguinte lista as versões do HDInsight que são **não** disponível no portal do Azure.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | SO DE VM | Data de lançamento | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 <br> (Não-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |28 de junho de 2018 |Sim |Não |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
@@ -140,7 +139,7 @@ Atualmente, apenas os seguintes tipos de cluster suportam o Enterprise Security 
 
 - Hadoop (apenas no HDInsight 3.6)
 - Spark
-- Interactive Query
+- Consulta Interativa
 
 ### <a name="support-for-azure-data-lake-storage"></a>Suporte para o armazenamento do Azure Data Lake
 
@@ -244,7 +243,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
 * Suporte todas as regiões, exceto no sul do Brasil e oeste do Japão:
 
-|Tipo de cluster|Hadoop|HBase|Interactive Query|Storm|Spark|Servidor de ML|Kafka|
+|Tipo de cluster|Hadoop|HBase|Consulta Interativa|Storm|Spark|Servidor de ML|Kafka|
 |---|---|---|---|---|---|---|---|
 |Cabeça: tamanho VM predefinido|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
 |HEAD: recomendado tamanhos de VM|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
@@ -276,7 +275,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
 * Sul do Brasil e oeste do Japão apenas (não existem tamanhos v2):
 
-  | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Serviços ML |
+  | Tipo de cluster | Hadoop | HBase | Consulta Interativa |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
   | Cabeça: tamanho VM predefinido |D12 |D12  | D13 |A3 |D12 |D12 |
   | HEAD: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |

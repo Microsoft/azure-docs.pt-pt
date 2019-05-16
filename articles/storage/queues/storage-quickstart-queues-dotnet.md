@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
-ms.openlocfilehash: b80ff38e2afb5e9da6227537ea9c483566d03e4d
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 7b80394fbad403be93413069b8f88be6041743d4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65232593"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758881"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Início rápido: Utilizar o .NET para criar uma fila no armazenamento do Azure
 
@@ -257,7 +257,9 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com as filas d
 
 ### <a name="binaries-and-source-code"></a>Binários e código fonte
 
-- Transfira o pacote NuGet para obter a versão mais recente da [biblioteca de cliente .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) do Armazenamento do Azure. 
+- Transfira os pacotes de NuGet para a versão mais recente do [biblioteca de clientes de armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage/client)
+    - [Comuns](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+    - [filas](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queues/)
 - Veja o [código fonte da biblioteca de cliente .NET](https://github.com/Azure/azure-storage-net) no GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referência e exemplos da biblioteca de cliente

@@ -2,23 +2,24 @@
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/22/2019
 ms.author: sngun
-ms.openlocfilehash: e07a59ba0484910d87329be94f0fcc58b1011b95
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: b940d7308648a3a55ed031d7d57542f3b31e9f27
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572574"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546777"
 ---
-O débito, o armazenamento, a disponibilidade, a latência e a consistência dos recursos na sua conta são monitorizados no portal do Azure. Vamos ver rapidamente estas métricas. 
+O portal do Azure monitoriza o débito de conta do Cosmos DB, armazenamento, disponibilidade, latência e consistência. Gráficos para métricas associadas com uma [do Azure Cosmos DB ao nível do contrato serviço (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/) Mostrar o valor de SLA em comparação comparado o desempenho real. Este conjunto de métricas faz com que seus SLAs transparentes de monitorização.
 
-1. Clique em **Métricas** no menu de navegação.
+Para rever as métricas e SLAs: 
 
-   ![Métricas no portal do Azure](./media/cosmos-db-tutorial-review-slas/metrics.png)
-
-2. Clique em cada um dos separadores para ficar a par das métricas que o Azure Cosmos DB oferece. 
-
-    Cada gráfico que está associado aos [Contratos de Nível de Serviço (SLAs) do Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/) apresenta uma linha que mostra se qualquer um dos SLA foi violado. O Azure Cosmos DB faz com que a monitorização dos seus SLAs seja transparente com este conjunto de métricas. 
-
+1. Selecione **métricas** no menu de navegação da sua conta do Cosmos DB.
+   
+2. Selecione como um separador **latência**e selecione um período de tempo à direita. Compare os **real** e **SLA** linhas dos gráficos.
+   
    ![Conjunto de métricas do Azure Cosmos DB](./media/cosmos-db-tutorial-review-slas/metrics-suite.png)
+   
+3. Reveja as métricas das outras guias. 
+

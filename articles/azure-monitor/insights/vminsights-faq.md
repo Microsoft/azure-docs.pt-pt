@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596592"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522212"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Monitor do Azure para VMs (pré-visualização) perguntas mais frequentes
 O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Azure Monitor para as VMs. Se tiver perguntas adicionais sobre a solução, vá para o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>Posso carregar para uma área de trabalho existente?
-Se as máquinas virtuais já estiverem ligadas a uma área de trabalho do Log Analytics, pode continuar a usar essa área de trabalho quando a integração para o Azure Monitor para as VMs, fornecidas for em uma das regiões suportadas listadas [aqui](vminsights-onboard.md#prerequisites).
+Se as máquinas virtuais já estiverem ligadas a uma área de trabalho do Log Analytics, pode continuar a usar essa área de trabalho quando a integração para o Azure Monitor para as VMs, fornecidas for em uma das regiões suportadas listadas [aqui](vminsights-enable-overview.md#prerequisites).
 
 Quando a integração, podemos configurar contadores de desempenho para a área de trabalho que fará com que todas as VMs a comunicar dados para a área de trabalho para iniciar a recolha destas informações para exibição e análise no Azure Monitor para as VMs.  Como resultado, verá os dados de desempenho de todas as VMs ligadas à área de trabalho selecionada.  As funcionalidades de estado de funcionamento e o mapa apenas estão ativadas para as VMs que especificou para carregar.
 
-Para obter mais informações sobre o desempenho do que os contadores estão ativados, consulte a nossa [inclusão](vminsights-onboard.md) artigo.
+Para obter mais informações sobre o desempenho do que os contadores estão ativados, consulte a nossa [descrição geral de ativar](vminsights-enable-overview.md#performance-counters-enabled) artigo.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>Posso carregar para uma nova área de trabalho? 
-Se as suas VMs não estiverem atualmente ligadas numa área de trabalho do Log Analytics existente, tem de criar uma nova área de trabalho para armazenar os dados.  Criar uma nova área de trabalho padrão é feito automaticamente se configurar o numa única VM do Azure para o Azure Monitor para VMs através do portal do Azure.
+Se as suas VMs não estiverem atualmente ligadas numa área de trabalho do Log Analytics existente, tem de criar uma nova área de trabalho para armazenar os dados. Criar uma nova área de trabalho padrão é feito automaticamente se configurar o numa única VM do Azure para o Azure Monitor para VMs através do portal do Azure.
 
-Se optar por utilizar o método baseado em script, essas etapas são abordadas os [inclusão](vminsights-onboard.md) artigo. 
+Se optar por utilizar o método baseado em script, essas etapas são abordadas os [ativar o Azure Monitor para VMs (pré-visualização) com o modelo do Azure PowerShell ou do Resource Manager](vminsights-enable-at-scale-powershell.md) artigo. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>O que devo fazer se a minha VM já está a comunicar com uma área de trabalho existente?
 Se já está a recolher dados das suas máquinas virtuais, poderá ter já configurado-lo a dados de relatórios numa área de trabalho do Log Analytics existente.  Desde que essa área de trabalho é de uma de nossas regiões suportadas, pode ativar o Azure Monitor para VMs a essa área de trabalho já existente.  Se já estiver a utilizar a área de trabalho não estiver em uma de nossas regiões suportadas, não será capaz de carregar para o Azure Monitor para VMs neste momento.  Estamos a trabalhar ativamente para oferecer suporte a mais regiões.
 
 >[!NOTE]
->Podemos configurar contadores de desempenho para a área de trabalho que afeta todas as VMs que reportam à área de trabalho, se é ou não tiver optado por carregá-los para o Azure Monitor para as VMs. Para obter mais detalhes sobre como os contadores de desempenho são configurados para a área de trabalho, consulte nosso [documentação](../../azure-monitor/platform/data-sources-performance-counters.md). Para obter informações sobre os contadores configurado para o Azure Monitor para VMs, consulte nosso [documentação de inclusão](vminsights-onboard.md#performance-counters-enabled).  
+>Podemos configurar contadores de desempenho para a área de trabalho que afeta todas as VMs que reportam à área de trabalho, se é ou não tiver optado por carregá-los para o Azure Monitor para as VMs. Para obter mais detalhes sobre como os contadores de desempenho são configurados para a área de trabalho, consulte nosso [documentação](../../azure-monitor/platform/data-sources-performance-counters.md). Para obter informações sobre os contadores configurado para o Azure Monitor para VMs, consulte nosso [ativar o Azure Monitor para VMs](vminsights-enable-overview.md#performance-counters-enabled) artigo.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>Por que a minha VM não conseguir carregar?
 Quando uma VM do Azure no portal do Azure de integração, ocorrem os seguintes passos:
 
 * Uma área de trabalho do Log Analytics do padrão é criada, se que a opção tiver sido selecionada.
-* Os contadores de desempenho são configurados para a área de trabalho selecionada. Caso este passo falhe, observe que algumas das tabelas e gráficos de desempenho não estão a mostrar dados para a VM efetuou. Pode corrigir este problema ao executar o script do PowerShell documentado [aqui](vminsights-onboard.md#enable-with-powershell).
+* Os contadores de desempenho são configurados para a área de trabalho selecionada. Caso este passo falhe, observe que algumas das tabelas e gráficos de desempenho não estão a mostrar dados para a VM efetuou. Pode corrigir este problema ao executar o script do PowerShell documentado [aqui](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * O agente Log Analytics está instalado em VMs do Azure com uma extensão de VM, se for determinado é necessário.  
 * O Azure Monitor para agente de dependência de mapa de VMs é instalado em VMs do Azure com uma extensão, se for determinado é necessário.  
 * Componentes de Monitor do Azure que suporta a funcionalidade de estado de funcionamento estão configurados, se necessário, e a VM está configurada para dados de estado de funcionamento do relatório.
@@ -89,7 +89,7 @@ Limiares para os seguintes critérios de estado de funcionamento do Linux não s
 Regras de alerta que estão definidas para cada critério de estado de funcionamento não são apresentadas no portal do Azure. Pode ativar ou desativar um alerta de estado de funcionamento apenas na regra a [API do Monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Além disso, não é possível atribuir um [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) para alertas de estado de funcionamento no portal do Azure. Só pode utilizar a API de definição de notificação para configurar um grupo de ação para ser acionada sempre que é acionado um alerta de estado de funcionamento. Atualmente, pode atribuir grupos de ação em relação a uma VM para que todos os *alertas de estado de funcionamento* disparado contra o acionador VM, os mesmos grupos de ação. Ao contrário dos alertas do Azure tradicionais, não há conceito de um grupo de ação separada para cada regra de alerta de estado de funcionamento. Além disso, apenas os grupos de ação que estão configurados para fornecer e-mail ou notificações por SMS são suportados quando são acionados alertas de estado de funcionamento. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Não vejo algumas ou quaisquer dados nos gráficos de desempenho para a minha VM
-Se não vir dados de desempenho na tabela de disco ou em alguns dos gráficos de desempenho, em seguida, os contadores de desempenho não podem ser configurados na área de trabalho. Para resolver, execute o seguinte [script do PowerShell](vminsights-onboard.md#enable-with-powershell).
+Se não vir dados de desempenho na tabela de disco ou em alguns dos gráficos de desempenho, em seguida, os contadores de desempenho não podem ser configurados na área de trabalho. Para resolver, execute o seguinte [script do PowerShell](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>O que diferencia Azure Monitor para a funcionalidade de mapa de VMs do mapa de serviço?
 O Azure Monitor para a funcionalidade de mapa de VMs é baseado em mapa de serviço, mas tem as seguintes diferenças:
@@ -138,4 +138,4 @@ Se tiver configurado o Azure Monitor com uma área de trabalho do Log Analytics 
 Sob essa condição, serão solicitadas com o **experimentar agora** opção quando abrir a VM e selecione **Insights (pré-visualização)** no painel esquerdo, até mesmo depois que tiver sido já instalado na VM.  No entanto, não obterá opções tal como faria normalmente se esta VM não foram carregadas para o Azure Monitor para as VMs. 
 
 ## <a name="next-steps"></a>Passos Seguintes
-Revisão [carregar Monitor do Azure para VMs](vminsights-onboard.md) para compreender os requisitos e métodos para ativar a monitorização das suas máquinas virtuais.
+Revisão [ativar o Azure Monitor para VMs](vminsights-enable-overview.md) para compreender os requisitos e métodos para ativar a monitorização das suas máquinas virtuais.

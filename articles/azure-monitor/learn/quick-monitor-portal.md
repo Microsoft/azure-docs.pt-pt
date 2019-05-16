@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: a43ad92181415593b309b9fafb20f9934a997924
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08745c3ef3d4996340ec40af496f8f0a5e0201c3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539799"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595732"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
@@ -26,7 +26,7 @@ Este início rápido mostra como adicionar o Application Insights a uma aplicaç
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este guia de início rápido:
 
-- Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     - Desenvolvimento ASP.NET e Web
     - Desenvolvimento do Azure
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="enable-application-insights"></a>Ativar o Application Insights
 
-1. Abra o projeto no Visual Studio 2017.
+1. Abra o projeto no Visual Studio 2019.
 2. Selecione **Configurar o Application Insights** no menu Projeto. O Visual Studio adiciona o Application Insights SDK à sua aplicação.
 
     > [!IMPORTANT]
@@ -63,11 +63,11 @@ Agora, pode abrir o Application Insights no portal do Azure para ver os vários 
 
 1. Expanda a **serviços ligados** pasta (ícone de nuvem e plug) no Solution Explorer, em seguida, clique com botão direito no **Application Insights** pasta e clique em **abrir Portal do Application Insights** .  São apresentadas algumas informações sobre a sua aplicação e uma variedade de opções.
 
-    ![Mapeamento de Aplicações](media/quick-monitor-portal/4overview.png)
+    ![Mapa da Aplicação](media/quick-monitor-portal/4overview.png)
 
 2. Clique em **Mapa da Aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação.  Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-    ![Mapeamento de Aplicações](media/quick-monitor-portal/5appmap.png)
+    ![Mapa da Aplicação](media/quick-monitor-portal/5appmap.png)
 
 3. Clique nas **análise da aplicação** ícone ![mapa da aplicação](media/quick-monitor-portal/app-analytics-icon.png) **ver na análise** em um dos componentes da aplicação. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights.  Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 

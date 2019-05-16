@@ -1,5 +1,5 @@
 ---
-title: Encriptação em repouso com chaves geridas pelo cliente no Azure Key Vault - Azure Search
+title: Encriptação em repouso com chaves geridas pelo cliente no Azure Key Vault (pré-visualização) - Azure Search
 description: Encriptação do lado do servidor de suplemento ao longo de índices e mapas de sinónimos no Azure Search através de chaves que criar e gerir no Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029179"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523100"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Encriptação de pesquisa do Azure com chaves geridas pelo cliente no Azure Key Vault
+
+> [!Note]
+> Encriptação com chaves geridas pelo cliente está em pré-visualização e não se utilização em produção. O [2019 no versão REST API-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Também pode utilizar o SDK de .NET versão 8.0-pré-visualização.
+>
+> Esta funcionalidade não está disponível para serviços gratuitos. Tem de utilizar um serviço de pesquisa cobrar criado em ou após 2019-01-01. Não há nenhum suporte do portal neste momento.
 
 Por predefinição, o Azure Search encripta conteúdo de utilizador em repouso com [chaves geridas pelo serviço](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Pode complementar a encriptação de padrão com uma camada de encriptação adicionais com chaves que criar e gerir no Azure Key Vault. Este artigo orienta-o através dos passos.
 
@@ -26,20 +31,17 @@ Encriptação com chaves geridas pelo cliente é configurada no nível de mapa �
 
 Pode utilizar chaves diferentes de cofres de chave diferentes. Isso significa que um serviço de pesquisa único pode alojar vários mapas de indexes\synonym encriptados, cada encriptados potencialmente com uma chave diferente gerida pelo cliente, juntamente com os mapas de indexes\synonym que não estão encriptados utilizando chaves geridas pelo cliente. 
 
->[!Note]
-> **Disponibilidade da funcionalidade**: Encriptação com chaves geridas pelo cliente é uma funcionalidade de pré-visualização que não está disponível para serviços gratuitos. Em serviços pagos, só está disponível para os serviços de pesquisa criados em ou após 2019-01-01, usando a api-version mais recente pré-visualização (api-version = 2019-05-06-pré-visualização). Atualmente, não há nenhum suporte do portal para esta funcionalidade.
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Os seguintes serviços são utilizados neste exemplo. 
 
-[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial.
++ [Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial.
 
-[Criar um recurso do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou encontrar um cofre existente na sua subscrição.
++ [Criar um recurso do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou encontrar um cofre existente na sua subscrição.
 
-[O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) é utilizado para tarefas de configuração.
++ [O Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) é utilizado para tarefas de configuração.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure Search SDK](https://aka.ms/search-sdk-preview) podem ser utilizados para chamar a REST API de pré-visualização. Não existe nenhum portal ou o suporte do SDK de .NET para a encriptação gerida pelo cliente neste momento.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) e [Azure Search SDK](https://aka.ms/search-sdk-preview) podem ser utilizados para chamar a REST API de pré-visualização. Não existe nenhum portal ou o suporte do SDK de .NET para a encriptação gerida pelo cliente neste momento.
 
 ## <a name="1---enable-key-recovery"></a>1 - ativar a recuperação de chaves
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
-ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc14f654af80cf599a797b8f16b0e98fe4b3a209
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61042968"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551006"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -34,7 +34,7 @@ O cosmos DB permite-lhe criar elevada capacidade de resposta e aplicações de e
 
 O cosmos DB permite-lhe adicionar ou remover qualquer uma das regiões do Azure à sua conta do Cosmos em qualquer altura, com um clique de um botão. O cosmos DB será perfeitamente replicar os seus dados para todas as regiões à sua conta do Cosmos enquanto a sua aplicação continua a ser de elevada disponibilidade, graças à *multi homing* capacidades do serviço. Para obter mais informações, consulte a [distribuição global](distribute-data-globally.md) artigo.
 
-### <a name="always-on"></a>Sempre Ativo
+### <a name="always-on"></a>Always On
 
 Devido uma integração profunda com a infraestrutura do Azure e [replicação de vários mestre transparente](global-dist-under-the-hood.md), Cosmos DB fornece [elevada disponibilidade de 99,999%](high-availability.md) para as leituras e escritas. O cosmos DB também fornece a capacidade de forma programática (ou através do Portal) invocar a ativação pós-falha regional da sua conta do Cosmos. Esta capacidade ajuda a garantir que seu aplicativo foi projetado para ativação pós-falha no caso de desastre regional.
 
@@ -44,7 +44,7 @@ Concebido com a criação de partições horizontais transparente e replicação
 
 ### <a name="guaranteed-low-latency-at-99th-percentile-worldwide"></a>Baixa latência garantida no percentil 99, em todo o mundo
 
-Com o Cosmos DB, pode criar aplicações altamente responsivo, à escala planetária. Com o protocolo de replicação de vários mestres novo e, em seguida, livre de bloqueios temporários e [motor de base de dados otimizado para escrita](index-policy.md), Cosmos DB garante latências inferiores a 10 ms para ambos, leituras e gravações no percentil 99, em todo o mundo (indexadas) . Esta capacidade permite constante ingestão de dados e consultas de incrivelmente rápida para aplicações de elevada capacidade de resposta.
+Com o Cosmos DB, pode criar aplicações altamente responsivo, à escala planetária. Com o protocolo de replicação de vários mestres novo e, em seguida, livre de bloqueios temporários e [motor de base de dados otimizado para escrita](index-policy.md), Cosmos DB garante latências inferiores a 10 ms para ambos, lê (indexadas) e escreve no percentil 99, em todo o mundo . Esta capacidade permite constante ingestão de dados e consultas de incrivelmente rápida para aplicações de elevada capacidade de resposta.
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Precisamente definido, várias escolhas de consistência
 

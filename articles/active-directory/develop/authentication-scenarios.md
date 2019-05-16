@@ -3,8 +3,8 @@ title: Autenticação na plataforma de identidade da Microsoft | Azure
 description: Saiba mais sobre a autenticação na plataforma de identidade da Microsoft, a aplicação de modelo, API, aprovisionamento, e oferece suporte a essa plataforma de identidade do Microsoft cenários mais comuns de autenticação.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0be7a8b756ee3d1d71b15e10797176e50037a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299893"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540161"
 ---
 # <a name="what-is-authentication"></a>O que é a autenticação?
 
@@ -125,7 +125,7 @@ Uma breve descrição de cada tipo de afirmação emitido pela plataforma de ide
 | Name | Fornece um valor legível por humanos que identifica o requerente do token. |
 | ID de objeto | Contém um identificador exclusivo imutável do requerente no Azure AD. |
 | Funções | Contém os nomes amigáveis das Funções de Aplicação do Azure AD concedidas ao utilizador. |
-| Âmbito | Indica as permissões concedidas à aplicação cliente. |
+| Scope | Indica as permissões concedidas à aplicação cliente. |
 | Requerente | Indica o principal sobre o qual o token declara informações. |
 | ID do inquilino | Contém um identificador exclusivo imutável do inquilino do diretório que emitiu o token. |
 | Duração do Token | Define o intervalo de tempo durante o qual um token é válido. |

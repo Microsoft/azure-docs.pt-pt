@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: b6107211f49978bbacd1a827a9adc37ccef60a5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 7562d720b200e127fbfd56c403f0e29e28b3b5d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60196209"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65759332"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>Mover VMs do Azure para zonas de disponibilidade
 As zonas de disponibilidade no Azure ajudam a proteger as suas aplicações e dados de falhas de datacenter. Cada Zona de Disponibilidade é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região ajuda a proteger aplicações e dados contra falhas de datacenter. Com as zonas de disponibilidade, o Azure oferece um contrato de nível de serviço (SLA) de 99,99% de tempo de atividade de máquinas virtuais (VMs). As zonas de disponibilidade são suportadas em determinadas regiões, conforme mencionado na [quais são as zonas de disponibilidade no Azure?](https://docs.microsoft.com/azure/availability-zones/az-overview#regions-that-support-availability-zones).
@@ -50,7 +50,7 @@ Num cenário em que as suas VMs são implementadas como *única instância* numa
 4. Para VMs do Linux, siga as orientações fornecidas pelo distribuidor do Linux para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificado na VM.
 5. Certifique-se de que não utilize um proxy de autenticação para controlar a conectividade de rede para as VMs que pretende mover.
 
-6. Se a VM está a tentar mover não tem acesso à internet e utiliza um proxy de firewall para controlar o acesso de saída, verifique os requisitos na [ configurar a conectividade de rede de saída](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+6. Se a VM está a tentar mover não tem acesso à internet e utiliza um proxy de firewall para controlar o acesso de saída, verifique os requisitos na [configurar a conectividade de rede de saída](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 
 7. Identifique o esquema de rede de origem e os recursos que utiliza atualmente para a verificação, incluindo balanceadores de carga, os NSGs e IP público.
 
@@ -78,7 +78,7 @@ Num cenário em que as suas VMs são implementadas como *única instância* numa
 
 4. Manualmente [criar uma rede de não produção](https://docs.microsoft.com/azure/virtual-network/quick-create-portal) na região de destino se pretender testar a configuração antes de transitar para a região de destino. Recomendamos que essa abordagem porque faz com um mínimo interferência com o ambiente de produção.
 
-## <a name="enable-replication"></a>Ativar a replicação
+## <a name="enable-replication"></a>Ativar replicação
 Os seguintes passos irão guiá-lo ao utilizar o Azure Site Recovery para ativar a replicação de dados para a região de destino, antes de prosseguir, eventualmente, em zonas de disponibilidade.
 
 > [!NOTE]

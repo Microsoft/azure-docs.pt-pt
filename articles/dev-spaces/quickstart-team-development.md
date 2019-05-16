@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Desenvolvimento em equipe Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1414cc56809263a90a4bfea16db332e2f6a5e0bc
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
-ms.translationtype: MT
+ms.openlocfilehash: 437c6284c563f85e25d2c5b81734ea3bc0507701
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64514083"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596991"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Desenvolvimento em equipa no Kubernetes através dos espaços de desenvolvimento do Azure
 
@@ -25,7 +25,7 @@ Neste guia, vai aprender a:
 - Implantar um aplicativo grande com múltiplos microsserviços para um espaço de desenvolvimento.
 - Teste um único microsserviço num espaço de desenvolvimento isolado dentro do contexto de todo o aplicativo.
 
-![Aplicação de exemplo partilha de bicicletas de espaços de desenvolvimento do Azure](media/quickstart-team-development/bikeshare.png)
+![Desenvolvimento de equipe de espaços de desenvolvimento do Azure](media/azure-dev-spaces/collaborate-graphic.gif)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -125,7 +125,9 @@ http://dev.bikesharingweb.fedcab0987.eus.azds.io/  Available
 http://dev.gateway.fedcab0987.eus.azds.io/         Available
 ```
 
-Navegue para o *bikesharingweb* service ao abrir o URL público a partir do `azds list-uris` comando. No exemplo acima, o URL público para o *bikesharingweb* é de serviço *http://dev.bikesharingweb.fedcab0987.eus.azds.io/*. Selecione *Aurelia Briggs (cliente)* como o utilizador. Certifique-se de ver o texto *Olá Aurelia Briggs | Terminar sessão* na parte superior.
+Navegue para o *bikesharingweb* service ao abrir o URL público a partir do `azds list-uris` comando. No exemplo acima, o URL público para o *bikesharingweb* serviço é `http://dev.bikesharingweb.fedcab0987.eus.azds.io/`. Selecione *Aurelia Briggs (cliente)* como o utilizador. Certifique-se de ver o texto *Olá Aurelia Briggs | Terminar sessão* na parte superior.
+
+![Aplicação de exemplo partilha de bicicletas de espaços de desenvolvimento do Azure](media/quickstart-team-development/bikeshare.png)
 
 ## <a name="create-child-dev-spaces"></a>Criar subordinado espaços de desenvolvimento
 
@@ -162,7 +164,7 @@ http://azureuser2.s.dev.gateway.fedcab0987.eus.azds.io/         Available
 
 Confirme que os URLs apresentado pela `azds list-uris` comando tem o *azureuser2.s.dev* prefixo. Este prefixo confirma que é o atual espaço selecionado *azureuser2*, que é um elemento subordinado *dev*.
 
-Navegue para o *bikesharingweb* serviço para o *dev/azureuser2* espaço de desenvolvimento, abrindo a URL pública a partir do `azds list-uris` comando. No exemplo acima, o URL público para o *bikesharingweb* é de serviço *http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/*. Selecione *Aurelia Briggs (cliente)* como o utilizador. Certifique-se de ver o texto *Olá Aurelia Briggs | Terminar sessão* na parte superior.
+Navegue para o *bikesharingweb* serviço para o *dev/azureuser2* espaço de desenvolvimento, abrindo a URL pública a partir do `azds list-uris` comando. No exemplo acima, o URL público para o *bikesharingweb* serviço é `http://azureuser2.s.dev.bikesharingweb.fedcab0987.eus.azds.io/`. Selecione *Aurelia Briggs (cliente)* como o utilizador. Certifique-se de ver o texto *Olá Aurelia Briggs | Terminar sessão* na parte superior.
 
 ## <a name="update-code"></a>Atualizar código
 

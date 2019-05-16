@@ -3,19 +3,21 @@ title: Introdução à análise operacional integrada no Azure Cosmos DB com o A
 description: Saiba como pode utilizar o suporte incorporado para o Apache Spark no Azure Cosmos DB para executar análises operacionais e de IA
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/10/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 504f463f55edf1a22f99e1ba02449121e8bf5efc
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: HT
+ms.openlocfilehash: c62639feed7ced9d92e29715e350b952465a94a1
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472260"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517728"
 ---
 # <a name="built-in-operational-analytics-in-azure-cosmos-db-with-apache-spark-preview"></a>Análise operacional incorporada no Azure Cosmos DB com o Apache Spark (pré-visualização) 
 
 O suporte incorporado para o Apache Spark no Azure Cosmos DB permite-lhe executar análises do Apache Spark relativamente aos seus dados armazenados numa conta do Cosmos do Azure. Ele fornece o suporte nativo para tarefas do Apache Spark executar diretamente em seus bancos de dados globalmente distribuídos do Cosmos. Com estas capacidades, os desenvolvedores, engenheiros de dados e os cientistas de dados podem utilizar do Azure Cosmos DB como um flexível, dimensionável e plataforma de dados de elevado desempenho para executar os dois **OLTP e OLAP/HTAP** cargas de trabalho. 
+
+Spark de computação está automaticamente disponível em todas as regiões do Azure associado à sua conta do Cosmos do Azure. Tarefas do Spark utilizam a capacidade de vários mestre do Azure Cosmos DB e pode escrever ou uma consulta em relação as réplicas locais em cada região. 
 
 > [!NOTE]
 > O suporte incorporado para o Apache Spark no Azure Cosmos DB está atualmente em pré-visualização limitada. Para se inscrever na pré-visualização, navegue até [Inscreva-se na pré-visualização](https://portal.azure.com/?feature.customportal=false#create/Microsoft.DocumentDB) página. 
@@ -72,6 +74,12 @@ As tarefas do Apache Spark terá os benefícios do Azure Cosmos DB, como líder 
 ### <a name="mixed-workloads"></a>Cargas de trabalho mistas
 
 A integração do Apache Spark no Azure Cosmos DB pontes a separação transacional e análise, que tem sido um dos pontos de tensão de principais de cliente ao criar aplicações nativas da cloud à escala global. 
+
+## <a name="built-in-jupyter-notebooks-support"></a>Suporte interno a blocos de notas Jupyter
+
+O Azure Cosmos DB suporta blocos de notas do Jupyter para todas as APIs, como Cassandra, MongoDB, SQL, Gremlin e tabela. Os blocos de notas do Jupyter execute dentro as contas do Azure Cosmos DB e eles aprimoram a experiência do desenvolvedor. O suporte de bloco de notas incorporados para todos os modelos de dados e APIs do Azure Cosmos DB permite-lhe executar interativamente consultas. Também pode executar modelos de aprendizagem automática e analisar os dados armazenados em seus bancos de dados do Cosmos do Azure. Ao utilizar a experiência de bloco de notas do Jupyter, pode analisar os dados armazenados, criar e formar modelos do machine learning e efetuar inferência nos dados no portal do Azure, conforme mostrado na imagem seguinte:
+
+![Suporte de blocos de notas do Jupyter no Azure Cosmos DB](./media/spark-api-introduction/jupyter-notebooks-portal.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

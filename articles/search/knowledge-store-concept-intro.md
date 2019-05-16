@@ -1,5 +1,5 @@
 ---
-title: Introdução de dados de conhecimento Store e a descrição geral - Azure Search
+title: Introdução de arquivo de dados de conhecimento e descrição geral (pré-visualização) - Azure Search
 description: Envie documentos plena ao armazenamento do Azure, onde pode ver, reformatar e consumir documentos plena no Azure Search e em outros aplicativos.
 manager: cgronlun
 author: HeidiSteen
@@ -9,32 +9,36 @@ ms.devlang: NA
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 3000016de934aaa3faab96821f9747ea4b571ef7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4a27e4d8f2fbaafe6d27a3e3cabd31aa715b9d80
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026999"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540738"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>O que é a Store de dados de conhecimento no Azure Search?
+# <a name="what-is-knowledge-store-in-azure-search"></a>O que é o armazenamento de dados de conhecimento no Azure Search?
 
-Dados de conhecimento Store é uma funcionalidade opcional do Azure Search, atualmente em pré-visualização pública, que salva documentos plena e metadados criados por um pipeline de indexação baseada em IA [(pesquisa cognitiva)](cognitive-search-concept-intro.md). Dados de conhecimento Store é apoiada por uma conta de armazenamento do Azure que configura como parte do pipeline. Quando ativada, o serviço de pesquisa utiliza esta conta de armazenamento em cache uma representação de cada documento plena. 
+> [!Note]
+> Arquivo de dados de conhecimento está em pré-visualização e não se utilização em produção. O [2019 no versão REST API-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Não existe nenhum suporte de .NET SDK neste momento.
+>
+
+Arquivo de dados de conhecimento é uma funcionalidade opcional do Azure Search, que salva documentos plena e metadados criados por um pipeline de indexação baseada em IA [(pesquisa cognitiva)](cognitive-search-concept-intro.md). Arquivo de dados de conhecimento é apoiado por uma conta de armazenamento do Azure que configura como parte do pipeline. Quando ativada, o serviço de pesquisa utiliza esta conta de armazenamento em cache uma representação de cada documento plena. 
 
 Se tiver utilizado a pesquisa cognitiva no passado, já sabe que os conjuntos de habilidades podem ser utilizados para mover um documento por meio de uma seqüência de possível. O resultado pode ser um índice da Azure Search, ou (novo nesta pré-visualização) projeções num arquivo de dados de conhecimento.
 
 Projeções são o mecanismo para estruturar dados para consumo num aplicativo de downstream. Pode usar [Explorador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) criado para o armazenamento do Azure ou qualquer aplicação que liga ao armazenamento do Azure, que abre novas possibilidades para o consumo de enriquecida documentos. Alguns exemplos são pipelines de ciência de dados e análises personalizadas.
 
-![Dados de conhecimento Store no diagrama de pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Store de dados de conhecimento no diagrama de pipeline")
+![Arquivo de dados de conhecimento no diagrama de pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "arquivo de dados de conhecimento no diagrama de pipeline")
 
-Para utilizar dados de conhecimento Store, adicione um `knowledgeStore` elemento para um conjunto de capacidades que define sequencial operações num pipeline de indexação. Durante a execução, pesquisa do Azure cria um espaço na sua conta de armazenamento do Azure e a preenche com definições e conteúdo criado pelo pipeline.
+Para utilizar o arquivo de dados de conhecimento, adicione um `knowledgeStore` elemento para um conjunto de capacidades que define sequencial operações num pipeline de indexação. Durante a execução, pesquisa do Azure cria um espaço na sua conta de armazenamento do Azure e a preenche com definições e conteúdo criado pelo pipeline.
 
-## <a name="benefits-of-knowledge-store"></a>Benefícios do Store de dados de conhecimento
+## <a name="benefits-of-knowledge-store"></a>Benefícios do armazenamento de dados de conhecimento
 
 Um conhecimento armazenar dá estruturação, contexto e conteúdo real - obtidas a partir dos ficheiros de dados não estruturados e semiestruturados, como blobs, ficheiros de imagem que já passaram por análise, ou até mesmo os dados que são remodelados em novas formas de estruturados. Num [instruções passo a passo](knowledge-store-howto.md) escrito para esta pré-visualização, pode ver primeira mão como um documento JSON densa é particionado horizontalmente em substructures, reconstituted em novas estruturas e disponibilizado de outra forma de downstream processos, como o machine learning e os dados ciência cargas de trabalho.
 
-Embora seja útil ver o que pode produzir um pipeline de indexação baseada em IA, o verdadeiro poder do conhecimento Store é a capacidade de reformatar os dados. Pode começar com um conjunto de capacidades básico e, em seguida, iterar sobre-lo para adicionar níveis de cada vez maiores de estrutura, que, em seguida, pode combinar em novas estruturas, consumíveis noutras aplicações além do Azure Search.
+Embora seja útil ver o que pode produzir um pipeline de indexação baseada em IA, o verdadeiro poder do arquivo de dados de conhecimento é a capacidade de reformatar os dados. Pode começar com um conjunto de capacidades básico e, em seguida, iterar sobre-lo para adicionar níveis de cada vez maiores de estrutura, que, em seguida, pode combinar em novas estruturas, consumíveis noutras aplicações além do Azure Search.
 
-Os benefícios de dados de conhecimento Store enumerado, incluem o seguinte:
+Os benefícios do arquivo de dados de conhecimento de enumerado, incluem o seguinte:
 
 + Consumir documentos plena [análises e relatórios ferramentas](#tools-and-apps) diferente de pesquisa. Power BI com o Power Query é uma opção atraente, mas qualquer ferramenta ou a aplicação que pode ligar-se ao armazenamento do Azure pode extrair a partir de um arquivo de dados de conhecimento que criar.
 
@@ -138,7 +142,7 @@ O Azure Search fornece a funcionalidade de indexador e indexadores são usados p
 |--------|----------|-------------|
 | origem de dados | [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso de identificar a origem de dados do Azure externa a fornecer os dados de origem utilizados para criar documentos plena.  |
 | Conjunto de capacidades | [Criar conjunto de capacidades (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso de coordenar o uso de [habilidades internas](cognitive-search-predefined-skills.md) e [personalizadas capacidades cognitivas](cognitive-search-custom-skill-interface.md) usado num pipeline de enriquecimento durante a indexação. |
-| índice | [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema de expressar um índice da Azure Search. Campos no índice mapeiam para campos numa origem de dados ou para campos fabricados durante a fase de melhoria (por exemplo, um campo para nomes de organização criado pelo reconhecimento de entidades). |
+| index | [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema de expressar um índice da Azure Search. Campos no índice mapeiam para campos numa origem de dados ou para campos fabricados durante a fase de melhoria (por exemplo, um campo para nomes de organização criado pelo reconhecimento de entidades). |
 | indexador | [Criar indexador (api-version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso definindo componentes utilizados durante a indexação: incluindo uma origem de dados, um conjunto de capacidades, associações de campo da origem e de estruturas de dados intermédios ao índice de destino e o índice em si. É o acionador para ingestão de dados e enriquecimento de executar o indexador. O resultado é um índice de pesquisa com base no esquema de índice, preenchido com dados de origem, enriquecidos através de conjuntos de competências.  |
 
 ### <a name="3---cognitive-services"></a>3 - cognitivas Services
@@ -235,11 +239,11 @@ Ao utilizar múltiplos serviços, crie todos os seus serviços na mesma região 
 
 **Passo 4: [Começar com o portal](cognitive-search-quickstart-blob.md) - ou - [começar com dados de exemplo usando REST e o Postman](knowledge-store-howto.md)** 
 
-Pode utilizar o REST `api-version=2019-05-06-Preview` para construir um pipeline com base em IA, que inclui dados de conhecimento Store. A API de pré-visualização mais recente, o objeto de conjunto de capacidades fornece o `knowledgeStore` definição.
+Pode utilizar o REST `api-version=2019-05-06-Preview` para construir um pipeline com base em IA, que inclui o arquivo de dados de conhecimento. A API de pré-visualização mais recente, o objeto de conjunto de capacidades fornece o `knowledgeStore` definição.
 
 ## <a name="takeaways"></a>Conclusões
 
-Dados de conhecimento Store oferece uma variedade de benefícios, incluindo mas não se limitando a ativar a utilização dos documentos plena em outros cenários além da pesquisa, controles de custos e gerir desvios em seu processo de melhoria. Estas funcionalidades estão disponíveis para utilizar simplesmente ao adicionar uma conta de armazenamento para o conjunto de capacidades e usando a linguagem de expressão atualizado conforme descrito em [como começar com dados de conhecimento Store](knowledge-store-howto.md). 
+Arquivo de dados de conhecimento oferece uma variedade de benefícios, incluindo mas não se limitando a ativar a utilização dos documentos plena em outros cenários além da pesquisa, controles de custos e gerir desvios em seu processo de melhoria. Estas funcionalidades estão disponíveis para utilizar simplesmente ao adicionar uma conta de armazenamento para o conjunto de capacidades e usando a linguagem de expressão atualizado conforme descrito em [como começar com o arquivo de dados de conhecimento](knowledge-store-howto.md). 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

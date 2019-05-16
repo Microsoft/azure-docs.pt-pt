@@ -1,5 +1,5 @@
 ---
-title: Como começar com dados de conhecimento Store (pré-visualização) - Azure Search
+title: Como começar com o arquivo de dados de conhecimento (pré-visualização) - Azure Search
 description: Conheça as etapas para enviar documentos plena criados de IA indexação pipelines do Azure Search para um arquivo de dados de conhecimento na sua conta de armazenamento do Azure. A partir daí, pode ver, reformatar e consumir documentos plena no Azure Search e em outros aplicativos.
 manager: cgronlun
 author: HeidiSteen
@@ -8,16 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.author: heidist
-ms.openlocfilehash: d9006e3fcfc9691b9f3eec4b86c545fd3fea9f8a
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: e7be2dfc811caa087726339846a1de2516f1e2b2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471749"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540733"
 ---
-# <a name="how-to-get-started-with-knowledge-store"></a>Como começar com dados de conhecimento Store
+# <a name="how-to-get-started-with-knowledge-store-in-azure-search"></a>Como começar com o arquivo de dados de conhecimento no Azure Search
 
-[Dados de conhecimento Store](knowledge-store-concept-intro.md) é uma nova funcionalidade de pré-visualização do Azure Search, que guarda possível de IA criado num pipeline de indexação para extração de dados de conhecimento em outras aplicações. Também pode utilizar o possível guardado para compreender e refinar um pipeline de indexação de pesquisa do Azure.
+> [!Note]
+> Arquivo de dados de conhecimento está em pré-visualização e não se utilização em produção. O [2019 no versão REST API-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Não existe nenhum suporte de .NET SDK neste momento.
+>
+
+[Arquivo de dados de conhecimento](knowledge-store-concept-intro.md) guarda possível de IA criado durante a indexação à sua conta de armazenamento do Azure para extração de dados de conhecimento downstream noutras aplicações. Também pode utilizar o possível guardado para compreender e refinar um pipeline de indexação de pesquisa do Azure.
 
 Um arquivo de dados de conhecimento é definido por um conjunto de capacidades. Para cenários de pesquisa em texto completo do Azure Search regulares, a finalidade de um conjunto de capacidades está fornecendo possível de ia para tornar o conteúdo mais pesquisável. Para cenários de mineração de dados de conhecimento, a função de um conjunto de capacidades é criar, preencher e armazenar várias estruturas de dados para análise ou em outras aplicações e processos de modelagem.
 

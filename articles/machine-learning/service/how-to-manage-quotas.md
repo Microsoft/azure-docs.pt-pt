@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
-ms.date: 12/04/2018
+ms.date: 05/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa425b6dfeb076448d14fc35cbea964516d603b0
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: f9734a5d8f34536558fbf0c861889f3c7d6719da
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765866"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523992"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Gerir e solicitar as quotas para recursos do Azure
 
@@ -52,9 +52,9 @@ Para obter uma lista mais detalhada e atualizada de limites de quota, consulte o
 Para Azure computação do Machine Learning, existe um limite de cota padrão sobre o número de núcleos e o número exclusivo de recursos de computação permitidas por região numa subscrição. Esta quota é separada da quota de núcleos VM acima e os limites de principal não são atualmente partilhados entre os tipos de dois recursos.
 
 Recursos disponíveis:
-+ Núcleos dedicados por região tem um limite predefinido de 10-24.  O número de núcleos dedicados por subscrição pode ser aumentado. Contacte o suporte do Azure para discutir as opções de aumento.
++ Núcleos dedicados por região tem um limite predefinido de 24 300 dependendo do seu tipo de oferta de subscrição.  O número de núcleos dedicados por subscrição pode ser aumentado. Contacte o suporte do Azure para discutir as opções de aumento.
 
-+ Núcleos de prioridade baixa por região tem um limite predefinido de 10-24.  O número de núcleos de prioridade baixa por subscrição pode ser aumentado. Contacte o suporte do Azure para discutir as opções de aumento.
++ Núcleos de prioridade baixa por região tem um limite predefinido de 24-300 consoante o tipo de oferta de subscrição.  O número de núcleos de prioridade baixa por subscrição pode ser aumentado. Contacte o suporte do Azure para discutir as opções de aumento.
 
 + Os clusters por região têm um limite predefinido de 100 e um limite máximo de 200. Se pretender pedir um aumento que ultrapassam este limite, contacte o suporte do Azure.
 
@@ -66,12 +66,14 @@ Recursos disponíveis:
 | Número máximo de nós num único recurso de computação do Azure Machine Learning (AmlCompute) | 100 nós |
 | Máximo de GPU de MPI processa por nó | 1 a 4 |
 | Operadores de GPU máximos por nó | 1 a 4 |
-| Duração de tarefas máxima | 7 dias<sup>1</sup> |
+| Duração de tarefas máxima | 90 dias<sup>1</sup> |
+| Duração de tarefas máxima num nó de prioridade baixa | 1 dia<sup>2</sup> |
 | Servidores de parâmetro máxima por nó | 1 |
 
 <sup>1</sup> a duração máxima refere-se até ao momento em que iniciar uma execução e quando ele for concluída. Execuções concluídas mantêm-se indefinidamente; dados de execuções não concluídas dentro da duração máxima não estão acessíveis.
+<sup>2</sup> tarefas num nó de baixa prioridade podem ser pre-empted sempre que existe uma restrição de capacidade. Recomenda-se para implementar o ponto de verificação no seu trabalho.
 
-### <a name="container-instances"></a>Instâncias de contentor
+### <a name="container-instances"></a>Instâncias de contentores
 
 Também existe um limite no número de instâncias de contentor que pode acelerar num determinado período de tempo (hora a hora de âmbito) ou em sua assinatura inteira.
 
@@ -80,20 +82,20 @@ Também existe um limite no número de instâncias de contentor que pode acelera
 Para obter uma lista mais detalhada e atualizada de limites de quota, consulte o artigo de quota do Azure em todo [aqui](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits).
 
 ### <a name="storage"></a>Armazenamento
-Existe um limite no número de contas de armazenamento por região também numa determinada subscrição. O limite predefinido é 200 e inclui contas padrão e o armazenamento Premium. Se necessitar de mais de 200 contas de armazenamento numa determinada região, efetue um pedido através de [suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). A equipa do armazenamento do Azure analisará o seu caso comercial e pode aprovar até 250 contas de armazenamento para uma determinada região.
+Existe um limite no número de contas de armazenamento por região também numa determinada subscrição. O limite predefinido é 200 e inclui contas padrão e o armazenamento Premium. Se necessitar de mais de 200 contas de armazenamento numa determinada região, efetue um pedido através de [suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). A equipa do armazenamento do Azure analisará o seu caso comercial e pode aprovar até 250 contas de armazenamento para uma determinada região.
 
 
 ## <a name="find-your-quotas"></a>Encontrar as suas quotas
 
 Ver a sua quota para vários recursos, como máquinas virtuais, armazenamento, rede, é fácil através do portal do Azure.
 
-1. No painel esquerdo, selecione **todos os serviços** e, em seguida, selecione **subscrições** sob a categoria geral.
+1. No painel esquerdo, selecione **todos os serviços** e, em seguida, selecione **subscrições** sob a categoria geral.
 
 1. Na lista de subscrições, selecione a subscrição cujo quota que procura.
 
    **Há uma limitação:**, especificamente para ver a quota de computação do Azure Machine Learning. Conforme mencionado acima, esse quota é separada da quota de computação na sua subscrição.
 
-1. No painel esquerdo, selecione **serviço Machine Learning** e, em seguida, selecione qualquer área de trabalho na lista apresentada
+1. No painel esquerdo, selecione **serviço Machine Learning** e, em seguida, selecione qualquer área de trabalho na lista apresentada
 
 1. No painel seguinte, sob o **suporte + resolução de problemas de seção** selecionar **utilização + quotas** para ver os limites de quota atual e o uso.
 
@@ -102,7 +104,7 @@ Ver a sua quota para vários recursos, como máquinas virtuais, armazenamento, r
 
 ## <a name="request-quota-increases"></a>Aumentos de quota de pedido
 
-Se deseja elevar o limite ou quota acima do limite de predefinição [abra um pedido de suporte do cliente online](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) sem encargos.
+Se deseja elevar o limite ou quota acima do limite de predefinição [abra um pedido de suporte do cliente online](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/) sem encargos.
 
 Os limites não podem ser aumentados acima do valor de limite máximo mostrado nas tabelas. Se não houver nenhum limite máximo, em seguida, o recurso não tem limites ajustável. [Isso](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quota-errors) artigo aborda o processo de aumento de quota em mais detalhes.
 

@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 05/13/2019
-ms.openlocfilehash: dda5df0e5b9b9509482cb6dcdcda242b4daa230f
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: a85397dae67eb06fecbf5e2410f56e2aad808dc8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596347"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65750081"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Azure Red Hat OpenShift
 
@@ -33,7 +33,9 @@ Nesta série de tutoriais, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 > [!IMPORTANT]
-> Este tutorial requer a versão 2.0.65 da CLI do Azure
+> Este tutorial requer a versão 2.0.65 da CLI do Azure.
+>    
+> Antes de poder utilizar o Azure Red Hat Openshift, terá de comprar instâncias reservadas de máquina virtual do Azure, conforme descrito em [configurar o ambiente de desenvolvimento do Azure Red Hat Openshift](howto-setup-environment.md#purchase-azure-virtual-machine-reserved-instances).
 
 Antes de começar este tutorial:
 

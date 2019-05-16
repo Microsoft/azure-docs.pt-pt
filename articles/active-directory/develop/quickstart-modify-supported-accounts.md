@@ -3,8 +3,8 @@ title: Modificar as contas suportadas por uma aplicação registada na plataform
 description: Configure uma aplicação registada na plataforma de identidade da Microsoft para alterar quem ou que contas podem aceder à aplicação.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2c52bd0bf6c1e385248bd379a8001756d28ac2d
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 00d99ae48abfcb3e4d4abc0d63565994df45f746
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413588"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545732"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Início rápido: Modificar as contas suportadas por uma aplicação
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494677"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780013"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Monitor do Azure para contentores perguntas mais frequentes
 
@@ -76,6 +76,12 @@ Pode ver o erro seguinte: **A resposta do url especificado no pedido não coinci
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>Por que não é possível atualizar cluster após a integração?
 
 Se depois de ativar o Azure Monitor para contentores para um cluster do AKS, eliminar a área de trabalho do Log Analytics no cluster foi enviar seus dados, quando tentar atualizar o cluster falhará. Para contornar este problema, terá de desativar a monitorização e, em seguida, reativá-la fazendo referência uma área de trabalho válida diferente na sua subscrição. Quando tentar efetuar a atualização do cluster novamente, ele deve processar e concluída com êxito.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Que portas e domínios é necessário para aberto/lista de permissões para o agente?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>Passos Seguintes
 

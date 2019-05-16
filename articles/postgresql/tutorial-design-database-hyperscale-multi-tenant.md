@@ -8,13 +8,13 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: b135baf73e21cd524b6e8fad35452362f36cf0c0
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.date: 05/14/2019
+ms.openlocfilehash: 73d7aebf3dbff59320e0ef92cbd54811503c71b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65080808"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757621"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: conceber uma base de dados do multi-inquilino através da utilização da base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
 
@@ -31,72 +31,7 @@ Neste tutorial, vai utilizar base de dados do Azure para PostgreSQL - Hiperescal
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-
-Inicie sessão no [portal do Azure](https://portal.azure.com).
-
-## <a name="create-an-azure-database-for-postgresql"></a>Criar uma Base de Dados do Azure para o PostgreSQL
-
-Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreSQL:
-1. Clique em **Criar um recurso**, no canto superior esquerdo do portal do Azure.
-2. Selecione **Bases de Dados**, na página **Nova**, e selecione **Base de Dados do Azure para o PostgreSQL**, na página **Bases de Dados**.
-3. Para a opção de implementação, clique nas **Create** botão em **grupo de servidores de grande escala (Citus) - pré-visualização.**
-4. Preencha o formulário com os detalhes do novo servidor com as seguintes informações:
-   - Grupo de recursos: clique nas **criar novo** link abaixo da caixa de texto para este campo. Introduza um nome, tal como **myresourcegroup**.
-   - Nome do grupo de servidor: introduza um nome exclusivo para o novo grupo de servidor, que também irá ser utilizado para um subdomínio de servidor.
-   - Nome de utilizador administrador: introduza um nome de utilizador exclusivo, será utilizado mais tarde para ligar à base de dados.
-   - Palavra-passe: tem de ter, pelo menos, oito carateres de comprimento e conter carateres de três das seguintes categorias – em inglês letras maiúsculas, em minúscula inglesas, números (0-9) e carateres não alfanuméricos (!, $, #, %, etc.)
-   - Localização: Utilize a localização mais próxima dos seus utilizadores para lhes dar o acesso mais rápido aos dados.
-
-   > [!IMPORTANT]
-   > O início de sessão e a palavra-passe de administrador de servidor que especificar aqui serão necessários para iniciar sessão no servidor e nas respetivas bases de dados mais adiante neste tutorial. Lembre-se ou grave estas informações para utilização posterior.
-
-5. Clique em **configurar grupo de servidor**. Deixe as definições, em que secção inalterada e clique em **guardar**.
-6. Clique em **rever + criar** e, em seguida **criar** para aprovisionar o servidor. O aprovisionamento demora alguns minutos.
-7. A página irá redirecionar para monitorizar a implementação. Quando o estado em direto é alterado de **sua implementação está em curso** para **sua implementação está completa**, clique nas **saídas** item de menu no lado esquerdo da página.
-8. A página de saídas irá conter um nome de anfitrião do coordenador com um botão junto ao mesmo para copiar o valor para a área de transferência. Registe estas informações para uso posterior.
-
-## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
-
-O serviço Base de Dados do Azure para PostgreSQL utiliza uma firewall ao nível do servidor. Por predefinição, o firewall impede que todas as aplicações e ferramentas externas estabeleçam uma ligação ao servidor e a quaisquer bases de dados no servidor. Podemos tem de adicionar uma regra para abrir a firewall para um intervalo de endereços IP específico.
-
-1. Do **saídas** secção onde copiou anteriormente o nome de anfitrião do nó de coordenador, clique em volta para o **descrição geral** item de menu.
-
-2. Encontrar o grupo de dimensionamento para a sua implementação na lista de recursos e clique no mesmo. (O nome terá o prefixo "sg-".)
-
-3. Clique em **Firewall** sob **segurança** no menu da esquerda.
-
-4. Clique no link **+ Adicionar regra de firewall para o endereço IP de cliente atual**. Por último, clique a **guardar** botão.
-
-5. Clique em **Guardar**.
-
-   > [!NOTE]
-   > O servidor PostgreSQL do Azure comunica através da porta 5432. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 5432 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 5432.
-   >
-
-## <a name="connect-to-the-database-using-psql-in-cloud-shell"></a>Ligar à base de dados com o psql no Cloud Shell
-
-Agora, vamos utilizar o utilitário da linha de comandos [psql](https://www.postgresql.org/docs/current/app-psql.html) para ligar ao servidor da Base de Dados do Azure para PostgreSQL.
-1. Inicie o Azure Cloud Shell através do ícone de terminal no painel de navegação superior.
-
-   ![Base de Dados de Azure para o PostgreSQL – ícone do terminal do Azure Cloud Shell](./media/tutorial-design-database-hyperscale-multi-tenant/psql-cloud-shell.png)
-
-2. O Azure Cloud Shell é aberto no browser, onde poderá escrever os comandos bash.
-
-   ![Base de Dados do Azure para o PostgreSQL – Linha de Comandos Bash do Azure Shell](./media/tutorial-design-database-hyperscale-multi-tenant/psql-bash.png)
-
-3. Na linha de comandos do Cloud Shell, estabeleça ligação à Base de Dados do Azure para o servidor PostgreSQL com os comandos psql. O formato seguinte é utilizado para estabelecer ligação a uma Base de Dados do Azure para o servidor PostgreSQL com o utilitário [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html):
-   ```bash
-   psql --host=<myserver> --username=myadmin --dbname=citus
-   ```
-
-   Por exemplo, o comando seguinte liga à base de dados predefinido chamado **citus** no servidor PostgreSQL **mydemoserver.postgres.database.azure.com** com as credenciais de acesso. Quando lhe for pedido, introduza a palavra-passe de administrador do servidor.
-
-   ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
-   ```
+[!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>Utilizar o utilitário psql para criar um esquema
 
@@ -250,7 +185,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 Até agora todas as tabelas foram distribuídas pelo `company_id`, mas alguns dados não naturalmente "pertencem" para qualquer inquilino em particular e podem ser partilhados. Por exemplo, todas as empresas na plataforma do ad de exemplo deve-se obter informações geográficas para o público-alvo com base em endereços IP.
 
-Crie uma tabela para conter informações geográficas partilhadas. Executá-lo na psql:
+Crie uma tabela para conter informações geográficas partilhadas. Execute os seguintes comandos no psql:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -268,7 +203,7 @@ Em seguida certifique `geo_ips` "tabela de referência" para armazenar uma cópi
 SELECT create_reference_table('geo_ips');
 ```
 
-Carregá-lo com dados de exemplo. Não se esqueça de executá-lo na psql de dentro do diretório onde transferiu o conjunto de dados.
+Carregá-lo com dados de exemplo. Lembre-se executar este comando no psql de dentro do diretório onde transferiu o conjunto de dados.
 
 ```sql
 \copy geo_ips from 'geo_ips.csv' with csv

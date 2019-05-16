@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 4b546b91634e153fa0074adfb863596a1bf36242
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 0ad9986c2d4d9e44d13f37fe2aa1629373f4841a
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006432"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595145"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>Início rápido: Comunicar com um aplicativo de dispositivo node. js através de fluxos de dispositivo do IoT Hub (pré-visualização)
 
@@ -44,7 +44,7 @@ A pré-visualização de fluxos de dispositivo é atualmente suportado apenas pa
   - **E.U.A. central**
   - **E.U.A. central EUAP**
 
-Para executar a aplicação do lado do serviço neste guia de introdução tem de node. js v4.x.x ou posterior no seu computador de desenvolvimento.
+Para executar a aplicação do lado do serviço neste início rápido precisa v10.x.x de node. js ou posterior no seu computador de desenvolvimento.
 
 Pode baixar o node. js para várias plataformas a partir [Node.js.org](https://nodejs.org).
 

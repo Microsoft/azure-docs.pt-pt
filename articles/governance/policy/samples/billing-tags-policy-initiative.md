@@ -7,12 +7,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 9d9a3a5af304c1080d1d43b9bbfbafe2554a9844
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545270"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758375"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exemplo - iniciativa de política de etiquetas de faturação
 
@@ -24,11 +24,7 @@ Este conjunto de políticas exige valores de etiqueta especificados para o nome 
 
 [!code-json[main](../../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal) ou com o [PowerShell](#deploy-with-powershell).
-
-## <a name="deploy-with-the-portal"></a>Implementar com o portal
-
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+Pode implementar este modelo com [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 

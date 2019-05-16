@@ -7,14 +7,14 @@ ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4f400e45d8defc304cf58c4bd05fa19f16d0501b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: b0d5d96ff897ac1710206eb49bca785e8809cb7d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874670"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758854"
 ---
-# <a name="create-an-environment-from-a-blueprint-sample"></a>Criar um ambiente a partir de um exemplo de esquema
+# <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de um exemplo de esquema
 
 Planos gráficos de exemplo fornecem exemplos do que pode ser feito usando os esquemas do Azure. Cada um é um exemplo com um objetivo específico ou para fins, mas não cria um ambiente completo por conta própria. Cada concebido como um ponto de partida para explorar, utilizando o esquema do Azure com várias combinações de artefactos incluídos, designs e parâmetros.
 
@@ -82,7 +82,7 @@ Depois da cópia do exemplo de plano gráfico de ter sido com êxito **publicado
 
 1. Forneça os valores de parâmetro para a atribuição do esquema:
 
-   - Noções básicas
+   - Noções Básicas
 
      - **Subscrições**: Selecione um ou mais das subscrições que estão no grupo de gestão é guardado sua cópia do exemplo de plano gráfico para. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada um usando os parâmetros introduzidos.
      - **Nome da atribuição**: O nome é preenchido previamente com base no nome da definição de esquema.
@@ -105,7 +105,7 @@ Depois da cópia do exemplo de plano gráfico de ter sido com êxito **publicado
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
      |-|-|-|-|-|
      |Grupo de recursos de ProdRG|Grupo de recursos|Name|ProductionRG|Define o nome do primeiro grupo de recursos.|
-     |Grupo de recursos de ProdRG|Grupo de recursos|Location|EUA Oeste 2|Define a localização do primeiro grupo de recursos.|
+     |Grupo de recursos de ProdRG|Grupo de recursos|Location|E.U.A. Oeste 2|Define a localização do primeiro grupo de recursos.|
      |Contribuinte|Atribuição de função|Utilizador ou grupo|{Sua ID}|Define o que utilizador ou grupo para conceder a _contribuinte_ atribuição de função no primeiro grupo de recursos.|
      |Grupo de recursos de PreProdRG|Grupo de recursos|Name|PreProductionRG|Define o nome do segundo grupo de recursos.|
      |Grupo de recursos de PreProdRG|Grupo de recursos|Location|EUA Oeste|Define a localização do segundo grupo de recursos.|

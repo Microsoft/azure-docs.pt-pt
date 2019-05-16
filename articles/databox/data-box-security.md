@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60782282"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65746236"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 
@@ -34,6 +34,8 @@ O diagrama seguinte indica o fluxo de dados através da solução Azure Data Box
 
 ![Segurança do Data Box](media/data-box-security/data-box-security-2.png)
 
+Como os dados fluem através desta solução, os eventos são registados e registos são gerados. Para obter mais informações, aceda a [controlo e o log de eventos para o Azure Data Box](data-box-logs.md).
+
 ## <a name="security-features"></a>Funcionalidades de segurança
 
 O Data Box oferece uma solução segura para proteção de dados ao garantir que apenas as entidades autorizadas podem ver, modificar ou eliminar os seus dados. As funcionalidades de segurança desta solução destinam-se ao disco e ao serviço associado para garantir a segurança dos dados armazenados nos mesmos. 
@@ -48,24 +50,25 @@ O dispositivo do Data Box está protegido pelas seguintes funcionalidades:
 - Executa apenas o software específico do Data Box.
 - Arranca num estado bloqueado.
 - Controla o acesso do dispositivo através da palavra-passe de desbloqueio do dispositivo.
-- Credenciais de acesso para copiar dados dentro e fora do dispositivo.
+- Credenciais de acesso para copiar dados dentro e fora do dispositivo. Acesso para o **credenciais do dispositivo** página no são de portal do Azure com sessão iniciada [registos de atividades](data-box-logs.md#query-activity-logs-during-setup).
 
 ### <a name="data-box-data-protection"></a>Proteção de dados do Data Box
 
 O fluxo de dados de entrada e saída do Data Box está protegido pelas seguintes funcionalidades:
 
-- Encriptação AES de 256 bits para Dados inativos. 
+- Encriptação AES de 256 bits para Dados inativos.
 - Os protocolos encriptados podem ser utilizados para dados em trânsito.
-- Eliminação segura de dados do dispositivo após a conclusão do carregamento de dados para o Azure. A eliminação de dados está em conformidade com as normas 800-88r1 do NIST.
+- Eliminação segura de dados do dispositivo após a conclusão do carregamento de dados para o Azure. A eliminação de dados está em conformidade com as normas 800-88r1 do NIST. O evento de eliminação de dados é registrado no [ordenar histórico](data-box-logs.md#download-order-history).
 
 ### <a name="data-box-service-protection"></a>Proteção do serviço Data Box
 
 O serviço Data Box está protegido pelas seguintes funcionalidades.
 
 - O acesso ao serviço Data Box requer que a sua organização tenha uma subscrição do Azure que inclua o Data Box. A subscrição controla as funcionalidades a que pode aceder no portal do Azure.
-- Uma vez que o serviço Data Box está alojado no Azure, é protegido pelas funcionalidades de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx). 
-- O serviço Data Box armazena a palavra-passe desbloqueada que serve para desbloquear o dispositivo no serviço. 
-- O serviço Data Box armazena os detalhes da encomenda e o estado no serviço. Estas informações são eliminadas quando a encomenda é eliminada. 
+- Uma vez que o serviço Data Box está alojado no Azure, é protegido pelas funcionalidades de segurança do Azure. Para obter mais informações sobre as funcionalidades de segurança fornecidas pelo Microsoft Azure, aceda ao [Centro de Fidedignidade do Microsoft Azure](https://www.microsoft.com/TrustCenter/Security/default.aspx).
+- Acesso para a encomenda do Data Box pode ser controlado através da utilização de funções de controlo de acesso baseado em funções (RBAC). Para obter mais informações, consulte [configurar controlo de acesso para a encomenda do Data Box](data-box-logs.md#set-up-access-control-on-the-order)
+- O serviço Data Box armazena a palavra-passe desbloqueada que serve para desbloquear o dispositivo no serviço.
+- O serviço Data Box armazena os detalhes da encomenda e o estado no serviço. Estas informações são eliminadas quando a encomenda é eliminada.
 
 ## <a name="managing-personal-data"></a>Gerir dados pessoais
 
@@ -76,9 +79,9 @@ O Azure Data Box recolhe e apresenta informações pessoais nas seguintes instâ
 - **Detalhes da encomenda** – Depois de criada a encomenda, o endereço de envio, o e-mail e as informações de contacto dos utilizadores são armazenados no portal do Azure. As informações guardadas incluem:
 
   - Nome do contacto
-  - Número de telefone
-  - Email
-  - Morada
+  - Número de telemóvel
+  - Correio Electrónico
+  - Rua
   - Localidade
   - Código postal
   - Estado

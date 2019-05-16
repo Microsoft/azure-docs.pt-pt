@@ -7,33 +7,30 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 248861848aa905f9cbff01ab60affd7cf21aae78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3dc893ea10e47e867110f674a458498a6bd24a4f
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60690330"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560697"
 ---
-# <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Início rápido: Criar uma sala de bate-papo com o serviço SignalR
+# <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Início rápido: Criar uma sala de bate-papo com o serviço SignalR
 
 
 O Serviço Azure SignalR é um serviço do Azure que ajuda os programadores a facilmente criar aplicações web com funcionalidades em tempo real. Este serviço é baseado em [SignalR para ASP.NET Core 2.0](https://docs.microsoft.com/aspnet/core/signalr/introduction).
 
-Este artigo mostra-lhe como começar a utilizar o Azure SignalR Service. Neste início rápido, vai criar uma aplicação de chat com uma aplicação Web ASP.NET Core MVC. Esta aplicação irá fazer uma ligação ao seu recurso do Azure SignalR Service para ativar as atualizações de conteúdos em tempo real. Vai alojar a sua aplicação Web localmente e ligar a vários clientes de browser. Cada cliente poderá enviar atualizações de conteúdos para todos os outros clientes. 
+Este artigo mostra-lhe como começar a utilizar o Azure SignalR Service. Neste início rápido, irá criar uma aplicação de chat, utilizando uma aplicação web de MVC do ASP.NET Core. Esta aplicação irá fazer uma ligação ao seu recurso do Azure SignalR Service para ativar as atualizações de conteúdos em tempo real. Irá alojar a aplicação web localmente e ligue-se com vários clientes de browser. Cada cliente poderá enviar atualizações de conteúdos para todos os outros clientes. 
 
+Pode utilizar qualquer editor de código para concluir os passos deste início rápido. Uma opção é [Visual Studio Code](https://code.visualstudio.com/), que está disponível no Windows, macOS e plataformas Linux.
 
-Pode utilizar qualquer editor de código para concluir os passos deste início rápido. No entanto, o [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção, disponível nas plataformas Windows, macOS e Linux.
-
-O código deste tutorial está disponível para transferência no [repositório do GitHub AzureSignalR-samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom).  Além disso, a criação dos recursos do Azure utilizados neste início rápido pode ser realizada com o [script Create a SignalR Service](scripts/signalr-cli-create-service.md) (Criar um recurso do SignalR Service).
-
-![Início rápido concluído no local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
+O código deste tutorial está disponível para transferência no [repositório do GitHub AzureSignalR-samples](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom). Além disso, pode criar os recursos do Azure utilizados neste início rápido ao seguir [criar um script de serviço SignalR](scripts/signalr-cli-create-service.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Instalar o [SDK .NET Core](https://www.microsoft.com/net/download/windows)
+* Instalar o [.NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Transfira ou clone a [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) repositório do GitHub. 
 
 ## <a name="create-an-azure-signalr-resource"></a>Criar um recurso do Azure SignalR
@@ -42,22 +39,20 @@ O código deste tutorial está disponível para transferência no [repositório 
 
 ## <a name="create-an-aspnet-core-web-app"></a>Criar uma aplicação Web ASP.NET Core
 
-Neste secção, vai utilizar a [interface de linha de comandos (CLI) de .NET Core](https://docs.microsoft.com/dotnet/core/tools/) para criar um projeto de aplicação Web ASP.NET Core MVC novo. A vantagem de utilizar a CLI de .NET Core em vez do Visual Studio é que aquela está disponível nas plataformas Windows, macOS e Linux. 
+Nesta secção, vai utilizar o [.NET Core interface de linha de comandos (CLI)](https://docs.microsoft.com/dotnet/core/tools/) para criar um projeto de aplicação web ASP.NET Core MVC. A vantagem de utilizar a CLI do .NET Core ao longo do Visual Studio é que ele está disponível para todas as plataformas de Linux, macOS e Windows. 
 
-1. Crie uma pasta nova para o projeto. Neste início rápido, é utilizada a pasta *E:\Testing\chattest*.
+1. Crie uma pasta para o seu projeto. Este início rápido utiliza a *E:\Testing\chattest* pasta.
 
-2. Na pasta nova, execute o seguinte comando para criar um projeto de aplicação Web ASP.NET Core MVC novo:
+2. Na nova pasta, execute o seguinte comando para criar o projeto:
 
         dotnet new mvc
 
 
 ## <a name="add-secret-manager-to-the-project"></a>Adicionar o Secret Manager ao projeto
 
-Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. Esta ferramenta armazena os dados confidenciais dos projetos de programação fora da árvore dos projetos. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
+Nesta secção, irá adicionar os [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. A ferramenta Gerenciador de segredo armazena dados confidenciais para projetos de programação fora da sua árvore de projeto. Esta abordagem ajuda a impedir a partilha acidental de segredos de aplicação no código-fonte.
 
-1. Abra o ficheiro *.csproj*. Adicione um elemento `DotNetCliToolReference` para incluir *Microsoft.Extensions.SecretManager.Tools*. Adicione também um elemento `UserSecretsId`, conforme mostrado abaixo, e guarde o ficheiro.
-
-    *chattest.csproj:*
+1. Abra o ficheiro *.csproj*. Adicione um elemento `DotNetCliToolReference` para incluir *Microsoft.Extensions.SecretManager.Tools*. Também adicionar uma `UserSecretsId` elemento, conforme mostrado no código a seguir para *chattest.csproj*e guarde o ficheiro.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -77,27 +72,27 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>Adicionar o Azure SignalR à aplicação Web
 
-1. Execute o seguinte comando para adicionar uma referência para o pacote de NuGet `Microsoft.Azure.SignalR`:
+1. Adicionar uma referência para o `Microsoft.Azure.SignalR` pacote NuGet ao executar o seguinte comando:
 
         dotnet add package Microsoft.Azure.SignalR
 
-2. Execute o seguinte comando para restaurar os pacotes do seu projeto.
+2. Execute o seguinte comando para restaurar pacotes para o seu projeto:
 
         dotnet restore
 
 3. Adicione um segredo denominado *Azure:SignalR:ConnectionString* ao Secret Manager. 
 
-    Este segredo irá conter a cadeia de ligação para aceder ao seu recurso do SignalR Service. *Azure:SignalR:ConnectionString* é a chave de configuração predefinida que o SignalR procura para estabelecer uma ligação. Substitua o valor no comando abaixo pela cadeia de ligação do recurso do SignalR Service.
+    Este segredo irá conter a cadeia de ligação para aceder ao seu recurso do SignalR Service. *Azure: SignalR:ConnectionString* é a chave de configuração predefinida parecido com o SignalR para estabelecer uma ligação. Substitua o valor no comando seguinte a cadeia de ligação para o seu recurso de serviço SignalR.
 
-    Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
+    Tem de executar este comando no mesmo diretório como o *. csproj* ficheiro.
 
     ```
     dotnet user-secrets set Azure:SignalR:ConnectionString "<Your connection string>"    
     ```
 
-    O Secret Manager só será utilizado para testar a aplicação Web enquanto estiver alojada localmente. Num próximo tutorial, vai implementar a aplicação Web de chat no Azure. Quando a aplicação Web estiver implementada no Azure, vai utilizar uma definição de aplicação em vez de armazenar a cadeia de ligação no Secret Manager.
+    Gestor de segredo será utilizado apenas para a aplicação web de teste, enquanto ele estiver alojado localmente. Num tutorial posterior, vai implementar a aplicação de web chat para o Azure. Depois de implementar a aplicação web para o Azure, usará uma definição da aplicação em vez de armazenar a cadeia de ligação com o Gestor de segredo.
 
-    Este segredo é acessado com a API de configuração. Os dois pontos (:) funcionam no nome da configuração com a API de configuração nas plataformas suportadas, veja [Configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
+    Este segredo é acessado com a API de configuração. Dois pontos (:) funciona no nome da configuração com a API de configuração nas plataformas suportadas. Ver [configuração pelo ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0). 
 
 
 4. Abra *Startup.cs* e atualize o método `ConfigureServices` para utilizar o Azure SignalR ao chamar o método `services.AddSignalR().AddAzureSignalR()`:
@@ -110,7 +105,7 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
     }
     ```
 
-    Se não for transmitido um parâmetro para `AddAzureSignalR()`, este código utiliza a chave de configuração predefinida, *Azure:SignalR:ConnectionString*, para a cadeia de ligação do recurso do SignalR Service.
+    Por não passar um parâmetro para `AddAzureSignalR()`, esse código usa a chave de configuração predefinida para a cadeia de ligação de recurso de serviço SignalR. É a chave de configuração predefinida *do Azure: SignalR:ConnectionString*.
 
 5. Também no *Startup.cs*, atualize o método `Configure` ao substituir a chamada para `app.UseStaticFiles()` pelo seguinte código e guarde o ficheiro.
 
@@ -124,16 +119,16 @@ Nesta secção, vai adicionar a [ferramenta Secret Manager](https://docs.microso
 
 ### <a name="add-a-hub-class"></a>Adicionar a classe Hub
 
-No SignalR, o hub é um componente central que expõe um conjunto de métodos que podem ser chamados a partir do cliente. Nesta secção, vai definir uma classe hub com dois métodos: 
+Um hub SignalR, é um importante componente que expõe um conjunto de métodos que pode ser chamada do cliente. Nesta secção, vai definir uma classe hub com dois métodos: 
 
 * `Broadcast`: Este método transmite uma mensagem a todos os clientes.
 * `Echo`: Este método envia uma mensagem para o chamador.
 
-Ambos os métodos utilizam a interface `Clients` que é disponibilizada pelo SDK ASP.NET Core SignalR. Esta interface dá-lhe acesso a todos os clientes ligados, permitindo-lhe enviar conteúdos para os clientes.
+Ambos os métodos usam o `Clients` interface que fornece o SDK de SignalR do ASP.NET Core. Essa interface fornece acesso a todos os clientes ligados, pelo que pode enviar conteúdo para os seus clientes.
 
 1. No diretório do projeto, adicione uma pasta nova designada *Hub*. Adicione um ficheiro de código de hub novo, chamado *Chat.cs*, à pasta nova.
 
-2. Adicione o seguinte código a *Chat.cs* para definir a classe hub e guarde o ficheiro. 
+2. Adicione o seguinte código para *Chat.cs* para definir a sua classe de hub e guarde o ficheiro. 
 
     Se tiver utilizado um nome de projeto diferente de *chattest*, atualize o espaço de nomes desta classe.
 
@@ -158,13 +153,13 @@ Ambos os métodos utilizam a interface `Clients` que é disponibilizada pelo SDK
     }
     ```
 
-### <a name="add-the-web-app-client-interface"></a>Adicionar a interface de cliente da aplicação Web
+### <a name="add-the-client-interface-for-the-web-app"></a>Adicionar a interface de cliente para a aplicação web
 
-A interface de utilizador do cliente desta sala de chat será composta por HTML e JavaScript num ficheiro denominado *index.html* no diretório *wwwroot*.
+A interface de utilizador do cliente para esta aplicação de sala de bate-papo consistirá em HTML e JavaScript num arquivo chamado *Index. HTML* no *wwwroot* diretório.
 
-Copie o ficheiro *index.html* e as pastas *css* e *scripts* da pasta *wwwroot* do [repositório de exemplos](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot) para a pasta *wwwroot* do projeto.
+Cópia a *Index. HTML* arquivo, o *css* pasta e o *scripts* pasta a partir do *wwwroot* pasta do [exemplos repositório](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/ChatRoom/wwwroot). Cole-os no seu projeto *wwwroot* pasta.
 
-O código principal de *index.html*: 
+Eis o código principal do *Index*: 
 
 ```javascript
 var connection = new signalR.HubConnectionBuilder()
@@ -180,19 +175,19 @@ connection.start()
     });
 ```    
 
-O código em *index.html* chama `HubConnectionBuilder.build()` para fazer uma ligação HTTP ao recurso do Azure SignalR.
+O código na *Index. HTML* chamadas `HubConnectionBuilder.build()` para estabelecer uma ligação de HTTP para o recurso do Azure SignalR.
 
 Se a ligação for bem-sucedida, é transmitida para `bindConnectionMessage`, que adiciona processadores de eventos para envios de conteúdos de entrada para o cliente. 
 
-`HubConnection.start()` inicia a comunicação com o hub. Assim que a comunicação for iniciada, `onConnected()` adiciona os processadores de eventos de botão. Estes processadores utilizam a ligação para permitir que este cliente envie atualizações de conteúdos para todos os clientes ligados.
+`HubConnection.start()` inicia a comunicação com o hub. Em seguida, `onConnected()` adiciona os manipuladores de eventos do botão. Estes processadores utilizam a ligação para permitir que este cliente envie atualizações de conteúdos para todos os clientes ligados.
 
 ## <a name="add-a-development-runtime-profile"></a>Adicionar um perfil de tempo de execução de desenvolvimento
 
-Nesta secção, vai adicionar um ambiente de tempo de execução de desenvolvimento para ASP.NET Core. Para obter mais informações sobre o ambiente de tempo de execução de ASP.NET Core, veja [Work with multiple environments in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments) (Trabalhar com vários ambientes em ASP.NET Core).
+Nesta secção, irá adicionar um ambiente de tempo de execução de desenvolvimento para o ASP.NET Core. Para obter mais informações, consulte [trabalhar com vários ambientes no ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/environments).
 
-1. Crie uma pasta nova no seu projeto, com o nome *Properties*.
+1. Crie uma pasta denominada *propriedades* no seu projeto.
 
-2. Adicione um ficheiro novo denominado *launchSettings.json* à pasta, com os conteúdos seguintes, e guarde o ficheiro.
+2. Adicionar um novo ficheiro designado *launchSettings.json* para a pasta, com o seguinte conteúdo e guarde-o.
 
     ```json
     {
@@ -213,17 +208,17 @@ Nesta secção, vai adicionar um ambiente de tempo de execução de desenvolvime
     ```
 
 
-## <a name="build-and-run-the-app-locally"></a>Compilar e executar a aplicação localmente
+## <a name="build-and-run-the-app-locally"></a>Criar e executar a aplicação localmente
 
-1. Para criar a aplicação com a CLI de .NET Core, execute o seguinte comando na shell de comandos:
+1. Para criar a aplicação com a CLI do .NET Core, execute o seguinte comando na shell de comandos:
 
         dotnet build
 
-2. Depois de concluir com êxito a compilação, execute o seguinte comando para executar a aplicação Web localmente:
+2. Após a compilação for concluída com êxito, execute o seguinte comando para executar a aplicação web localmente:
 
         dotnet run
 
-    A aplicação será alojada localmente na porta 5000, conforme configurado no nosso perfil de tempo de execução de desenvolvimento:
+    A aplicação será hospedada localmente na porta 5000, conforme configurado no nosso perfil de tempo de execução de desenvolvimento:
 
         E:\Testing\chattest>dotnet run
         Hosting environment: Development
@@ -231,40 +226,40 @@ Nesta secção, vai adicionar um ambiente de tempo de execução de desenvolvime
         Now listening on: http://localhost:5000
         Application started. Press Ctrl+C to shut down.    
 
-3. Abra duas janelas do browser e navegue cada browser para `http://localhost:5000`. É-lhe pedido que introduza o seu nome. Introduza um nome para ambos os clientes e prima o botão **Send** (Enviar) para testar o envio do conteúdo da mensagem entre ambos.
+3. Abra duas janelas do browser. Na cada browser, aceda a `http://localhost:5000`. Lhe for pedido para introduzir o seu nome. Introduza um nome de cliente para clientes e teste, enviar por push o conteúdo da mensagem entre ambos os clientes com o **enviar** botão.
 
-    ![Início rápido concluído no local](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
+    ![Exemplo de um bate-papo de grupo do Azure SignalR](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
+Se irá continuar para o próximo tutorial, pode manter os recursos criados neste início rápido e reutilizá-los.
 
-Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
+Se tiver terminado com o aplicativo de exemplo de início rápido, pode eliminar os recursos do Azure que criou neste início rápido para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminar um grupo de recursos é irreversível e inclui todos os recursos nesse grupo. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que quer manter, pode eliminar cada recurso individualmente do respetivo painel em vez de eliminar o grupo de recursos.
 > 
 > 
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
+Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...**, escreva o nome do grupo de recursos. As instruções neste início rápido utilizaram um grupo de recursos denominado *SignalRTestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na **filtrar por nome** texto, escreva o nome do seu grupo de recursos. As instruções neste início rápido utilizaram um grupo de recursos denominado *SignalRTestResources*. No seu grupo de recursos na lista de resultados, selecione as reticências (**...** ) > **Eliminar grupo de recursos**.
 
    
-![Eliminar](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
+![Seleções para eliminar um grupo de recursos](./media/signalr-quickstart-dotnet-core/signalr-delete-resource-group.png)
 
 
-É-lhe pedido que confirme a eliminação do grupo de recursos. Escreva o nome do grupo de recursos para confirmar e clique em **Eliminar**.
+É-lhe pedido que confirme a eliminação do grupo de recursos. Introduza o nome do seu grupo de recursos para confirmar e selecione **eliminar**.
    
-Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
+Após alguns instantes, o grupo de recursos e todos os respetivos recursos são eliminados.
 
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste início rápido, criou um recurso novo do Azure SignalR Service e utilizou-o com uma aplicação Web ASP.NET Core para enviar atualizações de conteúdos em tempo real para vários clientes ligados. Para saber mais sobre como utilizar o Azure SignalR Service, avance para o próximo tutorial que demonstra a autenticação.
+Neste início rápido, criou um novo recurso do serviço Azure SignalR. Em seguida, utilizou-lo com uma aplicação web ASP.NET Core para enviar atualizações de conteúdo em tempo real para vários clientes ligados. Para saber mais sobre como utilizar o serviço Azure SignalR, avance para o tutorial que demonstra a autenticação.
 
 > [!div class="nextstepaction"]
 > [Azure SignalR Service authentication](./signalr-concept-authenticate-oauth.md) (Autenticação do Azure SignalR Service)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 0f73e68fd0c01d4323e8675d3fa12f7ca1051cdb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: MT
+ms.openlocfilehash: 10966a7e658e02f04137b594fc12ec09cb676cf8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62119882"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65739607"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -53,7 +53,7 @@ Pode querer mover a infraestrutura do Azure como máquinas de virtuais do servi�
     - Para VMs do Windows, instale as atualizações mais recentes do Windows para que todos os certificados de raiz fidedigna fiquem na máquina. Num ambiente desligado, siga os processos do Windows Update e atualização do certificado standard para a sua organização.
     - Para VMs do Linux, siga a orientação do distribuidor do Linux para obter as mais recentes certificados de raiz fidedigna e a lista de revogação de certificados.
 2. Certifique-se de que não está a utilizar um proxy de autenticação para controlar a conectividade de rede para as VMs que planeia mover.
-3. Se uma VM que pretende mover não tem acesso à internet e está a utilizar um proxy de firewall para acesso de saída do controle, verifique os [requisitos](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+3. Se uma VM que pretende mover não tem acesso à internet e está a utilizar um proxy de firewall para acesso de saída do controle, verifique os [requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 4. Documente o esquema de rede de origem e de todos os recursos que está atualmente a utilizar, incluindo (mas não limitado a) balanceadores de carga, grupos de segurança de rede e endereços IP públicos para verificação.
 
 ## <a name="prepare-the-target-region"></a>Preparar a região de destino
@@ -100,7 +100,7 @@ O site Recovery obtém uma lista de VMs que estão associadas a subscrição e g
 4. Opte por utilizar os recursos de destino predefinido ou aqueles que criou previamente.
 5. Selecione **ativar a replicação** para iniciar a tarefa.
 
-   ![Ativar a replicação](media/tutorial-migrate-azure-to-azure/settings.png)
+   ![Ativar replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
  
 

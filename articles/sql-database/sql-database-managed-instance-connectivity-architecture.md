@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686296"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522321"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitetura de conectividade para uma instância gerida na base de dados do Azure SQL
 
@@ -86,7 +86,7 @@ Quando as ligações começam dentro da instância gerida (tal como acontece com
 
 Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. A sub-rede tem de ter as seguintes características:
 
-- **Sub-rede dedicado:** Sub-rede da instância gerida não pode conter qualquer outro serviço de cloud que está associado e não pode ser uma sub-rede de gateway. A sub-rede não pode conter qualquer recurso, mas a instância gerida e, mais tarde não é possível adicionar recursos na sub-rede.
+- **Sub-rede dedicado:** Sub-rede da instância gerida não pode conter qualquer outro serviço de cloud que está associado e não pode ser uma sub-rede de gateway. A sub-rede não pode conter qualquer recurso, mas a instância gerida e, mais tarde não é possível adicionar outros tipos de recursos na sub-rede.
 - **Grupo de segurança de rede (NSG):** Um NSG associado a rede virtual tem de definir [regras de segurança de entrada](#mandatory-inbound-security-rules) e [regras de segurança de saída](#mandatory-outbound-security-rules) antes de quaisquer outras regras. Pode utilizar um NSG para controlar o acesso ao ponto final de dados a instância gerida ao filtrar o tráfego na porta 1433 e portas 11999 11000 quando a instância gerida está configurada para redirecionar as ligações.
 - **Tabela de rota definida pelo (UDR) de utilizador:** Uma tabela UDR que está associada a rede virtual tem de incluir específico [entradas](#user-defined-routes).
 - **Não existem pontos finais de serviço:** Nenhum ponto de final de serviço deve ser associado a sub-rede a instância gerida. Certifique-se de que a opção de pontos finais de serviço é desabilitada quando criar a rede virtual.
@@ -97,17 +97,17 @@ Implemente uma instância gerida numa sub-rede dedicada dentro da rede virtual. 
 
 ### <a name="mandatory-inbound-security-rules"></a>Regras de segurança de entrada obrigatório
 
-| Name       |Porta                        |Protocolo|Origem           |Destino|Ação|
+| Name       |Port                        |Protocol|Origem           |Destino|Acção|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|móveis  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DE MI  |Permitir |
+|gestão  |9000, 9003, 1438, 1440, 1452|TCP     |Qualquer              |SUB-REDE DE MI  |Permitir |
 |mi_subnet   |Qualquer                         |Qualquer     |SUB-REDE DE MI        |SUB-REDE DE MI  |Permitir |
 |health_probe|Qualquer                         |Qualquer     |AzureLoadBalancer|SUB-REDE DE MI  |Permitir |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regras de segurança de saída obrigatórios
 
-| Name       |Porta          |Protocolo|Origem           |Destino|Ação|
+| Name       |Port          |Protocol|Origem           |Destino|Acção|
 |------------|--------------|--------|-----------------|-----------|------|
-|móveis  |80, 443, 12000|TCP     |SUB-REDE DE MI        |AzureCloud |Permitir |
+|gestão  |80, 443, 12000|TCP     |SUB-REDE DE MI        |AzureCloud |Permitir |
 |mi_subnet   |Qualquer           |Qualquer     |SUB-REDE DE MI        |SUB-REDE DE MI  |Permitir |
 
 > [!IMPORTANT]

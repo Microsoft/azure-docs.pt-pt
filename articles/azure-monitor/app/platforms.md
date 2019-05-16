@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 09/01/2016
+ms.date: 05/16/2019
 ms.reviewer: olegan
 ms.author: mbullwin
-ms.openlocfilehash: 5a7fbeafe74926c7d89ac76dc2964756b3582d61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a0dbe736b9727491f77b392c199400003abf8be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254502"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779893"
 ---
 # <a name="developer-analytics-languages-platforms-and-integrations"></a>Análise do programador: linguagens, plataformas e integrações
 Estes itens são implementações do [Application Insights](../../azure-monitor/app/app-insights-overview.md) que já conhecemos, incluindo alguns de terceiros.
@@ -45,7 +45,7 @@ Estes itens são implementações do [Application Insights](../../azure-monitor/
 * [Angular](https://github.com/MarkPieszak/angular-application-insights)
 * [Serviço de Aplicações do Azure](../../azure-monitor/app/azure-web-apps.md)
 * [Cloud Services do Azure](../../azure-monitor/app/cloudservices.md): incluindo funções Web e funções de trabalho
-* [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample)
+* [Funções do Azure](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
 * [Docker](../../azure-monitor/app/docker.md)
 * [Glimpse](https://azure.microsoft.com/blog/glimpse-application-insights/)
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md) (App Center)
@@ -62,6 +62,7 @@ Estes itens são implementações do [Application Insights](../../azure-monitor/
 * [Tudo o resto](#projects)
 
 ## <a name="logging-frameworks"></a>Arquiteturas de registo
+* [ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger)
 * [Log4Net, NLog ou System.Diagnostics.Trace](../../azure-monitor/app/asp-net-trace-logs.md)
 * [Java, Log4J ou Logback](../../azure-monitor/app/java-trace-logs.md)
 * [Semantic Logging (SLAB)](https://github.com/fidmor89/SLAB_AppInsights) – integra-se no [Semantic Logging Application Block](https://msdn.microsoft.com/library/dn440729.aspx)

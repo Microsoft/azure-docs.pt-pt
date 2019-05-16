@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: fe15773d2f49e7ac1378122aa19ae28f7cdd09c9
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
-ms.translationtype: MT
+ms.openlocfilehash: fca8dc31a0f909a1602819a2830d9bebbbda0c88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519815"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65757169"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Início rápido: Como inscrever-se e carregar o seu primeiro vídeo
 

@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 188733266c15bf214c0177762b9d10aecd05223b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: d51eaf71e449301415195e409bec9e944d16e0b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60773966"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752482"
 ---
-# <a name="run-your-first-resource-graph-query-using-azure-cli"></a>Executar a primeira consulta do Resource Graph com a CLI do Azure
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Início rápido: Executar a primeira consulta do Resource Graph com a CLI do Azure
 
 O primeiro passo para utilizar o Azure Resource Graph é garantir que a extensão da [CLI do Azure](/cli/azure/) está instalada. Este início rápido explica-lhe o processo para adicionar a extensão à instalação da CLI do Azure. Pode utilizar a extensão com a CLI do Azure instalada localmente ou através do [Azure Cloud Shell](https://shell.azure.com).
 
@@ -81,7 +81,7 @@ Com a extensão da CLI do Azure adicionada ao seu ambiente escolhido, é altura 
 
 Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
 
-## <a name="cleanup"></a>Limpeza
+## <a name="cleanup-resources"></a>Recursos de limpeza
 
 Se pretender remover a extensão do Resource Graph do seu ambiente da CLI do Azure, poderá fazê-lo com o seguinte comando:
 

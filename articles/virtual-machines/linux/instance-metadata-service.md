@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 84821a24ceb8624a1a7033c43c44548fe5eff315
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 88de601caf984d2511229cd68190554086c3da38
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993145"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779547"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -128,7 +128,7 @@ Pedidos também tem de conter um `Metadata: true` cabeçalho para se certificar 
 
 Se houver um elemento de dados não foi encontrado ou um pedido com formato incorreto, o serviço de metadados de instância devolve erros de HTTP padrão. Por exemplo:
 
-Código de estado de HTTP | Razão
+Código de estado de HTTP | Reason
 ----------------|-------
 200 OK |
 400 pedido inválido | Em falta `Metadata: true` cabeçalho ou em falta o formato ao consultar um nó de folha
@@ -357,12 +357,12 @@ Dados | Descrição | Versão introduzida
 -----|-------------|-----------------------
 azEnvironment | Ambiente do Azure onde a VM está em execução no | 2018-10-01
 customData | Consulte [dados personalizados](#custom-data) | 2019-02-01
-localização | Região do Azure a VM está em execução | 2017-04-02
-nome | Nome da VM | 2017-04-02
-oferta | Oferecem informações para a imagem VM. Este valor só é aplicável imagens implementadas a partir da Galeria de imagens do Azure. | 2017-04-02
+location | Região do Azure a VM está em execução | 2017-04-02
+name | Nome da VM | 2017-04-02
+oferta | Oferecem informações para a imagem VM e está presente apenas para imagens implementada a partir de Galeria de imagens do Azure | 2017-04-02
 osType | Linux ou Windows | 2017-04-02
 placementGroupId | [Grupo de colocação](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de dimensionamento de máquinas virtuais definido | 2017-08-01
-plano | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para uma VM no seu uma imagem de mercado do Azure, contém o nome, produto e fabricante | 2018-04-02
+plano | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) que contém o nome, o produto e o publisher para uma VM se a uma imagem do Marketplace do Azure | 2018-04-02
 platformUpdateDomain |  [Domínio de atualização](manage-availability.md) a VM está em execução | 2017-04-02
 platformFaultDomain | [Domínio de falha](manage-availability.md) a VM está em execução | 2017-04-02
 fornecedor | Fornecedor da VM | 2018-10-01
@@ -371,8 +371,8 @@ publicador | Publicador da imagem VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para a Máquina Virtual | 2017-08-01
 sku | SKU específica para a imagem VM | 2017-04-02
 subscriptionId | Subscrição do Azure para a Máquina Virtual | 2017-08-01
-etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
-versão | Versão da imagem VM | 2017-04-02
+tags | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para a Máquina Virtual  | 2017-08-01
+version | Versão da imagem VM | 2017-04-02
 vmId | [Identificador exclusivo](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para a VM | 2017-04-02
 vmScaleSetName | [Nome do conjunto de dimensionamento de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de dimensionamento de máquinas virtuais definido | 2017-12-01
 vmSize | [Tamanho da VM](sizes.md) | 2017-04-02
@@ -688,9 +688,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Dados Personalizados
-Serviço de metadados de instância permite-lhe para a VM ter acesso aos respetivos dados personalizados. Os dados binários devem ser inferior a 64 KB e são fornecidos para a VM na forma codificada em base64. Para obter detalhes sobre como criar uma VM com dados personalizados, consulte [implementar uma Máquina Virtual com CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Serviço de metadados de instância permite-lhe para a VM ter acesso aos respetivos dados personalizados. Os dados binários devem ser inferior a 64 KB e são fornecidos para a VM na forma codificada em base64.
+
+Dados personalizados do Azure podem ser inseridos para a VM através de REST APIs, Cmdlets do PowerShell, Interface de linha de comandos (CLI do Azure) ou um modelo ARM.
+
+Para obter um exemplo de Interface de linha de comandos do Azure, veja [dados personalizados e inicialização da Cloud no Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+Para obter um exemplo de modelo ARM, consulte [implementar uma Máquina Virtual com CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 Dados personalizados estão disponíveis para todos os processos em execução na VM. Recomenda-se que os clientes não insira informações secretas sobre dados personalizados.
+
+Atualmente, os dados personalizados são garantidos que estará disponível durante o arranque de uma VM. Se as atualizações são efetuadas para a VM, como a adição de discos ou redimensionar a VM, o serviço de metadados de instância não fornecerá dados personalizados. Fornecer dados personalizados de forma permanente através do serviço de metadados de instância está atualmente em curso.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Recuperando dados personalizados numa máquina Virtual
 Serviço de metadados de instância fornece dados personalizados para a VM na forma codificada em base64. O exemplo seguinte descodifica a cadeia de caracteres codificada em base64.
@@ -715,7 +723,7 @@ My custom data.
 Idioma | Exemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Ir Para  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

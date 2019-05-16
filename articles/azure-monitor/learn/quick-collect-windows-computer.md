@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 99be0cee9c939ed200bd74c94e88c3fcd989e25b
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 15885137b9559bf34fb2b985398401af09caa629
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722889"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602991"
 ---
 # <a name="configure-the-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configurar o agente do Log Analytics para computadores Windows num ambiente híbrido
 [O Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) pode recolher dados diretamente a partir de computadores Windows físicos ou virtuais para um único repositório para análise e correlação detalhadas. Log Analytics pode recolher dados de um datacenter ou outro ambiente de cloud. Este início rápido mostra-lhe como configurar e recolher dados do seu computador Windows em alguns passos simples.  Para obter informações sobre as VMs do Windows Azure, consulte [recolher dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
@@ -107,8 +107,8 @@ Log Analytics pode recolher eventos que especifique do registo de eventos do Win
 ## <a name="view-collected-data"></a>Ver dados recolhidos
 Agora que ativou a recolha de dados, vamos executar uma pesquisa de registos simples para ver alguns dados do computador de destino.  
 
-1. No portal do Azure, na área de trabalho selecionada, selecione o **pesquisa de registos** mosaico.  
-2. Sobre o **pesquisa de registos** painel, na caixa de consulta, introduza **desempenho** e, em seguida, selecione Enter ou selecione o botão de pesquisa à direita da caixa de consulta:
+1. No portal do Azure, na área de trabalho selecionada, selecione o **registos** mosaico.  
+2. Sobre o **pesquisa de registos** painel, na caixa de consulta, introduza **desempenho** e clique em **executar** no topo da caixa de consulta:
  
     ![Pesquisa de registos do log Analytics](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 

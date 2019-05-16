@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596744"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518760"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detetar e avaliar um ambiente do VMware de grandes dimensões
 
@@ -52,13 +52,13 @@ Com base no número de VMs que pretende detetar, pode criar vários projetos e i
 No caso de deteção única (agora preterida), a deteção funciona em de incêndio e se esqueça de modelo, depois de fazer uma deteção, pode utilizar o mesmo recoletor para recolher dados de um servidor vCenter diferente ou enviá-lo para um projeto de migração diferentes.
 
 > [!NOTE]
-> A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure. Recomenda-se para mover para a aplicação de deteção única.
+> A aplicação de deteção de uso individual foi agora preterida como esse método baseou-se no vCenter definições de estatísticas do servidor para a disponibilidade de ponto de dados de desempenho e coletados contadores de desempenho médio que resultou em insuficientemente dimensionamento de VMs para a migração para o Azure. Recomenda-se para mover para a aplicação de deteção contínua.
 
 Planear as suas descobertas e avaliações com base nas seguintes limites:
 
 | **Entidade** | **Limite de máquina** |
 | ---------- | ----------------- |
-| Project    | 1,500             |
+| Projeto    | 1,500             |
 | Deteção  | 1,500             |
 | Avaliação | 1,500             |
 

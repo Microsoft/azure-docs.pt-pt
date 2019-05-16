@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/16/2019
 ms.author: b-juche
-ms.openlocfilehash: fec9e22b15eca3f95be606776066cf573046b5fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c2984e012ae83a8bc17d72ed4eac0c5c469c2694
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687487"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522875"
 ---
 # <a name="what-is-the-storage-hierarchy-of-azure-netapp-files"></a>O que é a hierarquia de armazenamento de ficheiros do Azure NetApp
 
@@ -40,14 +40,16 @@ Antes de criar um volume no Azure NetApp Files, tem de comprar e configurar um c
 - Cada conjunto de capacidade pode pertencer a apenas uma conta de NetApp. No entanto, pode ter múltiplos conjuntos de capacidade numa conta do NetApp.  
 - Um conjunto de capacidade não pode ser movido entre contas NetApp.   
   Por exemplo, no [Diagrama conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover o Conjunto de Capacidade 1 da conta NetApp E.U.A. Leste para a conta NetApp E.U.A. Oeste 2.  
+- Não é possível eliminar um conjunto de capacidade até que todos os volumes dentro do conjunto de capacidade tem sido eliminados.
 
 ## <a name="volumes"></a>Volumes
 
 - Um volume é medido ao consumo de capacidade de lógica e escalonável. 
 - O consumo de capacidade de um volume é contabilizado para a capacidade aprovisionada do seu conjunto.
 - Cada volume pertence a apenas um conjunto, mas um conjunto pode conter vários volumes. 
-- Na mesma conta NetApp, é possível mover um volume entre vários conjuntos.    
-  Por exemplo, no [Diagrama Conceptual da hierarquia de armazenamento](#conceptual_diagram_of_storage_hierarchy) abaixo, é possível mover os volumes do Conjunto de Capacidade 1 para o Conjunto de Capacidade 2.
+- Um volume não pode ser movido entre conjuntos de capacidade. <!--Within the same NetApp account, you can move a volume across pools.  -->   
+  Por exemplo, no [diagrama Conceptual da hierarquia de armazenamento de](#conceptual_diagram_of_storage_hierarchy) abaixo, não é possível mover os volumes de capacidade do agrupamento de 1 a 2 de conjunto de capacidade.
+- Não é possível eliminar um volume, até que todos os respetivos instantâneos tem sido eliminados.
 
 ## <a name="conceptual_diagram_of_storage_hierarchy"></a>Diagrama conceptual da hierarquia de armazenamento 
 O exemplo seguinte mostra as relações da subscrição do Azure, contas NetApp, conjuntos de capacidade e volumes.   

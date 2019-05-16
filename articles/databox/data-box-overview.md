@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbb535d386fb90ccb2042e0908e66146e854f00
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930842"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603454"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -107,9 +107,9 @@ Um fluxo típico inclui os seguintes passos:
 
 Ao longo deste processo, será notificado por e-mail sobre todas as alterações de estado. Para obter mais informações sobre o fluxo detalhado, aceda a [Implementar o Data Box no portal do Azure](data-box-deploy-ordered.md).
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
-O Data Box pode transferir dados com base na região onde o serviço é implementado, no país para onde o dispositivo é enviado e na conta de armazenamento do Azure de destino onde transfere os dados. 
+Caixa de dados pode transferir dados com base na região em que o serviço é implementado, país/região ao qual o dispositivo é enviado e a conta de armazenamento do Azure onde transferir os dados de destino. 
 
 - **Disponibilidade do serviço** – Nesta versão, o serviço Data Box está disponível nas seguintes regiões:
     - Todas as regiões nos Estados Unidos – E.U.A. Centro-Oeste, E.U.A. Oeste2, E.U.A. Oeste, E.U.A. Centro-Sul, E.U.A. Central, E.U.A. Centro-Norte, E.U.A. Leste e E.U.A. Leste2.

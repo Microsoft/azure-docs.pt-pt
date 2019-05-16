@@ -13,14 +13,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/27/2017
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1534bc65a369254802973d6c3b91ed8b76ed44e0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60578441"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596546"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introdução à Máquina Virtual de Ciência de Dados do Azure para Linux e Windows
 
@@ -45,6 +45,10 @@ Normalmente, os formadores e educadores que ensinam as turmas de ciência de dad
 
 ### <a name="on-demand-elastic-capacity-for-large-scale-projects"></a>Capacidade elástica a pedido para projetos de grande escala
 As hackathons/competições de ciência de dados ou a modelação e exploração de dados em grande escala exigem capacidade de hardware aumentada horizontalmente, normalmente para durações curtas. A VM de Ciência de Dados pode ajudar a replicar o ambiente de ciência de dados rapidamente a pedido, em servidores aumentados horizontalmente que permitem que sejam executadas experimentações que exigem recursos de computação de alta potência.
+
+### <a name="custom-compute-power-for-azure-notebooks"></a>Poder de computação personalizada para blocos de notas do Azure
+
+[Blocos de notas do Azure](/azure/notebooks/azure-notebooks-overview.md) é um serviço hospedado gratuito para desenvolver, executar e partilhar os blocos de notas do Jupyter na cloud sem instalação. No entanto, o escalão de serviço gratuito, está limitado a 4GB de memória e 1GB de dados. Para disponibilizar todos os limites, em seguida, pode anexar um projeto de blocos de notas para uma VM de ciência de dados ou qualquer outra VM com o Jupyter server. Se iniciar a sessão em blocos de notas do Azure com uma conta com o Azure Active Directory (por exemplo, uma conta empresarial), blocos de notas mostra automaticamente as VMs de ciência de dados em quaisquer subscrições associadas com essa conta. Para obter mais informações, consulte [gerir e configurar projetos - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ### <a name="short-term-experimentation-and-evaluation"></a>Experimentação e avaliação a curto prazo
 A VM de Ciência de Dados pode ser utilizada para avaliar ou aprender, com um esforço de configuração mínimo, ferramentas como o Microsoft ML Server, o SQL Server, as ferramentas do Visual Studio, o Jupyter, as ferramentas de aprendizagem profunda / ML e ferramentas novas populares na comunidade. Uma vez que a VM de Ciência de Dados pode ser configurada rapidamente, pode ser aplicada a outros cenários de utilização de curto prazo, como a replicação de experimentações publicadas, a execução de demonstrações, o acompanhamento das instruções em sessões online e tutoriais de conferência.

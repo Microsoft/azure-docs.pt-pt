@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 28fef394ee400949f9911983bdbca41d6bfcb458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60683525"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65755942"
 ---
-# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definir e atribuir um plano gráfico no portal
+# <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início rápido: Definir e atribuir um plano gráfico no portal
 
 Quando aprender a criar e atribuir esquemas, pode definir padrões comuns para desenvolver as configurações de reutilizáveis e implantáveis rapidamente com base no Azure Resource Manager modelos, políticas, segurança e muito mais. Neste tutorial, vai aprender a utilizar o Azure esquemas para fazer algumas das tarefas comuns relacionadas com a criação, publicação e atribuir um plano gráfico dentro da sua organização. Essas tarefas incluem:
 

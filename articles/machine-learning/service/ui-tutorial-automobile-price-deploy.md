@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: 5f29e3820416686b42167fa278c4b7d0f9a58f1f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190908"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65749352"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementar um modelo de machine learning com a interface visual
 
@@ -158,4 +158,4 @@ Os modelos e implementações de serviços da web que criar na interface do visu
 Neste tutorial, aprendeu que as principais etapas da criação, implantação e consumir um modelo de machine learning na interface do visual. Para saber mais sobre como pode utilizar a interface visual para resolver outros tipos de problemas, consulte as experimentações de exemplo.
 
 > [!div class="nextstepaction"]
-> [Exemplo de classificação de risco de crédito](ui-sample-classification-predict-credit-risk-basic.md)
+> [Exemplo de classificação de risco de crédito](ui-sample-classification-predict-credit-risk-cost-sensitive.md)

@@ -13,16 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 8308190e0e68365343fb50ca33f9bea75c3e4e66
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3865bb10346c4a55adbf94a7df225eacf2c11252
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61099051"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519137"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copiar ficheiros novos e alterados com base no LastModifiedDate com a ferramenta copiar dados de forma incremental
 
 Neste tutorial, irá utilizar o portal do Azure para criar uma fábrica de dados. Em seguida, usará a ferramenta copiar dados para criar um pipeline de forma incremental copia arquivos novos e alterados apenas, com base na respetiva **LastModifiedDate** do armazenamento de Blobs do Azure para o armazenamento de Blobs do Azure.
+
+Ao fazê-lo, ADF irá analisar todos os ficheiros de arquivo de origem, aplique o filtro de ficheiros pelo respetivo LastModifiedDate e copie o ficheiro de novo e atualizado apenas desde a última vez para o arquivo de destino.  Tenha em atenção que se permitir que enormes quantidades da ADF análise de ficheiros, mas apenas copiar alguns arquivos para o destino, ainda esperaria que a duração de tempo devido a análise do ficheiro é demorada também.   
 
 > [!NOTE]
 > Se não estiver familiarizado com o Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).

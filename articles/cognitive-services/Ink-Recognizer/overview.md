@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: erhopf
 ms.openlocfilehash: 0ed1a72a5dc61458200b72c768ad722656b820d8
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/16/2019
 ms.locfileid: "65027230"
 ---
-# <a name="what-is-the-ink-recognizer-api"></a>O que é a API do reconhecedor de tinta?
+# <a name="what-is-the-ink-recognizer-api"></a>O que é a API do Reconhecedor de Tinta Digital?
 
 
 O serviço cognitivo do reconhecedor de tinta fornece uma API de REST com base na cloud para analisar e a reconhecer conteúdo de tinta digital. Ao contrário dos serviços que utilizam o reconhecimento Ótico de carateres (OCR), a API requer dados de traços de tinta digital como entrada. Traços de tinta digital são ordenados por tempo conjuntos de pontos 2D (coordenadas X, Y), que representam o movimento das ferramentas de entrada como canetas digital ou dedos. Em seguida, reconhece as formas e manuscritos conteúdo da entrada e retorna uma resposta JSON que contém entidades tudo reconhecidas.
@@ -55,8 +55,8 @@ Tente um início rápido nos seguintes idiomas para começar a fazer chamadas à
 * [JavaScript](quickstarts/csharp.md)
 
 Para ver como a API de reconhecimento de tinta funciona num aplicativo de escrita a tinta digital, veja as seguintes aplicações de exemplo no GitHub:
-* [C#e Platform(UWP) Windows Universal](https://go.microsoft.com/fwlink/?linkid=2089803)  
-* [C#e o Windows Presentation Foundation(WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
-* [Aplicação de navegador da web de JavaScript](https://go.microsoft.com/fwlink/?linkid=2089908)       
-* [Aplicação móvel, Java e Android](https://go.microsoft.com/fwlink/?linkid=2089906)
-* [Aplicação móvel do SWIFT e iOS](https://go.microsoft.com/fwlink/?linkid=2089805)
+* [C# e Plataforma Universal do Windows (UWP)](https://go.microsoft.com/fwlink/?linkid=2089803)  
+* [C# e Windows Presentation Foundation (WPF)](https://go.microsoft.com/fwlink/?linkid=2089804)
+* [Aplicação de browser Javascript](https://go.microsoft.com/fwlink/?linkid=2089908)       
+* [Aplicação para dispositivos móveis Java e Android](https://go.microsoft.com/fwlink/?linkid=2089906)
+* [Aplicação para dispositivos móveis Swift e iOS](https://go.microsoft.com/fwlink/?linkid=2089805)

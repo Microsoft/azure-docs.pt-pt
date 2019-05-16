@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 02cff1be85f4489a9529383d90694581f2599cba
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64939183"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65745162"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Aceder a dados de geração 2 de armazenamento do Data Lake com o Azure Databricks com o Spark
 
@@ -110,6 +110,32 @@ Nesta secção, vai criar um serviço do Azure Databricks com o portal do Azure.
 
     * Selecione **Criar cluster**. Depois do cluster está em execução, pode anexar blocos de notas para o cluster e executar tarefas do Spark.
 
+## <a name="ingest-data"></a>Ingerir dados
+
+### <a name="copy-source-data-into-the-storage-account"></a>Copiar dados de origem para a conta de armazenamento
+
+Utilizar o AzCopy para copiar dados de sua *. csv* ficheiro na sua conta de geração 2 de armazenamento do Data Lake.
+
+1. Abra uma janela de linha de comandos e introduza o seguinte comando para iniciar sessão na sua conta de armazenamento.
+
+   ```bash
+   azcopy login
+   ```
+
+   Siga as instruções apresentadas na janela de prompt de comando para autenticar a sua conta de utilizador.
+
+2. Para copiar dados a partir da *. csv* de conta, introduza o seguinte comando.
+
+   ```bash
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
+   ```
+
+   * Substitua a `<csv-folder-path>` valor de marcador de posição pelo caminho para o *. csv* ficheiro.
+
+   * Substitua o `<storage-account-name>` valor do marcador de posição pelo nome da sua conta de armazenamento.
+
+   * Substitua o `<file-system-name>` marcador de posição com qualquer nome que pretende dar o seu sistema de ficheiros.
+
 ## <a name="create-a-file-system-and-mount-it"></a>Criar um sistema de ficheiros e montá-la
 
 Nesta secção, irá criar um sistema de ficheiros e uma pasta na sua conta de armazenamento.
@@ -129,9 +155,9 @@ Nesta secção, irá criar um sistema de ficheiros e uma pasta na sua conta de a
     ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
            "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<application-id>",
-           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
            "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
     dbutils.fs.mount(
@@ -140,13 +166,17 @@ Nesta secção, irá criar um sistema de ficheiros e uma pasta na sua conta de a
     extra_configs = configs)
     ```
 
-18. Este bloco de código, substitua a `application-id`, `authentication-id`, `tenant-id`, e `storage-account-name` valores de marcador de posição este bloco de código com os valores que reuniu ao concluir os pré-requisitos deste tutorial. Substitua o `file-system-name` valor do marcador de posição com qualquer nome pretende dar ao sistema de ficheiros.
+18. Este bloco de código, substitua a `appId`, `password`, `tenant`, e `storage-account-name` valores de marcador de posição este bloco de código com os valores que reuniu ao concluir os pré-requisitos deste tutorial. Substitua o `file-system-name` valor do marcador de posição pelo nome que forneceu para o sistema de ficheiros do ADLS no passo anterior.
 
-   * O `application-id`, e `authentication-id` são a partir da aplicação que registou no active directory como parte da criação de um principal de serviço.
+Utilize estes valores para substituir os marcadores de posição mencionados.
+
+   * O `appId`, e `password` são a partir da aplicação que registou no active directory como parte da criação de um principal de serviço.
 
    * O `tenant-id` é da sua subscrição.
 
    * O `storage-account-name` é o nome da conta de armazenamento de geração 2 de armazenamento do Azure Data Lake.
+
+   * Substitua o `file-system-name` marcador de posição com qualquer nome que pretende dar o seu sistema de ficheiros.
 
    > [!NOTE]
    > Num ambiente de produção, considere armazenar a chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao seu bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no site do Azure Databricks para ver exemplos dessa abordagem.
@@ -154,32 +184,6 @@ Nesta secção, irá criar um sistema de ficheiros e uma pasta na sua conta de a
 19. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco.
 
    Mantenha este bloco de notas aberto, como irá adicionar comandos a ele mais tarde.
-
-## <a name="ingest-data"></a>Ingerir dados
-
-### <a name="copy-source-data-into-the-storage-account"></a>Copiar dados de origem para a conta de armazenamento
-
-Utilizar o AzCopy para copiar dados de sua *. csv* ficheiro na sua conta de geração 2 de armazenamento do Data Lake.
-
-1. Abra uma janela de linha de comandos e introduza o seguinte comando para iniciar sessão na sua conta de armazenamento.
-
-   ```bash
-   azcopy login
-   ```
-
-   Siga as instruções aparecem na janela de prompt de comando para autenticar a sua conta de utilizador.
-
-2. Para copiar dados a partir da *. csv* de conta, introduza o seguinte comando.
-
-   ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
-   ```
-
-   * Substitua a `<csv-folder-path>` valor de marcador de posição pelo caminho para o *. csv* ficheiro.
-
-   * Substitua o `storage-account-name` valor do marcador de posição pelo nome da sua conta de armazenamento.
-
-   * Substitua o `file-system-name` marcador de posição com qualquer nome que pretende dar o seu sistema de ficheiros.
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Utilize o Databricks Notebook para converter CSV em Parquet
 

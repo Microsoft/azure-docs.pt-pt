@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502034"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522948"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizar a adição de um utilizador de laboratório para um laboratório no Azure DevTest Labs
 Os laboratórios DevTest do Azure permite-lhe criar rapidamente ambientes de desenvolvimento e teste self-service com o portal do Azure. No entanto, se tiver várias equipes e várias instâncias do DevTest Labs, automatizar o processo de criação pode poupar tempo. [Modelos Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) permitem-lhe criar laboratórios, as VMs do laboratório, imagens personalizadas, fórmulas e adicionar utilizadores de forma automática. Este artigo concentra-se especificamente sobre como adicionar utilizadores a uma instância de DevTest Labs.
@@ -85,7 +85,7 @@ O modelo do Resource Manager de exemplo seguinte especifica um usuário a ser ad
 
 ```
 
-Se estiver a atribuir a função no mesmo modelo em que está a criar o laboratório, não se esqueça de adicionar uma dependência entre os recursos de atribuição de função e o laboratório. Para obter mais informações, consulte [definir dependências nos modelos do Azure Resource Manager](/azure-resource-manager/resource-group-define-dependencies.md) artigo.
+Se estiver a atribuir a função no mesmo modelo em que está a criar o laboratório, não se esqueça de adicionar uma dependência entre os recursos de atribuição de função e o laboratório. Para obter mais informações, consulte [definir dependências nos modelos do Azure Resource Manager](../azure-resource-manager/resource-group-define-dependencies.md) artigo.
 
 ### <a name="role-assignment-resource-information"></a>Informações de recursos de atribuição de função
 O recurso de atribuição de função tem de especificar o tipo e nome.

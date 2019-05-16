@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737214"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521384"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de Host. JSON para as funções do Azure 2.x  
 
@@ -35,7 +35,6 @@ Algumas definições de Host. JSON só são utilizadas quando em execução loca
 ## <a name="sample-hostjson-file"></a>Ficheiro de Host. JSON de exemplo
 
 O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis especificadas.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ O exemplo a seguir *Host. JSON* ficheiros têm todas as opções possíveis espe
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -194,6 +196,9 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -274,6 +279,18 @@ Um conjunto de [partilhados diretórios de código](functions-reference-csharp.m
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+Dependência gerida é uma funcionalidade de pré-visualização que está atualmente apenas suportado com o PowerShell com base em funções. Permite que as dependências sejam gerenciados automaticamente pelo serviço. Quando a propriedade enabled está definida como true, o [requirements.psd1](functions-reference-powershell.md#dependency-management) ficheiro será processado. Dependências serão atualizadas quando são lançadas as versões secundárias.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

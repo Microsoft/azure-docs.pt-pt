@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: cd10c503c6e65f68d063deb5f8a537fc9f3c9f0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 2cdde2f9dbba9676ba8a4d35ed6b79940668d684
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59794156"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521781"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual de dependência de Monitor do Azure para Windows
 
@@ -32,7 +32,7 @@ O Azure Monitor para a funcionalidade de mapa de VMs obtém seus dados do agente
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão de agente de dependência de VM do Azure para o Windows pode ser executada em sistemas operativos suportados listados na [sistemas operativos suportados](../../azure-monitor/insights/vminsights-onboard.md#supported-operating-systems) secção do Monitor do Azure para o artigo de implementação de VMs.
+A extensão de agente de dependência de VM do Azure para o Windows pode ser executada em sistemas operativos suportados listados na [sistemas operativos suportados](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) secção do Monitor do Azure para o artigo de implementação de VMs.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -83,7 +83,7 @@ O JSON seguinte mostra o esquema para a extensão de agente de dependência de V
 | tipo | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
-## <a name="template-deployment"></a>Implementação de modelos
+## <a name="template-deployment"></a>Implementação de modelo
 
 Extensões VM do Azure podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser utilizado num modelo do Azure Resource Manager para executar a extensão de agente de dependência de VM do Azure durante uma implementação de modelo do Azure Resource Manager. 
 
@@ -161,6 +161,6 @@ Resultado da execução de extensão é registado para arquivos encontrados no d
 C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Monitoring.DependencyAgent\
 ```
 
-### <a name="support"></a>Suporte
+### <a name="support"></a>Apoio ao cliente
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).

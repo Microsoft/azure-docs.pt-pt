@@ -1,7 +1,6 @@
 - name: Documentação do Azure Blueprints
   href: index.yml
 - name: Descrição geral
-  expanded: true
   items:
     - name: Descrição Geral do Azure Blueprints
       displayName: 'templates, policy, definition, assignment, rbac'
@@ -16,7 +15,6 @@
       displayName: 'publish, assign, track, unassign, delete'
       href: create-blueprint-rest-api.md
 - name: Tutoriais
-  expanded: true
   items:
     - name: Criar a partir de um exemplo de esquema
       displayName: 'template, resource group, rbac, role assignment'
@@ -25,7 +23,6 @@
       displayName: 'read only, do not delete, lock assignment'
       href: ./tutorials/protect-new-resources.md
 - name: Amostras
-  expanded: true
   items:
     - name: Índice
       displayName: 'list, examples'
@@ -53,7 +50,6 @@
           displayName: 'standards, iso, 27001'
           href: ./samples/iso27001-ase-sql-workload/deploy.md
 - name: Conceitos
-  expanded: true
   items:
     - name: Ciclo de vida de um esquema
       displayName: 'publish, edit, delete, assignments'
@@ -71,7 +67,6 @@
       displayName: 'mode, state, read only, edit, denyAssignments'
       href: ./concepts/resource-locking.md
 - name: Guias de procedimentos
-  expanded: true
   items:
     - name: Gerir atribuições com o PowerShell
       displayName: 'create, update, remove'
@@ -85,7 +80,6 @@
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
 - name: Referências
-  expanded: true
   items:
     - name: Azure PowerShell
       href: '/powershell/module/az.blueprint/#blueprint'

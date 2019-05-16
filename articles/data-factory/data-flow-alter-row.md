@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: d842898ca700490ae99b46140be6609622a144df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627124"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520152"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformação de linha de Alter de fábrica de dados do Azure
 

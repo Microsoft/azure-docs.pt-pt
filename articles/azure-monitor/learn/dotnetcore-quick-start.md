@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 6deb3ac0869ba7d8dfb41cc6fac8c30fb035b5a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7700efb7bfdb60c8f8f82b442cf01aae691f2fc3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572719"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595554"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -27,7 +27,7 @@ Este início rápido orienta-o ao processo de adicionar o Application Insights S
 
 Para concluir este guia de início rápido:
 
-- [Instale o Visual Studio 2017](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+- [Instalar o Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
   - Desenvolvimento ASP.NET e Web
   - Desenvolvimento do Azure
 - [Instale o SDK .NET Core 2.0](https://www.microsoft.com/net/core)
@@ -85,7 +85,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 2. Clique em **Mapa da aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-   ![Mapeamento de Aplicações](./media/dotnetcore-quick-start/5appmap.png)
+   ![Mapa da Aplicação](./media/dotnetcore-quick-start/5appmap.png)
 
 3. Clique nas **análise da aplicação** ícone ![ícone do mapa da aplicação](./media/dotnetcore-quick-start/006.png) **ver na análise**. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 

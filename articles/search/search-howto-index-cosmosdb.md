@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024729"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522842"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Como o índice do Cosmos DB com um indexador de Azure Search
+
+
+> [!Note]
+> Suporte de API do MongoDB está em pré-visualização e não se utilização em produção. O [2019 no versão REST API-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Não existe nenhum portal ou o suporte do SDK de .NET neste momento.
+>
+> API de SQL está disponível em geral.
 
 Este artigo mostra-lhe como configurar o Azure Cosmos DB [indexador](search-indexer-overview.md) de extrair conteúdo e torná-lo pesquisáveis no Azure Search. Este fluxo de trabalho cria um índice da Azure Search e carrega-o com o texto existente extraído do Azure Cosmos DB. 
 
@@ -26,7 +32,7 @@ Como a terminologia pode ser confusa, vale a pena observar que [indexação do A
 Pode utilizar o [portal](#cosmos-indexer-portal), REST APIs ou .NET SDK para indexar o conteúdo do Cosmos. O indexador de Cosmos DB no Azure Search consegue pesquisar [itens de Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) acessados por meio desses protocolos:
 
 * [API DE SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [API do MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (suporte do Azure Search para esta API está em pré-visualização pública)  
+* [API do MongoDB (pré-visualização)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > Voz do utilizador tem itens existentes para o suporte de API adicional. Pode converter um voto para as APIs de Cosmos gostaria de ver suportados no Azure Search: [API de tabela](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
@@ -118,7 +124,7 @@ Quando a indexação é concluída, pode utilizar [Explorador de pesquisa](searc
 
 Pode utilizar a API de REST para dados do índice do Azure Cosmos DB, segue um fluxo de trabalho de três partes comuns a todos os indexadores na pesquisa do Azure: criar uma origem de dados, criar um índice, criar um indexador. Extração de dados do armazenamento de Cosmos ocorre ao submeter o pedido de criar indexador. Após a conclusão deste pedido, terá um índice queryable. 
 
-Se estiver a avaliar o MongoDB, tem de utilizar a API REST para criar a origem de dados.
+Se estiver a avaliar o MongoDB, tem de utilizar o REST `api-version=2019-05-06-Preview` para criar a origem de dados.
 
 Na sua conta do Cosmos DB pode escolher se pretende que a coleção para indexar automaticamente todos os documentos. Por predefinição, todos os documentos são indexados automaticamente, mas pode desativar a indexação automática. Quando a indexação é desativada, documentos podem ser acedidos através de apenas seus auto-ligações ou por consultas utilizando o documento ID. O Azure Search necessita do Cosmos DB automática de indexação ativada na coleção que será indexada pelo Azure Search. 
 
@@ -171,7 +177,7 @@ O corpo do pedido contém a definição de origem de dados, que deve incluir os 
 | Campo   | Descrição |
 |---------|-------------|
 | **name** | Necessário. Escolha o nome para representar o objeto de origem de dados. |
-|**tipo**| Necessário. Tem de ser `cosmosdb`. |
+|**type**| Necessário. Tem de ser `cosmosdb`. |
 |**credentials** | Necessário. Tem de ser uma cadeia de ligação do Cosmos DB.<br/>Para coleções de SQL, cadeias de ligação estão neste formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para coleções de MongoDB, adicione **ApiKind = MongoDb** para a cadeia de ligação:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite os números de porta no url do ponto final. Se incluir o número de porta, o Azure Search será não é possível indexar a base de dados do Azure Cosmos DB.|
 | **container** | Contém os seguintes elementos: <br/>**name**: Necessário. Especifica o ID da coleção da base de dados ser indexados.<br/>**query**: Opcional. Pode especificar uma consulta para nivelamento um documento JSON arbitrário num esquema simples que o Azure Search pode indexar.<br/>Para coleções de MongoDB, as consultas não são suportadas. |
 | **dataChangeDetectionPolicy** | Recomendado. Ver [indexar documentos alterados](#DataChangeDetectionPolicy) secção.|
@@ -279,7 +285,7 @@ Para obter mais detalhes sobre a API de indexador criar, confira [criar indexado
 
 ## <a name="use-net"></a>Utilizar .NET
 
-O SDK de .NET totalmente tem paridade com a API REST. Recomendamos que reveja a secção de REST API anterior para aprender conceitos, fluxo de trabalho e os requisitos. Em seguida, pode consultar a seguinte documentação de referência de .NET API para implementar um indexador JSON em código gerenciado.
+O SDK de .NET disponível em geral tem paridade completa com a API REST disponível em geral. Recomendamos que reveja a secção de REST API anterior para aprender conceitos, fluxo de trabalho e os requisitos. Em seguida, pode consultar a seguinte documentação de referência de .NET API para implementar um indexador JSON em código gerenciado.
 
 + [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ O exemplo seguinte cria uma origem de dados com uma política de eliminação de
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>Assistir a este vídeo
-
-Neste vídeo de 7 minutos ligeiramente mais antigos, Andrew Liu gerente de programa do DB Cosmos Azure demonstra como adicionar um índice da Azure Search para um contentor do Azure Cosmos DB. As páginas de portal mostradas no vídeo estão Desatualizadas, mas as informações ainda são relevantes.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Passos seguintes
 

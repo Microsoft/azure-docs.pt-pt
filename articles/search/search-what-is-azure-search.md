@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: c3b2134fae86b988fb21e993cd01b77a90bd2896
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 23754a1184f89d1fb563b2d73109f3a10c48920c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467069"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539326"
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 O Azure Search é uma solução de pesquisa como serviço na cloud que oferece aos programadores APIs e ferramentas para apresentarem uma experiência de pesquisa avançada para os seus conteúdos privados e heterogéneos nas aplicações Web, móveis e empresariais. A execução da consulta é feita através de um índice definido pelo utilizador.
@@ -44,7 +44,7 @@ A funcionalidade é exposta através de uma simples [REST API](/rest/api/searchs
 | AI&nbsp;enrichment&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | Funcionalidades |
 |-------------------|----------|
 |Documentos de IA enriquecida | [**Pesquisa cognitiva** ](cognitive-search-concept-intro.md) para análise de texto e imagem pode ser aplicada a um pipeline de indexação para extrair informações de texto de conteúdo não processado. Alguns exemplos das [competências incorporadas](cognitive-search-predefined-skills.md) incluem reconhecimento ótico de carateres (ao tornar JPEGs digitalizados pesquisáveis), reconhecimento de entidade (ao identificar uma organização, nome ou localização) e ao reconhecer frases-chave. Também pode [criar código de competências personalizadas](cognitive-search-create-custom-skill-example.md) para associar ao pipeline. |
-| Possível armazenados para análise e consumo| [**Dados de conhecimento Store (pré-visualização)** ](knowledge-store-concept-intro.md) é uma extensão de indexação baseada em IA. Com o armazenamento do Azure como um back-end, pode salvar possível criadas durante a indexação. Estes artefactos podem ser utilizados para o ajudar a melhor conjuntos de habilidades de design ou criar de forma e a estrutura dos dados concretos ou é ambíguas. Pode criar projeções dessas estruturas que cargas de trabalho específicas de destino ou os utilizadores. Também diretamente pode analisar os dados extraídos ou carregá-los para outras aplicações.<br/><br/> |
+| Possível armazenados para análise e consumo| [**Arquivo de dados de conhecimento (pré-visualização)** ](knowledge-store-concept-intro.md) é uma extensão de indexação baseada em IA. Com o armazenamento do Azure como um back-end, pode salvar possível criadas durante a indexação. Estes artefactos podem ser utilizados para o ajudar a melhor conjuntos de habilidades de design ou criar de forma e a estrutura dos dados concretos ou é ambíguas. Pode criar projeções dessas estruturas que cargas de trabalho específicas de destino ou os utilizadores. Também diretamente pode analisar os dados extraídos ou carregá-los para outras aplicações.<br/><br/> |
 
 | Dados&nbsp;indexação/importação | Funcionalidades |
 |----------------------------------|----------|

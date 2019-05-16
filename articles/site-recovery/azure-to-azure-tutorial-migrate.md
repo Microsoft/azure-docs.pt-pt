@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 636993879422edaf08051be61b9d4770effdcae0
-ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
-ms.translationtype: MT
+ms.openlocfilehash: 0d446be664d695af946d46abc48389d4f7be92cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65556061"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65751115"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Mover VMs do Azure para outra região
 
@@ -56,7 +56,7 @@ Neste tutorial, irá:
     - Para VMs do Windows, instale todas as atualizações mais recentes do Windows na VM, para que todos os certificados de raiz fidedigna fiquem na máquina. Num ambiente desligado, siga o padrão do Windows Update e os processos de atualização de certificados da sua organização.
     - Para VMs do Linux, siga as orientações fornecidas pelo distribuidor do Linux para obter os certificados de raiz fidedigna mais recentes e a lista de revogação de certificado na VM.
 1. Certifique-se de que não está a utilizar um proxy de autenticação para controlar a conectividade de rede para as VMs que pretende mover.
-1. Se a VM que está a tentar mover não tem acesso à internet ou se está a utilizar um proxy de firewall para controlar o acesso de saída [Verifique os requisitos](azure-to-azure-tutorial-enable-replication.md#configure-outbound-network-connectivity).
+1. Se a VM que está a tentar mover não tem acesso à internet ou se está a utilizar um proxy de firewall para controlar o acesso de saída [Verifique os requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 1. Identifique o esquema de rede de origem e de todos os recursos que está a utilizar atualmente. Isto inclui, mas não está limitado a balanceadores de carga, de rede (NSGs), os grupos de segurança e IPs públicos.
 
 ## <a name="prepare-the-target-region"></a>Preparar a região de destino

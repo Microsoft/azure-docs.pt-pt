@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8201b4089759fb55fae12820f7495664c502837e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023634"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540904"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" no Azure Search?
 
@@ -61,7 +61,7 @@ Internamente, o pipeline gera uma coleção de documentos plena. Pode decidir qu
 
 [Procurar o serviço REST api-version = 2019-05-06](search-api-preview.md) estende os conjuntos de competências com uma definição de knowledgeStore que fornece uma ligação de armazenamento do Azure e projeções que descrevem como o possível é armazenadas. 
 
-Adicionar um arquivo de dados de conhecimento a um conjunto de capacidades dá-lhe a capacidade de uma representação de sua possível para outros cenários além da pesquisa em texto completo do projeto. Para obter mais informações, consulte [o que é o conhecimento Store](knowledge-store-concept-intro.md).
+Adicionar um arquivo de dados de conhecimento a um conjunto de capacidades dá-lhe a capacidade de uma representação de sua possível para outros cenários além da pesquisa em texto completo do projeto. Para obter mais informações, consulte [o que é o armazenamento de dados de conhecimento](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Passo 3: Índice de pesquisa e acesso com base na consulta
 
@@ -82,7 +82,7 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 | Conjunto de capacidades | Um nível superior com o nome que contém uma coleção de habilidades de recursos. Um conjunto de capacidades é o pipeline de melhoria. É invocado durante a indexação por um indexador. | [Definir um conjunto de capacidades](cognitive-search-defining-skillset.md) |
 | Competências cognitivas | Uma transformação Atómica num pipeline de melhoria. Muitas vezes, é um componente que extrai ou infere a estrutura e, portanto, aumenta a compreensão dos dados de entrada. Quase sempre, a saída é baseado em texto e o processamento é o processamento de linguagem natural ou processamento de imagens que extrai ou gera texto a partir de entradas de imagem. Saída de uma habilidade pode ser mapeada para um campo num índice ou usada como entrada para uma melhoria de downstream. Uma habilidade é predefinida e fornecida pela Microsoft ou personalizado: criados e implementados por si. | [Competências predefinidas](cognitive-search-predefined-skills.md) |
 | Extração de dados | Abrange uma ampla gama de processamento, mas relativas a pesquisa cognitiva, a habilidade de reconhecimento de entidades é mais frequentemente utilizada para extrair dados (entidade) de uma origem de que não fornece essas informações nativamente. | [Habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md)| 
-| Processamento de imagens | Infere o texto a partir de uma imagem, como a capacidade de reconhecer um ponto de referência, ou extrai o texto de uma imagem. Exemplos comuns incluem OCR para elevação de caracteres de um arquivo de documentos digitalizados (JPEG), ou no reconhecimento de um nome da rua numa fotografia que contém um sinal de rua. | [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) ou [habilidade de OCR](cognitive-search-skill-ocr.md)
+| Processamento de imagem | Infere o texto a partir de uma imagem, como a capacidade de reconhecer um ponto de referência, ou extrai o texto de uma imagem. Exemplos comuns incluem OCR para elevação de caracteres de um arquivo de documentos digitalizados (JPEG), ou no reconhecimento de um nome da rua numa fotografia que contém um sinal de rua. | [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) ou [habilidade de OCR](cognitive-search-skill-ocr.md)
 | Processamento de linguagem natural | Processamento de informações e obter informações sobre entradas de texto de texto. Deteção de idioma, análise de sentimentos e extração de expressões-chave são habilidades que se inserem o processamento de linguagem natural.  | [Chave a habilidade de extração de frase](cognitive-search-skill-keyphrases.md), [habilidade de deteção de idioma](cognitive-search-skill-language-detection.md), [habilidade de análise de sentimentos](cognitive-search-skill-sentiment.md) |
 | Abertura do documento | O processo de extração ou criar conteúdo de texto a partir de origens de que não sejam de texto durante a indexação. Reconhecimento ótico de carateres (OCR) é um exemplo, mas geralmente se refere a funcionalidade de indexador principal como o indexador extrai o conteúdo de arquivos do aplicativo. A origem de dados, fornecendo a localização do ficheiro de origem e a definição de indexador fornecendo mapeamentos de campo, são ambos os principais fatores de abertura do documento. | Consulte [indexadores](search-indexer-overview.md) |
 | Formatação | Consolidação de fragmentos de texto numa estrutura maior, ou por outro lado, dividir blocos maiores de texto num tamanho gerenciável para ainda mais processamento a jusante. | [Habilidade de Modelador](cognitive-search-skill-shaper.md), [habilidade de fusão de texto](cognitive-search-skill-textmerger.md), [habilidade de dividir texto](cognitive-search-skill-textsplit.md) |
@@ -145,5 +145,5 @@ Para obter mais informações sobre problemas ou perguntas específicas, consult
 + [Documentação de pesquisa cognitiva](cognitive-search-resources-documentation.md)
 + [Quickstart: Experimentar a pesquisa cognitiva numa instruções do portal](cognitive-search-quickstart-blob.md)
 + [Tutorial: Saiba a APIs de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
-+ [Descrição geral de dados de conhecimento Store](knowledge-store-concept-intro.md)
-+ [Dados de conhecimento Store passo a passo](knowledge-store-howto.md)
++ [Descrição geral do arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
++ [Instruções do arquivo de dados de conhecimento](knowledge-store-howto.md)

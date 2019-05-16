@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 05/09/2019
 ms.author: bwren
-ms.openlocfilehash: a8da60850dae600129e0bc60fb574bfa4d3972db
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
-ms.translationtype: HT
+ms.openlocfilehash: 105454205c0fe3a0020693a1289a65cecd2bf57b
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415903"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519006"
 ---
 # <a name="get-started-with-azure-monitor-log-queries"></a>Introdução às consultas de registo do Azure Monitor
 
@@ -179,12 +179,12 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**expandir** mantém todas as colunas originais no conjunto de resultados e define as outras opções. A seguinte consulta utiliza **expandir** para adicionar um *localtime* coluna, que contém um valor de TimeGenerated localizado.
+**expandir** mantém todas as colunas originais no conjunto de resultados e define as outras opções. A seguinte consulta utiliza **expandir** para adicionar o *EventCode* coluna. Tenha em atenção que esta coluna pode não aparecer no final dos resultados da tabela caso em que precisaria expandir os detalhes de um registo para vê-la.
 
 ```Kusto
 SecurityEvent
 | top 10 by TimeGenerated
-| extend localtime = TimeGenerated -8h
+| extend EventCode=substring(Activity, 0, 4)
 ```
 
 ## <a name="summarize-aggregate-groups-of-rows"></a>Resumindo: agregar a grupos de linhas

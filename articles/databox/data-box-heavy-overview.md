@@ -15,12 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0a5b7f93f9ac6cc5b1076881727a42fd5b95ff4b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 780a50d9d470e8904e066459f97aa00d34ba1d3c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306194"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603496"
 ---
 # <a name="what-is-azure-data-box-heavy-preview"></a>O que é o Azure Data Box Heavy? (Pré-visualização)
 
@@ -107,9 +107,9 @@ Um fluxo típico inclui os seguintes passos:
 
 Ao longo deste processo, será notificado por e-mail sobre todas as alterações de estado. 
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
-O Data Box Heavy pode transferir dados com base na região onde o serviço é implementado, no país para onde o dispositivo é enviado e na conta de armazenamento do Azure de destino para onde transfere os dados. 
+Dados de caixa pesada pode transferir os dados com base na região em que o serviço é implementado, país/região ao qual o dispositivo é enviado e a conta de armazenamento do Azure onde transferir os dados de destino. 
 
 - **Disponibilidade do serviço** - nesta versão, o Data Box Heavy está disponível nas seguintes regiões:
     - Todas as regiões da cloud pública nos Estados Unidos - E.U.A. Centro-Oeste, E.U.A. Oeste2, E.U.A. oeste, E.U.A. Centro-Sul, E.U.A. Central, E.U.A. Centro-Norte, E.U.A. Leste e E.U.A. Leste2.
@@ -119,7 +119,7 @@ O Data Box Heavy pode transferir dados com base na região onde o serviço é im
 
 - **Contas de Armazenamento de Destino** - as contas de armazenamento que armazenam os dados estão disponíveis em todas as regiões do Azure onde o serviço estiver disponível. 
 
-## <a name="sign-up"></a>Inscrever-se
+## <a name="sign-up"></a>Aderir
 
 O Data Box Heavy está em pré-visualização e precisa de inscrever-se. Execute os seguintes passos para inscrever-se no Data Box Heavy:
 
@@ -136,7 +136,7 @@ O Data Box Heavy está em pré-visualização e precisa de inscrever-se. Execute
 
    <!--![The Data Box Heavy sign up 3]()-->
 
-5. Responda às perguntas sobre o tamanho dos dados, o país de residência dos dados, o período de tempo, o serviço do Azure de destino para transferência de dados, a largura de banda de rede e a frequência de transferência de dados. Reveja a Privacidade e termos e selecione a caixa de verificação A Microsoft pode utilizar o seu endereço de e-mail para contactá-lo.
+5. Responder a perguntas sobre dados frequência de transferência de destino de período de tempo, residência país/região, o serviço do Azure para transferência de dados, largura de banda de rede e dados. Reveja a Privacidade e termos e selecione a caixa de verificação A Microsoft pode utilizar o seu endereço de e-mail para contactá-lo.
 
     <!--![The Data Box Heavy sign up 4]()-->
 

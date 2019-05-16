@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0d606a489a069c4265088d8e07301693dc2f1c83
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64694282"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606404"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é o Windows Virtual Desktop Preview? 
 
@@ -90,7 +90,7 @@ As máquinas virtuais do Azure que criar para a área de Trabalho Virtual do Win
 Para um desempenho ideal, certifique-se de que a sua rede cumpre os seguintes requisitos:
 
 * Latência de ida e volta (RTT) da rede do cliente para a região do Azure em que foram implementados conjuntos de anfitrião deve ser inferior a 150 ms.
-* Tráfego de rede pode fluir fora dos limites de país, quando as VMs que alojam aplicações e áreas de trabalho ligar para o serviço de gestão.
+* Tráfego de rede pode fluir bordas de país/região externa quando as VMs que alojam aplicações e áreas de trabalho ligar para o serviço de gestão.
 * Para otimizar o desempenho da rede, recomendamos que VMs o anfitrião de sessões estão colocalizadas na mesma região do Azure como o serviço de gestão.
 
 ## <a name="provide-feedback"></a>Enviar comentários

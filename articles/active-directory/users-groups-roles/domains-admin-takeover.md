@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f9a33b6bce8cef5bf790efeb43259dfb8013487
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b32ef37c6d61c88a18acd5ddc80cc6154369ca29
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60472486"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780528"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 
@@ -37,7 +37,7 @@ Durante o processo de obtenção do controlo administrativo, pode provar a propr
 
 Alguns produtos que incluem o SharePoint e o OneDrive, como o Office 365, não suportam a obtenção de controlo externa. Se esse for o seu cenário, ou se for um administrador e quiser assumir um não-gerenciado ou o inquilino "sombra" para criar os utilizadores que utilizaram a inscrição Self-Service, pode fazê-lo com uma obtenção de controlo de administrador interno.
 
-1. Crie um contexto de utilizador no inquilino não gerido por meio de inscrever-se com como o Power BI. Para sua comodidade de exemplo, estes passos partem do princípio de que o caminho.
+1. Crie um contexto de utilizador no inquilino não gerido por meio de se inscreverem no Power BI. Para sua comodidade de exemplo, estes passos partem do princípio de que o caminho.
 
 2. Abra o [site do Power BI](https://powerbi.com) e selecione **começar gratuitamente**. Introduza uma conta de utilizador que utiliza o nome de domínio para a organização; Por exemplo, `admin@fourthcoffee.xyz`. Depois de introduzir o código de verificação, verificar o seu e-mail para o código de confirmação.
 

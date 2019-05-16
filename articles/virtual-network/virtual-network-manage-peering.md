@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925902"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519658"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Criar, alterar ou eliminar um peering de rede virtual
 
@@ -142,11 +142,11 @@ As contas de que usar para trabalhar com o peering de rede virtual devem ser atr
 
 Se a sua conta não está atribuída a uma das funções do anteriores, tem de ser atribuído a um [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) atribuída as ações necessárias a partir da seguinte tabela:
 
-| Ação                                                          | Name |
+| Acção                                                          | Name |
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necessário para criar um peering de rede virtual A rede virtual B. virtuais uma de rede tem de ser uma rede virtual (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necessário para criar um peering da rede virtual B (Resource Manager) para a rede virtual A                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Necessário para criar um peering da rede virtual B (clássico) para a rede virtual A                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Necessário para criar um peering da rede virtual B (clássico) para a rede virtual A                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Ler um peering de rede virtual   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Eliminar um peering de rede virtual |
 

@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1a48f8620fb99f1cf8787dabc738d328a796d093
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4c15b9aa0bde704ad3665375d1c1a5bb8a1d32cf
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510624"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604120"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning
 
@@ -131,7 +131,7 @@ Pare o bloco de notas VM quando não estiver a utilizá-lo a reduzir os custos.
 
 1. Selecione **parar**.
 
-1. Quando estiver pronto para o utilizador o servidor novamente, selecione **iniciar**.
+1. Quando estiver pronto para utilizar o servidor novamente, selecione **iniciar**.
 
 ### <a name="delete-everything"></a>Eliminar tudo
 

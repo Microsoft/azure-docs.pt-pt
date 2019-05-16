@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791103"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521741"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento da rede e endereçamento de IP para redes virtuais
 
@@ -58,7 +58,7 @@ A sub-rede de destino que VM é selecionada com base no nome da sub-rede de VM d
 
 - Se uma sub-rede com o mesmo nome que a sub-rede VM de origem está disponível na rede de destino, que a sub-rede está definida para a VM de destino.
 - Se uma sub-rede com o mesmo nome não existir na rede de destino, a primeira sub-rede na ordem alfabética está definida como a sub-rede de destino.
-- Pode modificar o do **computação e rede** definições para a VM.
+- Pode modificar a sub-rede de destino no **computação e rede** definições para a VM.
 
     ![Janela de propriedades de computação de computação e rede](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

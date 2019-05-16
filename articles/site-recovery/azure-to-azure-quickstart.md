@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f7adcb7d4516e9013bf87306fff77b566885e018
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23aeeb8cd14ec2d0654525af42b48f59a6f7564f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60870858"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520313"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurar a recuperação após desastre para uma região secundária do Azure de uma VM do Azure        
 
@@ -45,7 +45,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 Após a tarefa de replicação ser concluída, pode ver o estado da replicação, modificar a replicação e testar a implementação.
 
-1. No menu VM, clique em **Recuperação após desastre**.
+1. Nas **Operações**, clique em **Recuperação após desastre**.
 2. Pode verificar o estado de funcionamento da replicação, os pontos de recuperação que foram criados e as regiões de origem e destino num mapa.
 
    ![Estado de replicação](media/azure-to-azure-quickstart/replication-status.png)

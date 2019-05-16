@@ -3,8 +3,8 @@ title: Problema ao configurar o início de sessão único federado para uma apli
 description: Abordar alguns dos problemas comuns que poderá encontrar ao configurar federado único início de sessão através de SAML para aplicações que estão listadas na Galeria de aplicações do Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e9746c0739a2ddd6267428f428e977151077b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 554fb73ea7bf4f866eda3e9f3d629f871cb5e582
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292117"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781167"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o início de sessão único federado para uma aplicação da galeria do Azure AD
 

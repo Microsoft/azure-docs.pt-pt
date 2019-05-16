@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: 791e38f3d15801166f07234648909e03d800f5c0
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.openlocfilehash: 33634773b436114f4a5f2942028710ae50e0e703
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604907"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65737159"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Tutorial: Monitorizar alterações de máquina virtual com o Azure Event Grid e o Logic Apps
 
@@ -101,9 +101,9 @@ Agora, adicione o acionador do Event Grid que monitoriza o grupo de recursos par
    | Propriedade | Necessário | Value | Descrição |
    | -------- | -------- | ----- | ----------- |
    | **Subscrição** | Sim | <*event-publisher-Azure-subscription-name*> | Selecione o nome da subscrição do Azure associada com o publicador de eventos. Neste tutorial, selecione o nome da subscrição do Azure para a máquina virtual. |
-   | **Tipo de Recurso** | Sim | <*event-publisher-Azure-resource-type*> | Selecione o tipo de recurso para o publicador de eventos. Neste tutorial, selecione este valor para que a aplicação lógica monitoriza apenas os grupos de recursos: <p><p>**Microsoft.Resources.resourceGroups** |
-   | **Nome do Recurso** |  Sim | <*event-publisher-Azure-resource-name*> | Selecione o nome para o recurso do Azure associado com o publicador de eventos. Por exemplo, este recurso pode ser um tópico do Event Grid. Neste tutorial, selecione o nome para o grupo de recursos do Azure associado para a máquina virtual. |
-   | **Item de tipo de evento** |  Não | <*event-types*> | Selecione um ou mais tipos de evento específico que pretende monitorizar. Para este tutorial, deixe esta propriedade está vazio. |
+   | **Tipo de Recurso** | Sim | <*event-publisher-Azure-resource-type*> | Selecione o tipo de recurso do Azure para o publicador de eventos. Neste tutorial, selecione este valor para monitorizar os grupos de recursos do Azure: <p><p>**Microsoft.Resources.ResourceGroups** |
+   | **Nome do Recurso** |  Sim | <*event-publisher-Azure-resource-name*> | Selecione o nome para o recurso do Azure para o publicador de eventos. Esta lista varia consoante o tipo de recurso que selecionou. Para este tutorial, selecione o nome para o grupo de recursos do Azure para a máquina virtual. |
+   | **Item de tipo de evento** |  Não | <*event-types*> | Selecione um ou mais tipos de evento específico para filtrar e enviar para o event grid. Por exemplo, opcionalmente, pode adicionar estes tipos de eventos para detectar quando recursos forem alterados ou eliminados: <p><p>- **Microsoft.Resources.ResourceActionSuccess** <br>- **Microsoft.Resources.ResourceDeleteSuccess** <br>- **Microsoft.Resources.ResourceWriteSuccess** <p>Para obter mais informações, veja estes tópicos: <p><p>- [Compreender a filtragem de eventos](../event-grid/event-filtering.md) <br>- [Filtro de eventos do Event Grid](../event-grid/how-to-filter-events.md) <br>- [Esquema de eventos do Azure Event Grid para grupos de recursos](../event-grid/event-schema-resource-groups.md) |
    | **Nome da subscrição** | Não | <*event-subscription-name*> | Indique um nome exclusivo para a subscrição de eventos. |
    | Para obter definições opcionais, escolha **adicione o novo parâmetro**. | Não | {consulte as descrições} | * **Filtro de prefixo**: Para este tutorial, deixe esta propriedade está vazio. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de prefixo como filtro, por exemplo, um caminho e um parâmetro para um recurso específico. <p>* **Filtro de sufixo**: Para este tutorial, deixe esta propriedade está vazio. O comportamento predefinido corresponde a todos os valores. No entanto, pode especificar uma cadeia de sufixo como filtro, por exemplo, uma extensão de nome de ficheiro, quando quiser apenas tipos de ficheiro específicos. |
    |||
@@ -164,6 +164,10 @@ Para executar o fluxo de trabalho da aplicação lógica apenas quando ocorre um
 
    ![Condição concluída](./media/monitor-virtual-machine-changes-event-grid-logic-app/complete-condition.png)
 
+   Se mudar do modo de exibição de design para exibição e de volta à vista de estrutura de código, a expressão que especificou na condição é resolvido para o **data.operationName** token:
+
+   ![Condição resolvida](./media/monitor-virtual-machine-changes-event-grid-logic-app/resolved-condition.png)
+
 1. Guarde a aplicação lógica.
 
 ## <a name="send-email-notifications"></a>Enviar notificações por e-mail
@@ -189,7 +193,7 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-co
 
 1. Se ainda não tiver uma ligação para o seu fornecedor de e-mail, inicie sessão na sua conta de e-mail quando lhe for pedido para efetuar a autenticação.
 
-1. Renomeie o título do e-mail de envio para este título: `Send email when virtual machine updated`. 
+1. Renomeie o título do e-mail de envio para este título: `Send email when virtual machine updated`
 
 1. Forneça os detalhes do e-mail conforme especificado na tabela seguinte:
 
@@ -202,10 +206,10 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-overview.md#logic-app-co
    | -------- | -------- | ----- | ----------- |
    | **Para** | Sim | <*recipient\@domain*> | Introduza o endereço de e-mail do destinatário. Para fins de teste, pode utilizar o seu próprio endereço de e-mail. |
    | **Assunto** | Sim | Recurso atualizado: **Assunto** | Introduza o conteúdo para o assunto do e-mail. Para este tutorial, introduza o texto especificado e selecione o evento **assunto** campo. Aqui, o assunto do e-mail inclui o nome do recurso atualizado (máquina virtual). |
-   | **Corpo** | Sim | Grupo de recursos: **Tópico** <p>Tipo de evento: **Tipo de evento**<p>ID de evento: **ID**<p>Hora: **Hora do evento** | Introduza o conteúdo para o corpo do e-mail. Neste tutorial, introduza o texto especificado e selecione o evento **tópico**, **tipo de evento**, **ID**, e **hora do evento** campos para que sua e-mail inclui o nome do grupo de recursos, o tipo de evento, a timestamp de evento e o ID de evento para a atualização. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. |
+   | **Corpo** | Sim | Recurso: **Tópico** <p>Tipo de evento: **Tipo de evento**<p>ID de evento: **ID**<p>Hora: **Hora do evento** | Introduza o conteúdo para o corpo do e-mail. Neste tutorial, introduza o texto especificado e selecione o evento **tópico**, **tipo de evento**, **ID**, e **hora do evento** campos para que sua e-mail inclui o recurso que disparou o evento, o tipo de evento, a timestamp de evento e o ID de evento para a atualização. Para este tutorial, o recurso é o grupo de recursos do Azure selecionado no acionador. <p>Para adicionar linhas em branco ao conteúdo, prima Shift + Enter. |
    ||||
 
-   > [!NOTE] 
+   > [!NOTE]
    > Se selecionar um campo que representa uma matriz, o estruturador adiciona automaticamente um ciclo **For each** em torno da ação que referencia essa matriz. Desta forma, a sua aplicação lógica realiza essa ação em cada item da matriz.
 
    Agora, a ação de e-mail pode ter o seguinte aspeto neste exemplo:

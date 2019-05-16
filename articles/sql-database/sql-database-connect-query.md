@@ -7,23 +7,23 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 1bf9c0b1393abfcad6646624301c4f131c8790a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: a8513344c35c14ebf06f3693da618ed20047d07b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320946"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65752685"
 ---
 # <a name="quickstarts-azure-sql-database-connect-and-query"></a>Inícios rápidos: Base de dados SQL do Azure se ligar e consultar
 
 O seguinte documento inclui ligações para exemplos do Azure que mostram como ligar e consultar uma base de dados SQL do Azure. Fornece também algumas recomendações para Segurança a Nível de Transporte.
 
-## <a name="quickstarts"></a>Inícios rápidos
+## <a name="quickstarts"></a>Guias de Introdução
 
 | |  |
 |---|---|

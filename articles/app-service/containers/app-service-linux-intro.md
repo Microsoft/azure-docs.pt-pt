@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d40b28103e24214ef00864b032266cc95889eff
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60850422"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780338"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
@@ -33,12 +33,12 @@ O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas p
 
 | Idioma | Versões Suportadas |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10, 10.14 |
 | Java * | Tomcat 8.5, 9.0, Java SE, 14 de WildFly (tudo em execução JRE 8) |
 | PHP | 5.6, 7.0, 7.2 |
-| Python (Pré-visualização) | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1 |
-| Ruby | 2.3 |
+| Python | 2.7, 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
+| Ruby | 2.3, 2.4 |
 
 ## <a name="deployments"></a>Implementações
 
@@ -71,9 +71,9 @@ Verifique o [Dashboard de Estado do Azure](https://azure.microsoft.com/status).
 
 O portal do Azure mostra apenas as funcionalidades que funcionam atualmente para a Aplicação Web para Contentores. À medida que ativamos mais funcionalidades, estas tornam-se visíveis no portal.
 
-O Serviço de Aplicações no Linux é suportado apenas com os planos do Serviço de Aplicações [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem um escalão [Gratuito ou Partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). Não pode criar a Aplicação Web para Contentores num plano do Serviço de Aplicações que já aloja Aplicações Web que não são do Linux.  
+Serviço de aplicações no Linux só é suportado com [gratuito, básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) planos de serviço de aplicações e não tem um [partilhado](https://azure.microsoft.com/pricing/details/app-service/plans/) escalão. Não é possível criar uma aplicação Web do Linux num plano do serviço de aplicações já não - Linux Web Apps de alojamento.  
 
-Com base numa limitação atual, não é possível misturar aplicações Windows e Linux no mesmo grupo de recursos.
+Com base numa limitação atual, para o mesmo grupo de recursos não é possível misturar aplicações Windows e Linux, na mesma região.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

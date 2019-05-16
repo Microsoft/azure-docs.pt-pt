@@ -1,6 +1,6 @@
 ---
-title: Codificador de multimédia Standard formatos e codecs - Azure
-description: Este tópico apresenta uma visão geral do Media Encoder Standard formatos e codecs.
+title: Codificador formatos e codecs standard - Azure
+description: Este tópico apresenta uma visão geral do codificador Standard formatos e codecs.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 4c7e0e091aeecb205c63b8fa7e97d7592f15b856
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 730ff68e70999307417eea276761d56f4a44046a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60322272"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520018"
 ---
-# <a name="media-encoder-standard-formats-and-codecs"></a>Formatos e codecs Media Encoder Standard
+# <a name="standard-encoder-formats-and-codecs"></a>Codificador formatos e codecs standard
 
 Este artigo contém uma lista do importar mais comuns e formatos de ficheiro de exportação que pode utilizar com o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). Para obter informações sobre como criar configurações predefinidas personalizadas usando **StandardEncoderPreset**, consulte [criar uma transformação com uma configuração predefinida personalizada](customize-encoder-presets-how-to.md).
 
@@ -41,12 +41,12 @@ Este artigo contém uma lista do importar mais comuns e formatos de ficheiro de 
 | QuickTime (.mov) |Sim |
 
 > [!NOTE]
-> Acima encontra-se uma lista das extensões de ficheiro encontradas mais frequentemente. Codificador de multimédia Standard suporta muitas outras (por exemplo:. m2ts,. mpeg2video,. qt). Se tentar codificar um ficheiro e receber uma mensagem de erro sobre o formato não suportado, fornecer seus comentários [aqui](https://feedback.azure.com/forums/169396-media-services/category/144411-encoding-and-processing/).
 > 
 > 
 
 ### <a name="audio-formats-in-input-containers"></a>Formatos de áudio em contentores de entrada
-Codificador de multimédia Standard suporta os seguintes formatos de áudio em contentores de entrada:
+
+Codificador Standard suporta os seguintes formatos de áudio em contentores de entrada:
 
 * Arquivos de ficheiros do MXF, do GXF e do QuickTime que têm faixas de áudio com estéreo intercalado ou 5.1 amostras
 

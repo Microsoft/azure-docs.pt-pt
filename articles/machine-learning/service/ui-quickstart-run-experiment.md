@@ -9,12 +9,12 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 05/02/2019
-ms.openlocfilehash: d14ef4a59e65ba432b5d04d9f531e4ba639deb8a
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 0c492424e67853f7cb4a017fb4215d38a555a8a4
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440948"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545061"
 ---
 # <a name="quickstart-prepare-and-visualize-data-without-writing-code-in-azure-machine-learning"></a>Início rápido: Preparar e visualize os dados sem escrever código no Azure Machine Learning
 
@@ -99,13 +99,13 @@ Selecione as colunas de dados para trabalhar com.  Para começar, configure o m�
    
 1. Selecione o **Select Columns in Dataset** módulo.
 
-1. Na **propriedades** painel à direita da tela, selecione **iniciar Seletor de colunas**.
+1. Na **propriedades** painel à direita da tela, selecione **editar colunas**.
 
     Na **selecionar colunas** caixa de diálogo, selecione **todas as colunas** e incluir **todas as funcionalidades**. A caixa de diálogo deve ter este aspeto:
 
      ![Seletor de colunas](./media/ui-quickstart-run-experiment/select-all.png)
 
-1. No canto inferior direito, selecione o botão de marca de verificação (OK) para fechar o Seletor de colunas.
+1. No canto inferior direito, selecione **OK** para fechar o Seletor de colunas.
 
 ## <a name="run-the-experiment"></a>Executar a experimentação
 
@@ -146,13 +146,13 @@ Primeiro, remova os **normalized-losses** coluna completamente.
 
 1. Selecione o **Select Columns in Dataset** módulo.
 
-1. Na **propriedades** painel à direita da tela, selecione **iniciar Seletor de colunas**.
+1. Na **propriedades** painel à direita da tela, selecione **editar colunas**.
 
     * Deixe **com as regras** e **todas as colunas** selecionado.
 
     * Nas listas pendentes, selecione **Excluir** e os **nomes das colunas** e, em seguida, clique dentro da caixa de texto. Tipo **normalized-losses**.
 
-    * No canto inferior direito, selecione o botão de marca de verificação (OK) para fechar o Seletor de colunas.
+    * No canto inferior direito, selecione **OK** para fechar o Seletor de colunas.
 
     ![Excluir uma coluna](./media/ui-quickstart-run-experiment/exclude-column.png)
         

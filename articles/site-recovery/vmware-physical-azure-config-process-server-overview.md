@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/28/2019
 ms.author: raynew
-ms.openlocfilehash: 78aed4fceab83d942927486cd7ae46a32dd6ca09
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6f501e251f0b006bbbb4f64090cac5c3d61b7bf2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927556"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523552"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Sobre os componentes do Site Recovery (configuração, processo, destino principal)
 
@@ -28,7 +28,7 @@ Para recuperação após desastre de VMs de VMware no local e servidores físico
 **Função** | O servidor de configuração coordena as comunicações entre o local e o Azure, e gere a replicação de dados. | Saiba mais sobre a arquitetura [VMware](vmware-azure-architecture.md) e [servidor físico](physical-azure-architecture.md) recuperação após desastre para o Azure.
 **Requisitos de VMware** | Para recuperação após desastre de VMs de VMware no local, tem de instalar e executar o servidor de configuração como no local, VM de VMware de elevada disponibilidade. | [Saiba mais sobre](vmware-azure-deploy-configuration-server.md#prerequisites) os pré-requisitos.
 **Implementação de VMware** | Recomendamos que implemente o servidor de configuração com um modelo de OVA transferido. Este método fornece uma simplesmente configurar um servidor de configuração que está em conformidade com todos os requisitos e pré-requisitos.<br/><br/> Se por algum motivo não foi possível implementar uma VM do VMware com um modelo de OVA, pode configurar as máquinas de servidor de configuração manualmente, conforme descrito abaixo para recuperação após desastre de máquina física. | [Implementar](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template) com um modelo de OVA.
-**Requisitos do servidor físico** | Recuperação de desastres em servidores físicos no local, implementar o servidor de configuração manualmente. | [Saiba mais sobre](/physical-azure-set-up-source.md#prerequisites) os pré-requisitos.
+**Requisitos do servidor físico** | Recuperação de desastres em servidores físicos no local, implementar o servidor de configuração manualmente. | [Saiba mais sobre](physical-azure-set-up-source.md#prerequisites) os pré-requisitos.
 **Implementação de servidor físico** | Se ainda não pode ser instalado como uma VM de VMware, pode instalá-lo num servidor físico. | [Implementar](physical-azure-set-up-source.md#set-up-the-source-environment) o servidor de configuração manualmente.
 
 
@@ -51,5 +51,5 @@ O servidor de destino principal processa dados de replicação durante a reativa
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-- Reveja os [arquitetura](/vmware-azure-architecture.md) para recuperação após desastre de VMs de VMware e servidores físicos.
+- Reveja os [arquitetura](vmware-azure-architecture.md) para recuperação após desastre de VMs de VMware e servidores físicos.
 - Reveja os [requisitos e pré-requisitos](vmware-physical-azure-support-matrix.md) para recuperação após desastre de VMs de VMware e servidores físicos para o Azure. 

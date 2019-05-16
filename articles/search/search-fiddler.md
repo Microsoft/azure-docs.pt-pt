@@ -1,39 +1,32 @@
 ---
-title: 'Início rápido: Explorar as APIs REST no Postman – o Azure Search'
-description: Como utilizar o Postman para emitir pedidos HTTP e a REST API chama-se para o Azure Search.
+title: 'Início rápido: Postman e APIs REST - Azure Search'
+description: Saiba como chamar as APIs de REST de pesquisa do Azure com o Postman e dados de exemplo e definições.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: quickstart
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7db3292bc5f377d9728e42994dd3a437cb59958e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
-ms.translationtype: MT
+ms.openlocfilehash: bd3b9fe80a57a6a0dd824d92ae14a863ced240b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024813"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65758533"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman"></a>Início rápido: Explorar as APIs REST de pesquisa do Azure com o Postman
 > [!div class="op_single_selector"]
 > * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
+> * [Python](search-get-started-python.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Uma das formas mais simples de explorar a [API REST da Azure Search](https://docs.microsoft.com/rest/api/searchservice) está a utilizar o Postman ou web outra ferramenta de teste para formular pedidos HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
-
-> [!div class="checklist"]
-> * Transferir uma ferramenta de teste de api Web
-> * Obter uma chave e o URL para o serviço de pesquisa
-> * Ligar ao Azure Search
-> * Criar um índice
-> * Carregar um índice
-> * Pesquisar um índice
+Uma das formas mais simples de explorar a [as APIs de REST do Azure Search](https://docs.microsoft.com/rest/api/searchservice) está a utilizar o Postman ou web outra ferramenta de teste para formular pedidos HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar e [inscreva-se no Azure Search](search-create-service-portal.md).
 
@@ -41,9 +34,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os seguintes serviços e ferramentas são utilizadas neste início rápido. 
 
-[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este início rápido. 
++ [Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este início rápido. 
 
-[Aplicação de ambiente de trabalho do postman](https://www.getpostman.com/) ou [Telerik Fiddler](https://www.telerik.com/fiddler) é utilizado para enviar pedidos para o Azure Search.
++ [Aplicação de ambiente de trabalho do postman](https://www.getpostman.com/) ou [Telerik Fiddler](https://www.telerik.com/fiddler) é utilizado para enviar pedidos para o Azure Search.
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e o URL
 
@@ -61,15 +54,15 @@ Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviç
 
 Nesta secção, utilize a sua ferramenta de web à escolha para configurar ligações para o Azure Search. Cada ferramenta mantém as informações de cabeçalho de pedido para a sessão, o que significa que apenas tem de introduzir a chave de api e Content-Type única.
 
-Para qualquer uma das ferramentas, precisa de escolher um comando (GET, POST, PUT e assim por diante), fornecer um ponto de final do URL e, para algumas tarefas, forneça JSON no corpo do pedido. Um URL completo é semelhante ao seguinte:
+Para qualquer uma das ferramentas, precisa de escolher um comando (GET, POST, PUT e assim por diante), fornecer um ponto de final do URL e, para algumas tarefas, forneça JSON no corpo do pedido. Substitua o nome do serviço de pesquisa (seu-pesquisa-SERVICE-NAME) com um valor válido. 
 
-    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06
+    https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06
 
 Tenha em atenção o prefixo HTTPS, o nome do serviço, o nome de um objeto (nesse caso, a coleção de índices) e o [versão de api](search-api-versions.md). A api-version é uma cadeia de caracteres em minúsculas, necessária especificada como `?api-version=2019-05-06` para a versão atual. Versões de API são atualizadas regularmente. Incluir a versão de api em cada pedido dá-lhe controlo total sobre qual das versões é utilizada.  
 
-Composição do cabeçalho do pedido inclui dois elementos, tipo de conteúdo, além da chave de api, utilizado para autenticar para o Azure Search:
+Composição do cabeçalho do pedido inclui dois elementos, tipo de conteúdo, além da chave de api, utilizado para autenticar para o Azure Search. Substitua a chave de API de administração (seu-ADMIN-API-KEY) com um valor válido. 
 
-    api-key: <placeholder-api-key-for-your-service>
+    api-key: <YOUR-ADMIN-API-KEY>
     Content-Type: application/json
 
 No Postman, formule um pedido parecido com a seguinte captura de ecrã. Escolher **Obtenha** como o verbo, forneça o URL e clique em **enviar**. Este comando liga ao Azure Search, lê a coleção de índices e retorna o código de estado HTTP 200 numa ligação com êxito. Se o seu serviço já foi de índices, a resposta também irão incluir definições de índice.
@@ -78,16 +71,19 @@ No Postman, formule um pedido parecido com a seguinte captura de ecrã. Escolher
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-No Azure Search, normalmente, crie o índice antes de carregá-lo com dados. O [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API é utilizada para esta tarefa. 
+No Azure Search, normalmente, crie o índice antes de carregá-lo com dados. O [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index) é utilizado para esta tarefa. 
 
 O URL é expandido para incluir o `hotel` nome do índice.
 
 Para fazer isso no Postman:
 
-1. Altere o verbo para **colocar**
-2. Copie este URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`
-3. Fornecer a definição de índice (mostrada abaixo) no corpo do pedido
-4. Clique em **enviar**
+1. Altere o verbo para **colocar**.
+
+2. Copie este URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`.
+
+3. Fornece a definição de índice (mostrada abaixo) no corpo do pedido.
+
+4. Clique em **enviar**.
 
 ![Corpo de pedido do Postman][8]
 
@@ -122,16 +118,19 @@ Quando submete este pedido, deverá receber uma resposta HTTP 201, que indica qu
 
 ## <a name="2---load-documents"></a>2 - carregar documentos
 
-A criação e o preenchimento do índice são dois passos distintos. No Azure Search, o índice contém todos os dados pesquisáveis, que pode fornecer como documentos JSON. O [adicionar, atualizar ou eliminar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST API é utilizada para esta tarefa. 
+A criação e o preenchimento do índice são dois passos distintos. No Azure Search, o índice contém todos os dados pesquisáveis, que pode fornecer como documentos JSON. O [adicionar, atualizar ou eliminar API de REST de documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é utilizado para esta tarefa. 
 
 O URL é expandido para incluir o `docs` coleções e `index` operação.
 
 Para fazer isso no Postman:
 
-1. Altere o verbo para **POST**
-2. Copie este URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`
-3. Forneça os documentos JSON (mostrados abaixo) no corpo do pedido
-4. Clique em **enviar**
+1. Altere o verbo para **POST**.
+
+2. Copie este URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs/index?api-version=2019-05-06`.
+
+3. Forneça os documentos JSON (mostrados abaixo) no corpo do pedido.
+
+4. Clique em **enviar**.
 
 ![Payload de pedido do Postman][10]
 
@@ -212,15 +211,17 @@ Se obtiver um 207, pelo menos um documento falhou ao carregar. Se obtiver um 404
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Agora que um índice e os documentos são carregados, pode emitir consultas contra eles usando [documentos sobre pesquisa](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
+Agora que um índice e os documentos são carregados, pode emitir consultas contra eles usando [API REST do Search documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 O URL é expandido para incluir uma cadeia de caracteres de consulta, especificada com o operador de pesquisa.
 
 Para fazer isso no Postman:
 
-+ Altere o verbo para **obter**
-+ Copie este URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`
-+ Clique em **enviar**
+1. Altere o verbo para **obter**.
+
+2. Copie este URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2019-05-06`.
+
+3. Clique em **enviar**.
 
 Esta consulta pesquisa o termo "motel" e devolve uma contagem dos documentos nos resultados da pesquisa. O pedido e resposta devem ser semelhantes à seguinte captura de ecrã do Postman depois de clicar em **enviar**. O código de estado deve ser 200.
 
@@ -228,7 +229,7 @@ Esta consulta pesquisa o termo "motel" e devolve uma contagem dos documentos nos
 
 
 ## <a name="get-index-properties"></a>Obter as propriedades do índice
-Também pode consultar informações do sistema para obter contagens de documentos e o consumo de armazenamento: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
+Também pode consultar informações do sistema para obter contagens de documentos e o consumo de armazenamento: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels/stats?api-version=2019-05-06`
 
 No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta inclui uma contagem de documentos e o espaço utilizado em bytes.
 
@@ -236,7 +237,7 @@ No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta incl
 
 Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` separa o caminho do URL da cadeia de consulta, ao passo que & separa cada ' name = value' par na cadeia de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
-Para obter mais informações sobre esta API, veja [Get Index Statistics (REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) (Obter Estatísticas de Índice [REST]).
+Para obter mais informações sobre esta API, consulte [obter API de REST de estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics).
 
 
 ## <a name="use-fiddler"></a>Utilizar o Fiddler
@@ -247,7 +248,7 @@ Esta secção é equivalente a seções anteriores, apenas com o Fiddler captura
 
 Formule um pedido parecido com a seguinte captura de ecrã. Escolher **obter** como o verbo. O Fiddler adiciona `User-Agent=Fiddler`. Pode colar os dois cabeçalhos de pedido adicionais em novas linhas abaixo do mesmo. Inclua o tipo de conteúdo e a chave de api do seu serviço mediante a utilização da chave de acesso administrativa do mesmo.
 
-Para o destino, copie numa versão modificada deste URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2019-05-06`
+Para o destino, copie numa versão modificada deste URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06`
 
 ![Cabeçalho de pedido do Fiddler][1]
 
@@ -256,7 +257,7 @@ Para o destino, copie numa versão modificada deste URL: `https://<placeholder-f
 
 ### <a name="1---create-an-index"></a>1 - Criar um índice
 
-Altere o verbo para **colocar**. Cópia numa versão modificada deste URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Copie a definição de índice fornecida acima para o corpo do pedido. A página deve ser semelhante à seguinte captura de ecrã. Clique em **Execute** no canto superior direito, para enviar o pedido concluído.
+Altere o verbo para **colocar**. Cópia numa versão modificada deste URL: `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotel?api-version=2019-05-06`. Copie a definição de índice fornecida acima para o corpo do pedido. A página deve ser semelhante à seguinte captura de ecrã. Clique em **Execute** no canto superior direito, para enviar o pedido concluído.
 
 ![Corpo de pedido do Fiddler][7]
 
@@ -268,7 +269,7 @@ Altere o verbo para **POST**. Altere o URL para incluir `/docs/index`. Copie os 
 
 ### <a name="tips-for-running-our-sample-queries-in-fiddler"></a>Sugestões para executar as nossas consultas de exemplo no Fiddler
 
-A consulta de exemplo seguinte é retirada do artigo [Search Index operation (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) (Operação de Pesquisa no Índice [API do Azure Search]). Muitas das consultas de exemplo neste artigo incluem espaços, algo não permitido no Fiddler. Substitua cada espaço por um caráter de + antes de colar a cadeia de consulta, antes de tentar a consulta no Fiddler.
+A seguinte consulta de exemplo é a partir da [API REST do Search documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) artigo. Muitas das consultas de exemplo neste artigo incluem espaços, algo não permitido no Fiddler. Substitua cada espaço por um caráter de + antes de colar a cadeia de consulta, antes de tentar a consulta no Fiddler.
 
 **Antes de os espaços serem substituídos (em lastRenovationDate desc):**
 

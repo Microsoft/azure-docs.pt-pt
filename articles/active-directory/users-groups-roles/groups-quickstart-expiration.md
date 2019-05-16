@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 03/18/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0573448c753c763e818d641216033dbeacb9e9a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60471493"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606206"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>Início rápido: Conjunto de grupos do Office 365 para expirar no Azure Active Directory
 
@@ -35,11 +35,11 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Tem de ser um Administrador Global ou administrador de utilizadores na organização para configurar a expiração de grupo.
+ A função com privilégios mínimos necessária para configurar a expiração de grupo é o administrador de utilizadores na organização.
 
 ## <a name="turn-on-user-creation-for-groups"></a>Ativar a criação de utilizadores para grupos
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com uma conta que seja um Administrador Global ou administrador de utilizadores para a organização.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) com uma conta de administrador.
 
 2. Selecione **Grupos** e, em seguida, selecione **Geral**.
   
@@ -80,7 +80,7 @@ Já está! Neste início rápido, definiu com êxito a política de expiração 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para obter mais informações sobre a expiração, incluindo restrições técnicas, adicionar uma lista de palavras bloqueadas personalizadas e experiências de utilizador final nas aplicações do Office 365, veja o artigo seguinte que contém detalhes da política de expiração:
+Para obter mais informações sobre a expiração, incluindo instruções do PowerShell e restrições técnicas, consulte o artigo seguinte:
 
 > [!div class="nextstepaction"]
-> [Todos os detalhes da política de expiração](groups-lifecycle.md)
+> [Política de expiração do PowerShell](groups-lifecycle.md)

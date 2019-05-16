@@ -1,6 +1,6 @@
 ---
-title: Políticas de retenção de relatórios do Azure Active Directory | Documentos da Microsoft
-description: Políticas de retenção de dados de relatórios no Azure Active Directory
+title: O período de tempo é que o Azure AD armazena dados de relatórios? | Microsoft Docs
+description: Saiba quanto Azure armazena os vários tipos de dados de relatórios.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -17,14 +17,14 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1423fddc13a6912e90b6a239921cf2a4d2662ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41fa12c9d79d14a6602d995ed93b5d1a23be8a4d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437061"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65781049"
 ---
-# <a name="azure-active-directory-report-retention-policies"></a>Políticas de retenção de relatórios do Azure Active Directory
+# <a name="how-long-does-azure-ad-store-reporting-data"></a>O período de tempo é que o Azure AD armazena dados de relatórios?
 
 Neste artigo, ficará a conhecer as políticas de retenção de dados para os relatórios de atividade diferente no Azure Active Directory. 
 

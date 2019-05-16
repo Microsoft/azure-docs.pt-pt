@@ -13,12 +13,12 @@ keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 9afca253bd188556ad6a3f6e081fb2eccc4c81cb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 74bf83626ffcbf1625ab24cd9a4b8151b1cce8b0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361253"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597016"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Início rápido: Programar com .NET Core no Kubernetes com os espaços de desenvolvimento do Azure (Visual Studio 2017)
 
@@ -56,7 +56,7 @@ Navegue para o seu cluster do AKS no portal do Azure e clique em *Dev espaços*.
 ## <a name="create-a-new-aspnet-web-app"></a>Criar uma nova aplicação web ASP.NET
 
 1. Abra o Visual Studio 2017.
-1. Criar um projeto novo.
+1. Criar um novo projeto.
 1. Escolher *aplicação Web ASP.NET Core* e dê o nome do projeto *webfrontend*.
 1. Clique em *OK*.
 1. Quando lhe for pedido, escolha *aplicação Web (Model-View-Controller)* para o modelo.
@@ -97,6 +97,8 @@ Completed warmup for project 'webfrontend' in 125 seconds.
 
 No exemplo acima, é o URL público http://webfrontend.1234567890abcdef1234.eus.azds.io/. Navegue para o URL público do seu serviço e interagir com o serviço em execução no seu espaço de desenvolvimento.
 
+Este processo pode ter desativado o acesso público ao seu serviço. Para ativar o acesso público, pode atualizar o [valor de entrada na *Values*][ingress-update].
+
 ## <a name="update-code"></a>Atualizar código
 
 Se o Visual Studio 2017 ainda está ligado ao seu espaço de desenvolvimento, clique no botão Parar. Altere a linha 20 no `Controllers/HomeController.cs` para:
@@ -131,3 +133,5 @@ az group delete --name MyResourceGroup --yes --no-wait
 
 > [!div class="nextstepaction"]
 > [Working with multiple containers and team development](multi-service-netcore-visualstudio.md) (Trabalhar com vários contentores e o desenvolvimento em equipa)
+
+[ingress-update]: how-dev-spaces-works.md#how-running-your-code-is-configured
