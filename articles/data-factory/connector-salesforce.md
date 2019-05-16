@@ -62,9 +62,9 @@ As seguintes propriedades são suportadas para o serviço ligado do Salesforce.
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |A propriedade de tipo deve ser definida como **Salesforce**. |Sim |
+| type |A propriedade de tipo deve ser definida como **Salesforce**. |Sim |
 | environmentUrl | Especifique o URL da instância do Salesforce. <br> -Predefinição é `"https://login.salesforce.com"`. <br> -Para copiar dados de proteção de segurança, especifique `"https://test.salesforce.com"`. <br> -Para copiar dados de domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
-| o nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
+| username |Especifique um nome de utilizador para a conta de utilizador. |Sim |
 | password |Especifique uma palavra-passe da conta de utilizador.<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança da conta de utilizador. Para obter instruções sobre como repor e obter um token de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Para saber mais sobre os tokens de segurança em geral, veja [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm).<br/><br/>Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [runtime de integração](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para sink se associada a origem de serviço não tem o runtime de integração |
@@ -140,7 +140,7 @@ Para copiar dados de e para o Salesforce, defina a propriedade de tipo de conjun
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **SalesforceObject**.  | Sim |
+| type | A propriedade de tipo deve ser definida como **SalesforceObject**.  | Sim |
 | objectApiName | O nome de objeto do Salesforce para recuperar dados a partir de. | Não para a origem, Sim para o sink |
 
 > [!IMPORTANT]
@@ -184,8 +184,8 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de origem de atividade de cópia tem de ser definida **SalesforceSource**. | Sim |
-| consulta |Utilize a consulta personalizada para ler dados. Pode usar [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta ou consulta de SQL-92. Consulte mais sugestões na [sugestões de consulta](#query-tips) secção. Se a consulta não for especificada, serão possível obter todos os dados do objeto Salesforce especificada no "objectApiName" no conjunto de dados. | Não (se for especificado "objectApiName" no conjunto de dados) |
+| type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **SalesforceSource**. | Sim |
+| query |Utilize a consulta personalizada para ler dados. Pode usar [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta ou consulta de SQL-92. Consulte mais sugestões na [sugestões de consulta](#query-tips) secção. Se a consulta não for especificada, serão possível obter todos os dados do objeto Salesforce especificada no "objectApiName" no conjunto de dados. | Não (se for especificado "objectApiName" no conjunto de dados) |
 | readBehavior | Indica se deve consultar os registos existentes, ou consultar todos os registos, incluindo o que foi excluído. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **consulta** (predefinição), **queryAll**.  | Não |
 
 > [!IMPORTANT]
@@ -234,7 +234,7 @@ Para copiar dados para o Salesforce, defina o tipo de sink na atividade de cópi
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SalesforceSink**. | Sim |
+| type | A propriedade de tipo de sink de atividade de cópia tem de ser definida **SalesforceSink**. | Sim |
 | writeBehavior | O comportamento de escrita para a operação.<br/>Valores permitidos são **inserir** e **Upsert**. | Não (a predefinição é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para a operação de upsert. O campo especificado tem de ser definido como "Campo de Id externo" no objeto Salesforce. Ele não pode ter valores nulos os dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados escritos para o Salesforce em cada lote. | Não (a predefinição é 5.000) |
@@ -315,25 +315,25 @@ Quando copia dados do Salesforce, os seguintes mapeamentos são utilizados entre
 
 | Tipo de dados do Salesforce | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
-| Número de automática |String |
-| Caixa de verificação |Boolean |
-| Moeda |Decimal |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
 | Date |DateTime |
-| Data/Hora |DateTime |
+| Date/Time |DateTime |
 | Email |String |
 | Id |String |
-| Relação de referência |String |
-| Lista de opções de seleção múltipla |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
-| Percentagem |Decimal |
-| Telefone |String |
-| Lista de opções |String |
+| Percent |Decimal |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| Área de texto |String |
-| Área de texto (longa) |String |
-| Área de texto (avançado) |String |
-| Texto (encriptado) |String |
-| do IdP |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, a atividade de cópia no Data Factory, veja [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
