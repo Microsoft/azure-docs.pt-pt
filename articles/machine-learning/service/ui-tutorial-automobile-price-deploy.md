@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/06/2019
 ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65749352"
+ms.locfileid: "65787840"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementar um modelo de machine learning com a interface visual
 

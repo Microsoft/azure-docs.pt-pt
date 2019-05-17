@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61044489"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606465"
 ---
 # <a name="heading"></a>Processamento de dados na máquina de Virtual do SQL Server no Azure
 Este documento aborda como explorar dados e gerar características para dados armazenados numa VM do SQL Server no Azure. Isso pode ser feito de preparação de dados com o SQL ou com uma linguagem de programação, como o Python.
@@ -87,7 +87,7 @@ Eis um breve manual nos dados de localização de latitude/longitude (resourced 
 * O início de sessão nos informa se estamos Norte ou sul, Leste ou oeste em todo o mundo.
 * Um centenas de diferentes de zero dígitos nos informam que estamos a utilizar longitude, latitude não!
 * As dezenas dígitos dá uma posição para cerca de 1.000 quilômetros. Ele nos dá informações úteis sobre o continente ou oceano estamos.
-* O dígito unidades (decimal um certo grau) fornece uma posição 111 quilômetros (60 milhas náuticas, cerca de 69 quilómetros). Ele pode dizer-nos mais ou menos que grandes Estado ou país, que estamos no.
+* O dígito unidades (decimal um certo grau) fornece uma posição 111 quilômetros (60 milhas náuticas, cerca de 69 quilómetros). Ele pode dizer-nos mais ou menos que grandes Estado ou país/região, que estamos no.
 * A primeira casa decimal vale até 11.1 km: ele pode distinguir a posição de uma cidade grandes de uma cidade grandes vizinho.
 * A segunda casa decimal vale até 1.1 km: ele pode separar um village da seguinte.
 * A terceiro casa decimal, vale a pena m: até 110, poderá identificar um campo de agricultural grandes ou o campus institucional.

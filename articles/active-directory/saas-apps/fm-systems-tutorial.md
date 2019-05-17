@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 77e58ea830de1e8ab7e3643ee5694a5e3f609c53
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: dda1447a049071a0871079f2cabd046ed7c479d6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564922"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770156"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fmsystems"></a>Tutorial: Integração do Active Directory do Azure com FM:Systems
 
@@ -107,7 +107,7 @@ Para configurar o Azure AD início de sessão único com FM:Systems, execute os 
     Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https://<companyname>.fmshosted.com/fminteract/ConsumerService2.aspx`
     
     > [!NOTE]
-    > Este valor não é real. Atualize este valor com o URL de resposta real. Contacte [equipa de suporte de cliente FM:Systems](https://fmsystems.com/ask-us/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Este valor não é real. Atualize este valor com o URL de resposta real. Contacte [equipa de suporte de cliente FM:Systems](https://fmsystems.com/support-services/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 
@@ -125,7 +125,7 @@ Para configurar o Azure AD início de sessão único com FM:Systems, execute os 
 
 ### <a name="configure-fmsystems-single-sign-on"></a>Configurar FM:Systems início de sessão único
 
-Para configurar o início de sessão único num **FM:Systems** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [FM:Systems a equipa de suporte](https://fmsystems.com/ask-us/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único num **FM:Systems** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [FM:Systems a equipa de suporte](https://fmsystems.com/support-services/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -197,7 +197,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
    
     b. Clique em **Seguinte**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

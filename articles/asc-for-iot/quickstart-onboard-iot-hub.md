@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/29/2019
+ms.date: 05/16/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ef3891ac2b0423688f49ae034331935b1b0cd6c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 7030ae1c3a28cdd74671dc95dce59cf86cacf4c9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192481"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786164"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Início rápido: Ativar o serviço no IoT Hub
 
@@ -30,7 +30,7 @@ ms.locfileid: "65192481"
 Este artigo fornece uma explicação de como ativar o Centro de segurança do Azure (ASC) para o serviço de pré-visualização do IoT no seu IoT Hub.  
 
 > [!NOTE]
-> Centro de segurança do Azure para IoT atualmente suporta apenas o escalão standard e superiores os IoT Hubs.
+> Centro de segurança do Azure para IoT atualmente suporta apenas os Hubs IoT do escalão standard.
 > Centro de segurança do Azure para IoT é uma solução de hub único. Se necessitar de vários hubs, várias soluções são necessárias. 
 
 ## <a name="prerequisites-for-enabling-the-service"></a>Pré-requisitos para ativar o serviço
@@ -38,8 +38,12 @@ Este artigo fornece uma explicação de como ativar o Centro de segurança do Az
 - Área de trabalho do Log Analytics
   - Dois tipos de informações são armazenados por padrão na sua área de trabalho do Log Analytics pelo ASC do IoT; **alertas de segurança** e **recomendações**. 
   - Pode optar por adicionar armazenamento de um tipo de informações adicionais **eventos não processados**. Tenha em atenção que armazenar **eventos não processados** no Log Analytics acarreta custos de armazenamento adicionais. 
-- IoT Hub (escalão standard ou superior)
-- Atender a todas as [prerequities de serviço](service-prerequisites.md) 
+- IoT Hub (escalão standard)
+- Atender a todas as [pré-requisitos de serviço](service-prerequisites.md) 
+- Regiões de serviço com suporte
+  - EUA Central
+  - Europa do Norte
+  - Sudeste Asiático
 
 ## <a name="enable-asc-for-iot-on-your-iot-hub"></a>Ativar o ASC para IoT no seu Hub IoT 
 

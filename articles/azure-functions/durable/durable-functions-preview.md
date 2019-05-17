@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077744"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596074"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durável Functions 2.0 pré-visualização (funções do Azure)
 
@@ -36,7 +36,7 @@ Suporte para o .NET Framework (e, portanto, as funções 1.0) foi removido para 
 
 ### <a name="hostjson-schema"></a>Esquema de Host. JSON
 
-O fragmento seguinte mostra o novo esquema para o Host. JSON. A principal alteração estar atento-na nova `"storageProvider"` secção e o `"azureStorage"` secção abaixo dela. Esta alteração foi efetuada para suportar [alternativo fornecedores de armazenamento](durable-functions-preview.md#alternate-storage-providers).
+O fragmento seguinte mostra o novo esquema para o Host. JSON. A principal alteração ter em consideração é a nova `"storageProvider"` secção e o `"azureStorage"` secção abaixo dela. Esta alteração foi efetuada para suportar [alternativo fornecedores de armazenamento](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -93,11 +93,12 @@ No caso em que uma classe base abstrata continha métodos virtuais, esses métod
 
 Funções de entidade definem operações de leitura e atualizando pequenas partes do Estado, conhecido como *entidades duráveis*. Como funções do orchestrator, as funções de entidade são as funções com um tipo de Acionador especial *acionador de entidade*. Ao contrário das funções do orchestrator, as funções de entidade não tem quaisquer restrições de código específica. Funções de entidade também gerir o estado explicitamente em vez de implicitamente que representa o estado através do fluxo de controle.
 
-O código a seguir é um exemplo de uma função de entidade simples que define um *contador* entidade. A função define três operações, `add`, `remove`, e `reset`, cada de atualização que um número inteiro, `currentValue`.
+O código a seguir é um exemplo de uma função de entidade simples que define um *contador* entidade. A função define três operações, `add`, `subtract`, e `reset`, cada de atualização que um número inteiro, `currentValue`.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -200,21 +201,25 @@ A seção crítica ends e todos os bloqueios são lançados, quando termina de o
 Por exemplo, considere uma orquestração que precisa para testar se os dois jogadores estão disponíveis e, em seguida, atribuí-los a um jogo. Esta tarefa pode ser implementada usando uma seção crítica da seguinte forma:
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

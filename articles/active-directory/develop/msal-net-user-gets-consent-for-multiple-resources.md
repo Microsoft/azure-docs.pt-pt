@@ -4,7 +4,7 @@ description: Saiba como um utilizador pode obter o consentimento prévio para v�
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45bad9a03e8eff6f22ebb99fd2ef4bcd5fecf9b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8f7d24a1e14cfbb1163ab78b94dd36ec288dce50
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65158824"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544054"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Utilizador obtém o consentimento para vários recursos com MSAL.NET
 O ponto de extremidade de plataforma de identidade Microsoft não permite a obter um token para vários recursos de uma só vez. Ao utilizar a biblioteca de autenticação da Microsoft para .NET (MSAL.NET), o parâmetro de âmbitos no método de token de aquisição apenas deve conter âmbitos para um único recurso. No entanto, pode previamente dar consentimento a vários recursos de antemão especificando âmbitos adicionais usando o `.WithExtraScopeToConsent` método construtor.

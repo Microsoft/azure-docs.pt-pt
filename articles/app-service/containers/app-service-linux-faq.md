@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919950"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594275"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Serviço de aplicações do Azure no Linux FAQ
 
@@ -39,13 +39,15 @@ Pode encontrar todos os ficheiros de Docker no [GitHub](https://github.com/azure
 
 **Quais são os valores esperados para a secção do ficheiro de arranque quando posso configurar a pilha de tempo de execução?**
 
-| Pilha     | Valor esperado                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | um comando para iniciar seu `.jar` aplicação                                    |
-| Tomcat    | a localização de um script para executar quaisquer configurações para a sua aplicação          |
-| Node.js   | o ficheiro de configuração PM2 ou do seu ficheiro de script                                |
-| .Net Core | o nome DLL compilado como `dotnet <myapp>.dll`                                 |
-| Ruby      | o script de Ruby que deseja inicializar a sua aplicação com                     |
+| Pilha           | Valor esperado                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | o comando para iniciar a sua aplicação JAR (por exemplo, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | a localização de um script para efetuar qualquer configuração necessária (por exemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | o ficheiro de configuração PM2 ou do seu ficheiro de script                                |
+| .Net Core       | o nome DLL compilado como `dotnet <myapp>.dll`                                 |
+| Ruby            | o script de Ruby que deseja inicializar a sua aplicação com                     |
+
+Estes comandos ou scripts são executadas depois do contentor do Docker incorporado é iniciado, mas antes de seu aplicativo é iniciado o código.
 
 ## <a name="management"></a>Gestão
 
@@ -93,7 +95,7 @@ Se falhar a implementação do Git para a sua aplicação web do Linux, escolha 
 
    Se obtiver um erro que o `curl` comando não for encontrado, certifique-se de instalar o curl, utilizando `apt-get install curl` antes de executar o anterior `curl` comando.
 
-## <a name="language-support"></a>Suporte de idiomas
+## <a name="language-support"></a>Suporte de idioma
 
 **Quer utilize sockets web na minha aplicação node. js, quaisquer definições especiais ou configurações para definir?**
 

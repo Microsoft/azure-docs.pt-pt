@@ -1,25 +1,19 @@
 ---
 title: Ver registos de atividades do Azure para monitorizar os recursos | Documentos da Microsoft
-description: Utilize os registos de atividades para ações de utilizador de revisão e erros. Mostra o Azure PowerShell Portal, da CLI do Azure e REST.
-services: azure-resource-manager
-documentationcenter: ''
+description: Utilize os registos de atividades para ações de utilizador de revisão e erros. Mostra o portal do Azure PowerShell, CLI do Azure e REST.
 author: tfitzmac
-ms.assetid: fcdb3125-13ce-4c3b-9087-f514c5e41e73
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/23/2019
+ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8348099d778a9ec65e907bb3d21ae995041b9fb6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 7ff45be4eea5c6e8ab83093847164ede0e94579a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786104"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606661"
 ---
-# <a name="view-activity-logs-to-audit-actions-on-resources"></a>Ver registos de atividades para auditar as ações em recursos
+# <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Ver registos de atividades para monitorizar as ações em recursos
 
 Através dos registos de atividades, pode determinar:
 
@@ -29,13 +23,13 @@ Através dos registos de atividades, pode determinar:
 * O estado da operação
 * Os valores de outras propriedades que podem ajudar a operação de pesquisa
 
-O registo de atividade contém todas as operações de escrita (PUT, POST, DELETE) efetuadas nos seus recursos. Ele não inclui as operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Pode utilizar os registos de auditoria para encontrar um erro ao resolver problemas ou para monitorizar a forma como um utilizador na sua organização alterou um recurso.
+O registo de atividade contém todas as operações de escrita (PUT, POST, DELETE) para os seus recursos. Ele não inclui as operações de leitura (GET). Para obter uma lista de ações de recursos, consulte [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md). Pode utilizar os registos de atividade para encontrar um erro ao resolver um problema ou para monitorizar a forma como um utilizador na sua organização alterou um recurso.
 
 Registos de Atividades são mantidos durante 90 dias. Pode consultar qualquer intervalo de datas, desde que a data de início não está mais de 90 dias no passado.
 
 Pode recuperar informações de registos de atividade através do portal, PowerShell, CLI do Azure, API de REST de informações, ou [biblioteca de .NET de Insights](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
-## <a name="the-azure-portal"></a>O portal do Azure
+## <a name="azure-portal"></a>Portal do Azure
 
 1. Para ver os registos de atividade através do portal, selecione **Monitor**.
 
@@ -45,13 +39,21 @@ Pode recuperar informações de registos de atividade através do portal, PowerS
 
     ![Selecione o registo de atividades](./media/resource-group-audit/select-activity-log.png)
 
-1. Verá um resumo das operações recentes. Um conjunto predefinido de filtros é aplicado às operações.
+1. Verá um resumo das operações recentes. Um conjunto predefinido de filtros é aplicado às operações. Tenha em atenção que as informações sobre o resumo incluem quem iniciou a ação e quando isso ocorreu.
 
     ![Ver resumo de operações recentes](./media/resource-group-audit/audit-summary.png)
 
-1. Para executar rapidamente um conjunto predefinido de filtros, selecione **informações rápidas** e escolha uma das opções.
+1. Para executar rapidamente um conjunto predefinido de filtros, selecione **informações rápidas**.
 
-    ![Selecione a consulta](./media/resource-group-audit/quick-insights.png)
+    ![Seleciona informações rápidas](./media/resource-group-audit/select-quick-insights.png)
+
+1. Selecione uma das opções. Por exemplo, seleccione **implementações falhadas** para ver erros de implementações.
+
+    ![Selecione implementações falhadas](./media/resource-group-audit/select-failed-deployments.png)
+
+1. Tenha em atenção que os filtros foram alterados concentrar-se em erros de implementação nas últimas 24 horas. São apresentadas apenas as operações que correspondem aos filtros.
+
+    ![Filtros de vista](./media/resource-group-audit/view-filters.png)
 
 1. Para se concentrar em operações específicas, alterar os filtros ou aplicar novas etiquetas. Por exemplo, a imagem seguinte mostra um novo valor para o **Timespan** e **tipo de recurso** está definido como contas de armazenamento. 
 
@@ -69,101 +71,119 @@ Pode recuperar informações de registos de atividade através do portal, PowerS
 
     ![Mostrar o filtro de dashboard](./media/resource-group-audit/show-dashboard.png)
 
+1. No portal, pode ver as alterações a um recurso. Vá para o padrão ver no Monitor e selecione uma operação que envolve a alteração de um recurso.
+
+    ![Selecionar operação](./media/resource-group-audit/select-operation.png)
+
+1. Selecione **(pré-visualização) de histórico de alterações** e escolha uma das operações disponíveis.
+
+    ![Selecione o histórico de alterações](./media/resource-group-audit/select-change-history.png)
+
+1. São apresentadas as alterações no recurso.
+
+    ![Mostrar as alterações](./media/resource-group-audit/show-changes.png)
+
+Para saber mais sobre o histórico de alterações, veja [obter as alterações de recursos](../governance/resource-graph/how-to/get-resource-changes.md).
+
 ## <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-* Para obter as entradas de registo, execute o **Get-AzLog** comando. Fornecer parâmetros adicionais para filtrar a lista de entradas. Se não especificar uma hora de início e fim, são devolvidas entradas dos últimos sete dias.
+Para obter as entradas de registo, execute o **Get-AzLog** comando. Fornecer parâmetros adicionais para filtrar a lista de entradas. Se não especificar uma hora de início e fim, são devolvidas entradas dos últimos sete dias.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup
+```
 
-    O exemplo seguinte mostra como utilizar o registo de atividade para operações de pesquisa executadas durante um período de tempo especificado. As datas de início e de fim são especificadas num formato de data.
+O exemplo seguinte mostra como utilizar o registo de atividade para operações de pesquisa executadas durante um período de tempo especificado. As datas de início e de fim são especificadas num formato de data.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-01-09T06:00 -EndTime 2019-01-15T06:00
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime 2019-05-05T06:00 -EndTime 2019-05-09T06:00
+```
 
-    Em alternativa, pode utilizar funções de data para especificar o intervalo de datas, tais como os últimos 14 dias.
+Em alternativa, pode utilizar funções de data para especificar o intervalo de datas, tais como os últimos 14 dias.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
+```
 
-* Pode consultar as ações executadas por um utilizador em particular, mesmo para um grupo de recursos que já não existe.
+Pode consultar as ações executadas por um utilizador específico.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
+```
 
-* Pode filtrar operações falhadas.
+Pode filtrar operações falhadas.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup -Status Failed
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup -Status Failed
+```
 
-* Que possa dedicar a um erro ao observar a mensagem de estado para essa entrada.
+Que possa dedicar a um erro ao observar a mensagem de estado para essa entrada.
 
-  ```azurepowershell-interactive
-  ((Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties[0].Content.statusMessage | ConvertFrom-Json).error
-  ```
+```azurepowershell-interactive
+(Get-AzLog -ResourceGroup ExampleGroup -Status Failed).Properties.Content.statusMessage | ConvertFrom-Json
+```
 
-* Pode selecionar valores específicos para limitar os dados que são devolvidos.
+Pode selecionar valores específicos para limitar os dados que são devolvidos.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroupName ExampleGroup | Format-table EventTimeStamp, Caller, @{n='Operation'; e={$_.OperationName.value}}, @{n='Status'; e={$_.Status.value}}, @{n='SubStatus'; e={$_.SubStatus.LocalizedValue}}
+```
 
-* Consoante a hora de início que especificar, os comandos anteriores podem devolver uma longa lista de operações para o grupo de recursos. Pode filtrar os resultados para o que está procurando, fornecendo os critérios de pesquisa. Por exemplo, pode filtrar pelo tipo de operação.
+Consoante a hora de início que especificar, os comandos anteriores podem devolver uma longa lista de operações para o grupo de recursos. Pode filtrar os resultados para o que está procurando, fornecendo os critérios de pesquisa. Por exemplo, pode filtrar pelo tipo de operação.
 
-  ```azurepowershell-interactive
-  Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
-  ```
+```azurepowershell-interactive
+Get-AzLog -ResourceGroup ExampleGroup | Where-Object {$_.OperationName.value -eq "Microsoft.Resources/deployments/write"}
+```
+
+Pode usar o gráfico de recursos para ver o histórico de alterações para um recurso. Para obter mais informações, consulte [obter as alterações de recursos](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="azure-cli"></a>CLI do Azure
 
-* Para obter as entradas de registo, execute o [lista de registo de atividade do monitor de az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) comando com um desvio para indicar o intervalo de tempo.
+Para obter as entradas de registo, execute o [lista de registo de atividade do monitor de az](/cli/azure/monitor/activity-log#az-monitor-activity-log-list) comando com um desvio para indicar o intervalo de tempo.
 
-  ```azurecli-interactive
-  az monitor activity-log list --resource-group ExampleGroup --offset 7d
-  ```
+```azurecli-interactive
+az monitor activity-log list --resource-group ExampleGroup --offset 7d
+```
 
-  O exemplo seguinte mostra como utilizar o registo de atividade para operações de pesquisa executadas durante um período de tempo especificado. As datas de início e de fim são especificadas num formato de data.
+O exemplo seguinte mostra como utilizar o registo de atividade para operações de pesquisa executadas durante um período de tempo especificado. As datas de início e de fim são especificadas num formato de data.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --start-time 2019-01-01 --end-time 2019-01-15
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --start-time 2019-05-01 --end-time 2019-05-15
+```
 
-* Pode consultar as ações executadas por um utilizador em particular, mesmo para um grupo de recursos que já não existe.
+Pode consultar as ações executadas por um utilizador em particular, mesmo para um grupo de recursos que já não existe.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --caller someone@contoso.com --offset 5d
+```
 
-* Pode filtrar operações falhadas.
+Pode filtrar operações falhadas.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g demoRG --status Failed --offset 1d
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --status Failed --offset 1d
+```
 
-* Que possa dedicar a um erro ao observar a mensagem de estado para essa entrada.
+Que possa dedicar a um erro ao observar a mensagem de estado para essa entrada.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --status Failed --offset 1d --query [].properties.statusMessage
+```
 
-* Pode selecionar valores específicos para limitar os dados que são devolvidos.
+Pode selecionar valores específicos para limitar os dados que são devolvidos.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --offset 1d --query '[].{Operation: operationName.value, Status: status.value, SubStatus: subStatus.localizedValue}'
+```
 
-* Consoante a hora de início que especificar, os comandos anteriores podem devolver uma longa lista de operações para o grupo de recursos. Pode filtrar os resultados para o que está procurando, fornecendo os critérios de pesquisa. Por exemplo, pode filtrar pelo tipo de operação.
+Consoante a hora de início que especificar, os comandos anteriores podem devolver uma longa lista de operações para o grupo de recursos. Pode filtrar os resultados para o que está procurando, fornecendo os critérios de pesquisa. Por exemplo, pode filtrar pelo tipo de operação.
 
-  ```azurecli-interactive
-  az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
-  ```
+```azurecli-interactive
+az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationName.value=='Microsoft.Storage/storageAccounts/write']"
+```
+
+Pode usar o gráfico de recursos para ver o histórico de alterações para um recurso. Para obter mais informações, consulte [obter as alterações de recursos](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="rest-api"></a>API REST
 

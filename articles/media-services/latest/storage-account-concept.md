@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466821"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550156"
 ---
 # <a name="cloud-upload-and-storage"></a>Carregamento e armazenamento na cloud
 
@@ -51,6 +51,17 @@ Para proteger os seus ativos inativos, os recursos devem ser encriptados pela en
 |[Encriptação do lado do cliente de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Oferecidas pelo armazenamento do Azure, chave gerida pelo cliente no Cofre de chaves de encriptação do lado do cliente|Não suportado|
 
 <sup>1</sup> em serviços de multimédia v3, a encriptação de armazenamento (encriptação AES-256) só é suportada para em versões anteriores compatibilidade quando os recursos foram criados com os serviços de multimédia v2. O que significa v3 funciona com o armazenamento existente encriptado ativos, mas não permitirá que a criação de novos itens.
+
+## <a name="storage-account-errors"></a>Erros de conta de armazenamento
+
+O estado de "Desligado" para uma conta de Media Services indica que a conta já não tem acesso a um ou mais das contas de armazenamento anexada, devido a uma alteração nas chaves de acesso de armazenamento. Chaves de acesso de armazenamento atualizado são necessárias para executar muitas tarefas na conta de serviços de multimédia.
+
+Seguem-se a cenários principais que resultariam numa conta de serviços de multimédia não ter acesso às contas de armazenamento ligado. 
+
+|Problema|Solução|
+|---|---|
+|A conta de serviços de multimédia ou a conta de armazenamento ligado (s) foram migradas para separar as subscrições. |Migre as contas de armazenamento ou a conta dos Media Services, para que eles estão todos na mesma subscrição. |
+|Conta de Media Services está a utilizar uma conta de armazenamento anexada numa subscrição diferente que era uma conta de serviços de multimédia anterior em que isso era suportado. Todas as contas de serviços de multimédia antecipadas foram convertidas para contas de Gestor de recursos do Azure (ARM) com base modernos e terão um estado desligado. |Migre a conta de armazenamento ou a conta de Media Services, para que eles estão todos na mesma subscrição.|
 
 ## <a name="next-steps"></a>Passos Seguintes
 

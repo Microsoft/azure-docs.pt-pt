@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848733"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593794"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Runtime de integração Azure-SSIS
 
@@ -60,7 +60,7 @@ Pode utilizar um grupo do Azure AD existente ou crie um novo com o Azure AD Powe
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Adicione a identidade gerida para o ADF ao grupo. Pode seguir o artigo [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de identidade de serviço principal (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilize ID de aplicação de identidade de serviço para esta finalidade).
+3.  Adicione a identidade gerida para o ADF ao grupo. Pode seguir o artigo [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de objeto de identidade gerido principal (por exemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, mas não utilize ID de aplicação de identidade gerida para essa finalidade).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
 
 4.  Com o botão direito no **mestre** da base de dados e selecione **nova consulta**.
 
-5.  Obter a identidade gerida para o ADF. Pode seguir o artigo [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de aplicação de identidade de serviço principal (mas não utilizar o ID de identidade de serviço para esta finalidade).
+5.  Obter a identidade gerida para o ADF. Pode seguir o artigo [identiy gerida do Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obter o ID de aplicação de identidade gerido principal (mas não utilizar o ID de objeto de identidade gerida para esta finalidade).
 
 6.  Na janela de consulta, execute o seguinte script de T-SQL para converter a identidade gerida para o ADF para tipo binário:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ Esta próxima etapa, precisa [Microsoft SQL Server Management Studio](https://d
 7.  Limpar a janela de consulta e execute o seguinte script de T-SQL para adicionar a identidade gerida para o ADF como um utilizador
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

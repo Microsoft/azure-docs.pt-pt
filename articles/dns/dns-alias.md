@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790543"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596713"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Registos descrição geral de alias de DNS do Azure
 
@@ -25,7 +25,7 @@ Um conjunto de registos de alias é suportado para os seguintes tipos de registo
 - CNAME
 
 > [!NOTE]
-> Se pretende usar um registo de alias para os tipos de registos A ou AAAA para apontar para um [perfil do Gestor de tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) deve certificar-se de que o perfil do Gestor de tráfego tem apenas [pontos finais externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Tem de fornecer o endereço IPv4 ou IPv6 para pontos finais externos no Gestor de tráfego. O ideal é que utilize endereços IP estáticos.
+> Se pretende usar um registo de alias para os tipos de registos A ou AAAA para apontar para um [perfil do Gestor de tráfego do Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) deve certificar-se de que o perfil do Gestor de tráfego tem apenas [pontos finais externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Tem de fornecer o endereço IPv4 ou IPv6 para pontos finais externos no Gestor de tráfego. Não é possível utilizar nomes de domínio completamente qualificado (FQDN) em pontos de extremidade. O ideal é que utilize endereços IP estáticos.
 
 ## <a name="capabilities"></a>Capacidades
 

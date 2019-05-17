@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 11f75f53adc9e8ce1dbf78ef7a7d58742b6bc839
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920394"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veracode"></a>Tutorial: Integração do Active Directory do Azure com Veracode
 
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único com Veracode, execute os se
     | ---------------| --------------- |
     | FirstName |User.givenname |
     | Apelido |User.surname |
-    | e-mail |User.mail |
+    | email |User.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -248,7 +248,7 @@ Para habilitar logon Veracode de utilizadores do Azure AD, tem de ser aprovision
 > [!NOTE]
 > Pode utilizar quaisquer outras Veracode utilizador conta criação ferramentas ou APIs fornecidas pelo Veracode para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

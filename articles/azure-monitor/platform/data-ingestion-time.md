@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba9a0ab775e062f21a058b537e289fe3ea2b40bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d508ce217e3a97b3399435cb63295eb28965359a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61093969"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605597"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de registo no Azure Monitor
 Monitor do Azure é um serviço de dados de grande escala que serve a milhares de envio de cada mês de terabytes de dados a um ritmo cada vez maior de clientes. Muitas vezes, há perguntas sobre o tempo que demora para dados de registo para ficarão disponíveis assim que são recolhido. Este artigo explica os diferentes fatores que afetam esta latência.
@@ -104,7 +104,7 @@ Heartbeat
 | render timechart  
 ```
  
-Utilize a seguinte consulta para mostrar a hora de ingestão do computador pelo país que estão localizados no que se baseia no respetivo endereço de IP: 
+Utilize a seguinte consulta para mostrar a hora de ingestão do computador por país/região que estão localizados no que se baseia no respetivo endereço de IP: 
 
 ``` Kusto
 Heartbeat 

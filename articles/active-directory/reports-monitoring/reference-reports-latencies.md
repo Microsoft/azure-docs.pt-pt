@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285171"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594028"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>O Azure Active Directory latências dos relatórios
 
@@ -41,10 +41,10 @@ A tabela seguinte lista as informações de latência para relatórios de ativid
 > **Latência (o percentil 95)** refere-se até ao momento em que serão comunicadas 95% dos registos, e **latência (99 por cento dos)** refere-se ao tempo pelo qual serão comunicadas 99% dos registos. 
 >
 
-| Relatório | Latência (o percentil 95) |Latência (99 por cento dos)|Intervalo de tempo no qual os registos serão comunicados|
-| :-- | --- | --- | --- |
-| Registos de auditoria | 2 mins  | 5 mins  | 2-60 min |
-| Inícios de sessão | 2 mins  | 5 mins | 2-120 mins |
+| Relatório | Latência (o percentil 95) |Latência (99 por cento dos)|
+| :-- | --- | --- |
+| Registos de auditoria | 2 mins  | 5 mins  |
+| Inícios de sessão | 2 mins  | 5 mins |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>Assim como pode ver dados de atividades depois de obter uma licença premium?
 
@@ -61,8 +61,8 @@ A tabela seguinte lista as informações de latência para relatórios de segura
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
-| Utilizadores em risco          | 5 minutos   | 15 minutos  | 2 horas  |
-| Inícios de sessão de risco         | 5 minutos   | 15 minutos  | 2 horas  |
+| Utilizadores em risco          | 5 minutos   | 15 minutos  | Duas horas  |
+| Inícios de sessão de risco         | 5 minutos   | 15 minutos  | Duas horas  |
 
 ## <a name="risk-events"></a>Eventos de risco
 
@@ -72,12 +72,12 @@ A tabela seguinte lista as informações de latência para eventos de risco.
 
 | Relatório | Mínimo | Média | Máximo |
 | :-- | --- | --- | --- |
-| Inícios de sessão de endereços IP anónimos |5 minutos |15 Minutos |2 horas |
-| Inícios de sessão de localizações desconhecidas |5 minutos |15 Minutos |2 horas |
-| Utilizadores com fuga de credenciais |2 horas |4 horas |8 horas |
-| Deslocação impossível para localizações atípicas |5 minutos |1 hora |8 horas  |
-| Inícios de sessão de dispositivos infetados |2 horas |4 horas |8 horas  |
-| Inícios de sessão de endereços IP com atividade suspeita |2 horas |4 horas |8 horas  |
+| Inícios de sessão de endereços IP anónimos |5 minutos |15 Minutos |Duas horas |
+| Inícios de sessão de localizações desconhecidas |5 minutos |15 Minutos |Duas horas |
+| Utilizadores com fuga de credenciais |Duas horas |4 horas |8 horas |
+| Deslocação impossível para localizações atípicas |5 minutos |Uma hora |8 horas  |
+| Inícios de sessão de dispositivos infetados |Duas horas |4 horas |8 horas  |
+| Inícios de sessão de endereços IP com atividade suspeita |Duas horas |4 horas |8 horas  |
 
 
 ## <a name="next-steps"></a>Passos Seguintes

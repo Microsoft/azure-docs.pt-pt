@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
-ms.openlocfilehash: fafa791039397e93e9bf8ab6be04a2190e8ed784
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c87e159022b6dcf13daf2a2659c88c0529a8f48
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699084"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796434"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Resolver problemas de replicação de VMS do Azure para o Azure
 
@@ -232,10 +232,10 @@ Pode optar por proteger os discos ou ignorar o aviso para tornar o estado de rep
  ![add_disks](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 2. Para ignorar o aviso. Aceda aos itens de replicado > VM > clique no alerta dispensar na seção de visão geral.
 ![dismiss_warning](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
-## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>Não é possível ver a VM do Azure para seleção em "ativar replicação"
+## <a name="unable-to-see-the-azure-vm-or-resource-group--for-selection-in-enable-replication"></a>Não é possível ver o VM do Azure ou grupo de recursos para seleção em "ativar replicação"
 
  **Fazer com que 1:  Grupo de recursos e a Máquina Virtual de origem estão numa localização diferente** <br>
-O Azure Site Recovery atualmente impostas pela que o grupo de recursos de região de origem e de máquinas virtuais devem estar na mesma localização. Se não for esse o caso, em seguida, não seria capaz de encontrar a máquina virtual durante o tempo de proteção.
+O Azure Site Recovery atualmente mandatos que grupo de recursos de região e máquinas virtuais de origem devem estar na mesma localização. Se não for esse o caso, em seguida, não seria capaz de encontrar a máquina virtual durante o tempo de proteção. Como solução, pode ativar a replicação da VM, em vez do cofre dos serviços de recuperação. Aceda à Sourece VM > propriedades > recuperação após desastre e ativar a replicação.
 
 **Causa 2: Grupo de recursos não é parte da subscrição selecionada** <br>
 Poderá não conseguir encontrar o grupo de recursos no momento da proteção, se não fizer parte de uma determinada subscrição. Certifique-se de que o grupo de recursos pertence à subscrição que está a ser utilizada.
@@ -252,7 +252,7 @@ Se não vir a VM que pretende ativar para a replicação, pode ser devido a uma 
 >
 >Certifique-se de atualizar o módulo de "" Azurerm"" antes de utilizar o script abaixo.
 
-Pode usar [remover o script de configuração de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) e remover a configuração da recuperação de Site obsoleta na VM do Azure. Deve ser capaz de ver a VM depois de remover a configuração obsoleta.
+Pode usar [remover o script de configuração de ASR obsoleto](https://github.com/AsrOneSdk/published-scripts/blob/master/Cleanup-Stale-ASR-Config-Azure-VM.ps1) e remover a configuração da recuperação de Site obsoleta na VM do Azure. Deve ser capaz de ver a VM depois de remover a configuração obsoleta.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>Não é possível selecionar a Máquina Virtual para proteção
  **Fazer com que 1:  Máquina virtual tem alguns extensão instalado num Estado com falhas ou não responde** <br>

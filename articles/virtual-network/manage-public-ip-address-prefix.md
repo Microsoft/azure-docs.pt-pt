@@ -10,23 +10,20 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: ece6a6efa2f4424fb1c9d7f5a7e12a4e707faf45
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649310"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601506"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
 
 Saiba mais sobre um prefixo de endereço IP público e como criar, alterar e eliminar um. Um prefixo de endereço IP público é um intervalo contíguo de endereços com base no número de endereços IP públicos que especificar. Os endereços são atribuídos à sua subscrição. Quando cria um recurso de endereço IP público, pode atribuir um endereço IP público estático a partir do prefixo e associar o endereço para máquinas virtuais, balanceadores de carga ou outros recursos, para permitir a conectividade de internet. Se não estiver familiarizado com prefixos de endereço IP públicos, consulte o artigo [descrição geral de prefixo de endereço IP público](public-ip-address-prefix.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
-
-> [!IMPORTANT]
-> Prefixo de IP público é em pré-visualização pública em regiões limitadas. Pode [saber o que significa no modo de pré-visualização](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Prefixo do IP público está atualmente disponível em: EUA Centro-Oeste, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Sudeste asiático. Para obter uma lista atualizada de regiões, consulte [atualizações do Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -68,7 +65,7 @@ Depois de criar um prefixo, tem de criar o endereços IP estáticos a partir do 
 
 1. Na caixa que contém o texto *recursos de pesquisa* na parte superior do portal do Azure, escreva *prefixo de endereço ip público*. Quando **prefixos de endereço IP público** aparecer nos resultados da pesquisa, selecione-o.
 2. Selecione o prefixo que pretende criar IPs públicos do.
-3. Quando for apresentada nos resultados da pesquisa, selecione-o e clique em **+ adicionar endereço IP** na seção de visão geral. No caso de não ver isso, certifique-se de que está a utilizar a ligação correta para a pré-visualização: https://aka.ms/publicipprefixportal
+3. Quando for apresentada nos resultados da pesquisa, selecione-o e clique em **+ adicionar endereço IP** na seção de visão geral.
 4. Introduza ou selecione os valores para as seguintes definições sob **Criar endereço IP público**. Uma vez que é um prefixo para o Standard SKU, IPv4 e estático, só precisa de fornecer as seguintes informações:
 
    |Definição|Necessário?|Detalhes|
@@ -96,7 +93,7 @@ Depois de criar um prefixo, tem de criar o endereços IP estáticos a partir do 
 
 Para executar tarefas em prefixos de endereço IP públicos, sua conta tem de ser atribuída ao [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Ação                                                            | Name                                                           |
+| Acção                                                            | Name                                                           |
 | ---------                                                         | -------------                                                  |
 | Microsoft.Network/publicIPPrefixes/read                           | Ler um prefixo de endereço IP público                                |
 | Microsoft.Network/publicIPPrefixes/write                          | Criar ou atualizar um prefixo de endereço IP público                    |

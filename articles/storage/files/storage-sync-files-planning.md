@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f29625ed8ddd6eabf8b75380d84d7a7b64396d7a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7cbb934b87440d23e65fce53d7da40c5ffbd3150
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696521"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597089"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planear uma implementação da Sincronização de Ficheiros do Azure
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -110,7 +110,7 @@ Para exibir os resultados no CSV:
     $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
 ```
 
-### <a name="system-requirements"></a>Requisitos de Sistema
+### <a name="system-requirements"></a>Requisitos do Sistema
 - Um servidor com o Windows Server 2012 R2, Windows Server 2016 ou Windows Server 2019:
 
     | Version | SKUs suportados | Opções de implementação suportadas |
@@ -230,23 +230,23 @@ Em geral, Azure File Sync deve suportar a interoperabilidade com soluções de e
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de gestão de armazenamento hierárquico (HSM)
 Não existem outras soluções HSM devem ser utilizadas com o Azure File Sync.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 O Azure File Sync está disponível apenas nas seguintes regiões:
 
 | Região | Localização do Datacenter |
 |--------|---------------------|
 | Leste da Austrália | Nova Gales do Sul |
-| Sudeste da Austrália | Victoria |
+| Sudeste da Austrália | Vitória |
 | Sul do Brasil | São Paulo Estado |
 | Canadá Central | Toronto |
 | Leste do Canadá | Cidade do Quebeque |
 | Índia Central | Pune |
 | EUA Central | Iowa |
-| Ásia Oriental | RAE de Hong Kong |
-| EUA Leste | Virgínia |
-| E.U.A. Leste 2 | Virgínia |
-| Coreia do Sul Central| Seoul |
-| Coreia do Sul| Busan |
+| Ásia Oriental | R.A.E. Hong Kong |
+| EUA Leste | Virginia |
+| E.U.A. Leste 2 | Virginia |
+| Coreia do Sul Central| Seul |
+| Sul da Coreia do Sul| Busan |
 | Leste do Japão | Tóquio, Saitama |
 | Oeste do Japão | Osaka |
 | EUA Centro-Norte | Illinois |
@@ -255,11 +255,19 @@ O Azure File Sync está disponível apenas nas seguintes regiões:
 | Sul da Índia | Chennai |
 | Sudeste Asiático | Singapura |
 | Reino Unido Sul | Londres |
-| Reino Unido Oeste | Cardiff |
+| Oeste do R.U. | Cardiff |
+| US Gov Arizona (pré-visualização) | Arizona |
+| US Gov Texas (pré-visualização) | Texas |
+| US Gov Virgínia (pré-visualização) | Virginia |
 | Europa Ocidental | Países Baixos |
-| EUA Oeste | Califórnia |
+| EUA Centro-Oeste | Wyoming |
+| EUA Oeste | California |
+| E.U.A. Oeste 2 | Washington |
 
 O Azure File Sync suporta a sincronização apenas com uma partilha de ficheiros do Azure que está na mesma região que o serviço de sincronização de armazenamento.
+
+> [!Note]  
+> O Azure File Sync está atualmente disponível apenas na pré-visualização privada para as regiões da administração pública. Consulte nossos [notas de versão](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#agent-version-5020) para obter instruções sobre como inscrever no programa de pré-visualização.
 
 ### <a name="azure-disaster-recovery"></a>Recuperação após desastre do Azure
 Para proteger contra a perda de uma região do Azure, Azure File Sync integra-se com o [redundância de armazenamento georredundante](../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) opção (GRS). Armazenamento GRS funciona utilizando a replicação de bloco assíncrono entre o armazenamento na região primária, com a qual normalmente interage, e o armazenamento na região secundária associada. Em caso de desastre que faz com que uma região do Azure para go temporariamente offline ou permanentemente, a Microsoft irá armazenamento de ativação pós-falha para a região emparelhado. 
@@ -271,8 +279,9 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 
 | Região primária      | Região emparelhada      |
 |---------------------|--------------------|
-| Leste da Austrália      | Sudeste da Austrália |
+| Leste da Austrália      | Sudeste da Austrália|
 | Sudeste da Austrália | Leste da Austrália     |
+| Sul do Brasil        | EUA Centro-Sul   |
 | Canadá Central      | Leste do Canadá        |
 | Leste do Canadá         | Canadá Central     |
 | Índia Central       | Sul da Índia        |
@@ -280,16 +289,24 @@ Para suportar a integração de ativação pós-falha entre o armazenamento geor
 | Ásia Oriental           | Sudeste Asiático     |
 | EUA Leste             | EUA Oeste            |
 | EUA Leste 2           | EUA Central         |
-| Coreia do Sul Central       | Coreia do Sul        |
-| Coreia do Sul         | Coreia do Sul Central      |
+| Leste do Japão          | Oeste do Japão         |
+| Oeste do Japão          | Leste do Japão         |
+| Coreia do Sul Central       | Sul da Coreia do Sul        |
+| Sul da Coreia do Sul         | Coreia do Sul Central      |
 | Europa do Norte        | Europa Ocidental        |
 | EUA Centro-Norte    | EUA Centro-Sul   |
+| EUA Centro-Sul    | EUA Centro-Norte   |
 | Sul da Índia         | Índia Central      |
 | Sudeste Asiático      | Ásia Oriental          |
-| Reino Unido Sul            | Reino Unido Oeste            |
-| Reino Unido Oeste             | Reino Unido Sul           |
+| Reino Unido Sul            | Oeste do R.U.            |
+| Oeste do R.U.             | Reino Unido Sul           |
+| US Gov - Arizona      | US Gov - Texas       |
+| US Gov - Iowa         | US Gov - Virginia    |
+| US Gov Virgini      | US Gov - Texas       |
 | Europa Ocidental         | Europa do Norte       |
+| EUA Centro-Oeste     | E.U.A. Oeste 2          |
 | EUA Oeste             | EUA Leste            |
+| E.U.A. Oeste 2           | EUA Centro-Oeste    |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente do Azure File Sync
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]

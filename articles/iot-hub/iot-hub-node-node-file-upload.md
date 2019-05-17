@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.openlocfilehash: 7ad2c9dd89843a36a786eeefee8403d32027e11c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f60236163cd88822c384bd356a1770d616639174
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61444357"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596618"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub
 
@@ -29,7 +29,7 @@ Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dis
 O [introdução ao IoT Hub](quickstart-send-telemetry-node.md) tutorial demonstra a funcionalidade de mensagens dispositivo-para-cloud básica do IoT Hub. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
 
 *  Ficheiros grandes que contêm imagens
-*  Vídeos
+*  Os meus vídeos
 *  Dados de vibração amostrados em alta frequência
 *  Alguma forma de dados pré-processados.
 
@@ -46,7 +46,7 @@ No final deste tutorial executa duas aplicações de consola node. js:
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Versão 4.0.x ou posterior do Node.js.
+* Versão node. js 10.0.x ou posterior.
 
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 

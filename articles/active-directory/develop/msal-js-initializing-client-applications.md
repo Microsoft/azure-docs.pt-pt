@@ -4,7 +4,7 @@ description: Saiba mais sobre a inicializar a aplicativos cliente usando a bibli
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7990566ca9cd93e79b8356cfd15fda03a7469695
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138306"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544033"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicações de cliente com msal
 Este artigo descreve ao inicializar biblioteca de autenticação da Microsoft para JavaScript (msal) com uma instância de um aplicativo de agente do usuário. A aplicação de agente do usuário é um formulário de aplicação de cliente público no qual o código de cliente é executado num agente de usuário, como um navegador da web. Estes clientes não armazenar segredos, uma vez que o contexto do navegador é acessível abertamente. Para saber mais sobre os tipos de aplicativos de cliente e as opções de configuração de aplicação, veja a [descrição geral](msal-client-applications.md).

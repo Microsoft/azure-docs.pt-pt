@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466564"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595797"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Ativar a práticas de implantação segura com o Azure Deployment Manager (pré-visualização pública)
 
@@ -38,15 +38,11 @@ Implementar o modelo de topologia antes de implementar o modelo de implementaç�
 
 A referência de API de REST do Gestor de implementação do Azure pode ser encontrada [aqui](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## <a name="supported-locations"></a>Localizações suportadas
-
-Para a pré-visualização, a implementação do Gestor de recursos é suportado nos EUA Central e E.U.A. Leste 2. Ao definir recursos nos seus modelos de topologia e a implementação, como as unidades de serviço, origens de artefactos e implementações descritas neste artigo, tem de especificar uma dessas regiões para a localização. No entanto, os recursos que implementa para criar o seu serviço, como as máquinas virtuais, contas de armazenamento e aplicações web, são suportados em todas as suas [locais padrão](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## <a name="identity-and-access"></a>Identidade e acesso
 
 Com o Deployment Manager, um [atribuído ao utilizador a identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) executa as ações de implementação. Criar esta identidade antes de iniciar a implementação. Tem de ter acesso à subscrição que estiver a implementar o serviço para e permissão suficiente para concluir a implementação. Para obter informações sobre as ações concedida através de funções, consulte [funções incorporadas para recursos do Azure](../role-based-access-control/built-in-roles.md).
 
-A identidade tem de residir das localizações suportadas para o Gestor de implementação e tem de residir na mesma localização que a implementação.
+A identidade tem de residir na mesma localização que a implementação.
 
 ## <a name="topology-template"></a>Modelo de topologia
 
@@ -221,7 +217,9 @@ O passo de espera interrompe a implementação antes de continuar. Ele permite-l
 
 Utiliza a propriedade duration [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). O exemplo anterior Especifica uma espera de um minuto.
 
-Para obter mais informações sobre o passo de verificação de estado de funcionamento, consulte [ ]() e [ ]() para obter mais informações, consulte [passos referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
+Para obter mais informações sobre o passo de verificação de estado de funcionamento, consulte [introduz a implementação de integração do Estado de funcionamento para o Gestor de implementação do Azure](./deployment-manager-health-check.md) e [Tutorial: Utilizar a verificação de estado de funcionamento no Gestor de implementação do Azure](./deployment-manager-tutorial-health-check.md).
+
+Para obter mais informações, consulte [passos referência de modelo](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Implementações
 

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728826"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596979"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -236,7 +236,7 @@ Atualização do `launch.json` de ficheiros sob o `.vscode` subdiretório da pas
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Não foi possível encontrar o nome do tipo ou espaço de nomes "MyLibrary."
 
-### <a name="reason"></a>Razão 
+### <a name="reason"></a>Reason 
 O contexto de compilação é no nível de projeto/serviço por predefinição, portanto um projeto de biblioteca que está a utilizar não é possível encontrar.
 
 ### <a name="try"></a>Experimente:
@@ -251,7 +251,7 @@ Pode encontrar um exemplo em https://github.com/sgreenmsft/buildcontextsample
 Precisa *proprietário* ou *contribuinte* acesso na sua subscrição do Azure para gerir espaços de desenvolvimento do Azure. Poderá ver este erro se estiver a tentar gerir espaços de desenvolvimento e não tiver *proprietário* ou *contribuinte* acesso à subscrição do Azure associada.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
-### <a name="reason"></a>Razão
+### <a name="reason"></a>Reason
 A subscrição do Azure selecionada não se registou o `Microsoft.DevSpaces` espaço de nomes.
 
 ### <a name="try"></a>Experimente:
@@ -263,7 +263,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Espaços de desenvolvimento exceder o tempo limite em *a aguardar a criação da imagem do contentor...*  passo connosco virtuais de AKS
 
-### <a name="reason"></a>Razão
+### <a name="reason"></a>Reason
 Este tempo limite ocorre quando tenta utilizar espaços de desenvolvimento para executar um serviço que está configurado para ser executado [nó virtual de AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Espaços de desenvolvimento não suporta atualmente a criar ou a depuração de serviços em nós virtuais.
 
 Se executar `azds up` com o `--verbose` comutador ou ativar o registo verboso no Visual Studio, verá detalhes adicionais:
@@ -295,7 +295,7 @@ Reiniciar os nós de agente no seu cluster normalmente resolve este problema.
 
 ## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"Erro: versão azds -\<identificador\>-\<spacename\>-\<servicename\> falhou: dos serviços\<servicename\>' já existe "ou" solicitar acesso negado para \<servicename\>, repositório não existe ou poderá exigir "início de sessão do docker" "
 
-### <a name="reason"></a>Razão
+### <a name="reason"></a>Reason
 Estes erros podem ocorrer se combinar o executar comandos de Helm diretos (como `helm install`, `helm upgrade`, ou `helm delete`) com os comandos de espaços de desenvolvimento (como `azds up` e `azds down`) dentro do mesmo espaço de desenvolvimento. Que ocorrem porque os espaços de desenvolvimento tem sua própria instância do Tiller, que está em conflito com a sua própria instância do Tiller em execução no mesmo espaço de desenvolvimento.
 
 ### <a name="try"></a>Experimente:
@@ -329,7 +329,7 @@ configurations:
 
 ## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Erro de "watch interno falhou: Assista ENOSPC" ao anexar a depuração para uma aplicação node. js
 
-### <a name="reason"></a>Razão
+### <a name="reason"></a>Reason
 
 O nó a executar o pod com a aplicação node. js que está a tentar anexar a, com um depurador foi excedido o *fs.inotify.max_user_watches* valor. Em alguns casos, [o valor predefinido *fs.inotify.max_user_watches* pode ser demasiado pequena para lidar com conectar um depurador diretamente a um pod](https://github.com/Azure/AKS/issues/772).
 
@@ -338,7 +338,7 @@ Uma solução temporária para este problema é aumentar o valor de *fs.inotify.
 
 ## <a name="new-pods-are-not-starting"></a>Novos pods não estão a iniciar
 
-### <a name="reason"></a>Razão
+### <a name="reason"></a>Reason
 
 O inicializador de Kubernetes não é possível aplicar o PodSpec para novos pods devido a alterações de permissão RBAC para o *administrador de cluster* função no cluster. O novo pod também pode ter um PodSpec inválido, por exemplo a conta de serviço associada com o pod já não existe. Para ver os pods que estão num *pendente* Estado devido a problema o inicializador, utilize o `kubectl get pods` comando:
 
@@ -370,7 +370,7 @@ Depois do controlador é reinstalado, volte a implementar seus pods.
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permissões RBAC incorretas para chamar o controlador de espaços de programação e APIs
 
-### <a name="reason"></a>Razão
+### <a name="reason"></a>Reason
 O utilizador aceder ao controlador de espaços de desenvolvimento do Azure tem de ter acesso para ler o administrador *kubeconfig* no cluster do AKS. Por exemplo, esta permissão está disponível na [incorporadas do Azure Kubernetes Service administrador de função de Cluster](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O utilizador aceder ao controlador de espaços de desenvolvimento do Azure também tem de ter o *contribuinte* ou *proprietário* função RBAC para o controlador.
 
 ### <a name="try"></a>Experimente
@@ -389,3 +389,18 @@ Para atualizar a função do utilizador RBAC para o controlador:
     * Para *atribuir acesso aos* selecionar *utilizador, grupo ou principal de serviço do Azure AD*.
     * Para *selecione* pesquisa para o qual pretende conceder permissões de utilizador.
 1. Clique em *Guardar*.
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Criar o controlador a falhar devido ao comprimento do nome de controlador
+
+### <a name="reason"></a>Reason
+Nome do controlador de espaços de desenvolvimento do Azure não pode ter mais de 31 carateres. Se o nome do seu controlador excede a 31 carateres quando ativar os espaços de desenvolvimento num cluster do AKS ou criar um controlador, receberá um erro, como:
+
+*Falha ao criar um controlador de espaços de desenvolvimento para o cluster "a-controller-name-that-is-way-too-long-aks-east-us": Nome de controlador de espaços de desenvolvimento do Azure "a-controller-name-that-is-way-too-long-aks-east-us" é inválido. CONSTRAINT(s) violada: Nomes de controladores de espaços de desenvolvimento do Azure só podem ser no máximo 31 carateres de comprimento*
+
+### <a name="try"></a>Experimente
+
+Crie um controlador com um nome alternativo:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

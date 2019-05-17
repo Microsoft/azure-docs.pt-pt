@@ -13,12 +13,12 @@ ms.date: 01/08/2019
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 8efab173f464b67c0c88c87ee28ea7fa19980501
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1ff700bece2d64451294e72ebdf3c771ee644f8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373221"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604191"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com o Application Insights
 
@@ -63,7 +63,7 @@ Impacto suporta propriedades padrão e personalizadas e medidas. Utilize o que q
 2. Escolha "País ou região" na **analisar como seu** pendente
 3. Para o **afeta a utilização de** lista pendente, selecione um evento personalizado que corresponde a um elemento de interface do Usuário na vista de página selecionou no passo 1.
 
-Neste caso, os resultados já não se encaixa num modelo de eixo x contínuo que tinham no primeiro exemplo. Em vez disso, é apresentada uma visualização semelhante a um funil segmentado. Ordenar por **utilização** para ver a variação de conversão para o evento personalizado com base no país.
+Neste caso, os resultados já não se encaixa num modelo de eixo x contínuo que tinham no primeiro exemplo. Em vez disso, é apresentada uma visualização semelhante a um funil segmentado. Ordenar por **utilização** para ver a variação de conversão para o evento personalizado com base no país/região.
 
 
 ## <a name="how-does-the-impact-tool-calculate-these-conversion-rates"></a>Como a ferramenta de impacto calcular estas taxas de conversão?

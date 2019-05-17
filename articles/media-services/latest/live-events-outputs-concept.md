@@ -11,20 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 87620cb0c7aafb78b2c8fe610f42ad092313d305
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153470"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550969"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos em Direto e Saídas em Direto
 
-Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. Para configurar seus eventos de transmissão em fluxo em direto dos serviços de multimédia v3, terá de compreender os conceitos discutidos neste artigo. <br/>A lista das secções é apresentada no lado direito da página.
+Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. Para configurar seus eventos de transmissão em fluxo em direto dos serviços de multimédia v3, terá de compreender os conceitos discutidos neste artigo.
 
-## <a name="live-events"></a>Eventos em Direto
+> [!TIP]
+> Para os clientes a migrar a partir dos serviços de multimédia v2 APIs, o **evento em direto** entidade substitui **canal** no v2 e **Live saída** substitui **programa**.
+
+
+## <a name="live-events"></a>Eventos ao Vivo
 
 Os [Eventos em Direto](https://docs.microsoft.com/rest/api/media/liveevents) são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um Evento em Direto, é estabelecido um ponto final de entrada que pode ser utilizado para enviar um sinal em direto a partir de um codificador remoto. O codificador em direto remoto envia o feed de contribuição para esse ponto final de entrada através do [protocolo RTMP](https://www.adobe.com/devnet/rtmp.html) ou do [protocolo Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para a transmissão em fluxo uniforme de protocolo de ingestão, os esquemas de URL suportados são `http://` ou `https://`. Para o RTMP de protocolo de ingestão, os esquemas de URL suportados são `rtmp://` ou `rtmps://`. 
 
@@ -99,7 +103,7 @@ O *token de acesso* abaixo é o que tem de especificar para o URL fixo. Também 
 `rtmps://<random 128bit hex string>.channel.media.azure.net:2935/<access token>`
 `rtmps://<random 128bit hex string>.channel.media.azure.net:2936/<access token>`
 
-##### <a name="smooth-streaming"></a>Transmissão em Fluxo Uniforme
+##### <a name="smooth-streaming"></a>Smooth Streaming
 
 `http://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
 `https://<random 128bit hex string>.channel.media.azure.net/<access token>/ingest.isml`
@@ -113,7 +117,7 @@ O *token de acesso* abaixo é o que tem de especificar para o URL fixo. Também 
 `rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2935/<access token>`
 `rtmps://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net:2936/<access token>`
 
-##### <a name="smooth-streaming"></a>Transmissão em Fluxo Uniforme
+##### <a name="smooth-streaming"></a>Smooth Streaming
 
 `http://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`
 `https://<live event name>-<ams account name>-<region abbrev name>.channel.media.azure.net/<access token>/ingest.isml`

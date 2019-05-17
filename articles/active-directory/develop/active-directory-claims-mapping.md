@@ -2,23 +2,23 @@
 title: Personalizar afirmações emitidas nos tokens para uma aplicação específica no inquilino do Azure AD (pré-visualização pública)
 description: Esta página descreve o mapeamento de afirmações do Azure Active Directory.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300483"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546207"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar afirmações emitidas nos tokens de um aplicativo específico num inquilino (pré-visualização)
 
@@ -97,7 +97,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| e-mail |
+| email |
 | endpoint |
 | enfpolids |
 | exp |
@@ -105,7 +105,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 | grant_type |
 | gráfico |
 | group_sids |
-| grupos |
+| Grupos |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -159,7 +159,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 | Recurso |
 | função |
 | funções |
-| scope |
+| âmbito |
 | scp |
 | SID |
 | assinatura |
@@ -177,7 +177,7 @@ Existem alguns conjuntos de declarações que definem como e quando eles são us
 | unique_name |
 | upn |
 | user_setting_sync_url |
-| o nome de utilizador |
+| username |
 | uti |
 | ver |
 | verified_primary_email |
@@ -284,14 +284,14 @@ O elemento de ID identifica qual propriedade de origem fornece o valor para a af
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válidos por origem
 
-| Origem | ID | Descrição |
+| Source | ID | Descrição |
 |-----|-----|-----|
 | Utilizador | Apelido | Nome de família |
 | Utilizador | givenName | Nome Próprio |
-| Utilizador | DisplayName | Nome a Apresentar |
+| Utilizador | DisplayName | Nome a apresentar |
 | Utilizador | ObjectId | ObjectID |
 | Utilizador | mail | Endereço de E-mail |
-| Utilizador | userprincipalname | Nome Principal de Utilizador |
+| Utilizador | userprincipalname | Nome do Principal de Utilizador |
 | Utilizador | Departamento|Departamento|
 | Utilizador | onpremisessamaccountname | Nome da conta SAM no local |
 | Utilizador | netbiosname| Nome NetBios |
@@ -321,13 +321,13 @@ O elemento de ID identifica qual propriedade de origem fornece o valor para a af
 | Utilizador | othermail | Outro correio |
 | Utilizador | País | País |
 | Utilizador | city | Localidade |
-| Utilizador | state | Estado |
+| Utilizador | estado | Estado |
 | Utilizador | jobtitle | Cargo |
 | Utilizador | employeeid | ID do Empregado |
 | Utilizador | facsimiletelephonenumber | Número de telefone de fax |
-| aplicativo, recurso, público-alvo | DisplayName | Nome a Apresentar |
+| aplicativo, recurso, público-alvo | DisplayName | Nome a apresentar |
 | aplicativo, recurso, público-alvo | objeto | ObjectID |
-| aplicativo, recurso, público-alvo | etiquetas | Etiqueta de Principal de serviço |
+| aplicativo, recurso, público-alvo | tags | Etiqueta de Principal de serviço |
 | Empresa | tenantcountry | País do inquilino |
 
 **TransformationID:** Tem de fornecer o elemento de TransformationID apenas se o elemento de origem está definido como "transformação".
@@ -360,7 +360,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. De
 
 |TransformationMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
-|Associar|string1, string2, separator|outputClaim|Associações de cadeias de caracteres de entrada utilizando um separador entre. Por exemplo: string1: "foo@bar.com", string2: "sandbox", o separador: "." resulta na outputClaim: "foo@bar.com.sandbox"|
+|Aderir|string1, string2, separator|outputClaim|Associações de cadeias de caracteres de entrada utilizando um separador entre. Por exemplo: string1: "foo@bar.com", string2: "sandbox", o separador: "." resulta na outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrai a parte local de um endereço de e-mail. Por exemplo: correio: "foo@bar.com" resulta na outputClaim: "foo". Se não \@ início de sessão está presente, em seguida, a cadeia de entrada original é retornada como está.|
 
 **InputClaims:** Utilize um elemento de InputClaims para passar os dados a partir de uma entrada de esquema de afirmação para uma transformação. Ele possui dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
@@ -384,10 +384,10 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. De
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como uma origem de dados para NameID de SAML
 
-|Origem|ID|Descrição|
+|Source|ID|Descrição|
 |-----|-----|-----|
 | Utilizador | mail|Endereço de E-mail|
-| Utilizador | userprincipalname|Nome Principal de Utilizador|
+| Utilizador | userprincipalname|Nome do Principal de Utilizador|
 | Utilizador | onpremisessamaccountname|No nome da conta Sam no local|
 | Utilizador | employeeid|ID do Empregado|
 | Utilizador | extensionattribute1 | Atributo de extensão 1 |
@@ -411,7 +411,7 @@ Com base no método escolhido, é esperado um conjunto de entradas e saídas. De
 | TransformationMethod | Restrições |
 | ----- | ----- |
 | ExtractMailPrefix | Nenhuma |
-| Associar | O sufixo estiver associado ao tem de ser um domínio verificado do inquilino de recursos. |
+| Aderir | O sufixo estiver associado ao tem de ser um domínio verificado do inquilino de recursos. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura de personalizado
 

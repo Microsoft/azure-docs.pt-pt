@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304185"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546263"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Ligar a origens de dados no local a partir do Azure Logic Apps
 
@@ -36,7 +36,7 @@ Para obter informações sobre como utilizar o gateway com outros serviços, vej
 
 * A instalação do gateway já não está associada a um recurso de gateway no Azure. Pode ligar a sua instalação do gateway apenas para um recurso de gateway, o que acontece quando criar o recurso de gateway e selecione a sua instalação do gateway. Essa vinculação torna a instalação do gateway indisponível para outros recursos.
 
-* Quando iniciar sessão no portal do Azure e criar o recurso de gateway, certifique-se de utilizar a mesma início de sessão na conta que foi utilizada anteriormente para [instalar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md#requirements) juntamente com o mesmo [subscrição do Azure ](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) que foi utilizada para instalar o gateway. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>.
+* Quando iniciar sessão no portal do Azure e criar o recurso de gateway, certifique-se de utilizar a mesma início de sessão na conta que foi utilizada anteriormente para [instalar o gateway de dados no local](../logic-apps/logic-apps-gateway-install.md#requirements) juntamente com o mesmo [subscrição do Azure ](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) que foi utilizada para instalar o gateway. Se não tiver uma subscrição do Azure, <a href="https://azure.microsoft.com/free/" target="_blank">Inscreva-se uma conta gratuita do Azure</a>.
 
 * Para criar e manter o recurso de gateway no portal do Azure, sua [conta de serviço do Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) necessita de pelo menos **contribuinte** permissões. O gateway de dados no local é executado como um serviço do Windows e está configurado para utilizar `NT SERVICE\PBIEgwService` credenciais de início de sessão do serviço para o Windows. 
 

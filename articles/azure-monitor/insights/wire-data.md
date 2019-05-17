@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b7968de8ad4357241eb8d86d51e991f4bbab959d
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61387575"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601567"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Ligar a solução de dados 2.0 (pré-visualização) no Azure Monitor
 
@@ -400,7 +400,7 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 | Direction | Entrada ou saída |
 | MaliciousIP | Endereço IP de uma origem maliciosa conhecida |
 | Severity | Gravidade do potencial malware |
-| RemoteIPCountry | País do endereço IP remoto |
+| RemoteIPCountry | País/região do endereço IP remoto |
 | ManagementGroupName | Nome do grupo de gestão do Operations Manager |
 | SourceSystem | Origem onde os dados foram recolhidos |
 | SessionStartTime | Hora de início da sessão |

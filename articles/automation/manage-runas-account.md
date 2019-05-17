@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/26/2019
+ms.date: 05/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61301140"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595695"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -37,6 +37,9 @@ Existem dois tipos de contas Run as:
   
   > [!NOTE]
   > Subscrições do fornecedor de soluções Cloud (Azure CSP) do Azure suportam apenas o modelo Azure Resource Manager, serviços de não - Azure Resource Manager não estão disponíveis no programa. Quando utilizar uma subscrição do CSP do Azure clássico a conta Run as não criada. A conta Run as Azure ainda é criada. Para saber mais sobre as subscrições de CSP, veja [serviços disponíveis em subscrições de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+
+  > [!NOTE]
+  > O principal de serviço para uma conta Run as não tem permissões para ler o Azure Active Directory por predefinição. Se pretender adicionar permissões para ler ou gerir o Azure Active directory, terá de conceder essa permissão no serviço principal sob **permissões API**. Para obter mais informações, consulte [adicionar permissões para aceder a web APIs](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="permissions"></a>Permissões para configurar contas Run as
 

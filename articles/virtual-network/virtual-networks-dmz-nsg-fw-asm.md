@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868375"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603420"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Exemplo 2: Criar uma rede de perímetro a proteger aplicações com um firewall e NSGs
 [Retornar à página de segurança de rede e serviços cloud da Microsoft][HOME]
@@ -89,7 +89,7 @@ Existe uma regra de saída predefinida que permita o tráfego de saída à inter
 
 As regras do NSG descritas aqui são semelhantes às regras NSG no [exemplo 1 - criar um DMZ simple com NSGs][Example1]. Reveja a descrição de NSG nesse artigo para uma visão detalhada de cada regra NSG e seus atributos.
 
-## <a name="firewall-rules"></a>Regras da firewall
+## <a name="firewall-rules"></a>Regras de firewall
 Tem de instalar um cliente de gestão num computador para gerir a firewall e criar as configurações necessárias. Veja a documentação do seu firewall (ou outra NVA) do fornecedor sobre como gerir o dispositivo. O resto desta secção descreve a configuração do firewall em si, através do cliente de gestão do fornecedor (não o portal do Azure ou o PowerShell).
 
 Ver [Barracuda NG administrador](https://techlib.barracuda.com/NG61/NGAdmin) para obter instruções de transferência do cliente e ligar-se a firewall do Barracuda utilizado neste exemplo.
@@ -550,7 +550,7 @@ Deve executar este script do PowerShell localmente num computador ligado à inte
 Guarde este ficheiro XML com localizações atualizadas e, em seguida, adicionar uma ligação para este ficheiro na variável $NetworkConfigFile no script anterior.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

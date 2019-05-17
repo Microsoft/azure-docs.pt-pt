@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d323a93773a8459d097c1fe3502d2ccd88ae9695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687912"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785194"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar o início de sessão com uma conta do Azure Active Directory com as políticas personalizadas no Azure Active Directory B2C 
 
@@ -55,7 +55,7 @@ Precisa armazenar a chave da aplicação que criou no seu inquilino do Azure AD 
 
 1. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino.
 2. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
-3. Na página de descrição geral, selecione **arquitetura de experiências de identidade - pré-visualização**.
+3. Na página de descrição geral, selecione **arquitetura de experiências de identidade**.
 4. Selecione **chaves de política** e, em seguida, selecione **Add**.
 5. Para **opções**, escolha `Manual`.
 6. Introduza um **nome** para a chave de política. Por exemplo, `ContosoAppSecret`.  O prefixo `B2C_1A_` é adicionado automaticamente o nome da sua chave.

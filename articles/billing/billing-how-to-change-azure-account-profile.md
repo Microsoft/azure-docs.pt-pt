@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922943"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604262"
 ---
 # <a name="change-your-azure-account-profile-information"></a>Alterar as informações de perfil de conta do Azure
 
@@ -51,9 +51,9 @@ A atualizar o endereço de e-mail de perfil não atualiza o seu endereço de e-m
 
 Para saber como atualizar as informações de faturação, veja [alterar o cartão de crédito utilizado para pagar uma subscrição do Azure](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-country"></a>Não é possível atualizar o seu país/região
+### <a name="you-cant-update-your-countryregion"></a>Não é possível atualizar o seu país/região
 
-Devido a restrições técnicas, não é possível alterar o país para uma conta existente. No entanto, pode criar uma conta no país desejado e, em seguida, contacte o suporte do Azure para migrar os serviços para essa conta.
+Devido a restrições técnicas, não é possível alterar o país/região para uma conta existente. No entanto, pode criar uma conta no país/região pretendida e, em seguida, contacte o suporte do Azure para migrar os serviços para essa conta.
 
 ## <a name="service-and-marketing-emails"></a>Mensagens de correio eletrónico de marketing e de serviço
 
@@ -61,10 +61,10 @@ A equipe do Microsoft Azure envia e-mails com o serviço, informando-alertas cr�
 
 Lhe for pedido no [portal do Azure](https://portal.azure.com) para verificar ou atualizar o seu endereço de e-mail todos os 90 dias. O objetivo de notificação é certificar-se de que a Microsoft atualizou as informações de contacto em caso de quaisquer notificações relacionadas com o serviço urgentes. A Microsoft envia mensagens de correio eletrónico para o seu endereço de e-mail de perfil com informações de relacionados com a conta do Azure para:
 
-- Notificações do serviço
+- Notificações de serviço
 - Alertas de segurança
 - Efeitos de faturação
-- Suporte
+- Apoio ao cliente
 - Comunicações de marketing
 - Recomendações de melhores práticas, com base na sua utilização do Azure
 

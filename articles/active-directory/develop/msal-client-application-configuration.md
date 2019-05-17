@@ -4,7 +4,7 @@ description: Saiba mais sobre as opções de configuração de cliente público 
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138540"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546018"
 ---
 # <a name="application-configuration-options"></a>Opções de configuração de aplicação
 
@@ -95,7 +95,7 @@ Atualmente, a única forma de obter uma aplicação para iniciar sessão dos uti
 - definir o público-alvo de registo de aplicação "Trabalho e contas escolares e pessoais contas" e,
 - e, defina o público-alvo no seu código / configuração para `AadAuthorityAudience.PersonalMicrosoftAccount` (ou `TenantID `= "os consumidores")
 
-## <a name="client-id"></a>ID de Cliente
+## <a name="client-id"></a>ID do Cliente
 O ID de aplicação exclusivo (cliente) atribuído à sua aplicação pelo Azure AD quando a aplicação foi registrada.
 
 ## <a name="redirect-uri"></a>URI de Redirecionamento

@@ -4,7 +4,7 @@ description: Referência para a sintaxe de Lucene completa, utilizado com o Azur
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024225"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596565"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxe de consulta Lucene no Azure Search
 Pode escrever consultas no Azure Search com base na avançada [analisador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) sintaxe para formulários de consulta especializadas: carateres universais, a pesquisa difusa, pesquisa de proximidade, expressões regulares são alguns exemplos. Grande parte da sintaxe do analisador de consultas de Lucene é [implementado intacto no Azure Search](search-lucene-query-architecture.md), com exceção do *pesquisas de intervalo* que é construído no Azure Search através de `$filter` expressões. 
@@ -121,16 +121,19 @@ Usando `searchMode=all` aumenta a precisão de consultas, incluindo menos result
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Consultas de regex e caracteres curinga de classificação
  O Azure Search utiliza a classificação com base na frequência ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para consultas de texto. No entanto, para consultas de regex e caracteres curinga em que o âmbito dos termos pode ser ampla, o fator de frequência é ignorado para impedir que a classificação de biasing (desvio) para correspondências de termos mais raros. Todas as correspondências são tratadas igualmente de caráter universal e regex pesquisas.
 
-##  <a name="bkmk_fields"></a> Consultas de âmbito de campo  
- Pode especificar um `fieldname:searchterm` construção para definir uma operação de consulta respondidas, onde o campo é uma única palavra, e o termo de pesquisa também é uma única palavra ou frase, opcionalmente, com operadores booleanos. Alguns exemplos incluem o seguinte:  
+##  <a name="bkmk_fields"></a> Pesquisa respondida  
+Pode definir uma operação de pesquisa respondidas com o `fieldName:searchExpression` sintaxe, onde a expressão de pesquisa pode ser uma única palavra ou uma frase ou uma expressão mais complexa parênteses, opcionalmente, com operadores booleanos. Alguns exemplos incluem o seguinte:  
 
 - genre: jazz não histórico  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Certifique-se de que colocar várias cadeias de caracteres entre aspas, se pretender que ambas as cadeias de caracteres a ser avaliada como uma única entidade, neste caso a procurar dois artistas distintas no `artists` campo.  
+Certifique-se de que colocar várias cadeias de caracteres entre aspas, se pretender que ambas as cadeias de caracteres a ser avaliada como uma única entidade, neste caso a procurar dois artistas distintas no `artists` campo.  
 
-  O campo especificado no `fieldname:searchterm` tem de ser um `searchable` campo.  Ver [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados nas definições de campo.  
+O campo especificado no `fieldName:searchExpression` tem de ser um `searchable` campo.  Ver [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos de índice são usados nas definições de campo.  
+
+> [!NOTE]
+> Quando utilizar respondidas as expressões de pesquisa, não é necessário utilizar o `searchFields` parâmetro porque cada respondidas expressão de pesquisa tem um nome de campo explicitamente especificado. No entanto, pode continuar a utilizar o `searchFields` parâmetro se pretender executar uma consulta em que algumas partes estão confinadas a um campo específico, e o restante foi possível aplicar a vários campos. Por exemplo, a consulta `search=genre:jazz NOT history&searchFields=description` corresponderia `jazz` apenas para o `genre` campo, embora ele corresponderia `NOT history` com o `description` campo. O nome de campo fornecido na `fieldName:searchExpression` sempre terão precedência sobre as `searchFields` parâmetro, que é o motivo neste exemplo, não precisamos incluir `genre` no `searchFields` parâmetro.
 
 ##  <a name="bkmk_fuzzy"></a> pesquisa difusa  
  A pesquisa difusa localiza correspondências em termos que têm uma construção semelhante. Por [documentação de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), pesquisas difusas baseiam-se nos [Damerau Levenshtein distância](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Pesquisas difusas podem expandir um termo até o máximo de 50 termos que cumprem os critérios de distância. 

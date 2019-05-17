@@ -3,26 +3,26 @@ title: Aplicações de serviço para serviço no Azure Active Directory
 description: Descreve quais aplicativos de serviços e as noções básicas sobre fluxo de protocolo, registo e expiração do token para este tipo de aplicação.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 11/07/2018
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 683664b3172cb12ba6adf6c8006e9685a6d1ec35
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60252045"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540303"
 ---
 # <a name="service-to-service-apps"></a>Aplicações de serviço a serviço
 
@@ -63,8 +63,8 @@ Veja os exemplos de código para Daemon ou uma aplicação de servidor para cen�
 
 ## <a name="app-registration"></a>Registo de aplicações
 
-- Único inquilino - para a identidade da aplicação e o utilizador delegado casos de identidade, o daemon ou aplicação de servidor têm de estar registrada no mesmo diretório no Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são utilizados para limitar o daemon ou acesso ao seus recursos do servidor. Se está a ser utilizado um tipo de identidade do utilizador delegado, a aplicação de servidor tem de selecionar as permissões pretendidas no menu pendente "Permissões para outras aplicações" no portal do Azure. Este passo não é necessário se o tipo de identidade da aplicação está a ser utilizado.
-- Multi-inquilino-First, a aplicação de daemon ou o servidor está configurado para indicar as permissões que ele requer que seja funcional. Esta lista de permissões necessárias é mostrada numa caixa de diálogo quando um utilizador ou administrador no diretório de destino dá consentimento para a aplicação, o que torna disponível para a sua organização. Apenas algumas aplicações necessitam de permissões de nível de usuário, que pode consentir qualquer utilizador na organização. Outras aplicações requerem permissões de nível de administrador, que não pode autorizar um utilizador na organização. Apenas um administrador do diretório pode dar consentimento a aplicações que exigem esse nível de permissões. Quando o utilizador ou administrador autorizar, ambas as APIs da web estão registadas no respetivo diretório.
+* Único inquilino - para a identidade da aplicação e o utilizador delegado casos de identidade, o daemon ou aplicação de servidor têm de estar registrada no mesmo diretório no Azure AD. A API web pode ser configurada para expor um conjunto de permissões, que são utilizados para limitar o daemon ou acesso ao seus recursos do servidor. Se está a ser utilizado um tipo de identidade do utilizador delegado, a aplicação de servidor tem de selecionar as permissões pretendidas no menu pendente "Permissões para outras aplicações" no portal do Azure. Este passo não é necessário se o tipo de identidade da aplicação está a ser utilizado.
+* Multi-inquilino-First, a aplicação de daemon ou o servidor está configurado para indicar as permissões que ele requer que seja funcional. Esta lista de permissões necessárias é mostrada numa caixa de diálogo quando um utilizador ou administrador no diretório de destino dá consentimento para a aplicação, o que torna disponível para a sua organização. Apenas algumas aplicações necessitam de permissões de nível de usuário, que pode consentir qualquer utilizador na organização. Outras aplicações requerem permissões de nível de administrador, que não pode autorizar um utilizador na organização. Apenas um administrador do diretório pode dar consentimento a aplicações que exigem esse nível de permissões. Quando o utilizador ou administrador autorizar, ambas as APIs da web estão registadas no respetivo diretório.
 
 ## <a name="token-expiration"></a>Expiração do token
 
@@ -74,4 +74,3 @@ Quando o primeiro aplicativo utiliza o seu código de autorização ao obter o t
 
 - Saiba mais sobre outras [tipos de aplicativos e cenários](app-types.md)
 - Saiba mais sobre o Azure AD [Noções básicas de autenticação](authentication-scenarios.md)
-

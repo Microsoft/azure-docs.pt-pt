@@ -4,7 +4,7 @@ description: Este artigo descreve como utilizar mensagens HTTP para implementar 
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250846"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545478"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Serviço a serviço chama essa identidade de utilizador delegada de utilização no fluxo em-nome-de
 
@@ -116,7 +116,7 @@ Ao usar um segredo partilhado, um pedido de token de acesso de serviço para ser
 | client_secret |obrigatório | A chave registada para o serviço de chamada no Azure AD. Este valor deve ter sido apontado no momento do registo. |
 | Recurso |obrigatório | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
 | requested_token_use |obrigatório | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
-| scope |obrigatório | Lista de âmbitos para o pedido de token separados por um espaço. Para o OpenID Connect, o escopo **openid** tem de ser especificado.|
+| âmbito |obrigatório | Lista de âmbitos para o pedido de token separados por um espaço. Para o OpenID Connect, o escopo **openid** tem de ser especificado.|
 
 #### <a name="example"></a>Exemplo
 
@@ -151,7 +151,7 @@ Um pedido de token de acesso de serviço para serviço com um certificado conté
 | client_assertion |obrigatório | Um JSON Web Token que crie e inicie sessão com o certificado é registado como as credenciais para a sua aplicação. Ver [credenciais de certificado](active-directory-certificate-credentials.md) para saber mais sobre o formato de asserção e sobre como registar o seu certificado.|
 | Recurso |obrigatório | A aplicação de URI de ID do serviço de recebimento (recurso protegido). Para localizar o URI de ID de aplicação no portal do Azure, selecione **do Active Directory** e escolha o diretório. Selecione o nome da aplicação, escolha **todas as definições**e, em seguida, selecione **propriedades**. |
 | requested_token_use |obrigatório | Especifica a forma como a solicitação deve ser processada. Fluxo em-nome-de, o valor tem de ser **on_behalf_of**. |
-| scope |obrigatório | Lista de âmbitos para o pedido de token separados por um espaço. Para o OpenID Connect, o escopo **openid** tem de ser especificado.|
+| âmbito |obrigatório | Lista de âmbitos para o pedido de token separados por um espaço. Para o OpenID Connect, o escopo **openid** tem de ser especificado.|
 
 Esses parâmetros são quase os mesmos tal como acontece com o pedido de segredo partilhado, exceto que o `client_secret parameter` é substituído por dois parâmetros: `client_assertion_type` e `client_assertion`.
 
@@ -183,7 +183,7 @@ Uma resposta de êxito é uma resposta JSON OAuth 2.0 com os seguintes parâmetr
 | Parâmetro | Descrição |
 | --- | --- |
 | token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte o [Framework de autorização do OAuth 2.0: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| scope |O âmbito de acesso concedido no token. |
+| âmbito |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
 | Recurso |A aplicação de URI de ID do serviço de recebimento (recurso protegido). |
@@ -274,7 +274,7 @@ A resposta contém um token SAML com codificação UTF8 e Base64url.
 | Parâmetro | Descrição |
 | --- | --- |
 | token_type |Indica o valor de tipo de token. O único tipo, que é o Azure AD suporta **portador**. Para obter mais informações sobre os tokens de portador, consulte [Framework de autorização do OAuth 2.0: Utilização de Token de portador (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
-| scope |O âmbito de acesso concedido no token. |
+| âmbito |O âmbito de acesso concedido no token. |
 | expires_in |O período de tempo o token de acesso é válido (em segundos). |
 | expires_on |O tempo que o token de acesso expira. A data é representada como o número de segundos de 1970-01-01T0:0:0Z UTC até a hora de expiração. Este valor é utilizado para determinar o tempo de vida de tokens em cache. |
 | Recurso |A aplicação de URI de ID do serviço de recebimento (recurso protegido). |

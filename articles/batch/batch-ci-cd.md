@@ -7,12 +7,12 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880951"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541755"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize Pipelines do Azure para criar e implementar soluções HPC
 
@@ -26,7 +26,7 @@ Neste exemplo, iremos criar uma compilação e versão de pipeline para implemen
 
 ![Diagrama que mostra o fluxo de implementação em nosso Pipeline](media/batch-ci-cd/DeploymentFlow.png)
 
-### <a name="setup"></a>Configurar
+### <a name="setup"></a>Configuração
 
 Para seguir os passos neste artigo, terá de uma organização de DevOps do Azure e um projeto de equipe.
 
@@ -363,7 +363,7 @@ Neste exemplo, nos concentraremos no **aplicação hpc** pasta. O **aplicação 
 
 ## <a name="continuous-deployment"></a>Implementação contínua
 
-Pipelines do Azure, também é utilizados para implementar a sua aplicação e a infraestrutura subjacente. [Lançar pipelines](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) é o componente que permite a implementação contínua e automatiza o processo de liberação.
+Pipelines do Azure, também é utilizados para implementar a sua aplicação e a infraestrutura subjacente. [Lançar pipelines](https://docs.microsoft.com/azure/devops/pipelines/release) é o componente que permite a implementação contínua e automatiza o processo de liberação.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implementar a aplicação e infraestrutura subjacente
 

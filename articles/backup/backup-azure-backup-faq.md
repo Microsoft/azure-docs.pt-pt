@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479edc11604670189b0accba67aa8f345f6260cd
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60646747"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551368"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Cópia de segurança do Azure - perguntas mais frequentes
 Este artigo responde a perguntas comuns sobre o serviço de cópia de segurança do Azure.
 
-## <a name="recovery-services-vault"></a>Cofre dos serviços de recuperação
+## <a name="recovery-services-vault"></a>Cofre de serviços de recuperação
 
 ### <a name="is-there-any-limit-on-the-number-of-vaults-that-can-be-created-in-each-azure-subscription"></a>Existe algum limite ao número de cofres que podem ser criados em cada subscrição do Azure?
 Sim. Pode criar até 500 cofres de serviços de recuperação por região suportada da cópia de segurança do Azure, por subscrição. Se precisar de mais cofres, crie uma subscrição adicional.
@@ -100,7 +100,7 @@ Windows 10 64 bit | Enterprise, Pro, Home | Máquinas devem estar a executar os 
 Windows 8.1 de 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 8 64 bits | Enterprise, Pro | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
 Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Máquinas devem estar a executar os pacotes de serviços mais recentes e as atualizações.
-Servidor | |
+Servidor  | |
 Windows Server 2019 64 bits | Standard, Datacenter, Essentials | Com as atualizações/mais recentes service packs.
 Windows Server 2016 de 64 bits | Standard, Datacenter, Essentials | Com as atualizações/mais recentes service packs.
 Windows Server 2012 R2 de 64 bits | Standard, Datacenter, Foundation | Com as atualizações/mais recentes service packs.
@@ -133,7 +133,7 @@ A tabela seguinte explica a forma como é determinado cada tamanho da origem de 
 Volume |A quantidade de dados para a cópia de segurança de VM a cópia de segurança de único volume.
 Base de dados do SQL Server |Tamanho do tamanho da base de dados SQL único a cópia de segurança.
 SharePoint | Soma das bases de dados de conteúdo e a configuração dentro de um farm do SharePoint a cópia de segurança.
-Troca |Soma de todos os bancos de dados do Exchange num servidor Exchange, a cópia de segurança.
+Exchange |Soma de todos os bancos de dados do Exchange num servidor Exchange, a cópia de segurança.
 Estado do sistema/BMR |Cada cópia individual da BMR ou estado do sistema da máquina para a cópia de segurança.
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Existe um limite na quantidade de dados feitas com um cofre dos serviços de recuperação?
@@ -174,8 +174,8 @@ Não. O tempo para recuperar o mais antigo ou o ponto mais recente é o mesmo. C
 ### <a name="if-each-recovery-point-is-like-a-full-point-does-it-impact-the-total-billable-backup-storage"></a>Se cada ponto de recuperação é como um ponto completo, afeta o armazenamento de cópia de segurança faturável total?
 Os produtos de ponto de retenção de longa duração típicos armazenam cópias de segurança como pontos completos.
 
-    - Os pontos completos são *ineficazes* ao nível do armazenamento, mas é mais rápido e mais fácil restaurá-los.
-    - As cópias incrementais são armazenamento *eficiente* mas necessitam que restaure uma cadeia de dados, que tem impacto no seu tempo de recuperação
+- Os pontos completos são *ineficazes* ao nível do armazenamento, mas é mais rápido e mais fácil restaurá-los.
+- As cópias incrementais são armazenamento *eficiente* mas necessitam que restaure uma cadeia de dados, que tem impacto no seu tempo de recuperação
 
 A arquitetura de armazenamento do Backup do Azure dá-lhe o melhor dos dois mundos ao armazenar da melhor maneira dados para restauros rápidos e incorrer em custos de armazenamento reduzido reduzidos. Isto garante que a largura de banda de entrada e de saída é utilizada com eficácia. A quantidade de armazenamento de dados e o tempo necessário para recuperar os dados, é mantida num mínimo. Saiba mais sobre [cópias de segurança incrementais](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
 

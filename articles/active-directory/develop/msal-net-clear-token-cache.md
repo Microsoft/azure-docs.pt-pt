@@ -4,7 +4,7 @@ description: Saiba como limpar a cache de token com a biblioteca de autentica√ß√
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1604d2833387b105fc7897a89f96ebcf9486d6a8
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: c6763c6b2b1f9b4de7d8669a50a4979a7aac00c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65468473"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544123"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>Limpar a cache de token com MSAL.NET
 

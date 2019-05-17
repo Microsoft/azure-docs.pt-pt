@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511721"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597205"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Testar aplicações lógicas com dados fictícios ao configurar resultados estáticos
 
@@ -49,7 +49,7 @@ Por exemplo, se configurar resultados estáticos para o Outlook 365 enviar a aç
       | Propriedade | Descrição |
       |----------|-------------|
       | **Estado** | Estado da ação a devolver |
-      | **Código de estado** | O código de estado específicos para devolver |
+      | **Código de Estado** | O código de estado específicos para devolver |
       | **Headers** (Cabeçalhos) | O conteúdo do cabeçalho para retornar |
       |||
 
@@ -137,11 +137,9 @@ Desativar resultados estáticos não jogar fora os valores de configuração do 
 
    ![Desativar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>Obter suporte
+## <a name="reference"></a>Referência
 
-* Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
+Para obter mais informações sobre esta definição nas suas definições de fluxo de trabalho subjacente, veja [resultados estáticos - referência de esquema para a linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md#static-results) e [runtimeConfiguration.staticResult - tempo de execução definições de configuração](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

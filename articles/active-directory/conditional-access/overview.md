@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb1289ba615fea6e6c43b256da6978534d9edc7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23c88857c877440be724ddea0bdb239768621c8c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60354605"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764792"
 ---
 # <a name="what-is-conditional-access-in-azure-active-directory"></a>O que é o acesso condicional no Azure Active Directory?
 
@@ -64,7 +64,7 @@ As políticas de acesso condicional são uma definição de um cenário de acess
 
 - **[Os utilizadores](conditions.md#users-and-groups)**: Os usuários que realizarem uma tentativa de acesso (**quem**).
 
-- **[Aplicações na cloud](conditions.md#cloud-apps)**: Os destinos de uma tentativa de acesso (**o que**).
+- **[Aplicações na cloud](conditions.md#cloud-apps-and-actions)**: Os destinos de uma tentativa de acesso (**o que**).
 
 Estas duas condições são obrigatórias nas políticas de acesso condicional. Para além dessas duas condições obrigatórias, também pode incluir outras que descrevem a forma como a tentativa de acesso é feita. Os exemplos mais comuns são utilizar dispositivos móveis ou localizações fora da rede da sua empresa. Para obter mais informações, veja [Conditions in Azure Active Directory conditional access](conditions.md) (Condições no acesso condicional do Azure Active Directory).
 

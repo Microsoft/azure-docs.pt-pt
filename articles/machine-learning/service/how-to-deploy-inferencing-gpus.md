@@ -1,5 +1,5 @@
 ---
-title: Como implementar um modelo de aprendizagem profunda para inferência com GPU
+title: Implementar o modelo para inferência com GPU
 titleSuffix: Azure Machine Learning service
 description: Saiba como implementar um modelo de aprendizagem profunda como um serviço web que utiliza uma GPU para inferência. Neste artigo, é implementado um modelo de Tensorflow a um cluster do Azure Kubernetes Service. O cluster utiliza uma VM com GPU ativada para o serviço web do anfitrião e pedidos de inferência de pontuação.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515178"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595661"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>Como fazer a inferência GPU
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Implementar um modelo de aprendizagem profunda para inferência com GPU
 
 Saiba como utilizar a inferência GPU para um modelo implementado como um serviço web machine learning. Neste artigo, irá aprender a utilizar o serviço Azure Machine Learning para implementar um exemplo de modelo de aprendizagem profundo do Tensorflow. O modelo de implementação de um cluster do Azure Kubernetes Service (AKS) que utiliza uma VM com GPU ativada para hospedar o serviço. Quando as solicitações são enviadas para o serviço, o modelo utiliza a GPU para realizar a inferência.
 
 As GPUs oferecem vantagens de desempenho em relação ao CPUs na computação altamente ponto pode ser paralelizada. Modelos (especialmente para lotes grandes de pedidos) de aprendizagem profunda de inferência e formação são casos de utilização excelente para GPUs.  
 
-Neste exemplo mostram-lhe como implementar um modelo do TensorFlow guardado para o Azure Machine Learning. 
-
-## <a name="goals-and-prerequisites"></a>Pré-requisitos e objetivos
-
-Siga as instruções para:
-* Criar uma GPU ativada cluster do AKS
+Neste exemplo mostram-lhe como implementar um modelo do TensorFlow guardado para o Azure Machine Learning por:
+* Criar um cluster do AKS com GPU ativada
 * Implementar um modelo com GPU do Tensorflow
 
-Pré-requisitos:
+## <a name="prerequisites"></a>Pré-requisitos
+
 * Área de trabalho de serviços do Azure Machine Learning
 * Python
 * Tensorflow SavedModel registado. Para saber como registar-se ver modelos [implementar modelos](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-Este artigo se baseia em [Implantando o Tensorflow modelos para AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), que utiliza o TensorFlow guardado modelos e implementa um cluster do AKS. No entanto, com pequenas alterações para o ficheiro de classificação e o ficheiro de ambiente é aplicável a qualquer estrutura de aprendizado de máquina que suportam GPUs.  
+Este artigo se baseia no bloco de notas do Jupyter [Implantando o Tensorflow modelos para AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), que utiliza o TensorFlow guardado modelos e implementa um cluster do AKS. No entanto, com pequenas alterações para o ficheiro de classificação e o ficheiro de ambiente é aplicável a qualquer estrutura de aprendizado de máquina que suportam GPUs.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>Cluster do AKS aprovisionar com GPUs
 O Azure tem muitas opções diferentes de GPU, todos os quais podem ser utilizados para inferência. Ver [a lista de série N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) para uma divisão completa de capacidades e os custos. 

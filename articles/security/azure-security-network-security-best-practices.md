@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/05/2019
 ms.author: TomSh
-ms.openlocfilehash: 78402d3e388f08eae6652859a71c93ff408a5b0d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: f36658d57fb514ff279c39e9cb1644cf56341ec4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152979"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761838"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Melhores práticas do Azure para segurança de rede
 Este artigo discute uma coleção de melhores práticas do Azure para melhorar a segurança de rede. Essas práticas recomendadas são derivadas da nossa experiência com redes do Azure e as experiências dos clientes, como mesmo.
@@ -129,7 +129,7 @@ Muitas organizações optou pela híbrida rota IT. Com TI híbridos, alguns dos 
 
 Num cenário de TI híbrido, normalmente há algum tipo de conectividade em vários locais. Conectividade entre instalações, permite que a empresa ligar as redes no local a redes virtuais do Azure. Duas soluções de conectividade em vários locais estão disponíveis:
 
-* [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). É uma tecnologia estabelecida, fiável e fidedigna, mas a ligação tem lugar na Internet. Largura de banda é restrito a um máximo de cerca de 200 Mbps. VPN site a site é uma opção desejável em alguns cenários.
+* [Site-to-site VPN](../vpn-gateway/vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md). É uma tecnologia estabelecida, fiável e fidedigna, mas a ligação tem lugar na Internet. Largura de banda é restrito a um máximo de aproximadamente 1.25 Gbps. VPN site a site é uma opção desejável em alguns cenários.
 * **O Azure ExpressRoute**. Recomendamos que utilize [ExpressRoute](../expressroute/expressroute-introduction.md) para a conectividade em vários locais. O ExpressRoute permite-lhe expandir as redes no local para a cloud da Microsoft através de uma ligação privada facilitada por um fornecedor de conectividade. Com o ExpressRoute, pode estabelecer ligações a serviços cloud da Microsoft, como o Azure, Office 365 e Dynamics 365. O ExpressRoute é uma WAN dedicada ligação entre a sua localização no local ou um fornecedor de alojamento do Microsoft Exchange. Como se trata de uma ligação de telecomunicações, seus dados não viajam através da internet, para que ele não é exposto a riscos potenciais de comunicações da internet.
 
 A localização da sua ligação de ExpressRoute pode afetar a capacidade de firewall, a escalabilidade, confiabilidade e visibilidade de tráfego de rede. Precisará identificar onde encerrar ExpressRoute no existentes (redes no local). Pode:

@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399901"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606708"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resolver problemas de distorção de dados com o Azure Data Lake Tools para Visual Studio
 
@@ -36,7 +36,7 @@ Se não afeta a lógica de negócio, pode filtrar os valores de freqüência mai
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opção 2: Escolher uma chave de partição ou de distribuição diferente
 
-No exemplo anterior, se quiser apenas verificar a carga de trabalho de auditoria de imposto em todo o país, pode melhorar a distribuição de dados ao selecionar o número de ID como sua chave. Escolher uma partição diferente ou uma chave de distribuição pode por vezes, distribuir uniformemente os dados mais, mas precisa para se certificar de que essa opção não afeta a lógica de negócio. Por exemplo, para calcular a soma de imposto para cada Estado, poderá querer designar _estado_ como a chave de partição. Se continuar a ter este problema, tente utilizar a opção 3.
+No exemplo anterior, se quiser apenas verificar a carga de trabalho de auditoria de imposto em todo o país/região, pode melhorar a distribuição de dados ao selecionar o número de ID como sua chave. Escolher uma partição diferente ou uma chave de distribuição pode por vezes, distribuir uniformemente os dados mais, mas precisa para se certificar de que essa opção não afeta a lógica de negócio. Por exemplo, para calcular a soma de imposto para cada Estado, poderá querer designar _estado_ como a chave de partição. Se continuar a ter este problema, tente utilizar a opção 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opção 3: Adicionar mais chaves de partição ou de distribuição
 

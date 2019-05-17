@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec6caecde3e90f7113f60286e95cdaeb996003f7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437750"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784045"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirecionar os links codificados para as aplicações publicadas com o Proxy de aplicações do Azure AD
 
@@ -59,13 +59,14 @@ Com a extensão de Browser MyApps, todos os URL internos publicados com o Proxy 
 
 Para utilizar esta funcionalidade, o utilizador tem de transferir a extensão e de ter sessão iniciada. Não existe nenhuma outra configuração necessária para os administradores ou pelos utilizadores. 
 
- 
+Para obter mais informações, incluindo como configurar esta opção, consulte a [extensão de Browser MyApps](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentação.
 
 ### <a name="option-3-link-translation-setting"></a>Opção 3: Definição de tradução de ligação 
 
-Quando a conversão de link está ativada, o serviço de Proxy de aplicações pesquisa por meio de HTML e CSS publicados links internos e converte-os para que os utilizadores obtêm uma experiência sem interrupções. 
+Quando a conversão de link está ativada, o serviço de Proxy de aplicações pesquisa por meio de HTML e CSS publicados links internos e converte-os para que os utilizadores obtêm uma experiência sem interrupções. Usando a extensão de Browser MyApps é preferido para a definição de conversão de Link, pois ele permite uma experiência de desempenho mais aos utilizadores.
 
-
+> [!NOTE]
+> Se estiver usando a opção 2 ou 3, apenas um destes deve ser ativado ao mesmo tempo.
 
 ## <a name="how-link-translation-works"></a>Como ligar funciona de tradução
 

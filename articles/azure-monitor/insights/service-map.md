@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404647"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606501"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução mapa de serviço no Azure
 O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
@@ -29,7 +29,7 @@ Este artigo descreve os detalhes de integração e a utilizar o mapa de serviço
 >Se já tiver implementado o mapa de serviço, agora também pode ver seus mapas no Azure Monitor para as VMs, que inclui recursos adicionais para monitorizar o estado de funcionamento da VM e o desempenho. Para obter mais informações, consulte [do Azure Monitor para descrição geral de VMs](../../azure-monitor/insights/vminsights-overview.md).
 
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Ativar o mapa de serviço
@@ -91,7 +91,7 @@ Os utilizadores selecionar quais os servidores pertencem um grupo em conjunto e 
 ### <a name="creating-a-machine-group"></a>Criação de um grupo de máquina
 Para criar um grupo, selecione a máquina ou máquinas que pretende nas máquinas lista e clique em **adicionar ao grupo**.
 
-![Criar Grupo](media/service-map/machine-groups-create.png)
+![Create Group](media/service-map/machine-groups-create.png)
 
 Aqui, pode escolher **criar novo** e dê um nome de grupo.
 
@@ -174,7 +174,7 @@ Grupos de portas de servidor são caixas que representam as portas de servidor n
 
 ![Grupos de portas de servidor](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>Menu Contexto
+## <a name="context-menu"></a>Menu de contexto
 Ao clicar no botão de reticências (...) na parte superior direita de qualquer servidor apresenta o menu de contexto para esse servidor.
 
 ![Ligações com falhas](media/service-map/context-menu.png)
@@ -316,7 +316,7 @@ Para levar em conta o impacto de agrupamento, são fornecidas informações sobr
 | `LinksFailed` |O número de ligações de rede física que falharam durante a janela de tempo de criação de relatórios. Estas informações estão atualmente disponíveis apenas para ligações de saída. |
 | `LinksLive` |O número de ligações de rede física que foram abertas no final da janela de tempo de criação de relatórios|
 
-#### <a name="metrics"></a>Métricas
+#### <a name="metrics"></a>Métrica
 
 Para além das métricas de contagem de ligação, informações sobre o volume de dados enviados e receberam numa determinada ligação lógica ou a porta de rede também inclui as seguintes propriedades do registo:
 
@@ -348,7 +348,7 @@ Para sua comodidade, o endereço IP do final de uma conexão remota está inclu�
 
 | Propriedade | Descrição |
 |:--|:--|
-| `RemoteCountry` |O nome do país RemoteIp de alojamento.  Por exemplo, *dos Estados Unidos* |
+| `RemoteCountry` |O nome do país/região RemoteIp de alojamento.  Por exemplo, *dos Estados Unidos* |
 | `RemoteLatitude` |A latitude da localização geográfica.  Por exemplo, *47.68* |
 | `RemoteLongitude` |A longitude da localização geográfica.  Por exemplo, *-122.12* |
 
@@ -510,5 +510,5 @@ Saiba mais sobre [pesquisas de registos](../../azure-monitor/log-query/log-query
 Consulte a [secção do documento de mapa de serviço de configuração de resolução de problemas]( service-map-configure.md#troubleshooting).
 
 
-## <a name="feedback"></a>Comentários
+## <a name="feedback"></a>Feedback
 Tem comentários para nós sobre o mapa de serviço ou esta documentação?  Visite nosso [página do Uservoice](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde pode sugerir funcionalidades ou sugestões existentes de votos.

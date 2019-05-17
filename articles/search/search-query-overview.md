@@ -7,14 +7,14 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 7ed675e4c6988cf4c1340613323440de55a36843
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 95f5dde12ad9e34a0a04c988a816538ac30e01e6
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024471"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595972"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Como compor uma consulta no Azure Search
 
@@ -122,7 +122,7 @@ O Azure Search oferece suporte a uma ampla variedade de tipos de consulta.
 | Pesquisa filtrada | [Expressão de filtro de OData](query-odata-filter-orderby-syntax.md) e de qualquer analisador | Consultas de filtro avalie uma expressão booleana todos os *filtráveis* campos num índice. Ao contrário de pesquisa, uma consulta de filtro corresponde aos conteúdos exatos de um campo, incluindo sensibilidade em campos de cadeia de caracteres. Outra diferença é que as consultas de filtro são expressas em sintaxe OData. <br/>[Exemplo de expressão de filtro](search-query-simple-examples.md#example-3-filter-queries) |
 | Pesquisa geográfica | [Tipo de geographypoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) no campo expressão de filtro e de qualquer analisador | Coordenadas armazenadas num campo de ter um geographypoint são usados para "encontrar perto de mim" ou baseada em mapa procurar controlos. <br/>[Exemplo de pesquisa geográfica](search-query-simple-examples.md#example-5-geo-search)|
 | Pesquisa de intervalo | expressão de filtro e analisador simple | No Azure Search, as consultas de intervalo são criadas utilizando o parâmetro de filtro. <br/>[Exemplo de filtro de intervalo](search-query-simple-examples.md#example-4-range-filters) | 
-| [Filtragem em campo](query-lucene-syntax.md#bkmk_fields) | Parâmetro de pesquisa e analisador completo | Crie uma expressão de consulta compostos visando um único campo. <br/>[Exemplo de filtro em campo](search-query-lucene-examples.md#example-2-intra-field-filtering) |
+| [Pesquisa respondida](query-lucene-syntax.md#bkmk_fields) | Parâmetro de pesquisa e analisador completo | Crie uma expressão de consulta compostos visando um único campo. <br/>[Exemplo de pesquisa respondidas](search-query-lucene-examples.md#example-2-fielded-search) |
 | [pesquisa difusa](query-lucene-syntax.md#bkmk_fuzzy) | Parâmetro de pesquisa e analisador completo | Correspondências em termos de ter uma construção semelhante ou ortografia. <br/>[Exemplo de pesquisa difusa](search-query-lucene-examples.md#example-3-fuzzy-search) |
 | [pesquisa de proximidade](query-lucene-syntax.md#bkmk_proximity) | Parâmetro de pesquisa e analisador completo | Termos de encontra que estejam perto uns dos outros num documento. <br/>[Exemplo de pesquisa de proximidade](search-query-lucene-examples.md#example-4-proximity-search) |
 | [prazo adaptativo](query-lucene-syntax.md#bkmk_termboost) | Parâmetro de pesquisa e analisador completo | Classifica um documento superior se contiver o termo elevado, relativas a outras pessoas que não. <br/>[Exemplo de adaptativo do termo](search-query-lucene-examples.md#example-5-term-boosting) |

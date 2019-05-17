@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c7f0afb2776f11ac9406fced1209dfedd769a96f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf801b8b6b458104a469932487860285102a641b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913785"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777643"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-c"></a>Como utilizar a API de REST do QnA Maker comC# 
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ Tem de ter uma [conta de API dos Serviços Cognitivos](https://docs.microsoft.co
 
 ## <a name="create-knowledge-base"></a>Criar uma base de dados de conhecimento
 
-O seguinte código cria uma nova base de dados de conhecimento, através do método [Criar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+O seguinte código cria uma nova base de dados de conhecimento, através do método [Criar](https://go.microsoft.com/fwlink/?linkid=2092179).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -87,7 +87,7 @@ namespace QnAMaker
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -247,7 +247,7 @@ namespace QnAMaker
 
 ## <a name="update-knowledge-base"></a>Atualizar base de dados de conhecimento
 
-O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+O código seguinte atualiza uma base de dados de conhecimento existente, através do método [Atualizar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -287,7 +287,7 @@ namespace QnAMaker
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -441,7 +441,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obter estado do pedido
 
-Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) para verificar o estado de um pedido para criar ou atualizar uma base de dados de conhecimento. Para ver como este método é utilizado, consulte o código de exemplo para o método [Criar](#Create) ou [Atualizar](#Update).
+Pode chamar o método [Operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) para verificar o estado de um pedido para criar ou atualizar uma base de dados de conhecimento. Para ver como este método é utilizado, consulte o código de exemplo para o método [Criar](#Create) ou [Atualizar](#Update).
 
 [Voltar ao início](#HOLTop)
 
@@ -449,7 +449,7 @@ Pode chamar o método [Operação](https://westus.dev.cognitive.microsoft.com/do
 
 ## <a name="publish-knowledge-base"></a>Publicar base de dados de conhecimento
 
-O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+O seguinte código publica uma base de dados de conhecimento existente através do método [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -544,7 +544,7 @@ namespace QnAMaker
 
 ## <a name="replace-knowledge-base"></a>Substituir base de dados de conhecimento
 
-O código seguinte substitui o conteúdo da base de dados de conhecimento especificada, através do método [Substituir](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
+O código seguinte substitui o conteúdo da base de dados de conhecimento especificada, através do método [Substituir](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -583,7 +583,7 @@ namespace QnAMaker
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -661,7 +661,7 @@ namespace QnAMaker
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>Transferir o conteúdo de uma base de dados de conhecimento
 
-O código seguinte transfere o conteúdo da base de dados de conhecimento especificada, através do método [Transferir base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download).
+O código seguinte transfere o conteúdo da base de dados de conhecimento especificada, através do método [Transferir base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -746,7 +746,7 @@ namespace QnAMaker
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -881,7 +881,7 @@ namespace QnAMaker
 
 ## <a name="get-information-about-a-knowledge-base"></a>Obter informações sobre uma base de dados de conhecimento
 
-O código seguinte obtém informações sobre uma base de dados de conhecimento especificada, através do método [Obter detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails).
+O código seguinte obtém informações sobre uma base de dados de conhecimento especificada, através do método [Obter detalhes da base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -981,7 +981,7 @@ namespace QnAMaker
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Obter todas as bases de dados de conhecimento de um utilizador
 
-O código seguinte obtém informações sobre todas bases de dados de conhecimento de um utilizador especificado, através do método [Obter bases de dados de conhecimento do utilizador](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser).
+O código seguinte obtém informações sobre todas bases de dados de conhecimento de um utilizador especificado, através do método [Obter bases de dados de conhecimento do utilizador](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1094,7 +1094,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Eliminar uma base de dados de conhecimento
 
-O código seguinte elimina a base de dados de conhecimento especificada, através do método [Eliminar base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete).
+O código seguinte elimina a base de dados de conhecimento especificada, através do método [Eliminar base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1188,7 +1188,7 @@ namespace QnAMaker
 
 ## <a name="get-endpoint-keys"></a>Obter chaves de ponto final
 
-O código seguinte obtém as chaves de ponto final atuais, através do método[Obter chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys).
+O código seguinte obtém as chaves de ponto final atuais, através do método[Obter chaves de ponto final](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1273,7 +1273,7 @@ namespace QnAMaker
 
 ## <a name="refresh-endpoint-keys"></a>Atualizar chaves de ponto final
 
-O código seguinte regenera as chaves de ponto final atuais, através do método[Atualizar chaves de ponto final](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys).
+O código seguinte regenera as chaves de ponto final atuais, através do método[Atualizar chaves de ponto final](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1361,7 +1361,7 @@ namespace QnAMaker
 
 ## <a name="get-word-alterations"></a>Obter alterações de palavras
 
-O código seguinte obtém as alterações de palavras atuais, com o método [Transferir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc).
+O código seguinte obtém as alterações de palavras atuais, com o método [Transferir alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1452,7 +1452,7 @@ namespace QnAMaker
 
 ## <a name="replace-word-alterations"></a>Substituir alterações de palavras
 
-O código seguinte substitui as alterações de palavras atuais, através do método [Substituir alterações](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd).
+O código seguinte substitui as alterações de palavras atuais, através do método [Substituir alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace).
 
 1. Crie um novo projeto em C# no seu IDE favorito.
 2. Adicione o código indicado abaixo.
@@ -1568,7 +1568,7 @@ namespace QnAMaker
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>Consulte também 
 

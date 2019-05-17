@@ -1,7 +1,7 @@
 ---
 title: Destinos de computação remota automatizados do ML
 titleSuffix: Azure Machine Learning service
-description: Saiba como criar modelos com aprendizagem automática num destino de computação remota (DSVM) de Máquina Virtual de ciência de dados com o serviço Azure Machine Learning
+description: Saiba como criar modelos com aprendizagem automática num destino de computação remota do Azure Machine Learning com o serviço Azure Machine Learning
 services: machine-learning
 author: nacharya1
 ms.author: nilesha
@@ -12,26 +12,26 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6f2d71abeacee531b21a8276f621367dd39a39d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a18bdf3a2a1ccd60ff20d21ebd99f4f6e15e38f
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820319"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551344"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Utilizar modelos com aprendizagem automática na cloud
 
 No Azure Machine Learning, preparar o seu modelo em diferentes tipos de recursos de computação que gere. O destino de computação pode ser um computador local ou na cloud.
 
-Pode facilmente aumentar verticalmente ou aumente horizontalmente a sua experimentação de machine learning, adicionar destinos de computação adicionais. Opções de destino de computação incluem a Máquina Virtual de ciência de dados (DSVM) baseada em Ubuntu ou de computação do Azure Machine Learning. A DSVM é uma imagem VM personalizada na cloud do Microsoft Azure criada especificamente para fazer ciência de dados. Ele tem muitas ciência de dados populares e outras ferramentas pré-instaladas e pré-configuradas.  
+Pode facilmente aumentar verticalmente ou aumente horizontalmente a sua experimentação de machine learning, adicionar destinos de computação adicionais, tais como a computação do Azure Machine Learning (AmlCompute). AmlCompute é uma infraestrutura de computação gerida que permite-lhe criar facilmente uma única ou vários nó de computação.
 
-Neste artigo, saiba como criar um modelo através de ML automatizada na DSVM.
+Neste artigo, saiba como criar um modelo através de ML automatizada com AmlCompute.
 
 ## <a name="how-does-remote-differ-from-local"></a>Remoto difere do local?
 
-O tutorial "[preparar um modelo de classificação automatizada de machine Learning](tutorial-auto-train-models.md)" ensina a utilizar um computador local para preparar o modelo com o ML automatizada.  O fluxo de trabalho ao treinar localmente também se aplica a também destinos remotos. No entanto, com computação remota, automatizadas iterações de experimentação do ML são executadas assincronamente. Esta funcionalidade permite-lhe cancelar uma iteração específica, ver o estado da execução ou continuar a trabalhar em outras células no bloco de notas do Jupyter. Para preparar remotamente, crie primeiro um destino de computação remota, como uma DSVM do Azure.  Em seguida, configure o recurso remoto e submeter o seu código.
+O tutorial "[preparar um modelo de classificação automatizada de machine Learning](tutorial-auto-train-models.md)" ensina a utilizar um computador local para preparar o modelo com o ML automatizada.  O fluxo de trabalho ao treinar localmente também se aplica a também destinos remotos. No entanto, com computação remota, automatizadas iterações de experimentação do ML são executadas assincronamente. Esta funcionalidade permite-lhe cancelar uma iteração específica, ver o estado da execução ou continuar a trabalhar em outras células no bloco de notas do Jupyter. Para preparar remotamente, crie primeiro um destino de computação remota como AmlCompute. Em seguida, configure o recurso remoto e submeter o seu código.
 
-Este artigo mostra as etapas adicionais necessárias para executar uma experimentação do ML automatizada numa DSVM do remota.  O objeto de área de trabalho, `ws`, partir do tutorial é usado em todo o código aqui.
+Este artigo mostra as etapas adicionais necessárias para executar uma experimentação do ML automatizada num destino AmlCompute remoto. O objeto de área de trabalho, `ws`, partir do tutorial é usado em todo o código aqui.
 
 ```python
 ws = Workspace.from_config()
@@ -39,67 +39,32 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>Criar recurso
 
-Criar DSVM na sua área de trabalho (`ws`) se ainda não exista. Se a DSVM foi criada anteriormente, esse código ignora o processo de criação e carrega os detalhes de recursos existente para o `dsvm_compute` objeto.  
+Criar o destino de AmlCompute na sua área de trabalho (`ws`) se ainda não exista.  
 
-**Estimativa de tempo**: Criação da VM demora cerca de 5 minutos.
-
-```python
-from azureml.core.compute import DsvmCompute
-
-dsvm_name = 'mydsvm' #Name your DSVM
-try:
-    dsvm_compute = DsvmCompute(ws, dsvm_name)
-    print('found existing dsvm.')
-except:
-    print('creating new dsvm.')
-    # Below is using a VM of SKU Standard_D2_v2 which is 2 core machine. You can check Azure virtual machines documentation for additional SKUs of VMs.
-    dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-    dsvm_compute = DsvmCompute.create(ws, name = dsvm_name, provisioning_configuration = dsvm_config)
-    dsvm_compute.wait_for_completion(show_output = True)
-```
-
-Agora, pode utilizar o `dsvm_compute` objeto como o destino de computação remota.
-
-Restrições de nome de DSVM incluem:
-+ Tem de ser menor do que 64 carateres.  
-+ Não é possível incluir qualquer um dos seguintes carateres: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\", < > /?. `
-
->[!Warning]
->Se a falha com uma mensagem sobre a elegibilidade de compra do Marketplace:
->    1. Aceda ao [Portal do Azure](https://portal.azure.com)
->    1. Começar a criar uma DSVM 
->    1. Selecione "Quero criar programaticamente" para permitir a criação programática
->    1. Sair sem precisar criar a VM
->    1. Volte a executar o código de criação
-
-Esse código não cria um nome de utilizador ou palavra-passe para a DSVM que está aprovisionada. Se pretender ligar diretamente à VM, vá para o [portal do Azure](https://portal.azure.com) para criar as credenciais.  
-
-### <a name="attach-existing-linux-dsvm"></a>Anexar existente DSVM do Linux
-
-Também pode anexar uma DSVM do Linux existente como o destino de computação. Este exemplo utiliza uma DSVM existente, mas não cria um novo recurso.
-
-> [!NOTE]
->
-> O seguinte código utiliza a [RemoteCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.remote.remotecompute?view=azure-ml-py) classe para anexar uma VM existente como o destino de computação de destino.
-> O [DsvmCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.dsvmcompute?view=azure-ml-py) classe vai ser preterida em versões futuras em favor este padrão de design.
-
-Execute o seguinte código para criar o destino de computação a partir de uma DSVM do Linux já existente.
+**Estimativa de tempo**: Criação do destino AmlCompute demora cerca de 5 minutos.
 
 ```python
-from azureml.core.compute import ComputeTarget, RemoteCompute 
+from azureml.core.compute import AmlCompute
+from azureml.core.compute import ComputeTarget
 
-attach_config = RemoteCompute.attach_configuration(username='<username>',
-                                                   address='<ip_address_or_fqdn>',
-                                                   ssh_port=22,
-                                                   private_key_file='./.ssh/id_rsa')
-compute_target = ComputeTarget.attach(workspace=ws,
-                                      name='attached-vm',
-                                      attach_configuration=attach_config)
+amlcompute_cluster_name = "automlcl" #Name your cluster
+provisioning_config = AmlCompute.provisioning_configuration(vm_size = "STANDARD_D2_V2", 
+                                                            # for GPU, use "STANDARD_NC6"
+                                                            #vm_priority = 'lowpriority', # optional
+                                                            max_nodes = 6)
 
-compute_target.wait_for_completion(show_output=True)
+compute_target = ComputeTarget.create(ws, amlcompute_cluster_name, provisioning_config)
+    
+# Can poll for a minimum number of nodes and for a specific timeout.
+# If no min_node_count is provided, it will use the scale settings for the cluster.
+compute_target.wait_for_completion(show_output = True, min_node_count = None, timeout_in_minutes = 20)
 ```
 
 Agora, pode utilizar o `compute_target` objeto como o destino de computação remota.
+
+Restrições de nome de cluster incluem:
++ Tem de ser menor do que 64 carateres.  
++ Não é possível incluir qualquer um dos seguintes carateres: `\` ~! @ # $ % ^ & * () = + _ [] {} \\ \\ |;: \' \\", < > /?. `
 
 ## <a name="access-data-using-getdata-file"></a>Aceder a dados usando o arquivo de get_data
 
@@ -161,7 +126,7 @@ automl_settings = {
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                             )
@@ -175,7 +140,7 @@ Definir o opcional `model_explainability` parâmetro no `AutoMLConfig` construto
 automl_config = AutoMLConfig(task='classification',
                              debug_log='automl_errors.log',
                              path=project_folder,
-                             compute_target = dsvm_compute,
+                             compute_target = compute_target,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
                              model_explainability=True,
@@ -250,12 +215,12 @@ Localizar registos na DSVM em `/tmp/azureml_run/{iterationid}/azureml-logs`.
 
 A obter dados de explicação do modelo permite-lhe ver informações detalhadas sobre os modelos para aumentar a transparência no que está sendo executado no back-end. Neste exemplo, execute explicações de modelo apenas para o melhor modelo de ajuste. Se executar para todos os modelos no pipeline, irá resultar num tempo de execução significativo. As informações de explicação do modelo incluem:
 
-* shap_values: As informações de explicação geradas pelo shap lib
+* shap_values: As informações de explicação geradas pelo shap lib.
 * expected_values: O valor esperado do modelo aplicado ao conjunto de dados de X_train.
-* overall_summary: Os valores de importância de nível de funcionalidade do modelo ordenados por ordem descendente
-* overall_imp: Os nomes das funcionalidades ordenados pela mesma ordem como no overall_summary
-* per_class_summary: Os valores de importância de nível de funcionalidade classe ordenados por ordem descendente. Disponível apenas para o caso de classificação
-* per_class_imp: Os nomes das funcionalidades ordenados pela mesma ordem como no per_class_summary. Disponível apenas para o caso de classificação
+* overall_summary: Os valores de importância de nível de funcionalidade modelo ordenados por ordem descendente.
+* overall_imp: Os nomes das funcionalidades ordenados pela mesma ordem como no overall_summary.
+* per_class_summary: Os valores de importância de nível de funcionalidade classe ordenados por ordem descendente. Apenas disponível para o caso de classificação.
+* per_class_imp: Os nomes das funcionalidades ordenados pela mesma ordem como no per_class_summary. Apenas disponível para o caso de classificação.
 
 Utilize o seguinte código para selecionar o pipeline melhor de sua iterações. O `get_output` método retorna a melhor execução e o modelo de ajustada para a invocação de acordo com a última.
 
@@ -291,7 +256,7 @@ Também é possível visualizar importância de funcionalidade através do widge
 
 ## <a name="example"></a>Exemplo
 
-O [how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-execution/auto-ml-remote-execution.ipynb) bloco de notas demonstra conceitos deste artigo. 
+O [how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) bloco de notas demonstra conceitos deste artigo. 
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

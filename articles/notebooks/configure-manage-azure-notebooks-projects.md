@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234895"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596737"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 
@@ -37,38 +37,7 @@ Blocos de notas do Azure inicia a máquina virtual subjacente sempre que executa
 
 ## <a name="compute-tier"></a>Escalão de computação
 
-O **executar** na lista pendente no dashboard do projeto é onde seleciona o escalão de computação em que o projeto é executado. Por predefinição, os projetos de executar no **computação gratuita** escalão, o que está limitado a 4 GB de memória e 1 GB de dados para evitar abusos:
-
-![Lista pendente de camada no dashboard do projeto de computação](media/project-compute-tier-list.png)
-
-Pode ignorar estas limitações ao utilizar uma máquina virtual diferente que já aprovisionados numa subscrição do Azure. Tem de instalar e executar JupyterHub nessa máquina virtual. As imagens de máquina de Virtual de ciência de dados (qualquer sistema operativo) são boas opções, pois eles incluem JupyterHub por predefinição.
-
-Assim que tiver uma máquina virtual do Azure configurada convenientemente, selecione o **computação direto** opção na lista pendente, que pede-lhe uma porta (normalmente 8000, a porta predefinida para o qual e endereço IP da VM, nome (para mostrar na lista) JupyterHub escuta) e as credenciais VM:
-
-![Linha de comandos para recolher informações do servidor para a opção de computação direto](media/project-compute-tier-direct.png)
-
-Se as seguintes condições forem verdadeiras, também mostra a lista pendente [Máquina Virtual de ciência de dados (DSVM)](/azure/machine-learning/data-science-virtual-machine) instâncias. (Se alguma dessas condições não forem cumpridas, pode ligar a DSVM usando a opção de computação direto e introduzir os valores obtidos a partir do portal do Azure.)
-
-- Tem sessão iniciada em blocos de notas do Azure com uma conta que utiliza o Azure Active Directory (AAD), como uma conta da empresa.
-- Sua conta está ligada a uma subscrição do Azure.
-- Tiver uma ou mais máquinas virtuais nessa subscrição, com, pelo menos, acesso de leitor, o que utilizar a máquina de Virtual de ciência de dados para a imagem do Linux (Ubuntu).)
-
-![Instâncias de Máquina Virtual de ciência de dados na lista pendente no dashboard do projeto](media/project-compute-tier-dsvm.png)
-
-Quando seleciona uma instância DSVM, blocos de notas do Azure pode solicitar-lhe as credenciais de máquina específica que utilizou quando criou a VM.
-
-Para criar uma nova instância DSVM, siga as instruções [criar uma VM de ciência de dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Utilize o **Máquina Virtual de ciência de dados para Linux (Ubuntu)** de imagem se pretender que a DSVM a apareça na lista pendente em blocos de notas do Azure.  Se por outros motivos, tem de utilizar a imagem do Windows ou CentOS, pode utilizar o **computação direto** opção para ligar ao DSVM manualmente.
-
-> [!IMPORTANT]
-> Ao utilizar máquinas de virtuais de ciência de dados ou de computação direto, os blocos de notas que executar nos mesmos tem de ser totalmente autônomos. No momento, blocos de notas do Azure copia apenas os *.ipynb* ficheiro para a VM, mas não copia todos os outros ficheiros no projeto. Como resultado, os blocos de notas em execução em outras VMs falharem localizar outros arquivos do projeto.
->
-> Pode contornar este comportamento de duas formas:
->
-> 1. Copie manualmente os arquivos de projeto para a VM.
->
-> 2. Os ficheiros dentro de um bloco de notas de configuração de incorporação que execute primeiro antes do bloco de notas primário. O bloco de notas de configuração, crie uma célula de código para cada ficheiro em que a célula que contém o conteúdo do ficheiro. Em seguida, na parte superior de cada célula, insira o comando `%%writefile <filename>`, onde `<filename>` é o nome do ficheiro para receber o conteúdo. Ao executar o bloco de notas, ele cria todos esses arquivos na VM. Por exemplo, veja a [setup.ipynb ficheiro na demonstração Microsoft animal de estimação detetor](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Usando um % % writefile comando no início de uma célula de código](media/setup-notebook-writefile-command.png)
+Por predefinição, os projetos de executar no **computação gratuita** escalão, o que está limitado a 4 GB de memória e 1 GB de dados para evitar abusos. Pode ignorar estas limitações e aumentar o poder de computação através da utilização de uma máquina virtual diferente que já aprovisionados numa subscrição do Azure. Para obter mais informações, consulte [como utilizar máquinas de virtuais de ciência de dados](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 

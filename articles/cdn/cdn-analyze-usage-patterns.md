@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061584"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606381"
 ---
 # <a name="core-reports-from-verizon"></a>Relatórios de núcleos da Verizon
 
@@ -27,7 +27,7 @@ ms.locfileid: "61061584"
 
 Ao utilizar relatórios de núcleos da Verizon através do portal de gerenciar para Verizon perfis, pode ver padrões de utilização da sua CDN com os seguintes relatórios:
 
-* Largura de Banda
+* Largura de banda
 * Dados transferidos
 * Acertos
 * Estados da cache
@@ -50,7 +50,7 @@ Ao utilizar relatórios de núcleos da Verizon através do portal de gerenciar p
 
 4. Se quiser exportar os dados no formato Excel, clique no ícone de Excel acima a **ir** botão.
 
-## <a name="bandwidth"></a>Largura de Banda
+## <a name="bandwidth"></a>Largura de banda
 O relatório de largura de banda consiste numa tabela de dados e gráficos que indica a utilização de largura de banda da CDN para HTTP e HTTPS durante um período de tempo específico, em Mbps. Pode ver a utilização de largura de banda em todos os POPs ou para um determinado POP. Este relatório permite-lhe ver a picos de tráfego e a distribuição para os POPs.
 
 Partir do **nós periféricos** lista, selecione **todos os nós de extremidade** para ver o tráfego de todos os nós ou selecione uma região específica.
@@ -119,7 +119,7 @@ O relatório disponibiliza os seguintes detalhes:
 
 O relatório não inclui:
 
-* Pedidos que são negados devido a opções de filtragem de país.
+* Pedidos que são negados devido a opções de filtragem de país/região.
 * Pedidos ativos cujos cabeçalhos indicam que eles devem não ser colocados em cache. Por exemplo, `Cache-Control: private`, `Cache-Control: no-cache`, ou `Pragma: no-cache` cabeçalhos de impedem que um recurso que está a ser colocados em cache.
 * Pedidos de intervalo de bytes do conteúdo parcialmente em cache.
 

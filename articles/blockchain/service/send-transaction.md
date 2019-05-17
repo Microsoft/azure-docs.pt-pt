@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: d3ad4cdfe33948c04c278ed3dfef7aa6fda637ab
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026810"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65777330"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Tutorial: Enviar transações com o serviço do Azure Blockchain
 
@@ -128,7 +128,7 @@ Pode obter a chave pública na lista de nó de transação. Copie a chave públi
 ### <a name="transaction-node-endpoint-addresses"></a>Endereços de ponto final do nó de transação
 
 1. No portal do Azure, navegue para cada nó de transação e selecione **nós de transação > cadeias de ligação**.
-1. Copie e guarde o URL de ponto final de * * HTTPS (chave de acesso 1) para cada nó de transação. Terá dos endereços de ponto final para o ficheiro de configuração inteligente contrato mais tarde no tutorial.
+1. Copie e guarde o URL de ponto final da **HTTPS (chave de acesso 1)** para cada nó de transação. Terá dos endereços de ponto final para o ficheiro de configuração inteligente contrato mais tarde no tutorial.
 
     ![Endereço de ponto final da transação](./media/send-transaction/endpoint.png)
 
