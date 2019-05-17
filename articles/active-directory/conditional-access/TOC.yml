@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: Exigir dispositivos geridos
       href: require-managed-devices.md
+    - name: Pedir redes fidedignas para o registo na MFA
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Exigir o MFA para tentativas de acesso a partir de redes não fidedignas
       href: untrusted-networks.md
     - name: Pedir os Termos de utilização
