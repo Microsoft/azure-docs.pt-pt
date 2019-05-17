@@ -7,18 +7,17 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480238"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826584"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Resolver problemas relacionados com o Azure Stream Analytics, utilizando os registos de diagnóstico
 
-Ocasionalmente, uma tarefa do Azure Stream Analytics inesperadamente interrompe o processamento. É importante conseguir resolver este tipo de evento. As falhas podem ser provocadas por um resultado de consulta inesperado, pela conectividade aos dispositivos ou por uma falha de serviço repentina. Os registos de diagnóstico do Stream Analytics podem ajudar a identificar a causa dos problemas quando eles ocorrerem e reduzem o tempo de recuperação.
+Ocasionalmente, uma tarefa do Azure Stream Analytics inesperadamente interrompe o processamento. É importante ser capaz de resolver esse tipo de evento. As falhas podem ser provocadas por um resultado de consulta inesperado, pela conectividade aos dispositivos ou por uma falha de serviço repentina. Os registos de diagnóstico do Stream Analytics podem ajudar a identificar a causa dos problemas quando eles ocorrerem e reduzem o tempo de recuperação.
 
 ## <a name="log-types"></a>Tipos de registo
 
@@ -83,7 +82,7 @@ Ativar registos de diagnóstico e enviando-as aos registos do Azure Monitor é a
 
 ## <a name="diagnostics-log-categories"></a>Categorias de registo de diagnóstico
 
-Atualmente, podemos capturar duas categorias de registos de diagnóstico:
+O Azure Stream Analytics captura duas categorias de registos de diagnóstico:
 
 * **Criação**: Captura de eventos de registo relacionados com operações de criação, como a criação da tarefa, adicionar e eliminar entradas e saídas, adicionar e atualizar a consulta e iniciar ou parar a tarefa de tarefa.
 
@@ -104,13 +103,13 @@ hora | Timestamp (em UTC) do registo.
 resourceId | ID do recurso que a operação ocorreu, em maiúsculas. Ele inclui o ID de subscrição, o grupo de recursos e o nome da tarefa. Por exemplo,   **/SUBSCRIPTIONS/6503D296-DAC1-4449-9B03-609A1F4A1C87/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT. STREAMANALYTICS/STREAMINGJOBS/MYSTREAMINGJOB**.
 categoria | Inicie sessão categoria, optar por **execução** ou **criação**.
 operationName | Nome da operação que é registado. Por exemplo, **enviar eventos: Falha de escrita de saída SQL para mysqloutput**.
-status | Estado da operação. Por exemplo, **falhada** ou **Succeeded**.
+estado | Estado da operação. Por exemplo, **falhada** ou **Succeeded**.
 nível | Nível de registo. Por exemplo, **erro**, **aviso**, ou **informativo**.
 propriedades | Detalhes de entrada específico do registo, serializado como uma cadeia de caracteres do JSON. Para obter mais informações, consulte as seguintes secções neste artigo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propriedades de registo de execução
 
-Registos de execução tem informações sobre eventos que ocorreram durante a execução de tarefa do Stream Analytics. O esquema das propriedades varia consoante o tipo de evento. Atualmente, temos os seguintes tipos de registos de execução:
+Registos de execução tem informações sobre eventos que ocorreram durante a execução de tarefa do Stream Analytics. O esquema das propriedades varia consoante se o evento é um erro de dados ou um evento genérico.
 
 ### <a name="data-errors"></a>Erros de dados
 
@@ -124,10 +123,14 @@ Tipo | Tipo de erro. Por exemplo, **DataConversionError**, **CsvParserError**, o
 Dados | Contém dados que são útil para localizar com precisão a origem do erro. Sujeito a truncagem, dependendo do tamanho.
 
 Consoante a **operationName** valor, erros de dados com o esquema seguinte:
-* **Serialização de eventos**. Serialização de eventos que ocorrem durante operações de leitura de evento. Que ocorrem quando os dados de entrada não satisfazem o esquema de consulta para um dos seguintes motivos:
-    * *Incompatibilidade de tipo durante o evento (de) serializar*: Identifica o campo que está causando o erro.
-    * *Não é possível ler um evento, a serialização inválido*: Lista as informações sobre a localização dos dados de entrada onde ocorreu o erro. Inclui o nome do blob de entrada de BLOBs, desvio e um exemplo dos dados.
-* **Enviar eventos**. Envie eventos ocorrem durante operações de escrita. Identificam o evento de transmissão em fluxo que causou o erro.
+
+* **Serialização de eventos** ocorrem durante operações de leitura de eventos. Que ocorrem quando os dados de entrada não satisfazem o esquema de consulta para um dos seguintes motivos:
+
+   * *Incompatibilidade de tipo durante o evento (de) serializar*: Identifica o campo que está causando o erro.
+
+   * *Não é possível ler um evento, a serialização inválido*: Lista as informações sobre a localização dos dados de entrada onde ocorreu o erro. Inclui o nome do blob de entrada de BLOBs, desvio e um exemplo dos dados.
+
+* **Enviar eventos** ocorrem durante operações de escrita. Identificam o evento de transmissão em fluxo que causou o erro.
 
 ### <a name="generic-events"></a>Eventos genéricos
 
@@ -136,7 +139,7 @@ Eventos genéricos abrangem todo o resto.
 Nome | Descrição
 -------- | --------
 Erro | (opcional) Informações de erro. Normalmente, isto é informações sobre exceções se estiver disponível.
-Mensagem| Mensagem do registo.
+Message| Mensagem do registo.
 Tipo | Tipo de mensagem. É mapeado para interno categorização de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica exclusivamente a execução de tarefa. Todas as entradas de registo de execução desde o momento em que a tarefa é iniciada até que o pára de tarefa tem o mesmo **ID de correlação** valor.
 

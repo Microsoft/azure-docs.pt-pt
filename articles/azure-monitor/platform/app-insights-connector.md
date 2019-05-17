@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c7c0d2e3fb818f74a65502674188c523d23729e8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346857"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606735"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão do Application Insights Connector (preterido)
 
@@ -192,7 +192,7 @@ Um registo com um *tipo* dos *Application Insights* é criada para cada tipo de 
 | deviceType | Dispositivo de cliente |
 | ScreenResolution |   |
 | Continente | Continente em que o pedido teve origem |
-| País | País onde o pedido teve origem |
+| País | País/região em que o pedido teve origem |
 | Província | Província, estado ou região em que o pedido teve origem |
 | Localidade | Cidade ou cidade em que o pedido teve origem |
 | isSynthetic | Indica se o pedido foi criado por um utilizador ou pelo método automatizado. = TRUE gerados pelo utilizador ou = false método automatizado |

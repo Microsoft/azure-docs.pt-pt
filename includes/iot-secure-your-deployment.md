@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289177"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815520"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Proteger a sua implementação de Internet das coisas (IoT)
 
@@ -21,11 +21,11 @@ Este artigo fornece o próximo nível de detalhe para proteger a infraestrutura 
 
 Proteger a implementação de IoT do Azure pode ser dividido em áreas de três segurança seguintes:
 
-* **Segurança de dispositivo**: proteger o dispositivo de IoT quando está a ser implementada por aí.
+* **Segurança de dispositivo**: Proteger o dispositivo de IoT quando está a ser implementada por aí.
 
-* **Segurança da ligação**: garantir que todos os dados transmitidos entre o dispositivo de IoT e IoT Hub é confidencial e à prova.
+* **Segurança da ligação**: Garantir que todos os dados transmitidos entre o dispositivo de IoT e IoT Hub é confidencial e à prova.
 
-* **Segurança da cloud**: fornecer um meio para proteger os dados enquanto se movimenta e são armazenado na cloud.
+* **Segurança da cloud**: Fornecer um meio para proteger os dados enquanto se movimenta e são armazenado na cloud.
 
 ![Três áreas de segurança](./media/iot-secure-your-deployment/overview.png)
 
@@ -35,7 +35,7 @@ Os Aceleradores de solução de IoT proteger dispositivos de IoT com os seguinte
 
 * Ao fornecer uma chave de identidade exclusiva (tokens de segurança) para cada dispositivo, o que pode ser utilizado pelo dispositivo para comunicar com o IoT Hub.
 
-* Ao utilizar um dispositivo [certificado X.509](http://www.itu.int/rec/T-REC-X.509-201210-I/en) e a chave privada como um meio para autenticar o dispositivo ao IoT Hub. Este método de autenticação garante que a chave privada no dispositivo não é conhecida fora do dispositivo em qualquer altura, fornecendo um nível mais elevado de segurança.
+* Ao utilizar um dispositivo [certificado X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) e a chave privada como um meio para autenticar o dispositivo ao IoT Hub. Este método de autenticação garante que a chave privada no dispositivo não é conhecida fora do dispositivo em qualquer altura, fornecendo um nível mais elevado de segurança.
 
 O método de token de segurança fornece autenticação para cada chamada feita pelo dispositivo ao IoT Hub, associando a chave simétrica para cada chamada. Autenticação com base em X.509 permite a autenticação de um dispositivo de IoT na camada física, como parte do estabelecimento da conexão de TLS. O método baseado em token de segurança pode ser utilizado sem a autenticação X.509, o que é um padrão de menos seguro. A escolha entre os dois métodos principalmente é ditada pelo quão segura a necessidades de autenticação do dispositivo para ser e a disponibilidade de armazenamento seguro no dispositivo (para armazenar em segurança a chave privada).
 
@@ -53,9 +53,9 @@ Cada IoT Hub tem um [registo de identidade](../articles/iot-hub/iot-hub-devguide
 
 [IoT Hub suporta protocolos como MQTT, AMQP e HTTP](../articles//iot-hub/iot-hub-devguide-security.md). Cada um desses protocolos de forma diferente, utiliza tokens de segurança do dispositivo IoT ao IoT Hub:
 
-* AMQP: Segurança de simples e baseada em declarações de AMQP do SASL (`{policyName}@sas.root.{iothubName}` com tokens de ao nível do hub IoT; `{deviceId}` com tokens no âmbito do dispositivo).
+* AMQP: SASL simples e a segurança baseada em declarações de AMQP (`{policyName}@sas.root.{iothubName}` com tokens de ao nível do hub IoT; `{deviceId}` com tokens no âmbito do dispositivo).
 
-* MQTT: Ligar o pacote utiliza `{deviceId}` como o `{ClientId}`, `{IoThubhostname}/{deviceId}` no **nome de utilizador** campo e SAS do token no **palavra-passe** campo.
+* MQTT: Utiliza o pacote do CONNECT `{deviceId}` como o `{ClientId}`, `{IoThubhostname}/{deviceId}` no **nome de utilizador** campo e SAS do token no **palavra-passe** campo.
 
 * HTTP: Token válido é no cabeçalho de pedido de autorização.
 
@@ -101,15 +101,15 @@ O IoT Hub do Azure e outros serviços que podem ser parte da solução permitem 
 
 Dados ingeridos pelo IoT Hub do Azure podem ser consumidos por uma variedade de serviços como o Azure Stream Analytics e o armazenamento de Blobs do Azure. Estes serviços permitem o acesso de gestão. Leia mais sobre estes serviços e as opções disponíveis:
 
-* [O Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): um serviço de base de dados dimensionável e totalmente indexadas para dados semi-estruturados que gere os metadados para os dispositivos aprovisionar, como atributos, configuração e propriedades de segurança. O Azure Cosmos DB oferece processamento de alto débito e de elevado desempenho, a indexação independente de esquema de dados e uma interface de consulta SQL avançada.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Um serviço de base de dados dimensionável e totalmente indexadas para dados semi-estruturados que gere os metadados para os dispositivos, aprovisionar, como atributos, configuração e propriedades de segurança. O Azure Cosmos DB oferece processamento de alto débito e de elevado desempenho, a indexação independente de esquema de dados e uma interface de consulta SQL avançada.
 
-* [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): processamento na cloud que permite-lhe desenvolver e implementar uma solução de análise de baixo custo para revelar informações em tempo real de dispositivos, sensores, infraestrutura e aplicações rapidamente em fluxo em tempo real. Os dados a partir deste serviço totalmente gerido podem ser dimensionado para qualquer volume mantendo ainda um débito elevado, baixa latência e resiliência.
+* [O Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Fluxo em tempo real de processamento na cloud que permite-lhe desenvolver e implementar uma solução de análise de baixo custo para revelar informações em tempo real de dispositivos, sensores, infraestrutura e aplicações rapidamente. Os dados a partir deste serviço totalmente gerido podem ser dimensionado para qualquer volume mantendo ainda um débito elevado, baixa latência e resiliência.
 
-* [Serviços de aplicações Azure](https://azure.microsoft.com/services/app-service/): uma plataforma de cloud para criar poderosas aplicações web e móveis que se ligam a dados em qualquer lugar; na cloud ou no local. Crie aplicações móveis cativantes para iOS, Android e Windows. Integre com o seu Software como serviço (SaaS) e aplicações empresariais a conectividade de out-of-the-box com dezenas de serviços baseados na nuvem e aplicações empresariais. Programar em sua linguagem preferida e IDE (.NET, node. js, PHP, Python ou Java) para criar aplicações web e APIs mais rápido do que nunca.
+* [Serviços aplicacionais do Azure](https://azure.microsoft.com/services/app-service/): Uma plataforma de cloud para criar poderosas aplicações web e móveis que se ligam a dados em qualquer lugar; na cloud ou no local. Crie aplicações móveis cativantes para iOS, Android e Windows. Integre com o seu Software como serviço (SaaS) e aplicações empresariais a conectividade de out-of-the-box com dezenas de serviços baseados na nuvem e aplicações empresariais. Programar em sua linguagem preferida e IDE (.NET, node. js, PHP, Python ou Java) para criar aplicações web e APIs mais rápido do que nunca.
 
-* [O Logic Apps](https://azure.microsoft.com/services/app-service/logic/): funcionalidade Logic Apps do App Service do Azure ajuda a integrar a sua solução de IoT para seus sistemas de linha de negócio existentes e automatizar processos de fluxo de trabalho. O Logic Apps permite aos programadores conceber fluxos de trabalho que começam com um acionador e, em seguida, executam uma série de passos, regras e ações que utilizam conectores poderosas para integrar com seus processos de negócios. O Logic Apps oferece a conectividade de out-of-the-box para um vasto ecossistema de SaaS, com base na cloud e aplicações no local.
+* [Aplicações lógicas](https://azure.microsoft.com/services/app-service/logic/): A funcionalidade de aplicações lógicas do serviço de aplicações do Azure ajuda a integrar a sua solução de IoT para seus sistemas de linha de negócio existentes e automatizar processos de fluxo de trabalho. O Logic Apps permite aos programadores conceber fluxos de trabalho que começam com um acionador e, em seguida, executam uma série de passos, regras e ações que utilizam conectores poderosas para integrar com seus processos de negócios. O Logic Apps oferece a conectividade de out-of-the-box para um vasto ecossistema de SaaS, com base na cloud e aplicações no local.
 
-* [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/): armazenamento de cloud fiável e económico para os dados que os dispositivos enviam para a cloud.
+* [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/): Armazenamento de cloud fiável e económico para dados que os seus dispositivos enviam para a cloud.
 
 ## <a name="conclusion"></a>Conclusão
 

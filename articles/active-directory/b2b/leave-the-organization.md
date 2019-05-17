@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f5164130c5850b37d1e1323d172f9f9c46b4b30
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412789"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768305"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Sair de uma organização como um utilizador convidado
 
@@ -46,7 +46,7 @@ Para deixar uma organização, siga estes passos.
 
 Quando um utilizador sai de uma organização, a conta de utilizador é "soft"eliminada no diretório. Por predefinição, o objeto de usuário se move para o **utilizadores eliminados** área no Azure AD, mas não é permanentemente eliminado durante 30 dias. Esta eliminação de forma recuperável permite que o administrador restaurar a conta de utilizador (incluindo os grupos e permissões), se o usuário faz uma solicitação para restaurar a conta dentro do período de 30 dias.
 
-Se assim o desejar, um administrador inquilino pode eliminar permanentemente a conta em qualquer altura durante o período de 30 dias. Para efetuar este procedimento:
+Se assim o desejar, um administrador inquilino pode eliminar permanentemente a conta em qualquer altura durante o período de 30 dias. Para tal:
 
 1. Na [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 2. Em **Gerir**, selecione **Utilizadores**.

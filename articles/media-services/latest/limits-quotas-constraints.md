@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: juliako
-ms.openlocfilehash: 42b8c4caa53ffa6b3bc1148544c75602597ac452
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1aa15a42893d867ae18c267e163e8df94af50723
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153830"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824458"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quotas e limitações em serviços de multimédia do Azure v3
 
@@ -30,7 +30,7 @@ Este artigo descreve as quotas e limitações em serviços de multimédia do Azu
 | JobOutputs por tarefa | 20 (fixa) |
 | TransformOutputs numa transformação | 20 (fixa) |
 | Ficheiros por JobInput|10 (fixa)|
-| Tamanho dos ficheiros| Em alguns cenários, existe um limite no tamanho de ficheiro máximo suportado para processamento nos serviços de multimédia. <sup>(1)</sup> |
+| Tamanho do ficheiro| Em alguns cenários, existe um limite no tamanho de ficheiro máximo suportado para processamento nos serviços de multimédia. <sup>(1)</sup> |
 | Tarefas por conta dos Media Services | 500 000 <sup>(2)</sup> (fixa)|
 | Listar Transformações|Paginar a resposta, com 1000 Transformações por página|
 | Listar Tarefas|Paginar a resposta, com 500 Tarefas por página|
@@ -43,7 +43,7 @@ Este artigo descreve as quotas e limitações em serviços de multimédia do Azu
 | Políticas de Transmissão em Fluxo | 100 <sup>(5)</sup> |
 | Transformações por conta dos Media Services | 100 (fixa)|
 | Localizadores de transmissão em fluxo exclusivos associados um recurso de uma só vez | 100<sup>(6)</sup> (fixa) |
-| Política de Chave de Conteúdo |30 | 
+| Opções de acordo com a política de chave de conteúdo |30 | 
 
 <sup>1</sup> o tamanho máximo suportado para um único blob está atualmente até 5 TB de armazenamento de Blobs do Azure. Limites adicionais aplicam-se nos serviços de multimédia com base sobre os tamanhos VM que são utilizados pelo serviço. O limite de tamanho aplica-se para os ficheiros que é carregado e também os ficheiros que obterem gerados como resultado dos serviços de multimédia de processamento (codificação ou analisar). Se o ficheiro de origem for superior a 260 GB, o seu trabalho provavelmente falhará. 
 
@@ -73,4 +73,4 @@ Para obter recursos que não estão corrigidos, pode solicitar o aumento das quo
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Descrição geral](media-services-overview.md)
+[Descrição Geral](media-services-overview.md)

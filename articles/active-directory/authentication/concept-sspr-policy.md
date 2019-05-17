@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 728d961961250aad1d06067e0264c6b90aca4915
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65593828"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823397"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Políticas de palavra-passe e restrições no Azure Active Directory
 
@@ -81,8 +81,8 @@ A tabela seguinte descreve as definições de política de palavra-passe aplicad
 
 | Propriedade | Requisitos |
 | --- | --- |
-| Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> espaço em branco |
-| Carateres não permitidos |<ul><li>Carateres Unicode.</li><li>Espaços.</li><li> Não pode conter um caráter de ponto "." imediatamente anterior a "\@ \" símbolo".</li></ul> |
+| Carateres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>espaço em branco</li></ul> |
+| Carateres não permitidos |<ul><li>Carateres Unicode.</li><li> Não pode conter um caráter de ponto "." imediatamente anterior a "\@ \" símbolo".</li></ul> |
 | Restrições de palavra-passe |<ul><li>Um mínimo de 8 caracteres e um máximo de 256 carateres.</li><li>Requer três de quatro dos seguintes procedimentos:<ul><li>Carateres em minúsculas.</li><li>Carateres maiúsculos.</li><li>Números (0-9).</li><li>Símbolos (consulte as restrições de palavra-passe anteriores).</li></ul></li></ul> |
 | Duração de expiração de palavra-passe |<ul><li>Valor predefinido: **90** dias.</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet a partir do módulo Azure Active Directory para Windows PowerShell.</li></ul> |
 | Notificação de expiração de palavra-passe |<ul><li>Valor predefinido: **14** dias (antes de expira a palavra-passe).</li><li>O valor é configurável utilizando o `Set-MsolPasswordPolicy` cmdlet.</li></ul> |
@@ -99,7 +99,6 @@ Esta orientação aplica-se para outros fornecedores, como o Intune e Office 365
 
 > [!NOTE]
 > Apenas palavras-passe para contas de utilizador que não estão sincronizadas através da sincronização de diretório podem ser configuradas para não expirar. Para obter mais informações sobre a sincronização de diretórios, consulte [Connect AD com o Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Definir ou verifique as políticas de palavra-passe com o PowerShell
 
@@ -157,7 +156,7 @@ Para começar, precisa [transferir e instalar o módulo Azure AD PowerShell](htt
    ```
 
    > [!WARNING]
-   > As palavras-passe definida como `-PasswordPolicies DisablePasswordExpiration` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e vão 90 dias, as palavras-passe expirarem. Com base na `pwdLastSet` atributo, se alterar a expiração para `-PasswordPolicies None`, todas as palavras-passe que têm um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciarem sessão. Esta alteração pode afetar um grande número de utilizadores. 
+   > As palavras-passe definida como `-PasswordPolicies DisablePasswordExpiration` ainda idade com base no `pwdLastSet` atributo. Se definir as palavras-passe de utilizador para nunca expirar e vão 90 dias, as palavras-passe expirarem. Com base na `pwdLastSet` atributo, se alterar a expiração para `-PasswordPolicies None`, todas as palavras-passe que têm um `pwdLastSet` mais antiga do que 90 dias exigir que o utilizador para alterá-los da próxima vez que iniciarem sessão. Esta alteração pode afetar um grande número de utilizadores.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

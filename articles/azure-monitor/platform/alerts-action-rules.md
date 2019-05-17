@@ -8,25 +8,28 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d27adadc9720dd2ad6a0dd133524bfaf32e63045
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f8d7b00de24c566cab204c66371dac9b569c42c9
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65227984"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619993"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
-Este artigo descreve o que são regras de ação e como configurar e geri-los.
-
-## <a name="what-are-action-rules"></a>O que são regras de ação?
-
 Regras de ação permitem-lhe definir ações (ou supressão das ações) em qualquer âmbito de Gestor de recursos (subscrição, grupo de recursos, ou recursos). Eles têm uma variedade de filtros que permitem-lhe restringir ao subconjunto específico de instâncias de alertas que pretende atuar em. 
 
-Com regras de ação, pode:
+## <a name="why-and-when-should-you-use-action-rules"></a>Por que e quando deve utilizar regras de ação?
 
-* Suprimir notificações e ações se o ter planeado as janelas de manutenção ou de fim de semana/férias, em vez de precisar desativar cada regra do alerta individualmente.
-* Defina ações e notificações em escala: Em vez de ter de definir um grupo de ação individualmente para cada regra de alerta, agora pode definir um grupo de ação para acionar para alertas gerados em qualquer âmbito. Por exemplo, eu posso ter acionador de 'ContosoActionGroup' de grupo de ação para cada alerta gerado dentro de minha assinatura.
+### <a name="suppression-of-alerts"></a>Supressão de alertas
+
+Muitas vezes, existem muitos cenários em que seria útil suprimir as notificações geradas através de alertas, que podem ir desde supressão durante uma janela de manutenção planeada para supressão durante o horário não comercial. Por exemplo, a equipe responsável por 'ContosoVM' quer suprimir notificações de alerta para o fim de semana futura, uma vez que 'ContosoVM' está numa manutenção planeada. Embora eles podem desativar cada alerta regra configuradas manualmente no 'ContosoVM' (e voltar a ativá-lo postar a manutenção), não é uma experiência simple. Regras de ação permitem-lhe definir a supressão de alerta em escala com a capacidade de forma flexível configurar o período de supressão. Voltando ao exemplo anterior, a equipe agora pode definir uma regra de ação no 'ContosoVM', que irá suprimir a todas as notificações de alerta para o fim de semana.
+
+
+### <a name="actions-at-scale"></a>Ações em escala
+
+Embora as regras de alerta permitem-lhe definir o grupo de ação que aciona quando é gerado o alerta, os clientes tendem, muitas vezes ter um grupo de ação comum entre seu escopo de operações. Por exemplo, uma equipe responsável por grupo de recursos "ContosoRG" provavelmente definirá o mesmo grupo de ação para todas as regras de alerta definido dentro de 'ContosoRG'. Regras de ação permitem-lhe simplificar esse processo, permitindo-lhe definir ações em escala, para que um grupo de ação pode ser acionado para qualquer alerta gerado no âmbito de aplicação configurado. Voltando ao exemplo anterior, a equipe agora pode definir uma regra de ação no 'ContosoRG', que irão acionar o mesmo grupo de ação para todos os alertas gerados dentro do mesmo.
+
 
 ## <a name="configuring-an-action-rule"></a>Configurar uma regra de ação
 

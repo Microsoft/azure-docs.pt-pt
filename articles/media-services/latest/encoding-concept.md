@@ -9,31 +9,34 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 937a032bffbad4e8a7d737360aa140e59760f8e2
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 25b3209bed98ea217db9e414caa6f08cee6d8c89
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472444"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761889"
 ---
 # <a name="encoding-with-media-services"></a>Encoding com Media Services
 
-Serviços de multimédia do Azure permite-lhe a codificar seus arquivos de mídia digital de alta qualidade em ficheiros MP4 de velocidade de transmissão adaptável, para que seu conteúdo pode ser jogado numa grande variedade de navegadores e dispositivos. Uma tarefa de codificação de serviços de multimédia com êxito cria uma saída ativo com um conjunto de MP4s de velocidade de transmissão adaptável e ficheiros de configuração de transmissão em fluxo. Os ficheiros de configuração incluem. ISM, .ismc, .mpi e outros arquivos que não deve modificar. Depois de fazer o trabalho de codificação, pode aproveitar [empacotamento dinâmico](dynamic-packaging-overview.md) e iniciar a transmissão em fluxo.
+A codificação de termo nos serviços de multimédia aplica-se para o processo de conversão de ficheiros que contêm vídeo digital e/ou áudio de um formato padrão para outro, com o propósito de (a) a reduzir o tamanho dos ficheiros de e/ou (b) produzir um formato compatível com um ampla gama de dispositivos e aplicações. Este processo também é referido como compressão de vídeo, ou a transcodificação. Consulte a [compressão de dados](https://en.wikipedia.org/wiki/Data_compression) e o [o que é a codificação e transcodificação?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) para ainda mais discussão sobre os conceitos.
 
-Para fazer vídeos na saída Asset disponível para os clientes para a reprodução, tem de criar uma **localizador de transmissão em fluxo** e criar URLs de transmissão em fluxo. Em seguida, com base no formato especificado no manifesto, seus clientes recebem o fluxo no protocolo que escolheu.
+Vídeos são normalmente entregues aos dispositivos e aplicações ao [transferência progressiva](https://en.wikipedia.org/wiki/Progressive_download) ou através de [transmissão em fluxo de velocidade de transmissão adaptável](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming). 
 
-O diagrama seguinte mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
+* Para entregar por transferência progressiva, pode utilizar os serviços de multimédia do Azure para converter um o ficheiro de multimédia digital (mezanino) para um [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) ficheiro que contém o vídeo que tem sido codificado com o [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) codec, e áudio que tenha sido codificado com o [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) codec. Este ficheiro MP4 é escrito para um recurso na sua conta de armazenamento. Pode utilizar as APIs de armazenamento do Azure ou SDKs (por exemplo, [API do REST de armazenamento](../../storage/common/storage-rest-api-auth.md), [SDK do JAVA](../../storage/blobs/storage-quickstart-blobs-java-v10.md), ou [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para transferir o ficheiro diretamente. Se tiver criado a saída ativo com um nome de contentor específicas no armazenamento, utilize essa localização. Caso contrário, pode utilizar serviços de multimédia para [lista os URLs do contentor de elemento](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Para preparar o conteúdo para o fornecimento por transmissão em fluxo de velocidade de transmissão adaptável, o ficheiro de mezanino tem de ser codificados em múltiplas velocidades de transmissão (alta a baixa). Para garantir uma transição anulações normal de qualidade, como a velocidade de transmissão é reduzida, portanto, é a resolução do vídeo. Isso resulta numa escada codificação chamada – uma tabela de resoluções e velocidades de transmissão (consulte [gerado automaticamente velocidade de transmissão adaptável escada](autogen-bitrate-ladder.md)). Pode utilizar os serviços de multimédia para codificar seus arquivos de mezanino em múltiplas velocidades de transmissão – ao fazer isso, obterá um conjunto de ficheiros MP4 e transmissão em fluxo configuração ficheiros associados, escritos para um recurso na sua conta de armazenamento. Em seguida, pode utilizar o [empacotamento dinâmico](dynamic-packaging-overview.md) capacidade nos serviços de multimédia para entregar o vídeo através de protocolos, como de transmissão em fluxo [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) e [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Isso exige que crie uma [localizador de transmissão em fluxo](streaming-locators-concept.md) e crie URLs correspondentes aos protocolos suportados, que, em seguida, podem ser entregue aos dispositivos/aplicativos com base em seus recursos de transmissão em fluxo.
 
-![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+O diagrama seguinte mostra o fluxo de trabalho para a codificação de demanda com o empacotamento dinâmico.
+
+![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Este tópico fornece orientações sobre como codificar o conteúdo com serviços de multimédia v3.
 
 ## <a name="transforms-and-jobs"></a>Transformações e tarefas
 
-Codificar com serviços de multimédia v3, tem de criar uma [transformar](https://docs.microsoft.com/rest/api/media/transforms) e uma [tarefa](https://docs.microsoft.com/rest/api/media/jobs). Uma transformação define a receita para as suas definições e saídas de codificação e a tarefa é uma instância da receita. Para obter mais informações, consulte [transforma e tarefas](transforms-jobs-concept.md)
+Codificar com serviços de multimédia v3, tem de criar uma [transformar](https://docs.microsoft.com/rest/api/media/transforms) e uma [tarefa](https://docs.microsoft.com/rest/api/media/jobs). A transformação define uma receita para suas configurações de codificação e saídas; a tarefa é uma instância da receita. Para obter mais informações, consulte [transforma e tarefas](transforms-jobs-concept.md)
 
 Quando o encoding com Media Services, vai utilizar configurações predefinidas para informar ao codificador, como os ficheiros de suporte de dados de entrada devem ser processados. Por exemplo, pode especificar a resolução de vídeo e/ou o número de canais de áudio que pretende no conteúdo codificado. 
 

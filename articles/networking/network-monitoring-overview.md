@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564842"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620427"
 ---
 # <a name="network-monitoring-solutions"></a>Soluções de monitorização de rede 
 
@@ -37,7 +37,7 @@ Monitor de desempenho de rede (NPM) é um conjunto de recursos, cada um dos quai
 
 Monitor de desempenho, o Monitor do ExpressRoute e o Monitor de conectividade do serviço estão a monitorizar recursos em NPM e são descritos abaixo.
 
-## <a name="performance-monitor"></a>Monitorização de Desempenho
+## <a name="performance-monitor"></a>Monitor de Desempenho
 
 Monitor de desempenho é parte do NPM e é a monitorização de rede para ambientes no local, híbridos e na cloud. Pode monitorizar a conectividade de rede em sucursais e escritórios, localizações de loja, datacenters e clouds. Pode detectar problemas de rede antes dos usuários se queixam. As principais vantagens são:
 
@@ -53,7 +53,9 @@ Para obter mais informações, consulte os artigos seguintes:
 
 * [Configurar uma solução de Monitor de desempenho de rede nos registos do Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
 * [Casos de utilização](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Atualizações de produto: [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* Atualizações de produto:
+  * [Fevereiro de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>Monitor do ExpressRoute
 
@@ -73,7 +75,7 @@ Para obter mais informações, veja os artigos seguintes:
 * [Configurar o Monitor de Desempenho de Rede para o ExpressRoute](../expressroute/how-to-npm.md)
 * [Mensagem de blogue](https://aka.ms/NPMExRmonitorGA)
 
-## <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
+## <a name="service-connectivity-monitor"></a>Monitor de Conectividade de Serviço
 
 Com a monitorização de conectividade do serviço, pode agora testar a acessibilidade de aplicativos e detectar afunilamentos de desempenho no local, redes de deteção de carrier e centros de dados de cloud/privadas.
 
@@ -89,7 +91,7 @@ Para obter mais informações, veja os artigos seguintes:
 * [Configurar o Monitor de desempenho de rede para a monitorização de pontos finais de serviço](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Mensagem de blogue](https://aka.ms/svcendptmonitor)
 
-## <a name="traffic-analytics"></a>Análise de Tráfego
+## <a name="traffic-analytics"></a>Análises de Tráfego
 Análise de tráfego é uma solução baseada na cloud que fornece visibilidade para a atividade de utilizador e da aplicação nas suas redes na cloud. Registos de fluxo de NSG são analisados para fornecer informações sobre:
 
 * Fluxos de tráfego nas suas redes entre o Azure e Internet, regiões de cloud pública, VNETs e sub-redes

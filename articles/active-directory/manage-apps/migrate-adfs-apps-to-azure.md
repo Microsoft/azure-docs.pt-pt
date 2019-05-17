@@ -2,8 +2,8 @@
 title: Mova as aplicações do AD FS para o Azure AD. | Microsoft Docs
 description: Este artigo destina-se para ajudar as organizações a compreender como migrar aplicativos para o Azure AD, com foco em aplicações SaaS federadas.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2739b5d2d944ea9a8b8cefdcc741abc8a2b632a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f77e322ffd7eec78fe13650f40c93f914706d557
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291848"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824629"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Mover aplicações do AD FS para o Azure AD 
 

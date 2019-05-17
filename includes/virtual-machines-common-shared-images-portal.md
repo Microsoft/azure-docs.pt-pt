@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 9b9b6d08fd14a850838590ce003e889e8e652c7c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148041"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827063"
 ---
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure 
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -51,7 +51,7 @@ Crie a definição de imagem de galeria dentro da sua galeria. Neste exemplo, a 
 1. Para **publicador**, tipo *myPublisher*. 
 1. Para **oferecem**, tipo *myOffer*.
 1. Para **SKU**, tipo *mySKU*.
-1. Certifique-se **Sim** nós selecionados para **ativar** e, em seguida, selecione **rever + criar**.
+1. Quando terminar, selecione **rever + criar**.
 1. Depois da definição de imagem forem validados, selecione **criar**.
 1. Quando a implementação estiver concluída, selecione **Ir para recurso**.
 

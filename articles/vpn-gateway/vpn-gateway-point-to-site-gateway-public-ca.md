@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 05/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786734"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827460"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transição para um certificado de gateway de AC público para P2S
 
@@ -29,19 +29,7 @@ Anteriormente, um certificado autoassinado para o gateway (emitido em segundo pl
 Apenas os gateways mais antigos são afetados por esta alteração. Se o certificado de gateway tem de ser transferido, receberá comunicação ou alerta no portal do Azure. Pode verificar se o gateway é afetado, utilizando os passos neste artigo.
 
 > [!IMPORTANT]
-> **Esta transição foi concluída no dia 12 de Maio de 2019.**
->
-> A transição está agendada para 12 de Março de 2019 começando 18:00 UTC. Pode criar um incidente de suporte, se preferir uma janela de tempo diferentes. Faça e finalizar o pedido com antecedência, pelo menos, 24 horas.  Pode pedir uma das janelas do seguintes:
->
-> * UTC GMT+06:00 em 25 de Fevereiro
-> * UTC 18:00 em 25 de Fevereiro
-> * UTC 06:00 no dia 1 de Março
-> * 18:00 UTC no dia 1 de Março
->
-> Todos os gateways restantes farão a transição 12 de Março de 2019 começando 18:00 UTC.
->
-> Os clientes receberão um e-mail quando o seu gateway conclui o processo de transição.
-> 
+> A transição para certificados de AC públicas foi concluída no dia 12 de Maio de 2019. **Este documento será removido no dia 31 de Maio de 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Verifique se o seu certificado
 

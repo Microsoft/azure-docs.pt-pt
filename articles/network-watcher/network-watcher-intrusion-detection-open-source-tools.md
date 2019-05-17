@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: e1b0e49dcc69a7458c22b859df1a4721342f0728
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b5dc885611c6654c1dc1d236e41ed75ef2717cc1
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64730139"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605711"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Executar a deteção de intrusão de rede com o observador de rede e ferramentas de código aberto
 
@@ -255,7 +255,7 @@ Também pode criar suas próprias visualizações e dashboards adaptadas para m�
 
 O dashboard de exemplo fornece várias visualizações dos registos de alerta do Suricata:
 
-1. Alertas por GeoIP – um mapa que mostra a distribuição de alertas por país/região de origem com base na localização geográfica (determinada pelo IP)
+1. Alertas por GeoIP – um mapa que mostra a distribuição de alertas por seu país/região de origem com base na localização geográfica (determinada pelo IP)
 
     ![ip de geo][3]
 

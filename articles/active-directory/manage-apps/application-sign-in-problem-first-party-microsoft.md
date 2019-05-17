@@ -3,8 +3,8 @@ title: Problemas ao iniciar sessão para uma aplicação da Microsoft | Document
 description: Resolver problemas comuns enfrentados ao iniciar sessão Applications original da Microsoft com o Azure AD (como o Office 365)
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292202"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825221"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao iniciar sessão para uma aplicação da Microsoft
 
@@ -435,7 +435,7 @@ Para verificar ou validar uma política de acesso condicional único:
 
 6. Clique em política estiver interessado em inspecionar.
 
-7. Revisão que existem sem condições específicas, atribuições ou outras definições que podem estar a bloquear o acesso dos utilizadores.
+7. Revisão que existem sem condições específicas, atribuições ou outras definições que podem estar a bloquear o acesso de utilizador.
 
    >[!NOTE]
    >Pode pretender desativar temporariamente esta política para garantir que ele não está afetando inícios de sessão. Para tal, defina o **ativar política** alternar para **não** e clique no **guardar** botão.
@@ -456,7 +456,7 @@ Para verificar ou validar um único aplicativo atualmente configurado a polític
 
 5.  Clique em **todos os aplicativos**.
 
-6.  Procure a aplicação que está interessado, ou o utilizador está a tentar iniciar sessão nome de exibição do aplicativo ou o id da aplicação.
+6.  Procure a aplicação que está interessado, ou o utilizador está a tentar iniciar sessão por aplicativo apresentar o ID de aplicação ou nome.
 
      >[!NOTE]
      >Se não vir a aplicação que procura, clique nas **filtro** botão e expanda o escopo da lista para **todos os aplicativos**. Se quiser ver mais colunas, clique nas **colunas** botão para adicionar detalhes adicionais para as suas aplicações.

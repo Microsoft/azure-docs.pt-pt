@@ -1,19 +1,18 @@
 ---
 title: Utilizar chaves exclusivas no Azure Cosmos DB
 description: Saiba como utilizar chaves exclusivas na sua base de dados do Cosmos do Azure
-author: rockboyfor
-ms.author: v-yeche
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3524f27cc14050647c457fdb5e87b2b83dbdfc0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115728"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595873"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restrições de chave exclusivas no Azure Cosmos DB
 
@@ -27,14 +26,14 @@ Para criar itens com a mensagem de e-mail mesmo endereço, mas não o mesmo nome
 
 Por exemplo, o contentor pode conter itens com os seguintes valores, onde cada item honra a restrição de chave exclusiva.
 
-| CompanyID | Nome próprio | Apelido |   Endereço de e-mail    |
-|-----------|------------|-----------|--------------------|
-|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
-|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
-|  Fabrkam  |            |  Duperre  | gaby@fabraikam.com |
-|  Fabrkam  |            |           | gaby@fabraikam.com |
+|CompanyID|Nome próprio|Apelido|Endereço de correio eletrónico|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrkam|   |Duperre|gaby@fabraikam.com|
+|Fabrkam|   |   |gaby@fabraikam.com|
 
 Se tentar inserir outro item com as combinações listadas na tabela anterior, receberá um erro. O erro indica que a restrição de chave exclusiva não cumprida. Recebê-las `Resource with specified ID or name already exists` ou `Resource with specified ID, name, or unique index already exists` como uma mensagem de retorna. 
 
@@ -56,6 +55,5 @@ Pode definir chaves exclusivas apenas quando é criar um contentor do Cosmos do 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [partições lógicas](partition-data.md).
-
-<!-- Update_Description: update meta propreties, wording update -->
+* Saiba mais sobre [partições lógicas](partition-data.md)
+* Explore [como definir chaves exclusivas](how-to-define-unique-keys.md) ao criar um contentor

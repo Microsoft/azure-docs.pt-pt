@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301313"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764733"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -33,7 +33,7 @@ Se não se trata de informações que procura, deixe um comentário no final des
 
 ## <a name="cloud-apps-assignments"></a>Atribuições de aplicações na cloud
 
-Com as políticas de acesso condicional, controlar a forma como os utilizadores aceder aos seus [aplicações na cloud](conditions.md#cloud-apps). Ao configurar uma política de acesso condicional, tem de selecionar pelo menos uma aplicação da cloud. 
+Com as políticas de acesso condicional, controlar a forma como os utilizadores aceder aos seus [aplicações na cloud](conditions.md#cloud-apps-and-actions). Ao configurar uma política de acesso condicional, tem de selecionar pelo menos uma aplicação da cloud. 
 
 ![Selecione as aplicações na cloud para a sua política](./media/technical-reference/09.png)
 
@@ -141,7 +141,7 @@ Para implementar automaticamente esta extensão para navegadores de Chrome, crie
 
 |    |    |
 | --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
 | Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
@@ -150,7 +150,7 @@ Para o Chrome suporte no **Windows 8.1 e 7**, crie a seguinte chave de registo:
 
 |    |    |
 | --- | --- |
-| Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 | Name | 1 |
 | Type | REG_SZ (String) |
 | Dados | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
@@ -203,11 +203,12 @@ Na sua política de acesso condicional, pode exigir que um acesso tentar as apli
 Esta definição aplica-se para as seguintes aplicações de cliente:
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Microsoft Invoicing
+- Faturação da Microsoft
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft OneDrive

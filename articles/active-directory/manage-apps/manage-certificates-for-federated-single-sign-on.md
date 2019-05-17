@@ -3,8 +3,8 @@ title: Gerir certificados de Federação no Azure AD | Documentos da Microsoft
 description: Saiba como personalizar a data de expiração para os certificados de Federação e como renovar certificados que irão expirar em breve.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64c2d14a2aa6fc6b53260912b5bead2bd7c01e8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ecadb499d140ccfc993820080cae0b749977fc61
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440628"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824749"
 ---
 # <a name="manage-certificates-for-federated-single-sign-on-in-azure-active-directory"></a>Gerir certificados para início de sessão único federado no Azure Active Directory
 
@@ -127,7 +127,7 @@ Se um certificado está prestes a expirar, poderá renová-lo usando um procedim
 
 ## <a name="related-articles"></a>Artigos relacionados
 
-* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
+* [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Gestão de aplicações no Azure Active Directory](what-is-application-management.md)
 * [Início de sessão único para aplicações no Azure Active Directory](what-is-single-sign-on.md)
 * [Depurar baseado em SAML início de sessão único para aplicações no Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)

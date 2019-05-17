@@ -11,22 +11,21 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/07/2019
-ms.openlocfilehash: 7f850f309034d128efef89ea842db41d35b8491e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.date: 05/11/2019
+ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235752"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620145"
 ---
 # <a name="sql-database-serverless-preview"></a>Base de dados SQL sem servidor (pré-visualização)
 
 ## <a name="what-is-the-serverless-compute-tier"></a>O que é a camada de computação sem servidor
 
-Base de dados SQL sem servidor (pré-visualização) é um escalão de computação que listas do computação utilizada por uma base de dados numa base por segundo. Sem servidor é o preço-desempenho otimizado para bases de dados individuais com padrões explosivos de utilização que se conseguir sustentar algum atraso na computação aquecimento após períodos de inatividade de utilização.
-Por outro lado, as ofertas disponíveis publicamente na fatura atual da base de dados SQL do computação aprovisionados numa base horária. Este escalão de computação aprovisionada está preço-desempenho otimizado para bases de dados únicas ou elástica conjuntos com maior utilização média que não pode estar eventuais atrasos na computação aquecimento.
+Base de dados SQL sem servidor (pré-visualização) é um escalão de computação que listas do computação utilizada por uma base de dados numa base por segundo. Sem servidor é o preço-desempenho otimizada para bases de dados individuais com padrões de utilização imprevisíveis, intermitente conseguir sustentar algum atraso na computação aquecimento após períodos de inatividade de utilização.
 
-Uma base de dados na camada de computador sem servidor é parametrizado pelo intervalo de computação que pode utilizar e um atraso de autopause.
+Uma base de dados na camada de computação sem servidor é parametrizado pelo intervalo de computação que pode utilizar e um atraso de autopause.
 
 ![Faturação sem servidor](./media/sql-database-serverless/serverless-billing.png)
 
@@ -44,22 +43,11 @@ A faturação de computação baseia-se na quantidade de vCores utilizados e a m
 
 ## <a name="scenarios"></a>Cenários
 
-Sem servidor é a relação preço-desempenho otimizada para bases de dados individuais com padrões explosivos de utilização que se conseguir sustentar algum atraso na computação aquecimento após períodos de inatividade de utilização. O escalão de computação aprovisionada é preço-desempenho otimizado para bases de dados individuais ou agrupadas com maior utilização média que não pode estar eventuais atrasos na computação aquecimento.
-
-A tabela seguinte compara o escalão de computação sem servidor com o escalão de computação aprovisionada:
-
-||Computação sem servidor|Computação aprovisionada|
-|---|---|---|
-|**Cenário de uso típico**|Bases de dados com um explosivos, imprevisível uso misturados com períodos Inativos|Bases de dados ou conjuntos elásticos com o uso mais regular|
-|**Esforço de gestão de desempenho**|Inferior|Superior|
-|**Dimensionamento de computação**|Automático|Manual|
-|**Capacidade de resposta de computação**|Inferior após períodos Inativos|Imediato|
-|**Granularidade de faturação**|Por segundo|Por hora|
-|
+Sem servidor é o preço-desempenho otimizada para bases de dados individuais com padrões de utilização imprevisíveis, intermitente conseguir sustentar algum atraso na computação aquecimento após períodos de inatividade de utilização. Por outro lado, o escalão de computação aprovisionada é preço-desempenho otimizado para bases de dados individuais ou agrupadas com maior utilização média que não pode estar eventuais atrasos na computação aquecimento.
 
 ### <a name="scenarios-well-suited-for-serverless-compute"></a>Cenários adequados para a computação sem servidor
 
-- Bases de dados individuais com padrões explosivos de utilização misturados com períodos de inatividade podem beneficiar de redução de preço com base na faturação por segundo para a quantidade de computação utilizada.
+- Bases de dados individuais com utilização intermitente, imprevisível padrões misturados com períodos de inatividade podem beneficiar de redução de preço com base na faturação por segundo para a quantidade de computação utilizada.
 - Dimensionamento para o serviço de computação de bases de dados individuais com a procura de recursos que é difícil prever e clientes que preferem para delegar.
 - Bases de dados individuais na camada de computação aprovisionada com que frequência mudar os níveis de desempenho.
 
@@ -67,8 +55,19 @@ A tabela seguinte compara o escalão de computação sem servidor com o escalão
 
 - Utilização ao longo do tempo de computação de bases de dados individuais com mais regulares e mais substanciais.
 - Bases de dados que não toleram vantagens e desvantagens de desempenho resultantes de mais frequentes memória corte ou atraso em autoresuming a partir de um Estado em pausa.
-- Várias bases de dados com padrões explosivos de utilização que podem ser consolidados num único servidor e que utilizam conjuntos elásticos para uma melhor otimização de preço.
+- Várias bases de dados com padrões de utilização imprevisíveis, intermitentes que podem ser consolidados num único servidor e que utilizam conjuntos elásticos para uma melhor otimização de preço.
 
+## <a name="comparison-with-provisioned-compute-tier"></a>Comparação com o escalão de computação aprovisionada
+
+A tabela seguinte resume as diferenças entre a camada de computação sem servidor e o escalão de computação aprovisionada:
+
+| | **Computação sem servidor** | **Computação aprovisionada** |
+|:---|:---|:---|
+|**Cenário de uso típico**| Bases de dados com utilização imprevisível, intermitente intercaladas com períodos inativos. | Bases de dados ou conjuntos elásticos com o uso mais regular.|
+| **Esforço de gestão de desempenho** |Inferior|Superior|
+|**Dimensionamento de computação**|Automático|Manual|
+|**Capacidade de resposta de computação**|Inferior após períodos Inativos|Imediato|
+|**Granularidade de faturação**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Escalão de serviço e modelo de compra
 
@@ -116,7 +115,7 @@ Autoresume é acionada se uma das seguintes condições for verdadeira, a qualqu
 
 ### <a name="connectivity"></a>Conectividade
 
-Se uma base de dados sem servidor está em pausa, o primeiro início de sessão retomar a base de dados e devolver um erro a indicar que a base de dados não está disponível. Assim que a base de dados é retomada, o início de sessão deve ser repetido para estabelecer conectividade. Os clientes da base de dados com a lógica de repetição de ligação não deve ser modificado.
+Se uma base de dados sem servidor está em pausa, o primeiro início de sessão retomar a base de dados e devolver um erro a indicar que a base de dados não está disponível com o código de erro 40613. Assim que a base de dados é retomada, o início de sessão deve ser repetido para estabelecer conectividade. Os clientes da base de dados com a lógica de repetição de ligação não deve ser modificado.
 
 ### <a name="latency"></a>Latência
 
@@ -135,13 +134,13 @@ As seguintes funcionalidades não suportam autopausing e autoresuming. Ou seja, 
 
 Criar uma nova base de dados ou para mover a que base de dados existente para um escalão de computação sem servidor segue o mesmo padrão usados para criar uma nova base de dados aprovisionada a camada de computação e envolve os seguintes dois passos:
 
-1. Especifique o nome do objetivo de serviço. A tabela seguinte mostra a camada de serviços disponíveis e os tamanhos de computação atualmente disponível na pré-visualização pública.
+1. Especifique o nome do objetivo de serviço. O objetivo de serviço prescreve a camada de serviços, a geração de hardware e o máximo vCores. A tabela seguinte mostra as opções de objetivo de serviço:
 
-   |Camada de serviços|Tamanho de computação|
-   |---|---|
-   |Fins Gerais|GP_S_Gen5_1|
-   |Fins Gerais|GP_S_Gen5_2|
-   |Fins Gerais|GP_S_Gen5_4|
+   |Nome do objetivo de serviço|Camada de serviços|Geração de hardware|Máx. vCores|
+   |---|---|---|---|
+   |GP_S_Gen5_1|Fins Gerais|Gen5|1|
+   |GP_S_Gen5_2|Fins Gerais|Gen5|2|
+   |GP_S_Gen5_4|Fins Gerais|Gen5|4|
 
 2. Opcionalmente, especifica o atraso de vCores e autopause mínimo para alterar os valores predefinidos. A tabela seguinte mostra os valores disponíveis para esses parâmetros.
 
@@ -178,7 +177,7 @@ New-AzSqlDatabase `
 
 ### <a name="move-existing-database-into-the-serverless-compute-tier"></a>Mover a base de dados existente para o escalão de computação sem servidor
 
-O exemplo seguinte move uma base de dados existente de camada de computação aprovisionada para a camada de computação sem servidor. Este exemplo utiliza os valores predefinidos para o min vCores, max vCores e autopause atraso.
+O exemplo seguinte move uma base de dados existente de camada de computação aprovisionada para a camada de computação sem servidor. Este exemplo especifica explicitamente o min vCores, max vCores e autopause atraso.
 
 ```powershell
 Set-AzSqlDatabase
@@ -205,11 +204,11 @@ Modificar os vCores máximos é executada com o [Set-AzSqlDatabase](https://docs
 
 ### <a name="minimum-vcores"></a>Mínimo de vCores
 
-Modificar os vCores máximos é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `MinVcore` argumento.
+Modificar os vCores mínimo é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `MinVcore` argumento.
 
 ### <a name="autopause-delay"></a>Autopause atraso
 
-Modificar os vCores máximos é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `AutoPauseDelay` argumento.
+Modificar o atraso de autopause é executada com o [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando no PowerShell com o `AutoPauseDelay` argumento.
 
 ## <a name="monitor-serverless-database"></a>Base de dados sem servidor do monitor
 
@@ -230,7 +229,7 @@ O agrupamento de recursos de utilizador é interno, a maioria dos limites de ges
 |Entidade|Métrica|Descrição|Unidades|
 |---|---|---|---|
 |Pacote de aplicação|app_cpu_percent|Percentagem de vCores utilizados pela aplicação em relação ao vCores máximo permitido para a aplicação.|Percentagem|
-|Pacote de aplicação|app_cpu_billed|A quantidade de computação cobrada para a aplicação durante o período de relatório. O valor pago durante este período é o produto desta métrica e o preço unitário de vCore.<br>Valores desta métrica são determinados através da agregação ao longo do tempo utilizado o número máximo de CPU e memória utilizada por segundo.<br>Se a quantidade utilizada é inferior à quantidade mínima aprovisionada conforme definido pela min vCores e memória mínima, a quantidade mínima aprovisionada é faturada.  Para comparar CPU com memória para efeitos de faturação, memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.|segundos de vCore|
+|Pacote de aplicação|app_cpu_billed|A quantidade de computação cobrada para a aplicação durante o período de relatório. O valor pago durante este período é o produto desta métrica e o preço unitário de vCore. <br><br>Valores desta métrica são determinados através da agregação ao longo do tempo utilizado o número máximo de CPU e memória utilizada por segundo. Se a quantidade utilizada é inferior à quantidade mínima aprovisionada conforme definido pela min vCores e memória mínima, a quantidade mínima aprovisionada é faturada. Para comparar CPU com memória para efeitos de faturação, memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.|segundos de vCore|
 |Pacote de aplicação|app_memory_percent|Percentagem de memória utilizada pela aplicação em relação ao máxima de memória permitido para a aplicação.|Percentagem|
 |Conjunto de utilizador|cpu_percent|Percentagem de vCores utilizados por carga de trabalho do utilizador em relação ao vCores máximo permitido para a carga de trabalho do utilizador.|Percentagem|
 |Conjunto de utilizador|data_IO_percent|Percentagem dos dados utilizados por carga de trabalho do utilizador em relação ao dados máximo IOPS de IOPS permitido para a carga de trabalho do utilizador.|Percentagem|
@@ -262,20 +261,21 @@ Para limites de recursos, consulte [escalão de computação sem servidor](sql-d
 
 ## <a name="billing"></a>Faturação
 
-A quantidade de computação faturada por segundo é o número máximo de utilização de CPU e memória utilizada por segundo. Se utilizado a quantidade de CPU e memória utilizada é inferior à quantidade mínima aprovisionada para cada um, a quantidade aprovisionada é faturada. Para comparar CPU com memória para efeitos de faturação, memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.
+A quantidade de computação faturada é o número máximo de utilização de CPU e memória utilizada por segundo. Se utilizado a quantidade de CPU e memória utilizada é inferior à quantidade mínima aprovisionada para cada um, a quantidade aprovisionada é faturada. Para comparar CPU com memória para efeitos de faturação, memória é normalizada em unidades de vCores ao redimensionar a quantidade de memória em GB por 3 GB por vCore.
 
 - **Recurso faturado**: CPU e memória
 - **Montante faturado ($)**: preço unitário de vCore * máximo (min vCores, vCores utilizados, a memória mínima GB * 1/3, memória GB utilizados * 1/3) 
 - **Frequência de faturação**: Por segundo
 
+O preço unitário de vcore no custo por vcore por segundo. Consulte a [página de preços do Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter preços de unidade específica numa determinada região.
+
 A quantidade de computação faturada é exposta pela métrica seguinte:
 
 - **Métrica**: app_cpu_billed (vCore segundos)
-- **Definição**: máximo (min vCores, vCores utilizados, a memória mínima GB * 1/3, memória GB utilizados * 1/3) *
+- **Definição**: máximo (min vCores, vCores utilizados, a memória mínima GB * 1/3, memória GB utilizados * 1/3)
 - **Frequência de relatório**: Por minuto
 
-> [!NOTE]
-> \* Esta quantidade é calculada a cada segundo e agregada de mais de 1 minuto.
+Esta quantidade é calculada a cada segundo e agregada de mais de 1 minuto.
 
 **Exemplo**: Considere uma base de dados com GP_S_Gen5_4 com a seguinte utilização num período de uma hora:
 
@@ -289,7 +289,7 @@ A quantidade de computação faturada é exposta pela métrica seguinte:
 |0:06 - 1:00|1255|
 ||Total: 1631|
 
-Suponha que o preço de unidade de computação é $0.2609/vCore/hour. Em seguida, a computação faturada durante este período de uma hora é determinada usando a seguinte fórmula: **$0.2609/vCore/hour * 1631 vCore segundos * 1 hora/3600 segundos = US $0.1232**
+Suponha que o preço de unidade de computação é $0.000073/vCore/second. Em seguida, a computação faturada durante este período de uma hora é determinada usando a seguinte fórmula: **$0.000073/vCore/second * 1631 vCore segundos = US $0.1191**
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
@@ -297,4 +297,5 @@ O escalão de computação sem servidor está disponível em todas as regiões, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para limites de recursos, consulte [limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
+- Para começar a utilizar, consulte o artigo [início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure](sql-database-single-database-get-started.md).
+- Para limites de recursos, consulte [limites de recursos de camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).

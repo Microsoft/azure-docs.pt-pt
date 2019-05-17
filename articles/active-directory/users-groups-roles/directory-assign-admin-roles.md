@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920503"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823569"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -163,10 +163,15 @@ As seguintes funções de administrador estão disponíveis:
   * Os administradores em outros serviços fora do Azure AD, como sistemas de Exchange Online, segurança do Office e Centro de conformidade e de recursos humanos.
   * Os não administradores como executivos, assessores jurídicos e funcionários de recursos humanos que podem ter acesso a informações confidenciais ou privadas.
 
+
+  > [!NOTE]
+  > Delegar permissões administrativas ao longo de subconjuntos de utilizadores e aplicar políticas para um subconjunto de utilizadores, é possível com o [unidades administrativas (pré-visualização)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+
   > [!NOTE]
   > Esta função anteriormente chamada "administrador de palavras-passe" [portal do Azure](https://portal.azure.com/). Estamos a alterar o nome para "Administrador de suporte técnico" de acordo com o respetivo nome no Azure AD PowerShell, o Azure AD Graph API e o Microsoft Graph API. Para um curto período de tempo, iremos alterar o nome para "Administrador de suporte técnico (palavra-passe)" no portal do Azure antes da alteração para o "Administrador de suporte técnico".
-  >
-  
+
+
 * **[Administrador do Power BI](#power-bi-service-administrator)**: Os utilizadores com esta função possuem permissões globais dentro do Microsoft Power BI, quando o serviço está presente, bem como a capacidade para gerir pedidos de suporte e monitorizar o estado de funcionamento do serviço. Mais informações em [compreender a função de administrador do Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > No Microsoft Graph API, o Azure AD Graph API e o Azure AD PowerShell, esta função é identificada como "administrador do Power BI". Se "administrador do Power BI" a [portal do Azure](https://portal.azure.com).
@@ -189,7 +194,7 @@ As seguintes funções de administrador estão disponíveis:
   Identity Protection Center | Todas as permissões da função do leitor de segurança<br>Além disso, a capacidade de executar todas as operações do Centro de proteção de identidade, exceto para repor palavras-passe
   [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure) | Todas as permissões da função do leitor de segurança<br>**Não é possível** gerir atribuições de funções do Azure AD ou definições
   [Centro de conformidade e segurança do Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | Gerir políticas de segurança<br>Ver, investigar e responder a ameaças de segurança<br>Ver relatórios
-  Proteção Avançada Contra Ameaças do Azure | Monitorizar e responder à atividade suspeita de segurança
+  Azure Advanced Threat Protection | Monitorizar e responder à atividade suspeita de segurança
   Windows Defender ATP e EDR | Atribuir funções<br>Gerir grupos de máquinas<br>Configurar a deteção de ameaças do ponto final e a remediação automática<br>Ver, investigar e responder a alertas
   [Intune](https://docs.microsoft.com/intune/role-based-access-control) | Utilizador de vistas, dispositivo, inscrição, configuração e informações sobre a aplicação<br>Não é possível efetuar alterações ao Intune
   [O cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | Adicionar administradores, adicionar políticas e definições, carregar registos e desempenhar ações de governação
@@ -772,7 +777,7 @@ Pode gerir todos os aspetos do produto Azure Information Protection.
 | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configure o Estado de Funcionamento do Serviço Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Crie e gira pedidos de suporte do Office 365. |
 
-### <a name="intune-service-administrator"></a>Administrador de Serviços do Intune
+### <a name="intune-service-administrator"></a>Administrador de Serviço do Intune
 Pode gerir todos os aspetos do produto Intune.
 
   > [!NOTE]
@@ -1178,11 +1183,11 @@ DisplayName de gráfico | Nome a apresentar de portal do Azure | directoryRoleTe
 Administrador de Aplicações | Administrador de aplicações | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
 Programador de Aplicações | Programador de aplicações | CF1C38E5-3621-4004-A7CB-879624DCED7C
 Administrador de Autenticação | Administrador de autenticação | c4e39bd9-1100-46d3-8c65-fb160da0071f
-Administrador de Faturação | Administrador de faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
+Administrador de Faturação | Administrador de Faturação | b0f54661-2d74-4c50-afa3-1ec803f12efe
 Administrador da Análise de Computadores | Administrador da Análise de Computadores | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
 Administrador de Aplicações de Cloud | Administrador de aplicações de cloud | 158c047a-c907-4556-b7ef-446551a6b5f7
 Administrador de Dispositivos de Cloud | Administrador de dispositivos de cloud | 7698a772-787b-4ac8-901f-60d6b08affd2
-Administrador de Empresa | Administrador global | 62e90394-69f5-4237-9190-012177145e10
+Administrador de Empresa | Administrador Global | 62e90394-69f5-4237-9190-012177145e10
 Administrador de Conformidade | Administrador de Conformidade | 17315797-102d-40b4-93e0-432062caca18
 Administrador de Acesso Condicional | Administrador de Acesso Condicional | b1be1c3e-b65d-4f19-8427-f6fa0d97feb9
 Administrador de Serviço de CRM | Administrador do Dynamics 365 | 44367163-eba1-44c3-98af-f5787879f96a
@@ -1198,7 +1203,7 @@ Administrador de Serviço Exchange | Administrador do Exchange | 29232cdf-9323-4
 Emitente de Convites | Emitente de Convites | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 Administrador de Suporte Técnico | Administrador de palavras-passe | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrador do Information Protection | Administrador do Information Protection | 7495fdc4-34c4-4d15-a289-98788ce399fd
-Administrador de Serviços do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
+Administrador de Serviço do Intune | Administrador do Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrador de Licenças | Administrador de licenças | 4d6ac14f-3453-41d0-bef9-a3e0c569773a
 Administrador do Serviço Lync | Administrador do Skype para Empresas | 75941009-915a-4869-abe7-691bff18279e
 Leitor do Centro de Mensagens | Leitor do centro de mensagens | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b

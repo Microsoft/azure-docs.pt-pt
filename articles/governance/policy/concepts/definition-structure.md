@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506700"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779297"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
@@ -238,7 +238,7 @@ A condição for avaliada se um **campo** ou o **valor** acessador atende a cert
 Ao utilizar o **, como** e **notLike** condições, que fornece um caráter universal `*` no valor.
 O valor não deve ter mais de um caráter universal `*`.
 
-Ao utilizar o **corresponder** e **notMatch** condições, fornecer `#` de acordo com um dígito, `?` para uma letra, `.` de acordo com todos os caracteres e qualquer outro caractere para corresponder ao esse caractere real.
+Ao utilizar o **corresponder** e **notMatch** condições, fornecer `#` de acordo com um dígito, `?` para uma letra, `.` de acordo com qualquer caractere e qualquer outro caractere para corresponder esse caractere real.
 **corresponder** e **notMatch** diferenciam maiúsculas de minúsculas. Alternativas de maiúsculas e minúsculas estão disponíveis no **matchInsensitively** e **notMatchInsensitively**. Para obter exemplos, consulte [permitir que vários padrões de nome](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Campos

@@ -1,7 +1,7 @@
 ---
-title: 'Classificação: Prever risco do crédito'
+title: 'Classificação: Prever o risco do crédito'
 titleSuffix: Azure Machine Learning service
-description: Este exemplo de experiência de visual interface demonstra como realizar a classificação binária para prever o risco de crédito com base nas informações fornecidas num aplicativo de crédito.
+description: Saiba como criar uma classificador de aprendizagem sem escrever uma única linha de código usando a interface visual.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,23 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 3d4ec3c71aaed6bddb012fb17ee5bb96da00cd76
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: f37c945758cfbd03889d79acf764e7f67022267a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028534"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789401"
 ---
-# <a name="sample-3---classification-predict-credit-risk"></a>Exemplo 3 - classificação: Prever risco do crédito
+# <a name="sample-3---classification-predict-credit-risk"></a>Exemplo 3 - classificação: Prever o risco do crédito
 
-Este exemplo de experiência de visual interface demonstra como realizar a classificação binária para prever o risco de crédito com base nas informações fornecidas num aplicativo de crédito. Ele mostra como pode fazer a classificação básica, incluindo operações de processamento de dados, dividir o conjunto de dados em conjuntos de formação e teste, preparar o modelo, classificar o conjunto de dados de teste e avaliar as previsões.
+Saiba como criar uma classificador de aprendizagem sem escrever uma única linha de código usando a interface visual. Este exemplo prepara um **árvore de decisões elevada de duas classes** crédito de prever risco (alto ou baixo) com base nas informações de aplicação de crédito como o histórico de crédito, a idade e o número de cartões de crédito.
+
+Uma vez que estamos tentando responder à pergunta "Qual delas?" Isso é chamado um problema de classificação. No entanto, pode aplicar o mesmo processo fundamental para lidar com qualquer tipo de problema do machine learning, independentemente de serem regressão, classificação, clustering e assim por diante.
+
+Este é o gráfico concluído para esta fase experimental:
+
+![Gráfico da experimentação](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +46,6 @@ O conjunto de dados contém 1.000 exemplos com 20 recursos e 1 etiqueta. Cada ex
 
 ## <a name="experiment-summary"></a>Resumo de experimentação
 
-
 Nós seguir estes passos para criar a experimentação:
 
 1. Arraste o módulo de conjunto de dados de dados de UCI alemão cartões de crédito para tela de experimentação.
@@ -50,11 +55,10 @@ Nós seguir estes passos para criar a experimentação:
 1. Adicionar uma **Train Model** módulo. Ligar o classificador do passo anterior para a porta de entrada à esquerda do **Train Model**. Adicionar o conjunto de treinamento (à esquerda de porta de saída a **Split Data**) para a porta de entrada à direita da **Train Model**. O **modelo de formação** será treinar o classificador.
 1. Adicionar uma **modelo de pontuação** módulo e ligue-se a **Train Model** módulo ao mesmo. Em seguida, adicione o conjunto de teste (a porta à direita do **Split Data**) para o **Score Model**. O **modelo de pontuação** fará com que as previsões. Pode selecionar sua porta de saída para ver as previsões e as probabilidades de classe positivo.
 1. Adicionar uma **Evaluate Model** módulo e ligue-se o conjunto de dados com a pontuação para sua porta de entrada à esquerda. Para ver os resultados da avaliação, selecione a porta de saída a **Evaluate Model** módulo e selecione **Visualize**.
-    
+
 Este é o gráfico de experimentação concluída:
 
 ![Gráfico da experimentação](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
-
 
 ## <a name="results"></a>Resultados
 

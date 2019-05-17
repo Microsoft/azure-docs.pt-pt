@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462390"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604455"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um pedido de suporte do Azure Data Box 
 
@@ -22,7 +22,7 @@ Este artigo aplica-se para o Azure Data Box e o disco do Azure Data Box, o que s
 * Como criar um pedido de suporte.
 * Como gerir uma pedido de vida de suporte no portal.
 
-## <a name="create-a-support-request"></a>Criar um pedido de suporte
+## <a name="create-a-support-request"></a>Criar um pedido de apoio
 
 Execute os seguintes passos para criar um pedido de suporte:
 
@@ -38,7 +38,7 @@ Execute os seguintes passos para criar um pedido de suporte:
     4. Especificar seus **plano de suporte**.
     5. Clique em **Seguinte**.
 
-        ![Noções básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Noções Básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. Na **novo pedido de suporte**, selecione **passo 2 problema**. Na **problema**, siga os passos abaixo:
     
@@ -56,10 +56,10 @@ Execute os seguintes passos para criar um pedido de suporte:
 4. Na **novo pedido de suporte**, clique em **informações de contacto do passo 3**. Na **informações de contacto**, siga os passos abaixo:
 
    1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
-   2. Na **informações de contacto**, fornecer seu nome, e-mail, contato opcional, país. Selecione **guardar alterações de contactos para futuros pedidos de suporte**.
+   2. Na **informações de contacto**, fornecer seu nome, e-mail, contato opcional, país/região. Selecione **guardar alterações de contactos para futuros pedidos de suporte**.
    3. Clique em **Criar**.
    
-       ![Informações de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Informação de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
       Support da Microsoft utiliza estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
       Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.

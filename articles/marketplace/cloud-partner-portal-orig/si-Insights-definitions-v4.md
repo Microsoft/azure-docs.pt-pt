@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e23297d8cd6cab5abeedc1a12fa1a37c93e94283
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 8b3447b8094eb95bd2f61baed7371bf718fdf730
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943608"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606891"
 ---
 <a name="seller-insights-definitions"></a>Definições de Insights do vendedor
 =======================
@@ -37,7 +37,7 @@ A tabela seguinte fornece definições para muitos dos termos utilizados no Insi
 | **Cidade do cliente**  | O nome de cidade fornecido pelo cliente. Isto pode ser diferente de cidade na subscrição do Azure de um cliente.  |
 | **Idioma de comunicação de cliente**        | O idioma preferido pelo cliente para comunicação.                                  |
 | **Nome da empresa do cliente**                  | O nome da empresa fornecido pelo cliente. Isto pode ser diferente de cidade na subscrição do Azure de um cliente.                                  |
-| **País do cliente**                       | O nome do país fornecido pelo cliente.  Isto pode ser diferente do país na subscrição do Azure de um cliente.                               |
+| **País do cliente**                       | O nome do país/região fornecido pelo cliente.  Isto pode ser diferente da região/país na subscrição do Azure de um cliente.                               |
 | **Moeda de cliente (CC)**                 | A moeda preferida pelo cliente para preços e faturação.                            |
 | **Cliente de E-Mail**                         | O endereço de email fornecido pelo cliente final.  Isto pode ser diferente da subscrição do Azure de um cliente, o endereço de email.                   |
 | **Nome do primeiro cliente**                              | O primeiro nome fornecido pelo cliente.  Isto pode ser diferente do nome fornecido na subscrição do Azure de um cliente.                    |

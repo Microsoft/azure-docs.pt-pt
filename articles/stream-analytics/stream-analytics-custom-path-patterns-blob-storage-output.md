@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771864"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789426"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>A criação de partições de saída de Blobs do Azure Stream Analytics, personalizado
 
@@ -26,7 +26,7 @@ Campo personalizado ou atributos de entrada melhoram downstream processamento de
 
 ### <a name="partition-key-options"></a>Opções de chave de partição
 
-A chave de partição ou o nome de coluna, utilizado para particionar os dados de entrada pode conter carateres alfanuméricos, hífenes, carateres de sublinhado e espaços. Não é possível usar campos aninhados como uma chave de partição, a menos que utilizado em conjunto com aliases.
+A chave de partição ou o nome de coluna, utilizado para particionar os dados de entrada pode conter carateres alfanuméricos, hífenes, carateres de sublinhado e espaços. Não é possível usar campos aninhados como uma chave de partição, a menos que utilizado em conjunto com aliases. A chave de partição tem de ser nvarchar (Max).
 
 ### <a name="example"></a>Exemplo
 
@@ -58,11 +58,11 @@ Tenha em atenção que cada registo no blob tem um **client_id** nome da coluna 
    * cluster1/{date}/{aFieldInMyData}  
    * cluster1/{time}/{aFieldInMyData}  
    * cluster1/{aFieldInMyData}  
-   * cluster1/{date}/{time}/{aFieldInMyData}  
-
+   * cluster1/{date}/{time}/{aFieldInMyData} 
+   
 2. As chaves de partição diferenciam maiúsculas de minúsculas, pelo que as chaves de partição, como "John" e "João" são equivalentes. Além disso, expressões não podem ser utilizadas como chaves de partição. Por exemplo, **{ferramenta + columnB}** não funciona.  
 
-3. Quando um fluxo de entrada é composta por registos com uma cardinalidade de chave de partição em 8000, os registos serão acrescentados a blobs existentes e apenas criar novos blobs quando necessário. Se a cardinalidade é efetuada através de 8000 não existe nenhuma garantia existente blobs de escrita e novos blobs não serão criados para um número arbitrário de registos com a mesma chave de partição.  
+3. Quando um fluxo de entrada é composta por registos com uma cardinalidade de chave de partição em 8000, os registos serão acrescentados a blobs existentes e apenas criar novos blobs quando necessário. Se a cardinalidade é efetuada através de 8000 não existe nenhuma garantia existente blobs de escrita e novos blobs não serão criados para um número arbitrário de registos com a mesma chave de partição.
 
 ## <a name="custom-datetime-path-patterns"></a>Padrões de caminho de DateTime personalizadas
 

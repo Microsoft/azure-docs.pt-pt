@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631894"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606929"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>As especificações técnicas e a conformidade do dispositivo StorSimple
 
@@ -41,7 +41,7 @@ A inclusão EBOD utiliza um PCM W 580 e bastidor principal utiliza um PCM W 764.
 | Inrush máximo atual |20 A |20 A |
 | Correção de fator de energia |> 95% nominal tensão de entrada |> 95% nominal tensão de entrada |
 | Harmonics |Cumpre EN61000-3-2 |Cumpre EN61000-3-2 |
-| Saída |Tensão de modo de espera de 5 v \@ 2.0 A |Tensão de modo de espera de 5 v \@ 2.7 A |
+| Resultado |Tensão de modo de espera de 5 v \@ 2.0 A |Tensão de modo de espera de 5 v \@ 2.7 A |
 | +5V \@ 42 A |+5V \@ 40 A | |
 | +12V \@ 38 A |+12V \@ 38 A | |
 | Armazenamento frequente conectável |Sim |Sim |
@@ -173,7 +173,7 @@ O dispositivo está em conformidade com EN55024.
 
 ## <a name="ac-power-cord-compliance"></a>Conformidade de cabo de energia de AC
 
-O plug e o assembly de cabo power completa têm de cumprir os padrões apropriados para o país em que o dispositivo está a ser utilizado e têm de ter as aprovações de segurança que são aceitáveis naquele país. As tabelas seguintes listam os padrões para os EUA e Europa.
+O plug e o assembly de cabo power completa têm de cumprir os padrões apropriados para o país/região em que o dispositivo está a ser utilizado e têm de ter as aprovações de segurança que são aceitáveis em que país/região. As tabelas seguintes listam os padrões para os EUA e Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cabos de energia de AC - EUA (tem de ser NRTL listado)
 

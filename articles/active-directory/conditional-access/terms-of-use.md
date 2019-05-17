@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357129"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823587"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funcionalidade Termos de utilização do Azure Active Directory
 Os Termos de utilização do Azure AD fornecem um método simples que as organizações podem utilizar para apresentar informações aos utilizadores finais. Tal disponibilização garante a visualização das exclusões de responsabilidade relevantes no que se refere a requisitos legais ou de conformidade por parte dos utilizadores. Este artigo descreve como começar com os termos de utilização.
@@ -383,6 +383,9 @@ R: Pode [revisão ainda aceitado os termos de utilização](#how-users-can-revie
 
 **P: O que acontece se também estou a utilizar o Intune termos e condições?**<br />
 R: Se tiver configurado a ambos os termos de AD do Azure de utilização e [Intune termos e condições](/intune/terms-and-conditions-create), irá ser pedido ao utilizador para aceitar ambos. Para obter mais informações, consulte a [escolher o direito de termos de solução para a sua postagem do blog de organização](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
+
+**P: Quais pontos de extremidade o usa os termos de serviço de utilização para a autenticação?**<br />
+R: Termos de utilização utiliza os seguintes pontos finais para a autenticação: https://tokenprovider.termsofuse.identitygovernance.azure.com e https://account.activedirectory.windowsazure.com. Se a sua organização tiver uma lista de permissões de URLs para a inscrição, terá de adicionar estes pontos finais à sua lista de permissões, juntamente com os pontos de extremidade do Azure AD para iniciar sessão.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

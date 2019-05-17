@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614514"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604368"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recolher registos do IIS no Azure Monitor
 Serviços de informação Internet (IIS) armazena a atividade do utilizador nos ficheiros de registo que podem ser recolhidos pelo Azure Monitor e armazenados como [registos de dados](data-platform.md).
@@ -51,7 +51,7 @@ Registros de log do IIS têm um tipo de **W3CIISLog** e ter as propriedades na t
 | csUriStem |Destino do pedido, como uma página da web. |
 | csUriQuery |Consulte, se houver, o cliente estava a tentar realizar. |
 | ManagementGroupName |Nome do grupo de gestão para agentes do Operations Manager.  Para outros agentes, é AOI -\<ID da área de trabalho\> |
-| RemoteIPCountry |País do endereço IP do cliente. |
+| RemoteIPCountry |País/região do endereço IP do cliente. |
 | RemoteIPLatitude |Latitude do endereço IP de cliente. |
 | RemoteIPLongitude |Longitude do endereço IP de cliente. |
 | scStatus |Código de estado HTTP. |

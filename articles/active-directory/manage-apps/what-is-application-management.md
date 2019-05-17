@@ -2,22 +2,22 @@
 title: Gerir Aplicações com o Microsoft Azure Active Directory | Microsoft Docs
 description: Este artigo explica os benefícios da integração do Microsoft Azure Active Directory com as suas aplicações SaaS, na cloud e no local.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: overview
 ms.workload: identity
 ms.date: 10/30/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a65c42ff2d03946c021497e350836623a408ce7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 657527272ccf8b5f69764052a2385ceec57ddc03
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291059"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826038"
 ---
 # <a name="application-management-with-azure-active-directory"></a>Gestão de aplicações com o Microsoft Azure Active Directory
 
@@ -40,6 +40,6 @@ O SSO melhora a segurança. *Sem o início de sessão único*, os administradore
 ## <a name="address-governance-and-compliance"></a>Abordar a governação e conformidade
 Com o Microsoft Azure AD, pode monitorizar inícios de sessão em aplicações por meio de relatórios que tiram partido das ferramentas de Monitorização de Eventos e Incidentes de Segurança (SIEM). Pode aceder aos relatórios no portal ou em APIs. Por meio da programação de auditoria, defina quem tem acesso às suas aplicações e remova o acesso de utilizadores inativos por meio de revisões de acesso.
 
-## <a name="manage-costs"></a>Gerir os custos
+## <a name="manage-costs"></a>Gerir custos
 Ao migrar para o Microsoft Azure AD, pode reduzir os custos e remover a complicação de gerir a sua infraestrutura no local. O Microsoft Azure AD também proporciona acesso de gestão personalizada às aplicações, o que poupa o tempo dos administradores e utilizadores. O início de sessão único elimina as palavras-passe específicas da aplicação. Esta capacidade de iniciar sessão uma vez reduz os custos relacionados com a reposição da palavra-passe e a perda de produtividade ao obter as palavras-passe.
 

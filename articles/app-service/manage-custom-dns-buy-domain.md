@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61273086"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619731"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de aplicações do Azure
 
-Domínios do serviço de aplicações (pré-visualização) são domínios de nível superior que são geridos diretamente no Azure. Eles facilitam a gestão domínios personalizados para [App Service do Azure](overview.md). Este tutorial mostra-lhe como comprar um domínio do serviço de aplicações e atribuir nomes DNS para o serviço de aplicações do Azure.
+Domínios do serviço de aplicações estão os domínios de nível superior que são geridos diretamente no Azure. Eles facilitam a gestão domínios personalizados para [App Service do Azure](overview.md). Este tutorial mostra-lhe como comprar um domínio do serviço de aplicações e atribuir nomes DNS para o serviço de aplicações do Azure.
 
 Para a VM do Azure ou no armazenamento do Azure, consulte [domínio de serviço de aplicações de atribuir a VM do Azure ou o armazenamento do Azure](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/). Para serviços em nuvem, consulte [configurar um nome de domínio personalizado para um serviço cloud do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -41,7 +41,7 @@ Para concluir este tutorial:
 
 Para utilizar domínios personalizados do App Service do Azure, a aplicação [plano do App Service](https://azure.microsoft.com/pricing/details/app-service/) tem de ser um escalão pago (**partilhado**, **básica**, **padrão**, ou  **Premium**). Neste passo, certifique-se de que a aplicação é suportado no escalão de preço.
 
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Abra ao [portal do Azure](https://portal.azure.com) e inicie sessão com a sua conta do Azure.
 
@@ -82,7 +82,7 @@ Quando vir a notificação seguinte, significa que a operação de dimensionamen
 ### <a name="pricing-information"></a>Informações sobre Preços
 Para obter informações sobre domínios do serviço de aplicações do Azure de preços, visite o [página de preços do App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) e desloque-se para baixo até o domínio do serviço de aplicações.
 
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 Abra ao [portal do Azure](https://portal.azure.com/) e inicie sessão com a sua conta do Azure.
 
 ### <a name="launch-buy-domains"></a>Iniciar comprar domínios
@@ -278,7 +278,3 @@ Depois da operação estiver concluída, o domínio é lançada da sua subscriç
 ## <a name="direct-default-url-to-a-custom-directory"></a>Direcionar o URL predefinido para um diretório personalizado
 
 Por predefinição, o Serviço de Aplicações direciona os pedidos Web para o diretório de raiz do código da sua aplicação. Para direcioná-los para um subdiretório, tal como `public`, consulte [direcionar o URL predefinido para um diretório personalizado](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Mais recursos
-
-[FAQ: Domínio do serviço de aplicações (pré-visualização) e domínios personalizados](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

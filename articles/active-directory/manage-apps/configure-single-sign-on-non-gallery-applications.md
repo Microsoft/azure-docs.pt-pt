@@ -2,22 +2,22 @@
 title: Início de sessão único - aplicações externas à Galeria - plataforma de identidade da Microsoft | Documentos da Microsoft
 description: Configurar o início de sessão único (SSO) para aplicações externas à galeria na plataforma de identidade da Microsoft (Azure AD)
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8459f9704a15614f2c3edaff5758fa534f78cbd9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f55de2d081f12f1bddf7e68a795133c4b394823
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65781108"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824995"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurar o início de sessão único para aplicações externas à galeria na plataforma de identidade da Microsoft
 

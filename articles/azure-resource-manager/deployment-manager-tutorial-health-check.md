@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 05/06/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 4f3f43ba063ed25389860183576c4dbd94e2bfcd
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 8ffc64359faab539ab74e354caad4081f31fcd43
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466329"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790118"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Tutorial: Utilizar a verificação de estado de funcionamento no Azure Deployment Manager (pré-visualização pública)
 
@@ -59,7 +59,7 @@ Na produção, geralmente usa um ou mais fornecedores de monitorização. Para f
 Os seguintes dois ficheiros são utilizados para implementar a função do Azure. Não precisa de transferir estes ficheiros para seguir o tutorial.
 
 * Um modelo do Resource Manager, localizado em [ https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json ](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Implementar este modelo para criar uma função do Azure.  
-* Um ficheiro zip do código-fonte função do Azure, [ https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Este zip chamado é chamada pelo modelo do Resource Manager.
+* Um ficheiro zip do código-fonte função do Azure, [ http://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip ](http://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). Este zip chamado é chamada pelo modelo do Resource Manager.
 
 Para implementar a função do Azure, selecione **experimente** para abrir o Azure Cloud shell e, em seguida, cole o seguinte script para a janela do shell.  Colar o código, com o botão direito da janela do shell e, em seguida, selecione **colar**. 
 

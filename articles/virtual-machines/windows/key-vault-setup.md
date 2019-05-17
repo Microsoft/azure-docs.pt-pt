@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: a8c29f015b6b3652361a886585cb4ccc3f3b7293
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f4344be1ef13daa85477b22aa0434347873aec40
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60563456"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826139"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configurar o Cofre de chaves para máquinas virtuais no Azure Resource Manager
 
@@ -50,7 +50,7 @@ Para criar um cofre de chaves utilizando a interface de linha de comandos (CLI),
 
 Para a CLI, terá de criar o Cofre de chaves, antes de atribuir a política de implementação. Pode fazê-lo utilizando o comando seguinte:
 
-    az keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    az keyvault update --name "ContosoKeyVault" --resource-group "ContosoResourceGroup" --enabled-for-deployment "true"
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Utilize modelos para configurar o Cofre de chaves
 Apesar de utilizar um modelo, tem de definir o `enabledForDeployment` propriedade `true` para o recurso do Key Vault.

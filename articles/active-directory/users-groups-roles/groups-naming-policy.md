@@ -1,5 +1,5 @@
 ---
-title: Impor a política de nomes do grupo - grupos do Office 365 - Azure Active Directory | Documentos da Microsoft
+title: Impor a política de nomes de grupo nos grupos do Office 365 - Azure Active Directory | Documentos da Microsoft
 description: Como configurar a política de nomenclatura para grupos do Office 365 no Azure Active Directory (pré-visualização)
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690247"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605546"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomes para grupos do Office 365 no Azure Active Directory
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Impor uma política de nomes em grupos do Office 365 no Azure Active Directory
 
 Para impor as convenções de nomenclatura consistentes de grupos do Office 365 criados ou editados por seus usuários, configure um grupo de política de nomenclatura para os inquilinos no Azure Active Directory (Azure AD). Por exemplo, poderia usar a política de nomes para comunicar a função de um grupo, a associação, a região geográfica ou quem criou o grupo. Também pode utilizar a política de nomes para o ajudar a categorizar os grupos no livro de endereços. Pode utilizar a política para bloquear palavras específicas de que está a ser utilizado em nomes de grupos e aliases.
 
@@ -70,13 +70,13 @@ Regras da lista de palavra bloqueada:
 
 Os administradores selecionados podem ser dispensados destas políticas, em todas as cargas de trabalho de grupo e os pontos finais, para que podem criar grupos com palavras bloqueadas e com suas próprias convenções de nomenclatura. Seguem-se a lista de funções de administrador excluídos do grupo de política de atribuição de nomes.
 
-- Administrador global
+- Administrador Global
 - Parceiro de suporte de escalão 1
 - Parceiro de suporte de camada 2
 - Administrador de utilizadores
 - Escritores em diretórios
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configurar o grupo de política de nomenclatura para um inquilino com o portal do Azure (pré-visualização)
+## <a name="configure-naming-policy-in-azure-portal-preview"></a>Configurar política de nomes no portal do Azure (pré-visualização)
 
 1. Inicie sessão para o [Centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta de administrador.
 1. Selecione **grupos**, em seguida, selecione **política de nomenclatura** para abrir a página de política de nomenclatura.
@@ -90,7 +90,7 @@ Os administradores selecionados podem ser dispensados destas políticas, em toda
 1. Para remover um prefixo ou sufixo na lista, selecione o prefixo ou sufixo, em seguida, selecione **eliminar**. Vários itens podem ser eliminados ao mesmo tempo.
 1. Guardar as alterações para a nova política entrar em vigor, selecionando **guardar**.
 
-### <a name="view-or-edit-the-custom-blocked-words"></a>Visualizar ou editar as palavras bloqueadas personalizadas
+### <a name="edit-custom-blocked-words"></a>Editar palavras bloqueadas personalizadas
 
 1. Sobre o **política de atribuição de nomes** página, selecione **bloqueado palavras**.
 
@@ -100,35 +100,36 @@ Os administradores selecionados podem ser dispensados destas políticas, em toda
 1. Carregar a nova lista de palavras bloqueadas personalizadas ao selecionar o ícone de ficheiro.
 1. Guardar as alterações para a nova política entrar em vigor, selecionando **guardar**.
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Instalar os cmdlets do PowerShell para configurar uma política de nomes
+## <a name="install-powershell-cmdlets"></a>Instalar cmdlets do PowerShell
 
 Certifique-se de que desinstala qualquer versão anterior do módulo Azure Active Directory PowerShell para Graph para o Windows PowerShell e instala o [Azure Active Directory PowerShell para Graph - Versão de Pré-visualização Pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) antes de executar os comandos do PowerShell.
 
 1. Abra a aplicação Windows PowerShell como administrador.
 2. Desinstale qualquer versão anterior do AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
 
 3. Instale a versão mais recente do AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
 
    Se lhe for pedido sobre como acessar um repositório não fidedigno, introduza **Y**. Pode demorar alguns minutos a instalar o novo módulo.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configurar o grupo de política de nomenclatura para um inquilino com o Azure AD PowerShell
+## <a name="configure-naming-policy-in-powershell"></a>Configurar a política de nomes no PowerShell
 
 1. Abra uma janela do Windows PowerShell no seu computador. Pode abri-lo sem privilégios elevados.
 
 1. Execute os seguintes comandos para preparar a execução dos cmdlets.
   
-   ```powershell
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    No ecrã **Iniciar sessão na sua conta** apresentado, introduza a conta de administrador e a palavra-passe para ligar ao serviço e selecione **Iniciar sessão**.
 
 1. Siga os passos em [Cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md) para criar definições de grupo para este inquilino.
@@ -137,13 +138,13 @@ Certifique-se de que desinstala qualquer versão anterior do módulo Azure Activ
 
 1. Obter a política de nomes atual para ver as definições atuais.
   
-   ```powershell
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
 1. Apresente as definições atuais do grupo.
   
-   ```powershell
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -151,38 +152,38 @@ Certifique-se de que desinstala qualquer versão anterior do módulo Azure Activ
 
 1. Defina os prefixos e sufixos de nomes de grupo no Azure AD PowerShell. Para a funcionalidade funcione corretamente, [GroupName] têm de ser incluído na definição.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
 1. Defina as palavras bloqueadas personalizadas que quer restringir. O exemplo seguinte ilustra como pode adicionar as suas próprias palavras personalizadas.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
 1. Guarde as definições para a nova política tenha efeito, tal como no exemplo a seguir.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 Já está. Ter definido a política de nomes e adicionado sua palavras bloqueadas.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>Exportar ou importar a lista de palavras bloqueadas personalizadas com o Azure AD PowerShell
+## <a name="export-or-import-custom-blocked-words"></a>Exportar ou importar palavras bloqueadas personalizadas
 
 Para obter mais informações, consulte o artigo [cmdlets do Azure Active Directory para configurar definições de grupo](groups-settings-cmdlets.md).
 
 Eis um exemplo de um script do PowerShell para exportar várias palavras bloqueadas:
 
-```powershell
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Eis um exemplo de script do PowerShell para importar várias palavras bloqueadas:
 
-```powershell
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -192,7 +193,6 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
@@ -203,34 +203,34 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. Sobre o **política de atribuição de nomes** página, selecione **Eliminar política**.
 1. Depois de confirmar a eliminação, a política de nomes for removida, incluindo todos os de sufixo de prefixo de nomenclatura de política e quaisquer palavras bloqueadas personalizadas.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Remover a política de nomes com o Azure AD Powershell
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Remover a política de nomes com o Azure AD PowerShell
 
 1. Vazio os prefixos de nome de grupo e sufixos no Azure AD PowerShell.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
 1. Vazio as palavras bloqueadas personalizadas.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
 1. Guarde as definições.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="naming-policy-experiences-across-office-365-apps"></a>Nomenclatura de política de experiências em aplicações do Office 365
+## <a name="experience-across-office-365-apps"></a>Experiência em aplicações do Office 365
 
 Depois de definir uma política de nomes de grupo no Azure AD, quando um utilizador cria um grupo num aplicativo do Office 365, consulte:
 
 - A pré-visualização do nome, de acordo com a política de nomes (com prefixos e sufixos) logo que o usuário digita no nome do grupo
 - Se o usuário inserir palavras bloqueadas, verá uma mensagem de erro, de modo que podem remover as palavras bloqueadas.
 
-Carga de trabalho | Conformidade
+Carga de Trabalho | Conformidade
 ----------- | -------------------------------
 Portais de Active Directory do Azure | Portal do Azure AD e portal do painel de acesso mostrarem o nome de política imposta nomenclatura quando o usuário digita um nome de grupo ao criar ou editar um grupo. Quando um usuário insere uma palavra bloqueada personalizada, é apresentada uma mensagem de erro com a palavra bloqueada para que o utilizador pode removê-lo.
 Outlook Web Access (OWA) | Outlook Web Access mostra a política de nomes impostas nome quando o usuário digita um nome de grupo ou o alias de grupo. Quando um usuário insere uma palavra bloqueada personalizada, uma mensagem de erro é mostrada na interface do Usuário, juntamente com a palavra bloqueada, para que o utilizador pode removê-lo.
