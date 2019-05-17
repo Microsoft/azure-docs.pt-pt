@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 2afd5f0a574fd15c4327b141901d2651dbe2b9e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: fa2de14ada5d24531dfecc7f2f709a87f39ea6cb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524239"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826456"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Diretrizes para o planeamento de rede dos Azure NetApp Files
 
@@ -42,7 +42,7 @@ As funcionalidades indicadas abaixo não são atualmente suportadas para ficheir
 
 As seguintes restrições de rede aplicam-se aos ficheiros do Azure NetApp:
 
-* O número de IPs de uma VNet (inclui VNets em modo de peering) ligar a um volume numa VNet não pode ter mais de 1000.
+* O número de VMs que podem ligar a um volume (com uma VNet ou em VNets em modo de peering) não pode ter mais de 1000.
 * Cada rede Virtual do Azure (VNet), apenas uma sub-rede pode ser delegada a ficheiros do Azure NetApp.
 
 

@@ -3,8 +3,8 @@ title: Gerir o acesso a aplicações com o Azure AD | Documentos da Microsoft
 description: Descreve como o Azure Active Directory permite às organizações especificar as aplicações a que cada utilizador tem acesso.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70513675d09a663c65c6f5b3e18059467a8ba388
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 851b9ab3604e851bcaf4f22d031c51558b15e0e6
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440735"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826008"
 ---
 # <a name="managing-access-to-apps"></a>Gerir o acesso a aplicações
 Gestão de acesso contínuo, avaliação de utilização e relatórios continuam a ser um desafio depois de uma aplicação é integrada ao sistema de identidade da sua organização. Em muitos casos, os administradores de TI ou suporte técnico tem de realizar uma função ativa em curso no gerenciamento de acesso às suas aplicações. Às vezes, a atribuição é realizada por uma equipa de TI geral ou divisão. Muitas vezes, a decisão de atribuição se destina a ser designado como o tomador de decisões de negócios, que requerem a sua aprovação antes de IT facilita a atribuição.  Outras organizações investem na integração com um automatizada identidades e acessos sistema de gerenciamento existente, como o controlo de acesso baseado em funções (RBAC) ou o controlo de acesso baseado em atributo (ABAC). A integração e o desenvolvimento de regra tendem a ser dispendiosos e especializados. Monitorização ou relatórios sobre qualquer uma das abordagens de gerenciamento são o seu próprio investimento separado, dispendioso e complexo.
