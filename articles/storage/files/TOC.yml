@@ -169,7 +169,7 @@
         - name: 'Blobs, Filas, Tabelas e Ficheiros'
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
         - name: Movimento de dados
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
+          href: /dotnet/api/microsoft.azure.storage.datamovement
         - name: Resource Manager
           href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
     - name: Java
@@ -233,22 +233,24 @@
           href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Pacotes NuGet
       items:
-        - name: Biblioteca de Clientes do Storage do Azure para o .NET
-          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+        - name: Biblioteca de cliente comum do Armazenamento do Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+        - name: Biblioteca de cliente do Armazenamento de Ficheiros do Azure
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.File/'
         - name: Biblioteca do Movimento de Dados do Storage do Azure
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
         - name: Gestor de Configuração do Azure
-          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
     - name: Código de origem
       items:
         - name: .NET
           items:
-            - name: 'Blob, fila, tabela e ficheiro'
+            - name: 'Blobs, Filas e Ficheiros'
               href: 'https://github.com/Azure/azure-storage-net'
-            - name: Movimento de dados
-              href: 'https://github.com/Azure/azure-storage-net-data-movement'
-            - name: Fornecedor de recursos
-              href: 'https://github.com/Azure/azure-sdk-for-net'
+            - name: Movimento de Dados
+              href: /dotnet/api/microsoft.azure.storage.datamovement
+            - name: Fornecedor de Recursos de Armazenamento
+              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: Java
           href: 'https://github.com/Azure/azure-storage-java'
         - name: C++

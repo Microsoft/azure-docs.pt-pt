@@ -89,6 +89,8 @@
               href: howto-export-data-event-hubs-service-bus.md
             - name: Exportar para o Armazenamento de Blobs
               href: howto-export-data-blob-storage.md
+        - name: Criar regras personalizadas
+          href: howto-create-custom-rules.md
         - name: Ver os seus dados no Power BI
           href: howto-connect-powerbi.md
         - name: Ligar outras clouds de IoT

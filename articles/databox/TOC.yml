@@ -36,6 +36,8 @@
           items:
             - name: Leia as diretrizes de segurança
               href: data-box-safety.md
+            - name: Controlo e início de sessão
+              href: data-box-logs.md
             - name: Rever requisitos
               items:
                 - name: Para o Data Box

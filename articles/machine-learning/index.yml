@@ -7,7 +7,7 @@ metadata:
   description: 'Aprenda a criar algoritmos inteligentes em aplicações, websites e bots para que possam ver, ouvir, falar, compreender e interpretar as necessidades dos utilizadores através de métodos naturais de comunicação. Os tutoriais, inícios rápidos, referências de API e exemplos mostram-lhe como.'
   ms.author: jmartens
   ms.subservice: core
-  ms.date: 12/04/2018
+  ms.date: 5/14/2019
   ms.devlang: na
   ms.service: machine-learning
   ms.tgt_pltfrm: na
@@ -34,20 +34,28 @@ sections:
       - items:
           - html: <a href="service/quickstart-run-cloud-notebook">Executar uma experiência na cloud</a> (não é necessária instalação)
           - html: <a href="service/quickstart-run-local-notebook">Executar uma experiência com um servidor de bloco de notas local</a> (instalação de SDK local)
+          - html: <a href="service/ui-quickstart-run-experiment">Executar uma experiência na interface visual</a> (sem código)
         style: unordered
         type: list
-      - text: '<b>Tutorial de classificação de imagens com dados MNIST:</b>'
+      - text: '<b>Tutorial: Classificação de imagens de dados MNIST com o SDK:</b>'
         type: paragraph
       - items:
           - html: 'Parte 1: <a href="service/tutorial-train-models-with-aml">preparar o seu próprio modelo</a>'
           - html: 'Parte 2: <a href="service/tutorial-deploy-models-with-aml">implementar esse modelo</a>'
         style: unordered
         type: list
-      - text: '<b>Tutorial de modelação de regressão com dados de táxis de Nova Iorque:</b>'
+      - text: '<b>Tutorial: Prever a tarifa de uma viagem de táxi com o SDK:</b>'
         type: paragraph
       - items:
           - html: 'Parte 1: <a href="service/tutorial-data-prep">preparar dados para modelação</a>'
           - html: 'Parte 2: <a href="service/tutorial-auto-train-models">permitir que o ML automatizado prepare modelos para si</a>'
+        style: unordered
+        type: list
+      - text: '<b>Tutorial: Prever o preço de um automóvel com a interface visual:</b>'
+        type: paragraph
+      - items:
+          - html: 'Parte 1: <a href="service/ui-tutorial-automobile-price-train-score">Prever o preço de um automóvel</a>'
+          - html: 'Parte 2: <a href="service/ui-tutorial-automobile-price-deploy">Implementar o modelo de regressão</a>'
         style: unordered
         type: list
       - text: '<b>Consuma os seus modelos:</b>'

@@ -187,7 +187,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Atualizar as credenciais do principal de serviço do cluster
           href: update-credentials.md
-        - name: Restringir e controlar o tráfego de saída do cluster
+        - name: Restringir e controlar o tráfego de saída do cluster (pré-visualização)
           href: limit-egress-traffic.md
         - name: Ativar a integração do Azure Active Directory
           items:

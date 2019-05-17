@@ -17,6 +17,9 @@
       href: quickstart-assign-role-user-portal.md
     - name: Conceder acesso a um utilizador - PowerShell
       href: tutorial-role-assignments-user-powershell.md
+    - name: Conceder acesso a um utilizador – Modelo do Resource Manager
+      displayName: 'ARM, resource manager template'
+      href: tutorial-role-assignments-user-template.md
     - name: Conceder acesso a um grupo - PowerShell
       href: tutorial-role-assignments-group-powershell.md
     - name: Criar uma função personalizada - PowerShell
@@ -88,6 +91,7 @@
     - name: API REST
       href: /rest/api/authorization/
     - name: Modelos do Resource Manager
+      displayName: ARM
       items:
         - name: Atribuições de Funções
           href: /azure/templates/microsoft.authorization/roleassignments

@@ -21,7 +21,7 @@ sections:
   - title: Tutoriais passo-a-passo
     items:
       - type: paragraph
-        text: Saiba como integrar os seus dispositivos associados ao AD local com o Azure AD.
+        text: Saiba como integrar os seus dispositivos associados ao AD no local com o Azure AD.
       - type: list
         style: icon48
         items:
