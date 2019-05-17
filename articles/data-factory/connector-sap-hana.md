@@ -59,10 +59,10 @@ As seguintes propriedades são suportadas para o serviço ligado do SAP HANA:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **SapHana** | Sim |
-| servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | Sim |
+| server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver a utilizar uma porta personalizada, especifique `server:port`. | Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados SAP HANA.<br/>Valores permitidos são: **Básica**, e **Windows** | Sim |
 | userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
-| palavra-passe | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
@@ -122,7 +122,7 @@ Para copiar dados a partir do SAP HANA, defina o tipo de origem na atividade de 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
-| consulta | Especifica a consulta SQL para ler dados a partir da instância do SAP HANA. | Sim |
+| query | Especifica a consulta SQL para ler dados a partir da instância do SAP HANA. | Sim |
 
 **Exemplo:**
 
@@ -165,18 +165,18 @@ Quando se copiam dados a partir do SAP HANA, os seguintes mapeamentos são utili
 | ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
-| VALOR BOOLEANO | Byte |
+| BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATA | DateTime |
+| DATE | DateTime |
 | DECIMAL | Decimal |
-| VALOR DE DUPLO | Single |
+| DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | String |
 | REAL | Single |
 | SECONDDATE | DateTime |
 | SMALLINT | Int16 |
-| HORA | TimeSpan |
-| CARIMBO DE DATA/HORA | DateTime |
+| TIME | TimeSpan |
+| TIMESTAMP | DateTime |
 | TINYINT | Byte |
 | VARCHAR | String |
 
