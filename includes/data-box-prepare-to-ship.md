@@ -2,21 +2,21 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 04/25/2019
 ms.author: alkohli
-ms.openlocfilehash: a8070d25e2606d8ad72ac231a0a208072c612c5c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 1d52117440028c75b249f469f2b3576c2ab1c5c5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60463151"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815483"
 ---
 O passo final é preparar o dispositivo para envio. Neste passo, todas as partilhas do dispositivo são colocadas offline. Não não possível aceder as partilhas depois de iniciar este processo.
 
 > [!IMPORTANT]
 > Preparação para envio é necessária, como sinalizadores de dados que não estão em conformidade com as convenções de nomenclatura do Azure. A ignorar este passo foi resultem em dados de potenciais falhas de carregamento devido a dados não autorizadas.
 
-1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. Por predefinição, as somas de verificação são calculadas inline durante a preparação para envio. O cálculo de soma de verificação pode demorar horas a dias dependendo do tamanho dos seus dados. 
+1. Aceda a **Preparar para enviar** e clique em **Iniciar preparação**. Por predefinição, as somas de verificação são calculadas, enquanto os dados estão a ser copiados. Preparação para envio conclui o cálculo de soma de verificação e cria a lista de ficheiros ( *ficheiros - BOM*). O cálculo de soma de verificação pode demorar horas a dias dependendo do tamanho dos seus dados. 
    
     ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship1.png)
 
@@ -36,7 +36,7 @@ O passo final é preparar o dispositivo para envio. Neste passo, todas as partil
 
     Se houver erros neste passo, terá de transferir o registo de erros e resolva os erros. Depois dos erros são resolvidos, execute **preparação para envio**.
 
-4. Após a preparação para envio concluída com sucesso (sem nenhum erro), baixe a lista de ficheiros (também conhecido como manifesto) copiada nesse processo. Mais tarde, pode utilizar esta lista para verificar os ficheiros carregados para o Azure.
+4. Após a preparação para envio concluída com sucesso (sem nenhum erro), baixe a lista de ficheiros (também conhecido como manifesto) copiada nesse processo. Mais tarde, pode utilizar esta lista para verificar os ficheiros carregados para o Azure. Para obter mais informações, consulte [ficheiros de inspecionar BOM durante a preparação para envio](../articles/databox/data-box-logs.md#inspect-bom-during-prepare-to-ship).
         
     ![Preparar para enviar 1](media/data-box-prepare-to-ship/prepare-to-ship4.png)
 

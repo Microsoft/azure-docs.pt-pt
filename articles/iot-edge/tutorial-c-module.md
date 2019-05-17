@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f5f6b6473a3cbe078ae2357e1f908788e54af25d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 63169423e757f3e1e73a95a1523d74c8fc59b2b2
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573420"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835116"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo de C IoT Edge para dispositivos do Linux
 
@@ -38,10 +38,10 @@ Este tutorial demonstra como desenvolver um módulo numa **C** usando **Visual S
 
 Utilize a tabela seguinte para compreender as opções para desenvolver e implantar módulos de C para Linux: 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
-| - | ------------------ | ------------------ |
-| **Linux AMD64** | ![Utilizar o VS Code para módulos de C em Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Utilizar o VS 2017 para os módulos de C em Linux AMD64](./media/tutorial-c-module/green-check.png) |
-| **ARM32 do Linux** | ![Utilizar o VS Code para módulos de C em Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Utilizar o VS 2017 para os módulos de C em Linux ARM32](./media/tutorial-c-module/green-check.png) |
+| C | Visual Studio Code | Visual Studio | 
+| - | ------------------ | ------------- |
+| **Linux AMD64** | ![Utilizar o VS Code para módulos de C em Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Utilizar o VS para módulos de C em Linux AMD64](./media/tutorial-c-module/green-check.png) |
+| **ARM32 do Linux** | ![Utilizar o VS Code para módulos de C em Linux ARM32](./media/tutorial-c-module/green-check.png) | ![Utilizar o VS para módulos de C em Linux ARM32](./media/tutorial-c-module/green-check.png) |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

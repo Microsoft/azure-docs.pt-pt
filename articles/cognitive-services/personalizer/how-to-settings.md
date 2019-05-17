@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 4aeb9f924ba9af55485dce8babfacdbb0d0110f4
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 80e5feeccc4acc3e1f3dab6b815c8605332c7c71
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520285"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834325"
 ---
 # <a name="personalizer-settings"></a>Definições de personalizer
 
@@ -87,4 +87,7 @@ Na secção da gestão de recursos para **modelo e a política de**, importar um
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Como utilizar o contentor de Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+<!--
+[How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
+[Saiba mais sobre a disponibilidade de região](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)

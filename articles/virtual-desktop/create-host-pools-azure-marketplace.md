@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 8e6991201b3cda5699849ac00cc92217c6b7bf72
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: e19523834c0ddb517fa9d15853411c1b58024b43
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65524003"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833999"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
 
@@ -58,6 +58,9 @@ Para o painel de máquinas virtuais de configurar:
 ### <a name="virtual-machine-settings"></a>Definições da máquina virtual
 
 Para o painel de definição de Máquina Virtual:
+
+>[!NOTE]
+> Se estiver ingressando em suas VMs para um ambiente do Azure AD Domain Services, certifique-se de que seu usuário de associação de domínio também é um membro do [grupo de administradores do AAD DC](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 1. Selecione o **origem da imagem** e introduza as informações apropriadas para a encontrá-la e armazená-los. Se optar por não utilizar discos geridos, selecione a conta de armazenamento que contém o ficheiro. vhd.
 2. Introduza o nome principal de utilizador e palavra-passe da conta de domínio que irão aderir as VMs para o domínio do Active Directory. Esse mesmo nome de utilizador e palavra-passe serão criadas nas máquinas virtuais como uma conta local. Pode redefinir essas contas locais mais tarde.

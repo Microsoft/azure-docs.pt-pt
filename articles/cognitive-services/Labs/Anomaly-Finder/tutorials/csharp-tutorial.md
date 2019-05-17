@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 64183ea09203ea965bb889fe4741fdaf4dbd1e02
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42b7b6fac8f99d78e4a7460ad8753f48b0a3c0ba
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60709942"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823426"
 ---
 # <a name="tutorial-anomaly-detection-with-c-application"></a>Tutorial: Deteção de anomalias com C# aplicação
 
@@ -27,7 +27,7 @@ Explore uma aplicação básica do Windows que utiliza a API de Deteção de Ano
 
 ### <a name="platform-requirements"></a>Requisitos de plataforma
 
-O exemplo foi desenvolvido para o .NET Framework com o [Visual Studio 2017, Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs). 
+O exemplo foi desenvolvido para o .NET Framework usando [2019 do Visual Studio, edição de Comunidade](https://www.visualstudio.com/products/visual-studio-community-vs). 
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Subscrever a Deteção de Anomalias e obter uma chave de subscrição 
 

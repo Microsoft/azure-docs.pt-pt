@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: 023b344d796ea5297cda202e7baa2f0e0ef5eebd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 366a5512179136987a8fc984136c3c039a5b079d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61058355"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827282"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Utilize a ferramenta de migração de dados para migrar os dados para o Azure Cosmos DB
 
@@ -85,6 +85,19 @@ Assim que instalar a ferramenta, está na altura de importar os seus dados. Que 
 A opção de importador de origem de ficheiro JSON permite-lhe importar um ou mais ficheiros JSON de único documento ou ficheiros JSON que cada um tem uma matriz de documentos JSON. Ao adicionar pastas com os ficheiros JSON para importar, tem a opção de recursivamente a procurar ficheiros em subpastas.
 
 ![Captura de ecrã das opções de origem de ficheiro JSON - ferramentas de migração de bases de dados](./media/import-data/jsonsource.png)
+
+A cadeia de ligação é o seguinte formato:
+
+`AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>`
+
+* O `<CosmosDB Endpoint>` é o URI do ponto final. Pode obter este valor a partir do portal do Azure. Navegue até à sua conta do Cosmos do Azure. Abra o **descrição geral** painel e copie a **URI** valor.
+* O `<AccountKey>` é a "palavra-passe" ou **chave primária**. Pode obter este valor a partir do portal do Azure. Navegue até à sua conta do Cosmos do Azure. Abra o **cadeias de ligação** ou **chaves** painel e copie a "palavra-passe" ou **chave primária** valor.
+* O `<CosmosDB Database>` é o nome de base de dados do cosmos DB.
+
+Exemplo: `AccountEndpoint=https://myCosmosDBName.documents.azure.com:443/;AccountKey=wJmFRYna6ttQ79ATmrTMKql8vPri84QBiHTt6oinFkZRvoe7Vv81x9sn6zlVlBY10bEPMgGM982wfYXpWXWB9w==;Database=myDatabaseName`
+
+> [!NOTE]
+> Utilize o comando de Certifique-se para se certificar de que a conta do Cosmos DB especificada no campo de cadeia de caracteres de conexão pode ser acessada.
 
 Seguem-se alguns exemplos de linha de comandos para importar ficheiros JSON:
 

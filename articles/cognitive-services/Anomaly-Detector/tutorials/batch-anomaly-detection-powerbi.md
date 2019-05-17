@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: aahi
-ms.openlocfilehash: 48257782bd71f6145adc7107a5fe70b4cc4f8305
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: de353c946da46b2bbe4e755e21e355f6bd18725b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790508"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827144"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias com deteção de batch e o Power BI
 
@@ -74,7 +74,7 @@ No Editor avançado, utilize o seguinte fragmento do Power Query M para extrair 
 (table as table) => let
 
     apikey      = "[Placeholder: Your Anomaly Detector resource access key]",
-    endpoint    = "[Placeholder: Your Anomaly Detector resource endpoint]/anomalydetector/v1.0/timeseries/entire/detect,
+    endpoint    = "[Placeholder: Your Anomaly Detector resource endpoint]/anomalydetector/v1.0/timeseries/entire/detect",
     inputTable = Table.TransformColumnTypes(table,{{"Timestamp", type text},{"Value", type number}}),
     jsontext    = Text.FromBinary(Json.FromValue(inputTable)),
     jsonbody    = "{ ""Granularity"": ""daily"", ""Sensitivity"": 95, ""Series"": "& jsontext &" }",

@@ -2,22 +2,22 @@
 title: Configurar o início de sessão único - Azure Active Directory | Microsoft Docs
 description: Este tutorial utiliza o portal do Azure para configurar o início de sessão único baseado em SAML para uma aplicação com o Azure Active Directory (Azure AD).
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3d96799e69e2fdef3a4ffd1a436727e6a58da79
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fa18bc637ec31a1f83b5cab090e008715c5e0c2a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60442240"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825017"
 ---
 # <a name="tutorial-configure-saml-based-single-sign-on-for-an-application-with-azure-active-directory"></a>Tutorial: Configurar baseado em SAML início de sessão único para uma aplicação com o Azure Active Directory
 
@@ -142,7 +142,7 @@ Está quase concluído.  Como passo final, terá de configurar a aplicação par
 2. Copie o valor de cada linha nesta secção. Em seguida, cole cada valor na linha apropriada no **configuração básica de SAML** secção. Por exemplo, copie o **URL de início de sessão** partir dos **configurar teste de GitHub** secção e cole-o no **URL de início de sessão** campo no **configuração básica de SAML**  secção e assim por diante.
 3. Quando tiver colado todos os valores nos campos apropriados, selecione **guardar**.
 
-## <a name="test-single-sign-on"></a>Testar o início de sessão único
+## <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Está pronto para testar suas configurações.  
 
@@ -155,7 +155,7 @@ Se existir um erro, é apresentada uma mensagem de erro. Conclua os seguintes pa
 
 1. Copie e cole os detalhes na caixa **Qual é o aspeto do erro?**.
 
-    ![Obter orientações de resolução](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Obter instruções de resolução](media/configure-single-sign-on-portal/error-guidance.png)
 
 2. Selecione **obtenha documentação de orientação de resolução**. São apresentadas as orientações de resolução e causa raiz.  Neste exemplo, o utilizador não foi atribuída à aplicação.
 

@@ -7,20 +7,20 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 05/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: b654c177accb92d5b9a861f14874e795f4525a43
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 91dd716a595dd56c14b3be0bf11a7b69eeb470d6
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793828"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834112"
 ---
-# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um conjunto de anfitrião para validar as atualizações de serviço
+# <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um conjunto de anfitriões para validar as atualizações de serviço
 
 Conjuntos de anfitrião são uma coleção de um ou mais máquinas virtuais idênticas em ambientes de inquilino do Windows Virtual Desktop Preview. Antes de implementar conjuntos de anfitrião para o seu ambiente de produção, é altamente recomendável que cria um conjunto de anfitrião de validação. As atualizações são aplicadas pela primeira vez para conjuntos de anfitrião de validação, permitindo-lhe monitorizar atualizações de serviço antes de distribuí-las ao seu ambiente de produção. Sem um conjunto de anfitrião de validação, não pode descobrir alterações que apresentam erros, que podem resultar em tempo de inatividade para os utilizadores no seu ambiente de produção.
 
 Para garantir que seu trabalho de aplicações com as atualizações mais recentes, o conjunto de anfitrião de validação deve ser o mais semelhante aos agrupamentos de host no seu ambiente de produção quanto possível. Os utilizadores devem ligar com tanta freqüência ao agrupamento de anfitrião de validação, tal como ao agrupamento de host de produção. Se tem testes automatizados no seu conjunto de host, deve incluir o teste automatizado no pool de anfitrião de validação.
 
-Pode depurar problemas no agrupamento de anfitrião de validação com o serviço de diagnóstico ou o [Windows área de Trabalho Virtual artigos de resolução de problemas](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
+Pode depurar problemas no agrupamento de anfitrião de validação com qualquer um [a funcionalidade de diagnóstico](diagnostics-role-service.md) ou o [Windows área de Trabalho Virtual artigos de resolução de problemas](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview).
 
 >[!NOTE]
 > Recomendamos que deixe o agrupamento de anfitrião de validação no local para testar todas as atualizações futuras.
