@@ -8,26 +8,28 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 4700573d3f5319599a6437d092e20d8013d2f7fb
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 21f1fca1e8c5cf2b060cee41d1e474996f306f8e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632931"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787643"
 ---
-| Recurso | Limite predefinido | Limite máximo |
+| Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | Definições de dimensionamento automático |100 por região por subscrição. | Mesmo que o padrão. |
 | Alertas de métricas (clássico) |100 active regras de alerta por subscrição. | Contacte o suporte. |
 | Alertas de métricas |100 active regras de alerta por subscrição. | Contacte o suporte. |
-| Grupos de ação |2.000 grupos de ação por subscrição. | Contacte o suporte. |
+| Alertas de registo de atividade | 100 active regras de alerta por subscrição. | Mesmo que o padrão. |
+| Alertas de registo | 512 | Contacte o suporte. |
+| Grupos de ações |2.000 grupos de ação por subscrição. | Contacte o suporte. |
 
 **Limites do grupo específico de ação**
 
-| Recurso | Limite predefinido | Limite máximo |
+| Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
 | Push de aplicação do Azure | 10 ações de aplicação do azure por grupo de ação. | Contacte o suporte. |
-| Email | ações num grupo de ação de e-mail de 1.000. Consulte também os [informações de limitação de taxas](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contacte o suporte. |
+| Correio Electrónico | ações num grupo de ação de e-mail de 1.000. Consulte também os [informações de limitação de taxas](../articles/azure-monitor/platform/alerts-rate-limiting.md). | Contacte o suporte. |
 | ITSM | 10 ações do ITSM num grupo de ação. | Contacte o suporte. | 
 | Aplicação lógica | 10 ações de aplicação lógica num grupo de ação. | Contacte o suporte. |
 | Runbook | 10 ações de runbook num grupo de ação. | Contacte o suporte. |

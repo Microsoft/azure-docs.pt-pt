@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560049"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799072"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
 
@@ -35,13 +36,13 @@ Este artigo examina o conteúdo JSON devolvido pelos **índice de vídeo de intr
 |Name|Descrição|
 |---|---|
 |accountId|VI a lista de reprodução conta ID.|
-|ID|ID de. a lista de reprodução|
-|nome|Nome da lista de reprodução.|
+|id|ID de. a lista de reprodução|
+|name|Nome da lista de reprodução.|
 |description|Descrição da lista de reprodução.|
 |userName|O nome de utilizador que criou a lista de reprodução.|
 |criado|Hora de criação da lista de reprodução.|
 |privacyMode|Modo de privacidade para a lista de reprodução (público/privado).|
-|state|A lista de reprodução (carregado, processamento, processados, com falhas, em quarentena).|
+|estado|A lista de reprodução (carregado, processamento, processados, com falhas, em quarentena).|
 |isOwned|Indica se a lista de reprodução foi criada pelo utilizador atual.|
 |isEditable|Indica se o utilizador atual tem autorização para editar a lista de reprodução.|
 |isBase|Indica se a lista de reprodução é uma lista de reprodução base (um vídeo) ou uma lista de reprodução é constituído por outros vídeos (derivados).|
@@ -74,8 +75,8 @@ Esta secção mostra o resumo das informações.
 
 |Atributo | Descrição|
 |---|---|
-|nome|O nome do vídeo. Por exemplo, o Azure Monitor.|
-|ID|O ID do vídeo. Por exemplo, 63c6d532ff.|
+|name|O nome do vídeo. Por exemplo, o Azure Monitor.|
+|id|O ID do vídeo. Por exemplo, 63c6d532ff.|
 |privacyMode|Sua divisão pode ter um dos seguintes modos: **Privada**, **pública**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
 |duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
 |thumbnailVideoId|O ID do vídeo a partir do qual foi tirada a miniatura.
@@ -95,9 +96,9 @@ Esta secção mostra o resumo das informações.
 |Name|Descrição|
 |---|---|
 |accountId|VI o vídeo conta ID.|
-|ID|ID do vídeo|
-|nome|Nome do vídeo.
-|state|Estado do vídeo (carregado, processamento, processados, com falhas, em quarentena).|
+|id|ID do vídeo|
+|name|Nome do vídeo.
+|estado|Estado do vídeo (carregado, processamento, processados, com falhas, em quarentena).|
 |processingProgress|O progresso do processamento durante o processamento (por exemplo, 20%).|
 |failureCode|O código de falha se processou (por exemplo, "UnsupportedFileType').|
 |failureMessage|A mensagem de falha se não foi possível processar.|
@@ -192,14 +193,14 @@ Exemplo:
 
 Atributo | Descrição
 ---|---
-ID|ID do bloco.|
+id|ID do bloco.|
 instâncias|Uma lista de intervalos de tempo deste bloco.|
 
 #### <a name="transcript"></a>transcrição
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de linha.|
+|id|O ID de linha.|
 |texto|A transcrição em si.|
 |language|O idioma de transcrição. A finalidade oferecer suporte a transcrição em que cada linha pode ter um idioma diferente.|
 |instâncias|Uma lista de intervalos de tempo em que esta linha apareceu. Se a instância de transcrição, ele terá apenas 1 instância.|
@@ -237,7 +238,7 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de linha de OCR.|
+|id|O ID de linha de OCR.|
 |texto|O texto de OCR.|
 |confiança|A confiança de reconhecimento.|
 |language|O idioma de OCR.|
@@ -272,7 +273,7 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de palavra-chave.|
+|id|O ID de palavra-chave.|
 |texto|O texto de palavra-chave.|
 |confiança|Confiança de reconhecimento da palavra-chave.|
 |language|O idioma de palavra-chave (quando traduzido).|
@@ -303,8 +304,8 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID do rosto.|
-|nome|O nome do mostrador da. Pode ser ' desconhecido n º 0, uma celebridade identificada ou uma pessoa de preparação do cliente.|
+|id|O ID do rosto.|
+|name|O nome do mostrador da. Pode ser ' desconhecido n º 0, uma celebridade identificada ou uma pessoa de preparação do cliente.|
 |confiança|A confiança de identificação de face.|
 |description|Uma descrição da celebridade. |
 |thumbnailId|O ID da miniatura do que enfrentam.|
@@ -348,8 +349,8 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID da etiqueta.|
-|nome|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
+|id|O ID da etiqueta.|
+|name|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
 |language|Idioma de nome etiqueta (quando traduzido). BCP-47|
 |instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
@@ -407,7 +408,7 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID da cena.|
+|id|O ID da cena.|
 |instâncias|Uma lista de intervalos de tempo dessa cena (uma cena só pode ter 1 instância).|
 
 ```json
@@ -440,7 +441,7 @@ Exemplo:
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de captura.|
+|id|O ID de captura.|
 |keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Cada instância de quadro-chave tem um campo de thumbnailId, que contém a miniatura do quadro-chave ID.|
 |instâncias|Uma lista de intervalos de tempo desta captura (uma captura só pode ter 1 instância).|
 
@@ -490,12 +491,12 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 
 |Name|Descrição|
 |---|---|
-|ID|O ID da marca.|
-|nome|O nome de marcas.|
+|id|O ID da marca.|
+|name|O nome de marcas.|
 |referenceId | O sufixo do url da wikipédia marca. Por exemplo, "Target_Corporation" é o sufixo de [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | A marca do url da Wikipédia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |description|A descrição de marcas.|
-|etiquetas|Uma lista de etiquetas predefinidas que foram associados essa marca.|
+|tags|Uma lista de etiquetas predefinidas que foram associados essa marca.|
 |confiança|O valor de confiança do detetor de marca do Video Indexer (0-1).|
 |instâncias|Uma lista de intervalos de tempo desta marca. Cada instância possui um brandType, que indica se esta marca apareceu na transcrição ou no OCR.|
 
@@ -559,7 +560,7 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 
 |Name|Descrição|
 |---|---|
-|ID|O ID do efeito de áudio.|
+|id|O ID do efeito de áudio.|
 |tipo|O tipo de efeito de áudio (por exemplo, Clapping, conversão de voz, silêncio).|
 |instâncias|Uma lista de intervalos de tempo em que esse efeito de áudio apareceu.|
 
@@ -588,7 +589,7 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de sentimentos.|
+|id|O ID de sentimentos.|
 |averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - positivo/neutra/negativo|
 |instâncias|Uma lista de intervalos de tempo em que esse sentimento apareceu.|
 |sentimentType |O tipo pode ser "Neutral", 'Positivo' ou 'Negativo'.|
@@ -627,7 +628,7 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de moderação de conteúdos visual.|
+|id|O ID de moderação de conteúdos visual.|
 |adultScore|Como sendo para adultos (a partir do moderador de conteúdo).|
 |racyScore|O classificado como indecoroso (a partir de moderação de conteúdos).|
 |instâncias|Uma lista de intervalos de tempo em que este moderação de conteúdos visual apareceu.|
@@ -663,7 +664,7 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de moderação de conteúdo textual.|
+|id|O ID de moderação de conteúdo textual.|
 |bannedWordsCount |O número de palavras excluídas.|
 |bannedWordsRatio |O rácio do número total de palavras.|
 
@@ -673,7 +674,7 @@ O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emo
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de emoções.|
+|id|O ID de emoções.|
 |tipo|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.|
 |instâncias|Uma lista de intervalos de tempo em que este emoções apareceram.|
 
@@ -763,8 +764,8 @@ O Video Indexer torna a inferência de tipos de tópicos principais de transcri�
 
 |Name|Descrição|
 |---|---|
-|ID|O ID de tópico.|
-|nome|O nome do tópico, por exemplo: "Farmacêutica".|
+|id|O ID de tópico.|
+|name|O nome do tópico, por exemplo: "Farmacêutica".|
 |referenceId|A estrutura de ligações que reflete a hierarquia de tópicos. Por exemplo: "Estado de funcionamento e wellbeing / medicina e saúde / farmacêutica".|
 |confiança|A pontuação de confiança no intervalo [0,1]. Superior é mais confiança.|
 |language|O idioma usado no tópico.|

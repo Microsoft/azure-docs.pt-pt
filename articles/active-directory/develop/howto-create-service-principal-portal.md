@@ -3,25 +3,25 @@ title: Criar a identidade para aplicações do Azure no portal | Documentos da M
 description: Descreve como criar uma nova aplicação do Azure Active Directory e o principal de serviço que pode ser utilizado com o controlo de acesso baseado em funções no Azure Resource Manager para gerir o acesso aos recursos.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300992"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764953"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação do Azure AD e principal de serviço que pode aceder aos recursos
 
@@ -66,7 +66,7 @@ Pode definir o âmbito no nível da subscrição, no grupo de recursos ou ao rec
 
    Se não vir a subscrição que procura, selecione **filtro de subscrições global**. Certifique-se a subscrição que pretende está selecionado para o portal. 
 
-1. Selecione **Controlo de acesso (IAM)**.
+1. Selecione **controlo de acesso (IAM)**.
 1. Selecione **adicionar atribuição de função**.
 
    ![Selecione adicionar atribuição de função](./media/howto-create-service-principal-portal/select-add.png)
@@ -104,20 +104,20 @@ Também precisa do ID da sua aplicação e uma chave de autenticação. Para obt
 
 1. Copie o **ID da Aplicação** e armazene-o no código da aplicação.
 
-   ![ID de Cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![ID do Cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Selecione **definições**.
+1. Selecione **certificados e segredos**.
 
-   ![Selecionar definições](./media/howto-create-service-principal-portal/select-settings.png)
+   ![Selecionar definições](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. Selecione **Chaves**.
-1. Indique uma descrição e uma duração para a chave. Quando terminar, selecione **Guardar**.
+1. Selecione **segredos de cliente -> novo segredo do cliente**.
+1. Forneça uma descrição do segredo e uma duração. Quando terminar, selecione **adicionar**.
 
-   ![Guardar chave](./media/howto-create-service-principal-portal/save-key.png)
+   ![Guardar o segredo](./media/howto-create-service-principal-portal/save-secret.png)
 
-   Depois de guardar a chave, o valor da mesma é apresentado. Copie este valor, porque não é possível obter a chave mais tarde. Forneça o valor da chave com o ID da aplicação para iniciar sessão como o aplicativo. Armazene o valor da chave num local onde a aplicação o possa obter.
+   Depois de guardar o segredo do cliente, é apresentado o valor do segredo do cliente. Copie este valor, porque não é possível obter a chave mais tarde. Forneça o valor da chave com o ID da aplicação para iniciar sessão como o aplicativo. Armazene o valor da chave num local onde a aplicação o possa obter.
 
-   ![chave guardada](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Copiar segredo](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
@@ -146,7 +146,7 @@ Na sua subscrição do Azure, a conta tem de ter `Microsoft.Authorization/*/Writ
 
 Para verificar as permissões de subscrição:
 
-1. Selecione a sua conta no canto superior direito e selecione **as minhas permissões**.
+1. Selecione a sua conta no canto superior direito e selecione **... -> as minhas permissões**.
 
    ![Selecione as permissões de utilizador](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Para verificar as permissões de subscrição:
 
    ![Localizar utilizador](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Ver as funções atribuídas e determinar se tem as permissões adequadas para atribuir uma aplicação AD a uma função. Caso contrário, peça ao administrador de subscrição para o adicionar a função de administrador de acesso do utilizador. Na imagem seguinte, o utilizador tem atribuída à função de proprietário, o que significa que o utilizador tem as permissões adequadas.
+1. Selecione **atribuições de funções** para ver as funções atribuídas e determinar se tem as permissões adequadas para atribuir uma aplicação AD a uma função. Caso contrário, peça ao administrador de subscrição para o adicionar a função de administrador de acesso do utilizador. Na imagem seguinte, o utilizador tem atribuída à função de proprietário, o que significa que o utilizador tem as permissões adequadas.
 
    ![Mostrar permissões](./media/howto-create-service-principal-portal/view-user-role.png)
 

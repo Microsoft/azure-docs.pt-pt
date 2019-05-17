@@ -6,8 +6,8 @@ metadata:
   title: Documentação da API de Pesquisa de Comércio Local do Bing
   description: A API de Pesquisa de Comércio Local do Bing é um serviço RESTful que permite que as suas aplicações encontrem negócios locais com base em consultas de pesquisa.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.subservice: bing-local-business
   ms.tgt_pltfrm: na
   ms.devlang: na

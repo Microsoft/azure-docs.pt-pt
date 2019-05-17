@@ -671,14 +671,14 @@
           items:
             - name: Implementações clássicas do Linux
               tocHref: /azure/virtual-machines/linux/classic/
-              topicHref: /azure/virtual-machines/linux/classic/
+              topicHref: /previous-versions/azure/virtual-machines/linux/classic/
         - name: Windows
           tocHref: /azure/virtual-machines/windows/
           topicHref: /azure/virtual-machines/windows/
           items:
             - name: Implementações clássicas do Windows
               tocHref: /azure/virtual-machines/windows/classic/
-              topicHref: /azure/virtual-machines/windows/classic/
+              topicHref: /previous-versions/azure/virtual-machines/windows/classic/
             - name: VM do SQL
               tocHref: /azure/virtual-machines/windows/sql
               topicHref: /azure/virtual-machines/windows/sql

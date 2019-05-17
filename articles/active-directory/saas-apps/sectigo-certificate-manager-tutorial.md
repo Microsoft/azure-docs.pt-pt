@@ -16,213 +16,202 @@ ms.topic: tutorial
 ms.date: 15-04-2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a847ea34182994eb6465905e042bfa0218993491
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.openlocfilehash: 573e06f0dd57b92f7621ecf77039159a64249f18
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999166"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786496"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sectigo-certificate-manager"></a>Tutorial: Integração do Active Directory do Azure com o Gestor de certificados do Sectigo
 
 Neste tutorial, saiba como integrar o Gestor de certificados de Sectigo com o Azure Active Directory (Azure AD).
-Integrar o Gestor de certificados de Sectigo no Azure AD fornece as seguintes vantagens:
 
-* Pode controlar no Azure AD que tenha acesso para o Gestor de certificados do Sectigo.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada Sectigo o Gestor de certificados (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+Integrar o Gestor de certificados de Sectigo no Azure AD oferece as seguintes vantagens:
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Pode utilizar o Azure AD para controlar quem tem acesso para o Gestor de certificados do Sectigo.
+* Os utilizadores podem iniciar sessão automaticamente Gestor de certificados para Sectigo com as suas contas do Azure AD (início de sessão único).
+* Pode gerir as suas contas num local central, o portal do Azure.
+
+Para obter mais informações sobre o software como uma integração de aplicação de serviço (SaaS) com o Azure AD, consulte [início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Gestor de certificados do Sectigo, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* Gestor de certificados de Sectigo logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver uma subscrição do Azure AD, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Gestor de certificados de Sectigo subscrição com início de sessão único ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste e integrar o Gestor de certificados de Sectigo no Azure AD.
 
-* Gestor de certificados de Sectigo suporta **SP e IDP** iniciada SSO
+Gestor de certificados de Sectigo suporta as seguintes funcionalidades:
 
-## <a name="adding-sectigo-certificate-manager-from-the-gallery"></a>Adicionando o Gestor de certificados de Sectigo da Galeria
+* **Iniciado por SP início de sessão único**
+* **IDP iniciada pelo início de sessão único**
 
-Para configurar a integração do Gestor de certificados do Sectigo com o Azure AD, terá de adicionar o Gestor de certificados de Sectigo a partir da Galeria à sua lista de aplicações de SaaS geridas.
+## <a name="add-sectigo-certificate-manager-in-the-azure-portal"></a>Adicionar Gestor de certificados de Sectigo no portal do Azure
 
-**Para adicionar Sectigo Gestor de certificados a partir da galeria, execute os seguintes passos:**
+Para integrar o Gestor de certificados de Sectigo com o Azure AD, tem de adicionar o Gestor de certificados de Sectigo à sua lista de aplicações de SaaS geridas.
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+1. No menu da esquerda, selecione **do Azure Active Directory**.
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+    ![A opção do Azure Active Directory](common/select-azuread.png)
+
+1. Selecione **aplicações empresariais** > **todas as aplicações**.
 
     ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. Para adicionar uma aplicação, selecione **nova aplicação**.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![A nova opção de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, escreva **Gestor de certificados de Sectigo**, selecione **Gestor de certificados de Sectigo** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na caixa de pesquisa, introduza **Gestor de certificados de Sectigo**. Nos resultados da pesquisa, selecione **Gestor de certificados de Sectigo**e, em seguida, selecione **Add**.
 
     ![Gestor de certificados de Sectigo na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Sectigo Gestor de certificados com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Gerenciador de certificados do Sectigo deve ser estabelecido.
+Nesta secção, configure e teste do Azure AD início de sessão único com Sectigo Gestor de certificados com base num utilizador de teste com o nome **Eduarda Almeida**. Para o início de sessão único funcione, tem de estabelecer uma relação ligada entre um utilizador do Azure AD e o utilizador relacionado no Gerenciador de certificados do Sectigo.
 
 Para configurar e testar o Azure AD início de sessão único com o Gestor de certificados do Sectigo, tem de concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar o Gestor de certificados de Sectigo Single Sign-On](#configure-sectigo-certificate-manager-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste do Gestor de certificados de Sectigo](#create-sectigo-certificate-manager-test-user)**  - para ter um equivalente da Eduarda Almeida no Sectigo Gerenciador de certificados que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+| Tarefa | Descrição |
+| --- | --- |
+| **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)** | Permite que os utilizadores utilizar esta funcionalidade. |
+| **[Configurar o Gestor de certificados de Sectigo início de sessão único](#configure-sectigo-certificate-manager-single-sign-on)** | Configura as definições de início de sessão únicas no aplicativo. |
+| **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)** | Testes do Azure AD início de sessão único para um utilizador com o nome Eduarda Almeida. |
+| **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)** | Permite a Eduarda Almeida utilizar o Azure AD início de sessão único. |
+| **[Criar um utilizador de teste do Gestor de certificados de Sectigo](#create-a-sectigo-certificate-manager-test-user)** | Cria um equivalente da Eduarda Almeida no Sectigo Gerenciador de certificados que está ligado a representação do Azure AD do utilizador. |
+| **[Testar início de sessão único](#test-single-sign-on)** | Verifica-se de que a configuração funciona. |
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, é configurar o Azure AD início de sessão único com o Gestor de certificados do Sectigo no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com o Gestor de certificados do Sectigo, execute os seguintes passos:
+1. Na [portal do Azure](https://portal.azure.com/), na **Gestor de certificados de Sectigo** painel de integração de aplicações, selecione **início de sessão único**.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Gestor de certificados de Sectigo** página de integração de aplicações, selecione **início de sessão único**.
+    ![Configurar a opção de início de sessão único](common/select-sso.png)
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+1. Na **selecionar um método de início de sessão único** painel, selecione **SAML** ou **SAML/WS-Fed** modo para ativar o início de sessão único.
 
     ![Único início de sessão em modo de seleção](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+1. Na **definir a segurança de início de sessão único com o SAML** painel, selecione **editar** (o ícone de lápis) para abrir o **configuração básica de SAML** painel.
 
     ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
+1. Na **configuração básica de SAML** painel, para configurar *iniciada pelo IDP modo*, conclua os seguintes passos:
 
-    ![URLs de domínio do Gestor de certificados de Sectigo e únicas início de sessão em informações](common/idp-relay.png)
+    1. Na **identificador** , introduza um dos seguintes URL:
+       * https:\//cert-manager.com/shibboleth
+       * https:\//hard.cert-manager.com/shibboleth
 
-    a. Na **identificador** texto, escreva qualquer um do URL:
-    
-    | |
-    |--|
-    | `https://cert-manager.com/shibboleth` |
-    | `https://hard.cert-manager.com/shibboleth` |
+    1. Na **URL de resposta** , introduza um dos seguintes URL:
+        * https:\//cert-manager.com/Shibboleth.sso/SAML2/POST
+        * https:\//hard.cert-manager.com/Shibboleth.sso/SAML2/POST
 
-    b. Na **URL de resposta** texto, escreva qualquer um do URL:
+    1. Selecione **definir URLs adicionais**.
 
-    | |
-    |--|
-    | `https://cert-manager.com/Shibboleth.sso/SAML2/POST` |
-    | `https://hard.cert-manager.com/Shibboleth.sso/SAML2/POST` |
+    1. Na **estado de reencaminhamento** , introduza um dos seguintes URL:
+       * https:\//cert-manager.com/customer/SSLSupport/idp
+       * https:\//hard.cert-manager.com/customer/SSLSupport/idp
 
-    c. Clique em **definir URLs adicionais**.
+    ![URLs de domínio do Gestor de certificados de Sectigo e único informações de início de sessão](common/idp-relay.png)
 
-    d. Na **estado de reencaminhamento** texto, escreva qualquer um do URL:
-    
-    | |
-    |--|
-    | `https://cert-manager.com/customer/SSLSupport/idp` |
-    | `https://hard.cert-manager.com/customer/SSLSupport/idp` |
+1.  Para configurar a aplicação no *iniciado por SP modo*, conclua os seguintes passos:
 
-5.  Se desejar configurar a aplicação no **SP** iniciada pelo modo, execute os seguintes passos:
+    * Na **iniciar sessão no URL** , introduza um dos seguintes URL:
+      * https:\//cert-manager.com/Shibboleth.sso/Login
+      * https:\//hard.cert-manager.com/Shibboleth.sso/Login
 
-    ![URLs de domínio do Gestor de certificados de Sectigo e únicas início de sessão em informações](common/both-signonurl.png)
+      ![URLs de domínio do Gestor de certificados de Sectigo e único informações de início de sessão](common/both-signonurl.png)
 
-    Na **URL de início de sessão** texto, escreva qualquer um do URL:
-    
-    | |
-    |--|
-    | `https://cert-manager.com/Shibboleth.sso/Login`|
-    | `https://hard.cert-manager.com/Shibboleth.sso/Login`|
+1. Na **definir a segurança de início de sessão único com o SAML** painel, na **certificado de assinatura SAML** secção, selecione **transferir** junto a **certificado (Base64)**. Selecione uma opção de download com base nos seus requisitos. Guarde o certificado no seu computador.
 
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+    ![A opção de download de certificado (Base64)](common/certificatebase64.png)
 
-    ![O link de download de certificado](common/certificatebase64.png)
+1. Na **configure o Gestor de certificados do Sectigo** secção, copie os seguintes URLs com base nos seus requisitos:
 
-7. Sobre o **configure o Gestor de certificados do Sectigo** secção, copie os URLs apropriados de acordo com seus requisitos.
+    * URL de início de sessão
+    * Identificador do Azure AD
+    * URL de fim de sessão
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Configurar o Gestor de certificados de Sectigo início de sessão único
 
-    b. Identificador do Azure AD
-
-    c. URL de fim de sessão
-
-### <a name="configure-sectigo-certificate-manager-single-sign-on"></a>Configurar Sectigo Gestor de certificados de início de sessão único
-
-Para configurar o início de sessão único num **Gestor de certificados de Sectigo** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [Sectigo A equipa de suporte do Gestor de certificados](https://sectigo.com/support). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o início de sessão único no lado do Gestor de certificados de Sectigo, envie o ficheiro transferido do certificado (Base64) e os URLs relevantes que copiou do portal do Azure para o [equipa de suporte do Gestor de certificados de Sectigo](https://sectigo.com/support). A equipa de suporte do Gestor de certificados de Sectigo utiliza as informações de que enviá-las para se certificar de que a SAML única início de sessão na ligação está definida corretamente em ambos os lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Os utilizadores e todas as opções de utilizadores](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo utilizador**.
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![A nova opção de utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+1. Na **utilizador** painel, conclua os seguintes passos:
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
+    1. Na **Name** , introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
+    1. Na **nome de utilizador** , introduza **brittasimon\@\<seu domínio da empresa >.\< extensão\>**. Por exemplo, **brittasimon\@contoso.com**.
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    1. Selecione o **palavra-passe de Show** caixa de verificação. Anote o valor que é apresentado no **palavra-passe** caixa.
 
-    d. Clique em **Criar**.
+    1. Selecione **Criar**.
+
+    ![O painel do utilizador](common/user-properties.png)
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para o Gestor de certificados do Sectigo.
+Nesta secção, pode conceder acesso Eduarda Almeida para o Gestor de certificados do Sectigo para que ela pode utilizar o Azure início de sessão único.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Gestor de certificados de Sectigo**.
+1. No portal do Azure, selecione **aplicações empresariais** > **todas as aplicações** > **Gestor de certificados de Sectigo**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+    ![O painel de aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Gestor de certificados de Sectigo**.
+1. Na lista de aplicações, selecione **Gestor de certificados de Sectigo**.
 
-    ![A ligação de Gestor de certificados de Sectigo na lista de aplicações](common/all-applications.png)
+    ![Gestor de certificados de Sectigo na lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+1. No menu, selecione **utilizadores e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![A opção de utilizadores e grupos](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **adicionar utilizador**. Em seguida, na **adicionar atribuição** painel, selecione **utilizadores e grupos**.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![O painel de atribuição de adicionar](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+1. Na **utilizadores e grupos** painel, selecione **Eduarda Almeida** na lista de utilizadores. Escolha **Selecionar**.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+1. Se estiver à espera um valor de função na asserção de SAML, no **selecionar função** painel, selecione a função relevante para o utilizador a partir da lista. Escolha **Selecionar**.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+1. Na **adicionar atribuição** painel, selecione **atribuir**.
 
-### <a name="create-sectigo-certificate-manager-test-user"></a>Criar utilizador de teste do Gestor de certificados de Sectigo
+### <a name="create-a-sectigo-certificate-manager-test-user"></a>Criar um utilizador de teste do Gestor de certificados de Sectigo
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Gestor de certificados do Sectigo. Trabalhar com [equipa de suporte do Gestor de certificados de Sectigo](https://sectigo.com/support) para adicionar os utilizadores na plataforma do Gestor de certificados de Sectigo. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um utilizador com o nome Eduarda Almeida no Gestor de certificados do Sectigo. Trabalhar com o [equipa de suporte do Gestor de certificados de Sectigo](https://sectigo.com/support) para adicionar o utilizador na plataforma do Gestor de certificados de Sectigo. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 
-Quando clica no mosaico do Gestor de certificados de Sectigo no painel de acesso, deve ser automaticamente conectado para Sectigo Gestor de certificados para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Depois de configurar início de sessão único, quando seleciona **Gestor de certificados de Sectigo** no portal as minhas aplicações, tem automaticamente sessão iniciada para o Gestor de certificados do Sectigo. Para obter mais informações sobre o portal as minhas aplicações, consulte [aplicações de acesso e a utilização no portal minhas aplicações](../user-help/my-apps-portal-end-user-access.md).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="next-steps"></a>Passos Seguintes
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+Para obter mais informações, consulte estes artigos:
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
+- [Lista de tutoriais de integração de aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
 
