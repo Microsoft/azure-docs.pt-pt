@@ -9,12 +9,12 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150063"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789988"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância de armazenamento do Azure
 
@@ -52,7 +52,7 @@ Para obter informações sobre o armazenamento do Azure garante-se para durabili
 > O armazenamento Premium suporta o armazenamento apenas localmente redundante (LRS).
 
 ## <a name="changing-replication-strategy"></a>Alterar a estratégia de replicação
-Pode alterar a estratégia de replicação da conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou uma do [cliente do Azure bibliotecas](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num período de indisponibilidade.
+Pode alterar a estratégia de replicação da conta de armazenamento utilizando o [portal do Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [da CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), ou uma do [cliente do Azure bibliotecas](https://docs.microsoft.com/azure/index#pivot=sdkstools). Alterar o tipo de replicação da conta de armazenamento não resulta num período de indisponibilidade.
 
    > [!NOTE]
    > Atualmente, não é possível utilizar o Portal ou a API para converter a sua conta ZRS. Se pretender converter a replicação da sua conta ZRS, veja [armazenamentoredundância de zona (ZRS)](storage-redundancy-zrs.md) para obter detalhes.

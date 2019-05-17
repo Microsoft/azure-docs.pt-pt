@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322798"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796367"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar e Exportar identidades de dispositivos do IoT Hub em massa
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>Limites de tarefa de importação/exportação do dispositivo
+
+Importar apenas 1 dispositivo Active Directory ou a tarefa de exportação é permitida por vez para todas as camadas do IoT Hub. IoT Hub também tem limites de taxa de operações de tarefas. Para obter mais informações, consulte [referência - IoT Hub quotas e limitação](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Exportar dispositivos
 
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Obter o URI de SAS do contentor
 
-O exemplo de código seguinte mostra-lhe como gerar uma [URI de SAS](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) com leitura, escrita e eliminação de permissões para um contentor de BLOBs:
+O exemplo de código seguinte mostra-lhe como gerar uma [URI de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) com leitura, escrita e eliminação de permissões para um contentor de BLOBs:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 Neste artigo, aprendeu a realizar operações em massa de registo de identidade num IoT hub. Siga estas ligações para saber mais sobre como gerir o IoT Hub do Azure:
 
 * [Métricas do IoT Hub](iot-hub-metrics.md)
-* [Monitorização de operações](iot-hub-operations-monitoring.md)
+* [Registos do IoT Hub](iot-hub-monitor-resource-health.md)
 
 Para explorar ainda mais os recursos do IoT Hub, veja:
 

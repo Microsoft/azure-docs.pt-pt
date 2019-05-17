@@ -10,10 +10,10 @@ ms.service: openshift
 ms.date: 05/14/2019
 ms.openlocfilehash: a85397dae67eb06fecbf5e2410f56e2aad808dc8
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65750081"
+ms.locfileid: "65792867"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Azure Red Hat OpenShift
 

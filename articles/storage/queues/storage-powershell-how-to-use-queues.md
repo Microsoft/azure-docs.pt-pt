@@ -9,12 +9,12 @@ ms.date: 09/14/2017
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: dbaaade278073613a62eaf350146360651350244
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510233"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797763"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de filas do Azure com o Azure PowerShell
 
@@ -103,7 +103,7 @@ Get-AzStorageQueue -Context $ctx | select Name
 
 ## <a name="add-a-message-to-a-queue"></a>Adicione uma mensagem numa fila
 
-Operações que afetam as mensagens reais na fila de utilizam a biblioteca de cliente de armazenamento de .NET como expostos no PowerShell. Para adicionar uma mensagem numa fila, crie uma nova instância do objeto message, [Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) classe. Em seguida, chame o método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage). Um CloudQueueMessage pode ser criado a partir de uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes.
+Operações que afetam as mensagens reais na fila de utilizam a biblioteca de cliente de armazenamento de .NET como expostos no PowerShell. Para adicionar uma mensagem numa fila, crie uma nova instância do objeto message, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) classe. Em seguida, chame o método [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage). Um CloudQueueMessage pode ser criado a partir de uma cadeia de caracteres (em formato UTF-8) ou uma matriz de bytes.
 
 O exemplo seguinte demonstra como adicionar uma mensagem à sua fila.
 
@@ -131,7 +131,7 @@ As mensagens são de leitura por ordem melhor: Experimente first-in-first-out. N
 
 Isso **tempo limite de invisibilidade** define o tempo que a mensagem permanece invisível antes de ser novamente disponível para processamento. A predefinição é 30 segundos. 
 
-Seu código ler uma mensagem da fila em dois passos. Quando chama a [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) método, obterá a seguinte mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para concluir a remover a mensagem da fila, chama o [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) método. 
+Seu código ler uma mensagem da fila em dois passos. Quando chama a [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) método, obterá a seguinte mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para concluir a remover a mensagem da fila, chama o [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) método. 
 
 No exemplo a seguir, leia as mensagens de fila de três depois, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia as mensagens de três novamente, a eliminar as mensagens depois de lê-los ao chamar **DeleteMessage**. Se tentar ler a fila depois das mensagens são eliminadas, $queueMessage será devolvido como NULL.
 

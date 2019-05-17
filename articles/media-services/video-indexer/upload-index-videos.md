@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 89903d3f65c74da6903e53284f168d2d6a12168a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e92086ca18887b9b2c2362e97d855c33834b83bb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64719655"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799198"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -61,15 +62,15 @@ Um URL que é utilizado para notificar o cliente (usando um pedido POST) sobre o
     
         |Name|Descrição|
         |---|---|
-        |ID|O ID do vídeo|
-        |state|O estado de vídeo|  
+        |id|O ID do vídeo|
+        |estado|O estado de vídeo|  
     - Exemplo: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Pessoa identificada no vídeo:
   - Propriedades
     
       |Name|Descrição|
       |---|---|
-      |ID| O ID do vídeo|
+      |id| O ID do vídeo|
       |faceId|O ID de rostos que aparece no índice de vídeos|
       |knownPersonId|O ID da pessoa que seja exclusivo dentro de um modelo de rostos|
       |personName|O nome da pessoa|

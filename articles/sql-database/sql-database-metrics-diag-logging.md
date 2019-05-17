@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548647"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791918"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de base de dados SQL do Azure e o registo de diagnósticos
 
@@ -46,12 +46,12 @@ Pode ativar e gerir as métricas e registos de telemetria de diagnóstico utiliz
 - PowerShell
 - CLI do Azure
 - API de REST do Azure Monitor
-- Modelo Azure Resource Manager
+- Modelo do Azure Resource Manager
 
 Quando ativar métricas e registo de diagnósticos, tem de especificar o destino de recursos do Azure para recolher a telemetria de diagnóstico. Opções disponíveis incluem:
 
 - Análise de SQL do Azure
-- Azure Event Hubs
+- Hubs de Eventos do Azure
 - Storage do Azure
 
 Pode aprovisionar um novo recurso do Azure ou selecione um recurso existente. Depois de escolher um recurso utilizando o **das definições de diagnóstico** opção, especifique os dados a recolher.
@@ -64,7 +64,7 @@ Pode configurar bases de dados SQL do Azure e bases de dados de instância para 
 
 | Telemetria para bases de dados de monitorização | Base de dados e suporte de bases de dados agrupadas | Suporte de base de dados de instância |
 | :------------------- | ----- | ----- |
-| [Todas as métricas](#all-metrics): Contém a percentagem de DTU/CPU, limite de DTU/da CPU, físico dados lidos percentagem, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento e percentagem de armazenamento do XTP. | Sim | Não |
+| [Métricas básicas](#basic-metrics): Contém a percentagem de DTU/CPU, limite de DTU/da CPU, físico dados lidos percentagem, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento e percentagem de armazenamento do XTP. | Sim | Não |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de execução de consulta como a utilização da CPU e estatísticas de duração de consulta. | Sim | Sim |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (o que as suas consultas aguardado) como, por exemplo são a CPU, o registo e o bloqueio. | Sim | Sim |
 | [Erros](#errors-dataset): Contém informações sobre erros do SQL num banco de dados. | Sim | Sim |
@@ -91,9 +91,9 @@ Pode utilizar o **as definições de diagnóstico** menu para cada um único, ag
 
 Pode configurar um recurso de conjunto elástico para recolher a telemetria de diagnóstico seguinte:
 
-| Recurso | Monitorização de telemetria |
+| Resource | Monitorização de telemetria |
 | :------------------- | ------------------- |
-| **Conjunto elástico** | [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics) contém a percentagem de eDTU/CPU, limite de eDTU/da CPU, físico dados lidos percentagem, log escrever percentagem, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, limite de armazenamento e a percentagem de armazenamento do XTP. |
+| **Conjunto elástico** | [Métricas básicas](sql-database-metrics-diag-logging.md#basic-metrics) contém a percentagem de eDTU/CPU, limite de eDTU/da CPU, físico dados lidos percentagem, log escrever percentagem, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, limite de armazenamento e a percentagem de armazenamento do XTP. |
 
 Para configurar a transmissão em fluxo de telemetria de diagnóstico para conjuntos elásticos e bases de dados nos conjuntos elásticos, terá de configurar separadamente **ambos** dos seguintes procedimentos:
 
@@ -113,7 +113,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para um recurs
 1. Introduza um nome de definição para sua própria referência.
 1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
 1. Para o log analytics, selecione **configurar** e criar uma nova área de trabalho ao selecionar **+ criar nova área de trabalho**, ou selecione uma área de trabalho existente.
-1. Selecione a caixa de verificação de telemetria de diagnóstico do conjunto elástico: **AllMetrics**.
+1. Selecione a caixa de verificação de telemetria de diagnóstico do conjunto elástico: **Básico** métricas.
    ![Configurar os diagnósticos para conjuntos elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Selecione **Guardar**.
 1. Além disso, configure a transmissão em fluxo de telemetria de diagnóstico para cada base de dados dentro do conjunto elástico que pretende monitorizar ao seguir os passos descritos na secção seguinte.
@@ -137,7 +137,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para bases de 
 1. Introduza um nome de definição para sua própria referência.
 1. Selecione um recurso de destino para os dados de diagnóstico de transmissão em fluxo: **Arquivo para a conta de armazenamento**, **Stream para um hub de eventos**, ou **enviar para o Log Analytics**.
 1. Para a experiência de monitorização padrão, com base em eventos, selecione as caixas de verificação seguintes para a telemetria de registo de diagnóstico de base de dados: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **erros** , **DatabaseWaitStatistics**, **tempos limite**, **blocos**, e **Deadlocks**.
-1. Para uma experiência de monitorização avançada, de minuto-baseado num, selecione a caixa de verificação **AllMetrics**.
+1. Para uma experiência de monitorização avançada, de minuto-baseado num, selecione a caixa de verificação **básica** métricas.
    ![Configurar os diagnósticos para única, agrupada ou bases de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selecione **Guardar**.
 1. Repita estes passos para cada base de dados que pretende monitorizar.
@@ -153,7 +153,7 @@ Para ativar a transmissão em fluxo de telemetria de diagnóstico para bases de 
 
 Pode configurar um recurso de instância gerida para recolher a telemetria de diagnóstico seguinte:
 
-| Recurso | Monitorização de telemetria |
+| Resource | Monitorização de telemetria |
 | :------------------- | ------------------- |
 | **Instância gerida** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contém a contagem de vCores, percentagem de CPU média, pedidos de e/s, espaço de armazenamento reservada, lidos/escritos de bytes e espaço de armazenamento utilizado. |
 
@@ -385,7 +385,7 @@ Ou, mais simples:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Por exemplo, pode ser um nome de blob para todas as métricas:
+Por exemplo, pode ser um nome de blob para métricas básicas:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Se estiver a utilizar a análise de SQL do Azure, pode monitorizar o consumo de 
 
 Monitorizar a telemetria disponível para a base de dados do Azure SQL, conjuntos elásticos e a instância gerida está documentado abaixo. Telemetria de monitorização recolhida dentro de análise de SQL pode ser utilizada para sua própria análise personalizada e, em seguida, desenvolvimento de aplicativo usando [consultas de registo do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) idioma.
 
-## <a name="all-metrics"></a>Todas as métricas
+## <a name="basic-metrics"></a>Métrica básica
 
-Consulte as tabelas seguintes para obter detalhes sobre todas as métricas por recurso.
+Consulte as tabelas seguintes para obter detalhes sobre métricas básicas por recurso.
 
-### <a name="all-metrics-for-elastic-pools"></a>Todas as métricas para conjuntos elásticos
+> [!NOTE]
+> Opção de métricas básicas era anteriormente conhecida como todas as métricas. A alteração feita era a nomenclatura apenas e não havia nenhuma alteração à métricas monitorizadas. Esta alteração foi iniciada para permitir a introdução das categorias de métricas adicionais no futuro.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Métricas básicas para conjuntos elásticos
 
 |**Recurso**|**Métricas**|
 |---|---|
 |Conjunto elástico|percentagem de eDTU, eDTU utilizado, o limite de eDTU, percentagem de CPU, percentagem de leitura de dados físicos, log escrever percentagem, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, limite de armazenamento, percentagem de armazenamento do XTP |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Todas as métricas para bases de dados do Azure SQL
+### <a name="basic-metrics-for-azure-sql-databases"></a>Métricas básicas para bases de dados do Azure SQL
 
 |**Recurso**|**Métricas**|
 |---|---|
 |Base de dados SQL do Azure|Percentagem de DTU, DTU utilizado, o limite DTU, percentagem de CPU, percentagem de leitura de dados físicos, de registo de escrita em percentagem, com êxito/com falhas/bloqueado por ligações de firewall, percentagem de sessões, percentagem de funções de trabalho, armazenamento, percentagem de armazenamento, percentagem de armazenamento do XTP, e deadlocks |
 
-## <a name="all-logs"></a>Todos os registos
+## <a name="basic-logs"></a>Registos básicos
 
 Detalhes de telemetria disponível para todos os registos estão documentados nas tabelas abaixo. Veja [suportado registo de diagnósticos](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) para compreender os registos que são suportados para um tipo de base de dados específica - SQL do Azure única, agrupada, ou instância de base de dados.
 
@@ -440,11 +443,11 @@ Detalhes de telemetria disponível para todos os registos estão documentados na
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: ResourceUsageStats |
-|Recurso|O nome do recurso |
+|Category|Nome da categoria. Sempre: ResourceUsageStats |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome da instância gerida |
 |ResourceId|URI do recurso |
 |SKU_s|SKU do produto de instância gerida |
@@ -465,12 +468,12 @@ Detalhes de telemetria disponível para todos os registos estão documentados na
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
+|Category|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
-|Recurso|O nome do recurso |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -516,12 +519,12 @@ Saiba mais sobre [dados de estatísticas de tempo de execução de consulta Stor
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
+|Category|Nome da categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
-|Recurso|O nome do recurso |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -554,17 +557,17 @@ Saiba mais sobre [dados de estatísticas de espera de consulta Store](https://do
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQ |
-|Categoria|Nome da categoria. Sempre: Erros |
+|Category|Nome da categoria. Sempre: Erros |
 |OperationName|Nome da operação. Sempre: ErrorEvent |
-|Recurso|O nome do recurso |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
 |ResourceId|URI do recurso |
-|Mensagem|Mensagem de erro em texto simples |
+|Message|Mensagem de erro em texto simples |
 |user_defined_b|É o bit de definidas pelo utilizador do erro |
 |error_number_d|Código de erro |
 |Gravidade|Gravidade do erro |
@@ -583,12 +586,12 @@ Saiba mais sobre [mensagens de erro do SQL Server](https://msdn.microsoft.com/li
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
+|Category|Nome da categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
-|Recurso|O nome do recurso |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -612,12 +615,12 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: Tempos limite |
+|Category|Nome da categoria. Sempre: Tempos limite |
 |OperationName|Nome da operação. Sempre: TimeoutEvent |
-|Recurso|O nome do recurso |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -635,12 +638,12 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: blocos |
+|Category|Nome da categoria. Sempre: blocos |
 |OperationName|Nome da operação. Sempre: BlockEvent |
-|Recurso|O nome do recurso |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -659,12 +662,12 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TimeGenerated [UTC] |Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: Impasses |
+|Category|Nome da categoria. Sempre: Impasses |
 |OperationName|Nome da operação. Sempre: DeadlockEvent |
-|Recurso|O nome do recurso |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |
 |DatabaseName_s|Nome da base de dados |
@@ -680,11 +683,11 @@ Saiba mais sobre [estatísticas de espera de base de dados](https://docs.microso
 |TimeGenerated [UTC]|Carimbo de hora quando o registo foi registado |
 |Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome do fornecedor de recursos. Sempre: MICROSOFT.SQL |
-|Categoria|Nome da categoria. Sempre: AutomaticTuning |
-|Recurso|O nome do recurso |
+|Category|Nome da categoria. Sempre: AutomaticTuning |
+|Resource|Nome do recurso |
 |ResourceType|Nome do tipo de recurso. Sempre: SERVERS/DATABASES |
 |SubscriptionId|GUID da subscrição para a base de dados |
-|ResourceGroup|Nome do grupo de recursos para a base de dados |
+|GrupoRecursos|Nome do grupo de recursos para a base de dados |
 |LogicalServerName_s|Nome do servidor da base de dados |
 |LogicalDatabaseName_s|Nome da base de dados |
 |ElasticPoolName_s|Nome do conjunto elástico da base de dados, se aplicável |

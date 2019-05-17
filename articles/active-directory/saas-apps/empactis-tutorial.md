@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: d4d9e988f54abc52eedf0dfc26c78a2d16f72032
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65737420"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-empactis"></a>Tutorial: Integração do Active Directory do Azure com Empactis
 

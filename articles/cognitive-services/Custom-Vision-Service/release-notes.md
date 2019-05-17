@@ -9,14 +9,32 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 2b0d8b8a86c3105b1bda7fb0d72cbcb72ed82995
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60816381"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787960"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de versão do serviço de visão personalizada
+
+## <a name="may-2-2019-and-may-10-2019"></a>2 de Maio de 2019 e 10 de Maio de 2019
+
+- Melhorias de Bugfixes e back-end
+
+## <a name="may-23-2019"></a>23 de Maio de 2019
+
+- Portal melhorada a experiência de experiência do Usuário relacionados com subscrições do Azure, tornando mais fácil selecionar os diretórios do Azure.
+
+## <a name="april-18-2019"></a>18 de Abril de 2019 
+
+- Exportação de deteção de objetos foi adicionada para o Kit de desenvolvimento de ia de visão.
+- Ajustes de interface do Usuário, incluindo a pesquisa de projeto.
+
+## <a name="april-3-2019"></a>3 de Abril de 2019
+
+- Aumentou o limite no número de caixas delimitadora de acordo com a imagem a 200. 
+- Bugfixes, incluindo a atualização de desempenho substanciais para Modelos exportados para o TensorFlow. 
 
 ## <a name="march-26-2019"></a>26 de Março de 2019
 

@@ -5,27 +5,27 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: include
-ms.date: 04/29/2019
+ms.date: 05/14/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: d20e266d1331fc15e65b2d119468483ff53a4c06
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: ee8ff3529524a63ca2e54a64327570197f363538
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64951558"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787627"
 ---
-| Recurso | Básica | Standard | Premium |
+| Resource | Básico | Standard | Premium |
 |---|---|---|---|
 | Armazenamento<sup>1</sup> | 10 GiB | 100 GiB| 500 GiB |
 | Tamanho da camada de imagem máximo | 200 GiB | 200 GiB | 200 GiB |
-| ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3000 | 10,000 |
+| ReadOps por minuto<sup>2, 3</sup> | 1,000 | 3.000 | 10,000 |
 | WriteOps por minuto<sup>2, 4</sup> | 100 | 500 | 2.000 |
 | Transferir MBps da largura de banda<sup>2</sup> | 30 | 60 | 100 |
 | Carregar MBps da largura de banda<sup>2</sup> | 10 | 20 | 50 |
 | Webhooks | 2 | 10 | 100 |
 | Georreplicação | N/A | N/A | [Suportado][geo-replication] |
-| Fidedignidade do conteúdo (pré-visualização) | N/A | N/A | [Suportado][content-trust] |
+| Confiança de conteúdo | N/A | N/A | [Suportado][content-trust] |
 
 <sup>1</sup>os limites de armazenamento especificadas são a quantidade de *incluído* armazenamento para cada camada. Que lhe é cobrada uma taxa diária adicional por GiB para o armazenamento de imagem acima estes limites. Para informações de taxa, consulte [preços do Azure Container Registry][pricing].
 

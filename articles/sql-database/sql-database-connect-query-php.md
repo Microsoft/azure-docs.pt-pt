@@ -13,10 +13,10 @@ manager: craigg
 ms.date: 02/12/2019
 ms.openlocfilehash: c1ecd298afb7b4e955ec1633fc19162917ee8726
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65754583"
+ms.locfileid: "65792166"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o PHP para consultar uma base de dados SQL do Azure
 

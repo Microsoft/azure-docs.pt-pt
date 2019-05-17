@@ -1,23 +1,17 @@
 ---
 title: Bloquear recursos do Azure para impedir alterações | Documentos da Microsoft
 description: Impedi os utilizadores de atualização e a eliminação de recursos do Azure críticos ao aplicar um bloqueio para todos os utilizadores e funções.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360437"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813391"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos pode prevenir alterações inesperadas 
 
@@ -36,7 +30,13 @@ Ao contrário do controlo de acesso baseado em funções, usar os bloqueios de g
 
 Bloqueios de Gestor de recursos aplicam-se apenas às operações que ocorrem no plano de gestão, que consiste em operações enviadas para `https://management.azure.com`. Os bloqueios não restringem como recursos executam suas próprias funções. As alterações de recursos são restritas, mas as operações de recursos não restritas. Por exemplo, um bloqueio só de leitura numa base de dados SQL impede-eliminem ou modifiquem o banco de dados. Ele não impede de criar, atualizar ou eliminar dados na base de dados. Transações de dados são permitidas porque essas operações não são enviadas para `https://management.azure.com`.
 
-Aplicando **só de leitura** pode levar a resultados inesperados, uma vez que algumas operações que parecem ler operações, na verdade, exigem ações adicionais. Por exemplo, colocar uma **só de leitura** bloqueio numa conta de armazenamento impede que todos os utilizadores de listar as chaves. A lista de operação de chaves é tratada por meio de um pedido POST porque as chaves retornadas estão disponíveis para operações de escrita. Por outro exemplo, colocar uma **só de leitura** bloqueio num recurso de serviço de aplicações impede que o Visual Studio Server Explorer de apresentar ficheiros para o recurso porque essa interação requer acesso de escrita.
+Aplicando **só de leitura** pode levar a resultados inesperados, uma vez que algumas operações que parecem modificar o recurso não exigem realmente ações que são bloqueadas pelo bloqueio. O **só de leitura** bloqueio pode ser aplicado ao recurso ou para o grupo de recursos que contém o recurso. Alguns exemplos comuns das operações que estão bloqueadas por uma **só de leitura** bloqueio são:
+
+* R **só de leitura** bloqueio numa conta de armazenamento impede que todos os utilizadores de listar as chaves. A lista de operação de chaves é tratada por meio de um pedido POST porque as chaves retornadas estão disponíveis para operações de escrita.
+
+* R **só de leitura** bloqueio num recurso de serviço de aplicações impede que o Visual Studio Server Explorer de apresentar ficheiros para o recurso porque essa interação requer acesso de escrita.
+
+* R **só de leitura** bloqueio no grupo de recursos que contém uma máquina virtual impede que todos os utilizadores de iniciar ou reiniciar a máquina virtual. Estas operações exigem um pedido POST.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quem pode criar ou eliminar bloqueios
 Para criar ou eliminar bloqueios de gestão, tem de ter acesso ao `Microsoft.Authorization/*` ou `Microsoft.Authorization/locks/*` ações. Das funções incorporadas, apenas **Proprietário** e **Administrador de Acesso dos Utilizadores** têm acesso a essas ações.

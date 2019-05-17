@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5234443e234d232a9711274bea2f73427266f6e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f3bfe067b7a927f800f88958ee2ffca09711c10
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355816"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812815"
 ---
 # <a name="conditional-access-for-b2b-collaboration-users"></a>Acesso condicional para utilizadores de colaboração B2B
 

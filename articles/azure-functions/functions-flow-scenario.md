@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106975"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787678"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função a partir do Microsoft Flow
 
@@ -36,6 +36,8 @@ Neste tópico, ficará a saber como:
 > * Crie um fluxo para enviar correio eletrónico se uma reparação é rentável.
 > * Execute o fluxo.
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Um ativo [conta do Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) com o mesmo sinal em credenciais da sua conta do Azure. 
@@ -47,11 +49,11 @@ Começar através da criação de uma lista que utilizar como uma origem de dado
 
 | Coluna de lista     | Tipo de Dados           | Notas                                    |
 |-----------------|---------------------|------------------------------------------|
-| **Title** (Título)           | Uma linha de texto | Nome da turbina                      |
+| **Título**           | Uma linha de texto | Nome da turbina                      |
 | **LastServiceDate** | Date                |                                          |
-| **MaxOutput**       | Number              | Saída da turbina, em KwH            |
+| **MaxOutput**       | Número              | Saída da turbina, em KwH            |
 | **ServiceRequired** | Sim/Não              |                                          |
-| **EstimatedEffort** | Number              | Tempo estimado para o reparo, em horas |
+| **EstimatedEffort** | Número              | Tempo estimado para o reparo, em horas |
 
 1. No seu site do SharePoint, clique ou toque **New**, em seguida, **lista**.
 
@@ -226,7 +228,7 @@ Agora que o fluxo está concluído, adicionar uma linha à lista do SharePoint e
 
     | Coluna de lista     | Value           |
     |-----------------|---------------------|
-    | **Title** (Título)           | Turbina 60 |
+    | **Título**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
     | **ServiceRequired** | Sim |
@@ -244,7 +246,7 @@ Agora que o fluxo está concluído, adicionar uma linha à lista do SharePoint e
 
 5. Sob **histórico de EXECUÇÕES**, clique em execução do fluxo.
 
-    ![Histórico de execuções](media/functions-flow-scenario/run-history.png)
+    ![Execuções](media/functions-flow-scenario/run-history.png)
 
     Se a execução foi concluída com êxito, pode rever as operações de fluxo na página seguinte. Se a execução falhou por qualquer motivo, a página seguinte fornece informações de resolução de problemas.
 

@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.subservice: blobs
 ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65752423"
+ms.locfileid: "65787917"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs
 

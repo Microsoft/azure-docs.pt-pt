@@ -16,11 +16,11 @@ ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d11c6472265d7efca98a7e822ca8b8945a13c2ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60282376"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813277"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-borrowbox"></a>Tutorial: Integração do Active Directory do Azure com BorrowBox
 
@@ -195,7 +195,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na BorrowBox. Borr
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de BorrowBox](mailto:borrowbox@bolinda.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

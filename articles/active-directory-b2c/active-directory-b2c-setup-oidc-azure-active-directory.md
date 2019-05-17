@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 05/14/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 76585f91358ad4744dd5ae1f426afda0650d9a8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bae5759beb6a817c411ee52d7eb27dbff4cfe01c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704019"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785238"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar o início de sessão para uma organização específica do Azure Active Directory no Azure Active Directory B2C
 
@@ -29,38 +29,40 @@ Para utilizar um Azure Active Directory (Azure AD) como um [fornecedor de identi
 Para ativar o início de sessão para que os utilizadores específicos de um organização do Azure AD, terá de registar uma aplicação organizacionais no inquilino do Azure AD, que não é o mesmo que o inquilino do Azure AD B2C.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD ao clicar no filtro de diretório e subscrição no menu superior e escolher o diretório que contém o seu inquilino do Azure AD.
+2. Certifique-se de que está a utilizar o diretório que contém o seu inquilino do Azure AD. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém o seu inquilino do Azure AD. Não é o mesmo inquilino como inquilino do Azure AD B2C.
 3. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **registos das aplicações**.
-4. Selecione **Novo registo de aplicação**.
+4. Selecione **novo registo**.
 5. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
-6. Para o **tipo de aplicação**, selecione `Web app / API`.
-7. Para o **URL de início de sessão**, introduza o seguinte URL em todas as letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
+6. Aceite a seleção de **contas neste diretório organizacional apenas** para esta aplicação.
+7. Para o **URI de redirecionamento**, aceite o valor **Web**e introduza o seguinte URL em todas as letras minúsculas, onde `your-B2C-tenant-name` é substituído pelo nome do inquilino do Azure AD B2C. Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
-    https://your-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
+    https://your--B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
 
     Todos os URLs devem agora estar a utilizar [b2clogin.com](b2clogin.md).
 
-8. Clique em **Criar**. Copiar o **ID da aplicação** a ser utilizado mais tarde.
-9. Selecione a aplicação e, em seguida, selecione **definições**.
-10. Selecione **chaves**, introduza a descrição da chave, selecione uma duração e, em seguida, clique em **guardar**. Copie o valor da chave que é apresentada a ser utilizado mais tarde.
+8. Clique em **registar**. Copiar o **ID da aplicação (cliente)** a ser utilizado mais tarde.
+9. Selecione **certificados e segredos** no menu do aplicativo e, em seguida, selecione **novo segredo do cliente**.
+10. Introduza um nome para o segredo do cliente. Por exemplo, `Azure AD B2C App Secret`.
+11. Selecione o período de expiração. Para esta aplicação, aceite a seleção de **em 1 ano**.
+12. Selecione **adicionar** e copie o valor do novo segredo do cliente que é apresentado a ser utilizado mais tarde.
 
 ## <a name="configure-azure-ad-as-an-identity-provider"></a>Configurar o Azure AD como fornecedor de identidade
 
-1. Certifique-se de que está a utilizar o diretório que contém o inquilino do Azure AD B2C, clicando no **filtro de diretório e subscrição** no menu superior e escolher o diretório que contém o seu inquilino do Azure AD B2C.
+1. Certifique-se de que está a utilizar o diretório que contém o inquilino do Azure AD B2C. Selecione o **filtro de diretório e subscrição** no menu superior e selecione o diretório que contém o seu inquilino do Azure AD B2C.
 2. Escolher **todos os serviços** no canto superior esquerdo do portal do Azure e, em seguida, procure e selecione **do Azure AD B2C**.
 3. Selecione **fornecedores de identidade**e, em seguida, selecione **Add**.
-4. Introduza um **nome**. Por exemplo, introduza "Contoso do Azure AD".
+4. Introduza um **nome**. Por exemplo, introduza `Contoso Azure AD`.
 5. Selecione **tipo de fornecedor de identidade**, selecione **abrir ID Connect (pré-visualização)** e, em seguida, clique em **OK**.
-6. Clique em **configurar este fornecedor de identidade**
+6. Selecione **configurar este fornecedor de identidade**
 7. Para **url de metadados**, introduza o URL seguinte substituindo `your-AD-tenant-domain` com o nome de domínio de inquilino do Azure AD. Por exemplo `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
-8. Para **id de cliente**, introduza o ID da aplicação que registou anteriormente e para **segredo do cliente**, introduza o valor da chave que registou anteriormente.
+8. Para **ID de cliente**, introduza o ID da aplicação que registou anteriormente e para **segredo do cliente**, introduza o segredo do cliente que registou anteriormente.
 9. Opcionalmente, introduza um valor para **Domain_hint**. Por exemplo, `ContosoAD`. Este é o valor a utilizar quando nos Referimos a este fornecedor de identidade usando *domain_hint* no pedido. 
 10. Clique em **OK**.
 11. Selecione **mapear declarações do fornecedor de identidade** e defina as seguintes declarações:

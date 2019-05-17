@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: 938f13524b22f34f4becc936885d1611cb854df1
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: d3502219f03d4ad076a693ab990f2fadb0b5d558
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510498"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800834"
 ---
 # <a name="create-and-register-azure-machine-learning-datasets-preview"></a>Criar e registar os conjuntos de dados do Azure Machine Learning (pré-visualização)
 
@@ -33,6 +33,9 @@ Para criar e registar os conjuntos de dados tem de:
 * Uma área de trabalho de serviço do Azure Machine Learning. Ver [criar uma área de trabalho do serviço do Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
 * O Azure Machine Learning SDK para Python. Para instalar ou atualizar para a versão mais recente do SDK, consulte [instalar ou atualizar o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+
+> [!Note]
+> Algumas classes de conjunto de dados (pré-visualização) tem dependências do [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) pacote (GA). Os utilizadores do Linux, essas classes são suportadas apenas nas distribuições seguintes:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
 ## <a name="create-datasets-from-local-files"></a>Criar conjuntos de dados a partir de ficheiros locais
 

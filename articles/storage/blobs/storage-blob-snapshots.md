@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/06/2018
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: de600770b35922d35f1d9066489f582aa61aec59
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 9c24f613de8bf26331f6fe328358aaf8a320d522
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205094"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794236"
 ---
 # <a name="create-a-blob-snapshot"></a>Criar um instantâneo de blob
 
@@ -34,7 +34,7 @@ Qualquer concessões associadas com o blob de base não afetam o instantâneo. N
 Um ficheiro VHD é utilizado para armazenar as informações atuais e o estado de um disco da VM. Pode desanexar um disco de dentro da VM ou encerre a VM e, em seguida, tirar um instantâneo de seu arquivo VHD. Pode utilizar esse ficheiro de instantâneo mais tarde para recuperar o ficheiro VHD nesse ponto no tempo e recriar a VM.
 
 ## <a name="create-a-snapshot"></a>Criar um instantâneo
-O exemplo de código seguinte mostra como criar um instantâneo, utilizando o [biblioteca de clientes de armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Este exemplo Especifica metadados adicionais para o instantâneo quando é criado.
+O exemplo de código seguinte mostra como criar um instantâneo, utilizando o [biblioteca de clientes de armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage/client). Este exemplo Especifica metadados adicionais para o instantâneo quando é criado.
 
 ```csharp
 private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
@@ -174,9 +174,9 @@ Cenário 4, o blob de base foi totalmente atualizado e contém nenhum dos seus b
 [dotnet_CloudBlockBlob]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_block_blob
 [dotnet_CreateSnapshotAsync]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.generatedblobs.createsnapshotasync
 [dotnet_HTTPStatusCode]: https://docs.microsoft.com/java/api/com.microsoft.store.partnercenter.network.httpstatuscode
-[dotnet_PutBlockList]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
-[dotnet_PutBlock]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock
+[dotnet_PutBlockList]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblocklist
+[dotnet_PutBlock]: /dotnet/api/microsoft.azure.storage.blob.cloudblockblob.putblock
 [dotnet_UploadFromByteArray]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfrombytearray
 [dotnet_UploadFromFile]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob.uploadfromfile
-[dotnet_UploadFromStream]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadfromstream
-[dotnet_UploadText]: https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadtext
+[dotnet_UploadFromStream]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadfromstream
+[dotnet_UploadText]: /dotnet/api/microsoft.azure.storage.blob.cloudappendblob.uploadtext

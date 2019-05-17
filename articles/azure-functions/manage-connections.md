@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020490"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785966"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações nas funções do Azure
 
@@ -21,7 +21,7 @@ As funções numa aplicação de funções partilham recursos. Entre esses recur
 
 ## <a name="connection-limit"></a>Limite de ligação
 
-O número de ligações disponíveis é limitado em parte porque uma aplicação de funções é executado num [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que impõe de área de segurança no seu código é um [limite no número de ligações (atualmente em 600 ligações ativas e total de 1200 ligações)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) por instância. Quando atingir este limite, o runtime das funções cria um registo com a seguinte mensagem: `Host thresholds exceeded: Connections`.
+O número de ligações disponíveis é limitado em parte porque uma aplicação de funções é executado num [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que impõe de área de segurança no seu código é um limite no número de ligações (atualmente em 600 ligações ativas e total de 1200 ligações) por instância. Quando atingir este limite, o runtime das funções cria um registo com a seguinte mensagem: `Host thresholds exceeded: Connections`.
 
 Este limite é por instância.  Quando o [controlador de escala adiciona instâncias de aplicações de função](functions-scale.md#how-the-consumption-and-premium-plans-work) para processar mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não tem qualquer limite de ligações globais, e pode ter muito mais de 600 ligações ativas em todas as instâncias de Active Directory.
 

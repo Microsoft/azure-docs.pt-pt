@@ -1,5 +1,5 @@
 ---
-title: O que é o HBase no Azure HDInsight?
+title: O que é o Apache HBase no HDInsight do Azure?
 description: Uma introdução ao Apache HBase no HDInsight, uma base de dados NoSQL baseada no Hadoop. Saiba mais sobre casos de utilização e compare o HBase a outros clusters do Hadoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a492adbf1c01271ceea736bde9de999190fc2da4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114439"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789191"
 ---
-# <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>O que é o Apache HBase no HDInsight: Uma base de dados NoSQL que fornece capacidades semelhantes a BigTable para o Apache Hadoop
+# <a name="what-is-apache-hbase-in-azure-hdinsight"></a>O que é o Apache HBase no HDInsight do Azure
+
 [O Apache HBase](https://hbase.apache.org/) é uma base de dados de NoSQL de código-fonte aberto, qual é criado [Apache Hadoop](https://hadoop.apache.org/) e modelados após [Google BigTable](https://cloud.google.com/bigtable/). O HBase fornece acesso aleatório e consistência forte para grandes quantidades de dados não estruturados e semiestruturados numa base de dados sem esquema, organizada por famílias de colunas.
 
 Da perspectiva do usuário, o HBase é semelhante a uma base de dados. Os dados são armazenados em linhas e colunas de uma tabela e dados de uma linha são agrupados por família de colunas. O HBase é uma base de dados sem esquema uma vez que não é preciso definir as colunas nem os tipos de dados nelas armazenados antes de os utilizar. O código open source é dimensionado linearmente para processar petabytes de dados em milhares de nós. Pode depender da redundância de dados, do processamento em lotes e de outras funcionalidades fornecidas por aplicações distribuídas do ecossistema do Hadoop.

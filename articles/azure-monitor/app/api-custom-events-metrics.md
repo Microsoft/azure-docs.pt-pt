@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e2803590740d84bc99327ce78886f41f3c600df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794423"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785886"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -633,12 +633,16 @@ try
 {
     success = dependency.Call();
 }
+catch(Exception ex) 
+{
+    success = false;
+    telemetry.TrackException(ex);
+    throw new Exception("Operation went wrong", ex);
+}
 finally
 {
     timer.Stop();
-    telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
-     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
+    telemetry.TrackDependency("DependencyType", "myDependency", "myCall", startTime, timer.Elapsed, success);
 }
 ```
 
@@ -1197,7 +1201,7 @@ Para determinar o tempo que os dados são mantidos, consulte [retenção de dado
 * [SDK JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 * [Todas as plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
-## <a name="questions"></a>Dúvidas
+## <a name="questions"></a>Perguntas
 
 * *As exceções poderão lançar Track_() chamadas?*
 

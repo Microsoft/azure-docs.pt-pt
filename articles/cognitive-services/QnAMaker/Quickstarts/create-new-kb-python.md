@@ -10,20 +10,20 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 766fe32736ae0d8ea23805ea017d93b32119636a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9aa5b85a00de495478897ec70393f6c22ee20fc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60920006"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788758"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker com Python
 
 Este início rápido descreve a criação e publicação, através de programação, de uma base de dados de conhecimento do Criador de FAQ. O Criador de FAQ extrai automaticamente perguntas e respostas de conteúdos semiestruturados, como FAQs, a partir de [origens de dados](../Concepts/data-sources-supported.md). O modelo da base de dados de conhecimento é definido no JSON enviado no corpo do pedido da API. 
 
 Este início rápido chama as APIs do Criador de FAQ:
-* [Criar KB](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [Obter Detalhes da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Criar KB](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [Obter Detalhes da Operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,7 +95,7 @@ Esta chamada à API devolve uma resposta JSON que inclui o estado da operação:
 }
 ```
 
-Repita a chamada até obter êxito ou falhar: 
+Repita a chamada até ter êxito ou falhar: 
 
 ```JSON
 {
@@ -128,4 +128,4 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -10,10 +10,10 @@ manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 83133629d92abb50d9fd7509cf182282503fc041
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65755763"
+ms.locfileid: "65799219"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-rest-api"></a>Início rápido: Definir e Atribuir um Azure Blueprint com a API REST
 

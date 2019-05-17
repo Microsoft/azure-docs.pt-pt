@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 31c85c4911642ece588340bd0e4a3a814aae4a20
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 92ef494efa62a7f4e2d0a7c88ef8efd950dd2472
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65200770"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786096"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Quais são as zonas de disponibilidade no Azure?
 As zonas de disponibilidade é uma oferta que protege os seus aplicativos e dados de falhas de datacenter de elevada disponibilidade. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, existe um mínimo de três zonas separadas em todas as regiões ativadas. A separação física das zonas de disponibilidade numa região protege as aplicações e dados de falhas de datacenter. Serviços com redundância de zona replicar os seus dados e aplicações em zonas de disponibilidade para proteger contra único pontos de falha. Com as zonas de disponibilidade, o Azure oferece o SLA de tempo de atividade VM do setor melhor 99,99%. O [SLA do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo explica a disponibilidade garantida do Azure em termos globais.
@@ -44,7 +44,7 @@ As combinações de serviços do Azure e regiões que suportam as zonas de dispo
 
 |                                 |Américas |              |           |           | Europa |              |          |              | Ásia-Pacífico |                 |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
-|          |EUA Central|EUA Leste|EUA Leste 2|EUA Oeste 2|França Central|Europa do Norte|Reino Unido Sul|Europa Ocidental|Leste do Japão|Sudeste Asiático|
+|          |EUA Central|EUA Leste|EUA Leste 2|E.U.A. Oeste 2|França Central|Europa do Norte|Reino Unido Sul|Europa Ocidental|Leste do Japão|Sudeste Asiático|
 | **Computação**                         |            |              |           |           |                |              |          |             |            |                |
 | Máquinas Virtuais do Linux          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Máquinas Virtuais do Windows        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
@@ -57,7 +57,7 @@ As combinações de serviços do Azure e regiões que suportam as zonas de dispo
 | Balanceador de Carga Standard     | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Gateway de VPN                     | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 | ExpressRoute                    | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
-| Gateway de Aplicação   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
+| Gateway de Aplicação   | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    | &#10003;       | &#10003;       |
 | **Bases de dados**                     |            |              |           |           |                |              |          |             |            |                |
 | SQL Database                    | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    |            | &#10003;       |
 | **Análise**                       |            |              |           |           |                |              |          |             |            |                |

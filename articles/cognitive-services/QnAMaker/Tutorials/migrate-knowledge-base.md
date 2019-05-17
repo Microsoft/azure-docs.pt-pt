@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: eac5e43c69cc09c5945316827a35f729c158d47a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ff3c497372a761bd8a02ae81bc897c8ee297bd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431247"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794873"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de dados de conhecimento através de importação-exportação
 
@@ -56,7 +56,7 @@ Migrar uma base de dados de conhecimento necessita de exportar a partir de uma b
     Neste momento, todo o conhecimento conteúdo - perguntas, respostas e metadados, junto com os nomes dos arquivos de origem e os URLs são importados para a nova base de dados de conhecimento. 
 
 ## <a name="chat-logs-and-alterations"></a>Registos de chat ou alterações
-Alterações de maiúsculas e minúsculas (sinónimos) não são importadas automaticamente. Utilize o [APIs de V2](https://aka.ms/qnamaker-v2-apis) para exportar as alterações de dados de conhecimento antigo e o [V4 APIs](https://aka.ms/qnamaker-v4-apis) para mover as alterações na nova base de dados de conhecimento.
+Alterações de maiúsculas e minúsculas (sinónimos) não são importadas automaticamente. Utilize o [V4 APIs](https://go.microsoft.com/fwlink/?linkid=2092179) para mover as alterações na nova base de dados de conhecimento.
 
 Não é possível migrar os logs de bate-papo, uma vez que a nova base de dados de conhecimento utiliza o Application Insights para armazenar registos de chat. 
 

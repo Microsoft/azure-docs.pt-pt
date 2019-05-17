@@ -10,10 +10,10 @@ ms.custom: mvc
 ms.date: 05/16/2019
 ms.openlocfilehash: ded2011111262eb45818ea149949989eef885f24
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65755792"
+ms.locfileid: "65789592"
 ---
 # <a name="what-is-azure-stream-analytics"></a>O que é o Azure Stream Analytics?
 

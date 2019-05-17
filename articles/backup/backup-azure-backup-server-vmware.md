@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650152"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789608"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Fazer uma cópia de segurança de VMs de VMware no servidor de cópia de segurança do Azure
 
@@ -39,7 +39,7 @@ Por predefinição, o servidor de cópia de segurança do Azure comunica com ser
 
 ### <a name="before-you-start"></a>Antes de começar
 
-- Se não pretender utilizar HTTPS, pode [desativar a definição predefinida](backup-azure-backup-server-vmware.md).
+- Se não pretender utilizar HTTPS, pode [desativar a validação do certificado HTTPS para todos os servidores de VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Normalmente, ligar a partir de um browser no computador do servidor de cópia de segurança do Azure para o servidor do vCenter/ESXi usando o vSphere Web Client. Na primeira vez, fazê-lo a ligação não é segura e irá mostrar o seguinte.
 - É importante compreender a forma como o servidor de cópia de segurança do Azure processa as cópias de segurança.
     - Como primeiro passo servidor de cópia de segurança do Azure cria uma cópia de segurança de dados para o armazenamento de disco local. O servidor de cópia de segurança do Azure utiliza um agrupamento de armazenamento, um conjunto de discos e volumes nos quais o servidor de cópia de segurança do Azure armazena pontos de recuperação de disco para os respetivos dados protegidos. O agrupamento de armazenamento pode ser ligado diretamente ao armazenamento (DAS), um dispositivo de armazenamento de iSCSI ou SAN de canal de Fibra ou SAN. É importante certificar-se de que tem armazenamento suficiente na cópia local de cópia de segurança dos seus dados de VM de VMware.
@@ -101,7 +101,7 @@ Configure um canal seguro da seguinte forma:
 
 
 
-### <a name="disable-default-https"></a>Desativar padrão HTTPS
+### <a name="disable-https-certificate-validation"></a>Desativar a validação do certificado HTTPS
 
 Se o ter limites seguros na sua organização e não pretender utilizar o protocolo HTTPS entre servidores de VMware e a máquina do servidor de cópia de segurança do Azure, desativar o HTTPS da seguinte forma: u
 1. Copie e cole o seguinte texto num ficheiro. txt.

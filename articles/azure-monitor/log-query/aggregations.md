@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 864e9586082ed95bf17135414ec4b879e3034ace
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fd8e886a78d0689ca60d8ea7c4d16639c81d5733
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589646"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602728"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Agregações em consultas de registo do Azure Monitor
 
@@ -31,7 +31,7 @@ Este artigo descreve as funções de agregação em consultas de registo do Azur
 
 ## <a name="counts"></a>Contagens
 
-### <a name="count"></a>count
+### <a name="count"></a>contagem
 Conte o número de linhas no resultado definida depois de todos os filtros são aplicados. O exemplo seguinte devolve o número total de linhas na _Perf_ tabela dos últimos 30 minutos. O resultado é devolvido numa coluna chamada *count_* a menos que atribua um nome específico:
 
 
@@ -79,7 +79,7 @@ Heartbeat
 ```
 
 ### <a name="evaluating-subgroups"></a>Avaliar subgrupos
-Para executar uma contagem ou outras agregações em subgrupos nos seus dados, utilize o `by` palavra-chave. Por exemplo, para contar o número de computadores Linux distintos que enviam heartbeats a cada país:
+Para executar uma contagem ou outras agregações em subgrupos nos seus dados, utilize o `by` palavra-chave. Por exemplo, para contar o número de computadores Linux distintos que enviam heartbeats a cada país/região:
 
 ```Kusto
 Heartbeat 
@@ -96,7 +96,7 @@ Heartbeat
 |Países Baixos      | 2                   |
 
 
-Para analisar ainda mais pequenos subgrupos dos seus dados, adicionar nomes de coluna adicional para o `by` secção. Por exemplo, pode querer contar os computadores distintos de cada país por OSType:
+Para analisar ainda mais pequenos subgrupos dos seus dados, adicionar nomes de coluna adicional para o `by` secção. Por exemplo, pode querer contar os computadores distintos de cada país/região por OSType:
 
 ```Kusto
 Heartbeat 

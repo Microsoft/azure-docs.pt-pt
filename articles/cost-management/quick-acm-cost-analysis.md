@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 881abf48a1dda3b008e5946096cdcadb1f157d25
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b4302713188237b97ffbe8473f6a37edd6741b36
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682634"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793099"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Início rápido: Explore e analise os custos com a análise de custos
 
@@ -45,7 +45,7 @@ Para [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-
 
 Para obter mais informações sobre a atribuir acesso a dados de gestão de custos, veja [atribuir acesso a dados](assign-access-acm-data.md).
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 - Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -69,9 +69,9 @@ A vista da análise de custos inicial inclui as seguintes áreas:
 
 ## <a name="customize-cost-views"></a>Personalizar as vistas de custos
 
-Análise de custos tem quatro vistas incorporadas, otimizadas para os objetivos mais comuns: 
+Análise de custos tem quatro vistas incorporadas, otimizadas para os objetivos mais comuns:
 
-Vista | Responder a perguntas como...
+Visualizar | Responder a perguntas como...
 --- | ---
 Custo acumulado | Quanto passaram até aqui este mês? Ficarei dentro do meu orçamento?
 Custo diário | Tem havido quaisquer aumenta os custos por dia nos últimos 30 dias?
@@ -96,7 +96,7 @@ Em geral, pode esperar ver os dados ou notificações para recursos consumidos n
 
 **Agrupar por** propriedades comuns para dividir os custos e identificar principais contribuintes. Para agrupar por etiquetas de recursos, por exemplo, selecione a chave de etiqueta que pretende agrupar por. Os custos são divididos por cada valor de etiqueta, com um segmento extra para os recursos que não têm essa etiqueta aplicada.
 
-A maioria dos [recursos do Azure suportam a etiquetagem](../azure-resource-manager/tag-support.md), no entanto, algumas etiquetas não estão disponíveis na gestão de custos e de faturação. Além disso, os sinalizadores de grupo de recursos não são suportados. O Cost Management suporta apenas os sinalizadores de recurso a contar da data, que as etiquetas são aplicadas diretamente para o recurso.
+A maioria dos [recursos do Azure suportam a etiquetagem](../azure-resource-manager/tag-support.md), no entanto, algumas etiquetas não estão disponíveis na gestão de custos e de faturação. Além disso, os sinalizadores de grupo de recursos não são suportados. O Cost Management suporta apenas os sinalizadores de recurso a contar da data, que as etiquetas são aplicadas diretamente para o recurso. Veja a [como rever as políticas de etiqueta com o Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) vídeo para saber como utilizar a política de etiqueta do Azure para melhorar a visibilidade de dados de custo.
 
 Eis uma vista dos custos de serviço do Azure numa vista do último mês.
 

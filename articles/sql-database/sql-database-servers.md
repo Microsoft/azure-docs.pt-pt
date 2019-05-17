@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 851722838b4f22b1f193823af0b9b018106e9308
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21d4e7bd3bf7453d2c770034728aedfdaa5ab85e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838770"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790178"
 ---
 # <a name="azure-sql-database-servers-and-their-management"></a>Servidores de base de dados SQL do Azure e a gestão
 

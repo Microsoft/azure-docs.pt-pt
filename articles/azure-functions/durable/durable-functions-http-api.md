@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5bd977826f489ca8452432babe6126b8553450fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f0b01601dfb28b2b6b8ee8ca53398ec3dccb803
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730712"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787294"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>APIs de HTTP nas funções duráveis (funções do Azure)
 
@@ -134,7 +134,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**        | URL             | O ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a função de entrada não será incluído no payload de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a função devolve serão incluídos no histórico de execução de orquestração.|
@@ -262,7 +262,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo                   | Tipo de parâmetro  | Descrição |
 |-------------------------|-----------------|-------------|
-| **`instanceId`**        | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**        | URL             | O ID da instância de orquestração. |
 | **`showInput`**         | Cadeia de consulta    | Parâmetro opcional. Se definido como `false`, a função de entrada não será incluído no payload de resposta.|
 | **`showHistory`**       | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, o histórico de execução da orquestração será incluído no payload de resposta.|
 | **`showHistoryOutput`** | Cadeia de consulta    | Parâmetro opcional. Se definido como `true`, a função devolve serão incluídos no histórico de execução de orquestração.|
@@ -360,7 +360,7 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
 
 #### <a name="response"></a>Resposta
 
@@ -417,11 +417,9 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo                 | Tipo de parâmetro  | Descrição |
 |-----------------------|-----------------|-------------|
-| **`createdTimeFrom`** | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias eliminadas que foram criados em ou depois do carimbo de hora ISO8601 determinado.|
+| **`createdTimeFrom`** | Cadeia de consulta    | Filtra a lista de instâncias eliminadas que foram criados em ou depois do carimbo de hora ISO8601 determinado.|
 | **`createdTimeTo`**   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtra a lista de instâncias eliminadas que foram criados em ou antes do carimbo de hora ISO8601 determinado.|
 | **`runtimeStatus`**   | Cadeia de consulta    | Parâmetro opcional. Quando especificado, filtros a lista de instâncias eliminadas com base no respetivo estado de runtime. Para ver a lista de valores de estado de runtime possíveis, consulte a [consultar instâncias](durable-functions-instance-management.md) tópico. |
-
-Se forem especificados sem parâmetros, todas as instâncias no hub de tarefa serão removidas.
 
 > [!NOTE]
 > Esta operação pode ser muito cara em termos de e/s de armazenamento de Azure se houver muito de linhas nas instâncias de e/ou do histórico de tabelas. Obter mais detalhes sobre estas tabelas podem ser encontradas no [desempenho e dimensionamento nas funções durável (funções do Azure)](durable-functions-perf-and-scale.md#instances-table) documentação.
@@ -475,8 +473,8 @@ Parâmetros para esta API incluem o conjunto padrão mencionado anteriormente, b
 
 | Campo             | Tipo de parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
-| **`eventName`**   | do IdP             | O nome do evento que esteja aguardando a instância de orquestração de destino. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
+| **`eventName`**   | URL             | O nome do evento que esteja aguardando a instância de orquestração de destino. |
 | **`{content}`**   | Conteúdo do pedido | O payload do evento formatada em JSON. |
 
 #### <a name="response"></a>Resposta
@@ -530,7 +528,7 @@ O pedido parâmetros para esta API incluem o conjunto padrão mencionado anterio
 
 | Campo             | Tipo de Parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo para a instância da orquestração a terminar. |
 
 #### <a name="response"></a>Resposta
@@ -579,7 +577,7 @@ O pedido parâmetros para esta API incluem o conjunto padrão mencionado anterio
 
 | Campo             | Tipo de Parâmetro  | Descrição |
 |-------------------|-----------------|-------------|
-| **`instanceId`**  | do IdP             | O ID da instância de orquestração. |
+| **`instanceId`**  | URL             | O ID da instância de orquestração. |
 | **`reason`**      | Cadeia de consulta    | Opcional. O motivo de avanço rápido a instância de orquestração. |
 
 ### <a name="response"></a>Resposta

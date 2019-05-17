@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 1521799eacb0ec240a17e8c11dfff617fc59b772
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 62ab7707410e7b62c6ab30d289f2c461b2dc7cd0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61389308"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798399"
 ---
 # <a name="sending-queries-to-the-bing-news-search-api"></a>Envio de consultas para a API de pesquisa de notícias do Bing
 

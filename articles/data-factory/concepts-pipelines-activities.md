@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262350"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788661"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -94,11 +94,11 @@ Eis como os pipelines são definidos no formato JSON:
 }
 ```
 
-Etiqueta | Descrição | Type | Necessário
+Tag | Descrição | Type | Necessário
 --- | ----------- | ---- | --------
 nome | Nome do pipeline. Especifique um nome que represente a ação que o pipeline realiza. <br/><ul><li>Número máximo de carateres: 140</li><li>Tem de começar com uma letra, número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\”</li></ul> | String | Sim
 description | Especifique o texto que descreve para o que é utilizado o pipeline. | String | Não
-atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Array | Sim
+atividades | A secção **atividades** pode ter uma ou mais atividades definidas na mesma. Veja a secção [JSON da Atividade](#activity-json) para obter detalhes sobre o elemento JSON das atividades. | Matriz | Sim
 parâmetros | A secção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando-o flexível para reutilização. | Lista | Não
 
 ## <a name="activity-json"></a>JSON da Atividade
@@ -127,9 +127,9 @@ As atividades de execução incluem [atividades de movimento de dados](#data-mov
 
 A tabela seguinte descreve as propriedades na definição JSON da atividade:
 
-Etiqueta | Descrição | Necessário
+Tag | Descrição | Necessário
 --- | ----------- | ---------
-nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
+name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza. <br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li></ul>
 description | Texto que descreve para o que é utilizada a atividade | Sim
 tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções [Atividades de Movimento de Dados](#data-movement-activities), [Atividades de Transformação de Dados](#data-transformation-activities) e [Atividades de Controlo](#control-activities). | Sim
 linkedServiceName | Nome do serviço ligado utilizado pela atividade.<br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. | Sim, para Atividade do HDInsight, Atividade de Classificação do Machine Learning, Atividade de Procedimento Armazenado. <br/><br/>Não para todas as outras.
@@ -170,9 +170,9 @@ As políticas afetam o comportamento de runtime de uma atividade, proporcionando
 
 Nome JSON | Descrição | Valores Permitidos | Necessário
 --------- | ----------- | -------------- | --------
-tempo limite | Especifica o tempo limite para a execução da atividade. | Timespan | Não. O tempo limite predefinido é de 7 dias.
-retry | Número máximo de repetições | Número inteiro | Não. A predefinição é 0
-retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. A predefinição é 20 segundos
+tempo limite | Especifica o tempo limite para a execução da atividade. | Período de tempo | Não. O tempo limite predefinido é de 7 dias.
+retry | Número máximo de repetições | Integer | Não. A predefinição é 0
+retryIntervalInSeconds | O atraso entre as tentativas de repetição em segundos | Número inteiro | Não. A predefinição é 30 segundos
 secureOutput | Quando definido como verdadeiro, o resultado da atividade é considerado seguro e não será registado na monitorização. | Boolean | Não. A predefinição é falso.
 
 ### <a name="control-activity"></a>Atividade de controlo
@@ -192,9 +192,9 @@ As atividades de controlo têm a estrutura de nível superior seguinte:
 }
 ```
 
-Etiqueta | Descrição | Necessário
+Tag | Descrição | Necessário
 --- | ----------- | --------
-nome | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
+name | Nome da atividade. Especifique um nome que represente a ação que a atividade realiza.<br/><ul><li>Número máximo de carateres: 55</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Os carateres seguintes não são permitidos: “.”, “+”, “?”, “/”, “<”,”>”,”*”,”%”,”&”,”:”,”\” | Sim</li><ul>
 description | Texto que descreve para o que é utilizada a atividade | Sim
 tipo | Tipo de atividade. Veja os diferentes tipos de atividades nas secções sobre as [atividades de movimento de dados](#data-movement-activities), as [atividades de transformação de dados](#data-transformation-activities) e as [atividades de controlo](#control-activities). | Sim
 typeProperties | As propriedades na secção typeProperties dependem de cada tipo de atividade. Para ver as propriedades do tipo de uma atividade, clique nas ligações para a atividade na secção anterior. | Não

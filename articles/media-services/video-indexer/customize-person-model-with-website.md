@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8dd535d97e40fe1dd4358d782db60940af1dd95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556075"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800122"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalizar um modelo de pessoa com o site do Video Indexer
 
@@ -133,14 +134,14 @@ Para utilizar o seu modelo de pessoa num novo vídeo, faça o seguinte:
 
 1. Clique nas **carregar** botão no topo da página.
 
-    ![Carregar](./media/customize-face-model/upload.png)
+    ![Carregamento](./media/customize-face-model/upload.png)
 1. Remover o seu ficheiro de vídeo no círculo ou procure o ficheiro.
 1. Clique na seta de opções avançadas.
 
-    ![Carregar](./media/customize-face-model/upload2.png)
+    ![Carregamento](./media/customize-face-model/upload2.png)
 1. Clique na lista pendente e selecione o modelo de pessoa que criou.
 
-    ![Carregar](./media/customize-face-model/upload3.png)
+    ![Carregamento](./media/customize-face-model/upload3.png)
 1. Clique na opção de carregamento na parte inferior da página, e seu novo vídeo será indexado com o seu modelo de pessoa.
 
 Se não especificar um modelo de pessoa durante o carregamento, o Video Indexer serão indexar o vídeo com o modelo predefinido pessoa na sua conta.

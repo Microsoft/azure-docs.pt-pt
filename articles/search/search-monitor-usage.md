@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035349"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797382"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorizar a atividade de consulta e consumo de recursos no Azure Search
 
@@ -58,7 +58,7 @@ O Azure Search não armazena quaisquer dados para além dos objetos que gere, o 
 
 A tabela seguinte compara as opções para armazenar os registos e a adição de monitorização profunda das operações de serviço e cargas de trabalho de consulta através do Application Insights.
 
-| Recurso | Utilizado para |
+| Resource | Utilizado para |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventos registrados e métricas de consulta, com base em esquemas abaixo, correlacionadas com eventos de utilizador na sua aplicação. Esta é a única solução que considera ações do usuário ou sinais, eventos de mapeamento a partir da Pesquisa iniciada pelo usuário, em oposição ao filtrar pedidos submetidos por código do aplicativo. Para utilizar esta abordagem, copiar-colar o código de instrumentação nos seus arquivos de origem a informações de pedido de rota para o Application Insights. Para obter mais informações, consulte [a análise de tráfego de pesquisa](search-traffic-analytics.md). |
 | [Registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados e métricas de consulta, com base em esquemas abaixo. Os eventos são registados numa área de trabalho do Log Analytics. Pode executar consultas em relação a uma área de trabalho para devolver informações detalhadas do log. Para obter mais informações, consulte [começar com os registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -69,7 +69,7 @@ Registos do Azure Monitor e o armazenamento de BLOBs estão disponíveis como se
 
 A secção seguinte explica os passos para ativar e utilizar o armazenamento de Blobs do Azure para recolher e aceder aos dados de log criados por operações de pesquisa do Azure.
 
-## <a name="enable-logging"></a>Ativar registo
+## <a name="enable-logging"></a>Ativar o registo
 
 Para cargas de trabalho de indexação e consulta o registo está desativada por predefinição e depende de soluções de suplemento para a infra-estrutura de log e de armazenamento externo de longo prazo. Por si só, os únicos dados persistentes no Azure Search os objetos são criados e gerenciados, para que os registos devem ser armazenados em outro lugar.
 
@@ -77,13 +77,15 @@ Nesta secção, irá aprender como utilizar o armazenamento de BLOBs para armaze
 
 1. [Criar uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) se ainda não tiver uma. Pode colocá-lo no mesmo grupo de recursos do Azure Search para simplificar de limpeza do wsu mais tarde se pretender eliminar todos os recursos utilizados neste exercício.
 
+   Sua conta de armazenamento têm de existir na mesma região que o Azure Search.
+
 2. Abra sua página de descrição geral do serviço de pesquisa. No painel de navegação à esquerda, desloque para baixo até **monitorização** e clique em **Ativar monitorização**.
 
    ![Ativar a monitorização](./media/search-monitor-usage/enable-monitoring.png "ativar a monitorização")
 
 3. Escolha os dados que pretende exportar: Os registos, métricas ou ambos. Pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-los para registos do Azure Monitor.
 
-   Para o arquivo para o armazenamento de BLOBs, deve existir apenas a conta de armazenamento. Contentores e blobs serão criadas quando os dados de registo são exportados.
+   Para o arquivo para o armazenamento de BLOBs, deve existir apenas a conta de armazenamento. Contentores e blobs serão criadas conforme necessário quando os dados de registo são exportados.
 
    ![Arquivo de armazenamento de BLOBs de configurar](./media/search-monitor-usage/configure-blob-storage-archive.png "arquivo de armazenamento de BLOBs de configurar")
 

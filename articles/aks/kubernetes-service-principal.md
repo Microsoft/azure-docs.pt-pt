@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: iainfou
-ms.openlocfilehash: a1fe8929b5ae39c82850aa08899c7b3e6bb98c7e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: eeb9f5fa91252bbc3c3038ab88bd2d7e802f263f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725301"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786401"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principais de serviço com o Serviço Kubernetes do Azure (AKS)
 
@@ -23,6 +23,8 @@ Este artigo mostra como criar e utilizar um principal de serviço para os seus c
 ## <a name="before-you-begin"></a>Antes de começar
 
 Para criar um principal de serviço do Azure AD, tem de ter permissões para registar uma aplicação no seu inquilino do Azure AD e para atribuir a aplicação a uma função na sua subscrição. Se não tiver as permissões necessárias, poderá ter de pedir ao administrador do Microsoft Azure AD ou da subscrição para atribuir as permissões necessárias ou pré-criar um principal de serviço para utilizar com o cluster do AKS.
+
+Se estiver a utilizar um principal de serviço do Azure AD com um diferente de inquilino, existem as considerações adicionais sobre as permissões disponíveis ao implementar o cluster. Não pode ter as permissões adequadas para ler e escrever informações de diretório. Para obter mais informações, consulte [quais são as permissões de usuário padrão no Azure Active Directory?][azure-ad-permissions]
 
 Também precisa da versão 2.0.59 da CLI do Azure ou posterior instalado e configurado. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [instalar a CLI do Azure][install-azure-cli].
 
@@ -89,7 +91,7 @@ O `--scope` para um recurso tem de ser um ID de recurso completo, como */subscri
 
 As secções seguintes detalham as delegações comuns que poderá ter de fazer.
 
-### <a name="azure-container-registry"></a>Registo de Contentores do Azure
+### <a name="azure-container-registry"></a>Azure Container Registry
 
 Se utilizar o Azure Container Registry (ACR) como arquivo de imagem de contentor, tem de conceder permissões para o seu cluster do AKS ler e solicitar imagens. O principal de serviço do AKS cluster deve ser delegado a *leitor* função no Registro. Para obter passos detalhados, consulte [acesso AKS de concessão para o ACR][aks-to-acr].
 
@@ -158,3 +160,4 @@ Para obter informações sobre como atualizar as credenciais, consulte [atualiza
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
 [update-credentials]: update-credentials.md
+[azure-ad-permissions]: ../active-directory/fundamentals/users-default-permissions.md

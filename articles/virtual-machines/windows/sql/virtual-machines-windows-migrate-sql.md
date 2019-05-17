@@ -16,18 +16,22 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 95acda60935e82b226a1a0e860b5fa8effb8e47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325703"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795786"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migrar uma base de dados do SQL Server para o SQL Server numa VM do Azure
 
 Existem vários métodos para migrar uma base de dados de utilizador de SQL Server no local para o SQL Server numa VM do Azure. Este artigo resumidamente discutir diversos métodos e recomendar o melhor método para vários cenários.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 e SQL Server 2008 R2 estão prestes a atingir os [final do respetivo ciclo de vida de suporte](https://www.microsoft.com/sql-server/sql-server-2008) para instâncias no local. Para expandir o suporte, pode migrar a sua instância do SQL Server para uma VM do Azure ou comprar estendido atualizações de segurança para mantê-lo no local. Para obter mais informações, consulte [estender o suporte para o SQL Server 2008 e 2008 R2 com o Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>Quais são os métodos de migração primária?
 Os métodos de migração primária são:
@@ -96,7 +100,7 @@ Utilize este método para migrar todos os sistema e do usuário bases de dados n
 ## <a name="ship-hard-drive"></a>Envie o disco rígido
 Utilize o [método de serviço de importação/exportação do Windows](../../../storage/common/storage-import-export-service.md) para transferir grandes quantidades de dados de ficheiro para o armazenamento de Blobs do Azure em situações em que o carregamento através da rede está proibitivamente cara ou não é viável. Com este serviço, enviar um ou mais unidades de disco rígido que contém dados para um centro de dados do Azure, onde os dados serão carregados para a sua conta de armazenamento.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações sobre a execução do SQL Server em máquinas de virtuais do Azure, consulte [SQL Server em Descrição geral de máquinas virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
 
 > [!TIP]

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 135b5719422d1b28a82ac2eda06f76d6dd746800
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60339301"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813738"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Tutorial: Integração do Active Directory do Azure com o TINFOIL SECURITY
 
@@ -243,7 +243,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no TINFOIL SECURITY, 
 > Pode utilizar quaisquer outras ferramentas de criação da conta de utilizador de TINFOIL SECURITY ou APIs fornecidas pelo TINFOIL SECURITY para aprovisionar contas de utilizador do Azure AD.
 > 
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

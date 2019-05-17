@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 746551cf05634427f839bf33af641bc4615179fa
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6d49ce71959f80a96731046475c3de5737bf7d46
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916899"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796183"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento com Java
 
@@ -98,4 +98,4 @@ Crie e execute o programa a partir da linha de comando. Ele enviará automaticam
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

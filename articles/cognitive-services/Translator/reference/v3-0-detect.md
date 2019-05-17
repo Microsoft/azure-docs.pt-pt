@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: fa618c5c623a631e7a88f8235a0b7b16fcb2bc88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ea8fe989dd0ef7026957153fb5c9836742d008dd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605251"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797500"
 ---
 # <a name="translator-text-api-30-detect"></a>Texto do Translator API 3.0: Detect
 
 Identifica o idioma de um pedaço de texto.
 
-## <a name="request-url"></a>URL do Pedido
+## <a name="request-url"></a>URL do pedido
 
 Enviar um `POST` pedido para:
 
@@ -158,7 +158,7 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
   </tr>
   <tr>
     <td>429</td>
-    <td>O chamador está enviando demasiados pedidos.</td>
+    <td>O servidor rejeitou o pedido porque o cliente excedeu os limites de pedido.</td>
   </tr>
   <tr>
     <td>500</td>

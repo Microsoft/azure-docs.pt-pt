@@ -3,8 +3,8 @@ title: Problema ao adicionar uma aplicação da galeria do Azure AD | Documentos
 description: Compreender os rostos de pessoas de problemas comuns ao adicionar aplicações de galeria do Azure AD e o que pode fazer para resolvê-los
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438800"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784434"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problema ao adicionar uma aplicação da galeria do Azure AD
 
@@ -40,7 +40,7 @@ Se ocorrer um erro ao clicar o **Add** botão, verá um **notificação** num **
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>Não sei como configurar a minha aplicação assim que tiver adicionado
 
-Se precisar de ajuda a aprender sobre aplicativos, o [lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom lugar para começar.
+Se precisar de ajuda a aprendizagem sobre aplicativos, o [lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artigo é um bom lugar para começar.
 
 Além disso, o [biblioteca de documentos de aplicações do Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) ajuda-o a saber mais sobre o início de sessão único com o Azure AD e como ela funciona.
 
@@ -48,7 +48,7 @@ Além disso, o [biblioteca de documentos de aplicações do Azure AD](https://do
 
 Pode ver os detalhes de qualquer notificação do portal, seguindo os passos abaixo:
 
-1.  Selecione o **notificações** ícone (de sino) na parte superior direita do Portal do Azure
+1.  Selecione o **notificações** ícone (na campainha) no canto superior direito do portal do Azure
 
 2.  Selecione qualquer notificação numa **erro** Estado (aquelas com linhas vermelhas (!!!) junto a eles).
 

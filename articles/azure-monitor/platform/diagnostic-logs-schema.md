@@ -1,19 +1,19 @@
 ---
 title: Registos de diagnóstico do Azure suportada serviços e esquemas suportados
 description: Compreenda o esquema de serviços e eventos suportado para registos de diagnóstico do Azure.
-author: johnkemnetz
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
 ms.date: 10/11/2018
-ms.author: johnkem
+ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 21eec5ee2fef185a927f6a416732303765e02b1c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60236169"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789311"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços suportados, os esquemas e categorias para os registos de diagnóstico do Azure
 
@@ -39,7 +39,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 | correlationId | Opcional | Um GUID usado para agrupar um conjunto de eventos relacionados. Normalmente, se dois eventos tem o mesmo operationName, mas de dois Estados diferentes (por exemplo. "Introdução" e "Com êxito"), eles compartilham o mesmo ID de correlação. Isso também pode representar outras relações entre os eventos. |
 | identidade | Opcional | Um blob JSON que descreve a identidade do utilizador ou aplicação que executou a operação. Normalmente, isto incluirá a autorização e afirmações / token JWT do Active Directory. |
 | Nível | Opcional | O nível de gravidade do evento. Tem de ser informativo, aviso, erro ou crítico. |
-| localização | Opcional | A região do recurso emite o evento, por exemplo. "Este dos E.U.A." ou "Sul de França" |
+| location | Opcional | A região do recurso emite o evento, por exemplo. "Este dos E.U.A." ou "Sul de França" |
 | properties | Opcional | Quaisquer propriedades relacionadas com esta categoria específica de eventos de estendidas. Todas as propriedades personalizadas/exclusivo tiver de ser colocadas dentro deste "B de parte" do esquema. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Esquemas de serviços específicos para os registos de diagnóstico de recursos
@@ -65,13 +65,13 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 | ExpressRoute | Esquema não está disponível. |
 | Azure Firewall | Esquema não está disponível. |
 | IoT Hub | [Operações do IoT Hub](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
-| Cofre de Chaves |[Registo do Cofre de Chaves do Azure](../../key-vault/key-vault-logging.md) |
-| Load balancer |[Log Analytics para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
-| Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
+| Key Vault |[Registo do Cofre de Chaves do Azure](../../key-vault/key-vault-logging.md) |
+| Balanceador de Carga |[Log Analytics para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
+| Logic Apps |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Proteção contra DDOS | [Gerir a norma de proteção contra DDoS do Azure](../../virtual-network/manage-ddos-protection.md) |
 | Power BI dedicado | [Registo de diagnósticos para o Power BI Embedded no Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| Serviços de Recuperação | [Modelo de dados para cópia de segurança do Azure](../../backup/backup-azure-reports-data-model.md)|
+| Recovery Services | [Modelo de dados para cópia de segurança do Azure](../../backup/backup-azure-reports-data-model.md)|
 | Pesquisa |[Ativar e utilizar a análise de tráfego de pesquisa](../../search/search-traffic-analytics.md) |
 | Service Bus |[Registos de diagnóstico do Azure Service Bus](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Registo de diagnóstico de base de dados SQL do Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
@@ -81,7 +81,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 | Gateways de Rede Virtual | Esquema não está disponível. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Suportado categorias de registo por tipo de recurso
-|Tipo de Recurso|Category|Nome de exibição de categoria|
+|Tipo do Recurso|Category|Nome de exibição de categoria|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Serviço|Serviço|
@@ -177,7 +177,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 |Microsoft.Search/searchServices|OperationLogs|Registos de Operações|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Registos operacionais|
 |Microsoft.Sql/servers/databases|SQLInsights|Informações de SQL|
-|Microsoft.Sql/servers/databases|AutomaticTuning|Ajuste automático|
+|Microsoft.Sql/servers/databases|AutomaticTuning|Otimização automática|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução de consulta Store|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estatísticas de espera de Store de consulta|
 |Microsoft.Sql/servers/databases|Erros|Erros|
@@ -199,7 +199,7 @@ O esquema para os registos de diagnóstico de recursos varia consoante a categor
 |Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Estatísticas de espera de Store de consulta|
 |Microsoft.Sql/managedInstances/databases|Erros|Erros|
 |Microsoft.StreamAnalytics/streamingjobs|Execução|Execução|
-|Microsoft.StreamAnalytics/streamingjobs|Criação|Criação|
+|Microsoft.StreamAnalytics/streamingjobs|Criação de conteúdos|Criação de conteúdos|
 |microsoft.web/sites|FunctionExecutionLogs|Registos de execução de função|
 |microsoft.web/sites/slots|FunctionExecutionLogs|Registos de execução de função|
 

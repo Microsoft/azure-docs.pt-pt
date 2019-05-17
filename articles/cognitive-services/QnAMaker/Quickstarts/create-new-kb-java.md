@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/04/2019
 ms.author: diberry
-ms.openlocfilehash: ddeccd34cbdc72d76d8dd26e36a533f44a9274b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 85d5fa1cc036737497e276413985e0828e3b51f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60480701"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788725"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Início rápido: Criar uma base de dados de conhecimento no QnA Maker com Java
 
@@ -86,7 +86,7 @@ Adicione o seguinte método para verificar o estado de criação.
 
 [!code-java[Add GetStatus method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=146-150 "Add GetStatus method")]
 
-Repita a chamada até obter êxito ou falhar:
+Repita a chamada até ter êxito ou falhar:
 
 ```JSON
 {
@@ -125,4 +125,4 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

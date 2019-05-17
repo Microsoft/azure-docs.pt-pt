@@ -8,15 +8,15 @@ ms.topic: sample
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c3ad424e8cab444b2405715eaa468411166ebd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 28db43a345fb29a7529136ddfb929f5a48ccb1f8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412374"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785434"
 ---
 # <a name="self-service-portal-for-azure-ad-b2b-collaboration-sign-up"></a>Portal de inscrição autónoma para a colaboração B2B com o Azure AD
 

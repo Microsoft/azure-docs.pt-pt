@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 536edcf74bff6f89dade4a713c40c9bef12e18af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6393d363c85fd22b28a3bc2ac5ef02047ebaacf0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454715"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784360"
 ---
 # <a name="what-is-hybrid-identity"></a>O que é a identidade híbrida?
 
@@ -60,6 +60,10 @@ Seguem-se alguns cenários comuns de identidades híbridas e gestão de acessos 
 >  
 > <sup>4</sup> O AD FS pode ser integrado no PKI da sua empresa, para permitir o início de sessão com certificados. Esses certificados podem ser certificados de software implementados através de canais de aprovisionamento fidedignos, como o MDM ou o GPO, ou certificados de smartcard (incluindo cartões PIV/CAC) ou Hello for Business (cert-trust). Para obter mais informações sobre o suporte da autenticação de smartcards, veja [este blogue](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
 > 
+
+## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisitos de licença para utilizar o Azure AD Connect
+
+[!INCLUDE [active-directory-free-license.md](../../../includes/active-directory-free-license.md)]
 
 ## <a name="next-steps"></a>Próximos Passos 
 

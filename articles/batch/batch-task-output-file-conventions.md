@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96f1cb60dbb7cf08224e8566852cf47fe5f0fa1c
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: d4e16ca40e8026861d492f950396d6aa39d4c445
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203551"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791547"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Manter os dados de trabalhos e tarefas para o armazenamento do Azure com a biblioteca convenções de ficheiros do Batch para .NET
 
@@ -208,7 +208,7 @@ Para ver os registos e ficheiros de saída da tarefa no portal do Azure, navegue
 
 O [PersistOutputs] [ github_persistoutputs] projeto de exemplo é uma do [exemplos de código do Azure Batch] [ github_samples] no GitHub. Esta solução do Visual Studio demonstra como utilizar a biblioteca convenções de ficheiros do Azure Batch para manter a saída de tarefas para o armazenamento durável. Para executar o exemplo, siga estes passos:
 
-1. Abra o projeto na **Visual Studio 2017**.
+1. Abra o projeto na **Visual Studio 2019**.
 2. Adicionar o Batch e de armazenamento **credenciais da conta** ao **AccountSettings.settings** no projeto Samples.
 3. **Criar** (mas não são executados) a solução. Restaure quaisquer pacotes de NuGet se lhe for pedido.
 4. Utilizar o portal do Azure para carregar um [pacote de aplicação](batch-application-packages.md) para **PersistOutputsTask**. Incluir o `PersistOutputsTask.exe` e respetivas assemblagens dependentes no pacote. zip, defina o ID da aplicação para "PersistOutputsTask" e a versão do pacote de aplicação para "1.0".

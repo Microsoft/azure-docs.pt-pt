@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: bwren
-ms.openlocfilehash: a0233774deaffe25a8e59f79511a0031b1535ba4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b756b9484273c098dbeb6685430f70626b3af787
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425031"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789240"
 ---
 # <a name="sql-to-azure-monitor-log-query-cheat-sheet"></a>SQL para referência rápida do Azure Monitor log consulta 
 
-A tabela abaixo ajuda os utilizadores que estão familiarizados com o SQL para aprender a linguagem de consulta de Kusto escrever consultas de registo no Azure Monitor. Dê uma olhada no comando T-SQL para resolver um cenários comuns e o equivalente numa consulta de registo do Azure Monitor.
+A tabela abaixo ajuda os utilizadores que estão familiarizados com o SQL para aprender a linguagem de consulta de Kusto escrever consultas de registo no Azure Monitor. Dê uma olhada no comando T-SQL para resolver cenários comuns e o equivalente numa consulta de registo do Azure Monitor.
 
 ## <a name="sql-to-azure-monitor"></a>SQL para o Azure Monitor
 
@@ -45,9 +45,9 @@ Aliases de coluna, expandir                  |`SELECT operation_Name as Name, AV
 N registros Top pela medida                |`SELECT TOP 100 name, COUNT(*) as Count FROM dependencies GROUP BY name ORDER BY Count asc`        |<code>dependencies <br>&#124; summarize Count=count() by name <br>&#124; top 100 by Count asc</code>
 União                                   |`SELECT * FROM dependencies UNION SELECT * FROM exceptions`                                        |<code>union dependencies, exceptions</code>
 União: com condições                  |`SELECT * FROM dependencies WHERE value > 4 UNION SELECT * FROM exceptions WHERE value < 5`                |<code>dependencies <br>&#124; where value > 4 <br>&#124; union (exceptions <br>&#124; where value < 5)</code>
-Associar                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
+Aderir                                    |`SELECT * FROM dependencies JOIN exceptions ON dependencies.operation_Id = exceptions.operation_Id`|<code>dependencies <br>&#124; join (exceptions) on operation_Id == operation_Id</code>
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Sempre o processo de uma aula sobre o [escrever consultas de registo no Azure Monitor](get-started-queries.md).
+- Sempre o processo as lições [escrever consultas de registo no Azure Monitor](get-started-queries.md).

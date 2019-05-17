@@ -2,18 +2,17 @@
 title: Transição para certificados de AC públicas para P2S gateways | Gateway de VPN do Azure | Documentos da Microsoft
 description: Este artigo ajuda-o com êxito a transição para os novos certificados de AC públicos para gateways de P2S.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 03/15/2019
+ms.author: cherylmc
+ms.openlocfilehash: ea3ee00e60ae5eaff5c7220e9502da11358c8793
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859652"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786734"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transição para um certificado de gateway de AC público para P2S
 
@@ -30,6 +29,8 @@ Anteriormente, um certificado autoassinado para o gateway (emitido em segundo pl
 Apenas os gateways mais antigos são afetados por esta alteração. Se o certificado de gateway tem de ser transferido, receberá comunicação ou alerta no portal do Azure. Pode verificar se o gateway é afetado, utilizando os passos neste artigo.
 
 > [!IMPORTANT]
+> **Esta transição foi concluída no dia 12 de Maio de 2019.**
+>
 > A transição está agendada para 12 de Março de 2019 começando 18:00 UTC. Pode criar um incidente de suporte, se preferir uma janela de tempo diferentes. Faça e finalizar o pedido com antecedência, pelo menos, 24 horas.  Pode pedir uma das janelas do seguintes:
 >
 > * UTC GMT+06:00 em 25 de Fevereiro
@@ -37,7 +38,7 @@ Apenas os gateways mais antigos são afetados por esta alteração. Se o certifi
 > * UTC 06:00 no dia 1 de Março
 > * 18:00 UTC no dia 1 de Março
 >
-> **Todos os gateways restantes farão a transição 12 de Março de 2019 começando 18:00 UTC**.
+> Todos os gateways restantes farão a transição 12 de Março de 2019 começando 18:00 UTC.
 >
 > Os clientes receberão um e-mail quando o seu gateway conclui o processo de transição.
 > 
@@ -55,7 +56,7 @@ Apenas os gateways mais antigos são afetados por esta alteração. Se o certifi
    * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Se *ServerCertRotCn* e *ServerCertIssuerCn* são "DigiCert Global AC de raiz", não são afetadas por esta atualização e não precisa de continuar com os passos neste artigo. No entanto, se eles mostram algo mais, o seu certificado de gateway faz parte da atualização e será transferido.
 
-### <a name="classic"></a>Clássica
+### <a name="classic"></a>Clássico
 
 1. Num computador cliente, navegue até ao caminho `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. Na pasta do ID de Gateway, pode ver o certificado.
 2. Na guia Geral para o certificado, certifique-se de que a autoridade emissora é "DigiCert Global AC de raiz". Se tiver mais nada que não esta autoridade emissora, o seu certificado de gateway faz parte da atualização e será transferido.

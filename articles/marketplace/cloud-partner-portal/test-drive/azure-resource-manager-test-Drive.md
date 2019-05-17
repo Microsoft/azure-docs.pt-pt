@@ -8,14 +8,14 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941582"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606433"
 ---
-# <a name="azure-resource-manager-test-drive"></a>Versão de Teste do Azure Resource Manager
+# <a name="azure-resource-manager-test-drive"></a>Versão de teste de Gestor de recursos do Azure
 
 Este artigo é para os publicadores que têm a oferta no Azure Marketplace ou que estão no AppSource, porém pretendem criar a unidade de teste com apenas os recursos do Azure.
 
@@ -382,7 +382,7 @@ Caso contrário, crie um novo inquilino no Azure Active Directory.
 
 ![Inquilinos de lista do Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definir a organização, o domínio e o país para o inquilino do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definir a organização, o domínio e o país/região para o inquilino do Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirme a seleção](./media/azure-resource-manager-test-drive/subdetails6.png)
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684136"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812952"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -43,7 +43,7 @@ O **TrustFrameworkPolicy** elemento contém os seguintes atributos:
 | PolicySchemaVersion | Sim | A versão de esquema que está a ser utilizado para executar a política. O valor tem de ser `0.3.0.0` |
 | TenantObjectId | Não | O identificador de objeto exclusivo do inquilino do Azure Active Directory (Azure AD) B2C. |
 | TenantId | Sim | O identificador exclusivo do inquilino ao qual pertence esta política. |
-| PolicyId | Sim | O identificador exclusivo para a política. Este identificador deve ser antecedido por *B2C_1A_* |
+| `PolicyId` | Sim | O identificador exclusivo para a política. Este identificador deve ser antecedido por *B2C_1A_* |
 | PublicPolicyUri | Sim | O URI para a política, o que é a combinação do ID de inquilino e o ID de política. |
 | DeploymentMode | Não | Valores possíveis: `Production`, `Debugging`, ou `Development`. `Production` é a predefinição. Use essa propriedade para depurar a sua política. Para obter mais informações, consulte [recolher registos](active-directory-b2c-troubleshoot-custom.md). |
 | UserJourneyRecorderEndpoint | Não | O ponto final que é utilizado quando **DeploymentMode** está definida como `Development`. O valor tem de ser `urn:journeyrecorder:applicationinsights`. Para obter mais informações, consulte [recolher registos](active-directory-b2c-troubleshoot-custom.md). |
@@ -91,7 +91,7 @@ O **BasePolicy** elemento contém os seguintes elementos:
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | O identificador do inquilino do Azure AD B2C. |
-| PolicyId | 1:1 | O identificador da política de principal. |
+| `PolicyId` | 1:1 | O identificador da política de principal. |
 
 
 O exemplo seguinte mostra como especificar uma política de base. Isso **B2C_1A_TrustFrameworkExtensions** deriva a política a **B2C_1A_TrustFrameworkBase** política. 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy:
 
 Um percurso do utilizador define a lógica de negócios do que atravessa um utilizador. Cada percurso do utilizador é um conjunto de etapas da orquestração que realiza uma série de ações, na sequência em termos de recolha de informações de autenticação e. 
 
-O **SocialAndLocalAccounts** ficheiro de política na [pacote de iniciante](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contém SignUpOrSignIn, ProfileEdit, PasswordReset jornadas de utilizador. Pode adicionar mais jornadas de utilizador para cenários de outro, tal como alterar um endereço de e-mail, ligar e desligar uma conta de redes sociais ou repor uma palavra-passe. 
+O **SocialAndLocalAccounts** ficheiro de política na [pacote de iniciante](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contém SignUpOrSignIn, ProfileEdit, PasswordReset jornadas de utilizador. Pode adicionar mais jornadas de utilizador para outros cenários, tais como alterar um endereço de e-mail ou de ligação e desassociar a conta de redes sociais. 
 
 Os passos de orquestração podem chamar uma [perfil técnico](technicalprofiles.md). Um perfil técnico fornece uma estrutura com um mecanismo interno para comunicar com diferentes tipos de partes. Por exemplo, um perfil técnico pode efetuar estas ações entre outras:
 
@@ -157,4 +157,3 @@ Os passos de orquestração podem chamar uma [perfil técnico](technicalprofiles
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

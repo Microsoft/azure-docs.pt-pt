@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 32002f8b88a2fbeba29f15b3b9289ecf3d7560d0
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942738"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794331"
 ---
 # <a name="prepare-your-container-technical-assets"></a>Preparar o seu contentor ativos técnicos
 
@@ -53,9 +53,10 @@ Sugerimos também a rever as ferramentas disponíveis no [ferramentas de program
 
 ## <a name="create-the-container-image"></a>Criar a imagem de contentor
 
-- Criar e configurar o disco rígido virtual (VHD) para a sua máquina de virtual (VM) de contentor. Este VHD contém o sistema operativo (Windows, Linux ou Ubuntu) para o contentor. Discos de dados adicionais podem ser necessários.
-- Configure o sistema operacional de VM, tamanho VM, as portas para abrir e qualquer discos de dados anexados.
-- Instale a aplicação e outro software necessário para a sua oferta. Por exemplo: o software de base de dados, software de terceiros ou uma aplicação personalizada.
+Veja o seguinte para obter mais informações:
+
+* [Tutorial: Criar uma imagem de contentor para implementação no Azure Container Instances](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Tutorial: Criar e implementar imagens de contentor na cloud com tarefas de registo de contentor do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

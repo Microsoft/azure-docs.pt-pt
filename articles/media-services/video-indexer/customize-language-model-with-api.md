@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ef5354a94ae707df8dd1f2767efe04dfbacd7ad
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553747"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799595"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personalizar um modelo de idioma com as APIs do indexador de vídeo
 
@@ -31,7 +32,7 @@ O comando seguinte cria um novo modelo de idioma personalizado na conta especifi
 > [!NOTE]
 > Ainda deve preparar o modelo com seus arquivos de ativado para o modelo obter o conteúdo dos seus arquivos. São as direções numa linguagem de treinamento na próxima seção.
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido POST.
 
@@ -53,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 |modelName|string|Sim|O nome para o modelo de idioma|
@@ -104,7 +105,7 @@ O seguinte comando prepara um modelo de idioma personalizado na conta especifica
 > [!NOTE]
 > Primeiro tem de criar o modelo de idioma e carregar seus arquivos. Pode carregar ficheiros quando criar o modelo de idioma ou atualizando o modelo de idioma. 
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido PUT.
 
@@ -124,7 +125,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|O id de modelo de idioma (gerado quando é criado o modelo de idioma)|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
@@ -169,7 +170,7 @@ Em seguida, deve utilizar o **id** valor do modelo de idioma para o **linguistic
 
 O comando seguinte elimina um modelo de idioma personalizado da conta especificada. Qualquer vídeo que estava a utilizar o modelo de idioma eliminado irá manter o mesmo índice até novamente indexar o vídeo. Se voltar a indexar o vídeo, pode atribuir um novo modelo de idioma para o vídeo. Caso contrário, o Video Indexer irá utilizar o modelo padrão para voltar a indexar o vídeo.
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido de eliminação.
 
@@ -189,7 +190,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|O id de modelo de idioma (gerado quando é criado o modelo de idioma)|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
@@ -209,7 +210,7 @@ O seguinte comando atualiza um modelo personalizado para a pessoa de idioma na c
 > [!NOTE]
 > Tem de já tiver criado o modelo de idioma. Pode utilizar esta chamada para ativar ou desativar todos os ficheiros de acordo com o modelo, atualize o nome do modelo de idioma e carregar ficheiros a ser adicionado para o modelo de idioma.
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido PUT.
 
@@ -231,7 +232,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|O id de modelo de idioma (gerado quando é criado o modelo de idioma)|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
@@ -280,7 +281,7 @@ Pode utilizar o **id** dos ficheiros devolvidos aqui para transferir o conteúdo
 
 O seguinte comando permite-lhe atualizar o nome e **ativar** estado de um arquivo num modelo de idioma personalizado na conta especificada.
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido PUT.
 
@@ -300,7 +301,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountId|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|ID do modelo de idioma que contém o arquivo (gerado quando é criado o modelo de idioma)|
 |fileId|string|Sim|ID do ficheiro que está a ser atualizado (gerado quando o ficheiro é carregado na criação ou atualização do modelo de idioma)|
@@ -331,7 +332,7 @@ Pode utilizar o **id** do arquivo devolvido aqui para transferir o conteúdo do 
 
 O comando seguinte devolve informações sobre o modelo de idioma especificado na conta especificada como linguagem e os ficheiros que estão no modelo de idioma. 
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido GET.
 ```
@@ -350,7 +351,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|O id de modelo de idioma (gerado quando é criado o modelo de idioma)|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
@@ -395,7 +396,7 @@ Pode utilizar o **id** do arquivo devolvido aqui para transferir o conteúdo do 
 
 O comando seguinte devolve todos os modelos de idioma personalizados na conta especificada numa lista.
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido de obter.
 
@@ -415,7 +416,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |accessToken|string|Sim|Token de acesso (tem de ser do âmbito [Token de acesso da conta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticar a chamada. Tokens de acesso expiram dentro de 1 hora.|
 
@@ -467,7 +468,7 @@ A resposta fornece uma lista de todos os modelos de idioma na sua conta e cada u
 
 O comando seguinte elimina o ficheiro especificado do modelo de idioma especificado na conta especificada. 
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido de eliminação.
 ```
@@ -486,7 +487,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|ID do modelo de idioma que contém o arquivo (gerado quando é criado o modelo de idioma)|
 |fileId|string|Sim|ID do ficheiro que está a ser atualizado (gerado quando o ficheiro é carregado na criação ou atualização do modelo de idioma)|
@@ -504,7 +505,7 @@ Não existe nenhum conteúdo retornado quando o ficheiro é eliminado com êxito
 
 Esta ação devolve o conteúdo e os metadados do ficheiro especificado do modelo de linguagem escolhido na sua conta.
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 
 Este é um pedido GET.
 
@@ -523,7 +524,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|ID do modelo de idioma que contém o arquivo (gerado quando é criado o modelo de idioma)|
 |fileId|string|Sim|ID do ficheiro que está a ser atualizado (gerado quando o ficheiro é carregado na criação ou atualização do modelo de idioma)|
@@ -555,7 +556,7 @@ A resposta fornece o conteúdo e metadados do ficheiro no formato JSON, semelhan
 
 O comando seguinte transfere um ficheiro de texto que contenha o conteúdo do ficheiro especificado do modelo de idioma especificado na conta especificada. Este ficheiro de texto deve coincidir com o conteúdo do ficheiro de texto que foi carregado originalmente.
 
-### <a name="request-url"></a>URL do Pedido
+### <a name="request-url"></a>URL do pedido
 ```
 https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}
 ```
@@ -572,7 +573,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nome**|**Tipo**|**Necessário**|**Descrição**|
 |---|---|---|---|
-|localização|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
+|location|string|Sim|A região do Azure para o qual deve ser roteada, a chamada. Para obter mais informações, consulte [regiões do Azure e o Video Indexer](regions.md).|
 |accountID|string|Sim|Identificador exclusivo global para a conta|
 |modelId|string|Sim|ID do modelo de idioma que contém o arquivo (gerado quando é criado o modelo de idioma)|
 |fileId|string|Sim|ID do ficheiro que está a ser atualizado (gerado quando o ficheiro é carregado na criação ou atualização do modelo de idioma)|

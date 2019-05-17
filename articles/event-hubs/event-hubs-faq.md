@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690278"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789250"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas mais frequentes sobre os Hubs de eventos
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690278"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>O que é um espaço de nomes de Hubs de eventos?
 Um espaço de nomes é um contentor de âmbito para tópicos do Event Hub/Kafka. Ele fornece um exclusivo [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name). Um espaço de nomes serve como um contêiner de aplicativo que pode alojar vários tópicos do Event Hub/Kafka. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>Quando crio um novo namespace vs. Utilize um espaço de nomes existente?
+Alocações de capacidade ([unidades de débito (n)](#throughput-units)) são faturadas ao nível do espaço de nomes. Um espaço de nomes está também associado uma região.
+
+Pode querer criar um novo espaço de nomes em vez de usar um um existente num dos seguintes cenários: 
+
+- Precisa de um Hub de eventos associados a uma nova região.
+- Precisa de um Hub de eventos associados a uma subscrição diferente.
+- Precisa de um Hub de eventos com uma alocação de capacidade distintos (ou seja, a capacidade necessários para o espaço de nomes com o hub de eventos foi adicionado iria exceder o limiar de 40 TU e não pretende ir para o cluster dedicado)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>O que é a diferença entre os escalões Standard e Hubs de eventos básico?
 
@@ -60,7 +69,7 @@ Pode utilizar os seguintes protocolos com o Azure Service Bus para enviar e rece
 
 Veja a seguinte tabela para as portas de saída que é necessário abrir para utilizar estes protocolos para comunicar com os Hubs de eventos do Azure. 
 
-| Protocolo | Portas | Detalhes | 
+| Protocol | Portas | Detalhes | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 e 5672 | Consulte [Guia do protocolo AMQP](../service-bus-messaging/service-bus-amqp-protocol-guide.md) | 
 | HTTP, HTTPS | 80, 443 |  |

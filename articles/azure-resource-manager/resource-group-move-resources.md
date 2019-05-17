@@ -1,23 +1,17 @@
 ---
 title: Mover recursos do Azure para a nova subscrição ou grupo de recursos | Documentos da Microsoft
 description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698480"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792686"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -25,7 +19,7 @@ Este artigo mostra como mover recursos do Azure para outra subscrição do Azure
 
 O grupo de origem e o grupo de destino estão bloqueados durante a operação de movimentação. Escrever e eliminar operações os grupos de recursos não é permitido enquanto a migração for concluída. Esse bloqueio significa que não é possível adicionar, atualizar ou eliminar recursos nos grupos de recursos, mas isso não significa que os recursos são interrompidos. Por exemplo, se mover um servidor de SQL e a respetiva base de dados para um novo grupo de recursos, uma aplicação que utiliza a base de dados experiências sem períodos de indisponibilidade. Pode ainda ler e escrever na base de dados.
 
-Mover um recurso só o move para um grupo de recursos novo. A operação de movimentação não pode alterar a localização do recurso. Novo grupo de recursos pode ter uma localização diferente, mas que não altera a localização do recurso.
+Mover um recurso apenas move-o para um novo grupo de recursos. A operação de movimentação não pode alterar a localização do recurso. Novo grupo de recursos pode ter uma localização diferente, mas que não altera a localização do recurso.
 
 > [!NOTE]
 > Este artigo descreve como mover recursos entre subscrições do Azure existentes. Se realmente quiser atualizar a sua subscrição do Azure (por exemplo, mudar de gratuita para pay as you go), terá de converter a sua subscrição.
@@ -60,7 +54,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure Data Explorer
-* Azure Database for MariaDB
+* Base de Dados do Azure para MariaDB
 * Base de Dados do Azure para MySQL
 * Base de Dados do Azure para PostgreSQL
 * DevOps do Azure - siga os passos para [alterar a subscrição do Azure utilizada para faturação](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
@@ -91,7 +85,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Hubs IoT
 * Não é possível mover o Cofre de chaves - cofres de chave utilizada para encriptação de disco para grupos de recursos na mesma subscrição ou em várias subscrições.
 * Podem ser movidas balanceadores de carga - Balanceador de carga de SKU básico. Não é possível mover o Balanceador de carga de SKU Standard.
-* Aplicações Lógicas
+* Logic Apps
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
 * Managed Disks - Managed Disks em zonas de disponibilidade não podem ser movidos para uma subscrição diferente
 * Identidade gerida - atribuído ao utilizador
@@ -113,6 +107,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Serviço SignalR
 * Não é possível mover o armazenamento - contas de armazenamento em regiões diferentes na mesma operação. Em vez disso, a utilizar operações separadas para cada região.
 * Armazenamento (clássica) – consulte [limitações da implementação clássica](#classic-deployment-limitations)
+* Serviço de Sincronização de Armazenamento
 * Estado do Stream Analytics - Analytics Stream tarefas não podem ser movidas quando em execução.
 * Servidor de base de dados SQL - base de dados e o servidor tem de estar no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
 * Time Series Insights
@@ -135,10 +130,10 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Azure Firewall
 * Serviço de Kubernetes do Azure (AKS)
 * Azure Migrate
-* Azure NetApp Files
+* Ficheiros NetApp do Azure
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
 * Aplicativos clássicos
-* Container Instances
+* Instâncias de Contentores
 * Serviço de Contentor
 * Data Box
 * Espaços de desenvolvimento

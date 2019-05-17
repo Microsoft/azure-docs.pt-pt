@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025020"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800859"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Gerir, implementar e monitorizar os modelos de serviço do Azure Machine Learning
 
@@ -34,11 +34,14 @@ Cada passo pode ser efetuado de forma independente ou como parte de um único co
 
 [!["O azure Machine Learning integração contínua/contínua (CI/CD) ciclo de implantação"](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>Passo 1: Registar o modelo
 
 Registo do modelo permite-lhe armazenar e versão seus modelos na cloud do Azure, na sua área de trabalho. O registo de modelo torna mais fácil organizar e manter o controle de seus modelos de formação.
+
+> [!TIP]
+> Também pode registar modelos com base fora o serviço Azure Machine Learning.
  
 Modelos registrados são identificados pelo nome e versão. Sempre que registar um modelo com o mesmo nome que um já existente, o registro incrementa a versão. Também pode fornecer marcas de metadados adicionais durante o registo que pode ser utilizado ao pesquisar para modelos. O serviço do Azure Machine Learning suporta qualquer modelo que pode ser carregados com o Python 3.5.2 ou superior.
 
@@ -57,7 +60,7 @@ Modelos de aprendizagem automática podem ser utilizados como um serviço da web
 Pode utilizar os seus modelos no **serviços da web** destinos de computação com o seguinte:
 
 * Instância de Contentor do Azure
-* Azure Kubernetes Service
+* Serviço Kubernetes do Azure
 
 Para implementar o modelo como um serviço web, tem de fornecer o seguinte:
 
@@ -92,5 +95,7 @@ As implementações têm de ser atualizadas explicitamente. Para obter mais info
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba mais sobre [como e onde pode implementar modelos](how-to-deploy-and-where.md) com o serviço Azure Machine Learning. Para obter um exemplo de implementação, consulte [Tutorial: Implementar um modelo de classificação de imagem no Azure Container Instances](tutorial-deploy-models-with-aml.md).
+
+Saiba como criar [integração contínua e implementação de modelos de ML com Pipelines do Azure](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 Saiba como criar aplicações de cliente e serviços a que [consumir um modelo implementado como um serviço web](how-to-consume-web-service.md).

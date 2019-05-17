@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362634"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606856"
 ---
 # <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
 
@@ -31,7 +31,7 @@ O StorSimple Device Manager fornece a capacidade de **inicie um novo pedido de s
 
 Reveja os [SLAs de suporte do StorSimple 8000 Series e informações](https://msdn.microsoft.com/library/mt433077.aspx) antes de criar um pedido de suporte.
 
-## <a name="create-a-support-request"></a>Criar um pedido de suporte
+## <a name="create-a-support-request"></a>Criar um pedido de apoio
 
 Dependendo da sua [plano de suporte](https://azure.microsoft.com/support/plans/), pode criar pedidos de suporte para um problema no dispositivo StorSimple diretamente a partir do painel de resumo do serviço StorSimple Device Manager. Execute os seguintes passos para criar um pedido de suporte:
 
@@ -64,7 +64,7 @@ Dependendo da sua [plano de suporte](https://azure.microsoft.com/support/plans/)
 4. Na **novo pedido de suporte** painel, clique em **informações de contacto do passo 3**. Na **informações de contacto** painel, siga os passos abaixo:
 
    1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
-   2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
+   2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país/região. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
    3. Clique em **Criar**.
    
        ![MS de contacto de suporte através do novo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

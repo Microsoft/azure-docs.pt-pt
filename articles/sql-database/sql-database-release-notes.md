@@ -2,20 +2,20 @@
 title: Notas de versão de base de dados SQL do Azure | Documentos da Microsoft
 description: Saiba mais sobre as novas funcionalidades e melhorias no serviço de base de dados do Azure SQL e na documentação do SQL Database do Azure
 services: sql-database
-author: CarlRabeler
+author: stevestein
 manager: craigg
 ms.service: sql-database
 ms.subservice: service
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/07/2019
-ms.author: carlrab
-ms.openlocfilehash: 923e475cd690902c61c2f89578c2c62effe4cd86
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.date: 05/15/2019
+ms.author: sstein
+ms.openlocfilehash: d527c4fed9c43e62d815078c049d4d8e6f8a46b7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406588"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787722"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão da base de dados SQL
 
@@ -25,27 +25,26 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Funcionalidade | Detalhes |
 | ---| --- |
+| Recuperação de base de dados acelerada com bases de dados individuais e conjuntos elásticos | Para obter informações, consulte [recuperação de base de dados acelerada](sql-database-accelerated-database-recovery.md).|
+|Fazer uma aproximação de contagem distinta|Para obter informações, consulte [aproximado Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
+|Modo de lote no Rowstore (no nível de compatibilidade 150)|Para obter informações, consulte [modo de lote no Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
+| Deteção e classificação de dados  |Para obter informações, consulte [deteção de dados de base de dados do Azure SQL e SQL Data Warehouse e classificação](sql-database-data-discovery-and-classification.md).|
+| Tarefas de base de dados elástica | Para obter informações, consulte [criar, configurar e gerir conjuntos elásticos](elastic-jobs-overview.md). |
+| Consultas elásticas | Para obter informações, consulte [descrição geral de consulta elástica](sql-database-elastic-query-overview.md). |
+| Transações elásticas | [Transações distribuídas entre bases de dados de cloud](sql-database-elastic-transactions-overview.md). |
+| Agrupamento de instância com instâncias geridas |Para obter informações, consulte [utilize o PowerShell com o modelo Azure Resource Manager para criar uma instância gerida na base de dados do Azure SQL](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md).|
+|Feedback de concessão de memória (modo de linha) (no nível de compatibilidade 150)|Para obter informações, consulte [Feedback de concessão de memória (modo de linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
+| Editor de consultas no portal do Azure |Para obter informações, consulte [utilizar o editor de consultas SQL do portal do Azure para ligar e consultar dados](sql-database-connect-query-portal.md).|
+| R services / aprendizagem com bases de dados individuais e conjuntos elásticos |Para obter informações, consulte [serviços de Machine Learning no Azure SQL Database](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database).|
+| Recriar bases de dados ignorados com instâncias geridas |Para obter informações, consulte [recriar remover bases de dados na instância gerida do SQL do Azure](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266).|
+| Replicação com instâncias geridas |Para obter informações, consulte [configurar a replicação numa base de dados de instância gerida de base de dados do Azure SQL](replication-with-sql-database-managed-instance.md).|
 | Escalão de serviço de computação sem servidor | Para obter informações, consulte [base de dados SQL sem servidor (pré-visualização)](sql-database-serverless.md).|
-| Tarefas de base de dados elástica | Para obter informações, consulte [criar, configurar e gerir conjuntos elásticos](elastic-jobs-overview.md) |
-| Transações elásticas | [Transações distribuídas entre bases de dados de cloud](sql-database-elastic-transactions-overview.md) |
-| Consultas elásticas | Para obter informações, consulte [descrição geral das consultas elásticas](sql-database-elastic-query-overview.md) |
-| Replicação com instâncias geridas |Para obter informações, consulte [configurar a replicação numa base de dados de instância gerida de base de dados do Azure SQL](replication-with-sql-database-managed-instance.md)|
-| Agrupamento de instância com instâncias geridas |Para obter informações, consulte [utilize o PowerShell com o modelo Azure Resource Manager para criar uma instância gerida na base de dados do Azure SQL](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|
-| R services / aprendizagem com bases de dados individuais e conjuntos elásticos |Para obter informações, consulte [serviços do Machine Learning na base de dados do Azure SQL](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#machine-learning-services-in-azure-sql-database)|
-| Recuperação de base de dados acelerada com bases de dados individuais e conjuntos elásticos | Para obter informações, consulte [acelerado de recuperação de base de dados](sql-database-accelerated-database-recovery.md)|
-| Deteção e classificação de dados  |Para obter informações, consulte [e classificação de deteção de dados de base de dados do Azure SQL e SQL Data Warehouse](sql-database-data-discovery-and-classification.md)|
-| Encriptação de dados transparente (TDE) com Bring Your Own Key (BYOK) com instâncias geridas |Para obter informações, consulte [encriptação de dados de transparente de SQL do Azure com chaves geridas pelo cliente no Azure Key Vault: Oferecer suporte a sua própria chave](transparent-data-encryption-byok-azure-sql.md)|
-| Recriar bases de dados ignorados com instâncias geridas |Para obter informações, consulte [voltar a criar remover bases de dados na instância gerida do SQL do Azure](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266)|
-| Deteção de ameaças com instâncias geridas |Para obter informações, consulte [instância gerida de configurar a deteção de ameaças na base de dados do Azure SQL](sql-database-managed-instance-threat-detection.md)|
-| Camadas de serviços de Hiperescala com bases de dados individuais |Para obter informações, consulte [camada de serviços de Hiperescala para até 100 TB](sql-database-service-tier-hyperscale.md)|
-| Editor de consultas no portal do Azure |Para obter informações, consulte [utilize o editor de consultas SQL do portal do Azure para ligar e consultar dados](sql-database-connect-query-portal.md)|
-|Fazer uma aproximação de contagem distinta|Para obter informações, consulte [aproximado Count Distinct](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing)|
-|Modo de lote no Rowstore (no nível de compatibilidade 150)|Para obter informações, consulte [modo de lote no Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore)|
-|Feedback de concessão de memória (modo de linha) (no nível de compatibilidade 150)|Para obter informações, consulte [Feedback de concessão de memória (modo de linha)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
-|Tabela variável diferidos compilação (no nível de compatibilidade 150)|Para obter informações, consulte [compilação de diferimento variável de tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
-|Análise de SQL|Para obter informações, consulte [análise de SQL do Azure](../azure-monitor/insights/azure-sql.md)|
-| Suporte de fuso horário para instâncias geridas|Para obter mais informações, consulte [fuso horário na instância gerida da base de dados SQL do Azure](sql-database-managed-instance-timezone.md)|
-|||
+|Análise de SQL|Para obter informações, consulte [a análise de SQL do Azure](../azure-monitor/insights/azure-sql.md).|
+|Tabela variável diferidos compilação (no nível de compatibilidade 150)|Para obter informações, consulte [compilação de diferimento variável de tabela](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation).|
+| Deteção de ameaças com instâncias geridas |Para obter informações, consulte [instância gerida de configurar a deteção de ameaças na base de dados do Azure SQL](sql-database-managed-instance-threat-detection.md).|
+| Suporte de fuso horário para instâncias geridas|Para obter mais informações, consulte [fuso horário na instância gerida da base de dados SQL do Azure](sql-database-managed-instance-timezone.md).|
+| Encriptação de dados transparente (TDE) com Bring Your Own Key (BYOK) com instâncias geridas |Para obter informações, consulte [encriptação de dados de transparente de SQL do Azure com chaves geridas pelo cliente no Azure Key Vault: Oferecer suporte a sua própria chave](transparent-data-encryption-byok-azure-sql.md).|
+| &nbsp; |
 
 ## <a name="may-2019"></a>Maio de 2019
 
@@ -53,9 +52,18 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
-|Camada de serviços do Hyperscale| Para obter mais informações, consulte [camada de serviços de Hiperescala para até 100 TB](sql-database-service-tier-hyperscale.md).|
-|Escalão de serviço de computação sem servidor| Para obter mais informações, consulte [base de dados SQL sem servidor (pré-visualização)](sql-database-serverless.md).|
+|Camada de serviços de Hiperescala lançada para disponibilidade geral| Para obter mais informações, consulte [camada de serviços de Hiperescala para até 100 TB](sql-database-service-tier-hyperscale.md) e [introdução de alto desempenho, dimensionamento para as cargas de trabalho de base de dados do Azure com Hiperescala](https://azure.microsoft.com/blog/get-high-performance-scaling-for-your-azure-database-workloads-with-hyperscale/).|
+|Escalão de computação sem servidor lançado para pré-visualização pública | Para obter mais informações, consulte [base de dados SQL sem servidor (pré-visualização)](sql-database-serverless.md).|
+| As taxas do log de transação e o destino IOPS aumentaram para bases de dados com o modelo de compra baseado em vCore| Para obter mais informações, consulte [recursos limites para bases de dados individuais com o modelo de compra baseado em vCore](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) e [recurso limites para bases de dados individuais com o modelo de compra baseado em DTU](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases).
+| &nbsp; |
 
+### <a name="documentation-improvements"></a>Melhorias de documentação
+
+| Melhorias de documentação | Detalhes |
+| --- | --- |
+| Documentos da camada de serviço de Hiperescala atualizados para a versão GA| Para obter mais informações, consulte [camada de serviços de Hiperescala para até 100 TB](sql-database-service-tier-hyperscale.md).|
+|Documentos da camada de computação sem servidor lançados com pré-visualização pública| Para obter mais informações, consulte [base de dados SQL sem servidor (pré-visualização)](sql-database-serverless.md).|
+| &nbsp; |
 
 ## <a name="april-2019"></a>Abril de 2019
 
@@ -63,15 +71,18 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
-| Pontos finais públicos para a instância gerida | Para obter mais informações, consulte [utilizando a base de dados de SQL do Azure geridos a instância de forma segura com o ponto final público](sql-database-managed-instance-public-endpoint-securely.md)
-| Suporte de fuso horário para a instância gerida | Para obter mais informações, consulte [fuso horário na instância SQL do Azure da base de dados gerida (pré-visualização)](sql-database-managed-instance-timezone.md)
+| Pontos finais públicos para a instância gerida em pré-visualização pública| Para obter mais informações, consulte [utilizando a base de dados de SQL do Azure geridos a instância de forma segura com o ponto final público](sql-database-managed-instance-public-endpoint-securely.md).|
+| Suporte de fuso horário para gerido instância em pré-visualização pública| Para obter mais informações, consulte [fuso horário na instância gerida da base de dados SQL do Azure](sql-database-managed-instance-timezone.md).|
+| Proteger dados de SQL do Azure com identidades geridas em pré-visualização pública segundo da versão| Ver [proteger os dados de SQL do Azure com identidades geridas é agora mais fácil](https://azure.microsoft.com/blog/securing-azure-sql-databases-with-managed-identities-just-got-easier/).|
+| &nbsp; |
 
 ### <a name="documentation-improvements"></a>Melhorias de documentação
 
 | Melhorias de documentação | Detalhes |
 | --- | --- |
-| Pontos finais públicos para a instância gerida | Para obter mais informações, consulte [utilizando a base de dados de SQL do Azure geridos a instância de forma segura com o ponto final público](sql-database-managed-instance-public-endpoint-securely.md)
-| Suporte de fuso horário para a instância gerida | Para obter mais informações, consulte [fuso horário na instância SQL do Azure da base de dados gerida (pré-visualização)](sql-database-managed-instance-timezone.md)
+| Pontos finais públicos para a instância gerida em pré-visualização pública| Para obter mais informações, consulte [utilizando a base de dados de SQL do Azure geridos a instância de forma segura com o ponto final público](sql-database-managed-instance-public-endpoint-securely.md).|
+| Suporte de fuso horário para gerido instância em pré-visualização pública| Para obter mais informações, consulte [fuso horário na instância gerida da base de dados SQL do Azure](sql-database-managed-instance-timezone.md). |
+| Governação de recursos na base de dados do Azure SQL | Para obter mais informações, consulte [governação de recursos na base de dados do Azure SQL](https://azure.microsoft.com/blog/resource-governance-in-azure-sql-database/). || &nbsp; |
 
 ## <a name="march-2019"></a>Março de 2019
 
@@ -79,14 +90,13 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Melhorias de serviço | Detalhes |
 | --- | --- |
-| Disponibilidade geral: Suporte para escalamento horizontal de leituras para a Base de Dados SQL do Azure | Para obter mais informações, consulte [escalável de leitura](sql-database-read-scale-out.md)|
+| Leia o suporte de escalamento horizontal para a base de dados do SQL do Azure lançados para disponibilidade geral | Para obter mais informações, consulte [Escalamento leitura](sql-database-read-scale-out.md).|
 | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Melhorias de documentação
 
 | Melhorias de documentação | Detalhes |
 | --- | --- |
-| Suporte de fuso horário para instâncias geridas|Para obter mais informações, consulte [fuso horário na instância gerida da base de dados SQL do Azure](sql-database-managed-instance-timezone.md)|
 | Limites de registo foi adicionado para bases de dados individuais|Para obter mais informações, consulte [único limites de recursos do banco de dados vCore](sql-database-vcore-resource-limits-single-databases.md).|
 | Limites de registo foi adicionado para conjuntos elásticos e bases de dados agrupadas|Para obter mais informações, consulte [limites dos recursos de vCore conjuntos elásticos](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Governação de taxa de registo de transação foi adicionada| Adicionados novos conteúdos [governação de taxa de registo de transação](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
@@ -102,7 +112,7 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 |Criar uma recriação de índices online está agora em disponibilidade geral| Para obter mais informações, consulte [Create Index](https://docs.microsoft.com/sql/t-sql/statements/create-index-transact-sql).|
 |Instância gerida de suporte para tabelas de rota melhorada| Para obter mais informações, consulte [requisitos de rede](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
 |Mudar o nome de base de dados suportado na instância gerida | Para obter mais detalhes, consulte a [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) e [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) sintaxe.|
-|Base de dados SQL como uma origem de dados de referência para o Stream Analytics. | Para obter mais informações, consulte [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
+|Base de dados SQL como uma origem de dados de referência para o Stream Analytics. | Para obter mais informações, consulte [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) e [Azure Stream Analytics suporta agora a base de dados do Azure SQL como entrada de dados de referência](https://azure.microsoft.com/blog/azure-stream-analytics-now-supports-azure-sql-database-as-reference-data-input/).|
 |Assistência de migração de dados adiciona suporte para a instância gerida. |Para obter mais informações, consulte [o que há de novo no DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
 |SQL Server Migration Assistant-adiciona suporte para avaliação de preparação do destino para a instância gerida. | Para obter mais informações, consulte [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
 |Serviço de migração de dados suporta a migração do Amazon RDS para instância gerida | Para obter mais informações, consulte [Tutorial: Migrar o servidor de SQL de RDS para a base de dados do Azure SQL ou uma base de dados do Azure SQL instância gerida online com o DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
@@ -116,7 +126,6 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 |Tamanhos de tempdb atualizado para o modelo de compra baseado em DTU | Para obter mais informações, consulte [base de dados Tempdb na base de dados SQL](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 |Atualizada a importação e exportação com o ficheiro bacpac para o suporte de instância gerida| Para obter mais informações, consulte [importação de BACPAC](sql-database-import.md) e [exportar para BACPAC](sql-database-export.md). |
 | &nbsp; |
-
 
 ## <a name="january-2019"></a>Janeiro de 2019
 
@@ -133,12 +142,12 @@ Este artigo lista os novos recursos e melhorias no serviço de base de dados SQL
 
 | Melhorias de documentação | Detalhes |
 | --- | --- |
-| Instâncias geridas e a replicação transacional | Foi adicionado artigo sobre como utilizar [replicação transacional com instâncias geridas](replication-with-sql-database-managed-instance.md) |
+| Instâncias geridas e a replicação transacional | Foi adicionado artigo sobre como utilizar [replicação transacional com instâncias geridas](replication-with-sql-database-managed-instance.md). |
 | Foi adicionado AD do Azure com tutorial de instância gerida | Isso [do Azure AD com a instância gerida](sql-database-managed-instance-aad-security-tutorial.md) mostra tutorial, terá de configurar e testar geridos de segurança de instância com inícios de sessão do Azure AD. |
-| Conteúdo atualizado para a automatização de tarefas utilizando scripts de Transact-SQL | Atualizada e foi esclarecido o conteúdo para usar [automatização de tarefas utilizando scripts de Transact-SQL](sql-database-job-automation-overview.md) para bases de dados individuais, conjuntos elásticos e instâncias geridas |
-| Conteúdo de segurança para as instâncias geridas atualizado | Atualizada e foi esclarecido o conteúdo para o [modelo de segurança para instâncias geridas](sql-database-security-overview.md)e contrastada com o modelo de segurança para conjuntos elásticos e bases de dados individuais |
-| Atualizar todos os inícios rápidos e tutoriais | Todos os inícios rápidos e tutoriais a [documentação](https://docs.microsoft.com/azure/sql-database) foram atualizados e atualizados de acordo com as alterações no portal do Azure |
-| Guias de visão geral do guia de introdução foi adicionado | Adicionado um guia de visão geral do guia de início rápido para [bases de dados únicas](sql-database-quickstart-guide.md) e para [instâncias geridas](sql-database-managed-instance-quickstart-guide.md) |
+| Conteúdo atualizado para a automatização de tarefas utilizando scripts de Transact-SQL | Atualizada e foi esclarecido o conteúdo para usar [automatização de tarefas utilizando scripts de Transact-SQL](sql-database-job-automation-overview.md) para instâncias geridas, os conjuntos elásticos e bases de dados individuais. |
+| Conteúdo de segurança para as instâncias geridas atualizado | Atualizada e foi esclarecido o conteúdo para o [modelo de segurança para instâncias geridas](sql-database-security-overview.md)e contrastada com o modelo de segurança para conjuntos elásticos e bases de dados individuais. |
+| Atualizar todos os inícios rápidos e tutoriais | Todos os inícios rápidos e tutoriais a [documentação](https://docs.microsoft.com/azure/sql-database) foram atualizados e atualizados de acordo com as alterações no portal do Azure. |
+| Guias de visão geral do guia de introdução foi adicionado | Adicionado um guia de visão geral do guia de início rápido para [bases de dados únicas](sql-database-quickstart-guide.md) e, para [instâncias geridas](sql-database-managed-instance-quickstart-guide.md). |
 | Foi adicionado base de dados SQL Glossário de termos | Isso [Glossário de termos](sql-database-glossary-terms.md) artigo fornece uma lista definitiva de termos de base de dados SQL e ligações para a página principal de conceitual que explica o termo no contexto. |
 | &nbsp; |
 

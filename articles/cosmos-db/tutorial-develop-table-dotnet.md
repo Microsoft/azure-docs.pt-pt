@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 03/11/2019
-ms.openlocfilehash: 0a329722b65e407f011016a1f55e86ef17b47d70
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce1af9c88bbdad96a22eb96abc26026abcad56cc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192405"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793041"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de tabela do Azure Cosmos DB e tabelas do Azure com o SDK .NET
 
@@ -63,7 +63,9 @@ Para obter o pacote NuGet, siga estes passos:
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de ligação de armazenamento
 
-1. Partir do [portal do Azure](https://portal.azure.com/), clique em **cadeia de ligação**. Utilize o botão de cópia à direita da janela, para copiar a **CADEIA DE LIGAÇÃO PRIMÁRIA**.
+1. Partir do [portal do Azure](https://portal.azure.com/), navegue para a sua conta do Cosmos do Azure ou a conta de armazenamento de tabelas. 
+
+1. Abra o **cadeia de ligação** ou **chaves de acesso** painel. Utilize o botão de cópia à direita da janela, para copiar a **CADEIA DE LIGAÇÃO PRIMÁRIA**.
 
    ![Ver e copiar a CADEIA DE LIGAÇÃO PRIMÁRIA no painel Cadeia de Ligação](./media/create-table-dotnet/connection-string.png)
    

@@ -3,8 +3,8 @@ title: Não existem utilizadores estão a ser aprovisionados para um aplicativo 
 description: Como resolver problemas comuns enfrentados ao não vir os utilizadores que aparecem num aplicativo de galeria do Azure AD que configurou para o aprovisionamento de utilizadores com o Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e74ad04f10865a830d27c1814be10eeff3ad59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eaeb97f88c2482cb9d091afb1c205e9b09a85ce0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60443220"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784577"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Não existem utilizadores estão a ser aprovisionados para um aplicativo de galeria do Azure AD
 Após o aprovisionamento automático foi configurado para uma aplicação (incluindo a verificar que as credenciais de aplicação fornecidas para o Azure AD para ligar à aplicação são válidas), em seguida, os utilizadores e/ou grupos são aprovisionados para a aplicação. Aprovisionamento é determinado através dos seguintes pontos:

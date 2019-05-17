@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: 57126c87879da9f99d224457433bbbd5f95ef021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88e5f1ac7834caa32302a3817e1779d0d733a7b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325633"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787547"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Execute as suas funções do Azure a partir de um ficheiro de pacote
 
@@ -64,6 +64,13 @@ O código a seguir mostra uma aplicação de funções configurada para ser exec
 ## <a name="adding-the-websiterunfrompackage-setting"></a>Adicionar a definição de WEBSITE_RUN_FROM_PACKAGE
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+- Executar a partir de pacote torna `wwwroot` só de leitura, portanto, receberá um erro ao gravar ficheiros neste diretório.
+- Formatos gzip e de destino não são suportados.
+- Esta funcionalidade não compose com o local cache.
+- Para um melhor desempenho de arranque a frio, utilize a opção de Zip local (`WEBSITE_RUN_FROM_PACKAGE`= 1).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

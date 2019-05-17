@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 394ba3b3b8189bbe96137e920745f7b8cdd1cd95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccc726f54821d316c745f6af9c63d7ed13986d79
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863968"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761934"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger um cluster autónomo no Windows com segurança do Windows
 Para impedir acesso não autorizado ao cluster do Service Fabric, tem de proteger o cluster. A segurança é especialmente importante quando o cluster executa cargas de trabalho de produção. Este artigo descreve como configurar a segurança de nó para nó e o nó de cliente através de segurança do Windows no *ClusterConfig.JSON* ficheiro.  O processo correspondente para o passo de segurança de configuração do [criar um cluster autónomo no Windows](service-fabric-cluster-creation-for-windows-server.md). Para obter mais informações sobre como o Service Fabric utiliza a segurança do Windows, consulte [cenários de segurança do Cluster](service-fabric-cluster-security.md).
@@ -61,7 +61,7 @@ O exemplo *ClusterConfig.gMSA.Windows.MultiMachine.JSON* ficheiro de configuraç
 | IsAdmin |Defina como verdadeiro para especificar que o utilizador de domínio tem acesso de cliente de administrador ou FALSO para acesso de cliente do utilizador. |
 
 > [!NOTE]
-> Valor de ClustergMSAIdentity não pode incluir o nome de domínio e só pode ser o nome de conta de serviço gerida de grupo. I.E. "mysfgmsa" está correto e ambos "mydomain / / mysfgmsa" ou "mysfgmsa@mydomain" são inválidas; como o domínio é exigido pelo computador anfitrião.
+> Valor de ClustergMSAIdentity estar no formato "mysfgmsa@mydomain".
 
 [O nó para segurança de nó](service-fabric-cluster-security.md#node-to-node-security) está configurado, definindo **ClustergMSAIdentity** quando o service fabric tem de ser executado sob a gMSA. Para criar relações de confiança entre os nós, eles devem ser conscientizados de entre si. Isso pode ser feito de duas formas diferentes: Especificar o grupo de conta de serviço gerida que inclui todos os nós no cluster ou o grupo de máquina de domínio que inclui todos os nós do cluster. Recomendamos vivamente a utilização a [conta de serviço gerida da grupo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) abordagem, especialmente para clusters maiores (mais de 10 nós) ou para os clusters que são provável que aumentar ou diminuir.  
 Essa abordagem não requer a criação de um grupo de domínio para o qual os administradores de cluster concedeu direitos de acesso para adicionar e remover membros. Estas contas também são úteis para gestão de palavra-passe automática. Para obter mais informações, consulte [guia de introdução contas de serviço geridas de grupo](https://technet.microsoft.com/library/jj128431.aspx).  

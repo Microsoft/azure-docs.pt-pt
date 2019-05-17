@@ -10,12 +10,12 @@ ms.date: 09/27/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 40a1356c9a7300a44087efdd1ab4762826da5a3f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8e09e2c33359c94275d9819b335544d15d4c7d78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149004"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790095"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferir dados com a biblioteca de movimento de dados de armazenamento do Microsoft Azure
 
@@ -43,7 +43,7 @@ Este documento demonstra como criar uma aplicação de consola .NET Core que é 
 >
 >
 
-## <a name="setup"></a>Configurar
+## <a name="setup"></a>Configuração
 
 1. Visite o [guia de instalação do .NET Core](https://www.microsoft.com/net/core) para instalar o .NET Core. Ao selecionar o seu ambiente, escolha a opção da linha de comandos.
 2. A partir da linha de comandos, crie um diretório para o seu projeto. Navegue para este diretório, em seguida, escreva `dotnet new console -o <sample-project-name>` para criar um projeto de consola c#.
@@ -81,9 +81,9 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Diagnostics;
-using Microsoft.WindowsAzure.Storage;
-using Microsoft.WindowsAzure.Storage.Blob;
-using Microsoft.WindowsAzure.Storage.DataMovement;
+using Microsoft.Azure.Storage;
+using Microsoft.Azure.Storage.Blob;
+using Microsoft.Azure.Storage.DataMovement;
 
 namespace DMLibSample
 {

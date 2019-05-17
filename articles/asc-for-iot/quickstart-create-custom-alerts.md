@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 7f585c496328fef3e3d7dbb300fc4f07167fd55d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3b4c5e4700b0ef718a6b079ecc6ab3ad80f4eab6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192472"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786173"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Início rápido: Criar alertas personalizados
 
@@ -50,13 +50,12 @@ Utilize grupos de segurança para agrupar os seus dispositivos em categorias ló
 ## <a name="customize-an-alert"></a>Personalizar um alerta
 
 1. Abra o seu Hub IoT. 
-2. Selecione **Security**, em seguida, selecione **alertas personalizados**. 
-3. Escolha os grupos de segurança que pretende aplicar a personalização para. 
-4. Clique em **adicionar um alerta personalizado**
-5. Introduza um nome de alerta (Observe que os nomes de alerta não podem ser alterados após a criação). 
-6. Selecione um comportamento personalizado do alerta na lista pendente. 
-7. Editar as propriedades necessárias, clique em **OK**.
-8. Certifique-se de clicar **guardar**. Sem a guardar o novo alerta, o alerta é eliminado da próxima vez que fecha o IoT Hub.
+2. Clique em **alertas personalizados** no **segurança** secção. 
+3. Escolha um grupo de segurança que pretende aplicar a personalização para. 
+4. Clique em **adicionar um alerta personalizado** 
+5. Selecione um comportamento personalizado do alerta na lista pendente. 
+6. Editar as propriedades necessárias, clique em **OK**.
+7. Certifique-se de clicar **guardar**. Sem a guardar o novo alerta, o alerta é eliminado da próxima vez que fecha o IoT Hub.
 
  
 ## <a name="alerts-available-for-customization"></a>Alertas disponíveis para personalização
@@ -65,25 +64,25 @@ A tabela seguinte fornece um resumo dos alertas disponíveis para personalizaç�
 
 | Gravidade | Name                                                                                                    | Origem de Dados | Descrição                                                                                                                                     |
 |----------|---------------------------------------------------------------------------------------------------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
-| Baixa      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo AMQP não se encontra no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo AMQP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo AMQP não se encontra no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo AMQP) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
-| Baixa      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo AMQP não se encontra no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo AMQP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Invoca de alerta personalizados - número de método direto não está no intervalo permitido                              | IoT Hub     | A quantidade de método direto invoca num tempo de janela não se encontra no intervalo permitido configurada                                                     |
-| Baixa      | Alerta personalizados - número de carregamentos de ficheiros não se encontra no intervalo permitido                                       | IoT Hub     | A quantidade de carregamentos de ficheiros numa janela de tempo não se encontra no intervalo permitido configurada                                                              |
-| Baixa      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo HTTP não está no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo HTTP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo HTTP não está no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo HTTP) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
-| Baixa      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo HTTP não está no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo HTTP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo MQTT não se encontra no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo MQTT) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo MQTT não se encontra no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo MQTT) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
-| Baixa      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo MQTT não se encontra no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo MQTT) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
-| Baixa      | Alerta personalizados - número de limpezas de fila de comando não se encontra no intervalo permitido                               | IoT Hub     | A quantidade de fila de comando remove num tempo de janela não se encontra no intervalo permitido configurada                                                      |
-| Baixa      | Alerta personalizados - número de atualizações de duplo não se encontra no intervalo permitido                                       | IoT Hub     | A quantidade de atualizações de duplo numa janela de tempo não se encontra no intervalo permitido configurada                                                              |
-| Baixa      | Alerta personalizados - número de operações não autorizadas não se encontra no intervalo permitido                            | IoT Hub     | A quantidade de operações não autorizadas numa janela de tempo não se encontra no intervalo permitido configurada                                                   |
-| Baixa      | Alerta personalizados - número de ligações ativas não está no intervalo permitido                                        | Agente       | A quantidade de ligações ativas numa janela de tempo não se encontra no intervalo permitido configurada                                                        |
-| Baixa      | Foi criada o alerta personalizados - ligação de saída para um ip que não é permitido                              | Agente       | Foi criada uma ligação de saída para um ip que não é permitida                                                                                  |
-| Baixa      | Alerta personalizado - número de inícios de sessão falhados locais não se encontra no intervalo permitido                                | Agente       | A quantidade de inícios de sessão locais falhados numa janela de tempo não se encontra no intervalo permitido configurada                                                       |
-| Baixa      | Alerta personalizados - início de sessão de um utilizador que não é permitido                                                      | Agente       | Um utilizador local que não é permitido com sessão iniciado dispositivo                                                                                        |
-| Baixa      | Alerta personalizados - a execução de um processo que não é permitida                                               | Agente       | Um processo que não é permitido foi executado no dispositivo |          |
+| Baixo      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo AMQP não se encontra no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo AMQP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
+| Baixo      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo AMQP não se encontra no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo AMQP) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
+| Baixo      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo AMQP não se encontra no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo AMQP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
+| Baixo      | Invoca de alerta personalizados - número de método direto não está no intervalo permitido                              | IoT Hub     | A quantidade de método direto invoca num tempo de janela não se encontra no intervalo permitido configurada                                                     |
+| Baixo      | Alerta personalizados - número de carregamentos de ficheiros não se encontra no intervalo permitido                                       | IoT Hub     | A quantidade de carregamentos de ficheiros numa janela de tempo não se encontra no intervalo permitido configurada                                                              |
+| Baixo      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo HTTP não está no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo HTTP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
+| Baixo      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo HTTP não está no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo HTTP) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
+| Baixo      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo HTTP não está no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo HTTP) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
+| Baixo      | Alerta personalizada – número da cloud para mensagens de dispositivo no protocolo MQTT não se encontra no intervalo permitido          | IoT Hub     | A quantidade de cloud para mensagens do dispositivo (protocolo MQTT) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
+| Baixo      | Alerta personalizados - número de cloud rejeitada para mensagens de dispositivo no protocolo MQTT não se encontra no intervalo permitido | IoT Hub     | A quantidade de cloud para mensagens de dispositivo (protocolo MQTT) que foram rejeitados pelo dispositivo numa janela de tempo não se encontra no intervalo permitido configurada |
+| Baixo      | Alerta personalizados - número de dispositivo para cloud mensagens no protocolo MQTT não se encontra no intervalo permitido          | IoT Hub     | A quantidade de dispositivo para mensagens de cloud (protocolo MQTT) numa janela de tempo não se encontra no intervalo permitido configurada                                  |
+| Baixo      | Alerta personalizados - número de limpezas de fila de comando não se encontra no intervalo permitido                               | IoT Hub     | A quantidade de fila de comando remove num tempo de janela não se encontra no intervalo permitido configurada                                                      |
+| Baixo      | Alerta personalizados - número de atualizações de duplo não se encontra no intervalo permitido                                       | IoT Hub     | A quantidade de atualizações de duplo numa janela de tempo não se encontra no intervalo permitido configurada                                                              |
+| Baixo      | Alerta personalizados - número de operações não autorizadas não se encontra no intervalo permitido                            | IoT Hub     | A quantidade de operações não autorizadas numa janela de tempo não se encontra no intervalo permitido configurada                                                   |
+| Baixo      | Alerta personalizados - número de ligações ativas não está no intervalo permitido                                        | Com Agente       | A quantidade de ligações ativas numa janela de tempo não se encontra no intervalo permitido configurada                                                        |
+| Baixo      | Foi criada o alerta personalizados - ligação de saída para um ip que não é permitido                              | Com Agente       | Foi criada uma ligação de saída para um ip que não é permitida                                                                                  |
+| Baixo      | Alerta personalizado - número de inícios de sessão falhados locais não se encontra no intervalo permitido                                | Com Agente       | A quantidade de inícios de sessão locais falhados numa janela de tempo não se encontra no intervalo permitido configurada                                                       |
+| Baixo      | Alerta personalizados - início de sessão de um utilizador que não é permitido                                                      | Com Agente       | Um utilizador local que não é permitido com sessão iniciado dispositivo                                                                                        |
+| Baixo      | Alerta personalizados - a execução de um processo que não é permitida                                               | Com Agente       | Um processo que não é permitido foi executado no dispositivo |          |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

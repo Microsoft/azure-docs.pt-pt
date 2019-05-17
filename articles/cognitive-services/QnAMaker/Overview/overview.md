@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: bafc39e7d9237fc7dd8469e5f9e97adb30355c8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 963769315302ba4e7d1600253b617c7cb0f02bc5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736942"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794247"
 ---
 # <a name="what-is-qna-maker"></a>O que é o Criador de FAQ?
 
@@ -57,7 +57,7 @@ O Criador de FAQ fornece dois serviços-chave para os seus dados:
 
 A arquitetura do Criador de FAQ é composta pelos dois seguintes componentes:
 
-1. **Serviços de gestão do QnA Maker**: A gestão de experiência para uma base de dados de conhecimento do QnA Maker, que inclui a criação inicial, a atualização, treinamento e publicação. Estas atividades podem ser efetuadas através do [portal](https://qnamaker.ai) ou das [APIs de gestão](https://aka.ms/qnamaker-v4-apis). 
+1. **Serviços de gestão do QnA Maker**: A gestão de experiência para uma base de dados de conhecimento do QnA Maker, que inclui a criação inicial, a atualização, treinamento e publicação. Estas atividades podem ser efetuadas através do [portal](https://qnamaker.ai) ou das [APIs de gestão](https://go.microsoft.com/fwlink/?linkid=2092179). 
 
 2. **Tempo de execução e de dados do QnA Maker**: Isso é implementado na sua subscrição do Azure na sua região especificado. O conteúdo da KB está armazenado no [Azure Search](https://azure.microsoft.com/services/search/) e o ponto final é implementado como um [Serviço de aplicações](https://azure.microsoft.com/services/app-service/). Também pode optar por implementar um recurso do [Application Insights](https://azure.microsoft.com/services/application-insights/) para análise.
 

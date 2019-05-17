@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e85beea4250b5ac5f4defd0b918786079d3dbe3e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553696"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799505"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -168,4 +169,4 @@ Sim, o indexador de vídeo oferece uma avaliação gratuita, que fornece o servi
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-[Descrição geral](video-indexer-overview.md)
+[Descrição Geral](video-indexer-overview.md)

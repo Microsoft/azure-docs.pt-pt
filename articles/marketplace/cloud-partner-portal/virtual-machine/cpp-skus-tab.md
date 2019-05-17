@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: e8148e3a26a236039736dede5a7fbc79075731ce
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: e1a110abf8e057034043da34455bf678277c6cb4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938135"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799952"
 ---
 # <a name="virtual-machine-skus-tab"></a>Separador de SKUs de máquina virtual
 
@@ -55,7 +55,7 @@ A tabela seguinte descreve a finalidade, conteúdo e a formatação desses campo
 | **Família do sistema operativo\*** | Indica se a solução de VM é baseado em Windows ou Linux. |
 | **Selecione o tipo de sistema operativo** | Fornecedor específico ou a versão do sistema operativo especificado. |
 | **Nome amigável de SO\*** | Nome a apresentar aos clientes do sistema operativo.  |
-| **Recomendado tamanhos de VM\*** | Permite a seleção de tamanhos de VM recomendados até seis de uma lista padronizada.  Embora estas recomendações destaque são apresentadas aos clientes potenciais, eles são capazes de especificar qualquer tamanho de VM que é compatível com a imagem de solução. | 
+| **Recomendado tamanhos de VM\*** | Permite a seleção de tamanhos de VM recomendados até seis de uma lista padronizada.  Esta lista é passada para o portal do Azure e marketplaces da Microsoft.  O primeiro tamanho VM nesta lista que é válido (para essa subscrição de cliente, região, zona, etc.) está definido como sendo o padrão para esse cliente potencial.  O utilizador pode alterar este tamanho para qualquer compatível com a imagem de solução. | 
 | **Portas abertas**| Portas para abrir e de protocolo para oferecer suporte para o SKU.  Estas configurações têm de corresponder a rede virtual que configurou para a rede da solução de VM. Estas definições entram em vigor durante a implementação de VM. No entanto, as definições de porta podem ser modificadas depois de publicar um SKU. Para obter mais informações, consulte [como abrir portas para uma máquina virtual com o portal do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal). <br/>Os seguintes mapeamentos de rede padrão são adicionados a todas as VMs. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22 -> 22, TCP (SSH). |
 | **Versão de disco**  | Solução associada VM, especificada pelo número de versão do disco e o URL do disco. A versão de disco tem de constar [versão semântica](https://semver.org/) formato: `<major>.<minor>.<patch>`.  O URL é a assinatura de acesso partilhado criado para o sistema de operativo VHD.  Embora, pode adicionar até oito versões de disco por SKU, apenas o maior disco número da versão para um SKU serão apresentados no Azure Marketplace. Outras versões só estará visíveis através de APIs.  <!--TD: Add more specific link to API --> <br/> O **disco de dados novo** accordion secção permite-lhe ligar até 15 discos de dados a sua VM.  Depois de publicar um SKU com uma determinada versão VM e discos de dados associados, esta configuração não pode ser modificada.  Se as versões VM adicionais são adicionadas ao SKU, também tem de suportar o mesmo número de discos de dados. <br/> Se não tiver criado as imagens de VM baseada no Azure, pode adicionar atualizar mais tarde neste campo.  Para obter informações sobre como criar o recurso VM associado, consulte a secção [ativos técnicos de criar VM](./cpp-create-technical-assets.md).  
 |  |  |

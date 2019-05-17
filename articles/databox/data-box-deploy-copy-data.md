@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 04f7710d95f5ce7a2b6195383c2737ff3b1fbf04
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 83eabca3b2ec1903e25b02083b1a2d5b49745396
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925560"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800455"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copiar dados para o Azure Data Box através de SMB
 
@@ -202,7 +202,7 @@ Para otimizar o desempenho, utilize os seguintes parâmetros do Robocopy ao copi
 
 Para obter mais informações sobre o comando do Robocopy, aceda a [Robocopy e alguns exemplos](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx).
 
-Abra a pasta de destino para ver e verificar os ficheiros copiados. Se ocorrerem erros durante o processo de cópia, transfira os ficheiros de erro para resolução de problemas.
+Abra a pasta de destino para ver e verificar os ficheiros copiados. Se ocorrerem erros durante o processo de cópia, transfira os ficheiros de erro para resolução de problemas. Para obter mais informações, consulte [ver registos de erros durante a cópia de dados para o Data Box](data-box-logs.md#view-error-log-during-data-copy-to-data-box). Para obter uma lista detalhada de erros durante a cópia de dados, consulte [resolver problemas relacionados com o Data Box emite](data-box-troubleshoot.md).
 
 Para garantir a integridade dos dados, a soma de verificação é calculada inline à medida que os dados são copiados. Quando a cópia estiver concluída, verifique o espaço utilizado e o espaço livre no seu dispositivo.
     

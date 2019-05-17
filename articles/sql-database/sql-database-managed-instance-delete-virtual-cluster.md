@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411990"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791383"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Eliminar a sub-rede depois da eliminar a base de dados do Azure SQL instância gerida
 
 Este artigo fornece diretrizes sobre como eliminar manualmente a sub-rede depois da eliminar a base de dados do SQL Azure última gerido a instância que residem no mesmo.
 
-O [virtual cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que continha o eliminado a instância gerida será mantida durante 12 horas contra a eliminação de instância. O cluster virtual é mantido ativo por design para permitir a criação rápida de instâncias geridas na mesma sub-rede. Durante este período, não é possível eliminar a sub-rede associada ao cluster virtual.
+O [virtual cluster](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que continha o eliminado a instância gerida será mantida durante 12 horas contra a eliminação de instância. O cluster virtual é mantido ativo por design para permitir a criação rápida de instâncias geridas na mesma sub-rede. Manter um cluster virtual vazio é sem encargos. Durante este período, não é possível eliminar a sub-rede associada ao cluster virtual.
 
 Versão imediata da sub-rede utilizada por um cluster virtual vazio é possível através de eliminação manual do virtual cluster. Eliminação do virtual cluster pode ser obtida através do portal do Azure ou clusters virtuais API.
 

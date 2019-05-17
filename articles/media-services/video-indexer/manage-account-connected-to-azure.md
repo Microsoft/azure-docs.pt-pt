@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1515a026ae297a960f220a97449d2258c0b75e58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553610"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799523"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Gerir uma conta do Video Indexer ligada ao Azure
 
@@ -55,13 +56,13 @@ O **definições** página permite-lhe definir o dimensionamento automático de 
 
 Dimensionamento automático não dimensiona abaixo 1 RU ou acima do limite predefinido de conta de Media Services. Para aumentar o limite, crie um pedido de serviço. Para obter informações sobre as quotas e limitações e como abrir um pedido de suporte, consulte [Quotas e limitações](../../media-services/previous/media-services-quotas-and-limitations.md).
 
-![Inscrever-se](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![Aderir](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>Erros e avisos
 
 Se a conta tem de alguns ajustes, verá relevantes erros e avisos sobre a configuração da conta a **definições** página. As mensagens contêm links para exatas locais no portal do Azure em que precisa de fazer alterações. Esta secção fornece mais detalhes sobre as mensagens de aviso e erro.
 
-* Event Grid
+* Grelha de Eventos
 
     Tem de registar o fornecedor de recursos de EventGrid no portal do Azure. Na [portal do Azure](https://portal.azure.com/), aceda à **subscrições** > [subscrição] > **ResourceProviders** > **Microsoft.EventGrid**. Se não estiver da **registada** de estado, clique em **registar**. Demora alguns minutos para se registar. 
 

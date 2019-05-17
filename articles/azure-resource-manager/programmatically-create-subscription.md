@@ -2,21 +2,23 @@
 title: Criar programaticamente as subscrições do Azure Enterprise | Documentos da Microsoft
 description: Saiba como criar subscrições do Azure Enterprise ou o Enterprise programador/teste adicionais por meio de programação.
 services: azure-resource-manager
-author: tfitzmac
+author: jureid
+manager: jureid
+editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
-ms.author: tomfitz
-ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/10/2019
+ms.author: jureid
+ms.openlocfilehash: 7985451eb2bb5e9fd4fbcfb3d2fcf35149122c15
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256928"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796068"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Criar programaticamente as subscrições do Azure Enterprise (pré-visualização)
 
@@ -40,9 +42,9 @@ Depois de serão adicionados a uma inscrição EA do Azure como proprietário da
 
 Para executar os comandos seguintes, deve ter sessão iniciada proprietário da conta *diretório raiz*, que é o diretório de subscrições criadas por predefinição.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+## <a name="resttabrest"></a>[REST](#tab/rest)
 
-Pedido para listar todas as contas de inscrição:
+Pedido para listar todas as contas de inscrição que tem acesso a:
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
@@ -73,7 +75,11 @@ Azure responde com uma lista de todas as contas de inscrição que tem acesso a:
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Utilize o `principalName` propriedade para identificar a conta que pretende que as subscrições para ser-lhe cobrado. Copiar o `name` dessa conta. Por exemplo, se quisesse criar subscrições na SignUpEngineering@contoso.com conta de inscrição, poderia copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Este é o ID de objeto da conta de inscrição. Cole este valor, em algum lugar, para que pode usá-lo no próximo passo como `enrollmentAccountObjectId`.
+
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Open [Azure Cloud Shell](https://shell.azure.com/) e selecione o PowerShell.
 
 Utilize o [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet para listar todas as contas de inscrição que tem acesso.
 
@@ -81,15 +87,16 @@ Utilize o [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollme
 Get-AzEnrollmentAccount
 ```
 
-Azure responde com uma lista os endereços de e-mail e IDs de objeto de contas.
+Azure responde com uma lista de contas de inscrição que tem acesso a:
 
 ```azurepowershell
 ObjectId                               | PrincipalName
 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
+Utilize o `principalName` propriedade para identificar a conta que pretende que as subscrições para ser-lhe cobrado. Copiar o `ObjectId` dessa conta. Por exemplo, se quisesse criar subscrições na SignUpEngineering@contoso.com conta de inscrição, poderia copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cole este ID de objeto, em algum lugar, para que pode usá-lo no próximo passo como o `enrollmentAccountObjectId`.
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+## <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Utilize o [lista de conta de inscrição de faturação az](https://aka.ms/EASubCreationPublicPreviewCLI) comando para listar todas as contas de inscrição que tem acesso.
 
@@ -97,45 +104,39 @@ Utilize o [lista de conta de inscrição de faturação az](https://aka.ms/EASub
 az billing enrollment-account list
 ```
 
-Azure responde com uma lista os endereços de e-mail e IDs de objeto de contas.
+Azure responde com uma lista de contas de inscrição que tem acesso a:
 
 ```json
-{
-  "value": [
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "SignUpEngineering@contoso.com"
-      }
-    },
-    {
-      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "type": "Microsoft.Billing/enrollmentAccounts",
-      "properties": {
-        "principalName": "BillingPlatformTeam@contoso.com"
-      }
-    }
-  ]
-}
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
 ```
+
+Utilize o `principalName` propriedade para identificar a conta que pretende que as subscrições para ser-lhe cobrado. Copiar o `name` dessa conta. Por exemplo, se quisesse criar subscrições na SignUpEngineering@contoso.com conta de inscrição, poderia copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Este é o ID de objeto da conta de inscrição. Cole este valor, em algum lugar, para que pode usá-lo no próximo passo como `enrollmentAccountObjectId`.
 
 ---
 
-Utilize o `principalName` propriedade para identificar a conta que pretende que as subscrições para ser-lhe cobrado. Utilizar o `id` como o `enrollmentAccount` valor que irá utilizar para criar a subscrição no próximo passo.
+## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Criar subscrições com uma conta de inscrição específicas
 
-## <a name="create-subscriptions-under-a-specific-enrollment-account"></a>Criar subscrições com uma conta de inscrição específicas 
-
-O exemplo seguinte cria um pedido para criar a subscrição com o nome *subscrição da equipe de desenvolvimento* e é a oferta de subscrição *MS-AZR - 0017P* (regular EA). A conta de inscrição é `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (valor de marcador de posição, este valor é um GUID), que é a conta de inscrição para SignUpEngineering@contoso.com. Opcionalmente, também adiciona dois usuários como proprietários do RBAC para a subscrição.
+O exemplo seguinte cria uma subscrição com o nome *subscrição da equipe de desenvolvimento* na conta de inscrição que selecionou no passo anterior. A oferta de subscrição é *MS-AZR - 0017P* (regular Microsoft Enterprise Agreement). Opcionalmente, também adiciona dois usuários como proprietários do RBAC para a subscrição.
 
 # <a name="resttabrest"></a>[REST](#tab/rest)
 
-Utilize o `id` do `enrollmentAccount` no caminho do pedido para criar a subscrição.
+Faça o seguinte pedido, substituindo `<enrollmentAccountObjectId>` com o `name` copiados da primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se quiser especificar proprietários, saiba [como obter os IDs de objeto de utilizador](grant-access-to-create-subscription.md#userObjectId).
 
 ```json
-POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
+POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Subscription/createSubscription?api-version=2018-03-01-preview
 
 {
   "displayName": "Dev Team Subscription",
@@ -161,12 +162,12 @@ Em resposta, recebe um `subscriptionOperation` objeto para monitorização. Quan
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para utilizar este módulo de pré-visualização, instale-o executando `Install-Module Az.Subscription -AllowPrerelease` primeiro. Para se certificar `-AllowPrerelease` funciona, instalar uma versão recente do PowerShellGet partir [obter o módulo PowerShellGet](/powershell/gallery/installing-psget).
+Em primeiro lugar, instale este módulo de pré-visualização ao executar `Install-Module Az.Subscription -AllowPrerelease`. Para se certificar `-AllowPrerelease` funciona, instalar uma versão recente do PowerShellGet partir [obter o módulo PowerShellGet](/powershell/gallery/installing-psget).
 
-Utilize o [New-AzSubscription](/powershell/module/az.subscription) juntamente com `enrollmentAccount` ID como de objeto a `EnrollmentAccountObjectId` parâmetro para criar uma nova subscrição. 
+Executar o [New-AzSubscription](/powershell/module/az.subscription) comando abaixo, substituindo `<enrollmentAccountObjectId>` com o `ObjectId` recolhidos na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se quiser especificar proprietários, saiba [como obter os IDs de objeto de utilizador](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurepowershell-interactive
-New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId <enrollmentAccountObjectId> -OwnerObjectId <userObjectId1>,<servicePrincipalObjectId>
 ```
 
 | Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
@@ -182,12 +183,12 @@ Para ver uma lista completa de todos os parâmetros, consulte [New-AzSubscriptio
 
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para utilizar esta extensão de pré-visualização, instale-o executando `az extension add --name subscription` primeiro.
+Em primeiro lugar, instale esta extensão de pré-visualização ao executar `az extension add --name subscription`.
 
-Utilize o [criar conta de az](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) juntamente com `enrollmentAccount` ID como de objeto a `enrollment-account-object-id` parâmetro para criar uma nova subscrição.
+Executar o [criar conta de az](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create) comando abaixo, substituindo `<enrollmentAccountObjectId>` com o `name` copiados na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Se quiser especificar proprietários, saiba [como obter os IDs de objeto de utilizador](grant-access-to-create-subscription.md#userObjectId).
 
 ```azurecli-interactive 
-az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
+az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "<enrollmentAccountObjectId>" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
 | Nome do elemento  | Necessário | Tipo   | Descrição                                                                                               |
@@ -206,7 +207,7 @@ Para ver uma lista completa de todos os parâmetros, consulte [criar conta de az
 ## <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações de criação da subscrição do Azure Enterprise API
 
 - Apenas as subscrições do Azure Enterprise podem ser criadas com esta API.
-- Existe um limite de 50 subscrições por conta. Depois disso, as subscrições apenas podem ser criadas utilizando o Centro de contas.
+- Existe um limite inicial de 50 subscrições por conta de inscrição, mas pode [criar um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) para aumentar o limite para 200. Depois disso, as subscrições apenas podem ser criadas através do Centro de contas.
 - Deve haver pelo menos um EA ou EA programador/teste subscrições sob a conta, o que significa que o proprietário da conta já passaram por manual Inscreva-se pelo menos uma vez.
 - Os utilizadores que não são proprietários da conta, mas foram adicionados a uma conta de inscrição através do RBAC, não é possível criar assinaturas usando o Centro de contas.
 - Não é possível selecionar o inquilino para a subscrição a ser criado em. A subscrição é sempre criada no inquilino principal do proprietário da conta. Para mover a subscrição para um inquilino diferente, consulte [alterar o inquilino da subscrição](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

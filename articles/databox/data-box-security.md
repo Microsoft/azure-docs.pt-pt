@@ -10,10 +10,10 @@ ms.date: 09/24/2018
 ms.author: alkohli
 ms.openlocfilehash: 3e871b8d4de8ff83e260aded89e09ad5b17b3297
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65746236"
+ms.locfileid: "65799232"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 

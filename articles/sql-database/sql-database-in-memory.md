@@ -7,17 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/19/2019
-ms.openlocfilehash: d2c852b48c219283bba2304a993dd26e802b3252
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5681b5aa46acc1192675da0b1cceee596dfa0105
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61036513"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799894"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho ao utilizar tecnologias dentro da memória na base de dados SQL
 
@@ -197,7 +197,7 @@ Se tiver um **em cluster** índice columnstore, a tabela inteira fica indisponí
 - [Saiba mais sobre análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
 - Ver [padrões de carga de trabalho comuns e considerações sobre a migração](https://msdn.microsoft.com/library/dn673538.aspx) (que descreve padrões de carga de trabalho onde o OLTP dentro da memória fornece mais ganhos significativos de desempenho)
 
-### <a name="application-design"></a>Design do aplicativo
+### <a name="application-design"></a>Design da aplicação
 
 - [(Otimização de memória) de OLTP na memória](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Utilize o OLTP na memória num aplicativo existente do SQL do Azure](sql-database-in-memory-oltp-migration.md)

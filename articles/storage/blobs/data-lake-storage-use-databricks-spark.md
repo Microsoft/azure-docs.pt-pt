@@ -11,10 +11,10 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65745162"
+ms.locfileid: "65788064"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Aceder a dados de geração 2 de armazenamento do Data Lake com o Azure Databricks com o Spark
 

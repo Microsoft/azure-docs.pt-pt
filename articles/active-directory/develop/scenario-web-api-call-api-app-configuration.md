@@ -15,18 +15,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dedef2d22df9c8c81410296bdb0c4814bd98b80
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f62cf65e275d8a9b909bf60103ccbd84e91e4574
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507117"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785059"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>Web API que chamadas de web APIs - configuração de código
 
 Depois de registar a API web, pode configurar o código da aplicação.
 
-O código para configurar a API web para que ele chame APIs de downstream web baseia-se sobre o código usado para projetar uma API web. Para mais informações, veja [API da web - configuração de aplicação protegida](scenario-protected-web-api-app-configuration.md).
+O código para configurar a API web para que ele chame APIs de downstream web baseia-se sobre o código usado para proteger uma API web. Para mais informações, veja [API da web - configuração de aplicação protegida](scenario-protected-web-api-app-configuration.md).
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>Código subscrito para OnTokenValidated
 
@@ -74,7 +74,7 @@ O método AddAccountToCacheFromJwt() precisa:
 
 ### <a name="instantiate-a-confidential-client-application"></a>Criar uma instância de um aplicativo de cliente confidencial
 
-Este fluxo só está disponível no fluxo de cliente confidencial, para a API web protegida fornece as credenciais de cliente (segredo do cliente ou certificado) para o [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via o `WithClientSecret` ou `WithCertificate`métodos, respectivamente.
+Este fluxo só está disponível no fluxo de cliente confidencial, para a API web protegida fornece as credenciais de cliente (segredo do cliente ou certificado) para o [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via o `WithClientSecret` ou `WithCertificate`métodos, respectivamente.
 
 ![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
@@ -96,7 +96,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### <a name="how-to-call-on-behalf-of"></a>Como chamar em-nome-de
 
-A chamada de (OBO) em-nome-de é feita chamando o [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) método no `IConfidentialClientApplication` interface.
+A chamada de (OBO) em-nome-de é feita chamando o [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) método no `IConfidentialClientApplication` interface.
 
 O `ClientAssertion` foi desenvolvido desde o token de portador recebido pela API web de seus próprios clientes. Existem [dois construtores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), que recebe um portador do JWT token e outro que aceita qualquer tipo de asserção de utilizador (outro tipo de token de segurança, o tipo, em seguida, é especificado um parâmetro adicional com o nome `assertionType`).
 
@@ -138,7 +138,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-## <a name="protocol"></a>Protocolo
+## <a name="protocol"></a>Protocol
 
 Para obter mais informações sobre o protocolo em-nome-de, consulte [plataforma de identidade da Microsoft e o fluxo do OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 7a4cccf774d89229810c1668f38e4e2ef99fa79d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cde0464985f756132c60453c4e79ffefd4a1dd2c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60393044"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788601"
 ---
 # <a name="list-of-service-fabric-events"></a>Lista de eventos do Service Fabric 
 
@@ -42,11 +42,11 @@ Obter mais detalhes sobre atualizações de cluster podem ser encontradas [aqui]
 
 | EventId | Name | Category | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | --- | --- | --- | --- | 
-| 29627 | ClusterUpgradeStarted | Atualizar | Foi iniciada uma atualização de cluster | CM | Informativo |
-| 29628 | ClusterUpgradeCompleted | Atualizar | Uma atualização do cluster foi concluída | CM | Informativo | 
-| 29629 | ClusterUpgradeRollbackStarted | Atualizar | Uma atualização do cluster foi iniciado para reversão  | CM | Aviso | 
-| 29630 | ClusterUpgradeRollbackCompleted | Atualizar | Uma atualização do cluster foi concluída de reversão | CM | Aviso | 
-| 29631 | ClusterUpgradeDomainCompleted | Atualizar | Um domínio de atualização concluiu a atualização durante uma atualização do cluster | CM | Informativo | 
+| 29627 | ClusterUpgradeStarted | Actualizar | Foi iniciada uma atualização de cluster | CM | Informativo |
+| 29628 | ClusterUpgradeCompleted | Actualizar | Uma atualização do cluster foi concluída | CM | Informativo | 
+| 29629 | ClusterUpgradeRollbackStarted | Actualizar | Uma atualização do cluster foi iniciado para reversão  | CM | Aviso | 
+| 29630 | ClusterUpgradeRollbackCompleted | Actualizar | Uma atualização do cluster foi concluída de reversão | CM | Aviso | 
+| 29631 | ClusterUpgradeDomainCompleted | Actualizar | Um domínio de atualização concluiu a atualização durante uma atualização do cluster | CM | Informativo | 
 
 ## <a name="node-events"></a>Eventos de nó
 
@@ -81,11 +81,11 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 
 | EventId | Name | Category | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- | 
-| 29621 | ApplicationUpgradeStarted | Atualizar | Foi iniciada uma atualização da aplicação | CM | Informativo | 
-| 29622 | ApplicationUpgradeCompleted | Atualizar | Uma atualização da aplicação foi concluída | CM | Informativo | 
-| 29623 | ApplicationUpgradeRollbackStarted | Atualizar | Uma atualização da aplicação foi iniciada para reversão |CM | Aviso | 
-| 29624 | ApplicationUpgradeRollbackCompleted | Atualizar | Uma atualização da aplicação foi concluída de reversão | CM | Aviso | 
-| 29626 | ApplicationUpgradeDomainCompleted | Atualizar | Um domínio de atualização concluiu a atualização durante uma atualização da aplicação | CM | Informativo | 
+| 29621 | ApplicationUpgradeStarted | Actualizar | Foi iniciada uma atualização da aplicação | CM | Informativo | 
+| 29622 | ApplicationUpgradeCompleted | Actualizar | Uma atualização da aplicação foi concluída | CM | Informativo | 
+| 29623 | ApplicationUpgradeRollbackStarted | Actualizar | Uma atualização da aplicação foi iniciada para reversão |CM | Aviso | 
+| 29624 | ApplicationUpgradeRollbackCompleted | Actualizar | Uma atualização da aplicação foi concluída de reversão | CM | Aviso | 
+| 29626 | ApplicationUpgradeDomainCompleted | Actualizar | Um domínio de atualização concluiu a atualização durante uma atualização da aplicação | CM | Informativo | 
 
 ## <a name="service-events"></a>Eventos do serviço
 
@@ -103,6 +103,40 @@ Obter mais detalhes sobre as atualizações de aplicações podem ser encontrada
 | EventId | Name | Category | Descrição |Origem (tarefa) | Nível | 
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | Ciclo de vida | Foi concluída uma reconfiguração da partição | RA | Informativo | 
+
+## <a name="replica-events"></a>Eventos de réplica
+
+**Eventos de ciclo de vida de réplica**
+
+| EventId | Name | Category | Descrição |Origem (tarefa) | Nível |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | Ciclo de vida | Abriu o dicionário fiável | DistributedDictionary | Informativo |
+| 61702 | ReliableDictionaryClosed | Ciclo de vida | Dicionário fiável foi fechada | DistributedDictionary | Informativo |
+| 61703 | ReliableDictionaryCheckpointRecovered | Ciclo de vida | Dicionário fiável recuperou o ponto de verificação | DistributedDictionary | Informativo |
+| 61704 | ReliableDictionaryCheckpointFilesSent | Ciclo de vida | Réplica enviou ficheiros de ponto de verificação do dicionário fiável | DistributedDictionary | Informativo |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | Ciclo de vida | Réplica recebeu ficheiros de ponto de verificação do dicionário fiável | DistributedDictionary | Informativo |
+| 61963 | ReliableQueueOpened | Ciclo de vida | Fila do Reliable abriu | DistributedQueue | Informativo |
+| 61964 | ReliableQueueClosed | Ciclo de vida | Fila do Reliable foi fechada | DistributedQueue | Informativo |
+| 61965 | ReliableQueueCheckpointRecovered | Ciclo de vida | Fila do Reliable recuperou o ponto de verificação | DistributedQueue | Informativo |
+| 61966 | ReliableQueueCheckpointFilesSent | Ciclo de vida | Réplica enviou ficheiros de ponto de verificação da fila fiável | DistributedQueue | Informativo |
+| 63647 | ReliableQueueCheckpointFilesReceived | Ciclo de vida | Réplica recebeu ficheiros de ponto de verificação da fila fiável | DistributedQueue | Informativo |
+| 63648 | ReliableConcurrentQueueOpened | Ciclo de vida | Abrir a fila do Reliable concurrent | ReliableConcurrentQueue | Informativo |
+| 63649 | ReliableConcurrentQueueClosed | Ciclo de vida | Fila do Reliable concurrent foi fechada | ReliableConcurrentQueue | Informativo |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | Ciclo de vida | Fila do Reliable concurrent recuperou o ponto de verificação | ReliableConcurrentQueue | Informativo |
+| 61687 | TStoreError | Falha | Coleção fiável recebeu um erro inesperado | Tstore do | Erro |
+| 63831 | PrimaryFullCopyInitiated | Ciclo de vida | Réplica primária iniciou uma cópia completa | TReplicator | Informativo |
+| 63832 | PrimaryPartialCopyInitiated | Ciclo de vida | Réplica primária iniciou uma cópia parcial | TReplicator | Informativo |
+| 16831 | BuildIdleReplicaStarted | Ciclo de vida | Réplica primária foi iniciada a criação de réplica inativa | Replicação | Informativo |
+| 16832 | BuildIdleReplicaCompleted | Ciclo de vida | Réplica primária tiver concluído a criação de réplica inativa | Replicação | Informativo |
+| 16833 | BuildIdleReplicaFailed | Ciclo de vida | Réplica primária falha na criação de réplica inativa | Replicação | Aviso |
+| 16834 | PrimaryReplicationQueueFull | Saúde | Fila de replicação de réplica primária está cheia | Replicação | Aviso |
+| 16835 | PrimaryReplicationQueueWarning | Saúde | Fila de replicação de réplica primária está quase completo | Replicação | Aviso |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Saúde | Fila de replicação de réplica primária não há problema | Replicação | Informativo |
+| 16837 | SecondaryReplicationQueueFull | Saúde | Fila de replicação de réplica secundária está cheia | Replicação | Aviso |
+| 16838 | SecondaryReplicationQueueWarning | Saúde | Fila de replicação de réplica secundária é quase completo | Replicação | Aviso |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Saúde | Fila de replicação de réplica secundária não há problema | Replicação | Informativo |
+| 16840 | PrimaryFaultedSlowSecondary | Saúde | Réplica primária sofre uma réplica secundária lenta | Replicação | Aviso |
+| 16841 | ReplicatorFaulted | Saúde | Réplica tem falhas | Replicação | Aviso |
 
 ## <a name="container-events"></a>Eventos de contentor
 

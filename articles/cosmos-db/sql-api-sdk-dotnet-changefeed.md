@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627051"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792993"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do Feed de alterações de .NET: Transferir e notas de versão
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.locfileid: "60627051"
 ## <a name="release-notes"></a>Notas de versão
 
 ### <a name="v2-builds"></a>compilações de v2
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* Melhor balanceamento de carga estratégia para o cenário quando obter concessões de todos os demora mais tempo do que o intervalo de expiração da concessão, por exemplo, devido a problemas de rede:
+  * Neste cenário carregar algoritmo de balanceamento de usado para avaliar incorretamente concessões como expirada, fazendo com que o roubo de concessões de proprietários do Active Directory. Isso poderia acionar desnecessários novamente balanceamento muita de concessões.
+  * Este problema é corrigido nesta versão, ao evitar a repetição em conflito, enquanto a adquirir concessão expirada que proprietário não mudou e da aquisição de posponing expiraram concessão para próxima iteração de balanceamento de carga.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Processamento melhorado de exceções de observador.
@@ -163,6 +168,7 @@ Qualquer pedido ao Cosmos DB com um SDK extinto será rejeitado pelo serviço.
 
 | Versão | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |14 de Maio de 2019 |--- |
 | [2.2.6](#2.2.6) |29 de Janeiro de 2019 |--- |
 | [2.2.5](#2.2.5) |13 de Dezembro de 2018 |--- |
 | [2.2.4](#2.2.4) |29 de Novembro de 2018 |--- |

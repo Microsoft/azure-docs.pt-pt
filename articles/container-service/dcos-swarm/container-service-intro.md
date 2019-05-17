@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 957725d40c66ffe9d8d7ce1362279c2bb4d4fded
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512506"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788729"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(PRETERIDO) Introdução às soluções com o Azure Container Service de alojamento de contentores do Docker 
 
@@ -45,7 +45,7 @@ O DC/OS é um sistema operativo distribuído, baseado no kernel Apache Mesos de 
 O DC/OS e o Apache Mesos incluem um conjunto impressionante de funcionalidades:
 
 * Escalabilidade comprovada
-* Mestre e subordinados replicados com tolerância a falhas, utilizando o Apache ZooKeeper
+* Replicados com tolerância principais e secundários utilizando o Apache ZooKeeper
 * Suporte para contentores formatados para Docker
 * Isolamento nativo entre tarefas com contentores Linux
 * Agendamento de vários recursos (memória, CPU, disco e portas)

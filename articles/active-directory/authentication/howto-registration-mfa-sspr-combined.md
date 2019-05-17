@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/1/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3baf2690ae07b87bb4d5dba30fcd20f62a1a4506
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abe9cba604100a42a4cd29ccd5af47e8898ea409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60358094"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812933"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registo de informações de segurança para ativar combinado (pré-visualização)
 
@@ -51,6 +51,37 @@ Se tiver configurado o Site para a lista de atribuições de zona do Internet Ex
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
+## <a name="conditional-access-policies-for-combined-registration"></a>Políticas de acesso condicional para o registo combinado
+
+Proteger quando e como registar-se os utilizadores do Azure multi-factor Authentication e reposição de palavra-passe self-service agora é possível com ações do usuário em política de acesso condicional. Esta funcionalidade de pré-visualização está disponível para organizações que tem ativado o [combinados pré-visualização do registo](../authentication/concept-registration-mfa-sspr-combined.md). Essa funcionalidade pode ser habilitada em organizações em que eles querem que os utilizadores para se registar para SSPR a partir de uma localização central como uma localização de rede fidedigna e o Azure multi-factor Authentication durante a integração de RH. Para obter mais informações sobre a criação de locais confiáveis no acesso condicional, consulte o artigo [o que é a condição de localização no acesso condicional do Azure Active Directory?](../conditional-access/location-condition.md#named-locations)
+
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Criar uma política para exigir o registo a partir de um local confiável
+
+A seguinte política se aplica a todos os utilizadores selecionados, o que tentarem registar-se com a experiência de registo combinado e bloqueia o acesso, a menos que se está a ligar de um local marcado como rede fidedigna.
+
+![Criar uma política de acesso condicional para controlar o registo de informações de segurança](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+
+1. Na **portal do Azure**, navegue até **Azure Active Directory** > **acesso condicional**
+1. Selecione **Nova política**
+1. No nome, introduza um nome para esta política. Por exemplo, **combinados registo de informações de segurança em redes fidedignas**
+1. Sob **atribuições**, clique em **utilizadores e grupos**e selecione os utilizadores e grupos aos quais pretende aplicar a esta política
+
+   > [!WARNING]
+   > Os usuários devem ser habilitados para o [combinados pré-visualização do registo](../authentication/howto-registration-mfa-sspr-combined.md).
+
+1. Sob **aplicações ou ações da Cloud**, selecione **ações do usuário**, verifique **registe informações de segurança (pré-visualização)**
+1. Sob **condições** > **localizações**
+   1. Configurar **Sim**
+   1. Incluir **qualquer localização**
+   1. Excluir **todas as localizações fidedignas**
+   1. Clique em **feito** no painel de localizações
+   1. Clique em **feito** no painel de condições
+1. Sob **controlos de acesso** > **concessão**
+   1. Clique em **bloquear o acesso**
+   1. Em seguida, clique em **selecione**
+1. Definir **ativar política** para **no**
+1. Em seguida, clique em **Create**
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 [Métodos disponíveis para o multi-factor Authentication e SSPR](concept-authentication-methods.md)
@@ -60,3 +91,5 @@ Se tiver configurado o Site para a lista de atribuições de zona do Internet Ex
 [Configurar a autenticação Multifator do Azure](howto-mfa-getstarted.md)
 
 [Resolução de problemas de combinar o registo de informações de segurança](howto-registration-mfa-sspr-combined-troubleshoot.md)
+
+[O que é a condição de localização no acesso condicional do Azure Active Directory?](../conditional-access/location-condition.md)

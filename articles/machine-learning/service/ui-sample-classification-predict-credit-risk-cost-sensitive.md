@@ -1,7 +1,7 @@
 ---
 title: 'Classificação: Prever o risco de crédito (custo confidencial)'
 titleSuffix: Azure Machine Learning service
-description: Este exemplo de experiência de visual interface demonstra como usar um script de Python personalizado para executar a classificação binária sensível de custo. Ele prevê que o risco de crédito com base nas informações fornecidas num aplicativo de crédito.
+description: Este artigo mostra-lhe como criar uma complexa experimentação do machine learning utilizando a interface visual. Ficará a saber como implementar scripts de Python personalizados e comparar vários modelos para escolher a melhor opção.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,26 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 433c258f86705f66e0163100407be7996d68bc6b
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.date: 05/10/2019
+ms.openlocfilehash: d714756c19b94eafc40cc0dbeffbc07704e8f94e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65440953"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787822"
 ---
 # <a name="sample-4---classification-predict-credit-risk-cost-sensitive"></a>Exemplo 4 - classificação: Prever o risco de crédito (custo confidencial)
 
-Este exemplo de experiência de visual interface mostra como usar um script de Python personalizado para executar a classificação binária sensível de custo. O custo de misclassifying os exemplos positivos é cinco vezes o custo de misclassifying os exemplos negativos.
+Este artigo mostra-lhe como criar uma complexa experimentação do machine learning utilizando a interface visual. Ficará a saber como implementar a lógica personalizada com scripts do Python e comparar vários modelos para escolher a melhor opção.
 
-Este exemplo prevê o risco de crédito com base nas informações fornecidas num aplicativo de crédito, tendo em conta os custos de misclassification.
+Este exemplo prepara um classificador para prever o risco de crédito com informações de aplicação de crédito como o histórico de crédito, a idade e o número de cartões de crédito. No entanto, pode aplicar os conceitos neste artigo para lidar com a sua própria machine learning problemas.
 
-Nesse experimento, podemos comparar duas abordagens diferentes para gerar modelos para resolver este problema:
+Se estiver apenas a começar com o machine learning, pode dar uma olhada a [exemplo de classificador básica](ui-sample-classification-predict-credit-risk-basic.md) primeiro.
 
-- Treinamento com o conjunto de dados original.
-- Treinamento com um conjunto de dados replicado.
+Este é o gráfico concluído para esta fase experimental:
 
-Com as duas abordagens, iremos avaliar os modelos utilizando o conjunto de dados de teste com a replicação para se certificar de que os resultados estão alinhados com a função de custo. Podemos testar dois classificadores com ambas as abordagens: **Máquina de Vetor com suporte de classe dois** e **árvore de decisões elevada de duas classes**.
+[![Gráfico da experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,15 +37,18 @@ Com as duas abordagens, iremos avaliar os modelos utilizando o conjunto de dados
 
     ![Abra a experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
-## <a name="related-sample"></a>Exemplo relacionado
-
-Consulte [3 - classificação de exemplo: Credit Risk Prediction (básico)](ui-sample-classification-predict-churn.md) uma experimentação básico que resolve o mesmo problema como Nesse experimento, sem ajustar para os custos de misclassification.
-
 ## <a name="data"></a>Dados
 
 Usamos o conjunto de dados do cartão de crédito alemão do repositório de UC Irvine. Este conjunto de dados contém 1.000 exemplos com 20 recursos e 1 etiqueta. Cada exemplo representa uma pessoa. Os recursos de 20 incluem recursos numéricos e categóricos. Consulte a [Web site UCI](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) para obter mais informações sobre o conjunto de dados. A última coluna é a etiqueta que indica o risco de crédito e tem apenas dois valores possíveis: risco elevado crédito = 2 e o risco de crédito baixa = 1.
 
 ## <a name="experiment-summary"></a>Resumo de experimentação
+
+Nesse experimento, podemos comparar duas abordagens diferentes para gerar modelos para resolver este problema:
+
+- Treinamento com o conjunto de dados original.
+- Treinamento com um conjunto de dados replicado.
+
+Com as duas abordagens, iremos avaliar os modelos utilizando o conjunto de dados de teste com a replicação para se certificar de que os resultados estão alinhados com a função de custo. Podemos testar dois classificadores com ambas as abordagens: **Máquina de Vetor com suporte de classe dois** e **árvore de decisões elevada de duas classes**.
 
 O custo de misclassifying um exemplo de baixo risco tão elevado é 1 e o custo de misclassifying um exemplo de alto risco como baixa é 5. Utilizamos uma **executar Script do Python** módulo para levar em conta esta misclassification de custos.
 
@@ -71,7 +73,7 @@ Para refletir esta função de custo, podemos gerar um novo conjunto de dados. O
 
 Para replicar os dados de alto risco, colocamos esse código de Python numa **executar Script do Python** módulo:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -104,12 +106,11 @@ Usamos o fluxo de trabalho experimental padrão para criar, dar formação e tes
 
 1. Inicializar os algoritmos de aprendizagem, usando **máquina de Vetor com suporte a duas classes** e **árvore de decisões elevada de duas classes**.
 1. Uso **Train Model** para aplicar o algoritmo aos dados e criar o modelo real.
-3. Uso **modelo de pontuação** para produzir as pontuações ao utilizar os exemplos de teste.
+1. Uso **modelo de pontuação** para produzir as pontuações ao utilizar os exemplos de teste.
 
 O diagrama seguinte mostra uma parte desta experiência, no qual os conjuntos de formação original e replicadas são utilizados para criar dois modelos SVM diferentes. **Preparar modelo** está ligado ao conjunto de preparação, e **Score Model** está ligado ao conjunto de teste.
 
 ![Gráfico de experimentação](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
-
 
 Na fase de avaliação da experimentação, estamos a precisão de cada um dos quatro modelos de computação. Nesta experimentação, utilizamos **Evaluate Model** comparar os exemplos que têm o mesmo misclassification de custos.
 
@@ -121,7 +122,7 @@ Tenha em atenção que o conjunto de dados de teste replicada é utilizado como 
 
 O **Evaluate Model** módulo produz uma tabela com uma única linha que contém várias métricas. Para criar um único conjunto de resultados de precisão, primeiro, usamos **adicionar linhas** para combinar os resultados numa única tabela. Em seguida, usamos o seguinte script de Python no **executar Script do Python** módulo para adicionar o nome do modelo e a abordagem de treinamento para cada linha na tabela de resultados:
 
-```
+```Python
 import pandas as pd
 
 def azureml_main(dataframe1 = None, dataframe2 = None):
@@ -138,7 +139,6 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     result = pd.concat([new_cols, dataframe1], axis=1)
     return result,
 ```
-
 
 ## <a name="results"></a>Resultados
 

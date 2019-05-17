@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867654"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790151"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -78,7 +78,7 @@ Segurança ao nível da linha permite aos clientes controlar o acesso às linhas
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-## <a name="threat-protection"></a>Proteção contra ameaças
+## <a name="threat-protection"></a>Proteção conta ameaças
 
 Base de dados SQL protege os dados dos clientes, fornecendo capacidades de deteção de ameaças e auditoria.
 
@@ -125,17 +125,11 @@ No Azure, todas as recém-criadas bases de dados do SQL são criptografadas por 
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) é um recurso criado para proteger dados confidenciais armazenados em colunas de base de dados específicos de acesso (por exemplo, os números de cartão de crédito, números de identificação nacional ou dados num _precisa saber_ base). Isto inclui os administradores de banco de dados ou outros usuários com privilégios que estão autorizados a aceder a base de dados para efetuar tarefas de gestão, mas não empresarial precisam acessar os dados nas colunas encriptadas. Os dados são sempre encriptados, que significa que os dados encriptados são desencriptados apenas para processamento por aplicações cliente com acesso à chave de encriptação.  A chave de encriptação nunca é exposta para o SQL e podem ser armazenados no [Store de certificado do Windows](sql-database-always-encrypted.md) ou no [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="masking"></a>A máscara
+### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>Máscara de dados dinâmica
-
 Máscara de dados dinâmicos da base de dados SQL limita a exposição de dados confidenciais ao mascará-los para utilizadores sem privilégios. Automaticamente a máscara de dados dinâmicos Deteta dados potencialmente confidenciais na base de dados do Azure SQL e fornece recomendações passíveis de ação para mascarar estes campos, com um impacto mínimo na camada da aplicação. Funciona ao ofuscar os dados confidenciais no conjunto de resultados de uma consulta em campos de base de dados designados, enquanto os dados na base de dados não são alterados. Para obter mais informações, consulte [introdução à máscara de dados dinâmicos da base de dados SQL](sql-database-dynamic-data-masking-get-started.md).
-
-#### <a name="static-data-masking"></a>Máscara de dados estático
-
-[Máscara de dados estáticos](/sql/relational-databases/security/static-data-masking) é uma ferramenta de lado do cliente disponíveis no [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 preview 5 e superior.  Máscara de dados estáticos permite aos utilizadores criar uma cópia de uma base de dados onde os dados nas colunas selecionadas tem sido mascarados permanentemente. As funções de máscara disponíveis incluem NULL máscara, máscara de valor único, shuffle e shuffle do grupo de máscara e máscara composta de cadeias de caracteres. Com a cópia mascarada da base de dados, as organizações conseguem separar a produção e ambientes de teste por meio do compartilhamento a cópia mascarada. Os dados confidenciais suficientemente estão protegidos e todas as outras características de base de dados tenham sido mantidas. A máscara de bases de dados é recomendada a onde for necessário acesso de terceiros para bases de dados.
 
 ## <a name="security-management"></a>Gestão de segurança
 

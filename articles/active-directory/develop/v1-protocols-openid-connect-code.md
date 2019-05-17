@@ -3,8 +3,8 @@ title: Compreender o fluxo de código de autenticação OpenID Connect no Azure 
 description: Este artigo descreve como utilizar mensagens HTTP para autorizar o acesso a aplicações web e APIs web no seu inquilino através do Azure Active Directory e o OpenID Connect.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/4/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d3faf5cea24e33f1e6560abc2d039c1059c91
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251667"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784969"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorizar o acesso a aplicações web com OpenID Connect e Azure Active Directory
 
@@ -95,11 +95,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |obrigatório |O `{tenant}` valor no caminho do pedido pode ser utilizado para controlar quem pode iniciar sessão na aplicação. Os valores permitidos são identificadores de inquilino, por exemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` ou `contoso.onmicrosoft.com` ou `common` para tokens de independente de inquilino |
 | client_id |obrigatório |O ID de aplicação atribuída à aplicação quando registou com o Azure AD. Pode encontrar isto no portal do Azure. Clique em **do Azure Active Directory**, clique em **registos das aplicações**, escolha a aplicação e localize o ID da aplicação na página de aplicativo. |
 | response_type |obrigatório |Tem de incluir `id_token` OpenID Connect para início de sessão. Também pode incluir outros response_types, tal como `code` ou `token`. |
-| scope | Recomendado | A especificação de OpenID Connect exige que o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento da interface do Usuário. Este e outros âmbitos OIDC são ignorados no ponto final da versão 1.0, mas ainda é uma prática recomendada para clientes compatíveis com os padrões. |
+| âmbito | Recomendado | A especificação de OpenID Connect exige que o âmbito `openid`, que traduz-se a permissão "Iniciar sessão" no consentimento da interface do Usuário. Este e outros âmbitos OIDC são ignorados no ponto final da versão 1.0, mas ainda é uma prática recomendada para clientes compatíveis com os padrões. |
 | Valor de uso único |obrigatório |Um valor incluído na solicitação, gerada pela aplicação, que está incluída no resultante `id_token` como uma afirmação. A aplicação pode, em seguida, verifique se este valor para mitigar ataques de repetição de token. O valor é, normalmente, uma cadeia de caracteres aleatória, exclusiva ou o GUID que pode ser utilizado para identificar a origem do pedido. |
 | redirect_uri | Recomendado |O redirect_uri da sua aplicação, onde as respostas podem ser enviadas e recebidas pela sua aplicação. Ele deve corresponder exatamente um dos redirect_uris registado no portal, exceto pelo fato tem de ser codificados de url. Se estiver em falta, o agente de utilizador será enviado para um dos URIs registado para a aplicação, aleatoriamente de redirecionamento. O comprimento máximo é de 255 bytes |
 | response_mode |opcional |Especifica o método que deve ser utilizado para enviar o authorization_code resultante para a sua aplicação. Valores suportados são `form_post` para *postagem de formulário do HTTP* e `fragment` para *fragmento da URL*. Para aplicativos web, recomendamos que utilize `response_mode=form_post` para garantir que a transferência mais segura de tokens para seu aplicativo. O padrão para qualquer fluxo, incluindo um id_token é `fragment`.|
-| state |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| estado |Recomendado |Um valor incluído no pedido que é devolvido na resposta de token. Pode ser uma cadeia de caracteres de qualquer conteúdo que desejar. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 | linha de comandos |opcional |Indica o tipo de interação do utilizador que é necessário. Atualmente, os únicos valores válidos são 'login', 'none' e "consentimento". `prompt=login` força o utilizador introduza as credenciais desse pedido, eliminando-início de sessão único. `prompt=none` é o oposto - assegura que o utilizador não é apresentado qualquer linha de comandos interativa tipo. Se o pedido não pode ser concluído silenciosamente por meio de início de sessão único, o ponto final devolve um erro. `prompt=consent` acionadores o OAuth consentimento a caixa de diálogo depois do utilizador inicia sessão, solicitando que o usuário para conceder permissões à aplicação. |
 | login_hint |opcional |Pode ser usada para preencher previamente o campo de endereço de e-mail/nome de utilizador da página início de sessão do utilizador, se souber que o respetivo nome de utilizador antes do tempo. Aplicações, muitas vezes, utilizam este parâmetro durante a reautenticação, já após extrair o nome de utilizador de um anterior início de sessão com o `preferred_username` de afirmação. |
 
@@ -107,7 +107,7 @@ Neste momento, é pedido ao utilizador para introduzir as respetivas credenciais
 
 ### <a name="sample-response"></a>Resposta de amostra
 
-Uma resposta de exemplo, depois do utilizador autenticado, pode ter um aspeto semelhante a esta:
+Uma resposta de exemplo, enviada para o `redirect_uri` especificado no pedido de início de sessão, depois do utilizador foi autenticado, pode ter um aspeto semelhante a esta:
 
 ```
 POST / HTTP/1.1
@@ -120,7 +120,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 | Parâmetro | Descrição |
 | --- | --- |
 | id_token |O `id_token` que solicitou a aplicação. Pode utilizar o `id_token` para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
-| state |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
+| estado |Um valor incluído no pedido que também é devolvido na resposta de token. Um valor exclusivo gerado aleatoriamente é normalmente utilizado para [impedir ataques de falsificação de solicitação](https://tools.ietf.org/html/rfc6749#section-10.12). O estado também é usado para codificar as informações sobre o estado do utilizador na aplicação antes do pedido de autenticação ocorreu, como a página ou a vista estivessem na. |
 
 ### <a name="error-response"></a>Resposta de erro
 
@@ -216,7 +216,7 @@ Incluindo âmbitos de permissão no pedido e usando `response_type=code+id_token
 
 ### <a name="successful-response"></a>Resposta com êxito
 
-Uma resposta com êxito utilizando `response_mode=form_post` se parece com:
+Uma resposta com êxito, enviada para o `redirect_uri` usando `response_mode=form_post`, se parece com:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -230,7 +230,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAA
 | --- | --- |
 | id_token |O `id_token` que solicitou a aplicação. Pode utilizar o `id_token` para verificar a identidade do utilizador e iniciar uma sessão com o utilizador. |
 | Código |Authorization_code que solicitou a aplicação. A aplicação pode utilizar o código de autorização para pedir um token de acesso para o recurso de destino. Authorization_codes tiverem vida curta e normalmente expiram após cerca de 10 minutos. |
-| state |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos. |
+| estado |Se um parâmetro de estado está incluído na solicitação, o mesmo valor deve aparecer na resposta. A aplicação deve verificar que os valores de estado no pedido e resposta são idênticos. |
 
 ### <a name="error-response"></a>Resposta de erro
 

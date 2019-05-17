@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 028c7f5d42587a6b2129bba07831b0e799d607f4
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: f9be13ac22e6eda32668d635032ebcccf417b6c7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544223"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785211"
 ---
 # <a name="migrating-applications-to-msalnet"></a>Migrando aplicativos para o MSAL.NET
 
@@ -192,7 +192,7 @@ Isto acontece porque a API do Resource Manager espera uma barra no seu público-
 A lógica usada pelo Azure AD é o seguinte:
 - Para o ponto final da ADAL (v1.0) com um token de v1.0 acesso (possível única), aud = recursos
 - Para solicitar um token de acesso a um recurso de aceitação de tokens de v2.0, aud MSAL (ponto final v2.0) = resource. AppId
-- Para MSAL (ponto final v2.0) solicitar um token de acesso a um recurso de aceitar um token de acesso de v1.0 (que é o caso acima), o Azure AD analisa o público-alvo pretendido de âmbito do pedido Considerando tudo o que antes da última barra e utilizá-lo como o identificador de recurso. Portanto se https://database.windows.net espera um público-alvo de "https://database.windows.net/", terá de solicitar um escopo de https://database.windows.net//.default. Consulte também emitir #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barra do url de recurso for omitida, o que causou a falha de autenticação de sql #747
+- Para MSAL (ponto final v2.0) solicitar um token de acesso a um recurso de aceitar um token de acesso de v1.0 (que é o caso acima), o Azure AD analisa o público-alvo pretendido de âmbito do pedido Considerando tudo o que antes da última barra e utilizá-lo como o identificador de recurso. Portanto, se https:\//database.windows.net espera um público-alvo de "https://database.windows.net/", terá de solicitar um escopo de https:\//database.windows.net//.default. Consulte também emitir #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Barra do url de recurso for omitida, o que causou a falha de autenticação de sql #747
 
 
 ### <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>Âmbitos para solicitar acesso a todas as permissões de um aplicativo de v1.0

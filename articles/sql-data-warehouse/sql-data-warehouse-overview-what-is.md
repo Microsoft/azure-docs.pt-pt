@@ -12,10 +12,10 @@ ms.author: nicw
 ms.reviewer: igorstan
 ms.openlocfilehash: 29296d703e59cb234177349ca477c3fdab74ee61
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65758956"
+ms.locfileid: "65790843"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>O que é o Azure SQL Data Warehouse?
 

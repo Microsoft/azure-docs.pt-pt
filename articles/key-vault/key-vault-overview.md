@@ -12,10 +12,10 @@ ms.date: 01/07/2019
 ms.author: barclayn
 ms.openlocfilehash: 456f828f09a710009d30e1c0a669cde658318ae0
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65748163"
+ms.locfileid: "65789375"
 ---
 # <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
 

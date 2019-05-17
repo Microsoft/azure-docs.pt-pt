@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f76d944f614f07a4428d4e4100f6a08a375d96dc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61316834"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795804"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analisadores de processamento no Azure Search de texto
 
@@ -92,10 +92,6 @@ Substituir o analisador padrão requer uma recompilação de índice. Se possív
 ### <a name="inspect-tokenized-terms"></a>Inspecione os termos com token
 
 Se uma pesquisa não retornar resultados esperados, o cenário mais provável é o token discrepâncias entre as entradas de termo na consulta e com token termos no índice. Se os tokens não forem iguais, correspondências não materializar. Para inspecionar a saída de tokenizer, recomendamos que utilize o [API analisar](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) como uma ferramenta de investigação. A resposta é composta por tokens, à medida que gerados por um analisador específico.
-
-### <a name="compare-english-analyzers"></a>Compare os analisadores em inglês
-
-O [demonstração do Search Analyzer](https://alice.unearth.ai/) é uma aplicação de demonstração de terceiros que mostra uma comparação lado a lado do analisador de Lucene padrão, o analisador de idioma inglês do Lucene e o processador de idioma natural da Microsoft. O índice é fixo; ela contém o texto de uma história popular. Para cada entrada de pesquisa é fornecer, resultados de cada analisador são apresentados nos painéis adjacentes, dando-lhe uma noção de como cada analisador processa a mesma cadeia de caracteres. 
 
 <a name="examples"></a>
 
@@ -348,8 +344,6 @@ Criar uma [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure
 + Saiba como aplicar [analisadores lexicais de idioma específico](index-add-language-analyzers.md).
 
 + [Configurar os analisadores personalizados](index-add-custom-analyzers.md) para processamento mínimo ou processamento especializado em campos individuais.
-
-+ [Compare os analisadores de padrão e em inglês](https://alice.unearth.ai/) nos painéis adjacentes neste site da web de demonstração. 
 
 ## <a name="see-also"></a>Consulte também
 

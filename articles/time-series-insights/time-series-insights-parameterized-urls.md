@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: e70eb7ae73e88b37e649d519d0d0428554dd4ab3
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 3ddde600c2ac15c56b59051fbcd6bb0e8fbae1f6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467529"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787531"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -86,11 +86,11 @@ O `timeSeriesDefinitions=<collection of term objects>` parâmetro especifica as 
 | `multiChartStack=false` | `true` está ativada por predefinição por isso, passar `false` em pilhas. |
 | `multiChartStack=false&multiChartSameScale=true` | O empilhamento tem de estar ativado para utilizar a mesma escala de eixo Y entre termos.  Ele tem `false` por predefinição, por isso, passar 'true' permite esta funcionalidade. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = dias, horas, minutos, segundos, milissegundos.  Capitalize sempre a unidade. </br> Defina o número de unidades transferindo o número inteiro pretendido para timeBucketSize.  Tenha em atenção que tem até 7 dias.  |
-| `timezoneOffset=-<integer>` | O número inteiro é sempre em milissegundos. </br> Tenha em atenção, esta funcionalidade é ligeiramente diferente do que ativamos no explorador de TSI, onde lhe permitimos escolher local (hora do browser) ou UTC. |
+| `timezoneOffset=-<integer>` | O número inteiro é sempre em milissegundos. </br> Tenha em atenção que esta funcionalidade é ligeiramente diferente do que ativamos no Explorador do Time Series Insights, onde lhe permitimos escolher local (hora do browser) ou UTC. |
 
 ### <a name="examples"></a>Exemplos
 
-Para adicionar definições de séries de tempo para um ambiente de TSI como um parâmetro de URL, acrescente:
+Para adicionar definições de séries de tempo para um ambiente do Time Series Insights como um parâmetro de URL, acrescente:
 
 ```plaintext
 &timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},
@@ -112,7 +112,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 > [!TIP]
 > Ver o Explorador do live [através do URL](https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0000-100000000108&relativeMillis=3600000&timeSeriesDefinitions=[{"name":"F1PressureId","splitBy":"Id","measureName":"Pressure","predicate":"'Factory1'"},{"name":"F2TempStation","splitBy":"Station","measureName":"Temperature","predicate":"'Factory2'"},{"name":"F3VibrationPL","splitBy":"ProductionLine","measureName":"Vibration","predicate":"'Factory3'"}]).
 
-O URL acima descreve e cria a vista de Explorador de TSI:
+O URL acima descreve e cria a vista do Explorador do Time Series Insights:
 
 [![Termos do Explorador do Time Series Insights](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 

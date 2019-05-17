@@ -8,16 +8,16 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b91ec337a3237e1bde54b42463d97a803f113c7c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357363"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813137"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Início rápido: Adicionar utilizadores convidados para o seu diretório no portal do Azure
 

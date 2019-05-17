@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: a74d67df55d46376017adbd48f5161d337ebaa0d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 49734e50d616b3f88149f3c759e2a306ff8f136a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62118052"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794884"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-go"></a>Obtenha respostas a uma pergunta de uma base de dados de conhecimento com Go
 
@@ -92,4 +92,4 @@ Crie e execute o programa a partir da linha de comando. Ele enviará automaticam
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

@@ -7,13 +7,13 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 22cc195b7808ad4a9111aafcf883a68c51f3709f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/15/2019
+ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076109"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788705"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Recursos do Azure de Red Hat OpenShift
 
@@ -21,17 +21,7 @@ Este tópico lista as regiões do Azure e os tamanhos de máquinas virtuais supo
 
 ## <a name="azure-regions"></a>Regiões do Azure
 
-Pode implementar clusters do Azure Red Hat OpenShift para as seguintes regiões do Azure em todo o mundo:
-
-|Região|Código CLI|
-|-|-|
-|Leste da Austrália 🇦🇺|`australiaeast`|
-|🇨🇦 Canada Central|`canadacentral`|
-|Leste do Canadá 🇨🇦|`canadaeast`|
-|🇺🇸 Este dos E.U.A.|`eastus`|
-|🇺🇸 Oeste dos E.U.A.|`westus`|
-|🇪🇺 West Europe|`westeurope`|
-|Europa do Norte 🇪🇺|`northeurope`|
+Ver [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all) para uma lista atualizada de regiões onde pode implementar Azure Red Hat OpenShift clusters.
 
 ## <a name="virtual-machine-sizes"></a>Tamanhos de máquinas virtuais
 

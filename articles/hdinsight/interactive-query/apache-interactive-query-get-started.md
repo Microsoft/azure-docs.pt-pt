@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2019
-ms.openlocfilehash: 9636157182e8b40914bde2515c5b295d0480255a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: db36bbf6e20f9fab2f9a99f59be7a088e8f208e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510985"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800913"
 ---
 # <a name="use-interactive-query-with-hdinsight"></a>Utilizar uma consulta interativa com o HDInsight
 Consulta interativa (também denominado LLAP do Hive do Apache, ou [processamento analítico de baixa latência](https://cwiki.apache.org/confluence/display/Hive/LLAP)) é um HDInsight do Azure [tipo de cluster](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types). Consulta interativa suporta a colocação em cache na memória, que torna o Apache Hive consultas muito mais rápidas e interativas.
@@ -67,7 +67,7 @@ Para localizar a cadeia de ligação de conectividade de banco de dados de Java 
 
 * Saiba como [criar clusters do Interactive Query no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Saiba como [visualizar grandes volumes de dados com o Power BI no Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md).
-* Saiba como [utilizar o Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight](../hdinsight-connect-hive-zeppelin.md).
+* Saiba como [utilizar o Apache Zeppelin para executar consultas do Apache Hive no Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * Saiba como [executar consultas do Apache Hive com o Data Lake Tools para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md#run-interactive-apache-hive-queries).
 * Saiba como [utilizar ferramentas do HDInsight para Visual Studio Code](../hdinsight-for-vscode.md).
 * Saiba como [utilizar o modo de exibição do Apache Hive com o Apache Hadoop no HDInsight](../hadoop/apache-hadoop-use-hive-ambari-view.md)

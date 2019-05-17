@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido de Kubernetes com contentores, microsserviços e Java no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Java, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: c1c039ba8696baff11abed3930998983647f4356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f39fc0a7094941bb44fbe717879b3a2179c3be25
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60707258"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800873"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Programar com Java no Kubernetes com espaços de desenvolvimento do Azure
 

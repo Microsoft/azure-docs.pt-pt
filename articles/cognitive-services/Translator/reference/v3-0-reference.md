@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605252"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796868"
 ---
 # <a name="translator-text-api-v30"></a>V3.0 de API de texto do tradutor
 
-## <a name="whats-new"></a>Novidades
+## <a name="whats-new"></a>Novidades?
 
 A versão 3 da API de texto do Translator fornece uma API da Web baseados em JSON modernos. Melhora a capacidade de utilização e desempenho, a consolidação de recursos existentes em menos operações e fornece novos recursos.
 
@@ -161,7 +161,7 @@ O código de erro é uma combinação de número de 6 dígitos o código de esta
 | 405000| O método de pedido não é suportado para o recurso pedido.|
 | 408001| O sistema de tradução personalizadas solicitado ainda não está disponível. Tente novamente dentro de alguns minutos.|
 | 415000| O cabeçalho Content-Type está em falta ou é inválido.|
-| 429000, 429001, 429002| O servidor rejeitou o pedido porque o cliente está a enviar demasiados pedidos. Reduza a frequência de pedidos para evitar a limitação.|
+| 429000, 429001, 429002| O servidor rejeitou o pedido porque o cliente excedeu os limites de pedido.|
 | 500000| Ocorreu um erro inesperado. Se o erro persistir, relatá-lo com a data/hora do erro, solicitar o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente a partir do cabeçalho de pedido X-ClientTraceId.|
 | 503000| Serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, relatá-lo com a data/hora do erro, solicitar o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente a partir do cabeçalho de pedido X-ClientTraceId.|
 

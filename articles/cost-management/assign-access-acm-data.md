@@ -5,23 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577108"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785859"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso a dados de gestão de custos
 
 Para os utilizadores com os contratos Enterprise do Azure, uma combinação de permissões concedidas no portal do Azure e o portal Enterprise (EA) definem o nível de um utilizador de acesso aos dados do Azure Cost Management. Para os utilizadores com outros tipos de conta do Azure, o nível de um utilizador de acesso é para dados de gestão de custos são mais simples. Este artigo orienta-o através da atribuição de acesso a dados de gestão de custos. Após a combinação de permissões é atribuída, os dados de vistas de utilizador no Cost Management com a base do âmbito que têm acesso a e no âmbito que selecionarem no portal do Azure.
 
 O âmbito do que um usuário selecionar é utilizado em toda a gestão de custos para fornecer a consolidação de dados e para controlar o acesso a informações de custo. Quando utilizar âmbitos, os utilizadores não seleção múltipla-los. Em vez disso, eles selecionam um âmbito maior que âmbitos subordinados até implementar e, em seguida, eles filtro pendente para o que quer ver. Consolidação de dados é importante compreender porque algumas pessoas não devem ter acesso a um âmbito principal que âmbitos subordinados até implementar.
+
+Veja a [como atribuir acesso com o Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) vídeo para saber mais sobre a atribuição de acesso para ver os custos e encargos com controlo de acesso baseado em funções do Azure.
+
+>[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## <a name="cost-management-scopes"></a>Âmbitos de gestão de custos
 

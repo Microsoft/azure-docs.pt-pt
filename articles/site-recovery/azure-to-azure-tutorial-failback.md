@@ -11,10 +11,10 @@ ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 9bc2bd50fda34b493463898d8ef47ed2c246b7d8
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65751158"
+ms.locfileid: "65790111"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Reativação pós-falha de uma VM do Azure entre regiões do Azure
 

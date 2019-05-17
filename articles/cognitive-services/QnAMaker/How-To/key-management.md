@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 458d587c7ac73f7c8dacdceae3c9f923263533b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372886"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792533"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Como gerir as chaves em QnA Maker
 
@@ -24,7 +24,7 @@ O serviço QnA Maker lida com dois tipos de chaves, **chaves de subscrição** e
 
 ![Gestão de chaves](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Chaves de subscrição**: Estas chaves são utilizadas para aceder a [APIs de serviço de gestão do QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Essas APIs permitem que faça editar a sua base de dados de conhecimento.  
+1. **Chaves de subscrição**: Estas chaves são utilizadas para aceder a [APIs de serviço de gestão do QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Essas APIs permitem que faça editar a sua base de dados de conhecimento.  
 
 2. **Chaves de ponto final**: Estas chaves são utilizadas para aceder ao ponto final de base de dados de conhecimento para obter uma resposta para uma pergunta do utilizador. Normalmente usaria este ponto final no seu bot de bate-papo, ou o código de aplicação de cliente que consome o serviço QnA Maker.
  

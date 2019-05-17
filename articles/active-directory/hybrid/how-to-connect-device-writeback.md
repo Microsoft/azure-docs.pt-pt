@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507937"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785720"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Ativar a repetição de escrita do dispositivo
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "65507937"
 
 A seguinte documentação fornece informações sobre como ativar a funcionalidade de repetição de escrita do dispositivo no Azure AD Connect. Repetição de escrita do dispositivo é utilizada nos seguintes cenários:
 
-* Ativar [Windows Hello para empresas com a implementação de confiança de certificado híbrida](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Ativar [Windows Hello para empresas com a implementação de confiança de certificado híbrida](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Ativar o acesso condicional com base em dispositivos para ADFS (2012 R2 ou superior) a aplicações (confianças de entidades confiadoras) protegidas.
 
 Esta opção fornece segurança adicional e o controle de acesso a aplicações é concedido apenas aos dispositivos fidedignos. Para obter mais informações sobre o acesso condicional, consulte [gestão de riscos com acesso condicional](../active-directory-conditional-access-azure-portal.md) e [configuração de acesso condicional no local com o registo de dispositivos do Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).

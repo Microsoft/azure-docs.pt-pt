@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: f2605ee5688a86de0a8e7d036aa63edd604c6538
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795020"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787188"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Como utilizar filas do Service Bus com Python
 
@@ -60,11 +60,7 @@ sb_client.create_queue("taskqueue")
 O `create_queue` método também oferece suporte a opções adicionais, que permitem-lhe substituir as definições de fila padrão, como o tempo de live (TTL) ou o tamanho máximo da fila da mensagem. O exemplo seguinte define o tamanho máximo da fila para 5 GB e o valor TTL para 1 minuto:
 
 ```python
-queue_options = Queue()
-queue_options.max_size_in_megabytes = '5120'
-queue_options.default_message_time_to_live = 'PT1M'
-
-sb_client.create_queue("taskqueue", queue_options)
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
 Para obter mais informações, consulte [documentação de Python do Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
@@ -82,7 +78,7 @@ queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+queue_client.send(msg)
 ```
 
 As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre as quotas, consulte [quotas do Service Bus][Service Bus quotas].

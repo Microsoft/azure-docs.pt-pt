@@ -16,16 +16,14 @@ ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 605206682cb70d430773cdbf9ff746eabf594103
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 23003186aa413e313578c57616ae03c435f140e1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190853"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785403"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application-spa"></a>Início rápido: Iniciar sessão dos utilizadores e adquirir um token de acesso a partir de uma aplicação de página única (SPA) de JavaScript
-
-[!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 Neste início rápido, irá aprender como usar um código de exemplo que demonstra como uma aplicação de página única (SPA) de JavaScript pode iniciar sessão em contas pessoais, trabalhar e escolar contas e obter um token de acesso para chamar a API do Microsoft Graph ou qualquer API web.
 

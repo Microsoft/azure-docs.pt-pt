@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: sngun
-ms.openlocfilehash: 91a5bf71983511f58fc13a0edf4a1109c3829602
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 297f71cef41f91a2e9595a0ccca08e2803bd6201
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410683"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787299"
 ---
 # <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>o Azure Cosmos DB: Criar uma aplicação Python utilizando a conta do Azure Cosmos DB SQL API
 
@@ -60,14 +60,19 @@ Agora vamos clonar uma aplicação API SQL a partir do GitHub, definir a cadeia 
 
 1. Abra uma linha de comandos, crie uma nova pasta designada git-samples e, em seguida, feche a linha de comandos.
 
-    ```bash
-    md "C:\git-samples"
+    ```cmd
+    md "git-samples"
     ```
+   Se estiver a utilizar uma linha de comandos do bash, em vez disso, deve usar o seguinte comando:
+
+   ```bash
+   mkdir "git-samples"
+   ```
 
 2. Abra uma janela de terminal do git, como o git bash e utilize o comando `cd` para alterar para uma nova pasta e instalar a aplicação de exemplo.
 
     ```bash
-    cd "C:\git-samples"
+    cd "git-samples"
     ```
 
 3. Execute o seguinte comando para clonar o repositório de exemplo. Este comando cria uma cópia da aplicação de exemplo no seu computador. 
@@ -84,7 +89,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-dotnet/keys.png)
 
-2. Abra o ficheiro `CosmosGetStarted.py` em C:\git-samples\azure-cosmos-db-python-getting-started no Visual Studio Code.
+2. Abra o `CosmosGetStarted.py` ficheiro no \git-samples\azure-cosmos-db-python-getting-started no Visual Studio Code.
 
 3. Copie o valor do **URI** a partir do portal (com o botão de copiar) e faça deste o valor da chave do **ponto final** em ``CosmosGetStarted.py``. 
 
@@ -180,7 +185,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
 4. Na janela do terminal integrado, certifique-se de que está na pasta azure-cosmos-db-python-getting-started. Caso contrário, execute o seguinte comando para mudar para a pasta de exemplo. 
 
     ```
-    cd "C:\git-samples\azure-cosmos-db-python-getting-started"`
+    cd "\git-samples\azure-cosmos-db-python-getting-started"`
     ```
 
 5. Execute o seguinte comando para instalar o pacote azure-cosmos. 

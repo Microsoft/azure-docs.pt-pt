@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 71856f9de3d67590d524fa8bb1119a384d156d2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700152"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788462"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de estado de funcionamento de recursos com modelos do Resource Manager
 
@@ -43,7 +43,7 @@ Para seguir as instruções nesta página, terá de configurar algumas coisas an
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Criar e guardar um modelo do Resource Manager para alertas de estado de funcionamento do recurso, como `resourcehealthalert.json` ([veja os detalhes abaixo](#resource-manager-template-for-resource-health-alerts))
+3. Criar e guardar um modelo do Resource Manager para alertas de estado de funcionamento do recurso, como `resourcehealthalert.json` ([veja os detalhes abaixo](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Criar uma nova implementação do Azure Resource Manager utilizando este modelo
 
@@ -76,7 +76,7 @@ Para seguir as instruções nesta página, terá de configurar algumas coisas an
 
 Tenha em atenção que se estiver a planear sobre como automatizar completamente a esse processo, simplesmente precisa editar o modelo do Resource Manager, a não solicitar os valores no passo 5.
 
-## <a name="resource-manager-template-for-resource-health-alerts"></a>Modelo do Resource Manager para alertas de estado de funcionamento do recurso
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opções de modelo do Resource Manager para alertas de estado de funcionamento do recurso
 
 Pode utilizar este modelo de base como ponto de partida para a criação de alertas de estado de funcionamento do recurso. Este modelo irá funcionar como está escrito e iniciar a sua cópia de segurança para receber alertas para todos os eventos de estado de funcionamento do recurso recentemente ativada em todos os recursos numa subscrição.
 
@@ -284,7 +284,9 @@ No entanto, quando um recurso de relatórios "Desconhecido", é provável que o 
 },
 ```
 
-Neste exemplo, podemos são notificação apenas nos eventos em que o estado de funcionamento atuais e anteriores não tem "Desconhecido". Esta alteração pode ser uma adição útil se os alertas são enviados diretamente para o telemóvel ou e-mail.
+Neste exemplo, podemos são notificação apenas nos eventos em que o estado de funcionamento atuais e anteriores não tem "Desconhecido". Esta alteração pode ser uma adição útil se os alertas são enviados diretamente para o telemóvel ou e-mail. 
+
+Tenha em atenção que é possível para as propriedades de currentHealthStatus e previousHealthStatus nulo em alguns eventos. Por exemplo, quando um evento de Updated ocorre é provável que o estado de funcionamento do recurso não foi alterado desde o último relatório somente essas informações de eventos adicionais estão disponíveis (por exemplo, causa). Por conseguinte, utilizar a cláusula acima poderá resultar em alguns alertas não sendo acionadas, porque os valores properties.currentHealthStatus e properties.previousHealthStatus serão definidos como nulo.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Ajustar o alerta para evitar eventos iniciada pelo utilizador
 
@@ -304,12 +306,12 @@ Eventos de estado de funcionamento do recurso podem ser acionador pela plataform
     ]
 }
 ```
+Tenha em atenção que é possível para o campo de causa nulo em alguns eventos. Ou seja, uma transição de estado de funcionamento tem lugar (por exemplo, disponível para indisponível) e o evento é registado imediatamente impedir que a notificação atrasa. Por conseguinte, utilizar a cláusula acima poderá resultar num alerta, não sendo acionado, porque o valor da propriedade properties.clause será definido como nulo.
 
-## <a name="recommended-resource-health-alert-template"></a>Modelo de alerta de estado de funcionamento de recursos recomendado
+## <a name="complete-resource-health-alert-template"></a>Modelo de alerta de estado de funcionamento do recurso completo
 
-Usando os ajustes diferentes descritos na secção anterior, podemos criar um modelo abrangente de alerta que está configurado para maximizar o sinal a proporção de ruído.
+Usando os ajustes diferentes descritos na secção anterior, eis um modelo de exemplo que está configurado para maximizar o sinal a proporção de ruído. Tenha em mente as advertências indicadas acima em que o currentHealthStatus previousHealthStatus e valores de propriedade de causa podem ser nulos na alguns eventos.
 
-Eis o que sugerimos que use:
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 41f867e2700c7b3f5d70d76c78a32e0fa3361d56
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278607"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813243"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-folloze"></a>Tutorial: Integração do Active Directory do Azure com Folloze
 
@@ -114,7 +114,7 @@ Para configurar o Azure AD início de sessão único com Folloze, execute os seg
 
     | Name |  Atributo de origem|
     | ---------------| --------- |
-    | Email | user.othermail |
+    | Correio Electrónico | user.othermail |
     | Nameasemail | user.userprincipalname |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -208,7 +208,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Folloze. Folloze suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Folloze, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

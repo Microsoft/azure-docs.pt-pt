@@ -9,10 +9,10 @@ ms.date: 01/23/2019
 ms.author: dacoulte
 ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65758375"
+ms.locfileid: "65787335"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Exemplo - iniciativa de política de etiquetas de faturação
 

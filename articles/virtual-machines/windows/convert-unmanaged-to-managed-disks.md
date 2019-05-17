@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c45c8587e3ca19b32ccd8dc66575333622b3cf1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702814"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796572"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não geridos para managed disks
 
@@ -99,7 +99,6 @@ Se as VMs que pretende converter para gerido discos estão num conjunto de dispo
 Se existir um erro durante a conversão, ou se uma VM está num Estado de falha devido a problemas de uma conversão anterior, execute o `ConvertTo-AzVMManagedDisk` cmdlet novamente. Uma repetição simple normalmente desbloqueia a situação.
 Antes de converter, certificar-se de que todas as extensões VM estão no estado "A aprovisionar foi concluída com êxito" ou a conversão irá falhar com o código de erro 409.
 
-
 ## <a name="convert-using-the-azure-portal"></a>Converter utilizando o portal do Azure
 
 Também pode converter discos não geridos para managed disks através do portal do Azure.
@@ -108,7 +107,7 @@ Também pode converter discos não geridos para managed disks através do portal
 2. Selecione a VM a partir da lista de VMs no portal.
 3. No painel da VM, selecione **discos** no menu.
 4. Na parte superior a **discos** painel, selecione **para migrar para managed disks**.
-5. Se a sua VM está num conjunto de disponibilidade, haverá um aviso sobre o **migrar para discos geridos** painel que tem de converter o primeiro conjunto de disponibilidade. O aviso deve ter uma ligação, pode clicar para converter o conjunto de disponibilidade. Depois do conjunto de disponibilidade é convertido, ou se a VM não está num conjunto de disponibilidade, clique em **migrar** para iniciar o processo de migrar os seus discos para discos geridos. 
+5. Se a sua VM está num conjunto de disponibilidade, haverá um aviso sobre o **migrar para discos geridos** painel que tem de converter o primeiro conjunto de disponibilidade. O aviso deve ter uma ligação, pode clicar para converter o conjunto de disponibilidade. Depois do conjunto de disponibilidade é convertido, ou se a VM não está num conjunto de disponibilidade, clique em **migrar** para iniciar o processo de migrar os seus discos para discos geridos.
 
 A VM será parada e reiniciada após a conclusão da migração.
 

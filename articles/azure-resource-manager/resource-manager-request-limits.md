@@ -1,25 +1,18 @@
 ---
 title: Limites de pedido e limitação - Azure Resource Manager
 description: Descreve como utilizar a limitação com pedidos do Azure Resource Manager, quando atingiu os limites de subscrição.
-services: azure-resource-manager
-documentationcenter: na
-author: rockboyfor
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
+author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/05/2019
-ms.date: 03/18/2019
-ms.author: v-yeche
+ms.date: 05/14/2019
+ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389734"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791365"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager
 
@@ -33,7 +26,7 @@ Se a sua aplicação ou script atingir estes limites, terá de limitar os seus p
 
 Quando atingir o limite, receberá o código de estado HTTP **429 demasiados pedidos**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Gráfico de recursos do Azure limita o número de pedidos para suas operações. Os passos neste artigo para determinar os pedidos restantes e como responder quando é atingido o limite também se aplicam ao gráfico de recursos. No entanto, o gráfico de recursos define sua própria taxa de limite e de reposição. Para obter mais informações, consulte [limitar no gráfico de recursos do Azure](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Pedidos restantes
 Pode determinar o número de pedidos restantes, examinando os cabeçalhos de resposta. Os pedidos de leitura retornam um valor no cabeçalho para o número de solicitações de leitura restantes. Escreva a pedidos de incluir um valor para o número de pedidos de escrita restantes. A tabela seguinte descreve os cabeçalhos de resposta, que pode examinar para esses valores:
@@ -61,7 +54,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 Na **PowerShell**, recupera o valor de cabeçalho a partir de uma operação de Invoke-WebRequest.
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -89,7 +82,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 Para obter os limites de escrita, utilize uma operação de escrita: 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Que retorna valores de muitos, incluindo os seguintes valores:
@@ -128,7 +121,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 Para obter os limites de escrita, utilize uma operação de escrita: 
 
 ```azurecli
-az group create -n myresourcegroup --location chinanorth --verbose --debug
+az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
 Que retorna valores de muitos, incluindo os seguintes valores:
@@ -152,5 +145,3 @@ Quando atingir o limite de pedido, o Resource Manager devolve os **429** código
 * Para obter um exemplo completo do PowerShell, consulte [verificar limites de Gestor de recursos para uma subscrição](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para obter mais informações sobre limites e quotas, consulte [subscrição do Azure e limites do serviço, quotas e restrições](../azure-subscription-service-limits.md).
 * Para saber mais sobre o processamento de solicitações assíncronas do REST, veja [monitorizar operações assíncronas de Azure](resource-manager-async-operations.md).
-
-<!--Update_Description: update meta properties, update cmdlet -->

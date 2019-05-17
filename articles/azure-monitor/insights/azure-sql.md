@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0617dc617309d49cdc7c8cddd4e91619b873b914
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64923023"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785688"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorizar a base de dados do SQL do Azure através da análise de SQL do Azure (pré-visualização)
 
@@ -193,7 +193,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pré-requisito de configurar este alerta é esse métricas de diagnóstico de fluxo (opção de "Todas as métricas") de bases de dados monitorizadas à solução.
+> - Pré-requisito de configurar este alerta é esse fluxo de bases de dados monitorizadas métricas básicas para a solução.
 > - Substitua o cpu_percent de valor MetricName dtu_consumption_percent para obter resultados DTU elevados em vez disso.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>Elevada da CPU em conjuntos elásticos da base de dados do Azure SQL
@@ -208,7 +208,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pré-requisito de configurar este alerta é esse métricas de diagnóstico de fluxo (opção de "Todas as métricas") de bases de dados monitorizadas à solução.
+> - Pré-requisito de configurar este alerta é esse fluxo de bases de dados monitorizadas métricas básicas para a solução.
 > - Substitua o cpu_percent de valor MetricName dtu_consumption_percent para obter resultados DTU elevados em vez disso.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Armazenamento de base de dados SQL do Azure em média superior a 95% na última 1 hora
@@ -225,7 +225,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - Pré-requisito de configurar este alerta é esse métricas de diagnóstico de fluxo (opção de "Todas as métricas") de bases de dados monitorizadas à solução.
+> - Pré-requisito de configurar este alerta é esse fluxo de bases de dados monitorizadas métricas básicas para a solução.
 > - Esta consulta requer uma regra de alerta para ser configurado para acionar um alerta quando existem resultados (> 0 resultados) da consulta, que indica se a condição existe no algumas bases de dados. O resultado é uma lista de recursos de base de dados que estão acima storage_threshold dentro time_range definido.
 > - O resultado é uma lista de recursos de base de dados que estão acima storage_threshold dentro time_range definido.
 

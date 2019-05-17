@@ -12,21 +12,21 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/03/2018
+ms.date: 05/14/2019
 ms.author: b-juche
-ms.openlocfilehash: f08eaee038ad18c600826dea6fe0fd85935de59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c58ceef57b984f46b86bb2a8577c53b75082b78b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452913"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794619"
 ---
 # <a name="resize-a-capacity-pool-or-a-volume"></a>Redimensionar um conjunto de capacidade ou um volume
 Pode alterar o tamanho de um conjunto de capacidade ou um volume, se necessário. 
 
 ## <a name="resize-the-capacity-pool"></a>Redimensione o conjunto de capacidade 
 
-Pode alterar o tamanho do conjunto de capacidade em incrementos de 4 TiB ou diminui. Redimensionar o conjunto de capacidade altera a capacidade de ficheiros do Azure NetApp comprado.
+Pode alterar o tamanho do conjunto de capacidade em incrementos de 1 TiB ou diminui. No entanto, o tamanho de capacidade do conjunto não pode ser inferior a 4 TiB. Redimensionar o conjunto de capacidade altera a capacidade de ficheiros do Azure NetApp comprado.
 
 1. No painel conta do NetApp de gerir, clique no agrupamento de capacidade que deseja redimensionar. 
 2. Faça duplo clique no nome do conjunto de capacidade ou clique no ícone "..." no final da linha do conjunto de capacidade para exibir o menu de contexto. 

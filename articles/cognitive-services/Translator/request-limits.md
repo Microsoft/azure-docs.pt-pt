@@ -10,36 +10,47 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 97b0b6256b7aaf7b42565fe9453fb87a0c414569
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 91cc002f373318e5124fc21f76edbfd000d17238
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605218"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796895"
 ---
 # <a name="request-limits-for-translator-text"></a>Limites de pedido para o texto do tradutor
 
 Este artigo fornece limites de limitação para a API de texto do Translator. Os serviços incluem a tradução, Transliteração, deteção de comprimento da sentença, deteção de idioma e traduções alternativas.
 
-## <a name="character-limits-per-request"></a>Limites do caractere por pedido
+## <a name="character-and-array-limits-per-request"></a>Limites de caracteres e de matriz por pedido
 
-Cada solicitação é uma limite de 5000 carateres. É-lhe cobrado por caractere, não pelo número de pedidos. É recomendado para enviar pedidos mais curtos e ter alguns pedidos pendentes num determinado momento.
+Cada solicitação de Translate está limitada a 5000 carateres. É-lhe cobrado por caractere, não pelo número de pedidos. É recomendado para enviar pedidos mais curtos.
 
-Não existe nenhum limite no número de pedidos pendentes para a API de texto do Translator.
+As seguintes tabela listas de elemento e o caráter limites da matriz para cada operação da API de texto do Translator.
+
+| Operação | Tamanho máximo do elemento de matriz |   Número máximo de elementos de matriz |  Tamanho máximo do pedido (carateres) |
+|:----|:----|:----|:----|
+| Translate | 5,000 | 100   | 5,000 |
+| Transliterate | 5,000 | 10    | 5,000 |
+| Detect | 10,000 | 100 |   50,000 |
+| BreakSentence | 10,000    | 100 | 5,0000 |
+| Pesquisa no Dicionário| 100 |  10  | 1,000 |
+| Exemplos do dicionário | 100 para texto e 100 para tradução (total de 200)| 10|   2.000 |
 
 ## <a name="character-limits-per-hour"></a>Limites do caractere por hora
 
-O limite de carateres por hora baseia-se a sua camada de subscrição de texto do Translator. Se atinge ou superar as estes limites, provavelmente receberá um fora de resposta de quota:
+O limite de carateres por hora baseia-se a sua camada de subscrição de texto do Translator. A quota de hora a hora deve ser consumida uniformemente em toda a hora. Se chega a superar as estes limites ou enviar demasiado grande de uma parte da quota de num curto período de tempo, provavelmente receberá um fora de resposta de quota. 
 
 | Escalão | Limite de carateres |
 |------|-----------------|
 | F0 | 2 milhões de carateres por hora |
 | S1 | 40 milhões de carateres por hora |
-| S2 | 40 milhões de carateres por hora |
-| S3 | 120 milhões de carateres por hora |
-| S4 | 200 milhões de carateres por hora |
+| S2 / C2 | 40 milhões de carateres por hora |
+| S3 / C3 | 120 milhões de carateres por hora |
+| S4 / C4 | 200 milhões de carateres por hora |
 
-Estes limites são restritas aos sistemas de genéricos da Microsoft. Sistemas de tradução personalizadas que utilizam o Hub de Microsoft Translator da Microsoft estão limitados a caráter 1.800 por segundo.
+Limites para [subscrições múltiplos serviços](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) são os mesmos que o escalão S1.
+
+Estes limites estão limitados aos modelos de tradução padrão da Microsoft. Modelos de tradução personalizadas que utilizam o Translator personalizados estão limitados a caráter 1.800 por segundo.
 
 ## <a name="latency"></a>Latência
 

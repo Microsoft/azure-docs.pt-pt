@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483296"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604221"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra um pedido de suporte para uma tarefa de importação/exportação
 
@@ -22,13 +22,13 @@ Se encontrar algum problema com o seu serviço de importação/exportação, pod
 * Como criar um pedido de suporte.
 * Como gerir uma pedido de vida de suporte no portal.
 
-## <a name="create-a-support-request"></a>Criar um pedido de suporte
+## <a name="create-a-support-request"></a>Criar um pedido de apoio
 
 Execute os seguintes passos para criar um pedido de suporte:
 
 1. Aceda à sua tarefa de importação/exportação. Navegue para **suporte + resolução de problemas** secção e, em seguida, clique em **novo pedido de suporte**.
      
-    ![Noções básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
+    ![Noções Básicas](./media/storage-import-export-contact-microsoft-support/import-export-support1.png)
    
 2. Na **novo pedido de suporte**, selecione **Noções básicas**. Na **Noções básicas**, siga os passos abaixo:
     
@@ -58,10 +58,10 @@ Execute os seguintes passos para criar um pedido de suporte:
 4. Na **novo pedido de suporte**, clique em **informações de contacto do passo 3**. Na **informações de contacto**, siga os passos abaixo:
 
    1. Na **opções de contacto**, forneça o seu método preferencial de contacto (telefone ou e-mail) e o idioma. O tempo de resposta é selecionado automaticamente com base no seu plano de subscrição.
-   2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
+   2. As informações de contacto, fornece seu nome, e-mail, contato opcional, país/região. Selecione o **guardar alterações de contactos para futuros pedidos de suporte** caixa de verificação.
    3. Clique em **Criar**.
    
-       ![Informações de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
+       ![Informação de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   
 
       Support da Microsoft irá utilizar estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
       Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.

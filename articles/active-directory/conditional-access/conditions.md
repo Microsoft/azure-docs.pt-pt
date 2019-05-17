@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355782"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785386"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>Quais são condições no acesso condicional do Azure Active Directory? 
 
@@ -57,29 +57,23 @@ Quando **selecionar utilizadores e grupos**, pode definir as seguintes opções:
 
 * **Utilizadores e grupos** conjuntos específicos de utilizadores destina-se. Por exemplo, pode selecionar um grupo que contenha todos os membros do departamento de RH, quando uma aplicação de RH está selecionada como a aplicação na cloud. Um grupo pode ser qualquer tipo de grupo no Azure AD, incluindo os grupos de segurança e a distribuição dinâmicos ou atribuídos.
 
-Também pode excluir utilizadores ou grupos específicos de uma política. Um caso de uso comum é a contas de serviço se a sua política impõe a autenticação multifator (MFA). 
+Também pode excluir utilizadores ou grupos específicos de uma política. Um caso de uso comum é a contas de serviço se a sua política impõe a autenticação multifator (MFA).
 
-Conjuntos específicos de utilizadores o direcionamento é útil para a implementação de uma nova política. Numa nova política, deve visar apenas um conjunto inicial de utilizadores para validar o comportamento da política. 
+Conjuntos específicos de utilizadores o direcionamento é útil para a implementação de uma nova política. Numa nova política, deve visar apenas um conjunto inicial de utilizadores para validar o comportamento da política.
 
+## <a name="cloud-apps-and-actions"></a>Aplicações na cloud e ações
 
+Uma aplicação na cloud é um Web site, serviço ou ponto de extremidade protegidos pelo Proxy de aplicações do Azure AD. Para obter uma descrição detalhada das aplicações na cloud suportados, consulte [atribuições de aplicações da cloud](technical-reference.md#cloud-apps-assignments). O **Cloud aplicações ou ações** condição é obrigatória numa política de acesso condicional. Na sua política, pode, selecione **todas as aplicações na cloud** ou para especificar as aplicações com **selecionar aplicações**.
 
-## <a name="cloud-apps"></a>Aplicações na cloud 
+As organizações podem escolher as seguintes opções:
 
-Uma aplicação na cloud é um Web site ou serviço. Web sites protegidos pelo Proxy de aplicações do Azure AD também são aplicações na cloud. Para obter uma descrição detalhada das aplicações na cloud suportados, consulte [atribuições de aplicações da cloud](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Todas as aplicações na cloud** ao aplicar políticas de linha de base para aplicar a toda a organização. Utilize esta selecção para políticas que exigem autenticação multifator quando é detetado um risco de início de sessão para qualquer aplicação na cloud. Uma política aplicada a todas as aplicações na cloud aplica-se para o acesso a todos os Web sites e serviços. Esta definição não se limita às aplicações de cloud que aparecem na lista selecione aplicações.
+* **Selecionar aplicações** para serviços específicos do destino pela sua política. Por exemplo, pode exigir que os utilizadores tenham um dispositivo em conformidade aceder ao SharePoint Online. Esta política também é aplicada a outros serviços, quando acede a conteúdo do SharePoint. Um exemplo é o Microsoft Teams.
 
-O **aplicações na cloud** condição é obrigatória numa política de acesso condicional. Na sua política, pode, selecione **todas as aplicações na cloud** ou selecione as aplicações específicas.
+> [!NOTE]
+> Pode excluir aplicações específicas de uma política. No entanto, estas aplicações estão ainda sujeitos as políticas aplicadas para os serviços que acedem.
 
-![Incluem aplicações na cloud](./media/conditions/03.png)
-
-Selecione:
-
-- **Todas as aplicações na cloud** às políticas de linha de base para se aplicam a toda a organização. Utilize esta selecção para políticas que exigem a autenticação multifator quando é detetado um risco de início de sessão para qualquer aplicação na cloud. Uma política aplicada ao **todas as aplicações na cloud** aplica-se para o acesso a todos os Web sites e serviços. Esta definição não se limita às aplicações de cloud que são apresentadas na **selecionar aplicações** lista. 
-
-- **Selecionar aplicações** para serviços específicos do destino pela sua política. Por exemplo, pode exigir que os utilizadores tenham uma [dispositivo em conformidade](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para aceder ao SharePoint Online. Esta política também é aplicada a outros serviços, quando acede a conteúdo do SharePoint. Um exemplo é o Microsoft Teams. 
-
-Pode excluir aplicações específicas de uma política. No entanto, estas aplicações estão ainda sujeitos as políticas aplicadas para os serviços que acedem. 
-
-
+**Ações do usuário** são tarefas que podem ser executadas por um utilizador. A única ação suportada atualmente é **registe informações de segurança (pré-visualização)**, que permite que a política de acesso condicional para impor quando um usuário registra suas informações de segurança.
 
 ## <a name="sign-in-risk"></a>Risco de início de sessão
 

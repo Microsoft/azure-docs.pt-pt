@@ -16,11 +16,11 @@ ms.date: 02/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 902abe2f6ba122537eae1a49015c990493cd1e3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60282588"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Tutorial: Integração do Active Directory do Azure com Bambu por Sprout Social
 
@@ -179,7 +179,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado no Bambu por Sprout Social. Bambu por Sprout Social suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Bambu por Sprout Social, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

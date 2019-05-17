@@ -3,17 +3,17 @@ title: Compreender a linguagem de consulta
 description: Descreve os operadores de Kusto disponíveis e as funções ser utilizáveis com o gráfico de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/11/2018
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 08e4f09665a3501073f55b7f5b82bf51cf508ea9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dcb21a6aedf16b034fad4f0822e22758dda03c33
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276682"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800515"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do gráfico de recursos do Azure
 
@@ -52,6 +52,38 @@ Eis a lista de funções no gráfico de recursos:
 - [isnotempty()](/azure/kusto/query/isnotemptyfunction)
 - [tostring()](/azure/kusto/query/tostringfunction)
 - [zip()](/azure/kusto/query/zipfunction)
+
+## <a name="escape-characters"></a>Caracteres de escape
+
+Alguns nomes de propriedade, como os que incluem uma `.` ou `$`, tem de ser encapsuladas ou escape da consulta ou a propriedade nome é interpretado incorretamente e não fornece os resultados esperados.
+
+- `.` -Encapsule o nome da propriedade assim: `['propertyname.withaperiod']`
+  
+  Consulta de exemplo que encapsula num wrapper a propriedade _OData_:
+
+  ```kusto
+  where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
+  ```
+
+- `$` -No nome da propriedade caráter de escape. O caráter de escape utilizado depende o shell que gráfico do recurso é executado a partir.
+
+  - **bash** - `\`
+
+    Consulta de exemplo que escapes a propriedade  _\$tipo_ no bash:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
+    ```
+
+  - **cmd** -não saiam do `$` caráter.
+
+  - **PowerShell** - ``` ` ```
+
+    Consulta de exemplo que escapes a propriedade  _\$tipo_ no PowerShell:
+
+    ```kusto
+    where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
+    ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

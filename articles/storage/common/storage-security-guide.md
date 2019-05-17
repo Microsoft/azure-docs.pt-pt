@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154403"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789946"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança de armazenamento do Azure
 
 Armazenamento do Azure fornece um conjunto abrangente de recursos de segurança que juntos permitem aos desenvolvedores criar aplicativos seguros:
 
-- Todos os dados escritos no armazenamento do Azure são automaticamente encriptados usando [Storage Service Encryption (SSE)](storage-service-encryption.md). Para obter mais informações, consulte [anunciando encriptação predefinido para os Blobs do Azure, ficheiros, tabelas e armazenamento de filas](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
+- Todos os dados (incluindo metadados) escritos no armazenamento do Azure são automaticamente encriptados usando [Storage Service Encryption (SSE)](storage-service-encryption.md). Para obter mais informações, consulte [anunciando encriptação predefinido para os Blobs do Azure, ficheiros, tabelas e armazenamento de filas](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) e o controlo de acesso baseado em funções (RBAC) são suportadas para o armazenamento do Azure para operações de gestão de recursos e operações de dados, da seguinte forma:   
     - Pode atribuir funções RBAC de âmbito para a conta de armazenamento para entidades de segurança e utilize o Azure AD para autorizar as operações de gestão de recursos, tais como a gestão de chaves.
     - Integração do Azure AD é suportada para operações de dados de BLOBs e filas. Pode atribuir funções RBAC no âmbito de uma subscrição, grupo de recursos, conta de armazenamento, ou um contentor individual ou fila para um principal de segurança ou uma identidade gerida para recursos do Azure. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure com o Azure Active Directory](storage-auth-aad.md).   
@@ -238,10 +238,9 @@ Para obter informações mais detalhadas sobre como utilizar assinaturas de aces
     Este artigo fornece exemplos de como utilizar uma SAS de nível de serviço com arquivos, intervalos de tabela, fila de mensagens e blobs.
   * [Construindo um serviço SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Construir uma SAS de conta](https://msdn.microsoft.com/library/mt584140.aspx)
-* Estes são os tutoriais para utilizar a biblioteca de cliente .NET para criar assinaturas de acesso partilhado e políticas de acesso armazenado.
 
+* Este é um tutorial para utilizar a biblioteca de cliente .NET para criar assinaturas de acesso partilhado e políticas de acesso armazenado.
   * [Utilizar assinaturas de acesso partilhado (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Assinaturas de acesso, parte 2 de partilhado: Criar e utilizar um SAS com o serviço Blob](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 
     Este artigo inclui uma explicação sobre o modelo SAS, exemplos de assinaturas de acesso partilhado, e recomendações para a prática recomendada usar de SAS. Também discuti é a revogação de permissão concedida.
 

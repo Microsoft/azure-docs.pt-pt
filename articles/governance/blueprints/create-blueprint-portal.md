@@ -10,10 +10,10 @@ manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: acee2aabe94f5d015562bd697d08f657895d3b02
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65755942"
+ms.locfileid: "65789478"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Início rápido: Definir e atribuir um plano gráfico no portal
 

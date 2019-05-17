@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 manager: craigg
 ms.date: 04/18/2019
-ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06e61d30f0d4e598c48f190572b8b4343f351043
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61482045"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762791"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Limites de recursos de base de dados SQL para o servidor de base de dados do Azure SQL
 
@@ -28,7 +28,7 @@ Este artigo fornece uma visão geral dos limites de recursos da base de dados SQ
 
 ## <a name="maximum-resource-limits"></a>Limites de recursos máximo
 
-| Recurso | Limite |
+| Resource | Limite |
 | :--- | :--- |
 | Bases de dados por servidor | 5000 |
 | Número de servidores por subscrição em qualquer região predefinido | 20 |

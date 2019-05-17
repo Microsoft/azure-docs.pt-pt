@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924676"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794759"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -79,7 +79,7 @@ O ExpressRoute suporta [três domínios de encaminhamento](expressroute-circuit-
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI
+* O Power BI - disponível por meio de uma Comunidade Regional do Azure, veja [aqui](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) para como saber a região do seu inquilino do Power BI. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Comunidade de serviços globais do Azure)
 * A maioria dos serviços do Azure é suportada. Entre em contacto diretamente com o serviço que pretende utilizar para verificar o suporte.<br><br>**Os seguintes serviços não são suportados**:
@@ -152,7 +152,7 @@ Se o seu fornecedor de serviços ExpressRoute em ambos os sites, pode trabalhar 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Pode ter vários circuitos do ExpressRoute no metro mesmo? Posso ligá-los à mesma rede virtual?
 
-Sim. Pode ter vários circuitos do ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering do ExpressRoute e os circuitos são criados em diferentes localizações de peering, pode ligá-las à mesma rede virtual. Se o circuitos é criado na mesma localização de peering, ainda pode ligá-las para a mesma rede virtual, mas apenas circuitos do ExpressRoute até 4 em cada localização de peering. Por exemplo, pode selecionar as localizações de peering "Singapura" e "Singapura2" e ligar circuitos de cada à mesma rede virtual. 
+Sim. Pode ter vários circuitos do ExpressRoute com os fornecedores de serviços idêntica ou diferente. Se o metro tem várias localizações de peering do ExpressRoute e os circuitos são criados em diferentes localizações de peering, pode ligá-las à mesma rede virtual. Se o circuitos é criado na mesma localização de peering, pode associar até 4 circuitos à mesma rede virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Como posso ligar minhas redes virtuais a um circuito do ExpressRoute
 
@@ -190,7 +190,7 @@ Não. Da perspectiva do encaminhamento, todas as redes virtuais ligadas ao mesmo
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>Pode ter uma rede virtual ligada a mais do que um circuito do ExpressRoute?
 
-Sim. Pode ligar uma única rede virtual com até quatro circuitos do ExpressRoute. Tem de ser ordenadas por meio de quatro diferentes [localizações do ExpressRoute](expressroute-locations.md).
+Sim. Pode ligar uma única rede virtual com até quatro circuitos do ExpressRoute em qualquer um das mesmas ou em diferentes localizações de peering. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>Pode aceder à Internet de minhas redes virtuais ligadas a circuitos do ExpressRoute?
 

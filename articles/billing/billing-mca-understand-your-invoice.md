@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371428"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604033"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Compreender os termos na sua fatura de contrato de cliente da Microsoft
 
@@ -63,7 +63,7 @@ O **resumo de faturação** mostra os custos em relação a faturação desde o 
 | Ficha técnica |Créditos que recebeu da devolve |
 | Aplicadas os créditos do Azure | Créditos do Azure que são automaticamente aplicados aos custos do Azure cada período de faturação |
 | Subtotal |O valor do pré-imposto de devido |
-| Impostos |O tipo e a quantidade de imposto sobre o que paga, dependendo do país do seu perfil de faturação. Se não precisa de pagar impostos sobre, em seguida, não verá imposto na sua fatura. |
+| Impostos |O tipo e a quantidade de imposto sobre o que paga, consoante o país/região do seu perfil de faturação. Se não precisa de pagar impostos sobre, em seguida, não verá imposto na sua fatura. |
 | Poupança estimada de total |A quantidade total estimada que guardou a partir de descontos em vigor. Se aplicável, taxas de desconto em vigor estão listadas abaixo os itens de linha de compra em detalhes pela secção de nota fiscal. |
 
 ### <a name="invoice-sections"></a>Secções de fatura
@@ -88,7 +88,7 @@ O montante total devido para cada família de serviços é calculada ao subtrair
 | . De defeitos | Quantidade adquiridos ou consumido durante o período de faturação |
 | Custos/créditos | Valor líquido de custos, depois de serem aplicados créditos/reembolsos |
 | Crédito do Azure | O montante de créditos do Azure aplicados custos de e/ou créditos|
-| Taxa de tributação | Imposto sobre vendas rate(s) dependendo do país |
+| Taxa de tributação | Imposto sobre vendas rate(s) consoante o país/região |
 | Valor do imposto | Quantidade de imposto sobre aplicada para comprar com base na taxa de tributação |
 | Total | O montante total devido para a compra |
 

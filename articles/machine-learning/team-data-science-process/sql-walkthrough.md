@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c9d707d1a76b3b5913d66745767df8e84362a192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045783"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606525"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados de equipa em ação: utilizar o SQL Server
 Neste tutorial, é necessário percorrer o processo de criação e implementação de um modelo de aprendizagem automática com o SQL Server e um conjunto de dados publicamente disponível o [NYC táxis viagens](https://www.andresmh.com/nyctaxitrips/) conjunto de dados. O procedimento segue um fluxo de trabalho de ciência de dados padrão: ingerir e explorar os dados, funcionalidades de engenharia para facilitar a aprendizagem, em seguida, criar e implementar um modelo.
@@ -515,7 +515,7 @@ Neste exemplo transforma um campo numérico contínuo em intervalos de categoria
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia de funcionalidades: Extrair funcionalidades de localização de Decimal Latitude/Longitude
-Neste exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, como, país, cidade, cidade, bloquear, etc. Tenha em atenção que os novos campos de geo não são mapeados para localizações reais. Para obter informações sobre localizações de geocode de mapeamento, consulte [serviços de REST do Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
+Neste exemplo divide a representação decimal de um campo de latitude e/ou longitude em vários campos de região de granularidade diferente, tais como país/região, cidade, cidade, bloquear, etc. Tenha em atenção que os novos campos de geo não são mapeados para localizações reais. Para obter informações sobre localizações de geocode de mapeamento, consulte [serviços de REST do Bing Maps](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent

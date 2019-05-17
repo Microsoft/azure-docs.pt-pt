@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471602"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793680"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação após desastre para uma implementação de aplicação SAP NetWeaver com várias camada
 
@@ -166,5 +166,5 @@ Para obter mais informações, consulte [ativação pós-falha de teste para o A
 Para obter mais informações, consulte [ativação pós-falha no Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre a criação de uma solução de recuperação após desastre para implementações do SAP NetWeaver utilizando a recuperação de Site, consulte o white paper que pode ser baixado [SAP NetWeaver: Criar uma solução de recuperação após desastre com o Azure Site Recovery](https://aka.ms/asr-sap). O white paper aborda recomendações para várias arquiteturas SAP, apresenta uma lista de aplicativos suportados e tipos de VM para o SAP no Azure e descreve as opções do plano de teste para a sua solução de recuperação após desastre.
+* Para saber mais sobre a criação de uma solução de recuperação após desastre para implementações do SAP NetWeaver utilizando a recuperação de Site, consulte o white paper que pode ser baixado [SAP NetWeaver: Criar uma solução de recuperação após desastre com o Azure Site Recovery](https://aka.ms/asr_sap). O white paper aborda recomendações para várias arquiteturas SAP, apresenta uma lista de aplicativos suportados e tipos de VM para o SAP no Azure e descreve as opções do plano de teste para a sua solução de recuperação após desastre.
 * Saiba mais sobre [replicar outras cargas de trabalho](site-recovery-workload.md) utilizando a recuperação de Site.

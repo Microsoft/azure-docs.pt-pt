@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f98cdcab2d108f8dd9d40e3770498ad17b2a8a88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60555436"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799624"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizar um modelo de idioma com o site do Video Indexer
 
@@ -60,10 +61,10 @@ Para utilizar o seu modelo de idioma num novo vídeo, efetue um dos seguintes pr
 
 * Clique nas **carregar** botão no topo da página 
 
-    ![Carregar](./media/customize-language-model/upload.png)
+    ![Carregamento](./media/customize-language-model/upload.png)
 * Remova o ficheiro de vídeo ou áudio no círculo ou procure o ficheiro
 
-    ![Carregar](./media/customize-language-model/upload2.png)
+    ![Carregamento](./media/customize-language-model/upload2.png)
 
 Isso lhe dará a opção de selecionar o **idioma de origem do vídeo**. Clique no menu pendente e selecione um modelo de idioma que criou na lista. Ele deverá indicar o idioma do seu modelo de idioma e o nome que deu a parênteses.
 

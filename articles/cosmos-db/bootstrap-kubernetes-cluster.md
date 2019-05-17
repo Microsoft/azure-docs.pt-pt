@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: 7d60e71fa0768b46042c31f9d79dd8ca6a41b2cc
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 43aa0956ef1f44fa5705800ff2b424608ec75499
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65080857"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795603"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Como utilizar o Kubernetes do Azure com o Azure Cosmos DB (pré-visualização)
 
@@ -132,6 +132,7 @@ Para saber mais sobre etcd API no Azure Cosmos DB, veja a [descrição geral](et
      --client-secret <Service_ principal_password> \
      --dns-prefix <Region_unique_dns_name > \
      --location centralus \
+     --resource-group <Resource_Group_Name> \
      --api-model <Fully_qualified_path_to_the_template_file>  \
      --force-overwrite
    ```

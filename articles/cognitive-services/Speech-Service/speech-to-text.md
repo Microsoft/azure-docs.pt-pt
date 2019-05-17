@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6b144f126e097a8db9fbbf29e47162fd6a1c2fbe
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 7596670e794c090b04f81cf6b235a4bc54c1f3c4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64916825"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800093"
 ---
 # <a name="what-is-speech-to-text"></a>O que é a conversão de voz em texto?
 
@@ -24,7 +24,7 @@ Conversão de voz em texto dos serviços de voz do Azure, também conhecido como
 
 Por predefinição, o serviço de voz em texto utiliza o modelo de idioma Universal. Este modelo foi treinado a utilizar os dados pertencentes à Microsoft e é implementado na cloud. É ideal para conversação e cenários de ditado. Se estiver usando a voz em texto para o reconhecimento e transcrição de num ambiente exclusivo, pode criar e formar modelos acústicos, idioma e pronúncia personalizados para o ruído do endereço ou específicos da indústria vocabulário. 
 
-Pode facilmente capturar áudio de um microfone, ler a partir de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de voz e REST APIs. O SDK de voz suporta WAV/PCM 16 bits, 16 kHz, canal único áudio para reconhecimento de fala. Formatos de áudio adicionais são suportados com o [ponto final REST de voz em texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [transcrição serviço batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Pode facilmente capturar áudio de um microfone, ler a partir de um fluxo ou acessar arquivos de áudio do armazenamento com o SDK de voz e REST APIs. O SDK de voz suporta WAV/PCM 16 bits, 16 kHz/8 kHz, áudio de canal único para o reconhecimento de fala. Formatos de áudio adicionais são suportados com o [ponto final REST de voz em texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) ou o [transcrição serviço batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Principais recursos
 

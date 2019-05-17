@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
 ms.openlocfilehash: 41b35324ccca8cf40edbc53ed25a2d8615a9294e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729343"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sauce-labs---mobile-and-web-testing"></a>Tutorial: Integração do Active Directory do Azure com os laboratórios molho - Mobile e o teste da Web
 
@@ -204,7 +204,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado no Labs molho - Mo
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de laboratórios de molho - Mobile e o teste da Web](mailto:support@saucelabs.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e8a85319a12f04a11e3914716d9ff84cdb6de8d8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60392403"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787867"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Definir e obter propriedades e metadados
 
-Objetos em Propriedades do sistema de suporte de armazenamento do Azure e os metadados definidos pelo usuário, além dos dados que contêm. Este artigo aborda as propriedades do sistema de gestão e os metadados definidos pelo utilizador com o [biblioteca de clientes de armazenamento do Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
+Objetos em Propriedades do sistema de suporte de armazenamento do Azure e os metadados definidos pelo usuário, além dos dados que contêm. Este artigo aborda as propriedades do sistema de gestão e os metadados definidos pelo utilizador com o [biblioteca de clientes de armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage/client).
 
 * **Propriedades do sistema**: Propriedades do sistema de existir em cada recurso de armazenamento. Alguns deles podem ser lidos ou definidos, enquanto outras são só de leitura. Nos bastidores, algumas propriedades do sistema correspondem a determinados cabeçalhos HTTP padrão. Bibliotecas de cliente de armazenamento do Azure de manter essas propriedades para.
 
@@ -99,5 +99,8 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Biblioteca de clientes de armazenamento do Azure para referência de .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Biblioteca de clientes de armazenamento do Azure para o pacote .NET NuGet](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Biblioteca de clientes de armazenamento do Azure para referência de .NET](/dotnet/api/?term=Microsoft.Azure.Storage)
+* [Biblioteca de clientes do Blob storage do Azure para o pacote de .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+* [Azure biblioteca de clientes de armazenamento de fila para o pacote de .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
+* [Biblioteca de clientes do ficheiro armazenamento do Azure para o pacote de .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+

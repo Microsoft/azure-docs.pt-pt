@@ -13,10 +13,10 @@ ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1bcbaf5ec3b15a36b28aa7d4b3346b85e1a7cc24
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65746716"
+ms.locfileid: "65785797"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 

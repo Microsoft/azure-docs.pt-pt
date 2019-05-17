@@ -9,10 +9,10 @@ ms.date: 05/08/2019
 ms.author: v-chjenk
 ms.openlocfilehash: b654c177accb92d5b9a861f14874e795f4525a43
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65761213"
+ms.locfileid: "65793828"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Tutorial: Criar um conjunto de anfitrião para validar as atualizações de serviço
 
