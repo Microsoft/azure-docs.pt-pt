@@ -44,7 +44,7 @@ As seguintes propriedades são suportadas para SAP Cloud para o serviço de clie
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **SapCloudForCustomer**. | Sim |
 | url | O URL do serviço OData de C4C SAP. | Sim |
-| o nome de utilizador | Especifique o nome de utilizador para ligar ao C4C SAP. | Sim |
+| username | Especifique o nome de utilizador para ligar ao C4C SAP. | Sim |
 | password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não para a origem, Sim para o sink |
 
@@ -83,7 +83,7 @@ Para copiar dados de Cloud de SAP para o cliente, defina a propriedade de tipo d
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo do conjunto de dados deve ser definida como: **SapCloudForCustomerResource** |Sim |
-| caminho | Especifique o caminho para a entidade de SAP C4C OData. |Sim |
+| path | Especifique o caminho para a entidade de SAP C4C OData. |Sim |
 
 **Exemplo:**
 
@@ -114,7 +114,7 @@ Para copiar dados de Cloud de SAP para o cliente, defina o tipo de origem na ati
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **SapCloudForCustomerSource**  | Sim |
-| consulta | Especifique a consulta de OData personalizada para ler os dados. | Não |
+| query | Especifique a consulta de OData personalizada para ler os dados. | Não |
 
 Consulta de exemplo para obter dados para um dia específico: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
