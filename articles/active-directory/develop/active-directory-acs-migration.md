@@ -3,8 +3,8 @@ title: Migrar a partir do serviço de controle de acesso do Azure | Documentos d
 description: Saiba mais sobre as opções para mover aplicações e serviços a partir do serviço de controlo de acesso de Azure (ACS).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 84a8c2954473401a9e57cba045907c60862ed61f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301077"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546240"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrardo Serviço de Controlo de Acesso do Microsoft Azure
 
@@ -129,9 +129,9 @@ As secções seguintes descrevem as recomendações de alto nível para a migra�
 
 Cada serviço cloud da Microsoft que aceita tokens que são emitidos pelo controlo de acesso agora dá suporte, pelo menos, uma forma alternativa de autenticação. O mecanismo de autenticação corretas varia para cada serviço. Recomendamos que consulte a documentação específica para cada serviço para obter diretrizes oficiais. Para sua comodidade, cada conjunto de documentação é fornecido aqui:
 
-| Serviço | Orientação |
+| Serviço | Documentação de orientação |
 | ------- | -------- |
-| Service Bus do Azure | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
+| Azure Service Bus | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Reencaminhamento do Azure Service Bus | [Migrar para assinaturas de acesso partilhado](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
 | Cache gerida do Azure | [Migrar para a Cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
 | O Azure DataMarket | [Migrar para as APIs serviços cognitivos](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
@@ -150,7 +150,7 @@ Cada serviço cloud da Microsoft que aceita tokens que são emitidos pelo contro
 
 2016, do SharePoint 2013 e SharePoint Online clientes há muito tempo usaram ACS para fins de autenticação na nuvem, no local e cenários híbridos. Alguns recursos do SharePoint e casos de utilização serão afetados pela desativação dos ACS, enquanto outros não irão. A tabela abaixo resume as orientações de migração para algumas das mais popular SharePoint ACS que tire partido de funcionalidades:
 
-| Funcionalidade | Orientação |
+| Funcionalidade | Documentação de orientação |
 | ------- | -------- |
 | Autenticação de utilizadores do Azure AD | Anteriormente, o Azure AD não oferecia suporte necessários para o SharePoint para a autenticação de tokens de SAML 1.1 e o ACS foi utilizado como um intermediário que efetuou o SharePoint compatíveis com formatos de token do Azure AD. Agora, pode [ligar o SharePoint diretamente ao Azure AD através do SharePoint de Galeria de aplicações do Azure AD na aplicação de local](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticação da aplicação e a autenticação de servidor a servidor no SharePoint no local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Não são afetados pela desativação de ACS; sem alterações necessárias. | 
@@ -204,7 +204,7 @@ Num alto nível *do Azure Active Directory é provavelmente a melhor opção par
 | WS-Trust | Suportadas | Não suportado |
 | **Formatos de token** | | |
 | JWT | Suportado na versão Beta | Suportadas |
-| SAML 1.1 | Suportadas | Pré-visualização |
+| SAML 1.1 | Suportadas | Pré-visualizar |
 | SAML 2.0 | Suportadas | Suportadas |
 | SWT | Suportadas | Não suportado |
 | **Personalizações** | | |

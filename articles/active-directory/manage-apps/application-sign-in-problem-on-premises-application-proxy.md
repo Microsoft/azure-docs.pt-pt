@@ -3,8 +3,8 @@ title: Problemas ao iniciar sessão a uma aplicação no local com o proxy de ap
 description: Resolução de problemas comuns enfrentados ao não consegue iniciar sessão a uma aplicação no local integrada com o Azure AD com o Proxy de aplicações do Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ee322dd3ff6ccd68b09645fb46b1488b17819bb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0adc2effb27ffcd870ec543ee7b353a092808797
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440420"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825246"
 ---
 # <a name="problems-signing-in-to-an-on-premises-application-using-the-azure-ad-application-proxy"></a>Problemas ao iniciar sessão a uma aplicação no local com o proxy de aplicações do Azure AD
 

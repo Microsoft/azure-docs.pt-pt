@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924746"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827760"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introdução à auditoria da base de dados SQL
 
@@ -110,10 +110,11 @@ A seguinte secção descreve a configuração de auditoria no portal do Azure.
 10. Se pretender personalizar os eventos auditados, pode fazê-lo via [cmdlets do PowerShell](#subheading-7) ou o [REST API](#subheading-9).
 11. Depois de configurar as definições de auditorias, pode ativar a nova funcionalidade de deteção de ameaças e configurar os e-mails para receber alertas de segurança. Ao utilizar a deteção de ameaças, recebe alertas pró-ativos relativamente a atividades anómalas da base de dados que podem indicar a potenciais ameaças de segurança. Para obter mais informações, consulte [introdução à deteção de ameaças](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->Ativação da auditoria num Azure SQL Data Warehouse, ou num servidor que tenha um Azure SQL Data Warehouse, **irá resultar no armazém de dados que está sendo continuado**, mesmo no caso em que ele foi anteriormente colocada em pausa. **Certifique-se de colocar em pausa o armazém de dados novamente depois de ativar a auditoria**. "
+> Não é possível ativar a auditoria num Azure SQL Data Warehouse em pausa. Para ativá-la, anular colocação em pausa o armazém de dados.
 
+> [!WARNING]
+> Ativar a auditoria num servidor que tenha um Azure SQL Data Warehouse no mesmo **resultará no armazém de dados que está a ser retomar e novamente em pausa novamente** que possa incorrer em despesas de faturação.
 
 ## <a id="subheading-3"></a>Analisar registos de auditoria e relatórios
 
@@ -206,7 +207,7 @@ Na produção, é provável que atualizar as chaves de armazenamento periodicame
 3. Vá para a página de configuração de auditoria, mude a chave de acesso de armazenamento secundária para primária de e, em seguida, clique em **OK**. Em seguida, clique em **guardar** no topo da página de configuração da auditoria.
 4. Volte para a página de configuração de armazenamento e voltar a gerar a chave de acesso secundária (em preparação para o ciclo de atualização da chave seguinte).
 
-## <a name="additional-information"></a>Informação Adicional
+## <a name="additional-information"></a>Informações Adicionais
 
 - Para obter detalhes sobre o registo de formatar, hierarquia da pasta de armazenamento e convenções de nomenclatura, consulte a [referência de formato de registo de auditoria de Blob](https://go.microsoft.com/fwlink/?linkid=829599).
 

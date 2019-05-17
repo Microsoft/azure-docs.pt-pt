@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041280"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550513"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitações na base de dados do Azure para MariaDB
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados.
@@ -82,6 +82,9 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 
 ### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
 - Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
+
+### <a name="storage-size"></a>Tamanho de armazenamento
+- Consulte a [escalões de preço](concepts-pricing-tiers.md) para os limites de tamanho de armazenamento por escalão de preço.
 
 ## <a name="current-known-issues"></a>Atuais problemas conhecidos
 - Instância de servidor MariaDB apresenta a versão de servidor incorreto depois de ligação é estabelecida. Para obter versão do motor de instância de servidor correto, utilize o `select version();` comando.

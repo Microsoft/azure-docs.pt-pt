@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190732"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823304"
 ---
 # <a name="what-is-password-writeback"></a>O que é a repetição de escrita de palavra-passe?
 
@@ -42,9 +42,8 @@ Fornece a repetição de escrita de palavra-passe:
 * **Oferece suporte a repetição de escrita de palavra-passe quando um administrador repõe-los a partir do portal do Azure**: Sempre que um administrador repõe a palavra-passe de um usuário na [portal do Azure](https://portal.azure.com), se esse utilizador está federado ou sincronizados de hash de palavra-passe, a palavra-passe é gravada no local. Esta funcionalidade não é atualmente suportada no portal de administração do Office.
 * **Não requer quaisquer regras de firewall de entrada**: Repetição de escrita de palavra-passe utiliza um reencaminhamento do Service bus do Azure como um canal de comunicação subjacente. Toda a comunicação é de saída através da porta 443.
 
-> [!Note]
+> [!NOTE]
 > Não não possível utilizar contas de utilizador que existem em grupos protegidos no Active Directory no local com repetição de escrita de palavra-passe. As contas de administrador que existem dentro protegidos grupos locais AD pode ser utilizado com repetição de escrita de palavra-passe. Para obter mais informações sobre grupos protegidos, consulte [protegidos a contas e grupos no Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento para a repetição de escrita de palavra-passe
 
@@ -63,7 +62,6 @@ Para utilizar a repetição de escrita de palavra-passe, tem de ter uma das segu
 
 > [!WARNING]
 > Autónomo Office 365, planos de licenciamento *não suportam "Self-Service palavra-passe reposição/alteração/desbloqueio com repetição de escrita no local"* e exige que possua um dos planos anteriores para esta funcionalidade funcione.
->
 
 ## <a name="how-password-writeback-works"></a>Como funciona a repetição de escrita de palavra-passe
 
@@ -90,7 +88,6 @@ Quando um hash de palavra-passe ou federado sincronizados utilizador tenta repor
 1. Se a operação de definição de palavra-passe for bem-sucedida, o utilizador é informado da que palavra-passe foi alterada.
    > [!NOTE]
    > Se o hash de palavra-passe do utilizador está sincronizado com o Azure AD utilizando a sincronização de hash de palavra-passe, é provável que a política de palavra-passe no local é mais fraca do que a política de palavra-passe na cloud. Neste caso, é aplicada a política no local. Esta política assegura que seus locais é imposta na cloud, quer se utilizar a sincronização de hash de palavra-passe ou Federação para fornecer início de sessão único.
-   >
 
 1. Se a palavra-passe definida a operação falhar, um erro pede ao utilizador para tentar novamente. A operação pode falhar porque:
     * O serviço estava.
@@ -155,6 +152,7 @@ As palavras-passe são repetidas nas seguintes situações:
    * Operação de palavra-passe, por exemplo, expiração de palavra-passe de alterar qualquer força de self-service de administrador
    * Reposição de qualquer senha de autoatendimento de administrador que são originados pelo [portal de reposição de palavra-passe](https://passwordreset.microsoftonline.com)
    * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [portal do Azure](https://portal.azure.com)
+   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [Centro de administração do Microsoft 365](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Operações de repetição de escrita não suportado
 
@@ -163,11 +161,10 @@ Palavras-passe são *não* repetição de escrita em qualquer uma das seguintes 
 * **Operações do utilizador final não suportado**
    * Qualquer utilizador final a repor a sua própria palavra-passe com o PowerShell versão 1, versão 2 ou o Azure AD Graph API
 * **Operações de administrador não suportado**
-   * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição do [portal de gestão do Office](https://portal.office.com)
    * Qualquer palavra-passe de utilizador final iniciadas pelo administrador de reposição da versão 1, versão 2 ou o Azure AD Graph API do PowerShell
 
 > [!WARNING]
-> Não é suportada a utilização da caixa de seleção "o utilizador deve alterar palavra-passe no próximo início de sessão" nas ferramentas administrativas de Active Directory no local, como o Active Directory utilizadores e computadores ou centro de administração do Active Directory. Quando alterar uma palavra-passe no local não verificar esta opção. 
+> Não é suportada a utilização da caixa de seleção "o utilizador deve alterar palavra-passe no próximo início de sessão" nas ferramentas administrativas de Active Directory no local, como o Active Directory utilizadores e computadores ou centro de administração do Active Directory. Quando alterar uma palavra-passe no local não verificar esta opção.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

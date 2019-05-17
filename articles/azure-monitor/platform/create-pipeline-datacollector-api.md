@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 961ce4427c509142077c95a6569ad2c444ec0a52
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53457a044f5c69af7bf68561f24732e8f02219d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205954"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603248"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API de Recoletor de dados
 
@@ -27,7 +27,7 @@ O [API do Recoletor de dados do Azure Monitor](data-collector-api.md) permite qu
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="example-problem"></a>Problema de exemplo
-Para o restante deste artigo, examinaremos os dados de exibição de página no Application Insights. Em nosso cenário hipotético, o que queremos correlacionar informações geográficas recolhidas por predefinição pelo Application Insights SDK para dados personalizados que contém a população de todos os países do mundo, com o objetivo de identificar em que podemos deve dedicar mais marketing dólares. 
+Para o restante deste artigo, examinaremos os dados de exibição de página no Application Insights. Em nosso cenário hipotético, o que queremos correlacionar informações geográficas recolhidas por predefinição pelo Application Insights SDK para dados personalizados que contém a população de cada país/região do mundo, com o objetivo de identificar em que podemos deve estar dedicando algum os marketing mais dólares. 
 
 Utilizamos uma origem de dados públicos, como o [propostas de população de mundo anular](https://esa.un.org/unpd/wpp/) para esta finalidade. Os dados terão o esquema simple seguinte:
 

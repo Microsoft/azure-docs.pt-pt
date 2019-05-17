@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d5cfe91cfcc124ef3073cfb6bbeda683505ff8e1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60716273"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561372"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilizar relatórios de estado de funcionamento do sistema para resolver problemas
 Componentes do Service Fabric do Azure fornecem reporta o estado de funcionamento do sistema de todas as entidades no cluster prontos a utilizar. O [arquivo de estado de funcionamento](service-fabric-health-introduction.md#health-store) cria e elimina as entidades com base em relatórios do sistema. Ele também organiza numa hierarquia que captura as interações de entidade.
@@ -632,7 +632,7 @@ A propriedade e o texto indicam qual API parou. Os passos seguintes a efetuar pa
 
 - **IStatefulServiceReplica.Close** e **IStatefulServiceReplica.Abort**: O caso mais comum é um serviço não respeitar o token de cancelamento passado para `RunAsync`. Também pode ser que `ICommunicationListener.CloseAsync`, ou se tiverem sido substituídas, `OnCloseAsync` está bloqueada.
 
-- **(S) de IStatefulServiceReplica.ChangeRole** e **IStatefulServiceReplica.ChangeRole(N)**: O caso mais comum é um serviço não respeitar o token de cancelamento passado para `RunAsync`.
+- **(S) de IStatefulServiceReplica.ChangeRole** e **IStatefulServiceReplica.ChangeRole(N)**: O caso mais comum é um serviço não respeitar o token de cancelamento passado para `RunAsync`. Neste cenário, a melhor solução é reiniciar a réplica.
 
 - **IStatefulServiceReplica.ChangeRole(P)**: O caso mais comum é que o serviço não devolveu uma tarefa de `RunAsync`.
 
