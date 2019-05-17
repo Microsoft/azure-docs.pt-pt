@@ -105,7 +105,7 @@ As seguintes propriedades são suportadas para o serviço de SAP Business Wareho
 | clientId | ID de cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
 | language | Idioma utilizado pelo sistema SAP. | Não (valor predefinido é **EN**)|
 | userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
-| palavra-passe | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
@@ -141,7 +141,7 @@ Para copiar dados de e para o Hub aberto do SAP BW, defina a propriedade de tipo
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo deve ser definida como **SapOpenHubTable**.  | Sim |
+| type | A propriedade de tipo deve ser definida como **SapOpenHubTable**.  | Sim |
 | openHubDestinationName | O nome do destino de Hub aberto para copiar dados a partir de. | Sim |
 | excludeLastRequest | Se exclui os registos do último pedido. | Não (a predefinição é **true**) |
 | baseRequestId | O ID do pedido de carregamento delta. Depois de definida, apenas os dados com requestId **maior do que** será possível obter o valor desta propriedade.  | Não |
