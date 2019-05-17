@@ -61,11 +61,11 @@ As seguintes propriedades são suportadas para o serviço de SAP Business Wareho
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **SapBw** | Sim |
-| servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
+| server | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
 | userName | Nome de utilizador que tem acesso ao servidor SAP. | Sim |
-| palavra-passe | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
+| password | A palavra-passe do utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo:**
@@ -126,7 +126,7 @@ Para copiar dados do SAP BW, defina o tipo de origem na atividade de cópia para
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
-| consulta | Especifica a consulta MDX para ler dados a partir da instância do SAP BW. | Sim |
+| query | Especifica a consulta MDX para ler dados a partir da instância do SAP BW. | Sim |
 
 **Exemplo:**
 
@@ -183,8 +183,8 @@ Quando se copiam dados a partir do SAP BW, os seguintes mapeamentos são utiliza
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| CADEIA DE CARACTERES | String |
-| UNIDADE | String |
+| STRING | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |
