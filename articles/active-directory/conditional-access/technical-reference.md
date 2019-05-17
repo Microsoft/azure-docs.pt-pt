@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b10a91499dbe7e627025be8487efa15890861b9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764733"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823551"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de definições de acesso condicional do Azure Active Directory
 
@@ -48,7 +48,6 @@ Pode atribuir uma política de acesso condicional para as seguintes aplicações
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection – [Saiba mais](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Gestão do Microsoft Azure - [Saiba mais](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- Microsoft Azure RemoteApp
 - Gestão de subscrições do Microsoft Azure
 - Microsoft Cloud App Security
 - Portal de controlo de acesso de ferramentas do Microsoft Commerce
@@ -167,7 +166,6 @@ Esta definição não tem um impacto em tentativas de acesso do seguintes de apl
 
 | Aplicações do cliente | Serviço de destino | Plataforma |
 | --- | --- | --- |
-| O Azure RemoteApp | Serviço do Azure RemoteApp | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
 | Aplicação do Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Aplicação de correio/calendário/pessoas, 2016 do Outlook, Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
 | Política de MFA e localização para aplicações. Políticas de dispositivo com base não são suportadas.| Qualquer serviço de aplicações as minhas aplicações| Android e iOS |

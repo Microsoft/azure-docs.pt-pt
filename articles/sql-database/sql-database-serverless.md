@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: 7ab22a1d1b44327b28264ec5bd6ba0c44b1d65a7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65620145"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823319"
 ---
 # <a name="sql-database-serverless-preview"></a>Base de dados SQL sem servidor (pré-visualização)
 
@@ -277,19 +277,21 @@ A quantidade de computação faturada é exposta pela métrica seguinte:
 
 Esta quantidade é calculada a cada segundo e agregada de mais de 1 minuto.
 
-**Exemplo**: Considere uma base de dados com GP_S_Gen5_4 com a seguinte utilização num período de uma hora:
+Considere uma base de dados sem servidor configurado com 1 min vcore e 4 vcores máximos.  Isso corresponde a cerca de 3 GB de memória mínima e máximas de 12 GB de memória.  Suponha que o atraso de pausa automática está definido para 6 horas e a carga de trabalho de base de dados esteve ativa durante as primeiras 2 horas de período de 24 horas e caso contrário, inativos.    
 
-|Tempo (horas: minutos)|app_cpu_billed (vCore segundos)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Total: 1631|
+Neste caso, a base de dados é cobrada por computação e armazenamento, durante as primeiras 8 horas.  Apesar da base de dados é iniciar inativo após a hora de 2ª, ainda é faturada para computação nas horas 6 subsequentes com base na computação mínimo aprovisionada enquanto a base de dados está online.  Apenas o armazenamento é cobrado durante o restante do período de 24 horas enquanto a base de dados está em pausa.
 
-Suponha que o preço de unidade de computação é $0.000073/vCore/second. Em seguida, a computação faturada durante este período de uma hora é determinada usando a seguinte fórmula: **$0.000073/vCore/second * 1631 vCore segundos = US $0.1191**
+Mais precisamente, a fatura de computação neste exemplo é calculada da seguinte forma:
+
+|Intervalo de Tempo|vCores utilizados por segundo|GB utilizados por segundo|Dimensão faturada de computação|segundos de vCore faturados ao longo do intervalo de tempo|
+|---|---|---|---|---|
+|0:00-1:00|4|9|vCores utilizados|4 vCores * 3600 segundos = 14400 vCore segundos|
+|1:00-2:00|1|12|Memória utilizada|12 Gb * 1/3 * 3600 segundos = 14400 vCore segundos|
+|2:00-8:00|0|0|Memória mínima aprovisionada|3 Gb * 1/3 * 21600 segundos = 21600 vCore segundos|
+|8:00-24:00|0|0|Nenhuma computação faturada ao passo que está em pausa|vCore de 0 segundos|
+|Segundos de total vCore faturados mais de 24 horas||||50400 vCore segundos|
+
+Suponha que o preço de unidade de computação é $0.000073/vCore/second.  Em seguida, a computação faturada durante este período de 24 horas é o produto das computação unidade preço e vcore segundos faturado: $0.000073/vCore/second * 50400 segundos de vCore = us $3,68
 
 ## <a name="available-regions"></a>Regiões disponíveis
 

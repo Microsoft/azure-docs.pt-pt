@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195712"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603207"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Analisar dados de geração 1 de armazenamento do Azure Data Lake ao utilizar o Power BI
 Neste artigo, aprenderá como usar o ambiente de trabalho do Power BI para analisar e visualizar os dados armazenados na geração 1 de armazenamento do Azure Data Lake.
@@ -74,23 +74,23 @@ Antes de começar este tutorial, tem de ter o seguinte:
 14. Assim que a consulta é atualizada, o **campos** guia irá mostrar os novos campos disponíveis para visualização.
     
     ![Atualizar campos](./media/data-lake-store-power-bi/updated-query-fields.png "atualizado campos")
-15. Vamos crie um gráfico de pizza para representar os controladores no cada cidade para um determinado país. Para tal, faça as seleções seguintes.
+15. Vamos crie um gráfico de pizza para representar os controladores no cada cidade para um determinado país/região. Para tal, faça as seleções seguintes.
     
     1. No separador visualizações, clique no símbolo para um gráfico de pizza.
        
         ![Criar o gráfico circular](./media/data-lake-store-power-bi/create-pie-chart.png "criar o gráfico circular")
-    2. As colunas que vamos utilizar são **coluna 4** (nome da cidade) e **7 de coluna** (nome do país). Arraste estas colunas da **campos** separador para **visualizações** separador conforme mostrado abaixo.
+    2. As colunas que vamos utilizar são **coluna 4** (nome da cidade) e **7 de coluna** (nome do país/região). Arraste estas colunas da **campos** separador para **visualizações** separador conforme mostrado abaixo.
        
         ![Criar visualizações](./media/data-lake-store-power-bi/create-visualizations.png "criar visualizações")
     3. O gráfico de pizza agora deve assemelhar-se, como o mostrado abaixo.
        
         ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "criar visualizações")
-16. Ao selecionar um país específico de filtros de nível de página, agora pode ver o número de controladores em cada cidade do país selecionado. Por exemplo, sob o **visualizações** separador, em **filtros de nível de página**, selecione **Brasil**.
+16. Ao selecionar um país/região dos filtros de nível de página, agora pode ver o número de controladores em cada cidade de país/região selecionada. Por exemplo, sob o **visualizações** separador, em **filtros de nível de página**, selecione **Brasil**.
     
-    ![Selecione um país](./media/data-lake-store-power-bi/select-country.png "selecione um país")
+    ![Selecione um país](./media/data-lake-store-power-bi/select-country.png "selecione um país/região")
 17. O gráfico de pizza é atualizado automaticamente para apresentar os drivers em cidades do Brasil.
     
-    ![Controladores num país](./media/data-lake-store-power-bi/driver-per-country.png "Drivers por país")
+    ![Controladores num país](./media/data-lake-store-power-bi/driver-per-country.png "Drivers por país/região")
 18. Do **arquivo** menu, clique em **guardar** para guardar a visualização como um ficheiro do Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicar o relatório no serviço Power BI

@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 08/25/2017
 ms.author: elioda
-ms.openlocfilehash: f93abac563d47f6505f42d29e882698ef31174bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 20b804f3d15543d0cf415d00dc81a6f55a348260
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61444823"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597427"
 ---
 # <a name="get-started-with-device-twins-node"></a>Começar a utilizar dispositivos duplos (Node)
 
@@ -31,7 +31,7 @@ No final deste tutorial, terá duas aplicações de consola node. js:
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Versão 4.0.x ou posterior do Node.js.
+* Versão node. js 10.0.x ou posterior.
 
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 

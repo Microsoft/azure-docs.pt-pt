@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413914"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603105"
 ---
 # <a name="what-is-azure-importexport-service"></a>O que é o serviço importar/exportar do Azure?
 
@@ -29,7 +29,7 @@ Considere utilizar o serviço importar/exportar do Azure quando carregar ou tran
 
 * **Migração de dados para a cloud**: Mover grandes quantidades de dados para o Azure rapidamente e económica.
 * **Distribuição de conteúdo**: Envie dados rapidamente para sites dos seus clientes.
-* **Cópia de segurança**: Fazer cópias de segurança dos seus dados no local para armazenar no armazenamento do Azure.
+* **cópia de segurança**: Fazer cópias de segurança dos seus dados no local para armazenar no armazenamento do Azure.
 * **Recuperação de dados**: Recuperar a grande quantidade de dados armazenados no armazenamento e tê-lo entregue para a sua localização no local.
 
 ## <a name="importexport-components"></a>Componentes de importação/exportação
@@ -74,9 +74,9 @@ Num alto nível, uma tarefa de importação envolve os seguintes passos:
 8. As unidades são fornecidas com a sua conta de operadora para o endereço do remetente fornecido na tarefa de importação.
 
 > [!NOTE]
-> Para remessas em locais (no país do Centro de dados), partilhe uma conta da transportadora nacionais 
+> Para remessas em locais (no país/região do Datacenter), partilhe uma conta da transportadora nacionais 
 >
-> Para remessas abroad (fora do país do Centro de dados), partilhe uma conta da transportadora internacionais
+> Para remessas abroad (fora do país/região do Datacenter), partilhe uma conta da transportadora internacionais
 
  ![Fluxo de trabalho de 1:Import figura](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ Num alto nível, uma tarefa de exportação envolve os seguintes passos:
 10. As unidades são fornecidas com a sua conta de operadora para o endereço do remetente fornecido na tarefa de importação.
 
 > [!NOTE]
-> Para remessas em locais (no país do Centro de dados), partilhe uma conta da transportadora nacionais 
+> Para remessas em locais (no país/região do Datacenter), partilhe uma conta da transportadora nacionais 
 >
-> Para remessas abroad (fora do país do Centro de dados), partilhe uma conta da transportadora internacionais
+> Para remessas abroad (fora do país/região do Datacenter), partilhe uma conta da transportadora internacionais
   
  ![Fluxo de trabalho de 2:Export figura](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ O serviço importar/exportar do Azure suporta a cópia de dados de e para todas 
 ### <a name="supported-shipping-locations"></a>Suportado localizações de envio
 
 
-|País  |País  |País  |País  |
+|País/Região  |País/Região  |País/Região  |País/Região  |
 |---------|---------|---------|---------|
 |EUA Leste    | Europa do Norte        | Índia Central        |US Gov - Iowa         |
 |EUA Oeste     |Europa Ocidental         | Sul da Índia        | US DoD Leste        |

@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: d1e9a6da399adcdca87c1d6dc30eaf425ec0541e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 72d7956036404d13849f7c2b08f9df4210f12aa7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61453605"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597268"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-nodejs"></a>Ligar o Raspberry Pi ao Hub IoT do Azure (node. js)
 
@@ -199,10 +199,10 @@ Ative o Pi usando o cabo USB do micro e a fonte de alimentação. Utilize o cabo
    node -v
    ```
 
-   Se a versão é inferior à 4.x, ou se não houver nenhum node. js no seu Pi, instale a versão mais recente.
+   Se a versão é inferior ao 10.x ou se não houver nenhum node. js no seu Pi, instale a versão mais recente.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash
+   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 

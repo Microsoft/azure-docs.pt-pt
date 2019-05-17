@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549857"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595379"
 ---
+> [!NOTE] 
+> As contas de utilizador discutidas neste artigo são diferentes dos utilizadores contas utilizadas para o protocolo RDP (Remote Desktop) ou Secure Shell (SSH), por motivos de segurança. 
+>
+> Para ligar a um nó a executar a configuração de máquina virtual do Linux através de SSH, veja [ambiente de trabalho remoto do uso de uma VM do Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar a nós a executar o Windows através de RDP, veja [ligar a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Para ligar a um nó a executar a configuração do serviço cloud através de RDP, veja [ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de utilizador no Batch
 
 Uma tarefa no Azure Batch é sempre executado sob uma conta de utilizador. Por predefinição, as tarefas executadas em contas de usuário padrão, sem permissões de administrador. Estas definições de conta de utilizador predefinidas são normalmente suficientes. No entanto, para determinados cenários, é útil poder configurar a conta de utilizador onde pretende que a execução de uma tarefa. Este artigo aborda os tipos de contas de utilizador e como pode configurá-las para o seu cenário.
@@ -36,14 +45,6 @@ O Azure Batch fornece dois tipos de contas de utilizador para a execução de ta
 
 > [!IMPORTANT] 
 > A versão de serviço do Batch 2017-01-01.4.0 apresenta uma alteração de última hora que requer que atualizar seu código para chamar essa versão. Se estiver migrando o código de uma versão mais antiga do Batch, tenha em atenção de que o **runElevated** propriedade já não é suportada nas bibliotecas de cliente de REST API ou lote. Utilizar a nova **userIdentity** propriedade de uma tarefa para especificar o nível de elevação. Consulte a secção intitulada [atualizar seu código com a biblioteca de cliente mais recente do Batch](#update-your-code-to-the-latest-batch-client-library) para rápida diretrizes para atualizar seu código do Batch, se estiver a utilizar uma das bibliotecas de cliente.
->
->
-
-> [!NOTE] 
-> As contas de utilizador discutidas neste artigo não suportam protocolo RDP (Remote Desktop) ou Secure Shell (SSH), por motivos de segurança. 
->
-> Para ligar a um nó a executar a configuração de máquina virtual do Linux através de SSH, veja [ambiente de trabalho remoto do uso de uma VM do Linux no Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para ligar a nós a executar o Windows através de RDP, veja [ligar a uma VM do Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Para ligar a um nó a executar a configuração do serviço cloud através de RDP, veja [ativar a ligação de ambiente de trabalho remoto para uma função nos serviços Cloud do Azure](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 
