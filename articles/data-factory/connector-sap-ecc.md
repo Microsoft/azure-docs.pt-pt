@@ -56,7 +56,7 @@ As seguintes propriedades são suportadas para o serviço de SAP ECC ligado:
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **SapEcc** | Sim |
 | url | O url do serviço OData do SAP ECC. | Sim |
-| o nome de utilizador | O nome de utilizador utilizada para ligar para o SAP ECC. | Não |
+| username | O nome de utilizador utilizada para ligar para o SAP ECC. | Não |
 | password | A palavra-passe de texto sem formatação utilizada para ligar para o SAP ECC. | Não |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
@@ -91,7 +91,7 @@ Para copiar dados do SAP ECC, defina a propriedade de tipo de conjunto de dados 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| caminho | Caminho da entidade SAP ECC OData. | Sim |
+| path | Caminho da entidade SAP ECC OData. | Sim |
 
 **Exemplo**
 
@@ -122,7 +122,7 @@ Para copiar dados do SAP ECC, defina o tipo de origem na atividade de cópia par
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SapEccSource** | Sim |
-| consulta | Opções de consulta de OData para filtrar dados. Exemplo: "$select = nome, descrição e $top = 10".<br/><br/>Conector de SAP ECC copia dados da URL combinado: (o url especificado no serviço ligado) / (o caminho especificado no conjunto de dados)? (consulta especificada na origem de atividade de cópia). Consulte a [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| query | Opções de consulta de OData para filtrar dados. Exemplo: "$select = nome, descrição e $top = 10".<br/><br/>Conector de SAP ECC copia dados da URL combinado: (o url especificado no serviço ligado) / (o caminho especificado no conjunto de dados)? (consulta especificada na origem de atividade de cópia). Consulte a [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo:**
 
@@ -163,7 +163,7 @@ Quando se copiam dados a partir do SAP ECC, são utilizados os seguintes mapeame
 | Tipo de dados do OData | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | Edm.Binary | String |
-| Edm.Boolean | Booleano |
+| Edm.Boolean | Bool |
 | Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
