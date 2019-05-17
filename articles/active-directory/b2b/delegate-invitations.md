@@ -1,44 +1,28 @@
 ---
-title: Delegar convites para colaboração B2B - Azure Active Directory | Documentos da Microsoft
-description: Propriedades de utilizador de colaboração do Azure Active Directory B2B são configuráveis
+title: Ativar as definições de colaboração externa B2B - Azure Active Directory | Documentos da Microsoft
+description: Saiba como ativar a colaboração externa do Active Directory B2B e gerir quem pode convidar utilizadores convidados. Utilize a função de utilizador que convida convidados para delegar convites.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 04/11/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18d40397f30b471699f42878a38c88efebcc6305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 11dda7fc3760f468c094fb4cf4484a27895f83b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413611"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812680"
 ---
-# <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Delegar convites para colaboração do Azure Active Directory B2B
+# <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Permita uma colaboração B2B externa e gerir quem pode convidar convidados
 
-Com a colaboração de empresa-empresa (B2B) do Azure Active Directory (Azure AD), não tem de ser um administrador global para enviar convites. Em vez disso, pode utilizar as políticas e delegar convites para os usuários cujas funções de permitir que os mesmos enviar convites. É uma forma nova importante para delegar convites de utilizadores através da função de utilizador que convida convidados.
+Este artigo descreve como ativar a colaboração B2B do Azure Active Directory (Azure AD) e determinar quem pode convidar convidados. Por predefinição, todos os utilizadores e convidados no seu diretório podem convidar convidados, mesmo que eles não estão atribuídos a uma função de administrador. Definições de colaboração externa permitem-lhe ativar convites de convidado ativada ou desativada para diferentes tipos de utilizadores na sua organização. Também pode delegar convites para utilizadores individuais através da atribuição de funções de quais eles podem convidar convidados.
 
-## <a name="guest-inviter-role"></a>Função de utilizador que convida convidados
-Podemos atribuir o utilizador à função de utilizador que convida convidados para enviar convites. Não tem de ser membro da função de administrador global para enviar convites. Por predefinição, os utilizadores regulares também podem invocar a API de convite, a menos que um administrador global desativada convites para usuários regulares. Um utilizador pode também invocar a API com o portal do Azure ou o PowerShell.
-
-Eis um exemplo que mostra como utilizar o PowerShell para adicionar um utilizador à função de utilizador que convida convidados:
-
-```
-Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
-```
-
-## <a name="control-who-can-invite"></a>Controlar quem pode convidar
-
-No Azure Active Directory, selecione **definições de utilizador**. Sob **utilizadores externos**, selecione **gerir definições de colaboração externa**.
-
-> [!NOTE]
-> O **definições de colaboração externa** também estão disponíveis a partir do **organizacionais relações** página. No Azure Active Directory, em **gerir**, aceda à **organizacionais relações** > **definições**.
-
-![Definições de colaboração externa](./media/delegate-invitations/control-who-to-invite.png)
+## <a name="configure-b2b-external-collaboration-settings"></a>Configurar as definições de colaboração externa de B2B
 
 Com a colaboração B2B do Azure AD, o administrador de inquilinos pode definir as seguintes políticas de convite:
 
@@ -47,7 +31,35 @@ Com a colaboração B2B do Azure AD, o administrador de inquilinos pode definir 
 - Os administradores, a função de utilizador que convida convidados e os membros podem convidar
 - Todos os usuários, inclusive convidados, podem convidar
 
-Por predefinição, os inquilinos são definidos para #4. (Todos os usuários, inclusive convidados, podem convidar utilizadores B2B).
+Por predefinição, todos os usuários, inclusive convidados, podem convidar utilizadores convidados.
+
+### <a name="to-configure-external-collaboration-settings"></a>Para configurar definições de colaboração externa:
+
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) enquanto administrador inquilino.
+2. Selecione **do Azure Active Directory** > **utilizadores** > **as definições de utilizador**.
+3. Sob **utilizadores externos**, selecione **gerir definições de colaboração externa**.
+   > [!NOTE]
+   > O **definições de colaboração externa** também estão disponíveis a partir do **organizacionais relações** página. No Azure Active Directory, em **gerir**, aceda à **organizacionais relações** > **definições**.
+4. Sobre o **definições de colaboração externa** página, selecione as políticas que pretende ativar.
+
+   ![Definições de colaboração externa](./media/delegate-invitations/control-who-to-invite.png)
+
+  - **Permissões dos utilizadores convidados são limitadas**: Esta política determina as permissões para convidados no seu diretório. Selecione **Sim** para convidados de bloco de determinadas tarefas de diretório, como enumerar utilizadores, grupos ou outros recursos de diretório. Selecione **não** para dar o convidados o mesmo acesso aos dados do diretório usuários regulares no seu diretório.
+   - **Os administradores e utilizadores na função de autor do convite de convidado podem convidar**: Para permitir que os administradores e utilizadores na função de "Autor de convite" convidar participantes, definir esta política como **Sim**.
+   - **Os membros podem convidar**: Para permitir que os membros de não-administrador do seu diretório convidar convidados, definir esta política como **Sim**.
+   - **Os convidados podem convidar**: Para permitir que os convidados convidar outros convidados, defina esta política como **Sim**.
+   - **Ativar o código de acesso de uso individual de E-Mail para convidados (pré-visualização)**: Para obter mais informações sobre a funcionalidade de código de acesso único, consulte [autenticação de código de acesso único por E-Mail (pré-visualização)](one-time-passcode.md).
+   - **Restrições de colaboração**: Para obter mais informações sobre como permitir ou bloquear convites a domínios específicos, consulte [permitir ou bloquear convites aos utilizadores B2B de organizações específicos](allow-deny-list.md).
+
+## <a name="assign-the-guest-inviter-role-to-a-user"></a>Atribuir a função de utilizador que convida convidados a um utilizador
+
+Com a função de utilizador que convida convidados, pode conceder a utilizadores individuais a capacidade de convidar convidados sem lhes atribuir um administrador global ou de outra função de administrador. Atribua a função de autor do convite de convidado para indivíduos. Em seguida, certifique-se de que defina **administradores e utilizadores na função de autor podem convidar** ao **Sim**.
+
+Eis um exemplo que mostra como utilizar o PowerShell para adicionar um utilizador à função de utilizador que convida convidados:
+
+```
+Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
