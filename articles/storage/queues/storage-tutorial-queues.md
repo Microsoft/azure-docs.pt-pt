@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.openlocfilehash: 8d108e1683be03a79e87990b983f2eda3eadba90
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65759219"
+ms.locfileid: "65797526"
 ---
 # <a name="tutorial-work-with-azure-storage-queues"></a>Tutorial: Trabalhar com filas de armazenamento do Azure
 

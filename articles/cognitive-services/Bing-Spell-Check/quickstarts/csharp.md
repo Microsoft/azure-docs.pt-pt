@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 5a80f0feec6985129f78ee0b034746aa77f2e271
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 102fd27c25052f4f5b3c3c469447b8488171f644
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876621"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798484"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Início rápido: Verifique a ortografia com a API de REST de verificação do Bing ortográfica eC#
 
@@ -23,9 +23,9 @@ Utilize este guia de introdução para efetuar a primeira chamada à API do REST
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualquer edição dos [Visual Studio 2017 ou posterior](https://www.visualstudio.com/downloads/).
 * Para instalar `Newtonsoft.Json` como um pacote de NuGet no Visual studio:
-    1. No Explorador de soluções, clique com botão direito no arquivo de solução.
+    1. Na **Explorador de soluções**, com o botão direito do arquivo da solução.
     1. Selecione **gerir pacotes NuGet para solução**.
     1. Procure `Newtonsoft.Json` e instalar o pacote.
 * Se estiver a utilizar Linux/MacOS, esta aplicação pode ser executada usando [Mono](https://www.mono-project.com/).

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 0612770c823e30578e7f4675878fc4ce2aee2bd9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4fb5d1e20c4c857dedcec2dc4695f82fccd9269d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702987"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792753"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Pontuação de confiança de uma base de dados de conhecimento do QnA Maker
 Quando uma consulta de utilizador é comparada com uma base de dados de conhecimento, o QnA Maker retorna respostas relevantes, juntamente com uma pontuação de confiança. Esta pontuação indica a confiança de que a resposta é a correspondência de direita para a consulta de utilizador especificado. 
@@ -58,7 +58,7 @@ Ao escolher o limiar, tenha em atenção o equilíbrio entre a precisão e a cob
 > Versões mais recentes do QnA Maker incluem melhoramentos de lógica de classificação e afetam o limiar. Sempre que atualizar o serviço, certifique-se de testar e ajustar o limiar, se necessário. Pode verificar a sua versão de serviço do QnA [aqui](https://www.qnamaker.ai/UserSettings)e veja como obter as atualizações mais recentes [aqui](../How-To/troubleshooting-runtime.md).
 
 ## <a name="improve-confidence-scores"></a>Melhorar as pontuações de confiança
-Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta. Também pode utilizar maiúsculas e minúsculas [alterações de palavras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) para adicionar sinónimos para palavras-chave em seu KB.
+Para melhorar a pontuação de confiança de uma determinada resposta a uma consulta de utilizador, pode adicionar a consulta de utilizador para a base de dados de conhecimento como uma alternativa pergunta em que a resposta. Também pode utilizar maiúsculas e minúsculas [alterações de palavras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos para palavras-chave em seu KB.
 
 
 ## <a name="similar-confidence-scores"></a>Pontuações de confiança semelhantes

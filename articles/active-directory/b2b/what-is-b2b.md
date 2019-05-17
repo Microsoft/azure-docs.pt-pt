@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 09/14/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ab73b501fc9dbe6209a92fff6f6e19de03fcdc1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355459"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768069"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso do utilizador convidado na colaboração B2B do Azure Active Directory?
 

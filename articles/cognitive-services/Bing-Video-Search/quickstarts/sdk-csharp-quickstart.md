@@ -3,19 +3,19 @@ title: 'Início rápido: Procurar vídeos com o SDK de pesquisa de vídeo Bing p
 titleSuffix: Azure Cognitive Services
 description: Utilize este guia de introdução para enviar pedidos de pesquisa de vídeos com o SDK de pesquisa de vídeos do Bing para C#.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.author: rosh
-ms.openlocfilehash: f94db7a29827a80307f4a081d93744c5edc59edb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e10d9088f6de3b7a3a638cdbe18f51425d206b7b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61473285"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65798172"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-c"></a>Início rápido: Efetua uma pesquisa de vídeo com o SDK de pesquisa de vídeos do Bing paraC#
 
@@ -23,10 +23,10 @@ Utilize este guia de introdução para começar a pesquisa de notícias com o SD
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
+* Qualquer edição dos [Visual Studio 2017 ou posterior](https://visualstudio.microsoft.com/downloads/).
 * A estrutura de Json.NET [como um pacote NuGet](https://www.nuget.org/packages/Newtonsoft.Json/).
 
-Para adicionar o SDK de pesquisa de vídeos do Bing ao seu projeto, navegue para o `Manage NuGet Packages` opção a partir do Explorador de soluções no Visual Studio.  Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
+Para adicionar o SDK de pesquisa de vídeos do Bing ao seu projeto, selecione **gerir pacotes NuGet** partir **Explorador de soluções** no Visual Studio. Adicione o pacote `Microsoft.Azure.CognitiveServices.Search.VideoSearch`.
 
 Instalar o [[pacote do SDK de pesquisa de vídeo do NuGet]](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.VideoSearch/1.2.0) também instala as seguintes dependências:
 

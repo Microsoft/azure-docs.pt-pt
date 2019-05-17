@@ -3,8 +3,8 @@ title: Como criar uma aplicação que pode iniciar a sessão de qualquer utiliza
 description: Mostra como criar uma aplicação multi-inquilino que possam iniciar sessão um utilizador a partir de qualquer inquilino do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410510"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540461"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Iniciar sessão a qualquer utilizador do Azure Active Directory utilizando o padrão de aplicação multi-inquilino
 
@@ -150,7 +150,7 @@ Isso é demonstrado num cliente nativo de várias camado chamada de exemplo de w
 
 Um caso semelhante acontece se as diferentes camadas de um aplicativo são registadas em inquilinos diferentes. Por exemplo, considere o caso de criação de um aplicativo de cliente nativo que chama a API do Office 365 Exchange Online. Para desenvolver a nativas da aplicação e mais tarde para o aplicativo nativo executar no inquilino de um cliente, o Exchange Online principal de serviço tem de estar presente. Neste caso, o desenvolvedor e o cliente tem de comprar Exchange Online para o serviço principal a ser criada em seus inquilinos.
 
-Se se trata de uma API criada por uma organização diferente da Microsoft, o desenvolvedor da API tem de fornecer uma forma para seus clientes dar consentimento o aplicativo em inquilinos dos clientes. É a estrutura recomendada para o desenvolvedor de terceiros criar a API de forma que ele também pode funcionar como um cliente web para implementar a inscrição. Para efetuar este procedimento:
+Se se trata de uma API criada por uma organização diferente da Microsoft, o desenvolvedor da API tem de fornecer uma forma para seus clientes dar consentimento o aplicativo em inquilinos dos clientes. É a estrutura recomendada para o desenvolvedor de terceiros criar a API de forma que ele também pode funcionar como um cliente web para implementar a inscrição. Para tal:
 
 1. Siga as secções anteriores para garantir que a API implementa os requisitos de registo/código de aplicação multi-inquilino.
 2. Além de expor âmbitos/funções a API, certifique-se de que inclui o registo a "iniciar sessão e ler o perfil de usuário" permissão (fornecido por predefinição).

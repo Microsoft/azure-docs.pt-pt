@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.openlocfilehash: deff2aa3cd475a3ed37adc4408a133ed1fd0757e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8142caf867ffe811726677fb1dcbadc7d1458251
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716671"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793556"
 ---
-# <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>Uma introdução à segurança do Apache Hadoop com o Enterprise Security Package
+# <a name="what-is-enterprise-security-package-in-azure-hdinsight"></a>O que é o Enterprise Security Package no Azure HDInsight
 
 No passado, o Azure HDInsight suportado apenas um único utilizador: administrador local. Isto resultava muito bem para equipas ou departamentos de aplicações mais pequenos. Como cargas de trabalho baseadas em Apache Hadoop ganhavam mais popularidade no setor empresarial, a necessidade para suportam capacidades de nível empresarial, como a autenticação baseada no Active Directory, multiusuário e controlo de acesso baseado em funções se tornou cada vez mais importante. 
 

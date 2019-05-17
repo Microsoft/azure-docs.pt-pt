@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 92173e760cf8207a15c643ca75913145ed343b55
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 41d8d05cf5f900c7fcd5640f8896c715640ebcab
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65517755"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65772805"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workspot-control"></a>Tutorial: Integração do Active Directory do Azure com o controlo de Workspot
 
@@ -240,12 +240,12 @@ Para ativar a utilizadores do Azure AD iniciar sessão no controle de Workspot, 
 
 Nesta secção, vamos testar nosso única início de sessão em configuração do Azure AD através de *painel de acesso*.
 
-Quando clica no **Workspot controle** mosaico no painel de acesso, deve estar automaticamente conectado ao controle Workspot para o qual configura o SSO. Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](https://docs.microsoft.com/en-us/azure/active-directory/user-help/my-apps-portal-end-user-access).
+Quando clica no **Workspot controle** mosaico no painel de acesso, deve estar automaticamente conectado ao controle Workspot para o qual configura o SSO. Para mais informações, consulte [Introduction to the Access Panel (Introdução ao Painel de Acesso)](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list)
+- [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
 
-- [Início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

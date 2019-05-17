@@ -3,19 +3,19 @@ title: Suporte de idiomas - API de pesquisa personalizada do Bing
 titleSuffix: Azure Cognitive Services
 description: Uma lista de idiomas suportados e regiões para a API de pesquisa personalizada do Bing.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: aahi
+ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867836"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790251"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte de idioma e região para a API de pesquisa personalizada do Bing
 
@@ -36,23 +36,23 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |Áustria|AT|
 |Bélgica|BE|
 |Brasil|BR|
-|Canadá|CA|
+|Canadá|AC|
 |Chile|CL|
 |Dinamarca|DK|
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|RAE de Hong Kong|HK|
+|R.A.E. Hong Kong|HK|
 |Índia|IN|
 |Indonésia|ID|
-|Itália|TI|
+|Itália|it|
 |Japão|JP|
 |Coreia|KR|
 |Malásia|MY|
 |México|MX|
 |Países Baixos|NL|
 |Nova Zelândia|NZ|
-|Noruega|NO|
+|Noruega|NÃO|
 |China|CN|
 |Polónia|PL|
 |Portugal|PT|
@@ -74,12 +74,12 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |País/região|Idioma|Código do mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
-|Austrália|Português|EN-AU|
+|Austrália|Inglês|EN-AU|
 |Áustria|Alemão|Alemanha-AT|
 |Bélgica|Neerlandês|nl-BE|
 |Bélgica|Francês|fr-BE|
 |Brasil|Português|pt-BR|
-|Canadá|Português|en-CA|
+|Canadá|Inglês|en-CA|
 |Canadá|Francês|fr-CA|
 |Chile|Espanhol|es-CL|
 |Dinamarca|Dinamarquês|da-DK|
@@ -87,29 +87,29 @@ O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuame
 |França|Francês|FR-FR|
 |Alemanha|Alemão|de-DE|
 |RAE de Hong Kong|Chinês tradicional|zh-HK|
-|Índia|Português|EN-IN|
-|Indonésia|Português|en-ID|
+|Índia|Inglês|EN-IN|
+|Indonésia|Inglês|en-ID|
 |Itália|Italiano|it-IT|
 |Japão|Japonês|ja-JP|
 |Coreia|Coreano|ko-KR|
-|Malásia|Português|en-MY|
+|Malásia|Inglês|en-MY|
 |México|Espanhol|es-MX|
 |Países Baixos|Neerlandês|NL-NL|
-|Nova Zelândia|Português|EN-NZ|
+|Nova Zelândia|Inglês|EN-NZ|
 |Noruega|Norueguês|no-NO|
 |China|Chinês|zh-CN|
 |Polónia|Polaco|pl-PL|
 |Portugal|Português|pt-PT|
-|Filipinas|Português|en-PH|
+|Filipinas|Inglês|en-PH|
 |Rússia|Russo|ru-RU|
 |Arábia Saudita|Árabe|ar SA|
-|África do Sul|Português|en-ZA|
+|África do Sul|Inglês|en-ZA|
 |Espanha|Espanhol|es-ES|
 |Suécia|Sueco|SV-SE|
 |Suíça|Francês|FR-CH|
 |Suíça|Alemão|Alemanha-CH|
 |Taiwan|Chinês tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
-|Reino Unido|Português|en-GB|
-|Estados Unidos|Português|en-US|
+|Reino Unido|Inglês|en-GB|
+|Estados Unidos|Inglês|en-US|
 |Estados Unidos|Espanhol|es-US|

@@ -3,8 +3,8 @@ title: Instalar a extensão de browser de painel de acesso de aplicações - Azu
 description: Corrigi erros comuns encontrados ao instalar a extensão de browser do painel de acesso.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 5/4/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92999f23b468c975d0f95f2628b9a5069d929031
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1973bc647b0e3c7fc453009f638b770e171132fc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707337"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784260"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>Instalar a extensão de browser do painel de acesso
 

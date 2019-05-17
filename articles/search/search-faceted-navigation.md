@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 05/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 43c072cb72935a80da0e48e6b8343f38ee08876b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c032dbc528ed5034280d0ecb4c95700b51869991
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023962"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793626"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
 Navegação por facetas é um mecanismo de filtragem que fornece navegação de Detalhamento auto-direcionada em aplicativos de pesquisa. O termo 'navegação por facetas' pode estar familiarizado, mas provavelmente usou antes. Como mostra o exemplo seguinte, a navegação por facetas é nada mais do que as categorias, utilizadas para filtrar os resultados.
 
- ![Demonstração de Portal de tarefa de pesquisa do Azure][1]
+ ![Demonstração de Portal de tarefa de pesquisa do Azure](media/search-faceted-navigation/azure-search-faceting-example.png "demonstração de Portal de tarefa de pesquisa do Azure")
 
 Navegação por facetas é um ponto de entrada alternativa para procurar. Ele oferece uma alternativa conveniente para escrever expressões de pesquisa complexa manualmente. Facetas podem ajudar a encontrar o que está procurando, garantindo que não obtém zero resultados. Como desenvolvedor, facetas permitem-lhe expor os critérios de pesquisa mais úteis para navegar seu índice de pesquisa. Em aplicativos do setor do retalho online, navegação por facetas baseia-se, muitas vezes, ao longo de marcas, departamentos (sapatos para crianças), tamanho, preço, popularidade e classificações. 
 
@@ -341,7 +341,7 @@ Para definir as facetas de preço em incrementos de US $10, tem de especificar: 
 **Abordagem 2: Utilize uma lista de valores**  
 Para dados numéricos, pode utilizar uma lista de valores.  Considere o intervalo de faceta para um `listPrice` campo, composto da seguinte forma:
 
-  ![Lista de valores de exemplo][5]
+  ![Lista de valores de exemplo](media/search-faceted-navigation/Facet-5-Prices.PNG "lista de valores de exemplo")
 
 Para especificar um intervalo de aspeto semelhante ao mostrado na captura de ecrã anterior, utilize uma lista de valores:
 
@@ -352,7 +352,7 @@ Baseia-se cada intervalo de 0 a utilizar como ponto de partida, um valor na list
 ### <a name="build-a-filter-for-a-range"></a>Criar um filtro para um intervalo
 Para filtrar documentos com base num intervalo que selecionou, pode utilizar o `"ge"` e `"lt"` filtrar operadores numa expressão de duas partes que define os pontos de extremidade do intervalo. Por exemplo, se escolher o intervalo de 10 a 25 para um `listPrice` campo, o filtro seria `$filter=listPrice ge 10 and listPrice lt 25`. No código de exemplo, a expressão de filtro usa **priceFrom** e **priceTo** parâmetros para definir os pontos de extremidade. 
 
-  ![Consulta para um intervalo de valores][6]
+  ![Consulta para um intervalo de valores](media/search-faceted-navigation/Facet-6-buildfilter.PNG "consulta para um intervalo de valores")
 
 <a name="geofacets"></a> 
 
@@ -385,57 +385,21 @@ A demonstração de Portal do Azure Search tarefa contém exemplos referenciados
    
    Uma estrutura de navegação por facetas também é devolvida com os resultados da pesquisa. Na página de resultados de pesquisa, a estrutura de navegação por facetas inclui contagens para cada resultado de faceta. Não existem facetas estiverem selecionadas, pelo que todos os resultados correspondentes são devolvidos.
    
-   ![Resultados da pesquisa antes de selecionar facetas][11]
+   ![Os resultados da pesquisa antes de selecionar facetas](media/search-faceted-navigation/faceted-search-before-facets.png "os resultados da pesquisa antes de selecionar facetas")
 
 4. Clique num título de negócios, a localização ou o salário mínimo. Facetas eram nulas na pesquisa inicial, mas à medida que assumir valores, os resultados da pesquisa são recortados dos itens que já não correspondem.
    
-   ![Resultados da pesquisa depois de selecionar facetas][12]
+   ![Os resultados da pesquisa depois de selecionar facetas](media/search-faceted-navigation/faceted-search-after-facets.png "os resultados da pesquisa depois de selecionar facetas")
 
 5. Para limpar a consulta por facetas, para que pode tentar comportamentos de consulta diferentes, clique no `[X]` após as facetas selecionadas para limpar as facetas.
    
 <a name="nextstep"></a>
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 Assista [aprofunde-se o Azure Search](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). No 45:25, existe uma demonstração sobre como implementar facetas.
 
 Para obter mais informações sobre os princípios de design para navegação por facetas, recomendamos as seguintes ligações:
 
-* [Criação de uma pesquisa por facetas](http://www.uie.com/articles/faceted_search/)
 * [Padrões de design: Navegação por facetas](https://alistapart.com/article/design-patterns-faceted-navigation)
-
-
-<!--Anchors-->
-[How to build it]: #howtobuildit
-[Build the presentation layer]: #presentationlayer
-[Build the index]: #buildindex
-[Check for data quality]: #checkdata
-[Build the query]: #buildquery
-[Tips on how to control faceted navigation]: #tips
-[Faceted navigation based on range values]: #rangefacets
-[Faceted navigation based on GeoPoints]: #geofacets
-[Try it out]: #tryitout
-
-<!--Image references-->
-[1]: ./media/search-faceted-navigation/azure-search-faceting-example.PNG
-[2]: ./media/search-faceted-navigation/Facet-2-CSHTML.PNG
-[3]: ./media/search-faceted-navigation/Facet-3-schema.PNG
-[4]: ./media/search-faceted-navigation/Facet-4-SearchMethod.PNG
-[5]: ./media/search-faceted-navigation/Facet-5-Prices.PNG
-[6]: ./media/search-faceted-navigation/Facet-6-buildfilter.PNG
-[7]: ./media/search-faceted-navigation/Facet-7-appstart.png
-[8]: ./media/search-faceted-navigation/Facet-8-appbike.png
-[9]: ./media/search-faceted-navigation/Facet-9-appbikefaceted.png
-[10]: ./media/search-faceted-navigation/Facet-10-appTitle.png
-[11]: ./media/search-faceted-navigation/faceted-search-before-facets.png
-[12]: ./media/search-faceted-navigation/faceted-search-after-facets.png
-
-<!--Link references-->
-[Designing for Faceted Search]: http://www.uie.com/articles/faceted_search/
-[Design Patterns: Faceted Navigation]: https://alistapart.com/article/design-patterns-faceted-navigation
-[Create your first application]: search-create-first-solution.md
-[OData expression syntax (Azure Search)]: https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search
-[Azure Search Adventure Works Demo]: https://azuresearchadventureworksdemo.codeplex.com/
-[https://www.odata.org/documentation/odata-version-2-0/overview/]: https://www.odata.org/documentation/odata-version-2-0/overview/ 
-[Faceting on Azure Search forum post]: ../faceting-on-azure-search.md?forum=azuresearch
-[Search Documents (Azure Search API)]: https://docs.microsoft.com/rest/api/searchservice/Search-Documents
+* [Preocupações de Front-End durante a implementação de pesquisa por facetas – parte 1 ](https://articles.uie.com/faceted_search2/)
 

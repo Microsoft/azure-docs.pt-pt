@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: acc9f83923c8fdaae98cc55bc6baf62f56f2116b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60798600"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541703"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 
@@ -89,6 +89,9 @@ O `rate-limit` política impede que os picos de utilização de API numa base po
 >
 > [As expressões de diretriz](api-management-policy-expressions.md) não pode ser utilizado em qualquer um dos atributos de política para esta política.
 
+> [!CAUTION]
+> Devido à natureza distribuída da arquitetura de limitação, limitação de velocidade nunca é totalmente preciso. A diferença entre configurado e o número real de permitidos pedidos variam com base no volume de pedido e taxa, a latência de back-end e outros fatores.
+
 ### <a name="policy-statement"></a>Declaração de política
 
 ```xml
@@ -125,7 +128,7 @@ O `rate-limit` política impede que os picos de utilização de API numa base po
 
 | Name           | Descrição                                                                                           | Necessário | Predefinição |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| nome           | O nome da API para o qual pretende aplicar o limite de taxa.                                                | Sim      | N/A     |
+| name           | O nome da API para o qual pretende aplicar o limite de taxa.                                                | Sim      | N/A     |
 | chamadas          | O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`. | Sim      | N/A     |
 | período de renovação | O período de tempo em segundos após o qual repõe a quota.                                              | Sim      | N/A     |
 
@@ -145,6 +148,9 @@ Esta política pode ser utilizada na política de seguinte [secções](https://a
 O `rate-limit-by-key` política impede que os picos de utilização de API numa base por chave ao limitar a taxa de chamadas para um número especificado por um período de tempo especificado. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados para o limite. Quando esta política é acionada o autor da chamada recebe um `429 Too Many Requests` código de estado de resposta.
 
 Para obter mais informações e exemplos desta política, consulte [limitação API Management do Azure de pedidos avançada](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
+
+> [!CAUTION]
+> Devido à natureza distribuída da arquitetura de limitação, limitação de velocidade nunca é totalmente preciso. A diferença entre configurado e o número real de permitidos pedidos variam com base no volume de pedido e taxa, a latência de back-end e outros fatores.
 
 ### <a name="policy-statement"></a>Declaração de política
 
@@ -289,7 +295,7 @@ O `quota` política impõe uma renovável ou tempo de vida volume e/ou de largur
 
 | Name           | Descrição                                                                                               | Necessário                                                         | Predefinição |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |
-| nome           | O nome da API ou operação para os quais se aplica a quota.                                             | Sim                                                              | N/A     |
+| name           | O nome da API ou operação para os quais se aplica a quota.                                             | Sim                                                              | N/A     |
 | Largura de banda      | O número total máximo de quilobytes permitida durante o intervalo de tempo especificado no `renewal-period`. | Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas. | N/A     |
 | chamadas          | O número máximo total de chamadas permitida durante o intervalo de tempo especificado no `renewal-period`.     | Qualquer um dos `calls`, `bandwidth`, ou ambos em conjunto tem de ser especificadas. | N/A     |
 | período de renovação | O período de tempo em segundos após o qual repõe a quota.                                                  | Sim                                                              | N/A     |
@@ -535,8 +541,8 @@ Este exemplo mostra como utilizar o [validar JWT](api-management-access-restrict
 | header-name                     | O nome do cabeçalho HTTP que contém o token.                                                                                                                                                                                                                                                                                                                                                                                                         | Um dos `header-name`, `query-parameter-name` ou `token-value` tem de ser especificado. | N/A                                                                               |
 | query-parameter-name            | O nome do parâmetro de consulta que contém o token.                                                                                                                                                                                                                                                                                                                                                                                                     | Um dos `header-name`, `query-parameter-name` ou `token-value` tem de ser especificado. | N/A                                                                               |
 | valor de token                     | Expressão de retornar uma cadeia de caracteres que contém o JWT token                                                                                                                                                                                                                                                                                                                                                                                                     | Um dos `header-name`, `query-parameter-name` ou `token-value` tem de ser especificado. | N/A                                                                               |
-| ID                              | O `id` atributo a `key` elemento permite-lhe especificar a cadeia de caracteres que serão matched relativamente a `kid` afirmações no token (caso exista) obter informações sobre a chave adequada a utilizar para a validação de assinatura.                                                                                                                                                                                                                                           | Não                                                                               | N/A                                                                               |
-| Correspondência                           | O `match` atributo o `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para a validação com êxito. Os valores possíveis são:<br /><br /> - `all` -todos os valores de afirmação na política tem de estar presente no token para a validação com êxito.<br /><br /> - `any` -pelo menos uma declaração valor tem de estar presente no token para a validação com êxito.                                                       | Não                                                                               | all                                                                               |
+| id                              | O `id` atributo a `key` elemento permite-lhe especificar a cadeia de caracteres que serão matched relativamente a `kid` afirmações no token (caso exista) obter informações sobre a chave adequada a utilizar para a validação de assinatura.                                                                                                                                                                                                                                           | Não                                                                               | N/A                                                                               |
+| Correspondência                           | O `match` atributo o `claim` elemento Especifica se cada valor de afirmação na política tem de estar presente no token para a validação com êxito. Os valores possíveis são:<br /><br /> - `all` -todos os valores de afirmação na política tem de estar presente no token para a validação com êxito.<br /><br /> - `any` -pelo menos uma declaração valor tem de estar presente no token para a validação com êxito.                                                       | Não                                                                               | tudo                                                                               |
 | require-expiration-time         | Valor booleano. Especifica se uma afirmação de expiração é necessária no token.                                                                                                                                                                                                                                                                                                                                                                               | Não                                                                               | true                                                                              |
 | require-scheme                  | O nome do token de esquema, por exemplo "Bearer". Quando este atributo estiver definido, a política irá garantir que o esquema especificado está presente no valor de cabeçalho de autorização.                                                                                                                                                                                                                                                                                    | Não                                                                               | N/A                                                                               |
 | require-signed-tokens           | Valor booleano. Especifica se um token é necessário ter sessão iniciada.                                                                                                                                                                                                                                                                                                                                                                                           | Não                                                                               | true                                                                              |

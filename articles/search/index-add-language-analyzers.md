@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121797"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790905"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Adicionar analisadores de idiomas para um índice da Azure Search
 
@@ -45,9 +45,6 @@ O analisador padrão é Lucene padrão, o que funciona bem para inglês, mas tal
 + Analisador de em inglês do Lucene estende o analisador padrão. Remove possessives (do à direita) de palavras, aplica-se a lematização de acordo com o algoritmo Porter Lematização e remove palavras de paragem em inglês.  
 
 + Analisador de em inglês da Microsoft realiza Lematização em vez de Lematização. Isso significa que ele pode lidar com formas de palavras de inflected e irregulares muito melhor o que resulta em resultados de pesquisa mais relevantes 
-
-  > [!Tip]
-  > O [demonstração do Search Analyzer](https://alice.unearth.ai/) fornece comparação lado a lado dos resultados produzidos pelo analisador de Lucene padrão, o analisador de idioma inglês do Lucene e o processador de idioma natural da Microsoft. Para cada entrada de pesquisa é fornecer, resultados de cada analisador são apresentados nos painéis adjacentes.
 
 ## <a name="configuring-analyzers"></a>Analisadores de configuração
 
@@ -76,7 +73,7 @@ Para obter mais informações sobre as propriedades de índice, consulte [Create
 |Checo|cs.microsoft|cs.lucene|  
 |Dinamarquês|da.microsoft|da.lucene|  
 |Neerlandês|nl.microsoft|nl.lucene|  
-|Português|en.microsoft|en.lucene|  
+|Inglês|en.microsoft|en.lucene|  
 |Estónio|et.microsoft||  
 |Finlandês|fi.microsoft|fi.lucene|  
 |Francês|fr.microsoft|fr.lucene|  

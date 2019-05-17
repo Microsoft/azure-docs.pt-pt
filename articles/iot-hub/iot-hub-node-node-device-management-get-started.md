@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.openlocfilehash: 15166d3943bc72a2eeff3580cefdd264ecaba61d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9bc34110b85119c7b8b303774b585d03ce9d3a0f
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60346284"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596638"
 ---
 # <a name="get-started-with-device-management-node"></a>Introdução à gestão de dispositivo (Node)
 
@@ -35,7 +35,7 @@ No final deste tutorial, tem duas aplicações de consola node. js:
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Versão 4.0.x ou posterior do Node.js. [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o node. js para este tutorial no Windows ou Linux.
+* Versão node. js 10.0.x ou posterior. [Preparar o ambiente de desenvolvimento](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) descreve como instalar o node. js para este tutorial no Windows ou Linux.
 
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 

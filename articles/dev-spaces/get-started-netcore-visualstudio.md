@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
-ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 39948479cc563d2f622763ea7b4d09910ffc494c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60688039"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779875"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Começar a trabalhar com espaços de desenvolvimento do Azure com .NET Core e o Visual Studio
 

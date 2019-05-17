@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 0bdf47991435a9a28a4db12f3aa89478b18bb9f1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b989e5cf5b66d21c19d58f2f64fbba1927f5d69
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020265"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792788"
 ---
 # <a name="what-is-the-cloudyn-service"></a>O que é o serviço do Cloudyn?
 
@@ -24,6 +24,10 @@ A Cloudyn, uma subsidiária da Microsoft, permite-lhe controlar a utilização d
 Para ver um vídeo introdutório, veja [Introduction to Azure Cloudyn (Introdução à Azure Cloudyn)](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](overview-cost-mgt.md).
+
+Veja a [vídeo Azure Cost Management e o Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) ver recomendações quando deve utilizar o Azure Cost Management ou Cloudyn, com base nas suas necessidades empresariais.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Funcionalidades do Cloudyn mudar para o Azure Cost Management
 
@@ -48,7 +52,7 @@ Algumas das seguintes funcionalidades estão disponíveis no Cloudyn, mas todos 
 - Recomendações de computação do Azure
 - Recomendações de reserva do Azure
 - Orçamentos
-- Análise de custos
+- Análise de custo
 - Exportar dados para uma conta de armazenamento do Azure
 - Latências mais baixas
 - O pacote de conteúdos do Power BI e o conector

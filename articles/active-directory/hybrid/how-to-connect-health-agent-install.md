@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2be8455a3fb0a60cea056e9bda1f41b076dfec9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d1a8afdbad1878f4ce134edeeb95dad79e98a1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350886"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784822"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 
@@ -45,7 +45,7 @@ A tabela seguinte é uma lista de requisitos para utilizar o Azure AD Connect He
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Conectividade de saída para os pontos finais de serviço do Azure
 
- Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada com Firewalls, certifique-se de que os seguintes URLs não estão bloqueados por predefinição. Não desative a monitorização de segurança ou de inspeção de URLs, mas permitir que os mesmos como faria com outro tráfego de internet. Eles permitem a comunicação com pontos finais de serviço do Azure AD Connect Health. Leia mais sobre como [verificar a conectividade de saída](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections)
+ Durante a instalação e o tempo de execução, o agente requer conectividade aos pontos finais do serviço do Azure AD Connect Health. Se a conectividade de saída for bloqueada com Firewalls, certifique-se de que os seguintes URLs não estão bloqueados por predefinição. Não desative a monitorização de segurança ou de inspeção de URLs, mas permitir que os mesmos como faria com outro tráfego de internet. Eles permitem a comunicação com pontos finais de serviço do Azure AD Connect Health. Saiba como [Verifique a conectividade de saída com o Test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
 
 | Ambiente de Domínio | Pontos finais do serviço do Azure necessários |
 | --- | --- |

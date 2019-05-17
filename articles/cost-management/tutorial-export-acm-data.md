@@ -5,21 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/10/2019
+ms.date: 05/14/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 6975bb872e67650b8b5729a4ac66f0825fb9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 521a5f2543b9a4a84d50f8f0e53a6ae5108f760b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61021560"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792873"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Criar e gerir os dados exportados
 
 Se leu o tutorial de Análise de Custos, está familiarizado com a transferência manual dos dados do Cost Management. No entanto, pode criar uma tarefa periódica que exporta automaticamente os seus dados de gestão de custos para o armazenamento do Azure numa base diária, semanal ou mensal. Os dados exportados estão no formato CSV e contêm todas as informações recolhidas pelo Cost Management. Pode utilizar os dados exportados no armazenamento do Azure com sistemas externos e combiná-los com os seus dados personalizados. E pode utilizar os dados exportados num sistema externo, como um dashboard ou outro sistema financeiro.
+
+Veja a [como agendar exporta para o armazenamento com o Azure Cost Management](https://www.youtube.com/watch?v=rWa_xI1aRzo) vídeo sobre a criação de uma exportação agendada do seu Azure dados de custos ao armazenamento do Azure.
 
 Os exemplos neste tutorial orientam-no na exportação dos dados de gestão de custos e, em seguida, verificam se os dados foram exportados com êxito.
 
@@ -49,8 +51,8 @@ Para criar ou ver uma exportação de dados ou para agendar uma exportação, ab
 
 > [!NOTE]
 > Além de subscrições, pode criar exportações em grupos de recursos, contas, os departamentos e inscrições. Para obter mais informações sobre âmbitos, consulte [entender e trabalhar com âmbitos](understand-work-scopes.md).
-> 
-> 
+>
+>
 
 
 Clique em **Add**, escreva um nome para a exportação e, em seguida, selecione a **exportação diária dos custos de mês até à data** opção. Clique em **Seguinte**.

@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: 1c07ebae02232e8c86a58c11b23f6e1fbdb3a4bd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5b83b50ad2618a4af357f5f9b89b63c7f19c4fe8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59357311"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65765266"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Início rápido: Programar com .NET Core no Kubernetes com espaços de desenvolvimento do Azure (Visual Studio Code)
 

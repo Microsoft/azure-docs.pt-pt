@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703376"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791503"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na cloud – gerenciamento de seus bancos de dados individuais e agrupados na base de dados do Azure SQL
 
@@ -47,7 +47,7 @@ Não crie cópias de segurança no Azure SQL DB e isso é porque não precisa. B
 
 |Camada de serviços|Período de retenção em dias|
 |---|:---:|
-|Básica|7|
+|Básico|7|
 |Standard|35|
 |Premium|35|
 |||
@@ -127,7 +127,7 @@ Outra opção consiste em aprovisionar [reservado IPs](../virtual-network/virtua
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>Porta em que posso ligar a base de dados SQL no
 
-Porta 1433. Base de dados SQL comunica através desta porta. Para ligar a partir de uma rede empresarial, terá de adicionar uma regra de saída nas definições de firewall da sua organização. Como uma diretriz, evite a expor a porta 1433 fora do limite do Azure. Pode executar o SSMS no Azure com [do Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Isso não requer a abertura de ligações de saída para a porta 1433, o IP estático, para que o banco de dados pode ser aberto para apenas o RemoteApp e oferece suporte a várias-factor Authentication (MFA).
+Porta 1433. Base de dados SQL comunica através desta porta. Para ligar a partir de uma rede empresarial, terá de adicionar uma regra de saída nas definições de firewall da sua organização. Como uma diretriz, evite a expor a porta 1433 fora do limite do Azure.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Como monitorizar e regular a atividade no meu servidor e base de dados na base de dados SQL
 

@@ -7,14 +7,14 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: d315fb5fe3ce7844946e6a9405a9a5f6a0be8b9d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b885a90728df8cb15c75141b7bce81aec3968359
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60874534"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779572"
 ---
-# <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Proteger os recursos novos com bloqueios de recursos de esquemas do Azure
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger os recursos novos com bloqueios de recursos de esquemas do Azure
 
 Planos gráficos do Azure [bloqueios de recursos](../concepts/resource-locking.md) possibilitam a proteger os recursos recentemente implementados seja alterado, até mesmo por uma conta com o _proprietário_ função. Esta proteção pode ser adicionada para recursos criados por um artefato de modelo do Resource Manager na definição do esquema.
 
@@ -129,7 +129,7 @@ Assim que a definição do esquema foi com êxito **publicado**, podem ser atrib
 
 1. Forneça os valores de parâmetro para a atribuição do esquema:
 
-   - Noções básicas
+   - Noções Básicas
 
      - **Subscrições**: Selecione um ou mais das subscrições que estão no grupo de gestão é guardada a definição de esquema, para. Se selecionar mais do que uma subscrição, será criada uma atribuição para cada um usando os parâmetros introduzidos.
      - **Nome da atribuição**: O nome é preenchido previamente com base no nome da definição de esquema. Queremos que esta atribuição para representar o bloqueio de novo grupo de recursos, portanto, altere o nome da atribuição para _atribuição-bloqueado-storageaccount-TestingBPLocks_.
@@ -152,7 +152,7 @@ Assim que a definição do esquema foi com êxito **publicado**, podem ser atrib
      |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
      |-|-|-|-|-|
      |Grupo de recursos de RGtoLock|Grupo de recursos|Name|TestingBPLocks|Define o nome do novo grupo de recursos para aplicar o esquema de bloqueios para.|
-     |Grupo de recursos de RGtoLock|Grupo de recursos|Location|EUA Oeste 2|Define a localização do novo grupo de recursos para aplicar o esquema de bloqueios para.|
+     |Grupo de recursos de RGtoLock|Grupo de recursos|Location|E.U.A. Oeste 2|Define a localização do novo grupo de recursos para aplicar o esquema de bloqueios para.|
      |StorageAccount|Modelo do Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|Selecione o SKU de armazenamento. Valor predefinido é _Standard_LRS_.|
 
 1. Depois de tem sido introduzidos todos os parâmetros, selecione **atribuir** na parte inferior da página.

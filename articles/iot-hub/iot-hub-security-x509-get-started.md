@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: 5795cde35d53a64620c4fdb6c3af99a7f56b12d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440816"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779916"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurar a segurança X.509 no seu hub IoT do Azure
 
@@ -36,6 +36,9 @@ Pode escolher qualquer uma das formas seguintes para obter os certificados:
 * Comprar certificados X.509 de um *autoridade de certificação (AC) de raiz*. Isto é recomendado para ambientes de produção.
 
 * Crie seus próprios certificados X.509 com uma ferramenta de terceiros, como [OpenSSL](https://www.openssl.org/). Isso será bom para fins de teste e desenvolvimento. Ver [certificados de teste de Gerir AC para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) para informações sobre como gerar certificados de AC com o PowerShell ou Bash de teste. O resto deste tutorial utiliza certificados de AC de teste gerados ao seguir as instruções em [certificados de teste de Gerir AC para exemplos e tutoriais](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
+
+* Gerar uma [certificado de AC intermediária X.509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) assinado por um certificado de AC de raiz existente e carregue-o para o IoT Hub. Depois do certificado intermédio é carregado e verificado, conforme indicado abaixo, pode ser utilizado no lugar de um certificado de AC de raiz mencionado a seguir. Ferramentas como o OpenSSL ([openssl req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) e [openssl AC](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) pode ser utilizado para gerar e assinar um certificado de AC intermediária.
+
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registar certificados de AC X.509 no seu hub IoT
 

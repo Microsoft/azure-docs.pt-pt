@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com projeções num arquivo de dados de conhecimento - Azure Search
+title: Trabalhar com projeções num arquivo de dados de conhecimento (pré-visualização) - Azure Search
 description: Guardar e formatar os dados plena do pipeline de indexação de ia para utilização em cenários que não seja de pesquisa
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028369"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540811"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabalhar com projeções num arquivo de dados de conhecimento no Azure Search
 
+> [!Note]
+> Arquivo de dados de conhecimento está em pré-visualização e não se utilização em produção. O [2019 no versão REST API-05-06-Preview](search-api-preview.md) fornece esta funcionalidade. Não existe nenhum suporte de .NET SDK neste momento.
+>
+
 O Azure Search permite que a melhoria do conteúdo através de capacidades cognitivas de IA e competências personalizadas como parte de indexação. Possível adicionam estrutura a seus documentos e tornar a pesquisa mais eficientes. Em muitos casos, os documentos plena são úteis para outros cenários além da pesquisa, como para extração de dados de conhecimento.
 
-Projeções, um componente do [o arquivo de dados de conhecimento (pré-visualização)](knowledge-store-concept-intro.md), são os modos de exibição de documentos plena que podem ser guardados num armazenamento físico para fins de mineração de dados de conhecimento. Uma projeção permite-lhe "projeto" os seus dados para um formato que se alinha com suas necessidades, preservando as relações para que ferramentas como o Power BI podem ler os dados sem esforço adicional. 
+Projeções, um componente do [arquivo de dados de conhecimento](knowledge-store-concept-intro.md), são os modos de exibição de documentos plena que podem ser guardados num armazenamento físico para fins de mineração de dados de conhecimento. Uma projeção permite-lhe "projeto" os seus dados para um formato que se alinha com suas necessidades, preservando as relações para que ferramentas como o Power BI podem ler os dados sem esforço adicional. 
 
 Projeções podem ser tabulares, com dados armazenados em linhas e colunas no armazenamento de tabelas do Azure, ou objetos JSON armazenados no armazenamento de Blobs do Azure. Pode definir várias projeções de seus dados à medida que está a ser enriquecido. Isto é útil quando pretender que os mesmos dados em forma de forma diferente para casos de utilização individual. 
 

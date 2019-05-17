@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 094c8d45f7f6099b169e25c89dbfc4a7d6522dfc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 1c82dbd0af8509910b13d17ff5a2e8512cef6fdd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510945"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794194"
 ---
 # <a name="introduction-to-azure-storage"></a>Introdução ao Armazenamento do Azure
 
@@ -158,7 +158,7 @@ Para obter informações detalhadas sobre os preços do Armazenamento do Azure, 
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>API de movimentação do Armazenamento do Azure e referências da biblioteca
 * [API REST do Serviço de Importação/Exportação de Armazenamento](https://docs.microsoft.com/rest/api/storageimportexport/)
-* [Biblioteca de Clientes do Movimento de Dados de Armazenamento para o .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement)
+* [Biblioteca de Clientes do Movimento de Dados de Armazenamento para o .NET](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>Ferramentas e utilitários
 * [Cmdlets do Azure PowerShell para Armazenamento](https://docs.microsoft.com/powershell/module/az.storage)

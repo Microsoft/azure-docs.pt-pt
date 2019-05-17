@@ -3,23 +3,23 @@ title: Proxy de aplicações do Azure AD e Qlik Sense | Documentos da Microsoft
 description: Ativar o Proxy de aplicações no portal do Azure e instalar os conectores para o proxy inverso.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12e36c49d8c4db60302d4b72dfa81ea4aceec77b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2fc03751859160f2c234810dcb01e1579cb3e2a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441334"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782662"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy de aplicações e Qlik Sense 
 O Azure Active Directory para o Proxy de aplicações e Qlik Sense estabeleceram uma parceria em conjunto para garantir que facilmente pode utilizar o Proxy de aplicações para fornecer acesso remoto para a sua implementação Qlik Sense.  
@@ -56,7 +56,7 @@ Siga os passos como para a aplicação de n. º 1, com as seguintes exceções:
 **Passo #10:** Não configurar o SSO e deixe o **início de sessão único desativado**
  
  
-## <a name="testing"></a>Testes 
+## <a name="testing"></a>A testar 
 Está agora pronto para testar seu aplicativo. O URL externo que utilizou para publicar QlikSense na aplicação de n. º 1 e o início de sessão como um utilizador atribuído a ambas as aplicações de acesso.  
 
 ## <a name="additional-references"></a>Referências adicionais

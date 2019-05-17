@@ -6,13 +6,13 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 3c7f0b263cc775b7f9fec62e4d5388250e5124fb
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/13/2019
+ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079124"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551689"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Criar um inquilino do Azure AD para a Azure Red Hat OpenShift
 
@@ -34,7 +34,7 @@ Para criar um inquilino:
 
     ![Captura de ecrã do portal do que mostra o nome do inquilino no canto superior direito][tenantcallout]  
 
-8. Anote o *ID de inquilino* , para que mais tarde pode especificar onde pretende criar o cluster do Azure Red Hat OpenShift. No portal, agora, deve ver o painel de descrição geral do Azure Active Directory para o novo inquilino. Selecione **propriedades** e copie o valor para seu **ID do diretório**. Nós nos referiremos a este valor como o `tenant id` no [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) tutorial.
+8. Anote o *ID de inquilino* , para que mais tarde pode especificar onde pretende criar o cluster do Azure Red Hat OpenShift. No portal, agora, deve ver o painel de descrição geral do Azure Active Directory para o novo inquilino. Selecione **propriedades** e copie o valor para seu **ID do diretório**. Nós nos referiremos a este valor como `TENANT` no [criar um cluster do Azure Red Hat OpenShift](tutorial-create-cluster.md) tutorial.
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 

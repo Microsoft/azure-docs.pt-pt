@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025206"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540701"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Atualizar para a versão mais recente do API de REST do serviço de pesquisa do Azure
 Se estiver a utilizar uma versão anterior dos [API de REST do serviço do Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão mais recente da API disponível em geral, 05-06 de 2019.
@@ -72,7 +72,9 @@ Se qualquer uma destas situações se aplicar a, poderá ter de alterar o seu c�
 
 Se estiver a atualizar a partir de uma versão de API de pré-visualização, o procedimento acima também se aplica, mas também deve estar ciente de que algumas funcionalidades de pré-visualização não estão disponíveis na versão de 2019-05-06:
 
-* [Consultas de "Muito mais semelhante a isto"](search-more-like-this.md) continuam a ser um recurso somente de pré-visualização.
+* [Consultas de "Mais semelhante à seguinte"](search-more-like-this.md)
+* [A indexação de BLOBs CSV](search-howto-index-csv-blobs.md)
+* [Suporte de API do MongoDB para indexadores do Cosmos DB](search-howto-index-cosmosdb.md)
 
 Se o seu código Use esses recursos, não será capaz de atualizar para versão de 2019-05-06 de API, sem remover a sua utilização dos mesmos.
 

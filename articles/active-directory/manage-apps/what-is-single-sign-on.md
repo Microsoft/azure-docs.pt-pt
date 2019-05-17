@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/15/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12c68a268b901f3525c2af9cd381dc277d6d8167
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441517"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65770897"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Início de sessão único para aplicações no Azure Active Directory
 
@@ -45,7 +45,7 @@ A tabela seguinte resume os métodos de início de sessão únicos e ligações 
 | [OpenID Connect e OAuth](#openid-connect-and-oauth) | Apenas na nuvem | Utilize o OpenID Connect e OAuth ao desenvolver um novo aplicativo. Este protocolo simplifica a configuração da aplicação, tem SDKs fácil de usar e permite que a sua aplicação para utilizar o MS Graph.
 | [SAML](#saml-sso) | na cloud e no local | Escolha SAML sempre que possível para os aplicativos existentes que não usam o OpenID Connect ou do OAuth. SAML funciona para as aplicações que se autenticam utilizando um dos protocolos de SAML.|
 | [Com base em palavra-passe](#password-based-sso) | na cloud e no local | Escolha a palavra-passe quando o aplicativo efetua a autenticação com o nome de utilizador e palavra-passe. Com base em palavra-passe de início de sessão único permite o armazenamento de palavra-passe de aplicação segura e de repetição com uma extensão de browser ou aplicação móvel. Este método utiliza o início de sessão no processo existente fornecido pela aplicação, mas permite que um administrador gerir as palavras-passe. |
-| [Ligado](#linked-sso) | na cloud e no local | Escolha ligado início de sessão único quando a aplicação está configurada para início de sessão único em outro serviço do fornecedor de identidade. Esta opção não adiciona o início de sessão único para a aplicação. No entanto, a aplicação já pode ter início de sessão único implementado através de outro serviço, como serviços de Federação do Active Directory.|
+| [Ligado](#linked-sign-on) | na cloud e no local | Escolha um início de sessão ligado quando a aplicação está configurada para início de sessão único em outro serviço do fornecedor de identidade. Esta opção não adiciona o início de sessão único para a aplicação. No entanto, a aplicação já pode ter início de sessão único implementado através de outro serviço, como serviços de Federação do Active Directory.|
 | [Desativado](#disabled-sso) | na cloud e no local | Escolha desativado início de sessão único quando a aplicação não está pronta para ser configurado para início de sessão único. Os utilizadores têm de introduzir o respetivo nome de utilizador e a palavra-passe sempre que iniciarem esta aplicação.|
 | [Autenticação integrada do Windows (IWA)](#integrated-windows-authentication-iwa-sso) | apenas no local | Escolha IWA início de sessão único para aplicações que utilizam [autenticação integrada do Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), ou aplicações com suporte para afirmações. Para IWA, os conectores de Proxy da aplicação utilizam a delegação restrita de Kerberos (KCD) para autenticar utilizadores para a aplicação. | 
 | [Com base no cabeçalho](#header-based-sso) | apenas no local | Utilize com base no cabeçalho de início de sessão único quando o aplicativo usa cabeçalhos para autenticação. Com base no cabeçalho de início de sessão único requer o PingAccess para o Azure AD. Proxy de aplicações utiliza o Azure AD para autenticar o utilizador e, em seguida, passa o tráfego através do serviço de conector.  | 
@@ -122,12 +122,12 @@ Quando o utilizador final gere as credenciais:
 - Os administradores são ainda pode definir novas credenciais para a aplicação.
 
 
-## <a name="linked-sso"></a>SSO ligado
+## <a name="linked-sign-on"></a>O início de sessão ligado
 O início de sessão ligado permite ao Azure AD fornecer início de sessão único para uma aplicação que já está configurada para início de sessão único em outro serviço. O aplicativo vinculado pode aparecer aos utilizadores finais no portal do Office 365 ou portal do Azure AD MyApps. Por exemplo, um utilizador pode iniciar uma aplicação que está configurada para início de sessão único no Active Directory Federation Services 2.0 (AD FS) no portal do Office 365. Relatórios adicionais também estão disponíveis para aplicações ligadas que são iniciadas a partir do portal do Office 365 ou do portal do Azure AD MyApps. 
 
-### <a name="linked-sso-for-application-migration"></a>Ligado SSO para a migração de aplicativo
+### <a name="linked-sign-on-for-application-migration"></a>Ligado início de sessão para migração de aplicativos
 
-SSO ligado pode fornecer uma experiência de usuário consistente, durante a migração aplicativos durante um período de tempo. Se estiver a migrar aplicações para o Azure Active Directory, pode utilizar ligado início de sessão único para publicar rapidamente as ligações para todas as aplicações que pretende migrar.  Os usuários podem encontrar todas as ligações na [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md) ou o [iniciador de aplicações do Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Usuários não saberia que estão a aceder a um aplicativo vinculado ou aplicações migradas.  
+O início de sessão ligado pode fornecer uma experiência de usuário consistente enquanto migrar aplicativos durante um período de tempo. Se estiver a migrar aplicações para o Azure Active Directory, pode utilizar o início de sessão ligado publicar rapidamente as ligações para todas as aplicações que pretende migrar.  Os usuários podem encontrar todas as ligações na [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md) ou o [iniciador de aplicações do Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Usuários não saberia que estão a aceder a um aplicativo vinculado ou aplicações migradas.  
 
 Assim que um usuário foi autenticado com um aplicativo vinculado, um registo de conta tem de ser criado antes do utilizador final é fornecido o acesso de início de sessão único. Este registo de conta de aprovisionamento pode um ocorrem automaticamente ou podem ocorrer manualmente por um administrador.
 

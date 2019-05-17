@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 355c11d4f8ae0089527a9f0d21af7c4d6070f73a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: a14bc14e6115c1bc25582c3de71382ae17d7debd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922374"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792289"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Utilizar o C#, dados de conhecimento base, em seguida, responder a pergunta
 
@@ -32,11 +32,11 @@ Este tutorial orienta programaticamente a criação e publicação de uma base d
 
 Este início rápido chama as API do Criador de FAQ:
 
-* [Criar uma base de dados de conhecimento (BDC)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
-* [Obter Detalhes da Operação](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-* [Obter detalhes da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
-* [Obter pontos finais da base de dados de conhecimento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
-* [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
+* [Criar uma base de dados de conhecimento (BDC)](https://go.microsoft.com/fwlink/?linkid=2092179)
+* [Obter Detalhes da Operação](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
+* [Obter detalhes da base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) 
+* [Obter pontos finais da base de dados de conhecimento](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys)
+* [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -248,4 +248,4 @@ Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no s
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)

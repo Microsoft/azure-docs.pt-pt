@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 08f2dac6317f294c3c7360cc00cf9aaa60c9a7ca
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 33493f1bdff6071737aad4bfb8c7d0e5e22896db
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715096"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799851"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta do Video Indexer ligada ao Azure
 

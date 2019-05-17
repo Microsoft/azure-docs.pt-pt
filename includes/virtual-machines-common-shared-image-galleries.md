@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192375"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546760"
 ---
 Galeria de imagens partilhado é um serviço que ajuda a criar a estrutura e a organização em torno de suas imagens VM geridas personalizadas. Forneça a galerias de imagem partilhada:
 
@@ -49,11 +49,11 @@ As definições de imagem são um agrupamento lógico das versões de uma imagem
 
 Há três parâmetros para cada definição de imagem que são utilizados em combinação - **publicador**, **oferecer** e **SKU**. Estes são utilizados para encontrar uma definição de imagem específica. Pode ter versões de imagem que compartilham um ou dois, mas nem todos os três valores.  Por exemplo, Eis três definições de imagem e os respetivos valores:
 
-|Definição da Imagem|Publicador|Oferta|Sku|
+|Definição da Imagem|Editor|Oferta|SKU|
 |---|---|---|---|
 |myImage1|Contoso|Finanças|Back-end|
 |myImage2|Contoso|Finanças|Front-end|
-|myImage3|Testes|Finanças|Front-end|
+|myImage3|A testar|Finanças|Front-end|
 
 Todos os três deles têm exclusivos conjuntos de valores. O formato é semelhante à forma como pode atualmente especificar publicador, oferta e SKU para [imagens do Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) no Azure PowerShell para obter a versão mais recente de uma imagem do Marketplace. Cada definição de imagem tem de ter um conjunto exclusivo desses valores.
 
@@ -77,14 +77,14 @@ Regiões de origem estão listados na tabela abaixo. Todas as regiões públicas
 
 | Regiões de origem |
 |---------------------|-----------------|------------------|-----------------|
-| Austrália Central   | E.U.A. Central EUAP | Coreia do Sul Central    | Sul do Reino Unido 2      |
-| Austrália Central 2 | Ásia Oriental       | Coreia do Sul      | Reino Unido Oeste         |
+| Austrália Central   | E.U.A. Central EUAP | Coreia do Sul Central    | Sul do R.U. 2      |
+| Austrália Central 2 | Ásia Oriental       | Sul da Coreia do Sul      | Oeste do R.U.         |
 | Leste da Austrália      | EUA Leste         | EUA Centro-Norte | EUA Centro-Oeste |
 | Sudeste da Austrália | EUA Leste 2       | Europa do Norte     | Europa Ocidental     |
 | Sul do Brasil        | E.U.A. Leste 2 EUAP  | EUA Centro-Sul | Oeste da Índia      |
 | Canadá Central      | França Central  | Sul da Índia      | EUA Oeste         |
 | Leste do Canadá         | Sul de França    | Sudeste Asiático   | EUA Oeste         |
-| Índia Central       | Leste do Japão      | Norte do Reino Unido         | EUA Oeste 2       |
+| Índia Central       | Leste do Japão      | Norte do R.U.         | E.U.A. Oeste 2       |
 | EUA Central          | Oeste do Japão      | Reino Unido Sul         |                 |
 
 
@@ -113,13 +113,13 @@ As regiões de que uma versão de imagem partilhada é replicada para podem ser 
 ![Gráfico que mostra como pode replicar imagens](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Access
+## <a name="access"></a>Aceder
 
 Como a Galeria de imagens de partilhado, a imagem partilhada e a versão de imagem partilhada estão todos os recursos, eles podem ser compartilhados com incorporada que RBAC do Azure nativo controla. Utilizar o RBAC pode partilhar estes recursos para outros utilizadores, principais de serviço e grupos. Pode até compartilhar acesso aos indivíduos fora do inquilino que foram criados. Assim que um utilizador tem acesso para a versão de imagem partilhada, podem implementar uma VM ou um conjunto de dimensionamento de Máquina Virtual.  Segue-se a matriz de partilha que o ajuda a compreender o que o utilizador obtém acesso a:
 
-| Partilhado com utilizador     | Galeria de Imagens Partilhada | Imagem partilhada | Versão de imagem partilhada |
+| Partilhado com utilizador     | Galeria de Imagens Partilhadas | Imagem partilhada | Versão de imagem partilhada |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
+| Galeria de Imagens Partilhadas | Sim                  | Sim          | Sim                  |
 | Imagem partilhada         | Não                   | Sim          | Sim                  |
 | Versão de imagem partilhada | Não                   | Não           | Sim                  |
 
@@ -266,4 +266,4 @@ Para especificar a contagem de réplica comuns na CLI, utilize o **– contagem 
 
 **P.** Qual versão de API deve usar para criar a Galeria de imagens de partilhado, definição de imagem, versão da imagem e VM/VMSS fora a versão da imagem?
 
- R. Para implementações de VM e conjunto de dimensionamento de Máquina Virtual a utilizar uma versão de imagem, recomendamos que utilize a versão de 2018-04-01 de API ou superior. Para trabalhar com galerias de imagem partilhada, definições de imagem e versões de imagem, recomendamos que utilize a API versão 2018-06-01. 
+ R. Para implementações de VM e conjunto de dimensionamento de Máquina Virtual a utilizar uma versão de imagem, recomendamos que utilize a versão de 2018-04-01 de API ou superior. Para trabalhar com galerias de imagem partilhada, definições de imagem e versões de imagem, recomendamos que utilize a API versão 2018-06-01. Armazenamento com redundância de zona (ZRS) requer a versão de 2019-03-01 ou posterior.

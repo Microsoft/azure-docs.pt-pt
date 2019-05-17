@@ -1,103 +1,115 @@
 ---
-title: Mapeamento de transformação de origem do fluxo de dados de fábrica de dados do Azure
-description: Mapeamento de transformação de origem do fluxo de dados de fábrica de dados do Azure
+title: Configurar uma transformação de origem na funcionalidade de mapeamento de fluxo de dados do Azure Data Factory
+description: Saiba como configurar uma transformação de origem no mapeamento de fluxo de dados.
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dc0a6e008c7a1f4fb414f6d8adad3a94abc7a6b2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369178"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792349"
 ---
-# <a name="mapping-data-flow-source-transformation"></a>Transformação de origem de fluxo de dados de mapeamento
+# <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-A transformação de origem configura uma origem de dados que deseja usar para trazer dados para o seu fluxo de dados. Talvez tenha mais do que uma transformação de origem num único fluxo de dados. Sempre comece criando a seus fluxos de dados com uma transformação de origem.
+Uma transformação de origem configura a origem de dados para o fluxo de dados. Um fluxo de dados pode incluir mais do que uma transformação de origem. Quando estruturar dados fluxos, sempre começam com uma transformação de origem.
+
+Cada fluxo de dados requer a transformação de pelo menos uma origem. Adicione origens de tantos conforme necessário para concluir as transformações de dados. Pode associar essas origens em conjunto com uma transformação de associação ou de uma transformação union.
 
 > [!NOTE]
-> Cada fluxo de dados requer, pelo menos, uma transformação de origem. Adicione tantas outras fontes que forem necessárias para concluir as transformações de dados. Pode associar essas origens em conjunto com uma associação ou transformação Union. Ao depurar o fluxo de dados em sessões de depuração, os dados serão lidos a partir da origem através da definição de amostragem ou limites de origem de depuração. No entanto, não existem dados serão escritos para um Sink até que executar o fluxo de dados de uma atividade de fluxo de dados do pipeline. 
+> Ao depurar o fluxo de dados, os dados são lidos da fonte, utilizando a definição de amostragem ou os limites de origem de depuração. Para escrever dados para um sink, tem de executar o fluxo de dados a partir de um pipeline de atividade de fluxo de dados. 
 
-![Opções de transformação de origem](media/data-flow/source.png "origem")
+![Opções de transformação no separador de definições da origem de origem](media/data-flow/source.png "origem")
 
-Cada transformação de origem do fluxo de dados tem de estar associada a exatamente um conjunto de dados do Data Factory. O conjunto de dados define a forma e a localização dos seus dados para escrever ou ler a partir de. Pode utilizar carateres universais e ficheiro de lista na sua origem para trabalhar com mais de um arquivo cada vez ao utilizar origens de ficheiros.
+Associe a sua transformação de origem do fluxo de dados com exatamente um conjunto de dados do Data Factory. O conjunto de dados define a forma e a localização dos dados que pretende escrever ou ler a partir de. Pode utilizar carateres universais e ficheiro de lista na sua origem para trabalhar com mais de um arquivo cada vez.
 
 ## <a name="data-flow-staging-areas"></a>Áreas de preparo de fluxo de dados
 
-Fluxo de dados funciona com conjuntos de dados "testes", que estão todos no Azure. Estes conjuntos de dados de fluxo de dados são utilizados para dados de teste para efetuar as transformações de dados. Data Factory tem acesso a quase 80 conectores nativos diferentes. Para incluir dados de outras origens esses em seu fluxo de dados, primeiro testar esses dados em uma dessas áreas de teste do conjunto de dados de fluxo de dados através da atividade de cópia.
+Fluxo de dados funciona com *teste* conjuntos de dados que estão todos no Azure. Utilize estes conjuntos de dados para quando estamos a transformar os dados de teste. 
+
+O Data Factory tem acesso a conectores nativos quase 80. Para incluir dados de outras origens no seu fluxo de dados, utilize a ferramenta de atividade de cópia para testar esses dados em uma das áreas de transição de conjunto de dados de fluxo de dados.
 
 ## <a name="options"></a>Opções
 
+Escolha as opções de esquema e de amostragem para os seus dados.
+
 ### <a name="allow-schema-drift"></a>Permitir que os descompassos de esquema
-Selecione permitir Descompassos de esquema se as colunas de origem serão alterados com freqüência. Esta definição permitirá que todos os campos de entrada da sua origem a ser enviados por meio de transformações para o Sink.
+Selecione **permitir que os descompassos de esquema** se as colunas de origem serão alterados com freqüência. Esta definição permite que todos os campos de origem de entrada a ser enviados por meio de transformações para o sink.
 
 ### <a name="validate-schema"></a>Validar o esquema
 
-![Fonte públicos](media/data-flow/source1.png "fonte públicos 1")
+Se a versão de entrada dos dados de origem não corresponder um esquema definido, o fluxo de dados falhará executar.
 
-Em seguida, se a versão de entrada dos dados de origem não corresponde um esquema definido, a execução de fluxo de dados irá falhar.
+![Definições da origem público, que mostra as opções para validar esquema, permitir descompassos de esquema e amostragem](media/data-flow/source1.png "fonte públicos 1")
 
-### <a name="sampling"></a>Amostragem
-Utilize amostragem para limitar o número de linhas da sua origem.  Isto é útil quando o teste ou de dados da sua origem para fins de depuração de amostragem.
+### <a name="sample-the-data"></a>Os dados de exemplo
+Ativar **amostragem** para limitar o número de linhas da sua origem. Utilize esta definição quando testar ou dados de exemplo da sua origem para fins de depuração.
 
 ## <a name="define-schema"></a>Definir esquema
 
-![Transformação de origem](media/data-flow/source2.png "2 de origem")
+Quando os arquivos de origem não são fortemente tipados (por exemplo, arquivos simples em vez de ficheiros Parquet), defina os tipos de dados para cada campo aqui na transformação de origem.  
 
-Para tipos de ficheiro de origem que não estão com rigidez de tipos (ficheiros simples, ou seja, em vez de ficheiros Parquet) deve definir os tipos de dados para cada campo aqui na transformação de origem. Pode, posteriormente, alterar os nomes das colunas numa transformação selecione e os tipos de dados numa transformação Derived Column. 
+![No separador de esquema de definir as definições de transformação de origem](media/data-flow/source2.png "2 de origem")
 
-![Transformação de origem](media/data-flow/source003.png "tipos de dados")
+Pode, posteriormente, alterar os nomes das colunas numa transformação selecione. Utilize uma transformação de coluna derivada para alterar os tipos de dados. Para origens com rigidez de tipos, pode modificar os tipos de dados numa transformação selecione mais tarde. 
 
-Para origens de rigidez de tipos, pode modificar os tipos de dados numa transformação selecione subsequente. 
+![Tipos de dados numa transformação selecione](media/data-flow/source003.png "tipos de dados")
 
-### <a name="optimize"></a>Otimizar
+### <a name="optimize-the-source-transformation"></a>Otimizar a transformação de origem
 
-![Partições de origem](media/data-flow/sourcepart.png "criação de partições")
+Sobre o **otimizar** separador para a transformação de origem, poderá ver um **origem** tipo de partição. Esta opção só está disponível quando a origem é a base de dados do Azure SQL. Isto acontece porque o Data Factory tenta estabelecer ligações paralela para executar consultas grandes em sua origem de base de dados SQL.
 
-No separador de otimização para a transformação de origem, verá um tipo de criação de partições adicional, chamado de "Origem". Isto irá apenas light-up quando tiver selecionado a BD SQL do Azure da sua origem. Isto acontece porque o ADF pretende colocar em paralelo ligações para executar consultas grandes na sua origem de BD SQL do Azure.
+![Definições de partição de origem](media/data-flow/sourcepart2.png "criação de partições")
 
-A criação de partições de dados na sua origem de BD SQL é opcional, mas é útil para consultas grandes. Tem duas opções:
+Não é necessário criar partições de dados na sua origem de base de dados SQL, mas as partições são úteis para consultas grandes. Pode basear sua partição numa coluna ou uma consulta.
 
-### <a name="column"></a>Coluna
+### <a name="use-a-column-to-partition-data"></a>Utilizar uma coluna para criar partições de dados
 
-Selecione uma coluna para a partição da sua tabela de origem. Também tem de definir o número máximo de ligações.
+Da sua tabela de origem, selecione uma coluna de partição. Também defina o número máximo de ligações.
 
-### <a name="query-condition"></a>Condição de consulta
+### <a name="use-a-query-to-partition-data"></a>Utilizar uma consulta para criar partições de dados
 
-Opcionalmente, pode optar por ligações com base numa consulta de partição. Para esta opção, coloque o conteúdo de um predicado WHERE. Por exemplo, ano > 1980
+Pode optar por ligações com base numa consulta de partição. Introduza simplesmente o conteúdo de um predicado WHERE. Por exemplo, introduza o ano > 1980.
 
 ## <a name="source-file-management"></a>Gestão de ficheiros de origem
+
+Escolha as definições para gerir os ficheiros na sua origem. 
+
 ![Novas definições de origem](media/data-flow/source2.png "novas definições")
 
-* Caminho de carateres universais para recolher uma série de ficheiros da sua pasta de origem que correspondem a um padrão. Isto irá substituir qualquer ficheiro que definiu na sua definição de conjunto de dados.
-* Lista de ficheiros. Mesmo que um conjunto de ficheiros. Aponte para um arquivo de texto que criar uma lista de ficheiros de caminho relativo a processar.
-* Coluna para armazenar o nome de ficheiro irá armazenar o nome do ficheiro da origem numa coluna nos seus dados. Introduza um novo nome aqui para armazenar a cadeia de caracteres de nome de ficheiro.
-* Após a conclusão (pode optar por não fazer nada com o ficheiro de origem depois do fluxo de dados é executado, elimine o ficheiro ou ficheiros de origem ou mover os ficheiros de origem. Os caminhos para mudança são caminhos relativos.
+* **Caminho de carateres universais**: A partir da sua pasta de origem, escolha uma série de ficheiros que correspondem a um padrão. Esta definição substitui qualquer ficheiro na sua definição de conjunto de dados.
+* **Lista de ficheiros**: Este é um conjunto de ficheiros. Crie um ficheiro de texto que inclui uma lista de ficheiros de caminho relativo a processar. Apontar para este ficheiro de texto.
+* **Coluna para armazenar o nome de ficheiro**: Store o nome do ficheiro de origem numa coluna nos seus dados. Introduza um novo nome aqui para armazenar a cadeia de caracteres de nome de ficheiro.
+* **Após a conclusão**: Opte por não fazer nada com o ficheiro de origem depois dos dados de execuções de fluxo, elimine o ficheiro de origem ou mover o ficheiro de origem. Os caminhos para a movimentação são relativos.
 
 ### <a name="sql-datasets"></a>Conjuntos de dados SQL
 
-Quando estiver a utilizar o BD SQL do Azure ou o Azure SQL DW da sua origem, terá opções adicionais.
+Se a origem está na base de dados SQL ou SQL Data Warehouse, tem opções adicionais para gestão de ficheiros de origem.
 
-* Consulta: Introduza uma consulta SQL para a sua origem. Definir uma consulta irá substituir qualquer tabela que escolheu no conjunto de dados. Tenha em atenção que Order By não são suportadas cláusulas aqui. No entanto, pode, definir uma instrução SELECT FROM completa aqui.
-
-* Tamanho do lote: Introduza um tamanho de lote para colocar partes de dados grandes em leituras de tamanho de lote.
+* **Consulta**: Introduza uma consulta SQL para a sua origem. Esta definição substitui qualquer tabela que escolheu no conjunto de dados. Tenha em atenção que **Order By** cláusulas não são suportadas aqui. Mas pode definir uma instrução SELECT FROM completa aqui.
+* **Tamanho do lote**: Introduza um tamanho de lote para colocar partes de dados grandes em leituras.
 
 > [!NOTE]
-> As definições de operação de ficheiro só serão executado quando o fluxo de dados é executado a partir de uma execução de pipeline (depuração de pipeline ou execução execute) usando a atividade de executar o fluxo de dados num pipeline. Operações de arquivo não executado no modo de depuração de fluxo de dados.
+> As operações de arquivo executadas apenas quando iniciar o fluxo de dados a partir de um (uma depuração de pipeline ou execução execute) de execução do pipeline que utiliza a atividade de executar o fluxo de dados num pipeline. As operações de ficheiros *não* executar no modo de depuração do fluxo de dados.
 
 ### <a name="projection"></a>Projeção
 
-![Projeção](media/data-flow/source3.png "projeção")
+Como esquemas em conjuntos de dados, a projeção de uma origem define as colunas de dados, tipos e formatos de dados de origem. 
 
-Semelhante aos esquemas em conjuntos de dados, a projeção na origem define as colunas de dados, os tipos de dados e formatos de dados de origem de dados. Se possui um arquivo de texto com um esquema definido, clique em "Detetar tipo de dados" para fazer o ADF para tentar de exemplo e inferir os tipos de dados. Pode definir os dados de predefinição formatos para detetar automaticamente com o botão "Definir o formato predefinido". Pode modificar os tipos de dados de coluna numa transformação Derived Column subsequente. Os nomes das colunas podem ser modificados usando a transformação selecione.
+![As definições no separador de projeção](media/data-flow/source3.png "projeção")
 
-![Padrão de formatos](media/data-flow/source2.png "predefinido formatos")
+Se o ficheiro de texto tiver definidas de esquemas, selecione **detetar tipo de dados** para que a fábrica de dados será de exemplo e inferir os tipos de dados. Selecione **formato de padrão de definir** automaticamente os dados de predefinição formatos. 
+
+Pode modificar os tipos de dados de coluna numa transformação de coluna derivada mais tarde. Use uma transformação Selecione para modificar os nomes das colunas.
+
+![Definições para formatos de dados predefinida](media/data-flow/source2.png "predefinido formatos")
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Comece a criar a sua transformação de dados com [Derived Column](data-flow-derived-column.md) e [selecione](data-flow-select.md).
+Começar a criar uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [selecione transformação](data-flow-select.md).

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023696"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540833"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidade de cognitiva Modelador
 
@@ -29,7 +29,7 @@ A versão de API determina a profundidade de formatação pode atingir.
 | Versão de 2019-05-06-pré-visualização da REST API (o SDK do .NET não é suportado) | Objetos complexos, vários níveis de profundidade, de uma **Modelador** definição de habilidade. |
 | 05 de 2019-06 * * (disponível em geral), 2017-11-11-pré-visualização| Objetos complexos, um nível de profundidade. Uma forma de múltiplos nível requer o encadeamento de vários passos Modelador em conjunto.|
 
-A pré-visualização **Modelador** habilidade, ilustrada na [cenário 3](#nested-complex-types), adiciona um novo opcional *sourceContext* propriedade para a entrada. O *origem* e *sourceContext* propriedades são mutuamente exclusivas. Se a entrada é no contexto da habilidade, basta usar *origem*. Se a entrada for num *diferentes* contexto que o contexto de habilidade, utilize o *sourceContext*. O *sourceContext* exige que defina uma entrada aninhada com o elemento específico que está a ser tratado como a origem. 
+Fornecido pelo `api-version=2019-05-06-Preview`, o **Modelador** habilidade ilustrado na [cenário 3](#nested-complex-types) adiciona um novo opcional *sourceContext* propriedade para a entrada. O *origem* e *sourceContext* propriedades são mutuamente exclusivas. Se a entrada é no contexto da habilidade, basta usar *origem*. Se a entrada for num *diferentes* contexto que o contexto de habilidade, utilize o *sourceContext*. O *sourceContext* exige que defina uma entrada aninhada com o elemento específico que está a ser tratado como a origem. 
 
 Em resposta, para todas as versões de API, o nome de saída é sempre "output". Internamente, o pipeline pode mapear um nome diferente, como "analyzedText" conforme mostrado nos exemplos abaixo, mas a **Modelador** habilidade em si devolve "resultado" na resposta. Isso pode ser importante se a depuração plena documentos e observe as discrepâncias de nomenclatura ou se compilar uma habilidade personalizada e é estruturar a resposta por conta própria.
 
@@ -196,7 +196,7 @@ Neste caso, o **Modelador** nivela todos os títulos de capítulo para criar uma
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Cenário 3: consolidação de entrada de contextos aninhados
 
 > [!NOTE]
-> Aninhados estruturas suportadas na api-version = 2019-05-06-pré-visualização, pode ser usado num [arquivo de dados de conhecimento](knowledge-store-concept-intro.md) ou num índice da Azure Search.
+> Aninhados estruturas, heterogenních doménách aplikace a [REST API versão 2019-05-06-pré-visualização](search-api-preview.md) podem ser usados num [arquivo de dados de conhecimento](knowledge-store-concept-intro.md) ou num índice da Azure Search.
 
 Imagine que tem o título, capítulos e conteúdo de um livro e executou entidade frases de reconhecimento e a chave no conteúdo e agora precisa agregar os resultados de diferentes habilidades numa única forma com o nome do capítulo, entidades e expressões-chave.
 
@@ -265,4 +265,4 @@ Neste caso, o **Modelador** cria um tipo complexo. Esta estrutura existe dentro 
 + [Como definir um conjunto de capacidades](cognitive-search-defining-skillset.md)
 + [Como usar tipos complexos](search-howto-complex-data-types.md)
 + [Descrição geral do arquivo de dados de conhecimento](knowledge-store-concept-intro.md)
-+ [Como começar com dados de conhecimento Store](knowledge-store-howto.md)
++ [Como começar com o arquivo de dados de conhecimento](knowledge-store-howto.md)

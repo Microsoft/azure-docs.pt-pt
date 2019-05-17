@@ -4,7 +4,7 @@ description: Fornece exemplos de código, organizados por cenário de um índice
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7e88c672e72549d813971ce72fc7b85ee8619eb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b14dcb5f5af971b10c83ea7fd9064a08cde3ab35
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298602"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545438"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemplos de código do Azure Active Directory (v1.0 ponto final)
 

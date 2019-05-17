@@ -8,10 +8,10 @@ ms.date: 3/21/2019
 ms.author: victorh
 ms.openlocfilehash: 530730dcf303a54803816e6f2af8787298c1c658
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65753746"
+ms.locfileid: "65795599"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 

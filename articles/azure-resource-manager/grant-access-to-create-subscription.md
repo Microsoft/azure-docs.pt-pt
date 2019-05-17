@@ -2,8 +2,8 @@
 title: Conceder acesso de criar subscrições do Azure Enterprise | Documentos da Microsoft
 description: Saiba como conceder a um utilizador ou principal de serviço a capacidade de criar subscrições do Azure Enterprise programaticamente.
 services: azure-resource-manager
-author: adpick
-manager: adpick
+author: jureid
+manager: jureid
 editor: ''
 ms.assetid: ''
 ms.service: azure-resource-manager
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.date: 04/09/2019
+ms.author: jureid
+ms.openlocfilehash: 742658e36da956c46bd932b59903e68786c65b93
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112568"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794569"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Conceder acesso a criar subscrições do Azure Enterprise (pré-visualização)
 
@@ -26,14 +26,118 @@ Como cliente do Azure no [Enterprise Agreement (EA)](https://azure.microsoft.com
 
 Para criar uma subscrição, veja [programaticamente criar subscrições do Azure Enterprise (pré-visualização)](programmatically-create-subscription.md).
 
-## <a name="delegate-access-to-an-enrollment-account-using-rbac"></a>Delegar o acesso a uma conta de inscrição através do RBAC
+## <a name="grant-subscription-creation-access-to-a-user-or-group"></a>Conceder acesso de criação de subscrição para um utilizador ou grupo
 
-Para dar a capacidade de criar subscrições em relação a uma conta específica, a outro utilizador ou principal de serviço [dar-lhes uma função de proprietário do RBAC no âmbito da conta de inscrição](../active-directory/role-based-access-control-manage-access-rest.md). O exemplo a seguir fornece um utilizador no inquilino com `principalId` dos `<userObjectId>` (para SignUpEngineering@contoso.com) uma função de proprietário da conta de inscrição. Para localizar a conta de inscrição de ID e o ID de principal, consulte [programaticamente criar subscrições do Azure Enterprise (pré-visualização)](programmatically-create-subscription.md).
+Para criar subscrições numa conta de inscrição, os utilizadores têm de ter o [função de proprietário do RBAC](../role-based-access-control/built-in-roles.md#owner) nessa conta. Pode conceder a um utilizador ou um grupo de utilizadores a função de proprietário do RBAC numa conta de inscrição, seguindo estes passos:
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+### <a name="1-get-the-object-id-of-the-enrollment-account-you-want-to-grant-access-to"></a>1. Obter o ID de objeto da conta de inscrição que pretende conceder acesso a
+
+Para conceder a outros utilizadores a função de proprietário do RBAC numa conta de inscrição, tem de estar o proprietário da conta ou um proprietário do RBAC da conta.
+
+### <a name="resttabrest"></a>[REST](#tab/rest)
+
+Pedido para listar todas as contas de inscrição que tem acesso a:
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts?api-version=2018-03-01-preview
+```
+
+Azure responde com uma lista de todas as contas de inscrição que tem acesso a:
+
+```json
+{
+  "value": [
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "SignUpEngineering@contoso.com"
+      }
+    },
+    {
+      "id": "/providers/Microsoft.Billing/enrollmentAccounts/4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "Microsoft.Billing/enrollmentAccounts",
+      "properties": {
+        "principalName": "BillingPlatformTeam@contoso.com"
+      }
+    }
+  ]
+}
+```
+
+Utilize o `principalName` propriedade para identificar a conta que pretende conceder acesso de proprietário do RBAC a. Copiar o `name` dessa conta. Por exemplo, se quisesse conceder o acesso de proprietário do RBAC para o SignUpEngineering@contoso.com conta de inscrição, poderia copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Este é o ID de objeto da conta de inscrição. Cole este valor, em algum lugar, para que pode usá-lo no próximo passo como `enrollmentAccountObjectId`.
+
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Open [Azure Cloud Shell](https://shell.azure.com/) e selecione o PowerShell.
+
+Utilize o [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet para listar todas as contas de inscrição que tem acesso.
+
+```azurepowershell-interactive
+Get-AzEnrollmentAccount
+```
+
+Azure responde com uma lista de contas de inscrição que tem acesso a:
+
+```azurepowershell
+ObjectId                               | PrincipalName
+747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | SignUpEngineering@contoso.com
+4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
+```
+
+Utilize o `principalName` propriedade para identificar a conta que pretende conceder acesso de proprietário do RBAC a. Copiar o `ObjectId` dessa conta. Por exemplo, se quisesse conceder o acesso de proprietário do RBAC para o SignUpEngineering@contoso.com conta de inscrição, poderia copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Cole este ID de objeto, em algum lugar, para que pode usá-lo no próximo passo como o `enrollmentAccountObjectId`.
+
+### <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Utilize o [lista de conta de inscrição de faturação az](https://aka.ms/EASubCreationPublicPreviewCLI) comando para listar todas as contas de inscrição que tem acesso.
+
+```azurecli-interactive 
+az billing enrollment-account list
+```
+
+Azure responde com uma lista de contas de inscrição que tem acesso a:
+
+```json
+[
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "SignUpEngineering@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  },
+  {
+    "id": "/providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "principalName": "BillingPlatformTeam@contoso.com",
+    "type": "Microsoft.Billing/enrollmentAccounts",
+  }
+]
+
+```
+
+Utilize o `principalName` propriedade para identificar a conta que pretende conceder acesso de proprietário do RBAC a. Copiar o `name` dessa conta. Por exemplo, se quisesse conceder o acesso de proprietário do RBAC para o SignUpEngineering@contoso.com conta de inscrição, poderia copiar ```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```. Este é o ID de objeto da conta de inscrição. Cole este valor, em algum lugar, para que pode usá-lo no próximo passo como `enrollmentAccountObjectId`.
+
+<a id="userObjectId"></a>
+
+### <a name="2-get-object-id-of-the-user-or-group-you-want-to-give-the-rbac-owner-role-to"></a>2. Obter ID de objeto do utilizador ou grupo que pretende conceder a função de proprietário do RBAC para
+
+1. No portal do Azure, uma procura **do Azure Active Directory**.
+1. Se quiser conceder um acesso de utilizador, clique em **utilizadores** no menu à esquerda. Se quiser conceder acesso a um grupo, clique em **grupos**.
+1. Selecione o utilizador ou grupo que pretende conceder a função de proprietário do RBAC para.
+1. A página de perfil, se tiver selecionado um usuário, encontrará o ID de objeto. Se tiver selecionado um grupo, o ID de objeto será na página de descrição geral. Copiar o **ObjectID** ao clicar no ícone à direita da caixa de texto. Cole este em algum lugar, para que pode usá-lo no próximo passo como `userObjectId`.
+
+### <a name="3-grant-the-user-or-group-the-rbac-owner-role-on-the-enrollment-account"></a>3. Conceder ao utilizador ou a função de proprietário do RBAC na conta de inscrição de grupo
+
+Utilizar os valores recolhidos nos dois primeiros passos, conceder ao utilizador ou a função de proprietário do RBAC na conta de inscrição de grupo.
+
+### <a name="resttabrest-2"></a>[REST](#tab/rest-2)
+
+Execute o seguinte comando, substituindo ```<enrollmentAccountObjectId>``` com o `name` que copiou na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Substitua ```<userObjectId>``` com o ID de objeto que copiou do segundo passo.
+
+```json
+PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>/providers/Microsoft.Authorization/roleAssignments/<roleAssignmentGuid>?api-version=2015-07-01
 
 {
   "properties": {
@@ -62,27 +166,27 @@ Quando a função de proprietário é atribuída com êxito no âmbito da conta 
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershelltabazure-powershell-2"></a>[PowerShell](#tab/azure-powershell-2)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Utilize o [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) para conceder acesso de proprietário de outro utilizador à sua conta de inscrição.
+Execute o seguinte [New-AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) comando, substituindo ```<enrollmentAccountObjectId>``` com o `ObjectId` recolhidos na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Substitua ```<userObjectId>``` com o objeto ID recolhidos na segunda etapa.
 
 ```azurepowershell-interactive
-New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
+### <a name="azure-clitabazure-cli-2"></a>[CLI do Azure](#tab/azure-cli-2)
 
-Utilize o [criação da atribuição de função de az](../active-directory/role-based-access-control-manage-access-azure-cli.md) para conceder acesso de proprietário de outro utilizador à sua conta de inscrição.
+Execute o seguinte [criação da atribuição de função de az](../active-directory/role-based-access-control-manage-access-azure-cli.md) comando, substituindo ```<enrollmentAccountObjectId>``` com o `name` copiados na primeira etapa (```747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx```). Substitua ```<userObjectId>``` com o objeto ID recolhidos na segunda etapa.
 
-```azurecli-interactive 
-az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+```azurecli-interactive
+az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
 ```
 
 ----
 
-Assim que um utilizador for um proprietário do RBAC para a sua conta de inscrição, pode criar programaticamente subscrições sob a mesma. Uma subscrição criada pelo utilizador delegado ainda tem o proprietário original da conta Administrador de serviços, mas ela também tem o utilizador delegado como um proprietário por predefinição. 
+Assim que um utilizador for um proprietário do RBAC para a sua conta de inscrição, pode [programaticamente criar subscrições](programmatically-create-subscription.md) sob a mesma. Uma subscrição criada pelo utilizador delegado ainda tem o proprietário original da conta Administrador de serviços, mas ela também tem o utilizador delegado como um proprietário do RBAC por predefinição.
 
 ## <a name="audit-who-created-subscriptions-using-activity-logs"></a>Auditoria que criou as subscrições com os registos de atividade
 
@@ -95,7 +199,6 @@ Para controlar as subscrições criadas através desta API, utilize o [API do Lo
 GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Subscription'" 
 ```
 
-> [!NOTE]
 > Para chamar convenientemente esta API a partir da linha de comandos, experimente [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Passos Seguintes

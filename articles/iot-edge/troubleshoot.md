@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 02d50b81cb91a74e2cdb039c56195e2a15858ca1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 00147002317f15345f01c88e81973837d16e6669
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142868"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797616"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -351,7 +351,7 @@ O Azure IoT Edge permite a comunicação de um servidor no local para a cloud do
 
 Embora o IoT Edge fornece uma configuração avançada para proteger o runtime do Azure IoT Edge e implementar módulos, é ainda depende da configuração de máquina e da rede subjacente. Por conseguinte, é imperativo para verificar se a rede adequada e regras de firewall estão configuradas para o edge seguro para a cloud de comunicação. A tabela seguinte pode ser usada como uma diretriz quando de regras de firewall de configuração para os servidores subjacentes onde está alojado o runtime do Azure IoT Edge:
 
-|Protocolo|Porta|entrada|Saída|Orientação|
+|Protocol|Porta|entrada|Saída|Orientação|
 |--|--|--|--|--|
 |MQTT|8883|BLOQUEADO (predefinição)|BLOQUEADO (predefinição)|<ul> <li>Configure o envio (saída) para ser aberto quando utiliza MQTT como o protocolo de comunicação.<li>1883 para MQTT não é suportado pelo IoT Edge. <li>Ligações de entrada (entrada) devem ser bloqueadas.</ul>|
 |AMQP|5671|BLOQUEADO (predefinição)|ABERTO (predefinição)|<ul> <li>Protocolo de comunicação padrão para o IoT Edge. <li> Tem de ser configurado para ser aberto, se o Azure IoT Edge não está configurado para outros protocolos suportados ou AMQP é o protocolo de comunicação desejada.<li>5672 para AMQP não é suportado pelo IoT Edge.<li>Bloquear esta porta, quando o protocolo de suporte do Azure IoT Edge utiliza um Hub de IoT diferentes.<li>Ligações de entrada (entrada) devem ser bloqueadas.</ul></ul>|
@@ -383,7 +383,7 @@ Local `daemon.json` na localização correta para a sua plataforma:
 | Plataforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Anfitrião do Windows com contentores do Windows | `C:\ProgramData\iotedge-moby-data\config` |
+| Anfitrião do Windows com contentores do Windows | `C:\ProgramData\iotedge-moby\config` |
 
 Se já contém a localização `daemon.json` de ficheiros, adicione o **dns** da chave a ele e guarde o ficheiro.
 

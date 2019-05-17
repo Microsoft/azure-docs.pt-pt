@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722441"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797012"
 ---
 # <a name="translator-text-api-30-translate"></a>Texto do Translator API 3.0: Translate
 
 Traduz texto.
 
-## <a name="request-url"></a>URL do Pedido
+## <a name="request-url"></a>URL do pedido
 
 Enviar um `POST` pedido para:
 
@@ -41,7 +41,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
     <td><em>Parâmetro necessário</em>.<br/>Versão da API do pedido pelo cliente. Valor tem de ser <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>de</td>
+    <td>from</td>
     <td><em>O parâmetro opcional</em>.<br/>Especifica o idioma do texto de entrada. Localizar quais idiomas estão disponíveis para efetuar a conversão de pesquisando <a href="./v3-0-languages.md">idiomas suportados</a> usando o <code>translation</code> âmbito. Se o <code>from</code> parâmetro não for especificado, a deteção de idioma automática é aplicada para determinar o idioma de origem.</td>
   </tr>
   <tr>
@@ -213,7 +213,7 @@ Seguem-se os possíveis códigos de estado HTTP que retorna um pedido.
   </tr>
   <tr>
     <td>429</td>
-    <td>O chamador está enviando demasiados pedidos.</td>
+    <td>O servidor rejeitou o pedido porque o cliente excedeu os limites de pedido.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -374,7 +374,7 @@ Se quiser evitar que a linguagem inapropriada na tradução, independentemente d
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Ação</th>
+  <th>Acção</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Este é o comportamento padrão. Linguagem inapropriada passará de origem ao destino.<br/><br/>

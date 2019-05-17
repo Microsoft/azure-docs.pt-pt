@@ -3,8 +3,8 @@ title: Compreender o manifesto de aplicação do Azure Active Directory | Docume
 description: Abordagem detalhada do manifesto de aplicação do Azure Active Directory, que representa a configuração de identidade de uma aplicação no inquilino do Azure AD e é utilizado para facilitar a OAuth autorização, experiência de consentimento e muito mais.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18ff5c4c54cdfe03eca572e2aa42f2330597c94d
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918764"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545659"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -101,7 +101,7 @@ Um manifesto de aplicação tem vários atributos que são conhecidos como cole�
 O manifesto do aplicativo representa o esquema do modelo de aplicativo subjacente no Azure AD. À medida que o esquema subjacente evolui, o editor de manifesto será atualizado para refletir o novo esquema de tempos em tempos. Como resultado, poderá reparar novos atributos a aparecer no manifesto do aplicativo. Em raras ocasiões, pode observar uma alteração sintática ou semântica nos atributos existentes ou pode ser um atributo que existia anteriormente já não são suportadas. Por exemplo, verá novos atributos no [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) que é conhecido com um nome diferente na experiência de registos (legada) de aplicação.
 
 
-| Registos de aplicações (Legado)| Registos de aplicações           |
+| Registos de aplicações (Legado)| Registos das aplicações           |
 |---------------------------|-----------------------------|
 | `availableToOtherTenants` | `signInAudience`            |
 | `displayName`             | `name`                      |

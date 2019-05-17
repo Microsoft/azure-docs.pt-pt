@@ -3,23 +3,32 @@ title: Mapeamento de transformação de Conditional Split de fluxo de dados de f
 description: Transformação de divisão condicional de fluxo de dados de fábrica de dados do Azure
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a4ea79e05165dfae4f79aa6473a07151ba7c00fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9fd346d4c4eaed0797d564fe52dd44e9f0e240a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627649"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795651"
 ---
-# <a name="azure-data-factory-mapping-data-flow-conditional-split-transformation"></a>Mapeamento de transformação de Conditional Split de fluxo de dados de fábrica de dados do Azure
+# <a name="mapping-data-flow-conditional-split-transformation"></a>Mapeamento de fluxo de dados condicional dividir transformação
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
+![dividir a caixa de ferramentas de condicional](media/data-flow/conditionalsplit2.png "condicional dividir a caixa de ferramentas")
+
 A transformação Conditional Split pode encaminhar linhas de dados para fluxos diferentes dependendo do conteúdo dos dados. A implementação da transformação Conditional Split é semelhante a uma estrutura de decisão maiúsculas numa linguagem de programação. A transformação avalia as expressões e com base nos resultados, direciona a linha de dados para a transmissão em fluxo especificada. Essa transformação também fornece uma saída predefinida, para que se uma linha não corresponde a nenhuma expressão é direcionado para a saída padrão.
 
-![divisão condicional](media/data-flow/cd1.png "divisão condicional")
+![divisão condicional](media/data-flow/conditionalsplit1.png "opções de divisão condicional")
+
+## <a name="multiple-paths"></a>Vários caminhos
 
 Para adicionar condições adicionais, selecione "Adicionar Stream" no painel de configuração na parte inferior e clique na caixa de texto do Expression Builder para criar a sua expressão.
+
+![condicional dividir transmissões](media/data-flow/conditionalsplit3.png "condicional dividir transmissões")
+
+## <a name="next-steps"></a>Passos Seguintes
+
+Transformações de fluxo do comuns dados utilizadas com a divisão condicional: [Junte-se a transformação](data-flow-join.md), [Loopup transformação](data-flow-lookup.md), [selecione transformação](data-flow-select.md)

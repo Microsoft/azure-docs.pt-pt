@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685296"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768016"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adicionar declarações e personalizar com as políticas personalizadas no Azure Active Directory B2C de intervenção do utilizador
 
@@ -29,12 +29,12 @@ Conclua os passos no artigo [introdução às políticas personalizadas](active-
 
 ## <a name="add-claims"></a>Adicionar declarações
 
-Recolha de dados iniciais de seus usuários é obtida usando o percurso do utilizador de inscrição ou início de sessão. Afirmações adicionais podem ser reunidas mais tarde, utilizando um percurso de utilizador de edição de perfil. Sempre que o Azure AD B2C reúne informações diretamente do usuário interativamente, o Framework de experiência de identidade utiliza o seu fornecedor de selfasserted.
+Recolha de dados iniciais de seus usuários é obtida usando o percurso do utilizador de inscrição ou início de sessão. Afirmações adicionais podem ser reunidas mais tarde, utilizando um percurso de utilizador de edição de perfil. Sempre que o Azure AD B2C reúne informações diretamente do usuário interativamente, o Framework de experiência de identidade utiliza o seu fornecedor de declaração própria.
 
 
 ### <a name="define-the-claim"></a>Definir a afirmação
 
-Permite a pedir ao utilizador para a sua cidade. Adicione o seguinte elemento para a **ClaimsSchema** elemento no arquivo de política de TrustFrameworkBase:
+Vamos pedir ao utilizador para a sua cidade. Adicione o seguinte elemento para a **ClaimsSchema** elemento no arquivo de política de TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">

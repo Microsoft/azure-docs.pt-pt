@@ -3,15 +3,15 @@ title: Ativar a replicação de VMs de VMware para recuperação após desastre 
 description: Este artigo descreve como ativar VMs de VMware para replicação para o Azure para recuperação após desastre com o Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922819"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540777"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Ativar a replicação para o Azure para VMs de VMware
 
@@ -34,7 +34,7 @@ Quando está a replicar máquinas virtuais VMware, mantenha estas informações 
 * Para adicionar máquinas virtuais para a replicação sem aguardar a deteção agendada, realce o servidor de configuração (mas não clique nele) e selecione **atualizar**.
 * Quando ativa a replicação, se a máquina virtual é preparada, o servidor de processos instala automaticamente o serviço de mobilidade de recuperação de Site do Azure no mesmo.
 
-## <a name="enable-replication"></a>Ativar a replicação
+## <a name="enable-replication"></a>Ativar replicação
 
 Antes de seguir os passos nesta secção, tenha em atenção as seguintes informações:
 * O Azure Site Recovery replica agora diretamente para os managed disks para todas as replicações de novo. O servidor de processos escreve os registos de replicação para uma conta de armazenamento de cache na região de destino. Estes registos são utilizados para criar pontos de recuperação em discos geridos de réplica.
@@ -43,16 +43,17 @@ Antes de seguir os passos nesta secção, tenha em atenção as seguintes inform
 * A replicação para contas de armazenamento para uma nova máquina virtual só está disponível através de um Estado REST (Representational Transfer) API e Powershell. Utilize a API de REST do Azure versão 2016 a 08-10 ou 2018-01-10 para replicar a contas de armazenamento.
 
 1. Aceda a **passo 2: Replicar aplicação** > **origem**. Depois de ativar a replicação pela primeira vez, selecione **+ replicar** no cofre para ativar a replicação para máquinas virtuais adicionais.
-1. Na **origem** página > **origem**, selecione o servidor de configuração.
-1. Para **tipo de máquina**, selecione **máquinas virtuais** ou **máquinas físicas**.
-1. Em **vCenter/vSphere Hypervisor**, selecione o servidor vCenter que gere o anfitrião vSphere ou selecione o anfitrião. Esta definição não é relevante se estiver a replicar computadores físicos.
-1. Selecione o servidor de processos, que será o servidor de configuração se ainda não criou quaisquer servidores de processos adicionais. Em seguida, selecione **OK**.
+2. Na **origem** página > **origem**, selecione o servidor de configuração.
+3. Para **tipo de máquina**, selecione **máquinas virtuais** ou **máquinas físicas**.
+4. Em **vCenter/vSphere Hypervisor**, selecione o servidor vCenter que gere o anfitrião vSphere ou selecione o anfitrião. Esta definição não é relevante se estiver a replicar computadores físicos.
+5. Selecione o servidor de processos. Se não existirem não existem servidores de processos adicionais criados, servidor de processos incorporadas do servidor de configuração vai estar disponível na lista pendente. Estado de funcionamento de cada servidor de processo será indicado de acordo com os limites de recomendada e outros parâmetros. Escolha um servidor de processos de bom estado de funcionamento. R [críticos](vmware-physical-azure-monitor-process-server.md#process-server-alerts) servidor de processos não pode ser escolhido. Pode [resolver](vmware-physical-azure-troubleshoot-process-server.md) os erros **ou** configurar uma [servidor de processos de escalamento horizontal](vmware-azure-set-up-process-server-scale.md).
+    ![Ativar a janela de origem de replicação](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Ativar a janela de origem de replicação](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> Partir [9.24 versões](service-updates-how-to.md#links-to-currently-supported-update-rollups), alertas adicionais são introduzidas para melhorar os alertas de estado de funcionamento do servidor de processos. Atualize componentes do Site Recovery para 9.24 versões ou superior para todos os alertas sejam gerados.
 
-1. Para **destino**, selecione o grupo de recursos e subscrição onde pretende criar as máquinas de virtuais com ativação pós-falha. Escolha o modelo de implementação que pretende utilizar no Azure para as VMs com ativação pós-falha.
-
-1. Selecione a rede do Azure e a sub-rede que o Azure se ligarão as VMs após a ativação pós-falha. A rede tem de estar na mesma região que o Cofre de serviço de recuperação de sites.
+6. Para **destino**, selecione o grupo de recursos e subscrição onde pretende criar as máquinas de virtuais com ativação pós-falha. Escolha o modelo de implementação que pretende utilizar no Azure para as VMs com ativação pós-falha.
+2. Selecione a rede do Azure e a sub-rede que o Azure se ligarão as VMs após a ativação pós-falha. A rede tem de estar na mesma região que o Cofre de serviço de recuperação de sites.
 
    Selecione **configurar agora para as máquinas selecionadas** para aplicar a definição de rede para todas as máquinas virtuais que selecionou para proteção. Selecione **configurar mais tarde** para selecionar a rede do Azure por máquina virtual. Se não tiver uma rede, terá de criar uma. Para criar uma rede utilizando o Gestor de recursos do Azure, selecione **criar novo**. Selecione uma sub-rede, se aplicável e, em seguida, selecione **OK**.
    

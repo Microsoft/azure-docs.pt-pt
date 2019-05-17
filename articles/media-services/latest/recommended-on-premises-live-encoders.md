@@ -9,12 +9,12 @@ ms.author: johndeu
 ms.date: 01/17/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: c7d895cd87122374a79a520643580a179961fba3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50b22cefccf620d7b79202a5c432e2e6a4e3e3be
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405363"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550041"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Recomendado codificadores de transmissão em fluxo em direto
 
@@ -59,6 +59,9 @@ Serviços de multimédia recomenda o uso de um dos seguintes codificadores em di
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live and Hero 4K (UHD/HEVC)
+
+> [!TIP]
+>  Se estiver de transmissão em fluxo eventos em direto em vários idiomas (por exemplo, uma faixa de áudio em inglês e uma faixa de áudio espanhol), isso pode ser feito com o codificador em direto do Excel de suporte de dados configurado para enviar a transmissão em direto para um evento Live pass-through.
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>Configurar definições no local codificador em direto
 

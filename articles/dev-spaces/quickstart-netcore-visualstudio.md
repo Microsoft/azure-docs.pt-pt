@@ -13,12 +13,12 @@ keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, 
 manager: jeconnoc
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 74bf83626ffcbf1625ab24cd9a4b8151b1cce8b0
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: HT
+ms.openlocfilehash: 7a85afd3c0a00260112ef2a945b0f5c5a538194e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597016"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65765307"
 ---
 # <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Início rápido: Programar com .NET Core no Kubernetes com os espaços de desenvolvimento do Azure (Visual Studio 2017)
 

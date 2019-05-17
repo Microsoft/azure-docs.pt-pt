@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57c2cacca9bb3e4526ec6261b8aa0ff6c18448a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613824"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546712"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Compreender os Reinícios da VM - manutenção vs. período de indisponibilidade
 Existem três cenários que podem conduzir a máquina virtual no Azure a ser afetado: manutenção de hardware não planeada, o período de indisponibilidade inesperado e a manutenção planeada.
 
-* Um **Evento de Manutenção de Hardware Não Planeada** ocorre quando a plataforma Azure prevê que o hardware ou um componente da plataforma associado a uma máquina física está prestes a falhar. Quando a plataforma prevê uma falha, emite um evento de manutenção de hardware não planeada para reduzir o impacto sobre as máquinas virtuais alojadas nesse hardware. O Azure utiliza a tecnologia de Migração em Direto para migrar as Máquinas Virtuais do hardware com falhas para uma máquina física em bom estado de funcionamento. A Migração em Direto é uma operação que visa conservar a VM e que apenas coloca a Máquina Virtual em pausa durante um curto espaço de tempo. A memória, os ficheiros abertos e as ligações de rede são mantidos, mas pode ocorrer uma redução do desempenho antes e/ou depois do evento. Nos casos em que não é possível utilizar a Migração em Direto, a VM sofre um Período de Indisponibilidade Inesperado, conforme descrito abaixo.
+* Um **Evento de Manutenção de Hardware Não Planeada** ocorre quando a plataforma Azure prevê que o hardware ou um componente da plataforma associado a uma máquina física está prestes a falhar. Quando a plataforma prevê uma falha, emite um evento de manutenção de hardware não planeada para reduzir o impacto sobre as máquinas virtuais alojadas nesse hardware. O Azure utiliza [migração em direto](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) tecnologia para migrar as máquinas virtuais do hardware com falhas para uma máquina física em bom estado. A Migração em Direto é uma operação que visa conservar a VM e que apenas coloca a Máquina Virtual em pausa durante um curto espaço de tempo. A memória, os ficheiros abertos e as ligações de rede são mantidos, mas pode ocorrer uma redução do desempenho antes e/ou depois do evento. Nos casos em que não é possível utilizar a Migração em Direto, a VM sofre um Período de Indisponibilidade Inesperado, conforme descrito abaixo.
 
 
 * **Um período de indisponibilidade inesperado** é quando o hardware ou a infraestrutura física para a máquina virtual está a falhar inesperadamente. Isto pode incluir falhas de rede local, falhas de disco local ou outras falhas estruturais. Quando detectado, migra automaticamente a plataforma do Azure (recuperação) a máquina virtual para uma máquina física em bom estado no mesmo datacenter. Durante o procedimento de recuperação, as máquinas virtuais sofrem um período de indisponibilidade (reinício) e, em alguns casos, a perda da unidade temporária. O SO anexado e os discos de dados são sempre preservados. 

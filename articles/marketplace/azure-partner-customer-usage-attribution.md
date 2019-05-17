@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935709"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800991"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribuição da utilização do cliente de parceiro do Azure
 
@@ -247,7 +247,7 @@ foreach ($deployment in $deployments){
 
 ## <a name="report"></a>Relatório
 
-Pode encontrar o relatório de atribuição de utilização do cliente no dashboard do Centro de parceiros analisar. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+Pode encontrar o relatório de atribuição de utilização do cliente no dashboard do Centro de parceiros analisar. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver o relatório, terá de utilizar as credenciais do Centro de parceiros para iniciar sessão. Se encontrar algum problema com o relatório ou iniciar sessão, crie um pedido de suporte, seguindo as instruções na secção de suporte de Get.
 
 Escolha o modelo controlado na lista pendente do tipo de associação de parceiro para ver o relatório.
 
@@ -266,6 +266,10 @@ Ao implementar este modelo, a Microsoft é capaz de identificar a instalação d
 Quando implementa \<parceiro > software, a Microsoft é capaz de identificar a instalação do \<parceiro > software com os recursos do Azure que são implementados. A Microsoft é capaz de correlacionar os recursos do Azure que são utilizados para suportar o software. A Microsoft recolhe estas informações para fornecer as experiências melhores com seus produtos e para operar seus negócios. Os dados são recolhidos e regem-se pelas políticas de privacidade da Microsoft, que podem ser encontradas em https://www.microsoft.com/trustcenter.
 
 ## <a name="get-support"></a>Obter suporte
+
+Se encontrar algum problema com o relatório ou iniciar sessão no Centro de parceiros, crie um pedido de suporte com a equipa de suporte do Centro de parceiros: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Se precisar de assistência de integração do Marketplace e/ou atribuição de utilização do cliente, siga estes passos.
 

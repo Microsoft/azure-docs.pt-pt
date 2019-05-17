@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 05/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 2da6bf971cc966e27fac46546bfd4e3dcac6d12f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6a725784c419b67f7738b70ad867d2d6ef8b0785
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926174"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795964"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutorial: Instalar os cabos e ligue-se para o Azure Data Box
 

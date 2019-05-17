@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728697"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541673"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso de serviço de aplicações do Azure #
 
@@ -32,7 +32,7 @@ Quando é efetuado um pedido à sua aplicação, o endereço é comparado com as
 
 A capacidade de restrições de acesso é implementada nas funções de front-end de serviço de aplicações, que são a montante, os anfitriões de trabalho em que o seu código é executado. Por conseguinte, restrições de acesso são, efetivamente, ACLs de rede.
 
-A capacidade para restringir o acesso à sua aplicação web a partir de uma rede Virtual do Azure (VNet) é chamada [pontos finais de serviço][serviceendpoints]. Pontos finais de serviço permitem-lhe restringir o acesso a um serviço de multi-inquilino de sub-redes selecionadas. Tem de estar ativada no tanto do lado do funcionamento em rede, bem como o serviço que está a ser ativada com. 
+A capacidade para restringir o acesso à sua aplicação web a partir de uma rede Virtual do Azure (VNet) é chamada [pontos finais de serviço][serviceendpoints]. Pontos finais de serviço permitem-lhe restringir o acesso a um serviço de multi-inquilino de sub-redes selecionadas. Tem de estar ativada no tanto do lado do funcionamento em rede, bem como o serviço que está a ser ativada com. Ele não funciona para restringir o tráfego para aplicações alojadas num ambiente de serviço de aplicações.  Se estiver num ambiente de serviço de aplicações, pode controlar o acesso à sua aplicação com regras de endereços IP.
 
 ![fluxo de restrições de acesso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Para definir um endereço IP com base em regra, selecione um tipo de IPv4 ou IPv
 ![Adicionar uma regra de restrição de acesso de VNet](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Para restringir o acesso a sub-redes selecionadas, selecione um tipo de rede Virtual. Abaixo disso, poderá escolher a subscrição, a VNet e a sub-rede que pretende permitir ou negar o acesso com. Se a pontos finais de serviço não já foram ativados com o Microsoft. Web para a sub-rede que selecionou, ele será ativado automaticamente para, a menos que marque a caixa pedindo para não fazê-lo. A situação em que iria querer ativá-lo a aplicação, mas não a sub-rede está amplamente relacionada à se tiver as permissões para ativar os pontos finais de serviço na sub-rede ou não. Se precisar de obter alguém para ativar pontos finais de serviço na sub-rede, pode selecionar a caixa e ter a aplicação configurada para pontos finais de serviço em antecipação a ele que está a ser ativado mais tarde na sub-rede. 
+
+Pontos finais de serviço não podem ser utilizados para restringir o acesso às aplicações que são executados num ambiente de serviço de aplicações. Quando a sua aplicação está num ambiente de serviço de aplicações, pode controlar o acesso à sua aplicação com regras de acesso IP. 
 
 Pode clicar em qualquer linha para editar uma regra de restrição de acesso existente. As edições entram em vigor de imediato, incluindo alterações na ordem de prioridade.
 

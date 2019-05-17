@@ -12,10 +12,10 @@ ms.date: 05/14/2019
 ms.custom: seodec18
 ms.openlocfilehash: f2984ed9a7edd36b166c0dff9aa87d86c6d2ab45
 ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/16/2019
-ms.locfileid: "65755024"
+ms.locfileid: "65800722"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem no Azure Container Instances
 

@@ -3,8 +3,8 @@ title: Tópicos de ajuda de Portal de registo de aplicações | Documentos da Mi
 description: Uma descrição das várias funcionalidades no portal de registo de aplicação do Microsoft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b77f2a403bd4f410665d00bc69b3b1bcf0c3aaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139174"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546100"
 ---
 # <a name="app-registration-reference"></a>Referência de registo de aplicação
 Este documento fornece o contexto e descrições de várias funcionalidades encontradas no [Portal de registo de aplicação](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).

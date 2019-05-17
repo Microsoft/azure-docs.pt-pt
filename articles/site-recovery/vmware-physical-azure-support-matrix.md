@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872921"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540591"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -30,7 +30,7 @@ Recuperação após desastre de servidores físicos | Replicação de servidores
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização no local
 
-**Servidor** | **Requisitos** | **Detalhes**
+**servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 VMware | o vCenter Server 6.7, 6.5, 6.0, ou 5.5 ou vSphere 6.7, 6.5, 6.0 ou 5.5 | Recomendamos que utilize um servidor vCenter.<br/><br/> Recomendamos que os anfitriões vSphere e servidores vCenter estão localizados na mesma rede que o servidor de processos. Por predefinição os componentes de servidor de processo é executado no servidor de configuração,, esta será a rede na qual configurou o servidor de configuração, a menos que configurar um servidor de processos dedicados.
 Físico | N/A
@@ -64,7 +64,7 @@ Recuperação de sites suporta a replicação de qualquer carga de trabalho em e
 --- | ---
 Definições do computador | As máquinas que replicam para o Azure tem de cumprir [requisitos do Azure](#azure-vm-requirements).
 Carga de trabalho de máquina | Recuperação de sites suporta a replicação de qualquer carga de trabalho (Digamos que o Active Directory, o SQL server, etc.) em execução numa máquina. [Saiba mais](https://aka.ms/asr_workload).
-Sistema de operativo do Windows | 64-bit Windows Server 2016 (Server Core, servidor com experiência de área de trabalho), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com em, pelo menos, SP1. </br></br>  [Windows Server 2008 com pelo menos o SP2 - 32 bits e 64 bits](migrate-tutorial-windows-server-2008.md) (apenas para migração). </br></br> O servidor Nano do Windows 2016 não é suportado.
+Sistema de operativo do Windows | 2019 do Windows Server (de [9.22 versões](service-updates-how-to.md#links-to-currently-supported-update-rollups)), 64 bits Windows Server 2016 (Server Core, servidor com experiência de área de trabalho), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com em, pelo menos, SP1. </br> [9.24 versões](https://support.microsoft.com/en-in/help/4503156), 64 bits com o Windows 10, Windows 8.1 de 64 bits, 64-bit Windows 8, 7 de Windows de 64 bits (a versão do Windows 7 RTM não é suportado)</br>  [Windows Server 2008 com pelo menos o SP2 - 32 bits e 64 bits](migrate-tutorial-windows-server-2008.md) (apenas para migração). </br></br> O servidor Nano do Windows 2016 não é suportado.
 Arquitetura de sistema operativo Linux | Sistema de 64 bits apenas é suportado. sistema de 32 bits não é suportado
 Sistema operativo Linux | Red Hat Enterprise Linux: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7,6 <br/><br/>CentOS: 5.2 para 5.11<b>\*\*</b>, 6.1 para 6.10<b>\*\*</b>, 7.0 para 7,6 <br/><br/>Servidor de Ubuntu 14.04 LTS [(versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Servidor de Ubuntu 16.04 LTS [(versões de kernel de suportadas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(versões de kernel de suportadas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(versões de kernel de suportadas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7,6 com o kernel compatível do Red Hat ou Indestrutíveis Enterprise Kernel versão 3, 4 e 5 (UEK3, UEK4, UEK5) <br/><br/></br>-Atualizar máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4 não é suportada. Para atualizar, desative a replicação e ativá-la novamente após a atualização.</br></br> - [Saiba mais](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre o suporte para Linux e tecnologia de código aberto no Azure. Recuperação de sites orquestra a ativação pós-falha para executar servidores Linux no Azure. No entanto fornecedores do Linux podem limitar o suporte para apenas as versões de distribuição que não atingiram o fim-de-vida.<br/><br/> -Em distribuições do Linux, apenas os kernels das ações que fazem parte da versão/atualização do podverze distribuição são suportados.<br/><br/> -Atualizar máquinas protegidas em Linux principais versões de distribuição não é suportada. Para atualizar, desative a replicação, atualize o sistema operativo e, em seguida, ative novamente a replicação.<br/><br/> -Servidores a executar o Red Hat Enterprise Linux 5.2 5.11 ou CentOS 5.2 5.11 devem ter o [componentes de serviços de integração do Linux (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalado para as máquinas efetuar o arranque no Azure.
 
@@ -123,7 +123,7 @@ BTRFS |A partir de versão 9.22, BTRFS é suportada, exceto para os seguintes ce
 
 ## <a name="vmdisk-management"></a>Gerenciamento de VM/disco
 
-**Ação** | **Detalhes**
+**ação** | **Detalhes**
 --- | ---
 Redimensionar disco numa VM replicada | Suportado.
 Adicionar o disco na VM replicada | Desative a replicação para a VM, adicione o disco e, em seguida, reativar a replicação. Adicionar um disco numa VM de replicação não é atualmente suportada.
@@ -151,7 +151,7 @@ Várias NICs de rede de convidado/servidor | Sim.
 Azure ExpressRoute | Sim
 ILB | Sim
 ELB | Sim
-Traffic Manager do Azure | Sim
+Gestor de Tráfego do Azure | Sim
 Multi-NIC | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim
@@ -173,6 +173,7 @@ VMDK/servidor convidado | Sim
 Disco de cluster partilhado do servidor/convidado | Não
 Disco de convidado/servidor encriptado | Não
 Convidado/servidor NFS | Não
+Convidado/servidor iSCSI | Não
 O SMB 3.0 de servidor/convidado | Não
 Convidado/servidor RDM | Sim<br/><br/> N/d para servidores físicos
 Servidor/convidado disco > 1 TB | Sim<br/><br/>Até 4095 GB<br/><br/> Disco tem de ser superior a 1024 MB.
@@ -194,7 +195,7 @@ Inicialização EFI/UEFI do servidor/convidado | Suportada ao migrar VMs de VMwa
 | Azure Data Box | Não
 
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 **Componente** | **Suportado**
 --- | ---
@@ -235,7 +236,7 @@ Placas de rede | São suportados vários adaptadores. |
 VHD partilhado | Não suportado. | Falha na verificação se não suportado.
 Disco FC | Não suportado. | Falha na verificação se não suportado.
 BitLocker | Não suportado. | O BitLocker tem de ser desativado antes de ativar a replicação para uma máquina. |
-o nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
+Nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
 
 ## <a name="azure-site-recovery-churn-limits"></a>Limites de alterações a dados do Azure Site Recovery
 
@@ -260,7 +261,7 @@ Estes são números médios, que pressupõem uma sobreposição de 30 por cento 
 
 ## <a name="vault-tasks"></a>Tarefas de cofre
 
-**Ação** | **Suportado**
+**ação** | **Suportado**
 --- | ---
 Mover o Cofre entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos<br/><br/> Dentro e entre subscrições | Não

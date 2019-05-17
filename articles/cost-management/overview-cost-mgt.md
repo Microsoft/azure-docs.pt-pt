@@ -5,21 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6615c6d8912195dbecda727bbdb31dcf04898ea2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61035757"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792815"
 ---
 # <a name="what-is-azure-cost-management"></a>O que é o Azure Cost Management?
 
 Gestão de custos é o processo de planejamento e controlar os custos envolvidos na sua empresa com eficiência. Normalmente, as tarefas de gestão de custos são realizadas por equipas de finanças, gestão e aplicações. O Azure Cost Management ajuda as organizações a planear com custo em mente. Também ajuda a analisar os custos de forma eficaz e tomar medidas para otimizar a cloud de gastos. Para saber mais sobre como abordar a gestão de custos como uma organização, veja o artigo [Melhores práticas do Azure Cost Management](cost-mgt-best-practices.md).
+
+Veja a [descrição geral do Azure Cost Management vídeo](https://www.youtube.com/watch?v=el4yN5cHsJ0) para uma descrição geral sobre como o Azure Cost Management pode ajudar a economizar dinheiro no Azure.
+
+>[!VIDEO https://www.youtube.com/embed/el4yN5cHsJ0]
 
 Embora relacionada, a faturação é diferente da gestão de custos. A faturação é o processo de faturar clientes relativamente a bens ou serviços e gerir a relação comercial.  Normalmente, as equipas de aprovisionamento e finanças realizam tarefas de faturação.
 
@@ -42,6 +46,10 @@ Se utilizar sistemas externos para analisar ou aceder a dados de gestão de cust
 ## <a name="consider-cloudyn"></a>Considere o Cloudyn
 
 O [Cloudyn](overview.md) é um serviço do Azure relacionado com o Cost Management. No Cloudyn, pode controlar a utilização e os gastos com a cloud para os seus recursos do Azure. O Cloudyn também suporta outros fornecedores de serviços cloud, incluindo a AWS e a Google. Os relatórios do dashboard fáceis de compreender também ajudam na alocação de custos e showbacks/estornos. Atualmente, o Cost Management não suporta a análise de custos/estorno ou outros fornecedores de serviços cloud. No entanto, o Cloudyn é uma opção que _de facto_ os suporta. Atualmente, a gestão de custos não suporta contas de fornecedor de serviços Cloud (CSP) da Microsoft, mas faz do Cloudyn. Se tiver contas CSP, ou se pretender utilizar a análise de custos/estorno, pode utilizar o Cloudyn para ajudar a gerir os custos.
+
+Veja a [vídeo Azure Cost Management e o Cloudyn](https://www.youtube.com/watch?v=PmwFWwSluh8) ver recomendações quando deve utilizar o Azure Cost Management ou Cloudyn, com base nas suas necessidades empresariais.
+
+>[!VIDEO https://www.youtube.com/embed/PmwFWwSluh8]
 
 ## <a name="additional-azure-tools"></a>Ferramentas do Azure adicionais
 

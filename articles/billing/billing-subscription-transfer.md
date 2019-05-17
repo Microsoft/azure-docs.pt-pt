@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ffebdd5b88603113dd7624e97dcf7353ab5d1ba
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371160"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605576"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -90,7 +90,7 @@ Transferência de subscrição Self-Service está disponível para ofertas ou ti
 | Nome da Oferta                                                                             | Número da oferta |
 |----------------------------------------------------------------------------------------|--------------|
 | [Contrato Enterprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)\*|MS-AZR-0017P        |
-| [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
+| [Rede de parceiros da Microsoft](https://azure.microsoft.com/offers/ms-azr-0025p/)          | MS-AZR-0025P        |
 | [O MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/)                     | MS-AZR-0062P        |
 | [Pay as you go](https://azure.microsoft.com/offers/ms-azr-0003p/)                      | MS-AZR-0003P        |
 | [Pay as you go programador/teste](https://azure.microsoft.com/offers/ms-azr-0023p/)             | MS-AZR-0023P        |
@@ -119,7 +119,7 @@ Todos os seus recursos, como VMs, discos e transferência de Web sites para o no
 
 ### <a id="no-button"></a> Por que motivo não vejo no botão "Transferir a subscrição"?
 
-Infelizmente, a transferência de subscrição Self-Service não está disponível para a sua oferta ou país. Para transferir a sua subscrição [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Infelizmente, a transferência de subscrição Self-Service não está disponível para a sua oferta ou país/região. Para transferir a sua subscrição [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>Uma transferência de subscrição resulta em qualquer período de indisponibilidade de serviço?
 
@@ -156,9 +156,9 @@ O remetente é responsável pelo pagamento de qualquer utilização que foi rela
 
 A oferta tem de permanecer o mesmo. Para alterar a sua oferta, consulte [mudar a sua subscrição do Azure para outra oferta](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>Pode transferir uma subscrição para uma conta de utilizador em outro país?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>Pode transferir uma subscrição para uma conta de usuário em outro país/região?
 
-Não, a transferência de uma subscrição para uma conta de utilizador em outro país não é suportada. Conta de utilizador do destinatário tem de estar no mesmo país.
+Não, a transferência de uma subscrição para uma conta de utilizador no outro país/região não é suportada. Conta de utilizador do destinatário tem de estar no mesmo país/região.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>O destinatário utilizar um método de pagamento diferente?
 

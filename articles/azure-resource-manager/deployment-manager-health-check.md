@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467076"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796262"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introduzir a implementação de integração do Estado de funcionamento para o Azure Deployment Manager (pré-visualização pública)
 
@@ -32,7 +32,7 @@ Para fazer a integração de estado de funcionamento mais fácil possível, Micr
 
 ## <a name="how-service-health-is-determined"></a>Como é determinado Estado de funcionamento do serviço
 
-[Fornecedores de monitorização de estado de funcionamento](#health-monitoring-providers) oferecem vários mecanismos para serviços de monitorização e alerta-de quaisquer problemas de estado de funcionamento do serviço. [O Azure Monitor](/services/monitor/) é um exemplo de uma oferta. Monitor do Azure pode ser utilizado para criar alertas quando determinados limites são ultrapassados. Por exemplo, sua memória e utilização da CPU expandam para além dos níveis esperados ao implementar uma nova atualização ao seu serviço. Quando for notificado, pode efetuar ações corretivas.
+[Fornecedores de monitorização de estado de funcionamento](#health-monitoring-providers) oferecem vários mecanismos para serviços de monitorização e alerta-de quaisquer problemas de estado de funcionamento do serviço. [O Azure Monitor](../azure-monitor/overview.md) é um exemplo de uma oferta. Monitor do Azure pode ser utilizado para criar alertas quando determinados limites são ultrapassados. Por exemplo, sua memória e utilização da CPU expandam para além dos níveis esperados ao implementar uma nova atualização ao seu serviço. Quando for notificado, pode efetuar ações corretivas.
 
 Esses provedores de estado de funcionamento oferecem, normalmente, as APIs REST, para que o estado dos monitores do seu serviço pode ser examinado por meio de programação. As APIs REST pode optar por voltar com um sinal de bom estado de funcionamento/mau estado de funcionamento simple (determinado pelo código da resposta HTTP) e/ou com informações detalhadas sobre os sinais de que está a receber.
 

@@ -6,7 +6,7 @@ metadata:
   title: 'Documentação da Base de Dados SQL do Azure - Tutoriais, Referência da API'
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: CarlRabeler
+  author: stevestein
   manager: craigg
   ms.service: sql-database
   ms.subservice: service
@@ -14,7 +14,7 @@ metadata:
   ms.devlang: null
   ms.topic: overview
   ms.date: 03/04/2019
-  ms.author: carlrab
+  ms.author: sstein
 abstract:
   description: 'A Base de Dados SQL do Azure é um serviço relacional de base de dados como serviço (DBaaS) de fins gerais baseado na versão estável mais recente do Motor de Base de Dados do Microsoft SQL Server. A Base de Dados SQL é uma base de dados na cloud de elevado desempenho, fiável e segura que pode utilizar para criar aplicações e sites com base em dados na linguagem de programação da sua preferência, sem ter de gerir infraestrutura. Saiba como utilizar a Base de Dados SQL com os nossos inícios rápidos, tutoriais e amostras.'
   aside:

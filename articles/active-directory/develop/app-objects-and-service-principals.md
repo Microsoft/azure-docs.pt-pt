@@ -2,8 +2,8 @@
 title: Aplicação e objetos de principal de serviço no Azure Active Directory
 description: Saiba mais sobre a relação entre a aplicação e objetos de principal de serviço no Azure Active Directory.
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 services: active-directory
 editor: ''
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47626cbd8d5b8a5ddf7cc5c6ea42fb9453e5bfb2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411152"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540674"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Aplicação e objetos de principal de serviço no Azure Active Directory
 
