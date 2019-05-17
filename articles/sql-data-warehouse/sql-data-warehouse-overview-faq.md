@@ -2,20 +2,20 @@
 title: Azure SQL Data Warehouse perguntas mais frequentes | Documentos da Microsoft
 description: Este artigo lista as perguntas mais frequentes sobre o Azure SQL Data Warehouse de clientes e os desenvolvedores
 services: sql-data-warehouse
-author: acomet
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: acomet
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c16d95ea15fc358cb81b17b42570cb35f2e8c52d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747613"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795555"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse perguntas mais frequentes
 
@@ -116,4 +116,4 @@ Para obter mais informações sobre o SQL Data Warehouse como um todo, consulte 
 [Blobs de armazenamento do Azure]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Pedido de funcionalidade de projetos de banco de dados]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[Descrição geral]: ./sql-data-warehouse-overview-faq.md
+[Descrição Geral]: ./sql-data-warehouse-overview-faq.md
