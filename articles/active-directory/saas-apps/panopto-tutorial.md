@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/17/2019
 ms.author: jeedes
 ms.openlocfilehash: 23830d6ae2ba020a77402d3e2b7acc2f50f75733
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268768"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869934"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panopto"></a>Tutorial: Integração do Active Directory do Azure com Panopto
 
@@ -215,7 +215,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Panopto. Panopt
 >Pode utilizar quaisquer outras Panopto utilizador conta criação ferramentas ou APIs fornecidas pelo Panopto para aprovisionar contas de utilizador do Azure AD.
 >
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

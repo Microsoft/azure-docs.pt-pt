@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 79741d9ec71dd7735ef94ef8172921965a9e9df1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863777"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ceridian-dayforce-hcm"></a>Tutorial: Integração do Active Directory do Azure com Ceridian Dayforce HCM
 
@@ -107,21 +107,21 @@ Para configurar o Azure AD início de sessão único com Ceridian Dayforce HCM, 
 
     a. Na **URL de início de sessão** caixa de texto, escreva o URL utilizado pelos seus utilizadores para início de sessão na sua aplicação Ceridian Dayforce HCM.
 
-    | Ambiente | do IdP |
+    | Ambiente | URL |
     | :-- | :-- |
     | Para produção | `https://sso.dayforcehcm.com/<DayforcehcmNamespace>` |
     | Para teste | `https://ssotest.dayforcehcm.com/<DayforcehcmNamespace>` |
 
     b. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
 
-    | Ambiente | do IdP |
+    | Ambiente | URL |
     | :-- | :-- |
     | Para produção | `https://ncpingfederate.dayforcehcm.com/sp` |
     | Para teste | `https://fs-test.dayforcehcm.com/sp` |
 
     c. Na **URL de resposta** caixa de texto, escreva o URL é utilizado pelo Azure AD para publicar a resposta.
 
-    | Ambiente | do IdP |
+    | Ambiente | URL |
     | :-- | :-- |
     | Para produção | `https://ncpingfederate.dayforcehcm.com/sp/ACS.saml2` |
     | Para teste | `https://fs-test.dayforcehcm.com/sp/ACS.saml2` |
@@ -137,7 +137,7 @@ Para configurar o Azure AD início de sessão único com Ceridian Dayforce HCM, 
     
     | Name | Atributo de origem|
     | ---------| --------- |
-    | nome  | user.extensionattribute2 |
+    | name  | user.extensionattribute2 |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -230,7 +230,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Ceridian Dayforce HCM. Trabalhar com [equipa de suporte de Ceridian Dayforce HCM](https://www.ceridian.com/support) para adicionar os utilizadores na plataforma Ceridian Dayforce HCM. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

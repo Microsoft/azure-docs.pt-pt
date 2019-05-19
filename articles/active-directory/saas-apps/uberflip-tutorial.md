@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682732"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865673"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Active Directory do Azure com Uberflip
 
@@ -191,7 +191,7 @@ Um usuário chamado Eduarda Almeida está agora criado no Uberflip. Não tem de 
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, entre em contato com o [equipa de suporte de Uberflip](mailto:support@uberflip.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 

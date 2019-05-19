@@ -16,11 +16,11 @@ ms.date: 02/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cb82c3112634163328e08b330083f5b4942798ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880974"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863183"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-communifire"></a>Tutorial: Integração do Active Directory do Azure com Communifire
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD início de sessão único com Communifire, execute os
 
     a. Selecione **asserção e resposta SAML de início de sessão** partir a **opção assinatura**.
     
-    b. Clicar em **Guardar**
+    b. Clique em **Guardar**
 
     ![Opção de assinatura de Communifire](./media/communifire-tutorial/tutorial-communifire-signing-option.png)
  
@@ -206,7 +206,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Commun
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Communifire](mailto:support@axerosolutions.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

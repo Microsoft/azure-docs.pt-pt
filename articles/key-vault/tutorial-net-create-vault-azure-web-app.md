@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: 9a59255097c6cb2a6728a14c3dbe19dbcbb0932a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c0513733f2bce97d7b45b325df013fb123d6bb78
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236802"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872320"
 ---
 # <a name="tutorial-use-azure-key-vault-with-an-azure-web-app-in-net"></a>Tutorial: Utilizar o Azure Key Vault com uma aplicação web do Azure no .NET
 
@@ -191,7 +191,7 @@ Também pode ver este vídeo:
 
 ## <a name="run-the-web-app"></a>Executar a aplicação Web
 
-1. No menu principal do Visual Studio 2017, selecione **depurar** > **iniciar**, com ou sem depuração. 
+1. No menu principal do Visual Studio 2019, selecione **depurar** > **iniciar**, com ou sem depuração. 
 1. No browser, vá para o **sobre** página.  
     O valor para o **AppSecret** é apresentado.
 

@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
 ms.openlocfilehash: a98ec0d460e050f8158ffee1262dd85f0cd07d9a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59256419"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65869822"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-peakon"></a>Tutorial: Integração do Active Directory do Azure com Peakon
 
@@ -162,7 +162,7 @@ Para configurar o Azure AD início de sessão único com Peakon, execute os segu
 
     e. Clique nas **ícone** para copiar o **URL de resposta (ACS)** e cole no **URL de resposta** caixa de texto no **configuração básica de SAML** secção no portal do Azure.
 
-    f. Clicar em **Guardar**
+    f. Clique em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -242,7 +242,7 @@ No caso de Peakon, o aprovisionamento é uma tarefa manual.
 
     c. Clique em **funcionário criar**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
