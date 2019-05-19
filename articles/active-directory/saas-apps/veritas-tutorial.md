@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 59012bf32a4e1f0532b4d42e510d431180c35730
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59264187"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-veritas-enterprise-vaultcloud-sso"></a>Tutorial: Integração do Active Directory do Azure com o Veritas Enterprise Vault.cloud SSO
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD início de sessão único com o Veritas Enterprise Va
 
     b. Na **identificador** caixa, utilize o URL de acordo com o Centro de dados:
 
-    | Datacenter| do IdP |
+    | Datacenter| URL |
     |----------|----|
     | América do Norte| `https://auth.lax.archivecloud.net` |
     | Europa | `https://auth.ams.archivecloud.net` |
@@ -117,7 +117,7 @@ Para configurar o Azure AD início de sessão único com o Veritas Enterprise Va
 
     c. Na **URL de resposta** texto caixa, utilize o URL de acordo com o Centro de dados:
 
-    | Datacenter| do IdP |
+    | Datacenter| URL |
     |----------|----|
     | América do Norte| `https://auth.lax.archivecloud.net` |
     | Europa | `https://auth.ams.archivecloud.net` |
@@ -198,7 +198,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Veritas Enterprise Vault.cloud SSO. Trabalhar com [equipa de suporte do Veritas Enterprise Vault.cloud SSO](https://www.veritas.com/support/.html) para adicionar os utilizadores na plataforma do Veritas Enterprise Vault.cloud SSO. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -16,11 +16,11 @@ ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 26147c26d5eaae471e5a4f93add7da2f9a0272f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57896098"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65863360"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-chromeriver"></a>Tutorial: Integração do Active Directory do Azure com Chromeriver
 
@@ -188,7 +188,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Chromeriver, tem de se
 > [!NOTE]
 > Pode utilizar quaisquer outras Chromeriver utilizador conta criação ferramentas ou APIs fornecidas pelo Chromeriver para aprovisionar o Azure Active Directory contas de utilizador.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

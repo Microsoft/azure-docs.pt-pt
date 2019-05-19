@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bf4eb817bb1705c6af6d4e7e9e28e5789f49a906
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830964"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873036"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Criar uma classificação de cache-aside no ASP.NET
 
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 Para concluir este tutorial, deve ter os seguintes pré-requisitos:
 
 * Este tutorial continua onde ficou [início rápido do ASP.NET para a Cache de Redis do Azure](cache-web-app-howto.md). Se ainda não o fez, siga este início rápido primeiro.
-* Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
     * Desenvolvimento ASP.NET e Web
     * Desenvolvimento do Azure
     * Desenvolvimento do ambiente de trabalho em .NET, com o SQL Server Express LocalDB ou o [SQL Server 2017 Express Edition](https://www.microsoft.com/sql-server/sql-server-editions-express).
@@ -156,7 +156,7 @@ Para mais informações sobre este pacote, consulte a página NuGet [EntityFrame
 
 1. Adicione a seguinte secção `connectionStrings` dentro da secção `configuration`. O nome da cadeia de ligação tem de corresponder ao nome da classe de contexto da base de dados do Entity Framework, que é `TeamContext`.
 
-    Esta cadeia de ligação parte do princípio que cumpre os [Pré-requisitos](#prerequisites) e instalou o SQL Server Express LocalDB, que faz parte da carga de trabalho de *desenvolvimento no ambiente de trabalho em .NET* instalada com o Visual Studio 2017.
+    Esta cadeia de ligação parte do princípio de que cumpriu os [pré-requisitos](#prerequisites) e instalado o SQL Server Express LocalDB, que faz parte do *desenvolvimento de área de trabalho .NET* instalada com o Visual Studio 2019 da carga de trabalho.
 
     ```xml
     <connectionStrings>
@@ -709,7 +709,7 @@ Neste passo do tutorial, vai publicar as atualizações da aplicação no Azure 
 
     A tabela seguinte descreve cada ligação de ação da aplicação de exemplo:
 
-    | Ação | Descrição |
+    | Acção | Descrição |
     | --- | --- |
     | Criar Nova |Crie uma nova Equipa. |
     | Reproduzir Época |Reproduza uma época de jogos, atualize as estatísticas da equipa e limpe quaisquer dados da equipa desatualizados da cache. |

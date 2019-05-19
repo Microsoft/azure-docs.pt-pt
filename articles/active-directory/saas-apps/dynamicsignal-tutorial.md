@@ -16,11 +16,11 @@ ms.date: 02/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4d36b81530989517167e3c9ae5baa125f2d09bbf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870083"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dynamic-signal"></a>Tutorial: Integração do Active Directory do Azure com o sinal dinâmico
 
@@ -192,7 +192,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado no sinal dinâmico
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de sinal dinâmica](mailto:support@dynamicsignal.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

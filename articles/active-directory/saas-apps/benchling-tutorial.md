@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 9b3725f217ef261df7bc8d9821edf972bfe58806
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59272395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862437"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benchling"></a>Tutorial: Integração do Active Directory do Azure com Benchling
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD início de sessão único com Benchling, execute os s
     | ---------------| --------------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Email | user.mail |
+    | Correio Electrónico | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -212,7 +212,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Benchling. Benchling suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Benchling, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

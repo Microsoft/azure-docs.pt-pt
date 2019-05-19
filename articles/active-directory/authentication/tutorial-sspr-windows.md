@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357461"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861521"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
-Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe no ecrã de início de sessão do Windows 10. Com a nova Atualização de 10 de abril de 2018 do Windows, os utilizadores que tenham dispositivos **associados ao Azure AD** ou **associados ao Azure AD híbrido** podem utilizar uma ligação "Repor palavra-passe" no ecrã de início de sessão. Quando clicam nesta ligação, são encaminhados para a experiência de reposição personalizada de palavra-passe (SSPR) que já conhecem.
+Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe no ecrã de início de sessão do Windows 10. Com a nova Atualização de 10 de abril de 2018 do Windows, os utilizadores que tenham dispositivos **associados ao Azure AD** ou **associados ao Azure AD híbrido** podem utilizar uma ligação "Repor palavra-passe" no ecrã de início de sessão. Quando clicam nesta ligação, são encaminhados para a experiência de reposição personalizada de palavra-passe (SSPR) que já conhecem. Se um utilizador está bloqueado esse processo não desbloquear contas no Active Directory no local.
 
 > [!div class="checklist"]
 > * Configurar a ligação Repor palavra-passe com o Intune
@@ -60,7 +60,7 @@ Implementar a alteração da configuração para ativar a reposição de palavra
       * **Valor** definido como **1**
       * Clique em **OK**
    * Clique em **OK**
-4. Clique em **Criar**.
+4. Clique em **Criar**
 
 ### <a name="assign-a-device-configuration-policy-in-intune"></a>Atribuir uma política de configuração de dispositivos no Intune
 
@@ -71,7 +71,7 @@ Implementar a alteração da configuração para ativar a reposição de palavra
 3. Indique um nome para o grupo e, em **tipo de associação**, escolha **Atribuído**
    * Em **Membros**, escolha os dispositivos Windows 10 associados ao Azure AD aos quais pretende aplicar a política
    * Clique em **Selecionar**
-4. Clique em **Criar**.
+4. Clique em **Criar**
 
 Estão disponíveis mais informações sobre a criação de grupos no artigo [Manage access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md) (Gerir o acesso a recursos com grupos do Azure Active Directory).
 

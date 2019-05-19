@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59275642"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65870832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: Integração do Active Directory do Azure com Nimblex
 
@@ -216,7 +216,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Nimblex. Nimble
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente Nimblex](mailto:support@ebms.com.au).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

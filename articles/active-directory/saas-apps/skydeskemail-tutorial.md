@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: e0c2dc6c370e697f896e24e7d56c6eb8900601a9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59271055"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867180"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Tutorial: Integração do Active Directory do Azure com o E-Mail de SkyDesk
 
@@ -231,7 +231,7 @@ Clique em **acesso de utilizador** da esquerda painel no E-Mail de SkyDesk e, em
 > [!NOTE]
 > Se precisar de criar utilizadores em massa, terá de contactar o [equipa de suporte de cliente de E-Mail SkyDesk](https://www.skydesk.jp/apps/support/).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

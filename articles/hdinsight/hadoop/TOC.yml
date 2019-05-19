@@ -289,7 +289,7 @@
             - name: Utilizar o Azure PowerShell
               href: ../hdinsight-administer-use-powershell.md
               maintainContext: true
-            - name: Utilizar a CLI Clássica do Azure
+            - name: Utilizar a CLI do Azure
               href: ../hdinsight-administer-use-command-line.md
               maintainContext: true
         - name: Gerir clusters com a IU Web do Apache Ambari

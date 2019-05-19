@@ -16,11 +16,11 @@ ms.date: 1/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bff57635c87b77270e1bd20e04834dec132b2df6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678349"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65867295"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Tutorial: Integração do Active Directory do Azure com Signagelive
 
@@ -183,7 +183,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Signagelive. Trabalhar com o [equipa de suporte de Signagelive](mailto:support@signagelive.com) para adicionar os utilizadores na plataforma Signagelive. Tem de criar e ativar os utilizadores antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal MyApps.
 

@@ -16,11 +16,11 @@ ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842707"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65864080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integração do Active Directory do Azure com Boomi
 
@@ -258,7 +258,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Boomi, tem de ser 
     > [!NOTE]
     > O utilizador não irá receber um e-mail de notificação de boas-vindas que contém uma palavra-passe que pode ser utilizada para iniciar sessão na conta de AtomSphere porque a palavra-passe é gerenciada através do fornecedor de identidade. Pode utilizar quaisquer outras Boomi utilizador conta criação ferramentas ou APIs fornecidas pelo Boomi para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

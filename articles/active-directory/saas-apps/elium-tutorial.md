@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ac14168f9f56a727517232e201e581f913d67c90
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862770"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-elium"></a>Tutorial: Integração do Active Directory do Azure com Elium
 
@@ -128,7 +128,7 @@ Para configurar o Azure AD início de sessão único com Elium, execute os segui
 
     | Name | Atributo de origem|
     | ---------------| ----------------|
-    | e-mail   |user.mail |
+    | email   |user.mail |
     | first_name| user.givenname |
     | last_name| user.surname|
     | job_title| user.jobtitle|
@@ -266,7 +266,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Elium. Suporta 
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de Elium](mailto:support@elium.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

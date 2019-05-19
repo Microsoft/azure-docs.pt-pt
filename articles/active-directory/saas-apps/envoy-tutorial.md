@@ -16,11 +16,11 @@ ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 590e7e301b33fdab4122c4b776ebc52f6ed92b08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881185"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862733"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envoy"></a>Tutorial: Integração do Active Directory do Azure com o Envoy
 
@@ -214,7 +214,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Não existe nenhum item de ação para configurar o aprovisionamento de utilizador para o Envoy. Quando um utilizador atribuído tenta iniciar sessão no Envoy usando o painel de acesso, o Envoy verifica se o usuário existe. Se nenhuma conta de utilizador disponível ainda existe, é criado automaticamente pelo Envoy.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

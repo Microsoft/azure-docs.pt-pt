@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a04622d0c35a93d954dcca38859ea3a48a8d5416
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261943"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65865997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trackvia"></a>Tutorial: Integração do Active Directory do Azure com TrackVia
 
@@ -144,7 +144,7 @@ Para configurar o Azure AD início de sessão único com TrackVia, execute os se
 
     b. Selecione o **Escolher ficheiro** para carregar o ficheiro de metadados que transferiu a partir do portal do Azure.
 
-    c. Clicar em **Guardar**
+    c. Clique em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -202,7 +202,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na TrackVia. Track
 
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de TrackVia](mailto:support@trackvia.com).
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

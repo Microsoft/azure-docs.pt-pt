@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 764ad8f1ca19238e1986d1d187d19c405963a832
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267400"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65868885"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutorial: Integração do Active Directory do Azure com PureCloud por Genesys
 
@@ -146,7 +146,7 @@ Para configurar o Azure AD início de sessão único com PureCloud por Genesys, 
 
     | Name | Atributo de origem|
     | ---------------| --------------- |
-    | Email | user.userprinicipalname |
+    | Correio Electrónico | user.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -203,7 +203,7 @@ Para configurar o Azure AD início de sessão único com PureCloud por Genesys, 
 
     ![Configurar o início de sessão único](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. Clicar em **Guardar**   
+    e. Clique em **Guardar**   
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -282,7 +282,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no PureCloud por Genesys,
     
     c. Clique em **Criar**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

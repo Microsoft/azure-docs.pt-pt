@@ -16,11 +16,11 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d5c79709344d8a110495b16afdc61a5ff1f68cf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849198"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65857783"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-capriza-platform"></a>Tutorial: Integração do Active Directory do Azure com a plataforma de Capriza
 
@@ -186,7 +186,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Capriz
 
 Não existe nenhum item de ação para nesta secção. Durante uma tentativa de aceder Capriza se não existir ainda será criado um novo utilizador.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

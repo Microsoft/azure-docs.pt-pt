@@ -16,11 +16,11 @@ ms.date: 02/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 876780189768411eba40a99192755bee6732728b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65862978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-drift"></a>Tutorial: Integração do Active Directory do Azure com Descompassos
 
@@ -229,7 +229,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Descompassos. D
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de desvios](mailto:integrations@drift.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

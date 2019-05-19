@@ -16,11 +16,11 @@ ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b345656b30a9bb182c097a4c9e18d71a293bf420
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65868158"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>Tutorial: Integração do Azure Active Directory com SAP Cloud Platform
 
@@ -215,7 +215,7 @@ Para configurar o Azure AD início de sessão único com o SAP Cloud Platform, e
     | --- | --- |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |FirstName |
     | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |Apelido |
-    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |e-mail |
+    | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |email |
    
      >[!NOTE]
      >A configuração dos atributos depende de como as aplicações no SCP são desenvolvidas, ou seja, quais atributos esperam na resposta SAML e em que nome (atributo Principal) acederem este atributo no código.
@@ -308,7 +308,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão na plataforma Cloud d
 
     e. Clique em **Guardar**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
