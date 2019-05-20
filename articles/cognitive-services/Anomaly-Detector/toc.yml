@@ -55,10 +55,20 @@
 - name: Recursos
   items:
     - name: Preços
-      href: 'https://aka.ms/anomaly-detector-pricing'
+      href: 'https://aka.ms/adpricing'
     - name: Disponibilidade regional
-      href: 'https://aka.ms/anomaly-detector-region'
+      href: 'https://aka.ms/adregion'
     - name: Arquitetura de soluções de referência
       href: 'https://azure.microsoft.com/solutions/architecture/anomaly-detector-process/'
+- name: Suporte
+  items:
+    - name: Obter suporte
+      href: 'https://aka.ms/adsupport'
+    - name: Aderir à comunidade pública
+      href: 'https://aka.ms/adadvisorsjoin'
     - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-anomaly-detection'
+      href: 'https://aka.ms/adso'
+    - name: MSDN
+      href: 'https://aka.ms/admsdn'
+    - name: Voz do utilizador
+      href: 'https://aka.ms/aduservoice'

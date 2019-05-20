@@ -239,20 +239,30 @@
               href: msal-net-provide-httpclient.md
             - name: Integrar com o Azure AD B2C
               href: msal-b2c-overview.md
-            - name: Considerações específicas da plataforma (.NET)
+            - name: Considerações e problemas conhecidos
               items:
-                - name: Navegadores da web
-                  href: msal-net-web-browsers.md
-                - name: Xamarin Android
-                  href: msal-net-xamarin-android-considerations.md
-                - name: Browser de sistema no Android
-                  href: msal-net-system-browser-android-considerations.md
-                - name: Xamarin iOS
-                  href: msal-net-xamarin-ios-considerations.md
-                - name: Plataforma Universal do Windows
-                  href: msal-net-uwp-considerations.md
-                - name: Aplicar uma política de AAD B2C
-                  href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.NET
+                  items:
+                    - name: Navegadores da web
+                      href: msal-net-web-browsers.md
+                    - name: Xamarin Android
+                      href: msal-net-xamarin-android-considerations.md
+                    - name: Browser de sistema no Android
+                      href: msal-net-system-browser-android-considerations.md
+                    - name: Xamarin iOS
+                      href: msal-net-xamarin-ios-considerations.md
+                    - name: Plataforma Universal do Windows
+                      href: msal-net-uwp-considerations.md
+                    - name: Aplicar uma política de AAD B2C
+                      href: msal-net-aad-b2c-considerations.md
+                - name: MSAL.js
+                  items:
+                    - name: Considerações sobre a utilização do IE
+                      href: msal-js-use-ie-browser.md
+                    - name: Problemas conhecidos - IE e Microsoft Edge
+                      href: msal-js-known-issues-ie-edge-browsers.md
+                    - name: Problemas conhecidos - Safari
+                      href: msal-js-known-issues-safari-browser.md
         - name: Autenticação
           items:
             - name: Noções básicas sobre autenticação

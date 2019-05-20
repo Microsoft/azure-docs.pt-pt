@@ -176,6 +176,8 @@
               href: integrate-environments-devops-pipeline.md
             - name: Utilizar serviços de Plataforma enquanto serviço (PaaS)
               href: use-paas-services.md
+            - name: Implementar modelos aninhados
+              href: deploy-nested-template-environments.md
         - name: Proteger o acesso aos laboratórios
           items:
             - name: Adicionar proprietários e utilizadores de laboratório
@@ -188,6 +190,8 @@
           items:
             - name: Definir políticas e agendamentos
               href: devtest-lab-set-lab-policy.md
+            - name: Enviar notificações de encerramento automático
+              href: devtest-lab-auto-shutdown.md
             - name: Configurar gestão de custos
               href: devtest-lab-configure-cost-management.md
             - name: Configurar imagens do Azure Marketplace

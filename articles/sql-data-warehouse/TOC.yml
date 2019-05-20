@@ -59,7 +59,7 @@
           href: quickstart-scale-compute-powershell.md
         - name: T-SQL
           href: quickstart-scale-compute-tsql.md
-    - name: Gestão de Cargas de Trabalho
+    - name: Gestão de cargas de trabalho
       items:
         - name: Criar classificador de cargas de trabalho
           items:
@@ -177,9 +177,9 @@
       items:
         - name: Classes de recursos e gestão de cargas de trabalho
           href: resource-classes-for-workload-management.md
-        - name: Classificação da carga de trabalhos
+        - name: Classificação da carga de trabalho
           href: sql-data-warehouse-workload-classification.md
-        - name: Importâncias da carga de trabalhos
+        - name: Importância da carga de trabalho
           href: sql-data-warehouse-workload-importance.md
         - name: Memória e limites de simultaneidade
           href: memory-and-concurrency-limits.md
@@ -253,7 +253,7 @@
           href: sql-data-warehouse-query-visual-studio.md
         - name: Instalar o Visual Studio
           href: sql-data-warehouse-install-visual-studio.md
-    - name: Gerir a carga de trabalho
+    - name: Gestão de cargas de trabalho
       items:
         - name: Analisar a sua carga de trabalho
           href: analyze-your-workload.md

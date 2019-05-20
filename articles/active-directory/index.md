@@ -8,15 +8,15 @@ author: barbkess
 manager: daveba
 ms.service: active-directory
 ms.topic: landing-page
-ms.date: 04/18/2019
+ms.date: 05/17/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f067d2d83c97d22dee26050d31e08e47252310ee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3047ec790440b94f90416f205c51e283b446e37c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682977"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849831"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -156,7 +156,7 @@ ms.locfileid: "64682977"
                                                         <h3><a href="manage-apps/index.yml">Gestão de aplicações</a></h3>
                                                         <p>
                                                             <a href="manage-apps/what-is-single-sign-on.md">O que é o Início de Sessão Único (SSO)?</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Configure single sign-on</a> (Configurar o início de sessão único)<br>
+                                                            <a href="manage-apps/user-provisioning.md">Aprovisionamento automático de utilizadores</a><br>
                                                             <a href="manage-apps/application-proxy.md">Proxy da Aplicação para aplicações no local</a><br>
                                                             <a href="manage-apps/index.yml"><i>Ver mais &gt;</i></a>
                                                         </p>

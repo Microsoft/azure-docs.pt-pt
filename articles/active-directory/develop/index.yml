@@ -15,7 +15,7 @@ metadata:
   ms.date: 05/07/2019
   ms.author: celested
 abstract:
-  description: 'A plataforma de identidade da Microsoft é uma evolução da plataforma para programadores e do serviço de identidade do Azure Active Directory (Azure AD). Permite aos programadores criar aplicações que iniciam sessão em todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, como o Microsoft Graph, ou APIs criadas pelos programadores. É uma plataforma completa constituída por um serviço de autenticação compatível com a norma de OAuth 2.0 e OpenID Connect, bibliotecas de código aberto, registos e configurações de aplicação, documentação de referência e conceitual robusta, "exemplos de guias de introdução", exemplos de código, tutoriais e manuais de instruções.'
+  description: 'A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Permite aos programadores criar aplicações que iniciam sessão em todas as identidades da Microsoft e obtêm tokens para chamar APIs da Microsoft, como o Microsoft Graph, ou APIs criadas pelos programadores. É uma plataforma completa constituída por um serviço de autenticação compatível com a norma de OAuth 2.0 e OpenID Connect, bibliotecas de código aberto, registos e configurações de aplicação, documentação de referência e conceitual robusta, "exemplos de guias de introdução", exemplos de código, tutoriais e manuais de instruções.'
   aside:
     image:
       alt: null
