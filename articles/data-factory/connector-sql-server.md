@@ -528,7 +528,7 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 | money |Decimal |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numérico |Decimal |
+| numeric |Decimal |
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
@@ -536,12 +536,12 @@ Ao copiar dados de/para o SQL Server, os seguintes mapeamentos são utilizados e
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
-| texto |String, Char[] |
+| text |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
-| Varbinary |Byte[] |
+| varbinary |Byte[] |
 | varchar |String, Char[] |
 | xml |Xml |
 
