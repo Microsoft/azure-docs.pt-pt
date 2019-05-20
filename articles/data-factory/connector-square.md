@@ -45,7 +45,7 @@ As seguintes propriedades são suportadas para o serviço ligado quadrado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **Quadrado** | Sim |
-| anfitrião | O URL da instância do quadrado. (ou seja, mystore.mysquare.com)  | Sim |
+| host | O URL da instância do quadrado. (ou seja, mystore.mysquare.com)  | Sim |
 | clientId | O ID de cliente associado à sua aplicação quadrada.  | Sim |
 | clientSecret | O segredo do cliente associado à sua aplicação quadrada. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | redirectUri | O URL de redirecionamento atribuído no dashboard do quadrado do aplicativo. (ou seja, http:\//localhost:2500)  | Sim |
@@ -111,7 +111,7 @@ Para copiar dados do quadrado, defina o tipo de origem na atividade de cópia pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SquareSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
