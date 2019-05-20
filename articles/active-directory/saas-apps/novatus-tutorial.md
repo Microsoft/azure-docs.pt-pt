@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
 ms.openlocfilehash: 3055d91028ed6c4fcfbfcbe607350b3f5fc8bedf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65870812"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: Integração do Active Directory do Azure com Novatus
 
@@ -188,7 +188,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Novatus. Novatu
 >Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de Novatus](mailto:jvinci@novatusinc.com). 
 > 
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
