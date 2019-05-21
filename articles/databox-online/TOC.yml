@@ -89,6 +89,8 @@
           items:
             - name: Computação Edge
               href: data-box-edge-manage-compute.md
+            - name: Rede de computação Edge
+              href: data-box-edge-extend-compute-access-modules.md
             - name: Partilhas
               href: data-box-edge-manage-shares.md
             - name: Utilizadores
