@@ -16,11 +16,11 @@ ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0efc69aa7fb081303df6fc6327253fd5b8336999
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60241574"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicenow"></a>Tutorial: Integração do Active Directory do Azure com ServiceNow
 
@@ -261,7 +261,7 @@ Para configurar o Azure AD início de sessão único com ServiceNow, execute os 
 
         * Introduza o **Url de metadados de Federação de aplicação** que copiou do portal do Azure.
 
-        * Clique em **importar**.
+        * Clique em **Importar**.
 
     * Lê o URL de metadados de IdP e preenche a todas as informações de campos.
 
@@ -476,7 +476,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Servic
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contactar o [equipa de suporte de cliente do ServiceNow](https://www.servicenow.com/support/contact-support.html)
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

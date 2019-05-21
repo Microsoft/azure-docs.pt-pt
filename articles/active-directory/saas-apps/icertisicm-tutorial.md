@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: jeedes
 ms.openlocfilehash: 15fac61856115ef5c4746c96b36e383b9a5b7b30
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708810"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icertis-contract-management-platform"></a>Tutorial: Integração do Active Directory do Azure com a plataforma de gestão de contrato a Icertis
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida na plataforma de gestão a Icertis contrato. Trabalhar com [equipa de suporte de plataforma de gestão de contrato a Icertis](https://www.icertis.com/company/contact/) para adicionar os utilizadores na plataforma da plataforma de gestão a Icertis contrato. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

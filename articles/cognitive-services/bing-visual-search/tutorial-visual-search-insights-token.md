@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: rosh
-ms.openlocfilehash: 3f28e540aeb1604c5df885fd54d243211beb40b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: ebe54f5319986f0588e06a980a6f914beb6adbcc
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796347"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909393"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Encontrar imagens semelhantes de pesquisas anteriores com ImageInsightsToken
 
@@ -25,7 +25,7 @@ O código-fonte completo para este tutorial pode ser encontrado com o tratamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Qualquer edição do [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Qualquer edição dos [Visual Studio 2019](https://www.visualstudio.com/downloads/).
 * Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação a utilizar [Mono](https://www.mono-project.com/).
 * Os pacotes de pesquisa Visual do NuGet e pesquisa de imagens.
     - No Explorador de soluções no Visual Studio, faça duplo clique no seu projeto e selecione **gerir pacotes NuGet** no menu. Instalar o `Microsoft.Azure.CognitiveServices.Search.CustomSearch` pacote e o `Microsoft.Azure.CognitiveServices.Search.ImageSearch` pacote. Instalar os pacotes NuGet também instala o seguinte:

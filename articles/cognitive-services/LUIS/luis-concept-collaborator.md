@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34ae47723762215fdea99362419c3875dc2e5942
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8c2ed8932e67a2e0c83fe4e3fdf6783c24e56a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60812886"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956993"
 ---
 # <a name="collaborating-with-other-authors"></a>Colaborar com outros autores
 
@@ -52,7 +52,7 @@ O [LUIS](luis-reference-regions.md#luis-website) site atualmente não oferece a 
 ## <a name="manage-multiple-versions-inside-the-same-app"></a>Gerir facilmente várias versões na mesma aplicação
 Comece por [clonagem](luis-how-to-manage-versions.md#clone-a-version), de uma versão de base, para cada autor. 
 
-Cada autor faz alterações à sua própria versão da aplicação. Assim que cada autor estiver satisfeito com o modelo, exporte as novas versões para ficheiros JSON.  
+Cada autor faz alterações para a sua própria versão da aplicação. Assim que cada autor estiver satisfeito com o modelo, exporte as novas versões para ficheiros JSON.  
 
 As aplicações exportadas são arquivos de formato JSON, que podem ser comparados para alterações. Combine os ficheiros para criar um único ficheiro JSON da nova versão. Alteração da **versionId** propriedade no JSON para indicar a nova versão intercalada. Importe essa versão para a aplicação original. 
 

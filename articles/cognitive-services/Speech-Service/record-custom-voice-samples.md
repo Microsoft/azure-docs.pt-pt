@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: b4360150064d2f42cc2dc2cc3ef9f7783a5cb175
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: a4a8212906f384494a9e2e005eee8c4dbdfa14a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866537"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954632"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Exemplos de voz de registo para criar uma voz personalizada
 
@@ -53,7 +53,7 @@ Escolha o talento de voz cujo natural de voz, como. É possível criar vozes exc
 
 O único fator mais importante para a escolha de talentos de voz é a consistência. As gravações tudo soar pareçam feitas no mesmo dia na mesma sala. Pode abordar esse ideal através de práticas de gravação de bons e engenharia.
 
-Seu talento de voz é a outra metade da equação. Ele deve poder falar com taxa consistente, nível de volume, pitch e tom. Limpar diction é essencial. O talento também tem de ser capaz de controlar rigorosamente seu variação pitch emocional efeito e mannerisms de voz.
+Seu talento de voz é a outra metade da equação. Eles devem ser capazes de falar com taxa consistente, nível de volume, pitch e tom. Limpar diction é essencial. O talento também tem de ser capaz de controlar rigorosamente seus variação pitch emocional efeito e mannerisms de voz.
 
 Gravação de exemplos de voz personalizada pode ser mais fatiguing que outros tipos de trabalho de voz. A maioria dos talentos de voz podem gravar para dois ou três horas por dia. Limite sessões para três ou quatro uma semana, com um dia de folga intercalados se possível.
 
@@ -117,7 +117,7 @@ Felizmente, é possível evitar totalmente esses problemas. Existem várias font
 
 Registe o seu script num estúdio de profissional gravar especializada em projetos de voz. Eles terão um stand de gravação, os equipamentos certo e as pessoas certas para trabalhar com ele. Vale a pena não tentados na gravação.
 
-Discuta o seu projeto com o engenheiro de gravação do studio e ouça seu Conselho. A gravação deve ter pouco ou nenhum compressão de intervalo dinâmico (máximo de 4:1). É fundamental que o áudio têm volume consistente e uma alta taxa de sinal e ruído, e está livre de sons indesejados.
+Discuta o seu projeto com o engenheiro de gravação do studio e ouça seus conselhos. A gravação deve ter pouco ou nenhum compressão de intervalo dinâmico (máximo de 4:1). É fundamental que o áudio têm volume consistente e uma alta taxa de sinal e ruído, e está livre de sons indesejados.
 
 ### <a name="do-it-yourself"></a>Faça mesmo
 
@@ -131,7 +131,7 @@ Também pode usar um microfone analógico. Muitos alugueres casas oferecem micro
 
 Instalar o microfone num site ou boom e instalar um filtro de POP-à frente o microfone para eliminar a interferência dos consoantes "plosive" como "p" e "b". Alguns microfones são fornecidos com uma montagem de suspensão os isola da vibrations em espera, o que é útil.
 
-Os talentos de voz devem manter-se a uma distância consistente do microfone. Utilize a banda no chão para marcar onde ele deve funcionar. Se prefere o talento sentar-se, tomar cuidado especial para monitorizar a distância de mic e evitar o ruído de cadeira.
+Os talentos de voz devem manter-se a uma distância consistente do microfone. Utilize a banda no chão para marcar onde deve funcionar. Se prefere o talento sentar-se, tomar cuidado especial para monitorizar a distância de mic e evitar o ruído de cadeira.
 
 Utilize um para manter o script. Evite angling a espera para que ela pode refletir o som no microfone.
 
@@ -158,12 +158,12 @@ O ideal é que pessoas diferentes servir nas funções de diretor, engenheiro e 
 
 ### <a name="before-the-session"></a>Antes da sessão
 
-Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Embora o talento de voz torna-se familiarizado com o texto, pode clarificar a pronúncia de quaisquer palavras familiarizadas.
+Para evitar perder tempo studio, execute o script com o seu talento de voz antes da sessão de gravação. Enquanto o talento de voz torna-se familiarizado com o texto, eles podem clarificar a pronúncia de quaisquer palavras familiarizadas.
 
 > [!NOTE]
 > A maioria dos estúdios de gravação oferecem apresentar eletrónica de scripts no stand a gravação. Neste caso, digite suas anotações de orientação sobre diretamente no documento o script. Continuará QUERENDO uma cópia do documento para tomar notas durante a sessão, no entanto. A maioria dos engenheiros desejará uma cópia impressa, demasiado. E irá desejar que um terceiro impressa cópia como uma cópia de segurança para o talento, no caso do computador está inativo.
 
-Seu talento de voz pode perguntar qual palavra desejar enfatizada numa expressão (a "palavra operative"). Diga- lo para que deseja que uma leitura natural com nenhuma ênfase especial. Ênfase pode ser adicionado quando a conversão de voz é sintetizada; não deve ser uma parte da gravação original.
+Seu talento de voz pode perguntar qual palavra desejar enfatizada numa expressão (a "palavra operative"). Informe-os de que pretende que uma leitura natural com nenhuma ênfase especial. Ênfase pode ser adicionado quando a conversão de voz é sintetizada; não deve ser uma parte da gravação original.
 
 Direcione o talento pronunciar palavras de forma distinta. Todas as palavras do script devem ser pronunciada como está escrito. Sons não devem ser omitidos ou em conjunto, o que é comum na conversão de voz casual, slurred *, a menos que tenha sido escritos dessa forma no script*.
 

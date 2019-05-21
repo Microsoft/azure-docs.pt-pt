@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
 ms.openlocfilehash: 491f1704cf08bd31a1b089d178afb3c281d636e6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723479"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898296"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hr2day-by-merces"></a>Tutorial: Integração do Active Directory do Azure com HR2day por Merces
 
@@ -223,7 +223,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no HR2day por Merc
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, entre em contato com o [HR2day pela equipa de suporte de cliente Merces](mailto:servicedesk@merces.nl).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

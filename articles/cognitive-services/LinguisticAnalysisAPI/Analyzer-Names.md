@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: b2e956b099022751712f96ab0b15aa57c752b458
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c989f1115bc5a85bf09270c553ac1cb51bb4f170
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405261"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954713"
 ---
 # <a name="analyzer-names"></a>Nomes de analisador
 
@@ -43,10 +43,10 @@ Atualmente, existem três tipos distintos:
 Dentro de um determinado tipo, no entanto, especialistas em diferentes podem não concordo em como um fenômeno específico deve ser analisado.
 Ao contrário de linguagens de programação, não existe nenhuma definição clara e exata de como isso deve ser feito.
 
-Por exemplo, imagine a que estivéssemos tentando encontrar os tokens da sentença em inglês "Ele não está".
+Por exemplo, imagine a que estivéssemos tentando encontrar os tokens da sentença em inglês "Não vão."
 Em particular, considere a cadeia de caracteres "não".
 Uma interpretação possível é que isso deve ser dividido em dois tokens de: "foi" e "not".
-Em seguida, a frase alternativa "ele não foi enviado" teria o mesmo conjunto de tokens.
+Em seguida, a frase alternativa "eles não foram enviado" teria o mesmo conjunto de tokens.
 Outra possibilidade é dizer que devem ser dividido nos tokens "fez" e "n't".
 O segundo token não normalmente consideraria uma palavra, mas essa abordagem mantém obter mais informações sobre a cadeia de caracteres superfície, o que pode ser útil.
 Ou, talvez essa redução deve ser considerada uma única palavra.

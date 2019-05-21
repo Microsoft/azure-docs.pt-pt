@@ -17,11 +17,11 @@ ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 713ca571a4321eded82cbc9db56dae7616126e2a
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922113"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902411"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Tutorial: Integração do Active Directory do Azure com a liquidação de música
 
@@ -211,7 +211,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Settling música. Trabalhar com [liquidação de equipa de suporte de cliente de música](https://rakurakuseisan.jp/) para adicionar os utilizadores na plataforma de música Settling. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: c114c726bea34465972a282acac6b8acbbf9a80f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1cbf1514ac5eba4e288ecb78944878217fc5ba3e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60514986"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954515"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -32,7 +32,7 @@ Se esta for a primeira vez que esteja criando um aplicativo habilitado para fala
 
 É mais avançada entre os conceitos básicos de voz a *transmissão de áudio*. Ao contrário de um pressionamento de tecla, o que ocorre num único ponto no tempo e contém uma parte das informações, um pedido de falado está distribuído por centenas de milissegundos e contém muitas quilobytes de informações. A duração de expressões faladas apresenta algumas dificuldades para os desenvolvedores que desejam para fornecer uma experiência simplificada e elegante fala da respetiva aplicação. Computadores atuais e os algoritmos de realizar transcrição de voz em aproximadamente metade da duração da expressão, portanto, uma expressão de 2 segundos pode ser transcrito em aproximadamente 1 segundo, mas qualquer aplicativo que ocorre com um atraso de 1 segundo utilizador de processamento não simplificada nem elegante.
 
-Felizmente, existem formas de "Ocultar" o tempo de transcrição, efetuando a transcrição numa parte da expressão enquanto o utilizador está a falar outra parte. Por exemplo, dividindo uma expressão de 1 segundo em 10 segmentos de 100 milissegundos e através de transcrição em cada segmento por sua vez, mais do que o total 500 milissegundos, necessários para a transcrição pode ser "oculto" de 450, para que o utilizador não tem transcrição é a ser executadas enquanto ele está a falar. Ao pensar sobre neste exemplo, lembre-se de que o serviço está a funcionar transcrição nos anteriores 100 milissegundos de áudio enquanto o utilizador está a falar os próximos 100, por isso, quando o utilizador para falando, o serviço só terá de transcrever aproximadamente 100 milissegundos de áudio para produzir um resultado.
+Felizmente, existem formas de "Ocultar" o tempo de transcrição, efetuando a transcrição numa parte da expressão enquanto o utilizador está a falar outra parte. Por exemplo, dividindo uma expressão de 1 segundo em 10 segmentos de 100 milissegundos e através de transcrição em cada segmento por sua vez, mais do que o total 500 milissegundos, necessários para a transcrição pode ser "oculto" de 450, para que o utilizador não tem transcrição é a ser executadas enquanto eles estão falando. Ao pensar sobre neste exemplo, lembre-se de que o serviço está a funcionar transcrição nos anteriores 100 milissegundos de áudio enquanto o utilizador está a falar os próximos 100, por isso, quando o utilizador para falando, o serviço só terá de transcrever aproximadamente 100 milissegundos de áudio para produzir um resultado.
 
 Para obter esta experiência de utilizador, informações de áudio faladas recolhidas em blocos e transcrito conforme o usuário participa como palestrante. Esses segmentos áudio coletivamente a partir da *transmissão de áudio*, e o processo de enviar esses segmentos de áudio para o serviço é chamado *streaming de áudio.* Streaming de áudio é uma parte importante de qualquer aplicativo habilitado para fala; Ajuste o tamanho do segmento e otimizar a implementação de transmissão em fluxo são algumas das formas de melhorar a experiência do utilizador da sua aplicação maior impacto.
 
@@ -162,7 +162,7 @@ As respostas de transcrição devolvem o texto convertido de áudio aos clientes
 
 | Estado | Descrição |
 | ------------- | ---------------- |
-| Êxito | O reconhecimento foi concluída com êxito e o campo de DisplayText está presente |
+| Com êxito | O reconhecimento foi concluída com êxito e o campo de DisplayText está presente |
 | NoMatch | Conversão de voz foi detetada no fluxo de áudio, mas sem palavras do idioma de destino foram correspondidas. Veja [Status(#nomatch-recognition-status) de NoMatch reconhecimento para obter mais detalhes  |
 | InitialSilenceTimeout | O início do fluxo de áudio contidos apenas silêncio e o serviço excedeu o tempo aguardar por voz |
 | BabbleTimeout | O início do fluxo de áudio contidos apenas ruído e o serviço excedeu o tempo aguardar por voz |

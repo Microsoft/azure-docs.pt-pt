@@ -16,11 +16,11 @@ ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2692d4109b5ca673b2acffe19eac1b141e5b8067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57891455"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902857"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-11-token-enabled-lob-app"></a>Tutorial: Aplicação LOB do departamento de ativada para a integração do Active Directory do Azure com o SAML 1.1 Token
 
@@ -185,7 +185,7 @@ Nesta secção, vai ativar a Eduarda Almeida utilizar o Azure início de sessão
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no SAML 1.1 Token de aplicação LOB para ativado. Trabalhar com SAML 1.1 Token ativada a equipa de suporte de aplicação LOB adicionar que os utilizadores no Token SAML 1.1 ativados plataforma de aplicação LOB. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

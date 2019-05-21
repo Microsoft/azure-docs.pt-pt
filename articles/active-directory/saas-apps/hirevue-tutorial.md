@@ -16,11 +16,11 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7617889bfbdfecb421538cbc261dace5b4b8279c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60275474"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898248"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hirevue"></a>Tutorial: Integração do Active Directory do Azure com HireVue
 
@@ -107,17 +107,17 @@ Para configurar o Azure AD início de sessão único com HireVue, execute os seg
 
     a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão:
 
-    | Ambiente | do IdP |
+    | Ambiente | URL |
     |-------------|---|
     | Produção | `https://<companyname>.hirevue.com` |
-    | Teste    | `https://<companyname>.stghv.com` |
+    | Testes    | `https://<companyname>.stghv.com` |
 
     b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão:
 
     | Ambiente | URN |
     |-------------|-----|
     | Produção |`urn:federation:hirevue.com:saml:sp:prod` |
-    | Teste    | `urn:federation:hirevue.com:saml:sp:staging`|
+    | Testes    | `urn:federation:hirevue.com:saml:sp:staging`|
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Contacte [equipa de suporte de cliente HireVue](mailto:samlsupport@hirevue.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
@@ -195,7 +195,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no HireVue. Trabalhar com [equipa de suporte de HireVue](mailto:samlsupport@hirevue.com) para adicionar os utilizadores na plataforma HireVue. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

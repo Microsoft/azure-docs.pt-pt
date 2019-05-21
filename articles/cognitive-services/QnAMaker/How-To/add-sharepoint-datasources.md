@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: tulasim
-ms.openlocfilehash: d02c3fbb762e83584a9ea277ef8d5cc15b391f37
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e479cf1729b7dcd2ed2f2470f2a935bdf94af80b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792578"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954963"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Adicionar uma origem de dados protegida do Sharepoint à sua base de dados de conhecimento
 
@@ -53,7 +53,7 @@ A solicitação começa com um pop-up para se autenticar numa conta do Active Di
 
 ![Autenticar a conta de utilizador](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-Depois do Gestor do QnA Maker seleciona a conta, o administrador do Active Directory irá receber um aviso a indicar que precisa permitir que o QnA Maker acesso da aplicação (e não o Gestor do QnA Maker) para o recurso do Sharepoint. O Gestor de diretório Active Directory tem de efetuar este procedimento para todos os recursos do Sharepoint, mas nem todos os documentos esse recurso. 
+Depois do Gestor do QnA Maker seleciona a conta, o administrador do Active Directory irá receber um aviso a indicar que têm de permitir que o QnA Maker acesso da aplicação (e não o Gestor do QnA Maker) para o recurso do Sharepoint. O Gestor de diretório Active Directory tem de efetuar este procedimento para todos os recursos do Sharepoint, mas nem todos os documentos esse recurso. 
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>O Gestor de diretório Active Directory: conceder acesso de leitura do ficheiro para o QnA Maker
 
