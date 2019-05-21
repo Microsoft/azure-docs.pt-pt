@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278091"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898560"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integração do Active Directory do Azure com o GitHub
 
@@ -162,7 +162,7 @@ Para configurar o Azure AD início de sessão único com o GitHub, execute os se
 
     ![Definições](./media/github-tutorial/tutorial_github_config_github_06.png)
 
-6. Clicar em **Guardar**
+6. Clique em **Guardar**
 
 > [!NOTE]
 > Início de sessão único no GitHub efetua a autenticação para uma organização específica no GitHub e não substitui a autenticação do GitHub em si. Por conseguinte, se a sessão do utilizador github.com tiver expirado, poderá ser-lhe pedido para autenticar com o ID de/palavra-passe do GitHub durante o processo de início de sessão único.
@@ -247,7 +247,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no GitHub
     > [!NOTE]
     > O titular da conta do Azure Active Directory irá receber um e-mail e seguir uma ligação para confirmar a respetiva conta até se tornar Active Directory.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

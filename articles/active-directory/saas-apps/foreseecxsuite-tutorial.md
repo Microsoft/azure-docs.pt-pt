@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
 ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999762"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Active Directory do Azure com o Suite de CX previr
 
@@ -196,7 +196,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no previr Suite de CX. Trabalhar com [equipa de suporte de conjunto de CX previr](mailto:support@foresee.com) para adicionar os utilizadores ou o domínio que é necessário para estar incluído na plataforma previr Suite de CX. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de previr Suite de CX. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

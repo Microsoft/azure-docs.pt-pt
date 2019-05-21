@@ -16,11 +16,11 @@ ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905499"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889623"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integração do Active Directory do Azure com o Slack
 
@@ -249,7 +249,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Slack.
 > [!NOTE]
 > Azure AD Connect é a ferramenta de sincronização que pode sincronizar no local de identidades de diretório Active Directory para o Azure AD e, em seguida, estes utilizadores sincronizados também podem utilizar as aplicações, como a outros utilizadores na cloud.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

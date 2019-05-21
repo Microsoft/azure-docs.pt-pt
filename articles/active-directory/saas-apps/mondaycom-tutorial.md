@@ -17,11 +17,11 @@ ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: fc142bf02a44ea85861f4cc648fd7ee8602c7520
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780812"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mondaycom"></a>Tutorial: Integração do Active Directory do Azure com monday.com
 

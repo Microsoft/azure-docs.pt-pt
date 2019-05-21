@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 5073961e15b3d0dcf0df0fd97d3f8a4568f79eb5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60267385"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897947"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jive"></a>Tutorial: Integração do Active Directory do Azure com Jive
 
@@ -214,7 +214,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no Jive. 
 
 Se precisar de criar manualmente o utilizador, trabalhar com [equipa de suporte de cliente do Jive](https://www.jivesoftware.com/services-support/) para adicionar os utilizadores na plataforma do Jive.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

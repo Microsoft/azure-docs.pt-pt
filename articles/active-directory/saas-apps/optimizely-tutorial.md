@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 066847ff8428a5080e655712c1a6bbe504c5cdbc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257795"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904670"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-optimizely"></a>Tutorial: Integração do Active Directory do Azure com Optimizely
 
@@ -120,7 +120,7 @@ Para configurar o Azure AD início de sessão único com Optimizely, execute os 
 
     | Name | Atributo de origem |
     | ---------------| --------------- |
-    | e-mail | user.mail |
+    | email | user.mail |
     
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -174,7 +174,7 @@ Para configurar o Azure AD início de sessão único com Optimizely, execute os 
   
     ![O Azure AD Single Sign-On](./media/optimizely-tutorial/tutorial_optimizely_10.png)
 
-6. Clicar em **Guardar**
+6. Clique em **Guardar**
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
@@ -243,7 +243,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no Optimizely.
 
 4. Eles recebem um convite por e-mail. Usando o endereço de e-mail, têm de iniciar sessão no Optimizely.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.openlocfilehash: 93ac6009e593fa5eaefd14b09ce8eecd513688e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60278721"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898553"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-flock"></a>Tutorial: Integração do Active Directory do Azure com Flock
 
@@ -216,7 +216,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão no Flock, tem de ser apro
 
     ![Adicionar o funcionário](./media/flock-tutorial/user3.png)
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

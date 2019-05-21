@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 21cbef1532928d51ba0c9f11e80304933df505b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60242791"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oc-tanner---appreciatehub"></a>Tutorial: Integração do Active Directory do Azure com O.C. Tanner - AppreciateHub
 
@@ -197,7 +197,7 @@ O objetivo desta secção consiste em criar um usuário chamado Eduarda Almeida 
 
 Peça ao seu [O.C. Tanner - equipa de suporte de AppreciateHub](mailto:sso@octanner.com) para criar um utilizador que tenha como atributo nameID o mesmo valor que o nome de utilizador da Eduarda Almeida no Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

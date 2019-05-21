@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: c1b35e6a28948cf952c61ec700cbd2ba764674ab
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920134"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896003"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardione"></a>Tutorial: Integração do Active Directory do Azure com YardiOne
 
@@ -179,7 +179,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na YardiOne. Yardi
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de YardiOne](https://clientcentral.yardi.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

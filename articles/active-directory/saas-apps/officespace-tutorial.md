@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 6547a640f6e56865d44b6848cf37078161faa538
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59261548"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65904819"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Tutorial: Integração do Active Directory do Azure com o Software de OfficeSpace
 
@@ -122,8 +122,8 @@ Para configurar o Azure AD início de sessão único com o Software de OfficeSpa
 
     | Name | Atributo de origem|
     | ---------------| --------------- |
-    | e-mail | user.mail |
-    | nome | user.displayname |
+    | email | user.mail |
+    | name | user.displayname |
     | first_name | user.givenname |
     | last_name | user.surname |
 
@@ -245,7 +245,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na OfficeSpace Sof
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, terá de contacto [equipa de suporte do Software de OfficeSpace](mailto:support@officespacesoftware.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

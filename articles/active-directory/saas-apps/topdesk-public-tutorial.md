@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: d5ecfcd249dd07dc94b3b17ea0a7a7de3559c681
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c4052dd3b4c8f49b19193109eb5e8d2306646960
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407943"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65888561"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: Integração do Active Directory do Azure com TOPdesk - público
 
@@ -193,7 +193,7 @@ Para configurar o Azure AD início de sessão único com TOPdesk - público, exe
 
     c. Para carregar o ficheiro do logótipo da equipe de suporte do TOPdesk, tem em **ícone de logótipo**, clique em **procurar**.
 
-    d. Na **atributo de nome de utilizador** caixa de texto, tipo `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. Na **atributo de nome de utilizador** caixa de texto, tipo `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     e. Na **nome a apresentar** caixa de texto, escreva um nome para a sua configuração.
 

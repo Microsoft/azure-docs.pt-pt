@@ -16,11 +16,11 @@ ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 35bd52904ab081e41cb43a346288234c18a7f43b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285158"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899083"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-creative-cloud"></a>Tutorial: Integração do Active Directory do Azure com o Adobe Creative Cloud
 
@@ -122,7 +122,7 @@ Para configurar o Azure AD início de sessão único com o Adobe Creative Cloud,
     |----- | --------- |
     | FirstName | user.givenname |
     | LastName | user.surname |
-    | Email | user.mail
+    | Correio Electrónico | user.mail
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -253,7 +253,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Adobe Creative Clo
    * Dentro do utilitário de aplicativo de desktop > início de sessão
    * Dentro da aplicação > Ajuda > início de sessão
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

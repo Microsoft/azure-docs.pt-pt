@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/4/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbb1bc64d923add0b1fd38749299714a9093633
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 3eca6fc3ab788ee7085c0df5f6c9770858af29ba
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408024"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65891651"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-openathens"></a>Tutorial: Integração do Active Directory do Azure com OpenAthens
 
@@ -143,11 +143,11 @@ Para configurar o Azure AD início de sessão único com OpenAthens, execute os 
 
     a. Na **mapeamento de nome de exibição**, selecione **utilizar atributo**.
 
-    b. Na **atributo de nome de exibição** texto, digite o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. Na **atributo de nome de exibição** texto, digite o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
     
     c. Na **mapeamento de utilizador exclusivo**, selecione **utilizar atributo**.
 
-    d. Na **atributo de utilizador exclusivo** texto, digite o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    d. Na **atributo de utilizador exclusivo** texto, digite o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Na **estado**, selecione todas as três caixas de verificação.
 

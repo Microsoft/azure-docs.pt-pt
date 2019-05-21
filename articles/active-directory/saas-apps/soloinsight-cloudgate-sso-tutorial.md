@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e8b2b4d1a660fe2f1289bba6fa596d08ec824b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60341475"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889982"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-soloinsight-cloudgate-sso"></a>Tutorial: Integração do Active Directory do Azure com o SSO Soloinsight CloudGate
 
@@ -225,7 +225,7 @@ Para criar um utilizador de teste, selecione **funcionários** no menu principal
 
 ![Teste de funcionário](./media/soloinsight-cloudgate-sso-tutorial/employee-test.png)
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

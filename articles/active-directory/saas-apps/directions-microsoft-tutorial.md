@@ -16,11 +16,11 @@ ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5ca35e1c6966365fab1a53fe9674a8f361422eea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60280534"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899740"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-directions-on-microsoft"></a>Tutorial: Integração do Active Directory do Azure com as direções em Microsoft
 
@@ -200,7 +200,7 @@ Não existe nenhum item de ação para configurar o aprovisionamento de utilizad
 
 Quando um utilizador atribuído tenta iniciar sessão para as direções em Microsoft com o painel de acesso, as direções em Microsoft verifica se o usuário existe. Se nenhuma conta de utilizador disponível ainda existe, é criado automaticamente pelas direções em Microsoft.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

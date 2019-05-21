@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: c3c962457fd6aef387a250e1719ff5904d3d4f57
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164910"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65919652"
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/cosmos-db/table-storage-how-to-use-dotnet.md)

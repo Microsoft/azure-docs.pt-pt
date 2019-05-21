@@ -16,11 +16,11 @@ ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a4e128e7e8b39075d23d7d4fe2bdc856b030ea05
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57874903"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: Integração do Active Directory do Azure com Clever
 
@@ -233,7 +233,7 @@ Em caso de Clever, trabalhar com [equipa de suporte de cliente inteligente](http
 >[!NOTE]
 >Pode utilizar quaisquer outras ferramentas do utilizador inteligente conta criação ou APIs fornecidas pelo Clever para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

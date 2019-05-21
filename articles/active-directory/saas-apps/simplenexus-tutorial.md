@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 44959410b68439dd6a132c41d2a51dcdafdec846
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257676"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65889926"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>Tutorial: Integração do Active Directory do Azure com SimpleNexus
 
@@ -188,7 +188,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no SimpleNexus, tem d
 > [!NOTE]
 > Pode utilizar quaisquer outras SimpleNexus utilizador conta criação ferramentas ou APIs fornecidas pelo SimpleNexus para aprovisionar contas de utilizador do AAD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

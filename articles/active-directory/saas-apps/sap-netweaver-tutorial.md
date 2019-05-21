@@ -16,11 +16,11 @@ ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523788"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65903216"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Active Directory do Azure com o SAP NetWeaver
 
@@ -353,7 +353,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no SAP NetWeaver. Inicie funcionam à sua equipa de especialistas de SAP internamente ou trabalhar com o seu parceiro SAP da organização para adicionar os utilizadores na plataforma do SAP NetWeaver.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 1. Assim que o fornecedor de identidade do Azure AD foi ativado, tente aceder ao URL para verificar o SSO abaixo (não haverá nenhuma linha de comandos para o nome de utilizador e palavra-passe)
 

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819f7d12f0554145295a0ec4f1eff7cb404d552d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c7d2920e84e0e1e61627afe1fe029e047e13ed02
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406985"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897890"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integração do Active Directory do Azure com LCVista
 
@@ -140,13 +140,13 @@ Para configurar o Azure AD início de sessão único com LCVista, execute os seg
 
     c. Abra o ficheiro de metadados XML que transferiu a partir do portal do Azure no bloco de notas, copie o valor **X509Certificate** e cole-a no **certificado x509** secção.
 
-    d. Na **atributo de nome próprio** caixa de texto, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. Na **atributo de nome próprio** caixa de texto, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
 
-    e. Na **atributo de nome de último** caixa de texto, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. Na **atributo de nome de último** caixa de texto, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
 
-    f. Na **atributo de correio eletrónico** caixa de texto, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    f. Na **atributo de correio eletrónico** caixa de texto, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    g. Na **atributo de nome de utilizador** caixa de texto, cole o valor `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    g. Na **atributo de nome de utilizador** caixa de texto, cole o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     e. Clique em **Guardar** para guardar as definições.
 

@@ -16,11 +16,11 @@ ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 27173c8beeecf2be43e80f59df8907952734c06b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900884"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65905266"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workplace-by-facebook"></a>Tutorial: Integração do Active Directory do Azure com a área de trabalho pelo Facebook
 
@@ -247,7 +247,7 @@ Não existe nenhuma ação para nesta secção. Se um utilizador não existir na
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte o [à área de trabalho pela equipa de suporte de cliente do Facebook](https://workplace.fb.com/faq/)
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

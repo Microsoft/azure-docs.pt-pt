@@ -16,11 +16,11 @@ ms.date: 12/20/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d55ae4077b3ec14cb8dc2226714b094574ed9522
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58905652"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dropbox-for-business"></a>Tutorial: Integração do Active Directory do Azure com o Dropbox for Business
 
@@ -224,7 +224,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Dropbox para em
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte o [Dropbox para a equipa de suporte de empresas do cliente](https://www.dropbox.com/business/contact)
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

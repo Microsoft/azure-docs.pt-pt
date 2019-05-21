@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f65e7192bdcc148ba081d0de954b51535778e750
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60282335"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900167"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bomgar-remote-support"></a>Tutorial: Integração do Active Directory do Azure com suporte remoto de Bomgar
 
@@ -189,7 +189,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na Bomgar remota d
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [Bomgar remoto suporta a equipa de suporte](https://www.bomgar.com/docs/index.htm#support).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

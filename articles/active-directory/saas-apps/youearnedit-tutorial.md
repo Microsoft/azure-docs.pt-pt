@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bb0610ac9578b1aa85ae422275d69e651b0b4cfd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838209"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65895773"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Tutorial: Integração do Active Directory do Azure com YouEarnedIt
 
@@ -198,7 +198,7 @@ Nesta secção, vai criar um usuário chamado Eduarda Almeida no YouEarnedIt. Tr
 > [!NOTE]
 > YouEarnedIt esperam que o fornecedor de identidade para fornecer um endereço de correio eletrónico ou o nome de utilizador no atributo NameID. Autenticação irá falhar se um nome de utilizador correspondente ou o endereço de correio eletrónico não foi encontrado na base de dados ou não corresponde exatamente. Isso exigirá que as contas de ser importado para o sistema de YouEarnedIt antes da integração de SSO (normalmente, seja por meio de importação de API ou CSV).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

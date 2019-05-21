@@ -15,11 +15,11 @@ ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8252dea33ff5cde07e021421d9772a69ea9f143b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60281226"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899958"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>Tutorial: Integração do Active Directory do Azure com a inovação de colaboração
 
@@ -124,7 +124,7 @@ Para configurar o Azure AD início de sessão único com inovação de colabora�
     | givenName | user.givenname |
     | Apelido | user.surname |
     | emailaddress | user.userprincipalname |
-    | nome | user.userprincipalname |
+    | name | user.userprincipalname |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -219,7 +219,7 @@ Para ativar a utilizadores do Azure AD iniciar sessão na inovação de colabora
 
 Em caso desta aplicação de aprovisionamento é automático como o aplicativo oferece suporte apenas no tempo de aprovisionamento de utilizador. Portanto, não é necessário para efetuar outros passos aqui.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

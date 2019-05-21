@@ -16,11 +16,11 @@ ms.date: 03/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 308f745489fba2e2b539a2f2615b65228565dcf9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850014"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900080"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-webex-meetings"></a>Tutorial: Integração do Active Directory do Azure com o Cisco Webex reuniões
 
@@ -132,7 +132,7 @@ Para configurar o Azure AD início de sessão único com o Cisco Webex reuniões
     | ---------------|  --------- |
     |   FirstName    | user.givenname |
     |   Apelido    | user.surname |
-    |   e-mail       | user.mail |
+    |   email       | user.mail |
     |   uid    | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -249,7 +249,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 O objetivo desta secção é criar um utilizador chamado Eduarda Almeida na Cisco Webex reuniões. Suporta Cisco Webex reuniões **just-in-time** aprovisionamento, que por predefinição, está ativada. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Cisco Webex reuniões, uma nova é criada quando tentar acessar Cisco Webex reuniões.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

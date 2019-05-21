@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: 851b28d10bdf0b2df67e1c0782a683e790b711bc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60265177"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65897997"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jitbit-helpdesk"></a>Tutorial: Integração do Active Directory do Azure com o suporte técnico de Jitbit
 
@@ -243,7 +243,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no suporte técnico d
 > [!NOTE]
 > Pode utilizar quaisquer outras ferramentas de criação da conta de utilizador de suporte técnico de Jitbit ou APIs fornecidas pelo suporte técnico de Jitbit para aprovisionar contas de utilizador do Azure AD.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

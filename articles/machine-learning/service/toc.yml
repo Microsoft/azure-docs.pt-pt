@@ -80,6 +80,12 @@
     - name: Como funciona o serviço
       displayName: architecture concepts definitions
       href: concept-azure-machine-learning-architecture.md
+    - name: Área de trabalho
+      displayName: concept definitions architecture
+      href: concept-workspace.md
+    - name: Interface visual
+      displayName: concept
+      href: ui-concept-visual-interface.md
     - name: Aprendizagem automática automatizada
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md

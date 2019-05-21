@@ -7,18 +7,18 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: hrasheed
-ms.date: 04/03/2019
-ms.openlocfilehash: f480aeb7e126cb6ab8286bbfbfb8441fefeb07ef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: 09509b32320fb10b8ab3d563442b6d0fb44ad34e
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64716079"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909224"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas num cluster do Apache Spark no Azure HDInsight
 
 Neste tutorial, saiba como criar um pacote de dados de um ficheiro csv e como executar consultas interativas do Spark SQL em relação a uma [Apache Spark](https://spark.apache.org/) cluster no Azure HDInsight. No Spark, um pacote de dados é uma coleção distribuída de dados organizados em colunas com nomes. Do ponto de vista conceptual, o pacote de dados equivale a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
- 
+
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um pacote de dados a partir de um ficheiro CSV
@@ -26,7 +26,22 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua [Criar um cluster do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+Um cluster do Apache Spark no HDInsight. Ver [criar um cluster do Apache Spark](./apache-spark-jupyter-spark-sql-use-portal.md).
+
+## <a name="create-a-jupyter-notebook"></a>Criar um bloco de notas do Jupyter
+
+O Jupyter Notebook é um ambiente de bloco de notas interativo que suporta várias linguagens de programação. O bloco de notas permite-lhe interagir com os seus dados, combinar código com texto markdown e realizar visualizações simples. 
+
+1. Edite o URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` substituindo `SPARKCLUSTER` com o nome do cluster do Spark. Em seguida, introduza o URL editado num navegador da web. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
+
+2. Na página da web Jupyter, selecione **New** > **PySpark** para criar um bloco de notas. 
+
+   ![Crie um Bloco de Notas Jupyter para executar a consulta interativa do Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
+
+   Um novo bloco de notas é criado e aberto com o nome sem título (`Untitled.ipynb`).
+
+    > [!NOTE]  
+    > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Criar um pacote de dados a partir de um ficheiro CSV
 
@@ -34,13 +49,7 @@ As aplicações podem criar pacotes de dados diretamente a partir de ficheiros o
     
 ![Instantâneo de dados para a consulta SQL interativa de Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para a consulta SQL interativa de Spark")
 
-
-1. Abra o bloco de notas do Jupyter que criou na secção pré-requisitos e crie um novo bloco de notas com PySpark.
-
-    > [!NOTE]  
-    > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
-
-2. Cole o seguinte código numa célula vazia do bloco de notas e, em seguida, prima **SHIFT + ENTER** para o executar. O código importa os tipos necessários para este cenário:
+1. Cole o seguinte código numa célula vazia do bloco de notas do Jupyter e, em seguida, prima **SHIFT + ENTER** para executar o código. O código importa os tipos necessários para este cenário:
 
     ```python
     from pyspark.sql import *
@@ -51,7 +60,7 @@ As aplicações podem criar pacotes de dados diretamente a partir de ficheiros o
 
     ![Estado da consulta interativa do Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-3. Execute o seguinte código para criar um pacote de dados e uma tabela temporária (**hvac**) ao utilizar o seguinte código. 
+2. Execute o seguinte código para criar um pacote de dados e uma tabela temporária (**hvac**) ao utilizar o seguinte código. 
 
     ```python
     # Create a dataframe and table from sample data
@@ -94,11 +103,7 @@ Também pode selecionar o nome do grupo de recursos para abrir a página do grup
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber como:
-> [!div class="checklist"]
-> * Crie um dataframe do Apache Spark.
-> * Execute a consulta SQL de Spark no pacote de dados.
+Neste tutorial, aprendeu como criar um pacote de dados de um ficheiro csv e como executar consultas interativas do Spark SQL em relação a um cluster do Apache Spark no HDInsight do Azure. Avance para o artigo seguinte para ver como os dados que registou no Apache Spark podem ser extraídos para uma ferramenta de análise de BI como o Power BI.
 
-Avance para o artigo seguinte para ver como os dados que registou no Apache Spark podem ser extraídos para uma ferramenta de análise de BI como o Power BI. 
 > [!div class="nextstepaction"]
 > [Analisar dados com ferramentas do BI](apache-spark-use-bi-tools.md)

@@ -16,11 +16,11 @@ ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d6b8edf2627ade23fc6d1125afbabc34a1d9d21b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860385"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Tutorial: Integração do Active Directory do Azure com o AppDynamics
 
@@ -212,7 +212,7 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no AppDyn
 >[!Note]
 >Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de cliente do AppDynamics](https://www.appdynamics.com/support/).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

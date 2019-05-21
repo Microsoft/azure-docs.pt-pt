@@ -16,11 +16,11 @@ ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8acc835a7f18ee673f0857f65d49eed59638a6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60271187"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Tutorial: Integração do Active Directory do Azure com o Visualizador de InstaVR
 
@@ -209,7 +209,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado no Visualizador de InstaVR. Visualizador de InstaVR suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Visualizador de InstaVR, é criado um novo após a autenticação. Se tiver quaisquer problemas, entre em contato com a [equipa de suporte do Visualizador de InstaVR](mailto:contact@instavr.co).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 1. Abra uma nova janela do browser web e de registo no site da sua empresa InstaVR Visualizador como administrador.
 

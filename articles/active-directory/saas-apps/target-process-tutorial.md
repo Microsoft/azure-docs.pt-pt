@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: ffb5da8abd9673d4922aeb4854b3dfa80349f284
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60315767"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902210"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: Integração do Active Directory do Azure com TargetProcess
 
@@ -141,7 +141,7 @@ Para configurar o Azure AD início de sessão único com TargetProcess, execute 
 
 4. No menu na parte superior, clique em **configuração**.
 
-    ![Configurar](./media/target-process-tutorial/tutorial_target_process_05.png)
+    ![Configuração](./media/target-process-tutorial/tutorial_target_process_05.png)
 
 5. Clique em **definições** separador.
 
@@ -223,7 +223,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na TargetProcess. 
 > [!Note]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de TargetProcess](mailto:support@targetprocess.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

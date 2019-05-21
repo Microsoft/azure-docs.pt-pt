@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
+ms.date: 04/26/2019
 ms.author: v-jaswel
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a76c11341d0e145e6d2e9f86a7300ddb9319f6f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4fe4f651340ef54c2907192f3a96e9a017ab1dd
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60827498"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65910506"
 ---
 # <a name="quickstart-translator-speech-api-with-c"></a>Início rápido: API de voz do Translator comC#
 <a name="HOLTop"></a>
@@ -27,7 +27,7 @@ Este artigo mostra como utilizar a API de Voz do Microsoft Translator para tradu
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar do [Visual Studio 2017](https://www.visualstudio.com/downloads/) para executar este código no Windows. (A Edição de Comunidade gratuita irá funcionar.) Se utilizar o SO Mac ou Linux também pode utilizar o editor de texto [Visual Studio Code](https://code.visualstudio.com/Download) como alternativa.
+Precisará [Visual Studio 2019](https://www.visualstudio.com/downloads/) executar esse código no Windows. (A Edição de Comunidade gratuita irá funcionar.) Se utilizar o SO Mac ou Linux também pode utilizar o editor de texto [Visual Studio Code](https://code.visualstudio.com/Download) como alternativa.
 
 Vai necessitar de ter um ficheiro .wav denominado "speak.wav" na mesma pasta que o executável e que pode compilar a partir do código abaixo. Este ficheiro .wav deve estar em PCM padrão, em formato mono de 16 bits e 16 kHz.
 

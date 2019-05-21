@@ -16,11 +16,11 @@ ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e331ea54a290bc794b04bb0d8e0ea653ef12bc19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60279170"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898818"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evidencecom"></a>Tutorial: Integração do Active Directory do Azure com Evidence.com
 
@@ -207,7 +207,7 @@ Para utilizadores do Azure AD possam iniciar sessão, tem de ser aprovisionados 
 
 5. O **endereço de E-Mail** do utilizador foi adicionado tem de corresponder ao nome de utilizador dos utilizadores no Azure AD que pretende conceder acesso. Se o endereço de e-mail e nome de utilizador não é o mesmo valor na sua organização, pode utilizar o **Evidence.com > atributos > início de sessão único** seção do portal do Azure para alterar o nameidenitifer enviado para Evidence.com para ser o endereço de e-mail.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

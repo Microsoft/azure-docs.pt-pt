@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.openlocfilehash: 831077142519bb0c740e61a6897215c0b1c8ae1d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344364"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tivitz"></a>Tutorial: Integração do Active Directory do Azure com TiViTz
 
@@ -189,7 +189,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na TiViTz. TiViTz 
 >[!NOTE]
 >Se precisar de criar manualmente um utilizador, terá de contactar [equipa de suporte de TiViTz](mailto:info@tivitz.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

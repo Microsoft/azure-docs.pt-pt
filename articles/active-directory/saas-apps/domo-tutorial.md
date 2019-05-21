@@ -16,11 +16,11 @@ ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 011991a3951adde9a0d062b40584caa74d172023
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918726"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65899765"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Tutorial: Integração do Active Directory do Azure com Domo
 
@@ -137,8 +137,8 @@ Para configurar o Azure AD início de sessão único com Domo, execute os seguin
     | Name | Atributo de origem|
     | ---------------| --------------- |
     | nameidentifier | user.userprinicipalname |
-    | nome | user.displayname |
-    | e-mail | user.mail |
+    | name | user.displayname |
+    | email | user.mail |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
 
@@ -231,7 +231,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Domo. Domo suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Domo, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

@@ -16,11 +16,11 @@ ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b00e27a0620212fbc09f8b7d91d8f5b9d0971c8f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105722"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65902977"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-samanage"></a>Tutorial: Integração do Active Directory do Azure com Samanage
 
@@ -237,7 +237,7 @@ No caso de Samanage, o aprovisionamento é uma tarefa manual.
    >[!NOTE]
    >O titular da conta do Azure Active Directory irá receber um e-mail e seguir uma ligação para confirmar a respetiva conta até se tornar Active Directory. Pode utilizar quaisquer outras Samanage utilizador conta criação ferramentas ou APIs fornecidas pelo Samanage para aprovisionar o Azure Active Directory contas de utilizador.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

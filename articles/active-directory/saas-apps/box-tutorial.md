@@ -16,11 +16,11 @@ ms.date: 12/18/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 21e71e38cd8e2a6d627676cddd400f625452e449
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886363"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65900694"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-box"></a>Tutorial: Integração do Active Directory do Azure com caixa
 
@@ -183,7 +183,7 @@ Nesta secção, um usuário chamado Eduarda Almeida é criado na caixa. Caixa su
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, contacte [equipa de suporte de caixa](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 
