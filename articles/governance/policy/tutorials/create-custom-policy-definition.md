@@ -7,12 +7,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f9dc6e98e184e6eeeca3a56ff4a28739369a3d24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800488"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979674"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
@@ -46,12 +46,11 @@ Antes de criar a definição de política, é importante compreender a intençã
 
 Os seus requisitos devem identificar claramente ambas a "para ser" e os Estados de recursos "não deve ser".
 
-Embora definimos o estado esperado do recurso, que ainda não foram definidas, o que queremos fizemos com recursos não compatíveis. Política suporta um número de [efeitos](../concepts/effects.md). Para este tutorial, vamos definir o requisito de negócio como impedir a criação de recursos, caso não estejam em conformidade com as regras de negócio. Para cumprir este objetivo, usaremos o [negar](../concepts/effects.md#deny) efeito. Queremos também a opção para suspender a política para atribuições específicas. Como tal, vamos utilizar o [desativada](../concepts/effects.md#disabled) efeitos e o efeito de tornar um [parâmetro](../concepts/definition-structure.md#parameters) na definição de política.
+Embora definimos o estado esperado do recurso, que ainda não foram definidas, o que queremos fizemos com recursos não compatíveis. Política do Azure suporta um número de [efeitos](../concepts/effects.md). Para este tutorial, vamos definir o requisito de negócio como impedir a criação de recursos, caso não estejam em conformidade com as regras de negócio. Para cumprir este objetivo, usaremos o [negar](../concepts/effects.md#deny) efeito. Queremos também a opção para suspender a política para atribuições específicas. Como tal, vamos utilizar o [desativada](../concepts/effects.md#disabled) efeitos e o efeito de tornar um [parâmetro](../concepts/definition-structure.md#parameters) na definição de política.
 
 ## <a name="determine-resource-properties"></a>Determinar as propriedades de recurso
 
-Com base no requisito de negócio, o recurso do Azure para fazer com a política de auditoria é uma conta de armazenamento.
-No entanto, não sabemos as propriedades para utilizar na definição de política. Política é avaliada em relação a representação JSON do recurso, portanto precisamos entender as propriedades disponíveis esse recurso.
+Com base no requisito de negócio, o recurso do Azure para fazer auditoria com o Azure Policy é uma conta de armazenamento. No entanto, não sabemos as propriedades para utilizar na definição de política. O Azure Policy é avaliada em relação a representação JSON do recurso, portanto precisamos entender as propriedades disponíveis esse recurso.
 
 Existem várias formas de determinar as propriedades de um recurso do Azure. Vamos examinar cada uma para este tutorial:
 
@@ -121,8 +120,7 @@ Sob **propriedades** é um valor chamado **supportsHttpsTrafficOnly** definido c
 
 #### <a name="create-a-resource-in-the-portal"></a>Criar um recurso no portal
 
-Outra forma através do portal é a experiência de criação de recursos. Ao criar uma conta de armazenamento através do portal, uma opção no **avançadas** é separador **transferência de segurança necessária**.
-Esta propriedade tem _desativada_ e _ativado_ opções. O ícone de informações tem texto adicional que confirme que esta opção é, provavelmente, a propriedade que queremos. No entanto, o portal não forneça o nome da propriedade neste ecrã.
+Outra forma através do portal é a experiência de criação de recursos. Ao criar uma conta de armazenamento através do portal, uma opção no **avançadas** é separador **transferência de segurança necessária**. Esta propriedade tem _desativada_ e _ativado_ opções. O ícone de informações tem texto adicional que confirme que esta opção é, provavelmente, a propriedade que queremos. No entanto, o portal não forneça o nome da propriedade neste ecrã.
 
 Sobre o **revisão + criar** separador, é de um link na parte inferior da página para **transferir um modelo para a automatização**. Selecionar a ligação é aberto o modelo que cria o recurso que foi configurados. Neste caso, vemos duas informações cruciais:
 
@@ -181,8 +179,7 @@ Nos resultados, podemos ver um suportados pelas contas de armazenamento com o no
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-No Azure PowerShell, o `Get-AzPolicyAlias` cmdlet é utilizado para procurar os aliases de recursos.
-Vamos filtrar para o **Microsoft. Storage** espaço de nomes com base em detalhes sobre o recurso do Azure, temos anteriormente.
+No Azure PowerShell, o `Get-AzPolicyAlias` cmdlet é utilizado para procurar os aliases de recursos. Vamos filtrar para o **Microsoft. Storage** espaço de nomes com base em detalhes sobre o recurso do Azure, temos anteriormente.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -312,7 +309,8 @@ Gráfico de recursos do Azure (pré-visualização) pode ser utilizado através 
 
 ## <a name="determine-the-effect-to-use"></a>Determinar o efeito para utilizar
 
-Decidir o que fazer com os seus recursos em não conformidades é tão importante quanto a decidir o que avaliar em primeiro lugar. Cada resposta possível para um recurso de conformidade é chamada um [efeito](../concepts/effects.md). Os controles de efeito se o recurso de conformidade é iniciado, bloqueado, tem dados acrescentado, ou tem uma implementação associados a ele para colocar o recurso de volta ao estado compatível.
+Decidir o que fazer com os seus recursos em não conformidades é tão importante quanto a decidir o que avaliar em primeiro lugar. Cada resposta possível para um recurso de conformidade é chamada um [efeito](../concepts/effects.md).
+Os controles de efeito se o recurso de conformidade é iniciado, bloqueado, tem dados acrescentado, ou tem uma implementação associados a ele para colocar o recurso de volta ao estado compatível.
 
 No nosso exemplo, a negação é o efeito que Desejamos que não queremos recursos incompatíveis criados no nosso ambiente do Azure. Auditoria é uma boa primeira opção para um efeito de política determinar o que é o impacto de uma política antes de defini-la para negar. Uma forma de alterar o efeito por atribuição mais fácil de fazer é parametrizar o efeito. Ver [parâmetros](#parameters) abaixo para obter os detalhes sobre como.
 

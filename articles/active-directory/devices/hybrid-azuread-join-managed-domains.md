@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f080e315430cba986642e4a24af776cc82062c0
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 94fbcc1c29c1860642dda0afab6a1f10e719a05a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190799"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962200"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar a associação ao Azure Active Directory de híbrido para domínios geridos
 
@@ -178,12 +178,12 @@ Além disso, tem de ativar **Permitir atualizações à barra de estado por meio
 
 ### <a name="configure-seamless-sso"></a>Configurar o SSO totalmente integrado
 
-A associação do Azure AD híbrido de concluído com êxito de seu Windows dispositivos de nível inferior num domínio gerido, que está a utilizar autenticação pass-through (PTA) ou a sincronização de Hash de palavra-passe (PHS) como o Azure AD na cloud o método de autenticação, tem também [configurar SSO totalmente integrado](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). 
+A associação do Azure AD híbrido de concluído com êxito de seu Windows dispositivos de nível inferior num domínio gerido, que está a utilizar autenticação pass-through (PTA) ou a sincronização de Hash de palavra-passe (PHS) como o Azure AD na cloud o método de autenticação, tem também [configurar SSO totalmente integrado](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso-quick-start#step-2-enable-the-feature). Se estiver a ter dificuldade em configurar o SSO totalmente integrado, veja o artigo [resolver problemas do Azure Active Directory totalmente integrada Single Sign-On](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-sso).
 
 
 ### <a name="control-windows-down-level-devices"></a>Controlar dispositivos de nível inferior do Windows 
 
-Para registar dispositivos de nível inferior do Windows, tem de transferir e instalar um pacote do Windows Installer (.msi) do Centro de Transferências. Para obter mais informações, clique [aqui](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+Para registar dispositivos de nível inferior do Windows, tem de transferir e instalar um pacote do Windows Installer (.msi) do Centro de Transferências. Para obter mais informações, consulte o artigo [controlar a associação do Azure AD híbrido dos seus dispositivos](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
 
 
 ## <a name="verify-the-registration"></a>Verificar o registo

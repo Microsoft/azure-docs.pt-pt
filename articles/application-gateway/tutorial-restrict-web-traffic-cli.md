@@ -3,33 +3,23 @@ title: Ativar a firewall de aplicações Web - CLI do Azure
 description: Aprenda a restringir o tráfego da Web com uma firewall de aplicações Web num gateway de aplicação com a CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 1387dc5bb2cabf9a3078474564aadc81b28fd9a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1822fe032a7c7a6382dbae2cb9f7095d1d076008
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407168"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955487"
 ---
 # <a name="enable-web-application-firewall-using-the-azure-cli"></a>Ativar a firewall de aplicações web com a CLI do Azure
 
-> [!div class="op_single_selector"]
->
-> - [Portal do Azure](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [CLI do Azure](tutorial-restrict-web-traffic-cli.md)
->
-> 
+Pode restringir o tráfego num [gateway de aplicação](overview.md) com uma [firewall de aplicações Web](waf-overview.md) (WAF). A WAF utiliza regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger a sua aplicação. Estas regras incluem a proteção contra ataques, tais como injeção SQL, ataques de scripts entre sites e assunção de controlo de sessão sem autorização.
 
-Pode restringir o tráfego num [gateway de aplicação](overview.md) com uma [firewall de aplicações Web](waf-overview.md) (WAF). A WAF utiliza regras de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger a sua aplicação. Estas regras incluem a proteção contra ataques, tais como injeção SQL, ataques de scripts entre sites e assunção de controlo de sessão sem autorização. 
-
-Neste tutorial, ficará a saber como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
@@ -39,13 +29,13 @@ Neste tutorial, ficará a saber como:
 
 ![Exemplo de firewall de aplicações Web](./media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
 
-Se preferir, pode executar este tutorial com o [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
+Se preferir, pode concluir este procedimento com [do Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -148,7 +138,7 @@ az vmss extension set \
 
 ## <a name="create-a-storage-account-and-configure-diagnostics"></a>Criar uma conta de armazenamento e configurar o diagnóstico
 
-Neste tutorial, o gateway de aplicação utiliza uma conta de armazenamento para armazenar dados para efeitos de deteção e prevenção. Também pode utilizar os registos do Azure Monitor ou o Hub de eventos para gravar dados. 
+Neste artigo, o gateway de aplicação utiliza uma conta de armazenamento para armazenar os dados para fins de deteção e prevenção. Também pode utilizar os registos do Azure Monitor ou o Hub de eventos para gravar dados. 
 
 ### <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
@@ -196,18 +186,9 @@ az network public-ip show \
 Quando já não forem necessários, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 
 ```azurecli-interactive
-az group delete --name myResourceGroupAG --location eastus
+az group delete --name myResourceGroupAG 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação com a WAF ativada
-> * Criar um conjunto de dimensionamento de máquinas virtuais
-> * Criar uma conta de armazenamento e configurar o diagnóstico
-
-> [!div class="nextstepaction"]
-> [Criar um gateway de aplicação com a terminação SSL](./tutorial-ssl-cli.md)
+* [Criar um gateway de aplicação com a terminação SSL](./tutorial-ssl-cli.md)

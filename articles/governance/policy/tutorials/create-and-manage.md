@@ -7,12 +7,12 @@ ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1a00d237ef94f73ebf59070d8160a7e5144b0ac8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800564"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979172"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Tutorial: Criar e gerir políticas para impor a conformidade
 
@@ -42,11 +42,11 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 
    ![Atribuir uma definição de política a partir da página de atribuições](../media/create-and-manage/select-assign-policy.png)
 
-1. Na página **Atribuir Política**, selecione **Âmbito** ao clicar no botão de reticências e ao selecionar um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta.  Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
+1. Na página **Atribuir Política**, selecione **Âmbito** ao clicar no botão de reticências e ao selecionar um grupo de gestão ou uma subscrição. Opcionalmente, selecione um grupo de recursos. Um âmbito determina que recursos ou agrupamento de recursos em que a atribuição de política é imposta. Em seguida, clique em **Selecionar** na parte inferior da página **Âmbito**.
 
    Este exemplo utiliza a subscrição da **Contoso**. A sua subscrição vai ser diferente.
 
-1. Os recursos podem ser excluídos com base no **Âmbito**.  As **Exclusões** começam num nível inferior ao nível do **Âmbito**. As **Exclusões** são opcionais. Por isso, deixe-as em branco por enquanto.
+1. Os recursos podem ser excluídos com base no **Âmbito**. As **Exclusões** começam num nível inferior ao nível do **Âmbito**. As **Exclusões** são opcionais. Por isso, deixe-as em branco por enquanto.
 
 1. Selecione as reticências de **Definição de política** para abrir a lista de definições disponíveis. Pode filtrar o **Tipo** de definição de política para *Incorporado* para ver todas e ler as respetivas descrições.
 
@@ -54,7 +54,8 @@ O primeiro passo para impor a conformidade com o Azure Policy consiste em atribu
 
    ![Utilize o filtro de pesquisa para localizar uma política](../media/create-and-manage/select-available-definition.png)
 
-1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Para este exemplo, deixe *Requer a versão do SQL Server 12.0*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.  **Atribuído por** é preenchida automaticamente com base em quem está conectado. Este campo é opcional e, por isso, podem ser introduzidos valores personalizados.
+1. O **Nome da atribuição** é automaticamente preenchido com o nome da política que selecionou, mas pode alterá-lo. Para este exemplo, deixe *Requer a versão do SQL Server 12.0*. Também pode adicionar uma **Descrição** opcional. A descrição fornece detalhes sobre esta atribuição de política.
+   **Atribuído por** é preenchida automaticamente com base em quem está conectado. Este campo é opcional e, por isso, podem ser introduzidos valores personalizados.
 
 1. Não marque o campo **Criar uma Identidade Gerida**. Esta caixa _tem_ verificado quando a política ou iniciativa que está sendo atribuído inclui uma política com o [deployIfNotExists](../concepts/effects.md#deployifnotexists) efeito. Como a política utilizada para este tutorial não, deixe em branco. Para obter mais informações, veja [identidades geridas](../../../active-directory/managed-identities-azure-resources/overview.md) e [como funciona a segurança de remediação](../how-to/remediate-resources.md#how-remediation-security-works).
 
@@ -116,7 +117,7 @@ Agora que atribuiu uma definição de política incorporada, pode fazer mais com
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Criar uma definição de política com a API REST
 
-Pode criar uma política com a API REST para Definições de Política. A API REST permite-lhe criar e eliminar definições de política, bem como obter informações sobre as definições existentes. Para criar uma definição de política, utilize o seguinte exemplo:
+Pode criar uma política com a API REST para definições de política do Azure. A API REST permite-lhe criar e eliminar definições de política, bem como obter informações sobre as definições existentes. Para criar uma definição de política, utilize o seguinte exemplo:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -156,7 +157,7 @@ Incluir um corpo de pedido semelhante ao exemplo seguinte:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Criar uma definição de política com o PowerShell
 
-Antes de continuar com o exemplo do PowerShell, certifique-se de que instalou a versão mais recente do módulo Azure PowerShell Az. 
+Antes de continuar com o exemplo do PowerShell, certifique-se de que instalou a versão mais recente do módulo Azure PowerShell Az.
 
 Pode criar uma definição de política ao utilizar o cmdlet `New-AzPolicyDefinition`.
 
@@ -369,13 +370,14 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
    ![Atribuir uma definição de página de definição de iniciativa](../media/create-and-manage/assign-definition.png)
 
-   Pode também com o botão direito na linha selecionada ou left-click nas reticências no final da linha para um menu contextual.  Em seguida, selecione **Atribuir**.
+   Pode também com o botão direito na linha selecionada ou left-click nas reticências no final da linha para um menu contextual. Em seguida, selecione **Atribuir**.
 
    ![Opções alternativas para uma iniciativa](../media/create-and-manage/select-right-click.png)
 
 1. Preencha o **proteger: Atribuir iniciativa** página ao introduzir as seguintes informações de exemplo. Pode utilizar as suas próprias informações.
 
-   - Âmbito: O grupo de gestão ou a subscrição que guardou a iniciativa de se tornará o padrão.  Pode alterar o âmbito para atribuir a iniciativa a uma subscrição ou a um grupo de recursos na localização guardada.
+   - Âmbito: O grupo de gestão ou a subscrição que guardou a iniciativa de se tornará o padrão.
+     Pode alterar o âmbito para atribuir a iniciativa a uma subscrição ou a um grupo de recursos na localização guardada.
    - Exclusões: Configure todos os recursos dentro do âmbito para evitar a atribuição de iniciativa sejam aplicados aos mesmos.
    - Definição de iniciativa e o nome da atribuição: Obtenha seguro (pré-preenchido como nome da iniciativa que está sendo atribuída).
    - Descrição: Esta atribuição de iniciativa está adaptada para impor a este grupo de definições de política.
@@ -389,7 +391,8 @@ Com uma definição de iniciativa, pode agrupar várias definições de polític
 
 1. Selecione **Conformidade** no lado esquerdo da página Azure Policy.
 
-1. Localize a iniciativa **Obter Origem**. É provável que ainda na _estado de conformidade_ dos **não iniciado**. Clique na iniciativa para obter todos os detalhes sobre o progresso da atribuição.
+1. Localize a iniciativa **Obter Origem**. É provável que ainda na _estado de conformidade_ dos **não iniciado**.
+   Clique na iniciativa para obter todos os detalhes sobre o progresso da atribuição.
 
    ![Página de conformidade de iniciativa - avaliações não iniciados](../media/create-and-manage/compliance-status-not-started.png)
 

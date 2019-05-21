@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 2/20/2019
 ms.author: erhopf
-ms.openlocfilehash: b5c61ecb74c0fcdacc6024a74565f05b036e2ac6
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: fe2978e176b986164ebb01fddbd29481f8a117bd
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65081205"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65954789"
 ---
 1. Inicie o Visual Studio 2017.
 
@@ -23,7 +23,7 @@ ms.locfileid: "65081205"
 
     ![Captura de ecrã da caixa de diálogo Novo Projeto](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-01-new-blank-app.png)
 
-1. O SDK de Velocidade exige que a sua aplicação seja criada para a Atualização do Windows 10 Fall Creators ou posterior. Na janela **Novo Projeto da Plataforma Universal do Windows** que é apresentada, escolha **Atualização do Windows 10 Fall Creators (10.0; Compilação 16299)** como **Versão mínima**. Na caixa **Versão de destino**, selecione esta ou qualquer versão posterior e, em seguida, clique em **OK**.
+1. O SDK de voz requer que o seu aplicativo ser criado para o Windows 10 Fall Creators Update ou posterior. Na janela **Novo Projeto da Plataforma Universal do Windows** que é apresentada, escolha **Atualização do Windows 10 Fall Creators (10.0; Compilação 16299)** como **Versão mínima**. Na caixa **Versão de destino**, selecione esta ou qualquer versão posterior e, em seguida, clique em **OK**.
 
     ![Captura de ecrã da janela Novo Projeto de Plataforma Universal do Windows](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-02-new-uwp-project.png)
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc2bd50fda34b493463898d8ef47ed2c246b7d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790111"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951781"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Reativação pós-falha de uma VM do Azure entre regiões do Azure
 
@@ -29,7 +29,7 @@ Este tutorial descreve como efetuar a reativação pós-falha numa única VM do 
 > 
 > [!NOTE]
 > 
-> Este tutorial ajuda-o a efetuar a ativação pós-falha algumas VMs para uma região de destino e voltar para a região de origem com personalizações mínimo. Para obter mais instruções detalhadas, consulte a [guias de procedimentos em VMs do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/).
+> Este tutorial ajuda-o a efetuar a ativação pós-falha algumas VMs para uma região de destino e voltar para a região de origem com personalizações mínimo. Para obter mais instruções detalhadas, consulte a [guias de procedimentos em VMs do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/).
 
 ## <a name="before-you-start"></a>Antes de começar
 

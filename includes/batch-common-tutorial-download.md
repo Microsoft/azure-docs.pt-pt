@@ -1,15 +1,15 @@
 ---
-author: dlepow
+author: laurenhughes
 ms.service: batch
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: danlep
-ms.openlocfilehash: a8ea55a40f1ee4681b6aec147e02b7bce6f1d7cf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: lahugh
+ms.openlocfilehash: bd51eabcff412de4928c682683b2a69b3e82e601
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616623"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957124"
 ---
 ### <a name="retrieve-output-files"></a>Obter ficheiros de saída
 

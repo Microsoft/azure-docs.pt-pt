@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/11/2019
-ms.openlocfilehash: cda9c4c914e4ec955d2009ce3f015bf7807027f6
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.date: 05/20/2019
+ms.openlocfilehash: dc29cc6d3cc2a07214fb638a10039a4c3ea2d92b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65922195"
+ms.locfileid: "65953615"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>Introdução ao armazenamento de API de tabela do Azure Cosmos DB e tabelas do Azure com o SDK .NET
 

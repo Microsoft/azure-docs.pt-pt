@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 724d47695c2878caf6ae18e2622f72dc59767ea0
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
-ms.translationtype: HT
+ms.openlocfilehash: d42e266de9c958c8a71cc5fa680a78c2278cec6e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921710"
+ms.locfileid: "65956788"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netdocuments"></a>Tutorial: Integração do Active Directory do Azure com NetDocuments
 
@@ -109,7 +109,7 @@ Para configurar o Azure AD início de sessão único com NetDocuments, execute o
     b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o URL de resposta. ID de repositório é um valor lhe que comece com a AC-seguido por 8 código do caráter associado ao seu repositório de NetDocuments. Pode verificar o [documentos de suporte de identidade federada de NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) para obter mais informações. Em alternativa, pode contactar [equipa de suporte de cliente NetDocuments](https://support.netdocuments.com/hc/) para obter estes valores, se tiver dificulties configurar com as informações acima. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o URL de resposta. ID de repositório é um valor lhe que comece com a AC-seguido por 8 código do caráter associado ao seu repositório de NetDocuments. Pode verificar o [documentos de suporte de identidade federada de NetDocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) para obter mais informações. Em alternativa, pode contactar [equipa de suporte de cliente NetDocuments](https://support.netdocuments.com/hc/) para obter estes valores, se tiver dificuldades com as informações acima a configurar. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
 

@@ -9,12 +9,12 @@ ms.date: 12/07/2018
 ms.author: normesta
 ms.reviewer: seguler
 ms.custom: seodec18
-ms.openlocfilehash: 4b074c9dee93ba44659b0321ae3eee7fbea1c61f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7320f5cd8d012973139adb099785cddae123f775
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65145045"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949614"
 ---
 # <a name="tutorial-use-azure-cdn-to-enable-a-custom-domain-with-ssl-for-a-static-website"></a>Tutorial: Utilizar a CDN do Azure para ativar um domínio personalizado com SSL para um Web site estático
 
@@ -44,8 +44,9 @@ Inicie sessão para o [portal do Azure](https://portal.azure.com/) para começar
 1. Na **novo ponto final** secção, preencha os campos para criar um novo ponto final da CDN.
 1. Introduza um nome de ponto final, como *mystaticwebsiteCDN*.
 1. Introduza o seu domínio do Web site como o nome de anfitrião para o ponto final da CDN.
-1. Introduza o nome de anfitrião de origem, é o ponto de extremidade do Web site estático. Para localizar o ponto de final do Web site estático, navegue para o **Web site estático** secção para a sua conta de armazenamento e copiar o ponto final. 
+1. Introduza o nome de anfitrião de origem, é o ponto de extremidade do Web site estático. Para localizar o ponto de final do Web site estático, navegue para o **Web site estático** secção para a sua conta de armazenamento e copiar o ponto final (remover a https:// anterior)
 1. Testar o ponto final de CDN ao navegar até *mywebsitecdn.azureedge.net* no seu browser.
+1. Additionaly Certifique-se ao navegar para o **novo ponto final** nas definições de origem para ver se o tipo de origem está definido como *origem personalizada* e *nome do anfitrião* apresenta estáticas nome do ponto final de webiste.
 
 ## <a name="enable-custom-domain-and-ssl"></a>Ativar o domínio personalizado e SSL
 

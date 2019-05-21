@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: ba198cbe0c362055f36cb4bdecf34a0dbad477a8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b332c11e76ad335772cc607edcf569f896acb873
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788064"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951387"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Tutorial: Aceder a dados de geração 2 de armazenamento do Data Lake com o Azure Databricks com o Spark
 
@@ -48,7 +48,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
   > [!IMPORTANT]
   > Certifique-se atribuir a função no âmbito da conta de armazenamento de geração 2 de armazenamento do Data Lake. Pode atribuir uma função para o grupo de recursos de principal ou uma subscrição, mas irá receber erros relacionados com as permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
 
-  :heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e valores de chave de autenticação para um ficheiro de texto. Precisará aqueles em breve.
+  :heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e os valores de palavras-passe para um ficheiro de texto. Precisará aqueles em breve.
 
 ### <a name="download-the-flight-data"></a>Transferir os dados de voos
 
@@ -82,11 +82,9 @@ Nesta secção, vai criar um serviço do Azure Databricks com o portal do Azure.
 
     ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-use-databricks-spark/create-databricks-workspace.png "criar um serviço do Azure Databricks")
 
-3. Selecione **Afixar ao dashboard** e, em seguida, selecione **Criar**.
+3. A criação da conta demora alguns minutos. Para monitorizar o estado da operação, veja a barra de progresso na parte superior.
 
-4. A criação da conta demora alguns minutos. Durante a criação de conta, o portal apresenta o **submeter a implementação para o Azure Databricks** mosaico à direita. Para monitorizar o estado da operação, veja a barra de progresso na parte superior.
-
-    ![Mosaico de implementação do Databricks](./media/data-lake-storage-use-databricks-spark/databricks-deployment-tile.png "Mosaico de implementação do Databricks")
+4. Selecione **Afixar ao dashboard** e, em seguida, selecione **Criar**.
 
 ## <a name="create-a-spark-cluster-in-azure-databricks"></a>Criar um cluster do Spark no Azure Databricks
 
@@ -179,7 +177,7 @@ Utilize estes valores para substituir os marcadores de posição mencionados.
    * Substitua o `file-system-name` marcador de posição com qualquer nome que pretende dar o seu sistema de ficheiros.
 
    > [!NOTE]
-   > Num ambiente de produção, considere armazenar a chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao seu bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no site do Azure Databricks para ver exemplos dessa abordagem.
+   > Num ambiente de produção, considere armazenar a palavra-passe no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao seu bloco de código em vez da palavra-passe. Depois de concluir este início rápido, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no site do Azure Databricks para ver exemplos dessa abordagem.
 
 19. Prima a **SHIFT + ENTER** chaves para executar o código nesse bloco.
 

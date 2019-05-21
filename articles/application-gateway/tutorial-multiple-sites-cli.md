@@ -3,25 +3,23 @@ title: Criar um gateway de aplicação que aloja vários sites - CLI do Azure
 description: Saiba como criar um gateway de aplicação que aloja vários sites através da CLI do Azure.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9c99b534a40b5c87cf511c75ccdb19df4d9aaf63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100727"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955634"
 ---
-# <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutorial: Criar um gateway de aplicação que aloja vários web sites com a CLI do Azure
+# <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Criar um gateway de aplicação que aloja vários web sites com a CLI do Azure
 
-Pode utilizar a CLI do Azure para [configurar o alojamento de vários sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste tutorial, vai definir conjuntos de endereços de back-end através de conjuntos de dimensionamento de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este tutorial parte do princípio de que seu vários exemplos de domínios e utilizações de *www\.contoso.com* e *www\.fabrikam.com*.
+Pode utilizar a CLI do Azure para [configurar o alojamento de vários sites](multiple-site-overview.md) quando cria um [gateway de aplicação](overview.md). Neste artigo, vai definir os conjuntos de endereços de back-end com conjuntos de dimensionamento de máquinas virtuais. Em seguida, vai configurar os serviços de escuta e as regras com base nos domínios que possui para assegurar que o tráfego Web chega aos servidores adequados nos conjuntos. Este artigo pressupõe que tiver vários domínios e utiliza os exemplos de *www\.contoso.com* e *www\.fabrikam.com*.
 
-Neste tutorial, ficará a saber como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Configurar a rede
@@ -33,8 +31,7 @@ Neste tutorial, ficará a saber como:
 
 ![Exemplo de encaminhamento multilocal](./media/tutorial-multiple-sites-cli/scenario.png)
 
-
-Se preferir, pode executar este tutorial com o [Azure PowerShell](tutorial-multiple-sites-powershell.md).
+Se preferir, pode concluir este procedimento com [do Azure PowerShell](tutorial-multiple-sites-powershell.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -48,11 +45,11 @@ Um grupo de recursos é um contentor lógico no qual os recursos do Azure são i
 
 O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroupAG* na localização *eastus*.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Criar recursos de rede 
+## <a name="create-network-resources"></a>Criar recursos de rede
 
 Crie a rede virtual denominada e a sub-rede denominada *myAGSubnet* com [az network vnet create](/cli/azure/network/vnet). Em seguida, pode adicionar a sub-rede que é necessária para os servidores de back-end, com [az network vnet subnet create](/cli/azure/network/vnet/subnet). Crie o endereço IP público denominado *myAGPublicIPAddress* com [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -254,15 +251,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, ficou a saber como:
-
-> [!div class="checklist"]
-> * Configurar a rede
-> * Criar um gateway de aplicação
-> * Criar serviços de escuta de back-end
-> * Criar regras de encaminhamento
-> * Criar conjuntos de dimensionamento de máquinas virtuais com conjuntos de back-end
-> * Criar um registo CNAME no seu domínio
-
-> [!div class="nextstepaction"]
-> [Criar um gateway de aplicação com regras de encaminhamento com base no caminho de URL](./tutorial-url-route-cli.md)
+* [Criar um gateway de aplicação com regras de encaminhamento com base no caminho de URL](./tutorial-url-route-cli.md)

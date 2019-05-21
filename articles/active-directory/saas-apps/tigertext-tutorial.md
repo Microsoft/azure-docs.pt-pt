@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: 7507e5d23898fd069797c14d0fa18419b8345d78
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.openlocfilehash: 840b1fe55556cfd853e0928164891d6b21b17cc2
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65888258"
+ms.locfileid: "65956858"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tigertext-secure-messenger"></a>Tutorial: Integração do Active Directory do Azure com o Messenger de proteger TigerText
 
@@ -156,7 +156,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso TigerText Messenger de proteger.
+Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder-lhes acesso TigerText Messenger de proteger.
 
 1. No portal do Azure, selecione **aplicações empresariais** > **todas as aplicações** > **Messenger de proteger TigerText**.
 

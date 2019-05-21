@@ -5,13 +5,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 author: deborahc
 ms.author: dech
-ms.date: 03/14/2019
-ms.openlocfilehash: c83cc8dce5978798d86d2fc2e314161765a2fb2d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/20/2019
+ms.openlocfilehash: 9e7342ebcbcf536b26e6cf7fb89e3cf58666d24f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205791"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953952"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utilizar o emulador do Cosmos para o local de desenvolvimento e teste
 
@@ -243,7 +243,7 @@ Para ver a lista de opções, escreva `CosmosDB.Emulator.exe /?` na linha de com
 | GetStatus |Obtém o estado do emulador do Cosmos do Azure. O estado é indicado pelo código de saída: 1 = a partir de, 2 = em execução, 3 = parado. Um código de saída negativo indica que ocorreu um erro. Não é produzido outro resultado. | CosmosDB.Emulator.exe /GetStatus| |
 | Encerrar| Encerra o emulador do Cosmos do Azure.| CosmosDB.Emulator.exe /Shutdown | |
 |DataPath | Especifica o caminho onde pretende armazenar os ficheiros de dados. Valor predefinido é de % LocalAppdata%\CosmosDBEmulator. | CosmosDB.Emulator.exe /DataPath=\<datapath\> | \<datapath\>: Um caminho acessível |
-|Porta | Especifica o número de porta a utilizar para o emulador. Valor predefinido é 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<Porta\>: Número de porta única |
+|Port | Especifica o número de porta a utilizar para o emulador. Valor predefinido é 8081. |CosmosDB.Emulator.exe /Port=\<port\> | \<Porta\>: Número de porta única |
 | MongoPort | Especifica o número de porta a utilizar para a API de compatibilidade do MongoDB. Valor predefinido é 10255. |CosmosDB.Emulator.exe /MongoPort= \<mongoport\>|\<mongoport\>: Número de porta única|
 | CassandraPort | Especifica o número de porta a utilizar para o ponto final de Cassandra. Valor predefinido é 10350. | CosmosDB.Emulator.exe /CassandraPort = \<cassandraport\> | \<cassandraport\>: Número de porta única |
 | ComputePort | Especificar o número de porta a utilizar para o serviço de Gateway de interoperabilidade de computação. Porta de sonda de ponto final HTTP do Gateway é calculada como ComputePort + 79. Por conseguinte, ComputePort e ComputePort + 79 tem de ser aberta e disponível. Os valores predefinidos são 8900, 8979. | CosmosDB.Emulator.exe /ComputePort = \<computeport\> | \<computeport\>: Número de porta única |

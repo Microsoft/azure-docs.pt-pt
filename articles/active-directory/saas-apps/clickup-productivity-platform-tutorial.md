@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 3244140999dc61560549db077d4c402b3986956b
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
-ms.translationtype: HT
+ms.openlocfilehash: 2a14b251df0bedbcd27ab4e9bf1abe9a27ad50d6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/20/2019
-ms.locfileid: "65900517"
+ms.locfileid: "65950911"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clickup-productivity-platform"></a>Tutorial: Integração do Active Directory do Azure com a plataforma de produtividade ClickUp
 
@@ -203,7 +203,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
     ![Configuração de produtividade ClickUp](./media/clickup-productivity-platform-tutorial/user2.png)
 
     > [!NOTE]
-    > Utilizador irá receber a notificação e ele tem de aceitar o convite para ativar a conta.
+    > O utilizador irá receber a notificação e tem de ser aceite o convite para ativar a conta.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 

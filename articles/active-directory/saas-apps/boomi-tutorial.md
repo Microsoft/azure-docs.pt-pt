@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8092724a8ebf04342e00d054cc78fe26b48d2f82
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1fe436632eee12157dde2b082a5c77e67e7977cc
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864080"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957177"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-boomi"></a>Tutorial: Integração do Active Directory do Azure com Boomi
 
@@ -251,7 +251,7 @@ Para habilitar os utilizadores do Azure AD iniciar sessão no Boomi, tem de ser 
 
     d. Introduza o utilizador **ID de Federação**. Cada utilizador tem de ter um ID de federação que identifica unicamente o usuário dentro da conta.
 
-    e. Atribuir a **usuário padrão** função ao utilizador. Não atribua a função de administrador porque isso ofereceria em contato com acesso de atmosfera normal, bem como acesso de início de sessão único.
+    e. Atribuir a **usuário padrão** função ao utilizador. Não atribua a função de administrador porque isso ofereceria-lhes acesso normal de atmosfera, bem como acesso de início de sessão único.
 
     f. Clique em **OK**.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial 1: Prever risco do crédito'
+title: 'Tutorial 1: Prever o risco do crédito'
 titleSuffix: Azure Machine Learning Studio
 description: Um tutorial detalhado que mostra como criar uma solução de Análise Preditiva para avaliação de riscos de crédito no Azure Machine Learning Studio. Este tutorial é a primeira parte de uma série de tutoriais de três partes.  Ele mostra como criar uma área de trabalho, carregar dados e criar uma experimentação.
 keywords: risco de crédito, solução de análise preditiva, avaliação de riscos
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461194"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949801"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Tutorial 1: Prever o risco de crédito - Azure Machine Learning Studio
 
@@ -78,7 +78,7 @@ O **german.data** conjunto de dados contém linhas de 20 variáveis para 1000 ca
 
 O site UCI fornece uma descrição dos atributos do vetor de funcionalidade para estes dados. Estes dados incluem informações financeiras, o histórico de crédito, o estado de emprego e informações pessoais. Para cada candidato, uma classificação binária foi determinado que indica se são uma baixa ou alta risco de crédito. 
 
-Usará esses dados para preparar um modelo de Análise Preditiva. Quando tiver terminado, o modelo deve ser capaz de aceitar um vetor de funcionalidade para um novo indivíduo e prever se ele é um risco de crédito baixa ou alta.  
+Usará esses dados para preparar um modelo de Análise Preditiva. Quando tiver terminado, o modelo deve ser capaz de aceitar um vetor de funcionalidade para um novo indivíduo e prever se eles são um risco de crédito baixa ou alta.  
 
 Aqui está uma mudança interessante.
 

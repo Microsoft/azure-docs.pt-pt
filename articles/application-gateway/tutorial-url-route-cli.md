@@ -1,27 +1,27 @@
 ---
-title: Tutorial - Encaminhar o tráfego Web com base no URL - CLI do Azure
-description: Neste tutorial, saiba como utilizar a CLI do Azure para encaminhar o tráfego Web com base no URL para conjuntos dimensionáveis específicos de servidores.
+title: Encaminhar o tráfego web com base no URL - CLI do Azure
+description: Neste artigo, saiba como encaminhar o tráfego da web com base na URL para agrupamentos de dimensionáveis específicos de servidores com a CLI do Azure.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 10/25/2018
+ms.date: 5/20/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c0954d1010a6cf5ef6f8edab1470588df9fba559
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006474"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955517"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Encaminhar o tráfego web com base na URL com a CLI do Azure
+# <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Encaminhar o tráfego web com base na URL com a CLI do Azure
 
-Enquanto administrador de TI que gere tráfego da Web, deve ajudar os seus clientes ou utilizadores a obterem as informações que precisam o mais rapidamente possível. Uma forma de o fazer é otimizar a sua experiência ao encaminhar diferentes tipos de tráfego da Web para recursos de servidor diferente. Este tutorial mostra-lhe como utilizar a CLI do Azure para definir e configurar o encaminhamento do Gateway de Aplicação para diferentes tipos de tráfego da sua aplicação. O encaminhamento, em seguida, direciona o tráfego para agrupamentos de servidores diferentes com base no URL.
+Enquanto administrador de TI que gere tráfego da Web, deve ajudar os seus clientes ou utilizadores a obterem as informações que precisam o mais rapidamente possível. Uma forma de o fazer é otimizar a sua experiência ao encaminhar diferentes tipos de tráfego da Web para recursos de servidor diferente. Este artigo mostra-lhe como utilizar a CLI do Azure para definir e configurar o encaminhamento de Gateway de aplicação para diferentes tipos de tráfego da sua aplicação. O encaminhamento, em seguida, direciona o tráfego para agrupamentos de servidores diferentes com base no URL.
 
 ![Exemplo de encaminhamento de URL](./media/tutorial-url-route-cli/scenario.png)
 
-Neste tutorial, ficará a saber como:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um grupo de recursos para os recursos de rede que precisa
@@ -31,13 +31,13 @@ Neste tutorial, ficará a saber como:
 > * Criar um conjunto de dimensionamento para cada conjunto, para que o conjunto possa dimensionar automaticamente
 > * Executar um teste para que possa verificar que os diferentes tipos de tráfego vão para o conjunto correto
 
-Se preferir, pode concluir este tutorial com o [Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal do Azure](create-url-route-portal.md).
+Se preferir, pode concluir este procedimento com [do Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal do Azure](create-url-route-portal.md).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.4 da CLI do Azure ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -182,7 +182,7 @@ az network application-gateway rule create \
 
 ## <a name="create-vm-scale-sets"></a>Criar conjuntos de dimensionamento de VMs
 
-Neste tutorial, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Vai criar conjuntos de dimensionamento denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
+Neste artigo, vai criar três conjuntos de dimensionamento de máquinas virtuais que oferecem suporte os três conjuntos de back-end que criou. Vai criar conjuntos de dimensionamento denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -264,5 +264,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-> [!div class="nextstepaction"]
-> [Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](./tutorial-url-redirect-cli.md)
+* [Criar um gateway de aplicação com o redirecionamento com base no caminho do URL](./tutorial-url-redirect-cli.md)

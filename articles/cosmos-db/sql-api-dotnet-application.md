@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 3f19c442d0f5806147ee05b3f0d2d32740a8ecdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15cf3b1316cc35e22538ca353302c4a82d2d418b
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439628"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979025"
 ---
 # <a name="_Toc395809351"></a>Tutorial do ASP.NET MVC: Desenvolvimento de aplicativos Web com o Azure Cosmos DB
 
@@ -60,7 +60,7 @@ Agora vamos orientá-lo na criação de uma nova aplicação ASP.NET MVC a parti
 
 ## <a name="_Toc395637762"></a>Passo 2: Criar uma nova aplicação ASP.NET MVC
 
-1. No Visual Studio, no menu **Ficheiro**, aponte para **Novo** e, em seguida, clique em **Projeto**. Aparece a caixa de diálogo **Novo Projeto**.
+1. No Visual Studio, no menu **Ficheiro**, aponte para **Novo**, e, em seguida, clique em **Projeto**. Aparece a caixa de diálogo **Novo Projeto**.
 
 2. No painel **Tipos de projetos**, expanda **Modelos**, **Visual C#**, **Web** e, em seguida, selecione **Aplicação Web ASP.NET**.
 
