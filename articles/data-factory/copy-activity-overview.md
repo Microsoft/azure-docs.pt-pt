@@ -130,13 +130,13 @@ O modelo seguinte de uma atividade de cópia contém uma lista completa de propr
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de uma atividade de cópia tem de ser definida: **cópia** | Sim |
-| entradas | Especifique o conjunto de dados que criou que aponta para a origem de dados. Atividade de cópia suporta apenas uma única entrada. | Sim |
-| saídas | Especifique o conjunto de dados que criou que aponta para os dados de sink. Atividade de cópia suporta apenas uma única saída. | Sim |
+| type | A propriedade de tipo de uma atividade de cópia tem de ser definida: **cópia** | Sim |
+| inputs | Especifique o conjunto de dados que criou que aponta para a origem de dados. Atividade de cópia suporta apenas uma única entrada. | Sim |
+| outputs | Especifique o conjunto de dados que criou que aponta para os dados de sink. Atividade de cópia suporta apenas uma única saída. | Sim |
 | typeProperties | Um grupo de propriedades para configurar a atividade de cópia. | Sim |
 | source | Especifique o tipo de origem de cópia e as propriedades correspondentes sobre como obter dados.<br/><br/>Conheça os detalhes da secção "Propriedades da atividade copiar" no artigo de conector listado na [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
 | sink | Especifique o tipo de sink de cópia e as propriedades correspondentes sobre como escrever dados.<br/><br/>Conheça os detalhes da secção "Propriedades da atividade copiar" no artigo de conector listado na [arquivos de dados e formatos suportados](#supported-data-stores-and-formats). | Sim |
-| Microsoft Translator | Especifica mapeamentos de colunas explícita de origem para o sink. Aplica-se de que quando o comportamento de cópia de padrão não é possível satisfazer suas necessidades.<br/><br/>Conheça os detalhes da [mapeamento do tipo de esquema e os dados](copy-activity-schema-and-type-mapping.md). | Não |
+| translator | Especifica mapeamentos de colunas explícita de origem para o sink. Aplica-se de que quando o comportamento de cópia de padrão não é possível satisfazer suas necessidades.<br/><br/>Conheça os detalhes da [mapeamento do tipo de esquema e os dados](copy-activity-schema-and-type-mapping.md). | Não |
 | dataIntegrationUnits | Especifique o powerfulness de [Runtime de integração do Azure](concepts-integration-runtime.md) para capacitar a cópia de dados. Anteriormente conhecido como na cloud a unidades de movimento de dados (DMU). <br/><br/>Conheça os detalhes da [unidades de integração de dados](copy-activity-performance.md#data-integration-units). | Não |
 | parallelCopies | Especifique o paralelismo que pretende que a atividade de cópia para utilizar durante a leitura de dados de origem e de escrita de dados de sink.<br/><br/>Conheça os detalhes da [cópia em paralelo](copy-activity-performance.md#parallel-copy). | Não |
 | enableStaging<br/>stagingSettings | Opte por colocar os dados provisórias no armazenamento de BLOBs, em vez de diretamente copiar dados de origem para o sink.<br/><br/>Conheça os cenários útil e detalhes de configuração do [cópia faseada](copy-activity-performance.md#staged-copy). | Não |
@@ -173,14 +173,14 @@ Detalhes de execução da atividade de cópia e características de desempenho t
 
 | Nome da propriedade  | Descrição | Unidade |
 |:--- |:--- |:--- |
-| DataRead | Tamanho dos dados de leitura de origem | Valor Int64 **bytes** |
-| DataWritten | Tamanho dos dados escrito para o sink | Valor Int64 **bytes** |
+| dataRead | Tamanho dos dados de leitura de origem | Valor Int64 **bytes** |
+| dataWritten | Tamanho dos dados escrito para o sink | Valor Int64 **bytes** |
 | filesRead | Número de ficheiros que está a ser copiados quando se copiam dados a partir do armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
 | filesWritten | Número de ficheiros que está a ser copiado ao copiar dados para armazenamento de ficheiros. | Valor Int64 (nenhuma unidade) |
 | rowsRead | Número de linhas a leitura de origem (não aplicável para cópia binária). | Valor Int64 (nenhuma unidade) |
 | rowsCopied | Número de linhas que está a ser copiados para o sink (não aplicável para cópia binária). | Valor Int64 (nenhuma unidade) |
 | rowsSkipped | Número de linhas incompatíveis que está a ser ignorada. Pode ativar a funcionalidade por conjunto "enableSkipIncompatibleRow" como true. | Valor Int64 (nenhuma unidade) |
-| Taxa de transferência | Relação entre a que os dados são transferidos. | No número de vírgula flutuante **KB/s** |
+| throughput | Relação entre a que os dados são transferidos. | No número de vírgula flutuante **KB/s** |
 | copyDuration | A duração da cópia. | Valor de Int32 em segundos |
 | sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas ao arquivo de dados de origem durante a cópia. | Valor Int32 |
 | sinkPeakConnections| Número máximo de ligações simultâneas estabelecidas para o arquivo de dados de sink durante a cópia.| Valor Int32 |
