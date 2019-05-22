@@ -16,12 +16,12 @@ ms.date: 05/07/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540171"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823355"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Lista de verificação do Microsoft identity platform integração
 
@@ -31,13 +31,13 @@ Se estiver apenas começando, veja a [documentação](index.yml) para saber mais
 
 ## <a name="testing-your-integration"></a>A integração do teste
 
-Utilize a lista de verificação seguinte para se certificar de que seu aplicativo com eficiência é integrado com o [plataforma de identidade do Microsoft](https://docs.microsoft.com/legal/mdsa).
+Utilize a lista de verificação seguinte para se certificar de que seu aplicativo com eficiência é integrado com o [plataforma de identidade do Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### <a name="basics"></a>Noções Básicas
 
 |   |   |
 |---|---|
-| ![Caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Leia e compreenda o [políticas de plataforma da Microsoft](https://docs.microsoft.com/legal/mdsa). Certifique-se de que seu aplicativo respeite os termos descritos como foram concebidos para proteger os utilizadores e a plataforma. |
+| ![Caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Leia e compreenda o [políticas de plataforma da Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Certifique-se de que seu aplicativo respeite os termos descritos como foram concebidos para proteger os utilizadores e a plataforma. |
 
 ### <a name="ownership"></a>Propriedade
 

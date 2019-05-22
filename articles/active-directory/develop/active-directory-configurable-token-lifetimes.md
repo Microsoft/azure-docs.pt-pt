@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/13/2019
+ms.date: 05/15/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: cc81f0a5c75d9aeee39f0633521d692c8d30c474
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545378"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823459"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização)
 
@@ -65,11 +65,11 @@ Os clientes públicos não é possível armazenar com segurança uma palavra-pas
 Tokens de ID são transmitidos para os Web sites e clientes nativos. Tokens de ID contêm informações de perfil sobre um utilizador. Um token de ID está vinculado a uma combinação de utilizador e de cliente. Tokens de ID são considerados válidos até sua expiração. Normalmente, um aplicativo web corresponde a um utilizador da duração da sessão na aplicação para o tempo de vida do token de ID emitido para o utilizador. Pode ajustar o tempo de vida de um token de ID para controlar a frequência com que o aplicativo web expira a sessão do aplicativo e a frequência com que ele requer que o usuário pode ser reautenticada com o Azure AD (silenciosamente ou interativamente).
 
 ### <a name="single-sign-on-session-tokens"></a>Tokens de sessões de início de sessão único
-Quando um utilizador efetua a autenticação com o Azure AD, é estabelecida uma sessão de início de início de sessão única (SSO) com o navegador do usuário e o Azure AD. O token SSO, na forma de um cookie, representa esta sessão. Tenha em atenção que o token de sessão SSO não está vinculado a uma aplicação de cliente/recurso específico. Tokens de sessões SSO podem ser revogados e sua validade é verificada sempre que são utilizados.
+Quando um utilizador efetua a autenticação com o Azure AD, é estabelecida uma sessão de início de início de sessão única (SSO) com o navegador do usuário e o Azure AD. O token SSO, na forma de um cookie, representa esta sessão. O token de sessão SSO não está vinculado a uma aplicação de cliente/recurso específico. Tokens de sessões SSO podem ser revogados e sua validade é verificada sempre que são utilizados.
 
 Azure AD utiliza dois tipos de tokens de sessões SSO: nonpersistent e persistentes. Tokens de sessões persistentes são armazenadas como cookies persistentes pelo navegador. Tokens de sessões nonpersistent são armazenadas como cookies de sessão. (Cookies de sessão são destruídos quando o browser é fechado.) Normalmente, um token de sessão nonpersistent é armazenado. Mas, quando o utilizador seleciona o **manter sessão iniciada** caixa de verificação durante a autenticação, um token de sessão persistentes é armazenada.
 
-Tokens de sessões nonpersistent têm uma duração de 24 horas. Persistentes tokens têm uma duração de 180 dias. Sempre que um token de sessão SSO é usado no período de validade, o período de validade é estendido outro 24 horas ou 180 dias, consoante o tipo de token. Se um token de sessão SSO não está a ser utilizado dentro do período de validade, ele é considerado a expirou e já não é aceite.
+Tokens de sessões nonpersistent têm uma duração de 24 horas. Persistentes tokens têm uma duração de 180 dias. Sempre que um token de sessão SSO é usado dentro do período de validade, o período de validade é estendido outro 24 horas ou 180 dias, consoante o tipo de token. Se um token de sessão SSO não está a ser utilizado dentro do período de validade, ele é considerado a expirou e já não é aceite.
 
 Pode utilizar uma política para definir o tempo após o token de sessão primeiro foi emitido para além de que o token de sessão já não é aceite. (Para tal, utilize a propriedade de idade de máxima Token de sessão). Pode ajustar o tempo de vida de um token de sessão para controlar quando e com que um utilizador tem de reintroduzir as credenciais, em vez de a ser autenticado silenciosamente, ao utilizar uma aplicação web.
 
@@ -109,7 +109,7 @@ Para obter mais informações sobre a relação entre os objectos da aplicação
 
 Validade de um token é avaliada no momento que o token é utilizado. A política com a prioridade mais alta na aplicação que está sendo acessada entra em vigor.
 
-Todos os períodos de tempo utilizados aqui são formatados de acordo com o c# [TimeSpan](https://msdn.microsoft.com/library/system.timespan) objeto - D.HH:MM:SS.  Portanto, seria 80 dias e 30 minutos `80.00:30:00`.  O líder 1!d pode ser removido se zero, por isso, 90 minutos seria `00:90:00`.  
+Todos os períodos de tempo utilizados aqui são formatados de acordo com o c# [TimeSpan](/dotnet/api/system.timespan) objeto - D.HH:MM:SS.  Portanto, seria 80 dias e 30 minutos `80.00:30:00`.  O líder 1!d pode ser removido se zero, por isso, 90 minutos seria `00:90:00`.  
 
 > [!NOTE]
 > Eis um cenário de exemplo.
@@ -220,11 +220,11 @@ Para começar, siga os passos abaixo:
     ```
 
 ### <a name="example-manage-an-organizations-default-policy"></a>Exemplo: Gerir a política predefinida de uma organização
-Neste exemplo, vai criar uma política que permita aos utilizadores iniciar sessão com menos frequência em toda a organização. Para tal, crie uma política de duração do token de fator único atualizar Tokens, que é aplicado em toda a organização. A política é aplicada a todas as aplicações na sua organização e a cada principal de serviço que já não tem uma política definida.
+Neste exemplo, vai criar uma política que permita o início de sessão dos seus utilizadores com menos frequência em toda a organização. Para tal, crie uma política de duração do token de fator único atualizar Tokens, que é aplicado em toda a organização. A política é aplicada a todas as aplicações na sua organização e a cada principal de serviço que já não tem uma política definida.
 
 1. Crie uma política de duração do token.
 
-    1.  Conjunto o Token de atualização de fator único "até-revogada." O token não expira antes do acesso é revogado. Crie a seguinte definição de política:
+    1. Conjunto o Token de atualização de fator único "até-revogada." O token não expira antes do acesso é revogado. Crie a seguinte definição de política:
 
         ```powershell
         @('{
@@ -236,16 +236,16 @@ Neste exemplo, vai criar uma política que permita aos utilizadores iniciar sess
         }')
         ```
 
-    2.  Para criar a política, execute o seguinte comando:
+    2. Para criar a política, execute o seguinte comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    3.  Para ver a nova política e para obter a política **ObjectId**, execute o seguinte comando:
+    3. Para ver a nova política e para obter a política **ObjectId**, execute o seguinte comando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Atualize a política.
@@ -253,7 +253,7 @@ Neste exemplo, vai criar uma política que permita aos utilizadores iniciar sess
     Pode decidir que a primeira diretiva definida neste exemplo não é tão strict à medida que necessita do seu serviço. Para definir o fator único atualizar Token para expirar dentro de dois dias, execute o seguinte comando:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId FROM GET COMMAND> -DisplayName "OrganizationDefaultPolicyUpdatedScenario" -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
+    Set-AzureADPolicy -Id $policy.Id -DisplayName $policy.DisplayName -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"2.00:00:00"}}')
     ```
 
 ### <a name="example-create-a-policy-for-web-sign-in"></a>Exemplo: Criar uma política de web para início de sessão
@@ -264,88 +264,98 @@ Neste exemplo, vai criar uma política que requer que os usuários se autentique
 
     Esta política, web para início de sessão, define o acesso/ID de duração do token e a idade de token de sessão de fator único máximo de duas horas.
 
-    1.  Para criar a política, execute este comando:
+    1. Para criar a política, execute este comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"AccessTokenLifetime":"02:00:00","MaxAgeSessionSingleFactor":"02:00:00"}}') -DisplayName "WebPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Para ver a nova política e para obter a política **ObjectId**, execute o seguinte comando:
+    2. Para ver a nova política e para obter a política **ObjectId**, execute o seguinte comando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2.  Atribua a política para o seu principal de serviço. Também tem de obter o **ObjectId** do seu principal de serviço. 
+2. Atribua a política para o seu principal de serviço. Também tem de obter o **ObjectId** do seu principal de serviço.
 
-    1.  Para ver os principais de serviço da sua organização, pode consultar o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, pode testar isso no [do Azure AD Graph](https://graphexplorer.azurewebsites.net/)e o [de API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) com a sua conta do Azure AD.
-
-    2.  Quando tem o **ObjectId** do seu principal de serviço, execute o seguinte comando:
-
+    1. Utilize o [cmdlet Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet para ver os principais de serviço da sua organização ou um principal de serviço único.
         ```powershell
-        Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
         ```
 
+    2. Quando tiver o principal de serviço, execute o seguinte comando:
+        ```powershell
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
 
 ### <a name="example-create-a-policy-for-a-native-app-that-calls-a-web-api"></a>Exemplo: Criar uma política para um aplicativo nativo que chama uma API web
 Neste exemplo, vai criar uma política que requer que os utilizadores sejam autenticados com menos frequência. A política também lengthens a quantidade de tempo que um utilizador pode ficar inativo antes do utilizador tem de autenticar. A política é aplicada para a API web. Quando a aplicação nativa solicita a web API como um recurso, a política é aplicada.
 
 1. Crie uma política de duração do token.
 
-    1.  Para criar uma política estrita para uma API web, execute o seguinte comando:
+    1. Para criar uma política estrita para uma API web, execute o seguinte comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"30.00:00:00","MaxAgeMultiFactor":"until-revoked","MaxAgeSingleFactor":"180.00:00:00"}}') -DisplayName "WebApiDefaultPolicyScenario" -IsOrganizationDefault $false -Type "TokenLifetimePolicy"
         ```
 
-    2.  Para ver a nova política e para obter a política **ObjectId**, execute o seguinte comando:
+    2. Para ver a nova política, execute o seguinte comando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
-2. Atribua a política para a API web. Também tem de obter o **ObjectId** da sua aplicação. A melhor forma de localizar seu aplicativo **ObjectId** consiste em utilizar o [portal do Azure](https://portal.azure.com/).
+2. Atribua a política para a API web. Também tem de obter o **ObjectId** da sua aplicação. Utilizar o [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) cmdlet para localizar seu aplicativo **ObjectId**, ou utilizar o [portal do Azure](https://portal.azure.com/).
 
-   Quando tem o **ObjectId** da sua aplicação, execute o seguinte comando:
+    Obter o **ObjectId** da sua aplicação e atribuir a política:
 
-        ```powershell
-        Add-AzureADApplicationPolicy -Id <ObjectId of the Application> -RefObjectId <ObjectId of the Policy>
-        ```
+    ```powershell
+    # Get the application
+    $app = Get-AzureADApplication -Filter "DisplayName eq 'Fourth Coffee Web API'"
 
+    # Assign the policy to your web API.
+    Add-AzureADApplicationPolicy -Id $app.ObjectId -RefObjectId $policy.Id
+    ```
 
 ### <a name="example-manage-an-advanced-policy"></a>Exemplo: Gerir uma política avançada
-Neste exemplo, vai criar algumas políticas, para saber como funciona o sistema de prioridades. Também pode saber como gerir múltiplas políticas que são aplicadas a vários objetos.
+Neste exemplo, vai criar algumas políticas para saber como funciona o sistema de prioridades. Também irá aprender a gerir múltiplas políticas que são aplicadas a vários objetos.
 
 1. Crie uma política de duração do token.
 
-    1.  Para criar uma política predefinida de organização que define o tempo de vida de fator único atualizar Token para 30 dias, execute o seguinte comando:
+    1. Para criar uma política predefinida de organização que define o tempo de vida de fator único atualizar Token para 30 dias, execute o seguinte comando:
 
         ```powershell
-        New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
+        $policy = New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxAgeSingleFactor":"30.00:00:00"}}') -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"
         ```
 
-    2.  Para ver a nova política e para obter a política **ObjectId**, execute o seguinte comando:
+    2. Para ver a nova política, execute o seguinte comando:
 
         ```powershell
-        Get-AzureADPolicy
+        Get-AzureADPolicy -Id $policy.Id
         ```
 
 2. Atribua a política para um principal de serviço.
 
     Agora, tem uma política que aplica-se a toda a organização. Talvez queira preservar esta política de 30 dias para um principal de serviço específico, mas altere a política predefinida de organização para o limite superior de "até-revogado."
 
-    1.  Para ver os principais de serviço da sua organização, pode consultar o [Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/serviceprincipal#properties) ou o [Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). Além disso, pode testar isso no [do Azure AD Graph](https://graphexplorer.azurewebsites.net/)e o [de API do Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) com a sua conta do Azure AD.
+    1. Para ver os principais de serviço da sua organização, utilize o [cmdlet Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) cmdlet.
 
-    2.  Quando tem o **ObjectId** do seu principal de serviço, execute o seguinte comando:
+    2. Quando tiver o principal de serviço, execute o seguinte comando:
 
-            ```powershell
-            Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-            ```
-        
+        ```powershell
+        # Get ID of the service principal
+        $sp = Get-AzureADServicePrincipal -Filter "DisplayName eq '<service principal display name>'"
+
+        # Assign policy to a service principal
+        Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
+        ```
+
 3. Definir o `IsOrganizationDefault` sinalizador como false:
 
     ```powershell
-    Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
+    Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false
     ```
 
 4. Crie uma nova predefinição política da organização:
@@ -389,7 +399,7 @@ Get-AzureADPolicy
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> [Opcional] |**O ObjectId (Id)** da política que pretende. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [Opcional] |**ObjectId (ID)** da política que pretende. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -402,7 +412,7 @@ Get-AzureADPolicyAppliedObject -Id <ObjectId of Policy>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** da política que pretende. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da política que pretende. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -415,7 +425,7 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** da política que pretende. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da política que pretende. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |A cadeia de caracteres de nome de política. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;Definition</code> [Opcional] |Matriz de JSON em cadeias de contentor que contém as regras da política. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
 | <code>&#8209;IsOrganizationDefault</code> [Opcional] |Se for VERDADEIRO, define a política como a política da organização padrão. Se for FALSO, não faz nada. |`-IsOrganizationDefault $true` |
@@ -433,7 +443,7 @@ Elimina a política especificada.
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** da política que pretende. | `-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** da política que pretende. | `-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -449,7 +459,7 @@ Add-AzureADApplicationPolicy -Id <ObjectId of Application> -RefObjectId <ObjectI
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** da política. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -463,7 +473,7 @@ Get-AzureADApplicationPolicy -Id <ObjectId of Application>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -476,7 +486,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** da política. | `-PolicyId <ObjectId of Policy>` |
 
 </br></br>
@@ -493,7 +503,7 @@ Add-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal> -RefObjectI
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;RefObjectId</code> |**ObjectId** da política. | `-RefObjectId <ObjectId of Policy>` |
 
 </br></br>
@@ -507,7 +517,7 @@ Get-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
 
 </br></br>
 
@@ -520,5 +530,5 @@ Remove-AzureADServicePrincipalPolicy -Id <ObjectId of ServicePrincipal>  -Policy
 
 | Parâmetros | Descrição | Exemplo |
 | --- | --- | --- |
-| <code>&#8209;Id</code> |**O ObjectId (Id)** do aplicativo. | `-Id <ObjectId of Application>` |
+| <code>&#8209;Id</code> |**ObjectId (ID)** do aplicativo. | `-Id <ObjectId of Application>` |
 | <code>&#8209;PolicyId</code> |**ObjectId** da política. | `-PolicyId <ObjectId of Policy>` |
