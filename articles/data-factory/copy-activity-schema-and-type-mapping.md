@@ -90,12 +90,12 @@ As seguintes propriedades são suportadas ao abrigo `translator`  ->  `mappings`
 
 | Propriedade | Descrição                                                  | Necessário |
 | -------- | ------------------------------------------------------------ | -------- |
-| nome     | Nome da coluna de origem ou sink.                           | Sim      |
+| name     | Nome da coluna de origem ou sink.                           | Sim      |
 | ordinal  | Índice de coluna. Comece com 1. <br>Aplicam-se e é necessário quando utilizar delimitados por texto sem a linha de cabeçalho. | Não       |
-| caminho     | Expressão de caminho JSON para cada campo extrair ou mapear. Aplicam-se para dados hierárquicos por exemplo, MongoDB/REST.<br>Para os campos no objeto raiz, o caminho JSON é iniciado com a raiz $; para os campos dentro da matriz escolhida pela `collectionReference` propriedade, caminho JSON começa a partir do elemento de matriz. | Não       |
-| tipo     | Tipo de dados intermediárias de fábrica de dados da coluna de origem ou sink. | Não       |
-| cultura  | Cultura da coluna de origem ou sink. <br>Aplicam-se quando é do tipo `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não       |
-| Formato   | Formatar a cadeia de caracteres a ser utilizado quando o tipo é `Datetime` ou `Datetimeoffset`. Consulte a [data de personalizado e cadeias de caracteres de formato de tempo](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar datetime. | Não       |
+| path     | Expressão de caminho JSON para cada campo extrair ou mapear. Aplicam-se para dados hierárquicos por exemplo, MongoDB/REST.<br>Para os campos no objeto raiz, o caminho JSON é iniciado com a raiz $; para os campos dentro da matriz escolhida pela `collectionReference` propriedade, caminho JSON começa a partir do elemento de matriz. | Não       |
+| type     | Tipo de dados intermediárias de fábrica de dados da coluna de origem ou sink. | Não       |
+| culture  | Cultura da coluna de origem ou sink. <br>Aplicam-se quando é do tipo `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não       |
+| format   | Formatar a cadeia de caracteres a ser utilizado quando o tipo é `Datetime` ou `Datetimeoffset`. Consulte a [data de personalizado e cadeias de caracteres de formato de tempo](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar datetime. | Não       |
 
 As seguintes propriedades são suportadas ao abrigo `translator`  ->  `mappings` além de objeto com `source` e `sink`:
 
@@ -203,7 +203,7 @@ Pode especificar cópia atividade -> `translator`  ->  `schemaMapping` para mape
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo de conversor de atividade de cópia tem de ser definida: **TabularTranslator** | Sim |
+| type | A propriedade de tipo de conversor de atividade de cópia tem de ser definida: **TabularTranslator** | Sim |
 | schemaMapping | Uma coleção de pares chave-valor, que representa a relação de mapeamento **do lado de origem para o sink do lado do**.<br/>- **Chave:** origem representa. Para **origem tabular**, especifique o nome da coluna, conforme definido na estrutura do conjunto de dados; para **origem hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear.<br>- **Valor:** representa sink. Para **tabular sink**, especifique o nome da coluna, conforme definido na estrutura do conjunto de dados; para **sink hierárquica**, especifique a expressão de caminho JSON para cada campo extrair e mapear. <br>No caso de dados hierárquicos, para os campos no objeto raiz, o caminho JSON começa com a raiz $; para os campos dentro da matriz escolhida pela `collectionReference` propriedade, caminho JSON começa a partir do elemento de matriz.  | Sim |
 | collectionReference | Se pretender iterar e extrair dados de objetos **dentro de um campo de matriz** com o mesmo padrão e convertem-se por linha por objeto, especifique o caminho JSON dessa matriz entre-aplicar. Esta propriedade só é suportada quando dados hierárquicos são a origem. | Não |
 
