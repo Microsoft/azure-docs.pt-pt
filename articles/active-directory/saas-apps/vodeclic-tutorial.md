@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 0879f9026276eb7149ae44906377a7b369e05116
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3e457ca29ebe086c6097528af5a9253446b757c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865303"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990546"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-vodeclic"></a>Tutorial: Integração do Active Directory do Azure com Vodeclic
 
@@ -191,7 +191,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no Vodeclic. Trabalhar com [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com) para adicionar os utilizadores na plataforma Vodeclic. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 > [!NOTE]
-> De acordo com requisitos de aplicações, poderá ter de obter a lista de permissões de máquina. Para que isso aconteça, precisa compartilhar seu endereço IP público com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com).
+> De acordo com requisitos de aplicações, poderá ter de obter o seu computador adicionado a uma lista de permissões. Para que isso aconteça, precisa compartilhar seu endereço IP público com o [equipa de suporte de Vodeclic](mailto:hotline@vodeclic.com).
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único 
 

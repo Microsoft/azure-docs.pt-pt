@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: bf8c7e76aa6dd69cc505be237e47d8e10e7e8db5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8f8dc8219d65505952f35ad018ef19aeb68d64e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813318"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989769"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ipass-smartconnect"></a>Tutorial: Integração do Active Directory do Azure com iPass SmartConnect
 
@@ -215,7 +215,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-ipass-smartconnect-test-user"></a>Criar iPass SmartConnect utilizador de teste
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no iPass SmartConnect. Trabalhar com [equipa de suporte de iPass SmartConnect](mailto:help@ipass.com) para adicionar os utilizadores ou o domínio que é necessário para estar incluído na plataforma de SmartConnect iPass. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de SmartConnect iPass. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no iPass SmartConnect. Trabalhar com [equipa de suporte de iPass SmartConnect](mailto:help@ipass.com) para adicionar os utilizadores ou de domínio que tem de ser adicionado a uma lista de permissões para a plataforma de SmartConnect iPass. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de SmartConnect iPass. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 

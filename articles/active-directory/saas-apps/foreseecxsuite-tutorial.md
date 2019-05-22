@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: af849fa6790dfdb57d8073b17f6d31a3f59a532d
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 19c2ccab6685f53ba714298f66bc8e8821b4aa02
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898694"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-foresee-cx-suite"></a>Tutorial: Integração do Active Directory do Azure com o Suite de CX previr
 
@@ -194,7 +194,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar do Azure-início de sessão 
 
 ### <a name="create-foresee-cx-suite-test-user"></a>Criar utilizador de teste previr Suite de CX
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no previr Suite de CX. Trabalhar com [equipa de suporte de conjunto de CX previr](mailto:support@foresee.com) para adicionar os utilizadores ou o domínio que é necessário para estar incluído na plataforma previr Suite de CX. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de previr Suite de CX. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no previr Suite de CX. Trabalhar com [equipa de suporte de conjunto de CX previr](mailto:support@foresee.com) para adicionar os utilizadores ou de domínio que tem de ser adicionado a uma lista de permissões para a plataforma de previr Suite de CX. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de previr Suite de CX. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único 
 

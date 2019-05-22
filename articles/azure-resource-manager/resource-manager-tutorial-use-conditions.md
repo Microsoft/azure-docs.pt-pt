@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/04/2019
+ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ad7c87161c550c4728978e9c975252cab34f76ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6a03707246f27bcba9cc46168ec04893b7bbc4c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389798"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990807"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de utilização em modelos do Azure Resource Manager
 
 Saiba como implementar recursos do Azure com base em condições.
 
-No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento.
+No tutorial [Definir a ordem de implementação de recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), cria uma máquina virtual, uma rede virtual e alguns outros recursos dependentes, incluindo uma conta de armazenamento. Em vez de criar sempre uma nova conta de armazenamento, permite que as pessoas optem entre criar uma nova conta de armazenamento e utilizar uma conta de armazenamento existente. Para alcançar este objetivo, tem de definir um parâmetro adicional. Se o valor do parâmetro for "new" (nova), é criada uma nova conta de armazenamento. Caso contrário, é utilizada uma conta de armazenamento existente com o nome fornecido.
 
 ![Diagrama de condição de utilização de modelo do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
@@ -35,6 +35,13 @@ Este tutorial abrange as seguintes tarefas:
 > * Modificar o modelo
 > * Implementar o modelo
 > * Limpar recursos
+
+Este tutorial abrange apenas um cenário básico da utilização de condições. Para obter mais informações, consulte:
+
+* [Estrutura de arquivos de modelo: Condição](./resource-group-authoring-templates.md#condition).
+* [Implementar condicionalmente um recurso num modelo Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy.md).
+* [Função de modelo: If](./resource-group-template-functions-logical.md#if).
+* [Funções de comparação para modelos Azure Resource Manager](./resource-group-template-functions-comparison.md)
 
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -48,6 +55,7 @@ Para concluir este artigo, precisa de:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integrar o Azure Key Vault na implementação de modelo do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
@@ -60,6 +68,7 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
+
 3. Selecione **Abrir** para abrir o ficheiro.
 4. Existem cinco recursos definidos pelo modelo:
 
@@ -82,12 +91,11 @@ Introduza duas alterações ao modelo existente:
 Este é o procedimento para fazer as alterações:
 
 1. Abra **azuredeploy. JSON** no Visual Studio Code.
-2. Substitua as **variáveis ('storageAccountName')** pelos **parâmetros ('storageAccountName')** em todo o modelo.  Existem três aspetos de **variáveis ('storageAccountName')**.
+2. Substitua os três **variables('storageAccountName')** com **parameters('storageAccountName')** no modelo inteiro.
 3. Remova a definição de variável seguinte:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'sawinvm')]",
-    ```
+    ![Diagrama de condição de utilização de modelo do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+
 4. Adicione os dois parâmetros seguintes ao modelo:
 
     ```json
@@ -95,13 +103,14 @@ Este é o procedimento para fazer as alterações:
       "type": "string"
     },
     "newOrExisting": {
-      "type": "string", 
+      "type": "string",
       "allowedValues": [
-        "new", 
+        "new",
         "existing"
       ]
     },
     ```
+
     A definição de parâmetros atualizada assemelha-se a:
 
     ![Condição de utilização do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-parameters.png)
@@ -117,7 +126,7 @@ Este é o procedimento para fazer as alterações:
     A definição de conta de armazenamento atualizada assemelha-se a:
 
     ![Condição de utilização do Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
-6. Atualize **storageUri** com o seguinte valor:
+6. Atualização do **storageUri** propriedade de definição do recurso de máquina virtual com o seguinte valor:
 
     ```json
     "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
@@ -129,11 +138,7 @@ Este é o procedimento para fazer as alterações:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-Siga as instruções em [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para implementar o modelo.
-
-Quando implementa o modelo com o Azure PowerShell, tem de especificar um parâmetro adicional. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
+Siga as instruções em [implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para abrir o Cloud shell e carregar o modelo revisado e, em seguida, execute o script do PowerShell para implementar o modelo de seguir.
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -162,12 +167,12 @@ Tente fazer outra implementação com **newOrExisting** definido como "existing"
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos.
+Quando os recursos do Azure já não forem necessários, limpe os recursos implementados ao eliminar o grupo de recursos. Para eliminar o grupo de recursos, selecione **experimente** para abrir o Cloud shell. Colar o script do PowerShell, com o botão direito do painel de shell e, em seguida, selecione **colar**.
 
-1. No portal do Azure, selecione **Grupo de recursos** no menu à esquerda.
-2. Introduza o nome do grupo de recursos no campo **Filtrar por nome**.
-3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
-4. Selecione **Eliminar grupo de recursos** no menu superior.
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the same resource group name you used in the last procedure"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

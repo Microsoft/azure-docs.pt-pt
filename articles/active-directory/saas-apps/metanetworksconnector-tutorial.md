@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: a86e63f17230ed30bd5ae164d2d17d65b5cde745
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ae0b8bb6dec4b129a4965426789819e119a25c53
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408059"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-meta-networks-connector"></a>Tutorial: Integração do Active Directory do Azure com o conector de redes de metadados
 
@@ -131,8 +131,8 @@ Para configurar o Azure AD início de sessão único com o conector de redes de 
     | ---------------| --------------- | -------- |
     | FirstName | user.givenname | |
     | Apelido | user.surname | |
-    | emailaddress| user.mail| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
-    | name | user.userprincipalname| `https://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | emailaddress| user.mail| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
+    | name | user.userprincipalname| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims` |
     | telefone | user.telephonenumber | |
 
     a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
@@ -172,7 +172,7 @@ Para configurar o Azure AD início de sessão único com o conector de redes de 
 1. Abra um novo separador no seu browser e inicie sessão sua conta de administrador do conector de redes de Meta.
     
     > [!NOTE]
-    > Conector de redes de meta é um sistema seguro. Portanto, antes de aceder ao seu portal tem de obter a lista de permissões de endereço IP pública no seu lado. Para obter seu endereço IP público, siga a ligação especificada abaixo [aqui](https://whatismyipaddress.com/). Enviar o seu endereço IP para o [equipa de suporte de cliente de conector de redes de Meta](mailto:support@metanetworks.com) para obter a lista de permissões de endereço IP.
+    > Conector de redes de meta é um sistema seguro. Portanto, antes de aceder ao seu portal tem de obter seu endereço IP público, adicionado a uma lista de permissões no seu lado. Para obter seu endereço IP público, siga a ligação especificada abaixo [aqui](https://whatismyipaddress.com/). Enviar o seu endereço IP para o [equipa de suporte de cliente de conector de redes de Meta](mailto:support@metanetworks.com) para obter seu endereço IP adicionado a uma lista de permissões.
     
 2. Aceda a **administrador** e selecione **definições**.
     

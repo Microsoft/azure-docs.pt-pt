@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: e9378f8d2b31bfed4c464951c427b1e9d00b7893
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b073a270fabb8657be19b79601fa90f1b9a0351b
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64699378"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015229"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
@@ -348,7 +348,7 @@ Neste tutorial, ficou a saber como:
 > * Compreender a forma como o código de cliente mapeia para a aplicação
 > * Configurar o código de cliente para o dispositivo real
 
-Agora que se ligar um dispositivo real à sua aplicação do Azure IoT Central, aqui estão os passos sugeridos seguintes:
+Agora que se ligar um dispositivo real à sua aplicação do Azure IoT Central, aqui estão alguns passos seguintes sugeridos.
 
 Como operador, vai aprender a:
 

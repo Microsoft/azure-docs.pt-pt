@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdf5508475d868ccb8c271daaac7449d3c940301
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598409"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "65073162"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreender o que são expressões com boa para a sua aplicação LUIS
 
@@ -74,13 +74,47 @@ LUIS baseia-se em vigor modelos com expressões com cuidadosamente selecionadas 
 
 É melhor começar com algumas expressões, em seguida, [rever expressões de ponto final](luis-how-to-review-endpoint-utterances.md) para extração correta de entidade e de predição de intenção.
 
-## <a name="punctuation-marks"></a>Marcas de pontuação
+## <a name="utterance-normalization"></a>Normalização de expressão
 
-LUIS não ignora marcas de pontuação, por predefinição, uma vez que alguns aplicativos de cliente podem efetuar significância essas marcas. Certifique-se que as expressões de exemplo utilizam o pontuação e sem pontuação para que ambos os estilos para devolver as mesmo pontuações relativas. Se a pontuação não tem nenhum significado específico na aplicação de cliente, considere [Ignorar pontuação](#ignoring-words-and-punctuation) usando padrões. 
+Normalização de expressão é o processo de ignorar os efeitos da pontuação e diacríticos durante a formação e predição.
 
-## <a name="ignoring-words-and-punctuation"></a>A ignorar a palavras e pontuação
+## <a name="utterance-normalization-for-diacritics-and-punctuation"></a>Normalização de expressão para diacríticos e pontuação
 
-Se pretender ignorar palavras específicas ou pontuação na expressão de exemplo, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe. 
+Normalização de expressão é definida quando criar ou importar a aplicação, porque se trata de uma definição no ficheiro JSON da aplicação. As definições de normalização de expressão são desativadas por predefinição. 
+
+Diacríticos são marcas ou sinais no texto, tais como: 
+
+```
+İ ı Ş Ğ ş ğ ö ü
+```
+
+Se a sua aplicação ativa a normalização, pontua no **teste** painel, testes de batch e consultas de ponto final serão alterado para todas as expressões de com usando diacríticos ou pontuação.
+
+Ativar o normalização de expressão para diacríticos ou pontuação para o ficheiro de aplicação LUIS JSON a `settings` parâmetro.
+
+```JSON
+"settings": [
+    {"name": "NormalizePunctuation", "value": "true"},
+    {"name": "NormalizeDiacritics", "value": "true"}
+] 
+```
+
+Normalizar **pontuação** significa que, antes de seus modelos obtém formação e antes do ponto final de consultas obterem previstas, pontuação será removida das expressões. 
+
+Normalizar **diacríticos** substitui os caracteres diacríticos em expressões com carateres regulares. Por exemplo: `Je parle français` torna-se `Je parle francais`. 
+
+Normalização não significa que irá não consulte pontuação e diacríticos no seu expressões de exemplo ou respostas de predição, simplesmente que serão ignoradas durante a formação e predição.
+
+
+### <a name="punctuation-marks"></a>Marcas de pontuação
+
+Se a pontuação não é normalizada, o LUIS não ignore marcas de pontuação, por predefinição, porque alguns aplicativos de cliente podem efetuar significância essas marcas. Certifique-se que as expressões de exemplo utilizam o pontuação e sem pontuação para que ambos os estilos para devolver as mesmo pontuações relativas. 
+
+Se a pontuação não tem nenhum significado específico na aplicação de cliente, considere [Ignorar pontuação](#utterance-normalization) por normalizar pontuação. 
+
+### <a name="ignoring-words-and-punctuation"></a>A ignorar a palavras e pontuação
+
+Se pretender ignorar palavras específicas ou pontuação em padrões, utilize um [padrão](luis-concept-patterns.md#pattern-syntax) com o _ignorar_ sintaxe de colchetes, `[]`. 
 
 ## <a name="training-utterances"></a>Expressões de treinamento
 

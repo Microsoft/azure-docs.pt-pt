@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: f69ef2c7c260d8df918fb2495bded6910d6b17b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707636"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000485"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Integração do Active Directory do Azure com HRworks início de sessão único
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD início de sessão único com HRworks início de sess
 
 2. Clique em **administrador** > **Noções básicas** > **segurança** > **início de sessão único** do à esquerda do menu de barras e execute os seguintes passos:
 
-       ![Configurar o início de sessão único](./media/hrworks-single-sign-on-tutorial/configure01.png)
+       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Verifique os **utilização início de sessão único** caixa.
 
@@ -138,7 +138,7 @@ Para configurar o Azure AD início de sessão único com HRworks início de sess
 
     c. Selecione **NameID individuais identificador** como **valor para NameID**.
 
-    d. No bloco de notas, abra o XML de metadados que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **metadados** caixa de texto.
+    d. No bloco de notas, abra o XML de metadados que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **metadados** caixa de texto.
 
     e. Clique em **Guardar**.
 
@@ -202,7 +202,7 @@ Para ativar os utilizadores do Azure AD, inicie sessão para HRworks início de 
 
 2. Clique em **administrador** > **pessoas** > **pessoas** > **nova pessoa** das lado esquerdo da barra de menus.
 
-     ![Configurar o início de sessão único](./media/hrworks-single-sign-on-tutorial/configure02.png)
+     ![Configurar o início de sessão único](./media/hrworks-single-sign-on-tutorial/configure02.png)
 
 3. No pop-up, clique em **seguinte**.
 
@@ -212,7 +212,7 @@ Para ativar os utilizadores do Azure AD, inicie sessão para HRworks início de 
     
     ![Configurar o início de sessão único](./media/hrworks-single-sign-on-tutorial/configure04.png)
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

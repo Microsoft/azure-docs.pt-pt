@@ -54,7 +54,7 @@
 - name: Conceitos
   items:
     - name: Modelo de estrutura de ficheiros
-      displayName: 'parameters,variables,resources,outputs'
+      displayName: 'parameters,variables,resources,outputs,condition'
       href: resource-group-authoring-templates.md
     - name: Modelo de melhores práticas
       href: template-best-practices.md

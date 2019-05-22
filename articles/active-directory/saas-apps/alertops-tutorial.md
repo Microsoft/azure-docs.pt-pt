@@ -5,142 +5,117 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: 3db13ed4-35c2-4b1e-bed8-9b5977061f93
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/08/2019
+ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7914bc3775631f3cc5d6ae68fed10c6d5fecb853
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 124f69b3fd6944d0a6e3814f1bbfa5594bcd95cb
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65864266"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988464"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-alertops"></a>Tutorial: Integração do Active Directory do Azure com AlertOps
+# <a name="tutorial-integrate-alertops-with-azure-active-directory"></a>Tutorial: Integrar AlertOps com o Azure Active Directory
 
-Neste tutorial, saiba como integrar AlertOps com o Azure Active Directory (Azure AD).
-Integrar AlertOps no Azure AD fornece as seguintes vantagens:
+Neste tutorial, irá aprender como integrar AlertOps com o Azure Active Directory (Azure AD). Quando integrar AlertOps com o Azure AD, pode:
 
-* Pode controlar no Azure AD que tenha acesso ao AlertOps.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para AlertOps (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controlar no Azure AD que tenha acesso ao AlertOps.
+* Permita que os utilizadores ser automaticamente sessão iniciada para AlertOps com as suas contas do Azure AD.
+* Gira as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com AlertOps, terá dos seguintes itens:
+Para começar, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* AlertOps único início de sessão na subscrição ativada
+* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
+* AlertOps início de sessão único (SSO) ativado na subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
-
-* Suporta AlertOps **SP e IDP** iniciada SSO
+Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta AlertOps **SP e IDP** iniciada SSO.
 
 ## <a name="adding-alertops-from-the-gallery"></a>Adicionando AlertOps da Galeria
 
 Para configurar a integração do AlertOps com o Azure AD, terá de adicionar AlertOps a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar AlertOps a partir da galeria, execute os seguintes passos:**
-
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
-
-    ![O botão do Azure Active Directory](common/select-azuread.png)
-
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
-
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
-
-    ![O novo botão de aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, escreva **AlertOps**, selecione **AlertOps** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
-
-    ![AlertOps na lista de resultados](common/search-new-app.png)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar nova aplicação, selecione **nova aplicação**.
+1. Na **adicionar a partir da galeria** secção, escreva **AlertOps** na caixa de pesquisa.
+1. Selecione **AlertOps** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com AlertOps com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no AlertOps deve ser estabelecido.
+Configurar e testar o SSO do Azure AD com AlertOps com um utilizador de teste **Eduarda Almeida**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no AlertOps.
 
-Para configurar e testar o Azure AD início de sessão único com AlertOps, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com AlertOps, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar AlertOps Single Sign-On](#configure-alertops-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste AlertOps](#create-alertops-test-user)**  - para ter um equivalente da Eduarda Almeida na AlertOps que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Configurar AlertOps](#configure-alertops)**  para configurar as definições de SSO no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Eduarda Almeida.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste AlertOps](#create-alertops-test-user)**  ter um equivalente da Eduarda Almeida na AlertOps que está ligado à representação de utilizador do Azure AD.
+6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com AlertOps, execute os seguintes passos:
+1. Na [portal do Azure](https://portal.azure.com/), na **AlertOps** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
+1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
+1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **AlertOps** página de integração de aplicações, selecione **início de sessão único**.
+   ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+1. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+    1. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.alertops.com`
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    1. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.alertops.com/login.aspx`
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
-
-    ![AlertOps domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
-
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.alertops.com`
-
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<SUBDOMAIN>.alertops.com/login.aspx`
-
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
-
-    ![AlertOps domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
+1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
 
     Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<SUBDOMAIN>.alertops.com/login.aspx`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente AlertOps](mailto:support@alertops.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (Base64)** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+   ![O link de download de certificado](common/certificatebase64.png)
 
-7. Sobre o **configurar AlertOps** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Sobre o **configurar AlertOps** secção, copie o URL adequado com base nos seus requisitos.
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+### <a name="configure-alertops"></a>Configurar AlertOps
 
-    b. Azure Ad Identifier
+1. Para automatizar a configuração no AlertOps, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-    c. URL de fim de sessão
+    ![Extensão My apps](common/install-myappssecure-extension.png)
 
-### <a name="configure-alertops-single-sign-on"></a>Configurar AlertOps Single Sign-On
+2. Depois de adicionar a extensão para o navegador, clique em **AlertOps configuração** irá direcioná-lo para o aplicativo AlertOps. A partir daí, forneça as credenciais de administrador a iniciar sessão em AlertOps. A extensão de navegador automaticamente irá configurar o aplicativo para e automatizar passos 3 a 5.
 
-1. Numa janela do browser diferente, início de sessão no site da sua empresa AlertOps como administrador.
+    ![Configuração do programa de configuração](common/setup-sso.png)
 
-2. Clique nas **definições da conta** do painel de navegação à esquerda.
+3. Se desejar configurar manualmente o AlertOps, abra uma nova janela de browser e inicie sessão no site da sua empresa AlertOps como administrador e execute os seguintes passos:
+
+4. Clique nas **definições da conta** do painel de navegação à esquerda.
 
     ![Configuração de AlertOps](./media/alertops-tutorial/configure1.png)
 
-3. Sobre o **definições de subscrição** página select **SSO** e execute os seguintes passos:
+5. Sobre o **definições de subscrição** página select **SSO** e execute os seguintes passos:
 
     ![Configuração de AlertOps](./media/alertops-tutorial/configure2.png)
 
@@ -148,11 +123,11 @@ Para configurar o Azure AD início de sessão único com AlertOps, execute os se
 
     b. Selecione **do Azure Active Directory** como um **provedor SSO** na lista pendente.
 
-    c. Na **URL de emissor** caixa de texto, utilize o identificador de valor que utilizou no **configuração básica de SAML** secção no portal do Azure.
+    c. Na **URL de emissor** caixa de texto, utilize o valor de identificador, o que utilizou no **configuração básica de SAML** secção no portal do Azure.
 
-    d. Na **URL de ponto final SAML** caixa de texto, colar a **URL de início de sessão** valor que copiou do portal do Azure.
+    d. Na **URL de ponto final SAML** caixa de texto, colar a **URL de início de sessão** valor, que copiou do portal do Azure.
 
-    e. Na **URL de ponto final SLO** caixa de texto, colar a **URL de início de sessão** valor que copiou do portal do Azure.
+    e. Na **URL de ponto final SLO** caixa de texto, colar a **URL de início de sessão** valor, que copiou do portal do Azure.
 
     f. Selecione **SHA256** como um **o algoritmo de assinatura de SAML** na lista pendente.
 
@@ -160,58 +135,37 @@ Para configurar o Azure AD início de sessão único com AlertOps, execute os se
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Na **utilizador** propriedades, siga estes passos:
+   1. No campo **Nome**, introduza `Britta Simon`.  
+   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
+   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para AlertOps.
+Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para AlertOps.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **AlertOps**.
+1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicações, selecione **AlertOps**.
+1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **AlertOps**.
+1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação de AlertOps na lista de aplicações](common/all-applications.png)
+    ![A ligação de adicionar utilizador](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
 ### <a name="create-alertops-test-user"></a>Criar utilizador de teste AlertOps
 
-1. Numa janela do browser diferente, início de sessão no site da sua empresa AlertOps como administrador.
+1. Numa janela do browser diferente, inicie sessão no site da sua empresa AlertOps como administrador.
 
 2. Clique nas **utilizadores** do painel de navegação à esquerda.
 
@@ -239,11 +193,9 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     g. Selecione **Adicionar**.
 
-### <a name="test-single-sign-on"></a>Testar início de sessão único
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-
-Quando clica no mosaico AlertOps no painel de acesso, deve ser automaticamente sessão iniciada no AlertOps para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o mosaico AlertOps no painel de acesso, deve ser automaticamente sessão iniciada no AlertOps para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

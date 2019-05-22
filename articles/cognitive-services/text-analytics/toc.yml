@@ -29,6 +29,8 @@
           href: quickstarts/csharp.md
         - name: Python
           href: quickstarts/python-sdk.md
+        - name: Ruby
+          href: quickstarts/ruby-sdk.md
 - name: Tutoriais
   items:
     - name: Integre o Power BI para analisar os comentários dos clientes

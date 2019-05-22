@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 602e3145a003a0413287b08151abf472ecf4ade0
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: dbdf6847658e6a5a3999007f51b409e47a65e4cd
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406711"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988083"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-leapsome"></a>Tutorial: Integração do Active Directory do Azure com Leapsome
 
@@ -126,10 +126,10 @@ Para configurar o Azure AD início de sessão único com Leapsome, execute os se
 
     | Name | Atributo de origem | Espaço de nomes |
     | ---------------| --------------- | --------- |  
-    | FirstName | user.givenname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | Apelido | user.surname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | título | user.jobtitle | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-    | imagem | URL para imagem o funcionário | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | FirstName | user.givenname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | Apelido | user.surname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | título | user.jobtitle | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+    | imagem | URL para imagem o funcionário | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
     | | |
 
     > [!Note]
@@ -244,7 +244,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-leapsome-test-user"></a>Criar utilizador de teste Leapsome
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Leapsome. Trabalhar com [equipa de suporte de cliente Leapsome](mailto:support@leapsome.com) para adicionar os utilizadores ou o domínio, o qual tem de estar na lista de permissões na plataforma Leapsome. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de Leapsome. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Eduarda Almeida no Leapsome. Trabalhar com [equipa de suporte de cliente Leapsome](mailto:support@leapsome.com) para adicionar os utilizadores ou de domínio que tem de ser adicionado a uma lista de permissões para a plataforma de Leapsome. Se o domínio for adicionado pela equipe, os utilizadores serão automaticamente aprovisionados para a plataforma de Leapsome. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 

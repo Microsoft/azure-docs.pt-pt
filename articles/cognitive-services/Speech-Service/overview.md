@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: e29e36807aff6c32f295c79c90d80c7d2b5b4bcc
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: dc0871c0b16246fa178072e9d9f266d4c02ba1c4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510736"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002995"
 ---
 # <a name="what-are-the-speech-services"></a>O que são os Serviços de Voz?
 
@@ -42,7 +42,9 @@ Esses recursos constituem os serviços de voz do Azure. Utilize as ligações ne
 Saiba quais são as novidades dos serviços de voz do Azure.
 
 * Maio de 2019 - documentação agora está disponível para [transcrição da conversação](conversation-transcription-service.md), [transcrição do Centro de chamar](call-center-transcription.md), e [assistentes de voz em primeiro lugar Virtual](voice-first-virtual-assistants.md).
-* Maio de 2019 - lançadas 1.5.0 do SDK de voz. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
+* Maio de 2019
+    * Lançado voz SDK 1.5.1. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
+    * Lançado 1.5.0 do SDK de voz. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 * Abril de 2019 - lançados voz SDK 1.4.0 com suporte para voz (Beta) for C++, C#e o Java em Windows e Linux. Além disso, o SDK suporta agora formatos de áudio MP3 e Opus/Ogg para C++ e C# no Linux. Para obter uma lista completa de atualizações, aprimoramentos e problemas conhecidos, consulte [notas de versão](releasenotes.md).
 * De 2019 de Março - já está disponível um novo ponto final de voz (TTS), que retorna uma lista completa de vozes disponíveis numa região específica. Além disso, as novas regiões são agora suportados para TTS. Para obter mais informações, consulte [referência da API de voz (REST)](rest-text-to-speech.md).
 
