@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 3/8/2019
 ms.author: jeedes
-ms.openlocfilehash: 0c279a224a7692a64621e24cc8fe2213b78b54ce
-ms.sourcegitcommit: a95dcd3363d451bfbfea7ec1de6813cad86a36bb
-ms.translationtype: HT
+ms.openlocfilehash: 1e67f3c7f9413382d169837eaba50d6af18552e6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62735623"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956687"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-turborater"></a>Tutorial: Integração do Active Directory do Azure com TurboRater
 
@@ -70,15 +70,15 @@ Para configurar a integração do TurboRater com o Azure AD, terá de adicionar 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com TurboRater com base num utilizador de teste com o nome **Eduarda Almeida**. Para o início de sessão único funcione, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado TurboRater.
+Nesta secção, configure e teste do Azure AD início de sessão único com TurboRater com base num utilizador de teste com o nome **B Simon**. Para o início de sessão único funcione, tem de estabelecer uma ligação entre um utilizador do Azure AD e o utilizador relacionado TurboRater.
 
 Para configurar e testar o Azure AD início de sessão único com TurboRater, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  para permitir aos utilizadores utilizar esta funcionalidade.
 1. **[Configurar TurboRater início de sessão único](#configure-turborater-single-sign-on)**  para configurar as definições de início de sessão únicas no lado do aplicativo.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Criar um utilizador de teste TurboRater](#create-a-turborater-test-user)**  para que haja um utilizador nomeado Eduarda Almeida na TurboRater que está ligada ao utilizador do Azure AD com o nome Eduarda Almeida.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Simon B.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Simon B. utilizar o Azure AD início de sessão único.
+1. **[Criar um utilizador de teste TurboRater](#create-a-turborater-test-user)**  para que haja um utilizador nomeado Simon B. TurboRater que está ligada ao utilizador do Azure AD com o nome Simon B.
 1. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -109,7 +109,7 @@ Para configurar o Azure AD início de sessão único com TurboRater, siga os pas
 
     1. Na **URL de resposta (URL do serviço de consumidor de asserção)** , introduza um URL ao utilizar o seguinte padrão:
 
-       | Ambiente | do IdP |
+       | Ambiente | URL |
        | ---------------| --------------- |
        | Teste  | `https://ratingqa.itcdataservices.com/webservices/imp/saml/login` |
        | Em direto  | `https://www.itcratingservices.com/webservices/imp/saml/login` |
@@ -149,9 +149,9 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     ![O painel do utilizador](common/user-properties.png)
 
-    1. Na **Name** , introduza **BrittaSimon**.
+    1. Na **Name** , introduza **BSimon**.
   
-    1. Na **nome de utilizador** , introduza **BrittaSimon\@\<yourcompanydomain >.\< extensão >**. Por exemplo, **BrittaSimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **BSimon\@\<yourcompanydomain >.\< extensão >**. Por exemplo, **BSimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
@@ -159,7 +159,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para TurboRater.
+Nesta secção, vai ativar Simon B. utilizar o Azure início de sessão único ao conceder o acesso para TurboRater.
 
 1. No portal do Azure, selecione **aplicações empresariais** > **todas as aplicações** > **TurboRater**.
 
@@ -177,7 +177,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. No **utilizadores e grupos** painel, selecione **Eduarda Almeida** no **utilizadores** lista e, em seguida, escolha **selecione** na parte inferior do painel.
+1. No **utilizadores e grupos** painel, selecione **Simon B.** no **utilizadores** lista e, em seguida, escolha **selecione** na parte inferior do painel.
 
 1. Se estiver à espera de um valor de função na asserção de SAML, em seguida, no **selecionar função** painel, selecione a função adequada para o utilizador a partir da lista. Na parte inferior do painel, escolha **selecione**.
 
@@ -185,9 +185,9 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-a-turborater-test-user"></a>Criar um utilizador de teste TurboRater
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no TurboRater. Trabalhar com o [equipa de suporte de TurboRater](https://www.getitc.com/support) adicionar Eduarda Almeida como um utilizador no TurboRater. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Nesta secção, vai criar um usuário chamado Simon B. no TurboRater. Trabalhar com o [equipa de suporte de TurboRater](https://www.getitc.com/support) adicionar Simon B. como um utilizador no TurboRater. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar seu única início de sessão em configuração do Azure AD com o portal as minhas aplicações.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 69e86e486a9cdb058b972bda5176c14e15f4630a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55fa42eb1c35025b1008b3b5d26f61c243ff2b97
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65865673"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Tutorial: Integração do Active Directory do Azure com Uberflip
 
@@ -72,15 +72,15 @@ Para configurar a integração do Uberflip com o Azure AD, terá de adicionar Ub
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Uberflip com base num utilizador de teste com o nome **Eduarda Almeida**. Para início de sessão único funcione, tem de estabelecer uma ligação entre um utilizador do Azure AD e um utilizador relacionado no Uberflip.
+Nesta secção, configure e teste do Azure AD início de sessão único com Uberflip com base num utilizador de teste com o nome **B Simon**. Para início de sessão único funcione, tem de estabelecer uma ligação entre um utilizador do Azure AD e um utilizador relacionado no Uberflip.
 
 Para configurar e testar o Azure AD início de sessão único com Uberflip, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  para permitir aos utilizadores utilizar esta funcionalidade.
 1. **[Configurar Uberflip início de sessão único](#configure-uberflip-single-sign-on)**  para configurar as definições de início de sessão únicas no lado do aplicativo.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-1. **[Criar um utilizador de teste Uberflip](#create-an-uberflip-test-user)**  para que haja um utilizador nomeado Eduarda Almeida na Uberflip que está ligada ao utilizador do Azure AD com o nome Eduarda Almeida.
+1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Simon B.
+1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Simon B. utilizar o Azure AD início de sessão único.
+1. **[Criar um utilizador de teste Uberflip](#create-an-uberflip-test-user)**  para que haja um utilizador nomeado Simon B. Uberflip que está ligada ao utilizador do Azure AD com o nome Simon B.
 1. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -136,7 +136,7 @@ Para configurar o início de sessão único no lado do Uberflip, terá de enviar
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
+Nesta secção, vai criar um utilizador de teste com o nome Simon B. no portal do Azure.
 
 1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
 
@@ -150,9 +150,9 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
     ![O painel do utilizador](common/user-properties.png)
 
-    1. Na **Name** , introduza **BrittaSimon**.
+    1. Na **Name** , introduza **BSimon**.
   
-    1. Na **nome de utilizador** , introduza **BrittaSimon\@\<yourcompanydomain >.\< extensão >**. Por exemplo, **BrittaSimon\@contoso.com**.
+    1. Na **nome de utilizador** , introduza **BSimon\@\<yourcompanydomain >.\< extensão >**. Por exemplo, **BSimon\@contoso.com**.
 
     1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
 
@@ -160,7 +160,7 @@ Nesta secção, vai criar um utilizador de teste com o nome Eduarda Almeida no p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Uberflip.
+Nesta secção, vai ativar Simon B. utilizar o Azure início de sessão único ao conceder o acesso para Uberflip.
 
 1. No portal do Azure, selecione **aplicações empresariais** > **todas as aplicações** > **Uberflip**.
 
@@ -178,7 +178,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-1. No **utilizadores e grupos** painel, selecione **Eduarda Almeida** no **utilizadores** lista e, em seguida, escolha **selecione** na parte inferior do painel.
+1. No **utilizadores e grupos** painel, selecione **B Simon** no **utilizadores** lista e, em seguida, escolha **selecione** na parte inferior do painel.
 
 1. Se estiver à espera de um valor de função na asserção de SAML, em seguida, no **selecionar função** painel, selecione a função adequada para o utilizador a partir da lista. Na parte inferior do painel, escolha **selecione**.
 
@@ -186,7 +186,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-an-uberflip-test-user"></a>Criar um utilizador de teste Uberflip
 
-Um usuário chamado Eduarda Almeida está agora criado no Uberflip. Não tem de fazer nada para criar este utilizador. Uberflip suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Se um usuário chamado Eduarda Almeida ainda não existir no Uberflip, é criado um novo após a autenticação.
+Um usuário chamado Simon B. agora é criado no Uberflip. Não tem de fazer nada para criar este utilizador. Uberflip suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Se um usuário chamado Simon B. já não existir no Uberflip, é criado um novo após a autenticação.
 
 > [!NOTE]
 > Se precisar de criar manualmente um utilizador, entre em contato com o [equipa de suporte de Uberflip](mailto:support@uberflip.com).
