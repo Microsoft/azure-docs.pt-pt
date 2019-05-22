@@ -55,9 +55,9 @@ As seguintes propriedades são suportadas para o serviço de Teradata ligado:
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo tem de ser definida como: **Teradata** | Sim |
-| servidor | Nome do servidor de Teradata. | Sim |
+| server | Nome do servidor de Teradata. | Sim |
 | authenticationType | Tipo de autenticação utilizado para ligar à base de dados Teradata.<br/>Valores permitidos são: **Básica**, e **Windows**. | Sim |
-| o nome de utilizador | Especifique o nome de utilizador para ligar à base de dados Teradata. | Sim |
+| username | Especifique o nome de utilizador para ligar à base de dados Teradata. | Sim |
 | password | Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. Marcar esse campo como uma SecureString armazena de forma segura na fábrica de dados, ou [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Um Runtime de integração autoalojado é necessário, conforme mencionado na [pré-requisitos](#prerequisites). |Sim |
 
@@ -123,7 +123,7 @@ Para copiar dados do Teradata, defina o tipo de origem na atividade de cópia pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **RelationalSource** | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
@@ -164,40 +164,40 @@ Ao copiar dados da Teradata, os seguintes mapeamentos são utilizados entre tipo
 | Tipo de dados Teradata | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | BigInt |Int64 |
-| Blobs |Byte[] |
+| Blob |Byte[] |
 | Byte |Byte[] |
 | ByteInt |Int16 |
-| char |String |
-| CLOB |String |
+| Char |String |
+| Clob |String |
 | Date |DateTime |
 | Decimal |Decimal |
 | Double |Double |
-| Gráfico |String |
-| Número inteiro |Int32 |
-| Dia do intervalo |TimeSpan |
-| Dia de intervalo para a hora |TimeSpan |
-| Dia de intervalo de minuto |TimeSpan |
-| Dia do intervalo como segundo |TimeSpan |
-| Hora do intervalo |TimeSpan |
-| Intervalo de hora para minuto |TimeSpan |
-| Hora do intervalo como segundo |TimeSpan |
-| Minuto do intervalo |TimeSpan |
-| Intervalo de minuto para segundo |TimeSpan |
-| Mês de intervalo |String |
-| Intervalo de segundo |TimeSpan |
-| Ano de intervalo |String |
-| Intervalo de ano para mês |String |
+| Graphic |String |
+| Integer |Int32 |
+| Interval Day |TimeSpan |
+| Interval Day To Hour |TimeSpan |
+| Interval Day To Minute |TimeSpan |
+| Interval Day To Second |TimeSpan |
+| Interval Hour |TimeSpan |
+| Interval Hour To Minute |TimeSpan |
+| Interval Hour To Second |TimeSpan |
+| Interval Minute |TimeSpan |
+| Interval Minute To Second |TimeSpan |
+| Interval Month |String |
+| Interval Second |TimeSpan |
+| Interval Year |String |
+| Interval Year To Month |String |
 | Number |Double |
 | Period(Date) |String |
 | Period(Time) |String |
-| Período (hora com fuso horário) |String |
+| Period(Time With Time Zone) |String |
 | Period(Timestamp) |String |
-| Período (Timestamp com o fuso horário) |String |
+| Period(Timestamp With Time Zone) |String |
 | SmallInt |Int16 |
-| Hora |TimeSpan |
-| Hora com fuso horário |String |
-| Carimbo de data/hora |DateTime |
-| Timestamp com o fuso horário |DateTimeOffset |
+| Time |TimeSpan |
+| Time With Time Zone |String |
+| Timestamp |DateTime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |String |
 | VarGraphic |String |
