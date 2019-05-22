@@ -44,6 +44,8 @@
           href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Restaurar um utilizador eliminado
           href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: Fechar a sua conta num diretório não gerido
+          href: users-close-account.md
         - name: Adicionar utilizadores B2B
           href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
         - name: Atribuir função de utilizador B2B

@@ -3,8 +3,8 @@ title: Integrar com a plataforma de identidade da Microsoft | Azure
 description: Saiba mais sobre as práticas recomendadas e oversights comuns ao integrar com a plataforma de identidade da Microsoft (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: e9070127780659142ab8f956a8016622ecfea144
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076409"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540171"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Lista de verificação do Microsoft identity platform integração
 
@@ -33,7 +33,7 @@ Se estiver apenas começando, veja a [documentação](index.yml) para saber mais
 
 Utilize a lista de verificação seguinte para se certificar de que seu aplicativo com eficiência é integrado com o [plataforma de identidade do Microsoft](https://docs.microsoft.com/legal/mdsa).
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Noções Básicas
 
 |   |   |
 |---|---|
@@ -89,7 +89,7 @@ Utilize a lista de verificação seguinte para se certificar de que seu aplicati
 | ![Caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Registre-se o conjunto completo de permissões que a sua aplicação necessita para que os administradores podem conceder autorização facilmente ao seu inquilino. Uso [consentimento incremental](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) em tempo de execução para ajudar os utilizadores a compreender por que a aplicação está a pedir permissões que podem se ou confundir os usuários quando solicitada na primeira inicialização. |
 | ![Caixa de verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Implementar um [limpar a experiência de início de sessão único](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Ele é um requisito de segurança de privacidade e torna-se para uma boa experiência de utilizador. |
 
-### <a name="testing"></a>Testes
+### <a name="testing"></a>A testar
 
 |   |   |
 |---|---|

@@ -3,8 +3,8 @@ title: Durações de token configuráveis no Azure Active Directory | Documentos
 description: Saiba como configurar durações de tokens emitidos pelo Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 06f5b317-053e-44c3-aaaa-cf07d8692735
 ms.service: active-directory
@@ -12,24 +12,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.custom: aaddev
+ms.date: 04/13/2019
+ms.author: ryanwi
+ms.custom: aaddev, annaba
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b0242a8e3745a0014e5c2a1289ca2bc8c85c75
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0657057ceb3aca674e49a705c52c3b86dda73d98
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411373"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545378"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Durações de token configuráveis no Azure Active Directory (pré-visualização)
 
 Pode especificar o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Pode definir durações de token para todas as aplicações na sua organização, para uma aplicação de (com várias organizações) de multi-inquilino ou para um principal de serviço específico na sua organização.
 
 > [!IMPORTANT]
-> Depois de ouvir dos clientes durante a pré-visualização, estamos a planear substituir esta funcionalidade com um novo recurso do Azure Active Directory condicional acesso.  Assim que o novo recurso estiver concluído, essa funcionalidade, eventualmente, será preterida após um período de notificação.  Se utilizar a política de duração do Token configuráveis, esteja preparado para mudar para a nova funcionalidade de acesso condicional quando estiver disponível. 
+> Depois de ouvir dos clientes durante a pré-visualização, isso já foi substituído o recurso de durações de token configurável com [capacidades de gestão de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Esta funcionalidade vai ser preterida no dia 1 de Novembro de 2019. Se estiver a utilizar a política de duração do token configuráveis, mude para a nova funcionalidade de acesso condicional. 
 
 No Azure AD, um objeto de política representa um conjunto de regras são impostas em aplicativos individuais ou em todos os aplicativos numa organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas a objetos para o qual são atribuídos.
 
@@ -79,7 +79,7 @@ Uma política de duração do token é um tipo de objeto de política que conté
 ### <a name="configurable-token-lifetime-properties"></a>Propriedades de duração do token configurável
 | Propriedade | Cadeia de caracteres de propriedade de política | Afeta | Predefinição | Mínimo | Máximo |
 | --- | --- | --- | --- | --- | --- |
-| Duração do Token de acesso |AccessTokenLifetime |Tokens de acesso, os tokens de ID, SAML2 tokens |1 hora |10 minutos |1 dia |
+| Duração do Token de acesso |AccessTokenLifetime |Tokens de acesso, os tokens de ID, SAML2 tokens |Uma hora |10 minutos |1 dia |
 | Atualizar Token máxima tempo inativo |MaxInactiveTime |Tokens de atualização |90 dias |10 minutos |90 dias |
 | Idade de máxima Token de atualização de fator único |MaxAgeSingleFactor |Tokens (para todos os utilizadores) de atualização |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |
 | Idade máxima Token do multi-factor atualização |MaxAgeMultiFactor |Tokens (para todos os utilizadores) de atualização |Until-revoked |10 minutos |Until-revoked<sup>1</sup> |

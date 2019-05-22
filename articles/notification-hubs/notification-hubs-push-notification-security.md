@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bd9df12cbe941b868c769daccd02c1d81b39f7bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 2ca3c69178dde830e226812da34917246781c1ee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776495"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762161"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Modelo de segurança dos Hubs de notificação do Azure
 
@@ -50,3 +50,5 @@ Assim como outras entidades, as operações de Hub de notificação são permiti
 | Gerir  | CRUDs sobre os Hubs de notificação (incluindo a atualizar credenciais PNS e chaves de segurança) e registos de leitura com base em etiquetas |Hubs de notificação de criar/atualizar/ler/eliminar<br><br>Registos de leitura por etiqueta |
 
 Os Hubs de notificação aceitam declarações concedidas ao tokens de controlo de acesso do Microsoft Azure e tokens de assinatura gerados com chaves partilhadas configuradas diretamente no Hub de notificação.
+
+Não é possível enviar uma notificação para mais do que um espaço de nomes. Espaços de nomes são contentores lógicos nos hubs de notificação e não estão envolvidos com o envio de notificações. As políticas de acesso de nível de espaço de nomes (credenciais) podem ser utilizadas para operações de nível de espaço de nomes, por exemplo: listagem dos hubs de notificação, criar ou eliminar os hubs de notificação, etc. Apenas as políticas de acesso ao nível do hub permitiria que enviar notificações.

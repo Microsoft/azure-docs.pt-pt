@@ -21,13 +21,12 @@
     - name: Circuitos e peering
       href: expressroute-circuit-peerings.md
     - name: Localizações e parceiros
-      href: expressroute-locations.md
       items:
         - name: Fornecedores por Localização
           href: expressroute-locations-providers.md
         - name: Localizações por Fornecedor
           href: expressroute-locations.md
-    - name: Sobre os gateways de rede virtual
+    - name: Gateway de rede virtual do ExpressRoute e FastPath
       href: expressroute-about-virtual-network-gateways.md
     - name: Pré-requisitos
       href: expressroute-prerequisites.md

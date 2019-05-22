@@ -18,19 +18,7 @@ metadata:
   ms.author: erhopf
   ms.custom: seodec18
 abstract:
-  description: |
-    Saiba como utilizar os Serviços de Voz com as APIs REST ou com o nosso SDK de Voz para adicionar funcionalidades compatíveis com voz às suas aplicações. Pode utilizar o SDK de Voz para adicionar as seguintes funcionalidades (e mais) às suas aplicações&colon; 
-    <div class="row" style="font-size:16px"><div class="column"><ul>
-    <li><b><a href="speech-to-text.md">conversão de voz em texto</a></b> (reconhecimento de voz/SR)</li>
-    <li><b><a href="speech-devices-sdk-create-kws.md">palavra de reativação personalizada</a></b> (detetor de palavra-chave/KWS)</li>
-    <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intenção</a></b></li>
-    <li><b><a href="speech-translation.md">tradução</a></b></li>
-    <li><b><a href="speech-container-howto.md">contentor de locais</a></b></li></ul></div><div class="column"><ul>
-    <li><b><a href="text-to-speech.md">texto em voz</a></b> (TTS)</li>
-    <li><b><a href="conversation-transcription-service.md">transcrição de conversas</a></b> (CTS)</li>
-    <li><b><a href="how-to-phrase-lists.md">personalização de lista de frases</a>/<a href="how-to-custom-speech.md">adaptação de voz personalizada</a></b></li>
-    <li><b><a href="voice-first-virtual-assistants.md">assistentes virtuais de voz</a></b></li>
-    <li><b><a href="call-center-transcription.md">transcrição de centro de atendimento</a></b></li></ul></div></div>
+  description: Utilize com o nosso SDK de Voz ou com a API REST.
 sections:
   - items:
       - type: list
@@ -53,10 +41,26 @@ sections:
             image:
               src: ../media/index/i_guidelines.svg
             title: SDK de Dispositivos de Voz
+  - title: Introdução
+    items:
+      - type: paragraph
+        text: |
+          Pode utilizar o SDK de Voz para adicionar as seguintes funcionalidades (e mais) às suas aplicações&colon; 
+          <div class="row"><div class="column"><ul>
+          <li><b><a href="speech-to-text.md">conversão de voz em texto</a></b> (reconhecimento de voz/SR)</li>
+          <li><b><a href="speech-devices-sdk-create-kws.md">palavra de reativação personalizada</a></b> (detetor de palavra-chave/KWS)</li>
+          <li><b><a href="how-to-recognize-intents-from-speech-csharp.md">intenção</a></b></li>
+          <li><b><a href="speech-translation.md">tradução</a></b></li>
+          <li><b><a href="speech-container-howto.md">contentor de locais</a></b></li></ul></div><div class="column"><ul>
+          <li><b><a href="text-to-speech.md">texto em voz</a></b> (TTS)</li>
+          <li><b><a href="conversation-transcription-service.md">transcrição de conversas</a></b> (CTS)</li>
+          <li><b><a href="how-to-phrase-lists.md">personalização de lista de frases</a>/<a href="how-to-custom-speech.md">adaptação de voz personalizada</a></b></li>
+          <li><b><a href="voice-first-virtual-assistants.md">assistentes virtuais de voz</a></b></li>
+          <li><b><a href="call-center-transcription.md">transcrição de centro de atendimento</a></b></li></ul></div></div>
   - title: Inícios rápidos de cinco minutos
     items:
       - type: paragraph
-        text: 'Saiba como transferir, instalar e utilizar o SDK ao selecionar uma ligação com seta <img src="media/index/link.jpg" height="15" width="15"></img>.<br/><br/>Todas as setas ligam <img src="media/index/link.jpg" height="15" width="15"></img> por predefinição a um início rápido de conversão de voz em texto. A partir daí, pode selecionar outros inícios rápidos (<a href="scenario-availability.md">onde possível</a>) como a conversão de texto em voz ou assistente virtual de voz.'
+        text: 'Saiba como transferir, instalar e utilizar o SDK ao selecionar uma ligação com seta <img src="media/index/link.jpg" height="15" width="15"></img>.<br/>Todas as setas ligam <img src="media/index/link.jpg" height="15" width="15"></img> por predefinição a um início rápido de conversão de voz em texto. A partir daí, pode selecionar outros inícios rápidos (<a href="scenario-availability.md">onde possível</a>) como a conversão de texto em voz ou assistente virtual de voz.'
       - type: table
         style: dataMatrix
         columns:

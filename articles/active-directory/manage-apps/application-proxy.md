@@ -2,22 +2,22 @@
 title: Acesso remoto às aplicações no local - Proxy de aplicações do Azure Active Directory | Microsoft Docx
 description: Proxy de aplicações do Azure do Active Directory fornece acesso remoto seguro a aplicações web no local. Após um início de sessão único para o Azure AD, os utilizadores podem aceder aplicações na cloud e no local através de um URL externo ou um portal de aplicação interna. Por exemplo, o Proxy da aplicação pode fornecer acesso remoto e início de sessão único para o ambiente de trabalho remoto, SharePoint, Teams, Tableau, Qlik e aplicativos linha de negócios (LOB).
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e490ed9d104fc039a79083a94ddaebdeba766d2a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: c2ecc458183006872d5a4c6712cdf00a97993dbc
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506645"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825542"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Acesso remoto às aplicações no local através do Proxy de aplicações do Azure Active Directory 
 
@@ -44,7 +44,7 @@ Proxy de aplicações funciona com:
 
 Proxy de aplicações suporta início de sessão único. Para obter mais informações sobre métodos suportados, consulte [escolher um método de início de sessão único](what-is-single-sign-on.md#choosing-a-single-sign-on-method).
 
-Proxy de aplicações é recomendado para fornecer acesso de usuários remotos externos a recursos internos. Proxy da aplicação substitui a necessidade de uma VPN ou o proxy inverso. Não se destina para usuários internos na rede empresarial.  Os utilizadores internos que utilizam desnecessariamente o Proxy de aplicações podem introduzir problemas de desempenho inesperados e indesejáveis.
+Proxy de aplicações é recomendado para fornecer aos usuários remotos acesso aos recursos internos. Proxy da aplicação substitui a necessidade de uma VPN ou o proxy inverso. Não se destina para usuários internos na rede empresarial.  Estes utilizadores que utilizam desnecessariamente o Proxy de aplicações podem introduzir problemas de desempenho inesperados e indesejáveis.
 
 ## <a name="how-application-proxy-works"></a>Como funciona o Proxy de aplicações
 

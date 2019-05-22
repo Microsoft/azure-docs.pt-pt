@@ -1,23 +1,22 @@
 ---
 title: SaaS preenchimento API V2 | O Azure Marketplace
-description: Explica como criar uma oferta SaaS no Azure Marketplace usando o preenchimento associado V2 APIs.
+description: Explica como criar uma oferta SaaS no AppSource e utilizar o preenchimento associado V2 APIs do Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
-ms.translationtype: MT
+ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941984"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823541"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versão de APIs de preenchimento do SaaS 2 
 
-Este artigo fornece detalhes sobre a API que permite aos fornecedores de software independentes (ISVs) para integrar as suas aplicações SaaS com o Azure Marketplace. Esta API permite que os aplicativos de ISV participar em todos os canais de comércio ativado: direto, liderada por parceiros (revendedor) e orientado por campo.  Esta API é um requisito para listagem que transactable SaaS oferece no Azure Marketplace.
-
+Este artigo fornece detalhes sobre a API que permite que fornecedores independentes de software (ISVs) para vender as suas aplicações SaaS no Azure Marketplace e AppSource. Esta API é um requisito para listar o SaaS oferece no Azure Marketplace e AppSource.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>Gerir o ciclo de vida de subscrição de SaaS
 
@@ -36,7 +35,7 @@ Quando um cliente inicia uma compra, o ISV recebe essas informações num códig
 
 ![Chamadas de API para o aprovisionamento de um serviço SaaS.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Aprovisionada
+#### <a name="provisioned"></a>Aprovisionado
 
 Este estado é o estado estável de um serviço aprovisionado.
 
@@ -176,7 +175,7 @@ Apresenta uma lista de todas as subscrições de SaaS para um publicador.
 
 *Códigos de resposta:*
 
-Código: 200<br>
+Código: 200 <br/>
 Com base no token de autenticação, obtenha o publicador e subscrições correspondentes para as ofertas do publicador.<br> Payload de resposta:<br>
 
 ```json
@@ -207,7 +206,6 @@ Com base no token de autenticação, obtenha o publicador e subscrições corres
 ```
 
 O token de continuação apenas será apresentado se existem adicionais "páginas" dos planos para recuperar. 
-
 
 Código: 403 <br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual. 
@@ -374,7 +372,7 @@ Erro Interno do Servidor<br>
 
 *Códigos de resposta:*
 
-Código: 202<br>
+Código: 200<br>
 Ativa a subscrição.<br>
 
 Código: 404<br>
@@ -554,7 +552,7 @@ Anular a subscrição e eliminar a subscrição especificada.
 
 *Códigos de resposta:*
 
-Código: 200<br>
+Código: 202<br>
 Anular a subscrição a chamada de ISV iniciada para indicar uma subscrição de SaaS.<br>
 
 Código: 404<br>
@@ -786,25 +784,29 @@ O publicador tem de implementar um webhook neste serviço de SaaS para ser notif
     "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
-
-Where action can be one of these: 
-       Subscribe, (When the resource has been activated)
-       Unsubscribe, (When the resource has been deleted)
-       ChangePlan, (When the change plan operation has completed)
-       ChangeQuantity, (When the change quantity operation has completed),
-       Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
 ```
+
+Onde ação pode ser um dos seguintes: 
+- `Subscribe`  (Quando o recurso tiver sido ativado)
+- `Unsubscribe` (Quando o recurso foi eliminado)
+- `ChangePlan` (Quando a operação de plano de alteração for concluída)
+- `ChangeQuantity` (Quando a operação de quantidade de alterações é concluída)
+- `Suspend` (Quando o recurso foi suspensa)
+- `Reinstate` (Quando recursos tem sido restabelecidos após suspensão)
 
 
 ## <a name="mock-api"></a>API de teste
 
 Pode utilizar as nossas APIs fictícios para ajudar a começar com o desenvolvimento, particularmente criação de protótipos, e projetos de teste. 
 
-Ponto final de anfitrião: `https://marketplaceapi.microsoft.com/api` Versão de API: `2018-09-15` Sem autenticação necessário o Uri de exemplo: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
+Ponto final de anfitrião: `https://marketplaceapi.microsoft.com/api` <br/>
+Versão de API: `2018-09-15` <br/>
+Não é necessária autenticação <br/>
+Uri de exemplo: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Qualquer uma das chamadas de API neste artigo podem ser feitas para o ponto de extremidade do anfitrião de simulação. Pode esperar obter dados fictícios novamente como uma resposta.
+Os caminhos de ponto final de API são os mesmos em simulação e Real APIs, mas as versões de API são diferentes. A versão é 2018-09-15 para simulação e 2018-08-31 para a versão de produção. 
 
+Qualquer uma das chamadas de API neste artigo podem ser feitas para o ponto de extremidade do anfitrião de simulação. Pode esperar obter dados fictícios novamente como uma resposta. Em geral, pode esperar obter dados fictícios novamente como uma resposta. Chamadas para os métodos de subscrição de atualização na API fictício devolvem sempre 500. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

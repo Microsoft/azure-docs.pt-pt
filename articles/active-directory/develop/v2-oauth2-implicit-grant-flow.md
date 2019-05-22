@@ -3,8 +3,8 @@ title: Proteger aplicações de página única com fluxo implícito de plataform
 description: Criando aplicativos web com implementação de plataforma de identidade Microsoft do fluxo implícito para aplicações de página única.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 3605931f-dc24-4910-bb50-5375defec6a8
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6f73756373a145375aa2b3d0bcb1c8fa0ede5cdb
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112153"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823503"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Fluxo de concessão de plataforma de identidade da Microsoft e implícita
 
@@ -243,4 +243,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Aceda através de [exemplos de MSAL JS](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Samples) para começar a utilizar a codificação.
+* Aceda através de [exemplos de MSAL JS](sample-v2-code.md#single-page-applications-spa) para começar a utilizar a codificação.

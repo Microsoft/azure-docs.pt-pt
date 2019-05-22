@@ -28,6 +28,8 @@
       href: tutorials/tutorial-share-anchors-across-devices.md
     - name: Partilhar no Unity com o Azure Cosmos DB
       href: tutorials/tutorial-use-cosmos-db-to-store-anchors.md
+    - name: Iniciar uma nova aplicação do Unity HoloLens
+      href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Começar uma nova aplicação Android
       href: tutorials/tutorial-new-android-app.md
 - name: Procedimentos
