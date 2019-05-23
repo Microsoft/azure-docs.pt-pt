@@ -76,10 +76,10 @@ As seguintes propriedades são suportadas quando configura um campo no serviço 
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do campo tem de ser definida: **AzureKeyVaultSecret**. | Sim |
+| type | A propriedade de tipo do campo tem de ser definida: **AzureKeyVaultSecret**. | Sim |
 | secretName | O nome do segredo no Cofre de chaves do azure. | Sim |
 | secretVersion | A versão do segredo no Cofre de chaves do azure.<br/>Se não for especificado, utiliza sempre a versão mais recente do segredo do.<br/>Se for especificado, em seguida, prende para a versão especificada.| Não |
-| Store | Refere-se a um serviço ligado do Azure Key Vault que utiliza para armazenar a credencial. | Sim |
+| store | Refere-se a um serviço ligado do Azure Key Vault que utiliza para armazenar a credencial. | Sim |
 
 **Usando a interface do Usuário de criação:**
 
