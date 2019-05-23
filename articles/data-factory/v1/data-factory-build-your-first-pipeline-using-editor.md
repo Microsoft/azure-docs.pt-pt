@@ -211,14 +211,14 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 
    | Propriedade | Aninhado | Descrição |
    |:--- |:--- |:--- |
-   | tipo | properties |O tipo de propriedade está definido como **AzureBlob**, porque os dados estão contidos no armazenamento de blobs. |
-   | linkedServiceName | Formato |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
+   | type | properties |O tipo de propriedade está definido como **AzureBlob**, porque os dados estão contidos no armazenamento de blobs. |
+   | linkedServiceName | format |Refere-se ao AzureStorageLinkedService que criou anteriormente. |
    | folderPath | typeProperties | Especifica o contentor de blobs e a pasta que contém os blobs de entrada. | 
    | fileName | typeProperties |Esta propriedade é opcional. Se omitir esta propriedade, serão escolhidos todos os ficheiros em folderPath. Neste tutorial, apenas o ficheiro input.log é processado. |
-   | tipo | Formato |Os ficheiros de registo estão no formato de texto, pelo que utilizamos **TextFormat**. |
-   | columnDelimiter | Formato |As colunas nos ficheiros de registo são delimitadas por vírgula (`,`). |
-   | frequência/intervalo | disponibilidade |A frequência está definida para **Mês**, sendo o intervalo **1**, o que significa que os setores de entrada estão disponíveis mensalmente. |
-   | externo | properties | Esta propriedade é definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Neste tutorial, o ficheiro input.log não é gerado por este pipeline, por isso definimos a propriedade como **verdadeira**. |
+   | type | format |Os ficheiros de registo estão no formato de texto, pelo que utilizamos **TextFormat**. |
+   | columnDelimiter | format |As colunas nos ficheiros de registo são delimitadas por vírgula (`,`). |
+   | frequency/interval | availability |A frequência está definida para **Mês**, sendo o intervalo **1**, o que significa que os setores de entrada estão disponíveis mensalmente. |
+   | external | properties | Esta propriedade é definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Neste tutorial, o ficheiro input.log não é gerado por este pipeline, por isso definimos a propriedade como **verdadeira**. |
 
     Para obter mais informações sobre estas propriedades JSON, veja [Conector de Blobs do Azure](data-factory-azure-blob-connector.md#dataset-properties).
 
