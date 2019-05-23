@@ -218,13 +218,13 @@ Neste passo, vai criar conjuntos de dados para representar os dados de entrada e
 
    | Propriedade | Descrição |
    |:--- |:--- |
-   | tipo |O tipo de propriedade é definido para AzureBlob, uma vez que os dados estão contidos no armazenamento de blobs do Azure. |
+   | type |O tipo de propriedade é definido para AzureBlob, uma vez que os dados estão contidos no armazenamento de blobs do Azure. |
    | linkedServiceName |Refere-se ao StorageLinkedService que criou anteriormente. |
    | fileName |Esta propriedade é opcional. Se omitir esta propriedade, serão escolhidos todos os ficheiros em folderPath. Neste caso, apenas o input.log é processado. |
-   | tipo |Os ficheiros de registo estão no formato de texto, pelo que vamos utilizar TextFormat. |
+   | type |Os ficheiros de registo estão no formato de texto, pelo que vamos utilizar TextFormat. |
    | columnDelimiter |As colunas nos ficheiros de registo são delimitadas por vírgula (,). |
-   | frequência/intervalo |A frequência definida para o Mês, sendo o intervalo 1, o que significa que os setores de entrada estão disponíveis mensalmente. |
-   | externo |Esta propriedade é definida como verdadeira se os dados de entrada não forem gerados pelo serviço Data Factory. |
+   | frequency/interval |A frequência definida para o Mês, sendo o intervalo 1, o que significa que os setores de entrada estão disponíveis mensalmente. |
+   | external |Esta propriedade é definida como verdadeira se os dados de entrada não forem gerados pelo serviço Data Factory. |
 2. Execute o seguinte comando no Azure PowerShell para criar o conjunto de dados do Data Factory:
 
     ```PowerShell
