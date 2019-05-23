@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: f395ae51d51e56668482ad6c8d446bdd31050fea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98e4d1870c57c9718e2d4293157b21ead8ea44e1
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65870613"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Tutorial: Integração do Active Directory do Azure com OpsGenie
 
@@ -71,16 +71,16 @@ Para configurar a integração do OpsGenie com o Azure AD, terá de adicionar Op
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com OpsGenie com base num utilizador de teste **Eduarda Almeida**.
+Nesta secção, configure e teste do Azure AD início de sessão único com OpsGenie com base num utilizador de teste **B. Simon**.
 Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no OpsGenie deve ser estabelecido.
 
 Para configurar e testar o Azure AD início de sessão único com OpsGenie, tem de concluir os seguintes blocos de construção:
 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar OpsGenie Single Sign-On](#configure-opsgenie-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste OpsGenie](#create-opsgenie-test-user)**  - para ter um equivalente da Eduarda Almeida na OpsGenie que está ligado à representação de utilizador do Azure AD.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Simon B.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Simon B. utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste OpsGenie](#create-opsgenie-test-user)**  - para ter um equivalente de Simon B. no OpsGenie que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -149,7 +149,7 @@ Para configurar o Azure AD início de sessão único com OpsGenie, execute os se
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Simon B.
 
 1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
 
@@ -163,10 +163,10 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     ![A caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    a. Na **Name** campo introduza **Simon B**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo **bsimon@yourcompanydomain.extension**  
+    Por exemplo, BSimon@contoso.com
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -174,7 +174,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para OpsGenie.
+Nesta secção, vai ativar Simon B. utilizar o Azure início de sessão único ao conceder acesso para OpsGenie.
 
 1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **OpsGenie**.
 
@@ -192,7 +192,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![O painel Adicionar atribuição](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. No **utilizadores e grupos** selecione caixa de diálogo **B. Simon** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
 6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
 
@@ -200,7 +200,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 ### <a name="create-opsgenie-test-user"></a>Criar utilizador de teste OpsGenie
 
-O objetivo desta secção é criar um usuário chamado Eduarda Almeida no OpsGenie. 
+O objetivo desta secção é criar um usuário chamado Simon B. no OpsGenie. 
 
 1. Numa janela do browser web, inicie sessão no seu inquilino OpsGenie como administrador.
 
@@ -214,14 +214,14 @@ O objetivo desta secção é criar um usuário chamado Eduarda Almeida no OpsGen
    
     ![Definições de OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_11.png)
    
-    a. Na **E-Mail** caixa de texto, o endereço de e-mail typu BrittaSimon resolvidos no Azure Active Directory.
+    a. Na **E-Mail** caixa de texto, o endereço de e-mail typu B. Simon resolvidos no Azure Active Directory.
    
-    b. Na **FullName** caixa de texto, tipo **Eduarda Almeida**.
+    b. Na **FullName** caixa de texto, tipo **Simon B**.
    
     c. Clique em **Guardar**. 
 
 >[!NOTE]
->Eduarda obtém uma mensagem de e-mail com instruções sobre como configurar o seu perfil.
+>B. Simon obtém uma mensagem de e-mail com instruções sobre como configurar o respetivo perfil.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
