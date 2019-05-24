@@ -181,14 +181,14 @@ A tabela que se segue fornece descrições para as propriedades JSON utilizadas 
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| tipo | O tipo de propriedade é definido como **AzureBlob**, uma vez que os dados residem num armazenamento de blobs do Azure. |
+| type | O tipo de propriedade é definido como **AzureBlob**, uma vez que os dados residem num armazenamento de blobs do Azure. |
 | linkedServiceName | Refere-se ao **AzureStorageLinkedService** que criou anteriormente. |
 | folderPath | Especifica o **contentor** de blobs e a **pasta** que contém os blobs de entrada. Neste tutorial, adftutorial é o contentor de blobs e a pasta é a pasta raiz. | 
 | fileName | Esta propriedade é opcional. Se omitir esta propriedade, são escolhidos todos os ficheiros em folderPath. Neste tutorial, **emp.txt** é especificado para fileName, pelo que apenas esse ficheiro é escolhido para processamento. |
-| formato -> tipo |O ficheiro de entrada está em formato de texto, pelo que utilizamos **TextFormat**. |
+| format -> type |O ficheiro de entrada está em formato de texto, pelo que utilizamos **TextFormat**. |
 | columnDelimiter | As colunas do ficheiro de entrada são delimitadas pelo caráter de **vírgula (`,`)**. |
-| frequência/intervalo | A frequência está definida como **Hora** e o intervalo como **1**, o que significa que os setores de entrada estão disponíveis **à hora**. Por outras palavras, o serviço do Data Factory procura dados de entrada a cada hora na pasta raiz do contentor de blobs (**adftutorial**) que especificou. Procura os dados entre as horas de início e fim do pipeline e não antes ou depois.  |
-| externo | Esta propriedade está definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Os dados de entrada deste tutorial estão no ficheiro empt.txt, que não é gerado por este pipeline, pelo que vamos definir esta propriedade como verdadeira. |
+| frequency/interval | A frequência está definida como **Hora** e o intervalo como **1**, o que significa que os setores de entrada estão disponíveis **à hora**. Por outras palavras, o serviço do Data Factory procura dados de entrada a cada hora na pasta raiz do contentor de blobs (**adftutorial**) que especificou. Procura os dados entre as horas de início e fim do pipeline e não antes ou depois.  |
+| external | Esta propriedade está definida como **verdadeira** se os dados de entrada não forem gerados por este pipeline. Os dados de entrada deste tutorial estão no ficheiro empt.txt, que não é gerado por este pipeline, pelo que vamos definir esta propriedade como verdadeira. |
 
 Para obter mais informações sobre estas propriedades JSON, veja [Azure Blob connector](data-factory-azure-blob-connector.md#dataset-properties) (Conector de Blobs do Azure).
 
@@ -224,10 +224,10 @@ A tabela que se segue fornece descrições para as propriedades JSON utilizadas 
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| tipo | A propriedade de tipo está definida como **AzureSqlTable**, porque os dados são copiados para uma tabela numa base de dados SQL do Azure. |
+| type | A propriedade de tipo está definida como **AzureSqlTable**, porque os dados são copiados para uma tabela numa base de dados SQL do Azure. |
 | linkedServiceName | Refere-se ao **AzureSqlLinkedService** que criou anteriormente. |
 | tableName | Especificou a **tabela** para a qual os dados são copiados. | 
-| frequência/intervalo | A frequência está definida como **Hora** e o intervalo é **1**, o que significa que os setores de saída são produzidos **à hora** entre as horas de início e fim do pipeline, não antes ou depois.  |
+| frequency/interval | A frequência está definida como **Hora** e o intervalo é **1**, o que significa que os setores de saída são produzidos **à hora** entre as horas de início e fim do pipeline, não antes ou depois.  |
 
 Existem três colunas – **ID**, **FirstName**, e **LastName** – na tabela emp da base de dados. O ID é uma coluna de identidade, por isso terá de especificar apenas **FirstName** e **LastName** aqui.
 
