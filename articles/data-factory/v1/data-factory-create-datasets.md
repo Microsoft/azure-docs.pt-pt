@@ -81,13 +81,13 @@ A tabela seguinte descreve as propriedades no JSON acima:
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| nome |Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
-| tipo |Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
-| estrutura |Esquema do conjunto de dados.<br/><br/>Para obter detalhes, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
+| name |Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |ND |
+| type |Tipo de conjunto de dados. Especifique um dos tipos suportados pela fábrica de dados (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
+| structure |Esquema do conjunto de dados.<br/><br/>Para obter detalhes, consulte [estrutura do conjunto de dados](#Structure). |Não |ND |
 | typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: O Azure Blob, tabela SQL do Azure). Para obter detalhes sobre os tipos suportados e as respetivas propriedades, consulte [tipo de conjunto de dados](#Type). |Sim |ND |
-| externo | Sinalizador booleano para especificar se um conjunto de dados é produzido explicitamente por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como true. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
-| disponibilidade | Define o período de processamento (por exemplo, hora ou diária) ou o modelo slicing para o conjunto de dados de produção. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada de um setor de dados. Se a disponibilidade de um conjunto de dados de saída está definida como diariamente (frequência - dia, o intervalo de-1), diariamente é produzido um setor. <br/><br/>Para obter detalhes, consulte o conjunto de dados disponibilidade. <br/><br/>Para obter detalhes sobre o modelo de fragmentação do conjunto de dados, consulte a [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
-| política |Define os critérios ou a condição que tem de preencher os setores do conjunto de dados. <br/><br/>Para obter detalhes, consulte a [política de conjunto de dados](#Policy) secção. |Não |ND |
+| external | Sinalizador booleano para especificar se um conjunto de dados é produzido explicitamente por um pipeline de fábrica de dados ou não. Se o conjunto de dados de entrada para uma atividade não é produzido pelo pipeline atual, defina este sinalizador como true. Defina este sinalizador como true para o conjunto de dados de entrada da primeira atividade no pipeline.  |Não |false |
+| availability | Define o período de processamento (por exemplo, hora ou diária) ou o modelo slicing para o conjunto de dados de produção. Cada unidade de dados consumidos e produzidos por uma execução de atividade é chamada de um setor de dados. Se a disponibilidade de um conjunto de dados de saída está definida como diariamente (frequência - dia, o intervalo de-1), diariamente é produzido um setor. <br/><br/>Para obter detalhes, consulte o conjunto de dados disponibilidade. <br/><br/>Para obter detalhes sobre o modelo de fragmentação do conjunto de dados, consulte a [agendamento e execução](data-factory-scheduling-and-execution.md) artigo. |Sim |ND |
+| policy |Define os critérios ou a condição que tem de preencher os setores do conjunto de dados. <br/><br/>Para obter detalhes, consulte a [política de conjunto de dados](#Policy) secção. |Não |ND |
 
 ## <a name="dataset-example"></a>Exemplo de conjunto de dados
 No exemplo seguinte, o conjunto de dados representa uma tabela chamada **MyTable** numa base de dados SQL.
@@ -193,10 +193,10 @@ Cada coluna na estrutura contém as seguintes propriedades:
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome |Nome da coluna. |Sim |
-| tipo |Tipo de dados da coluna.  |Não |
-| cultura |. Com base em NET cultura a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
-| Formato |Formatar a cadeia de caracteres a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
+| name |Nome da coluna. |Sim |
+| type |Tipo de dados da coluna.  |Não |
+| culture |. Com base em NET cultura a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
+| format |Formatar a cadeia de caracteres a ser utilizado quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. |Não |
 
 As seguintes diretrizes ajudá-lo a determinar quando deve incluir informações sobre a estrutura e o que pretende incluir no **estrutura** secção.
 
@@ -237,7 +237,7 @@ A tabela seguinte descreve as propriedades que pode utilizar a secção de dispo
 | --- | --- | --- | --- |
 | frequency |Especifica a unidade de tempo para produção do setor de conjunto de dados.<br/><br/><b>Suportado frequência</b>: Minuto, hora, dia, semana, mês |Sim |ND |
 | interval |Especifica um multiplicador para a frequência.<br/><br/>"Intervalo de frequência x" determina a frequência com que o setor é produzido. Por exemplo, se precisar do conjunto de dados para ser segmentadas numa base horária, defina <b>frequência</b> ao <b>hora</b>, e <b>intervalo</b> para <b>1</b>.<br/><br/>Tenha em atenção que se especificar **frequência** como **minuto**, deve definir o intervalo não menos do que 15. |Sim |ND |
-| Estilo |Especifica se o setor de deve ser produzido no início ou no final do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequência** está definida como **mês**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no último dia do mês. Se **estilo** está definida como **StartOfInterval**, o setor é produzido no primeiro dia do mês.<br/><br/>Se **frequência** está definida como **dia**, e **estilo** está definido como **EndOfInterval**, o setor é produzido na última hora do dia.<br/><br/>Se **frequência** está definida como **hora**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no fim da hora. Por exemplo, para um setor para o período de 1 PM - 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
+| style |Especifica se o setor de deve ser produzido no início ou no final do intervalo.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Se **frequência** está definida como **mês**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no último dia do mês. Se **estilo** está definida como **StartOfInterval**, o setor é produzido no primeiro dia do mês.<br/><br/>Se **frequência** está definida como **dia**, e **estilo** está definido como **EndOfInterval**, o setor é produzido na última hora do dia.<br/><br/>Se **frequência** está definida como **hora**, e **estilo** está definido como **EndOfInterval**, o setor é produzido no fim da hora. Por exemplo, para um setor para o período de 1 PM - 2 PM, o setor é produzido em 2 PM. |Não |EndOfInterval |
 | anchorDateTime |Define a posição absoluta no tempo utilizado pelo scheduler para computar os limites de setor de conjunto de dados. <br/><br/>Tenha em atenção que, se esta propriedade tem partes de data que são mais granulares do que a frequência especificada, as partes mais granulares serão ignoradas. Por exemplo, se o **intervalo** é **por hora** (frequência: hora e intervalo: 1) e o **anchorDateTime** contém **minutos e segundos**, em seguida, as partes de minutos e segundos da **anchorDateTime** são ignorados. |Não |01/01/0001 |
 | offset |O período de tempo através do qual o início e de fim de todos os setores do conjunto de dados são mudou. <br/><br/>Observe que, se os dois **anchorDateTime** e **deslocamento** forem especificados, o resultado é a mudança combinada. |Não |ND |
 
