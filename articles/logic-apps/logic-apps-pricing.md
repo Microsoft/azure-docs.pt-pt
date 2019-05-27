@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598479"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544555"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de preços do Azure Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598479"
 
 ## <a name="consumption-pricing-model"></a>Modelo de preços de consumo
 
-Para novas aplicações de lógica que são executados no serviço de Azure Logic Apps "global" ou público, paga apenas aquilo que utiliza. Estas aplicações de lógica utilizam um plano com base no consumo e o modelo de preços. Em sua definição da aplicação lógica, cada passo é uma ação. Por exemplo, ações incluem: 
+Para novas aplicações de lógica que são executados no serviço de Azure Logic Apps "global" ou público, paga apenas aquilo que utiliza. Estas aplicações de lógica utilizam um plano com base no consumo e o modelo de preços. Em sua definição da aplicação lógica, cada passo é uma ação. Por exemplo, ações incluem:
 
 * Acionadores, que são ações especiais. Todas as aplicações de lógica requerem um acionador, como o primeiro passo.
 * "Internas" ou nativas ações como HTTP, chamadas para as funções do Azure e a gestão de API e assim por diante
@@ -38,12 +38,16 @@ O Azure Logic Apps medidores de todas as ações que executar na sua aplicação
 
 ## <a name="fixed-pricing-model"></a>Modelo de preços fixo
 
-Uma [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) fornece uma maneira privada, isolada e dedicada para que possa criar e executar aplicações lógicas que podem aceder aos recursos numa rede virtual do Azure. Para novas aplicações de lógica que são executados dentro de um ISE, paga um preço mensal fixo ações incorporadas e conectores padrão. O ISE também inclui um conector empresarial gratuito, que inclui ligações tantas quanto quiser. Utilização de conectores de empresa adicionais é cobrada com base no preço de consumo Enterprise. 
+Uma [ *ambiente de serviço de integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) fornece uma maneira privada, isolada e dedicada para que possa criar e executar aplicações lógicas que podem aceder aos recursos numa rede virtual do Azure. Para novas aplicações de lógica que são executados dentro de um ISE, paga um preço mensal fixo para ações incorporadas e acionadores e também para conectores padrão.
 
-Sua unidade de base do ISE corrigiu capacidade, portanto, se precisar de mais débito, pode [adiciona mais unidades de escala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), qualquer um durante a criação ou posteriormente.
+O ISE também inclui um conector empresarial gratuito, que inclui ligações tantas quanto quiser. Utilização de conectores de empresa adicionais é cobrada com base no preço de consumo Enterprise.
 
 > [!NOTE]
-> O ISE encontra-se no [ *pré-visualização pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter informações de preços específicas, consulte [preços de aplicações lógicas do Azure](https://azure.microsoft.com/pricing/details/logic-apps).
+> Dentro de um ISE, incorporados acionadores e ações apresentar os **Core** Etiquetar e executar no ISE do mesmo, como as aplicações lógicas. Standard e conectores empresariais que apresentam os **ISE** etiqueta executar no ISE do mesmo, como as aplicações lógicas. Conectores que não apresentam a etiqueta ISE executada no serviço de aplicações lógicas global.
+
+Sua unidade de base do ISE corrigiu capacidade, portanto, se precisar de mais débito, pode [adiciona mais unidades de escala](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), qualquer um durante a criação ou posteriormente. 
+
+Para obter informações de preços específicas, consulte [preços de aplicações lógicas do Azure](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 
@@ -53,7 +57,7 @@ Conectores do Logic Apps do Azure ajudam as suas aplicações de acesso de aplic
 
 <a name="triggers"></a>
 
-## <a name="triggers"></a>Acionadores
+## <a name="triggers"></a>Ativadores
 
 Os acionadores são ações especiais que criar uma instância da aplicação lógica quando ocorre um evento específico. Acionadores agirem de diversas formas, que afetam a como a aplicação lógica é limitada. Aqui estão os vários tipos de acionadores que existem no Azure Logic Apps:
 
