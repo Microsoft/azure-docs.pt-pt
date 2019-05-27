@@ -65,14 +65,14 @@ A tabela seguinte descreve os elementos JSON específicos a um serviço FTP liga
 
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
-| tipo |Defina esta opção como FtpServer. |Sim |&nbsp; |
-| anfitrião |Especifique o nome ou endereço IP do servidor de FTP. |Sim |&nbsp; |
+| type |Defina esta opção como FtpServer. |Sim |&nbsp; |
+| host |Especifique o nome ou endereço IP do servidor de FTP. |Sim |&nbsp; |
 | authenticationType |Especifique o tipo de autenticação. |Sim |Básica, anônima |
-| o nome de utilizador |Especifique o utilizador quem tem acesso ao servidor de FTP. |Não |&nbsp; |
+| username |Especifique o utilizador quem tem acesso ao servidor de FTP. |Não |&nbsp; |
 | password |Especifique a palavra-passe para o utilizador (nome de utilizador). |Não |&nbsp; |
 | encryptedCredential |Especifique a credencial encriptada para aceder ao servidor FTP. |Não |&nbsp; |
 | gatewayName |Especifique o nome do gateway no Gateway de gestão de dados para ligar a um servidor FTP no local. |Não |&nbsp; |
-| porta |Especifique a porta em que o servidor de FTP está a escutar. |Não |21 |
+| port |Especifique a porta em que o servidor de FTP está a escutar. |Não |21 |
 | enableSsl |Especifique se pretende utilizar o FTP por um canal SSL/TLS. |Não |true |
 | enableServerCertificateValidation |Especifique se pretende ativar a validação de certificado SSL do servidor quando estiver a utilizar o FTP canal SSL/TLS. |Não |true |
 
@@ -159,8 +159,8 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados. 
 | fileName |Especifique o nome do arquivo na **folderPath** se pretender que a tabela para fazer referência a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros na pasta.<br/><br/>Quando **fileName** não está especificado para um conjunto de dados de saída, o nome do ficheiro gerado é no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
 | fileFilter |Especificar um filtro para ser usado para selecionar um subconjunto de ficheiros nos **folderPath**, em vez de todos os ficheiros.<br/><br/>Valores permitidos são: `*` (vários carateres) e `?` (caráter individual).<br/><br/>Exemplo 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> **fileFilter** se aplica a um conjunto de dados de partilha de ficheiros de entrada. Esta propriedade não é suportada com o Hadoop Distributed File System (HDFS). |Não |
 | partitionedBy |Utilizado para especificar um dynamic **folderPath** e **fileName** para dados de séries de tempo. Por exemplo, pode especificar uma **folderPath** que é parametrizado por cada hora de dados. |Não |
-| Formato | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender copiar ficheiros como estão entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
-| Compressão | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**, e os níveis de suporte são **Optimal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| format | São suportados os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte a [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet ](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se pretender copiar ficheiros como estão entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
+| compression | Especifica o tipo e o nível de compressão dos dados. Tipos suportados são **GZip**, **Deflate**, **BZip2**, e **ZipDeflate**, e os níveis de suporte são **Optimal** e **mais rápida**. Para obter mais informações, consulte [formatos de ficheiro e a compactação no Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
 | useBinaryTransfer |Especifique se pretende utilizar o modo de transferência do binário. Os valores são verdadeiros para o modo binário (que é o valor predefinido) e false para ASCII. Esta propriedade só pode ser utilizada quando o tipo de serviço ligado associado é do tipo: FtpServer. |Não |
 
 > [!NOTE]
@@ -206,7 +206,7 @@ Na atividade de cópia, quando a origem é do tipo **FileSystemSource**, a segui
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursiva |Indica se os dados são lidos recursivamente das subpastas, ou apenas a partir da pasta especificada. |TRUE, False (predefinição) |Não |
+| recursive |Indica se os dados são lidos recursivamente das subpastas, ou apenas a partir da pasta especificada. |TRUE, False (predefinição) |Não |
 
 ## <a name="json-example-copy-data-from-ftp-server-to-azure-blob"></a>Exemplo JSON: Copiar dados do servidor de FTP para BLOBs do Azure
 Este exemplo mostra como copiar dados de um servidor FTP para o armazenamento de Blobs do Azure. No entanto, os dados podem ser copiados diretamente para qualquer um dos sinks indicados na [arquivos de dados e formatos suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats), utilizando a atividade de cópia na fábrica de dados.
