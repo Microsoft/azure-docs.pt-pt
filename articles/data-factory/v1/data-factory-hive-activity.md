@@ -75,15 +75,15 @@ A atividade Hive do HDInsight numa fábrica de dados [pipeline](data-factory-cre
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| nome |Nome da atividade |Sim |
+| name |Nome da atividade |Sim |
 | description |Texto que descreve o que a atividade é utilizada para |Não |
-| tipo |HDinsightHive |Sim |
-| entradas |Entradas consumidas pela atividade do Hive |Não |
-| saídas |Saídas produzidas pela atividade do Hive |Sim |
+| type |HDinsightHive |Sim |
+| inputs |Entradas consumidas pela atividade do Hive |Não |
+| outputs |Saídas produzidas pela atividade do Hive |Sim |
 | linkedServiceName |Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory |Sim |
-| Script |Especifique o inline de script do Hive |Não |
-| caminho do script |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
-| Define |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
+| script |Especifique o inline de script do Hive |Não |
+| scriptPath |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
+| defines |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de registos de jogos analytics onde pretende identificar o tempo gasto pelos utilizadores jogar jogos, iniciados pela sua empresa. 
