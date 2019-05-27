@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
 ms.openlocfilehash: ff8f8c6656c4cd095749b3e048c72572d113f1ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60400489"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015255"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordenar dispositivo eventos de ligação do IoT Hub com o Azure Cosmos DB
 
@@ -154,7 +154,7 @@ Primeiro, crie uma aplicação lógica e adicione um acionador do Event Grid que
 
 4. No Estruturador da aplicação lógica, desloque-se à direita até ver acionadores comuns. Sob **modelos**, escolha **aplicação lógica em branco** para que pode criar a sua aplicação do zero.
 
-### <a name="select-a-trigger"></a>Selecionar um acionador
+### <a name="select-a-trigger"></a>Selecione um acionador
 
 Um acionador é um evento específico que inicia a sua aplicação lógica. Neste tutorial, o acionador que desencadeia o fluxo de trabalho está a receber um pedido através de HTTP.
 

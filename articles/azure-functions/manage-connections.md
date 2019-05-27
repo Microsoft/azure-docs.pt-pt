@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 69425129d5f049254a60032283ddc6ca2ab84d5c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785966"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872697"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gerir ligações nas funções do Azure
 
@@ -21,9 +21,9 @@ As funções numa aplicação de funções partilham recursos. Entre esses recur
 
 ## <a name="connection-limit"></a>Limite de ligação
 
-O número de ligações disponíveis é limitado em parte porque uma aplicação de funções é executado num [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que impõe de área de segurança no seu código é um limite no número de ligações (atualmente em 600 ligações ativas e total de 1200 ligações) por instância. Quando atingir este limite, o runtime das funções cria um registo com a seguinte mensagem: `Host thresholds exceeded: Connections`.
+O número de ligações disponíveis é limitado em parte porque uma aplicação de funções é executado num [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Uma das restrições que impõe de área de segurança no seu código é um limite no número de ligações de saída, que atualmente é de 600 por instância de ligações (total de 1200) ativas. Quando atingir este limite, o runtime das funções escreve a seguinte mensagem nos registos: `Host thresholds exceeded: Connections`. Para obter mais informações, consulte a [limites de serviço de funções](functions-scale.md#service-limits).
 
-Este limite é por instância.  Quando o [controlador de escala adiciona instâncias de aplicações de função](functions-scale.md#how-the-consumption-and-premium-plans-work) para processar mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não tem qualquer limite de ligações globais, e pode ter muito mais de 600 ligações ativas em todas as instâncias de Active Directory.
+Este limite é por instância. Quando o [controlador de escala adiciona instâncias de aplicações de função](functions-scale.md#how-the-consumption-and-premium-plans-work) para processar mais pedidos, cada instância tem um limite de ligação independente. Isso significa que não tem qualquer limite de ligações globais, e pode ter muito mais de 600 ligações ativas em todas as instâncias de Active Directory.
 
 Quando a resolução de problemas, certifique-se de que ativou o Application Insights para a sua aplicação de função. O Application Insights permite-lhe ver as métricas para as suas aplicações de função como execuções. Para obter mais informações, consulte [ver a telemetria no Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
 

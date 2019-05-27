@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 459758142c94ddfd244df1427dd5632186efc0de
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05fb277564f72e62a4cdacc12a16cce229b2befc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61045852"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872748"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Dimensionamento de funções do Azure e alojamento
 
@@ -165,3 +165,9 @@ Faturação para o plano de consumo é descrito detalhadamente sobre o [funçõe
 Consultas úteis e informações sobre como compreender a sua fatura de consumo podem ser encontradas [nas FAQ do faturação](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ).
 
 [Funções do Azure, página de preços]: https://azure.microsoft.com/pricing/details/functions
+
+## <a name="service-limits"></a>Limites do serviço
+
+A tabela seguinte indica os limites que se aplicam às aplicações de função quando em execução nos vários planos de alojamento:
+
+[!INCLUDE [functions-limits](../../includes/functions-limits.md)]

@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: ace42278269ff6af31902dbecead81329815af12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333575"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111100"
 ---
 ## <a name="create-a-topic-using-the-azure-portal"></a>Criar um tópico com o portal do Azure
 1. Sobre o **espaço de nomes do Service Bus** página, selecione **tópicos** no menu da esquerda.

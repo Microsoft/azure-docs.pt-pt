@@ -7,14 +7,14 @@ manager: vijayts
 keywords: restaurar cópia de segurança; como restaurar; ponto de recuperação;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 05/08/2019
 ms.author: geg
-ms.openlocfilehash: b0408aa296dcbff0c73f2c192e24c290d51fec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 19b249a76a339ce870609fbcdceaf70bf79a6ea2
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60647824"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65906501"
 ---
 # <a name="restore-azure-vms"></a>Restaurar as VMs do Azure
 
@@ -22,20 +22,36 @@ Este artigo descreve como restaurar dados de VM do Azure a partir dos pontos de 
 
 
 
-### <a name="restore-options"></a>Opções de restauro
+## <a name="restore-options"></a>Opções de restauro
 
 Cópia de segurança do Azure fornece várias formas para restaurar uma VM.
 
 **Opção de restaurar** | **Detalhes**
 --- | ---
-**Criar uma nova VM** | Cria e obtém uma VM básica em execução de um ponto de restauro rapidamente.<br/><br/> Pode especificar um nome para a VM, selecione o grupo de recursos e a rede virtual (VNet) no qual será efetuada e especificar um tipo de armazenamento.
-**Restaurar disco** | Restaura um disco VM que, em seguida, pode ser utilizado para criar uma nova VM.<br/><br/> Cópia de segurança do Azure fornece um modelo para o ajudar a personalizar e criar uma VM. <br/><br/> Esta opção copia o VHD para a conta de armazenamento especificada. A tarefa de restauro gera um modelo que pode transferir e utilizar para especificar definições de VM personalizadas e criar uma VM.<br/><br/> A conta de armazenamento deve estar na mesma localização que o cofre. Se não tiver uma, crie uma conta de armazenamento.<br/><br/> O tipo de replicação de conta de armazenamento é apresentado. Armazenamento com redundância de zona (ZRS) não é suportado.<br/><br/> Em alternativa, pode anexar o disco a uma VM existente ou crie uma nova VM com o PowerShell.<br/><br/> Esta opção é útil se pretender personalizar a VM, adicionar as definições de configuração que não estavam lá no momento da cópia de segurança ou adicionar as definições que tem de ser configuradas com o modelo ou o PowerShell.
-**Substituir a existente** | Pode restaurar um disco e utilizá-lo para substituir um disco na VM existente.<br/><br/> A VM atual tem de existir. Se é eliminado esta opção não pode ser utilizada.<br/><br/> O Azure Backup tira um instantâneo da VM existente antes de substituir o disco. O instantâneo é armazenado no que especifique a localização de transição. Discos existentes ligados à VM, em seguida, são substituídos com o ponto de restauro selecionado.<br/><br/> O instantâneo que foi tirado é copiado para o Cofre e mantido de acordo com a política de retenção especificado. <br/><br/> Substituir existente é suportada para VMs geridas não encriptadas. Não é suportado para discos não geridos, [generalizada VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), ou para VMs [criado usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauro mais ou menos tem discos que a VM atual, o número de discos no ponto de restauro apenas irá refletir a configuração da VM.<br/><br/>
+**Criar uma nova VM** | Cria e obtém uma VM básica em execução de um ponto de restauro rapidamente.<br/><br/> Pode especificar um nome para a VM, selecione o grupo de recursos e a rede virtual (VNet) no qual será efetuada e especificar uma conta de armazenamento para a VM restaurada.
+**Restaurar disco** | Restaura um disco VM que, em seguida, pode ser utilizado para criar uma nova VM.<br/><br/> Cópia de segurança do Azure fornece um modelo para o ajudar a personalizar e criar uma VM. <br/><br> A tarefa de restauro gera um modelo que pode transferir e utilizar para especificar definições de VM personalizadas e criar uma VM.<br/><br/> Os discos são copiados para a conta de armazenamento especificada.<br/><br/> Em alternativa, pode anexar o disco a uma VM existente ou crie uma nova VM com o PowerShell.<br/><br/> Esta opção é útil se pretender personalizar a VM, adicionar as definições de configuração que não estavam lá no momento da cópia de segurança ou adicionar as definições que tem de ser configuradas com o modelo ou o PowerShell.
+**Substituir a existente** | Pode restaurar um disco e utilizá-lo para substituir um disco na VM existente.<br/><br/> A VM atual tem de existir. Se é eliminado esta opção não pode ser utilizada.<br/><br/> O Azure Backup tira um instantâneo da VM existente antes de substituir o disco e armazena-os em que especifique a localização de transição. Discos existentes ligados à VM são substituídos pelo ponto de restauro selecionado.<br/><br/> O instantâneo é copiado para o Cofre e mantido de acordo com a política de retenção. <br/><br/> Substituir existente é suportada para VMs geridas não encriptadas. Não é suportado para discos não geridos, [generalizada VMs](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource), ou para VMs [criado usando imagens personalizadas](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Se o ponto de restauro mais ou menos tem discos que a VM atual, o número de discos no ponto de restauro apenas irá refletir a configuração da VM.<br/><br/>
+
 
 > [!NOTE]
 > Também pode recuperar arquivos específicos e pastas numa VM do Azure. [Saiba mais](backup-azure-restore-files-from-vm.md).
 >
 > Se estiver a executar o [versão mais recente](backup-instant-restore-capability.md) de Azure Backup para VMs do Azure (conhecido como restaurar instantânea), os instantâneos são mantidos até sete dias e pode restaurar uma VM a partir de instantâneos antes dos dados de cópia de segurança são enviados para o cofre. Se quiser restaurar uma VM a partir de uma cópia de segurança dos últimos sete dias, é mais rápido restaurar a partir do instantâneo e não a partir do cofre.
+
+## <a name="storage-accounts"></a>Contas de armazenamento
+
+Alguns detalhes sobre as contas de armazenamento:
+
+- **Criar VM**: Quando cria uma nova VM, a VM será colocada na conta de armazenamento que especificar.
+- **Restaurar disco**: Quando restaurar um disco, o disco é copiado para a conta de armazenamento especificada. A tarefa de restauro gera um modelo que pode transferir e utilizar para especificar definições de VM personalizadas. Este modelo é colocado numa conta de armazenamento especificada.
+- **Substituir disco**: Se substituir um disco numa VM existente, o Azure Backup tira um instantâneo da VM existente antes de substituir o disco. O instantâneo é armazenado na localização de transição (conta de armazenamento) que especificar. Esta conta de armazenamento é utilizada para armazenar temporariamente o instantâneo durante o processo de restauração e recomendamos que crie uma nova conta para o fazer, que pode ser facilmente removida posteriormente.
+- **Localização da conta de armazenamento** : A conta de armazenamento tem de ser na mesma região que o cofre. São apresentadas apenas essas contas. Se não existirem não existem contas de armazenamento no local, terá de criar uma.
+- **Tipo de armazenamento** : Armazenamento de BLOBs não é suportado.
+- **Redundância de armazenamento**: Armazenamento com redundância de zona (ZRS) não é suportado. As informações de replicação e a redundância para a conta são mostradas em parênteses depois do nome de conta. 
+- **O armazenamento Premium**:
+    - Durante a restauração de VMs não premium, não são suportadas contas de armazenamento premium.
+    - Quando restaurar gerido de VMs, não são suportadas contas de armazenamento premium configuradas com regras de rede.
+
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -73,7 +89,7 @@ Como um da [opções de restauro](#restore-options), pode criar rapidamente uma 
 2. Na **nome da Máquina Virtual**, especifique uma VM que não existe na subscrição.
 3. Na **grupo de recursos**, selecione o grupo de recursos existente para a nova VM, ou criar um novo com um nome globalmente exclusivo. Se atribuir um nome que já existe, o Azure atribui o grupo do mesmo nome que a VM.
 4. Na **rede Virtual**, selecione a VNet na qual a VM será realizada. São apresentadas todas as VNets associadas à subscrição. Selecione a sub-rede. A primeira sub-rede está selecionada por predefinição.
-5. Na **localização de armazenamento**, especifique o tipo de armazenamento para a VM.
+5. Na **localização de armazenamento**, especifique a conta de armazenamento para a VM. [Saiba mais](#storage-accounts).
 
     ![Restaurar o Assistente de configuração](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
@@ -90,7 +106,7 @@ Como um da [opções de restauro](#restore-options), é possível criar um disco
 
 1. Na **configuração do restauro** > **criar novo** > **restaurar tipo**, selecione **restaurar discos**.
 2. Na **grupo de recursos**, selecione um grupo de recursos existente para os discos restaurados ou criar um novo com um nome globalmente exclusivo.
-3. Na **conta de armazenamento**, especifique a conta ao qual pretende copiar os VHDs. Certifique-se que a conta está na mesma região que o cofre.
+3. Na **conta de armazenamento**, especifique a conta ao qual pretende copiar os VHDs. [Saiba mais](#storage-accounts).
 
     ![Configuração de recuperação concluída](./media/backup-azure-arm-restore-vms/trigger-restore-operation1.png)
 
@@ -125,7 +141,7 @@ Como um da [opções de restauro](#restore-options), pode substituir um disco VM
 
 1. Na **configuração do restauro**, clique em **substituir a existente**.
 2. Na **restaurar tipo**, selecione **substitua/s de disco**. Este é o ponto de restauro que serão utilizados substituir discos de VM existentes.
-3. Na **localização de transição**, especifique onde os instantâneos dos discos geridos atuais deverá ser guardados.
+3. Na **localização de transição**, especifique onde os instantâneos dos discos geridos atuais devem ser salvos durante o processo de restauração. [Saiba mais](#storage-accounts).
 
    ![Restaurar o Assistente de configuração substituir existente](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
 

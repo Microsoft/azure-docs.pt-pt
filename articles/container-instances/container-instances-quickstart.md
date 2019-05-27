@@ -9,11 +9,11 @@ ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
 ms.openlocfilehash: 8e504a081f8685107871aed920077dd75a70dfa7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65908100"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início rápido: Implementar uma instância de contentor no Azure com a CLI do Azure
 

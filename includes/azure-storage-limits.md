@@ -9,15 +9,15 @@ ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: ee9b70827c19236287f81f66f4b9c6e1004a54fd
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59532718"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114517"
 ---
 A tabela seguinte descreve os limites predefinidos para o Azure para fins gerais v1, v2 e contas de armazenamento de Blobs. O *entrada* limite refere-se a todos os dados de pedidos que são enviados para uma conta de armazenamento. O *saída* limite refere-se a todos os dados de respostas que são recebidas a partir de uma conta de armazenamento.
 
-| Recurso | Limite predefinido |
+| Resource | Limite predefinido |
 | --- | --- |
 | Número de contas de armazenamento por região por subscrição, incluindo contas standard e premium | 250 |
 | Capacidade de conta de armazenamento máximo | 2 PB para E.U.A. e Europa, 500 TB para todas as outras regiões, que inclui o Reino Unido |

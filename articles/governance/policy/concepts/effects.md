@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 67a195932ad1afc3c93a94dfcbda8ab8a47760b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6ad6f9414df17f9edff7565752ef3845e0d3c88e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498820"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116194"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreenda os efeitos de política do Azure
 
@@ -30,7 +30,7 @@ Atualmente, existem seis efeitos que são suportados numa definição de políti
 
 ## <a name="order-of-evaluation"></a>Ordem de avaliação
 
-Pedidos para criar ou atualizar um recurso através do Gestor de recursos do Azure são avaliados primeiro pela política. Política cria uma lista de todas as atribuições de que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. Política processa vários dos efeitos antes de entregar o pedido para o fornecedor de recursos apropriado. Se o fizer, impede o processamento desnecessária por um fornecedor de recursos quando um recurso não cumpre os controlos de governação projetado de política.
+Pedidos para criar ou atualizar um recurso através do Gestor de recursos do Azure são avaliados pelo Azure Policy em primeiro lugar. Política do Azure cria uma lista de todas as atribuições de que se aplicam ao recurso e, em seguida, avalia o recurso em relação a cada definição. Política do Azure processa vários dos efeitos antes de entregar o pedido para o fornecedor de recursos apropriado. Se o fizer, impede o processamento desnecessária por um fornecedor de recursos quando um recurso não cumpre os controlos de governação projetado de política do Azure.
 
 - **Desativado** será verificado primeiro para determinar se a regra de política deve ser avaliada.
 - **Acrescentar** , em seguida, é avaliada. Acrescentar uma vez que pode alterar o pedido, uma alteração efetuada pelo acréscimo pode impedir que uma auditoria ou negar o efeito de acionar.
@@ -88,8 +88,7 @@ Exemplo 2: Dois **campo/valor** pares para acrescentar um conjunto de marcas.
 }
 ```
 
-Exemplo 3: Único **valor do campo** emparelhe com um não -**[\*]**
-[alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP num conta de armazenamento. Quando o não -**[\*]** alias é uma matriz, o efeito acrescenta o **valor** como a matriz de inteira. Se a matriz de já existir, ocorre um evento de negação do conflito.
+Exemplo 3: Único **valor do campo** emparelhe com um não -**[\*]** [alias](definition-structure.md#aliases) com uma matriz **valor** para definir regras IP numa conta de armazenamento. Quando o não -**[\*]** alias é uma matriz, o efeito acrescenta o **valor** como a matriz de inteira. Se a matriz de já existir, ocorre um evento de negação do conflito.
 
 ```json
 "then": {
@@ -119,7 +118,7 @@ Exemplo 4: Único **valor do campo** emparelhe com um **[\*]** [alias](definitio
 }
 ```
 
-## <a name="deny"></a>Negar
+## <a name="deny"></a>Recusar
 
 Negar serve para impedir que um pedido de recurso que não corresponde aos padrões definidos por meio de uma definição de política e o pedido de falha.
 
@@ -149,7 +148,7 @@ Auditoria é utilizada para criar um evento de aviso no registo de atividades, a
 
 ### <a name="audit-evaluation"></a>Avaliação de auditoria
 
-Auditoria é o efeito de última verificado pela política durante a criação ou atualização de um recurso. Política, em seguida, envia o recurso para o fornecedor de recursos. Auditoria funciona da mesma para um pedido de recurso e um ciclo de avaliação. A política de adiciona um `Microsoft.Authorization/policies/audit/action` operação ao registo de atividades e marca o recurso como não conforme.
+Auditoria é o efeito de última verificado pelo Azure Policy durante a criação ou atualização de um recurso. O Azure Policy, em seguida, envia o recurso para o fornecedor de recursos. Auditoria funciona da mesma para um pedido de recurso e um ciclo de avaliação. O Azure Policy adiciona um `Microsoft.Authorization/policies/audit/action` operação ao registo de atividades e marca o recurso como não conforme.
 
 ### <a name="audit-properties"></a>Propriedades de auditoria
 
@@ -171,7 +170,7 @@ AuditIfNotExists permite a auditoria em recursos que correspondam a **se** condi
 
 ### <a name="auditifnotexists-evaluation"></a>Avaliação de AuditIfNotExists
 
-AuditIfNotExists é executado depois de um fornecedor de recursos tratou de um pedido de recurso de criar ou atualizar e devolveu um código de estado de êxito. A auditoria ocorre se existirem não existem recursos relacionados a ou se os recursos definidos pelo **ExistenceCondition** não avaliadas como verdadeiras. A política de adiciona um `Microsoft.Authorization/policies/audit/action` operação para a atividade iniciar da mesma forma como o efeito de auditoria. Quando acionado, o recurso que satisfeitos os **se** condição é o recurso que está marcado como não conforme.
+AuditIfNotExists é executado depois de um fornecedor de recursos tratou de um pedido de recurso de criar ou atualizar e devolveu um código de estado de êxito. A auditoria ocorre se existirem não existem recursos relacionados a ou se os recursos definidos pelo **ExistenceCondition** não avaliadas como verdadeiras. O Azure Policy adiciona um `Microsoft.Authorization/policies/audit/action` operação para a atividade iniciar da mesma forma como o efeito de auditoria. Quando acionado, o recurso que satisfeitos os **se** condição é o recurso que está marcado como não conforme.
 
 ### <a name="auditifnotexists-properties"></a>Propriedades de AuditIfNotExists
 
@@ -300,7 +299,7 @@ Exemplo: Avalia a bases de dados do SQL Server para determinar se transparentDat
         "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
         "name": "current",
         "roleDefinitionIds": [
-            "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+            "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
             "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
         ],
         "existenceCondition": {
@@ -369,9 +368,9 @@ Cada atribuição individualmente é avaliada. Como tal, existem não é uma opo
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md)
-- Reveja o [estrutura de definição de política](definition-structure.md)
-- Compreender como [criar políticas programaticamente](../how-to/programmatically-create.md)
-- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md)
-- Saiba como [remediar recursos não compatíveis](../how-to/remediate-resources.md)
-- Rever o que é um grupo de gestão, com [Organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md)
+- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md).
+- Reveja a [estrutura de definição do Azure Policy](definition-structure.md).
+- Compreender como [criar políticas programaticamente](../how-to/programmatically-create.md).
+- Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
+- Saiba como [remediar recursos incompatíveis](../how-to/remediate-resources.md).
+- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md).

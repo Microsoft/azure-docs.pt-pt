@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Desenvolvimento rápido de Kubernetes com contentores, microsserviços e Java no Azure
 keywords: Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Java, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s
 manager: jeconnoc
-ms.openlocfilehash: f39fc0a7094941bb44fbe717879b3a2179c3be25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 26efa17ee699aed87ecfbbd21e7880e7538de4ea
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65800873"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979116"
 ---
 # <a name="quickstart-develop-with-java-on-kubernetes-using-azure-dev-spaces"></a>Início rápido: Programar com Java no Kubernetes com espaços de desenvolvimento do Azure
 
@@ -41,7 +41,7 @@ Tem de criar um cluster do AKS numa [suportada região](https://docs.microsoft.c
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-vm-size Standard_DS2_v2 --node-count 1 --disable-rbac --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Ativar os espaços de desenvolvimento do Azure no seu cluster do AKS
@@ -122,7 +122,7 @@ Se parar a `azds up` através de comandos *Ctrl + c*, o serviço continua em exe
 Para implementar uma versão atualizada do seu serviço, pode atualizar qualquer arquivo em seu projeto e execute novamente o `azds up` comando. Por exemplo:
 
 1. Se `azds up` ainda está em execução, prima *Ctrl + c*.
-1. Atualização [linha 16 no `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L16) para:
+1. Atualização [linha 19 no `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) para:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -178,17 +178,17 @@ Clique em *depurar* , em seguida, *parar depuração* para parar o depurador.
 
 Inicie o serviço no usando o modo de depuração *programa iniciar de Java (AZDS)*.
 
-Navegue de volta para o *Explorer* vista clicando *vista* , em seguida, *Explorer*. Abra `src/main/java/com/ms/sample/webfrontend/Application.java` e clique em algum lugar na linha 16 para colocar o cursor aqui. Para definir um ponto de interrupção atingido *F9* ou clique em *depurar* , em seguida, *Ativar/desativar ponto de interrupção*.
+Navegue de volta para o *Explorer* vista clicando *vista* , em seguida, *Explorer*. Abra `src/main/java/com/ms/sample/webfrontend/Application.java` e clique em algum lugar na linha 19 para colocar o cursor aqui. Para definir um ponto de interrupção atingido *F9* ou clique em *depurar* , em seguida, *Ativar/desativar ponto de interrupção*.
 
-Abra o serviço num navegador e que nenhuma mensagem será exibida. Regresse ao Visual Studio Code e observe a linha 16 é realçada. Definir o ponto de interrupção foi colocado em pausa o serviço na linha 16. Para retomar o serviço, pressionar *F5* ou clique em *depurar* , em seguida, *continuar*. Regresse ao seu navegador e tenha em atenção que agora é apresentada a mensagem.
+Abra o serviço num navegador e que nenhuma mensagem será exibida. Regresse ao Visual Studio Code e observe a linha 19 é realçada. Definir o ponto de interrupção foi colocado em pausa o serviço na linha 19. Para retomar o serviço, pressionar *F5* ou clique em *depurar* , em seguida, *continuar*. Regresse ao seu navegador e tenha em atenção que agora é apresentada a mensagem.
 
 Enquanto executa o seu serviço no Kubernetes com um depurador anexado, tem acesso total ao depurar informações como a pilha de chamadas, variáveis locais e informações de exceção.
 
-Remover o ponto de interrupção ao colocar o cursor na linha 16 `src/main/java/com/ms/sample/webfrontend/Application.java` e pressionando *F9*.
+Remover o ponto de interrupção ao colocar o cursor na linha 19 na `src/main/java/com/ms/sample/webfrontend/Application.java` e pressionando *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Atualizar o código do Visual Studio Code
 
-Enquanto o serviço está em execução no modo de depuração, atualizar linha 16 no `src/main/java/com/ms/sample/webfrontend/Application.java`. Por exemplo:
+Enquanto o serviço está em execução no modo de depuração, atualizar a linha 19 no `src/main/java/com/ms/sample/webfrontend/Application.java`. Por exemplo:
 ```java
 return "Hello from webfrontend in Azure while debugging!";
 ```

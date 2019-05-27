@@ -13,32 +13,35 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: 056ece53fa154e86cf0b5f5fb24a8842cf5a4261
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45b5d2c94a72cb23ef2b4a8db100623b0c58b0a9
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60617729"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66023406"
 ---
-# <a name="resolve-past-due-balance-for-your-azure-subscription-after-getting-an-email-from-azure"></a>Resolver em atraso saldo para a sua subscrição do Azure após obter uma mensagem de e-mail do Azure
+# <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Resolver em atraso saldo para a sua subscrição do Azure
 
-Se o pagamento não é recebido ou se não foi possível processar o pagamento, poderá receber um e-mail ou ver um alerta no portal do Centro de contas ou do Azure. A mensagem pode ser, como:
+Se o pagamento não é recebido ou se não foi possível processar o pagamento, poderá receber um e-mail ou ver um alerta no portal do Azure ou centro de contas.
+Se estiver a [conta de administrador](billing-subscription-transfer.md#whoisaa), pode resolver as cobranças por liquidar [portal do Azure](https://portal.azure.com). Se estiver num modo de nota fiscal de pagamento, envie o pagamento para a localização listada na parte inferior da sua fatura.
 
-**Podemos ter sido não é possível a debitar o cartão de crédito para a sua subscrição. Para evitar interrupções de serviço, Atualize as informações de pagamento.**
+> [!IMPORTANT]
+> * Se tiver várias subscrições com o cartão de crédito e eles estão todos em atraso, terá de pagar o saldo pendente todo ao mesmo tempo.
+> * O instrumento de pagamento que utiliza para liquidar as cobranças por liquidar se tornará o novo método de pagamento ativo para todas as subscrições que estivesse usando o método de pagamento com falha.
 
-Siga os passos no artigo para resolver passado saldo vencimento.
+## <a name="resolve-past-due-balance-in-the-azure-portal"></a>Resolver em atraso saldo no portal do Azure
 
-## <a name="resolve-the-past-due-balance"></a>Resolver passado vencimento de saldo
-
-* Se o cartão de crédito no ficheiro for recusado ou expirou, [alterar o cartão de crédito utilizado para pagar a subscrição](billing-how-to-change-credit-card.md) ou contacte o seu banco para resolver o problema. Quando atualizar o método de pagamento, o Azure processa imediatamente o pagamento para todas as cobranças por liquidar. Pagamento também é processado para quaisquer outros serviços da Microsoft em que tenha encargos pendentes.
-
-* Se estiver num modo de nota fiscal de pagamento, envie o pagamento para a localização listada na parte inferior da sua fatura. Se precisar de ajuda, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
-* Se não vir uma fatura, porque o administrador de conta saiu da empresa ou mudou de função, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.
-
-* Se souber o pagamento foi processado, mas a sua subscrição ainda está desativada, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com) como administrador de conta.
+1. Pesquisar nos **custo Management + faturação**.
+1. Na página Descrição geral, verá uma lista das suas subscrições. Se o estado da subscrição em atraso, clique nas **liquidar Saldo** ligação.
+    ![Captura de ecrã que mostra liquidar link de saldo](./media/billing-azure-subscription-past-due-balance/settle-balance-entry-point.png)
+1. O saldo pendente total reflete-se Cobranças por liquidar em todos os serviços da Microsoft com o método de pagamento com falha.
+1. Selecione um método de pagamento para pagar o saldo. Este método de pagamento se tornará o método de pagamento ativo para todas as subscrições que atualmente a utilizar o método de pagamento com falha.
+    ![Captura de ecrã que mostra o link do método de pagamento selecione](./media/billing-azure-subscription-past-due-balance/settle-balance-screen.png)
+1. Se o método de pagamento selecionado também tem Cobranças por liquidar para serviços da Microsoft, isso se refletirá no saldo total pendente. As cobranças por liquidar, terá de pagar demasiado.
+1. Clique em **pagar**.
 
 ## <a name="not-getting-billing-email-notifications"></a>Não a obter notificações de e-mail de faturação?
 
@@ -47,6 +50,8 @@ Se for o administrador de conta [que endereço de e-mail é utilizado para notif
 ## <a name="if-i-forget-to-pay-what-happens"></a>Se eu me esquecer a pagar, o que acontece?
 
 O serviço é cancelado e seus recursos já não estão disponíveis. Seus dados do Azure são eliminados 90 dias após o serviço é encerrado. Para obter mais informações, consulte [Microsoft Trust Center - como podemos gerir os seus dados](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
+
+Se souber o pagamento foi processado, mas a sua subscrição ainda está desativada, contacte [suporte do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
 

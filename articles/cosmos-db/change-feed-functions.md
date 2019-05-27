@@ -4,15 +4,15 @@ description: Utilização que do Azure Cosmos DB alterar feed com as funções d
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 18780deba1910b3ea77f7313bfb6d204dacabd82
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 08429ca76823b9e6c80a197cc390a5964c4198e6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692762"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969006"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas sem servidor com base em eventos com o Azure Cosmos DB e as funções do Azure
 

@@ -2,19 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-network
-author: rockboyfor
+author: jimdial
 ms.service: virtual-network
 ms.topic: include
-origin.date: 03/11/2018
-ms.date: 04/02/2018
-ms.author: v-yeche
+ms.date: 03/11/2018
+ms.author: jdial
 ms.custom: include file
 ms.openlocfilehash: d1d75b51ee008a9d8c86dce003a98a820c83cef9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597038"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116841"
 ---
 > [!div class="op_single_selector"]
 > * [Portal do Azure](../articles/virtual-network/quick-create-portal.md)
@@ -23,4 +22,3 @@ ms.locfileid: "60597038"
 > * [Portal do Azure (clássico)](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md)
 > * [PowerShell (Clássico)](../articles/virtual-network/virtual-networks-create-vnet-classic-netcfg-ps.md)
 > * [CLI do Azure (clássico)](../articles/virtual-network/virtual-networks-create-vnet-classic-cli.md)
-<!--ms.date: 04/02/2018 -->

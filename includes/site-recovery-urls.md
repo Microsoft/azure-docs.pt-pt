@@ -8,20 +8,20 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: ae8eebf9667f2bc03fdc1082fb38c19c5c645c10
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: f4cd9cad3813378fcdc3f06e8ab1c28eced4f93c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060880"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116040"
 ---
-**Nome** | **URL comercial**  | **URL de Governo** | **Descrição** |
+Name | URL comercial | URL de Governo | Descrição
 --- | --- | --- | ---
-Azure AD | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Utilizado para gestão de identidades e controlo de acesso através do AAD 
-Cópia de segurança | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Utilizado para transferência de dados de replicação e coordenação 
-Replicação | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Utilizado para operações de gestão de replicação e coordenação 
-Armazenamento | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Utilizado para acesso à conta de armazenamento que armazena dados replicados 
-Telemetria (opcional) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Utilizado para a telemetria 
-Sincronização de hora | ``time.windows.com`` | ``time.nist.gov`` | Ssed para verificar a sincronização de hora entre o sistema e a hora global em todas as implementações.
+Azure Active Directory | ``login.microsoftonline.com`` | ``login.microsoftonline.us`` | Utilizado para gestão de identidades e de controlo de acesso com o Azure Active Directory. 
+Criar cópia de segurança | ``*.backup.windowsazure.com`` | ``*.backup.windowsazure.us`` | Utilizado para transferência de dados de replicação e orquestração.
+Replicação | ``*.hypervrecoverymanager.windowsazure.com`` | ``*.hypervrecoverymanager.windowsazure.us``  | Utilizado para operações e coordenação de gestão de replicações.
+Armazenamento | ``*.blob.core.windows.net`` | ``*.blob.core.usgovcloudapi.net``  | Utilizado para acesso à conta de armazenamento que armazena os dados replicados.
+Telemetria (opcional) | ``dc.services.visualstudio.com`` | ``dc.services.visualstudio.com`` | Utilizado para a telemetria.
+Sincronização de hora | ``time.windows.com`` | ``time.nist.gov`` | Usado para verificar a sincronização da hora entre o sistema e a hora global em todas as implementações.
 
 

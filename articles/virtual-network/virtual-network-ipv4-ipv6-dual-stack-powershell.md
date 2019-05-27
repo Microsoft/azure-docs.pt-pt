@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/22/2019
 ms.author: kumud
-ms.openlocfilehash: f26391e36e3208996160fffad01e39ec2f182318
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a9f8066896134072665c3f5b325e033b638bf094
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62130971"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001001"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Implementar uma aplicação de pilha dupla de IPv6 no Azure - PowerShell (pré-visualização)
 
@@ -149,9 +149,9 @@ $lbrule_v6 = New-AzLoadBalancerRuleConfig `
   -BackendPort 80
 ```
 
-### <a name="create-load-balancer"></a>Criar um balanceador de carga
+### <a name="create-load-balancer"></a>Criar balanceador de carga
 
-Criar o Balanceador de carga básico com [novo AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um básica Balanceador de carga público com o nome *myLoadBalancer* usar as configurações de IP de front-end IPv4 e IPv6, os conjuntos de back-end, sondas de estado de funcionamento, balanceamento de carga regras e NAT, regras que criou no passos anteriores:
+Criar o Balanceador de carga básico com [novo AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer). O exemplo seguinte cria um básica Balanceador de carga público com o nome *myLoadBalancer* usando o IP de front-end IPv4 e IPv6 configurações, conjuntos de back-end e regras de balanceamento de carga que criou nos passos anteriores:
 
 ```azurepowershell-interactive
 $lb = New-AzLoadBalancer `

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 1f3ae120bbbb902188d893d5a04582a6e9547bdf
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 297a6f9058b220d1f2e3a0ca69d018858218b774
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64937951"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909717"
 ---
 # <a name="your-marketplace-benefits"></a>Os benefícios do Marketplace
 
@@ -34,11 +34,7 @@ Os benefícios Go-to-Market estão acessíveis aos parceiros que publicou recent
 2. Consultoria de Marketplaces da Microsoft: Tirar partido disto [consultoria gratuita](https://support.microsoft.com/help/4010317/microsoft-marketplaces-consultation) para ajudar a planear a arquitetura da sua aplicação no marketplace.
 3. Fóruns do Marketplace: Colocar as suas questões diretamente para os funcionários da Microsoft e outros parceiros do marketplace no [fórum Marketplace](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222).
 4. Suporte técnico: Utilize o menu de ajuda na [Cloud Partner Portal](https://cloudpartner.azure.com/) para obter ajuda sobre suas perguntas de suporte relacionado com o marketplace. 
-5. Patrocínio de testes de desenvolvimento: Consultar elegibilidade abaixo e submeter o seu pedido de patrocínio a utilizar o [formulário de Registro](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3omd2bW7etLoEoufw2-vMdUNUkxSjQ5V0hJOEtZSks3ME45TDJNTkVUTi4u):
-    * Desenvolvimento e teste são para fins de publicação no Azure Marketplace.
-    * O financiamento não pode ser utilizado para qualquer outra finalidade.
-    * O prémio é de US $5.000 durante 90 dias de utilização, a partir de quando a primeira ação é tirada na subscrição atribuída.
-    * A aplicação que está sendo testada tem de aceder ao vivo no Azure Marketplace dentro de 30 dias do último dia de financiamento: Por exemplo, se tal financiamento for utilizada a partir de 1º de Dezembro, em seguida, a aplicação tem de estar ativa por 31 de Março.
+5. Integração do AAD e o desenvolvimento e teste de patrocínio: será excluído quando vai em direto com uma transactable (implementável e cobrar oferta). Veja a secção seguinte para saber como começar com benefícios go-to-market.
 
 ## <a name="go-to-market-gtm-benefits-in-the-marketplace"></a>Benefícios Go-to-market (GTM) no Marketplace
 
@@ -46,8 +42,8 @@ As novas listagens no Azure Marketplace e AppSource são elegíveis para receber
 
 | Loja | Benefícios disponíveis adicionais |
 |:--- |:--- |
-| AppSource |  Parceiros da Microsoft Gold <br> Aplicações de avaliação |
-| O Azure Marketplace | Transact ofertas <br> Ofertas de avaliação |
+| AppSource |  Parceiros da Microsoft Gold <br> Transact ofertas – remunerações do Marketplace <br> Aplicações de avaliação |
+| O Azure Marketplace | Transact ofertas – remunerações do Marketplace <br> Ofertas de avaliação |
 
 O suporte GTM inclui modelos, conteúdo da web, treinamento e ferramentas para promover o seu negócio.
 
@@ -56,18 +52,22 @@ Para aceder a esses benefícios, precisará para:
 1. Publicar uma oferta no Azure Marketplace ou no AppSource.
 2. Certifique-se de que introduziu um contacto marketing a **informações de contacto** parte da sua oferta. Deve ser um recurso de marketing dedicado, em vez de um alias de catch-all. (ou seja, evitar o uso de "suportam\@", "informações\@", "marketing\@", etc.)
 
-Com base no seu estado de solução, oferta, a lista, versão de avaliação ou Transact, receberá um email com recursos de ajuda autónoma, ou um convite para uma chamada de consultoria com um Gestor de envolvimento dedicado. Não é necessário fazer nada para iniciar a chamada — a equipa de integração do Marketplace irá contactá-lo com base nas informações que fornecer no [Cloud Partner Portal](https://cloudpartner.azure.com/).
+Com base no seu estado de solução, oferta, a lista, versão de avaliação ou Transact – remunerações do Marketplace, receberá um email com recursos de ajuda autónoma, ou um convite para uma chamada de consultoria com um Gestor de envolvimento dedicado. Não é necessário fazer nada para iniciar a chamada — a equipa de integração do Marketplace irá contactá-lo com base nas informações que fornecer no [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
-O âmbito das atividades disponíveis para expande-se à medida que cresce suas ofertas no marketplace. Todas as listagens recebem um nível base de recomendações de Otimização e à promoção.  Estas listas também são elegíveis para benefícios adicionais de marketing com base no estado de solução (lista, versão de avaliação ou Transact), escolhido marketplace e medalha de competência de parceiro da Microsoft.
+O âmbito das atividades disponíveis para expande-se à medida que cresce suas ofertas no marketplace. Todas as listagens recebem um nível base de recomendações de Otimização e à promoção.  Estas listas também são elegíveis para benefícios adicionais de marketing com base no mercado de estado (lista, versão de avaliação ou Transact - remunerações de marketplace), escolhido de solução e medalha de competência de parceiro da Microsoft.
 
-A tabela a seguir resumem os requisitos de elegibilidade:
+A tabela a seguir resumem os requisitos de elegibilidade de lista e ofertas de avaliação:
 
-![](./media/marketplace-publishers-guide/gtm-activities-table.png)
+![](./media/marketplace-publishers-guide/gtm-eligibility-requirements.png)
 
 \* Necessita de competência silver ou gold. <br>
 \*\* Requer a competência gold. <br>
 \*\*\* Requer a competência gold e venda conjunta pronto em listagens de parceiros. <br>
 ^ Apenas, transact aplicável ao Azure Marketplace.
+
+## <a name="marketplace-rewards-for-transact-partners"></a>Remunerações de mercado para os parceiros de transact
+
+A lista completa de vantagens para as remunerações de marketplace pode ser visualizada no [resumos de slides do programa](https://onedrive.live.com/view.aspx?resid=1900675C97CA6FE0!630&ithint=file%2cpptx&authkey=!APQ6LSnDenx2FKM).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

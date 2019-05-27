@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/22/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0cc00b4f2075ba77490d310080b9968bedb8dc1f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cc3307a4f32d77b9b8d259ac846c4db1c1ae4a99
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701768"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002518"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um Runbook Worker híbrido do Windows
 
@@ -60,8 +60,10 @@ Execute os seguintes passos para automatizar a instalação e configuração da 
    * *SubscriptionID* (obrigatório): O ID de subscrição do Azure que pertença a sua conta de automatização.
    * *WorkspaceName* (opcional): O nome de área de trabalho do Log Analytics. Se não tiver uma área de trabalho do Log Analytics, o script cria e configura uma.
 
-     > [!NOTE]
-     > Atualmente, são as regiões de automatização apenas suportadas para a integração com os registos do Azure Monitor **Sudeste da Austrália**, **E.U.A. Leste 2**, **Sudeste asiático**e **Europa Ocidental**. Se a sua conta de automatização não estiver em uma dessas regiões, o script cria uma área de trabalho do Log Analytics, mas avisa-o de que ele não é possível vinculá-las em conjunto.
+   > [!NOTE]
+   > Quando ativar soluções, apenas são suportadas determinadas regiões para associar uma área de trabalho do Log Analytics e uma Conta de Automatização.
+   >
+   > Para obter uma lista dos pares de mapeamento suportados, consulte [mapeamento de região para a área de trabalho de conta de automatização e o Log Analytics](how-to/region-mappings.md).
 
 2. No seu computador, abra **Windows PowerShell** partir do **iniciar** ecrã no modo de administrador.
 3. A partir da shell de linha de comandos do PowerShell, navegue até à pasta que contém o script que transferiu. Alterar os valores para os parâmetros *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, e *- WorkspaceName*. Em seguida, execute o script.

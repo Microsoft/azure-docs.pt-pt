@@ -13,17 +13,17 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/17/2019
 ms.author: szark
-ms.openlocfilehash: 01acdf23c3113c3c4d185263b5cab75f3efd34a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d5e9c6c8a104c16d1ff4e96929ff47ed6fd5ff6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771180"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966105"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Preparar uma máquina virtual baseada em Red Hat para o Azure
-Neste artigo, aprenderá a preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para utilização no Azure. As versões do RHEL que são abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores de preparação que são abordados neste artigo são máquinas de virtuais de Hyper-V, com base em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa de acesso à nuvem da Red Hat, consulte [Web site do Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [RHEL em execução no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure).
+Neste artigo, aprenderá a preparar uma máquina virtual do Red Hat Enterprise Linux (RHEL) para utilização no Azure. As versões do RHEL que são abordadas neste artigo são 6.7 + e 7.1 +. Os hipervisores de preparação que são abordados neste artigo são máquinas de virtuais de Hyper-V, com base em kernel (KVM) e VMware. Para obter mais informações sobre os requisitos de elegibilidade para participar no programa de acesso à nuvem da Red Hat, consulte [Web site do Red Hat Cloud Access](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) e [RHEL em execução no Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Para formas automatizar a criação de RHEL imagens veja a [construtor de imagens do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
 
 ## <a name="prepare-a-red-hat-based-virtual-machine-from-hyper-v-manager"></a>Preparar uma máquina de virtual baseada em Red Hat a partir do Gestor de Hyper-V
 
@@ -110,7 +110,7 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 1. Não crie espaço de comutação em disco do sistema operativo.
 
-    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário e que ele pode de ser esvaziado quando a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modifique os parâmetros seguintes na /etc/waagent.Conf. adequadamente:
+    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário e que ele pode de ser esvaziado se a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modifique os parâmetros seguintes na /etc/waagent.Conf. adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -124,6 +124,8 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 1. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -193,7 +195,7 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 1. Não crie espaço de comutação em disco do sistema operativo.
 
-    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário, e ele poderá ser esvaziado quando a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
+    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -207,6 +209,8 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 1. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -315,7 +319,7 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
         # chkconfig waagent on
 
-1. O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário, e ele poderá ser esvaziado quando a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na **/etc/waagent.Conf.** adequadamente:
+1. O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na **/etc/waagent.Conf.** adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -329,6 +333,8 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 1. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -464,7 +470,7 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 1. Não crie espaço de comutação em disco do sistema operativo.
 
-    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário, e ele poderá ser esvaziado quando a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
+    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -478,6 +484,8 @@ Esta secção assume que já tiver obtido um arquivo ISO a partir do site da Red
 
 1. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -593,7 +601,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
 1. Não crie espaço de comutação em disco do sistema operativo.
 
-    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário, e ele poderá ser esvaziado quando a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
+    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -607,6 +615,8 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
 1. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -707,7 +717,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
 1. Não crie espaço de comutação em disco do sistema operativo.
 
-    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário, e ele poderá ser esvaziado quando a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
+    O agente Linux do Azure podem configurar automaticamente o espaço de comutação utilizando o disco de recurso local que está ligado à máquina virtual depois da máquina virtual é aprovisionada no Azure. Tenha em atenção que o disco de recurso local é um disco temporário e poderá ser esvaziado se a máquina virtual é desaprovisionada. Depois de instalar o agente Linux do Azure no passo anterior, modificar os parâmetros seguintes na `/etc/waagent.conf` adequadamente:
 
         ResourceDisk.Format=y
         ResourceDisk.Filesystem=ext4
@@ -721,6 +731,8 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
 
 1. Execute os seguintes comandos para desaprovisionar a máquina virtual e prepará-lo para o aprovisionamento no Azure:
 
+        # Mote: if you are migrating a specific virtual machine and do not wish to create a generalized image,
+        # skip the deprovision step
         # sudo waagent -force -deprovision
 
         # export HISTSIZE=0
@@ -875,7 +887,7 @@ Esta secção assume que já instalou uma máquina virtual do RHEL no VMware. Pa
         NM_CONTROLLED=no
         EOF
 
-        # Deprovision and prepare for Azure
+        # Deprovision and prepare for Azure if you are creating a generalized image
         waagent -force -deprovision
 
         %end
