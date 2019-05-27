@@ -11,18 +11,18 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: a8bc46011b00a0c63eddd2799ac1309b5754472e
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: f1eca5bdd81a384efe04f769ebd12be9d91fc78a
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65442415"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849735"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX e do Azure Machine Learning: Criar e acelerar a modelos de ML
 
-Saiba como ao utilizar o [aberto Exchange de rede Neural](https://onnx.ai) (ONNX) pode ajudar a otimizar modelos de aprendizagem.
+Saiba como ao utilizar o [aberto Exchange de rede Neural](https://onnx.ai) (ONNX) pode ajudar a otimizar a inferência de tipos de seu modelo de aprendizagem automática. Inferência de tipos ou modelo de classificação, é a fase em que o modelo implementado é utilizado para predição, mais comumente nos dados de produção. 
 
-Otimizar modelos de machine learning para inferência de tipos é difícil, uma vez que precisa otimizar o modelo e a biblioteca de inferência de tipos para aproveitar ao máximo as capacidades de hardware. O problema torna-se extremamente difícil, se desejar obter um desempenho ideal nas diferentes tipos de plataformas (na cloud/edge, da CPU/GPU, etc.), já que cada uma tem diferentes capacidades e características. A complexidade aumenta, se tiver modelos a partir de uma variedade de estruturas que precisam executar numa variedade de plataformas. É muito longo para otimizar a todas as diferentes combinações de estruturas e hardware. É necessária uma solução para preparar uma vez na sua estrutura preferencial e execute em qualquer local na cloud ou no edge. É onde entra ONNX.
+Otimizar modelos de machine learning para inferência de tipos (ou o modelo de classificação) é difícil, uma vez que precisa otimizar o modelo e a biblioteca de inferência de tipos para aproveitar ao máximo as capacidades de hardware. O problema torna-se extremamente difícil, se desejar obter um desempenho ideal nas diferentes tipos de plataformas (na cloud/edge, da CPU/GPU, etc.), já que cada uma tem diferentes capacidades e características. A complexidade aumenta, se tiver modelos a partir de uma variedade de estruturas que precisam executar numa variedade de plataformas. É muito longo para otimizar a todas as diferentes combinações de estruturas e hardware. É necessária uma solução para preparar uma vez na sua estrutura preferencial e execute em qualquer local na cloud ou no edge. É onde entra ONNX.
 
 A Microsoft e uma Comunidade de parceiros criaram ONNX como um padrão aberto para que representa os modelos de aprendizagem automática. Modelos a partir [muitas estruturas](https://onnx.ai/supported-tools) incluindo o TensorFlow, PyTorch, SciKit-saiba, Keras, Chainer, MXNet e MATLAB pode ser exportada ou convertido em formato ONNX padrão. Assim que os modelos são em formato ONNX, podem ser executadas numa variedade de plataformas e dispositivos.
 

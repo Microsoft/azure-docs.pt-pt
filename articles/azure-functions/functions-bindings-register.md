@@ -10,20 +10,20 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 02/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 802e177b6f3844abe4d24c26b7ea2d0d4fb1688c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 53eb5fc9389d913ecacec3729a06e47a1c2bf56b
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697001"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864555"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registar as extensões de vinculação de funções do Azure
 
-A partir da versão de funções do Azure 2.x, [enlaces](./functions-triggers-bindings.md) estão disponíveis como pacotes separados do Runtime de funções. Enquanto as funções de .NET acessar ligações através de pacotes NuGet, os pacotes de extensão permitem acesso outras funções para todas as ligações através de uma definição de configuração.
+Na versão das funções do Azure 2.x, [enlaces](./functions-triggers-bindings.md) estão disponíveis como pacotes separados do Runtime de funções. Enquanto as funções de .NET acessar ligações através de pacotes NuGet, os pacotes de extensão permitem acesso outras funções para todas as ligações através de uma definição de configuração.
 
-Considere os seguintes itens relativas a extensões de enlace:
+Considere os seguintes itens relacionados com extensões de enlace:
 
-- Extensões de enlace explicitamente não são registadas nas funções 1.x, exceto quando [criar um C# biblioteca de classes com o Visual Studio 2017](#local-csharp).
+- Extensões de enlace explicitamente não são registadas nas funções 1.x, exceto quando [criar um C# biblioteca de classe com o Visual Studio 2019](#local-csharp).
 
 - Os acionadores de HTTP e timer são suportados por predefinição e não necessitam de uma extensão.
 
@@ -33,7 +33,7 @@ A tabela seguinte indica quando e como se registrar enlaces.
 |-------------------------|------------------------------------|------------------------------------|
 |Portal do Azure|Automático|Automático|
 |Linguagens .NET não ou local de desenvolvimento de ferramentas de núcleo do Azure|Automático|[Utilizar ferramentas de núcleo de funções do Azure e os pacotes de extensão](#local-development-with-azure-functions-core-tools-and-extension-bundles)|
-|Biblioteca de classes do c# com o Visual Studio 2017|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2017)|
+|C#biblioteca de classe com o Visual Studio 2019|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2019)|[Utilizar as ferramentas do NuGet](#c-class-library-with-visual-studio-2019)|
 |Biblioteca de classes do c# com o Visual Studio Code|N/A|[Utilizar o .NET Core CLI](#c-class-library-with-visual-studio-code)|
 
 ## <a name="local-development-with-azure-functions-core-tools-and-extension-bundles"></a>Local de desenvolvimento com ferramentas de núcleo de funções do Azure e os pacotes de extensão
@@ -41,9 +41,9 @@ A tabela seguinte indica quando e como se registrar enlaces.
 [!INCLUDE [functions-core-tools-install-extension](../../includes/functions-core-tools-install-extension.md)]
 
 <a name="local-csharp"></a>
-## <a name="c-class-library-with-visual-studio-2017"></a>Biblioteca de classes c# com o Visual Studio 2017
+## <a name="c-class-library-with-visual-studio-2019"></a>C#biblioteca de classes com o Visual Studio 2019
 
-Na **Visual Studio 2017**, pode instalar pacotes a partir da consola do Gestor de pacotes utilizando o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comando, conforme mostrado no exemplo a seguir:
+Na **Visual Studio 2019**, pode instalar pacotes a partir da consola do Gestor de pacotes utilizando o [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) de comando, conforme mostrado no exemplo a seguir:
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>

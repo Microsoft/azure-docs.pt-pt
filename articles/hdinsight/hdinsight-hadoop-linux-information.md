@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 2a7af59495966c76a47ea84311ab073eb594f82e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c52574485a62b081224a36ca5deb0fdae114f9bc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707566"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859666"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Informações sobre como utilizar o HDInsight no Linux
 
@@ -251,7 +251,7 @@ Os tipos de cluster diferentes são afetados pelo dimensionamento da seguinte fo
 Para obter informações específicas sobre como aumentar o seu cluster do HDInsight, consulte:
 
 * [Gerir clusters do Apache Hadoop no HDInsight com o portal do Azure](hdinsight-administer-use-portal-linux.md#scale-clusters)
-* [Gerir clusters do Apache Hadoop no HDInsight com o Azure PowerShell](hdinsight-administer-use-command-line.md#scale-clusters)
+* [Gerir clusters do Apache Hadoop no HDInsight com a CLI do Azure](hdinsight-administer-use-command-line.md#scale-clusters)
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Como posso instalar o Hue (ou outros componentes do Hadoop)?
 

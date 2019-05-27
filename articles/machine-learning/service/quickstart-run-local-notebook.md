@@ -10,18 +10,18 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3afea20fe02eafbf14b5162eef3a198d27140b9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60753029"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864371"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning
 
-Utilizar o seu próprio servidor de bloco de notas para executar código que faz logon valores a [área de trabalho do Azure Machine Learning serviço](concept-azure-machine-learning-architecture.md). A área de trabalho é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática com o Machine Learning.
+Utilize o seu próprio ambiente de Python e o servidor de bloco de notas do Jupyter para começar a utilizar o serviço Azure Machine Learning.  Para um início rápido com nenhuma instalação do SDK, consulte [início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
-Este início rápido utiliza o seu próprio ambiente de Python e o servidor de bloco de notas do Jupyter. Para um início rápido com nenhuma instalação do SDK, consulte [início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+Este início rápido mostra como pode utilizar o [Azure Machine Learning a área de trabalho de serviço](concept-azure-machine-learning-architecture.md) para controlar as suas experimentações de machine learning. Irá executar código Python que valores de registo para a área de trabalho.
 
 Ver uma vídeo versão deste início rápido:
 

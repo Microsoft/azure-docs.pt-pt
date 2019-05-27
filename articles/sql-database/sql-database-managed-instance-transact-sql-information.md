@@ -12,12 +12,12 @@ ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 08920a25fc7213a773ef0d76a5daddbab3f765c2
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 17609212fcc7620dc0d6d617e7626d12c8bb0592
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866871"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852150"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferenças de SQL da base de dados geridos instância T-SQL do Azure do SQL Server
 
@@ -46,7 +46,7 @@ A opção de implementação de instância gerida fornece compatibilidade com o 
 - [GRUPO DE DISPONIBILIDADE DE SOLTAR](https://docs.microsoft.com/sql/t-sql/statements/drop-availability-group-transact-sql)
 - O [SET HADR](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-hadr) cláusula da [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql) instrução
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Criar cópia de segurança
 
 Instâncias geridas têm cópias de segurança automáticas, para que os utilizadores podem criar a base de dados completa `COPY_ONLY` cópias de segurança. Diferenciais, registo e de cópias de segurança de instantâneos de ficheiros não são suportadas.
 
@@ -471,7 +471,7 @@ As seguintes variáveis, funções e exibições devolvem resultados diferentes:
 
 ### <a name="tempdb-size"></a>Tamanho TEMPDB
 
-O tamanho máximo de `tempdb` não pode ser superior a 24 GB por núcleo de um escalão de fins gerais. O máximo `tempdb` tamanho de um escalão crítico para a empresa é limitado com o tamanho de armazenamento de instância. O `tempdb` base de dados sempre é dividido em arquivos de dados de 12. Este tamanho máximo por ficheiro não pode ser alterado e novos ficheiros que podem ser adicionados a `tempdb`. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo no `tempdb`.
+O tamanho máximo de `tempdb` não pode ser superior a 24 GB por núcleo de um escalão de fins gerais. O máximo `tempdb` tamanho de um escalão crítico para a empresa é limitado com o tamanho de armazenamento de instância. O `tempdb` base de dados sempre é dividido em arquivos de dados de 12. Este tamanho máximo por ficheiro não pode ser alterado e não não possível adicionar novos ficheiros `tempdb`. Algumas consultas podem devolver um erro se precisarem de mais de 24 GB por núcleo no `tempdb`. `tempdb` é sempre novamente criado como uma base de dados vazio quando o início de instância ou a ativação pós-falha e a qualquer alteração feitas no `tempdb` não serão mantidas. 
 
 ### <a name="cant-restore-contained-database"></a>Não é possível restaurar a base de dados contida
 

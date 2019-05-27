@@ -1,7 +1,7 @@
 ---
 title: Implementar modelos no FPGAs
 titleSuffix: Azure Machine Learning service
-description: Saiba como implementar um serviço web com um modelo em execução num FPGA com o serviço Azure Machine Learning para inferência de latência Ultra baixas.
+description: Saiba como implementar um serviço web com um modelo em execução num FPGA com o serviço Azure Machine Learning para inferência de tipos de latência Ultra baixas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,16 @@ ms.author: tedway
 author: tedway
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 249a21bf9eeb3913826971fd1aae136197d264c4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d667d45e1831e0fcc939d302a16f63d4a282963
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149615"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65852037"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Implementar um modelo como um serviço web num FPGA com o serviço Azure Machine Learning
 
-Pode implementar um modelo como um serviço web no [campo matrizes de porta programável por (FPGAs)](concept-accelerate-with-fpgas.md) com modelos de acelerado de Hardware do Azure Machine Learning. A utilização de FPGAs fornece a inferência de latência Ultra baixas, mesmo com um tamanho de lote única.
+Pode implementar um modelo como um serviço web no [campo matrizes de porta programável por (FPGAs)](concept-accelerate-with-fpgas.md) com modelos de acelerado de Hardware do Azure Machine Learning. A utilização de FPGAs fornece a inferência de tipos de latência Ultra baixas, mesmo com um tamanho de lote única. Inferência de tipos ou modelo de classificação, é a fase em que o modelo implementado é utilizado para predição, mais comumente nos dados de produção.
 
 Estes modelos estão atualmente disponíveis:
   - ResNet 50
@@ -33,7 +33,7 @@ FPGAs estão disponíveis nestas regiões do Azure:
   - EUA Leste
   - Sudeste Asiático
   - Europa Ocidental
-  - EUA Oeste 2
+  - E.U.A. Oeste 2
 
 > [!IMPORTANT]
 > Para otimizar o débito e latência, o cliente a enviar dados para o modelo FPGA deve ser de uma das regiões acima (aquele que implementou o modelo para).
@@ -160,9 +160,9 @@ print(output_tensors)
 ```
 
 > [!IMPORTANT]
-> Guardar a entrada e saída tensors porque vai precisar deles para pedidos de inferência e conversão de modelo.
+> Guardar a entrada e saída tensors porque vai precisar deles para pedidos de conversão e inferência de tipos de modelo.
 
-Os modelos disponíveis e o classificador de padrão correspondente de saída tensors estão abaixo, que é o que usaria durante inferência se tiver utilizado o classificador de predefinição.
+Os modelos disponíveis e o classificador de padrão correspondente de saída tensors estão abaixo, que é o que usaria para inferência de tipos se tiver utilizado o classificador de predefinição.
 
 + Resnet50, QuantizedResnet50 ``
 output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"

@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: e4664f121601ecec4b8ed52d536e5212b3d0950f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2425d14e43abd98d80bef8ce01e1c1c5f73a78a0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890433"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833069"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de API com Python e Azure Cosmos DB tabela
 
@@ -35,7 +35,7 @@ O Azure Cosmos DB é um serviço de base de dados com vários modelos e de distr
 
 Além disso:
 
-* Se ainda não tiver o Visual Studio 2017 instalado, pode transferir e utilizar a [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **gratuita**. Confirme que seleciona as cargas de trabalho de **Desenvolvimento do Azure** e **Desenvolvimento do Python** durante a configuração do Visual Studio.
+* Se ainda não tiver o Visual Studio 2019, instalado, pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Confirme que seleciona as cargas de trabalho de **Desenvolvimento do Azure** e **Desenvolvimento do Python** durante a configuração do Visual Studio.
 * Selecione também a opção do Python 2 de optar ativamente por participar na carga de trabalho de **Desenvolvimento do Python** ou transfira o Python 2.7 em [python.org](https://www.python.org/downloads/release/python-2712/).
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados

@@ -10,12 +10,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha, glenga
-ms.openlocfilehash: 71ac525e2af7473ca9ce0a8f60268e76eccd1a9a
-ms.sourcegitcommit: 111a7b3e19d5515ce7036287cea00a7204ca8b56
+ms.openlocfilehash: 46b1e5c99dd86fed6f87ac3b8f0ff6555187899b
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64530387"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833510"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de programadores do PowerShell de funções do Azure
 
@@ -23,9 +23,9 @@ Este artigo fornece detalhes sobre como escrever as funções do Azure com o Pow
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-Uma função do PowerShell é representada como um script do PowerShell que é executado quando acionado. Cada script de função tem um Function relacionados que define como a função se comporta, por exemplo, como é acionado e parâmetros de entrada e saídos. Para obter mais informações, consulte a [Acionadores e o artigo de enlace](functions-triggers-bindings.md). 
+Uma função do PowerShell Azure (função) é representada como um script do PowerShell que é executado quando acionado. Cada script de função tem um relacionados `function.json` ficheiro que define a forma como a função se comporta, por exemplo, como é acionado e seus parâmetros de entrada e saídos. Para obter mais informações, consulte a [Acionadores e o artigo de enlace](functions-triggers-bindings.md). 
 
-Outros tipos de funções, como o script do PowerShell aceita parâmetros que correspondem aos nomes de todos os enlaces de entrada, definidos na Function. A `TriggerMetadata` parâmetro é transmitido também que contém informações adicionais sobre o acionador que iniciou a função.
+Como outros tipos de funções, funções de script do PowerShell tirar nos parâmetros que correspondem aos nomes de todos os enlaces de entrada, definidos no `function.json` ficheiro. A `TriggerMetadata` parâmetro é transmitido também que contém informações adicionais sobre o acionador que iniciou a função.
 
 Este artigo pressupõe que já leu a [referência para programadores do funções do Azure](functions-reference.md). Deverá ter concluído também a [início rápido das funções para o PowerShell](functions-create-first-function-powershell.md) para criar a sua primeira função do PowerShell.
 
@@ -56,9 +56,9 @@ PSFunctionApp
  | - bin
 ```
 
-Na raiz do projeto, há um partilhada [Host. JSON](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio arquivo de código (. ps1) e o ficheiro de configuração de vinculação (Function). O nome do `function.json`do diretório principal é sempre o nome da sua função.
+Na raiz do projeto, há um partilhada [ `host.json` ](functions-host-json.md) ficheiro que pode ser utilizado para configurar a aplicação de função. Cada função tem uma pasta com o seu próprio arquivo de código (. ps1) e o ficheiro de configuração de vinculação (`function.json`). O nome do diretório pai do arquivo Function sempre é o nome da sua função.
 
-Determinados associações exigem a presença de um `extensions.csproj`. Enlace de extensões, necessárias na [versão 2.x](functions-versions.md) de runtime das funções, são definidos no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
+Determinados associações exigem a presença de um `extensions.csproj` ficheiro. Enlace de extensões, necessárias na [versão 2.x](functions-versions.md) de runtime das funções, são definidos no `extensions.csproj` arquivo, com os ficheiros de biblioteca real no `bin` pasta. Ao desenvolver localmente, deve [registar as extensões de vinculação](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Ao desenvolver funções no portal do Azure, este registo é feito para.
 
 Em aplicações de funções do PowerShell, pode, opcionalmente, ter uma `profile.ps1` que é executada quando uma aplicação de funções começa a ser executada (caso contrário, sabe como uma  *[arranque a frio](#cold-start)*. Para obter mais informações, consulte [perfil do PowerShell](#powershell-profile).
 
@@ -243,7 +243,7 @@ Iniciar sessão PowerShell funções funciona como o registo do PowerShell regul
 | Erro | **`Write-Error`** |
 | Aviso | **`Write-Warning`**  | 
 | Informações | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Informações | Escreve _informações_ registo a nível. |
-| Depurar | **`Write-Debug`** |
+| Depuração | **`Write-Debug`** |
 | Rastreio | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 Para além destes cmdlets, todos os elementos escritos para o pipeline é redirecionado para o `Information` log nível e exibido com a formatação do PowerShell de predefinição.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: iainfou
-ms.openlocfilehash: 0216a8c7d4e52e89098979223e9b792398e25038
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d80ad5abecc968a9fe3c82d62ddd8577856a3c54
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920172"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835192"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Integrar o Azure Active Directory com o serviço de Kubernetes do Azure com a CLI do Azure
 
@@ -25,7 +25,6 @@ Para o script de exemplo completo utilizado neste artigo, consulte [exemplos da 
 As seguintes limitações aplicam-se:
 
 - O Azure AD só pode ser ativado ao criar um cluster novo, habilitados no RBAC. Não é possível ativar o Azure AD num cluster do AKS existente.
-- *Convidado* utilizadores no Azure AD, tal como se usar um início de sessão Federado de outro diretório, não são suportadas.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -237,8 +236,9 @@ Se vir uma mensagem de erro de autorização, depois de se com êxito usando um 
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* O utilizador tem sessão iniciada no não é um *convidado* na instância do Azure AD (isto é, muitas vezes, o caso se utilizar um início de sessão federado a partir de um diretório diferente).
+* Definiu o ID de objeto apropriado ou UPN, dependendo se a conta de utilizador está no mesmo inquilino do Azure AD ou não.
 * O utilizador não é um membro de mais de 200 grupos.
+* Segredo definido no registo de aplicação para o servidor corresponde ao valor configurado através de `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 990b13d362b796f5e71f1bd41eb35fce9720fff4
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450334"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835155"
 ---
 # <a name="deploy-opc-vault-from-scratch"></a>Implementar o Cofre OPC de raiz
 
@@ -45,7 +45,7 @@ O ficheiro de configuração no repositório faz referência a algumas variávei
 
 Visual Studio permite-lhe rapidamente, abra a aplicação sem usar uma linha de comandos, sem configurar nada fora do IDE.
 
-Passos a utilizar o Visual Studio 2017:
+Para executar e depurar o aplicativo usando o Visual Studio:
 
 1. Abra a solução usando o `iot-opc-gds-service.sln` ficheiro.
 

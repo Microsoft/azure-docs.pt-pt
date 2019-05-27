@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: faac0f02d1a1b8927fa0c651f44f8b120a583d9a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 7b983535f862a452c900d0a0a12ae0d79b56f92f
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230144"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850537"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Conceitos do Kubernetes principal para o Azure Kubernetes Service (AKS)
 
@@ -70,9 +70,9 @@ Para executar as suas aplicações e serviços de suporte, terá de Kubernetes *
 
 O tamanho de VM do Azure para os nós define o número de CPUs, quantidade de memória e o tamanho e tipo de armazenamento disponível (por exemplo, SSD de elevado desempenho ou regular HDD). Se prevê a necessidade de aplicativos que exigem grandes quantidades de CPU e memória ou armazenamento de elevado desempenho, planeie o tamanho de nó em conformidade. Também pode aumentar verticalmente o número de nós no cluster do AKS para satisfazer a procura.
 
-No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente no Ubuntu Linux. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar.
+No AKS, a imagem de VM para os nós no seu cluster baseia-se atualmente em Ubuntu Linux ou Windows Server 2019. Quando cria um cluster do AKS ou aumentar verticalmente o número de nós, a plataforma do Azure cria o número pedido de VMs e configura-as. Não existe nenhuma configuração manual para executar.
 
-Se precisar de utilizar um sistema operacional, tempo de execução do contentor, de outro anfitrião ou incluir pacotes personalizados, pode implementar seu próprio cluster do Kubernetes com [mecanismo de aks][aks-engine]. O montante `aks-engine` libera recursos e fornece opções de configuração antes de eles são suportados oficialmente em clusters do AKS. Por exemplo, se pretender utilizar contentores do Windows ou um tempo de execução do contentor que não seja Moby, pode utilizar `aks-engine` para configurar e implementar um cluster do Kubernetes que atenda às suas necessidades atuais.
+Se precisar de utilizar um sistema operacional, tempo de execução do contentor, de outro anfitrião ou incluir pacotes personalizados, pode implementar seu próprio cluster do Kubernetes com [mecanismo de aks][aks-engine]. O montante `aks-engine` libera recursos e fornece opções de configuração antes de eles são suportados oficialmente em clusters do AKS. Por exemplo, se pretender utilizar um tempo de execução do contentor que não seja Moby, pode utilizar `aks-engine` para configurar e implementar um cluster do Kubernetes que atenda às suas necessidades atuais.
 
 ### <a name="resource-reservations"></a>Reservas de recursos
 
@@ -104,6 +104,27 @@ Nós da mesma configuração são agrupadas em *conjuntos de nós*. Um cluster d
 Ao dimensionar ou atualizar um cluster do AKS, é executada a ação contra o conjunto de nós de predefinição. Também pode optar por dimensionar ou atualizar um conjunto de nó específico. Para operações de atualização, os contentores em execução são agendadas nos outros nós no conjunto de nós até que todos os nós sejam atualizados com êxito.
 
 Para obter mais informações sobre como utilizar vários conjuntos de nós no AKS, consulte [criar e gerir vários conjuntos de nós de um cluster do AKS][use-multiple-node-pools].
+
+### <a name="node-selectors"></a>Seletores de nó
+
+Num cluster do AKS que contém vários conjuntos de nós, poderá ter de informar o agendador do Kubernetes que conjunto de nó para utilizar para um determinado recurso. Por exemplo, os controladores de entrada não deve ser executado em nós do Windows Server (atualmente em pré-visualização no AKS). Seletores de nó permitem-lhe definir vários parâmetros, como o nó de sistema operacional, para controlar onde um pod deve ser agendado.
+
+O seguinte exemplo básico agendas de uma instância do NGINX num nó de Linux utilizando o Seletor de nó *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+Para obter mais informações sobre como controlar onde os pods são agendadas, consulte [melhores práticas para as funcionalidades avançadas do scheduler no AKS][operator-best-practices-advanced-scheduler].
 
 ## <a name="pods"></a>Pods
 
@@ -248,3 +269,4 @@ Este artigo aborda alguns dos componentes principais do Kubernetes e como eles s
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md

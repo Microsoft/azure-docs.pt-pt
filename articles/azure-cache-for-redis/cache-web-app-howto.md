@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bac43ef17116dcb2d6a6bb3dd7c1617d91a010d9
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60830539"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864826"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Início rápido: Criar uma aplicação Web ASP.NET 
 
 ## <a name="introduction"></a>Introdução
 
-Este início rápido mostra como criar e implementar uma aplicação Web ASP.NET num Serviço de Aplicações do Azure com o Visual Studio 2017. O aplicativo de exemplo liga-se para a Cache de Redis armazenar e obter dados da cache do Azure. Depois de concluir o início rápido, terá uma aplicação web em execução, alojada no Azure, que lê e escreve para a Cache do Azure para Redis.
+Este início rápido mostra como criar e implementar uma aplicação web do ASP.NET no serviço de aplicações do Azure com o Visual Studio 2019. O aplicativo de exemplo liga-se para a Cache de Redis armazenar e obter dados da cache do Azure. Depois de concluir o início rápido, terá uma aplicação web em execução, alojada no Azure, que lê e escreve para a Cache do Azure para Redis.
 
 ![Teste simples concluído do Azure](./media/cache-web-app-howto/cache-simple-test-complete-azure.png)
 
@@ -34,7 +34,7 @@ Este início rápido mostra como criar e implementar uma aplicação Web ASP.NET
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este início rápido, tem de instalar o [Visual Studio 2017](https://www.visualstudio.com/downloads/) com os seguintes ambientes:
+Para concluir o início rápido, tem de instalar [Visual Studio 2019](https://www.visualstudio.com/downloads/) com os seguintes ambientes:
 * Desenvolvimento ASP.NET e Web
 * Desenvolvimento do Azure
 

@@ -2,20 +2,20 @@
 title: Utilizar etiquetas para consultas de instrumento no SQL Data Warehouse | Documentos da Microsoft
 description: Sugestões para utilizar etiquetas para consultas de instrumento no armazém de dados SQL do Azure para o desenvolvimento de soluções.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: XiaoyuL-Preview
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-origin.date: 04/17/2018
-ms.date: 10/15/2018
-ms.author: v-jay
-ms.openlocfilehash: 5c60a7dc44471599834c4b1225b397c8e6eabbd5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.subservice: query
+ms.date: 04/17/2018
+ms.author: xiaoyul
+ms.reviewer: igorstan
+ms.openlocfilehash: 5c53fc3594d02c92ea6a238f89417e31dad4818c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439779"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861789"
 ---
 # <a name="using-labels-to-instrument-queries-in-azure-sql-data-warehouse"></a>Utilizar etiquetas para consultas de instrumento no Azure SQL Data Warehouse
 Sugestões para utilizar etiquetas para consultas de instrumento no armazém de dados SQL do Azure para o desenvolvimento de soluções.
