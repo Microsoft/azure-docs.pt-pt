@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 692c075b55efd138f6d731ffae43608f141abfdc
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60458902"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019774"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integração contínua nos serviços de DevOps do Azure com projetos de implantação do grupo de recursos do Azure
 Para implementar um modelo do Azure, executar tarefas em várias etapas: Cópia de compilação, teste, para o Azure (também denominado "Teste") e para implementar o modelo. Existem duas formas diferentes de implementar modelos de serviços de DevOps do Azure. Ambos os métodos fornece os mesmos resultados, pelo que deve escolher aquele que melhor se adequa a seu fluxo de trabalho.
@@ -93,7 +93,7 @@ Os procedimentos seguintes explicam as etapas necessárias para configurar a imp
       
       Para a CLI do Azure, utilize:
       
-      `azure account show`
+      `az account show`
    8. Para obter um ID de Principal de serviço, a chave de Principal de serviço e o ID de inquilino, siga o procedimento num [aplicação criar do Active Directory e o principal de serviço com o portal](active-directory/develop/howto-create-service-principal-portal.md) ou [autenticar um principal de serviço com o Azure Gestor de recursos](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Adicione os valores de ID de Principal de serviço, a chave de Principal de serviço e o ID de inquilino para o **adicionar subscrição do Azure** caixa de diálogo caixa e, em seguida, escolha a **OK** botão.
       

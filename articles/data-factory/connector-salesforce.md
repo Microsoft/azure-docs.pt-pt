@@ -171,7 +171,7 @@ Para copiar dados de e para o Salesforce, defina a propriedade de tipo de conjun
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo | A propriedade de tipo do conjunto de dados tem de ser definida **RelationalTable**. | Sim |
+| type | A propriedade de tipo do conjunto de dados tem de ser definida **RelationalTable**. | Sim |
 | tableName | Nome da tabela no Salesforce. | Não (se for especificada "consulta" na origem de atividade) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -185,7 +185,7 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida **SalesforceSource**. | Sim |
-| query |Utilize a consulta personalizada para ler dados. Pode usar [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta ou consulta de SQL-92. Consulte mais sugestões na [sugestões de consulta](#query-tips) secção. Se a consulta não for especificada, serão possível obter todos os dados do objeto Salesforce especificada no "objectApiName" no conjunto de dados. | Não (se for especificado "objectApiName" no conjunto de dados) |
+| consulta |Utilize a consulta personalizada para ler dados. Pode usar [linguagem de consulta de objeto do Salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) consulta ou consulta de SQL-92. Consulte mais sugestões na [sugestões de consulta](#query-tips) secção. Se a consulta não for especificada, serão possível obter todos os dados do objeto Salesforce especificada no "objectApiName" no conjunto de dados. | Não (se for especificado "objectApiName" no conjunto de dados) |
 | readBehavior | Indica se deve consultar os registos existentes, ou consultar todos os registos, incluindo o que foi excluído. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **consulta** (predefinição), **queryAll**.  | Não |
 
 > [!IMPORTANT]

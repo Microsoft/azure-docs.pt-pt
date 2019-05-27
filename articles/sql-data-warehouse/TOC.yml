@@ -257,6 +257,10 @@
       items:
         - name: Analisar a sua carga de trabalho
           href: analyze-your-workload.md
+        - name: Gerir e monitorizar a importância da carga de trabalho
+          href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+        - name: Configurar a importância da carga de trabalho
+          href: sql-data-warehouse-how-to-configure-workload-importance.md
     - name: Gerir e monitorizar
       items:
         - name: Atualizar para Gen2

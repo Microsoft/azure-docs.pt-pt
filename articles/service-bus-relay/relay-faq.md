@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 05/21/2018
 ms.author: spelluru
 ms.openlocfilehash: 2433f4b3563cc8b301d1815cccf5ab24406e8662
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111470"
 ---
 # <a name="azure-relay-faqs"></a>FAQ de reencaminhamento do Azure
 
@@ -80,10 +80,10 @@ Enviar uma mensagem para um reencaminhamento do Service Bus é tratado como um "
 Reencaminhamentos abertos ao utilizar o **netTCPRelay** associação WCF tratar as mensagens não como mensagens individuais, mas como um fluxo de dados a fluir pelo sistema. Quando utiliza este enlace, apenas o remetente e o serviço de escuta tem visibilidade para o enquadramento das mensagens individuais enviados e recebidos. Para reencaminhamentos que utilizam o **netTCPRelay** todos os dados de ligação, é tratado como um fluxo para calcular as mensagens a cobrar. Neste caso, o Service Bus calcula a quantidade total de dados enviado ou recebido por meio de cada reencaminhamento individual numa base de 5 minutos. Em seguida, divide essa quantidade total de dados por 64 KB para determinar o número de mensagens a cobrar desse reencaminhamento durante esse período de tempo.
 
 ## <a name="quotas"></a>Quotas
-| Nome da quota | Âmbito |  Notas | Valor |
+| Nome da quota | Scope |  Notas | Value |
 | --- | --- | --- | --- |
 | Serviços de escuta em simultâneo num reencaminhamento |Entidade |Pedidos subsequentes para ligações adicionais são rejeitados e uma exceção é recebida pelo código de chamada. |25 |
-| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de nomes |- |5.000 |
+| Ligações de reencaminhamento em simultâneo por todos os pontos finais de reencaminhamento num espaço de nomes de serviço |Espaço de nomes |- |5,000 |
 | Pontos finais de reencaminhamento por espaço de nomes de serviço |Espaço de nomes |- |10,000 |
 | Tamanho da mensagem [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) e [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) retransmite |Espaço de nomes |Mensagens de entrada que excederem estes quotas são rejeitadas e uma exceção é recebida pelo código de chamada. |64 KB |
 | Tamanho da mensagem [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) e [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) retransmite |Espaço de nomes |Sem limite no tamanho da mensagem. |Ilimitado |
