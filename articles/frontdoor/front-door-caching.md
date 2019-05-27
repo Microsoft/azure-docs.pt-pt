@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ee1dea8c9735592f6d6c9e0542ca094a6be383
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60306143"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962911"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Colocação em cache com o serviço de porta de entrada do Azure
 O documento seguinte especifica o comportamento de porta de entrada com regras de encaminhamento que tem ativado a colocação em cache.
@@ -101,7 +101,7 @@ Limpezas de cache no desde início diferenciam maiúsculas de minúsculas. Além
 ## <a name="cache-expiration"></a>Expiração do cache
 Pela seguinte ordem dos cabeçalhos é utilizada para determinar quanto tempo um item será armazenado na nossa cache:</br>
 1. Cache-Control: s-maxage=\<seconds>
-2. Cache-Control: maxage=\<seconds>
+2. Cache-Control: max-age=\<seconds>
 3. Expira: \<http-date >
 
 Cabeçalhos de resposta de Cache-Control que indicam que a resposta não ser colocado em cache, como Cache-Control: privada, Cache-Control: não-cache e Cache-Control: loja não são honradas. No entanto, se existirem várias solicitações em andamento num preenchimento para o mesmo URL, pode partilhar a resposta. Se houver sem Cache-Control o comportamento padrão é que AFD colocarão em cache o recurso para X período de tempo em que os X é escolhido aleatoriamente entre 1 a 3 dias.

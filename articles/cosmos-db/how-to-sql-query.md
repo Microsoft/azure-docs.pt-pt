@@ -4,14 +4,14 @@ description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e consul
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796147"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954125"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -160,7 +160,7 @@ Os resultados são:
 
 Os exemplos anteriores mostram vários aspectos da linguagem de consulta do Cosmos DB:  
 
-* Uma vez que a API de SQL funciona em valores JSON, ele lida com entidades em forma de árvore, em vez de linhas e colunas. Pode consultar os nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3….Nodem`, semelhante a referência de duas partes de `<table>.<column>` em ANSI SQL.
+* Uma vez que a API de SQL funciona em valores JSON, ele lida com entidades em forma de árvore, em vez de linhas e colunas. Pode consultar os nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, semelhante a referência de duas partes de `<table>.<column>` em ANSI SQL.
 
 * Como funciona a linguagem de consulta com os dados sem esquemas, o sistema de tipo deve ser vinculado dinamicamente. A mesma expressão poderia resultar em diferentes tipos nos itens diferentes. O resultado de uma consulta é um valor JSON válido, mas não é garantido para ser de um esquema fixo.  
 
@@ -869,7 +869,7 @@ Os resultados são:
     ]
 ```
 
-A seguinte consulta SQL é outro exemplo do uso de matriz dentro em subconsultas. Esta consulta obtém todos os diferentes nomes de filhos numa arrary.
+A seguinte consulta SQL é outro exemplo do uso de matriz dentro em subconsultas. Esta consulta obtém todos os diferentes nomes de filhos numa matriz.
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

@@ -4,15 +4,15 @@ description: Este artigo explica como compreender a sua fatura do Azure Cosmos D
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d3bfe1b54409fd57f7535bac2362dc7040975061
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a097539e51aa2a2130dead236d553d60f2ebb89d
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115542"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965631"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a sua fatura do Azure Cosmos DB
 
@@ -80,7 +80,7 @@ Se aumentar o débito aprovisionado para um contentor ou um conjunto de contento
 
 * Se as suas necessidades de débito alterado e aumentou a débito aprovisionado de cada base de dados por 10 mil RU/seg para cada base de dados e adicionar um novo contentor para a primeira base de dados com o modo de débito dedicado de 15 mil RU/seg para a base de dados de taxa de transferência partilhada, sua capacidade aprovisionada geral seria 155 mil RU/seg (60 mil RU/seg + 80 mil RU/seg + 15 mil RU/seg).  
 
-* A fatura passa a ser: 1,550 * US $0.008 = us $12.40 / hora.  
+* A sua faturação passa a ser: 1,550 * US $0.008 = us $12.40 / hora.  
 
 * Num mês de horas de 720, se por 300 horas débito aprovisionado tiver sido 120 mil RU/seg e para as restantes horas 420 débito aprovisionado tiver sido 155 mil RU/seg, a fatura mensal irá mostrar: 300 x 9.60 us $/ hora + 420 x 12.40 us $/ hora = us $2,880 + US $5,208 = us $8,088 / mês. 
 
@@ -214,7 +214,7 @@ Vejamos outro exemplo, o qual pretende calcular proativamente a sua fatura antes
 |----|----|----|----|
 |Tipo de Operação| Pedidos/seg| Média RU/pedido| RUs necessário|
 |Escrita| 100 | 5 | 500|
-|Leitura| 400| 1| 400|
+|Ler| 400| 1| 400|
 
 Total de RU/s: 500 + 400 = 900 custo por hora: 900/100 * US $0.008 = US $0.072 esperado custo mensal de débito (assumindo 31 dias): $0.072 * 24 * 31 = us $53.57
 
