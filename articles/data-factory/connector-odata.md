@@ -233,7 +233,7 @@ Para copiar dados do OData, defina o **origem** tipo de atividade de cópia para
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **RelationalSource**. | Sim |
-| query | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector de OData copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| consulta | Opções de consulta de OData para filtrar os dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota**: O conector de OData copia dados a partir do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Para obter mais informações, consulte [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo**
 

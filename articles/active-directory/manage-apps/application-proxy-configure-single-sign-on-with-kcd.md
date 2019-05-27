@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
+ms.date: 05/17/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 214d984388869431453267ef18ebf6eb976bc496
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 545906af882be6e53297bf7a9ff2cd12e86d55f0
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783529"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65859631"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delegação restrita de Kerberos para início de sessão único às suas aplicações com o Proxy de aplicações
 
@@ -59,7 +59,8 @@ A configuração do Active Directory varia, dependendo se o servidor de aplicaç
 2. Selecione o servidor que executa o conector.
 3. Com o botão direito e selecione **propriedades** > **delegação**.
 4. Selecione **confiar no computador para delegação apenas aos serviços especificados**. 
-5. Sob **serviços aos quais esta conta pode apresentar credenciais delegadas** adicionar o valor para a identidade SPN do servidor de aplicativos. Isto permite que o conector do Proxy de aplicações representar os utilizadores no AD contra os aplicativos definidos na lista.
+5. Selecione **utilizar qualquer protocolo de autenticação**.
+6. Sob **serviços aos quais esta conta pode apresentar credenciais delegadas** adicionar o valor para a identidade SPN do servidor de aplicativos. Isto permite que o conector do Proxy de aplicações representar os utilizadores no AD contra os aplicativos definidos na lista.
 
    ![Captura de ecrã de janela de propriedades do conector-Server](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 

@@ -122,7 +122,7 @@ Para copiar dados do SAP ECC, defina o tipo de origem na atividade de cópia par
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade de tipo de origem de atividade de cópia tem de ser definida: **SapEccSource** | Sim |
-| query | Opções de consulta de OData para filtrar dados. Exemplo: "$select = nome, descrição e $top = 10".<br/><br/>Conector de SAP ECC copia dados da URL combinado: (o url especificado no serviço ligado) / (o caminho especificado no conjunto de dados)? (consulta especificada na origem de atividade de cópia). Consulte a [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| consulta | Opções de consulta de OData para filtrar dados. Exemplo: "$select = nome, descrição e $top = 10".<br/><br/>Conector de SAP ECC copia dados da URL combinado: (o url especificado no serviço ligado) / (o caminho especificado no conjunto de dados)? (consulta especificada na origem de atividade de cópia). Consulte a [componentes do URL de OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
 
 **Exemplo:**
 

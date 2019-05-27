@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/03/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a104c9e41ef1843c377b0406b499ffae504db97
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3afe27bf71d112b53c31ab696f71d4e1a0cf6b79
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595695"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002493"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerir contas Run As de automatização
 
@@ -24,12 +24,12 @@ Quando cria uma conta Run As, ele cria um novo utilizador principal de serviço 
 
 Existem dois tipos de contas Run as:
 
-* **Do Azure conta Run As** -esta conta é utilizada para gerir recursos de modelo de implementação do Resource Manager.
+* **Do Azure conta Run As** -esta conta é utilizada para gerir [modelo de implementação do Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) recursos.
   * Cria uma aplicação do Azure AD com um certificado autoassinado, cria uma conta de principal de serviço para a aplicação no Azure AD e atribui a função Contribuidor à conta na sua subscrição atual. Pode alterar esta definição para Proprietário ou qualquer outra função. Para obter mais informações, veja [Controlo de acesso baseado em funções na Automatização do Azure](automation-role-based-access-control.md).
   * Cria um recurso de certificado da Automatização com o nome *AzureRunAsCertificate* na conta de Automatização especificada. O recurso do certificado contém a chave privada do certificado que a aplicação do Azure AD utiliza.
   * Cria um recurso de ligação da Automatização com o nome *AzureRunAsConnection* na conta de Automatização especificada. O recurso de ligação contém o applicationId, o tenantId, o subscriptionId e o thumbprint do certificado.
 
-* **Do Azure conta Run as clássica** -esta conta é utilizada para gerir os recursos de modelo de implementação clássico.
+* **Do Azure conta Run as clássica** -esta conta é utilizada para gerir [modelo de implementação clássica](../azure-resource-manager/resource-manager-deployment-model.md) recursos.
   * Cria um certificado de gestão na subscrição
   * Cria um recurso de certificado da Automatização com o nome *AzureClassicRunAsCertificate* na conta de Automatização especificada. O recurso do certificado contém a chave privada do certificado que o certificado de gestão utiliza.
   * Cria um recurso de ligação da Automatização com o nome *AzureClassicRunAsConnection* na conta de Automatização especificada. O recurso de ligação contém o nome da subscrição, o subscriptionid e o nome de recurso do certificado.
@@ -43,20 +43,20 @@ Existem dois tipos de contas Run as:
 
 ## <a name="permissions"></a>Permissões para configurar contas Run as
 
-Para criar ou atualizar uma conta Run As, tem de ter privilégios específicos e as permissões. Um Global/Coadministrador administrador pode concluir todas as tarefas. Numa situação em que tem a separação de funções, a tabela seguinte mostra uma lista das tarefas, o cmdlet equivalente e as permissões necessárias:
+Para criar ou atualizar uma conta Run As, tem de ter privilégios específicos e as permissões. Um Administrador Global no Azure Active Directory e um proprietário de uma subscrição, podem concluir todas as tarefas. Numa situação em que tem a separação de funções, a tabela seguinte mostra uma lista das tarefas, o cmdlet equivalente e as permissões necessárias:
 
 |Tarefa|Cmdlet  |Permissões mínimas  |Em que defina as permissões|
 |---|---------|---------|---|
 |Criar aplicação do Azure AD|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Função de desenvolvedor do aplicativo<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home page > o Azure Active Directory > registos de aplicações |
 |Adicione uma credencial para a aplicação.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | ADMINISTRADOR GLOBAL ou de administrador da aplicação<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home page > o Azure Active Directory > registos de aplicações|
-|Criar e obter um principal de serviço do Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | ADMINISTRADOR GLOBAL ou de administrador da aplicação        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home page > o Azure Active Directory > registos de aplicações|
-|Atribuir ou obter a função RBAC para a entidade de segurança especificada|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administrador de acesso de utilizador ou proprietário        | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Home page > subscrições > \<nome da subscrição\> -controlo de acesso (IAM)|
+|Criar e obter um principal de serviço do Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | ADMINISTRADOR GLOBAL ou de administrador da aplicação<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Home page > o Azure Active Directory > registos de aplicações|
+|Atribuir ou obter a função RBAC para a entidade de segurança especificada|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Tem de ter as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Ou ser:</br></br>Administrador de acesso de utilizador ou proprietário        | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Home page > subscrições > \<nome da subscrição\> -controlo de acesso (IAM)|
 |Criar ou remover um certificado da automatização|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Contribuinte no grupo de recursos         |Grupo de recursos de conta de automatização|
 |Criar ou remover uma ligação da automatização|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contribuinte no grupo de recursos |Grupo de recursos de conta de automatização|
 
-<sup>1</sup> utilizadores não administradores no inquilino do Azure AD podem [registar aplicações AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se do inquilino do Azure AD **os utilizadores podem registar aplicações** opção **as definições de utilizador**página está definida como **Sim**. Se a definição dos registos da aplicação for **Não**, o utilizador que executa esta ação tem de ser um administrador global no Azure AD.
+<sup>1</sup> utilizadores não administradores no inquilino do Azure AD podem [registar aplicações AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se do inquilino do Azure AD **os utilizadores podem registar aplicações** opção **as definições de utilizador**página está definida como **Sim**. Se a definição dos registos da aplicação estiver definido como **não**, o utilizador que executa esta ação tem de ser um **Administrador Global** no Azure AD.
 
-Se não é um membro de instância do Active Directory da subscrição antes de serão adicionados para a global/coadministrador função de administrador da subscrição, é adicionado como convidado. Nesta situação, recebe uma `You do not have permissions to create…` aviso sobre a **adicionar conta de automatização** página. Os utilizadores que foram adicionados primeiro à função de administrador global/coadministrador podem ser removidos da instância do Active Directory da subscrição e adicionados novamente, para que se tornem em Utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
+Se não é um membro de instância do Active Directory da subscrição antes de forem adicionados à **Administrador Global** função da subscrição, é adicionado como convidado. Nesta situação, recebe uma `You do not have permissions to create…` aviso sobre a **adicionar conta de automatização** página. Os utilizadores que foram adicionados para o **Administrador Global** função pela primeira vez pode ser removida da instância do Active Directory da subscrição e adicionada novamente, para se tornem em utilizadores completos no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
 
 ## <a name="permissions-classic"></a>Permissões para configurar contas Run as clássica
 

@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd3a1525d7b1f9c0a0b6516014ea83fb8abd0376
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 3d139efaa8e6de4861dc8e885bd22a426fde6c94
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544832"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833055"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Visão geral do Microsoft identity platform (v2.0)
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma para programadores e do serviço de identidade do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que iniciar sessão em todas as identidades da Microsoft e obtém tokens para chamar as APIs da Microsoft, como o Microsoft Graph ou as APIs que os desenvolvedores criaram. A plataforma de identidade da Microsoft consiste em:
+A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que iniciar sessão em todas as identidades da Microsoft e obtém tokens para chamar as APIs da Microsoft, como o Microsoft Graph ou as APIs que os desenvolvedores criaram. A plataforma de identidade da Microsoft consiste em:
 
 - **Serviço de autenticação compatíveis com o padrão de OAuth 2.0 e OpenID Connect** que permite aos desenvolvedores autenticar qualquer identidade da Microsoft, incluindo:
   - Contas escolares ou profissionais (aprovisionadas através do Azure AD)
@@ -79,4 +79,4 @@ Quando estiver pronto para iniciar a sua aplicação para um **ambiente de produ
 
 ## <a name="learn-more"></a>Saber mais
 
-Se tivesse de planeamento para criar uma aplicação do lado do cliente que inicia sessão identidades sociais e locais, veja a [descrição geral do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).
+Se estiver a planear criar uma aplicação do lado do cliente que inicia sessão identidades sociais e locais, consulte a [descrição geral do Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

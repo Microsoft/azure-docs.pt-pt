@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac65a9ac81bca942f9fcbe802fdbf8a0aa3f8248
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b69dca5abddd56b29abf3e482e51b3d2a41612e7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60288091"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864456"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -118,7 +118,7 @@ O **acesso condicional** filtro permite-lhe selecionar o estado de política de 
 
 - Todos
 - Não Aplicado
-- Êxito
+- Com êxito
 - Falha
 
 O filtro **Data** permite-lhe definir um período de tempo para os dados devolvidos.  
@@ -127,25 +127,32 @@ Os valores possíveis são:
 - 1 mês
 - 7 dias
 - 24 horas
-- Intervalo de tempo personalizado
+- Intervalo de Tempo Personalizado
 
 Quando selecionar um período de tempo personalizado, pode configurar uma hora de início e uma hora de fim.
 
-Se adicionar mais campos à vista de inícios de sessão, estes campos são adicionados automaticamente à lista de filtros. Por exemplo, ao adicionar o campo **Aplicação Cliente** à sua lista, também obtém outra opção de filtro que lhe permite definir os seguintes filtros:
-
-- Browser      
-- Exchange ActiveSync (suportado)               
-- Exchange ActiveSync (não suportado)
-- Outros clientes               
-    - IMAP
-    - MAPI
-    - Clientes mais antigos do Office
-    - POP
-    - SMTP
-
-
+Se adicionar mais campos à vista de inícios de sessão, estes campos são adicionados automaticamente à lista de filtros. Por exemplo, ao adicionar o campo **Aplicação Cliente** à sua lista, também obtém outra opção de filtro que lhe permite definir os seguintes filtros:  
 ![Atividade de início de sessão](./media/concept-sign-ins/12.png "Atividade de início de sessão")
 
+- **Browser**  
+    Este filtro mostra todos os eventos em que iniciar sessão tenta foram executados com fluxos de navegador.
+- **Exchange ActiveSync (suportado)**  
+    Este filtro mostra todas as tentativas de início de sessão em que o protocolo Exchange ActiveSync (EAS) foi tentado a partir de plataformas suportadas, como iOS, Android e Windows Phone.
+- **Exchange ActiveSync (não suportado)**  
+    Este filtro mostra todas as tentativas de início de sessão em que o protocolo EAS foi tentado a partir de plataformas não suportadas, como as distribuições de Linux.
+- **Aplicações móveis e clientes de ambiente de trabalho** este filtro mostra todos os início de sessão tentativas que não estavam a utilizar o browser fluxos. Isso pode ser aplicações móveis a partir de qualquer plataforma usando todos os protocolos ou a partir de aplicações de cliente de Desktop como o Office no Windows ou MacOS.
+  
+- **Outros clientes**
+    - **IMAP**  
+        Um cliente de correio herdados usando IMAP para obter e-mails.
+    - **MAPI**  
+        Office 2013, onde ADAL está ativada e está a utilizar MAPI.
+    - **Clientes mais antigos do Office**  
+        Office 2013 na configuração predefinida onde o ADAL não está ativada e ele está usando MAPI, ou o Office 2016 onde ADAL foi desativada.
+    - **POP**  
+        Um cliente de correio herdados usando POP3 para obter e-mails.
+    - **SMTP**  
+        Um cliente de correio herdados usando o SMTP para enviar correio eletrónico.
 
 ## <a name="download-sign-in-activities"></a>Transferir atividades de início de sessão
 
@@ -164,7 +171,7 @@ Para além do Azure AD, o portal do Azure fornece pontos de entrada adicionais p
 - A descrição de geral de proteção de segurança de identidade
 - Utilizadores
 - Grupos
-- Aplicações Empresariais
+- Aplicações empresariais
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dados de inícios de sessão de utilizadores na proteção de segurança de identidade
 

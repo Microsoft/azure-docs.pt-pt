@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 90b2dfdbec0d6dc81a05b845832fda92fe36d98c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8bd6e7c77faa54a8ebf0842cf140ef8aa73e953
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60656596"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834549"
 ---
 # <a name="api-management-policy-expressions"></a>Expressões de política de gestão de API
 Este artigo aborda as expressões de diretriz sintaxe é C# 7. Cada expressão tem acesso ao implicitamente fornecido [contexto](api-management-policy-expressions.md#ContextVariables) variável e um permitidos [subconjunto](api-management-policy-expressions.md#CLRTypes) de tipos do .NET Framework.
@@ -242,7 +242,8 @@ Uma variável chamada `context` implicitamente disponível em cada política [ex
 |byte [] Encrypt (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|introdução - texto sem formatação seja encriptado<br /><br />alg - algoritmo de encriptação<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto não encriptado.|
 |byte[] Decrypt(input: this byte[], alg: string, key:byte[], iv:byte[])|introdução - texto de cifras para ser desencriptada<br /><br />alg - nome de um algoritmo de criptografia simétrica<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto sem formatação.|
 |byte [] desencriptação (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm)|introdução - texto de cifras para ser desencriptada<br /><br />alg - algoritmo de encriptação<br /><br />Devolve texto sem formatação.|
-|byte [] desencriptação (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|texto de entrada cifras - entrada - para ser desencriptada<br /><br />alg - algoritmo de encriptação<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto sem formatação.|
+|byte [] desencriptação (entrada: este byte [], alg: System.Security.Cryptography.SymmetricAlgorithm, key:byte[], iv:byte[])|introdução - texto de cifras para ser desencriptada<br /><br />alg - algoritmo de encriptação<br /><br />chave - chave de encriptação<br /><br />IV - vetor de inicialização<br /><br />Devolve texto sem formatação.|
+|bool VerifyNoRevocation (entrada: este System.Security.Cryptography.X509Certificates.X509Certificate2)|Executa uma validação da cadeia de X.509 sem verificar o estado de revogação de certificado.<br /><br />introdução - objeto de certificado<br /><br />Devolve `true` se a validação for bem-sucedida; `false` se a validação falhar.|
 
 
 ## <a name="next-steps"></a>Passos Seguintes

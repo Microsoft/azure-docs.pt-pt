@@ -2,20 +2,20 @@
 title: Uso de procedimentos armazenados no armazém de dados SQL do Azure | Documentos da Microsoft
 description: Sugestões para a implementação de procedimentos armazenados no armazém de dados SQL do Azure para o desenvolvimento de soluções.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/02/2019
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 8a53a63b7425935e117d7af951717999bc9340b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 200433d95d62edf2e878e58e5089a6baff290775
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61439720"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65850575"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>Uso de procedimentos armazenados no SQL Data Warehouse
 Sugestões para a implementação de procedimentos armazenados no armazém de dados SQL do Azure para o desenvolvimento de soluções.

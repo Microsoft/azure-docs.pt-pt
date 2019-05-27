@@ -11,12 +11,12 @@ author: tedway
 ms.reviewer: jmartens
 ms.date: 04/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 648dc462477570a692eff588c558a18a3121e4e7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 1a690ea350ea98589e9134cd6f401c6ac3c58083
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025256"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851016"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga"></a>Quais são as matrizes de porta de campos programáveis (FPGA)
 
@@ -39,7 +39,7 @@ O diagrama e a tabela seguinte mostram como FPGAs se compara aos outros processa
 
 FPGAs no Azure são baseados em dispositivos FPGA da Intel, quais os cientistas de dados e os desenvolvedores utilizam para acelerar os cálculos de IA em tempo real. Esta arquitetura habilitados em FPGA oferece dimensionamento, flexibilidade e desempenho e está disponível no Azure.
 
-FPGAs tornam possível obter a baixa latência para pedidos de inferência em tempo real. Solicitações assíncronas (criação de batches) não são necessários. Processamento em lote pode causar uma latência, porque precisam de mais dados a serem processados. Implementações de unidades de processamento neural não exigem a criação de batches; sendo assim a latência pode ser menor número de vezes, em comparação com processadores de CPU e GPU.
+FPGAs tornam possível obter pedidos de baixa latência para inferência de tipos em tempo real (ou o modelo de classificação). Solicitações assíncronas (criação de batches) não são necessários. Processamento em lote pode causar uma latência, porque precisam de mais dados a serem processados. Implementações de unidades de processamento neural não exigem a criação de batches; sendo assim a latência pode ser menor número de vezes, em comparação com processadores de CPU e GPU.
 
 ### <a name="reconfigurable-power"></a>Power reconfiguráveis
 Pode reconfigurar FPGAs para diferentes tipos de modelos de machine learning. Esta flexibilidade torna mais fácil acelerar as aplicações com a mais precisão numérica ideal e o modelo de memória que está a ser utilizado. Como FPGAs são reconfiguráveis, pode manter-se atualizado com os requisitos de alterar rapidamente os algoritmos de IA.

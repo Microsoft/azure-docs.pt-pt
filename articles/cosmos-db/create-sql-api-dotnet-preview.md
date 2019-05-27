@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 1589c938e635ccff02f94a176b7fc886dbccb779
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51494acaa393493e567e0fcbb359756bdab21503
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894601"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860897"
 ---
 # <a name="quickstart-build-an-aspnet-web-app-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de web ASP.NET com a conta do Azure Cosmos DB SQL API
 
@@ -37,7 +37,7 @@ Este guia de introdução utiliza a versão 3.0 + do SDK de .NET do Azure Cosmos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver o Visual Studio 2017 instalado, pode transferir e utilizar a [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **gratuita**. Certifique-se de que ativa o **desenvolvimento do Azure** carga de trabalho durante a configuração do Visual Studio.
+Se ainda não tiver o Visual Studio 2019, instalado, pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Certifique-se de que ativa o **desenvolvimento do Azure** carga de trabalho durante a configuração do Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
@@ -120,7 +120,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-dotnet/keys.png)
 
-2. No Visual Studio 2017, abra a **Web. config** ficheiro. 
+2. No Visual Studio, abra a **Web. config** ficheiro. 
 
 3. Copie o valor do URI a partir do portal (com o botão Copiar) e faça do valor da ``endpoint`` chave em Web. config. 
 

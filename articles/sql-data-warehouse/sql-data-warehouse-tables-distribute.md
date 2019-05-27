@@ -2,20 +2,20 @@
 title: Tabelas distribuídas documentação de orientação '-' Azure SQL Data Warehouse | Documentos da Microsoft
 description: Recomendações para a criação de tabelas distribuídas distribuída por hash e round-robin no Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: c3de7b46449b8075d17a19733eda88d692b1d876
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b101a4e19d00d44805c7eb5f44d449a18d756804
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60935821"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851622"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Orientações para a criação de tabelas distribuídas no Azure SQL Data Warehouse
 Recomendações para a criação de tabelas distribuídas distribuída por hash e round-robin no Azure SQL Data Warehouse.

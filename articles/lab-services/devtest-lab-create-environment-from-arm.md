@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 96e3a24b0c9f9ab21652ffcd1b29deeb512581e5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 144fd11e9c1ee3e00412320840e864a3190ccdb0
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202709"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833991"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes multi-VM e recursos PaaS com modelos Azure Resource Manager
 
@@ -54,7 +54,7 @@ Existem algumas regras a seguir para organizar seus modelos do Azure Resource Ma
     ![Arquivos de modelo de chave do Azure Resource Manager](./media/devtest-lab-create-environment-from-arm/master-template.png)
 
 - Se pretender utilizar os valores de parâmetros definidos no ficheiro de parâmetros, o ficheiro de parâmetros tem de ser nome `azuredeploy.parameters.json`.
-- Pode utilizar os parâmetros `_artifactsLocation` e `_artifactsLocationSasToken` para construir o valor do URI parametersLink, permitindo que o DevTest Labs gerir automaticamente a modelos aninhados. Para obter mais informações, consulte [como o Azure DevTest Labs facilita o Gestor de recursos aninhados implementações de modelo em ambientes de teste](https://blogs.msdn.microsoft.com/devtestlab/2017/05/23/how-azure-devtest-labs-makes-nested-arm-template-deployments-easier-for-testing-environments/).
+- Pode utilizar os parâmetros `_artifactsLocation` e `_artifactsLocationSasToken` para construir o valor do URI parametersLink, permitindo que o DevTest Labs gerir automaticamente a modelos aninhados. Para obter mais informações, consulte [implementar modelos aninhados do Gestor de recursos do Azure para ambientes de teste](deploy-nested-template-environments.md).
 - Metadados podem ser definidos para especificar o nome a apresentar do modelo e a descrição. Estes metadados tem de ser num arquivo chamado `metadata.json`. O ficheiro de metadados de exemplo seguinte ilustra como especificar o nome a apresentar e a descrição: 
 
     ```json

@@ -1,20 +1,19 @@
 ---
-title: Conceitos de elevada disponibilidade no banco de dados do Azure para PostgreSQL
-description: Este artigo fornece informações de elevada disponibilidade, ao utilizar a base de dados do Azure para PostgreSQL.
-author: WenJason
-ms.author: v-jay
+title: Conceitos de elevada disponibilidade no banco de dados do Azure para PostgreSQL - servidor único
+description: Este artigo fornece informações de elevada disponibilidade, ao utilizar a base de dados do Azure para o PostgreSQL – único servidor.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 02/01/2019
-ms.date: 02/18/2019
-ms.openlocfilehash: d43647b57469efa4581dc1c74a842a51e9d54ad7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: f54c83099957b4d8795c4049be52d70e8a0e2a61
+ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60623821"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "65073441"
 ---
-# <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Conceitos de elevada disponibilidade no banco de dados do Azure para PostgreSQL
+# <a name="high-availability-concepts-in-azure-database-for-postgresql---single-server"></a>Conceitos de elevada disponibilidade no banco de dados do Azure para PostgreSQL - servidor único
 A base de dados do Azure para o serviço PostgreSQL oferece um nível elevado de disponibilidade garantido. O contrato de nível de serviço com suporte financeiro (SLA) é 99,99% após disponibilidade geral. Praticamente nenhuma aplicação período de indisponibilidade quando utilizar este serviço.
 
 ## <a name="high-availability"></a>Elevada disponibilidade

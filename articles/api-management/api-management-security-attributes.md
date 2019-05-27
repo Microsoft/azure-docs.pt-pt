@@ -1,24 +1,23 @@
 ---
-title: Atributos comuns de segurança para gestão de API do Azure
+title: Atributos de segurança para gestão de API do Azure
 description: Uma lista de verificação de atributos comuns de segurança para avaliar a gestão de API
 services: api-management
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 040d628f9fe89f68a1c5ab91a1522c6a3cb724d9
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: 3b5826d472b80179c5eb76e0e3a6b1c7ee282487
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64508143"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001095"
 ---
-# <a name="common-security-attributes-for-api-management"></a>Atributos comuns de segurança para gestão de API
+# <a name="security-attributes-for-api-management"></a>Atributos de segurança para gestão de API
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos de segurança comuns, criados para gestão de API.
+Este artigo documenta os atributos de segurança incorporados para gestão de API.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -48,7 +47,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | |
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -63,7 +62,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Auditoria e registo de plano de controlo e gestão| Sim | [Registos de atividade do Monitor do Azure](../azure-monitor/platform/activity-logs-overview.md) |
 | Auditoria e registo de plano de dados| Sim | [Registos de diagnóstico do Azure Monitor](../azure-monitor/platform/diagnostic-logs-overview.md) e (opcionalmente) [Azure Application Insights](../azure-monitor/app/app-insights-overview.md).  |
 
-## <a name="configuration-management"></a>Gestão da configuração
+## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -75,4 +74,4 @@ Esta secção documenta as vulnerabilidades mais comuns, não afetam a gestão d
 
 | Vulnerabilidade               | Descrição                                                                                                                                                                                                                                                                                                               |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Ticketbleed (CVE-2016 9244) | Ticketbleed é uma vulnerabilidade na implementação da extensão do TLS SessionTicket encontrado em alguns produtos de F5. Ele permite que o vazamento ("sangramento") de até 31 de bytes de dados da memória não inicializada. Esta situação é provocada pela pilha de TLS preenchimento de um ID de sessão, passado do cliente, com os dados para torná-lo 32-bits longo. |
+| Ticketbleed (CVE-2016 9244) | Ticketbleed é uma vulnerabilidade na implementação da extensão do TLS SessionTicket encontrado em alguns produtos de F5. Ele permite que o vazamento ("sangramento") de até 31 de bytes de dados da memória não inicializada. Esta situação é provocada pela pilha de TLS preenchimento de um ID de sessão, passado do cliente, com os dados para torná-lo de 32 bits de comprimento. |

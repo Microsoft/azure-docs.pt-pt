@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9d7fd41657394e006957392f37ec1a258b33c8c6
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: beee76bdc443b3a66b4500b83d228075b84eed1e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413871"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864775"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>FAQs sobre a implementação de aplicações Web no Azure
 
@@ -38,7 +38,7 @@ Aqui estão algumas opções para a publicação de seu código de aplicação w
 
 Para obter mais informações, consulte [implementar a aplicação no serviço de aplicações](deploy-local-git.md).
 
-## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Vejo uma mensagem de erro ao tentar implementar a partir do Visual Studio. Como posso resolver isto?
+## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Vejo uma mensagem de erro ao tentar implementar a partir do Visual Studio. Como posso resolver este erro?
 
 Se vir a mensagem seguinte, poderá estar a utilizar uma versão mais antiga do SDK: "Erro durante a implementação para o recurso"YourResourceName"no grupo de recursos"YourResourceGroup": MissingRegistrationForLocation: A subscrição não está registada para o tipo de recurso "componentes" na localização "E.U.A. Central". Volte a registar para este fornecedor para ter acesso a esta localização." 
 
@@ -59,7 +59,7 @@ Para obter informações sobre a estrutura de ficheiros da sua aplicação de se
 
 ## <a name="how-do-i-resolve-ftp-error-550---there-is-not-enough-space-on-the-disk-when-i-try-to-ftp-my-files"></a>Como posso resolver "FTP erro 550 - daí não há espaço suficiente no disco" quando tento de meus arquivos de FTP?
 
-Se vir esta mensagem, é provável que se deparar com uma quota de disco no plano do serviço para a sua aplicação web. Poderá ter de aumentar verticalmente para um escalão de serviço superior com base nas suas necessidades de espaço em disco. Para obter mais informações sobre os preços de planos e os limites de recursos, consulte [preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/).
+Se vir esta mensagem, é provável que está a executar numa quota de disco no plano do serviço para a sua aplicação web. Poderá ter de aumentar verticalmente para um escalão de serviço superior com base nas suas necessidades de espaço em disco. Para obter mais informações sobre os preços de planos e os limites de recursos, consulte [preços do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Como posso configurar a implementação contínua para a minha aplicação web do serviço de aplicações?
 
@@ -69,11 +69,11 @@ Pode configurar a implementação contínua a partir de vários recursos, inclui
 
 Para ajudar a investigar problemas com implementação contínua a partir do GitHub ou Bitbucket, consulte [investigar a implementação contínua](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment).
 
-## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this"></a>Eu não é possível FTP para o meu site e publicar o meu código. Como posso resolver isto?
+## <a name="i-cant-ftp-to-my-site-and-publish-my-code-how-do-i-resolve-this-issue"></a>Eu não é possível FTP para o meu site e publicar o meu código. Como posso resolver este problema?
 
 Para resolver problemas FTP:
 
-1. Certifique-se de que se está a indicar o nome de anfitrião correto e as credenciais. Para obter informações detalhadas sobre os diferentes tipos de credenciais e como usá-las, consulte [credenciais de implementação](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
+1. Certifique-se de que deverá introduzir o nome de anfitrião correto e as credenciais. Para obter informações detalhadas sobre os diferentes tipos de credenciais e como usá-las, consulte [credenciais de implementação](https://github.com/projectkudu/kudu/wiki/Deployment-credentials).
 2. Certifique-se de que as portas FTP não estão bloqueadas por uma firewall. As portas devem ter estas definições:
     * Porta de ligação de controlo de FTP: 21
     * Porta de ligação de dados FTP: 989, 10001-10300

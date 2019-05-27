@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: 362df8cee163bcd2d1dac73c650e42ee4f0f7751
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3d50746324ddac21f222d4c743f4b7bf6ee9b773
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920110"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864810"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Como gerir contas de utilizador na gestão de API do Azure
 
@@ -69,7 +69,7 @@ Para impedir um utilizador, siga os passos seguintes.
 
 ## <a name="reset-a-user-password"></a>Repor uma palavra-passe do utilizador
 
-Para trabalhar programaticamente com contas de utilizador, consulte a [entidade User](https://docs.microsoft.com/rest/api/apimanagement/user) documentação na [REST de gestão de API](/rest/api/apimanagement/) referência. Para repor uma palavra-passe da conta de utilizador para um valor específico, pode utilizar o [atualizar um utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação e especifique a palavra-passe pretendida.
+Para trabalhar programaticamente com contas de utilizador, consulte a documentação de entidade de usuário na [API do REST de gestão de API](/rest/api/apimanagement/) referência. Para repor uma palavra-passe da conta de utilizador para um valor específico, pode utilizar o [atualizar um utilizador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) operação e especifique a palavra-passe pretendida.
 
 ## <a name="next-steps"> </a>Passos seguintes
 Depois de criar uma conta de programador, pode associá-la com funções e subscrever produtos e APIs. Para obter mais informações, consulte [como criar e utilizar grupos][How to create and use groups].

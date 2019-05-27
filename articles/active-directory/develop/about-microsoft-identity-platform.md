@@ -17,16 +17,16 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03a4702ac0f70e3fc280501cd9524ccbfb528678
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 807045089f70e117d46754412d974be7fba5a77a
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546255"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65832506"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Evolução da plataforma de identidade da Microsoft
 
-A plataforma de identidade da Microsoft é uma evolução da plataforma para programadores e do serviço de identidade do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que iniciar sessão dos utilizadores, obtenha tokens para chamar as APIs, como o Microsoft Graph, ou de APIs que os desenvolvedores criaram. Esta é composta por um serviço de autenticação, bibliotecas de código-fonte aberto, registo de aplicação e configuração (por meio de um portal do programador e a aplicação API), documentação de programador completa, exemplos de início rápido, exemplos de código, tutoriais, guias de procedimentos, e outros conteúdos programador. A plataforma de identidade da Microsoft suporta protocolos padrão da indústria, tais como OAuth 2.0 e OpenID Connect.
+A plataforma de identidade da Microsoft é uma evolução da plataforma de programador do Azure Active Directory (Azure AD). Ele permite que os desenvolvedores criem aplicativos que iniciar sessão dos utilizadores, obtenha tokens para chamar as APIs, como o Microsoft Graph, ou de APIs que os desenvolvedores criaram. Esta é composta por um serviço de autenticação, bibliotecas de código-fonte aberto, registo de aplicação e configuração (por meio de um portal do programador e a aplicação API), documentação de programador completa, exemplos de início rápido, exemplos de código, tutoriais, guias de procedimentos, e outros conteúdos programador. A plataforma de identidade da Microsoft suporta protocolos padrão da indústria, tais como OAuth 2.0 e OpenID Connect.
 
 Até agora, a maioria dos desenvolvedores já trabalhou com a plataforma de versão 1.0 do Azure AD para autenticar o trabalho contas escolares ou profissionais (aprovisionadas pelo Azure AD) ao solicitar tokens do ponto de extremidade da versão 1.0 do Azure AD, com o Azure AD Authentication Library (ADAL), portal do Azure para registo de aplicação e a configuração e o Azure AD Graph API para configuração da aplicação programática.
 

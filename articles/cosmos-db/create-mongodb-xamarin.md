@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: c7a80ae704d13934a5d51bc5538bc28693b49e5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a0612ea06c71b2a93e6fb76f5d82516cfbad8657
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890637"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65860331"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Início rápido: Criar uma aplicação xamarin. Forms com o SDK do .NET e do Azure Cosmos DB API para MongoDB
 
@@ -34,7 +34,7 @@ Este início rápido demonstra como criar uma [conta do Cosmos configurada com a
 
 Para executar o exemplo, precisa do [Visual Studio](https://www.visualstudio.com/downloads/) ou do [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) e de uma conta válida do Azure CosmosDB.
 
-Se ainda não tem o Visual Studio, transfira o [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) com a carga de trabalho do **Desenvolvimento móvel com .NET** instalada com a configuração.
+Se ainda não tiver o Visual Studio, transfira [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) com o **desenvolvimento móvel com o .NET** instalada com a configuração da carga de trabalho.
 
 Se preferir trabalhar num Mac, transfira o [Visual Studio para Mac](https://visualstudio.microsoft.com/vs/mac/) e execute a configuração.
 
@@ -164,7 +164,7 @@ Atualizou agora a sua aplicação com todas as informações necessárias para c
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
-### <a name="visual-studio-2017"></a>Visual Studio 2017
+### <a name="visual-studio-2019"></a>Visual Studio 2019
 
 1. No Visual Studio, clique com o botão direito do rato em cada projeto no **Explorador de Soluções** e clique em **Gerir Pacotes NuGet**.
 2. Clique em **Restaurar todos os pacotes NuGet**.

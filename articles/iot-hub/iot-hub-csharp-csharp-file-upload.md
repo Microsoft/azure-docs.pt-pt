@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
-ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdc0f189daebcda592338b463954efab4fc2db96
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741041"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864421"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar ficheiros a partir do seu dispositivo para a cloud com o IoT Hub com .NET
 
@@ -29,7 +29,7 @@ Este tutorial baseia-se sobre o código no [enviar mensagens da Cloud para o dis
 O [enviar telemetria a partir de um dispositivo para um hub IoT](quickstart-send-telemetry-dotnet.md) e [enviar mensagens da Cloud para o dispositivo com o IoT Hub](iot-hub-csharp-csharp-c2d.md) artigos mostram a básica funcionalidade de mensagens dispositivo-para-cloud e na cloud para o dispositivo do IoT Hub. O [configurar o encaminhamento de mensagens com o IoT Hub](tutorial-routing.md) tutorial descreve uma maneira de armazenar de forma fiável as mensagens do dispositivo-para-cloud no armazenamento de Blobs do Azure. No entanto, em alguns cenários não pode facilmente mapear os dados de que seus dispositivos enviam nas mensagens dispositivo-para-cloud relativamente pequenas que aceita o IoT Hub. Por exemplo:
 
 * Ficheiros grandes que contêm imagens
-* Vídeos
+* Os meus vídeos
 * Dados de vibração amostrados em alta frequência
 * Alguma forma de dados pré-processados
 
@@ -46,7 +46,7 @@ No final deste tutorial executa duas aplicações de consola .NET:
 
 Para concluir este tutorial, precisa do seguinte:
 
-* Visual Studio 2017
+* Visual Studio
 * Uma conta ativa do Azure. (Se não tiver uma conta, pode criar uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) em apenas alguns minutos.)
 
 [!INCLUDE [iot-hub-associate-storage](../../includes/iot-hub-associate-storage.md)]

@@ -5,18 +5,21 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 8817c8aa7d5d589be5e03cdd04e3a505d7e2be21
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 2195c9a5e1f0d3683ea8cf6564d97cbabd072f81
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941652"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834202"
 ---
 # <a name="update-an-existing-saas-application-offer"></a>Atualizar uma oferta de aplicação SaaS existente
 
 Existem vários tipos de atualizações que pode querer fazer sua oferta depois é foi publicado e está em direto. Qualquer alteração feita para a nova versão da sua oferta deve ser guardada e republicada tê-lo a refletir no Marketplace. Este artigo percorre os diferentes aspectos da atualizar a sua oferta SaaS no [Cloud Partner Portal](https://cloudpartner.azure.com/).
+
+> [!IMPORTANT] 
+> SaaS oferecem a funcionalidade está a ser migrada para o [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos os novos editores tem de utilizar Centro de parceiros para novas ofertas de SaaS de criação e gestão de ofertas existentes.  Os publicadores atuais com ofertas de SaaS estão a ser batchwise migrados do Portal de parceiros da Cloud para o Centro de parceiros.  O Portal de parceiros da Cloud irá apresentar mensagens de estado para indicar quando ofertas existentes específicas foram migradas.
 
 Há vários motivos por que razão poderá querer atualizar a sua oferta, tais como:
 

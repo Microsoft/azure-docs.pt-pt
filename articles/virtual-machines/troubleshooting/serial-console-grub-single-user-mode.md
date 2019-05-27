@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 05/08/2019
 ms.author: alsin
-ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89cbf220c9ae32c7f63da4941ced1bdbfa1e5293
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60307109"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835029"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utilizar a consola de série para aceder a GRUB e modo de utilizador único
 GRUB é o GRand Unified carregador de inicialização, que é provável que a primeira coisa que verá quando se reinicia uma VM. Uma vez que ele exibe antes do sistema operativo foi iniciado, não está acessível através de SSH. Em GRUB está capaz de modificar a configuração de arranque para inicializar em modo de utilizador único, entre outras coisas.

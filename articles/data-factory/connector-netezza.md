@@ -145,7 +145,7 @@ Para copiar dados de Netezza, defina o **origem** tipo de atividade de cópia pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **NetezzaSource**. | Sim |
-| query | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
+| consulta | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 

@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2019
+ms.date: 05/16/2019
 ms.author: szark
-ms.openlocfilehash: db10c95c982132c41193ed1cccfdcdca6f60ba5e
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: a1be0b6870882d3c7b0281dec7933e87c50e49de
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993091"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834561"
 ---
 # <a name="endorsed-linux-distributions-on-azure"></a>Apoiadas pelo distribuições do Linux no Azure
 Os parceiros fornecem imagens do Linux no Azure Marketplace. Estamos a trabalhar com várias comunidades do Linux para adicionar ainda mais tipos à lista de distribuição apoiadas pelo. Entretanto, para as distribuições que não estão disponíveis no mercado, pode sempre colocar seu próprio Linux, seguindo as diretrizes em [criar e carregar um disco rígido virtual que contém o sistema operativo Linux](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
@@ -32,14 +32,14 @@ Os controladores de serviços de integração do Linux (LIS) para o Hyper-V e do
 
 O agente Azure Linux já pré-instaladas nas imagens do Azure Marketplace e está normalmente disponível a partir do repositório de pacotes de distribuição. Código-fonte pode ser encontrado no [GitHub](https://github.com/azure/walinuxagent).
 
-  
-| Distribuição | Version | Controladores | Agente |
+
+| Distribuição | Version | Controladores | Com Agente |
 | --- | --- | --- | --- |
 | CentOS |CentOS 6.3+, 7.0+ |CentOS 6.3: [Baixe o LIS](https://www.microsoft.com/download/details.aspx?id=55106)<p>CentOS 6.4 +: No kernel |Pacote: Na [repositório](http://olcentgbl.trafficmanager.net/openlogic/6/openlogic/x86_64/RPMS/) em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | [CoreOS](https://coreos.com/docs/running-coreos/cloud-providers/azure/) |494.4.0+ |No kernel |Código-fonte: [GitHub](https://github.com/coreos/coreos-overlay/tree/master/app-emulation/wa-linux-agent) |
 | Debian |Debian 7.9+, 8.2+ |No kernel |Pacote: No repositório em "waagent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Oracle Linux |6.4+, 7.0+ |No kernel |Pacote: No repositório em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
-| Red Hat Enterprise Linux |RHEL 6.7+, 7.1+ |No kernel |Pacote: No repositório em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
+| Red Hat Enterprise Linux |RHEL 6.7+, 7.1+, 8.0+ |No kernel |Pacote: No repositório em "WALinuxAgent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | SUSE Linux Enterprise |SLES/SLES para SAP<br>11 SP4<br>12 SP1+<br>15|No kernel |Pacote:<p> para 11 na [ferramentas de nuvem:](https://build.opensuse.org/project/show/Cloud:Tools) repositório<br>para 12 incluída no módulo de "Nuvem pública" em "python-azure-agent"<br/>Código-fonte: [GitHub](https://go.microsoft.com/fwlink/p/?LinkID=250998) |
 | openSUSE |openSUSE Leap 42.2+ |No kernel |Pacote: Na [ferramentas de nuvem:](https://build.opensuse.org/project/show/Cloud:Tools) repositório em "python-azure-agent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
 | Ubuntu |Ubuntu 12.04+ **<sup>1</sup>** |No kernel |Pacote: No repositório em "walinuxagent" <br/>Código-fonte: [GitHub](https://github.com/Azure/WALinuxAgent) |
@@ -94,7 +94,7 @@ Fornecedor líder do mundo, de soluções de código-fonte aberto, Red Hat ajuda
 
 SUSE Linux Enterprise Server no Azure é uma plataforma comprovada que fornece maior confiabilidade e segurança para a computação em nuvem. Plataforma de Linux versátil do SUSE integram-se perfeitamente com serviços cloud do Azure para entregar um ambiente de cloud facilmente gerenciáveis. Com mais de 9,200 aplicações certificadas de mais de 1.800 fornecedores independentes de software para o SUSE Linux Enterprise Server, SUSE garante que as cargas de trabalho em execução suportados no Centro de dados podem ser implementadas com confiança no Azure.
 
-### <a name="canonical"></a>Canónico
+### <a name="canonical"></a>Canonical
 [https://www.ubuntu.com/cloud/azure](https://www.ubuntu.com/cloud/azure)
 
 Engenharia Canonical e governação de Comunidade open unidade sucesso do Ubuntu no cliente, servidor e de informática na cloud, que inclui serviços cloud pessoal para consumidores. Visão da Canonical, de uma plataforma unificada, gratuita no Ubuntu, de telefone para a nuvem, oferece uma família de interfaces coerentes para o telefone, tablet, programas de TV e ambiente de trabalho. Essa visão torna Ubuntu a primeira opção para as instituições variadas de fornecedores de cloud pública para os criadores do electronics de consumidor e um favorito entre tecnólogos individuais.

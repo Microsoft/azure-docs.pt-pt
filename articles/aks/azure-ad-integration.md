@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 026c0eefc0c4fe31e72ecad91a4a7b558f367487
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a6ed8ec37a3b20ccdbd2b013ba308518d8e3b97c
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192113"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65849878"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrar o Azure Active Directory com o serviço Kubernetes do Azure
 
@@ -23,7 +23,6 @@ Este artigo mostra-lhe como implementar os pré-requisitos para o AKS e o Azure 
 As seguintes limitações aplicam-se:
 
 - O Azure AD só pode ser ativado ao criar um cluster novo, habilitados no RBAC. Não é possível ativar o Azure AD num cluster do AKS existente.
-- *Convidado* utilizadores no Azure AD, tal como se estiver a utilizar um início de sessão Federado de outro diretório, não são suportadas.
 
 ## <a name="authentication-details"></a>Detalhes de autenticação
 
@@ -114,6 +113,10 @@ A segunda aplicação do Azure AD é utilizada quando iniciar sessão com a CLI 
         Quando as permissões foram concedidas com êxito, a seguinte notificação é apresentada no portal do:
 
         ![Notificação de êxito permissões concedidas](media/aad-integration/permissions-granted.png)
+
+1. No painel de navegação esquerdo da aplicação do Azure AD, selecione **autenticação**.
+
+    * Sob **predefinido a tipo de cliente**, selecione **Sim** para *tratar o cliente como um cliente público*.
 
 1. Na navegação do lado esquerda da aplicação do Azure AD, anote o **ID da aplicação**. Ao implementar um cluster do AKS habilitados no AD do Azure, este valor é referido como o `Client application ID`.
 
@@ -242,13 +245,14 @@ aks-nodepool1-79590246-2   Ready     agent     1h        v1.13.5
 Quando terminar, o token de autenticação é colocado em cache. Apenas são reprompted para iniciar sessão quando o token expirou ou o ficheiro de configuração Kubernetes recriado.
 
 Se vir uma mensagem de erro de autorização depois de iniciar sessão com êxito, verifique se:
-1. O utilizador estiver a iniciar sessão como é não convidado na instância do Azure AD (neste cenário é muitas vezes o caso se utilizar uma conta federada a partir de um diretório diferente).
-2. O utilizador não é um membro de mais de 200 grupos.
-3. Segredo definido no registo de aplicação para o servidor não corresponde ao valor configurado usando - aad-server--segredo da aplicação
 
 ```console
 error: You must be logged in to the server (Unauthorized)
 ```
+
+1. Definiu o ID de objeto apropriado ou UPN, dependendo se a conta de utilizador está no mesmo inquilino do Azure AD ou não.
+2. O utilizador não é um membro de mais de 200 grupos.
+3. Segredo definido no registo de aplicação para o servidor corresponde ao valor configurado através de `--aad-server-app-secret`
 
 ## <a name="next-steps"></a>Passos Seguintes
 

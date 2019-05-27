@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 7cdd185cddbd2403b72ff0e06530913af0b031de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 865ae0b3f7a7965698a67183a4c820ba71f49cd8
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233116"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833917"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Utilizar os serviços de plataforma-como-serviço (PaaS) no Azure DevTest Labs
 PaaS é suportada no DevTest Labs através da funcionalidade de ambientes. Ambientes no DevTest Labs são compatíveis com modelos pré-configurados do Azure Resource Manager num repositório Git. Ambientes podem conter recursos de PaaS e IaaS. Eles permitem criar sistemas complexos que podem incluir os recursos do Azure como máquinas virtuais, bases de dados, redes virtuais e aplicações Web, que são personalizadas para trabalhar em conjunto. Estes modelos permitem a implantação consistente e melhor gerenciamento de ambientes usando o controle de código fonte. 
@@ -53,7 +53,7 @@ Há algumas informações de laboratório personalizado que estão fora do grupo
 O [ligar a ambientes ao laboratório](connect-environment-lab-virtual-network.md) artigo descreve como modificar o modelo do Resource Manager para utilizar o `$(LabSubnetId)` token. Quando é criado um ambiente, o `$(LabSubnetId)` token é substituído pela primeira marca de sub-rede em que o **utilização numa máquina virtual crie** opção estiver definida como **verdadeiro**. Ele permite que nosso ambiente utilizar redes que criou anteriormente. Se pretender utilizar os mesmos modelos do Gestor de recursos em ambientes de teste como teste e produção, utilize `$(LabSubnetId)` como um valor padrão num parâmetro de modelo do Resource Manager. 
 
 #### <a name="environment-storage-account"></a>Conta de armazenamento de ambiente
-DevTest Labs suporta a utilização de [aninhada de modelos do Resource Manager](../azure-resource-manager/resource-group-linked-templates.md). O [como o Azure DevTest Labs facilita o Gestor de recursos aninhados implementações de modelo em ambientes de teste](https://azure.microsoft.com/updates/azure-devtest-labs-streamlined-nested-arm-template-deployment-support-for-arm-template-based-environments) artigo explica como usar `_artifactsLocation` e `_artifactsLocationSasToken` tokens para criar um URI para um modelo do Resource Manager no a mesma pasta como ou numa pasta aninhada do modelo principal. Para obter mais informações sobre estes dois tokens, consulte a **artefatos de implementação** secção [Gestor de recursos do Azure – guia de práticas recomendadas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs suporta a utilização de [aninhada de modelos do Resource Manager](../azure-resource-manager/resource-group-linked-templates.md). O [[implementar modelos aninhados do Gestor de recursos do Azure para ambientes de teste](deploy-nested-template-environments.md) artigo explica como usar `_artifactsLocation` e `_artifactsLocationSasToken` tokens para criar um URI para um modelo do Resource Manager na mesma pasta ou num aninhados pasta do modelo principal. Para obter mais informações sobre estes dois tokens, consulte a **artefatos de implementação** secção [Gestor de recursos do Azure – guia de práticas recomendadas](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
 ## <a name="user-experience"></a>Experiência de utilizador
 

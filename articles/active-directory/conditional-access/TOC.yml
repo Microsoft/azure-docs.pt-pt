@@ -19,8 +19,8 @@
 - name: Conceitos
   expanded: false
   items:
-    - name: Proteção de Linha de Base
-      href: baseline-protection.md
+    - name: Políticas de proteção de linha de base
+      href: concept-baseline-protection.md
     - name: Condições
       href: conditions.md
     - name: Condições de localização
@@ -38,6 +38,16 @@
       href: plan-conditional-access.md
     - name: Melhores práticas
       href: best-practices.md
+    - name: Políticas de linha de base
+      items:
+        - name: Exigir MFA aos administradores
+          href: howto-baseline-protect-administrators.md
+        - name: Proteção de utilizador final
+          href: howto-baseline-protect-end-users.md
+        - name: Bloquear a autenticação legada
+          href: howto-baseline-protect-legacy-auth.md
+        - name: Exigir MFA para a gestão de serviços
+          href: howto-baseline-protect-azure.md
     - name: Bloquear a autenticação legada
       href: block-legacy-authentication.md
     - name: Migrar políticas clássicas

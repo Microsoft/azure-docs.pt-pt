@@ -2,21 +2,21 @@
 title: Indexação de tabelas no armazém de dados SQL do Azure | Microsoft Azure
 description: Recomendações e exemplos para indexação tabelas no armazém de dados SQL do Azure.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 03/18/2019
-ms.author: rortloff
-ms.reviewer: jrasnick
+ms.author: xiaoyul
+ms.reviewer: igorstan
 ms.custom: seoapril2019
-ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 158b229c2c45a14ed0fd5433d1903eca92f32401
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309808"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851655"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexação de tabelas no armazém de dados SQL
 
@@ -154,7 +154,7 @@ WHERE    COMPRESSED_rowgroup_rows_AVG < 100000
 
 Depois de executar a consulta que pode começar a examinar os dados e analisar os resultados. Esta tabela explica o que procurar em sua análise do grupo de linha.
 
-| Coluna | Como utilizar estes dados |
+| colunas | Como utilizar estes dados |
 | --- | --- |
 | [table_partition_count] |Se a tabela está particionada, em seguida, pode esperar ver a conta de grupo de linhas abertos superior. Em teoria, cada partição na distribuição poderia ter um grupo de linhas abertos associado a ele. Incluir isso no sua análise. Uma pequena tabela que tem sido particionada poderia ser otimizada ao remover completamente o particionamento como isso aumentaria a compressão. |
 | [row_count_total] |Contagem total de linhas da tabela. Por exemplo, pode utilizar este valor para calcular a porcentagem das linhas no estado comprimido. |

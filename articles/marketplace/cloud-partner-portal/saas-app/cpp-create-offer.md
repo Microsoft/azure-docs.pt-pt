@@ -5,18 +5,22 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: pabutler
-ms.openlocfilehash: 246dd77c8e92a36e0601aba7d1b851efb7e7fb9a
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 646e9bf844477b3d8e1c4c42fb5956e015805433
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943561"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833506"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Criar uma nova oferta de aplicação SaaS
 
 Este artigo descreve como criar e publicar uma entrada de oferta SaaS application (aplicativo) para o Azure Marketplace.
+
+> [!IMPORTANT] 
+> SaaS oferecem a funcionalidade está a ser migrada para o [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos os novos editores tem de utilizar Centro de parceiros para novas ofertas de SaaS de criação e gestão de ofertas existentes.  Os publicadores atuais com ofertas de SaaS estão a ser batchwise migrados do Portal de parceiros da Cloud para o Centro de parceiros.  O Portal de parceiros da Cloud irá apresentar mensagens de estado para indicar quando ofertas existentes específicas foram migradas.
+
 
 ## <a name="offer-process"></a>Processo de oferta
 
@@ -33,7 +37,7 @@ A oferta da aplicação SaaS consiste em cinco seções, descritas na tabela a s
 |    Definições da oferta  |  Utilize para configurar uma identidade exclusiva para a aplicação SaaS.                 |
 |  Informações técnicas    |  Utilizar para configurar o tipo de solução de SaaS e forneça os detalhes de ligação para a sua aplicação.                |
 |  Informações de canal      |   Fornece informações de canal como materiais GTM e contactos.                |
-|  Versão de Teste        |   Seção opcional para a definição de um serviço que irá permitir aos clientes testar sua oferta antes de eles adquirem-la.                |
+|  Test Drive        |   Seção opcional para a definição de um serviço que irá permitir aos clientes testar sua oferta antes de eles adquirem-la.                |
 |  Vitrine detalhes       | Contém o marketing, legais e provocar ativos de gestão e as especificações.  <ul><li> Recursos de marketing incluem o nome da oferta, descrição e logotipos</li> <li> Recursos legais incluem uma política de privacidade, termos de utilização e outra documentação legal</li>  <li> Política de gestão levar permite que especifique como lidar com leva a partir do portal de utilizador final do Azure Marketplace.</li> </ul> |
 | Contactos            | Contém informações de contacto e política de suporte |
 

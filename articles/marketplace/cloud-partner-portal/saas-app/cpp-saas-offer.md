@@ -5,20 +5,24 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.author: pabutler
-ms.openlocfilehash: 81e33bf37750dd869c3b52be5b2bca49820f47d6
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.date: 05/16/2019
+ms.author: pbutlerm
+ms.openlocfilehash: 08baf908d47cdc6a9bc1e97f88eb5ff509d6790e
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941899"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65835057"
 ---
 # <a name="azure-saas-application-offer"></a>Oferta de aplicação SaaS do Azure
 
 Esta secção explica como publicar um software como uma oferta de aplicação de serviço (SaaS) para o <a href="https://azuremarketplace.microsoft.com">do Azure Marketplace</a>.
 
-Utilize aplicações SaaS quando a sua solução será implementada na sua própria subscrição do Azure e os clientes que irão iniciar sessão através de uma interface de design e gerir para testar a aplicação. <a href="https://azure.microsoft.com/services/active-directory">O Azure Active Directory (AAD)</a> é utilizado para tirar partido do seu ambiente de avaliação existente.
+> [!IMPORTANT] 
+> SaaS oferecem a funcionalidade está a ser migrada para o [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos os novos editores tem de utilizar Centro de parceiros para novas ofertas de SaaS de criação e gestão de ofertas existentes.  Os publicadores atuais com ofertas de SaaS estão a ser batchwise migrados do Portal de parceiros da Cloud para o Centro de parceiros.  O Portal de parceiros da Cloud irá apresentar mensagens de estado para indicar quando ofertas existentes específicas foram migradas.
+
+
+Utilize aplicações SaaS quando a sua solução será implementada na sua própria subscrição do Azure e os clientes irão iniciar sessão através de uma interface de design e gerir para testar a aplicação. <a href="https://azure.microsoft.com/services/active-directory">O Azure Active Directory (AAD)</a> é utilizado para tirar partido do seu ambiente de avaliação existente.
 
 ## <a name="benefits"></a>Benefícios
 

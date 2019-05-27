@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/29/2019
 ms.author: absha
-ms.openlocfilehash: 89df3a981ba3710e848f834c303772e94e10b139
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: ebb14d97273851585e491e3bcd36f776ec9b61b4
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947186"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000973"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescreva os cabeçalhos HTTP com o Gateway de aplicação
 
@@ -69,7 +69,7 @@ Gateway de aplicação suporta estas variáveis de servidor:
 | client_port                | A porta de cliente.                                                  |
 | client_tcp_rtt             | Informações sobre o cliente de conexão TCP. Disponível em sistemas que suportam a opção de soquete TCP_INFO. |
 | client_user                | Quando é utilizada a autenticação HTTP, o nome de utilizador fornecido para a autenticação. |
-| anfitrião                       | Por esta ordem de precedência: o nome de anfitrião a partir da linha de solicitação, o nome de anfitrião do campo de cabeçalho de pedido de anfitrião ou o nome de servidor correspondente a um pedido. |
+| host                       | Por esta ordem de precedência: o nome de anfitrião a partir da linha de solicitação, o nome de anfitrião do campo de cabeçalho de pedido de anfitrião ou o nome de servidor correspondente a um pedido. |
 | cookie_*nome*              | O *nome* cookie.                                            |
 | http_method                | o método usado para fazer o pedido de URL. Por exemplo, obter ou PUBLIQUE. |
 | http_status                | O estado de sessão. Por exemplo, 200, 400 ou 403.                       |
@@ -157,9 +157,7 @@ Pode avaliar um cabeçalho de solicitação ou resposta HTTP para a presença de
 
 - Os nomes de cabeçalho podem conter quaisquer carateres alfanuméricos e símbolos específicos conforme definido na [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). Atualmente não é suportado o caráter de sublinhado (\_) caráter especial no nomes de cabeçalho.
 
-## <a name="need-help"></a>Precisa de ajuda?
-
-Contacte-nos [ AGHeaderRewriteHelp@microsoft.com ](mailto:AGHeaderRewriteHelp@microsoft.com) se precisar de ajuda com esta funcionalidade.
+- Se uma resposta tem vários cabeçalhos com o mesmo nome, em seguida, reescrever o valor de um dos cabeçalhos de irá resultar em remover os outros cabeçalhos na resposta.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 08794a7605ffbd3cd5d4b021b783f32afb190727
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414719"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65861583"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Como: Ativar a reposição do Windows 7, 8 e 8.1 palavra-passe
 
@@ -60,6 +60,8 @@ Tem de registar para SSPR antes de que, poderá utilizar a hiperligação "Forgo
 ![Informações de segurança adicional é necessária para repor a palavra-passe](media/howto-sspr-windows-7-8/windows-7-sspr-need-security-info.png)
 
 Utilizar a aplicação Microsoft Authenticator para notificações e códigos para repor a palavra-passe não funciona nesta versão inicial. Os utilizadores tem de ter métodos alternativos registados que cumprem os requisitos da sua política.
+
+Se o provedor de credenciais de terceiros mais do que um 3rd estiver ativada no seu computador, os utilizadores verão mais do que um perfil de utilizador no ecrã de início de sessão.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

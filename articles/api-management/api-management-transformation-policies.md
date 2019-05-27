@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: 565bcfa6c2f8a3da2ac16df0016b5adc54e27380
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65407597"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833418"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -375,7 +375,7 @@ O `set-body` política pode ser configurada para utilizar o [líquidos](https://
 #### <a name="convert-json-to-soap-using-a-liquid-template"></a>Converter o JSON para SOAP através de um modelo de líquidos
 ```xml
 <set-body template="liquid">
-    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="https://schemas.xmlsoap.org/soap/envelope/">
+    <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
         <soap:Body>
             <GetOpenOrders>
                 <cust>{{body.getOpenOrders.cust}}</cust>
@@ -405,7 +405,7 @@ O `set-body` política pode ser configurada para utilizar o [líquidos](https://
 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|modelo|Utilizado para alterar o modo de modelos que a política de corpo de conjunto será executada no. Atualmente o único valor suportado é:<br /><br />-líquidos - definir a política de corpo irá utilizar o mecanismo de modelagem de líquidos |Não|Liquid|
+|modelo|Utilizado para alterar o modo de modelos que a política de corpo de conjunto será executada no. Atualmente o único valor suportado é:<br /><br />-líquidos - definir a política de corpo irá utilizar o mecanismo de modelagem de líquidos |Não||
 
 Para aceder a informações sobre o pedido e resposta, o modelo de fluidos pode vincular a um objeto de contexto com as seguintes propriedades: <br />
 <pre>context.

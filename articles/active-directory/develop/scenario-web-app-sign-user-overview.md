@@ -15,14 +15,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b46df5e4ec8352b47f744a507fad702c37aa5fba
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6ce534c6eeecba220fd829be829caa679df52055
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075104"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833087"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Aplicação Web que inicia sessão dos utilizadores
+# <a name="scenario-web-app-that-signs-in-users"></a>Cenário: Aplicação web que inicia a sessão de utilizadores
 
 Saiba tudo o que precisa para criar uma aplicação web que utilizadores inicia sessão com a plataforma de identidade da Microsoft.
 
@@ -40,7 +40,7 @@ Se pretende criar seu primeiro portáteis (ASP.NET Core) web as aplicações que
 Se preferir manter-se com o ASP.NET, experimente o tutorial seguinte:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Aplicação de web de ASP.NET Core, que os utilizadores inicia sessão](quickstart-v2-aspnet-webapp.md)
+> [Quickstart: Aplicação de web de ASP.NET, que os utilizadores inicia sessão](quickstart-v2-aspnet-webapp.md)
 
 ## <a name="overview"></a>Descrição geral
 

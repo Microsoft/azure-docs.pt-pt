@@ -51,7 +51,7 @@ As seguintes propriedades são suportadas para o serviço ligado do MongoDB:
 |:--- |:--- |:--- |
 | type |A propriedade de tipo tem de ser definida como: **MongoDbV2** |Sim |
 | connectionString |Por exemplo, a especificar a cadeia de ligação do MongoDB `mongodb://[username:password@]host[:port][/[database][?options]]`. Consulte a [MongoDB manual na cadeia de ligação](https://docs.mongodb.com/manual/reference/connection-string/) para obter mais detalhes. <br/><br />Marcar esse campo como um **SecureString** tipo armazena de forma segura no Data Factory. Também pode [referenciar um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). |Sim |
-| base de dados | Nome da base de dados que pretende aceder. | Sim |
+| database | Nome da base de dados que pretende aceder. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser utilizado para ligar ao arquivo de dados. Pode utilizar o Runtime de integração autoalojado ou Runtime de integração do Azure (se o seu armazenamento de dados está acessível ao público). Se não for especificado, ele usa o padrão do Runtime de integração do Azure. |Não |
 
 **Exemplo:**

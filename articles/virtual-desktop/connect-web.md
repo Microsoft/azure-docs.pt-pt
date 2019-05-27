@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 9696f3c32f8b903257e337191a5ce32645bfd198
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d99f20efcebc3c9d97c5e2228e8b55bfd3f432b5
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142452"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834016"
 ---
-# <a name="connect-from-a-web-browser"></a>Ligar a partir de um navegador da web
+# <a name="connect-from-a-web-browser"></a>Ligar a partir de um browser web
 
 O cliente web permite-lhe aceder aos recursos da pré-visualização de ambiente de Trabalho Virtual do Windows de um navegador da web sem o processo de instalação demorada.
 
@@ -38,6 +38,6 @@ Embora qualquer browser com capacidade de HTML5 deve funcionar, estamos oficialm
 Num browser, navegue para o [cliente da web de área de Trabalho Virtual do Windows](https://rdweb.wvd.microsoft.com/webclient) e inicie sessão com a sua conta de utilizador.
 
 >[!NOTE]
->Se já tiver sessão iniciada sessão utilizando uma conta do Azure AD que é diferente daquela que pretende utilizar para a área de Trabalho Virtual do Windows, terá de terminar sessão ou utilizar uma janela do browser privada.
+>Se já iniciou sessão com uma conta de Azure Active Directory diferente daquele que pretende utilizar para a área de Trabalho Virtual do Windows, deve terminar sessão ou utilizar uma janela de browser privada.
 
 Depois de iniciar sessão, deverá ver agora uma lista de recursos. Pode iniciar recursos selecionando-o como faria com uma aplicação normal na **todos os recursos** separador.

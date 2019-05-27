@@ -21,6 +21,8 @@
       href: tutorial-restore-disk.md
     - name: Restaurar ficheiros individuais
       href: tutorial-restore-files.md
+    - name: Fazer cópia de segurança do SQL Server na VM do Azure
+      href: tutorial-sql-backup.md
     - name: Fazer uma cópia de segurança do Windows Server
       href: tutorial-backup-windows-server-to-azure.md
     - name: Restaurar ficheiros para o Windows Server

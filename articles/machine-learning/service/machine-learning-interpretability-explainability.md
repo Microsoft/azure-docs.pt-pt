@@ -1,7 +1,7 @@
 ---
 title: Capacidade de interpretação do modelo
 titleSuffix: Azure Machine Learning service
-description: Aprenda a explicar por que o seu modelo faz predições com o SDK do Azure Machine Learning. Ele pode ser usado durante a inferência e formação para compreender como o seu modelo faz predições.
+description: Aprenda a explicar por que o seu modelo faz predições com o SDK do Azure Machine Learning. Ele pode ser usado durante a formação e inferência para compreender como o seu modelo faz predições.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/29/2019
-ms.openlocfilehash: 62d51a0075d8b6864e4b10fa6c1eb423a440d6d0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4261e869fe17283886d7d8ea8101e03110d6dad4
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926443"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65851999"
 ---
 # <a name="model-interpretability-with-azure-machine-learning-service"></a>Modelo interpretability com o serviço Azure Machine Learning
 
 Neste artigo, irá aprender a explicar por que o seu modelo de feitas as previsões funcionou com o pacote de interpretability do SDK de Python do Azure Machine Learning.
 
 Usando as classes e métodos deste pacote, pode obter:
-+ Interpretability em conjuntos de dados do mundo real em escala, durante o tempo de formação e inferência. 
++ Interpretability em conjuntos de dados do mundo real em escala, durante a formação e inferência. 
 + Visualizações interativas para ajudá-lo na deteção de padrões nos dados e explicações em tempo de treinamento
 + Valores de importância de funcionalidade: não processadas e engenharia de funcionalidades
 
 Durante a fase de treinamento do ciclo de desenvolvimento, os designers de modelo e de avaliadores podem utilizar para explicar o resultado de um modelo para os participantes para criar a confiança.  Também utilizam as informações sobre o modelo para depuração, a validar o comportamento de modelo corresponde aos seus objetivos e verificar a existência de tendência.
 
-Durante a fase de inferência, cientistas de dados podem utilizar interpretability para explicar as previsões de indisponibilidade para as pessoas que utilizam o seu modelo. Por exemplo, por que fiz o modelo de negar um empréstimo mortgage, ou prever que um portfólio de investimento acarreta um risco mais alto?
+Inferência de tipos ou modelo de classificação, é a fase em que o modelo implementado é utilizado para predição, mais comumente nos dados de produção. Durante esta fase, os cientistas de dados podem explicar as previsões resultantes para as pessoas que utilizam o seu modelo. Por exemplo, por que fiz o modelo de negar um empréstimo mortgage, ou prever que um portfólio de investimento acarreta um risco mais alto?
 
 Utilizar estes oferta, pode explicar modelos de machine learning **globalmente em todos os dados**, ou **localmente num ponto de dados específico** usando as tecnologias de topo de gama de forma fácil de usar e dimensionável.
 
@@ -287,7 +287,7 @@ clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
 tabular_explainer = TabularExplainer(clf.steps[-1][1], initialization_examples=x_train, features=dataset_feature_names, classes=dataset_classes, transformations=transformations)
 ```
 
-## <a name="interpretability-in-inferencing"></a>Interpretability em inferência
+## <a name="interpretability-in-inference"></a>Interpretability em inferência de tipos
 
 A explicação pode ser implementada juntamente com o modelo original e pode ser utilizada em vez de classificação para fornecer as informações do local de explicação. O processo de implantação de uma explicação da classificação é semelhante ao implementar um modelo e inclui os seguintes passos:
 

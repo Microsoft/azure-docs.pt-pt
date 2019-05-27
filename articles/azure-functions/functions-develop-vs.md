@@ -1,6 +1,6 @@
 ---
 title: Desenvolver as funções do Azure com o Visual Studio | Documentos da Microsoft
-description: Saiba como desenvolver e testar as funções do Azure com as ferramentas de funções do Azure para Visual Studio 2017.
+description: Saiba como desenvolver e testar as funções do Azure com as ferramentas de funções do Azure para Visual Studio 2019.
 services: functions
 documentationcenter: .net
 author: ggailey777
@@ -10,16 +10,16 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4e67e91e93ef3a2e2acf88a87b97eaab56ca6479
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4366f09ccc9a3b2335e0aa84b7fb7398825cb87e
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60403896"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864534"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Desenvolver as funções do Azure com o Visual Studio  
 
-Ferramentas de funções do Azure para Visual Studio 2017 é uma extensão para o Visual Studio que lhe permitem desenvolver, testar e implementar funções c# no Azure. Se esta experiência é o primeiro com as funções do Azure, pode saber mais em [uma introdução às funções do Azure](functions-overview.md).
+Ferramentas de funções do Azure para Visual Studio 2019 é uma extensão para o Visual Studio que lhe permitem desenvolver, testar e implementar o C# funções para o Azure. Se esta experiência é o primeiro com as funções do Azure, pode saber mais em [uma introdução às funções do Azure](functions-overview.md).
 
 As ferramentas de funções do Azure fornece as seguintes vantagens: 
 
@@ -29,16 +29,16 @@ As ferramentas de funções do Azure fornece as seguintes vantagens:
 * Programe e implemente as funções do c# compiladas previamente. Funções previamente está a fornecem um desempenho de arranque a frio melhor que funções de baseada em script do c#. 
 * As suas funções em c# de código enquanto tem todos os benefícios de desenvolvimento do Visual Studio. 
 
-Este artigo fornece detalhes sobre como usar as ferramentas de funções do Azure para Visual Studio 2017 para desenvolver C# funções e publique-os para o Azure. Antes de ler este artigo, deverá concluir os [início rápido das funções para o Visual Studio](functions-create-your-first-function-visual-studio.md). 
+Este artigo fornece detalhes sobre como usar as ferramentas de funções do Azure para Visual Studio 2019 para desenvolver C# funções e publique-os para o Azure. Antes de ler este artigo, deverá concluir os [início rápido das funções para o Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Não misture o desenvolvimento local com o desenvolvimento de portais na mesma function app. Quando publicar a partir de um projeto local para uma aplicação de funções, o processo de implantação substitui quaisquer funções que desenvolveu no portal.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Ferramentas de funções do Azure está incluída na carga de trabalho de desenvolvimento do Azure de [Visual Studio 2017 versão 15.5](https://www.visualstudio.com/vs/), ou uma versão posterior. Certifique-se de que inclui a **desenvolvimento do Azure** carga de trabalho na sua instalação do Visual Studio 2017:
+Ferramentas de funções do Azure está incluída na carga de trabalho de desenvolvimento do Azure de [Visual Studio 2017](https://www.visualstudio.com/vs/), ou uma versão posterior. Certifique-se de que inclui a **desenvolvimento do Azure** carga de trabalho na sua instalação do Visual Studio 2019:
 
-![Instalar o Visual Studio 2017 com a carga de trabalho de desenvolvimento do Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
+![Instalar o Visual Studio 2019 com a carga de trabalho de desenvolvimento do Azure](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
 
 Certifique-se de que o Visual Studio está atualizado e que está a utilizar o [versão mais recente](#check-your-tools-version) das ferramentas das funções do Azure.
 
@@ -185,7 +185,7 @@ Para saber mais sobre como utilizar as ferramentas de núcleo de funções do Az
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
-## <a name="function-app-settings"></a>Definições da Aplicação de funções
+## <a name="function-app-settings"></a>Definições da aplicação de funções
 
 Quaisquer configurações adicionadas no Settings tem de ser adicionadas também para a aplicação de funções no Azure. Estas definições não são carregadas automaticamente quando publica o projeto.
 
