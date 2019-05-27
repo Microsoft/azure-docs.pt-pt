@@ -4,20 +4,20 @@ description: Instalar o Visual Studio e SQL Server Development Tools (SSDT) para
 services: sql-data-warehouse
 ms.custom: vs-azure
 ms.workload: azure-vs
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: consume
+ms.subservice: development
 ms.date: 04/05/2019
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: f67c2a4547ee923e5c1b49302c38693e9ffe87c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 683ec8f9cebb2fcbade9fd636506cf1903eff317
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474254"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873301"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Instalar o Visual Studio e SSDT para SQL Data Warehouse
 Utilize o Visual Studio 2017 para desenvolver aplicativos para o SQL Data Warehouse. Atualmente o SSDT de 2019 do Visual Studio não é suportada para o SQL Data Warehouse. 

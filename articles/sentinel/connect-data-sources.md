@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b54c4ef1b188896a70cf8b2f9352d0b76874fd50
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5d8d97aefa2efadae70c976b8a1876b2c7d8f1c1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204280"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921931"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -53,7 +53,7 @@ Os seguintes métodos de ligação de dados são suportados pelo Azure sentinela
 - **Soluções externas através da API**: Algumas origens de dados estão ligadas através de APIs que são fornecidas pela origem de dados ligada. Normalmente, a maioria das tecnologias de segurança fornecem um conjunto de APIs, através do qual os registos de eventos pode ser obtidos. As APIs de ligar ao Azure sentinela e recolher os tipos de dados específicos e enviá-los para o Azure Log Analytics. Aplicações ligadas através da API incluem:
     - [Barracuda](connect-barracuda.md)
     - [Symantec](connect-symantec.md)
-- **Soluções externas através de agente**: Sentinel do Azure pode ser ligada a todas as outras origens de dados que podem realizar a transmissão de registos em tempo real utilizando o protocolo de Syslog, através de um agente. <br>A maioria das aplicações utilizam o protocolo de Syslog para enviar mensagens de eventos que incluem o registo em si e os dados sobre o registo. O formato dos registos varia, mas a maioria das aplicações suportam o padrão de Common Event Format (CEF). <br>O agente de Azure sentinela, que se baseia o agente do OMS, converte CEF formatado registos num formato que podem ser ingeridos pelo Log Analytics. Dependendo do tipo de aplicação, o agente é instalado diretamente na aplicação da ou num servidor Linux dedicado. O agente para Linux recebe eventos a partir do Syslog daemon através do UDP, mas em casos em que uma máquina Linux é esperada para recolher um grande volume de eventos do Syslog, enviados por TCP partir do Syslog daemon para o agente e daí para o Log Analytics.
+- **Soluções externas através de agente**: Sentinel do Azure pode ser ligada a todas as outras origens de dados que podem realizar a transmissão de registos em tempo real utilizando o protocolo de Syslog, através de um agente. <br>A maioria das aplicações utilizam o protocolo de Syslog para enviar mensagens de eventos que incluem o registo em si e os dados sobre o registo. O formato dos registos varia, mas a maioria das aplicações suportam o padrão de Common Event Format (CEF). <br>O agente de Azure sentinela, que se baseia em Microsoft Monitoring Agent, converte registos CEF formatado num formato que pode ser ingerido pelo Log Analytics. Dependendo do tipo de aplicação, o agente é instalado diretamente na aplicação da ou num servidor Linux dedicado. O agente para Linux recebe eventos a partir do Syslog daemon através do UDP, mas em casos em que uma máquina Linux é esperada para recolher um grande volume de eventos do Syslog, enviados por TCP partir do Syslog daemon para o agente e daí para o Log Analytics.
     - Firewalls, proxies e pontos de extremidade:
         - [F5](connect-f5.md)
         - [Check Point](connect-checkpoint.md)

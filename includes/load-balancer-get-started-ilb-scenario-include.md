@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: kumudD
 ms.service: load-balancer
 ms.topic: include
-origin.date: 11/09/2018
-ms.date: 12/31/2018
-ms.author: v-jay
+ms.date: 11/09/2018
+ms.author: kumud
 ms.openlocfilehash: f0e575af51f952a80fe42102b033727713c75cf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60398795"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122248"
 ---
 ## <a name="configuration-scenario"></a>Cenário de configuração
 

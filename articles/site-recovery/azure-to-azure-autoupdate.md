@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/29/2098
+ms.date: 05/20/2019
 ms.author: rajanaki
-ms.openlocfilehash: aa135fef2850a692d45d932c15d4be74ccba5724
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1d36145b2a38c0f1106b4468eab226996e270ae1
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925703"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922145"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Atualização automática do serviço de mobilidade na replicação do Azure para o Azure
 
@@ -535,3 +535,14 @@ Se não foi possível ativar as atualizações automáticas, consulte os seguint
 - **Erro**: Não foi encontrada a conta Run As. Um destes foi eliminado ou não criado - aplicação de diretório do Azure Active Directory, Principal de serviço, função, recurso de certificado de automatização, recurso de ligação de automatização - ou o Thumbprint não é idêntico entre o certificado e a ligação. 
 
     **Ação recomendada**: Eliminar e, em seguida [voltar a criar a conta Run As](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+
+-  **Erro**: A execução do Azure como o certificado utilizado pela conta de automatização está prestes a expirar. 
+
+    O certificado autoassinado que é criado para a conta Run As expira um ano a contar da data de criação. Pode renová-lo em qualquer altura antes de expirar. Se se inscreveu para notificações por e-mail, também receberá e-mails quando uma ação é necessária da sua parte. Este erro será mostrado 2 meses antes da data de expiração e será alterado para um erro crítico se o certificado expirou. Depois do certificado tiver expirado, a atualização automática não ficarão funcional até renovar o mesmo.
+
+   **Ação recomendada**: Clique em "Reparação" e, em seguida, "A renovar o certificado" para resolver este problema.
+    
+   ![renew-cert](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
+
+> [!NOTE]
+> Depois de renovar o certificado, atualize a página, para que o estado atual é atualizado.

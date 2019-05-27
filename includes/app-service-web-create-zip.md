@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: d804cb310a8638713cabf76c2f4192a0e4d0f43d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411870"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914280"
 ---
 ## <a name="create-a-project-zip-file"></a>Criar um ficheiro ZIP do projeto
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a0c677e25be86e0f82b821a7931bda0af2b35127
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: c09cb0f93f05a9574543ebabb398148638092c73
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408663"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65864781"
 ---
 # <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Início rápido: Criar uma função do Azure com configuração de aplicações
 
@@ -31,7 +31,7 @@ Pode utilizar qualquer editor de código para realizar os passos neste guia de i
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para fazer este início rápido, instale [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Certifique-se de que o **desenvolvimento do Azure** carga de trabalho também é instalada. Também instalar o [mais recentes ferramentas de funções do Azure](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Para fazer este início rápido, instale [Visual Studio 2019](https://visualstudio.microsoft.com/vs). Certifique-se de que o **desenvolvimento do Azure** carga de trabalho também é instalada. Também instalar o [mais recentes ferramentas de funções do Azure](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

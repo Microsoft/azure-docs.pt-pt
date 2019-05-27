@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 6c7952f5baf2e6956e4052f68ede6fb0c4902854
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61381994"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921344"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Criar a sua primeira função durável em JavaScript
 
@@ -117,7 +117,7 @@ As Ferramentas de Núcleo das Funções do Azure permitem-lhe executar um projet
 2. Para testar a sua função, defina um ponto de interrupção no código de função e prima F5 para iniciar o projeto da aplicação de funções. São apresentados os resultados das Ferramentas de Núcleo no painel **Terminal**. Se esta for a primeira vez com as funções durável, a extensão de funções durável é instalada e a compilação poderá demorar alguns segundos.
 
     > [!NOTE]
-    > Funções duráveis do JavaScript é necessária a versão **1.7.0** ou superior da **Microsoft.Azure.WebJobs.Extensions.DurableTask** extensão. Verificar a versão da extensão de funções duráveis no seu `extensions.csproj` ficheiro cumpre este requisito. Se não existir, pare a aplicação de funções, alterar a versão e pressione F5 para reiniciar a aplicação de funções.
+    > Funções duráveis do JavaScript é necessária a versão **1.7.0** ou superior da **Microsoft.Azure.WebJobs.Extensions.DurableTask** extensão. Execute o seguinte comando a partir da pasta raiz da sua aplicação de funções do Azure para instalar a extensão de funções duráveis `func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.7.0`
 
 3. No painel **Terminal**, copie o ponto final do URL da sua função acionada por HTTP.
 

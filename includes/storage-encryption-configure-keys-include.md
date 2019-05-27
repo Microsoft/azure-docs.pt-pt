@@ -9,11 +9,11 @@ ms.date: 04/16/2019
 ms.author: tamram
 ms.custom: include
 ms.openlocfilehash: 3076065d23d4701711c0ecb60349e77ee5c9b7c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61593536"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66115434"
 ---
 O armazenamento do Azure suporta a encriptação em repouso com chaves geridas pela Microsoft ou com chaves geridas pelo cliente. Chaves geridas pelo cliente permitem-lhe criar, girar, desativar e revogar os controlos de acesso.
 

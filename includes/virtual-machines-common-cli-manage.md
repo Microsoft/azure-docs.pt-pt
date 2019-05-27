@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60387255"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66117249"
 ---
 A CLI do Azure permite-lhe criar e gerir recursos do Azure no macOS, Linux e Windows. Este artigo fornece detalhes sobre alguns dos comandos mais comuns para criar e gerir máquinas virtuais (VMs).
 
@@ -23,7 +23,7 @@ Para obter mais ajuda com os parâmetros de linha de comandos específicos e op�
 | --- | --- |
 | Criar um grupo de recursos | `az group create --name myResourceGroup --location eastus` |
 | Criar uma VM do Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
-| Criar uma VM do Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
+| Criar VM do Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### <a name="manage-vm-state"></a>Gerir o estado da VM
 | Tarefa | Comandos da CLI Azure |

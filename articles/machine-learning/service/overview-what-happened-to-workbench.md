@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1bcbaf5ec3b15a36b28aa7d4b3346b85e1a7cc24
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 18b5f3877538d26e55bf0550a995ca0c50699de5
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785797"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914129"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>O que aconteceu ao Azure Machine Learning Workbench?
 
@@ -40,7 +40,7 @@ A versão mais recente do serviço Azure Machine Learning inclui as seguintes fu
 + Uma nova e mais abrangente de Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + O novo expandido [extensão de CLI do Azure](reference-azure-machine-learning-cli.md) para machine learning.
 
-O [arquitetura](concept-azure-machine-learning-architecture.md) foi reestruturado para facilidade de utilização. Em vez de vários recursos e contas do Azure, precisa apenas de uma [Área de Trabalho do serviço do Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace). Pode criar rapidamente as áreas de trabalho no [portal]\((setup-create-workspace.md#portal) do Azure. Ao utilizar uma área de trabalho, vários usuários podem armazenar a formação e implementação de computação destinos, experiências de modelo, imagens do Docker, modelos implementados e assim por diante.
+O [arquitetura](concept-azure-machine-learning-architecture.md) foi reestruturado para facilidade de utilização. Em vez de vários recursos e contas do Azure, precisa apenas de uma [Área de Trabalho do serviço do Azure Machine Learning](concept-workspace.md). Pode criar rapidamente as áreas de trabalho no [portal]\((setup-create-workspace.md#portal) do Azure. Ao utilizar uma área de trabalho, vários usuários podem armazenar a formação e implementação de computação destinos, experiências de modelo, imagens do Docker, modelos implementados e assim por diante.
 
 Apesar de existirem novos clientes CLI e SDK aprimorados na versão atual, o próprio aplicativo da bancada de trabalho de área de trabalho ter sido extinguido. Experiências podem ser geridas do [dashboard da área de trabalho no portal do Azure](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Utilize o dashboard para obter o histórico de experimentações, gerir os destinos de computação associados à sua área de trabalho, gerir os seus modelos e imagens do Docker e até implementar serviços Web.
 

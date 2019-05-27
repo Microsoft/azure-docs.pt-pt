@@ -16,12 +16,12 @@ ms.date: 04/27/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3abe2f7deef2a1dbe82f4702fd3477303891ab2e
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 0b9baa48c13e317ba3fb54d998ee8f125d2093c7
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873583"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921066"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é a gestão de direitos do Azure AD? (Pré-visualização)
 
@@ -114,7 +114,7 @@ O diagrama seguinte mostra um exemplo dos diferentes elementos na gestão de dir
 
 Ao utilizar o [do Azure AD empresa-empresa (B2B)](../b2b/what-is-b2b.md) convidar experiência, já deve saber que os endereços de e-mail dos utilizadores convidados externos que pretende trazer para o seu diretório de recursos e trabalhar com. Este funciona muito bem de quando estiver trabalhando num projeto mais pequeno ou curto prazo e que já conhece todos os participantes, mas isso é mais difícil de gerenciar se tiver muitos utilizadores que pretende trabalhar com ou se os participantes mudam ao longo do tempo.  Por exemplo, poderá trabalhar com outra organização e ter um ponto de contacto com essa organização, mas ao longo do tempo os utilizadores adicionais dessa organização também precisará de acesso.
 
-Com a gestão de direitos, pode definir uma política que permite aos utilizadores de organizações que especificar, que também estão a utilizar o Azure AD, para poder pedir um pacote de acesso. Pode especificar se é necessária aprovação e uma data de expiração para o acesso. Se a aprovação for necessária, também pode designar como um aprovador um ou mais utilizadores da organização externa que anteriormente convidou - uma vez que é provável que sabe que utilizadores externos da sua organização precisam de acesso. Assim que tiver configurado o pacote de acesso, pode enviar uma ligação para o pacote de acesso à sua pessoa de contato numa organização externa. Esse contacto pode partilhar com outros utilizadores na organização externo e podem utilizar esta ligação para o pacote de acesso do pedido.  Os utilizadores da organização ou que já foi convidados para o seu diretório também podem utilizar essa ligação.
+Com a gestão de direitos, pode definir uma política que permite aos utilizadores de organizações que especificar, que também estão a utilizar o Azure AD, para poder pedir um pacote de acesso. Pode especificar se é necessária aprovação e uma data de expiração para o acesso. Se a aprovação for necessária, também pode designar como um aprovador um ou mais utilizadores da organização externa que anteriormente convidou - uma vez que é provável que sabe que utilizadores externos da sua organização precisam de acesso. Assim que tiver configurado o pacote de acesso, pode enviar uma ligação para o pacote de acesso à sua pessoa de contato numa organização externa. Esse contacto pode partilhar com outros utilizadores na organização externa e podem utilizar esta ligação para o pacote de acesso do pedido.  Os utilizadores dessa organização que já foi convidados para o seu diretório também podem utilizar essa ligação.
 
 Quando um pedido for aprovado, gestão de direitos irá aprovisionar o utilizador com o acesso necessário, o que pode incluir a convidar o usuário se não ainda estiverem no seu diretório. Do Azure AD irá criar automaticamente uma conta de B2B para eles.  Tenha em atenção que um administrador pode ter anteriormente limitado que as organizações têm permissão para a colaboração, definindo um [B2B permitir ou negar lista](../b2b/allow-deny-list.md) permitir ou bloquear convites para outras organizações.  Se o utilizador não é permitido pela lista de permissões ou de bloqueios, em seguida, não serão convidados.
 
@@ -130,7 +130,7 @@ Para compreender melhor a gestão de direitos e a respetiva documentação, deve
 | pacote de acesso | Uma coleção de permissões e políticas de recursos que os utilizadores podem pedir. Um pacote de acesso sempre está contido num catálogo. |
 | pedido de acesso | Um pedido para aceder a um pacote de acesso. Um pedido normalmente passa por um fluxo de trabalho. |
 | política | Um conjunto de regras que define o ciclo de vida de acesso, por exemplo, como os utilizadores obtêm acesso, que pode aprovar e o tempo que os utilizadores têm acesso. Algumas políticas incluem o acesso dos funcionários e de acesso externo. |
-| catálogo | Um contentor de recursos relacionados e pacotes de acesso. |
+| catalog | Um contentor de recursos relacionados e pacotes de acesso. |
 | Catálogo geral | Um catálogo interno que está sempre disponível. Para adicionar recursos para o catálogo de geral, requer determinadas permissões. |
 | Recurso | Um recurso ou serviço (por exemplo, um grupo, aplicação ou site) que um usuário pode ser concedido permissões para. |
 | tipo de recurso | O tipo de recurso, que inclui os grupos, aplicações e sites do SharePoint Online. |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0bcaf356108984baf473cdef8c18c5561343cd9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359284"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119355"
 ---
 # <a name="what-are-authentication-methods"></a>Quais são os métodos de autenticação?
 
@@ -30,12 +30,12 @@ A Microsoft recomenda administradores assegura aos usuários para selecionar mai
 | --- | --- |
 | Palavra-passe | MFA e o SSPR |
 | Perguntas de segurança | Apenas a SSPR |
-| Endereço de e-mail | Apenas a SSPR |
-| Aplicação Microsoft Authenticator | MFA e pré-visualização pública para SSPR |
+| Endereço de correio eletrónico | Apenas a SSPR |
+| Aplicação do Microsoft Authenticator | MFA e pré-visualização pública para SSPR |
 | Token OATH de Hardware | Pré-visualização pública para a MFA e o SSPR |
 | SMS | MFA e o SSPR |
 | Chamada de voz | MFA e o SSPR |
-| Palavras-passe de aplicações | MFA apenas em determinados casos |
+| Palavras-passe da aplicação | MFA apenas em determinados casos |
 
 ![Métodos de autenticação em uso no ecrã de início de sessão](media/concept-authentication-methods/overview-login.png)
 
@@ -113,13 +113,13 @@ O comprimento máximo de uma pergunta de segurança personalizada é 200 carater
 * Qualquer conjunto de caracteres pode ser usado para definir as perguntas e respostas, incluindo os caracteres Unicode.
 * O número de perguntas definidas tem de ser maior que ou igual ao número de perguntas que foram necessárias para se registar.
 
-## <a name="email-address"></a>Endereço de e-mail
+## <a name="email-address"></a>Endereço de correio eletrónico
 
 Endereço de e-mail está disponível **apenas na palavra-passe self-service do Azure AD repor**.
 
 A Microsoft recomenda a utilização de uma conta de e-mail que não requer que a senha do usuário do Azure AD para aceder.
 
-## <a name="microsoft-authenticator-app"></a>Aplicação Microsoft Authenticator
+## <a name="microsoft-authenticator-app"></a>Aplicação do Microsoft Authenticator
 
 A aplicação Microsoft Authenticator oferece um nível adicional de segurança para o seu trabalho do Azure AD ou a conta escolar ou a sua conta Microsoft.
 
@@ -165,7 +165,7 @@ Tokens de hardware OATH estão a ser suportados como parte da pré-visualizaçã
 Depois de tokens são adquiridos têm de ser carregados num formato de ficheiro de valores separados por vírgulas (CSV), incluindo o UPN, número de série, chave secreta, intervalo de tempo, fabricante e modelo do exemplo abaixo mostra.
 
 ```csv
-upn,serial number,secret key,timeinterval,manufacturer,model
+upn,serial number,secret key,time interval,manufacturer,model
 Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
 ```
 
@@ -180,7 +180,7 @@ Depois de todos os erros tiverem sido preparados, o administrador, em seguida, p
 
 Os utilizadores podem ter uma combinação de até cinco tokens de hardware OATH ou aplicações de autenticação como a aplicação Microsoft Authenticator configurada para utilização em qualquer altura.
 
-## <a name="mobile-phone"></a>Número de telemóvel
+## <a name="mobile-phone"></a>Telemóvel
 
 Duas opções estão disponíveis para os utilizadores com celulares.
 
@@ -193,7 +193,7 @@ Para funcionarem corretamente, os números de telefone tem de ser no formato *+ 
 >
 > Reposição de palavra-passe não suporta extensões telefónicas. Até mesmo no formato + 1 4255551234 X 12345, as extensões são removidas antes da chamada é feita.
 
-### <a name="text-message"></a>Mensagem de texto
+### <a name="text-message"></a>Mensagem SMS
 
 Um SMS é enviado para o número de telemóvel contendo um código de verificação. Introduza o código de verificação fornecido na interface de início de sessão para continuar.
 

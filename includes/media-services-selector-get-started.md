@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: Juliako
 ms.service: media-services
 ms.topic: include
-origin.date: 11/09/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 11/09/2018
+ms.author: juliako
 ms.openlocfilehash: ae56e02e89a6f7b5a9adaa587ee4a0521d21f349
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60639451"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118640"
 ---
 > [!div class="op_single_selector"]
 > * [Portal](../articles/media-services/previous/media-services-portal-vod-get-started.md)

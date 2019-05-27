@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: vincesm
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb05ee4d6e05cb8b56756a761a519e5903b78bbd
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0cb0fe056ff7ff4794667d6b28782daad100609f
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507084"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921027"
 ---
 # <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Quais são as permissões de usuário padrão no Azure Active Directory?
 No Azure Active Directory (Azure AD), é concedido a todos os utilizadores um conjunto de permissões predefinidas. Acesso de um utilizador consiste o tipo de utilizador, seus [atribuições de funções](active-directory-users-assign-role-azure-portal.md)e a propriedade de objetos individual. Este artigo descreve essas permissões predefinidas e contém uma comparação entre as predefinições do utilizador membro e convidado. As permissões de utilizador padrão podem ser alteradas apenas nas definições de utilizador no Azure AD.
@@ -53,7 +53,7 @@ Os utilizadores podem registar aplicações | Definir esta opção para não imp
 Permitir que os utilizadores liguem a conta escolar ou profissional com o LinkedIn | Definir esta opção para não impede os utilizadores de se ligar a respetiva conta escolar ou profissional com a respetiva conta do LinkedIn.  Ver [partilha de dados de ligações e o consentimento de contas LinkedIn](https://docs.microsoft.com/azure/active-directory/users-groups-roles/linkedin-user-consent) para obter mais informações.
 Capacidade de criar grupos de segurança | Definir esta opção para Não impede que os utilizadores criem grupos de segurança. Os administradores globais e administradores de utilizador ainda podem criar grupos de segurança. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
 Capacidade de criar grupos do Office 365 | Definir esta opção para Não impede que os utilizadores criem grupos do Office 365. Definir esta opção para Alguns permite que um conjunto selecionado de utilizadores crie grupos do Office 365. Os administradores globais e administradores de utilizador ainda poderá criar grupos do Office 365. Veja [Cmdlets do Azure Active Directory para configurar definições de grupo](../users-groups-roles/groups-settings-cmdlets.md) para saber como.
-Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para não impede os utilizadores de aceder ao Azure Active Directory.
+Restringir o acesso ao portal de administração do Azure AD | Definir esta opção para Sim impede os utilizadores de aceder ao Azure Active Directory através do portal do Azure apenas.
 Capacidade de ler outros utilizadores | Esta definição só está disponível no PowerShell. Definir isto como $false impede todos os utilizadores não administradores de lerem as informações de utilizador do diretório. Isto não impede a leitura das informações de utilizador nos outros serviços Microsoft, como o Exchange Online. Esta definição destina-se a circunstâncias especiais e definir isto para $false não é recomendado.
 
 ## <a name="object-ownership"></a>Propriedade do objeto

@@ -9,18 +9,18 @@ ms.date: 10/20/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d8ef24bfec541ec65c74f77a90aa9476a8b298b2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 93386bd1fa3be88cbcdfab3d59ae07d3eb2b046d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153273"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911917"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Encriptação do lado do cliente e o Azure Key Vault para o armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
 
 ## <a name="overview"></a>Descrição geral
-O [biblioteca de cliente de armazenamento do Azure para o pacote .NET Nuget](https://www.nuget.org/packages/WindowsAzure.Storage) suporta a encriptação de dados dentro de aplicativos de cliente antes de carregar para o armazenamento do Azure e a desencriptação de dados durante a transferência para o cliente. A biblioteca também suporta a integração com [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
+O [biblioteca de clientes de armazenamento do Azure para .NET](/dotnet/api/overview/azure/storage/client) suporta a encriptação de dados dentro de aplicativos de cliente antes de carregar para o armazenamento do Azure e a desencriptação de dados durante a transferência para o cliente. A biblioteca também suporta a integração com [do Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para gestão de chaves de conta de armazenamento.
 
 Para obter um tutorial passo a passo que o orienta pelo processo de encriptação de blobs com a encriptação do lado do cliente e o Azure Key Vault, consulte [encriptar e desencriptar blobs no armazenamento do Microsoft Azure com o Azure Key Vault](../blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 

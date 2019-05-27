@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dda2eafe86d037faab6284c2af0d8026c194d11
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344432"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921154"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Resolver problemas relacionados com o RBAC para recursos do Azure
 
@@ -36,7 +36,7 @@ Este artigo responde a perguntas comuns sobre o controlo de acesso baseado em fu
 - Se precisar de passos para saber como criar uma função personalizada, veja os tutoriais de função personalizada usando [do Azure PowerShell](tutorial-custom-role-powershell.md) ou [CLI do Azure](tutorial-custom-role-cli.md).
 - Se não é possível atualizar uma função personalizada existente, verifique se o é atualmente sessão iniciada com um utilizador que está atribuído uma função que tenha as `Microsoft.Authorization/roleDefinition/write` permissão, tais como [proprietário](built-in-roles.md#owner) ou [o administrador de acesso de utilizador](built-in-roles.md#user-access-administrator).
 - Se não conseguir eliminar uma função personalizada e obtiver a mensagem de erro “Não existem atribuições de funções existentes que façam referência à função (código: RoleDefinitionHasAssignments)", significa que ainda há atribuições de funções a utilizar a função personalizada. Remova essas atribuições e experimente eliminar a função personalizada novamente.
-- Se receber a mensagem de erro “Limite de definição de função excedido. Podem ser criadas mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estão a ser utilizadas. O Azure suporta até **2000** funções personalizadas num inquilino.
+- Se receber a mensagem de erro “Limite de definição de função excedido. Podem ser criadas mais definições de função (código: RoleDefinitionLimitExceeded) "ao tentar criar uma nova função personalizada, eliminar quaisquer funções personalizadas que não estão a ser utilizadas. O Azure suporta até **5000** funções personalizadas num inquilino. (Para nuvens especializadas, como o Azure Government, Azure Alemanha e Azure China 21Vianet, o limite é de funções personalizadas de 2000.)
 - Se obtiver um erro semelhante a "o cliente tem permissão para executar a ação 'Microsoft.Authorization/roleDefinitions/write' no âmbito '/ subscrições / {subscriptionid}', no entanto, a subscrição associada não foi encontrada" ao tentar atualizar uma função personalizada, verifique Se um ou mais [âmbitos atribuíveis](role-definitions.md#assignablescopes) ter sido eliminada no inquilino. Se o âmbito tiver sido eliminado, crie um pedido de suporte, pois não existe nenhuma solução self-service atualmente.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperar o RBAC quando as subscrições são movidas entre inquilinos
@@ -112,7 +112,7 @@ Esses itens requerem **escrever** aceder para o **Máquina Virtual**:
 
 Eles exigem **escrever** acesso a ambos os **Máquina Virtual**e o **grupo de recursos** (juntamente com o nome de domínio) que estejam na:  
 
-* Conjunto de disponibilidade  
+* Conjunto de Disponibilidade  
 * Conjunto com balanceamento de carga  
 * Regras de alerta  
 

@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0ab01187b03b3d658b171029003667588382bd7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 15118535578419f9e1230c5b2fcfd0d7c42257ea
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60820296"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65908997"
 ---
 # <a name="access-data-from-your-datastores"></a>Aceder a dados a partir de seus arquivos de dados
 
@@ -30,7 +30,7 @@ Nesta explicação de procedimento mostra exemplos das seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para utilizar arquivos de dados, primeiro tem um [área de trabalho](concept-azure-machine-learning-architecture.md#workspace).
+Para utilizar arquivos de dados, primeiro tem um [área de trabalho](concept-workspace.md).
 
 Comece por qualquer um [criar uma nova área de trabalho](setup-create-workspace.md#sdk) ou obtenção de um já existente:
 
@@ -115,7 +115,7 @@ ws.set_default_datastore('your datastore name')
 ## <a name="upload--download-data"></a>Carregar e transferir dados
 O [ `upload()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) e [ `download()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py#download-target-path--prefix-none--overwrite-false--show-progress-true-) métodos descritos nos exemplos seguintes são específicos e operar de maneira idêntica para o [AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py) e [AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py) classes.
 
-### <a name="upload"></a>Carregar
+### <a name="upload"></a>Carregamento
 
  Carregar um diretório ou arquivos individuais para o arquivo de dados com o SDK de Python.
 
@@ -157,7 +157,7 @@ Forma|Método|Descrição|
 ----|-----|--------
 Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Utilize para montar o arquivo de dados no destino de computação.
 Transferência|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Utilize para transferir o conteúdo do seu arquivo de dados para a localização especificada pela `path_on_compute`. <br> Para o contexto de treinamento ser executado, este download acontece antes da execução.
-Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Utilizar para carregar um ficheiro da localização especificada pela `path_on_compute` para seu arquivo de dados. <br> Para o contexto de treinamento ser executado, este carregamento acontece após a sua execução.
+Carregamento|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Utilizar para carregar um ficheiro da localização especificada pela `path_on_compute` para seu arquivo de dados. <br> Para o contexto de treinamento ser executado, este carregamento acontece após a sua execução.
 
  ```Python
 import azureml.data
@@ -182,7 +182,7 @@ ds.path('./bar').as_download()
 
 A matriz seguinte apresenta as funcionalidades de acesso de dados disponíveis para os cenários de contexto e o arquivo de dados de computação diferentes. O termo "Pipeline" nesta matriz se refere à capacidade de usar arquivos de dados como entrada ou saída na [do Azure Machine Learning Pipelines](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
 
-||Computação local|Computação do Azure Machine Learning|Transferência de Dados|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Virtual Machines|
+||Computação local|Computação do Azure Machine Learning|Transferência de Dados|Databricks|HDInsight|Azure Batch|Azure DataLake Analytics|Máquinas Virtuais|
 -|--|-----------|----------|---------|-----|--------------|---------|---------|
 |AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Pipeline|Pipeline|Pipeline|[`as_download()`] <br> [`as_upload()`]|Pipeline||[`as_download()`] <br> [`as_upload()`]|
 |AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|

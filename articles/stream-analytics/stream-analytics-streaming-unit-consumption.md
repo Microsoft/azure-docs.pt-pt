@@ -8,13 +8,13 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 04/12/2018
-ms.openlocfilehash: 5f85f0a6b1869571a8db29586e5fe113e0f47433
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: 60cddf15ee8a93aa01a72fdc124fa27e68184e04
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60761674"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65916033"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as unidades transmissão em fluxo
 
@@ -51,7 +51,7 @@ Em geral, a melhor prática é começar com 6 SUs para consultas que não usam *
 Para obter mais informações sobre como escolher o número certo de SUs, consulte esta página: [Tarefas de escala do Azure Stream Analytics para aumentar o débito](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> Escolher a quantidade de SUs são necessários para uma tarefa específica depende da configuração de partição para as entradas e a consulta definida para a tarefa. Pode selecionar até sua quota em SUs para uma tarefa. Por predefinição, cada subscrição do Azure tem uma quota de até 200 SUs para todas as tarefas de análise numa região específica. Para aumentar o SUs para as suas subscrições para além desta quota, contacte [Support da Microsoft](https://support.microsoft.com). Os valores válidos para SUs por tarefa são 1, 3, 6 e até em incrementos de 6.
+> Escolher a quantidade de SUs são necessários para uma tarefa específica depende da configuração de partição para as entradas e a consulta definida para a tarefa. Pode selecionar até sua quota em SUs para uma tarefa. Por predefinição, cada subscrição do Azure tem uma quota de até 500 SUs para todas as tarefas de análise numa região específica. Para aumentar o SUs para as suas subscrições para além desta quota, contacte [Support da Microsoft](https://support.microsoft.com). Os valores válidos para SUs por tarefa são 1, 3, 6 e até em incrementos de 6.
 
 ## <a name="factors-that-increase-su-utilization"></a>Fatores que aumentam a % de utilização SU 
 

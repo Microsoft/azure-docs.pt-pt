@@ -10,11 +10,11 @@ ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 ms.openlocfilehash: a812155474b244682613b38b9b9379fa6cdcdcd8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166757"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117606"
 ---
 # <a name="tutorial-detect-anomalies-at-the-edge-with-the-remote-monitoring-solution-accelerator"></a>Tutorial: Detetar anomalias na periferia com o acelerador de solução de monitorização remota
 
@@ -51,7 +51,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="add-an-iot-edge-device"></a>Adicionar um dispositivo IoT Edge
+## <a name="add-an-iot-edge-device"></a>Adicionar um dispositivo do IoT Edge
 
 Há duas etapas para adicionar um dispositivo IoT Edge para seu acelerador de solução de monitorização remota. Esta secção mostra-lhe como utilizar:
 
@@ -80,11 +80,11 @@ Para tornar mais fácil de gerir os dispositivos do IoT Edge na solução, crie 
 
     | Definição | Value |
     | ------- | ----- |
-    | Tarefa     | Etiquetas  |
+    | Tarefa     | Tags  |
     | Nome da tarefa | AddEdgeTag |
     | Chave     | IsOilPump |
     | Value   | S     |
-    | Type    | Texto  |
+    | Type    | Text  |
 
     [![Adicionar etiqueta](./media/iot-accelerators-remote-monitoring-edge/addtag-inline.png)](./media/iot-accelerators-remote-monitoring-edge/addtag-expanded.png#lightbox)
 
@@ -100,7 +100,7 @@ Para tornar mais fácil de gerir os dispositivos do IoT Edge na solução, crie 
     | Campo   | Tags.IsOilPump |
     | Operador | = Igual a |
     | Value    | S |
-    | Type     | Texto |
+    | Type     | Text |
 
     [![Criar grupo de dispositivos](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-inline.png)](./media/iot-accelerators-remote-monitoring-edge/createdevicegroup-expanded.png#lightbox)
 
@@ -163,8 +163,8 @@ Definir a tarefa do Stream Analytics no portal do antes de empacotá-lo como um 
     | Nome da tarefa | EdgeDeviceJob |
     | Subscrição | A sua subscrição do Azure |
     | Grupo de recursos | IoTEdgeDevices |
-    | Localização | EUA Leste |
-    | Ambiente de alojamento | Microsoft Edge |
+    | Location | EUA Leste |
+    | Ambiente de Alojamento | Microsoft Edge |
     | Unidades de transmissão em fluxo | 1 |
 
 1. Abra o **EdgeDeviceJob** Stream Analytics da tarefa no portal, clique em entradas e adicionar um **Hub do Edge** transmitir entrada chamada **telemetria**.
@@ -273,7 +273,7 @@ Agora está pronto para implementar o pacote para o seu dispositivo.
 
 1. Na **nova implementação** painel, pode criar uma implementação com as seguintes definições:
 
-    | Opção | Value |
+    | Opção | Valor |
     | ------ | ----- |
     | Name   | OilPumpDevices |
     | Tipo de pacote | Manifesto do Edge |

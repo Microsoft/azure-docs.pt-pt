@@ -2,20 +2,20 @@
 title: Notas de versão de armazém de dados SQL do Azure, Setembro de 2018 | Documentos da Microsoft
 description: Notas de versão do Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 10/08/2018
-ms.author: mausher
-ms.reviewer: twounder
-ms.openlocfilehash: bc559a1224aace2ee599c24c8dce07a6d55173fd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: 5041458fdc3c6a49c59f2c4c476db71098531419
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61474981"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912170"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>O que há de novo no Azure SQL Data Warehouse? Setembro de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Setembro de 2018.
@@ -99,7 +99,7 @@ Por fim, a melhoria reduz a execução geral de instruções executadas através
 
 ## <a name="bug-fixes"></a>Correções de erros
 
-| Título | Descrição |
+| Cargo | Descrição |
 |:---|:---|
 | **Corrigir ao criar estatísticas em distribuições para as restrições exclusivas** | Esta correção resolve um erro que os utilizadores encontram quando em execução de ATUALIZAÇÃO de estatísticas, com apenas a tabela especificado, quando a tabela tivesse uma restrição exclusiva definida. |
 | **Corrigir ao compilar a consultas em tabelas externas** | Esta correção resolve um defeito que afetados tempo de compilação para consultas que envolvem tabelas externas.|

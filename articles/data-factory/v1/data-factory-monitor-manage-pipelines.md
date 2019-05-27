@@ -14,11 +14,11 @@ ms.date: 04/30/2018
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 64fae56bfc95b62bd60444d49100689845f64278
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445148"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123140"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorizar e gerir pipelines do Azure Data Factory com o portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -107,7 +107,7 @@ Os setores do conjunto de dados da fábrica de dados podem ter um dos seguintes 
 <td>ActivityResume</td><td>A atividade está em pausa e não é possível executar os setores até que a atividade é retomada.</td>
 </tr>
 <tr>
-<td>Repetir</td><td>Execução da atividade está a ser repetida.</td>
+<td>Tentar novamente</td><td>Execução da atividade está a ser repetida.</td>
 </tr>
 <tr>
 <td>Validação</td><td>Validação ainda não começou.</td>
@@ -123,7 +123,7 @@ Os setores do conjunto de dados da fábrica de dados podem ter um dos seguintes 
 <td>O setor está a ser processado.</td>
 </tr>
 <tr>
-<td rowspan="4">Com Falhas</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Com falhas</td><td>TimedOut</td><td>A execução da atividade demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Cancelado</td><td>O setor foi cancelado por ação do utilizador.</td>
@@ -152,7 +152,7 @@ Pode ver os detalhes sobre um setor ao clicar numa entrada do setor sobre o **os
 
 Se o setor tiver sido executado várias vezes, ver múltiplas linhas na **execuções de atividades** lista. Pode ver os detalhes sobre uma atividade executar clicando a entrada de execução na **execuções de atividades** lista. A lista mostra todos os ficheiros de registo, juntamente com uma mensagem de erro, se existir um. Esta funcionalidade é útil para ver e registos de depuração sem precisar sair de sua fábrica de dados.
 
-![Detalhes da execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![Detalhes de execução da atividade](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
 Se o setor não estiver da **pronto** Estado, pode ver os setores a montante que não estão preparadas e estão a impedir o execução do setor atual a **setores a montante que não estão prontos** lista. Esta funcionalidade é útil quando o setor estiver no **aguardando** estado e pretender compreender as dependências a montante que esteja aguardando o setor.
 

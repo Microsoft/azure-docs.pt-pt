@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: a8b4e3038bfa6a2e937de91804159e340ed13224
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554155"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114797"
 ---
-| Recurso | Visar |
+| Resource | Destino |
 |----------|---------------|
 | Tamanho máximo de uma única tabela | 500 TiB |
 | Tamanho máximo de uma entidade de tabela | 1 MiB |
