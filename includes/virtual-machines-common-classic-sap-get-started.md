@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 1983e7560c986df241e9c592aaaa6b646a99840f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60648896"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143258"
 ---
 ## <a name="planning-and-implementation"></a>Planeamento e Implementação
 Título: SAP NetWeaver em máquinas virtuais do Azure – planejamento e guia de implementação

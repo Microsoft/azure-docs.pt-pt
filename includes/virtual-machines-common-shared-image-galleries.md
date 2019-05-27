@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
 ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546760"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145878"
 ---
 Galeria de imagens partilhado é um serviço que ajuda a criar a estrutura e a organização em torno de suas imagens VM geridas personalizadas. Forneça a galerias de imagem partilhada:
 
@@ -128,7 +128,7 @@ Recomendamos que ao nível da Galeria para a melhor experiência de partilha. Pa
 Imagens também podem ser partilhadas, à escala, em inquilinos com o registo de aplicação multi-inquilino. Para obter mais informações sobre a partilha de imagens em inquilinos, consulte [partilhar imagens de VM de galeria em inquilinos do Azure](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
 ## <a name="billing"></a>Faturação
-Não é sem custo adicional para utilizar o serviço de Galeria de imagens de partilhado. Será cobrado para os seguintes recursos:
+não há cobranças adicionais pela utilização do serviço de Galeria de Imagens Partilhadas. Será cobrado para os seguintes recursos:
 - Custos de armazenamento de armazenar as versões de imagem partilhada. Custo depende do número de réplicas da versão de imagem e o número de regiões, que a versão é replicada para. Por exemplo, se tiver 2 imagens e ambos são replicadas para 3 regiões, em seguida, será alterada para 6 discos geridos, com base em seu tamanho. Para obter mais informações, consulte [preços dos Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Custos de saída de rede para a replicação da primeira versão da imagem da região de origem para regiões replicadas. Réplicas subsequentes são processadas na região, pelo que existem sem custos adicionais. 
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: 5fe9fe8ced675f68161f0df9f2665b47f9d47ac5
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55905270"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140880"
 ---
 ### <a name="server-auth"></a>Como: Autenticar com um fornecedor (fluxo de servidor)
 Para que as Aplicações Móveis giram o processo de autenticação na sua aplicação, tem de registar a aplicação com o seu fornecedor de identidade. Em seguida, no seu Serviço de Aplicações do Azure, tem de configurar o ID da aplicação e o segredo fornecidos pelo seu fornecedor.

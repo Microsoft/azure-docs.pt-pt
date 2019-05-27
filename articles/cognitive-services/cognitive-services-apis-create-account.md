@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: garye
-ms.openlocfilehash: b5adb5b8bddd0f379ac581f3268f0121791cf0bc
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 831f1d22c4da215bed3ed55b659332aa3b57472b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546373"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145947"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Início rápido: Criar uma conta dos serviços cognitivos no portal do Azure
 
@@ -92,6 +92,8 @@ Depois de criar o seu recurso, pode acessá-lo a partir do dashboard do Azure se
 O recurso de serviços cognitivos, pode utilizar o URL de ponto final e chaves no **descrição geral** secção para começar a criar API chama-se nas suas aplicações.
 
 ![Ecrã de recursos](media/cognitive-services-apis-create-account/resourceScreen.png)
+
+Anote a localização e as chaves. Pode obter as chaves selecionando **chaves** sob **gestão de recursos**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

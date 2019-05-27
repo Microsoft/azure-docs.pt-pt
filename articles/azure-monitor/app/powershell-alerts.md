@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 ms.openlocfilehash: 5dfbc6fa18b5d1b5b3058db14eb1232be27a0c40
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481796"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130979"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Utilizar o PowerShell para definir alertas no Application Insights
 
@@ -100,7 +100,7 @@ A mesma regra pode ser utilizada para a métrica comunicada ao utilizar o [parâ
 ## <a name="metric-names"></a>Nomes de métrica
 | Nome da métrica | Nome do ecrã | Descrição |
 | --- | --- | --- |
-| `basicExceptionBrowser.count` |Exceções de browser |Número de exceções não identificadas emitidas no browser. |
+| `basicExceptionBrowser.count` |Exceções do browser |Número de exceções não identificadas emitidas no browser. |
 | `basicExceptionServer.count` |Exceções de servidor |Contagem de exceções não processadas emitidas pela aplicação |
 | `clientPerformance.clientProcess.value` |Tempo de processamento do cliente |Tempo entre a receção do último byte de um documento, até que o DOM ser carregado. Pedidos assíncronos podem continuar a ser processados. |
 | `clientPerformance.networkConnection.value` |Tempo de ligação da rede de carregamento de páginas |Tempo que o navegador é conectado à rede. Pode ser 0, se em cache. |

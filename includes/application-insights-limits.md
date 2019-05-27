@@ -9,15 +9,15 @@ ms.date: 06/21/2018
 ms.author: mbullwin
 ms.custom: include file
 ms.openlocfilehash: 31ff6ae66b13eb5e5abcde94e8d3df7f6e32f63c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794460"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130813"
 ---
 Ou seja, existem alguns limites no número de métricas e eventos por aplicação, por chave de instrumentação. Os limites dependem do [plano de preços](https://azure.microsoft.com/pricing/details/application-insights/) que escolher.
 
-| Recurso | Limite predefinido | Nota
+| Resource | Limite predefinido | Nota
 | --- | --- | --- |
 | Total de dados por dia | 100 GB | Pode reduzir os dados ao definir um limite. Se precisar de mais dados, pode aumentar o limite no portal, 1000 GB. Para as capacidades mais de 1000 GB, envie um e-mail para AIDataCap@microsoft.com.
 | Limitação | 32.000 eventos/segundo | O limite é mediso ao longo de um minuto.

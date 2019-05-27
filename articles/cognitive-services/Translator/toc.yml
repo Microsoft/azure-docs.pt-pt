@@ -174,6 +174,8 @@
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Disponibilidade regional
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+        - name: Conformidade
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Limites de pedidos
           href: request-limits.md
         - name: Stack Overflow
@@ -240,6 +242,8 @@
           href: custom-translator/faq.md
         - name: Preços
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
+        - name: Conformidade
+          href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
         - name: UserVoice

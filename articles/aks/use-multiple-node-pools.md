@@ -5,14 +5,14 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 1c24bbb9433e4164d4b2f6ce1ac7bd726cc36356
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
-ms.translationtype: MT
+ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506898"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142645"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Pré-visualizar - criar e gerir vários conjuntos de nós de um cluster no Azure Kubernetes Service (AKS)
 
@@ -332,7 +332,7 @@ Apenas os pods que tenham este taint aplicada podem ser agendados em nós *gpuno
 
 Neste artigo, criou um cluster do AKS que inclui nós baseada em GPU. Para reduzir custos desnecessários, pode querer eliminar os *gpunodepool*, ou o cluster do AKS inteiro.
 
-Para eliminar o conjunto de nós baseada em GPU, utilize o [eliminar o conjunto de nós do aks az] [ az-aks-nodepool-delete] comando conforme mostrado no exemplo seguinte:
+Para eliminar o conjunto de nós baseada em GPU, utilize o [eliminar az aks nodepool] [ az-aks-nodepool-delete] comando conforme mostrado no exemplo seguinte:
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
@@ -348,8 +348,10 @@ az group delete --name myResourceGroup --yes --no-wait
 
 Neste artigo, aprendeu como criar e gerir vários conjuntos de nós num cluster do AKS. Para obter mais informações sobre como controlar os pods em conjuntos de nós, consulte [melhores práticas para as funcionalidades avançadas do scheduler no AKS][operator-best-practices-advanced-scheduler].
 
+Para criar e utilizar conjuntos de nós de contentor do Windows Server, consulte [criar um contentor do Windows Server no AKS][aks-windows].
+
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -376,3 +378,4 @@ Neste artigo, aprendeu como criar e gerir vários conjuntos de nós num cluster 
 [install-azure-cli]: /cli/azure/install-azure-cli
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-windows]: windows-container-cli.md

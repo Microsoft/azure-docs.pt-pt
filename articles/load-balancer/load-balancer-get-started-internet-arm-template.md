@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: af72eb0214f46c1e001f9e93934d38cb934503e4
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7d8997b6c4ee68ae6857d2a1605277fc7d5f7a0a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592490"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122218"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Criar um balanceador de carga público com um modelo
 

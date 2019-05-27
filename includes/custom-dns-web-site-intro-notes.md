@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: cephalin
 ms.openlocfilehash: 4ab12a4ccb3aa4acecabd076c774558f904297a1
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51572543"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136250"
 ---
 Este artigo é para o serviço de aplicações do Azure (aplicações Web, aplicações API, aplicações móveis, aplicações lógicas); para serviços em nuvem, consulte [configurar um nome de domínio personalizado para um serviço cloud do Azure](../articles/cloud-services/cloud-services-custom-domain-name.md).
 

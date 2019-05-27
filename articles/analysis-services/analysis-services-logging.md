@@ -9,11 +9,11 @@ ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66142603"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurar registo de diagnósticos
 
@@ -83,7 +83,7 @@ A categoria de métricas, registos a mesma [métricas do servidor](analysis-serv
 
     * **Arquivo para uma conta de armazenamento**. Para utilizar esta opção, terá de uma conta de armazenamento existente para ligar a. Ver [criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md). Siga as instruções para criar um Gerenciador de recursos, conta para fins gerais, em seguida, selecione a sua conta de armazenamento por meio do retorno a esta página no portal. Pode demorar alguns minutos para as contas de armazenamento recentemente criada aparece no menu pendente.
     * **Stream para um hub de eventos**. Para utilizar esta opção, terá de um Hub de eventos espaço de nomes e o event hub para ligar a. Para obter mais informações, consulte [criar um espaço de nomes de Hubs de eventos e um hub de eventos com o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, regresse a esta página no portal para selecionar o nome de espaço de nomes e a política do Hub de eventos.
-    * **Enviar para o Azure Monitor (área de trabalho do Log Analytics)**. Para utilizar esta opção, utilize uma área de trabalho existente ou [criar uma nova área de trabalho](../azure-monitor/learn/quick-create-workspace.md) recursos no portal. Para obter mais informações sobre a visualização de seus registos, consulte [vista de registos na área de trabalho do Log Analytics](#view-logs-in-log-analytics-workspace) neste artigo.
+    * **Enviar para o Azure Monitor (área de trabalho do Log Analytics)** . Para utilizar esta opção, utilize uma área de trabalho existente ou [criar uma nova área de trabalho](../azure-monitor/learn/quick-create-workspace.md) recursos no portal. Para obter mais informações sobre a visualização de seus registos, consulte [vista de registos na área de trabalho do Log Analytics](#view-logs-in-log-analytics-workspace) neste artigo.
 
     * **Motor**. Selecione esta opção para registar xEvents. Se estiver arquivando para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos estão autodeleted após o período de retenção expira.
     * **Serviço**. Selecione esta opção para registar eventos de nível de serviço. Se estiver a arquivamento para uma conta de armazenamento, pode selecionar o período de retenção para os registos de diagnóstico. Os registos estão autodeleted após o período de retenção expira.
@@ -242,7 +242,7 @@ $account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
-### <a name="enable-logging"></a>Ativar registo
+### <a name="enable-logging"></a>Ativar o registo
 
 Para ativar o registo, utilize o cmdlet Set-AzDiagnosticSetting juntamente com as variáveis para a nova conta de armazenamento, conta de servidor e a categoria. Execute o seguinte comando, definindo a **-ativado** sinalizador para **$true**:
 

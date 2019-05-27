@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 467e09f9bd46df6d888d82f2961c5aed9cca4ab5
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50133926"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132538"
 ---
 Este exemplo envolve a utilização a [Twilio](https://www.twilio.com/) serviço para enviar mensagens SMS para um telefone celular. As funções do Azure já incluem suporte para Twilio através do [Twilio enlace](https://docs.microsoft.com/azure/azure-functions/functions-bindings-twilio), e o exemplo usa esse recurso.
 

@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: include
-origin.date: 03/23/2019
-ms.date: 04/15/2019
-ms.author: v-yeche
+ms.date: 03/23/2019
+ms.author: sngun
 ms.openlocfilehash: e7fc8f57c0fe290809354ce19fe92337178a84b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890388"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151281"
 ---
 Quando tiver terminado com a sua aplicação web e a conta do Azure Cosmos DB, pode eliminar os recursos do Azure que criou para que não incorra mais custos. Para eliminar os recursos:
 
@@ -18,10 +17,11 @@ Quando tiver terminado com a sua aplicação web e a conta do Azure Cosmos DB, p
 
 2. Selecione o grupo de recursos que criou para este início rápido.  
 
-    ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
+   ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources-select.png)
 
 2. Na nova janela, selecione **eliminar grupo de recursos**.
 
-    ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources.png)   
+   ![Métricas no portal do Azure](./media/cosmos-db-delete-resource-group/delete-resources.png)   
 
 3. Na janela seguinte, escreva o nome do grupo de recursos a eliminar e, em seguida, selecione **eliminar**.
+

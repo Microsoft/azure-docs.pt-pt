@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 74a9764187b15bddf1dc48fa2b7988217d31abce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60860504"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149614"
 ---
 ## <a name="troubleshooting-update-failures"></a>Resolução de problemas de falhas na atualização
 **E se vir uma notificação informando-me de que as verificações de pré-atualização falharam?**

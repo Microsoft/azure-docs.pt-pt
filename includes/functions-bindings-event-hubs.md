@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 1957fa4310a22a162ee2a621d1e0349e253badb3
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 421e0db48f045c5cbce52a0641902e6d2a11276e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456572"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132452"
 ---
 ## <a name="trigger"></a>Acionador
 
@@ -384,7 +384,7 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
+|**type** | n/d | Tem de ser definido como `eventHubTrigger`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure.|
 |**direção** | n/d | Tem de ser definido como `in`. Esta propriedade é definida automaticamente ao criar o acionador no portal do Azure. |
 |**name** | n/d | O nome da variável que representa o item de evento no código de função. |
 |**path** |**EventHubName** | Funciona apenas 1.x. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de ligação, esse valor substitui essa propriedade em tempo de execução. |
@@ -418,7 +418,7 @@ O [Host. JSON](../articles/azure-functions/functions-host-json.md#eventhub) fich
 
 [!INCLUDE [functions-host-json-event-hubs](../articles/azure-functions/../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="output"></a>Saída
+## <a name="output"></a>Resultado
 
 Utilize a enlace para gravar eventos para um fluxo de eventos de saída de Hubs de eventos. Tem de ter permissão de envio para um hub de eventos para escrever eventos no mesmo.
 
@@ -446,6 +446,26 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 {
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
     return $"{DateTime.Now}";
+}
+```
+
+O exemplo a seguir mostra como utilizar o `IAsyncCollector` interface para enviar um lote de mensagens. Este cenário é comum quando estão a processar as mensagens provenientes de um Hub de eventos e enviar o resultado para o Hub de eventos de outro.
+
+```csharp
+[FunctionName("EH2EH")]
+public static async Task Run(
+    [EventHubTrigger("source", Connection = "EventHubConnectionAppSetting")] EventData[] events,
+    [EventHub("dest", Connection = "EventHubConnectionAppSetting")]IAsyncCollector<string> outputEvents,
+    ILogger log)
+{
+    foreach (EventData eventData in events)
+    {
+        // do some processing:
+        var myProcessedEvent = DoSomething(eventData);
+
+        // then send the message
+        await outputEvents.AddAsync(JsonConvert.SerializeObject(myProcessedEvent));
+    }
 }
 ```
 
@@ -654,8 +674,8 @@ A tabela seguinte explica as propriedades de configuração de ligação definid
 
 |propriedade de Function | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
-|**tipo** | n/d | Tem de ser definido para "eventHub". |
-|**direção** | n/d | Tem de ser definido para "Sair". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
+|**type** | n/d | Tem de ser definido para "eventHub". |
+|**direction** | n/d | Tem de ser definido para "Sair". Este parâmetro é definido automaticamente quando criar o enlace no portal do Azure. |
 |**name** | n/d | O nome da variável no código de função que representa o evento. |
 |**path** |**EventHubName** | Funciona apenas 1.x. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de ligação, esse valor substitui essa propriedade em tempo de execução. |
 |**eventHubName** |**EventHubName** | Funciona apenas 2.x. O nome do hub de eventos. Quando o nome do hub de eventos também está presente na cadeia de ligação, esse valor substitui essa propriedade em tempo de execução. |

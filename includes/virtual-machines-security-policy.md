@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405431"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145863"
 ---
 É importante proteger a sua máquina virtual (VM) para as aplicações que executar. Proteger as VMs pode incluir um ou mais serviços do Azure e os recursos que abrangem o acesso seguro às suas VMs e armazenamento seguro dos seus dados. Este artigo fornece informações que lhe permite proteger a sua VM e aplicações.
 

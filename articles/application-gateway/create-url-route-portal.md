@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
 ms.openlocfilehash: 5307f7674635fd33241e1faba9bb0b7c0432d10b
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60001036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134809"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Criar um gateway de aplicação com o caminho com base em regras de encaminhamento com o portal do Azure
 
@@ -33,7 +33,7 @@ Se preferir, pode concluir este tutorial com [CLI do Azure](tutorial-url-route-c
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
@@ -58,7 +58,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criou
    - *myAGSubnet* - para o nome da sub-rede.
    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-     ![Criar a rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/create-url-route-portal/application-gateway-vnet.png)
 
 6. Selecione **OK** para criar a rede virtual e sub-rede.
 7. Selecione **escolher um endereço IP público**, selecione **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, selecione **OK**.
@@ -70,7 +70,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criou
 1. Selecione **todos os recursos** no menu do lado esquerdo e, em seguida, selecione **myVNet** na lista de recursos.
 2. Selecione **sub-redes**e, em seguida, selecione **sub-rede**.
 
-    ![Criar sub-rede](./media/create-url-route-portal/application-gateway-subnet.png)
+    ![Criar subrede](./media/create-url-route-portal/application-gateway-subnet.png)
 
 3. Introduza *myBackendSubnet* para o nome da sub-rede e, em seguida, selecione **OK**.
 

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: 5bde217601d27129e044b64d90184727ea717950
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50134018"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132883"
 ---
 Com o Azure Resource Manager, define parâmetros para os valores que pretende especificar quando o modelo é implementado. O modelo inclui uma seção chamada parâmetros, que contém todos os valores de parâmetro.
 Deve definir um parâmetro para esses valores que variam com base no projeto que está a implementar ou com base no ambiente que esteja a implementar. Não defina parâmetros para valores que sempre continuará o mesmo. Cada valor de parâmetro é utilizado no modelo para definir os recursos que são implementados. 
@@ -18,7 +18,7 @@ Ao definir parâmetros, utilize o **allowedValues** campo para especificar quais
 
 Descreveremos cada um dos parâmetros no modelo.
 
-### <a name="sitename"></a>SiteName
+### <a name="sitename"></a>siteName
 O nome da aplicação web que deseja criar.
 
     "siteName":{
@@ -32,7 +32,7 @@ O nome do plano do serviço de aplicações a utilizar para alojar a aplicação
       "type":"string"
     }
 
-### <a name="sku"></a>SKU
+### <a name="sku"></a>sku
 O escalão de preço para o plano de alojamento.
 
     "sku": {

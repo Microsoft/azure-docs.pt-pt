@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: makromer
-ms.openlocfilehash: e1d4ce355f34014d5099c4b46f4420d032363fce
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: b0a6c6feae11f8daeed54c5e763dbff3aa711652
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236685"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153511"
 ---
 # <a name="execute-data-flow-activity-in-azure-data-factory"></a>Executar a atividade de fluxo de dados no Azure Data Factory
 Utilize a atividade de fluxo de dados de execução para executar o fluxo de dados do ADF nas execuções do pipeline debug (área de segurança) e nas execuções de pipeline acionada.
@@ -64,6 +64,10 @@ Utilize os dados de fluxo de depuração para utilizar um cluster warmed para te
 Este é um campo obrigatório que define quais Runtime de integração a utilizar para a execução de atividade de fluxo de dados. Por predefinição, o Data Factory irá utilizar o runtime de integração do Azure de resolução automática de predefinição. No entanto, pode criar seu próprio Runtimes de integração do Azure que definir regiões específicas, tipo e valor de TTL contagens de núcleos de computação para a execução de atividade de fluxo de dados.
 
 A definição de execuções de fluxo de dados predefinida é de 8 núcleos de computação geral com um valor de TTL de 60 minutos.
+
+Tem controlo sobre o ambiente de execução do Spark para suas atividades de fluxo de dados. Na [runtime de integração do Azure](concepts-integration-runtime.md) se as definições para definir o tipo de computação (fins gerais, otimizada de memória e com otimização de computação), o número de núcleos do trabalho e time-to-live de acordo com o motor de execução com a computação de fluxo de dados requisitos. Além disso, definir o valor de TTL permitirá manter um cluster de acesso pouco frequente que já está disponível para execuções de tarefas.
+
+![Runtime de integração do Azure](media/data-flow/ir-new.png "Runtime de integração do Azure")
 
 ### <a name="staging-area"></a>Área de transição
 

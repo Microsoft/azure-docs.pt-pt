@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/13/2018
 ms.author: wolfma
 ms.openlocfilehash: afe6f1493c7fa8272c67f23d6708ad6e4eea9381
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60619779"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145508"
 ---
 1. Inicie o Visual Studio 2017.
 
@@ -35,7 +35,7 @@ ms.locfileid: "60619779"
 
    ![Aceitar a licença](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-04-nuget-license.png "Aceitar a licença")
 
-    Depois de o pacote ser instalado, será apresentada uma mensagem de confirmação na consola do Gestor de Pacotes.
+    Depois de o pacote ser instalado, é apresentada uma mensagem de confirmação na consola do Gestor de Pacotes.
 
 1. A próxima etapa é criar uma configuração de plataforma que corresponde à arquitetura do computador que estiver a utilizar para criar e executar a aplicação de consola. Na barra de menus, selecione **crie** > **do Configuration Manager...** .
 

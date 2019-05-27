@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2018
 ms.author: victorh
-ms.openlocfilehash: 3b9108e08e1b1ad13fac75d00816755043d84672
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 70b350e228785e47a41cb83ce0d80b93c8a601c1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308725"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135228"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>Criar um gateway de aplicação com um balanceador de carga interno (ILB)
 
@@ -59,13 +59,13 @@ Os passos necessários para criar um gateway de aplicação encontram-se descrit
 
 Não se esqueça de mudar o modo do PowerShell para utilizar o cmdlets do Azure Resource Manager. Para obter mais informações, veja [Using Windows PowerShell with Resource Manager (Usar o Windows PowerShell com o Resource Manager)](../powershell-azure-resource-manager.md).
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 Connect-AzAccount
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Verifique as subscrições da conta.
 
@@ -75,7 +75,7 @@ Get-AzSubscription
 
 Ser-lhe-á solicitado a autenticação com as suas credenciais.
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 Escolha qual das subscrições do Azure utilizar.
 
@@ -99,7 +99,7 @@ No exemplo anterior, criámos um grupo de recursos denominado "appgw-rg" e a loc
 
 O exemplo que se segue mostra como criar uma rede virtual utilizando o Resource Manager:
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
@@ -107,7 +107,7 @@ $subnetconfig = New-AzVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 1
 
 Este passo atribui o endereço intervalo 10.0.0.0/24 a uma variável de sub-rede a utilizar para criar uma rede virtual.
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 ```powershell
 $vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
@@ -115,7 +115,7 @@ $vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Locati
 
 Este passo cria uma rede virtual denominada "appgwvnet" no grupo de recursos "appgw-rg" para a região EUA Oeste utilizando o prefixo 10.0.0.0/16 com sub-rede 10.0.0.0/24.
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 ```powershell
 $subnet = $vnet.subnets[0]
@@ -125,7 +125,7 @@ Este passo atribui o objeto de sub-rede à variável $subnet para os passos segu
 
 ## <a name="create-an-application-gateway-configuration-object"></a>Criar um objeto de configuração do gateway de aplicação
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 ```powershell
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -133,7 +133,7 @@ $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $
 
 Este passo cria uma configuração de IP do gateway de aplicação com o nome "gatewayIP01". Ao iniciar, o Application Gateway escolhe um endereço IP na subrede configurada e encaminha o tráfego da rede para os endereços IP no conjunto de IPs de back-end. Note que cada instância terá um endereço IP.
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 ```powershell
 $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 10.1.1.8,10.1.1.9,10.1.1.10
@@ -141,7 +141,7 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddres
 
 Este passo configura o conjunto de endereços IP de back-end com o nome "pool01" com o IP endereços "10.1.1.8, 10.1.1.9, 10.1.1.10". Estes endereços são os endereços IP que irão receber o tráfego de rede do ponto final do IP de front-end. Deve substituir os endereços IP acima para adicionar os seus próprios pontos finais do endereço IP da aplicação.
 
-### <a name="step-3"></a>Passo 3
+### <a name="step-3"></a>Passo 3
 
 ```powershell
 $poolSetting = New-AzApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
@@ -210,7 +210,7 @@ Para eliminar um gateway de aplicação, terá de realizar os seguintes passos p
 2. Utilize o cmdlet `Remove-AzApplicationGateway` para remover o gateway.
 3. Verifique se o gateway foi removido com o cmdlet `Get-AzureApplicationGateway`.
 
-### <a name="step-1"></a>Passo 1
+### <a name="step-1"></a>Passo 1
 
 Obtenha o objeto do gateway de aplicação e associe-o a uma variável “$getgw”.
 
@@ -218,7 +218,7 @@ Obtenha o objeto do gateway de aplicação e associe-o a uma variável “$getgw
 $getgw =  Get-AzApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg
 ```
 
-### <a name="step-2"></a>Passo 2
+### <a name="step-2"></a>Passo 2
 
 Utilize `Stop-AzApplicationGateway` para parar o gateway de aplicação. Este exemplo mostra o `Stop-AzApplicationGateway` cmdlet na primeira linha, seguido pela saída.
 

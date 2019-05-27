@@ -16,11 +16,11 @@ ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 0a5b8bdbcd5a05574d824e3f57cfc23967278e27
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487741"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66138734"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-app-service"></a>Tutorial: Vincular um certificado SSL personalizado já existente para o serviço de aplicações do Azure
 
@@ -266,7 +266,7 @@ Se a sua aplicação precisa aceder a recursos remotos como um cliente e o recur
 
 Para obter mais detalhes sobre o carregamento e a utilização de um certificado público na sua aplicação, veja [Utilizar um certificado SSL no código da aplicação no Serviço de Aplicações do Azure](app-service-web-ssl-cert-load.md). Também pode utilizar certificados públicos com aplicações em ambientes de serviço de aplicações. Se tiver de armazenar o certificado no arquivo de certificados LocalMachine, terá de utilizar uma aplicação num ambiente de serviço de aplicações. Para obter mais informações, consulte [como configurar certificados públicos para a sua aplicação de serviço de aplicações](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
-![Carregar o Certificado Público](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
+![Carregar Certificado Público](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

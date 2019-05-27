@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 82d22580bdf2aacd9d3fcba9e59f2443a2ef3d1b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: bfb93cfe0a48c7776615d0032ac6634fd86b21cb
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811553"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141207"
 ---
 1. [Adicionar Firebase ao seu projeto Android](https://firebase.google.com/docs/android/setup)
 

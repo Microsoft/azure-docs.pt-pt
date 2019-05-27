@@ -4,14 +4,14 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 0a74079677a084b2d4e8221cf5a74b356126811d
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: da3793c428c624ce3a224cbd7606ab26c4a50803
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42817444"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140295"
 ---
-A funcionalidade de aplicações móveis do serviço de aplicações do Azure utiliza [os Hubs de notificação do Azure] para enviar pushes, portanto, será possível configurar um hub de notificação para a sua aplicação móvel.
+A funcionalidade de aplicações móveis do serviço de aplicações do Azure utiliza [Hubs de notificação do Azure] para enviar pushes, portanto, será possível configurar um hub de notificação para a sua aplicação móvel.
 
 1. Na [portal do Azure], aceda à **dos serviços de aplicações**e, em seguida, selecione o seu back-end de aplicação. Sob **configurações**, selecione **Push**.
 2. Para adicionar um recurso do hub de notificação para a aplicação, selecione **Connect**. Pode criar um hub ou ligar a um existente.
@@ -21,4 +21,4 @@ A funcionalidade de aplicações móveis do serviço de aplicações do Azure ut
 Agora ligar um hub de notificação ao seu projeto de back-end de aplicações móveis. Posteriormente, vai configurar este hub de notificação para ligar a um sistema de notificação de plataforma (PNS) para enviar por push para dispositivos.
 
 [Portal do Azure]: https://portal.azure.com/
-[os Hubs de notificação do Azure]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/
+[Hubs de notificação do Azure]: https://azure.microsoft.com/documentation/articles/notification-hubs-push-notification-overview/

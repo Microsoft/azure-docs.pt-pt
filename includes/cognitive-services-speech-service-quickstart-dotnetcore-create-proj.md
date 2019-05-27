@@ -2,15 +2,14 @@
 author: erhopf
 ms.service: cognitive-services
 ms.topic: include
-origin.date: 12/12/2018
-ms.date: 04/01/2019
-ms.author: v-biyu
+ms.date: 12/12/2018
+ms.author: erhopf
 ms.openlocfilehash: 6e49db90aa9e9f933a190425afbafd15e0057fca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621140"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146048"
 ---
 1. Inicie o Visual Studio 2017.
 
@@ -36,4 +35,4 @@ ms.locfileid: "60621140"
 
    ![Captura de ecrã da caixa de diálogo Aceitação da Licença](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-dotnetcore-windows-04-nuget-license.png "Aceitar a Licença")
 
-Depois de o pacote ser instalado, será apresentada uma mensagem de confirmação na consola do Gestor de Pacotes.
+Depois de o pacote ser instalado, é apresentada uma mensagem de confirmação na consola do Gestor de Pacotes.

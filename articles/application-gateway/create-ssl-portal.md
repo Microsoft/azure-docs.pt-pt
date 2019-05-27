@@ -8,11 +8,11 @@ ms.topic: tutorial
 ms.date: 4/17/2019
 ms.author: victorh
 ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59677855"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66134432"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicação com a terminação de SSL com o portal do Azure
 
@@ -30,7 +30,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no portal do Azure em [https://portal.azure.com](https://portal.azure.com)
 
@@ -81,7 +81,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
    - *myAGSubnet* - para o nome da sub-rede.
    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 
-     ![Criar a rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Criar rede virtual](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Selecione **OK** para criar a rede virtual e sub-rede.
 7. Selecione **escolher um endereço IP público**, selecione **criar nova**e, em seguida, introduza o nome do endereço IP público. Neste exemplo, o endereço IP público tem o nome *myAGPublicIPAddress*. Aceite os valores predefinidos para as outras definições e, em seguida, selecione **OK**.
@@ -98,7 +98,7 @@ Uma rede virtual é necessária para a comunicação entre os recursos que criar
 1. Selecione **todos os recursos** no menu do lado esquerdo e, em seguida, selecione **myVNet** na lista de recursos.
 2. Selecione **sub-redes**e, em seguida, selecione **sub-rede**.
 
-    ![Criar sub-rede](./media/create-ssl-portal/application-gateway-subnet.png)
+    ![Criar subrede](./media/create-ssl-portal/application-gateway-subnet.png)
 
 3. Introduza *myBackendSubnet* para o nome da sub-rede e, em seguida, selecione **OK**.
 

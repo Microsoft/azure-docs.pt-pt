@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 05/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 3fca94a56f80ec520ac6777610a90bdddf1b8988
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
-ms.translationtype: MT
+ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65473270"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150467"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -70,12 +70,12 @@ R.  Para obter o Azure Data Box, inicie sessão no portal do Azure e crie uma en
 ### <a name="q-i-was-not-able-to-create-a-data-box-order-in-the-azure-portal-why-would-this-be"></a>P. Não consegui criar uma encomenda de um dispositivo Data Box no portal do Azure. O que correu mal?
 R. Se não conseguiu criar uma encomenda de um dispositivo Data Box, poderá haver um problema com o tipo ou o acesso da sua subscrição. 
 
-Verifique a sua subscrição. Caixa de dados só está disponível para contrato Enterprise (EA) e na Cloud ofertas de subscrição de fornecedor (CSP) de solução. Se a sua subscrição não pertencer a nenhum destes tipos, contacte o Suporte da Microsoft para a atualizar.
+Verifique a sua subscrição. O Data Box só está disponível para as ofertas de subscrições Contrato Enterprise (EA) e fornecedor de soluções na cloud (CSP). Se a sua subscrição não pertencer a nenhum destes tipos, contacte o Suporte da Microsoft para a atualizar.
 
 Se o tipo da sua oferta de subscrição for suportado, verifique o nível de acesso da mesma. Para poder criar encomendas, tem de ser contribuidor ou proprietário na subscrição.
 
 ### <a name="q-i-ordered-a-couple-of-data-box-devices-i-am-not-able-to-create-any-additional-orders-why-would-this-be"></a>P. Encomendei alguns dispositivos Data Box. Não consigo criar mais encomendas. O que correu mal?
-R. Permitimos para um máximo de cinco pedidos ativos por subscrição por limites de comércio (combinação de país e a região selecionada). Se precisar de encomendar um dispositivo adicional, contacte o Suporte da Microsoft para aumentar o limite na sua subscrição.
+R. Permitimos um máximo de cinco encomendas ativas por subscrição por fronteira comercial (combinação de país e região selecionados). Se precisar de encomendar um dispositivo adicional, contacte o Suporte da Microsoft para aumentar o limite na sua subscrição.
 
 ### <a name="q-when-i-try-to-create-an-order-i-receive-a-notification-that-the-data-box-service-is-not-available-what-does-this-mean"></a>P. Quando tento criar uma encomenda, recebo uma notificação a indicar que o serviço Data Box não está disponível. O que é que isto quer dizer?
 R. Isto quer dizer que o serviço Data Box não está disponível na combinação de país e região que selecionou. Alterar essa combinação irá, provavelmente, permitir-lhe utilizar o serviço. Para obter uma lista das regiões nas quais o serviço está disponível, aceda a [Region availability for Data Box](data-box-overview.md#region-availability) (Disponibilidade geográfica do Data Box).
@@ -182,6 +182,9 @@ R. Se o dispositivo foi entregue danificado ou se houver provas de adulteração
 
 ### <a name="q-can-i-use-my-own-shipping-carrier-to-ship-data-box"></a>P. Posso utilizar a minha própria transportadora para enviar o Data Box?
 R. Para o serviço Data Box, a Microsoft processa o envio de e para o datacenter do Azure. Se quiser utilizar a sua própria transportadora, pode utilizar o serviço Importar/Exportar do Azure. Para obter mais informações, aceda a [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md) (O que é o serviço Importar/Exportar do Azure?).
+
+### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P. Serão os meus dispositivos da caixa de dados entre limites de país durante o envio?
+R. Todos os dispositivos do Data Box são fornecidos a partir de dentro do mesmo país do seu destino e não para várias quaisquer limites internacionais. A única exceção é para pedidos da União Europeia (UE), em que dispositivos podem ser fornecidas de e para qualquer país da UE.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P. O ecrã E-Ink não está a mostrar a guia de remessa da devolução. O que devo fazer?
 R. Se o ecrã E-Ink não mostrar a guia de remessa da devolução, siga os passos abaixo:

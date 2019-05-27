@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: d086b6f844deb06d98edec8d8ec0f5670d84f066
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129709"
 ---
 # <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Recolher registos do serviço do Azure e as métricas para área de trabalho do Log Analytics no Azure Monitor
 
@@ -129,7 +129,7 @@ Para recolher registos de dentro de alguns recursos, é possível enviar os regi
 
 O Azure Monitor pode utilizar esta abordagem para recolher diagnósticos de armazenamento do Azure para os registos e os seguintes recursos:
 
-| Recurso | Registos |
+| Resource | Registos |
 | --- | --- |
 | Service Fabric |ETWEvent <br> Eventos operacionais <br> Eventos de Reliable Actor <br> Eventos de Reliable Services |
 | Virtual Machines |Linux Syslog <br> Eventos do Windows <br> Registo do IIS <br> ETWEvent do Windows |

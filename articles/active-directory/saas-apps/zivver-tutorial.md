@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.openlocfilehash: 95cabef1705cf09f165c1e5ce4434d2c0be61abf
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 51db52d5a5bfef6ef5a34fa9a0877516d5786236
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64729018"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143192"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zivver"></a>Tutorial: Integração do Active Directory do Azure com ZIVVER
 
@@ -115,7 +115,7 @@ Para configurar o Azure AD início de sessão único com ZIVVER, execute os segu
 
     | Name | Espaço de nomes | Atributo de origem|
     | ---------------| --------------- |
-    | ZivverAccountKey | https://zivver.com/SAML/Attributes | User.ObjectId |
+    | ZivverAccountKey | https:\//zivver.com/SAML/Attributes | User.ObjectId |
 
     >[!NOTE]
     >Se estiver a utilizar uma configuração híbrida com o Active Directory no local e a ferramenta de ligação de AD do Azure, o valor deve ser definido como `user.objectGUID`
@@ -220,7 +220,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, vai criar um usuário chamado Eduarda Almeida no ZIVVER. Trabalhar com [equipa de suporte de ZIVVER](https://support.zivver.com/) para adicionar os utilizadores na plataforma ZIVVER. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único 
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

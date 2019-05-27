@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38b5b233d21c0c5d79d7bcb6a145e6232b238b0e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60738932"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133129"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário da máquina virtual do Azure
 
 A automatização do Azure fornece soluções para o ajudar a gerir as atualizações de segurança do sistema operativo, controlar as alterações e inventário o que é instalado nos seus computadores. Existem várias formas de carregar máquinas. Pode integrar a solução a partir de uma máquina virtual, [da sua conta de automatização](automation-onboard-solutions-from-automation-account.md), [a partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md), ou utilizando um [runbook](automation-onboard-solutions.md). Este artigo abrange a inclusão destas soluções a partir de uma máquina virtual do Azure.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -51,7 +51,7 @@ Se a área de trabalho selecionada ainda não tiver as soluções de gestão de 
 
 Se a área de trabalho selecionada já tem a solução, a solução não está implementada novamente e a configuração de âmbito não for adicionada.
 
-Selecione as reticências (**...** ) em qualquer uma das configurações e, em seguida, selecione **editar**. Na **Editar configuração de âmbito** painel, selecione **selecionar grupos de computadores**. O **grupos de computadores** painel mostra as pesquisas guardadas que são utilizadas para criar a configuração de âmbito.
+Selecione as reticências ( **...** ) em qualquer uma das configurações e, em seguida, selecione **editar**. Na **Editar configuração de âmbito** painel, selecione **selecionar grupos de computadores**. O **grupos de computadores** painel mostra as pesquisas guardadas que são utilizadas para criar a configuração de âmbito.
 
 ## <a name="saved-searches"></a>Pesquisas guardadas
 
@@ -104,6 +104,8 @@ Se utilizou a iniciar/parar VMs durante a solução de horário comercial, opcio
 * Iniciar e parar agendas de runbook VM
 * Iniciar e parar runbooks VM
 * Variáveis
+
+Em alternativa, pode também desassociar a área de trabalho da sua conta de automatização de sua área de trabalho do Log Analytics. Na área de trabalho, selecione **conta de automatização** sob **recursos relacionados**. Na página de conta de automatização, selecione **desassociar a conta de**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

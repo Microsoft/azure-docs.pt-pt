@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 12/14/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 70e0b7ad86d1b75003ac5a62297dd85d4731d4f9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3ae714d3f0c14cd15839c56b2f280f55bef13d3b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726138"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66141103"
 ---
 # <a name="set-up-custom-domain"></a>Configurar domínio personalizado
 

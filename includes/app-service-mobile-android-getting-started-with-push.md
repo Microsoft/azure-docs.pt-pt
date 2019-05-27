@@ -4,12 +4,12 @@ ms.author: crdun
 ms.service: app-service-mobile
 ms.topic: include
 ms.date: 08/23/2018
-ms.openlocfilehash: 654bc3745768fccea41d7c3991142bf7183b54be
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: e66e7d4646b650d2d811d3807db04605dfddeded
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811554"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141240"
 ---
 1. No seu **app** do projeto, abra o arquivo `AndroidManifest.xml`. Adicione o seguinte código após o `application` tag de início:
 

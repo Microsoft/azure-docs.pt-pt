@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
 ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60478161"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147418"
 ---
 # <a name="enable-write-accelerator"></a>Ativar o acelerador de escrita
 

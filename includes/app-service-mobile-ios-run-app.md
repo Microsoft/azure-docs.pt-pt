@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 08/23/2018
 ms.author: crdun
 ms.openlocfilehash: f4ba467b6d80c9ccafba0a91c1f04152b92cf869
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125160"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66140651"
 ---
 1. No Mac, visite o [Portal do Azure]. Clique em **Todos os Serviços** > **Serviço de Aplicações** > o back-end que acabou de criar. Nas definições da aplicação móvel, selecione o idioma que prefere:
 

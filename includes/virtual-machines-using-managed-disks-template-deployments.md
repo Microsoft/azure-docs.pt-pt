@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581093"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157683"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilizar Managed Disks no modelos Azure Resource Manager
 
@@ -202,7 +202,7 @@ Dentro do objeto VM, referenciar o objeto de disco a ser ligado. Especificar o I
 
 ### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Criar conjuntos de disponibilidade gerido de VMS com discos geridos
 
-Para criar gerida conjuntos de disponibilidade com VMs a utilizar discos geridos, adicione a `sku` objeto para o conjunto de disponibilidade recursos e defina a `name` propriedade `Aligned`. Esta propriedade garante que os discos para cada VM são suficientemente isolados uns dos outros para evitar pontos únicos de falha. Observe também que o `apiVersion` para a disponibilidade do conjunto de recursos está definida como `2017-03-30`.
+Para criar gerida conjuntos de disponibilidade com VMs a utilizar discos geridos, adicione a `sku` objeto para o conjunto de disponibilidade recursos e defina a `name` propriedade `Aligned`. Esta propriedade garante que os discos para cada VM são suficientemente isolados uns dos outros para evitar pontos únicos de falha. Observe também que o `apiVersion` para a disponibilidade do conjunto de recursos está definida como `2018-10-01`.
 
 ```json
 {

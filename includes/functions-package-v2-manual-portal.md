@@ -9,18 +9,18 @@ ms.topic: include
 ms.date: 10/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e33a47b8c5b63aa7e4d6abed7db5ffb6baf3cdd8
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6b21f73edd7dcad2deb5412ad606eb6ec035a057
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744470"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132428"
 ---
 A tabela seguinte mostra como adicionar suporte para essa ligação em cada ambiente de desenvolvimento.
 
 | Ambiente de programação               | Para adicionar suporte no <br>Funções 2.x  |
 |----------------------|----------------|
-|Desenvolvimento local - biblioteca de classes do c#       | [Instalar o pacote](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2017) |
+|Desenvolvimento local - biblioteca de classes do c#       | [Instalar o pacote](../articles/azure-functions/functions-bindings-register.md#c-class-library-with-visual-studio-2019) |
 |Desenvolvimento local - C# script, JavaScript,F# |[Registre-se a extensão](../articles/azure-functions/functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles)         |
 |Desenvolvimento de portais| [Registre-se a extensão](../articles/azure-functions/install-update-binding-extensions-manual.md)  |
 

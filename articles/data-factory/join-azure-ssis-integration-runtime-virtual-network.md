@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 6978b83e66f58e468d9f98394904861c8a4d8bd0
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59618146"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152900"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Junte-se a um runtime de integração Azure-SSIS a uma rede virtual
 Associe o runtime de integração (IR) Azure-SSIS a uma rede virtual do Azure nos seguintes cenários: 
@@ -110,7 +110,7 @@ Para mais informações, veja [resolução que utiliza o seu próprio servidor D
 ### <a name="nsg"></a> Grupo de segurança de rede
 Se precisar de implementar um grupo de segurança de rede (NSG) para a sub-rede utilizada pelo seu runtime de integração Azure-SSIS, permitir o tráfego de entrada/saída pelas seguintes portas: 
 
-| Direção | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
+| Direction | Protocolo de transporte | Source | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
 |---|---|---|---|---|---|---|
 | Entrada | TCP | AzureCloud<br/>(ou um âmbito maior, como a Internet) | * | VirtualNetwork | 29876, 29877 (se associar o IR a uma rede virtual do Azure Resource Manager) <br/><br/>10100, 20100, 30100 (se associar o IR a uma rede virtual clássica)| O serviço Data Factory utiliza estas portas para comunicar com os nós do Azure-SSIS integration runtime na rede virtual. <br/><br/> Se criar um NSG de nível de sub-rede ou não, o Data Factory sempre configura um NSG no nível dos cartões de interface de rede (NICs) anexados às máquinas virtuais que alojam o ir Azure-SSIS. Apenas o tráfego de entrada a partir de endereços IP de fábrica de dados nas portas especificados é permitido por NSG nesse nível do NIC. Mesmo que abra estas portas para o tráfego de Internet ao nível da sub-rede, o tráfego a partir de endereços IP que não sejam endereços de IP da fábrica de dados é bloqueado ao nível do NIC. |
 | Saída | TCP | VirtualNetwork | * | AzureCloud<br/>(ou um âmbito maior, como a Internet) | 443 | Os nós do Azure-SSIS integration runtime na rede virtual utilizam esta porta para aceder aos serviços do Azure, como o armazenamento do Azure e os Hubs de eventos do Azure. |
@@ -185,7 +185,7 @@ Tem de configurar uma rede virtual antes de pode associar um IR Azure-SSIS à me
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-1. Selecione **mais serviços**. Filtrar e selecione **redes virtuais (clássico)**. 
+1. Selecione **mais serviços**. Filtrar e selecione **redes virtuais (clássico)** . 
 
 1. Filtrar e selecione a rede virtual na lista. 
 

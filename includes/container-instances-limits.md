@@ -5,13 +5,13 @@ ms.topic: include
 ms.date: 02/13/2019
 ms.author: danlep
 ms.openlocfilehash: f8821060b98ebfc954a6e59abad60350e6779b76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60537926"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146218"
 ---
-| Recurso | Limite predefinido |
+| Resource | Limite predefinido |
 | --- | :--- |
 | Grupos de contentores por [subscrição](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Número de contentores por grupo de contentores | 60 |

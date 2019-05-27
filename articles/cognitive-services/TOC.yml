@@ -23,6 +23,8 @@
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
     - name: Calculadora de preços
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Conformidade
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
     - name: Atualizações de serviço

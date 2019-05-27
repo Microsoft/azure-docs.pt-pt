@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: b4078303a0fabf70fe8bda82875dd312714f73de
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576893"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155252"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Suportado pelo Azure Data Factory de ambientes de computação
 Este artigo explica os diferentes ambientes de computação que pode utilizar para processar ou transformar dados. Ele também fornece detalhes sobre as configurações diferentes (sob demanda versus traga seu próprio) suportados pelo Data Factory, quando configurar os serviços ligados de ligação estes ambientes de uma fábrica de dados do Azure de computação.
@@ -104,7 +104,7 @@ O seguinte JSON define um serviço de ligado de HDInsight a pedido baseado em Li
 | clusterResourceGroup         | O cluster do HDInsight é criado neste grupo de recursos. | Sim      |
 | TimeToLive                   | O tempo de inatividade permitido para o cluster de HDInsight a pedido. Especifica o tempo que o cluster de HDInsight a pedido fique vivo após a conclusão de uma atividade executar se não existirem não existem outras tarefas ativas no cluster. O valor permitido mínimo é de 5 minutos (00: 05:00).<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e timetolive é definido para 5 minutos, o cluster fique vivo durante 5 minutos após a execução de seis minutos de atividade de processamento. Se outra execução de atividade é executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster do HDInsight a pedido é uma operação dispendiosa (podem demorar algum tempo), por isso, utilize esta definição como necessário para melhorar o desempenho de uma fábrica de dados ao reutilizar um cluster do HDInsight a pedido.<br/><br/>Se definir o valor de timetolive para 0, o cluster é eliminado assim que a execução de atividade for concluída. Ao passo que, se definir um valor elevado, o cluster pode permanecer inativo para que possa iniciar sessão para uma solução de problemas finalidade, mas ele poderia resultar em custos elevados. Por conseguinte, é importante que defina o valor apropriado com base nas suas necessidades.<br/><br/>Se o valor da propriedade timetolive adequadamente estiver definido, vários pipelines podem partilhar a instância do cluster de HDInsight a pedido. | Sim      |
 | clusterType                  | O tipo de cluster de HDInsight a ser criada. Valores permitidos são "hadoop" e "spark". Se não for especificado, o valor predefinido é hadoop. Enterprise Security Package cluster ativado não é possível criar a pedido, em vez disso, utilize um [existente cluster / traga seu próprio computação](#azure-hdinsight-linked-service). | Não       |
-| versão                      | Versão do cluster do HDInsight. Se não for especificado, está a utilizar a versão atual do padrão definido do HDInsight. | Não       |
+| version                      | Versão do cluster do HDInsight. Se não for especificado, está a utilizar a versão atual do padrão definido do HDInsight. | Não       |
 | hostSubscriptionId           | O ID de subscrição do Azure utilizado para criar cluster do HDInsight. Se não for especificado, ele usa o ID de subscrição de seu contexto de início de sessão do Azure. | Não       |
 | clusterNamePrefix           | O prefixo do nome do cluster do HDI, um timestamp será automaticamente anexado no final do nome do cluster| Não       |
 | sparkVersion                 | A versão do spark, se o tipo de cluster é o "Spark" | Não       |
@@ -142,7 +142,7 @@ O serviço de HDInsight a pedido ligada requer uma autenticação do principal d
 
 - ID da aplicação
 - Chave da aplicação 
-- ID do Inquilino
+- ID do inquilino
 
 Utilize autenticação do principal de serviço ao especificar as seguintes propriedades:
 
@@ -288,8 +288,8 @@ Pode criar um serviço ligado de HDInsight de Azure para registar o seu próprio
 | ----------------- | ------------------------------------------------------------ | -------- |
 | tipo              | A propriedade de tipo deve ser definida como **HDInsight**.            | Sim      |
 | clusterUri        | O URI do HDInsight cluster.                            | Sim      |
-| nome do utilizador          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
-| palavra-passe          | Especifique a palavra-passe da conta de utilizador.                       | Sim      |
+| username          | Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. | Sim      |
+| password          | Especifique a palavra-passe da conta de utilizador.                       | Sim      |
 | linkedServiceName | Nome do serviço ligado do armazenamento do Azure que se refere-se para o armazenamento de Blobs do Azure utilizado pelo cluster do HDInsight. <p>Atualmente, não é possível especificar que um Store do Azure Data Lake serviço ligado para esta propriedade. Se o cluster do HDInsight tem acesso ao Store de Lake dados, pode aceder aos dados a Store do Azure Data Lake de scripts Hive/Pig. </p> | Sim      |
 | isEspEnabled      | Especificar '*true*' se o cluster do HDInsight está [Enterprise Security Package](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-introduction) ativada. A predefinição é "*false*'. | Não       |
 | connectVia        | O Runtime de integração a ser utilizado para distribuir as atividades para este serviço ligado. Pode utilizar o Runtime de integração do Azure ou do Integration Runtime autoalojado. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. <br />Para o pacote de segurança da empresa (ESP) ativada a utilização do cluster de HDInsight um runtime de integração autoalojado que tem uma linha Visual para o cluster ou que deve ser implementado dentro da mesma rede Virtual do cluster de HDInsight ESP. | Não       |
@@ -347,7 +347,7 @@ Consulte o seguinte tópicos, se estiver familiarizado com o serviço Azure Batc
 | Propriedade          | Descrição                              | Necessário |
 | ----------------- | ---------------------------------------- | -------- |
 | tipo              | A propriedade de tipo deve ser definida como **AzureBatch**. | Sim      |
-| accountName       | Nome da conta do Azure Batch.         | Sim      |
+| nomeConta       | Nome da conta do Azure Batch.         | Sim      |
 | accessKey         | Chave de acesso para a conta do Azure Batch.  | Sim      |
 | batchUri          | URL para a sua conta do Azure Batch, no formato https://*batchaccountname.region*. batch.azure.com. | Sim      |
 | poolName          | Nome do conjunto de máquinas virtuais.    | Sim      |
@@ -388,7 +388,7 @@ Criar um serviço ligado do Azure Machine Learning para registar um ponto final 
 | updateResourceEndpoint | O URL de recurso de atualização para um ponto de extremidade de serviço do Azure ML Web utilizado para atualizar o serviço Web preditivo com o ficheiro de modelo preparado | Não                                       |
 | servicePrincipalId     | Especifique o ID de cliente. da aplicação     | Necessário se updateResourceEndpoint for especificado |
 | servicePrincipalKey    | Especifique a chave da aplicação.           | Necessário se updateResourceEndpoint for especificado |
-| inquilino                 | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Necessário se updateResourceEndpoint for especificado |
+| tenant                 | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Necessário se updateResourceEndpoint for especificado |
 | connectVia             | O Runtime de integração a ser utilizado para distribuir as atividades para este serviço ligado. Pode utilizar o Runtime de integração do Azure ou do Integration Runtime autoalojado. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não                                       |
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Serviço do Azure Data Lake Analytics ligado
@@ -426,13 +426,13 @@ Criar uma **do Azure Data Lake Analytics** serviço para uma fábrica de dados d
 | Propriedade             | Descrição                              | Necessário                                 |
 | -------------------- | ---------------------------------------- | ---------------------------------------- |
 | tipo                 | A propriedade de tipo deve ser definida como: **AzureDataLakeAnalytics**. | Sim                                      |
-| accountName          | Nome da conta do Azure Data Lake Analytics.  | Sim                                      |
+| nomeConta          | Nome da conta do Azure Data Lake Analytics.  | Sim                                      |
 | dataLakeAnalyticsUri | URI do Azure Data Lake Analytics.           | Não                                       |
 | subscriptionId       | Id de subscrição do Azure                    | Não                                       |
 | resourceGroupName    | Nome do grupo de recursos do Azure                | Não                                       |
 | servicePrincipalId   | Especifique o ID de cliente. da aplicação     | Sim                                      |
 | servicePrincipalKey  | Especifique a chave da aplicação.           | Sim                                      |
-| inquilino               | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim                                      |
+| tenant               | Especifique as informações de inquilino (inquilino ou nome do ID de domínio) em que reside a aplicação. Pode recuperá-la ao pairar o cursor do rato no canto superior direito do portal do Azure. | Sim                                      |
 | connectVia           | O Runtime de integração a ser utilizado para distribuir as atividades para este serviço ligado. Pode utilizar o Runtime de integração do Azure ou do Integration Runtime autoalojado. Se não for especificado, ele usa o padrão do Runtime de integração do Azure. | Não                                       |
 
 

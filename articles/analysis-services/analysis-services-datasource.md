@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/22/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2505ab5a9445256bd592dfa7f58a6dea79d25043
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7abd0ac3d95825594dffe385bccc1672d0f71c5f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506820"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66142550"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Origens de dados suportadas no Azure Analysis Services
 
@@ -34,7 +34,7 @@ Origens de dados e conectores mostradas em obter dados ou o Assistente de import
 ||||
 
 <a name="tab1400a">1</a> -1400 em tabela e apenas a modelos superior.   
-<a name="azsqlmanaged">2</a> -instância gerida da base de dados SQL do azure é suportada. Uma vez que uma instância gerida é executado dentro de VNet do Azure com um endereço IP privado, um Gateway de dados no local é necessário.   
+<a name="azsqlmanaged">2</a> -instância gerida da base de dados SQL do azure é suportada. Uma vez que uma instância gerida é executado dentro de VNet do Azure com um endereço IP privado, um Gateway de dados no local é necessário. O Azure SQL Database Managed Instance com um ponto final público não é atualmente suportada.   
 <a name="databricks">3</a> - azure Databricks com o Spark conector não é atualmente suportado.   
 <a name="gen2">4</a> -ADLS Gen2 não é atualmente suportada.
 
@@ -92,7 +92,7 @@ A ligar no local origens de dados de e o servidor do Azure requerem um gateway n
 
 ## <a name="specifying-a-different-provider"></a>Especificar um fornecedor diferente
 
-Modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes, ao ligar a determinadas origens de dados. Em alguns casos, os modelos em tabela, ligar a origens de dados utilizar fornecedores nativos, como o SQL Server Native Client (SQLNCLI11) podem devolver um erro. Se utilizar fornecedores nativos que não seja SQLOLEDB, poderá ver a mensagem de erro: **O fornecedor 'SQLNCLI11.1' não está registada**. Em alternativa, se tem um modelo DirectQuery, ligação a origens de dados no local e utilizar fornecedores nativos, poderá ver a mensagem de erro: **Erro ao criar o conjunto de linhas OLE DB. Sintaxe incorreta perto de "LIMIT"**.
+Modelos de dados no Azure Analysis Services podem exigir provedores de dados diferentes, ao ligar a determinadas origens de dados. Em alguns casos, os modelos em tabela, ligar a origens de dados utilizar fornecedores nativos, como o SQL Server Native Client (SQLNCLI11) podem devolver um erro. Se utilizar fornecedores nativos que não seja SQLOLEDB, poderá ver a mensagem de erro: **O fornecedor 'SQLNCLI11.1' não está registada**. Em alternativa, se tem um modelo DirectQuery, ligação a origens de dados no local e utilizar fornecedores nativos, poderá ver a mensagem de erro: **Erro ao criar o conjunto de linhas OLE DB. Sintaxe incorreta perto de "LIMIT"** .
 
 Ao migrar um modelo de tabela do SQL Server Analysis Services no local para o Azure Analysis Services, poderá ser necessário alterar o fornecedor.
 

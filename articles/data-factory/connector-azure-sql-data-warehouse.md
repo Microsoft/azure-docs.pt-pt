@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: cf5713fecd354f1e1d2c0ce7d28439b5b8b785ec
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153427"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153578"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -149,7 +149,7 @@ Para utilizar a autenticação de token de aplicação de serviço baseada em pr
 4. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your application name];
+    EXEC sp_addrolemember db_owner, [your application name];
     ```
 
 5. **Configurar um serviço ligado do Azure SQL Data Warehouse** no Azure Data Factory.
@@ -199,7 +199,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos:
 3. **Conceder as permissões necessárias da identidade de gerido de fábrica de dados** como faria normalmente para utilizadores SQL e outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Data Factory name];
+    EXEC sp_addrolemember db_owner, [your Data Factory name];
     ```
 
 5. **Configurar um serviço ligado do Azure SQL Data Warehouse** no Azure Data Factory.
@@ -375,7 +375,7 @@ Para copiar dados para o Azure SQL Data Warehouse, defina o tipo de sink na ativ
 | rejectValue | Especifica o número ou porcentagem das linhas que pode ser rejeitada antes da consulta falha.<br/><br/>Saiba mais sobre opções de rejeição do PolyBase na seção argumentos [criar tabela externa (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Valores permitidos são 0 (predefinição), 1, 2, etc. |Não |
 | rejectType | Especifica se o **rejectValue** opção é um valor literal ou uma percentagem.<br/><br/>Valores permitidos são **valor** (predefinição) e **percentagem**. | Não |
 | rejectSampleValue | Determina o número de linhas para obter antes de PolyBase recalcula a porcentagem das linhas rejeitadas.<br/><br/>Valores permitidos são 1, 2, etc. | Sim, se o **rejectType** é **percentagem**. |
-| useTypeDefault | Especifica como lidar com valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção argumentos na [criar ficheiro de formato externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Valores permitidos são **True** e **falso** (predefinição). | Não |
+| useTypeDefault | Especifica como lidar com valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto.<br/><br/>Saiba mais sobre esta propriedade da secção argumentos na [criar ficheiro de formato externo (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Valores permitidos são **True** e **falso** (predefinição).<br><br>**Ver [sugestões de resolução de problemas](#polybase-troubleshooting) relacionados com esta definição.** | Não |
 | writeBatchSize | Número de linhas para inserções na tabela de SQL **por lote**. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **número inteiro** (número de linhas). Por predefinição, o Data Factory determinar dinamicamente o tamanho do lote apropriado com base no tamanho de linha. | Não |
 | writeBatchTimeout | Tempo para a operação de inserção de lote ser concluídas antes de atingir o tempo limite de espera. Aplica-se apenas quando não é utilizado o PolyBase.<br/><br/>O valor permitido é **timespan**. Exemplo: "00: 30:00" (30 minutos). | Não |
 | preCopyScript | Especifica uma consulta SQL para a atividade de cópia a executar antes da escrita de dados para o Azure SQL Data Warehouse em cada execução. Use essa propriedade para limpar os dados pré-carregado. | Não |
@@ -405,6 +405,9 @@ Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/p
 * Se os dados de origem estão na **BLOBs do Azure, a geração 1 de armazenamento do Azure Data Lake ou a geração 2 de armazenamento do Azure Data Lake**e o **formato é PolyBase compatível**, pode utilizar a atividade de cópia para invocar diretamente o PolyBase para que o Azure O SQL Data Warehouse retirar os dados de origem. Para obter detalhes, consulte  **[direcionar cópia com o PolyBase](#direct-copy-by-using-polybase)**.
 * Se seu arquivo de dados de origem e o formato originalmente não é suportada pelo PolyBase, utilize o **[cópia faseada através do PolyBase](#staged-copy-by-using-polybase)** em vez disso, a funcionalidade. A funcionalidade de cópia faseada também oferece melhor débito. Converte automaticamente os dados em formato compatível com o PolyBase. E ele armazena os dados no armazenamento de Blobs do Azure. Em seguida, carrega os dados para o SQL Data Warehouse.
 
+>[!TIP]
+>Obter mais informações sobre [melhores práticas para utilizar o PolyBase](#best-practices-for-using-polybase).
+
 ### <a name="direct-copy-by-using-polybase"></a>Copiar direto utilizando o PolyBase
 
 SQL Data Warehouse PolyBase diretamente suporta BLOBs do Azure, Azure Data Lake Storage Gen1 e Gen2 de armazenamento do Azure Data Lake. Se a sua fonte de dados cumprir os critérios descritos nesta secção, utilize o PolyBase para copiar diretamente a partir do arquivo de dados de origem para o Azure SQL Data Warehouse. Caso contrário, utilize [cópia faseada através do PolyBase](#staged-copy-by-using-polybase).
@@ -418,9 +421,12 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
 
     | Tipo de arquivo de dados de origem suportada | Tipo de autenticação de origem suportado |
     |:--- |:--- |
-    | [BLOBs do Azure](connector-azure-blob-storage.md) | Autenticação de chave de conta |
+    | [BLOBs do Azure](connector-azure-blob-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
     | [Armazenamento do Azure Data Lake Ger1](connector-azure-data-lake-store.md) | Autenticação do principal de serviço |
-    | [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md) | Autenticação de chave de conta |
+    | [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
+
+    >[!IMPORTANT]
+    >Se o seu armazenamento do Azure está configurado com o ponto final de serviço da VNet, tem de utilizar a autenticação de identidade gerida. Consulte [impacto de utilizar pontos finais de serviço de VNet com o armazenamento do Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. O **formato de dados de origem** é do **Parquet**, **ORC**, ou **delimitados por texto**, com as seguintes configurações:
 
@@ -515,9 +521,28 @@ Para utilizar o PolyBase, o utilizador que carrega dados para o SQL Data Warehou
 
 ### <a name="row-size-and-data-type-limits"></a>Limites de tipo de tamanho de linha e de dados
 
-Carregamentos do PolyBase estão limitados a linhas mais pequenas do que 1 MB. Eles não é possível carregar a VARCHR(MAX), nvarchar (Max) ou varbinary (Max). Para obter mais informações, consulte [limites de capacidade de serviço do SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
+Carregamentos do PolyBase estão limitados a linhas mais pequenas do que 1 MB. Ele não pode ser usado para carregar VARCHR(MAX), nvarchar (Max) ou varbinary (Max). Para obter mais informações, consulte [limites de capacidade de serviço do SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md#loads).
 
 Quando os dados de origem tem linhas superiores a 1 MB, pode querer verticalmente dividir as tabelas de origem em vários pequenas. Certifique-se de que o maior tamanho de cada linha não excede o limite. As tabelas mais pequenas, em seguida, podem ser carregadas com o PolyBase e mescladas no Azure SQL Data Warehouse.
+
+Em alternativa, para os dados com este tipo de colunas grande, pode utilizar o não PolyBase para carregar os dados com o ADF, desativando "Permitir PolyBase" definição.
+
+### <a name="polybase-troubleshooting"></a>Resolução de problemas do PolyBase
+
+**A carregar a coluna Decimal**
+
+Se a sua origem de dados está no formato de texto e contém um valor vazio para ser carregado na coluna do SQL Data Warehouse Decimal, pode atingir o seguinte erro:
+
+```
+ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data type VARCHAR to DECIMAL.....Detailed Message=Empty string can't be converted to DECIMAL.....
+```
+
+A solução é anule a seleção de "**utilizar predefinição de tipo**" opção (como false) no sink de atividade de cópia -> definições personalizadas de PolyBase. "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
+)" é uma configuração de PolyBase nativa que especifica como lidar com valores em falta nos ficheiros de texto delimitado quando PolyBase obtém dados a partir do ficheiro de texto. 
+
+**Outros**
+
+Para mais knonw PolyBase problemas, consulte [carga de resolução de problemas do Azure SQL Data Warehouse PolyBase](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
 
 ### <a name="sql-data-warehouse-resource-class"></a>Classe de recursos do SQL Data Warehouse
 
@@ -530,7 +555,7 @@ A tabela seguinte fornece exemplos de como especificar a **tableName** proprieda
 | Esquema da BD | Nome da tabela | **tableName** propriedade JSON |
 | --- | --- | --- |
 | dbo | MyTable | MyTable ou dbo. MyTable ou [dbo].[MyTable] |
-| dbo1 | MyTable | dbo1. MyTable ou [dbo1].[MyTable] |
+| dbo1 | MyTable | dbo1.MyTable ou [dbo1].[MyTable] |
 | dbo | My.Table | [My.Table] ou [dbo].[My.Table] |
 | dbo1 | My.Table | [dbo1].[My.Table] |
 
@@ -558,6 +583,9 @@ Conheça os detalhes da [transformação de origem](data-flow-source.md) e [sink
 
 Quando copia dados de ou para o Azure SQL Data Warehouse, os seguintes mapeamentos são utilizados entre tipos de dados do Azure SQL Data Warehouse para tipos de dados intermediárias do Azure Data Factory. Ver [mapeamentos de tipo de esquema e dados](copy-activity-schema-and-type-mapping.md) para saber como atividade de cópia mapeia o tipo de esquema e os dados de origem para o sink.
 
+>[!TIP]
+>Consulte a [tipos de dados no Azure SQL Data Warehouse de tabela](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) artigo sobre o SQL DW suportados tipos de dados e as soluções alternativas para não são suportados.
+
 | Tipo de dados do armazém de dados SQL do Azure | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | bigint | Int64 |
@@ -575,23 +603,18 @@ Quando copia dados de ou para o Azure SQL Data Warehouse, os seguintes mapeament
 | int | Int32 |
 | money | Decimal |
 | nchar | String, Char[] |
-| ntext | String, Char[] |
-| numérico | Decimal |
+| numeric | Decimal |
 | nvarchar | String, Char[] |
 | real | Single |
 | rowversion | Byte[] |
 | smalldatetime | DateTime |
 | smallint | Int16 |
 | smallmoney | Decimal |
-| sql_variant | Object |
-| texto | String, Char[] |
 | time | TimeSpan |
-| timestamp | Byte[] |
 | tinyint | Byte |
 | uniqueidentifier | Guid |
-| Varbinary | Byte[] |
+| varbinary | Byte[] |
 | varchar | String, Char[] |
-| xml | Xml |
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter uma lista dos arquivos de dados suportados como origens e sinks, atividade de cópia no Azure Data Factory, veja [arquivos de dados e formatos suportados](copy-activity-overview.md##supported-data-stores-and-formats).

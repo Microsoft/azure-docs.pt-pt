@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268121"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128661"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Funções de implantação para modelos Azure Resource Manager 
 
@@ -158,7 +158,7 @@ Para um modelo de nível de assinatura que utiliza a função de implementação
 
 <a id="parameters" />
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>parameters
 `parameters(parameterName)`
 
 Devolve um valor de parâmetro. O nome de parâmetro especificado tem de ser definido na secção de parâmetros do modelo.
@@ -167,7 +167,7 @@ Devolve um valor de parâmetro. O nome de parâmetro especificado tem de ser def
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| parameterName |Sim |cadeia |O nome do parâmetro para retornar. |
+| parameterName |Sim |string |O nome do parâmetro para retornar. |
 
 ### <a name="return-value"></a>Valor de retorno
 

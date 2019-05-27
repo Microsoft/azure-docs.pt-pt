@@ -15,12 +15,12 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f1f08ca8517d01a6d72f1f8a18514ea3f851ff14
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 43a99835776563f469efa3e0b14992203b34915e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587910"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66136647"
 ---
 # <a name="back-up-a-web-app-using-powershell"></a>Fazer uma cópia de segurança de uma aplicação web com o PowerShell
 

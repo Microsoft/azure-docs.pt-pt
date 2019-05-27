@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 02/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 1e466f63f1dd1ba07e977aefea9c986f06ab64b2
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56448165"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145314"
 ---
 | Linguagem de programação | Plataforma | Referência da API |
 | -------------------- | -------- | ------------- |

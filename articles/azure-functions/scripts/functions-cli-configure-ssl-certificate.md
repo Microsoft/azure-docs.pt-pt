@@ -12,12 +12,12 @@ ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 84cc4e92419e683f8d2c29883b26148fdef23356
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ee655dc39fbe7d0e3eb5cb41b091aea24d8dbea3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325736"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131291"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-a-function-app"></a>Vincular um certificado SSL personalizado a uma aplicação de funções
 
@@ -27,7 +27,7 @@ Este script de exemplo cria uma aplicação de funções no Serviço de Aplicaç
 * Um ficheiro .PFX válido e a respetiva palavra-passe do certificado SSL que pretende carregar e vincular.
 * Ter configurado um registo A no seu domínio personalizado que aponta para o nome de domínio predefinido da sua aplicação Web. Para obter mais informações, consulte as [Instruções do mapa do domínio personalizado para o Serviço de Aplicações do Azure](https://aka.ms/appservicecustomdns).
 
-Para vincular um certificado SSL, a aplicação de funções tem de ser criada num plano do Serviço de Aplicações e não num plano de consumo.
+Para vincular um certificado SSL, a aplicação de função tem de ser criada num plano Premium ou um plano do serviço de aplicações e não num plano de consumo.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
