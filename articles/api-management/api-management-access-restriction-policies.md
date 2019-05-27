@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b8c564ef2de22555930f998ccd9918b252d35f17
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8947637a42adfca12268c3f84e208079768870e0
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541703"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921214"
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso de gestão de API
 
@@ -315,8 +315,6 @@ Esta política pode ser utilizada na política de seguinte [secções](https://a
 O `quota-by-key` política impõe uma renovável ou tempo de vida volume e/ou de largura de banda de quota de chamadas, numa base por chave. A chave pode ter um valor de cadeia de caracteres arbitrária e é, geralmente, fornecida com uma expressão de política. Pode ser adicionada a condição de incremento opcional para especificar quais os pedidos devem ser contados em direção a quota. Se várias políticas seriam incrementar o mesmo valor de chave, ele é incrementado apenas uma vez por pedido. Quando for atingido o limite de chamada, o autor da chamada recebe um `403 Forbidden` código de estado de resposta.
 
 Para obter mais informações e exemplos desta política, consulte [limitação API Management do Azure de pedidos avançada](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).
-
-> [As expressões de diretriz](api-management-policy-expressions.md) não pode ser utilizado em qualquer um dos atributos de política para esta política.
 
 ### <a name="policy-statement"></a>Declaração de política
 

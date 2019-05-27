@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdb3de88fde2fbc7ec2aaffdb7d82433845db34b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: e3470d9220ed471a05792ed5b3bb259e0dcbe0a6
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545953"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121919"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Início rápido: Criar uma aplicação Xamarin que integra o início de sessão no Microsoft
 
@@ -57,14 +57,14 @@ Para ativar a aplicação obter os tokens, tem primeiro de registá-lo no seu in
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta. Em seguida, no **Directory** , selecione o inquilino do Active Directory onde pretende registar a aplicação.
 3. Clique em **Todos os serviços** no painel esquerdo e selecione **Azure Active Directory**.
-4. Clique em **Registos de aplicações** e selecione **Adicionar**.
-5. Para criar um novo **aplicação cliente nativa**, siga as instruções.
+4. Clique em **registos de aplicações**e, em seguida, selecione **novo registo**.
+5. Para criar uma nova aplicação de cliente, siga as instruções.
    * **Nome** descreve a aplicação aos utilizadores.
+   * Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
    * **URI de Redirecionamento** é uma combinação de esquema e cadeia de caracteres que o Azure AD utiliza para devolver respostas de tokens. Introduza um valor (por exemplo, `http://DirectorySearcher`).
 6. Depois de concluir o registo, o Azure AD atribui a aplicação um ID de aplicação único. Copie o valor a partir da **aplicativo** separador, porque irá precisar dele mais tarde.
-7. Sobre o **definições** página, selecione **permissões obrigatórias**e, em seguida, selecione **Add**.
-8. Selecione **Microsoft Graph** como a API. Sob **permissões delegadas**, adicione o **Read Directory Data** permissão. 
-   Esta ação permite que a aplicação consultar a Graph API para os utilizadores.
+7. Partir do **permissões de API** página, selecione **adicionar uma permissão**. Dentro **selecionar uma API** selecionar ***Microsoft Graph***.
+8. Sob **permissões delegadas**, selecione a permissão **User.Read**, em seguida, prima **Add** para guardar. Esta permissão configura a sua aplicação para consultar utilizadores na Graph API do Azure AD.
 
 ## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instale e configure a ADAL
 

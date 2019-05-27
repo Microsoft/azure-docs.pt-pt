@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 5a08c2ae0b82841fd15aac4af06a8874cf64ba53
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121831"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950005"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Compreender as definições de funções para recursos do Azure
 
@@ -147,9 +147,9 @@ Contribuinte de Dados do Armazenamento de Blobs
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Uma vez que a Alice tem um caráter universal (`*`) ação num âmbito de subscrição, suas permissões herdam para permitir-lhe efetuar todas as ações de gestão. Alice pode ler, escrever e eliminar contentores. No entanto, Alice não é possível efetuar operações de dados sem colocar os passos adicionais. Por exemplo, por predefinição, Alice não é possível ler os blobs num contentor. Para ler os blobs, Alice teria-se obter as chaves de acesso de armazenamento e usá-los para aceder aos blobs.
+Uma vez que a Alice tem um caráter universal (`*`) ação num âmbito de subscrição, as respetivas permissões herdam para que eles possam executar todas as ações de gestão. Alice pode ler, escrever e eliminar contentores. No entanto, Alice não é possível efetuar operações de dados sem colocar os passos adicionais. Por exemplo, por predefinição, Alice não é possível ler os blobs num contentor. Para ler os blobs, Alice teria-se obter as chaves de acesso de armazenamento e usá-los para aceder aos blobs.
 
-Permissões de Bob estão limitadas a apenas o `Actions` e `DataActions` especificado na [contribuinte de dados de Blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) função. Com base na função, Bob pode executar gerenciamento e operações de dados. Por exemplo, Bob poderá ler, escrever e eliminar os contentores na conta de armazenamento especificada e também ele pode ler, escrever e eliminar os blobs.
+Permissões de Bob estão limitadas a apenas o `Actions` e `DataActions` especificado na [contribuinte de dados de Blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) função. Com base na função, Bob pode executar gerenciamento e operações de dados. Por exemplo, Bob pode ler, escrever e eliminar contentores na conta de armazenamento especificada e pode também ler, escrever e eliminar os blobs.
 
 Para obter mais informações sobre a gestão e segurança de plano de dados de armazenamento, consulte a [guia de segurança do armazenamento do Azure](../storage/common/storage-security-guide.md).
 
@@ -162,7 +162,7 @@ Para visualizar e trabalhar com operações de dados, tem de ter as versões cor
 | [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 ou posterior |
 | [CLI do Azure](/cli/azure/install-azure-cli) | 2.0.30 ou posterior |
 | [Azure para .NET](/dotnet/azure/) | 2.8.0-Preview ou posterior |
-| [Azure SDK para Go](/go/azure/azure-sdk-go-install) | 15.0.0 ou posterior |
+| [SDK do Azure para Go](/go/azure/azure-sdk-go-install) | 15.0.0 ou posterior |
 | [Azure para Java](/java/azure/) | 1.9.0 ou posterior |
 | [Azure para Python](/python/azure) | 0.40.0 ou posterior |
 | [Azure SDK for Ruby](https://rubygems.org/gems/azure_sdk) (Azure SDK para Ruby) | 0.17.1 ou posterior |

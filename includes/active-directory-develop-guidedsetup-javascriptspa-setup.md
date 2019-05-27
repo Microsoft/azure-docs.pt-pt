@@ -15,11 +15,11 @@ ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
 ms.openlocfilehash: a00bc7a05af9e329494a11f9bee444827cbebf38
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65199367"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121668"
 ---
 ## <a name="setting-up-your-web-server-or-project"></a>Como configurar seu servidor web ou projeto
 

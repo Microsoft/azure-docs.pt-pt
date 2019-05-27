@@ -15,25 +15,25 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7aee10780512e284faccadface0dc928ef8270e
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 3d949b746f05eb440f5ae28f683dfc838217ab47
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501901"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956507"
 ---
-# <a name="what-is-self-service-signup-for-azure-active-directory"></a>O que é a inscrição self-service do Azure Active Directory?
+# <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>O que é o self-service Inscreva-se para o Azure Active Directory?
 
-Este artigo explica como utilizar a inscrição self-service para preencher uma organização no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio a partir do Azure não gerido organização AD, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
+Este artigo explica como utilizar a inscrição Self-Service para preencher uma organização no Azure Active Directory (Azure AD). Se pretender assumir um nome de domínio a partir do Azure não gerido organização AD, consulte [assumir um diretório não gerido como administrador](domains-admin-takeover.md).
 
-## <a name="why-use-self-service-signup"></a>Porquê utilizar a inscrição self-service?
+## <a name="why-use-self-service-sign-up"></a>Porquê utilizar a inscrição Self-Service?
 * Leve os clientes para serviços que eles querem mais rapidamente
 * Criar ofertas com base no e-mail para um serviço
-* Criar fluxos de inscrição com base no e-mail que rapidamente permitem aos utilizadores criar identidades com seus aliases de e-mail de trabalho fácil de memorizar
+* Criar fluxos Inscreva-se com base em e-mail rapidamente permitem aos utilizadores criar identidades com seus aliases de e-mail de trabalho fácil de memorizar
 * Um self-service criadas diretório do Azure AD pode ser transformado num diretório gerido que pode ser utilizado para outros serviços
 
 ## <a name="terms-and-definitions"></a>Termos e definições
-* **Inscrição self-service**: Este é o método pelo qual um utilizador se inscreve num serviço em nuvem e tem uma identidade criada automaticamente para os mesmos no Azure AD com base no seu domínio de e-mail.
+* **Inscrição Self-Service**: Este é o método pelo qual um utilizador se inscreve num serviço em nuvem e tem uma identidade criada automaticamente para os mesmos no Azure AD com base no seu domínio de e-mail.
 * **Não gerido diretório do Azure AD**: Este é o diretório onde essa identidade é criada. Um diretório não gerido é um diretório com nenhum administrador global.
 * **Utilizador verificado por e-mail**: Este é um tipo de conta de utilizador no Azure AD. Um utilizador que têm uma identidade criada automaticamente depois de se inscrever para uma oferta de self-service é conhecido como um utilizador verificado por e-mail. Um utilizador verificado por e-mail é um membro regular de um diretório etiquetado com creationmethod = EmailVerified.
 
@@ -47,9 +47,9 @@ Os administradores têm dois controles de Self-serviços hoje mesmo. Poderá con
 Um administrador pode configurar estas capacidades utilizando os seguintes parâmetros de cmdlet Set-MsolCompanySettings do Azure AD:
 
 * **AllowEmailVerifiedUsers** controla se um utilizador pode criar ou associar um diretório. Se definir esse parâmetro como $false, nenhum utilizador verificado por e-mail pode associar o diretório.
-* **AllowAdHocSubscriptions** controla a capacidade dos utilizadores efetuar a inscrição self-service. Se definir esse parâmetro como $false, nenhum utilizador pode efetuar a inscrição self-service.
+* **AllowAdHocSubscriptions** controla a capacidade dos utilizadores efetuar a inscrição Self-Service. Se definir esse parâmetro como $false, nenhum utilizador pode efetuar a inscrição Self-Service.
   
-AllowEmailVerifiedUsers e AllowAdHocSubscriptions são as definições de todo o diretório que podem ser aplicadas a um gerido ou um diretório não gerido. Eis um exemplo em que:
+AllowEmailVerifiedUsers e AllowAdHocSubscriptions são as definições de todo o diretório que podem ser aplicadas a um diretório gerido ou não gerido. Eis um exemplo em que:
 
 * Administra um diretório com um domínio verificado, tal como contoso.com
 * Utilizar a colaboração B2B de outro diretório para convidar um utilizador que já não existe (userdoesnotexist@contoso.com) no diretório principal do contoso.com
@@ -57,21 +57,21 @@ AllowEmailVerifiedUsers e AllowAdHocSubscriptions são as definições de todo o
 
 Se condições anteriores forem verdadeiras, em seguida, um utilizador de membro é criado no diretório principal e um utilizador de convidado de B2B é criado no diretório de convite.
 
-Flow e PowerApps inscrições de avaliação não são controladas mediante a **AllowAdHocSubscriptions** definição. Para obter mais informações, veja os artigos seguintes:
+Flow e PowerApps avaliação inscrições não são controladas mediante a **AllowAdHocSubscriptions** definição. Para obter mais informações, veja os artigos seguintes:
 
 * [Como posso impedir os utilizadores existentes comecem a utilizar o Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
 * [Flow na sua organização, as perguntas e respostas](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Como os controles funcionam em conjunto?
-Esses dois parâmetros podem ser utilizados em conjunto para definir um controlo mais preciso sobre a inscrição self-service. Por exemplo, o seguinte comando irá permitir aos utilizadores efetuarem a inscrição self-service, mas apenas se os utilizadores que já tem uma conta no Azure AD (em outras palavras, os utilizadores que seriam necessário uma conta verificado por e-mail a ser criado pela primeira vez não é possível efetuar inscrição self-service):
+Esses dois parâmetros podem ser utilizados em conjunto para definir um controlo mais preciso sobre a inscrição Self-Service. Por exemplo, o seguinte comando permitirá aos utilizadores Self-Service de realizar Inscreva-se, mas apenas se os utilizadores que já tem uma conta no Azure AD (em outras palavras, os utilizadores que seriam necessário uma conta verificado por e-mail a ser criado pela primeira vez não é possível efetuar inscrição Self-Service):
 
 ```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ```
 
-O fluxograma a seguir explica as diferentes combinações para estes parâmetros e as condições resultantes para o diretório e a inscrição self-service.
+O fluxograma a seguir explica as diferentes combinações para estes parâmetros e as condições resultantes para o diretório e a inscrição Self-Service.
 
-![Fluxograma de controles de inscrição self-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
+![Fluxograma de controles de inscrição Self-serviços](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Para obter mais informações e exemplos de como utilizar estes parâmetros, consulte [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
@@ -82,3 +82,4 @@ Para obter mais informações e exemplos de como utilizar estes parâmetros, con
 * [Azure PowerShell](/powershell/azure/overview)
 * [Referência de Cmdlet do Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Fechar a sua conta escolar ou profissional num diretório não gerido](users-close-account.md)

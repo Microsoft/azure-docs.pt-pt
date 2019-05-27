@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 4debd5408abda7e6ae7a7ebf2210fb69210582ae
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 629b872f78a30592fc00cb268066970b12b20561
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687933"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952798"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definir atributos personalizados no Azure Active Directory B2C
 
  Todos os aplicativos do lado do cliente tem requisitos exclusivos para as informações de que tem de ser recolhidos. O inquilino B2C do Azure Active Directory (Azure AD) é fornecido com um conjunto interno de informações armazenadas em atributos, como o nome próprio, apelido, cidade e Código Postal. Com o Azure AD B2C, pode estender o conjunto de atributos armazenados em cada conta de cliente. 
  
- Pode criar atributos personalizados no [portal do Azure](https://portal.azure.com/) e usá-los em seus fluxos de utilizador de inscrição, fluxos de utilizador de inscrição ou início de sessão ou fluxos de utilizador de edição de perfil. Também pode ler e gravar esses atributos utilizando o [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Utilizam atributos personalizados no Azure AD B2C [do Azure AD Graph API Extensões de esquema do](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ Pode criar atributos personalizados no [portal do Azure](https://portal.azure.com/) e usá-los em seus fluxos de utilizador de inscrição, fluxos de utilizador de inscrição ou início de sessão ou fluxos de utilizador de edição de perfil. Também pode ler e gravar esses atributos utilizando o [Azure AD Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md). Utilizam atributos personalizados no Azure AD B2C [do Azure AD Graph API Extensões de esquema do](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).  
+
+> [!NOTE]
+> Suporte para a mais recente [Microsoft Graph API](https://docs.microsoft.com/graph/overview?view=graph-rest-1.0) para consultar o Azure AD B2C inquilino ainda está em desenvolvimento.
+>
 
 ## <a name="create-a-custom-attribute"></a>Criar um atributo personalizado
 
@@ -41,7 +45,8 @@ ms.locfileid: "64687933"
 7. Opcionalmente, introduza um **Descrição** para fins informativos. 
 8. Clique em **Criar**.
 
-O atributo personalizado está agora disponível na lista de **atributos de utilizador** para uso em seus fluxos de utilizador. Um atributo personalizado é criado na primeira vez que é utilizado em qualquer fluxo de utilizador, e somente não quando o adicionar à lista de **atributos de utilizador**.
+O atributo personalizado está agora disponível na lista de **atributos de utilizador** para uso em seus fluxos de utilizador. Um atributo personalizado é criado na primeira vez que é utilizado em qualquer fluxo de utilizador, e somente não quando o adicionar à lista de **atributos de utilizador**. 
+
 
 ## <a name="use-a-custom-attribute-in-your-user-flow"></a>Utilizar um atributo personalizado do fluxo de utilizador
 
@@ -51,5 +56,5 @@ O atributo personalizado está agora disponível na lista de **atributos de util
 5. Selecione **afirmações de aplicação** e, em seguida, selecione o vlastní atribut. 
 6. Clique em **Guardar**.
 
-Pode utilizar o **executar o fluxo de utilizador** funcionalidade no fluxo de utilizador para verificar a experiência do cliente. Deverá ver agora **ShoeSize** na lista de atributos recolhidos durante a viagem de inscrição e vê-lo no token enviado para a sua aplicação.
+Assim que tiver criado um novo utilizador com um fluxo de utilizador que utiliza o atributo personalizado criado recentemente, o objeto pode ser consultado no [do Azure AD Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart). Em alternativa, pode utilizar o [ **executar o fluxo de utilizador** ](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-user-flows) funcionalidade no fluxo de utilizador para verificar a experiência do cliente. Deverá ver agora **ShoeSize** na lista de atributos recolhidos durante a viagem de inscrição e vê-lo no token enviado para a sua aplicação. 
 

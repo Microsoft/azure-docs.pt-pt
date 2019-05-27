@@ -5,14 +5,14 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/29/2018
+ms.date: 05/19/2018
 ms.author: robb
-ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 96183e22f0aeafc681a782e7d3d8bd29a6ec9617
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776640"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914717"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>O que são alertas Clássicos no Microsoft Azure?
 
@@ -24,7 +24,7 @@ Alertas permitem-lhe configurar as condições sobre os dados e ser notificado q
 
 ## <a name="old-and-new-alerting-capabilities"></a>Velha novas capacidades e alertas
 
-No passado do Azure Monitor, o Application Insights, o Log Analytics e o estado de funcionamento do serviço tinham separado alertas capacidades. Horas extraordinárias, o Azure melhorada e combinados a interface do usuário e os métodos diferentes de alertas. A consolidação ainda está em processo. Alertas
+No passado do Azure Monitor, o Application Insights, o Log Analytics e o estado de funcionamento do serviço tinham separado alertas capacidades. Horas extraordinárias, o Azure melhorada e combinados a interface do usuário e os métodos diferentes de alertas. A consolidação ainda está em processo.
 
 Pode ver alertas clássicos apenas no ecrã de utilizador de alertas Clássicos no Portal do Azure. Obtém este ecrã do **ver alertas clássicos** botão no ecrã de alertas. 
 

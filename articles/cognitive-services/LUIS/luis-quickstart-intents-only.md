@@ -3,20 +3,20 @@ title: Prever intenções
 titleSuffix: Azure Cognitive Services
 description: Neste tutorial, crie uma aplicação personalizada que prevê a intenção de um utilizador. Esta aplicação é o tipo mais simples de aplicação LUIS, porque não extrai vários elementos de dados do texto da expressão, como endereços de e-mail ou datas.
 services: cognitive-services
-author: diberry
-manager: nitinme
+author: lingliw
+manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
-ms.author: diberry
+ms.date: 04/19/19
+ms.author: v-lingwu
 ms.openlocfilehash: 067829a1d9425ede1320242e364eca7c30bb7053
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593918"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66123906"
 ---
 # <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>Tutorial: Criar aplicação LUIS para determinar as intenções dos usuários
 
@@ -239,3 +239,7 @@ Continuar com esta aplicação, [adicionando uma lista simple de entidade e a fr
 
 > [!div class="nextstepaction"]
 > [Adicionar intenções e entidades pré-concebidas a esta aplicação](luis-tutorial-prebuilt-intents-entities.md)
+
+
+
+

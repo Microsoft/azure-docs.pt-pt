@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2a0cee1ad750144f30b9ab6732e0bbdf8138db28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0288d9c0932d012bc83f23053b661c5a7ea2ef82
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731570"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872957"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>Criar a sua primeira função durável em C\#
 
 *Funções duráveis* é uma extensão da [as funções do Azure](../functions-overview.md) que permite que escreva funções com monitoração de estado num ambiente sem servidor. A extensão gere o estado, os pontos de verificação e os reinícios por si.
 
-Neste artigo, irá aprender a utilizar as ferramentas do Visual Studio 2017 para as funções do Azure para criar localmente e testar uma função durável "hello world".  Orquestra a essa função e em conjunto de cadeias de chamadas para outras funções. Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2017.
+Neste artigo, irá aprender a utilizar as ferramentas de 2019 do Visual Studio para as funções do Azure para criar localmente e testar uma função de durável "hello world".  Orquestra a essa função e em conjunto de cadeias de chamadas para outras funções. Em seguida, publique o código de função no Azure. Estas ferramentas estão disponíveis como parte da carga de trabalho de desenvolvimento do Azure no Visual Studio 2019.
 
 ![Executar a função durável no Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -30,7 +30,7 @@ Neste artigo, irá aprender a utilizar as ferramentas do Visual Studio 2017 para
 
 Para concluir este tutorial:
 
-* Instale o [Visual Studio 2017](https://azure.microsoft.com/downloads/). Certifique-se de que o **desenvolvimento do Azure** carga de trabalho também é instalada.
+* Instale [Visual Studio 2019](https://azure.microsoft.com/downloads/). Certifique-se de que o **desenvolvimento do Azure** carga de trabalho também é instalada.
 
 * Verifique se tem as [ferramentas de Funções do Azure mais recentes](../functions-develop-vs.md#check-your-tools-version).
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.topic: article
 ms.date: 08/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: e371a6abe32a1a41d3babeaa27aaec3e30bd3323
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9b304f2d4d2e498701be5977decf202cb0fa995b
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142312"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65922064"
 ---
 # <a name="add-and-run-code-by-using-azure-functions-in-azure-logic-apps"></a>Adicionar e executar código com as funções do Azure no Azure Logic Apps
 
@@ -51,6 +51,9 @@ Para executar fragmentos de código sem a criação de funções do Azure, saiba
   Antes de poder adicionar ações que podem executar as funções, tem de iniciar a aplicação lógica com um acionador.
 
   Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps](../logic-apps/logic-apps-overview.md) e [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+
+> [!NOTE]
+> Integração de aplicações lógicas com funções não funciona quando ranhuras (pré-visualização) estão ativadas.
 
 <a name="create-function-external"></a>
 

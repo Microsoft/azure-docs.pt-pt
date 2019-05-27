@@ -2,19 +2,18 @@
 title: storage-files-create-clean-up-portal
 description: Faça a limpeza após os inícios rápidos de Ficheiros do Azure.
 services: storage
-author: WenJason
+author: wmgries
 ms.service: storage
 ms.topic: include
-origin.date: 03/28/2018
-ms.date: 06/11/2018
-ms.author: v-nany
+ms.date: 03/28/2018
+ms.author: wgries
 ms.custom: include file
 ms.openlocfilehash: 2ddf171090ab4a9e3dbe4506a399cbdbd2621bdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462092"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114654"
 ---
 Quando terminar, pode eliminar o grupo de recursos. A eliminação do grupo de recursos elimina a conta de armazenamento, a partilha de ficheiros do Azure e outros recursos que implementou dentro do grupo de recursos.
 

@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
-ms.date: 11/03/2017
+ms.date: 05/20/2019
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 0c15a7bc3295a26b004a32a8a464b41ac8c0a4b4
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 37249d904343a4eddb0d1e82f451c3b9e95a479d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787233"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953495"
 ---
 # <a name="azure-table-storage-overview"></a>Descrição geral do armazenamento de tabelas do Azure
 

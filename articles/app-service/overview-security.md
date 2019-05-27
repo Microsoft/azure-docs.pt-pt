@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1e4feaed9f4e8f6dd3275da25e33e57197731572
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 374fd700f3ac99c00b922f4fca330fee9acfd704
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60838965"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955740"
 ---
 # <a name="security-in-azure-app-service"></a>Segurança no serviço de aplicações do Azure
 
@@ -105,7 +105,7 @@ Pode aceder em segurança a recursos no local, como bases de dados, de três for
 
 ## <a name="application-secrets"></a>Segredos da aplicação
 
-Não armazene segredos da aplicação, como credenciais de base de dados, tokens de API e as chaves privadas em seus arquivos de código ou configuração. A abordagem mais aceita é acessá-los como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão na linguagem de sua escolha. No serviço de aplicações, a forma de definir as variáveis de ambiente é através de [as definições da aplicação](web-sites-configure.md#app-settings) (e, especialmente para aplicações de .NET [cadeias de ligação](web-sites-configure.md#connection-strings)). Definições de aplicações e as cadeias de ligação são armazenadas de forma encriptada no Azure, e eles são desencriptados apenas antes de a ser injetado na memória de processo da sua aplicação quando a aplicação for iniciada. As chaves de encriptação são revezadas regularmente.
+Não armazene segredos da aplicação, como credenciais de base de dados, tokens de API e as chaves privadas em seus arquivos de código ou configuração. A abordagem mais aceita é acessá-los como [variáveis de ambiente](https://wikipedia.org/wiki/Environment_variable) usando o padrão na linguagem de sua escolha. No serviço de aplicações, a forma de definir as variáveis de ambiente é através de [as definições da aplicação](configure-common.md#configure-app-settings) (e, especialmente para aplicações de .NET [cadeias de ligação](configure-common.md#configure-connection-strings)). Definições de aplicações e as cadeias de ligação são armazenadas de forma encriptada no Azure, e eles são desencriptados apenas antes de a ser injetado na memória de processo da sua aplicação quando a aplicação for iniciada. As chaves de encriptação são revezadas regularmente.
 
 Em alternativa, pode integrar o seu serviço de aplicações com [do Azure Key Vault](/azure/key-vault/) para a gestão de segredos avançadas. Por [aceder ao Key Vault com uma identidade gerida](../key-vault/tutorial-web-application-keyvault.md), seu serviço de aplicações pode aceder em segurança os segredos que precisa.
 

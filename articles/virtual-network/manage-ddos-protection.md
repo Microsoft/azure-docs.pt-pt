@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/06/2018
+ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: a053beb121e1b3c0db020094c29a9a1e0117da87
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 53185caa6a0492702035041a893f20a78cf1ea4d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203543"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65911269"
 ---
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerir padrão do Azure DDoS Protection através do portal do Azure
 
@@ -187,8 +187,8 @@ Registos de fluxo de mitigação de ataque permite-lhe rever o tráfego ignorado
 
 Os registos de fluxo terá os seguintes campos: 
 - IP de origem
-- ID de destino
-- Porta de origem 
+- IP de Destino
+- Porta de Origem 
 - Porta de destino 
 - Tipo de protocolo 
 - Ação executada durante a atenuação
@@ -204,11 +204,24 @@ Microsoft associou [BreakingPoint Cloud](https://www.ixiacom.com/products/breaki
 - Conformidade de DDoS de documento
 - Preparar as suas equipes de segurança de rede
 
+## <a name="view-ddos-protection-alerts-in-azure-security-center"></a>Ver alertas de proteção de DDoS no Centro de segurança do Azure
+
+Centro de segurança do Azure fornece uma lista de [alertas de segurança](/azure/security-center/security-center-managing-and-responding-alerts), com informações para ajudar a investigar e remediar problemas. Com esta funcionalidade, obtém uma vista unificada de alertas, incluindo alertas relacionados com o ataque de DDoS e as ações executadas para mitigar o ataque em tempo quase.
+Existem dois alertas específicos que veja para qualquer DDoS deteção e mitigação de ataque:
+
+- **Ataque de DDoS detetado para o IP público**: Este alerta é gerado quando o serviço de proteção contra DDoS Deteta que um dos seus endereços IP públicos é o destino de um ataque DDoS.
+- **Ataque de DDoS atenuados para IP público**: Este alerta é gerado quando um ataque no endereço IP público pode ser atenuado.
+Para ver os alertas, abra **Centro de segurança** no portal do Azure. Sob **proteção contra ameaças**, selecione **alertas de segurança**. Captura de ecrã seguinte mostra um exemplo dos alertas de ataque de DDoS.
+
+![Alerta de DDoS no Centro de segurança do Azure](./media/manage-ddos-protection/ddos-alert-asc.png)
+
+Os alertas incluem informações gerais sobre o endereço IP público, que está sob ataque, georreplicação e informações sobre ameaças e os passos de remediações.
+
 ## <a name="permissions"></a>Permissões
 
 Para trabalhar com planos de proteção DDoS, deve ser atribuída a sua conta para o [contribuinte de rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) função ou a um [personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) função que é atribuída as ações adequadas listadas na tabela a seguir:
 
-| Ação                                            | Name                                     |
+| Acção                                            | Name                                     |
 | ---------                                         | -------------                            |
 | Microsoft.Network/ddosProtectionPlans/read        | Ler um plano de proteção DDoS              |
 | Microsoft.Network/ddosProtectionPlans/write       | Criar ou atualizar um plano de proteção DDoS  |

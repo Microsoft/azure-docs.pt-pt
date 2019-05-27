@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: tamram
 ms.openlocfilehash: c118ba581aa23bd1647e4dce26c035e6591d07dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60505631"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66123258"
 ---
 Agora que aprendeu as noções básicas do armazenamento de filas do Azure, siga estas ligações para saber mais sobre tarefas de armazenamento mais complexas.
 

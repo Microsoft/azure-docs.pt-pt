@@ -9,11 +9,11 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 60912adbecbfdb4e6bebd7ddfea59eafa09b985e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477979"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114931"
 ---
 As opções de replicação para uma conta de armazenamento incluem:
 

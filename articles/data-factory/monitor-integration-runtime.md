@@ -12,11 +12,11 @@ author: gauravmalhot
 ms.author: gamal
 manager: craigg
 ms.openlocfilehash: b62cbe75730da8c5764839d41887deb7e6cd0e90
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66122625"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory  
 **Runtime de integração** é a infraestrutura de computação utilizada pelo Azure Data Factory para fornecer várias capacidades de integração de dados em diferentes ambientes de rede. Existem três tipos de runtimes de integração oferecidos pelo Data Factory:
@@ -45,7 +45,7 @@ A tabela seguinte fornece descrições das propriedades devolvidas pelo cmdlet p
 -------- | ------------- | 
 | Name | Nome do runtime de integração do Azure. |  
 | Estado | Estado do runtime de integração do Azure. | 
-| Localização | Localização do runtime de integração do Azure. Para obter detalhes sobre a localização de um runtime de integração do Azure, consulte [introdução ao runtime de integração](concepts-integration-runtime.md). |
+| Location | Localização do runtime de integração do Azure. Para obter detalhes sobre a localização de um runtime de integração do Azure, consulte [introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome da fábrica de dados que pertence o runtime de integração do Azure. | 
 | ResourceGroupName | Nome do grupo de recursos que a fábrica de dados pertence.  |
 | Descrição | Descrição do integration runtime.  |
@@ -72,7 +72,7 @@ A tabela seguinte fornece descrições das propriedades de monitorização **cad
 | -------- | ----------- | 
 | Name | Nome do integration runtime autoalojado e nós associados a ele. Nó é uma máquina com Windows no local que tenha o runtime de integração autoalojado instalado no mesmo. |  
 | Estado | O estado de cada nó e o runtime de integração autoalojado geral. Exemplo: Online/Offline/limitado/etc. Para obter informações sobre estes Estados terem, consulte a secção seguinte. | 
-| Versão | A versão do integration runtime autoalojado e cada nó. A versão do runtime de integração autoalojado é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração do runtime de integração autoalojado, apenas os nós com o mesmo número de versão e a lógica autoalojado função do runtime de integração corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). | 
+| Version | A versão do integration runtime autoalojado e cada nó. A versão do runtime de integração autoalojado é determinada com base na versão da maioria de nós no grupo. Se existirem nós com versões diferentes na configuração do runtime de integração autoalojado, apenas os nós com o mesmo número de versão e a lógica autoalojado função do runtime de integração corretamente. Outras pessoas estão no modo de limitada e têm de ser atualizados manualmente (apenas no caso de falha de atualização automática). | 
 | Memória disponível | Memória disponível num nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
 | Utilização da CPU | Utilização da CPU de um nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. |
 | Funcionamento em rede (entrada/saída) | Utilização da rede de um nó do runtime de integração autoalojado. Este valor é um instantâneo de quase em tempo real. | 
@@ -164,7 +164,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | OtherErrors | Os erros acionáveis não nó específico no seu Azure-SSIS integration runtime. |
 | LastOperation | O resultado da última operação de iniciar/parar no seu Azure-SSIS integration runtime com erros acionáveis caso de falha. |
 | Estado | O estado geral (inicial/iniciar/iniciada/parar/interrompida) do Azure-SSIS integration runtime. |
-| Localização | A localização do Azure-SSIS integration runtime. |
+| Location | A localização do Azure-SSIS integration runtime. |
 | NodeSize | O tamanho de cada nó do integration runtime Azure-SSIS. |
 | NodeCount | O número de nós no seu runtime de integração Azure-SSIS. |
 | MaxParallelExecutionsPerNode | O número de execuções paralelas por nó no seu runtime de integração Azure-SSIS. |
@@ -173,7 +173,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | CatalogAdminPassword | A palavra-passe do administrador do seu servidor existente do Azure SQL da base de dados/instância gerida. |
 | CatalogPricingTier | O escalão de preço de SSISDB alojado pelo seu servidor de base de dados do Azure SQL existente.  Não é aplicável ao Azure SQL Database Managed Instance alojar SSISDB. |
 | VNetId | O rede virtual ID de recurso para o runtime de integração Azure-SSIS para associar. |
-| Subrede | O nome da sub-rede para o runtime de integração Azure-SSIS associar. |
+| Sub-rede | O nome da sub-rede para o runtime de integração Azure-SSIS associar. |
 | ID | O ID de recurso do Azure-SSIS integration runtime. |
 | Type | O tipo (gerida/Self-Hosted) do Azure-SSIS integration runtime. |
 | ResourceGroupName | O nome do seu grupo de recursos do Azure, em que foram criados sua fábrica de dados e o runtime de integração Azure-SSIS. |
@@ -199,7 +199,7 @@ Runtime de integração Azure-SSIS é um cluster totalmente gerido do Azure máq
 | A iniciar | Os nós do Azure-SSIS integration runtime estão a ser atribuída/preparado e faturação foi iniciado. |
 | Iniciado | Os nós do Azure-SSIS integration runtime foram alocados/preparado e eles estão prontos para que possa implementar/executar pacotes do SSIS. |
 | A parar  | Os nós do Azure-SSIS integration runtime estão a ser lançados. |
-| Parada | Os nós do Azure-SSIS integration runtime foram lançados e faturação parou. |
+| Parado | Os nós do Azure-SSIS integration runtime foram lançados e faturação parou. |
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-in-the-azure-portal"></a>Monitorizar o runtime de integração de SSIS do Azure no portal do Azure
 

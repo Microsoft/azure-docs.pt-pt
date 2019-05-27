@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9fd594fb264ff0467cc315f59927cd157068d522
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146187"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961434"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Armazenamento com redundância de zona (ZRS): Aplicações de armazenamento do Azure de elevada disponibilidade
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ O ZRS está disponível em geral nas seguintes regiões:
 - França Central
 - Leste do Japão
 - Reino Unido Sul
-- E.U.A Leste
-- Este dos EUA 2
-- E.U.A. Oeste 2
-- Centro dos EUA
+- Centro dos E.U.A.
+- Leste dos E.U.A.
+- E.U.A Leste 2
+- Oeste dos E.U.A 2
 
 A Microsoft continua a ativar o ZRS em mais regiões do Azure. Verifique os [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) página regularmente para obter informações sobre novas regiões.
 
@@ -75,6 +75,7 @@ Tenha em atenção as seguintes restrições sobre a migração em direto:
 - Só é possível migrar os dados na mesma região. Se pretender migrar os dados para uma conta ZRS localizada numa região diferente da conta de origem, tem de efetuar uma migração manual.
 - Tipos de conta de armazenamento standard só suportam a migração em direto. Contas de armazenamento Premium têm de ser migradas manualmente.
 - Não é suportada a migração em direto de ZRS para LRS, GRS ou RA-GRS. Precisará mover manualmente os dados para um novo ou uma conta de armazenamento existente.
+- Discos geridos só estão disponíveis para LRS e não podem ser migrados para o ZRS. Para ver de conjuntos de integração com disponibilidade de [discos geridos de introdução ao Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). Pode armazenar instantâneos e imagens para Standard SSD Managed Disks em armazenamento HDD padrão e [escolher entre opções LRS e ZRS](https://azure.microsoft.com/pricing/details/managed-disks/). 
 
 Pode pedir uma migração em direto através da [portal de suporte do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). No portal, selecione a conta de armazenamento que pretende converter em ZRS.
 1. Selecione **novo pedido de suporte**
@@ -96,7 +97,7 @@ Um técnico de suporte irá contactá-lo e fornecer qualquer assistência que é
 
 **Devo planear qualquer período de indisponibilidade durante a migração?**
 
-Não há nenhum tempo de inatividade causado pela migração. Durante uma migração em direto, é possível continuar a sua conta de armazenamento, enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, tem o mesmo nível de durabilidade e disponibilidade SLA à medida que normalmente realizar.
+Não há nenhum tempo de inatividade causado pela migração. Durante uma migração em direto, pode continuar a utilizar a sua conta de armazenamento, enquanto os dados são migrados entre carimbos de armazenamento de origem e de destino. Durante o processo de migração, tem o mesmo nível de durabilidade e disponibilidade SLA à medida que normalmente realizar.
 
 **Existe qualquer perda de dados associada com a migração?**
 

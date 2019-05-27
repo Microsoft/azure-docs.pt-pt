@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: a5c62c67cd401c043352b06e6e6070a7fc0f1296
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631071"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66118172"
 ---
 #### <a name="to-connect-through-the-serial-console"></a>Para ligar através da consola de série
 1. Ligue o cabo de série ao dispositivo (diretamente ou através de um adaptador USB de série).

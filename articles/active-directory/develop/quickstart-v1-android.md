@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: android
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
-ms.reviewer: dadobali
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 288581ed3ca339ad9126336556e7b0b565fbbafa
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 6a05d8b9182451fc52dd1860dac1dcce57ba2c55
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545691"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122000"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação Android
 
@@ -86,18 +85,17 @@ Terá de ter uma aplicação cliente nativa registada na Microsoft com o [portal
     - Selecione ***Azure Active Directory*** > ***Registos das Aplicações***.
 
 2. Criar a aplicação
-    - Selecione **Novo registo de aplicação**.
+    - Selecione **novo registo**.
     - Introduza um nome de aplicação no campo **Nome**.
-    - Em **Tipo de aplicação**, selecione **Nativa**.
-    - Em **URI de Redirecionamento**, introduza `http://localhost`.
+    - Sob **tipos de conta suportados**, selecione **contas em qualquer diretório organizacional e contas Microsoft pessoais**.
+    - Na **URI de redirecionamento**, selecione **cliente público (ambiente de trabalho e móvel)** no menu pendente e introduza `http://localhost`.
+    - Clique em **registar**.
 
 3. Configurar o Microsoft Graph
-    - Selecione **Definições > Permissões obrigatórias**.
-    - Selecione **Adicionar** e, dentro de **Selecionar uma API**, selecione ***Microsoft Graph***.
-    - Selecione a permissão **Iniciar sessão e ler perfil do utilizador** e clique em **Selecionar** para guardar.
-        - Esta permissão é mapeada para o âmbito `User.Read`.
-    - Opcional: Dentro **permissões obrigatórias > Windows Azure Active Directory**, remova a permissão selecionada **iniciar sessão e ler o perfil de utilizador**. Esta ação irá evitar que a página de consentimento do utilizador apresente a permissão duas vezes.
-
+    - Selecione **permissões API**.
+    - Selecione **adicionar uma permissão**, no **selecionar uma API** selecionar ***Microsoft Graph***.
+    - Sob **permissões delegadas**, selecione a permissão **User.Read**, em seguida, prima **Add** para guardar.        
+    
 4. Parabéns! A sua aplicação está corretamente configurada. Na secção seguinte, terá de:
     - `Application ID`
     - `Redirect URI`

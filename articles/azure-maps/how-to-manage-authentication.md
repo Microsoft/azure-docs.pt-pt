@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 617adbcda70799aa07248945bbc27f9d95aa77a3
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60694100"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952560"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gerir a autenticação no Azure Maps
 
@@ -98,4 +98,8 @@ Para obter mais informações sobre o pedido de tokens de acesso do Azure AD par
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Para saber mais sobre a autenticação do Azure AD e o SDK de Web de mapas do Azure, veja [do Azure AD e o SDK Web do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+Para saber mais sobre a autenticação do Azure AD e o SDK de Web de mapas do Azure, veja [do Azure AD e o SDK Web do Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control).
+
+Saiba como ver as métricas de utilização da API para a sua conta do Azure Maps:
+> [!div class="nextstepaction"] 
+> [Ver métricas de utilização](how-to-view-api-usage.md)

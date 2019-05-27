@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 0b8139f11f937ddae30e25f4153e35287289a4d1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233977"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949570"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 
@@ -150,7 +150,7 @@ O utilizador que criou o item é automaticamente o utilizador proprietário do i
 
 #### <a name="the-owning-group"></a>O grupo proprietário
 
-Nas POSIX ACLs, cada utilizador está associado um *grupo primário*. Por exemplo, o utilizador "Alice" poderá pertencer ao grupo "Finanças". A Alice poderá, também, pertencer a vários grupos, mas um dos grupos será sempre o grupo principal dela. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
+Nas POSIX ACLs, cada utilizador está associado um *grupo primário*. Por exemplo, o utilizador "Alice" poderá pertencer ao grupo "Finanças". Alice pode também pertencer a vários grupos, mas um grupo será sempre designado como respetivo grupo principal. No POSIX, quando a Alice cria um ficheiro, o grupo proprietário do mesmo está definido como o grupo principal dela, que, neste caso, é "finanças". Caso contrário, o grupo proprietário tem um comportamento semelhante ao das permissões atribuídas para outros utilizadores/grupos.
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Atribuir o grupo proprietário para um novo ficheiro ou diretório
 

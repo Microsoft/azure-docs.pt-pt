@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72da1130efc288c03229d990b75bc96c941265d7
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 10b5169d3f06e265b3effa3ec18ad8e4f69959d3
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544303"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121961"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre a MSAL JS e JS da ADAL
 
@@ -63,7 +63,7 @@ Na versão 2.0, usando o `https://login.microsoftonline.com/common` autoridade, 
 
     v2.0: scope = https://graph.microsoft.com/User.Read
 
-    Pode pedir âmbitos para qualquer recurso de API com o URI da API, no seguinte formato: appidURI/escopo, por exemplo: https://mytenant.onmicrosoft.com/myapi/api.read
+    Pode pedir âmbitos para qualquer recurso de API com o URI da API, no seguinte formato: appidURI/escopo, por exemplo: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
     Apenas para o MS Graph API, um valor de âmbito `user.read` mapeia para https://graph.microsoft.com/User.Read e pode ser utilizado alternadamente.
 

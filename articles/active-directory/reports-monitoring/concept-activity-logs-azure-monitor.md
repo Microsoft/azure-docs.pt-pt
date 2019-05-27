@@ -17,12 +17,12 @@ ms.date: 04/22/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b924746c00a438ec4ac81dacc02905565adf30e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cffef4028a684e27c0941c234df551d844f13420
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64682118"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65896858"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividades do Azure AD no Azure Monitor
 
@@ -78,10 +78,10 @@ A tabela seguinte contém uma estimativa do custo, dependendo do tamanho do inqu
 
 | Categoria do registo | Número de utilizadores | Eventos por dia | Volume de dados por mês (est.) | Custo por mês (est.) | Custo por ano (est.) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
-| Auditoria | 100 000 | 1,5&nbsp;milhões | 90 GB | $1,93 | $23,12 |
-| Auditoria | 1,000 | 15 000 | 900 MB | $0,02 | $0,24 |
-| Inícios de sessão | 1,000 | 34 800 | 4GB | $0,13 | $1,56 |
-| Inícios de sessão | 100 000 | 15&nbsp;milhões | 1,7 TB | $35,41 | $424,92 |
+| Auditoria | 100,000 | 1,5&nbsp;milhões | 90 GB | $1,93 | $23,12 |
+| Auditoria | 1,000 | 15,000 | 900 MB | $0,02 | $0,24 |
+| Inícios de sessão | 1,000 | 34 800 | 4 GB | $0,13 | $1,56 |
+| Inícios de sessão | 100,000 | 15&nbsp;milhões | 1,7 TB | $35,41 | $424,92 |
  
 
 
@@ -102,11 +102,28 @@ A tabela seguinte contém os custos estimados por mês para um hub de eventos b�
 
 | Categoria do registo | Número de utilizadores | Eventos por segundo | Eventos por intervalo de cinco minutos | Volume por intervalo | Mensagens por intervalo | Mensagens por mês | Custo por mês (est.) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
-| Auditoria | 100 000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | $10,83 |
-| Auditoria | 1,000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 $ |
+| Auditoria | 100,000 | 18 | 5400 | 10,8 MB | 43 | 371 520 | $10,83 |
+| Auditoria | 1,000 | 0.1 | 52 | 104 KB | 1 | 8640 | 10,80 $ |
 | Inícios de sessão | 1,000 | 178 | 53 400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
 ### <a name="azure-monitor-logs-cost-considerations"></a>Monitor do Azure regista as considerações de custo
+
+
+
+| Categoria do registo       | Número de utilizadores | Eventos por dia | Eventos por mês (30 dias) | Custo por mês em dólares americanos (est). |
+| :--                | ---             | ---            | ---                        | --:                          |
+| Auditoria e inícios de sessão | 100,000         | 16,500,000     | 495,000,000                |  $1093.00                       |
+| Auditoria              | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
+| Inícios de sessão           | 100,000         | 15,000,000     | 450,000,000                |  $847.28                     |
+
+
+
+
+
+
+
+
+
 
 Para rever os custos relacionados com a gerir os registos do Azure Monitor, consulte [gerir os custos ao controlar o volume de dados e a retenção nos registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 

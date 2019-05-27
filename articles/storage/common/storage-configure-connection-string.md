@@ -9,12 +9,12 @@ ms.date: 04/12/2017
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7029f07b494630cc1ebe4a2dbfb297e73d85ec5e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ef01cf194ea7a0afea033d2888df946208073e41
+ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153192"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65874132"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configurar Cadeias de Ligação do Storage do Azure
 
@@ -35,7 +35,7 @@ Seu aplicativo precisa acessar a cadeia de ligação em tempo de execução para
 
 Armazenar a cadeia de ligação num ficheiro de configuração facilita a atualizar a cadeia de ligação para alternar entre o emulador de armazenamento e uma conta de armazenamento do Azure na cloud. Apenas terá de editar a cadeia de ligação para apontar para o seu ambiente de destino.
 
-Pode utilizar o [Gestor de configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/) para aceder a cadeia de ligação em tempo de execução, independentemente de onde a sua aplicação está em execução.
+Pode utilizar o [Gestor de configuração do Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para aceder a cadeia de ligação em tempo de execução, independentemente de onde a sua aplicação está em execução.
 
 ## <a name="create-a-connection-string-for-the-storage-emulator"></a>Criar uma cadeia de ligação para o emulador de armazenamento
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
@@ -107,7 +107,7 @@ Se tive mapeado um ponto de final de armazenamento para um domínio personalizad
 >
 
 ### <a name="create-a-connection-string-with-an-endpoint-suffix"></a>Criar uma cadeia de ligação com um sufixo de ponto final
-Para criar uma cadeia de ligação para um serviço de armazenamento em regiões ou em instâncias com sufixos de ponto de extremidade diferentes, tal como para o Azure China ou Azure Government, utilize o seguinte formato de cadeia de ligação. Indicar se pretende ligar à conta de armazenamento através de HTTPS (recomendado) ou HTTP, substitua `myAccountName` com o nome da conta de armazenamento, substitua `myAccountKey` com a sua chave de acesso de conta e replace `mySuffix` com o sufixo do URI:
+Para criar uma cadeia de ligação para um serviço de armazenamento em regiões ou em instâncias com sufixos de ponto de extremidade diferente, tal como para o Azure China 21Vianet ou o Azure Government, utilize o seguinte formato de cadeia de ligação. Indicar se pretende ligar à conta de armazenamento através de HTTPS (recomendado) ou HTTP, substitua `myAccountName` com o nome da conta de armazenamento, substitua `myAccountKey` com a sua chave de acesso de conta e replace `mySuffix` com o sufixo do URI:
 
 ```
 DefaultEndpointsProtocol=[http|https];
@@ -116,7 +116,7 @@ AccountKey=myAccountKey;
 EndpointSuffix=mySuffix;
 ```
 
-Esta é uma cadeia de ligação de exemplo para serviços de armazenamento no Azure China:
+Esta é uma cadeia de ligação de exemplo para serviços de armazenamento no Azure China 21Vianet:
 
 ```
 DefaultEndpointsProtocol=https;

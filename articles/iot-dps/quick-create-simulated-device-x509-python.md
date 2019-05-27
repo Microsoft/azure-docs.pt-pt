@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 6a62e75fadad14148f5f82da3a213d4b13cbe343
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12ccff3676cb35ac27126360dbcf5a1b9b3e131f
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61250871"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65914147"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Criar e aprovisionar um dispositivo X.509 simulado através do SDK de dispositivo Python com o Serviço Aprovisionamento de Dispositivos no Hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -34,7 +34,7 @@ Este artigo vai demonstrar as inscrições individuais.
 
 ## <a name="prepare-the-environment"></a>Preparar o ambiente 
 
-1. Certifique-se de que tem o [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) ou o [Visual Studio 2017](https://www.visualstudio.com/vs/) instalado no seu computador. Tem de ter a carga de trabalho do "Ambiente de trabalho de desenvolvimento com C++" ativada para a sua instalação do Visual Studio.
+1. Certifique-se de que instalou um [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior, com o "desenvolvimento de área de trabalho com o C++" carga de trabalho ativada para a instalação do Visual Studio.
 
 2. Transfira e instale o [sistema de compilação CMake](https://cmake.org/download/).
 

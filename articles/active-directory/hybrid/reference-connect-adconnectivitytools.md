@@ -5,18 +5,17 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-origin.date: 10/19/2018
-ms.date: 04/09/2019
+ms.date: 10/19/2018
 ms.subservice: hybrid
-ms.author: v-junlch
+ms.author: billmath
 ms.topic: reference
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40b4be9aca5243b80151afac0ae221f0d44509c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1084a3e546a234739fbede46612dce96537c7d4a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60454647"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950652"
 ---
 # <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  Referência do PowerShell ADConnectivityTools
 
@@ -37,7 +36,7 @@ Confirm-DnsConnectivity [-Forest] <String> [-DCs] <Array> [-ReturnResultAsPSObje
 ### <a name="description"></a>DESCRIÇÃO
 
 Executa testes de conectividade de Dns locais.
-Para configurar o conector do Active Directory, o utilizador deve ter ambos os resolução de nomes para a floresta he\she tentando se conectar ao também como os controladores de domínio associados a esta floresta.
+Para configurar o conector do Active Directory, o utilizador tem de ter os dois resolução de nomes para a floresta que estão a tentar ligar ao, bem como em controladores de domínio associados a esta floresta.
 
 ### <a name="examples"></a>EXEMPLOS
 
@@ -310,7 +309,7 @@ Accept wildcard characters: False
 
 #### <a name="-skipdnsport"></a>-SkipDnsPort
 
-Se o usuário não estiver usando os serviços DNS fornecidos pelo AD Site / controlador de domínio de início de sessão, em seguida, he\she talvez queira ignorar a verificação de porta 53.
+Se o usuário não estiver usando os serviços DNS fornecidos pelo AD Site / controlador de domínio de início de sessão, em seguida, eles podem pretende ignorar a verificação de porta 53.
 Utilizador ainda tem de ser capaz de resolver _.ldap._tcp. \<forestfqdn\> para que a configuração do conector do Active Directory com êxito.
 
 ```yml
@@ -964,5 +963,3 @@ Accept wildcard characters: False
 
 Este cmdlet suporta os parâmetros comuns: -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction e -WarningVariable.
 Para obter mais informações, veja about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
-
-<!-- Update_Description: wording update -->

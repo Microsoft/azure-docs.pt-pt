@@ -2,20 +2,20 @@
 title: 'Início rápido: Criar um armazém de dados SQL do Azure – Powershell do Azure | Documentos da Microsoft'
 description: Crie rapidamente um servidor lógico de base de dados SQL, a regra de firewall ao nível do servidor e o armazém de dados com o Azure PowerShell.
 services: sql-data-warehouse
-author: kevinvngo
+author: XiaoyuL-Preview
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
-ms.subservice: manage
+ms.subservice: development
 ms.date: 4/11/2019
-ms.author: kevin
+ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d76f7ac6c8b60e2dec7d7d95cf419e1352b97f15
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: cdaa932a4996d559b5974e39e20cf75acd6571c5
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545133"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873778"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Início rápido: Criar e consultar um armazém de dados SQL do Azure com o Azure PowerShell
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão na sua subscrição do Azure com o [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) de comando e siga na tela as direções.
 

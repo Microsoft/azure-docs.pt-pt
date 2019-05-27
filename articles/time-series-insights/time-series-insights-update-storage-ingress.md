@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/30/2019
+ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35d9e953ade337672fd57149e325b507f6ce115f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65405720"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951099"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights
 
@@ -28,7 +28,7 @@ Quando cria um ambiente de SKU de pay as you go de pré-visualização do Time S
 * Um ambiente do Time Series Insights.
 * Uma armazenamento do Azure para fins gerais V1 conta onde serão armazenados os dados.
 
-Pré-visualização do Time Series Insights utiliza o armazenamento de Blobs do Azure com o tipo de ficheiro Parquet. O Time Series Insights gerencia todas as operações de dados incluindo a criação de blobs, indexação e criação de partições de dados na conta de armazenamento do Azure. Criar nestes blobs, utilizando uma conta de armazenamento do Azure.
+A pré-visualização do Time Series Insights utiliza o armazenamento de Blobs do Azure com o tipo de ficheiro Parquet. O Time Series Insights gerencia todas as operações de dados incluindo a criação de blobs, indexação e criação de partições de dados na conta de armazenamento do Azure. Criar nestes blobs, utilizando uma conta de armazenamento do Azure.
 
 Como outros blobs de armazenamento do Azure, o Time Series Insights-criado blobs permitem-lhe ler e escrever nas mesmas para oferecer suporte a vários cenários de integração.
 
@@ -101,12 +101,12 @@ Uma partição física é um blob de blocos que é armazenado na conta de armaze
 
 ### <a name="logical-partitions"></a>Partições lógicas
 
-Uma partição lógica é uma partição dentro de uma partição física que armazena todos os dados associados a um valor de chave de partição única. Pré-visualização do Time Series Insights partições, logicamente, cada blob com base em duas propriedades:
+Uma partição lógica é uma partição dentro de uma partição física que armazena todos os dados associados a um valor de chave de partição única. A pré-visualização do Time Series Insights partições, logicamente, cada blob com base em duas propriedades:
 
 * **ID de série de tempo**: A chave de partição para todos os dados de Time Series Insights dentro do fluxo de eventos e o modelo.
 * **Timestamp**: A hora com base na entrada de inicial.
 
-Pré-visualização do Time Series Insights fornece consultas de elevado desempenho que se baseiam nessas duas propriedades. Essas duas propriedades também fornecem o método mais eficaz para fornecer dados de Time Series Insights rapidamente.
+A pré-visualização do Time Series Insights fornece consultas de elevado desempenho que se baseiam nessas duas propriedades. Essas duas propriedades também fornecem o método mais eficaz para fornecer dados de Time Series Insights rapidamente.
 
 É importante selecionar um ID de série de tempo adequado, porque se trata de uma propriedade imutável. Para obter mais informações, consulte [escolha IDs de série de tempo](./time-series-insights-update-how-to-id.md).
 
@@ -146,13 +146,13 @@ Pode aceder aos dados de três formas gerais:
 
 ### <a name="data-deletion"></a>Eliminação de dados
 
-Não elimine os blobs, como pré-visualização do Time Series Insights mantém metadados sobre os blobs dentro da mesma.
+Não elimine blobs. Não só são úteis para auditoria e manter um registo dos seus dados, a pré-visualização do Time Series Insights mantém metadados do blob dentro de cada blob.
 
 ## <a name="time-series-insights-data-ingress"></a>Entrada de dados do Time Series Insights
 
 ### <a name="ingress-policies"></a>Políticas de entrada
 
-Pré-visualização do Time Series Insights suporta as mesmas origens de eventos e tipos de ficheiro que suporta atualmente o Time Series Insights.
+A pré-visualização do Time Series Insights suporta as mesmas origens de eventos e tipos de ficheiro que suporta atualmente o Time Series Insights.
 
 Origens de eventos suportados incluem:
 
@@ -168,7 +168,7 @@ Tipos de ficheiro suportados incluem:
 
 ### <a name="data-availability"></a>Disponibilidade de dados
 
-Pré-visualização do Time Series Insights indexa dados através de uma estratégia de otimização de tamanho do blob. Dados ficam disponíveis para consulta depois é indexada, o que é baseada na quantidade de dados está a chegar em e com que velocidade.
+A pré-visualização do Time Series Insights indexa dados através de uma estratégia de otimização de tamanho do blob. Dados ficam disponíveis para consulta depois é indexada, o que é baseada na quantidade de dados está a chegar em e com que velocidade.
 
 > [!IMPORTANT]
 > * A versão de disponibilidade geral (GA) do Time Series Insights vai disponibilizar dados em 60 segundos de atingir uma origem de evento. 
@@ -177,7 +177,7 @@ Pré-visualização do Time Series Insights indexa dados através de uma estrat�
 
 ### <a name="scale"></a>Dimensionamento
 
-Pré-visualização do Time Series Insights suporta um dimensionamento de entrada inicial de até 6 de megabytes de Bytes por segundo (Mbps) por ambiente. Suporte avançado de dimensionamento está em curso. Estamos a planear atualizar a nossa documentação para refletir esses avanços
+A pré-visualização do Time Series Insights suporta um dimensionamento de entrada inicial de até 1 Byte de megabytes por segundo (Mbps) por ambiente. Suporte avançado de dimensionamento está em curso. Planeamos atualizar a nossa documentação para refletir esses avanços.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

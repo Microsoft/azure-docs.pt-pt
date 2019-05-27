@@ -8,12 +8,12 @@ ms.assetid: 623f5ed4-8da7-48f5-943a-448d0b7cba69
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0b155a5cdfa1c540e1cfb92147f6ebc7f88dd929
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 407e25b7bb1a2220448c9701bbef208195c50b63
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003717"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953107"
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gerir recursos de dados no catálogo de dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -52,7 +52,7 @@ Se um recurso de dados já é propriedade, outros usuários simplesmente não é
 ### <a name="remove-owners"></a>Remover proprietários
 Assim como qualquer proprietário do ativo pode adicionar coproprietários, qualquer proprietário do ativo pode remover qualquer coproprietário.
 
-Um proprietário do recurso que remove si próprio como proprietário já não pode gerir o elemento. Se o proprietário do recurso remove si próprio como proprietário e não há nenhum outros coproprietários, o elemento é revertida para um Estado de funcionamento unowned.
+Um proprietário do recurso que remove si próprios como proprietário já não pode gerir o elemento. Se o proprietário do recurso remove próprios como proprietário e não há nenhum outros coproprietários, o elemento é revertida para um Estado de funcionamento unowned.
 
 ## <a name="control-visibility"></a>Visibilidade de controlo
 Os proprietários do recurso de dados podem controlar a visibilidade dos ativos de dados que possuem. Para restringir a visibilidade como padrão, onde todos os utilizadores do catálogo de dados podem detetar e ver os recursos de dados, o proprietário do ativo pode alternar a definição de visibilidade da **todas as pessoas** ao **proprietários e estes utilizadores** no as propriedades para o elemento. Proprietários, em seguida, podem adicionar utilizadores e grupos de segurança específicos.

@@ -15,11 +15,11 @@ ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
 ms.openlocfilehash: 9ee7422b372993d60c629524eb036b9678e5776c
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074654"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121852"
 ---
 ## <a name="registration-of-secrets-or-certificates"></a>Registo de segredos ou certificados
 

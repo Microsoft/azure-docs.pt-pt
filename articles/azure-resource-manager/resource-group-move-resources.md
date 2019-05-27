@@ -4,14 +4,14 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792686"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872643"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 

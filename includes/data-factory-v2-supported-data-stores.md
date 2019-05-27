@@ -9,11 +9,11 @@ ms.date: 05/06/2019
 ms.author: jingwang
 ms.custom: include file
 ms.openlocfilehash: d99ee6fc04811e4b4991f93ad4db99bf9a5543a8
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150866"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66120456"
 ---
 | Categoria | Arquivo de dados | Suportado como origem | Suportado como sink | Suportado pelo [IR do Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Suportado pelo [IR autoalojado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |

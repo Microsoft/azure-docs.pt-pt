@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/14/2018
 ms.author: jonbeck
-ms.openlocfilehash: 45fc4655d8afd2127c2f3057eb8a42ee80be4021
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9a81fb451164aa58ca4ba943ed000c14d9f87cc
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539660"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873574"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tamanhos de máquinas de virtuais do Windows no Azure
 
@@ -30,7 +30,7 @@ Este artigo descreve os tamanhos e opções disponíveis para as máquinas virtu
 | Type                     | Tamanhos           |    Descrição       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Fins gerais](sizes-general.md)          | B, Dsv3, Dv3, DSv2, Dv2, Av2, DC | Relação CPU/memória equilibrada. Ideal para teste e desenvolvimento, bases de dados pequenas a médias e servidores Web com tráfego baixo a médio. |
-| [Com otimização de computação](sizes-compute.md)        | Fsv2, Fs, F             | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
+| [Com otimização de computação](sizes-compute.md)        | Fsv2          | Relação CPU/memória elevada. Ideal para servidores Web com tráfego médio, aplicações de rede, processos em lote e servidores de aplicações.        |
 | [Com otimização de memória](../virtual-machines-windows-sizes-memory.md)         | Esv3, Ev3, M, GS, G, DSv2, Dv2  | Rácio de memória de CPU elevado. Ideal para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória.                 |
 | [Com otimização de armazenamento](../virtual-machines-windows-sizes-storage.md)        | Lsv2, Ls                | O débito de disco elevados e e/s ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  |
 | [GPU](sizes-gpu.md)            | NV, NVv2, NC, NCv2, NCv3, ND, NDv2 (pré-visualização)            | Máquinas virtuais especializadas destinadas a composição gráfica e edição de vídeo, bem como inferência (ND) com aprendizagem profunda e formação de modelos. Disponíveis com GPUs únicas ou múltiplas.       |

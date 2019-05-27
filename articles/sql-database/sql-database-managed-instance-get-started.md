@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 09ab4cd44515d90df0e36e2775f50ac33955fe75
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: f54cea75e6f7866f1be41d3b0f82393af2235a0a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466265"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949885"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Início rápido: Criar uma instância gerida da base de dados do Azure SQL
 
@@ -28,7 +28,9 @@ Este início rápido explica-lhe como criar uma base de dados do SQL do Azure [i
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
-Inicie sessão no [portal do Azure](https://portal.azure.com/). 
+Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
+
+Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-managed-instance"></a>Criar uma instância gerida
 

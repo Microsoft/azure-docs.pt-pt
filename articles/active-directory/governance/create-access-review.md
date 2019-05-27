@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/01/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6bafa4614e40bb1796ec90e07ecf5b9286a8acb9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60247132"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113438"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Criar uma revisão de acesso de grupos ou as revisões de acesso a aplicações no Azure AD
 
@@ -30,8 +30,11 @@ Este artigo descreve como criar um ou mais as revisões de acesso para membros d
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
+- Azure AD Premium P2
 - [Revisões de acesso ativadas](access-reviews-overview.md)
 - Administrador global ou administrador de utilizadores
+
+Para obter mais informações, consulte [os utilizadores que têm de ter licenças?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-one-or-more-access-reviews"></a>Criar um ou mais as revisões de acesso
 
@@ -77,9 +80,13 @@ Este artigo descreve como criar um ou mais as revisões de acesso para membros d
 
     ![Criar uma revisão de acesso - revisores](./media/create-access-review/reviewers.png)
 
-1. Na **programas** secção, selecione o programa que pretende utilizar. Pode simplificar a forma de controlar e recolher as revisões de acesso para diferentes fins, organizando-os em programas. **Programa predefinido** sempre esteja presente, ou pode criar um programa diferente. Por exemplo, pode optar por ter um programa para cada iniciativa de conformidade ou de suas metas de negócios.
+1. Na **programas** secção, selecione o programa que pretende utilizar. **Programa predefinido** sempre esteja presente.
 
     ![Criar uma revisão de acesso – programas](./media/create-access-review/programs.png)
+
+    Pode simplificar a forma de controlar e recolher as revisões de acesso para diferentes fins, organizando-os em programas. Cada revisão de acesso pode ser associado a um programa. Em seguida, quando preparar relatórios para um auditor, se possa focar nas revisões de acesso no âmbito de uma iniciativa específica. Programas e os resultados de revisão de acesso são visíveis para os utilizadores o Administrador Global, o administrador de utilizadores, o administrador de segurança ou a função de leitor de segurança.
+
+    Para ver uma lista de programas, vá para o acesso a revisões de página e selecione **programas**. Se fizer parte de um Administrador Global ou função de administrador do utilizador, pode criar programas adicionais. Por exemplo, pode optar por ter um programa para cada iniciativa de conformidade ou de suas metas de negócios. Se já não necessita de um programa e ele não tem quaisquer controles ligados ao mesmo, pode eliminá-la.
 
 ### <a name="upon-completion-settings"></a>Após as definições de conclusão
 
@@ -110,6 +117,8 @@ Este artigo descreve como criar um ou mais as revisões de acesso para membros d
 
 1. Definir **lembretes** ao **ativar** para que o Azure AD envie lembretes de revisões de acesso em curso para revisores que não concluíram as respetivas revisões.
 
+    Por predefinição, o Azure AD envia automaticamente um lembrete aos revisores que ainda não responderam a meio do prazo para a data de fim.
+
 ## <a name="start-the-access-review"></a>Iniciar a revisão de acesso
 
 Depois de especificar as definições para uma revisão de acesso, clique em **iniciar**. A revisão de acesso será apresentado na sua lista com um indicador do seu estado.
@@ -118,19 +127,7 @@ Depois de especificar as definições para uma revisão de acesso, clique em **i
 
 Por predefinição, o Azure AD envia um e-mail para os revisores logo após a revisão é iniciado. Se optar por não ter o Azure AD para enviar o e-mail, certifique-se de que informe os revisores de que uma revisão de acesso está a aguardar a sua conclusão. Pode mostrar-lhes as instruções sobre como a [rever o acesso a grupos ou aplicações](perform-access-review.md). Se sua revisão for para convidados rever o seu próprio acesso, mostrar-lhes as instruções sobre como a [rever acesso para si próprio para grupos ou aplicações](review-your-access.md).
 
-Se alguns dos revisores são convidados, convidados são notificados por e-mail apenas se eles já já aceitou o convite.
-
-## <a name="manage-the-access-review"></a>Gerir a revisão de acesso
-
-Pode monitorizar o progresso conforme os revisores de concluir as revisões no **descrição geral** página de revisão de acesso. Nenhum direito de acesso forem alterado no diretório até [a revisão é concluída](complete-access-review.md).
-
-![Progresso de revisões de acesso](./media/create-access-review/overview-progress.png)
-
-Se se tratar de uma revisão de uso individual, em seguida, após o período de revisão de acesso ou o administrador para a revisão de acesso, siga os passos em [concluir uma revisão de acesso de grupos ou aplicações](complete-access-review.md) para ver e aplicar os resultados.  
-
-Para gerir uma série de acesso a revisões, navegue para a revisão de acesso, e será encontrar ocorrências futuras nas revisões de agendada e edite a data de fim ou adicionar/remover os revisores da mesma forma.
-
-Com base nas suas seleções **nas definições de conclusão**, aplicar automaticamente irá ser executado após a data de fim a revisão ou quando manualmente para a revisão. O estado da revisão será alterado de **concluído** através de Estados intermediários como **aplicar** e, finalmente, para o estado **aplicados**. Deve esperar para ver utilizadores sem permissão, caso haja algum, que está a ser removido a atribuição de aplicação ou associação de grupo dentro de alguns minutos.
+Se tiver atribuído convidados, como os revisores e não aceitou o convite, não receberá um e-mail de revisões de acesso porque o primeiro tem de ser aceite o convite, antes da revisão.
 
 ## <a name="create-reviews-via-apis"></a>Criar análises através de APIs
 

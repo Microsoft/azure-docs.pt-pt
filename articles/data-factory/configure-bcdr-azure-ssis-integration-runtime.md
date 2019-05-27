@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: dea0153b9ca6d8e751fd94cc558abd44b2591907
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57453036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66120429"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Configurar o Runtime de integração Azure-SSIS com georreplicação de base de dados do Azure SQL e ativação pós-falha
 
@@ -107,6 +107,6 @@ Considere estas outras opções de configuração para o IR Azure-SSIS:
 
 - [Configurar o Runtime de integração Azure-SSIS para elevado desempenho](configure-azure-ssis-integration-runtime-performance.md)
 
-- [Personalizar a configuração para o runtime de integração Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md)
+- [Customize setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md) (Personalizar a configuração do runtime de integração do Azure-SSIS)
 
 - [Aprovisionar a Enterprise Edition para o Runtime de integração Azure-SSIS](how-to-configure-azure-ssis-ir-enterprise-edition.md)

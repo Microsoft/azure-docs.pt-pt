@@ -9,12 +9,12 @@ ms.date: 05/11/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: b929d9d1acc217c291c5aa645ee2d8952f401cd1
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ccafa3431e12b036346c4fd654b2978dc9021471
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192158"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912351"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -426,7 +426,7 @@ Se o **PercentThrottlingError** métrica apresentam um aumento na percentagem de
 Um aumento **PercentThrottlingError** muitas vezes ocorre ao mesmo tempo que um aumento no número de pedidos de armazenamento, ou quando são inicialmente carga testar a sua aplicação. Isto pode também se manifestar no cliente como "503 servidor ocupado" ou mensagens de estado HTTP "500 tempo limite da operação" de operações de armazenamento.
 
 #### <a name="transient-increase-in-PercentThrottlingError"></a>Aumento transitório percentthrottlingerror
-Se vir um aumento de valor de **PercentThrottlingError** que ela coincida com períodos de grande atividade para o aplicativo, implementar uma exponencial (não linear) estratégia de término para repetições em seu cliente. Término repetições reduzem a carga de imediato na partição e ajudar a sua aplicação para suavizar os picos no tráfego. Para obter mais informações sobre como implementar as políticas de repetição usando a biblioteca de cliente de armazenamento, consulte [espaço de nomes de retrypolicies, se](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblobclient.retrypolicy).
+Se vir um aumento de valor de **PercentThrottlingError** que ela coincida com períodos de grande atividade para o aplicativo, implementar uma exponencial (não linear) estratégia de término para repetições em seu cliente. Término repetições reduzem a carga de imediato na partição e ajudar a sua aplicação para suavizar os picos no tráfego. Para obter mais informações sobre como implementar as políticas de repetição usando a biblioteca de cliente de armazenamento, consulte a [espaço de nomes de Microsoft.Azure.Storage.RetryPolicies](/dotnet/api/microsoft.azure.storage.retrypolicies).
 
 > [!NOTE]
 > Talvez também veja picos no valor da **PercentThrottlingError** que não coincidam com períodos de grande atividade para a aplicação: aqui a causa mais provável é o serviço de armazenamento mover partições para melhorar o balanceamento de carga.
@@ -467,17 +467,17 @@ A causa mais comum deste erro é um cliente a desligar antes de um tempo limite 
 ### <a name="the-client-is-receiving-403-messages"></a>O cliente está a receber mensagens HTTP 403 (proibido)
 Se a aplicação cliente estiver a gerar erros HTTP 403 (Proibido), uma das causas prováveis é o cliente estar a utilizar uma Assinatura de Acesso Partilhado (SAS) expirada quando envia um pedido de armazenamento (embora outras causas possíveis incluam distorção do relógio, chaves inválidas e cabeçalhos vazios). Se uma chave de SAS expirada for a causa, não verá entradas nos dados do Registo de Armazenamento do lado do servidor. A tabela seguinte mostra um exemplo de registo do lado do cliente gerado pela biblioteca de cliente de armazenamento que ilustra este problema ocorrer:
 
-| Origem | Verbosidade | Verbosidade | ID de pedido do cliente | Texto de operação |
+| Source | Verbosidade | Verbosidade | ID de pedido do cliente | Texto de operação |
 | --- | --- | --- | --- | --- |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A iniciar a operação com a localização primária por modo de local PrimaryOnly. |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A aguardar resposta. |
-| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Excepção emitida ao aguardar a resposta: O servidor remoto devolveu um erro: (403) Proibido. |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |Resposta recebida. Código de estado 403, ID do pedido de = = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, MD5 de conteúdo = ETag =. |
-| Microsoft.WindowsAzure.Storage |Aviso |2 |85d077ab-... |Ocorreu uma excepção durante a operação: O servidor remoto devolveu um erro: Proibido (403).... |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A verificar se a operação deve ser repetida. Contagem de repetições = 0, o código de estado HTTP 403, exceção de = = o servidor remoto devolvido um erro: Proibido (403).... |
-| Microsoft.WindowsAzure.Storage |Informações |3 |85d077ab-... |A localização seguinte foi definida como principal, com base no modo de local. |
-| Microsoft.WindowsAzure.Storage |Erro |1 |85d077ab-... |Política de repetição não permitiu para uma nova tentativa. Falha ao servidor remoto devolveu um erro: (403) Proibido. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab-... |A iniciar a operação com a localização primária por modo de local PrimaryOnly. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab-... |A partir de uma solicitação síncrona para <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14> |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab-... |A aguardar resposta. |
+| Microsoft.Azure.Storage |Aviso |2 |85d077ab-... |Excepção emitida ao aguardar a resposta: O servidor remoto devolveu um erro: (403) Proibido. |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab-... |Resposta recebida. Código de estado 403, ID do pedido de = = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, MD5 de conteúdo = ETag =. |
+| Microsoft.Azure.Storage |Aviso |2 |85d077ab-... |Ocorreu uma excepção durante a operação: O servidor remoto devolveu um erro: Proibido (403).... |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab-... |A verificar se a operação deve ser repetida. Contagem de repetições = 0, o código de estado HTTP 403, exceção de = = o servidor remoto devolvido um erro: Proibido (403).... |
+| Microsoft.Azure.Storage |Informações |3 |85d077ab-... |A localização seguinte foi definida como principal, com base no modo de local. |
+| Microsoft.Azure.Storage |Erro |1 |85d077ab-... |Política de repetição não permitiu para uma nova tentativa. Falha ao servidor remoto devolveu um erro: (403) Proibido. |
 
 Neste cenário, deve investigar por que o token SAS está prestes a expirar antes do cliente envia o token para o servidor:
 
@@ -626,7 +626,7 @@ Se este problema ocorrer com freqüência, deve investigar por que o cliente est
 ### <a name="the-client-is-receiving-409-messages"></a>O cliente está a receber mensagens HTTP 409 (conflito)
 A tabela seguinte mostra um extrato de registo do lado do servidor para duas operações de cliente: **DeleteIfExists** seguido imediatamente por **CreateIfNotExists** usando o mesmo nome de contentor de Blobs. Cada operação de cliente resulta em dois pedidos enviados para o servidor, primeiro uma **GetContainerProperties** pedido para verificar se o contentor existe, seguido da **DeleteContainer** ou  **CreateContainer** pedido.
 
-| Carimbo de data/hora | Operação | Resultado | Nome do contentor | ID de pedido do cliente |
+| Timestamp | Operação | Resultado | Nome do contentor | ID de pedido do cliente |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |

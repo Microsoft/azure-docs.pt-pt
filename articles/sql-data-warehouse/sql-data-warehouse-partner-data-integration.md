@@ -2,20 +2,20 @@
 title: Os parceiros de integração de dados do SQL Data Warehouse | Documentos da Microsoft
 description: Listas de terceiros de parceiros com soluções de integração de dados que suportam o Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: jrowlandjones
+author: mabasile-MSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 03/27/2019
-ms.author: jrj
+ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 74449f7319f800e8008c5d457351fa49ae1af59a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5593d6e392915448845adcac95da869e72a11310
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61476842"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65873790"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Parceiros de integração de dados do SQL Data Warehouse
 Para criar a sua solução de armazém de dados, escolha entre uma ampla variedade de ferramentas líderes do setor. Este artigo destaca a empresas parceiras da Microsoft com soluções de integração de dados oficial de suporte do Azure SQL Data Warehouse.

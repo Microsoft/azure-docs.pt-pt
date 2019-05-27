@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 9006590583f0ef52bbce716529534f8bce6f47c5
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6516b11bf5d4d4c4e5406a3e6e0cce3189796d33
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780375"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956407"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar redes do Azure CNI no Azure Kubernetes Service (AKS)
 
@@ -41,6 +41,7 @@ Endereços IP para os pods e nós do cluster são atribuídos a partir da sub-re
 > O número de endereços IP necessários deve incluir considerações sobre a atualização e operações de dimensionamento. Se definir o intervalo de endereços IP para suportar apenas um número fixo de nós, não é possível atualizar ou dimensionar o seu cluster.
 >
 > - Quando **atualizar** seu cluster do AKS, um novo nó é implementada num cluster. Serviços e cargas de trabalho começam a ser executados no novo nó e um nó mais antigo é removido do cluster. Este processo de atualização sem interrupção requer um mínimo de um bloco adicional de endereços IP para estar disponível. A contagem de nó é, em seguida, `n + 1`.
+>   - Isso é especialmente importante quando utiliza conjuntos de nós do Windows Server (atualmente em pré-visualização no AKS). Nós do Windows Server no AKS não aplicar automaticamente as atualizações do Windows, em vez disso, efetuar uma atualização no conjunto de nós. Esta atualização implementa novos nós com os patches mais recentes janela Server 2019 nó base imagem e segurança. Para obter mais informações sobre como atualizar um conjunto de nós do Windows Server, consulte [atualizar um conjunto de nós no AKS][nodepool-upgrade].
 >
 > - Quando **dimensionamento** um cluster do AKS, um novo nó é implementado num cluster. Serviços e cargas de trabalho começam a executar no novo nó. O intervalo de endereços IP deve considerar considerações sobre como pode querer aumentar verticalmente o número de nós e pods que seu cluster pode suportar. Um nó adicional para operações de atualização também deve ser incluído. A contagem de nó é, em seguida, `n + number-of-additional-scaled-nodes-you-anticipate + 1`.
 
@@ -68,7 +69,7 @@ O número máximo de pods por nó num cluster do AKS é 250. O *predefinição* 
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 
-Pode configurar o número máximo de pods por nó *apenas no momento da implementação de cluster*. Se implementar com a CLI do Azure ou com um modelo do Resource Manager, pode definir os pods máximos por valor do nó conforme necessário nos seguintes `maxPods` diretrizes:
+Pode configurar o número máximo de pods por nó *apenas no momento da implementação de cluster*. Se implementar com a CLI do Azure ou com um modelo do Resource Manager, pode definir os pods máximos por valor do nó tão elevada como 250.
 
 | Redes | Mínimo | Máximo |
 | -- | :--: | :--: |
@@ -76,8 +77,7 @@ Pode configurar o número máximo de pods por nó *apenas no momento da implemen
 | Kubenet | 30 | 110 |
 
 > [!NOTE]
-> O valor mínimo na tabela acima estritamente é imposto pelo serviço do AKS.
-Não pode definir um valor de maxPods inferior ao mínimo mostrado como fazê-lo por isso, pode impedir que o cluster de iniciar.
+> O valor mínimo na tabela acima estritamente é imposto pelo serviço do AKS. Não pode definir um valor de maxPods inferior ao mínimo mostrado como fazê-lo por isso, pode impedir que o cluster de iniciar.
 
 * **CLI do Azure**: Especifique a `--max-pods` argumento ao implementar um cluster com o [criar az aks] [ az-aks-create] comando. O valor máximo é 250.
 * **Modelo do Resource Manager**: Especifique a `maxPods` propriedade o [ManagedClusterAgentPoolProfile] objeto quando implementar um cluster com um modelo do Resource Manager. O valor máximo é 250.
@@ -114,7 +114,7 @@ Quando cria um cluster do AKS com a CLI do Azure, também pode configurar redes 
 
 Em primeiro lugar, obtenha o ID de recurso de sub-rede para a sub-rede existente no qual vai ser associado um cluster do AKS:
 
-```console
+```azurecli-interactive
 $ az network vnet subnet list \
     --resource-group myVnet \
     --vnet-name myVnet \
@@ -125,7 +125,7 @@ $ az network vnet subnet list \
 
 Utilize o [criar az aks] [ az-aks-create] comando com o `--network-plugin azure` argumento para criar um cluster com a rede avançada. Atualização do `--vnet-subnet-id` valor com o ID de sub-rede recolhido no passo anterior:
 
-```azurecli
+```azurecli-interactive
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -133,7 +133,8 @@ az aks create \
     --vnet-subnet-id <subnet-id> \
     --docker-bridge-address 172.17.0.1/16 \
     --dns-service-ip 10.2.0.10 \
-    --service-cidr 10.2.0.0/24
+    --service-cidr 10.2.0.0/24 \
+    --generate-ssh-keys
 ```
 
 ## <a name="configure-networking---portal"></a>Configurar redes - portal
@@ -211,3 +212,4 @@ Clusters de Kubernetes criados com o AKS motor de suportar o [kubenet] [ kubenet
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
 [network-policy]: use-network-policies.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool

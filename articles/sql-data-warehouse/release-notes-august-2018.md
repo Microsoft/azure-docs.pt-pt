@@ -2,20 +2,20 @@
 title: Notas de versão de armazém de dados SQL do Azure, Agosto de 2018 | Documentos da Microsoft
 description: Notas de versão do Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: manage
+ms.subservice: ''
 ms.date: 08/13/2018
-ms.author: twounder
-ms.reviewer: twounder
-ms.openlocfilehash: 9547380d4636c1a72add9dab7a9eed850abd0307
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: anjangsh
+ms.reviewer: jrasnick
+ms.openlocfilehash: f0840e9b91c81b8a99e8c736c3c5db082c92fe76
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475002"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65912220"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>O que há de novo no Azure SQL Data Warehouse? Agosto de 2018
 O Azure SQL Data Warehouse recebe melhorias continuamente. Este artigo descreve os novos recursos e alterações que foram introduzidas em Agosto de 2018.
@@ -30,7 +30,7 @@ Pode explorar cada categoria para ver as recomendações para o alerta específi
 
 ## <a name="bug-fixes"></a>Correções de erros
 
-| Título | Descrição |
+| Cargo | Descrição |
 |:---|:---|
 | **Potenciais falhas de consulta quando a contagem de dividir excede o limite máximo** |Quando o limite de divisão de ficheiro de 1 milhão de limite for excedido uma exceção não tratada causou o motor do SQL Despejar e todas as consultas de falha. Esta correção de resolver o problema ao processar a exceção corretamente e devolver um erro sem causar a falha das consultas. |
 | **Valor de predefinição ExternalMoveReadersPerNode maior para melhorar o desempenho de carga** |Este problema foi causado pela definição de propriedade ExternalMoveReadersPerNode a ser sincronizada com o definição do service fabric. Este regressão causado uma geração 2 degradação do desempenho de carga. A correção oferece desempenho de carregamento de geração 2 novamente dentro de parâmetros de design otimizadas.|

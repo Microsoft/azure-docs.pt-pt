@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 11/19/2018
-ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: f36acb7237438848a53fdf91c291c4f67233af5d
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60445641"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65901036"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Início rápido: Ingerir dados do Kafka no Explorador de dados do Azure
  
@@ -22,11 +22,11 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
  
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar. 
  
-* [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
+* [Um cluster de teste e a base de dados](create-cluster-database-portal.md).
  
-* [Uma aplicação de exemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que gera dados e envia-os para o Kafka
+* [Uma aplicação de exemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que gera dados e envia-os para o Kafka.
 
-* [Visual Studio 2017 Versão 15.3.2 ou superior](https://www.visualstudio.com/vs/) para executar a aplicação de exemplo
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) para executar a aplicação de exemplo.
  
 ## <a name="kafka-connector-setup"></a>Configuração do conector de Kafka
 
@@ -43,7 +43,7 @@ git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
 
-#### <a name="build"></a>Compilação
+#### <a name="build"></a>Criar
 
 Criar localmente com o Maven para produzir um `.jar` completo com dependências.
 
@@ -57,7 +57,7 @@ Dentro do diretório de raiz *kafka-sink do azure kusto*, execute:
 mvn clean compile assembly:single
 ```
 
-### <a name="deploy"></a>Implementação 
+### <a name="deploy"></a>Implementar 
 
 Carregar o plug-in para o Kafka. Um exemplo de implementação com o docker pode ser encontrado em [kafka-sink do azure kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  

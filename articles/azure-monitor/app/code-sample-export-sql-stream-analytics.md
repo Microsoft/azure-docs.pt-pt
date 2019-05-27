@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 0166622539a439a99aef7e476519881518baa0b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eecd2a50607fa42562a9ae6a7fb950a253655a45
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60904814"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872709"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Descrição Passo a Passo: Exportar para o SQL a partir do Application Insights com o Stream Analytics
 Este artigo mostra como mover os dados de telemetria dos [do Azure Application Insights] [ start] numa base de dados SQL do Azure utilizando [exportação contínua] [ export] e [do Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -179,10 +179,10 @@ Para obter o nome e a iKey do recurso do Application Insights, abra o Essentials
 
 > [!TIP]
 > Use a função de exemplo para verificar que definiu o caminho de entrada corretamente. Se falhar: Verifique o que há dados no armazenamento para o intervalo de tempo de exemplo que escolheu. Editar a definição de entrada e verificar a definir a conta de armazenamento, o prefixo do caminho e formato de data corretamente.
-> 
-> 
-> ## <a name="set-query"></a>Consulta de conjunto
-> Abra a secção de consulta:
+
+ 
+## <a name="set-query"></a>Consulta de conjunto
+Abra a secção de consulta:
 
 Substitua a consulta predefinida com:
 
