@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652563"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129684"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Azure Monitor
 

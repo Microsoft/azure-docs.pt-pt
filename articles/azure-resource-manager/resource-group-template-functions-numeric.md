@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/08/2017
 ms.author: tomfitz
 ms.openlocfilehash: 5ed3a0a57dad61a5fe783790eba4cb89ce19c660
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56266981"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128647"
 ---
 # <a name="numeric-functions-for-azure-resource-manager-templates"></a>Funções numéricas para modelos Azure Resource Manager
 
@@ -120,7 +120,7 @@ Devolve o índice de um loop de iteração.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| loopName | Não | cadeia | O nome do loop, para obter a iteração. |
+| loopName | Não | string | O nome do loop, para obter a iteração. |
 | offset |Não |int |O número a adicionar para o valor de iteração com base em zero. |
 
 ### <a name="remarks"></a>Observações
@@ -228,7 +228,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="float" />
 
-## <a name="float"></a>float
+## <a name="float"></a>flutuante
 `float(arg1)`
 
 Converte o valor flutuante ponto número. Só usar essa função ao transmitir parâmetros personalizados a um aplicativo, como uma aplicação lógica.
@@ -386,7 +386,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>mín.
 `min (arg1)`
 
 Devolve o valor mínimo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.

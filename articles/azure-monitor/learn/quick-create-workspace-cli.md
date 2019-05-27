@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: 4be33b809ee2e620a565c9907a5b77833a279567
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848818"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130390"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Criar uma área de trabalho do Log Analytics com a CLI 2.0 do Azure
 

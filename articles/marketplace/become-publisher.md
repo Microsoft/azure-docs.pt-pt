@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5dcde10430308eaa1df0e6cca279803c3f7f5fe1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 10d2eb45b6706299336094359f10568e6811e1fb
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935656"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967710"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Se tornar um publicador de Marketplace da Cloud
 
@@ -24,7 +24,7 @@ Este artigo aborda o registro de um publicador de marketplace da cloud. Consoant
 |:--- |:--- |:--- |:--- |  
 | 1 | Registe-se na Microsoft Partner Network | 15 min | [Registe-se na Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
 | 2 | Criar uma conta Microsoft <ul>(necessários para o Azure Marketplace transact ofertas; recomendado para outras pessoas)</ul> | 15 min | [Criar um ID da Microsoft](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Submeter o formulário de Registro do marketplace | 15 min | [Submeter o formulário de nomeação do marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 3 | Criar uma conta do Centro de parceiros | 15 min | [Criar uma conta do Centro de parceiros](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Inicie sessão no Portal de parceiro de Cloud | 1 a 3 dias | [Inicie sessão no Portal de parceiro de Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Registar-se no Microsoft Developer Center (Centro de desenvolvimento) (para o Azure Marketplace transact ofertas) | 5 a 10 dias | [Registar no Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
@@ -59,14 +59,19 @@ Um de contas da Microsoft, por exemplo,  *\@outlook.com ou \@live.com*, é utili
 
 ---
 
-## <a name="3-submit-the-marketplace-registration-form"></a>3. Submeter o formulário de Registro do marketplace  
+## <a name="3-create-a-partner-center-account"></a>3. Criar uma conta do Centro de parceiros  
 | 15 min |  
-Conclua este breve [formulário de Registro](https://azuremarketplace.microsoft.com/sell/signup) para se tornar um publicador de marketplace. As informações submetidas neste formulário serão utilizadas para criar uma conta de editor no Portal de parceiros na Cloud que permite-lhe criar, publicar e gerir as ofertas do marketplace.
 
-Será solicitado para incluir as seguintes informações:
-*   Detalhes sobre a sua organização, incluindo o ID do Microsoft Partner Network (que lhe permite procurar em qualquer um [Centro de parceiros](https://partnercenter.microsoft.com/partner/home) ou [Centro de parceiros da associação](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
-*   Uma breve descrição da sua aplicação inicial ou serviços de consultoria oferecem o que pretende publicar, incluindo o produto da Microsoft ou o serviço ao qual a oferta mais se Alinha
-*   O público-alvo da sua aplicação ou serviço 
+Depois de [submeter a sua solução](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) no Marketplace, a nossa equipa de integração contacta-o para suportar a sua experiência de publicação. Veja como [criar uma conta do Centro de parceiros](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
+
+<!---
+Complete this brief [registration form](https://azuremarketplace.microsoft.com/sell/signup) to become a marketplace publisher. The information submitted on this form will be used to create a publisher account in the Cloud Partner Portal which will allow you to create, publish, and manage marketplace offers.
+
+You will be asked to include the following information:
+*   Details about your organization, including your Microsoft Partner Network ID (which you can look up in either [Partner Center](https://partnercenter.microsoft.com/partner/home) or [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
+*   A brief description of your initial app or consulting services offer that you intend to publish, including the Microsoft product or service to which your offer most closely aligns
+*   The target audience for your app or service 
+-->
 
 ---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Inicie sessão no Portal de parceiro de Cloud
@@ -90,10 +95,10 @@ A registar individuais num [Dev Center](https://developer.microsoft.com/store/re
 *   Para se registrar para uma [Centro de desenvolvimento](https://developer.microsoft.com/store/register) conta, [iniciar o processo de inscrição aqui](https://developer.microsoft.com/store/register).
 *   Para obter mais informações sobre como criar uma conta Microsoft, visite o *criar uma conta Microsoft* secção.
  
-Depois de concluir o [Centro de desenvolvimento](https://developer.microsoft.com/store/register) registo, vincular seu perfil de parceiro de Cloud com o seu [Dev Center](https://developer.microsoft.com/store/register) conta (veja passos detalhados aqui). Este passo deve ser concluído antes de publicar a sua oferta transact. 
+Depois de concluir o [Centro de desenvolvimento](https://developer.microsoft.com/store/register) registo, vincular seu perfil de parceiro de Cloud com o seu [Dev Center](https://developer.microsoft.com/store/register) conta ([detalhada de ver os passos aqui](https://docs.microsoft.com/en-us/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile)). Este passo deve ser concluído antes de publicar a sua oferta transact. 
 
 >[!Note]
->Para a taxa de registo do Centro de programadores de US $99 rejeita todos os direitos, execute o [formulário de Registro do marketplace](https://azuremarketplace.microsoft.com/sell/signup) e receberá um email contendo seu código promocional. 
+>Para a taxa de registo do Centro de programadores de US $99 rejeita todos os direitos, execute o [formulário de Registro do marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) e receberá um email contendo seu código promocional. Veja como [criar uma conta do Centro de parceiros](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) para obter mais informações.
 
 >[!Important]
 >Antes de criar uma conta Microsoft Dev Center, verifique se que sua organização não tiver uma conta do Dev Center para evitar contas duplicadas. Para obter mais informações, visite o [registar no Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) secção.

@@ -15,11 +15,11 @@ ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
 ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405033"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65956046"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implementação de Git Local no Serviço de Aplicações do Azure
 
@@ -219,5 +219,5 @@ git config --global http.postBuffer 524288000
 
 * [Documentação de Kudu do projeto](https://github.com/projectkudu/kudu/wiki)
 * [Implementação contínua no serviço de aplicações do Azure](deploy-continuous-deployment.md)
-* [Exemplo: Criar aplicação Web e implementar código a partir de um repositório de Git local (CLI do Azure)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
-* [Exemplo: Criar aplicação Web e implementar código a partir de um repositório de Git local (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+* [Amostra: Criar aplicação Web e implementar código a partir de um repositório de Git local (CLI do Azure)](./scripts/cli-deploy-local-git.md?toc=%2fcli%2fazure%2ftoc.json)
+* [Amostra: Criar aplicação Web e implementar código a partir de um repositório de Git local (PowerShell)](./scripts/powershell-deploy-local-git.md?toc=%2fpowershell%2fmodule%2ftoc.json)

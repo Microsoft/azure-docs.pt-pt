@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/05/2019
-ms.author: monhaber
-ms.openlocfilehash: 0465f12e3da6acc2ec8f7259ee9f040ccd3ce88e
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.author: v-mohabe
+ms.openlocfilehash: 7f738350743b0b80bf39a322043c514081721def
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236300"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967922"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
@@ -94,7 +94,7 @@ Para ver as suas políticas de segurança no Centro de Segurança:
 > - Quando exibe atribuídas políticas, pode ver várias atribuições e pode ver como cada atribuição está configurada por si.
 
 ## <a name="edit-security-policies"></a>Editar as políticas de segurança
-Pode editar a política de segurança predefinida para cada uma das suas subscrições do Azure e grupos de gestão no [do Azure Policy](../governance/policy/tutorials/create-and-manage.md). Para modificar uma política de segurança, tem de ser proprietário, contribuidor ou administrador de segurança dessa subscrição ou do grupo de gestão que a contém.
+Pode editar a política de segurança predefinida para cada uma das suas subscrições e dos seus grupos de gestão do Azure no [Azure Policy](../governance/policy/tutorials/create-and-manage.md). Para modificar uma política de segurança, tem de ser proprietário, contribuidor ou administrador de segurança dessa subscrição ou do grupo de gestão que a contém.
 
 Para obter instruções sobre como editar uma política de segurança no Azure Policy, veja e [criar e gerir políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md).
 

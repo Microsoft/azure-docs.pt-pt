@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand global transit network architecture as it relates to Virtual WAN.
-ms.openlocfilehash: 8cda617ca60a17fceaaa818480ff9bbaef46c3fd
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 114d11f98c6181a03f5ce52527b5e2efea468c42
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65414055"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965979"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>Arquitetura de rede de trânsito global e Virtual WAN
 
@@ -48,7 +48,7 @@ Figura 2 mostra a exibição lógica da rede global em que os utilizadores distr
 
 ## <a name="crossregion"></a>Conectividade entre regiões
 
-Para uma empresa, uma pegada de nuvem normalmente segue os requisitos de espaço físico. A maioria das empresas acessar a nuvem a partir de uma região mais próxima dos seus sites físicos e utilizadores. Um dos expoentes da arquitetura de rede global de chave é habilitar a conectividade entre regiões entre entidades de rede e os pontos finais. Requisitos de espaço de nuvem podem abranger várias regiões. Isso significa que o tráfego de uma ramificação que está ligado à cloud numa única região contactar noutro ramo ou de uma VNet na região diferente.
+Para uma empresa, uma pegada de nuvem normalmente segue os requisitos de espaço físico. A maioria das empresas acessar a nuvem a partir de uma região mais próxima dos seus sites físicos e utilizadores. Um dos expoentes da arquitetura de rede global de chave é habilitar a conectividade entre regiões entre entidades de rede e os pontos finais. Requisitos de espaço de nuvem podem abranger várias regiões. Isso significa que o tráfego de uma ramificação que está ligado à cloud numa única região contactar noutro ramo ou de uma VNet na região diferente com a conectividade do hub de hub que está atualmente em pré-visualização.
 
 ## <a name="any"></a>Conectividade qualquer a qualquer
 
@@ -89,7 +89,7 @@ O caminho de utilizador para sucursais permite que os utilizadores remotos que e
 
 ### <a name="vnetvnet"></a>Trânsito de VNet a VNet com peering de VNet
 
-Para ligar VNets entre si para suportar aplicações de várias camadas que estão implementadas em várias VNets, utilize o VNet peering. Um cenário de trânsito do VNet a VNet através de WAN Virtual do Azure não é atualmente suportado, mas está planeado do Azure. Ligar VNets através de VNet Peering é a solução recomendada para VNets que precisam de estar ligados entre si. Para obter mais informações sobre o peering de VNet, veja [descrição geral do Peering de VNet](../virtual-network/virtual-network-peering-overview.md).
+Para ligar VNets entre si para suportar aplicações de várias camadas que estão implementadas em várias VNets, utilize o VNet peering. Um cenário de trânsito do VNet a VNet através de WAN Virtual do Azure não é atualmente suportado, mas está planeado do Azure. Ligar VNets através de VNet Peering é a solução recomendada para VNets que precisam de estar ligados entre si. [O trânsito de gateway](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity) (no contexto do VNet peering) não é necessária para Virtual WAN porque a Virtual WAN ativa automaticamente o trânsito de gateway.
 
 ### <a name="globalreach"></a>Alcance Global do ExpressRoute
 

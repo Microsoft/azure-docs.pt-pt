@@ -8,16 +8,16 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 652e6ecb9ef9506fd306942eae45b13b52ae1c24
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1c2265ff5f4c444121bf70c35145703f1b9fe981
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64691828"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000184"
 ---
-# <a name="common-security-attributes-for-azure-key-vault"></a>Atributos comuns de segurança para o Azure Key Vault
+# <a name="security-attributes-for-azure-key-vault"></a>Atributos de segurança para o Azure Key Vault
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos de segurança comuns incorporados no Azure Key Vault. 
+Este artigo documenta os atributos de segurança incorporados no Azure Key Vault. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -46,7 +46,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Utilizar o Log Analytics. |
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -54,7 +54,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Autorização| Sim | A utilizar a política de acesso do Cofre de chaves. |
 
 
-## <a name="audit-trail"></a>Registo de Auditoria
+## <a name="audit-trail"></a>Registo de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|

@@ -1,23 +1,23 @@
 ---
 title: 'Configure o peering para um circuito - ExpressRoute: Azure | Microsoft Docs'
-description: Este artigo explica-lhe os passos para criar e aprovisionar o peering privado, público e da Microsoft de um circuito ExpressRoute. Este artigo também mostra como verificar o estado, atualizar ou eliminar peerings no seu circuito.
+description: Este artigo documenta os passos para criar e aprovisionar privado do ExpressRoute e o peering da Microsoft. Este artigo também demonstra como verificar o estado, atualizar ou eliminar peerings para um circuito.
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: cherylmc
+ms.date: 05/20/2019
+ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: e1f94b7b2ab71afaa40831446e5e5aede00db7b1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: f6061710fb15d4183bd42a82c4bd269a69fc9be2
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64570841"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964438"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Criar e modificar um peering de um circuito do ExpressRoute
 
-Este artigo ajuda-o a criar e gerir a configuração de encaminhamento de um circuito do ExpressRoute no modelo de implementação do Resource Manager com o portal do Azure. Também pode verificar o estado, update ou delete e desaprovisionar peerings para um circuito do ExpressRoute. Se quiser usar um método diferente para trabalhar com o seu circuito, selecione um artigo da lista seguinte:
+Este artigo ajuda-o a criar e gerir a configuração de encaminhamento de um circuito do ExpressRoute do Azure Resource Manager (ARM), com o portal do Azure. Também pode verificar o estado, update ou delete e desaprovisionar peerings para um circuito do ExpressRoute. Se quiser usar um método diferente para trabalhar com o seu circuito, selecione um artigo da lista seguinte:
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
@@ -29,12 +29,12 @@ Este artigo ajuda-o a criar e gerir a configuração de encaminhamento de um cir
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
 > 
 
-Pode configurar um, dois ou todos os três peerings (Azure privado, Azure público e Microsoft) para um circuito ExpressRoute. Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre domínios de encaminhamento e peerings, consulte [acerca dos circuitos e peerings](expressroute-circuit-peerings.md).
+Pode configurar privado do Azure e peering da Microsoft para um circuito do ExpressRoute (peering público do Azure foi preterido para os novos circuitos). Pode configurar peerings em qualquer ordem que escolha. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre domínios de encaminhamento e peerings, consulte [acerca dos circuitos e peerings](expressroute-circuit-peerings.md).
 
 ## <a name="configuration-prerequisites"></a>Pré-requisitos da configuração
 
 * Confirme que reviu as páginas [pré-requisitos](expressroute-prerequisites.md), [requisitos de encaminhamento](expressroute-routing.md) página e [fluxos de trabalho](expressroute-workflows.md) antes de iniciar a configuração.
-* Deve ter um circuito ExpressRoute ativo. Siga as instruções para [Criar um circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e solicite ao seu fornecedor de conectividade para ativar o circuito antes de continuar. O circuito do ExpressRoute tem de ser num Estado aprovisionado e ativado para que possa ser capaz de executar os cmdlets nas próximas seções.
+* Deve ter um circuito ExpressRoute ativo. Siga as instruções para [Criar um circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) e solicite ao seu fornecedor de conectividade para ativar o circuito antes de continuar. Para configurar o peering (s), o circuito do ExpressRoute tem de ser num Estado aprovisionado e ativado. 
 * Se planeia utilizar um hash MD5/chave partilhado, certifique-se de que para utilizá-lo em ambos os lados do túnel e limitar o número de carateres de alfanuméricos para um máximo de 25. Não são suportados carateres especiais. 
 
 Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de serviços que fornecem serviços de conectividade de Camada 2. Se estiver a utilizar um fornecedor de serviços que oferece geridos de camada 3 serviços (normalmente uma VPN de IP, como MPLS), o seu fornecedor de conectividade configura e gere o encaminhamento por si. 
@@ -55,7 +55,7 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de p
 
 ### <a name="to-create-microsoft-peering"></a>Para criar peering da Microsoft
 
-1. Configure o circuito ExpressRoute. Assegure que o circuito é totalmente aprovisionado pelo fornecedor de conectividade antes de prosseguir. Se o seu fornecedor de conectividade oferecer serviços geridos de camada 3, pode fazer com que o seu fornecedor de conectividade para ativar o peering da Microsoft para. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não gere o encaminhamento por si, depois de criar o seu circuito, continue a configuração com os passos seguintes.
+1. Configure o circuito ExpressRoute. Assegure que o circuito é totalmente aprovisionado pelo fornecedor de conectividade antes de prosseguir. Se o seu fornecedor de conectividade oferecer serviços geridos de camada 3, pode fazer com que o seu fornecedor de conectividade para ativar o peering da Microsoft para. Nesse caso, não terá de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não gere o encaminhamento por si, depois de criar o seu circuito, prossiga com os passos seguintes.
 
    ![listar o peering da Microsoft](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configure o peering da Microsoft para o circuito. Confirme que tem as seguintes informações antes de continuar.
@@ -113,9 +113,9 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração do p
 
 ### <a name="to-create-azure-private-peering"></a>Para criar um peering privado do Azure
 
-1. Configure o circuito ExpressRoute. Assegure que o circuito é totalmente aprovisionado pelo fornecedor de conectividade antes de continuar. Se o seu fornecedor de conectividade oferecer serviços geridos de camada 3, pode fazer com que o seu fornecedor de conectividade para ativar o peering privado do Azure para. Nesse caso, não necessita de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não gere o encaminhamento por si, depois de criar o seu circuito, continue a configuração com os passos seguintes.
+1. Configure o circuito ExpressRoute. Assegure que o circuito é totalmente aprovisionado pelo fornecedor de conectividade antes de continuar. Se o seu fornecedor de conectividade oferecer serviços geridos de camada 3, pode fazer com que o seu fornecedor de conectividade para ativar o peering privado do Azure para. Nesse caso, não terá de seguir as instruções indicadas nas secções seguintes. No entanto, se o seu fornecedor de conectividade não gere o encaminhamento por si, depois de criar o seu circuito, prossiga com os passos seguintes.
 
-   ![list](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
+   ![lista](./media/expressroute-howto-routing-portal-resource-manager/listprovisioned.png)
 2. Configure o peering privado do Azure para o circuito. Confirme que tem os seguintes itens antes de continuar com os passos seguintes:
 
    * Uma sub-rede /30 para a ligação primária. A sub-rede não pode ser parte de qualquer espaço de endereço reservado para redes virtuais. Esta sub-rede vai atribuir o primeiro endereço IP pode ser utilizado para o router como a Microsoft utiliza o segundo IP pode ser utilizado para o seu router.

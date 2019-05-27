@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: d1c1ed7388ff55e4f17559742054cea973f65ba7
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f0b0ff3ff4ac742a7e850798c736eb31098f66e8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192281"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966392"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -118,3 +118,15 @@ Restrições de nomenclatura são implementadas com a plataforma Azure e o AKS. 
 
 * O AKS *MC_* nome do grupo de recursos combina o nome do grupo de recursos e o nome do recurso. A sintaxe gerado automaticamente de `MC_resourceGroupName_resourceName_AzureRegion` deve ter mais de 80 carateres. Se for necessário, reduza o comprimento do seu nome de grupo de recursos ou o nome do cluster AKS.
 * O *dnsPrefix* deve começar e terminar com valores de alfanuméricos. Carateres válidos incluem valores de alfanuméricos e hífenes (-). O *dnsPrefix* não pode incluir carateres especiais, como um ponto (.).
+
+## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou a receber erros ao tentar criar, atualizar, dimensionar, eliminar ou atualizar o cluster, o que a operação não é permitida porque está em curso outra operação.
+
+*Esse recurso de resolução de problemas é direcionado de aka.ms/aks-pendente-operação*
+
+Operações de cluster estão limitadas quando uma operação anterior ainda está em curso. Para obter um estado detalhado do seu cluster, utilize o `az aks show -g myResourceGroup -n myAKSCluster -o table` comando. Utilize o seu próprio grupo de recursos e o nome do cluster AKS conforme necessário.
+
+Com base no resultado do Estado do cluster:
+
+* Se o cluster está num Estado de aprovisionamento que *bem-sucedido* ou *com falhas*, esperar até a operação (*atualizar / atualizar / criar / dimensionamento / eliminar / migrar*) encerrado. Quando a operação anterior for concluída, tente novamente a operação de cluster mais recente.
+
+* Se o cluster tem uma atualização falhada, siga os passos descritos [estou a receber erros que meu cluster está no Estado com falhas e atualizar ou dimensionamento não funcionará até ser corrigido](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

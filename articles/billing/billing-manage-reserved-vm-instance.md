@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 04/13/2019
 ms.author: banders
 ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994968"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66127117"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gerir reservas para recursos do Azure
 
@@ -70,7 +70,7 @@ Para delegar a gestão de acesso para uma reserva:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Selecione **todos os serviços** > **reserva** para reservas de lista que tem acesso a.
 3. Selecione a reserva que pretende delegar acesso a outros utilizadores.
-4. Selecione **Controlo de acesso (IAM)**.
+4. Selecione **controlo de acesso (IAM)** .
 5. Selecione **adicionar atribuição de função** > **função** > **proprietário**. Se preferir dar acesso limitado, selecione uma função diferente.
 6. Escreva o endereço de e-mail do utilizador que pretende adicionar como proprietário.
 7. Selecione o utilizador e, em seguida, selecione **Guardar**.

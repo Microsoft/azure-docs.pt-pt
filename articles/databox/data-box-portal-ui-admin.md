@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c998e01cdb9031771acd3d9605da3e77d5ae3201
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60406253"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953365"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilizar o portal do Azure para administrar o seu disco do Data Box
 
@@ -105,7 +105,7 @@ Execute os seguintes passos para editar a encomenda.
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
-Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro utilizador poderá ter de manter-se informado sobre quando a cópia de dados é concluída, para poder verificar que os dados estão na conta de armazenamento do Azure antes de os eliminar da origem. Nestes casos, pode editar os detalhes de notificação.
+Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o disco é entregue ou recolhido. Outro usuário poderá ter de se manter informado sobre o quando a cópia de dados estiver concluída, de modo que podem verificar que os dados estão na conta de armazenamento do Azure antes da partir da origem. Nestes casos, pode editar os detalhes de notificação.
 
 Execute os seguintes passos para editar os detalhes de notificação.
 

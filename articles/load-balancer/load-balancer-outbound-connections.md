@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: kumud
-ms.openlocfilehash: d5f52829f5895b30afd160cc8ded755332aca5c5
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f9742d14fc14230f2424d005aa6aa8b1db3cece4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190162"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967729"
 ---
 # <a name="outbound-connections-in-azure"></a>Ligações de saída no Azure
 
@@ -34,7 +34,7 @@ Para efetuar esta função, o Azure utiliza tradução de endereços de rede de 
 Existem várias [cenários de saída](#scenarios). Pode combinar estes cenários, conforme necessário. Reveja-os cuidadosamente para compreender as capacidades, restrições e padrões de acordo com seu modelo de implementação e o cenário do aplicativo. Reveja a documentação de orientação para [gerir estes cenários](#snatexhaust).
 
 >[!IMPORTANT] 
->Standard Balanceador de carga e o IP público Standard apresentam novas capacidades e comportamentos diferentes para conectividade de saída.  Eles não são os mesmos que os SKUs básico.  Se quiser conectividade de saída ao trabalhar com Standard SKUs, tem de defini-lo, com endereços IP públicos Standard ou Balanceador de carga Standard público explicitamente.  Isto inclui a criação de conectividade de saída ao utilizar e o Balanceador de carga interno do padrão.  Recomendamos que sempre usar regras de saída num Balanceador de carga Standard público.  [Cenário 3](#defaultsnat) não está disponível com o Standard SKU.  Isso significa que quando é utilizado um Standard Balanceador de carga interno, terá de tomar medidas para criar a conectividade de saída para as VMs no conjunto de back-end se conectividade de saída for o pretendido.  No contexto de conectividade de saída, uma única VM autónoma, todas as VMS no conjunto de disponibilidade, todas as instâncias numa VMSS se comportam como um grupo. Isso significa que, se uma única VM num conjunto de disponibilidade estiver associada um SKU Standard, todas as instâncias VM dentro deste conjunto de disponibilidade agora se comportam pelas mesmas regras como se eles estão associados a Standard SKU, mesmo que uma instância individual não é diretamente associada com o mesmo.  Reveja com cuidado todo este documento a compreender os conceitos globais, consulte [Balanceador de carga Standard](load-balancer-standard-overview.md) às diferenças entre SKUs e revisão [regras de saída](load-balancer-outbound-rules-overview.md).  Utilizar regras de saída permite-lhe controlo detalhado sobre todos os aspetos de conectividade de saída.
+>Standard Balanceador de carga e o IP público Standard apresentam novas capacidades e comportamentos diferentes para conectividade de saída.  Eles não são os mesmos que os SKUs básico.  Se quiser conectividade de saída ao trabalhar com Standard SKUs, tem de defini-lo, com endereços IP públicos Standard ou Balanceador de carga Standard público explicitamente.  Isto inclui a criação de conectividade de saída ao utilizar um Standard Balanceador de carga interno.  Recomendamos que sempre usar regras de saída num Balanceador de carga Standard público.  [Cenário 3](#defaultsnat) não está disponível com o Standard SKU.  Isso significa que quando é utilizado um Standard Balanceador de carga interno, terá de tomar medidas para criar a conectividade de saída para as VMs no conjunto de back-end se conectividade de saída for o pretendido.  No contexto de conectividade de saída, uma única VM autónoma, todas as VMS no conjunto de disponibilidade, todas as instâncias numa VMSS se comportam como um grupo. Isso significa que, se uma única VM num conjunto de disponibilidade estiver associada um SKU Standard, todas as instâncias VM dentro deste conjunto de disponibilidade agora se comportam pelas mesmas regras como se eles estão associados a Standard SKU, mesmo que uma instância individual não é diretamente associada com o mesmo.  Reveja com cuidado todo este documento a compreender os conceitos globais, consulte [Balanceador de carga Standard](load-balancer-standard-overview.md) às diferenças entre SKUs e revisão [regras de saída](load-balancer-outbound-rules-overview.md).  Utilizar regras de saída permite-lhe controlo detalhado sobre todos os aspetos de conectividade de saída.
 
 ## <a name="scenarios"></a>Descrição geral do cenário
 

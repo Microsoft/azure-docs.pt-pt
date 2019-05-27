@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: mimart
-ms.reviewer: asmalser
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 952853b32b5fadb980e9e96a7c56c05ac63d9931
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9a0e595d2120d3cdccd42c502a83de9d5ed3ff4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65784598"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963186"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conhecidos e resoluções com SCIM 2.0 compatibilidade de protocolo do serviço aprovisionamento de utilizador do Azure AD
 

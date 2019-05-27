@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: monhaber
-ms.openlocfilehash: 22791fc43ff17d56e1f51e7f7737a10109f47c59
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: c23c9a2b9af1947c397b96431ae3c3bcd0e30aaa
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60906230"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968299"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Melhorar a sua pontuação segura no Centro de segurança do Azure
 
@@ -43,7 +43,7 @@ Para ver a sua pontuação geral segura:
 
 1. No dashboard do Azure, clique em **Centro de segurança** e, em seguida, clique em **pontuação segura**.
 2. Na parte superior, pode ver segura Pontuar destaques:
-   - O **secure geral pontuação** representa a classificação de acordo com as políticas, por subscrição selecionada
+   - A **Classificação de segurança geral** representa a classificação por políticas, por subscrição selecionada
    - **Proteger a pontuação por categoria** mostra quais os recursos que necessitam de mais atenção
    - **Principais recomendações por proteger o impacto de pontuação** fornece uma lista das recomendações que irão melhorar a sua pontuação segura mais se implementá-los.
  
@@ -52,7 +52,7 @@ Para ver a sua pontuação geral segura:
 3. Na tabela abaixo pode ver cada uma das suas subscrições e a pontuação geral segura para cada um.
 
    > [!NOTE]
-   > A soma da pontuação segura de cada subscrição não é igual a pontuação geral segura. A pontuação segura é um cálculo com base no rácio entre os recursos de bom estado de funcionamento e o total de recursos por recomendação, não uma soma das pontuações seguras nas suas subscrições. 
+   > A soma da classificação de segurança de cada subscrição não é igual à classificação de segurança geral. A classificação de segurança é um cálculo baseado na relação entre os seus recursos em bom estado de funcionamento e o total de recursos por recomendação, não uma soma das classificações de segurança nas suas subscrições. 
    >
 4. Clique em **ver recomendações** para ver as recomendações para essa subscrição que pode corrigir para melhorar a sua pontuação segura.
 4. Na lista de recomendações, pode ver que cada recomendação existe uma coluna que representa a **proteger o impacto de pontuação**. Este número representa irá melhorar sua pontuação geral segura quanto se seguir as recomendações. Por exemplo, no ecrã abaixo, se **remediar vulnerabilidades em configurações de segurança do contentor**, sua pontuação segura sofrerão um aumento até 35 pontos.
@@ -65,9 +65,9 @@ Para ver a sua pontuação geral segura:
 
 Além disso, para ver as pontuações de seguras individuais, pode encontrá-los dentro do painel de recomendação individuais.  
 
-O **recomendação secure pontuação** é um cálculo com base no rácio entre os recursos de bom estado de funcionamento e o total de recursos. Se o número de recursos de bom estado de funcionamento é igual ao número total de recursos, receberá a pontuação máxima segura da recomendação de 50 caracteres. Para tentar obter a sua pontuação segura mais próximo para a classificação máxima, corrigi os recursos de mau estado de funcionamento ao seguir as recomendações.
+A **Classificação de segurança da recomendação** é um cálculo baseado na relação entre os recursos em bom estado de funcionamento e o total de recursos. Se o número de recursos em bom estado de funcionamento for igual ao número total de recursos, receberá a classificação de segurança máxima da recomendação de 50. Para tentar colocar a classificação de segurança mais próxima da classificação máxima, corrija os recursos em mau estado de funcionamento seguindo as recomendações.
 
-O **impacto de recomendação** permite-lhe determinar quanto melhora a sua pontuação segura se aplicar os passos de recomendação. Por exemplo, se sua pontuação segura é 42 e a **impacto de recomendação** é +3, efetuando os passos descritos na recomendação melhorar sua pontuação para se tornar 45.
+O **Impacto das recomendações** permite-lhe saber quanto é que a sua classificação de segurança melhorará se aplicar os passos de recomendação. Por exemplo, se classificação de segurança for de 42 e o **Impacto das recomendações** for +3, ao realizar os passos descritos na recomendação, melhora a classificação para 45.
 
 A recomendação mostra quais ameaças sua carga de trabalho é exposta a se os passos de remediação não são executados.
 

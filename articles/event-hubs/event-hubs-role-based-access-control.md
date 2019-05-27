@@ -9,14 +9,14 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/21/2019
 ms.author: shvija
-ms.openlocfilehash: 549cfb84ff247295e01c800aa41ba265bb8921c7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ae970b9612154a6463c4bf44a65da71a20c81635
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343465"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978300"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -27,8 +27,13 @@ Para os Hubs de eventos do Azure, a gestão de espaços de nomes e todos os recu
 Uma aplicação que utiliza o RBAC do Azure AD não precisa lidar com regras SAS e as chaves ou quaisquer outros tokens de acesso específicos aos Hubs de eventos. A aplicação de cliente interage com o Azure AD para estabelecer um contexto de autenticação e adquire um token de acesso para os Hubs de eventos. Com contas de utilizador de domínio que requerem o início de sessão interativo, o aplicativo nunca processa quaisquer credenciais diretamente.
 
 ## <a name="event-hubs-roles-and-permissions"></a>Permissões e funções de Hubs de eventos
+O Azure oferece as seguintes funções incorporadas do RBAC para autorizar o acesso a um espaço de nomes de Hubs de eventos:
 
-Para a pré-visualização pública inicial, pode adicionar apenas contas do Azure AD e principais de serviço para as funções de "Proprietário" ou "Contribuinte" de um espaço de nomes de Hubs de eventos. Esta operação concede o controlo total de identidade ao longo de todas as entidades no espaço de nomes. Operações de gestão que alteram a topologia de espaço de nomes inicialmente são apenas suportadas através para o Azure resource Manager e não através da interface de gestão do REST dos Hubs de eventos nativa. Esse suporte também significa que o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objeto não pode ser utilizado com uma conta do Azure AD.  
+O [proprietário dos dados dos Hubs de eventos (pré-visualização)](../role-based-access-control/built-in-roles.md#service-bus-data-owner) função permite o acesso a dados para um espaço de nomes de Hubs de eventos e respetivas entidades (filas, tópicos, subscrições e filtros)
+
+>[!IMPORTANT]
+> Suportámos anteriormente a adição de uma identidade gerida para o **proprietário** ou **contribuinte** função. No entanto, de acesso a dados privilégios para **proprietário** e **contribuinte** função já não são honradas. Se estiver a utilizar o **proprietário** ou **contribuinte** função, o comutador para utilizar o **proprietário dos dados dos Hubs de eventos** função.
+
 
 ## <a name="use-event-hubs-with-an-azure-ad-domain-user-account"></a>Utilizar os Hubs de eventos com uma conta de utilizador de domínio do Azure AD
 
@@ -44,7 +49,7 @@ Se pretender continuar a criar uma conta específica para este cenário [siga es
 
 ### <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md) das regiões do Azure com suporte de pré-visualização de Hubs de eventos para RBAC: **E.U.A. Leste**, **E.U.A. Leste 2**, ou **Europa Ocidental**. 
+Em seguida, [criar um espaço de nomes de Hubs de eventos](event-hubs-create.md). 
 
 Depois de criar o espaço de nomes, navegue até à respetiva **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a conta de utilizador do Azure AD para a função de proprietário. Se usar sua própria conta de utilizador e criou o espaço de nomes, já está na função de proprietário. Para adicionar uma conta diferente para a função, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**. A conta de utilizador tem agora acesso ao espaço de nomes dos Hubs de eventos e para o hub de eventos que criou anteriormente.
  

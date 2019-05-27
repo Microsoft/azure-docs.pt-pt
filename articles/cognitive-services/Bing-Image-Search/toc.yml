@@ -115,3 +115,5 @@
       href: language-support.md
     - name: Análise da API de Pesquisa de Imagens do Bing
       href: bing-image-stats.md
+    - name: Conformidade
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

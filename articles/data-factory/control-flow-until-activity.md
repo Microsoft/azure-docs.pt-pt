@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 5a053ab213390a12c5d2051a802a1fa98279c344
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447478"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155168"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até a atividade no Azure Data Factory
 A atividade do Until fornece a mesma funcionalidade que um fazer-até que a estrutura de ciclo fornece nas linguagens de programação. Executa um conjunto de atividades num ciclo até que a condição associada às atividades seja avaliada como verdadeira. Pode especificar um valor de tempo limite para a atividade Until no Data Factory. 
@@ -54,11 +54,11 @@ A atividade do Until fornece a mesma funcionalidade que um fazer-até que a estr
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome do `Until` atividade. | String | Sim
+name | Nome do `Until` atividade. | String | Sim
 tipo | Tem de ser definido como **até que**. | String | Sim
 expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão.  | Sim
 tempo limite | A fazer-até que o loop expire após o período de tempo especificado aqui. | cadeia de caracteres. `d.hh:mm:ss` (ou) `hh:mm:ss`. O valor predefinido é de 7 dias. O valor máximo é: 90 dias. | Não
-Atividades | Conjunto de atividades que são executadas até que a expressão é avaliada como `true`. | Matriz de atividades. |  Sim
+Actividades | Conjunto de atividades que são executadas até que a expressão é avaliada como `true`. | Matriz de atividades. |  Sim
 
 ## <a name="example-1"></a>Exemplo 1
 

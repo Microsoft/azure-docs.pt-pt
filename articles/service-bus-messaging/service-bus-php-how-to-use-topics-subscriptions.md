@@ -14,12 +14,12 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ce9c5ddb08f3e81a0f0050048a8afef24e4c625
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0ae734ac8814cc605ce03756fde5545c77c837d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203726"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992057"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Como utilizar tópicos do Service Bus e as subscrições com PHP
 
@@ -343,6 +343,9 @@ Ao utilizar o `deleteSubscription` método, pode eliminar uma subscrição de fo
 ```php
 $serviceBusRestProxy->deleteSubscription("mytopic", "mysubscription");
 ```
+
+> [!NOTE]
+> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações, consulte [filas, tópicos e subscrições][Queues, topics, and subscriptions].

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: b826efc770399c9e1ccbbe5ab57318d512bdbf86
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: cb4ad20067783d8d6bd649710950fea51a22a454
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519084"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979149"
 ---
 # <a name="quickstart-build-a-java-application-using-azure-cosmos-db-sql-api-account"></a>Início rápido: Criar uma aplicação de Java utilizando a conta do Azure Cosmos DB SQL API
 

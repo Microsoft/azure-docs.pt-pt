@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 4e7956e8873b552fcd73c51a51f51d99f21af324
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 717c0f110ebbeee53e2c9b9207350385288d57c3
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61003016"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991386"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -60,14 +60,14 @@ O Cost Management suporta as seguintes funções incorporadas para cada um dos �
 - [**Proprietário** ](../role-based-access-control/built-in-roles.md#owner) – pode ver os custos e gerir tudo, incluindo a configuração de custo.
 - [**Contribuinte** ](../role-based-access-control/built-in-roles.md#contributor) – pode ver os custos e gerir tudo, incluindo a configuração de custo, mas excluindo o controlo de acesso.
 - [**Leitor** ](../role-based-access-control/built-in-roles.md#reader) – pode ver tudo, incluindo dados de custo e a configuração, mas não é possível fazer alterações.
-- [**Contribuinte de gestão de custos** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – pode ver os custos e gerir a configuração de custo.
-- [**Leitor de gestão de custos** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – pode ver os dados de custo e a configuração.
+- [**Contribuinte de gestão de custos** ](../role-based-access-control/built-in-roles.md#cost-management-contributor) – pode ver os custos, gerir a configuração de custo e ver recomendações.
+- [**Leitor de gestão de custos** ](../role-based-access-control/built-in-roles.md#cost-management-reader) – pode ver os dados de custo, configuração de custo e ver recomendações.
 
 Contribuinte de gestão de custos é a função de privilégio mínimo recomendada. Ele permite que as pessoas acesso criar e gerir os orçamentos e exporta mais efetivamente monitorizar e comunicar de custos. Os contribuintes de gestão de custos também podem exigir funções adicionais para suportar cenários de gestão de custos-a-ponto. Considere os seguintes cenários:
 
 - **Agir quando são ultrapassados orçamentos** – contribuidores de gestão de custos também precisam de acesso para criar e/ou gerir grupos de ação para reagirem automaticamente a utilização excedida. Considere a concessão [Contribuidor de monitorização](../role-based-access-control/built-in-roles.md#monitoring-contributor) num grupo de recursos que contém o grupo de ação para utilizar quando os limiares de orçamento forem ultrapassados. Automatizar as ações específicas necessita de funções adicionais para os serviços específicos usados, como a automatização e as funções do Azure.
 - **Agenda de exportação de dados de custos** – contribuidores de gestão de custos também precisam de acesso para gerir contas de armazenamento para agendar uma exportação para copiar dados para uma conta de armazenamento. Considere a concessão [contribuinte de conta de armazenamento](../role-based-access-control/built-in-roles.md#storage-account-contributor) num grupo de recursos que contém o armazenamento de conta em que os dados de custos é exportada.
-- **Ver recomendações de poupança de custos** – os leitores de gestão de custos e os contribuintes não tem acesso às recomendações por predefinição. Acesso a recomendações requer acesso de leitura para recursos individuais. Considere a concessão [leitor](../role-based-access-control/built-in-roles.md#reader) ou uma [específico do serviço de função](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Ver recomendações de poupança de custos** – os leitores de gestão de custos e os contribuintes de gestão de custos têm acesso às *vista* recomendações de custos por predefinição. No entanto, o acesso para tomar decisões sobre as recomendações de custo requer acesso a recursos individuais. Considere a conceder um [específico do serviço de função](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) para agir sobre uma recomendação com base no custo.
 
 ## <a name="enterprise-agreement-scopes"></a>Âmbitos de contrato Enterprise
 
@@ -218,7 +218,7 @@ Ao trabalhar com APIs de gestão de custos, saber que o âmbito é fundamental. 
 4. Copie o valor de campo de ID de recurso.
 5. O escopo é: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Gestão de custos é atualmente suportada no [Global do Azure](https://management.azure.com) e [Azure Government](https://management.usgovcloudapi.net). Para obter mais informações sobre o Azure Government, consulte [pontos de extremidade Global do Azure e a API de Governo](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)_._
+Gestão de custos é atualmente suportada no [Global do Azure](https://management.azure.com) e [Azure Government](https://management.usgovcloudapi.net). Para obter mais informações sobre o Azure Government, consulte [pontos de extremidade Global do Azure e a API de Governo](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Passos Seguintes
 

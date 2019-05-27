@@ -9,11 +9,11 @@ ms.date: 04/24/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 48bb91b3b2e9a31de63e515edb857bc2a170ea79
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867363"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132247"
 ---
 ## <a name="deploy-the-function-app-project-to-azure"></a>Implementar o projeto da aplicação de funções no Azure
 

@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
 ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58794024"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66130678"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 no Azure (pré-visualização)
 
@@ -512,10 +512,10 @@ Clique nas **Office 365** mosaico para abrir o **do Office 365** dashboard.
 
 O dashboard inclui as colunas da tabela seguinte. Cada coluna apresenta os alertas de dez principais por contagem que satisfaçam os critérios dessa coluna para o âmbito especificado e o intervalo de tempo. Pode executar uma pesquisa de registos que fornece toda a lista ao clicar em ver tudo na parte inferior da coluna ou ao clicar no cabeçalho da coluna.
 
-| Coluna | Descrição |
+| colunas | Descrição |
 |:--|:--|
 | Operações | Fornece informações sobre os utilizadores do Active Directory das suas subscrições do Office 365 tudo monitorizados. Também será capaz de ver o número de atividades que ocorrem ao longo do tempo.
-| Troca | Mostra a divisão de atividades do Exchange Server, como caixa de correio de adicionar permissão ou Set-Mailbox. |
+| Exchange | Mostra a divisão de atividades do Exchange Server, como caixa de correio de adicionar permissão ou Set-Mailbox. |
 | SharePoint | Mostra as atividades principais que os utilizadores executar nos documentos do SharePoint. Quando fazer uma busca detalhada neste mosaico, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e a localização desta atividade. Por exemplo, para um evento de aceder ao ficheiro, será capaz de ver o documento que está sendo acessado, seu nome de conta associada e o endereço IP. |
 | Azure Active Directory | Inclui atividades de utilizador principais, como repor a palavra-passe de utilizador e de tentativas de início de sessão. Quando fazer uma busca detalhada, será capaz de ver os detalhes dessas atividades, como o estado do resultado. Isto é principalmente útil se pretender monitorizar atividades suspeitas no seu Azure Active Directory. |
 
@@ -534,7 +534,7 @@ As seguintes propriedades são comuns a todos os registos do Office 365.
 |:--- |:--- |
 | Type | *OfficeActivity* |
 | ClientIP | O endereço IP do dispositivo que foi utilizado quando a atividade foi registada. O endereço IP é apresentado no formato de endereço de um IPv4 ou IPv6. |
-| OfficeWorkload | Serviço do Office 365 que referencia o registo.<br><br>AzureActiveDirectory<br>Troca<br>SharePoint|
+| OfficeWorkload | Serviço do Office 365 que referencia o registo.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Operação | O nome da atividade de utilizador ou administrador.  |
 | OrganizationId | O GUID para o inquilino do Office 365 da sua organização. Este valor será sempre o mesmo para a sua organização, independentemente do serviço do Office 365 em que ocorre. |
 | RecordType | Tipo de operação realizada. |
@@ -610,7 +610,7 @@ Estes registos são criados quando forem feitas alterações à configuração d
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Especifica se o cmdlet foi executado por um utilizador na sua organização, pela equipa de datacenter da Microsoft ou uma conta de serviço do Centro de dados ou por um administrador delegado. O valor False indica que o cmdlet foi executado por alguém na sua organização. O valor True indica que o cmdlet foi executado pela equipe do Centro de dados, uma conta de serviço do Centro de dados ou um administrador delegado. |
 | ModifiedObjectResolvedName |  Este é o nome amigável de utilizador do objeto que foi modificado pelo cmdlet. Isto é registado apenas se o cmdlet modifica o objeto. |
@@ -625,7 +625,7 @@ Estes registos são criados quando forem feitas alterações ou adições de cai
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Informações sobre o cliente de e-mail que foi utilizado para efetuar a operação, como uma versão do navegador, versão do Outlook e informações de dispositivos móveis. |
 | Client_IPAddress | O endereço IP do dispositivo que foi utilizado quando a operação foi iniciada. O endereço IP é apresentado no formato de endereço de um IPv4 ou IPv6. |
@@ -648,7 +648,7 @@ Estes registos são criados quando é criada uma entrada de auditoria da caixa d
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Exchange |
 | RecordType     | ExchangeItem |
 | Item | Representa o item no qual foi executada a operação | 
 | SendAsUserMailboxGuid | O GUID do Exchange da caixa de correio que foi acessado para enviar o e-mail. |
@@ -663,7 +663,7 @@ Estes registos são criados quando forem feitas alterações ou adições de gru
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Troca |
+| OfficeWorkload | Exchange |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Informações sobre cada item no grupo. |
 | CrossMailboxOperations | Indica se a operação envolvida mais do que uma caixa de correio. |

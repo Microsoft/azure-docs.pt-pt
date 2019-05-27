@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 11/8/2018
 ms.author: tomfitz
 ms.openlocfilehash: c80625fb36709f66319b4966e210785864f30d09
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270458"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128708"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Funções de matriz e objeto para modelos Azure Resource Manager
 
@@ -338,7 +338,7 @@ Verifica se uma matriz contém um valor, um objeto contém uma chave ou uma cade
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| contentor |Sim |cadeia de caracteres, objeto ou matriz |O valor que contém o valor a localizar. |
+| container |Sim |cadeia de caracteres, objeto ou matriz |O valor que contém o valor a localizar. |
 | itemToFind |Sim |cadeia de caracteres ou int |O valor a localizar. |
 
 ### <a name="return-value"></a>Valor de retorno
@@ -733,7 +733,7 @@ Devolve um objeto JSON.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| arg1 |Sim |cadeia |O valor a converter em JSON. |
+| arg1 |Sim |string |O valor a converter em JSON. |
 
 
 ### <a name="return-value"></a>Valor de retorno
@@ -782,7 +782,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
-| nullOutput | Booleano | Verdadeiro |
+| nullOutput | Boolean | Verdadeiro |
 | paramOutput | Object | {"a": "demo value"}
 
 Para implementar este modelo de exemplo com a CLI do Azure, utilize:
@@ -1011,7 +1011,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 <a id="min" />
 
-## <a name="min"></a>min.
+## <a name="min"></a>mín.
 `min(arg1)`
 
 Devolve o valor mínimo de uma matriz de inteiros ou uma lista separada por vírgulas de números inteiros.

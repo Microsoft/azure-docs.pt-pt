@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 48f714a505bc79f0556a829206821aef986ad5d0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf9ac0271e140d719da9a72424e1c01021fdf6c4
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818047"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957421"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Otimizar hiperparâmetros para o modelo com o serviço Azure Machine Learning
 
@@ -284,8 +284,8 @@ Configure a sua experiência com o espaço de pesquisa de hiper-parâmetros defi
 Configure a sua experimentação de otimização de hiper-parâmetros:
 
 ```Python
-from azureml.train.hyperdrive import HyperDriveRunConfig
-hyperdrive_run_config = HyperDriveRunConfig(estimator=estimator,
+from azureml.train.hyperdrive import HyperDriveConfig
+hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
                           hyperparameter_sampling=param_sampling, 
                           policy=early_termination_policy,
                           primary_metric_name="accuracy", 

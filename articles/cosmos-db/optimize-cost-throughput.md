@@ -4,14 +4,14 @@ description: Este artigo explica como otimizar os custos de débito para os dado
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ddbec882675dba4724406ad1ea8079df377c34fc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929030"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967297"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado de custo no Azure Cosmos DB
 
@@ -55,10 +55,10 @@ Conforme mostrado na tabela a seguir, consoante a opção da API, pode aprovisio
 
 |API|Para **partilhado** débito, configurar |Para **dedicado** débito, configurar |
 |----|----|----|
-|SQL API|Base de Dados|Contentor|
-|API do Azure Cosmos DB para MongoDB|Base de Dados|Coleção|
+|SQL API|Base de dados|Contentor|
+|API do Azure Cosmos DB para MongoDB|Base de dados|Coleção|
 |API de Cassandra|Espaço de chaves|Tabela|
-|API do Gremlin|Conta de base de dados|Graph|
+|API do Gremlin|Conta de base de dados|Gráfico|
 |API de Tabela|Conta de base de dados|Tabela|
 
 Ao débito de aprovisionamento em níveis diferentes, é possível otimizar os custos com base nas características da carga de trabalho. Como mencionado anteriormente, pode por meio de programação e em qualquer aumento do tempo ou diminuir o débito aprovisionado para qualquer um dos contentores individuais ou coletivamente num conjunto de contentores. Ao dimensionar elasticamente o débito como as alterações de carga de trabalho, paga apenas o débito que configurou. Se o seu contentor ou um conjunto de contentores é distribuído por várias regiões, em seguida, o débito configura no contentor ou um conjunto de contentores é garantido que estejam disponíveis em todas as regiões.

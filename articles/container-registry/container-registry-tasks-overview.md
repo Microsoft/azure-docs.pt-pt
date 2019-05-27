@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/20/2019
 ms.author: danlep
-ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc182743c3879ab2748f92022437bc23c26c371c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582419"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977204"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatizar o SO e aplicação de patches de estrutura com tarefas do ACR
 
@@ -94,6 +94,16 @@ Por exemplo, pode criar uma tarefa de várias etapa que automatiza o seguinte:
 Tarefas de vários passos permitem-lhe dividir a criação, execução e teste de uma imagem em etapas mais compostas, com suporte de dependência entre passo. Com tarefas de várias etapas nas tarefas do ACR, tem controle mais granular sobre a criação de imagem, teste e sistema operacional e estrutura de fluxos de trabalho de aplicação de patches.
 
 Saiba mais sobre tarefas de vários passos em [executar vários passo compilação, teste e as tarefas de patch no ACR tarefas](container-registry-tasks-multi-step.md).
+
+## <a name="view-task-logs"></a>Ver registos de tarefas
+
+Cada execução de tarefa gera a saída de registo que pode inspecionar para determinar se os passos de tarefas foi executado com êxito. Se utilizar o [compilação do az acr](/cli/azure/acr#az-acr-build), [acr az executar](/cli/azure/acr#az-acr-run), ou [execução da tarefa az acr](/cli/azure/acr/task#az-acr-task-run) comando para disparar a tarefa, saída de registo para a execução da tarefa é transmitida para a consola e também armazenada para utilizar mais tarde obtenção. Ver os registos para uma tarefa executar no portal do Azure ou utilizam o [registos de tarefas do az acr](/cli/azure/acr/task#az-acr-task-logs) comando.
+
+A partir de Julho de 2019, dados e registos de tarefas é executada num registo serão retidos por predefinição durante 30 dias e, em seguida, removidos automaticamente. Se pretende arquivar os dados para uma execução da tarefa, ativar o arquivamento do utilizando o [az acr tarefas atualização execução](/cli/azure/acr/task#az-acr-task-update-run) comando. O exemplo seguinte ativa o arquivamento para a execução da tarefa *cf11* no registo *myregistry*.
+
+```azurecli
+az acr task update-run --registry myregistry --run-id cf11 --no-archive false
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

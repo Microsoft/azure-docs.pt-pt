@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 076e3b41a50681e453c1a07575ac6cb7071d97d2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500639"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992028"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Início rápido: Utilizar a CLI do Azure para criar uma fila do Service Bus
 Este início rápido descreve como enviar e receber mensagens com o Service Bus, utilizando a CLI do Azure e a biblioteca de Java do Service Bus. Por fim, se estiver interessado em obter mais detalhes técnicos, pode [ler uma explicação](#understand-the-sample-code) dos elementos-chave do código de exemplo.
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, pode criar uma [conta gratuita][] antes
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 Se utilizar o **experimentar** botão para iniciar o Cloud Shell, inicie sessão no Azure com as suas credenciais. 
 
 Se iniciou o Cloud Shell no seu navegador da Web seja diretamente ou no portal do Azure, mude para o **Bash** se vir **PowerShell** no canto superior esquerdo do Cloud Shell. 
@@ -366,6 +366,9 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 }
 ```
+
+> [!NOTE]
+> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

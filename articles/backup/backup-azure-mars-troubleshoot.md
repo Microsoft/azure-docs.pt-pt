@@ -6,18 +6,38 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/18/2019
+ms.date: 05/21/2019
 ms.author: saurse
-ms.openlocfilehash: e36e0813b7a50c659a2c3ae61350381e83a1823f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 122f0884469a4901b02a1c86dd5ec98ef4fb24b0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686182"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000259"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Resolver problemas de agente do Microsoft Azure Recovery Services (MARS)
 
 Eis como resolver erros que poderá ver durante a configuração, registo, cópia de segurança e restaurar.
+
+## <a name="basic-troubleshooting"></a>Resolução de problemas básicos
+
+Recomendamos que efetue a abaixo validação, antes de começar a resolução de problemas de agente dos serviços de recuperação do Azure (MARS) da Microsoft:
+
+- [Certifique-se de que o agente de serviços de recuperação do Azure (MARS) da Microsoft é atualizado](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
+- [Certifique-se de que existe conectividade de rede entre o agente MARS e o Azure](https://aka.ms/AB-A4dp50)
+- Certifique-se de que os Serviços de Recuperação do Microsoft Azure estão em execução (na consola do Serviço). Se necessário, reinicie e volte a tentar a operação
+- [Certifique-se de que 5 a 10% de espaço livre do volume está disponível na localização da pasta de rascunho](https://aka.ms/AB-AA4dwtt)
+- [Verifique se outro processo ou software antivírus está a interferir com o Azure Backup](https://aka.ms/AB-AA4dwtk)
+- [A cópia de segurança agendada falha, mas a cópia de segurança manual funciona](https://aka.ms/ScheduledBackupFailManualWorks)
+- Certifique-se de que o seu SO tem as atualizações mais recentes
+- [Certifique-se de que as unidades não suportadas e os ficheiros com atributos não suportados são excluídos da cópia de segurança](backup-support-matrix-mars-agent.md#supported-drives-or-volumes-for-backup)
+- Certifique-se de que o **Relógio do Sistema** do sistema protegido está configurado para o fuso horário correto <br>
+- [Certifique-se de que o servidor tem, pelo menos, a versão 4.5.2 ou superior do .Net Framework](https://www.microsoft.com/download/details.aspx?id=30653)<br>
+- Se estiver a tentar **registar novamente o servidor** para um cofre, então: <br>
+  - Certifique-se de que o agente foi desinstalado no servidor e que foi eliminado do portal <br>
+  - Utilize a mesma frase de acesso que foi inicialmente utilizada para registar o servidor <br>
+- Em caso de cópia de segurança offline Certifique-se de que o Azure PowerShell versão 3.7.0 está instalado no computador de origem e de cópia, antes de iniciar a operação de cópia de segurança offline
+- [Consideração ao agente de cópia de segurança está em execução numa máquina virtual do Azure](https://aka.ms/AB-AA4dwtr)
 
 ## <a name="invalid-vault-credentials-provided"></a>Credenciais de cofre inválidas fornecidas
 
@@ -35,7 +55,7 @@ Eis como resolver erros que poderá ver durante a configuração, registo, cópi
 
 | Detalhes do erro | Causas possíveis | Ações recomendadas |
 | ---     | ---     | ---    |
-| **Error** <br /><ol><li>*O agente de serviço de recuperação do Microsoft Azure não conseguiu ligar ao Microsoft Azure Backup. (ID: 100050) Verifique as definições de rede e certifique-se de que conseguir estabelecer ligação à internet*<li>*(407) Proxy Authentication Required* ((407) Autenticação de Proxy Necessária) |Bloquear a ligação de proxy. |  <ul><li>Inicie **IE** > **definição** > **opções da Internet** > **segurança**  >  **Internet**. Em seguida, selecione **nível personalizado** e desloque-se até ver o ficheiro transferir secção. Selecione **Ativar**.<li>Também poderá ter de adicionar esses sites no IE [sites fidedignos](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Altere as definições para utilizar um servidor proxy. Em seguida, forneça o proxy de detalhes do servidor. <li>Se tiver software antivírus instalado no servidor, exclua os seguintes ficheiros da análise de software antivírus. <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionados com o .NET Framework). Há um CSC.exe para todas as versões do .NET que está instalada no servidor. Exclua ficheiros de CSC.exe que estão associados a todas as versões do .NET framework no servidor afetado. <li>Localização de pasta ou cache de rascunho. <br>*A localização predefinida para a pasta de rascunho ou o caminho de localização de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>A pasta bin C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
+| **Error** <br /><ol><li>*O agente de serviço de recuperação do Microsoft Azure não conseguiu ligar ao Microsoft Azure Backup. (ID: 100050) Verifique as definições de rede e certifique-se de que conseguir estabelecer ligação à internet*<li>*(407) Proxy Authentication Required* ((407) Autenticação de Proxy Necessária) |Bloquear a ligação de proxy. |  <ul><li>Inicie **IE** > **definição** > **opções da Internet** > **segurança**  >  **Internet**. Em seguida, selecione **nível personalizado** e desloque-se até ver o ficheiro transferir secção. Selecione **ativar**.<li>Também poderá ter de adicionar esses sites no IE [sites fidedignos](https://docs.microsoft.com/azure/backup/backup-try-azure-backup-in-10-mins).<li>Altere as definições para utilizar um servidor proxy. Em seguida, forneça o proxy de detalhes do servidor. <li>Se tiver software antivírus instalado no servidor, exclua os seguintes ficheiros da análise de software antivírus. <ul><li>CBEngine.exe (em vez de dpmra.exe).<li>CSC.exe (relacionados com o .NET Framework). Há um CSC.exe para todas as versões do .NET que está instalada no servidor. Exclua ficheiros de CSC.exe que estão associados a todas as versões do .NET framework no servidor afetado. <li>Localização de pasta ou cache de rascunho. <br>*A localização predefinida para a pasta de rascunho ou o caminho de localização de cache é C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch*.<li>A pasta bin C:\Program Files\Microsoft Azure Recovery Services Agent\Bin
 
 
 ## <a name="failed-to-set-the-encryption-key-for-secure-backups"></a>Falha ao definir a chave de encriptação de cópias de segurança seguras

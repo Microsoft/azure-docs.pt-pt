@@ -4,16 +4,16 @@ description: Âncoras espaciais do Azure é uma plataforma de serviço e program
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d38f7a22d90c62b245e49e6bdb0a3041c4f1023f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303307"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964564"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas mais frequentes acerca do Azure Spatial Anchors
 

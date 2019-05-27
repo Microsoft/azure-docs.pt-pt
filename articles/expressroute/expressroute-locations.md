@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/08/2019
+ms.date: 05/20/2019
 ms.author: pareshmu
-ms.openlocfilehash: 63d6d1419b0a70a0bcf3532a13d6f7491b792593
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 00748f0a245dd0c63d59b32113077b5b10915d3d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467688"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977960"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Parceiros e localizações de peering do ExpressRoute 
 
@@ -50,7 +50,7 @@ A tabela seguinte fornece um mapa de regiões do Azure para localizações do Ex
 | **Índia** | 2 |Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | 2 |Oeste do Japão, Leste do Japão |Osaka, Tóquio |
 | **Coreia do Sul** | 2 |Centro da Coreia, Sul da Coreia do Sul |Busan, Seul|
-| **EMIRADOS ÁRABES UNIDOS** | 3 | EAU Central, Norte dos eau | Dubai |
+| **EMIRADOS ÁRABES UNIDOS** | 3 | EAU Central, Norte dos eau | Dubai, Dubai2 |
 | **África do Sul** | 3 |África do Sul Ocidental, Norte da África do Sul |Cidade do Cabo, Joanesburgo |
 | **América do Sul** | 3 |Sul do Brasil |São Paulo |
 
@@ -93,8 +93,9 @@ A tabela seguinte mostra as localizações por fornecedor de serviços. Se quise
 | **[Comcast](https://business.comcast.com/landingpage/microsoft-azure)** |Suportado |Suportado |Chicago, Silicon Valley, Washington D.C. |
 | **[CoreSite](https://www.coresite.com/solutions/cloud-services/public-cloud-providers/microsoft-azure-expressroute)** |Suportado |Suportadas |Chicago, Denver, Los Angeles, Nova Iorque, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2 |
 | **[DE-CIX](https://www.de-cix.net/en/de-cix-service-world/directcloud/find-a-cloud-service/detail/microsoft-azure)** | Suportadas |Suportadas |Amsterdam2, Frankfurt|
+| **du datamena** |Suportadas |Suportadas | Dubai2 |
 | **eir** |Suportado |Suportado |Dublin|
-| **Epsilon Global Communications** |Suportado |Suportado |Singapura, Singapura2 |
+| **[Comunicações globais de épsilon](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Suportadas |Suportado |Singapura, Singapura2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Suportado |Suportadas |Amesterdão, Atlanta, Chicago, Dallas, Dublin, RAE de Hong Kong, Londres, London2, Los Angeles, Melbourne, Miami, Nova Iorque, Osaka, Paris, são Paulo, Seattle, Silicon Valley, Singapura, Sydney, Tóquio, Toronto, Washington D.C. |
 | **UAE Etisalat** |Suportadas |Suportadas |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Suportadas |Suportado |Amesterdão, Dublin, Londres |

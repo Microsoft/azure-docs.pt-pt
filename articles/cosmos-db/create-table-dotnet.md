@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 25f8a88c1b488b9272ed1254aaca79a79bc7e871
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 629adfe558aec71e156e50c75aa0891eac5a8bcf
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890776"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979039"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-sdk-and-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de API com o SDK do .NET e o Azure Cosmos DB tabela 
 
@@ -28,7 +28,7 @@ Este guia de introdução mostra como utilizar o .NET e a [API de Tabela](table-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não tiver o Visual Studio 2017 instalado, pode transferir e utilizar a [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) **gratuita**. Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
+Se ainda não tiver o Visual Studio 2019, instalado, pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

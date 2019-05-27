@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
 ms.openlocfilehash: 51c0d6dcb2ebc6bec567fee84b88d7bba8a873bf
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65910754"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132142"
 ---
 ## <a name="clean-up-resources"></a>Limpar recursos
 

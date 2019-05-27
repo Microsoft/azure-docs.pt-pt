@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e258670e863ff195190bae5cd50537e50d40d942
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 4cc742a6b1a7f3fc78e8639206e06c2937f00c30
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825648"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956909"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Trabalhar com domínios personalizados no Proxy de aplicações do Azure AD
 
@@ -71,7 +71,9 @@ Quando tem essas três requisitos prontos, siga estes passos para configurar o s
 ### <a name="certificate-format"></a>Formato do certificado
 Não existe nenhuma restrição os métodos de assinatura de certificado. Criptografia de curva elíptica (ECC), nome alternativo do requerente (SAN) e outros tipos de certificado comuns são todos suportados. 
 
-Pode utilizar um certificado de caráter universal, desde que o caráter universal corresponda ao URL externo pretendido. 
+Pode utilizar um certificado de caráter universal, desde que o caráter universal corresponda ao URL externo pretendido.
+
+Não é possível utilizar um certificado emitido pela sua própria infraestrutura de chaves públicas (PKI) devido a considerações de segurança.
 
 ### <a name="changing-the-domain"></a>Alterar o domínio
 Todos os domínios verificados aparecem na lista pendente de URL externo para a sua aplicação. Para alterar o domínio, basta Atualize esse campo para a aplicação. Se o domínio que pretende não estiver na lista, [adicioná-la como um domínio verificado](../fundamentals/add-custom-domain.md). Se selecionar um domínio que não têm um certificado associado ainda, siga os passos 5 a 7 para adicionar o certificado. Em seguida, certifique-se de que atualizar o registo DNS para redirecionar a partir do URL externo de novo. 

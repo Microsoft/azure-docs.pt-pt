@@ -1,27 +1,27 @@
 ---
-title: Modelos do Azure Resource Manager para o Azure Cosmos DB
-description: Utilize modelos Azure Resource Manager para criar e configurar o Azure Cosmos DB.
+title: Criar e gerir o Azure Cosmos DB utilizando modelos Azure Resource Manager
+description: Utilizar modelos Azure Resource Manager para criar e configurar o Azure Cosmos DB para SQL API (principal)
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: f61a9246b1edc5ac10b64f32cc27fd51dcedde94
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: a3798ac0c73c7bc6c4012dbb089275254f4c3504
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077759"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968832"
 ---
-# <a name="create-azure-cosmos-db-core-sql-api-resources-from-a-resource-manager-template"></a>Criar recursos de API do Azure Cosmos DB Core (SQL) a partir de um modelo do Resource Manager
+# <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Gerir recursos de API do Azure Cosmos DB SQL (núcleos), utilizando modelos do Azure Resource Manager
 
-Saiba como criar um recursos do Azure Cosmos DB com um modelo Azure Resource Manager. O exemplo seguinte cria uma conta do Azure Cosmos DB de uma [modelo de início rápido do Azure](https://aka.ms/sql-arm-qs). Este modelo irá criar uma conta do Cosmos do Azure com dois contentores que partilhem 400 débito de RU/s ao nível da base de dados.
+## Criar um Azure Cosmos conta, base de dados e um contentor <a id="create-resource"></a>
 
-Esta é uma cópia do modelo:
+Crie recursos do Azure Cosmos DB com um modelo Azure Resource Manager. Este modelo irá criar uma conta do Cosmos do Azure com dois contentores que partilhem 400 débito de RU/s ao nível da base de dados. Copiar o modelo e implementar, conforme mostrado abaixo ou visite [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) e implementar a partir do portal do Azure. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 
-## <a name="deploy-via-powershell"></a>Implementar através do PowerShell
+### <a name="deploy-via-powershell"></a>Implementar através do PowerShell
 
 Para implementar o modelo do Resource Manager com o PowerShell, **cópia** de script e selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
 
@@ -40,6 +40,8 @@ New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
     -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql/azuredeploy.json" `
+    -accountName $accountName `
+    -location $location `
     -primaryRegion $primaryRegion `
     -secondaryRegion $secondaryRegion `
     -databaseName $databaseName `
@@ -49,11 +51,9 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2015-04-08" --ResourceGroupName $resourceGroupName).name
 ```
 
-Se optar por utilizar uma versão instalada localmente do PowerShell, em vez de partir do Azure Cloud shell, terá [instalar](/powershell/azure/install-az-ps) o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão. 
+Se optar por utilizar uma versão instalada localmente do PowerShell, em vez de partir do Azure Cloud shell, terá [instalar](/powershell/azure/install-az-ps) o módulo Azure PowerShell. Executar `Get-Module -ListAvailable Az` para localizar a versão.
 
-No exemplo anterior, tem de referenciar um modelo armazenado no GitHub. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
-
-## <a name="deploy-via-azure-cli"></a>Implementar através da CLI do Azure
+### <a name="deploy-via-azure-cli"></a>Implementar através da CLI do Azure
 
 Para implementar o modelo do Resource Manager com CLI do Azure, selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
 
@@ -78,7 +78,86 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 O `az cosmosdb show` comando mostra a conta do Cosmos do Azure recentemente criada após ele ter sido aprovisionado. Se optar por utilizar uma versão instalada localmente da CLI do Azure em vez de usar CloudShell, consulte [Interface de linha de comandos (CLI do Azure)](/cli/azure/) artigo.
 
-No exemplo anterior, tem de referenciar um modelo armazenado no GitHub. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
+## Atualizar o débito (RU/s) num banco de dados <a id="database-ru-update"></a>
+
+O modelo seguinte irá atualizar o débito das bases de dados. Copiar o modelo e implementar, conforme mostrado abaixo ou visite [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/) e implementar a partir do portal do Azure. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
+
+[!code-json[cosmosdb-sql-database-ru-update](~/quickstart-templates/101-cosmosdb-sql-database-ru-update/azuredeploy.json)]
+
+### <a name="deploy-database-template-via-powershell"></a>Implementar o modelo de banco de dados através do PowerShell
+
+Para implementar o modelo do Resource Manager com o PowerShell, **cópia** de script e selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$throughput = Read-Host -Prompt "Enter new throughput for database"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-database-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -databaseName $databaseName `
+    -throughput $throughput
+```
+
+### <a name="deploy-database-template-via-azure-cli"></a>Implementar o modelo de banco de dados através da CLI do Azure
+
+Para implementar o modelo do Resource Manager com CLI do Azure, selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-database-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
+```
+
+## Atualizar (RU/s) de débito num contentor <a id="container-ru-update"></a>
+
+O modelo seguinte irá atualizar a taxa de transferência de um contentor. Copiar o modelo e implementar, conforme mostrado abaixo ou visite [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/) e implementar a partir do portal do Azure. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
+
+[!code-json[cosmosdb-sql-container-ru-update](~/quickstart-templates/101-cosmosdb-sql-container-ru-update/azuredeploy.json)]
+
+### <a name="deploy-container-template-via-powershell"></a>Implementar o modelo de contentores através do PowerShell
+
+Para implementar o modelo do Resource Manager com o PowerShell, **cópia** de script e selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$containerName = Read-Host -Prompt "Enter the container name"
+$throughput = Read-Host -Prompt "Enter new throughput for container"
+
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-ru-update/azuredeploy.json" `
+    -accountName $accountName `
+    -databaseName $databaseName `
+    -containerName $containerName `
+    -throughput $throughput
+```
+
+### <a name="deploy-container-template-via-azure-cli"></a>Implementar o modelo de contentores através da CLI do Azure
+
+Para implementar o modelo do Resource Manager com CLI do Azure, selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the container name: ' containerName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName containerName=$containerName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Próximos Passos
 

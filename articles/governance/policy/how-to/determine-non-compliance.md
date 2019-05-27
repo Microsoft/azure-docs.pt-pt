@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f856e9c42b26d4e286493e2eb5d019a8cff6c23
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64868726"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979353"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -85,7 +85,7 @@ Estes detalhes explicam por que um recurso está atualmente em não conformidade
 
 A matriz seguinte mapeia cada possível _motivo_ para o responsável [condição](../concepts/definition-structure.md#conditions) na definição de política:
 
-|Razão | Condição |
+|Reason | Condição |
 |-|-|
 |O valor atual tem de conter o valor de destino como uma chave. |containsKey ou **não** notContainsKey |
 |O valor atual tem de conter o valor de destino. |contém ou **não** notContains |
@@ -215,11 +215,11 @@ Como parte de um novo **pré-visualização pública**, os últimos 14 dias do h
 
 1. Selecione o **histórico de alterações (pré-visualização)** guia a **conformidade do recurso** página. Uma lista de detetou alterações, se qualquer exist, são apresentados.
 
-   ![Separador de histórico de alterações de política na página de recursos de conformidade](../media/determine-non-compliance/change-history-tab.png)
+   ![Separador de histórico de alterações de política do Azure na página de recursos de conformidade](../media/determine-non-compliance/change-history-tab.png)
 
 1. Selecione uma das alterações detetadas. O _visual diff_ para o recurso é apresentado no **histórico de alterações** página.
 
-   ![Diff Visual do histórico de alteração de política na página de histórico de alteração](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Azure política alteração histórico Visual Diff na página de histórico de alteração](../media/determine-non-compliance/change-history-visual-diff.png)
 
 O _visual diff_ aides na identificação de alterações a um recurso. Foram detetadas as alterações podem não estar relacionados com o atual estado de conformidade do recurso.
 
@@ -228,7 +228,7 @@ Dados de histórico de alterações são fornecidos pela [gráfico de recursos d
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja exemplos em [exemplos do Azure Policy](../samples/index.md).
-- Veja a [Estrutura de definição do Policy](../concepts/definition-structure.md).
+- Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).
 - Compreender como [criar políticas programaticamente](programmatically-create.md).
 - Saiba como [obter dados de conformidade](getting-compliance-data.md).

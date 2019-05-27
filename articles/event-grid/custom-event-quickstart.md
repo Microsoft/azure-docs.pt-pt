@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
 ms.openlocfilehash: d135b89d2b053e5d8d98a1319ae21759f3ff5594
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462254"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156081"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início rápido: Encaminhar eventos personalizados para o ponto final da web com a CLI do Azure e o Event Grid
 

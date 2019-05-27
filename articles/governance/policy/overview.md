@@ -7,16 +7,16 @@ ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 0e66327a04d1390061580d82716b44b25139bf67
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2dd31ab29479fade21d27b8e2c23952f905f530a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60953098"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979164"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Descrição geral do serviço do Azure Policy
 
-Governação valida que sua organização pode atingir as metas por meio de uma utilização eficaz e eficiente de IT. Ele atende a essa necessidade criando clareza entre os objetivos empresariais e projetos de TI.
+Governação valida que sua organização pode atingir as metas através da utilização eficaz e eficiente de IT. Ele atende a essa necessidade criando clareza entre os objetivos empresariais e projetos de TI.
 
 A sua empresa tem um número significativo de problemas de TI que parece nunca ficarem resolvidos?
 Uma boa governação de TI envolve o planeamento das suas iniciativas e a definição de prioridades num nível estratégico para ajudar a gerir e evitar problemas. Essa necessidade estratégica é onde entra o Azure Policy.
@@ -28,7 +28,7 @@ O Azure Policy é um serviço do Azure que utiliza para criar, atribuir e gerir 
 
 ## <a name="how-is-it-different-from-rbac"></a>Em que medida é diferente do RBAC?
 
-Existem algumas diferenças fundamentais entre a política e o controlo de acesso baseado em funções (RBAC). O RBAC concentra-se nas ações do utilizador em âmbitos diferentes. Pode ser adicionado à função de Contribuidor para um grupo de recursos, permitindo-lhe efetuar alterações ao grupo de recursos. A política concentra-se nas propriedades dos recursos durante a implementação e para recursos já existentes. Política controla as propriedades, como os tipos ou localizações de recursos. Ao contrário do RBAC, a política está a permitir a um padrão e explícito sistema de negação.
+Existem algumas diferenças fundamentais entre o Azure Policy e o controlo de acesso baseado em funções (RBAC). O RBAC concentra-se nas ações do utilizador em âmbitos diferentes. Pode ser adicionado à função de Contribuidor para um grupo de recursos, permitindo-lhe efetuar alterações ao grupo de recursos. Focos de política do Azure nas propriedades dos recursos durante a implementação e para já existentes de recursos. O Azure Policy controla as propriedades, como os tipos ou localizações de recursos. Ao contrário do RBAC, o Azure Policy é um padrão permitir e explícito sistema de negação.
 
 ### <a name="rbac-permissions-in-azure-policy"></a>Permissões RBAC no Azure Policy
 
@@ -37,7 +37,7 @@ O Azure Policy tem várias permissões, conhecidas como operações, em dois For
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. O **contribuinte de política de recurso (pré-visualização)** função inclui a maioria das operações de política. **Proprietário** tem direitos totais. Ambos **contribuinte** e **leitor** pode utilizar todas as operações de leitura de política, mas **contribuinte** também pode acionar a remediação.
+Muitas Funções incorporadas concedem permissão aos recursos do Azure Policy. O **contribuinte de política de recurso (pré-visualização)** função inclui a maioria das operações de política do Azure. **Proprietário** tem direitos totais. Ambos **contribuinte** e **leitor** pode utilizar a leitura de todas as operações de Azure Policy, mas **contribuinte** também pode acionar a remediação.
 
 Se nenhuma das Funções incorporadas tiver as permissões exigidas, crie uma [função personalizada](../../role-based-access-control/custom-roles.md).
 
@@ -68,7 +68,7 @@ Uma atribuição de política é uma definição de política que foi atribuída
 
 Por exemplo, no âmbito da subscrição, pode atribuir uma política que impede a criação de recursos de rede. Poderia excluir um grupo de recursos nessa subscrição que se destina a infraestrutura de rede. Em seguida, concede acesso a este grupo de recursos de rede para os usuários que confia com a criação de recursos de rede.
 
-Noutro exemplo, poderá atribuir uma política de lista aprovada de tipo de recurso ao nível do grupo de gestão. Em seguida, atribua uma política mais permissiva (permitindo mais tipos de recursos) num grupo de gestão subordinado ou mesmo diretamente em subscrições. No entanto, este exemplo não funciona porque a política é um sistema de negação explícita. Em vez disso, tem de excluir o grupo de gestão do subordinado ou uma subscrição da atribuição de política ao nível do grupo de gestão. Em seguida, atribua a política mais permissiva no grupo de gestão subordinado ou ao nível da subscrição. Se qualquer política resulta num recurso negado de introdução, em seguida, a única forma de permitir que o recurso é modificar a política de negação.
+Noutro exemplo, pode querer atribuir um recurso de tipo de permitir que a política de lista ao nível do grupo de gestão. Em seguida, atribua uma política mais permissiva (permitindo mais tipos de recursos) num grupo de gestão subordinado ou mesmo diretamente em subscrições. No entanto, este exemplo não funciona porque a política é um sistema de negação explícita. Em vez disso, tem de excluir o grupo de gestão do subordinado ou uma subscrição da atribuição de política ao nível do grupo de gestão. Em seguida, atribua a política mais permissiva no grupo de gestão subordinado ou ao nível da subscrição. Se qualquer política resulta num recurso negado de introdução, em seguida, a única forma de permitir que o recurso é modificar a política de negação.
 
 Para obter mais informações sobre a configuração de definições e atribuições de política através do portal, veja [Criar uma atribuição de política para identificar recursos não conformes no ambiente do Azure](assign-policy-portal.md). Também estão disponíveis passos para o [PowerShell](assign-policy-powershell.md) e a [CLI do Azure](assign-policy-azurecli.md).
 
@@ -115,7 +115,7 @@ Neste cenário, quando define os parâmetros da iniciativa para **initiativeC**,
 
 Ao criar opções de valor numa definição de iniciativa, não for possível introduzir um valor diferente durante a atribuição de iniciativa, porque não faz parte da lista.
 
-## <a name="maximum-count-of-policy-objects"></a>Contagem máxima de objetos do Azure Policy
+## <a name="maximum-count-of-azure-policy-objects"></a>Contagem máxima de objetos de política do Azure
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -144,8 +144,8 @@ A seguinte descrição geral do Azure Policy é do Build 2018. Para slides ou do
 
 Agora que tem uma ideia geral do Azure Policy e de alguns dos principais conceitos, seguem-se os passos sugeridos seguintes:
 
-- [Atribuir uma definição de política com o portal](assign-policy-portal.md)
-- [Atribuir uma definição de política com a CLI do Azure](assign-policy-azurecli.md)
-- [Atribuir uma definição de política com o PowerShell](assign-policy-powershell.md)
-- Rever o que é um grupo de gestão, com [Organizar os recursos com grupos de gestão do Azure](..//management-groups/overview.md)
-- Ver [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) (Governar o ambiente do Azure através do Azure Policy) no Channel 9
+- [Atribuir uma definição de política com o portal](assign-policy-portal.md).
+- [Atribuir uma definição de política com a CLI do Azure](assign-policy-azurecli.md).
+- [Atribuir uma definição de política com o PowerShell](assign-policy-powershell.md).
+- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](..//management-groups/overview.md).
+- Modo de exibição [regem o seu ambiente do Azure através da política do Azure](https://channel9.msdn.com/events/Build/2018/THR2030) no Channel 9.

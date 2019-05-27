@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d345645337d070be15346b245bfaecd1cabc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45ff198f55ff769667cfaef2dd8665d2c34314e9
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415474"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987766"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurar o Servidor Multi-Factor Authentication do Azure para trabalhar com o AD FS 2.0
 
@@ -85,7 +85,7 @@ Ativou a autenticação do IIS, mas para executar a pré-autenticação para o A
 3. Se os utilizadores introduzirem o respetivo nome de utilizador no formato "domínio\nomedeutilizador", o Servidor tem de conseguir retirar o domínio do nome de utilizador quando criar a consulta de LDAP. Isso pode ser feito através de uma definição de registo.
 4. Abra o editor de registo e aceda a HKEY_LOCAL_MACHINE/SOFTWARE/Wow6432Node/Positive Networks/PhoneFactor num servidor de 64 bits. Se estiver num servidor de 32 bits, execute "Wow6432Node" fora do caminho. Crie uma chave de registo DWORD denominada “UsernameCxz_stripPrefixDomain” e defina o valor como 1. O Multi-Factor Authentication do Azure está agora a proteger o proxy do AD FS.
 
-Certifique-se de que os utilizadores foram importados do Active Directory para o Servidor. Veja a [secção IPs Fidedignos](#trusted-ips) se pretender adicionar endereços IP internos à lista de permissões para que a verificação em dois passos não seja precisa ao iniciar sessão no site a partir dessas localizações.
+Certifique-se de que os utilizadores foram importados do Active Directory para o Servidor. Consulte a [secção IPs fidedignos](#trusted-ips) se quiser permitir interno de endereços IP para que a verificação de dois passos não é necessária ao iniciar sessão site a partir dessas localizações.
 
 ![Editor de registo para configurar definições da empresa](./media/howto-mfaserver-adfs-2/reg.png)
 
@@ -109,15 +109,17 @@ Pode proteger o AD FS quando o proxy do AD FS não é utilizado. Instale o Servi
 
 O Multi-Factor Authentication do Azure está agora a proteger o AD FS.
 
-Certifique-se de que os utilizadores foram importados do Active Directory para o Servidor. Veja a secção IPs Fidedignos se pretender adicionar endereços IP internos à lista de permissões para que a verificação em dois passos não seja precisa ao iniciar sessão no site a partir dessas localizações.
+Certifique-se de que os utilizadores foram importados do Active Directory para o Servidor. Consulte a secção IPs fidedignos se gostaria de permitir endereços IP internos, para que a verificação de dois passos não é necessária ao iniciar sessão site a partir dessas localizações.
 
 ## <a name="trusted-ips"></a>IPs Fidedignos
+
 Os IPs Fidedignos permitem aos utilizadores ignorar o Multi-Factor Authentication do Azure para pedidos de sites com origem em sub-redes ou endereços IP específicos. Por exemplo, pode querer excluir utilizadores da verificação em dois passos quando iniciam sessão a partir do escritório. Para tal, especifique a sub-rede do escritório como uma entrada de IPs Fidedignos.
 
 ### <a name="to-configure-trusted-ips"></a>Para configurar IPs fidedignos
+
 1. Na secção Autenticação do IIS, clique no separador **IPs Fidedignos**.
 2. Clique no botão **Adicionar…** Editar...
 3. Quando for apresentada a caixa de diálogo Adicionar IPs Fidedignos, selecione o botão de opção **IP único**, **Intervalo de IPs** ou **Sub-rede**.
-4. Introduza o endereço IP, o intervalo de endereços IP ou a sub-rede que deve colocar na lista de permissões. Se introduzir uma sub-rede, selecione a Máscara de rede adequada e clique no botão **OK**. O IP fidedigno foi agora adicionado.
+4. Introduza o endereço IP, intervalo de endereços IP ou sub-rede que deve ser permitido. Se introduzir uma sub-rede, selecione a Máscara de rede adequada e clique no botão **OK**.
 
 ![Configurar IPs fidedignos para o servidor MFA](./media/howto-mfaserver-adfs-2/trusted.png)

@@ -4,16 +4,16 @@ description: Explicação detalhada sobre como criar e localizar as âncoras usa
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 966a8bd5990f955a3ec66ae465d14a0369d0cdf9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 940768f6b6921701a91107a809d6260aa2a51213
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60235464"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964970"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Como criar e localizar as âncoras usando âncoras espaciais do Azure em C++ /CLI WinRT
 

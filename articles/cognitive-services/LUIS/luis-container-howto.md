@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: 7c3b93db18cb8e2660118927da47ffe95abb900f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
-ms.translationtype: MT
+ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072995"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124312"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -109,7 +109,7 @@ O diretório de montagem de entrada pode conter os **produção**, **teste**, e 
 |Tipo de pacote|API de ponto final da consulta|Disponibilidade de consulta|Formato de nome de ficheiro de pacote|
 |--|--|--|--|
 |Preparado|GET, Post|Contentor apenas|`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`|
-|Teste|GET, Post|Azure e contentores|`{APPLICATION_ID}_STAGING.gz`|
+|Testes|GET, Post|Azure e contentores|`{APPLICATION_ID}_STAGING.gz`|
 |Produção|GET, Post|Azure e contentores|`{APPLICATION_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -255,6 +255,10 @@ Obter mais [exemplos](luis-container-configuration.md#example-docker-run-command
 > O valor de ApiKey é o **chave** também está disponível no Azure e as chaves e os pontos finais de página no portal do LUIS `Cognitive Services` página de chaves do recurso.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+## <a name="endpoint-apis-supported-by-the-container"></a>Ponto final de APIs suportadas pelo contêiner
+
+Ambos os V2 e [V3 (pré-visualização)](luis-migration-api-v3.md) versões da API estão disponíveis com o contentor. 
 
 ## <a name="query-the-containers-prediction-endpoint"></a>Consultar o ponto final de predição do contentor
 

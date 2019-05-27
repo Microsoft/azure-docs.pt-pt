@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 9fa76c9637a6dcdca48bf45e8ee2aa9305a4f64f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522198"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130445"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Compreender o estado de funcionamento das suas máquinas virtuais do Azure
 
@@ -85,7 +85,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 Antes de explorar a utilizar a funcionalidade de estado de funcionamento de uma única máquina virtual ou o grupo de VMs, é importante, fornecemos uma breve introdução para compreender como as informações são apresentadas e o que representam as visualizações.  
 
-## <a name="view-health-directly-from-a-virtual-machine"></a>Ver estado de funcionamento diretamente a partir de uma máquina virtual 
+### <a name="view-health-directly-from-a-virtual-machine"></a>Ver estado de funcionamento diretamente a partir de uma máquina virtual 
 
 Para ver o estado de funcionamento de uma VM do Azure, selecione **Insights (pré-visualização)** no painel esquerdo da máquina virtual. Na página de informações VM, **estado de funcionamento** está aberta por predefinição e mostra a vista de estado de funcionamento da VM.  
 
@@ -96,11 +96,21 @@ Sobre o **estado de funcionamento** separador, na secção **estado de funcionam
 Os Estados de funcionamento definidos para uma VM são descritos na tabela a seguir: 
 
 |Ícone |Estado de funcionamento |Significado |
-|-----|-------------|------------|
+|-----|-------------|---------------|
 | |Bom Estado de Funcionamento |Estado de funcionamento está em bom estado, se for dentro as condições de estado de funcionamento definidos, indicando que nenhum problema detetado para a VM e está a funcionar conforme necessário. Com um monitor de rollup principal, rolls-up do Estado de funcionamento e ela reflete o estado de mais favorável ou pior do filho.|
 | |Crítica |Estado de funcionamento é crítico, se não se encontra na condição de estado de funcionamento definidos, que indica que foram detetados um ou mais problemas críticos, que precisam ser abordadas para restaurar o funcionamento normal. Com um monitor de rollup principal, rolls-up do Estado de funcionamento e ela reflete o estado de mais favorável ou pior do filho.|
 | |Aviso |Estado de funcionamento é aviso se estiver entre dois limiares para a condição de estado de funcionamento definidos, onde um indica uma *aviso* estado e a outra indica um *crítico* Estado (três limiares de estado de funcionamento podem ser configurado), ou quando é detetado um problema de não-críticas que pode causar problemas críticos, se não resolvido. Com um rollup principal monitor, se um ou mais dos filhos estão num Estado de aviso, em seguida, irá refletir o pai *aviso* estado. Se houver um filho que está numa *crítico* e outro filho num *aviso* Estado, o rollup principal mostrará um Estado de funcionamento *crítico*.|
-| |Desconhecidos |Estado de funcionamento está numa *desconhecido* estado quando o estado de funcionamento não é possível calcular por várias razões, tais como não é possível recolher dados, o serviço não inicializados, etc. Este estado de funcionamento não é configurável.| 
+| |Desconhecidos |Estado de funcionamento é *desconhecido* quando não é possível calcular por vários motivos. Consulte a seguinte nota de rodapé <sup>1</sup> para obter mais detalhes e possíveis soluções para resolvê-los. |
+
+<sup>1</sup> desconhecido o estado de funcionamento é causado pelos seguintes problemas:
+
+- Agente foi reconfigurado e já não relatórios para a área de trabalho especificado quando o Azure Monitor para VMs foi ativado. Para configurar o agente para reportar para a área de trabalho, consulte [adição ou remoção de uma área de trabalho](../platform/agent-manage.md#adding-or-removing-a-workspace).
+- VM tiver sido eliminada.
+- Área de trabalho associada com o Azure Monitor para VMs é eliminada. Para recuperar a área de trabalho, se tiver que pode abrir um pedido de suporte com benefícios de suporte Premier [Premier](https://premier.microsoft.com/).
+- Dependências de solução tem sido eliminadas. Para reativar as soluções de ServiceMap e InfrastructureInsights na sua área de trabalho do Log Analytics, pode reinstalar com um [modelo Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions) que tenha fornecido ou ao utilizar a opção de configurar a área de trabalho foi encontrado no Obtenha o guia de introdução.
+- VM foi encerrado.
+- O serviço VM do Azure não está disponível ou está a ser executada manutenção.
+- Área de trabalho [dados diária ou limite de retenção](../platform/manage-cost-storage.md) for cumprida.
 
 Selecionando **ver o diagnóstico de estado de funcionamento** abre uma página que mostra todos os componentes da VM, critérios de estado de funcionamento associado, alterações de estado e outros problemas importantes encontrados por monitorizar componentes relacionados com a VM. Para obter mais informações, consulte [diagnóstico de estado de funcionamento](#health-diagnostics). 
 
@@ -108,7 +118,7 @@ Sob o **estado de funcionamento do componente** secção, a tabela mostra um Est
 
 Ao aceder ao estado de funcionamento a partir de uma VM do Azure com o sistema operativo do Windows, o estado de funcionamento da parte superior cinco principais Windows serviços são apresentados na secção **Core dos serviços de estado de funcionamento**.  Selecionar qualquer um dos serviços é aberta uma página listando os critérios de estado de funcionamento monitorização esse componente e o estado de integridade.  Ao clicar no nome dos critérios de estado de funcionamento irá abrir o painel de propriedades e a partir daqui pode rever os detalhes de configuração, incluindo se os critérios de estado de funcionamento tem um alerta correspondente do Azure Monitor definido. Para obter mais informações, consulte [diagnóstico de estado de funcionamento e trabalhar com os critérios de estado de funcionamento](#health-diagnostics).  
 
-## <a name="aggregate-virtual-machine-perspective"></a>Ponto de vista de máquina de virtual agregado
+### <a name="aggregate-virtual-machine-perspective"></a>Ponto de vista de máquina de virtual agregado
 
 Para ver a recolha de estado de funcionamento para todas as suas máquinas virtuais num grupo de recursos, na lista de navegação no portal, selecione **do Azure Monitor** e, em seguida, selecione **máquinas virtuais (pré-visualização)**.  
 
@@ -154,7 +164,7 @@ Pode explorar ainda mais baixo para ver quais as instâncias estão em mau estad
 
 ## <a name="health-diagnostics"></a>Diagnóstico de estado de funcionamento
 
-Thge **diagnóstico de estado de funcionamento** página permite visualizar o modelo de estado de funcionamento de uma VM, todos os componentes da VM, a listagem associado critérios de estado de funcionamento, as alterações de estado, e outros problemas importantes identificados pelo monitorizado componentes relacionados com para a VM.
+O **diagnóstico de estado de funcionamento** página permite visualizar o modelo de estado de funcionamento de uma VM, todos os componentes da VM, a listagem associado critérios de estado de funcionamento, as alterações de estado, e outros problemas importantes identificados pelo monitorizado componentes relacionados com para a VM.
 
 ![Exemplo de página de diagnóstico de estado de funcionamento para uma VM](./media/vminsights-health/health-diagnostics-page-01.png)
 
@@ -343,7 +353,7 @@ Para ativar ou desativar um alerta para um critério de estado de funcionamento 
 O Azure Monitor de estado de funcionamento de VMs suporta notificações de e-mail e SMS quando são gerados alertas quando os critérios de estado de funcionamento fica danificado. Para configurar notificações, terá de tome nota do nome do grupo de ação que está configurado para enviar notificações de e-mail ou SMS. 
 
 >[!NOTE]
->Esta ação tem de ser efetuada em relação a cada VM monitorizada que pretende receber uma notificação para.
+>Esta ação tem de ser efetuada em relação a cada VM monitorizada que pretende receber uma notificação para, não é aplicável a todas as VMs no grupo de recursos.  
 
 1. Na janela do terminal, escreva **armclient.exe início de sessão**. Se o fizer, pede-lhe para iniciar sessão no Azure.
 

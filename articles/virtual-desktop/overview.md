@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b3192d848e77c59d0ff6950e647d1faf172484b5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 820c89ce352db772f629a99a438ed86448af02fe
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606404"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965728"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>O que é o Windows Virtual Desktop Preview? 
 
@@ -54,11 +54,6 @@ Também pode atribuir e conectar os usuários a suas áreas de trabalho virtual:
 
 Existem algumas coisas que precisa para configurar a área de Trabalho Virtual do Windows e ligar com êxito os usuários a seus ambientes de trabalho do Windows e aplicativos.
 
-Atualmente a área de Trabalho Virtual do Windows só suporta os seguintes dois sistemas operacionais:
-
-* Windows 10 Enterprise multi-session
-* Windows Server 2016
-
 Planeamos adicionar suporte para os sos seguintes, por isso, certifique-se de que tem o [apropriado de licenças](https://azure.microsoft.com/pricing/details/virtual-desktop/) para os seus utilizadores com base no ambiente de trabalho e aplicações que planeia implementar:
 
 |SO|Licença necessária|
@@ -78,9 +73,7 @@ A infraestrutura precisa dos seguintes pontos para oferecer suporte a área de T
 As máquinas virtuais do Azure que criar para a área de Trabalho Virtual do Windows tem de ser:
 
 * [Padrão associado a um domínio](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [associados ao AD híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). Máquinas virtuais não pode ser associado ao AD do Azure.
-* Executar um dos seguintes imagens de SO suportadas:
-  * Windows 10 Enterprise multi-session
-  * Windows Server 2016
+* Executar um dos seguintes procedimentos [suportadas imagens do sistema operacional](#supported-virtual-machine-os-image).
 
 >[!NOTE]
 >Se precisar de uma subscrição do Azure, pode [Inscreva-se numa avaliação gratuita de um mês](https://azure.microsoft.com/free/). Se estiver a utilizar o versão de avaliação gratuita do Azure, deve utilizar o Azure AD Domain Services para manter o Windows Server Active Directory sincronizado com o Azure Active Directory.
@@ -92,6 +85,21 @@ Para um desempenho ideal, certifique-se de que a sua rede cumpre os seguintes re
 * Latência de ida e volta (RTT) da rede do cliente para a região do Azure em que foram implementados conjuntos de anfitrião deve ser inferior a 150 ms.
 * Tráfego de rede pode fluir bordas de país/região externa quando as VMs que alojam aplicações e áreas de trabalho ligar para o serviço de gestão.
 * Para otimizar o desempenho da rede, recomendamos que VMs o anfitrião de sessões estão colocalizadas na mesma região do Azure como o serviço de gestão.
+
+## <a name="supported-remote-desktop-clients"></a>Clientes suportados do ambiente de trabalho remoto
+
+Os seguintes clientes de ambiente de trabalho remoto suportam a área de Trabalho Virtual do Windows:
+
+* [Windows](https://docs.microsoft.com/azure/virtual-desktop/connect-windows-7-and-10)
+* [HTML5](https://docs.microsoft.com/azure/virtual-desktop/connect-web)
+
+
+## <a name="supported-virtual-machine-os-image"></a>Imagem de SO suportadas da máquina virtual
+
+Área de Trabalho Virtual do Windows suporta as seguintes imagens de sistema operacional:
+
+* Windows 10 Enterprise multi-session
+* Windows Server 2016
 
 ## <a name="provide-feedback"></a>Enviar comentários
 

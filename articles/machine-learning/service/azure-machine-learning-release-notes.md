@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 892b9bc63f9f2d9abc7108587a7bf929473e4648
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65779439"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989850"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -30,6 +30,24 @@ Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais 
 ### <a name="azure-machine-learning-sdk-for-python-v1039"></a>Azure Machine Learning SDK for Python v1.0.39
 + **Alterações**
   + Opção de auto_prepare_environment de configuração de execução está a ser preterida, com automática prepare tornar-se a predefinição.
+
+## <a name="2019-05-08"></a>2019-05-08
+
+### <a name="azure-machine-learning-data-prep-sdk-v113"></a>SDK v1.1.3 de preparação de dados do Azure Machine Learning
+
++ **Novos recursos**
+  + Foi adicionado suporte para ler a partir de uma base de dados PostgresSQL, ao chamar read_postgresql ou usando um arquivo de dados.
+    + Veja exemplos de guias de procedimentos:
+      + [Bloco de notas de ingestão de dados](https://aka.ms/aml-data-prep-ingestion-nb)
+      + [O bloco de notas do arquivo de dados](https://aka.ms/aml-data-prep-datastore-nb)
+
++ **Melhorias e correções de erros**
+  + Foi corrigidos problemas com a conversão de tipo de coluna:
+  + Agora converte corretamente uma coluna booleana ou numérica para uma coluna booleana.
+  + Agora não falha durante a tentativa de definir uma coluna de data para o tipo de data.
+  + Melhor JoinType tipos e documentação de referência associada. Ao associar dois fluxos de dados, pode agora especificar um dos seguintes tipos de associação:
+    + NENHUM, CORRESPONDEM, INTERNO, UNMATCHLEFT, LEFTANTI, LEFTOUTER, UNMATCHRIGHT, RIGHTANTI, RIGHTOUTER, FULLANTI, COMPLETA.
+  + Inferência a reconhecer mais formatos de data do tipo de dados melhorados.
 
 ## <a name="2019-05-06"></a>2019-05-06
 
@@ -367,7 +385,7 @@ O serviço do Azure Machine Learning está agora em disponibilidade geral.
 Com esta versão, estamos a anunciar uma nova experiência de computação gerida através da [computação do Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute). Este destino de computação substitui a computação do Azure Batch AI para o Azure Machine Learning. 
 
 Este destino de computação:
-+ É utilizada para a inferência de treinamento e em lote de modelo
++ É utilizado para o modelo treinamento e batch inferência de tipos/de classificação
 + É a computação de único - para várias - node
 + Faz a gestão de cluster e de agendamento para o utilizador de tarefas
 + É dimensionado automaticamente por predefinição

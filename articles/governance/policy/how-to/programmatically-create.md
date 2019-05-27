@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c4bb06bd4c75dfeb164341d8cc5084030d3a08a7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276495"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979317"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Criar políticas e ver os dados de conformidade através de programação
 
-Este artigo descreve a criação e a gestão de políticas por meio de programação. Definições de política impõem diferentes regras e efeitos aos recursos. Imposição certifica-se de que recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço.
+Este artigo descreve a criação e a gestão de políticas por meio de programação. Definições de política do Azure impõem diferentes regras e efeitos aos recursos. Imposição certifica-se de que recursos mantêm-se em conformidade com os seus padrões empresariais e contratos de nível de serviço.
 
 Para obter informações sobre a conformidade, consulte [obtenção de dados de conformidade](getting-compliance-data.md).
 
@@ -31,13 +31,13 @@ Antes de começar, certifique-se de que são cumpridos os seguintes pré-requisi
 
 1. Atualize seu módulo Azure PowerShell para a versão mais recente. Ver [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps) para obter informações detalhadas. Para obter mais informações sobre a versão mais recente, consulte [do Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
-1. Registe o fornecedor de recursos do Policy Insights com o Azure PowerShell para validar que a sua subscrição funciona com o fornecedor de recursos. Para registar um fornecedor de recursos, tem de ter permissão para executar a operação de ação de registo para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
+1. Registe o fornecedor de recursos de informações de política do Azure com o Azure PowerShell para validar que a sua subscrição funciona com o fornecedor de recursos. Para registar um fornecedor de recursos, tem de ter permissão para executar a operação de ação de registo para o fornecedor de recursos. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
    ```azurepowershell-interactive
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Para obter mais informações sobre como registar e visualizar os fornecedores de recursos, consulte [fornecedores de recursos e os tipos de](../../../azure-resource-manager/resource-manager-supported-services.md).
+   Para obter mais informações sobre como registar e visualizar os fornecedores de recursos, veja [Fornecedores e Tipos de Recursos](../../../azure-resource-manager/resource-manager-supported-services.md).
 
 1. Se ainda não o fez, instale a CLI do Azure. Pode obter a versão mais recente na [instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows).
 
@@ -148,7 +148,7 @@ Utilize o procedimento seguinte para criar uma definição de política.
 
    Substitua {subscriptionId} anterior com o ID da sua subscrição ou {managementGroupId} com o ID da sua [grupo de gestão](../../management-groups/overview.md).
 
-   Para obter mais informações sobre a estrutura da consulta, consulte [definições de política – criar ou atualizar](/rest/api/resources/policydefinitions/createorupdate) e [definições de política – criação ou atualização no grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
+   Para obter mais informações sobre a estrutura da consulta, consulte [definições de política do Azure – criar ou atualizar](/rest/api/resources/policydefinitions/createorupdate) e [definições de política – criação ou atualização no grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup)
 
 Utilize o procedimento seguinte para criar uma atribuição de política e atribuir a definição de política ao nível do grupo de recursos.
 
@@ -230,7 +230,7 @@ Para criar uma definição de política, utilize o seguinte procedimento:
    - Subscrição- `/subscriptions/{subID}`
    - Grupo de gestão- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Pode obter o ID de definição de política com o PowerShell com o seguinte comando:
+Pode obter o ID de definição de política do Azure com o PowerShell com o seguinte comando:
 
 ```azurecli-interactive
 az policy definition show --name 'Audit Storage Accounts with Open Public Networks'
@@ -251,5 +251,5 @@ Reveja os artigos seguintes para obter mais informações sobre os comandos e co
 - [Recursos da API REST do Azure](/rest/api/resources/)
 - [Módulos do PowerShell do Azure](/powershell/module/az.resources/#policies)
 - [Comandos de política CLI do Azure](/cli/azure/policy?view=azure-cli-latest)
-- [Fornecedor de recursos de informações de política referência da REST API](/rest/api/policy-insights)
-- [Organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md)
+- [Fornecedor de recursos do Azure Policy Insights referência da REST API](/rest/api/policy-insights)
+- [Organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md).

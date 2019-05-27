@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: d78fb546e954c4ae12e5836d9a7bef7ed5003090
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 02becd787fcc5f82efff7ef21feaf336fba3a26f
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511081"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967582"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicação para as funções do Azure
 
@@ -122,7 +122,7 @@ A versão do runtime das funções para utilizar esta aplicação de função. U
 
 ## <a name="functionsworkerruntime"></a>AS FUNÇÕES\_TRABALHO\_TEMPO DE EXECUÇÃO
 
-O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), e `python` (Python).
+O runtime de trabalho de idioma carregar na function app.  Corresponderá à linguagem a ser utilizada na sua aplicação (por exemplo, "dotnet"). Para as funções em vários idiomas será preciso publicá-los para várias aplicações, cada um com um valor de tempo de execução de trabalho correspondente.  Os valores válidos são `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell), e `python` (Python).
 
 |Chave|Valor da amostra|
 |---|------------|

@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -14,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali, negoe
+ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7389431212fd34960279aad5321ef2eeb70b7790
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 1ccac719c78ce2844a8dd37a80445e11baa4a488
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540443"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962873"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Por que atualizar à plataforma de identidades da Microsoft (v2.0)?
 

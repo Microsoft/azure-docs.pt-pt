@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 58abe3a3973986ab489456be7958361ad8ab06f4
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 12eea032c37c8d737ae004d622b72536195c4444
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922841"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977576"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Descrição geral do Azure agentes de monitorização 
 O Microsoft Azure fornece várias formas de recolher diferentes tipos de dados de máquinas virtuais com o Microsoft Windows e Linux alojados no Azure, o seu datacenter ou outros fornecedores de cloud. Os três tipos de agentes disponíveis para monitorizar uma VM são:
 
 * Extensões de diagnóstico do Azure
 * Agente de análise de registo para Linux e Windows
-* Agente de Dependência
+* Dependency Agent
 
 Este artigo descreve as diferenças entre eles e seus recursos para poder determinar qual deles irá suportar o gerenciamento de serviços ou os requisitos de monitorização gerais.  
 
 ## <a name="azure-diagnostic-extension"></a>Extensão de diagnóstico do Azure
-O [extensão de diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) (geralmente conhecida como a extensão de diagnóstico do Windows Azure (WAD) ou o diagnóstico do Linux do Azure (LAD)), que é fornecido para Cloud Services do Azure, uma vez que tornou-se em disponibilidade geral em 2010, é um agente que oferece uma coleção simples de dados de diagnóstico de um recurso de computação do Azure, como uma VM e mantê-los ao armazenamento do Azure. Uma vez no armazenamento, que escolheu para ver uma das várias ferramentas disponíveis, como [Explorador de servidores no Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Explorador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
+O [extensão de diagnóstico do Azure](../../azure-monitor/platform/diagnostics-extension-overview.md) (geralmente conhecida como a extensão de diagnóstico do Windows Azure (WAD) ou o diagnóstico do Linux do Azure (LAD)), que é fornecido para Cloud Services do Azure, uma vez que tornou-se em disponibilidade geral em 2010, é um agente que oferece uma coleção simples de dados de diagnóstico de um recurso de computação do Azure, como uma VM e mantê-los ao armazenamento do Azure. Uma vez no armazenamento, optar por visualizar com uma das várias ferramentas disponíveis, como [Explorador de servidores no Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) e [Explorador de armazenamento do Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 Pode optar por coletar:
 
@@ -39,7 +39,7 @@ Pode optar por coletar:
 * Aplicação .NET nos registos de saída de rastreio
 * Eventos do rastreio de eventos para o Windows (ETW) 
 * Recolher eventos de registo do syslog  
-* Informações de falha de sistema 
+* Informações de falhas de sistema 
 
 O agente de diagnóstico do Azure deve ser utilizado quando pretender:
 
@@ -59,7 +59,7 @@ Para a monitorização avançada em que precisa de mais do que recolher métrica
 O agente Log Analytics deve ser utilizado quando pretender:
 
 * Recolha dados de várias origens, tanto dentro do Azure, outros fornecedores de serviços cloud e os recursos no local. 
-* Utilizar uma das soluções de monitorização, tais como o Azure Monitor [do Azure Monitor para VMs](../insights/vminsights-overview.md), [Monitor do Azure para contentores](../insights/container-insights-overview.md), etc.  
+* Utilize uma das soluções de monitorização, tais como o Azure Monitor [do Azure Monitor para VMs](../insights/vminsights-overview.md), [Monitor do Azure para contentores](../insights/container-insights-overview.md), etc.  
 * Utilize um dos outros serviços de gestão do Azure, como [Centro de segurança do Azure](../../security-center/security-center-intro.md), [automatização do Azure](../../automation/automation-intro.md), etc.
 
 Anteriormente, os vários serviços do Azure foram agrupados como o *Operations Management Suite*, e assim o agente Log Analytics é partilhado entre os serviços, incluindo o Centro de segurança do Azure e o automatização do Azure.  Isto inclui o conjunto completo de recursos que elas oferecem, fornecendo gerenciamento abrangente das suas VMs do Azure através do respetivo ciclo de vida.  Alguns exemplos disso são:
@@ -69,7 +69,7 @@ Anteriormente, os vários serviços do Azure foram agrupados como o *Operations 
 * Controlar as alterações de configuração com [controlo de alterações de automatização do Azure e de inventário](../../automation/change-tracking.md).
 * Serviços do Azure, tal como [Application Insights](https://docs.microsoft.com/azure/application-insights/) e [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/), nativamente que armazenam os dados diretamente no Log Analytics.  
 
-## <a name="dependency-agent"></a>Agente de Dependência
+## <a name="dependency-agent"></a>Dependency Agent
 O agente de dependência foi desenvolvido como parte da solução mapa de serviço, que não foi originalmente desenvolvida pela Microsoft. [Mapa de serviço](../insights/service-map.md) e [do Azure Monitor para VMs](../insights/vminsights-overview.md) requer um agente de dependência no Windows e Linux máquinas virtuais e ele se integra com o agente do Log Analytics para recolher os dados detetados sobre os processos em execução no virtual máquina e dependências de processo externo. Ele armazena esses dados numa área de trabalho do Log Analytics e visualiza os componentes interconectados detetados.
 
 Poderá ter alguma combinação destes agentes para monitorizar a sua VM. Os agentes podem ser instalados lado a lado como extensões do Azure, no entanto no Linux, o agente Log Analytics *tem* ser instalado primeiro, caso contrário instalação irá falhar. 

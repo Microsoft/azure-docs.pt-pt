@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/20/2019
+ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3fb1f430076b26f7b5dd83e167371ac6d957ac4
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311955"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967230"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar do contrato Enterprise para APIs de contrato de cliente da Microsoft
 
@@ -101,7 +101,7 @@ Para obter os saldos disponíveis com a API de saldo disponíveis:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/availableBalances?api-version=2018-11-01-preview` |
+| OBTER | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/availableBalances?api-version=2018-11-01-preview` |
 
 ## <a name="apis-to-get-cost-and-usage"></a>APIs para obter o custo e a utilização
 
@@ -122,7 +122,7 @@ Para obter detalhes de utilização com a API de detalhes de utilização:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2019-01-01` |
+| OBTER | `https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2019-01-01` |
 
 A API de detalhes de utilização, tal como acontece com todas as APIs de gestão de custos, está disponível em vários âmbitos. Para os custos de faturadas, conforme receberia tradicionalmente ao nível da inscrição, utilize o âmbito de perfil de faturação.  Para obter mais informações sobre âmbitos de gestão de custos, veja [entender e trabalhar com âmbitos](understand-work-scopes.md).
 
@@ -187,7 +187,7 @@ Alterar o nome de propriedade que contém a matriz de registos de utilização d
 | ExtendedCost e custo | costInBillingCurrency | &nbsp;  |
 | Id da Instância | resourceId | &nbsp;  |
 | É Taxa Periódica | Nenhuma | &nbsp;  |
-| Location | localização | &nbsp;  |
+| Location | location | &nbsp;  |
 | Categoria do Medidor | meterCategory | Valores de cadeia exacta poderão diferir. |
 | Id do Medidor | meterId | Valores de cadeia exacta diferentes. |
 | Nome do Medidor | meterName | Valores de cadeia exacta poderão diferir. |
@@ -202,7 +202,7 @@ Alterar o nome de propriedade que contém a matriz de registos de utilização d
 | Product | Product |   |
 | Id do Produto | productId | Valores de cadeia exacta diferentes. |
 | Nome do Publicador | publisherName | &nbsp;  |
-| ResourceGroup | resourceGroupName | &nbsp;  |
+| GrupoRecursos | resourceGroupName | &nbsp;  |
 | ResourceGuid | meterId | Valores de cadeia exacta diferentes. |
 | Localização do Recurso | resourceLocation | &nbsp;  |
 | Id da Localização do Recurso | Nenhuma | &nbsp;  |
@@ -216,7 +216,7 @@ Alterar o nome de propriedade que contém a matriz de registos de utilização d
 | Guid de Subscrição | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | Nome da Subscrição | subscriptionName | &nbsp;  |
-| Etiquetas | etiquetas | A propriedade tags aplica-se ao objeto de raiz, não para a propriedade de propriedades aninhada. |
+| Tags | tags | A propriedade tags aplica-se ao objeto de raiz, não para a propriedade de propriedades aninhada. |
 | Unidade de Medida | unitOfMeasure | Valores de cadeia exacta diferentes. |
 | usageEndDate | date | &nbsp;  |
 | Ano | Nenhuma | Analisa o ano a contar da data. |
@@ -238,7 +238,7 @@ Para obter notas fiscais com a API de notas fiscais:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices?api-version=2018-11-01-preview` |
+| OBTER | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices?api-version=2018-11-01-preview` |
 
 ## <a name="price-sheet-apis"></a>APIs de folha de preços
 
@@ -252,8 +252,8 @@ Para obter preços aplicáveis para a inscrição de Enterprise especificados co
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet` |
-| GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet` |
+| OBTER | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet` |
+| OBTER | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet` |
 
 ### <a name="price-sheet-api-for-microsoft-customer-agreements"></a>API de folha de preços para contratos com o cliente da Microsoft
 
@@ -386,13 +386,13 @@ Para obter as informações de folha de preços para um âmbito com a API da fol
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
+| OBTER | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
 Para obter informações de folha de preços, período com a API da folha de preços de faturação:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
+| OBTER | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
 Em vez dos pontos de extremidade de API acima, utilize as seguintes para contratos de cliente da Microsoft:
 
@@ -412,7 +412,7 @@ Para obter a folha de preços a conta de inscrição numa conta de faturação:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `/providers/Microsoft.Billing/billingAccounts/65085863/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
+| OBTER | `/providers/Microsoft.Billing/billingAccounts/65085863/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
 Para um contrato de cliente da Microsoft, utilize as informações na secção seguinte. Ele fornece as propriedades de campo utilizadas para contratos do Microsoft Customer.
 
@@ -422,7 +422,7 @@ A folha de preços atualizadas por conta de cobrança API obtém a folha de pre�
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
+| OBTER | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
 No âmbito de inscrição de âmbito do EA, a resposta da API e as propriedades são idênticas. As propriedades correspondem às mesmas propriedades MCA.
 
@@ -430,7 +430,7 @@ As propriedades mais antigas [APIs de folha de cálculo do preço do Azure Resou
 
 | Antigo do Azure Resource Manager preço folha propriedade API  | Nova propriedade de API de folha de preços do Microsoft cliente contrato   | Descrição |
 | --- | --- | --- |
-| ID do Medidor | _meterId_ | Identificador exclusivo para o medidor. Mesmo que meterId. |
+| ID de Medidor | _meterId_ | Identificador exclusivo para o medidor. Mesmo que meterId. |
 | Nome do medidor | meterName | Nome do medidor. Medidor representa o recurso implementável do serviço do Azure. |
 | Categoria do medidor  | serviço | Nome da categoria de classificação para o medidor. Mesmo que o serviço na folha de preços de contrato de cliente do Microsoft. Valores de cadeia exacta diferentes. |
 | Subcategoria do medidor | meterSubCategory | Nome da categoria de subclassification medidor. Com base na classificação de diferenciação entre do conjunto de funcionalidades de alto nível no serviço. Por exemplo, básico SQL DB vs BD do SQL Standard. |
@@ -477,7 +477,7 @@ Para obter a reserva de transações de compra com a API de transações:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
+| OBTER | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
 
 ## <a name="recommendations-apis-replaced"></a>Recomendações de APIs substituídas
 
@@ -492,7 +492,7 @@ Para obter recomendações de reserva com a API de recomendações de reserva:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
+| OBTER | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
 
 ## <a name="reservation-usage-apis-replaced"></a>APIs de utilização de reserva substituído
 
@@ -509,13 +509,13 @@ Para obter detalhes de reserva com a API de detalhes de reserva:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationDetails?api-version=2019-01-01` |
+| OBTER | `https://management.azure.com/providers/Microsoft.Consumption/reservationDetails?api-version=2019-01-01` |
 
 Para obter os resumos de reserva com a API de resumos de reserva:
 
 | Método | URI de pedido |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
+| OBTER | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
 
 
 

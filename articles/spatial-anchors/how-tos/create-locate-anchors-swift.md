@@ -4,16 +4,16 @@ description: Explicação detalhada sobre como criar e localizar as âncoras usa
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6147616156bc192ffd8d38ddcc636734d8d5179c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0078aac093a19ae0d02da4e7ba07c112d563971
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60232736"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964817"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-swift"></a>Como criar e localizar as âncoras usando âncoras espaciais do Azure no Swift
 

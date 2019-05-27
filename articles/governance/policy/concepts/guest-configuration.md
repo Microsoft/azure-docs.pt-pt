@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c11d6519986cf7a0e70d1fe004ef527c3df247d5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c98229a28f31ff715f252dc3915ca690e99245ff
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59277733"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979515"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a configuração de convidado do Azure Policy
 
@@ -63,7 +63,7 @@ A tabela seguinte mostra uma lista das ferramentas de locais usadas em cada sist
 
 ### <a name="validation-frequency"></a>Frequência de validação
 
-O cliente de configuração de convidado verifica a existência de novo conteúdo a cada 5 minutos. Depois de uma atribuição de convidado é recebida, as definições são verificadas num intervalo de 15 minutos. Os resultados são enviados para o fornecedor de recursos de configuração de convidado assim que a auditoria for concluída. Quando uma política [acionador de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) ocorre, o estado da máquina é escrito para o fornecedor de recursos de configuração de convidado. Isso faz com que o Azure Policy avaliar as propriedades do Azure Resource Manager. Uma edição de avaliação de política de por demanda obtém o valor mais recente do fornecedor de recursos de configuração de convidado. No entanto, ele não aciona uma nova auditoria da configuração da máquina virtual.
+O cliente de configuração de convidado verifica a existência de novo conteúdo a cada 5 minutos. Depois de uma atribuição de convidado é recebida, as definições são verificadas num intervalo de 15 minutos. Os resultados são enviados para o fornecedor de recursos de configuração de convidado assim que a auditoria for concluída. Quando uma política [acionador de avaliação](../how-to/get-compliance-data.md#evaluation-triggers) ocorre, o estado da máquina é escrito para o fornecedor de recursos de configuração de convidado. Isso faz com que o Azure Policy avaliar as propriedades do Azure Resource Manager. Uma edição de avaliação do Azure Policy sob demanda obtém o valor mais recente do fornecedor de recursos de configuração de convidado. No entanto, ele não aciona uma nova auditoria da configuração da máquina virtual.
 
 ### <a name="supported-client-types"></a>Tipos de cliente suportados
 
@@ -80,7 +80,7 @@ A tabela seguinte mostra uma lista de sistemas operativos suportados nas imagens
 |SUSE|SLES|12 SP3|
 
 > [!IMPORTANT]
-> Configuração do convidado pode auditar nós com um SO suportado.  Se gostaria de máquinas virtuais que utilizam uma imagem personalizada de auditoria, precisa duplicar a **DeployIfNotExists** definição e modificar a **se** secção para incluir as propriedades da imagem.
+> Configuração do convidado pode auditar nós com um SO suportado. Se gostaria de máquinas virtuais que utilizam uma imagem personalizada de auditoria, precisa duplicar a **DeployIfNotExists** definição e modificar a **se** secção para incluir as propriedades da imagem.
 
 ### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
 
@@ -93,9 +93,7 @@ Para comunicar com o fornecedor de recursos de configuração de convidado no Az
 Para listas de endereços IP, pode baixar [intervalos de IP do Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Este ficheiro é atualizado semanalmente e tem os intervalos implementados atualmente e as alterações futuras para os intervalos de IP. Apenas terá de permitir o acesso de saída para os IPs nas regiões onde as suas VMs são implementadas.
 
 > [!NOTE]
-> O ficheiro XML de endereço IP do Datacenter do Azure apresenta uma lista de intervalos de endereços IP que são utilizados nos datacenters do Microsoft Azure. O arquivo inclui os intervalos de computação, SQL e armazenamento.
-> Um ficheiro atualizado é publicado semanalmente. O ficheiro reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP. Os novo intervalos que aparecem no ficheiro não são utilizados nos centros de dados para, pelo menos, uma semana.
-> É uma boa idéia para transferir o ficheiro XML novo todas as semanas. Em seguida, atualize o seu site para identificar corretamente os serviços em execução no Azure. Os utilizadores do Azure ExpressRoute devem observar que este ficheiro é utilizado para atualizar o anúncio de protocolo BGP (Border Gateway) do espaço Azure na primeira semana de cada mês.
+> O ficheiro XML de endereço IP do Datacenter do Azure apresenta uma lista de intervalos de endereços IP que são utilizados nos datacenters do Microsoft Azure. O arquivo inclui os intervalos de computação, SQL e armazenamento. Um ficheiro atualizado é publicado semanalmente. O ficheiro reflete os intervalos implementados atualmente e as alterações futuras para os intervalos de IP. Os novo intervalos que aparecem no ficheiro não são utilizados nos centros de dados para, pelo menos, uma semana. É uma boa idéia para transferir o ficheiro XML novo todas as semanas. Em seguida, atualize o seu site para identificar corretamente os serviços em execução no Azure. Os utilizadores do Azure ExpressRoute devem observar que este ficheiro é utilizado para atualizar o anúncio de protocolo BGP (Border Gateway) do espaço Azure na primeira semana de cada mês.
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definição de configuração de convidado
 
@@ -140,7 +138,7 @@ Exemplos para configuração de convidado de política estão disponíveis nas s
 ## <a name="next-steps"></a>Passos Seguintes
 
 - Reveja exemplos em [exemplos do Azure Policy](../samples/index.md).
-- Veja a [Estrutura de definição do Policy](definition-structure.md).
+- Reveja a [estrutura de definição do Azure Policy](definition-structure.md).
 - Veja [Compreender os efeitos do Policy](effects.md).
 - Compreender como [criar políticas programaticamente](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).

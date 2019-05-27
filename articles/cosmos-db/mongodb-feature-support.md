@@ -4,15 +4,15 @@ description: Saiba mais sobre o suporte de funcionalidades que fornece de API do
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 168b5cdf4f65992bad886352921e9aaff6d5b09c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09d12c817e9e8678cf96c63c0bff623923f7074d
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446623"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978829"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>API do Azure Cosmos DB para o MongoDB: suporte de funcionalidades e sintaxe
 

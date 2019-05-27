@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/01/2018
 ms.author: aschhab
-ms.openlocfilehash: abba0e15314387aed09e39f05d9127f346f9c799
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 8477ff8c8ff0bc1629ff4cdc61f7c28c6eed778c
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228391"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978805"
 ---
 # <a name="managed-identities-for-azure-resources-with-service-bus"></a>Identidades geridas para recursos do Azure com o Service Bus 
 
@@ -29,7 +29,23 @@ Com identidades geridas, a plataforma do Azure gere esta identidade de tempo de 
 
 ## <a name="service-bus-roles-and-permissions"></a>Permissões e funções do Service Bus
 
-Só pode adicionar uma identidade gerida para as funções de "Proprietário" ou "Contribuinte" de um espaço de nomes do Service Bus. Ele concede o controlo total de identidade em todas as entidades no espaço de nomes. No entanto, o gerenciamento de operações que alteram a topologia de espaço de nomes são inicialmente apenas entanto suportados do Azure Resource Manager. Não é por meio da interface de gestão do REST do Service Bus nativa. Esse suporte também significa que não é possível utilizar o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou o cliente .NET Standard [ManagementClient](/dotnet/api/microsoft.azure.servicebus.management.managementclient) objetos dentro de uma identidade gerida.
+Pode adicionar uma identidade gerida para a função "Proprietário de dados do Service Bus" de um espaço de nomes do Service Bus. Concede acesso a identidade, controlo total (para gestão e operações de dados) em todas as entidades no espaço de nomes.
+
+>[!IMPORTANT]
+> Suportámos anteriormente a adição de uma identidade gerida para o **"Proprietário"** ou **"Contribuinte"** função.
+>
+> No entanto, de acesso a dados privilégios para **"Proprietário"** e **"Contribuinte"** função já não será cumprida. Se estava a utilizar o **"Proprietário"** ou **"Contribuinte"** função, então eles terão de ser adaptado para utilizar o **"Proprietário de dados do Service Bus"** função.
+
+Para utilizar a nova função incorporada, conclua os passos - abaixo
+
+1. avance para o [portal do Azure](https://portal.azure.com)
+2. Navegue para o espaço de nomes do Service Bus em que tem atualmente a configuração a função "Proprietário" ou "Contribuinte".
+3. Clique em "Acesso Control(IAM)" no menu do painel esquerdo.
+4. Adicionar uma nova atribuição de função, conforme mostrado a seguir
+
+    ![](./media/service-bus-role-based-access-control/ServiceBus_RBAC_SBDataOwner.png)
+
+5. Prima "Save" para guardar a nova atribuição de função.
 
 ## <a name="use-service-bus-with-managed-identities-for-azure-resources"></a>Utilizar o Service Bus com identidades geridas para recursos do Azure
 
@@ -51,7 +67,7 @@ Assim que tive ativado a funcionalidade, uma nova identidade de serviço é cria
 
 ### <a name="create-a-new-service-bus-messaging-namespace"></a>Criar um novo namespace de mensagens do Service Bus
 
-Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md) das regiões do Azure com suporte de pré-visualização para RBAC: **E.U.A. Leste**, **E.U.A. Leste 2**, ou **Europa Ocidental**. 
+Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md). 
 
 Navegue para o espaço de nomes **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a identidade gerida para o **proprietário** função. Para tal, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
 

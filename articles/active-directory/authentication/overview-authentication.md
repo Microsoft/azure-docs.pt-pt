@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38bc2f138a8e56fc56b48ccdaf0636a93138f95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e2f53243e49cc961f50ef09cf43a7ed174a82a9c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414002"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65997274"
 ---
 # <a name="what-methods-are-available-for-authentication"></a>Que métodos de autenticação estão disponíveis?
 
@@ -35,7 +35,7 @@ A verificação adicional pode ser na forma de métodos de autenticação, como:
 
 O MFA do Azure e a reposição personalizada de palavra-passe do Azure AD permitem aos administradores controlar a configuração, política, monitorização e relatórios com o Azure AD e o portal do Azure para proteger as suas organizações.
 
-## <a name="self-service-password-reset"></a>Reposição personalizada de palavra-passe
+## <a name="self-service-password-reset"></a>Reposição de palavra-passe self-service
 
 A reposição personalizada de palavra-passe permite aos utilizadores repor a palavra-passe, sem qualquer intervenção do administrador, quando e onde precisarem.
 
@@ -50,6 +50,10 @@ A reposição personalizada de palavra-passe inclui:
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 A Azure Multi-Factor Authentication (MFA) é uma solução de verificação em dois passos da Microsoft. Ao utilizar métodos de autenticação aprovados pelo administrador, o MFA do Azure ajuda a salvaguardar o acesso a dados e aplicações, enquanto cumpre a exigência de um processo de início de sessão simples.
+
+## <a name="license-requirements"></a>Requisitos de licença
+
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## <a name="next-steps"></a>Passos Seguintes
 

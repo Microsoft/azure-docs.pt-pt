@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/18/2019
+ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: 65f89e234317c5a17e4443e767528fb9be9a8b72
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 65c207b4d03e7d156c8c871a3642601fd0489ead
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687073"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991425"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar espaços de nomes standard do Azure Service Bus existentes para o escalão premium
 Anteriormente, o Azure Service Bus oferecido espaços de nomes apenas no escalão standard. Espaços de nomes são instalações de multi-inquilinos, que são otimizadas para baixo débito e de ambientes de programador. O escalão premium oferece recursos dedicados por espaço de nomes para latência previsível e maior débito por um preço fixo. O escalão premium está otimizado para débito elevado e ambientes de produção que necessitam de funcionalidades empresariais adicionais.
 
-Este artigo descreve como migrar espaços de nomes do escalão standard existente para o escalão premium.
+Este artigo descreve como migrar espaços de nomes do escalão standard existente para o escalão premium.  
 
 >[!WARNING]
 > Destina-se a migração para espaços de nomes padrão do Service Bus ser atualizado para o escalão premium. A ferramenta de migração não suporta a desatualização.
@@ -33,6 +33,7 @@ Alguns dos pontos a serem observados:
 - O **premium** deve ter espaço de nomes **não existem entidades** no mesmo para a migração tenha êxito. 
 - Todos os **entidades** no espaço de nomes padrão são **copiado** ao espaço de nomes premium durante o processo de migração. 
 - Suporta a migração **1.000 entidades por unidade de mensagens** no escalão premium. Para identificar quantas unidades de mensagens, precisa, comece com o número de entidades que tiver no seu espaço de nomes padrão atual. 
+- Diretamente, não é possível migrar a partir **escalão básico** ao **escalão premier**, mas pode fazer então indiretamente através da migração do básico a primeira padrão e, em seguida, para o standard para premium no próximo passo.
 
 ## <a name="migration-steps"></a>Passos de migração
 Algumas condições estão associadas com o processo de migração. Familiarize-se com os seguintes passos para reduzir a possibilidade de erros. Estes passos descrevem o processo de migração e os detalhes passo a passo estão listados nas secções que se seguem.

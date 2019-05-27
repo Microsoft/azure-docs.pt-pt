@@ -9,11 +9,11 @@ ms.date: 03/04/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: de9bc91e438ff694c96966486908c54562e93902
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60459856"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119240"
 ---
 Pode verificar as ligações nesta secção para obter mais informações sobre os serviços oferecidos pelos parceiros. Se o seu parceiro de dispositivo de ramo não estiver listado na secção abaixo, tem o seu fornecedor de dispositivo do ramo contacte-nos. Pode contactar-ao enviar um e-mail para azurevirtualwan@microsoft.com.
 

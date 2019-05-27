@@ -5,18 +5,18 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 05/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18615cf737eedcd188fd59d2aa98482210b9333a
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60367983"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991596"
 ---
-# <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca dos gateways de rede virtual para o ExpressRoute
-Um gateway de rede virtual é utilizado para enviar tráfego de rede entre redes virtuais do Azure e localizações no local. Pode utilizar um gateway de rede virtual para o tráfego de ExpressRoute ou o tráfego VPN. Este artigo se concentra em gateways de rede virtual do ExpressRoute e contém informações sobre SKUs, desempenho estimado por SKU e tipos de gateway.
+# <a name="expressroute-virtual-network-gateway-and-fastpath"></a>Gateway de rede virtual do ExpressRoute e FastPath
+Para ligar a rede virtual do Azure e a sua rede no local através do ExpressRoute, tem de criar primeiro um gateway de rede virtual. Um gateway de rede virtual tem duas finalidades: rotas IP do exchange entre as redes e encaminhar o tráfego de rede. Este artigo explica os tipos de gateway, o SKU de gateway e o desempenho estimado pelo SKU. Este artigo também explica ExpressRoute [FastPath](#fastpath), uma funcionalidade que permite o tráfego de rede da sua rede no local para ignorar o gateway de rede virtual para melhorar o desempenho.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -59,6 +59,15 @@ Os gateways com redundância de zona utilizam novos SKUs de gateway específico 
 
 Os novos SKU de gateway também suportam outras opções de implementação para melhor satisfazerem as suas necessidades. Ao criar um gateway de rede virtual com o novo gateway SKUs, tem também a opção de implementar o gateway de uma zona específica. Isto é referido como um gateway zona. Quando implementa um gateway zonal, todas as instâncias do gateway são implementadas na mesma zona de disponibilidade.
 
+## <a name="fastpath"></a>FastPath
+Gateway de rede virtual do ExpressRoute foi concebido para trocar as rotas de rede e encaminha o tráfego de rede. FastPath foi concebido para melhorar o desempenho do caminho de dados entre a sua rede no local e a rede virtual. Quando ativada, o FastPath envia o tráfego de rede diretamente a máquinas virtuais na rede virtual, ignorando o gateway. 
+
+FastPath está disponível no [ExpressRoute Direct](expressroute-erdirect-about.md) apenas. Em outras palavras, pode ativar esta funcionalidade apenas se for [ligar a sua rede virtual](expressroute-howto-linkvnet-arm.md) para um circuito ExpressRoute criado numa porta direta do ExpressRoute. FastPath ainda requer um gateway de rede virtual a ser criada para trocar rotas entre a rede virtual e de rede no local. O gateway de rede virtual tem de ser desempenho Ultra ou ErGw3AZ.
+
+FastPath não suporta as seguintes funcionalidades:
+* A UDR na sub-rede de Gateway: se aplicar um UDR para a sub-rede do Gateway da sua rede virtual, o tráfego de rede da sua rede no local irá continuar a ser enviados para o gateway de rede virtual.
+* Peering de VNet: Se tiver outras redes virtuais em modo de peering com aquele que está ligada ao ExpressRoute, o tráfego de rede da sua rede no local para as outras redes virtuais (ou seja, as chamados "Spoke" VNets) irá continuar a ser enviados para a rede virtual gateway. A solução alternativa é ligar todas as redes virtuais ao circuito ExpressRoute diretamente.
+
 ## <a name="resources"></a>Cmdlets do PowerShell e REST APIs
 Para recursos técnicos adicionais e requisitos de sintaxe específica ao utilizar REST APIs e cmdlets do PowerShell para configurações de gateway de rede virtual, consulte as seguintes páginas:
 
@@ -73,3 +82,5 @@ Ver [descrição geral do ExpressRoute](expressroute-introduction.md) para obter
 Ver [criar um gateway de rede virtual para o ExpressRoute](expressroute-howto-add-gateway-resource-manager.md) para obter mais informações sobre a criação de gateways do ExpressRoute.
 
 Ver [criar um gateway de rede virtual com redundância de zona](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md) para obter mais informações sobre como configurar gateways com redundância de zona.
+
+Ver [rede virtual de ligação ao ExpressRoute](expressroute-howto-linkvnet-arm.md) para obter mais informações sobre como ativar FastPath. 

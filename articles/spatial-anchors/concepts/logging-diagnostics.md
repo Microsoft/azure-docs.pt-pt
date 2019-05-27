@@ -4,16 +4,16 @@ description: Explicação detalhada sobre como gerar e obter o registo e diagnó
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/22/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 134023c0884ce3a402b99806f1bf19dcb59ecc32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b66dc7d6ec9d11fe645587fe791824009231b7c2
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564872"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964753"
 ---
 # <a name="logging-and-diagnostics-in-azure-spatial-anchors"></a>Registo e diagnóstico no âncoras espaciais do Azure
 

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7ce57e1f8b2732ea909625c89f3e8148cb70635c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: bbf43ecb07947fad8cc1ee064d2038e4a21d4444
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728838"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964765"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Monitorizar métricas de serviços de multimédia e registos de diagnóstico
 
-[O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar as métricas e registos de diagnóstico que o ajudam a compreende o desempenho das suas aplicações. Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, métricas e registo. Pode monitorizar os registos de diagnóstico de serviços de multimédia e criar alertas e notificações para os registos e métricas recolhidas. Pode visualizar e analisar os dados de métricas com [Explorador de métricas](../../azure-monitor/platform/metrics-getting-started.md). Pode enviar registos para [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-las para [do Log Analytics](https://azure.microsoft.com/services/log-analytics/), ou utilize o 3º serviços de terceiros.
+[O Azure Monitor](../../azure-monitor/overview.md) permite-lhe monitorizar as métricas e registos de diagnóstico que o ajudam a compreende o desempenho das suas aplicações. Todos os dados recolhidos pelo Monitor do Azure se encaixa em um dos dois tipos fundamentais, métricas e registos. Pode monitorizar os registos de diagnóstico de serviços de multimédia e criar alertas e notificações para os registos e métricas recolhidas. Pode visualizar e analisar os dados de métricas com [Explorador de métricas](../../azure-monitor/platform/metrics-getting-started.md). Pode enviar registos para [armazenamento do Azure](https://azure.microsoft.com/services/storage/), transmiti-los para [Event Hubs do Azure](https://azure.microsoft.com/services/event-hubs/)e exportá-las para [do Log Analytics](https://azure.microsoft.com/services/log-analytics/), ou utilize o 3º serviços de terceiros.
 
 Para uma visão geral detalhada, consulte [monitorizar as métricas do Azure](../../azure-monitor/platform/data-platform.md) e [registos de diagnóstico do Azure Monitor](../../azure-monitor/platform/diagnostic-logs-overview.md).
 
@@ -34,11 +34,11 @@ Métricas são recolhidas em intervalos regulares, independentemente do valor é
 
 Atualmente, os seguintes serviços de multimédia [pontos finais de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streamingendpoints) métricas são emitidas pelo Azure:
 
-|Name|Descrição|
-|---|---|
-|Pedidos|Fornece detalhes em torno de n. º total de pedidos servidos pelo ponto final de transmissão em fluxo.|
-|Saída|Número total de bytes de saída. Por exemplo, bytes transmitidos pelo ponto final de transmissão em fluxo.|
-|Latência de ponto a ponto com êxito| Fornece informações sobre a latência de ponto a ponto dos pedidos com êxito.|
+|Métrica|Display name|Descrição|
+|---|---|---|
+|Pedidos|Pedidos|Fornece detalhes em torno de n. º total de pedidos servidos pelo ponto final de transmissão em fluxo.|
+|Saída|Saída|Número total de bytes de saída. Por exemplo, bytes transmitidos pelo ponto final de transmissão em fluxo.|
+|SuccessE2ELatency|Latência de ponto a ponto com êxito| Fornece informações sobre a latência de ponto a ponto dos pedidos com êxito.|
 
 Por exemplo, para obter métricas de "Saída" com a CLI, executaria o seguinte `az monitor metrics` comando da CLI:
 

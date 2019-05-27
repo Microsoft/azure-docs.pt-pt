@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 ms.openlocfilehash: 52f96b8fc2a1288c652169817a3a73d7b26caac9
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153464"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Se a condição de atividade no Azure Data Factory
 A atividade Se Condição disponibiliza a mesma funcionalidade que as instruções “se” fornecem nas linguagens de programação. Avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando é avaliada como `false`. 
@@ -66,7 +66,7 @@ A atividade Se Condição disponibiliza a mesma funcionalidade que as instruçõ
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-nome | Nome da atividade condição-if. | String | Sim
+name | Nome da atividade condição-if. | String | Sim
 tipo | Tem de ser definido como **IfCondition** | String | Sim
 expressão | Expressão que tem de avaliar como VERDADEIRO ou FALSO | Expressão com o resultado do tipo Booleano | Sim
 ifTrueActivities | Conjunto de atividades que são executadas quando a expressão avalia `true`. | Array | Sim

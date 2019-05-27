@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 02/15/2019
 ms.author: tomfitz
 ms.openlocfilehash: f6ebeb1d9953311ad1cb85d8ab33c83d5e92d687
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66128578"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Resolver erros comuns de implementação do Azure com o Azure Resource Manager
 
@@ -63,7 +63,7 @@ Este artigo descreve alguns erros comuns de implementação do Azure e fornece i
 | MissingRegistrationForLocation | Verifique o estado de registo do fornecedor de recursos e localizações suportadas. | [Resolver registo](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registe a sua subscrição com o fornecedor de recursos. | [Resolver registo](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Verifique o estado de registo do fornecedor de recursos. | [Resolver registo](resource-manager-register-provider-errors.md) |
-| NotFound | Pode tentar implementar um recurso dependente em paralelo com um recurso principal. Verifique se tem de adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
+| NãoLocalizado | Pode tentar implementar um recurso dependente em paralelo com um recurso principal. Verifique se tem de adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | A implementação está a tentar uma operação que excede a quota para a subscrição, grupo de recursos ou região. Se possível, rever a sua implementação para se manterem dentro as quotas. Caso contrário, considere solicitar uma alteração às suas quotas. | [Resolver quotas](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Certifique-se de que existe um recurso de principal antes de criar o filho de recursos. | [Resolver o recurso principal](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | Poderá ter selecionado uma palavra-passe com demasiados carateres, ou pode ter convertido seu valor de palavra-passe para uma cadeia segura antes de passá-lo como um parâmetro. Se o modelo inclui uma **proteger a cadeia de caracteres** parâmetro, não é necessário converter o valor numa cadeia segura. Forneça o valor de palavra-passe como texto. |  |

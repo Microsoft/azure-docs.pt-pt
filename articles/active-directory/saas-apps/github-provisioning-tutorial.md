@@ -3,9 +3,8 @@ title: 'Tutorial: Configurar o GitHub para o aprovisionamento automático de uti
 description: Saiba como configurar o Azure Active Directory para aprovisionar e desaprovisionar contas de utilizador para o GitHub.
 services: active-directory
 documentationcenter: ''
-author: asmalser-msft
-writer: asmalser-msft
-manager: daveba
+author: ArvindHarinder1
+manager: CelesteDG
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -14,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: asmalser-msft
+ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baac3ca65558f2a67a3aecabd4b253f23ea94ad9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 356af6567cea96efc7edbe8bc4932182d35ebc07
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60277426"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963957"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Tutorial: Configurar o GitHub para o aprovisionamento automático de utilizadores
 

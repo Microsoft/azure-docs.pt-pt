@@ -5,13 +5,13 @@ ms.service: cosmos-db
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
-ms.date: 05/07/2017
-ms.openlocfilehash: 7ac4b54740b03a8b3fa09486a8e09f3262f67555
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/21/2019
+ms.openlocfilehash: 28a4cc854842b66a9fb61134e3ca9ac9a5f38fed
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866886"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965601"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de utilização comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de utilização comuns para o Azure Cosmos DB.  As recomendações neste artigo, servem como ponto de partida, como desenvolver a sua aplicação com Cosmos DB.   

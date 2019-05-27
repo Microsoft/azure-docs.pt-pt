@@ -7,14 +7,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/26/2018
-ms.author: adgera
+ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 23759a6c3d920e2b791a10ddd5ac5c5285ed1889
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3c35633c9b25eafdb738ed591c7c7022fbd8149a
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926715"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967817"
 ---
 # <a name="how-to-configure-monitoring-in-azure-digital-twins"></a>Como configurar a monitorização no duplos Digital do Azure
 
@@ -99,7 +99,7 @@ Consultar o registo completo é fornecido através de [registos do Azure Monitor
 1. Procure **do Log Analytics** no portal do Azure.
 1. Verá sua disponíveis **área de trabalho do Log Analytics** instâncias. Escolha uma e selecione **registos** a consulta:
 
-    ![Log Analytics][6]
+    ![Log analytics][6]
 
 1. Se ainda não tiver uma **área de trabalho do Log Analytics** instância, pode criar uma área de trabalho ao clicar o **Add** botão:
 

@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: ce23b891decd20db239e653702533ac7af21b980
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5d964ebd40ac1bd8817bc93d5e4f78096f221be2
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073345"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977770"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções incorporadas para recursos do Azure
 
@@ -56,12 +56,14 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 | [Operador de Avere](#avere-operator) | Utilizado pelo cluster de vFXT Avere para gerir o cluster |
 | [Função de administrador de Cluster do serviço Kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Listar a ação de credenciais de administrador do cluster. |
 | [Função de utilizador de Cluster do serviço Kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Listar a ação de credenciais de utilizador do cluster. |
+| [Leitor de dados de mapas do Azure (pré-visualização)](#azure-maps-data-reader-preview) | Concede acesso de leitura aos dados relacionados com o mapa dados a partir de uma conta de mapas do Azure. |
 | [Proprietário do registo do Azure Stack](#azure-stack-registration-owner) | Permite-lhe gerir os registos do Azure Stack. |
 | [Contribuidor de cópia de segurança](#backup-contributor) | Permite-lhe gerir o serviço de cópia de segurança mas não pode criar cofres e conceder o acesso a outros |
 | [Operador de cópia de segurança](#backup-operator) | Permite-lhe gerir serviços de cópia de segurança, exceto de remoção de cópia de segurança, criação de cofre e concessão de acesso a outros |
 | [Leitor de cópia de segurança](#backup-reader) | Pode ver os serviços de cópia de segurança mas não pode efetuar alterações |
 | [Leitor de faturação](#billing-reader) | Permite o acesso de leitura para dados de faturação |
 | [Contribuinte do BizTalk](#biztalk-contributor) | Permite-lhe gerir serviços do BizTalk, mas não aceder-lhes. |
+| [Acesso de nó de membro de Blockchain (pré-visualização)](#blockchain-member-node-access-preview) | Permite o acesso a nós de Membro de Blockchain |
 | [Contribuidor de ponto final CDN](#cdn-endpoint-contributor) | Pode gerir pontos finais de CDN, as não pode conceder o acesso a outros utilizadores. |
 | [Leitor do ponto final CDN](#cdn-endpoint-reader) | Pode visualizar os pontos finais de CDN, mas não pode efetuar alterações. |
 | [Contribuidor de perfil de CDN](#cdn-profile-contributor) | Pode gerir perfis de CDN e os respetivos pontos finais, mas não pode conceder o acesso a outros utilizadores. |
@@ -86,6 +88,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 | [Utilizador de DevTest Labs](#devtest-labs-user) | Permite-lhe ligar, iniciar, reiniciar e encerrar as máquinas virtuais no Azure DevTest Labs. |
 | [Contribuidor da zona DNS](#dns-zone-contributor) | Permite-lhe gerir zonas DNS e conjuntos de registos no DNS do Azure, mas não lhe permite controlar quem tem acesso aos mesmos. |
 | [Contribuinte de conta do DocumentDB](#documentdb-account-contributor) | Pode gerir contas do Azure Cosmos DB. O Azure Cosmos DB anteriormente é conhecido como o DocumentDB. |
+| [Proprietário de dados de Hubs de eventos](#event-hubs-data-owner) | Permite o acesso completo aos recursos dos Hubs de eventos do Azure | 
 | [Contribuinte de EventSubscription EventGrid](#eventgrid-eventsubscription-contributor) | Permite-lhe gerir operações de subscrição de eventos do EventGrid. |
 | [Leitor de EventSubscription EventGrid](#eventgrid-eventsubscription-reader) | Permite-lhe ler as subscrições de eventos do EventGrid. |
 | [Operador de Cluster do HDInsight](#hdinsight-cluster-operator) | Permite-lhe ler e modificar configurações de cluster do HDInsight. |
@@ -116,6 +119,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 | [Administrador de segurança](#security-admin) | No Centro de segurança apenas: Pode ver as políticas de segurança, visualizar os Estados de segurança, editar as políticas de segurança, ver alertas e recomendações, dispensar alertas e recomendações |
 | [Gestor de segurança (Legado)](#security-manager-legacy) | Esta é uma função legada. Utilize em vez disso, o administrador de segurança |
 | [Leitor de segurança](#security-reader) | No Centro de segurança apenas: Pode ver recomendações e alertas, políticas de segurança, visualizar os Estados de segurança, mas não pode fazer alterações de vista |
+| [Proprietário de dados do Service Bus](#service-bus-data-owner) | Permite acesso total aos recursos do Azure Service Bus |
 | [Contribuinte do site Recovery](#site-recovery-contributor) | Permite-lhe gerir o serviço do Site Recovery exceto a criação do cofre e atribuição de funções |
 | [Operador de recuperação de site](#site-recovery-operator) | Permite-lhe efetuar a ativação pós-falha mas não efetuar outras operações de gestão do Site Recovery |
 | [Leitor do site Recovery](#site-recovery-reader) | Permite-lhe ver o estado do Site Recovery mas não efetuar outras operações de gestão |
@@ -574,6 +578,21 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **NotDataActions** |  |
 > | *Nenhum* |  |
 
+## <a name="azure-maps-data-reader-preview"></a>Leitor de Dados do Azure Maps (Pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Concede acesso de leitura aos dados relacionados com o mapa dados a partir de uma conta de mapas do Azure. |
+> | **Id** | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | **Ações** |  |
+> | *Nenhum* |  |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft.Maps/accounts/data/read | Concede acesso de leitura de dados para uma conta de mapas. |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
+
 ## <a name="azure-stack-registration-owner"></a>Proprietário do Registo do Azure Stack
 > [!div class="mx-tableFixed"]
 > | | |
@@ -812,6 +831,21 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | *Nenhum* |  |
 > | **DataActions** |  |
 > | *Nenhum* |  |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
+
+## <a name="blockchain-member-node-access-preview"></a>Acesso de Nó de Membro de Blockchain (Pré-visualização)
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite o acesso a nós de Membro de Blockchain |
+> | **Id** | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
+> | **Ações** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/read | Obtém ou lista de nós de transação de membro de Blockchain existente. |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft.Blockchain/blockchainMembers/transactionNodes/connect/action | Liga-se a um nó de transação de membro de Blockchain. |
 > | **NotDataActions** |  |
 > | *Nenhum* |  |
 
@@ -1139,6 +1173,8 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | Microsoft.Advisor/configurations/read | Obter configurações |
+> | Microsoft.Advisor/recommendations/read | Recomendações de leituras |
 > | **NotActions** |  |
 > | *Nenhum* |  |
 > | **DataActions** |  |
@@ -1159,6 +1195,8 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.Resources/subscriptions/read | Obtém a lista de subscrições. |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
+> | Microsoft.Advisor/configurations/read | Obter configurações |
+> | Microsoft.Advisor/recommendations/read | Recomendações de leituras |
 > | **NotActions** |  |
 > | *Nenhum* |  |
 > | **DataActions** |  |
@@ -1198,6 +1236,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | Lista as credenciais não encriptadas relativas à encomenda. |
 > | Microsoft.Databox/locations/availableSkus/action | Este método devolve a lista de SKUs disponíveis. |
+> | Microsoft.Databox/locations/validateAddress/action | Valida o endereço de envio e fornece endereços alternativos, caso existam. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenha os estados de disponibilidade para todos os recursos no âmbito especificado |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **NotActions** |  |
@@ -1299,6 +1338,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.DevTestLab/*/read | Ler as propriedades de um laboratório |
 > | Microsoft.DevTestLab/labs/claimAnyVm/action | Declarar uma máquina de virtual reclamáveis aleatória no laboratório. |
 > | Microsoft.DevTestLab/labs/createEnvironment/action | Crie máquinas virtuais num laboratório. |
+> | Microsoft.DevTestLab/labs/ensureCurrentUserProfile/action | Certifique-se de que o utilizador atual tem um perfil válido no laboratório. |
 > | Microsoft.DevTestLab/labs/formulas/delete | Elimine as fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/read | Leia fórmulas. |
 > | Microsoft.DevTestLab/labs/formulas/write | Adiciona ou modifica as fórmulas. |
@@ -1369,6 +1409,22 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **NotDataActions** |  |
 > | *Nenhum* |  |
 
+## <a name="event-hubs-data-owner"></a>Proprietário de dados de Hubs de eventos
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite acesso total aos recursos dos Hubs de eventos do Azure. |
+> | **Id** | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | **Ações** |  |
+> | Microsoft.EventHubs/* | Permite o acesso de gestão completa ao espaço de nomes de Hubs de eventos |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft.EventHubs/* | Permite acesso completo aos dados ao espaço de nomes de Hubs de eventos |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
+
 ## <a name="eventgrid-eventsubscription-contributor"></a>Contribuinte de EventSubscription EventGrid
 > [!div class="mx-tableFixed"]
 > | | |
@@ -1426,6 +1482,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
 > | Microsoft.Resources/deployments/operations/read | Obtém ou lista as operações de implementação. |
 > | Microsoft.Insights/alertRules/* | Criar e gerir regras de alerta de Insights |
+> | Microsoft.Authorization/*/read | Funções de leitura e as atribuições de funções |
 > | Microsoft.Support/* | Criar e gerir pedidos de suporte |
 > | **NotActions** |  |
 > | *Nenhum* |  |
@@ -2019,6 +2076,22 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **NotDataActions** |  |
 > | *Nenhum* |  |
 
+## <a name="service-bus-data-owner"></a>Proprietário de dados do Service Bus
+
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Permite acesso total aos recursos do Azure Service Bus. |
+> | **Id** | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | **Ações** |  |
+> | Microsoft.ServiceBus/* | Permite o acesso de gestão completa ao espaço de nomes do Service Bus |
+> | **NotActions** |  |
+> | *Nenhum* |  |
+> | **DataActions** |  |
+> | Microsoft.ServiceBus/* | Permite acesso completo aos dados ao espaço de nomes do Service Bus |
+> | **NotDataActions** |  |
+> | *Nenhum* |  |
+
 ## <a name="site-recovery-contributor"></a>Contribuidor do Site Recovery
 > [!div class="mx-tableFixed"]
 > | | |
@@ -2482,7 +2555,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **Descrição** | Fornece acesso total aos dados, incluindo a atribuição de controlo de acesso POSIX e contentores de BLOBs de armazenamento do Azure. Para saber quais ações são necessárias para uma operação de dados fornecido, veja [permissões para chamar BLOBs e filas de operações de dados](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations). |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Ações** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Todas as permissões em contentores.  |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* | Todas as permissões em contentores. |
 > | **NotActions** |  |
 > | *Nenhum* |  |
 > | **DataActions** |  |
@@ -2608,7 +2681,7 @@ A tabela seguinte fornece uma breve descrição de cada função incorporada. Cl
 > | **NotDataActions** |  |
 > | *Nenhum* |  |
 
-## <a name="user-access-administrator"></a>Administrador de Acesso de Utilizador
+## <a name="user-access-administrator"></a>Administrador de Acesso dos Utilizadores
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |

@@ -180,7 +180,7 @@
           href: connector-azure-blob-storage.md
         - name: API SQL do Azure Cosmos DB
           href: connector-azure-cosmos-db.md
-        - name: API de MongoDB do Azure Cosmos DB
+        - name: API do Azure Cosmos DB para MongoDB
           href: connector-azure-cosmos-db-mongodb-api.md
         - name: Azure Data Explorer
           href: connector-azure-data-explorer.md

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
-ms.author: monhaber
-ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-mohabe
+ms.openlocfilehash: fe8ceb8c196f7329027502847fba481169458d86
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60704263"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966801"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Adesão ao Azure Security Center Standard para uma maior segurança
 Atualizar para o Centro de segurança Standard para tirar partido da gestão de segurança avançada e proteção contra ameaças para as cargas de trabalho de cloud híbrida.  Pode tentar Standard gratuita. Consulte o Centro de segurança [página de preços](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
@@ -69,7 +69,7 @@ O Centro de Segurança pode monitorizar a postura de segurança dos seus computa
 
 3. Clique em **Configurar** em **Adicionar novos computadores não Azure**. É apresentada uma lista das áreas de trabalho do Log Analytics. A lista inclui, se aplicável, a área de trabalho predefinida criada para si pelo Centro de Segurança quando o aprovisionamento automático foi ativado. Selecione esta área de trabalho ou outra área de trabalho que queira utilizar.
 
-   ![Adicionar computador não pertencente ao Azure][7]
+   ![Adicionar computador não Azure][7]
 
 Se tiver áreas de trabalho existentes, estão listados na **adicionar novos computadores não pertencentes ao Azure**. Pode adicionar computadores a uma área de trabalho existente ou criar uma nova área de trabalho. Para criar uma nova área de trabalho, selecione a ligação **adicionar uma nova área de trabalho**.
 

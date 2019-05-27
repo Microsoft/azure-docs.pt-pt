@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 50452dc5a0c2074c452878c890643f7b21591689
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415719"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977313"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminar palavras-passe incorretas na sua organização
 
@@ -75,7 +75,7 @@ Cada uma das palavras-passe acima não especificamente coincide com a palavra-pa
 
 Correspondência de subcadeia é utilizado na palavra-passe normalizada para verificar para o usuário primeiro e último nome, bem como o nome do inquilino (Observe que a correspondência de nomes de inquilino não é feita ao validar as palavras-passe no controlador de domínio do Active Directory).
 
-Exemplo: partem do princípio de que existe um utilizador João Silva que quer repor a palavra-passe para "J0hn123fb". Depois de normalização, esta palavra-passe poderia se tornar "john123fb". Correspondência de subcadeia localiza a que a palavra-passe contém o nome do utilizador "João". Embora "J0hn123fb" não tenha sido especificamente de qualquer lista de palavra-passe banidas, correspondência de subcadeia encontrada "João" a palavra-passe. Por conseguinte, esta palavra-passe seria rejeitada.
+Exemplo: partem do princípio de que existe um utilizador, Pol, o que quer repor a palavra-passe para "P0l123fb". Depois de normalização, esta palavra-passe poderia se tornar "pol123fb". Correspondência de subcadeia localiza a que a palavra-passe contém o nome do usuário "Pol". Embora "P0l123fb" não tenha sido especificamente de qualquer lista de palavra-passe banidas, correspondência de subcadeia encontrada "Pol" a palavra-passe. Por conseguinte, esta palavra-passe seria rejeitada.
 
 #### <a name="score-calculation"></a>Cálculo de pontuação
 

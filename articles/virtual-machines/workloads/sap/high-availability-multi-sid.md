@@ -18,11 +18,11 @@ ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 1b27ea761d19eb494895daceff699b2b604eccea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797331"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153856"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Criar uma configuração de múltiplos SID SAP NetWeaver
 
@@ -489,7 +489,7 @@ O cenário completo com dois sistemas SAP de elevada disponibilidade teria o seg
 ## <a name="prepare-the-infrastructure"></a>Preparar a infraestrutura
 Para preparar a infraestrutura, pode instalar uma instância do SAP ASCS/SCS adicional com os seguintes parâmetros:
 
-| Nome do parâmetro | Valor |
+| Nome do parâmetro | Value |
 | --- | --- |
 | SAP ASCS/SCS SID |pr1-lb-ascs |
 | Balanceador de carga interno do SAP DBMS | PR5 |

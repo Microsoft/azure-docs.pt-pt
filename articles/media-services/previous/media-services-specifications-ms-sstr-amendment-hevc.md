@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: johndeu;
-ms.openlocfilehash: b26252ddda7997bebd730bb4c1007f76b3e645a4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b9756920d25891dbe6b71fa24c06ed8f0c8eabb0
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650714"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963253"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Modificação de protocolo (MS-SSTR) transmissão em fluxo uniforme para HEVC 
 
@@ -40,11 +40,11 @@ Os termos seguintes são definidos no *[MS-GLOS]*:
 
 Os termos seguintes são específicos a este documento:
 
->  **tempo de composição:** O tempo de uma amostra é apresentada no cliente, conforme definido na [[ISO/IEC-14496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>  **tempo de composição:** O tempo de uma amostra é apresentada no cliente, conforme definido na [[ISO/IEC-14496-12]](https://go.microsoft.com/fwlink/?LinkId=183695).
 > 
 >   **CENC**: Encriptação comum, como definido na [ISO/IEC 23001 7], Second Edition.
 > 
->   **descodificar tempo:** O tempo de um exemplo é necessário para ser descodificado no cliente, conforme definido na [[ISO/IEC https://go.microsoft.com/fwlink/?LinkId=18369514496-12].](https://go.microsoft.com/fwlink/?LinkId=183695)
+>   **descodificar tempo:** O tempo de um exemplo é necessário para ser descodificado no cliente, conforme definido na [[ISO/IEC 14496-12:2008]](https://go.microsoft.com/fwlink/?LinkId=183695).
 
 **fragment:** Uma unidade de forma independente que pode ser baixada da **multimédia** que é composto por um ou mais **exemplos**.
 
@@ -52,11 +52,11 @@ Os termos seguintes são específicos a este documento:
 > 
 >   **manifest:** Metadados sobre o **apresentação** que permite que um cliente fazer pedidos **multimédia**. **suporte de dados:** Comprimir dados de áudio, vídeo e texto utilizados pelo cliente para reproduzir um **apresentação**. **formato de suporte de dados:** Um formato bem definido para representar o áudio ou vídeo como um comprimido **exemplo**.
 > 
->   **presentation:** O conjunto de todos os **fluxos** e metadados relacionados necessários para reproduzir um filme único. **Pedido:** Uma mensagem de HTTP enviada do cliente para o servidor, conforme definido na [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Resposta:** Uma mensagem de HTTP enviada do servidor para o cliente, conforme definido na [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **presentation:** O conjunto de todos os **fluxos** e metadados relacionados necessários para reproduzir um filme único. **Pedido:** Uma mensagem de HTTP enviada do cliente para o servidor, conforme definido na [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **resposta:** Uma mensagem de HTTP enviada do servidor para o cliente, conforme definido na [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **sample:** A menor unidade fundamental (por exemplo, um quadro) no qual **multimédia** são armazenados e processados.
 > 
->   **MAIO, DEVE, TEM, NÃO DEVE, NÃO PODEM:** Estes termos (em maiúsculas) são utilizados conforme descrito em [[RFC2119].](https://go.microsoft.com/fwlink/?LinkId=90317) Todas as instruções de utilização de comportamento opcional ou pode, SHOULD, ou deve não.
+>   **MAIO, DEVE, TEM, NÃO DEVE, NÃO PODEM:** Estes termos (em maiúsculas) são utilizados conforme descrito em [[RFC2119]](https://go.microsoft.com/fwlink/?LinkId=90317) todas as instruções de utilização de comportamento opcional ou pode, SHOULD, ou deve não.
 
 ## <a name="12-references"></a>1.2 referências de
 

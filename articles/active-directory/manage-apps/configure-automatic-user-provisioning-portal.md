@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/01/2019
 ms.author: mimart
-ms.reviewer: asmalser
+ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7319a108cb52c603396f8c654697e16438fa7d6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6bf265f51f2fea16f90dd0bcf2891bd9bed5cef8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780972"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65963567"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gerir a conta de utilizador de aprovisionamento de aplicações empresariais no portal do Azure
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 22996b277aba96cbbfedbb3e9cc67644d1a535ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: abef7815effcf420c8a0065ed46ce3c16c19ebe0
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60714276"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991766"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introdução às filas do Service Bus
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -390,6 +390,9 @@ Para receber as mensagens que enviar, crie outra aplicação de consola .NET Cor
     ![Comprimento da fila][queue-message-receive]
 
 Parabéns! Acabou de criar uma fila, enviou um conjunto de mensagens para essa fila e recebeu essas mensagens da mesma fila.
+
+> [!NOTE]
+> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 

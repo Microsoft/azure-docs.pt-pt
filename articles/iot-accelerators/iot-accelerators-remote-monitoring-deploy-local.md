@@ -3,17 +3,17 @@ title: Implementar a solução de monitorização remota localmente (por meio do
 description: Este guia de procedimentos mostra-lhe como implementar o acelerador de solução de monitorização remota no seu computador local com o Visual Studio para desenvolvimento e teste.
 author: avneet723
 manager: hegate
-ms.author: avneet723
+ms.author: avneets
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a5754fc2f7e0fc36a6708bfd4d2d1d3d6f016b27
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150956"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967501"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Implementar o monitorização remota acelerador de soluções localmente - Visual Studio
 
@@ -60,9 +60,9 @@ Execute o seguinte comando para iniciar o contentor do Docker para o serviço de
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>Implementar todos os outros microsserviços no computador local
 
-Os passos seguintes mostram como executar os microsserviços de monitorização remota no Visual Studio 2017:
+Os passos seguintes mostram como executar os microsserviços de monitorização remota no Visual Studio:
 
-1. Inicie o Visual Studio 2017
+1. Inicie o Visual Studio.
 1. Abra o **remoto monitoring.sln** solução no **serviços** pasta na sua cópia local do repositório.
 1. Na **Explorador de soluções**, clique com botão direito a solução e um simples clique **propriedades**.
 1. Selecione **propriedades comuns > projeto de arranque**.

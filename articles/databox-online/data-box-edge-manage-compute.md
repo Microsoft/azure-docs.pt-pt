@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 05/20/2019
 ms.author: alkohli
-ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a9daf1d59b03d283be999aaab559c6d60f6405dd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785801"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953133"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gerir a computação no seu limite de caixa de dados do Azure
 
@@ -129,24 +129,6 @@ Siga os passos seguintes no portal do Azure para sincronizar as chaves de acesso
 
 3. Saia da caixa de diálogo depois de a sincronização estar concluída.
 
-## <a name="enable-a-network-interface-for-compute"></a>Ativar uma interface de rede para computação
-
-Terá de aceder a um módulo em execução no seu dispositivo Edge de caixa de dados. Para acessar o módulo externamente, terá de atribuir um endereço IP a uma interface de rede no seu dispositivo. Pode gerir estas definições da web local da interface do Usuário de computação.
-
-Siga os passos seguintes na sua web local da interface do Usuário para configurar as definições de computação.
-
-1. Na IU da web local, aceda a **configuração > definições de computação**.  
-
-2. **Ativar** a interface de rede que pretende utilizar para ligar para os módulos de computação no dispositivo. 
-
-    - Se utilizar endereços IP estáticos, introduza um endereço IP para a interface de rede.
-    - Se utilizar DHCP, em seguida, os endereços IP serão automaticamente atribuídos.
-
-3. Selecione **aplicar** para aplicar as definições.
-
-    ![Ativar as definições de computação](media/data-box-edge-manage-compute/compute-settings-1.png)
-
-
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba como [Gerir utilizadores através do portal do Azure](data-box-edge-manage-users.md).
+- Saiba como [rede através do portal do Azure de computação de gerir Edge](data-box-edge-extend-compute-access-modules.md).

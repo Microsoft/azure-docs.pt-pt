@@ -6,43 +6,43 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 05/21/2019
 ms.author: sogup
-ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9d4d1db808446cb010e6551bdcec514fc550d802
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60848185"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966315"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Perguntas mais frequentes perguntas-cópia de segurança de VMs do Azure
 
 Este artigo responde a perguntas comuns sobre o backup das VMs do Azure com o [Azure Backup](backup-introduction-to-azure-backup.md) serviço.
 
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Criar cópia de segurança
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>Quais imagens VM podem ser ativadas para cópia de segurança, quando eu criá-los?
 Quando cria uma VM, pode ativar a cópia de segurança para VMs em execução [sistemas operativos suportados](backup-support-matrix-iaas.md#supported-backup-actions)
- 
-### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>É o custo de cópia de segurança incluído no custo VM? 
+
+### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>É o custo de cópia de segurança incluído no custo VM?
 
 Não. Os custos de cópia de segurança são separados dos custos de uma VM. Saiba mais sobre [preços de cópia de segurança do Azure](https://azure.microsoft.com/pricing/details/backup/).
- 
-### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para ativar a cópia de segurança para uma VM? 
 
-Se for um contribuinte VM, pode ativar a cópia de segurança na VM. Se estiver a utilizar uma função personalizada, terá as seguintes permissões para ativar cópia de segurança na VM: 
+### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>Que permissões são necessárias para ativar a cópia de segurança para uma VM?
 
-- Microsoft.RecoveryServices/Vaults/write 
-- Microsoft.RecoveryServices/Vaults/read 
-- Microsoft.RecoveryServices/locations/* 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write 
-- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/read 
-- Microsoft.RecoveryServices/Vaults/backupPolicies/write 
- 
+Se for um contribuinte VM, pode ativar a cópia de segurança na VM. Se estiver a utilizar uma função personalizada, terá as seguintes permissões para ativar cópia de segurança na VM:
+
+- Microsoft.RecoveryServices/Vaults/write
+- Microsoft.RecoveryServices/Vaults/read
+- Microsoft.RecoveryServices/locations/*
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read
+- Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write
+- Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write
+- Microsoft.RecoveryServices/Vaults/backupPolicies/read
+- Microsoft.RecoveryServices/Vaults/backupPolicies/write
+
 Se o Cofre de serviços de recuperação e a VM tiverem grupos de recursos diferente, certifique-se de que tem permissões de escrita no grupo de recursos para o Cofre dos serviços de recuperação.  
 
 
@@ -140,3 +140,6 @@ A VM é apoiada utilizando as definições de agendamento e retenção na polít
 3. Cópia de segurança ativada novamente no mesmo ou novo cofre.
 
 Pode restaurar a VM a partir de pontos de restauração disponíveis que foram criados antes da operação de movimentação.
+
+### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy"></a>Existe um limite no número de VMs que pode ser associado uma política de cópia de segurança mesmo?
+Sim, existe um limite de 100 VMs que podem ser associados à mesma política de cópia de segurança do portal. Nós recomendamos que para mais de 100 VMs, criar várias políticas de cópia de segurança com a mesma agenda ou por agendas diferentes.

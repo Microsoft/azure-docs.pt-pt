@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2019
-ms.author: monhaber
-ms.openlocfilehash: ea738535ae9326109a7c3fdd0b5d0c4f4691fdf0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.author: v-mohabe
+ms.openlocfilehash: b18267b1443b257a575bf2e1199b9f8fa8c419fc
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62095275"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65966807"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Proteger o serviço de aplicações com o Centro de segurança do Azure
 Este artigo ajuda-o a utilizar o Centro de segurança do Azure para monitorizar e proteger as suas aplicações em execução com base no serviço de aplicações.
@@ -34,7 +34,7 @@ Centro de segurança tira partido da escala da cloud para identificar ataques na
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para monitorizar e proteger o seu serviço de aplicações, tem de ter um plano de serviço de aplicações que estão associado com máquinas dedicadas. Estes planos são: Básico, Standard, Premium, isolados ou Linux. Centro de segurança do Azure não suporta os planos gratuito, partilhado ou consumo. Para obter mais informações, consulte [planos do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/).
+Para monitorizar e proteger o Serviço de Aplicações, precisa de um plano do Serviço de Aplicações associado a computadores dedicados. Estes planos são: Básico, Standard, Premium, Isolado ou Linux. O Centro de Segurança do Azure não suporta os planos Gratuito, Partilhado ou Consumo. Para obter mais informações, consulte [planos do serviço de aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/).
 
 ## <a name="security-center-protection"></a>Proteção de centro de segurança
 

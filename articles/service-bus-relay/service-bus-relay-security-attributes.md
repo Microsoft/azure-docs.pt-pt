@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f8827ac290393c9f394c3b13149555a1a2aa6df9
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: d8ce3c995e8e0f20ed6d694f481cc5fc9fde4fa7
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64927496"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000153"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-relay"></a>Atributos comuns de segurança para o reencaminhamento do Azure Service Bus
+# <a name="security-attributes-for-azure-service-bus-relay"></a>Atributos de segurança de reencaminhamento do Azure Service Bus
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos de segurança comuns incorporados no reencaminhamento do Azure Service Bus.
+Este artigo documenta os atributos de segurança incorporados no reencaminhamento do Azure Service Bus.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -27,7 +27,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>|  N/A | Reencaminhamento é um soquete de web e não persiste dados. |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim | O serviço precisa TLS. |
+| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Sim | O serviço precisa TLS. |
 | Manipulação de chave de encriptação (CMK, BYOK, etc.)| Não | Utiliza certificados de Microsoft TLS apenas.  |
 | Encriptação de nível de coluna (Serviços de dados do Azure)| N/A | |
 | Chamadas de API encriptadas| Sim | HTTPS. |
@@ -46,7 +46,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | |
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -61,7 +61,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Auditoria e registo de plano de controlo e gestão| Sim | Por meio [o Azure Resource Manager](../azure-resource-manager/index.yml). |
 | Auditoria e registo de plano de dados| Sim | Êxito de ligação / falhas e erros e registado.  |
 
-## <a name="configuration-management"></a>Gestão da configuração
+## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|

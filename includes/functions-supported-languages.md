@@ -10,11 +10,11 @@ ms.date: 05/01/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 100ba66b2eb9442f4121c525d9f13b5201b384b4
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148806"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66131249"
 ---
 |Idioma                                 |1.x         |2.x|
 |-----------------------------------------|------------|---|

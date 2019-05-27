@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: afadef8b29927f909af5be1e1204180724258b74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 956df17c821b86d95b1d87c3c8d8197bab7a95be
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324015"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955261"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Configurar ativação pós-falha em vários pontos finais da CDN do Azure com o Gestor de tráfego do Azure
 
@@ -80,6 +80,10 @@ Depois de configurar os perfis de CDN e o Gestor de tráfego, siga estes passos 
 2.  A partir do seu perfil da CDN do Azure, selecione o primeiro ponto final da CDN (Akamai). Selecione **Adicionar domínio personalizado** e entrada *cdndemo101.dustydogpetcare.online*. Certifique-se de que a marca de verificação para validar o domínio personalizado está verde. 
 
     A CDN do Azure utiliza o *cdnverify* subdomínio para validar o mapeamento de DNS para concluir este processo de registo. Para obter mais informações, consulte [criar um registo CNAME DNS](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Este passo ativa o CDN do Azure para reconhecer o domínio personalizado para que ele pode responder a suas solicitações.
+    
+ > [!NOTE]
+    > Para ativar o SSL num **CDN do Azure da Akamai** perfis, tem diretamente o cname do domínio personalizado para o ponto final. ainda, cdnverify para ativar o SSL não é suportado. 
+    >
 
 3.  Regressar ao site da web para o fornecedor de domínio do seu domínio personalizado e atualize o mapeamento de DNS primeiro que criou para que o domínio personalizado está mapeado para o segundo ponto final da CDN.
                              

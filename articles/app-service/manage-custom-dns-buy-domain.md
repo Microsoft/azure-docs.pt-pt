@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: b3177c5dfc5602dd2b6530b0934c17400ab5d528
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619731"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978886"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para o serviço de aplicações do Azure
 
@@ -201,7 +201,9 @@ Navegue para os nomes de anfitrião listadas no browser. No exemplo da captura d
 
 ## <a name="renew-the-domain"></a>Renovar o domínio
 
-O domínio de serviço de aplicações que comprou é válido durante um ano a partir do momento da compra. Por predefinição, o domínio está configurado para renovar automaticamente através de seu método de pagamento para o próximo ano. Se pretender desativar a renovação automática, ou se pretende renovar manualmente o seu domínio, siga os passos aqui descritos.
+O domínio de serviço de aplicações que comprou é válido durante um ano a partir do momento da compra. Por predefinição, o domínio está configurado para renovar automaticamente através de seu método de pagamento para o próximo ano. Pode renovar manualmente o seu nome de domínio.
+
+Se pretender desativar a renovação automática, ou se pretende renovar manualmente o seu domínio, siga os passos aqui descritos.
 
 Na **dos serviços de aplicações** separador, clique no nome da sua aplicação, selecione **definições**e, em seguida, selecione **domínios personalizados**.
 
@@ -211,11 +213,25 @@ Na **domínios do serviço de aplicações** secção, selecione o domínio que 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
 
-No painel de navegação à esquerda do domínio, selecione **renovação de domínio**. Para parar a renovar automaticamente o seu domínio, selecione **Off**e, em seguida **guardar**. 
+No painel de navegação à esquerda do domínio, selecione **renovação de domínio**. Para parar a renovar automaticamente o seu domínio, selecione **Off**e, em seguida **guardar**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
 
-Para renovar manualmente o seu domínio, selecione **renovar domínio**. No entanto, este botão não está ativo até 90 dias antes da expiração do domínio.
+Para renovar manualmente o seu domínio, selecione **renovar domínio**. No entanto, este botão não estiver ativo até [90 dias antes da expiração do domínio](#when-domain-expires).
+
+Se a renovação de domínio é efetuada com êxito, receberá uma notificação de e-mail dentro de 24 horas.
+
+## <a name="when-domain-expires"></a>When domain expires
+
+Azure lida com prestes a expirar ou expirado domínios do serviço de aplicações da seguinte forma:
+
+* Se a renovação automática está desativada: 90 dias antes da expiração do domínio, é enviado um e-mail de notificação de renovação para e o **renovar domínio** botão é ativado no portal.
+* Se estiver ativada a renovação automática: No dia após a data de expiração do domínio, o Azure tenta ao faturar-lhe para a renovação de nome de domínio.
+* Se ocorrer um erro durante a renovação automática (por exemplo, o cartão no ficheiro expirou), ou se a renovação automática está desativada e permitir que o domínio expirar, Azure notifica-o da expiração do domínio e parques seu nome de domínio. Pode [renovar manualmente](#renew-the-domain) seu domínio.
+* No dia 4 e 12 dias após a expiração, Azure envia-lhe e-mails de notificação adicionais. Pode [renovar manualmente](#renew-the-domain) seu domínio.
+* No dia 19 de após a expiração, seu domínio permanece em espera, mas torna-se sujeita a uma taxa de resgate. Pode chamar o suporte ao cliente para renovar o seu nome de domínio, sujeitos a taxas de resgate e de qualquer renovação aplicável.
+* No dia 25 dia após a expiração, o Azure coloca seu domínio tendo em vista o leilão com um serviço de leilões de setor de nome de domínio. Pode chamar o suporte ao cliente para renovar o seu nome de domínio, sujeitos a taxas de resgate e de qualquer renovação aplicável.
+* No dia 30 de após a expiração, já não pode resgatar o seu domínio.
 
 <a name="custom"></a>
 
