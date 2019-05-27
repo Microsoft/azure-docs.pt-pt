@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 9be062ec42f054832225c17a65b06e47dbcbe990
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123489"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977445"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor em funções duráveis - exemplo de observador de Meteorologia
 
@@ -89,7 +89,8 @@ Várias instâncias do orchestrator podem enviar para executar simultaneamente v
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>Transferência de dados possui rigidez de tipos (apenas para o .NET)
 
-O orchestrator requer várias partes de dados, então [POCO objetos compartilhados](../functions-reference-csharp.md#reusing-csx-code) são utilizados para a transferência de dados possui rigidez de tipos em c# e c# script: [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+O orchestrator requer várias partes de dados, então [POCO objetos compartilhados](../functions-reference-csharp.md#reusing-csx-code) são utilizados para a transferência de dados possui rigidez de tipos em c# e c# script:  
+[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
 

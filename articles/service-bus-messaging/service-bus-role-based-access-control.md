@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: aschhab
-ms.openlocfilehash: 7ef152b130e77e833e19c51ff97d0cea577216c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e4571a8918b7877b728b54129e47ffcf4af9b46a
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472255"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979633"
 ---
 # <a name="active-directory-role-based-access-control-preview"></a>Controlo de acesso do Active Directory Directory Role-Based (pré-visualização)
 
@@ -31,11 +31,18 @@ Uma aplicação que utiliza o RBAC do Azure AD não precisa lidar com regras SAS
 
 ## <a name="service-bus-roles-and-permissions"></a>Permissões e funções do Service Bus
 
-Para a pré-visualização pública inicial, pode adicionar apenas contas do Azure AD e principais de serviço para as funções de "Proprietário" ou "Contribuinte" de um espaço de nomes de mensagens do Service Bus. Esta operação concede o controlo total de identidade ao longo de todas as entidades no espaço de nomes. Operações de gestão que alteram a topologia de espaço de nomes inicialmente são apenas suportadas através para o Azure resource Manager e não através da interface de gestão do REST do Service Bus nativa. Esse suporte também significa que o cliente do .NET Framework [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) objeto não pode ser utilizado com uma conta do Azure AD.
+O Azure disponibiliza o abaixo funções RBAC incorporadas para autorizar o acesso a um espaço de nomes do Service Bus:
+
+* [Proprietário de dados do Service Bus (pré-visualização)](../role-based-access-control/built-in-roles.md#service-bus-data-owner): Permite o acesso a dados para o espaço de nomes do Service Bus e respetivas entidades (filas, tópicos, subscrições e filtros)
+
+>[!IMPORTANT]
+> Suportámos anteriormente a adição de uma identidade gerida para o **"Proprietário"** ou **"Contribuinte"** função.
+>
+> No entanto, de acesso a dados privilégios para **"Proprietário"** e **"Contribuinte"** função já não será cumprida. Se estava a utilizar o **"Proprietário"** ou **"Contribuinte"** função, então eles terão de ser adaptado para utilizar o **"Proprietário de dados do Service Bus"** função.
 
 ## <a name="use-service-bus-with-an-azure-ad-domain-user-account"></a>Utilizar o Service Bus com uma conta de utilizador de domínio do Azure AD
 
-A secção seguinte descreve os passos necessários para criar e executar um aplicativo de exemplo que solicita um Azure interativa utilizador do AD para fazer logon, como pode conceder acesso de Service Bus para essa conta de utilizador e como usar essa identidade para acessar os Hubs de eventos.
+A secção seguinte descreve os passos necessários para criar e executar um aplicativo de exemplo que solicita um Azure interativa utilizador do AD para iniciar sessão, como pode conceder acesso de Service Bus para essa conta de utilizador e como usar essa identidade para acessar os Hubs de eventos.
 
 Esta introdução descreve um aplicativo de console simples, o [código para o qual é no GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/RoleBasedAccessControl).
 
@@ -47,7 +54,7 @@ Se pretender continuar a criar uma conta específica para este cenário [siga es
 
 ### <a name="create-a-service-bus-namespace"></a>Criar um espaço de nomes do Service Bus
 
-Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md) das regiões do Azure com suporte de pré-visualização para RBAC: **E.U.A. Leste**, **E.U.A. Leste 2**, ou **Europa Ocidental**.
+Em seguida, [criar um espaço de nomes de mensagens do Service Bus](service-bus-create-namespace-portal.md).
 
 Depois de criar o espaço de nomes, navegue até à respetiva **controlo de acesso (IAM)** página no portal e, em seguida, clique em **adicionar atribuição de função** para adicionar a conta de utilizador do Azure AD para a função de proprietário. Se usar sua própria conta de utilizador e criou o espaço de nomes, já está na função de proprietário. Para adicionar uma conta diferente para a função, procure o nome da aplicação web no **adicionar permissões** painel **selecione** campo e, em seguida, clique na entrada. Em seguida, clique em **Guardar**.
 

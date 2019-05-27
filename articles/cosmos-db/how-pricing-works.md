@@ -4,14 +4,14 @@ description: Este artigo explica o modelo de preços do Azure Cosmos DB e como e
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 997a80ed1a8089c5255292f23bc5dacf8a6cb0e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c9e7afdb8927a2cdada8ae86ebf18a42327e640c
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61059678"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968947"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de preços no Azure Cosmos DB 
 
@@ -34,7 +34,7 @@ Atualmente, o preço mínimo para a base de dados e o débito baseadas em conten
 
 |**Entidade**  | **Débito mínimo e o custo** |**Incrementos de dimensionamento e o custo** |**Âmbito de aprovisionamento** |
 |---------|---------|---------|-------|
-|Base de Dados    | 400 RU/s (24 us $/ mês)    | 100 RU/s (6 de US $/ mês)   |Taxa de transferência está reservada para a base de dados e é partilhada por contentores na base de dados |
+|Base de dados    | 400 RU/s (24 us $/ mês)    | 100 RU/s (6 de US $/ mês)   |Taxa de transferência está reservada para a base de dados e é partilhada por contentores na base de dados |
 |Contentor     | 400 RU/s (24 us $/ mês)    | 100 RU/s (6 de US $/ mês)  |Taxa de transferência está reservada para um contentor específico |
 
 Conforme mostrado na tabela anterior, o débito mínimo no Azure Cosmos DB é iniciado por um preço de US $24/ mês. Se for iniciado com o débito mínimo e o dimensionamento ao longo do tempo para suportar as cargas de trabalho de produção, os seus custos aumentará sem problemas, em incrementos de 6 us $/ mês. O modelo de preços no Azure Cosmos DB é elástico e há uma suave aumento ou diminuição no preço como aumentar ou reduzir verticalmente.

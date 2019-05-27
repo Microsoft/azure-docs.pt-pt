@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 29a639142395c43fea06c1d6d18909b3c9f33b86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6660aa4e21aa36dc94c4ed9201fecb5637dddb3a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60769507"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955957"
 ---
 # <a name="autoscaling-and-app-service-environment-v1"></a>Dimensionamento automático e o ambiente de serviço de aplicações v1
 
@@ -63,7 +63,7 @@ Dimensionamento automático de um ambiente de serviço de aplicações melhor po
 Este artigo explica todas as considerações quando configurou o dimensionamento automático. O artigo explica as interações que entram em ação quando considera o dimensionamento automático ambientes de serviço de aplicações que estão alojados num ambiente de serviço de aplicações.
 
 ### <a name="scenario-introduction"></a>Introdução do cenário
-Frank é um administrador do sistema para uma empresa que tiver migrado uma parte das cargas de trabalho que gerencia o para um ambiente de serviço de aplicações.
+Frank é um administrador do sistema para uma empresa que tiver migrado uma parte das cargas de trabalho por eles geridos para um ambiente de serviço de aplicações.
 
 O ambiente de serviço de aplicações está configurado para dimensionamento manual da seguinte forma:
 
@@ -76,7 +76,7 @@ O conjunto de trabalho 1 é utilizado para cargas de trabalho de produção, enq
 
 Os planos de serviço de aplicações para o controle de qualidade e desenvolvimento são configurados para dimensionamento manual. O plano do serviço de aplicações de produção está definida para dimensionamento automático para lidar com variações na carga e tráfego.
 
-Frank é muito familiarizado com a aplicação. Ele sabe que as horas de pico de carga estão entre as 9:00 e das 18:00, porque esta é uma aplicação (LOB) de linha de negócio que os funcionários utilizam enquanto estiverem no escritório. Utilização ignora depois disso, quando os utilizadores são feitos para esse dia. Fora do horário de pico, ainda há alguns carga porque os utilizadores podem aceder a aplicações remotamente utilizando os respetivos dispositivos móveis ou PCs domésticos. O plano do serviço de aplicações de produção já está configurada para dimensionar automaticamente com base na utilização da CPU com as seguintes regras:
+Frank é muito familiarizado com a aplicação. Eles sabem que as horas de pico de carga estão entre as 9:00 e das 18:00, porque esta é uma aplicação (LOB) de linha de negócio que os funcionários utilizam enquanto estiverem no escritório. Utilização ignora depois disso, quando os utilizadores são feitos para esse dia. Fora do horário de pico, ainda há alguns carga porque os utilizadores podem aceder a aplicações remotamente utilizando os respetivos dispositivos móveis ou PCs domésticos. O plano do serviço de aplicações de produção já está configurada para dimensionar automaticamente com base na utilização da CPU com as seguintes regras:
 
 ![Definições específicas para a aplicação LOB.][asp-scale]
 
@@ -85,7 +85,7 @@ Frank é muito familiarizado com a aplicação. Ele sabe que as horas de pico de
 | **Nome:** Perfil de dia da semana |**Nome:** Perfil de fim de semana |
 | **Dimensione por:** Regras de agendamento e desempenho |**Dimensione por:** Regras de agendamento e desempenho |
 | **Perfil:** Dias da semana |**Perfil:** Fim de semana |
-| **Tipo:** Recorrência |**Tipo:** Recorrência |
+| **Tipo:** Periodicidade |**Tipo:** Periodicidade |
 | **Intervalo de destino:** 5 a 20 instâncias |**Intervalo de destino:** instâncias de 3 a 10 |
 | **Dias:** Segunda-feira, Terça-feira, quarta-feira, Quinta-feira, sexta-feira |**Dias:** Sábado, Domingo |
 | **Hora de início:** 9:00 |**Hora de início:** 9:00 |
@@ -156,7 +156,7 @@ Com essas informações, Frank pode definir o seguinte perfil de dimensionamento
 | **Nome:** Perfil de dia da semana |**Nome:** Perfil de fim de semana |
 | **Dimensione por:** Regras de agendamento e desempenho |**Dimensione por:** Regras de agendamento e desempenho |
 | **Perfil:** Dias da semana |**Perfil:** Fim de semana |
-| **Tipo:** Recorrência |**Tipo:** Recorrência |
+| **Tipo:** Periodicidade |**Tipo:** Periodicidade |
 | **Intervalo de destino:** instâncias 13 a 25 |**Intervalo de destino:** instâncias de 6 a 15 |
 | **Dias:** Segunda-feira, Terça-feira, quarta-feira, Quinta-feira, sexta-feira |**Dias:** Sábado, Domingo |
 | **Hora de início:** 7 DA MANHÃ |**Hora de início:** 9:00 |
@@ -201,7 +201,7 @@ Para este cenário, o Frank sabe que a taxa de erros aumenta depois de front-end
 | **Nome:** Dimensionamento automático – o front-ends |
 | **Dimensione por:** Regras de agendamento e desempenho |
 | **Perfil:** todos os dias |
-| **Tipo:** Recorrência |
+| **Tipo:** Periodicidade |
 | **Intervalo de destino:** instâncias de 3 a 10 |
 | **Dias:** todos os dias |
 | **Hora de início:** 9:00 |

@@ -11,11 +11,11 @@ ms.custom: include file
 ms.date: 08/16/2018
 ms.author: diberry
 ms.openlocfilehash: 67c95ffcdbdbcfbb9a86e15c91d984953d7bbffc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60710454"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124025"
 ---
 Para compreender o que devolve um ponto final de predição do LUIS, veja um resultado de predição num browser. Para consultar uma aplicação pública, precisa da sua própria chave e do ID da aplicação. O ID da aplicação IoT pública, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, é fornecido como parte do URL no primeiro passo.
 

@@ -6,13 +6,13 @@ manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: rayne-wiselman
-ms.openlocfilehash: 605421196c2ec7f62826e2f6c823d50262af8144
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: raynew
+ms.openlocfilehash: 8a3c9a4fb1b43c1d00d66fee3548ccd10a1e075e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61278147"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65969389"
 ---
 # <a name="monitor-site-recovery"></a>Recuperação de sites do monitor
 
@@ -37,7 +37,7 @@ A secção de itens replicados mostra o estado de funcionamento de todos os comp
 
 **Estado** | **Detalhes**
 --- | ---
-Bom estado de funcionamento | Replicação está em curso normalmente. Não existem sintomas de aviso ou erro são detetados.
+Bom Estado de Funcionamento | Replicação está em curso normalmente. Não existem sintomas de aviso ou erro são detetados.
 Aviso | Um ou mais sintomas de aviso que podem afetar a replicação são detetados.
 Crítica | Foram detetados um ou mais sintomas de erro de replicação crítica.<br/><br/> Esses sintomas de erro, normalmente, são indicadores de que a replicação bloqueada ou não evoluiu tão rapidamente como taxa de alteração de dados.
 Não aplicável | Servidores que não são atualmente esperados para ser a replicar. Isso pode incluir máquinas que têm falhadas.
@@ -194,4 +194,4 @@ No cofre > **monitorização e relatórios** secção, clique em **eventos de re
 1. Clique em **notificações por E-Mail**.
 1. Na **notificação por E-Mail**, ativar notificações e especificar a quem enviar para. Pode enviar de todos os administradores da subscrição ser enviadas notificações e endereços de e-mail, opcionalmente, específico.
 
-    ![Notificações por e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)
+    ![Notificações de e-mail](./media/site-recovery-monitor-and-troubleshoot/email.png)

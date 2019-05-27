@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d1bad50f2d97434865bb02ad54b1643c54e01790
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747816"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953025"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Instalar e operar o Azure Data Box em segurança
 ![Ícone de aviso](./media/data-box-safety/warning_icon.png)
@@ -116,7 +116,7 @@ As alterações ou por modificações feitas para o dispositivo não expressamen
 
 ![Observe o ícone](./media/data-box-safety/notice_icon.png) **aviso:** 
 
-Foi testado e foi encontrado para estar em conformidade com os limites de um dispositivo digital de classe A, de acordo com a parte 15 das regras FCC este equipamento. Estes limites são concebidos para fornecer proteção razoável contra interferência prejudicial, quando o equipamento é operado num ambiente comercial. Esse equipamento gera, utiliza e pode radiate energia de frequência de rádio e, se não instalados e utilizados em conformidade com o manual de instruções, pode fazer com que interferência prejudicial para comunicações de rádio. Operação deste equipamento numa área residencial é probabilidade de causar interferência prejudicial em que caso o usuário será necessário para corrigir a interferência em seu próprio despesas.
+Foi testado e foi encontrado para estar em conformidade com os limites de um dispositivo digital de classe A, de acordo com a parte 15 das regras FCC este equipamento. Estes limites são concebidos para fornecer proteção razoável contra interferência prejudicial, quando o equipamento é operado num ambiente comercial. Esse equipamento gera, utiliza e pode radiate energia de frequência de rádio e, se não instalados e utilizados em conformidade com o manual de instruções, pode fazer com que interferência prejudicial para comunicações de rádio. Operação deste equipamento numa área residencial é probabilidade de causar interferência prejudicial em que caso o usuário será necessário para corrigir a interferência em seus próprios despesas.
 
 Este dispositivo está em conformidade com a parte 15 as regras de FCC e o setor RSS de isenção de licença do Canadá standard(s). Operação está sujeito a duas condições seguintes: (1) este dispositivo não pode fazer com que prejudicial interferência e (2) este dispositivo tem de aceitar qualquer interferência recebida, incluindo a interferência que pode fazer com que a operação indesejada do dispositivo.
 

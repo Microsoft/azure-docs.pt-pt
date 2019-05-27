@@ -7,12 +7,12 @@ ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60498768"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979335"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz em recursos do Azure
 
@@ -207,9 +207,9 @@ Para obter mais informações, consulte a [acrescentar exemplos](../concepts/eff
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md)
-- Reveja o [estrutura de definição de política](../concepts/definition-structure.md)
-- Revisão [Noções básicas sobre os efeitos de política](../concepts/effects.md)
-- Compreender como [criar políticas programaticamente](programmatically-create.md)
-- Saiba como [remediar recursos não compatíveis](remediate-resources.md)
-- Rever o que é um grupo de gestão, com [Organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md)
+- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md).
+- Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
+- Veja [Compreender os efeitos do Policy](../concepts/effects.md).
+- Compreender como [criar políticas programaticamente](programmatically-create.md).
+- Saiba como [remediar recursos incompatíveis](remediate-resources.md).
+- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md).

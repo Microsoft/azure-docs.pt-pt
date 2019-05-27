@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: magottei
 ms.openlocfilehash: 1a375c438682c7afba2c65c049810d7d7234c808
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024879"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66122040"
 ---
 * PDF
 * Formatos do Microsoft Office: DOCX/DOC, XLSX/XLS, PPTX/PPT, MSG (mensagens de e-mail do Outlook)  

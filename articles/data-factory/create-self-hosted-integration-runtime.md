@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6e88d8f1c16e7c73f5c62325e41701e6f0ea97fb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 90e43ab0448646650067dbf151702132f434c01e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728083"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967954"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Criar e configurar um runtime de integração autoalojado
 O integration runtime (IR) é a infraestrutura de computação do Azure Data Factory utiliza para fornecer capacidades de integração de dados em diferentes ambientes de rede. Para obter detalhes sobre o runtime de integração, consulte [descrição geral do runtime de integração](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Este é um fluxo de dados de alto nível para o resumo de passos para copiar com
 1. O desenvolvedor de dados cria um runtime de integração autoalojado dentro de uma fábrica de dados do Azure com um cmdlet do PowerShell. Atualmente, o portal do Azure não suporta esta funcionalidade.
 2. O desenvolvedor de dados cria um serviço ligado para um arquivo de dados no local, especificando a instância do runtime de integração autoalojado que ele deve utilizar para ligar aos arquivos de dados.
 3. O nó do runtime de integração autoalojado encripta as credenciais com o Windows dados DPAPI Protection Application Programming Interface () e guarda as credenciais localmente. Se vários nós forem definidos para elevada disponibilidade, as credenciais são ainda mais sincronizadas em todos os outros nós. Cada nó encripta as credenciais utilizando DPAPI e armazena-os localmente. Sincronização de credenciais é transparente para o desenvolvedor de dados e é manipulada pelo ir autoalojado.    
-4. O serviço Data Factory se comunica com o runtime de integração autoalojado para agendamento e gestão de tarefas por meio de um *canal de controlo* que utiliza uma fila compartilhada do Azure Service Bus. Quando uma tarefa de atividade tem de ser executado, Data Factory coloca em fila o pedido, juntamente com informações de credenciais (caso as credenciais já não estão armazenadas no runtime de integração autoalojado). O runtime de integração autoalojado inicia a tarefa depois da fila de consulta.
+4. O serviço Data Factory se comunica com o runtime de integração autoalojado para agendamento e gestão de tarefas por meio de um *canal de controlo* que utiliza um partilhado [reencaminhamento do Azure Service Bus](https://docs.microsoft.com/azure/service-bus-relay/relay-what-is-it#wcf-relay). Quando uma tarefa de atividade tem de ser executado, Data Factory coloca em fila o pedido, juntamente com informações de credenciais (caso as credenciais já não estão armazenadas no runtime de integração autoalojado). O runtime de integração autoalojado inicia a tarefa depois da fila de consulta.
 5. O runtime de integração autoalojado copia dados de um arquivo no local para um armazenamento na cloud, ou vice versa dependendo da configuração a atividade de cópia no pipeline de dados. Para este passo, o runtime de integração autoalojado se comunica diretamente com os serviços de armazenamento baseado na nuvem, como o armazenamento de Blobs do Azure através de um canal de seguro (HTTPS).
 
 ## <a name="considerations-for-using-a-self-hosted-ir"></a>Considerações sobre a utilização de um ir Autoalojado
@@ -126,7 +126,7 @@ Pode associar vários nós ao instalar o software de runtime de integração aut
 
 ### <a name="scale-considerations"></a>Considerações de dimensionamento
 
-#### <a name="scale-out"></a>Aumentar horizontalmente
+#### <a name="scale-out"></a>Ampliar
 
 Quando a memória disponível no runtime de integração autoalojado é baixa e a utilização da CPU é alta, adicionar um novo nó ajuda a aumentar horizontalmente a carga entre máquinas. Se atividades estão a falhar porque eles estão exceder o tempo limite ou porque o nó do Runtime de integração autoalojado está offline, isso será útil se adicionar um nó para o gateway.
 

@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/2019
-ms.openlocfilehash: 96abef29c5290770d296fb5053007e36d1eaf537
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: a2a281fda9272fb794692becb0ca08f3cf791458
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035442"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989915"
 ---
 # <a name="create-and-explore-automated-machine-learning-experiments-in-the-azure-portal-preview"></a>Criar e explorar automatizada experimentações de machine learning no portal do Azure (pré-visualização)
 
@@ -40,7 +40,7 @@ Navegue até ao painel do lado esquerdo da área de trabalho. Selecione automati
 
 ![Página de destino de experiência de portal do Azure](media/how-to-create-portal-experiments/landing-page.png)
 
-Caso contrário, irá ver o dashboard de aprendizado de máquina automatizada com uma visão geral de todos os seus automatizada experimentações de machine learning, incluindo os executar com o SDK. Aqui pode filtrar e explore suas execuções por data, nome de experimentação e estado de execução.
+Caso contrário, irá ver o dashboard de aprendizado de máquina automatizada com uma visão geral de todos os seus automatizada experimentações de machine learning, incluindo aqueles criados com o SDK. Aqui pode filtrar e explore suas execuções por data, nome de experimentação e estado de execução.
 
 ![Dashboard de experiência de portal do Azure](media/how-to-create-portal-experiments/dashboard.png)
 
@@ -184,6 +184,63 @@ Faça uma busca detalhada em qualquer um dos modelos de saída para ver detalhes
 
 ![Detalhes de iteração](media/how-to-create-portal-experiments/iteration-details.png)
 
+## <a name="deploy-model"></a>Implementar modelo
+
+Depois de ter o melhor modelo em mãos, é hora de implantá-lo como um serviço web para prever sobre novos dados.
+
+ML automatizada ajuda-o com a implementação do modelo sem escrever código:
+
+1. Tem algumas opções para a implementação. 
+    1. Se pretender implementar o melhor modelo com base nos critérios métrica definido para a experimentação, selecione **implementar o melhor modelo** partir a **executar detalhes** página.
+
+        ![Implementar o botão de modelo](media/how-to-create-portal-experiments/deploy-model-button.png)
+
+    1. Se pretender implementar uma iteração do modelo específico, faça uma busca detalhada sobre o modelo para abrir a página de detalhes de execução específico e selecione **implementar modelo**.
+
+        ![Implementar o botão de modelo](media/how-to-create-portal-experiments/deploy-model-button2.png)
+
+1. Primeira etapa é registrar o modelo para o serviço. Selecione "Registar o modelo de" e aguarde pela conclusão do processo de registo.
+
+    ![Implementar o painel de modelo](media/how-to-create-portal-experiments/deploy-model-blade.png)
+
+1. Assim que o modelo estiver registado, poderá transferir o script de classificação (scoring.py) e o script de ambiente (condaEnv.yml) a ser utilizado durante a implementação.
+
+1. Quando o script de classificação e o script de ambiente são transferidos, vá para o **ativos** painel do painel de navegação esquerda e selecione **modelos**.
+
+    ![Modelos de painel de navegação](media/how-to-create-portal-experiments/nav-pane-models.png)
+
+1. Selecione o modelo que registou e selecione "Criar a imagem".
+
+    Pode identificar o modelo, sua descrição, que incluirá o ID de execução, o número de iteração, no seguinte formato: *< Run_ID > _ < Iteration_number > _Model*
+
+    ![Modelos: Criar imagem](media/how-to-create-portal-experiments/model-create-image.png)
+
+1. Introduza um nome para a imagem. 
+1. Selecione o **procurar** botão junto à caixa "Ficheiro de classificação" para carregar o ficheiro de classificação (scoring.py) que transferiu anteriormente.
+
+1. Selecione o **procurar** botão junto à caixa "Conda File" para carregar o ficheiro de ambiente (condaEnv.yml) que transferiu anteriormente.
+
+    Pode usar o seu script de classificação e o arquivo de conda, bem como carregar ficheiros adicionais. [Saiba mais sobre o script de classificação](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#script).
+
+      >[!Important]
+      > Os nomes de ficheiros devem ser em 32 carateres e deve começar e terminar com carateres alfanuméricos. Pode incluir travessões, carateres de sublinhado, pontos e carateres de alfanuméricos entre. Não são permitidos espaços.
+
+    ![Criar imagem](media/how-to-create-portal-experiments/create-image.png)
+
+1. Selecione o botão "Criar" para iniciar a criação de imagem. Esta ação irá demorar alguns minutos a concluir, assim que estiver pronto, verá uma mensagem na barra superior.
+1. Aceda ao separador "Imagens", selecione a caixa de verificação junto a imagem que pretende implementar e selecione "Criar a implementação". [Saiba mais sobre implementações](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+
+    Existem 2 opções para a implantação.
+     + Instância de contentor do Azure (ACI) - Isto é utilizado mais para fins de teste de finalidade em vez de implementação operacional em escala. Lembre-se de que preencha os valores para, pelo menos, um núcleo para _capacidade de reserva de CPU_e, pelo menos, um gigabyte (GB) para _capacidade de reserva de memória_
+     + Serviço Kubernetes do Azure (AKS)) – esta opção é para implementação em escala. Terá de ter uma computação com base do AKS pronta.
+
+     ![Imagens: Criar implementação](media/how-to-create-portal-experiments/images-create-deployment.png)
+
+1. Quando terminar, selecione **Criar**. Implementação do modelo, pode demorar alguns minutos para cada termine a execução de pipeline.
+
+1. Já está! Tem um serviço web operacionais para gerar as previsões de indisponibilidade.
+
 ## <a name="next-steps"></a>Passos Seguintes
 
 * [Saiba mais sobre a aprendizagem automática](concept-automated-ml.md) e Azure Machine Learning.
+* [Saiba como consumir um serviço web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).

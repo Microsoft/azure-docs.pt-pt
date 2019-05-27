@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc4ff596cdafd348288187b0cd9b32f7b4c2d275
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: cafe81a1b5ab6d26e71eff05e355d2ed79c4d5e7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823382"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119387"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registo de informações de segurança para ativar combinado (pré-visualização)
 
@@ -43,7 +43,7 @@ Conclua estes passos para ativar o registo combinado:
 > A partir de Março de 2019, as opções de chamada telefónica não estará disponíveis para o multi-factor Authentication e os utilizadores SSPR em inquilinos gratuitos/avaliação do Azure AD. Mensagens SMS não são afetadas por esta alteração. As opções de chamada telefónica continuarão a estar disponíveis para os utilizadores pagos inquilinos do Azure AD.
 
 > [!NOTE]
-> Depois de ativar o registo de combinado, os utilizadores que registar ou confirmar o número de telefone ou aplicação móvel através da nova experiência pode usá-los a para o multi-factor Authentication e SSPR, se esses métodos estão ativados no multi-factor Authentication e SSPR políticas. Se, em seguida, desativa essa experiência, os utilizadores que vão para o registo SSPR anterior página em `https:/aka.ms/ssprsetup` terão de efetuar a autenticação multifator para poderem aceder a página.
+> Depois de ativar o registo de combinado, os utilizadores que registar ou confirmar o número de telefone ou aplicação móvel através da nova experiência pode usá-los a para o multi-factor Authentication e SSPR, se esses métodos estão ativados no multi-factor Authentication e SSPR políticas. Se, em seguida, desativa essa experiência, os utilizadores que vão para o registo SSPR anterior página em `https://aka.ms/ssprsetup` terão de efetuar a autenticação multifator para poderem aceder a página.
 
 Se tiver configurado o Site para a lista de atribuições de zona do Internet Explorer, os seguintes sites precisam ser na mesma zona:
 

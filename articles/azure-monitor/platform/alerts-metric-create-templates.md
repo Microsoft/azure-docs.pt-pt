@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 13507361411a08852a059782f1ed6f00e25bec94
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8300baa1afa3e6c738cee4c2a2517463c2af1e88
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57541321"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978860"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -119,7 +119,8 @@ Guarde o json abaixo como simplestaticmetricalert.json com o objetivo deste pass
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -366,7 +367,8 @@ Guarde o json abaixo como simpledynamicmetricalert.json com o objetivo deste pas
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1100,7 +1102,8 @@ Guarde o json abaixo como all-vms-in-resource-group-static.json com o objetivo d
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1411,7 +1414,8 @@ Guarde o json abaixo como all-vms-in-resource-group-dynamic.json com o objetivo 
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -1717,7 +1721,8 @@ Guarde o json abaixo como all-vms-em-subscrição-static.json com o objetivo des
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2025,7 +2030,8 @@ Guarde o json abaixo como all-vms-em-subscrição-dynamic.json com o objetivo de
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2328,7 +2334,8 @@ Guarde o json abaixo como lista-de-vms-static.json com o objetivo deste passo a 
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."
@@ -2639,7 +2646,8 @@ Guarde o json abaixo como lista-de-vms-dynamic.json com o objetivo deste passo a
                 "Average",
                 "Minimum",
                 "Maximum",
-                "Total"
+                "Total",
+                "Count"
             ],
             "metadata": {
                 "description": "How the data that is collected should be combined over time."

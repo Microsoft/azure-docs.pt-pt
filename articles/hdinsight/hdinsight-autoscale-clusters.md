@@ -8,21 +8,21 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: hrasheed
-ms.openlocfilehash: f8803a498e62958a5488f2ac8830137c37533e54
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 6ec981164de0ff61b0e83d54255d046a1418ed96
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413706"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66000110"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Dimensionar automaticamente os clusters do HDInsight do Azure (pré-visualização)
+
+> [!Important]
+> A funcionalidade de dimensionamento automático só funciona com clusters do Spark, Hive e o MapReduce criados após 8 de Maio de 2019. 
 
 Funcionalidade de dimensionamento automático do Azure HDInsight cluster dimensiona-se automaticamente o número de nós de trabalho num cluster e reduzir verticalmente. Outros tipos de nós do cluster não podem ser dimensionados atualmente.  Durante a criação de um novo cluster do HDInsight, pode ser definido um número mínimo e máximo de nós de trabalho. Dimensionamento automático, em seguida, monitoriza os requisitos de recursos da carga de análise e aumenta o número de nós de trabalho ou para baixo. Não é sem custos adicionais para esta funcionalidade.
 
 ## <a name="cluster-compatibility"></a>Compatibilidade de cluster
-
-> [!Important]
-> A funcionalidade de dimensionamento automático só funciona nos clusters criados após a disponibilidade pública do recurso em Maio de 2019. Isso não funcionará para clusters já existentes.
 
 A tabela seguinte descreve os tipos de cluster e versões que são compatíveis com a funcionalidade de dimensionamento automático.
 
@@ -189,6 +189,25 @@ Pode criar um cluster do HDInsight com o dimensionamento automático com base na
 Para ativar o dimensionamento automático num cluster em execução, selecione **tamanho do Cluster** sob **definições**. Em seguida, clique em **ativar o dimensionamento automático**. Selecione o tipo de dimensionamento automático que pretende e introduza as opções de dimensionamento com base na carga ou baseadas na agenda. Por fim, clique em **guardar**.
 
 ![Ativar a opção de dimensionamento automático com base na agenda do nó de trabalho](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-enable-running-cluster.png)
+
+## <a name="best-practices"></a>Melhores práticas
+
+### <a name="choosing-load-based-or-schedule-based-scaling"></a>Escolher o dimensionamento com base na carga ou baseadas na agenda
+
+Antes de tomar uma decisão modo no qual escolher, considere os seguintes fatores:
+
+* Variação de carga: faz a carga do cluster seguem um padrão consistente em horários específicos, em dias específicos. Caso contrário, agendamento de carga com base é uma opção melhor.
+* Requisitos de SLA: O dimensionamento de dimensionamento automático é reativo, em vez de previsão. Haverá um atraso suficiente entre quando a carga começa a aumentar e quando o cluster tem de estar no seu tamanho de destino? Se existirem rigorosos requisitos de SLA e a carga é um padrão conhecido fixo, 'programação com base' é uma opção melhor.
+
+### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considere a latência de dimensionamento de cópia de segurança ou reduzir verticalmente operações
+
+Pode demorar 10 a 20 minutos para uma operação de dimensionamento concluir. Quando configurar uma agenda personalizada, planeie esse atraso. Por exemplo, o se tiver o tamanho do cluster ser 20 às 9:00, defina o acionador de agenda para um momento anterior como 8 às 11:30, para que a operação de dimensionamento for concluída, 9:00.
+
+### <a name="preparation-for-scaling-down"></a>Preparação para reduzir verticalmente
+
+Durante o processo no dimensionamento do cluster, o dimensionamento automático irá desativar os nós de acordo com o tamanho de destino. Se existir estiver executando tarefas em nós, o dimensionamento automático irá esperar até que as tarefas são concluídas. Uma vez que cada nó de trabalho também serve uma função no HDFS, os dados temporários irão ser mudou para os nós restantes. Portanto, deve verificar se existe espaço suficiente em nós restantes para alojar todos os dados temporários. 
+
+As tarefas em execução irão continuar a executar e concluir. As tarefas pendentes irão esperar para ser agendado as normal com menos nós de trabalho disponíveis.
 
 ## <a name="monitoring"></a>Monitorização
 
