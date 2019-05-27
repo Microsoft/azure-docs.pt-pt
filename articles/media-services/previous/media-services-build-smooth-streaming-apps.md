@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8c1513838fb848388946e18698a0410aa7a0332
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466073"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949625"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como criar um Smooth Streaming de aplicativos da Windows Store  
 
@@ -507,7 +507,7 @@ Os mesmos eventos estão disponíveis na origem adaptável Manager nível, que p
    ```
 
    > [!NOTE]
-   > CoreDispatcher é utilizado para fazer alterações para o thread de interface do Usuário do Thread de interface do Usuário não. Em caso de estrangulamento no dispatcher thread, o desenvolvedor pode optar por usar dispatcher fornecida pelo elemento de interface do Usuário, ele pretende atualizar.  Por exemplo:
+   > CoreDispatcher é utilizado para fazer alterações para o thread de interface do Usuário do Thread de interface do Usuário não. Em caso de estrangulamento no dispatcher thread, o desenvolvedor pode optar por usar dispatcher fornecida pelo elemento de interface do Usuário que pretende atualizar.  Por exemplo:
 
    ```csharp
          await sliderProgress.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () => { TimeSpan 
@@ -847,7 +847,7 @@ Uma apresentação de transmissão em fluxo uniforme pode conter vários ficheir
          </ListBox>
          </StackPanel>
    ```
-3. Prima **CTRL + S** para guardar as alterações de he
+3. Prima **CTRL + S** para guardar as alterações
 
 ### <a name="to-modify-the-code-behind-file"></a>Para modificar o código por trás do ficheiro
 
