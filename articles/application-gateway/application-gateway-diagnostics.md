@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 3/28/2019
 ms.author: amitsriva
 ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620881"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135539"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Estado de funcionamento do back-end, registos de diagnóstico e métricas para o Gateway de aplicação
 
@@ -158,7 +158,7 @@ Azure gera o registo de atividades, por predefinição. Os registos são mantido
 O registo de acesso é gerado apenas se tiver habilitado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Cada acesso de Gateway de aplicação é registado no formato JSON, conforme mostrado no exemplo a seguir:
 
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação que serviu o pedido.        |
 |clientIP     | IP de origem para o pedido.        |
@@ -202,7 +202,7 @@ O registo de acesso é gerado apenas se tiver habilitado em cada instância de G
 O registo de desempenho é gerado apenas se está ativado em cada instância de Gateway de aplicação, conforme especificado nos passos anteriores. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Os dados de registo de desempenho são gerados em intervalos de 1 minuto. Os seguintes dados são registados:
 
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     |  Instância de Gateway de aplicação para o desempenho de dados está a ser gerados. Para um gateway de aplicação de várias instâncias, existe uma linha por instância.        |
 |healthyHostCount     | Número de anfitriões em bom estado no conjunto de back-end.        |
@@ -210,7 +210,7 @@ O registo de desempenho é gerado apenas se está ativado em cada instância de 
 |requestCount     | Número de pedidos servidos.        |
 |latência | Latência média (em milissegundos) de pedidos da instância para o back-end que serve os pedidos. |
 |failedRequestCount| Número de pedidos falhados.|
-|Taxa de transferência| Débito médio desde o último log, medido em bytes por segundo.|
+|throughput| Débito médio desde o último log, medido em bytes por segundo.|
 
 ```json
 {
@@ -239,7 +239,7 @@ O registo de desempenho é gerado apenas se está ativado em cada instância de 
 O log do firewall é gerado apenas se está ativado para cada gateway de aplicação, conforme especificado nos passos anteriores. Este registo também requer que a firewall de aplicações web está configurada num gateway de aplicação. Os dados são armazenados na conta de armazenamento que especificou quando ativou o registo. Os seguintes dados são registados:
 
 
-|Valor  |Descrição  |
+|Value  |Descrição  |
 |---------|---------|
 |instanceId     | Instância de Gateway de aplicação para o qual firewall dados está a ser gerados. Para um gateway de aplicação de várias instâncias, existe uma linha por instância.         |
 |clientIp     |   IP de origem para o pedido.      |
@@ -307,7 +307,7 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 
 Publicamos um modelo do Resource Manager que instala e executa o popular [GoAccess](https://goaccess.io/) log analyzer para aceder aos registos do Gateway de aplicação. GoAccess fornece valiosas estatísticas de tráfego HTTP, como visitantes exclusivos, arquivos de pedido, anfitriões, sistemas operacionais, navegadores, códigos de estado de HTTP e muito mais. Para obter mais detalhes, consulte a [ficheiro Leia-me na pasta de modelo do Resource Manager no GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="metrics"></a>Métricas
+## <a name="metrics"></a>Métrica
 
 As métricas são uma funcionalidade para determinados recursos do Azure, onde pode ver contadores de desempenho no portal. Para o Gateway de aplicação, as métricas seguintes estão disponíveis:
 

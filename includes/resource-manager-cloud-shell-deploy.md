@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/30/2019
 ms.author: tomfitz
 ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730495"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66129017"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Implementar o modelo a partir do Cloud Shell
 
@@ -23,7 +23,7 @@ Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implemen
 
 1. Selecione a conta de armazenamento para o Cloud Shell.
 
-   ![Selecionar a conta de armazenamento](./media/resource-manager-cloud-shell-deploy/select-storage.png)
+   ![Selecionar conta de armazenamento](./media/resource-manager-cloud-shell-deploy/select-storage.png)
 
 1. Selecione **Blobs**.
 
@@ -47,7 +47,7 @@ Pode utilizar o [Cloud Shell](../articles/cloud-shell/overview.md) para implemen
 
 1. Localize e carregue o modelo.
 
-   ![Carregar o ficheiro](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   ![Carregar ficheiro](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
 
 1. Depois de ter carregado, selecione o modelo.
 

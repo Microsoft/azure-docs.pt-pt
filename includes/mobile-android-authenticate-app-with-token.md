@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: crdun
 ms.openlocfilehash: deb94cab97bd9a402676cdc5c0239da8d07ed8b2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440363"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66141023"
 ---
 O exemplo anterior mostrava um padrão de início de sessão, que exige que o cliente contactar o fornecedor de identidade e o serviço do Azure de back-end, sempre que a aplicação for iniciada. Este método é ineficaz e pode ter problemas relacionados com a utilização se muitos clientes tentarem iniciar a sua aplicação em simultâneo. Uma abordagem melhor é armazenar em cache o token de autorização retornado pelo serviço do Azure, e tente utilizar nesta primeira antes de utilizar um fornecedor com base no início de sessão.
 

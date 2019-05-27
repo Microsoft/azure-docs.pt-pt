@@ -11,11 +11,11 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.openlocfilehash: 061156a455664a5a3f0b4c4497d24f4e8ff6eea7
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527256"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66135691"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-routing-rules-using-the-azure-cli"></a>Criar um gateway de aplicação com o URL com base no caminho regras de encaminhamento com a CLI do Azure
 

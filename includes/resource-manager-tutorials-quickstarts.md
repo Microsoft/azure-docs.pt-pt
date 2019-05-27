@@ -15,19 +15,19 @@ ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
 ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589386"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66129005"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Inícios rápidos e tutoriais
 
 Utilize os seguintes inícios rápidos e tutoriais para saber como desenvolver modelos do resource manager:
 
-- Inícios rápidos
+- Guias de Introdução
 
-    |Título|Descrição|
+    |Cargo|Descrição|
     |------|-----|
     |[Utilizar o portal do Azure](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)|Gerar um modelo com o portal e compreenda o processo de edição e a implementar o modelo.|
     |[Utilizar o Visual Studio Code](../articles/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Utilize o Visual Studio Code para criar e editar modelos, e como utilizar o Azure Cloud shell para implementar modelos.|
@@ -35,7 +35,7 @@ Utilize os seguintes inícios rápidos e tutoriais para saber como desenvolver m
 
 - Tutoriais
 
-    |Título|Descrição|
+    |Cargo|Descrição|
     |------|-----|
     |[Utilizar referência de modelo](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilize a documentação de referência de modelo para desenvolver modelos. No tutorial, vai encontrar o esquema da conta de armazenamento e utilizar as informações para criar uma conta de armazenamento encriptado.|
     |[Criar múltiplas instâncias](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Criar várias instâncias de recursos do Azure. No tutorial, vai criar várias instâncias da conta de armazenamento.|

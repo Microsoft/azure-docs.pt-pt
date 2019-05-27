@@ -4,15 +4,15 @@ description: Este artigo descreve como restaurar a cópia de segurança automát
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 6ed968b1613a96a2f4ab449c7b52488e066a38ab
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 066549f1343eaceb9a47fccc3b5d4508f226a89b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60930249"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967473"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Restaurar a cópia de segurança online e dados a pedido no Azure Cosmos DB
 

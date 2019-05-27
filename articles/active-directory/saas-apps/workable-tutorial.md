@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c025cdeb-786c-4aab-abd1-132907007f7e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49c5194f75ad973514a3ec015ef29c1d6f48330a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: a13d2a62c64ea114e45b49e38eda0ddc686fe7cf
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60382867"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66143148"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Tutorial: Integração do Active Directory do Azure com Workable
 
@@ -68,7 +69,7 @@ Para configurar a integração do Workable com o Azure AD, terá de adicionar Wo
 
 4. Na caixa de pesquisa, escreva **Workable**, selecione **Workable** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
 
-     ![Viável na lista de resultados](common/search-new-app.png)
+    ![Viável na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
@@ -80,8 +81,8 @@ Para configurar e testar o Azure AD início de sessão único com Workable, tem 
 1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 2. **[Configurar viável início de sessão único](#configure-workable-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
 3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Criar utilizador de teste viável](#create-workable-test-user)**  - para ter um equivalente da Eduarda Almeida na Workable que está ligado à representação de utilizador do Azure AD.
-5. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste viável](#create-workable-test-user)**  - para ter um equivalente da Eduarda Almeida na Workable que está ligado à representação de utilizador do Azure AD.
 6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
@@ -127,7 +128,7 @@ Para configurar o Azure AD início de sessão único com Workable, execute os se
 
     a. URL de início de sessão
 
-    b. Azure Ad Identifier
+    b. Identificador do Azure AD
 
     c. URL de fim de sessão
 
@@ -141,7 +142,7 @@ Para ativar o SSO no Workable, contacte o seu Gestor de conta viável dedicada e
 
 3. URL de fim de sessão
 
-Assim que o início de sessão único foi ativada, o Gestor de conta viável irá informá-lo e pode usar [página SSO do Workable](https://www.workable.com/sso/signin) para iniciar sessão com o subdomínio de conta viável.
+Assim que o início de sessão único foi ativada, o Gestor de conta viável irá informá-lo e pode usar [página SSO do Workable](https://id.workable.com/sso/signin) para iniciar sessão com o subdomínio de conta viável.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
@@ -161,8 +162,7 @@ O objetivo desta secção é criar um utilizador de teste no portal do Azure cha
 
     a. Na **Name** campo introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Na **nome de utilizador** tipo de campo `brittasimon\@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
 
     c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
 
@@ -198,7 +198,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
 Nesta secção, um usuário chamado Eduarda Almeida é criado na Workable. Viável suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Workable, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
 Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
 

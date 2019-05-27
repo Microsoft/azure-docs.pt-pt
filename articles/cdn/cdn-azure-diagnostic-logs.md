@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
 ms.openlocfilehash: a5fab3e2bf9908fa35cf5f5485df3116b7718d8c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881134"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66125980"
 ---
 # <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
 Com os registos de diagnóstico do Azure, pode ver a análise de núcleo e salvá-los num ou mais destinos, incluindo:
 
  - Conta de armazenamento do Azure
- - Azure Event Hubs
+ - Hubs de Eventos do Azure
  - [Área de trabalho do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
 Esta funcionalidade está disponível nos pontos finais CDN para todos os escalões de preço. 
@@ -242,55 +242,55 @@ Siga estes passos para adicionar uma solução de monitorização do Azure Monit
 
 3. Na **monitorização + gestão** página, selecione **ver tudo**.
 
-    ![Ver tudo](./media/cdn-diagnostics-log/15_See-all.png)
+    ![Ver todos](./media/cdn-diagnostics-log/15_See-all.png)
 
 4. Pesquisa de CDN na caixa de pesquisa.
 
-    ![Ver tudo](./media/cdn-diagnostics-log/16_Search-for.png)
+    ![Ver todos](./media/cdn-diagnostics-log/16_Search-for.png)
 
 5. Selecione **a CDN do Azure Core Analytics**. 
 
-    ![Ver tudo](./media/cdn-diagnostics-log/17_Core-analytics.png)
+    ![Ver todos](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
 6. Depois de selecionar **criar**, é-lhe perguntado para criar uma nova área de trabalho do Log Analytics ou utilize um já existente. 
 
-    ![Ver tudo](./media/cdn-diagnostics-log/18_Adding-solution.png)
+    ![Ver todos](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
 7. Selecione a área de trabalho que criou anteriormente. Em seguida, precisa adicionar uma conta de automatização.
 
-    ![Ver tudo](./media/cdn-diagnostics-log/19_Add-automation.png)
+    ![Ver todos](./media/cdn-diagnostics-log/19_Add-automation.png)
 
 8. O ecrã seguinte mostra o formulário de conta de automatização que terá de preencher. 
 
-    ![Ver tudo](./media/cdn-diagnostics-log/20_Automation.png)
+    ![Ver todos](./media/cdn-diagnostics-log/20_Automation.png)
 
 9. Assim que tiver criado a conta de automatização, está pronto para adicionar a sua solução. Selecione o botão **Criar**.
 
-    ![Ver tudo](./media/cdn-diagnostics-log/21_Ready.png)
+    ![Ver todos](./media/cdn-diagnostics-log/21_Ready.png)
 
 10. Sua solução agora foi adicionada à sua área de trabalho. Regresse ao dashboard do portal do Azure.
 
-    ![Ver tudo](./media/cdn-diagnostics-log/22_Dashboard.png)
+    ![Ver todos](./media/cdn-diagnostics-log/22_Dashboard.png)
 
     Selecione a área de trabalho do Log Analytics que criou para aceder à sua área de trabalho. 
 
 11. Selecione o **Portal do OMS** mosaico para ver a nova solução.
 
-    ![Ver tudo](./media/cdn-diagnostics-log/23_workspace.png)
+    ![Ver todos](./media/cdn-diagnostics-log/23_workspace.png)
 
 12. Seu portal deverá agora ser semelhante ao seguinte ecrã:
 
-    ![Ver tudo](./media/cdn-diagnostics-log/24_OMS-solution.png)
+    ![Ver todos](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
     Selecione um dos mosaicos para ver os vários modos de exibição sobre os seus dados.
 
-    ![Ver tudo](./media/cdn-diagnostics-log/25_Interior-view.png)
+    ![Ver todos](./media/cdn-diagnostics-log/25_Interior-view.png)
 
     Pode rolar esquerda ou direita para ver mais mosaicos que representam exibições individuais para os dados. 
 
     Selecione um dos mosaicos para ver mais detalhes sobre os seus dados.
 
-     ![Ver tudo](./media/cdn-diagnostics-log/26_Further-detail.png)
+     ![Ver todos](./media/cdn-diagnostics-log/26_Further-detail.png)
 
 ### <a name="offers-and-pricing-tiers"></a>Os escalões de preços e ofertas
 

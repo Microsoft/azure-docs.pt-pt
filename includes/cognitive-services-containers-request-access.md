@@ -5,11 +5,11 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
 ms.openlocfilehash: 4cdcec850f32d7e94f33eb28e5bf7839e511f347
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65891217"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124560"
 ---
 Preencha e submeta a [formulário de pedido de contentores de imagem digitalizada dos serviços cognitivos](https://aka.ms/VisionContainersPreview) para pedir acesso ao contentor. O formulário solicita as informações sobre si, sua empresa e o cenário de utilizador que vai utilizar o contentor. Depois de submeter o formulário, a equipe de serviços cognitivos do Azure revê-lo para se certificar de que cumpre os critérios para acesso ao registo de contentor privado.
 

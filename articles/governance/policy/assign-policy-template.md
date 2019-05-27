@@ -7,12 +7,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 03d15d30deabbc2bd34fbb4fba108be382f94fa1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f31d6197c22be4d66e0610ad7914f541a45ed995
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787349"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979559"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Início rápido: Criar uma atribuição de política para identificar recursos incompatíveis com um modelo do Resource Manager
 
@@ -25,7 +25,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste início rápido, criar uma atribuição de política e atribuir uma definição de política incorporada chamada *VMs de auditoria que não utilizam discos geridos*. Para obter uma lista parcial de políticas incorporadas disponíveis, consulte [exemplos de política](./samples/index.md).
+Neste início rápido, criar uma atribuição de política e atribuir uma definição de política incorporada chamada *VMs de auditoria que não utilizam discos geridos*. Para obter uma lista parcial de políticas incorporadas disponíveis, consulte [exemplos do Azure Policy](./samples/index.md).
 
 Existem vários métodos para a criação de atribuições de política. Neste início rápido, vai utilizar um [modelo de início rápido](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Esta é uma cópia do modelo:

@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
 ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540776"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66129435"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerir a área de trabalho do Log Analytics utilizando modelos Azure Resource Manager
 
@@ -42,9 +42,9 @@ Este artigo fornece exemplos de modelos que mostram algumas das configurações 
 ## <a name="api-versions"></a>Versões da API
 A tabela seguinte lista a versão de API para os recursos utilizados neste exemplo.
 
-| Recurso | Tipo de recurso | Versão de API |
+| Resource | Tipo de recurso | Versão de API |
 |:---|:---|:---|
-| Área de trabalho   | áreas de trabalho    | 2017-03-15-pré-visualização |
+| Área de Trabalho   | áreas de trabalho    | 2017-03-15-pré-visualização |
 | Pesquisa      | savedSearches | 2015-03-20 |
 | Origem de dados | origens de dados   | 2015-11-01-pré-visualização |
 | Solução    | soluções     | 2015-11-01-pré-visualização |

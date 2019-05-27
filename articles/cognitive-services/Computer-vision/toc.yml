@@ -199,3 +199,5 @@
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
+    - name: Conformidade
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'

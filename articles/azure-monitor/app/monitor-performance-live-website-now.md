@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0587782cbfa31f7b397b950a752040cc678cf7d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576667"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66130990"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicações web no tempo de execução com o Monitor de estado do Application Insights
 
@@ -149,6 +149,8 @@ Estamos a acompanhar este problema [aqui](https://github.com/Microsoft/Applicati
 * Para a saída de registos verbosos, modifique o ficheiro de configuração: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` e adicione `<add key="TraceLevel" value="All" />` para o `appsettings`.
 Em seguida, reinicie o monitor de estado.
 
+* Como o Monitor de estado é um aplicativo .NET também é possível habilitar [rastreamento do .net, adicionando o diagnóstico adequado ao ficheiro de configuração](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). Por exemplo, em alguns cenários pode ser útil ver o que acontece ao nível da rede por [configuração de rastreio de rede](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
+
 ### <a name="insufficient-permissions"></a>Permissões insuficientes
   
 * No servidor, se vir uma mensagem sobre "permissões insuficientes", experimente o seguinte:
@@ -175,7 +177,7 @@ Elimine qualquer um desses arquivos encontrados no diretório da aplicação:
 
 * Consulte adicional [resolução de problemas][qna].
 
-## <a name="system-requirements"></a>Requisitos de Sistema
+## <a name="system-requirements"></a>Requisitos do Sistema
 Suporte de SO para o Monitor de Estado do Application Insights no Servidor:
 
 * Windows Server 2008
@@ -184,7 +186,7 @@ Suporte de SO para o Monitor de Estado do Application Insights no Servidor:
 * Windows Server 2012 R2
 * Windows Server 2016
 
-com o .NET Framework 4.5 e o SP mais recente
+com SP e .NET Framework 4.5 mais recentes (Monitor de estado é criado nesta versão do framework)
 
 No lado do cliente: Windows 7, 8, 8.1 e 10, novamente com o .NET Framework 4.5
 
@@ -276,7 +278,9 @@ Quando seleciona uma aplicação Web para o Monitor de Estado instrumentar:
 
 ### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Qual versão do SDK do Application Insights instalar o Monitor de estado?
 
-A partir de agora, o Monitor de estado só pode instalar as versões do Application Insights SDK 2.3 ou 2.4.
+A partir de agora, o Monitor de estado só pode instalar as versões do Application Insights SDK 2.3 ou 2.4. 
+
+O Application Insights SDK versão 2.4 é o [última versão para o suporte .NET 4.0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) que foi [EOL Janeiro de 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Por conseguinte, a partir de agora o Monitor de estado pode ser utilizado para instrumentar uma aplicação .NET 4.0. 
 
 ### <a name="do-i-need-to-run-status-monitor-whenever-i-update-the-app"></a>Preciso de executar o Monitor de Estado sempre que atualizar a aplicação?
 

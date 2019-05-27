@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 350e67f5a1e7e1eab7abe27a6ca851ed2420af84
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486211"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978530"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação em partição horizontal do multi-inquilino
 
@@ -58,7 +58,7 @@ Para concluir este tutorial, confirme que conclui os pré-requisitos seguintes:
 ### <a name="plan-the-names"></a>Planear os nomes
 
 Os passos desta secção, fornecer uma *usuário* valor que é utilizado para garantir que os nomes de recursos são globalmente exclusivos e um nome para o *grupo de recursos* que contém todos os recursos criados por uma implementação da aplicação. Para uma pessoa com o nome *Ann Finley*, sugerimos:
-- *Utilizador:* **af1**  *(seus iniciais, além de um dígito. Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
+- *Utilizador:* **af1***(suas iniciais e um dígito.   Utilize um valor diferente (por exemplo, af2) se implementar a aplicação uma segunda vez.)*
 - *Grupo de recursos:* **wingtip-mt-af1** *(wingtip mt indica esta é a aplicação multi-inquilino em partição horizontal. Acrescentar o af1 de nome de utilizador relacionada com o nome do grupo de recursos com os nomes de recursos que contém.)*
 
 Escolha os nomes de agora e anotá-las. 
@@ -133,7 +133,7 @@ Uma central **Hub de eventos** página da Web fornece uma lista de links para os
 
    ![Eventos](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-### <a name="azure-traffic-manager"></a>Traffic Manager do Azure
+### <a name="azure-traffic-manager"></a>Gestor de Tráfego do Azure
 
 Para controlar a distribuição de pedidos recebidos, utiliza a aplicação Wingtip [Gestor de tráfego do Azure](../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino no URL correspondente. Cada URL também inclui o valor de utilizador específico. Cada URL obedeça o formato mostrado ao utilizar os seguintes passos:
 

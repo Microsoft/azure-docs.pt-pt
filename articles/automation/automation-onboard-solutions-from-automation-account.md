@@ -9,18 +9,18 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1bb5534d2f98a4e5143038ab1d5fbbcc76184fe
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739235"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66133192"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Carregar soluções de gestão de atualizações, controlo de alterações e inventário
 
 A automatização do Azure fornece soluções para gerenciar atualizações de segurança do sistema operativo, controlar as alterações e inventário o que é instalado nos seus computadores. Existem várias formas de carregar máquinas, pode integrar a solução [de uma máquina virtual](automation-onboard-solutions-from-vm.md), [a partir de várias máquinas de navegação](automation-onboard-solutions-from-browse.md), de sua conta de automatização ou por [runbook](automation-onboard-solutions.md). Este artigo abrange a inclusão destas soluções a partir da sua conta de automatização.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no Azure a https://portal.azure.com
 
@@ -32,27 +32,10 @@ Escolha a área de trabalho do Log Analytics e a conta de automatização e cliq
 
 ![Carregar soluções de inventário](media/automation-onboard-solutions-from-automation-account/onboardsolutions.png)
 
-Quando ativar soluções, apenas são suportadas determinadas regiões para associar uma área de trabalho do Log Analytics e uma Conta de Automatização.
-
-A tabela seguinte mostra os mapeamentos suportados:
-
-|**Região de área de trabalho do log Analytics**|**Região de automatização do Azure**|
-|---|---|
-|Sudeste da Austrália.|Sudeste da Austrália.|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP e EastUS mapeamentos para áreas de trabalho do Log Analytics para contas de automatização não são um mapeamento de região para região exato, mas é o mapeamento correto.
-
-<sup>2</sup> devido a restrições de capacidade a região não está disponível durante a criação de novos recursos. Isto inclui áreas de trabalho de contas de automatização e o Log Analytics. No entanto, os recursos ligados preexistentes na região devem continuar a funcionar.
+> [!NOTE]
+> Quando ativar soluções, apenas são suportadas determinadas regiões para associar uma área de trabalho do Log Analytics e uma Conta de Automatização.
+>
+> Para obter uma lista dos pares de mapeamento suportados, consulte [mapeamento de região para a área de trabalho de conta de automatização e o Log Analytics](how-to/region-mappings.md).
 
 A solução de Controlo de Alterações e Inventário fornece a capacidade de [controlar as alterações](automation-vm-change-tracking.md) e [inventário](automation-vm-inventory.md) nas suas máquinas virtuais. Neste passo, vai ativar a solução numa máquina virtual.
 
@@ -161,6 +144,8 @@ Se utilizou a iniciar e parar VMs durante a solução de horário comercial, opc
 * Iniciar e parar agendas de runbook VM
 * Iniciar e parar runbooks VM
 * Variáveis
+
+Em alternativa, pode também desassociar a área de trabalho da sua conta de automatização de sua área de trabalho do Log Analytics. Na área de trabalho, selecione **conta de automatização** sob **recursos relacionados**. Na página de conta de automatização, selecione **desassociar a conta de**.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

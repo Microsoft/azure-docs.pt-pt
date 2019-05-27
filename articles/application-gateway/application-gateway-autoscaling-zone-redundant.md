@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/16/2019
+ms.date: 5/22/2019
 ms.author: victorh
-ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 8e17c5e34ec3e2397c3054b1d0e0d97dbf410db2
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827428"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65986879"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>Dimensionamento automático e o Gateway de aplicação com redundância de zona 
 
@@ -93,8 +93,6 @@ Preço da unidade de capacidade = 744(hours) * Max (computação unidade Max(25/
 
 Preço total = us $267.84 + us $85.71 = us $353.55
 
-O [página de preços](https://azure.microsoft.com/pricing/details/application-gateway/) será atualizado para refletir os preços regionais de 14 de Maio de 2019. Faturação está agendada para começar a partir de 1 de Junho de 2019.
-
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Dimensionar o Gateway de aplicação e WAF v2
 
 Gateway de aplicação e WAF podem ser configuradas para dimensionamento em dois modos:
@@ -138,7 +136,7 @@ A tabela seguinte compara as funcionalidades disponíveis com cada SKU.
 |Definido rota utilizador (UDR) na sub-rede de Gateway de aplicação|Não suportado|
 |NSG para o intervalo de portas de entrada| -65200 a 65535 para Standard_v2 SKU<br>-65503 à 65534 para Standard SKU.<br>Para obter mais informações, consulte a [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
 |Registos de desempenho no diagnóstico do Azure|Não suportado.<br>Métricas do Azure devem ser utilizadas.|
-|Faturação|Faturação agendada para começar a partir de 1 de Junho de 2019.|
+|Faturação|Faturação agendada para começar a partir de 1 de Julho de 2019.|
 |Modo FIPS|Estes não são atualmente suportadas.|
 |Modo só de ILB|Isso não é atualmente suportado. Público e o modo ILB é suportado em conjunto.|
 |Integração de Netwatcher|Não suportado.|

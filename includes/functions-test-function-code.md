@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/24/2019
 ms.author: glenga
 ms.openlocfilehash: a3f75b7273164abc5318f16e9ab8d9883ff0c0aa
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867332"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132163"
 ---
 ## <a name="test"></a>Testar a função no Azure
 

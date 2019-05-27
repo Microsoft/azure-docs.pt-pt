@@ -4,14 +4,14 @@ description: Saiba como avaliar os custos da unidade de pedido para uma consulta
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 05/21/2019
 ms.author: rimman
-ms.openlocfilehash: 80c9cd91efd14e3d4b4214bde089f73692568f76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2d1ac054abf4bb8228bdb5cc20d79cb751af7a33
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929203"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967435"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo de consulta no Azure Cosmos DB
 

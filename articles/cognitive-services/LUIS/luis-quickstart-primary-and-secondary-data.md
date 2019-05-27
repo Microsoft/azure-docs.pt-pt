@@ -12,11 +12,11 @@ ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59526574"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66124181"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extrair nomes de entidade simple e uma lista de frase
 
@@ -31,7 +31,7 @@ A entidade simples deteta um único conceito de dados contido em palavras ou exp
 > * Aplicação de exemplo de importação
 > * Adicionar entidade simple 
 > * Adicionar a lista de frase para impulsionar o sinal de palavras
-> * Preparar 
+> * Treinar 
 > * Publicar 
 > * Obter as intenções e as entidades do ponto final
 

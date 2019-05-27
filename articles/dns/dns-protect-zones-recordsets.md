@@ -2,17 +2,18 @@
 title: Proteger zonas de DNS do Azure e registos
 description: Como proteger zonas DNS e conjuntos de registos no DNS do Azure de Microsoft.
 services: dns
-author: vhorne
+author: WenJason
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
-ms.author: victorh
+origin.date: 12/4/2018
+ms.date: 03/04/2019
+ms.author: v-jay
 ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997384"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66121384"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Como proteger zonas e registos DNS
 
@@ -117,8 +118,7 @@ O exemplo seguinte mostra uma definição de função personalizada para gerenci
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
         "Microsoft.Resources/deployments/*",
-        "Microsoft.Resources/subscriptions/resourceGroups/read",
-        "Microsoft.Support/*"
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
     ],
     "NotActions": [
     ],

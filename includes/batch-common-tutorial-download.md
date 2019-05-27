@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: lahugh
 ms.openlocfilehash: bd51eabcff412de4928c682683b2a69b3e82e601
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65957124"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127366"
 ---
 ### <a name="retrieve-output-files"></a>Obter ficheiros de saída
 

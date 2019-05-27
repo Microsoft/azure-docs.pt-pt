@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dd3d40823bcddfd7eb83776d9e92f897fae613b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 2ff34911dea19b83731b46077bd60c7b085763a4
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794661"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65979590"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>Início rápido: Criar uma atribuição de política para identificar recursos incompatíveis com o Azure PowerShell
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Antes de começar, certifique-se de que a versão mais recente do Azure PowerShell está instalada. Ver [módulo de instalar o Azure PowerShell](/powershell/azure/install-az-ps) para obter informações detalhadas.
-- Utilize o Azure PowerShell para registar o fornecedor de recursos do Policy Insights. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para a operação de fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
+- Registe o fornecedor de recursos de informações de política do Azure com o Azure PowerShell. Registar o fornecedor de recursos assegura que a sua subscrição funciona com o mesmo. Para registar um fornecedor de recursos, tem de ter permissão para a operação de fornecedor de recursos de registo. Esta operação está incluída nas funções de Contribuinte e Proprietário. Execute o seguinte comando para registar o fornecedor de recursos:
 
   ```azurepowershell-interactive
   # Register the resource provider if it's not already registered
