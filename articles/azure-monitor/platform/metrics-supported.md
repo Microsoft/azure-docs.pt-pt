@@ -5,15 +5,15 @@ author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 05/13/2019
+ms.date: 05/20/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: dae280f86abce47bfcc029f4d81e4ca3a7b696f4
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: f3907cbc46bd226ef8e90d2061f2d36b2afabf8a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595426"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957152"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com o Azure Monitor
 
@@ -70,7 +70,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ShortParsingBusyThreads|Threads: Threads ocupadas de análise curtas|Count|Média|Número de threads ocupados no conjunto de threads de análise curta.|ServerResourceType|
 |ShortParsingIdleThreads|Threads: Threads Inativas de análise curtas|Count|Média|Número de threads inativas no conjunto de threads de análise curta.|ServerResourceType|
 |ShortParsingJobQueueLength|Threads: Comprimento da fila de tarefa análise curta|Count|Média|Número de tarefas na fila do pool de threads de análise curta.|ServerResourceType|
-|memory_thrashing_metric|Degradação de memória|Percentagem|Média|Degradação de memória média.|ServerResourceType|
+|memory_thrashing_metric|Degradação de memória|Percent|Média|Degradação de memória média.|ServerResourceType|
 |mashup_engine_qpu_metric|M Engine QPU|Count|Média|Utilização QPU através de processos de motor de mashup|ServerResourceType|
 |mashup_engine_memory_metric|Memória do motor M|Bytes|Média|Utilização da memória através de processos de motor de mashup|ServerResourceType|
 
@@ -84,7 +84,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |FailedRequests|Pedidos de Gateway com falhas|Count|Total|Número de falhas em pedidos do gateway|Localização, nome de anfitrião|
 |OtherRequests|Outros pedidos de Gateway|Count|Total|Número de outros pedidos de gateway|Localização, nome de anfitrião|
 |Duração|Duração geral dos pedidos de Gateway|Milissegundos|Média|Geral duração dos pedidos do Gateway em milissegundos|Localização, nome de anfitrião|
-|Capacidade|Capacidade|Percentagem|Média|Métrica de utilização para o serviço de ApiManagement|Location|
+|Capacidade|Capacidade|Percent|Média|Métrica de utilização para o serviço de ApiManagement|Location|
 |EventHubTotalEvents|Eventos de total EventHub|Count|Total|Número de eventos enviados para o EventHub|Location|
 |EventHubSuccessfulEvents|Eventos de EventHub com êxito|Count|Total|Número de eventos de EventHub com êxito|Location|
 |EventHubTotalFailedEvents|Eventos de falha de EventHub|Count|Total|Número de eventos de EventHub com falhas|Location|
@@ -154,12 +154,12 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |totalkeys|Chaves Totais|Count|Máximo||ShardId|
 |expiredkeys|Chaves Expiradas|Count|Total||ShardId|
 |usedmemory|Memória Utilizada|Bytes|Máximo||ShardId|
-|usedmemorypercentage|Percentagem de memória utilizada|Percentagem|Máximo||ShardId|
+|usedmemorypercentage|Percentagem de memória utilizada|Percent|Máximo||ShardId|
 |usedmemoryRss|RSS de memória utilizada|Bytes|Máximo||ShardId|
-|serverLoad|Carga do Servidor|Percentagem|Máximo||ShardId|
+|serverLoad|Carga do Servidor|Percent|Máximo||ShardId|
 |cacheWrite|Escrita na Cache|BytesPerSecond|Máximo||ShardId|
 |cacheRead|Leitura da Cache|BytesPerSecond|Máximo||ShardId|
-|percentProcessorTime|CPU|Percentagem|Máximo||ShardId|
+|percentProcessorTime|CPU|Percent|Máximo||ShardId|
 |cacheLatency|Latência de cache microssegundos (pré-visualização)|Count|Média||ShardId, SampleType|
 |erros|Erros|Count|Máximo||ShardId, ErrorType|
 |connectedclients0|Clientes ligados (partição horizontal 0)|Count|Máximo||Nenhuma dimensão|
@@ -174,10 +174,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys0|Chaves expiradas (partição horizontal 0)|Count|Total||Nenhuma dimensão|
 |usedmemory0|Memória utilizada (partição horizontal 0)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss0|Memória utilizada RSS (partição horizontal 0)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad0|Carga do servidor (partição horizontal 0)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad0|Carga do servidor (partição horizontal 0)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite0|Escrita na cache (partição horizontal 0)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead0|Leitura da cache (partição horizontal 0)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime0|CPU (partição horizontal 0)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime0|CPU (partição horizontal 0)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients1|Clientes ligados (partição horizontal 1)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed1|Total de operações (partição horizontal 1)|Count|Total||Nenhuma dimensão|
 |cachehits1|Acertos na cache (partição horizontal 1)|Count|Total||Nenhuma dimensão|
@@ -190,10 +190,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys1|Chaves expiradas (partição horizontal 1)|Count|Total||Nenhuma dimensão|
 |usedmemory1|Memória utilizada (partição horizontal 1)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss1|Memória utilizada RSS (partição horizontal 1)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad1|Carga do servidor (partição horizontal 1)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad1|Carga do servidor (partição horizontal 1)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite1|Escrita na cache (partição horizontal 1)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead1|Leitura da cache (partição horizontal 1)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime1|CPU (partição horizontal 1)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime1|CPU (partição horizontal 1)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients2|Clientes ligados (partição horizontal 2)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed2|Total de operações (partição horizontal 2)|Count|Total||Nenhuma dimensão|
 |cachehits2|Acertos na cache (partição horizontal 2)|Count|Total||Nenhuma dimensão|
@@ -206,10 +206,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys2|Chaves expiradas (partição horizontal 2)|Count|Total||Nenhuma dimensão|
 |usedmemory2|Memória utilizada (partição horizontal 2)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss2|Memória utilizada RSS (partição horizontal 2)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad2|Carga do servidor (partição horizontal 2)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad2|Carga do servidor (partição horizontal 2)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite2|Escrita na cache (partição horizontal 2)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead2|Leitura da cache (partição horizontal 2)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime2|CPU (partição horizontal 2)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime2|CPU (partição horizontal 2)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients3|Clientes ligados (partição horizontal 3)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed3|Total de operações (partição horizontal 3)|Count|Total||Nenhuma dimensão|
 |cachehits3|Acertos na cache (partição horizontal 3)|Count|Total||Nenhuma dimensão|
@@ -222,10 +222,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys3|Chaves expiradas (partição horizontal 3)|Count|Total||Nenhuma dimensão|
 |usedmemory3|Memória utilizada (partição horizontal 3)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss3|Memória utilizada RSS (partição horizontal 3)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad3|Carga do servidor (partição horizontal 3)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad3|Carga do servidor (partição horizontal 3)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite3|Escrita na cache (partição horizontal 3)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead3|Leitura da cache (partição horizontal 3)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime3|CPU (partição horizontal 3)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime3|CPU (partição horizontal 3)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients4|Clientes ligados (partição horizontal 4)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed4|Total de operações (partição horizontal 4)|Count|Total||Nenhuma dimensão|
 |cachehits4|Acertos na cache (partição horizontal 4)|Count|Total||Nenhuma dimensão|
@@ -238,10 +238,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys4|Chaves expiradas (partição horizontal 4)|Count|Total||Nenhuma dimensão|
 |usedmemory4|Memória utilizada (partição horizontal 4)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss4|Memória utilizada RSS (partição horizontal 4)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad4|Carga do servidor (partição horizontal 4)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad4|Carga do servidor (partição horizontal 4)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite4|Escrita na cache (partição horizontal 4)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead4|Leitura da cache (partição horizontal 4)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime4|CPU (partição horizontal 4)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime4|CPU (partição horizontal 4)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients5|Clientes ligados (partição horizontal 5)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed5|Total de operações (partição horizontal 5)|Count|Total||Nenhuma dimensão|
 |cachehits5|Acertos na cache (partição horizontal 5)|Count|Total||Nenhuma dimensão|
@@ -254,10 +254,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys5|Chaves expiradas (partição horizontal 5)|Count|Total||Nenhuma dimensão|
 |usedmemory5|Memória utilizada (partição horizontal 5)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss5|Memória utilizada RSS (partição horizontal 5)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad5|Carga do servidor (partição horizontal 5)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad5|Carga do servidor (partição horizontal 5)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite5|Escrita na cache (partição horizontal 5)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead5|Leitura da cache (partição horizontal 5)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime5|CPU (partição horizontal 5)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime5|CPU (partição horizontal 5)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients6|Clientes ligados (partição horizontal 6)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed6|Total de operações (partição horizontal 6)|Count|Total||Nenhuma dimensão|
 |cachehits6|Acertos na cache (partição horizontal 6)|Count|Total||Nenhuma dimensão|
@@ -270,10 +270,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys6|Chaves expiradas (partição horizontal 6)|Count|Total||Nenhuma dimensão|
 |usedmemory6|Memória utilizada (partição horizontal 6)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss6|Memória utilizada RSS (partição horizontal 6)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad6|Carga do servidor (partição horizontal 6)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad6|Carga do servidor (partição horizontal 6)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite6|Escrita na cache (partição horizontal 6)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead6|Leitura da cache (partição horizontal 6)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime6|CPU (partição horizontal 6)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime6|CPU (partição horizontal 6)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients7|Clientes ligados (partição horizontal 7)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed7|Total de operações (partição horizontal 7)|Count|Total||Nenhuma dimensão|
 |cachehits7|Acertos na cache (partição horizontal 7)|Count|Total||Nenhuma dimensão|
@@ -286,10 +286,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys7|Chaves expiradas (partição horizontal 7)|Count|Total||Nenhuma dimensão|
 |usedmemory7|Memória utilizada (partição horizontal 7)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss7|Memória utilizada RSS (partição horizontal 7)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad7|Carga do servidor (partição horizontal 7)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad7|Carga do servidor (partição horizontal 7)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite7|Escrita na cache (partição horizontal 7)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead7|Leitura da cache (partição horizontal 7)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime7|CPU (partição horizontal 7)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime7|CPU (partição horizontal 7)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients8|Clientes ligados (partição horizontal 8)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed8|Total de operações (partição horizontal 8)|Count|Total||Nenhuma dimensão|
 |cachehits8|Acertos na cache (partição horizontal 8)|Count|Total||Nenhuma dimensão|
@@ -302,10 +302,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys8|Chaves expiradas (partição horizontal 8)|Count|Total||Nenhuma dimensão|
 |usedmemory8|Memória utilizada (partição horizontal 8)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss8|Memória utilizada RSS (partição horizontal 8)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad8|Carga do servidor (partição horizontal 8)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad8|Carga do servidor (partição horizontal 8)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite8|Escrita na cache (partição horizontal 8)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead8|Leitura da cache (partição horizontal 8)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime8|CPU (partição horizontal 8)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime8|CPU (partição horizontal 8)|Percent|Máximo||Nenhuma dimensão|
 |connectedclients9|Clientes ligados (partição horizontal 9)|Count|Máximo||Nenhuma dimensão|
 |totalcommandsprocessed9|Total de operações (partição horizontal 9)|Count|Total||Nenhuma dimensão|
 |cachehits9|Acertos na cache (partição horizontal 9)|Count|Total||Nenhuma dimensão|
@@ -318,10 +318,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |expiredkeys9|Chaves expiradas (partição horizontal 9)|Count|Total||Nenhuma dimensão|
 |usedmemory9|Memória utilizada (partição horizontal 9)|Bytes|Máximo||Nenhuma dimensão|
 |usedmemoryRss9|Memória utilizada RSS (partição horizontal 9)|Bytes|Máximo||Nenhuma dimensão|
-|serverLoad9|Carga do servidor (partição horizontal 9)|Percentagem|Máximo||Nenhuma dimensão|
+|serverLoad9|Carga do servidor (partição horizontal 9)|Percent|Máximo||Nenhuma dimensão|
 |cacheWrite9|Escrita na cache (partição horizontal 9)|BytesPerSecond|Máximo||Nenhuma dimensão|
 |cacheRead9|Leitura da cache (partição horizontal 9)|BytesPerSecond|Máximo||Nenhuma dimensão|
-|percentProcessorTime9|CPU (partição horizontal 9)|Percentagem|Máximo||Nenhuma dimensão|
+|percentProcessorTime9|CPU (partição horizontal 9)|Percent|Máximo||Nenhuma dimensão|
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
 
@@ -403,10 +403,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Fluxos de Saída|Fluxos de Saída (Pré-visualização)|Count|Média|Os Fluxos de Saída são o número de fluxos atuais na direção de saída (tráfego a sair da VM)|Nenhuma dimensão|
 |Taxa de Criação Máxima de Fluxos de Entrada|Taxa de Criação Máxima de Fluxos de Entrada (Pré-visualização)|CountPerSecond|Média|A taxa de criação máxima de fluxos de entrada (tráfego que vai para a VM)|Nenhuma dimensão|
 |Taxa de Criação Máxima de Fluxos de Saída|Taxa de Criação Máxima de Fluxos de Saída (Pré-visualização)|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego que sai da VM)|Nenhuma dimensão|
-|Acerto de Leitura na Cache do Disco de Dados Premium|Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percentagem|Média|Acerto de Leitura na Cache do Disco de Dados Premium|LUN|
-|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|Falha de Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percentagem|Média|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|LUN|
-|Acerto de Leitura na Cache do Disco do SO Premium|Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percentagem|Média|Acerto de Leitura na Cache do Disco do SO Premium|Nenhuma dimensão|
-|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Falha de Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percentagem|Média|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Nenhuma dimensão|
+|Acerto de Leitura na Cache do Disco de Dados Premium|Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Média|Acerto de Leitura na Cache do Disco de Dados Premium|LUN|
+|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|Falha de Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Média|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|LUN|
+|Acerto de Leitura na Cache do Disco do SO Premium|Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Média|Acerto de Leitura na Cache do Disco do SO Premium|Nenhuma dimensão|
+|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Falha de Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Média|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Nenhuma dimensão|
 |Rede no Total|Rede no Total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|Nenhuma dimensão|
 |Rede total|Rede total|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|Nenhuma dimensão|
 
@@ -447,10 +447,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Fluxos de Saída|Fluxos de Saída (Pré-visualização)|Count|Média|Os Fluxos de Saída são o número de fluxos atuais na direção de saída (tráfego a sair da VM)|VMName|
 |Taxa de Criação Máxima de Fluxos de Entrada|Taxa de Criação Máxima de Fluxos de Entrada (Pré-visualização)|CountPerSecond|Média|A taxa de criação máxima de fluxos de entrada (tráfego que vai para a VM)|VMName|
 |Taxa de Criação Máxima de Fluxos de Saída|Taxa de Criação Máxima de Fluxos de Saída (Pré-visualização)|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego que sai da VM)|VMName|
-|Acerto de Leitura na Cache do Disco de Dados Premium|Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percentagem|Média|Acerto de Leitura na Cache do Disco de Dados Premium|LUN, VMName|
-|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|Falha de Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percentagem|Média|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|LUN, VMName|
-|Acerto de Leitura na Cache do Disco do SO Premium|Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percentagem|Média|Acerto de Leitura na Cache do Disco do SO Premium|VMName|
-|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Falha de Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percentagem|Média|Falha de Acerto de Leitura na Cache do Disco do SO Premium|VMName|
+|Acerto de Leitura na Cache do Disco de Dados Premium|Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Média|Acerto de Leitura na Cache do Disco de Dados Premium|LUN, VMName|
+|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|Falha de Acerto de Leitura na Cache do Disco de Dados Premium (Pré-visualização)|Percent|Média|Falha de Acerto de Leitura na Cache do Disco de Dados Premium|LUN, VMName|
+|Acerto de Leitura na Cache do Disco do SO Premium|Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Média|Acerto de Leitura na Cache do Disco do SO Premium|VMName|
+|Falha de Acerto de Leitura na Cache do Disco do SO Premium|Falha de Acerto de Leitura na Cache do Disco do SO Premium (Pré-visualização)|Percent|Média|Falha de Acerto de Leitura na Cache do Disco do SO Premium|VMName|
 |Rede no Total|Rede no Total|Bytes|Total|O número de bytes recebidos em todas as interfaces de rede pela Máquina Virtual ou Máquinas Virtuais (Tráfego de Entrada)|VMName|
 |Rede total|Rede total|Bytes|Total|O número de bytes saídos de todas as interfaces de rede pela(s) Máquina(s) Virtual(is) (Tráfego de Saída)|VMName|
 
@@ -532,8 +532,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |CloudUploadThroughput|Débito de Carregamento na Cloud|BytesPerSecond|Média|O cloud débito de carregamento para o Azure durante o período de relatório.|Nenhuma dimensão|
 |CloudReadThroughput|Débito de transferência de cloud|BytesPerSecond|Média|O cloud download débito para o Azure durante o período de relatório.|Nenhuma dimensão|
 |BytesUploadedToCloud|Bytes Carregados na Cloud (Dispositivo)|Bytes|Média|O número total de bytes que é carregado para o Azure a partir de um dispositivo durante o período de relatório.|Nenhuma dimensão|
-|HyperVVirtualProcessorUtilization|Computação Edge - Percentagem da CPU|Percentagem|Média|Percentagem de utilização da CPU|InstanceName|
-|HyperVMemoryUtilization|Computação Edge - Utilização de Memória|Percentagem|Média|Quantidade de RAM em Utilização|InstanceName|
+|HyperVVirtualProcessorUtilization|Computação Edge - Percentagem da CPU|Percent|Média|Percentagem de utilização da CPU|InstanceName|
+|HyperVMemoryUtilization|Computação Edge - Utilização de Memória|Percent|Média|Quantidade de RAM em Utilização|InstanceName|
 
 ## <a name="microsoftdatafactorydatafactories"></a>Microsoft.DataFactory/datafactories
 
@@ -552,7 +552,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ActivitySucceededRuns|Foi efetuada com êxito as métricas de execuções de atividade|Count|Total||ActivityType, PipelineName, FailureType, nome|
 |TriggerFailedRuns|Falha de métricas de execuções do acionador|Count|Total||Nome, FailureType|
 |TriggerSucceededRuns|Foi efetuada com êxito as métricas de execuções do acionador|Count|Total||Nome, FailureType|
-|IntegrationRuntimeCpuPercentage|Utilização de CPU do runtime de integração|Percentagem|Média||IntegrationRuntimeName, NodeName|
+|IntegrationRuntimeCpuPercentage|Utilização de CPU do runtime de integração|Percent|Média||IntegrationRuntimeName, NodeName|
 |IntegrationRuntimeAvailableMemory|Memória disponível de runtime de integração|Bytes|Média||IntegrationRuntimeName, NodeName|
 |MaxAllowedResourceCount|Contagem máxima de entidades permitidos|Count|Máximo||Nenhuma dimensão|
 |MaxAllowedFactorySizeInGbUnits|Um tamanho de fábrica (unidade de GB) de máximo permitido|Count|Máximo||Nenhuma dimensão|
@@ -584,13 +584,13 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhuma dimensão|
-|memory_percent|Percentagem de memória|Percentagem|Média|Percentagem de memória|Nenhuma dimensão|
-|io_consumption_percent|Percentagem de e/s|Percentagem|Média|Percentagem de e/s|Nenhuma dimensão|
-|storage_percent|Percentagem de armazenamento|Percentagem|Média|Percentagem de armazenamento|Nenhuma dimensão|
+|cpu_percent|Percentagem de CPU|Percent|Média|Percentagem de CPU|Nenhuma dimensão|
+|memory_percent|Percentagem de memória|Percent|Média|Percentagem de memória|Nenhuma dimensão|
+|io_consumption_percent|Percentagem de e/s|Percent|Média|Percentagem de e/s|Nenhuma dimensão|
+|storage_percent|Percentagem de armazenamento|Percent|Média|Percentagem de armazenamento|Nenhuma dimensão|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma dimensão|
 |storage_limit|Limite de armazenamento|Bytes|Média|Limite de armazenamento|Nenhuma dimensão|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|Média|Percentagem de armazenamento de registo do servidor|Nenhuma dimensão|
+|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percent|Média|Percentagem de armazenamento de registo do servidor|Nenhuma dimensão|
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Count|Média|Ligações ativas|Nenhuma dimensão|
@@ -604,13 +604,13 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhuma dimensão|
-|memory_percent|Percentagem de memória|Percentagem|Média|Percentagem de memória|Nenhuma dimensão|
-|io_consumption_percent|Percentagem de e/s|Percentagem|Média|Percentagem de e/s|Nenhuma dimensão|
-|storage_percent|Percentagem de armazenamento|Percentagem|Média|Percentagem de armazenamento|Nenhuma dimensão|
+|cpu_percent|Percentagem de CPU|Percent|Média|Percentagem de CPU|Nenhuma dimensão|
+|memory_percent|Percentagem de memória|Percent|Média|Percentagem de memória|Nenhuma dimensão|
+|io_consumption_percent|Percentagem de e/s|Percent|Média|Percentagem de e/s|Nenhuma dimensão|
+|storage_percent|Percentagem de armazenamento|Percent|Média|Percentagem de armazenamento|Nenhuma dimensão|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma dimensão|
 |storage_limit|Limite de armazenamento|Bytes|Média|Limite de armazenamento|Nenhuma dimensão|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|Média|Percentagem de armazenamento de registo do servidor|Nenhuma dimensão|
+|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percent|Média|Percentagem de armazenamento de registo do servidor|Nenhuma dimensão|
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Count|Média|Ligações ativas|Nenhuma dimensão|
@@ -624,13 +624,13 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhuma dimensão|
-|memory_percent|Percentagem de memória|Percentagem|Média|Percentagem de memória|Nenhuma dimensão|
-|io_consumption_percent|Percentagem de e/s|Percentagem|Média|Percentagem de e/s|Nenhuma dimensão|
-|storage_percent|Percentagem de armazenamento|Percentagem|Média|Percentagem de armazenamento|Nenhuma dimensão|
+|cpu_percent|Percentagem de CPU|Percent|Média|Percentagem de CPU|Nenhuma dimensão|
+|memory_percent|Percentagem de memória|Percent|Média|Percentagem de memória|Nenhuma dimensão|
+|io_consumption_percent|Percentagem de e/s|Percent|Média|Percentagem de e/s|Nenhuma dimensão|
+|storage_percent|Percentagem de armazenamento|Percent|Média|Percentagem de armazenamento|Nenhuma dimensão|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma dimensão|
 |storage_limit|Limite de armazenamento|Bytes|Média|Limite de armazenamento|Nenhuma dimensão|
-|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percentagem|Média|Percentagem de armazenamento de registo do servidor|Nenhuma dimensão|
+|serverlog_storage_percent|Percentagem de armazenamento de registo do servidor|Percent|Média|Percentagem de armazenamento de registo do servidor|Nenhuma dimensão|
 |serverlog_storage_usage|Armazenamento de registo de servidor utilizado|Bytes|Média|Armazenamento de registo de servidor utilizado|Nenhuma dimensão|
 |serverlog_storage_limit|Limite de armazenamento de registo do servidor|Bytes|Média|Limite de armazenamento de registo do servidor|Nenhuma dimensão|
 |active_connections|Ligações ativas|Count|Média|Ligações ativas|Nenhuma dimensão|
@@ -645,10 +645,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Nenhuma dimensão|
-|memory_percent|Percentagem de memória|Percentagem|Média|Percentagem de memória|Nenhuma dimensão|
+|cpu_percent|Percentagem de CPU|Percent|Média|Percentagem de CPU|Nenhuma dimensão|
+|memory_percent|Percentagem de memória|Percent|Média|Percentagem de memória|Nenhuma dimensão|
 |iops|IOPS|Count|Média|Operações de e/s por segundo|Nenhuma dimensão|
-|storage_percent|Percentagem de armazenamento|Percentagem|Média|Percentagem de armazenamento|Nenhuma dimensão|
+|storage_percent|Percentagem de armazenamento|Percent|Média|Percentagem de armazenamento|Nenhuma dimensão|
 |storage_used|Armazenamento utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma dimensão|
 |active_connections|Ligações ativas|Count|Média|Ligações ativas|Nenhuma dimensão|
 |network_bytes_egress|Saída de Rede|Bytes|Total|Rede horizontalmente, através de ligações de Active Directory|Nenhuma dimensão|
@@ -747,7 +747,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |MongoRequests|Pedidos de mongo|Count|Count|Número de pedidos de Mongo efetuados|DatabaseName, CollectionName, região, CommandName, código de erro|
 |ProvisionedThroughput|Débito Aprovisionado|Count|Máximo|Débito Aprovisionado|DatabaseName, CollectionName|
 |ReplicationLatency|P99 Latência de replicação|Milissegundos|Média|P99 a latência de replicação entre regiões de origem e de destino para a conta geo-ativada|SourceRegion, TargetRegion|
-|ServiceAvailability|Disponibilidade do serviço|Percentagem|Média|Disponibilidade de pedidos de conta na granularidade de uma hora, dia ou mês|Nenhuma dimensão|
+|ServiceAvailability|Disponibilidade do serviço|Percent|Média|Disponibilidade de pedidos de conta na granularidade de uma hora, dia ou mês|Nenhuma dimensão|
 |TotalRequestUnits|Unidades de pedido total|Count|Total|Solicitar que unidades consumidas|DatabaseName, CollectionName, Region, StatusCode, OperationType|
 |TotalRequests|Total de Pedidos|Count|Count|Número de pedidos efetuados|DatabaseName, CollectionName, Region, StatusCode, OperationType|
 
@@ -839,7 +839,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |CaptureBacklog|Registo de tarefas pendentes de Recolha. (Pré-visualização)|Count|Total|Registo de tarefas pendentes de Recolha do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
 |CapturedMessages|Mensagens Recolhidas. (Pré-visualização)|Count|Total|Mensagens Recolhidas do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
 |CapturedBytes|Bytes Recolhidos. (Pré-visualização)|Bytes|Total|Bytes Recolhidos do Microsoft.EventHub. (Pré-visualização)|Nenhuma dimensão|
-|CPU|CPU (pré-visualização)|Percentagem|Máximo|Utilização da CPU para o Cluster de Hub de Eventos enquanto percentagem|Função|
+|CPU|CPU (pré-visualização)|Percent|Máximo|Utilização da CPU para o Cluster de Hub de Eventos enquanto percentagem|Função|
 |AvailableMemory|Memória disponível (pré-visualização)|Count|Máximo|Memória disponível para o Cluster de Hub de Eventos em bytes|Função|
 
 ## <a name="microsofthdinsightclusters"></a>Microsoft.HDInsight/clusters
@@ -848,12 +848,6 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |---|---|---|---|---|---|
 |GatewayRequests|Pedidos do gateway|Count|Total|Número de pedidos do gateway|ClusterDnsName, HttpStatus|
 |CategorizedGatewayRequests|Pedidos do Gateway categorizados|Count|Total|Número de pedidos de gateway por categorias (1xx/2xx/3xx/4xx/5xx)|ClusterDnsName, HttpStatus|
-|Dimensionamento automático|Métricas de dimensionamento automático|Count|Máximo|Métricas de dimensionamento automático|ClusterDnsName, MetricName|
-|AllocatedMB|MB alocados|Count|Máximo|MB alocados|ClusterDnsName, MetricName|
-|AvailableMB|MB disponível|Count|Máximo|MB disponível|ClusterDnsName, MetricName|
-|AppsPending|Aplicações pendentes|Count|Máximo|Aplicações pendentes|ClusterDnsName, MetricName|
-|AppsRunning|Aplicações em execução|Count|Máximo|Aplicações em execução|ClusterDnsName, MetricName|
-|AppsSubmitted|Aplicações submetidas|Count|Máximo|Aplicações submetidas|ClusterDnsName, MetricName|
 |NumActiveWorkers|Número de Workers Active Directory|Count|Máximo|Número de Workers Active Directory|ClusterDnsName, MetricName|
 
 ## <a name="microsoftinsightsautoscalesettings"></a>Microsoft.Insights/AutoscaleSettings
@@ -889,8 +883,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |performanceCounters/requestsPerSecond|Taxa de pedido HTTP|CountPerSecond|Média|Classificação de todos os pedidos da aplicação por segundo do ASP.NET.|cloud/roleInstance|
 |performanceCounters/exceptionsPerSecond|Taxa de exceção|CountPerSecond|Média|Contagem de exceções processadas e não processadas comunicadas ao Windows, incluindo exceções .NET e exceções não geridas que foram convertidas em exceções .NET.|cloud/roleInstance|
 |performanceCounters/processIOBytesPerSecond|Velocidade de E/S do processo|BytesPerSecond|Média|Total de bytes por segundo lidos e escritos em ficheiros, na rede e em dispositivos.|cloud/roleInstance|
-|performanceCounters/processCpuPercentage|CPU do processo|Percentagem|Média|A percentagem de tempo decorrido que todos os threads de processos utilizados pelo processador para executar instruções. Isso pode variar entre 0 e 100. Esta métrica indica apenas o desempenho do processo w3wp.|cloud/roleInstance|
-|performanceCounters/processorCpuPercentage|Tempo do processador|Percentagem|Média|Percentagem de tempo que o processador despende em threads não inativos.|cloud/roleInstance|
+|performanceCounters/processCpuPercentage|CPU do processo|Percent|Média|A percentagem de tempo decorrido que todos os threads de processos utilizados pelo processador para executar instruções. Isso pode variar entre 0 e 100. Esta métrica indica apenas o desempenho do processo w3wp.|cloud/roleInstance|
+|performanceCounters/processorCpuPercentage|Tempo do processador|Percent|Média|Percentagem de tempo que o processador despende em threads não inativos.|cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|Memória disponível|Bytes|Média|Memória física imediatamente disponível para alocação a um processo ou para utilização do sistema.|cloud/roleInstance|
 |performanceCounters/processPrivateBytes|Bytes privados do processo|Bytes|Média|Memória atribuída exclusivamente aos processos da aplicação monitorizada.|cloud/roleInstance|
 |requests/duration|Tempo de resposta do servidor|Milissegundos|Média|Tempo entre a receção de um pedido HTTP e a conclusão do envio da resposta.|pedido/performanceBucket, pedido/resultCode, operação/synthetic, na cloud/roleInstance, pedido/sucesso, roleName/na cloud|
@@ -914,15 +908,15 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Utilização da cache|Percentagem|Média|Nível de utilização no âmbito do cluster|Nenhuma dimensão|
+|ClusterDataCapacityFactor|Utilização da cache|Percent|Média|Nível de utilização no âmbito do cluster|Nenhuma dimensão|
 |QueryDuration|Duração de consulta|Milissegundos|Média|Duração dos consultas em segundos|QueryStatus|
-|IngestionsLoadFactor|Utilização de ingestão|Percentagem|Média|Rácio de ranhuras de ingestão utilizado no cluster|Nenhuma dimensão|
+|IngestionsLoadFactor|Utilização de ingestão|Percent|Média|Rácio de ranhuras de ingestão utilizado no cluster|Nenhuma dimensão|
 |IsEngineAnsweringQuery|Keep Alive de|Count|Média|Verificação da funcionalidade indica que o cluster responderá às consultas|Nenhuma dimensão|
 |IngestCommandOriginalSizeInMb|Volume de ingestão (em MB)|Count|Total|Volume global dos dados ingeridos para o cluster (em MB)|Nenhuma dimensão|
 |IngestedEventAgeSeconds|Latência de ingestão (em segundos)|Segundos|Média|Tempo de ingestão da origem (por exemplo, mensagem estiver EventHub) para o cluster em segundos|Nenhuma dimensão|
 |EventRecievedFromEventHub|Eventos processados (para os Hubs de eventos)|Count|Total|Número de eventos processados pelo cluster, ao ingerir do Hub de eventos|Nenhuma dimensão|
 |IngestionResult|Resultado de ingestão|Count|Count|Número de operações de ingestão|IngestionResultDetails|
-|EngineCPU|CPU|Percentagem|Média|Nível de utilização da CPU|Nenhuma dimensão|
+|EngineCPU|CPU|Percent|Média|Nível de utilização da CPU|Nenhuma dimensão|
 
 ## <a name="microsoftlocationbasedservicesaccounts"></a>Microsoft.LocationBasedServices/accounts
 
@@ -942,7 +936,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |RunLatency|Latência de Execução|Segundos|Média|Latência de execuções de fluxo de trabalho concluídas.|Nenhuma dimensão|
 |RunSuccessLatency|Latência de Execução com Êxito|Segundos|Média|Latência de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
 |RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de eventos limitados em relação à ação ou acionador de fluxo de trabalho.|Nenhuma dimensão|
-|RunFailurePercentage|Percentagem da Falha de Execução|Percentagem|Total|Percentagem das execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Percentagem das execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
 |ActionsStarted|Ações Iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
 |ActionsCompleted|Ações Concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
 |ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho com êxito.|Nenhuma dimensão|
@@ -984,7 +978,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |RunSuccessLatency|Latência de Execução com Êxito|Segundos|Média|Latência de execuções de fluxo de trabalho com êxito.|Nenhuma dimensão|
 |RunThrottledEvents|Eventos Limitados em relação à Execução|Count|Total|Número de eventos limitados em relação à ação ou acionador de fluxo de trabalho.|Nenhuma dimensão|
 |RunStartThrottledEvents|Início da execução limitado a eventos|Count|Total|Eventos limitados em relação a número do início da execução de fluxo de trabalho.|Nenhuma dimensão|
-|RunFailurePercentage|Percentagem da Falha de Execução|Percentagem|Total|Percentagem das execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
+|RunFailurePercentage|Percentagem da Falha de Execução|Percent|Total|Percentagem das execuções de fluxo de trabalho falhadas.|Nenhuma dimensão|
 |ActionsStarted|Ações Iniciadas |Count|Total|Número de ações de fluxo de trabalho iniciadas.|Nenhuma dimensão|
 |ActionsCompleted|Ações Concluídas |Count|Total|Número de ações de fluxo de trabalho concluídas.|Nenhuma dimensão|
 |ActionsSucceeded|Ações com Êxito |Count|Total|Número de ações de fluxo de trabalho com êxito.|Nenhuma dimensão|
@@ -1003,10 +997,10 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |TriggerFireLatency|Latência de Disparo de Acionador |Segundos|Média|Latência de acionadores de fluxo de trabalho desencadeados.|Nenhuma dimensão|
 |TriggerSuccessLatency|Latência de Êxito de Acionador |Segundos|Média|Latência de acionadores de fluxo de trabalho com êxito.|Nenhuma dimensão|
 |TriggerThrottledEvents|Eventos Limitados de Acionador|Count|Total|Número de eventos limitados em relação ao acionador de fluxo de trabalho.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentWorkflowProcessorUsage|Utilização do Processador de Fluxo de Trabalho para o Ambiente de Serviço de Integração|Percentagem|Média|Utilização do processador de fluxo de trabalho para o ambiente de serviço de integração.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentWorkflowMemoryUsage|Utilização da Memória de Fluxo de Trabalho para o Ambiente de Serviço de Integração|Percentagem|Média|Utilização da memória de fluxo de trabalho para o ambiente de serviço de integração.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentConnectorProcessorUsage|Utilização do Processador do Conector para o Ambiente de Serviço de Integração|Percentagem|Média|Utilização do processador do conector para o ambiente de serviço de integração.|Nenhuma dimensão|
-|IntegrationServiceEnvironmentConnectorMemoryUsage|Utilização da Memória do Conector para o Ambiente de Serviço de Integração|Percentagem|Média|Utilização da memória do conector para o ambiente de serviço de integração.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentWorkflowProcessorUsage|Utilização do Processador de Fluxo de Trabalho para o Ambiente de Serviço de Integração|Percent|Média|Utilização do processador de fluxo de trabalho para o ambiente de serviço de integração.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentWorkflowMemoryUsage|Utilização da Memória de Fluxo de Trabalho para o Ambiente de Serviço de Integração|Percent|Média|Utilização da memória de fluxo de trabalho para o ambiente de serviço de integração.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentConnectorProcessorUsage|Utilização do Processador do Conector para o Ambiente de Serviço de Integração|Percent|Média|Utilização do processador do conector para o ambiente de serviço de integração.|Nenhuma dimensão|
+|IntegrationServiceEnvironmentConnectorMemoryUsage|Utilização da Memória do Conector para o Ambiente de Serviço de Integração|Percent|Média|Utilização da memória do conector para o ambiente de serviço de integração.|Nenhuma dimensão|
 
 ## <a name="microsoftmachinelearningservicesworkspaces"></a>Microsoft.MachineLearningServices/workspaces
 
@@ -1088,7 +1082,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |---|---|---|---|---|---|
 |QueryVolume|Volume de consultas|Count|Total|Número de consultas fornecidas para uma zona DNS|Nenhuma dimensão|
 |RecordSetCount|Contagem de conjunto de registros|Count|Máximo|Número de conjuntos de registos numa zona DNS|Nenhuma dimensão|
-|RecordSetCapacityUtilization|Utilização da capacidade do conjunto de registos|Percentagem|Máximo|% Da capacidade do conjunto de registos utilizada por uma zona DNS|Nenhuma dimensão|
+|RecordSetCapacityUtilization|Utilização da capacidade do conjunto de registos|Percent|Máximo|% Da capacidade do conjunto de registos utilizada por uma zona DNS|Nenhuma dimensão|
 
 ## <a name="microsoftnetworkpublicipaddresses"></a>Microsoft.Network/publicIPAddresses
 
@@ -1188,7 +1182,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ProbesFailedPercent|Sondas de % falhou|Percentagem|Média|Falha de % de conectividade de sondas de monitorização|Nenhuma dimensão|
+|ProbesFailedPercent|Sondas de % falhou|Percent|Média|Falha de % de conectividade de sondas de monitorização|Nenhuma dimensão|
 |AverageRoundtripMs|Média Tempo de ida e volta (ms)|Milissegundos|Média|Tempo de ida e volta da rede de médio (ms) para conectividade sondas enviadas entre a origem e destino de monitorização|Nenhuma dimensão|
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
@@ -1201,7 +1195,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |BackendRequestCount|Contagem de pedidos de back-end|Count|Total|O número de pedidos enviados a partir do proxy HTTP/S para o back-ends|HttpStatus, HttpStatusGroup, Backend|
 |BackendRequestLatency|Latência de pedido de back-end|Milissegundos|Média|O tempo calculado a partir de quando o pedido foi enviado pelo proxy HTTP/S para o back-end até que o proxy HTTP/S recebido o último byte de resposta de back-end|Back-end|
 |TotalLatency|Latência total|Milissegundos|Média|O tempo calculado a partir de quando o pedido de cliente foi recebido pelo proxy HTTP/S até que o cliente confirmados o último byte de resposta do proxy HTTP/S|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
-|BackendHealthPercentage|Percentagem de estado de funcionamento do back-end|Percentagem|Média|A percentagem de estado de funcionamento com êxito as sondas do proxy HTTP/S de back-ends|Back-end, BackendPool|
+|BackendHealthPercentage|Percentagem de estado de funcionamento do back-end|Percent|Média|A percentagem de estado de funcionamento com êxito as sondas do proxy HTTP/S de back-ends|Back-end, BackendPool|
 |WebApplicationFirewallRequestCount|Contagem de pedidos de Firewall de aplicação Web|Count|Total|O número de pedidos de clientes processados pelo Firewall de aplicações Web|PolicyName, RuleName, Action|
 
 ## <a name="microsoftnotificationhubsnamespacesnotificationhubs"></a>Microsoft.NotificationHubs/Namespaces/NotificationHubs
@@ -1355,7 +1349,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |QueryPoolJobQueueLength|Threads: Comprimento de fila da tarefa de conjunto de consulta|Count|Média|Número de tarefas na fila do pool de threads de consulta.|Nenhuma dimensão|
 |qpu_high_utilization_metric|Elevada utilização de QPU|Count|Total|Elevada utilização de QPU no último minuto, 1 para a utilização de QPU elevada, 0; caso contrário|Nenhuma dimensão|
 |memory_metric|Memória|Bytes|Média|Memória. Intervalo de 0 a 3 GB para A1, 0 a 5 GB para A2, 0 a 10 GB para A3, 0-25 GB para A4, 0-50 GB das séries a5 e 0-100 GB para A6|Nenhuma dimensão|
-|memory_thrashing_metric|Degradação de memória|Percentagem|Média|Degradação de memória média.|Nenhuma dimensão|
+|memory_thrashing_metric|Degradação de memória|Percent|Média|Degradação de memória média.|Nenhuma dimensão|
 
 ## <a name="microsoftrelaynamespaces"></a>Microsoft.Relay/namespaces
 
@@ -1381,7 +1375,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |---|---|---|---|---|---|
 |SearchLatency|Latência de pesquisa|Segundos|Média|Latência média de pesquisa para o serviço de pesquisa|Nenhuma dimensão|
 |SearchQueriesPerSecond|Pesquisar consultas por segundo|CountPerSecond|Média|Pesquisar consultas por segundo para o serviço de pesquisa|Nenhuma dimensão|
-|ThrottledSearchQueriesPercentage|Percentagem de pesquisas de consultas otimizadas|Percentagem|Média|Percentagem de consultas de pesquisa que foram otimizados para o serviço de pesquisa|Nenhuma dimensão|
+|ThrottledSearchQueriesPercentage|Percentagem de pesquisas de consultas otimizadas|Percent|Média|Percentagem de consultas de pesquisa que foram otimizados para o serviço de pesquisa|Nenhuma dimensão|
 
 ## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
 
@@ -1400,8 +1394,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |ActiveMessages|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|Count|Média|Contagem de mensagens ativas num(a) Fila/Tópico. (Pré-visualização)|EntityName|
 |DeadletteredMessages|Contagem de mensagens não entregues num Fila/Tópico. (Pré-visualização)|Count|Média|Contagem de mensagens não entregues num Fila/Tópico. (Pré-visualização)|EntityName|
 |ScheduledMessages|Contagem de mensagens agendadas numa Fila/Tópico. (Pré-visualização)|Count|Média|Contagem de mensagens agendadas numa Fila/Tópico. (Pré-visualização)|EntityName|
-|CPUXNS|Utilização da CPU por espaço de nomes|Percentagem|Máximo|Métrica de utilização do espaço de nomes da CPU do service bus premium|Nenhuma dimensão|
-|WSXNS|Utilização do tamanho da memória por espaço de nomes|Percentagem|Máximo|Métrica de utilização de memória do espaço de nomes do service bus premium|Nenhuma dimensão|
+|CPUXNS|Utilização da CPU por espaço de nomes|Percent|Máximo|Métrica de utilização do espaço de nomes da CPU do service bus premium|Nenhuma dimensão|
+|WSXNS|Utilização do tamanho da memória por espaço de nomes|Percent|Máximo|Métrica de utilização de memória do espaço de nomes do service bus premium|Nenhuma dimensão|
 
 ## <a name="microsoftservicefabricmeshapplications"></a>Microsoft.ServiceFabricMesh/applications
 
@@ -1411,8 +1405,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |AllocatedMemory|AllocatedMemory|Bytes|Média|Memória alocada para este contentor em MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualCpu|ActualCpu|Count|Média|Utilização de CPU real em milinúcleos|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ActualMemory|ActualMemory|Bytes|Média|Uso real de memória em MB|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|CpuUtilization|CpuUtilization|Percentagem|Média|Utilização de CPU para esse contentor como percentagem do AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
-|MemoryUtilization|MemoryUtilization|Percentagem|Média|Utilização de CPU para esse contentor como percentagem do AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|CpuUtilization|CpuUtilization|Percent|Média|Utilização de CPU para esse contentor como percentagem do AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
+|MemoryUtilization|MemoryUtilization|Percent|Média|Utilização de CPU para esse contentor como percentagem do AllocatedCpu|ApplicationName, ServiceName, CodePackageName, ServiceReplicaName|
 |ApplicationStatus|ApplicationStatus|Count|Média|Estado da aplicação de malha do Service Fabric|ApplicationName, estado|
 |ServiceStatus|ServiceStatus|Count|Média|Estado de funcionamento de um serviço no aplicativo de malha do Service Fabric|ApplicationName, Status, ServiceName|
 |ServiceReplicaStatus|ServiceReplicaStatus|Count|Média|Estado de funcionamento de uma réplica de serviço no aplicativo de malha do Service Fabric|ApplicationName, Status, ServiceName, ServiceReplicaName|
@@ -1427,70 +1421,70 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |MessageCount|Contagem de Mensagens|Count|Total|A quantidade total de mensagens.|Nenhuma dimensão|
 |InboundTraffic|Tráfego de entrada|Bytes|Total|O tráfego de entrada do serviço|Nenhuma dimensão|
 |OutboundTraffic|Tráfego de saída|Bytes|Total|O tráfego de saída do serviço|Nenhuma dimensão|
-|UserErrors|Erros de utilizador|Percentagem|Máximo|A percentagem de erros de utilizador|Nenhuma dimensão|
-|SystemErrors|Erros de sistema|Percentagem|Máximo|A percentagem de erros de sistema|Nenhuma dimensão|
+|UserErrors|Erros de utilizador|Percent|Máximo|A percentagem de erros de utilizador|Nenhuma dimensão|
+|SystemErrors|Erros de sistema|Percent|Máximo|A percentagem de erros de sistema|Nenhuma dimensão|
 
 ## <a name="microsoftsqlserversdatabases"></a>Microsoft.Sql/servers/databases
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Percentagem de CPU |Percentagem|Média|Percentagem de CPU |Nenhuma dimensão|
-|physical_data_read_percent|Percentagem de E/S de Dados|Percentagem|Média|Percentagem de E/S de Dados|Nenhuma dimensão|
-|log_write_percent|Percentagem de E/S de Registo|Percentagem|Média|Percentagem de E/S de Registo|Nenhuma dimensão|
-|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Nenhuma dimensão|
+|cpu_percent|Percentagem de CPU |Percent|Média|Percentagem de CPU |Nenhuma dimensão|
+|physical_data_read_percent|Percentagem de E/S de Dados|Percent|Média|Percentagem de E/S de Dados|Nenhuma dimensão|
+|log_write_percent|Percentagem de E/S de Registo|Percent|Média|Percentagem de E/S de Registo|Nenhuma dimensão|
+|dtu_consumption_percent|Percentagem de DTU|Percent|Média|Percentagem de DTU|Nenhuma dimensão|
 |armazenamento|Espaço de dados utilizado|Bytes|Máximo|Tamanho total da base de dados|Nenhuma dimensão|
 |connection_successful|Ligações com êxito|Count|Total|Ligações com êxito|Nenhuma dimensão|
 |connection_failed|Ligações com Falhas|Count|Total|Ligações com Falhas|Nenhuma dimensão|
 |blocked_by_firewall|Bloqueado pela Firewall|Count|Total|Bloqueado pela Firewall|Nenhuma dimensão|
 |Deadlock|Impasses|Count|Total|Impasses|Nenhuma dimensão|
-|storage_percent|Percentagem de espaço utilizado de dados|Percentagem|Máximo|Percentagem de tamanho da Base de Dados|Nenhuma dimensão|
-|xtp_storage_percent|Percentagem de armazenamento OLTP dentro da memória|Percentagem|Média|Percentagem de armazenamento OLTP dentro da memória|Nenhuma dimensão|
-|workers_percent|Percentagem de funções de trabalho|Percentagem|Média|Percentagem de funções de trabalho|Nenhuma dimensão|
-|sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões|Nenhuma dimensão|
+|storage_percent|Percentagem de espaço utilizado de dados|Percent|Máximo|Percentagem de tamanho da Base de Dados|Nenhuma dimensão|
+|xtp_storage_percent|Percentagem de armazenamento OLTP dentro da memória|Percent|Média|Percentagem de armazenamento OLTP dentro da memória|Nenhuma dimensão|
+|workers_percent|Percentagem de funções de trabalho|Percent|Média|Percentagem de funções de trabalho|Nenhuma dimensão|
+|sessions_percent|Percentagem de sessões|Percent|Média|Percentagem de sessões|Nenhuma dimensão|
 |dtu_limit|Limite DTU|Count|Média|Limite DTU|Nenhuma dimensão|
 |dtu_used|DTUS utilizadas|Count|Média|DTUS utilizadas|Nenhuma dimensão|
 |cpu_limit|Limite de CPU|Count|Média|Limite de CPU|Nenhuma dimensão|
 |cpu_used|Utilizada de CPU|Count|Média|Utilizada de CPU|Nenhuma dimensão|
 |dwu_limit|Limite de DWU|Count|Máximo|Limite de DWU|Nenhuma dimensão|
-|dwu_consumption_percent|Percentagem DWU|Percentagem|Máximo|Percentagem DWU|Nenhuma dimensão|
+|dwu_consumption_percent|Percentagem DWU|Percent|Máximo|Percentagem DWU|Nenhuma dimensão|
 |dwu_used|DWU utilizado|Count|Máximo|DWU utilizado|Nenhuma dimensão|
-|dw_cpu_percent|Percentagem de CPU de nível do nó de armazém de dados|Percentagem|Média|Percentagem de CPU de nível do nó de armazém de dados|DwLogicalNodeId|
-|dw_physical_data_read_percent|Percentagem de es de dados de nível de nó do armazém de dados|Percentagem|Média|Percentagem de es de dados de nível de nó do armazém de dados|DwLogicalNodeId|
-    |cache_hit_percent|Percentagem de acertos na cache|Percentagem|Máximo|Percentagem de acertos na cache|Nenhuma dimensão|
-|cache_used_percent|Percentagem de cache utilizada|Percentagem|Máximo|Percentagem de cache utilizada|Nenhuma dimensão|
-|local_tempdb_usage_percent|Percentagem de local tempdb|Percentagem|Média|Percentagem de local tempdb|Nenhuma dimensão|
+|dw_cpu_percent|Percentagem de CPU de nível do nó de armazém de dados|Percent|Média|Percentagem de CPU de nível do nó de armazém de dados|DwLogicalNodeId|
+|dw_physical_data_read_percent|Percentagem de es de dados de nível de nó do armazém de dados|Percent|Média|Percentagem de es de dados de nível de nó do armazém de dados|DwLogicalNodeId|
+    |cache_hit_percent|Percentagem de acertos na cache|Percent|Máximo|Percentagem de acertos na cache|Nenhuma dimensão|
+|cache_used_percent|Percentagem de cache utilizada|Percent|Máximo|Percentagem de cache utilizada|Nenhuma dimensão|
+|local_tempdb_usage_percent|Percentagem de local tempdb|Percent|Média|Percentagem de local tempdb|Nenhuma dimensão|
 |app_cpu_billed|Aplicação da CPU faturada|Count|Total|Aplicação da CPU faturada|Nenhuma dimensão|
-|app_cpu_percent|Percentagem de CPU de aplicação|Percentagem|Média|Percentagem de CPU de aplicação|Nenhuma dimensão|
-|app_memory_percent|Percentagem de memória utilizada de aplicação|Percentagem|Média|Percentagem de memória utilizada de aplicação|Nenhuma dimensão|
+|app_cpu_percent|Percentagem de CPU de aplicação|Percent|Média|Percentagem de CPU de aplicação|Nenhuma dimensão|
+|app_memory_percent|Percentagem de memória utilizada de aplicação|Percent|Média|Percentagem de memória utilizada de aplicação|Nenhuma dimensão|
 |allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Espaço de dados atribuído|Nenhuma dimensão|
 
 ## <a name="microsoftsqlserverselasticpools"></a>Microsoft.Sql/servers/elasticPools
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|cpu_percent|Percentagem de CPU |Percentagem|Média|Percentagem de CPU |Nenhuma dimensão|
-|physical_data_read_percent|Percentagem de E/S de Dados|Percentagem|Média|Percentagem de E/S de Dados|Nenhuma dimensão|
-|log_write_percent|Percentagem de E/S de Registo|Percentagem|Média|Percentagem de E/S de Registo|Nenhuma dimensão|
-|dtu_consumption_percent|Percentagem de DTU|Percentagem|Média|Percentagem de DTU|Nenhuma dimensão|
-|storage_percent|Percentagem de espaço utilizado de dados||Percentagem|Média|Percentagem de armazenamento|Nenhuma dimensão|
-|workers_percent|Percentagem de funções de trabalho|Percentagem|Média|Percentagem de funções de trabalho|Nenhuma dimensão|
-|sessions_percent|Percentagem de sessões|Percentagem|Média|Percentagem de sessões|Nenhuma dimensão|
+|cpu_percent|Percentagem de CPU |Percent|Média|Percentagem de CPU |Nenhuma dimensão|
+|physical_data_read_percent|Percentagem de E/S de Dados|Percent|Média|Percentagem de E/S de Dados|Nenhuma dimensão|
+|log_write_percent|Percentagem de E/S de Registo|Percent|Média|Percentagem de E/S de Registo|Nenhuma dimensão|
+|dtu_consumption_percent|Percentagem de DTU|Percent|Média|Percentagem de DTU|Nenhuma dimensão|
+|storage_percent|Percentagem de espaço utilizado de dados||Percent|Média|Percentagem de armazenamento|Nenhuma dimensão|
+|workers_percent|Percentagem de funções de trabalho|Percent|Média|Percentagem de funções de trabalho|Nenhuma dimensão|
+|sessions_percent|Percentagem de sessões|Percent|Média|Percentagem de sessões|Nenhuma dimensão|
 |eDTU_limit|limite de eDTU|Count|Média|limite de eDTU|Nenhuma dimensão|
 |storage_limit|Tamanho máximo de dados|Bytes|Média|Limite de armazenamento|Nenhuma dimensão|
 |eDTU_used|eDTU utilizado|Count|Média|eDTU utilizado|Nenhuma dimensão|
 |storage_used|Espaço de dados utilizado|Bytes|Média|Armazenamento utilizado|Nenhuma dimensão|
-|xtp_storage_percent|Percentagem de armazenamento OLTP dentro da memória|Percentagem|Média|Percentagem de armazenamento OLTP dentro da memória|Nenhuma dimensão|
+|xtp_storage_percent|Percentagem de armazenamento OLTP dentro da memória|Percent|Média|Percentagem de armazenamento OLTP dentro da memória|Nenhuma dimensão|
 |cpu_limit|Limite de CPU|Count|Média|Limite de CPU|Nenhuma dimensão|
 |cpu_used|Utilizada de CPU|Count|Média|Utilizada de CPU|Nenhuma dimensão|
 |allocated_data_storage|Espaço de dados atribuído|Bytes|Média|Espaço de dados atribuído|Nenhuma dimensão|
-|allocated_data_storage_percent|Percentagem de espaço alocado de dados|Percentagem|Máximo|Percentagem de espaço alocado de dados|Nenhuma dimensão|
+|allocated_data_storage_percent|Percentagem de espaço alocado de dados|Percent|Máximo|Percentagem de espaço alocado de dados|Nenhuma dimensão|
 
 ## <a name="microsoftsqlmanagedinstances"></a>Microsoft.Sql/managedInstances
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
 |virtual_core_count|Número de núcleos virtuais|Count|Média|Número de núcleos virtuais|Nenhuma dimensão|
-|avg_cpu_percent|Percentagem de CPU média|Percentagem|Média|Percentagem de CPU média|Nenhuma dimensão|
+|avg_cpu_percent|Percentagem de CPU média|Percent|Média|Percentagem de CPU média|Nenhuma dimensão|
 |reserved_storage_mb|Espaço de armazenamento reservado|Count|Média|Espaço de armazenamento reservado|Nenhuma dimensão|
 |storage_space_used_mb|Espaço de armazenamento utilizado|Count|Média|Espaço de armazenamento utilizado|Nenhuma dimensão|
 |io_requests|Contagem de pedidos de e/s|Count|Média|Contagem de pedidos de e/s|Nenhuma dimensão|
@@ -1581,7 +1575,7 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|ResourceUtilization|% de utilização SU|Percentagem|Máximo|% de utilização SU|LogicalName, PartitionId|
+|ResourceUtilization|% de utilização SU|Percent|Máximo|% de utilização SU|LogicalName, PartitionId|
 |InputEvents|Eventos de Entrada|Count|Total|Eventos de Entrada|LogicalName, PartitionId|
 |InputEventBytes|Bytes de Evento de Entrada|Bytes|Total|Bytes de Evento de Entrada|LogicalName, PartitionId|
 |LateInputEvents|Eventos de Entrada atrasados|Count|Total|Eventos de Entrada atrasados|LogicalName, PartitionId|
@@ -1654,8 +1648,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 
 |Métrica|Nome a apresentar de métrica|Unidade|Tipo de Agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|
-|CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
-|MemoryPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
+|CpuPercentage|Percentagem de CPU|Percent|Média|Percentagem de CPU|Instância|
+|MemoryPercentage|Percentagem de Memória|Percent|Média|Percentagem de Memória|Instância|
 |DiskQueueLength|Comprimento da Fila de Discos|Count|Média|Comprimento da Fila de Discos|Instância|
 |HttpQueueLength|Comprimento da Fila de http|Count|Média|Comprimento da Fila de http|Instância|
 |BytesReceived|Entrada de Dados|Bytes|Total|Entrada de Dados|Instância|
@@ -1782,8 +1776,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |Http4xx|Http 4xx|Count|Total|Http 4xx|Instância|
 |Http5xx|Erros de Servidor http|Count|Total|Erros de Servidor http|Instância|
 |AverageResponseTime|Tempo de Resposta Médio|Segundos|Média|Tempo de Resposta Médio|Instância|
-|CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
-|MemoryPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
+|CpuPercentage|Percentagem de CPU|Percent|Média|Percentagem de CPU|Instância|
+|MemoryPercentage|Percentagem de Memória|Percent|Média|Percentagem de Memória|Instância|
 |DiskQueueLength|Comprimento da Fila de Discos|Count|Média|Comprimento da Fila de Discos|Instância|
 |HttpQueueLength|Comprimento da Fila de http|Count|Média|Comprimento da Fila de http|Instância|
 |ActiveRequests|Pedidos Ativos|Count|Total|Pedidos Ativos|Instância|
@@ -1799,8 +1793,8 @@ O Azure Monitor proporciona várias formas de interagir com métricas, incluindo
 |WorkersTotal|Trabalhadores Totais|Count|Média|Trabalhadores Totais|Nenhuma dimensão|
 |WorkersAvailable|Trabalhadores Disponíveis|Count|Média|Trabalhadores Disponíveis|Nenhuma dimensão|
 |WorkersUsed|Trabalhadores Utilizados|Count|Média|Trabalhadores Utilizados|Nenhuma dimensão|
-|CpuPercentage|Percentagem de CPU|Percentagem|Média|Percentagem de CPU|Instância|
-|MemoryPercentage|Percentagem de Memória|Percentagem|Média|Percentagem de Memória|Instância|
+|CpuPercentage|Percentagem de CPU|Percent|Média|Percentagem de CPU|Instância|
+|MemoryPercentage|Percentagem de Memória|Percent|Média|Percentagem de Memória|Instância|
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Leia sobre as métricas no Azure Monitor](data-platform.md)

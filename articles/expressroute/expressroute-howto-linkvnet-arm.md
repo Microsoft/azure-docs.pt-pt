@@ -5,15 +5,15 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: b0ae3d5b2c60badfb9b59820b1e0b85383e524ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60366359"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950364"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Ligar uma rede virtual a um circuito do ExpressRoute
 > [!div class="op_single_selector"]
@@ -175,6 +175,20 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ```
 
 O intervalo de *RoutingWeight* é 0 para 32000. O valor predefinido é 0.
+
+## <a name="configure-expressroute-fastpath"></a>Configurar o ExpressRoute FastPath 
+Pode ativar [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) se o seu circuito do ExpressRoute no [ExpressRoute Direct](expressroute-erdirect-about.md) e o gateway de virtual newtork estiver Ultra desempenho ou ErGw3AZ. FastPath melhora preformance de caminho de dados, como pacotes por segundo e conexões por segundo entre a sua rede no local e a rede virtual. 
+
+> [!NOTE] 
+> Se já tiver uma ligação de rede virtual, mas não ativou a FastPath terá de eliminar a ligação de rede virtual e criar um novo. 
+> 
+>  
+
+```azurepowershell-interactive 
+$circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
+$gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
+$connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para obter mais informações acerca do ExpressRoute, veja as [FAQs do ExpressRoute](expressroute-faqs.md).

@@ -5,15 +5,15 @@ services: active-directory
 author: rolyon
 ms.service: active-directory
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ef8155cda6c31a63204af80ca091a13bb16a687d
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 6711506c1e489dcbd50aedd36241affc3bbed80b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64866418"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113395"
 ---
 ### <a name="policy-for-users-in-your-directory"></a>Política: Para os utilizadores no seu diretório
 
@@ -34,6 +34,9 @@ Siga estes passos, se pretender que a política para utilizadores e grupos no se
 ### <a name="policy-for-users-not-in-your-directory"></a>Política: Para os utilizadores não no seu diretório
 
 Siga estes passos, se pretender que a política para utilizadores não no seu diretório que podem solicitar este pacote de acesso. Diretórios devem ser configurados para permitir a **restrições de colaboração de relações organizacionais** definições.
+
+> [!NOTE]
+> Uma conta de utilizador convidado será criada para um utilizador ainda não foram no seu diretório, cujo pedido é aprovado ou aprovado automaticamente. O convidado será convidado, mas não irá receber um e-mail de convite. Em vez disso, irá receber um e-mail quando é entregue a respetiva atribuição de pacote de acesso. Por predefinição, mais tarde quando esse utilizador convidado já não tem quaisquer atribuições de pacote de acesso, porque a respetiva atribuição de última expirou ou foi cancelada, que conta de utilizador convidado será impedida de início de sessão e eliminada. Se quiser ter utilizadores convidados permanecem no seu diretório indefinidamente, mesmo que tenham que não existem atribuições de pacote de acesso, pode alterar as definições para a sua configuração de gestão de direitos.
 
 1. Na **usuários que podem pedir acesso** secção, selecione **para os utilizadores não no seu diretório**.
 

@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 4/16/2019
 ms.author: yoafr
-ms.openlocfilehash: 5ac6603be087e887e3304f6a7e14aa063863e1dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 069345f9c2d0fff0b580365153d8be13bb4ba204
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65796455"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952133"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Extinção dos recursos de centro de segurança (Julho de 2019)
 
@@ -160,9 +160,9 @@ Se tiver soluções ligadas existentes, é recomendável que mova para sentinela
 
 ## Editar configurações de segurança para as políticas de segurança<a name="menu_securityconfigurations"></a>
 
-Centro de segurança do Azure monitoriza as configurações de segurança através da aplicação de um conjunto de [mais de 150 recomendado regras](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). para proteger o sistema operacional. Estas regras dizem respeito a firewalls, auditoria, as políticas de palavra-passe e muito mais. Se uma máquina é encontrada ter uma configuração vulnerável, o Centro de segurança gera uma recomendação de segurança. O [ecrã de configuração de segurança de edição](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite que os clientes personalizar a configuração de segurança do sistema operacional padrão no Centro de segurança.
+Centro de segurança do Azure monitoriza as configurações de segurança através da aplicação de um conjunto de [mais de 150 recomendado regras](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). para proteger o sistema operacional. Estas regras dizem respeito a firewalls, auditoria, as políticas de palavra-passe e muito mais. Se um computador apresentar uma configuração vulnerável, o Centro de Segurança gerará uma recomendação de segurança. O [ecrã de configuração de segurança de edição](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite que os clientes personalizar a configuração de segurança do sistema operacional padrão no Centro de segurança.
 
-Podemos reformar-se esta funcionalidade de pré-visualização.
+Podemos reformar-se esta funcionalidade de pré-visualização. Se, após a data de retirada, gostaria de repor as suas configurações de segurança seus valores padrão, pode fazê-lo através da API ou o Powershell utilizando o [seguir instruções](https://aka.ms/ascresetsecurityconfigurations)
 
 ![Editar configurações de segurança][17]
 

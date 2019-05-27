@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3fa82c2397b4c2601cdd943158054e1c8efb6b57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a1be2966cf568fc5101fb0d887f0d55a8a1876d0
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596322"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952496"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-powershell"></a>Configurar endereços IP privados para uma máquina virtual (clássico) com o PowerShell
 
@@ -117,7 +117,7 @@ Resultado esperado:
     Update-AzureVM       052fa6f6-1483-0ede-a7bf-14f91f805483 Succeeded
 
 ## <a name="how-to-add-a-static-private-ip-address-to-an-existing-vm"></a>Como adicionar um endereço IP privado estático a uma VM existente
-Para adicionar um estático privado de endereços IP para a VM criada utilizando o script acima, runt seguinte comando:
+Para adicionar um endereço IP privado estático para a VM criada utilizando o script acima, execute o seguinte comando:
 
     Get-AzureVM -ServiceName TestService -Name DNS01 |
       Set-AzureStaticVNetIP -IPAddress 192.168.1.7 |

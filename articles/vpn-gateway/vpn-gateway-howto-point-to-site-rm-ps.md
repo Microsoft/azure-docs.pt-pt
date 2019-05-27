@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: f3c02e80016e43bdd83218851de5ceb72be7f268
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 822cbc7401de90d63f9079561ced0dfbb911fa2c
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320265"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65989447"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: PowerShell
 
@@ -131,8 +131,8 @@ Declare as variáveis que quer utilizar. Utilize o exemplo seguinte, substituind
 Configure e crie o gateway de rede virtual da sua VNet.
 
 * O -GatewayType tem de ser **Vpn** e o -VpnType tem de ser **RouteBased**.
-* O -VpnClientProtocol é utilizado para especificar os tipos de túnel que quer ativar. As duas opções de túnel são **SSTP** e **IKEv2**. Pode optar por ativar uma ou ambas as opções. Se quiser ativar ambas, especifique ambos os nomes separados por vírgula. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP.
-* O SKU "Basic" do gateway de rede virtual não suporta a autenticação IKEv2 ou RADIUS. Se estiver a planear de ter um Mac, os clientes se conectam à sua rede virtual, não utilize o SKU básico.
+* O -VpnClientProtocol é utilizado para especificar os tipos de túnel que quer ativar. São as opções de túnel **OpenVPN, SSTP** e **IKEv2**. Pode optar por ativar uma delas ou qualquer combinação suportada. Se pretender ativar vários tipos, em seguida, especifique os nomes separados por vírgulas. OpenVPN e SSTP não podem ser ativada em conjunto. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP. Pode utilizar o cliente de OpenVPN para ligar ao tipo de túnel OpenVPN.
+* O SKU "Basic" do gateway de rede virtual não suporta a autenticação IKEv2, OpenVPN ou RADIUS. Se estiver a planear de ter um Mac, os clientes se conectam à sua rede virtual, não utilize o SKU básico.
 * Um gateway de VPN pode demorar até 45 minutos a concluir, consoante a [sku do gateway](vpn-gateway-about-vpn-gateway-settings.md) que selecionar. Este exemplo utiliza IKEv2.
 
 ```azurepowershell-interactive

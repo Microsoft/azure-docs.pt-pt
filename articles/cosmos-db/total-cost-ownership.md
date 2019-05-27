@@ -4,15 +4,15 @@ description: Este artigo compara o custo total de propriedade do Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e603435a49894a9b8faa2df9b49a8572b94eecb5
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60729121"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65965585"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Custo total de Ownership(TCO) com o Azure Cosmos DB
 

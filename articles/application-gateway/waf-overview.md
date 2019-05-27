@@ -4,15 +4,15 @@ description: Este artigo fornece uma descrição geral da firewall de aplicaçõ
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 2/22/2019
+ms.date: 5/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 9c2759222198f5df682d9e7a5363c0d9679e0fad
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518189"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991408"
 ---
 # <a name="web-application-firewall-for-azure-application-gateway"></a>Firewall de aplicações Web para o Gateway de aplicação do Azure
 
@@ -38,7 +38,7 @@ Esta secção descreve as principais vantagens que o Gateway de aplicação e o 
 
 * Proteja seus aplicativos web contra vulnerabilidades e ataques sem modificação do código de back-end web.
 
-* Protege várias aplicações web ao mesmo tempo. Pode alojar uma instância de Gateway de aplicação de até 20 Web sites protegidos por uma firewall de aplicações web.
+* Protege várias aplicações web ao mesmo tempo. Pode alojar uma instância de Gateway de aplicação de até 100 Web sites protegidos por uma firewall de aplicações web.
 
 ### <a name="monitoring"></a>Monitorização
 
@@ -121,12 +121,19 @@ A WAF do Gateway de aplicação pode ser configurado para ser executado em dois 
 * **Modo de prevenção**: Invasões por meio de blocos e de ataques que as regras de detetar. O atacante recebe uma exceção de "acesso não autorizado 403" e a ligação é terminada. Modo de prevenção regista esses ataques nos registos WAF.
 
 ### <a name="anomaly-scoring-mode"></a>Modo de Scoring de anomalias
- 
+
 OWASP tem dois modos para decidir se pretende bloquear o tráfego: Modo tradicional e o modo de anomalias de classificação.
 
 No modo tradicional, o tráfego que corresponde a qualquer regra é considerado independentemente das outras correspondências de regra. Esse modo é fácil de entender. Mas a falta de informações sobre regras de quantos correspondem uma solicitação específica é uma limitação. Por isso, foi introduzido o modo de anomalias de classificação. É a predefinição para 3 da OWASP. *x*.
 
 No modo de anomalias de classificação de mensagens em fila, o tráfego que corresponde a qualquer regra não é imediatamente impedido quando a firewall está no modo de prevenção. Regras tenham uma gravidade de determinados: *Crítico*, *erro*, *aviso*, ou *aviso*. Que gravidade afeta um valor numérico para o pedido, o que é chamado de classificação de anomalia. Por exemplo, um *aviso* regra de correspondência contribui 3 para a classificação. Um *crítico* regra de correspondência contribui 5.
+
+|Gravidade  |Value  |
+|---------|---------|
+|Crítica     |5|
+|Erro        |4|
+|Aviso      |3|
+|Aviso       |2|
 
 Existe um limite de 5 para a classificação de anomalias para bloquear o tráfego. Deste modo, um único *crítico* correspondência de regra é o suficiente para o WAF do Gateway de aplicação bloquear um pedido, até mesmo no modo de prevenção. Mas um *aviso* regra de correspondência apenas aumenta a anomalias pontuação por 3, que não não suficiente por si só para bloquear o tráfego.
 

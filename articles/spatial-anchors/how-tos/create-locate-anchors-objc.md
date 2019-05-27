@@ -4,16 +4,16 @@ description: Explicação detalhada sobre como criar e localizar as âncoras usa
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
-ms.author: ramonarguelles
+ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 3dd4fbedd51e11e84303f997cef0bb28bf79b241
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c3066b87ec4de58982b6b2ecdd35dfffde4c31a8
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918183"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964874"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Como criar e localizar as âncoras usando âncoras espaciais do Azure no Objective-C
 

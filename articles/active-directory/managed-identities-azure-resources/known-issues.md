@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 12/12/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e958aa82eb1e2fbf21a44df333533c6da058a966
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1a6797c7bd0c6bd8ce8d3f51b42cb4c2b1338fd6
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448483"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950469"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ e problemas conhecidos com identidades geridas para recursos do Azure
 
@@ -81,6 +81,11 @@ Não. Se mover uma subscrição para outro diretório, terá de recriar manualme
 ### <a name="can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant"></a>Pode utilizar uma identidade gerida para aceder a um recurso num diretório diferente/inquilino?
 
 Não. Identidades geridas não suportam atualmente directory em vários cenários. 
+
+### <a name="what-azure-rbac-permissions-are-required-to-managed-identity-on-a-resource"></a>Que permissões RBAC do Azure são necessárias para uma identidade gerida num recurso? 
+
+- Identidade gerida atribuído de sistema: Precisa escrever permissões sobre o recurso. Por exemplo: Microsoft.Compute/virtualMachines/write ou esta ação está incluída no recurso específicas funções incorporadas, como [contribuinte de Máquina Virtual](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- Identidade gerida atribuído ao utilizador: Precisa escrever permissões sobre o recurso. Por exemplo: Microsoft.Compute/virtualMachines/write. Para além [operador de identidade gerida](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) atribuição de função através de a identidade gerida. 
 
 ### <a name="how-do-you-restart-the-managed-identities-for-azure-resources-extension"></a>Como reiniciar as identidades geridas para a extensão de recursos do Azure?
 No Windows e determinadas versões do Linux, se a extensão de parar, o cmdlet seguinte pode ser usado para reiniciar manualmente:

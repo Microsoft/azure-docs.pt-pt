@@ -5,21 +5,21 @@ services: cdn
 documentationcenter: ''
 author: mdgattuso
 manager: danielgi
-editor: ''
+editor: sohamnchatterjee
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 05/17/2019
 ms.author: magattus
-ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94d9fb0878458f3de0a64fac57af4a70e1875112
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60324916"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909676"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Remover um ponto de final de CDN do Azure
 ## <a name="overview"></a>Descrição geral
@@ -69,7 +69,7 @@ Este tutorial orienta-o através da remoção de recursos de todos os nós de ex
     ![Remover botão](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Os pedidos de remoção demoram aproximadamente 2 a 3 minutos para processar com **CDN do Azure da Verizon** (standard e premium) e aproximadamente 7 minutos com **CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 simultâneas remover pedidos num determinado momento ao nível do perfil. 
+> Os pedidos de remoção demoram cerca de 2 minutos para processar com **CDN do Azure da Microsoft** e **CDN do Azure da Verizon** (standard e premium) e cerca de 10 segundos com **da CDN do Azure da Akamai**.  A CDN do Azure tem um limite de 50 simultâneas remover pedidos num determinado momento ao nível do perfil. 
 > 
 > 
 

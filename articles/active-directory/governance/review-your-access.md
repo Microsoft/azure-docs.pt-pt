@@ -11,22 +11,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 05/21/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe2013ff84dd0451fed7d108539606520cb9403
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6b38422b22885ad96c6681abe58b897155809521
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60384552"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113195"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Rever acesso para si próprio para grupos ou as revisões de acesso a aplicações no Azure AD
 
 Azure Active Directory (Azure AD) simplifica como as empresas a gerir o acesso a grupos ou aplicações no Azure AD e revisões de outros serviços Online da Microsoft com um recurso chamado acesso do Azure AD.
 
 Este artigo descreve como rever o seu próprio acesso a um grupo ou uma aplicação.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+- Azure AD Premium P2
+
+Para obter mais informações, consulte [os utilizadores que têm de ter licenças?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Abra a revisão de acesso
 

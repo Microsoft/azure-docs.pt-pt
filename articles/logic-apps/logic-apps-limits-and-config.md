@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597481"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990205"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -166,7 +166,7 @@ Aqui estão os limites dos conectores personalizados que pode criar a partir de 
 
 | Name | Limite |
 | ---- | ----- |
-| Número de aplicações lógicas com atribuído o sistema gerido identidades por subscrição do Azure | 10 |
+| Número de aplicações lógicas com atribuído o sistema gerido identidades por subscrição do Azure | 100 |
 |||
 
 <a name="integration-account-limits"></a>
@@ -241,7 +241,7 @@ Todas as aplicações lógicas na mesma região, utilize os mesmos intervalos de
 
 Para suportar as chamadas que [conectores geridos pela Microsoft](../connectors/apis-list.md) make, configurar a firewall com *todos os* o [saída](#outbound) endereços IP utilizados por estes conectores, com base nas regiões de onde existem as logic apps. Estes endereços são apresentados no **saída** nesta seção do cabeçalho e são ordenados por região.
 
-Para [do Azure Government](../azure-government/documentation-government-overview.md) e [Azure China 21Vianet](/azure/china/china-welcome), endereços IP reservados para os conectores não estão atualmente disponíveis.
+Para [do Azure Government](../azure-government/documentation-government-overview.md) e [Azure China 21Vianet](https://docs.microsoft.com/azure/china/), endereços IP reservados para os conectores não estão atualmente disponíveis.
 
 > [!IMPORTANT]
 >

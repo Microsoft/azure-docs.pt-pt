@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/25/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 37de2de18656f0f8ba85495b3fd72315e0bd885b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57d80adc7c77f2d874d13a68214cd638a2ac2a0
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903989"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957284"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
 
@@ -93,6 +93,9 @@ availabilityResults
    ![Criar uma nova captura de ecrã de função](./media/automate-custom-reports/function-app-03.png)
 
 5. Selecione o  **_modelo de resumo agendada do Application Insights_**.
+
+     > [!NOTE]
+     > Por predefinição, as aplicações de função são criadas com a versão de runtime 2.x. Deve [versão de runtime das funções do Azure de destino](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) 1.x para utilizar o Application Insights agendado o modelo de texto implícita.
 
    ![Nova captura de ecrã do modelo de informações de aplicação de função](./media/automate-custom-reports/function-app-04.png)
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 80bf4718b63496c0b220aa79dcdd27f2711b70ce
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cb72949c0bb543885498b1b997fa0b4a644c204a
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148090"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956962"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparar para implantar sua solução de IoT Edge em produção
 
@@ -215,7 +215,7 @@ Estas informações num arquivo chamado adicionar (ou de acréscimo) `daemon.jso
 | Plataforma | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 O mecanismo de contentor tem de ser reiniciado para que as alterações entrem em vigor.
 

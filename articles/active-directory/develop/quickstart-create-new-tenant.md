@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
 ms.subservice: develop
@@ -15,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
-ms.reviewer: dadobali
+ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87b7bb43e55532dec364b6c5a1a833e86990c54a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0d7ff28d65c68c25613d1f61c00a6132ae93fdf6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545741"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962497"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Início rápido: Configurar um ambiente de desenvolvimento
 

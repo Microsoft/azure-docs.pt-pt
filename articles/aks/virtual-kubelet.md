@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: a6a2fb246e407d6ea240ff40f4d2fa2b1b780931
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f7a0269ff22987648d134cb7f4fba8e28e29fd8b
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61023743"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956286"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utilizar o Virtual Kubelet com o serviço Kubernetes do Azure (AKS)
 
@@ -26,13 +26,35 @@ Ao usar o Virtual Kubelet fornecedor do Azure Container Instances, contentores d
 >
 > Virtual Kubelet é um projeto de código-fonte aberto experimental e deve ser utilizado como tal. Para contribuir, problemas de ficheiros e ler mais sobre o virtual kubelet, consulte a [projeto Virtual Kubelet GitHub][vk-github].
 
-## <a name="prerequisite"></a>Pré-requisito
+## <a name="before-you-begin"></a>Antes de começar
 
 Este documento parte do princípio de que tem um cluster do AKS. Se precisar de um cluster do AKS, consulte a [início rápido do Azure Kubernetes Service (AKS)][aks-quick-start].
 
 Também tem a versão da CLI do Azure **2.0.33** ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 Para instalar o Virtual Kubelet [Helm](https://docs.helm.sh/using_helm/#installing-helm) também é necessário.
+
+### <a name="register-container-instances-feature-provider"></a>Registar o fornecedor de recursos de instâncias de contentor
+
+Se não tiver utilizado anteriormente o serviço de instância de contentor do Azure (ACI), registe o fornecedor de serviço com a sua subscrição. Pode verificar o estado de registo do fornecedor a ACI com o comando [az-fornecedor-list] [lista de fornecedores de az], conforme mostrado no exemplo a seguir:
+
+```azurecli-interactive
+az provider list --query "[?contains(namespace,'Microsoft.ContainerInstance')]" -o table
+```
+
+O *Microsoft.ContainerInstance* fornecedor deve reportar como *registado*, conforme mostrado no seguinte exemplo:
+
+```
+Namespace                    RegistrationState
+---------------------------  -------------------
+Microsoft.ContainerInstance  Registered
+```
+
+Se o fornecedor é apresentado como *NotRegistered*, registar o fornecedor com [az registar o fornecedor] [az-provider register], conforme mostrado no exemplo a seguir:
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerInstance
+```
 
 ### <a name="for-rbac-enabled-clusters"></a>Para clusters habilitados em RBAC
 

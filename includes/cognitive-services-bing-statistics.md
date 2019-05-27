@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: scottwhi
 ms.custom: include file
 ms.openlocfilehash: 6016b13fe7d3e1f3b673bd2446d2f68b04878cd6
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54193454"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66124741"
 ---
 Estatísticas do Bing fornece análises para APIs de pesquisa do Bing. Análise inclui o volume de chamadas, cadeias de consulta superior, distribuição geográfica e muito mais. Para ativar as estatísticas do Bing na pesquisa do Bing subscrição paga, navegue até à sua [dashboard do Azure](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7), selecione a subscrição paga e clique em Ativar estatísticas do Bing. Ativar as estatísticas do Bing aumenta um pouco a sua taxa de subscrição (consulte [preços](https://aka.ms/bingstatisticspricing)).
 
@@ -69,14 +69,14 @@ Seguem-se as métricas de possíveis. Cada restrições de ponto final de métri
 
 - **Principais consultas**: Mostra as principais consultas e o número de ocorrências de cada consulta durante o período de relatório. Pode configurar o número de consultas mostrado. Por exemplo, pode mostrar as consultas principais 25, 50 ou 75. Principais consultas não está disponível para os seguintes pontos finais:  
 
-  - /Images/trending
-  - / imagens/detalhes
-  - / imagens/visualsearch
+  - /images/trending
+  - /images/details
+  - /images/visualsearch
   - /videos/trending
   - / vídeos/detalhes
-  - /News
+  - /news
   - / notícias/trendingtopics
-  - /Suggestions  
+  - /suggestions  
   
   > [!NOTE]  
   > Alguns termos de consulta podem ser suprimidos para remover as informações confidenciais, tais como mensagens de correio eletrónico, números de telefone, CPF, etc.

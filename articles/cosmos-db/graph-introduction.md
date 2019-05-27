@@ -5,18 +5,18 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
-ms.date: 09/05/2018
+ms.date: 05/20/2019
 ms.author: lbosq
-ms.openlocfilehash: 36465c253996e4cecc665b2fd1d59c03adc78a2f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6f5d90f8b825b7076a1a5122dbef3c8b2990e216
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60888651"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954254"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introdução ao Azure Cosmos DB: API do Gremlin
 
-O [Azure Cosmos DB](introduction.md) é um serviço de bases de dados com vários modelos e distribuído globalmente pela Microsoft para aplicações críticas para atividades. É uma base de dados multimodal e suporta modelos de dados em documentos, chaves-valores, gráficos e colunas. A API do Gremlin do Azure Cosmos DB é utilizada para armazenar e operar em dados de gráficos. A API do Gremlin suporta a modelação de dados de gráficos e fornece APIs para percorrê-los.
+[O Azure Cosmos DB](introduction.md) é o serviço de base de dados de vários modelos distribuída globalmente da Microsoft para aplicativos de missão crítica. É uma base de dados com múltiplos modelo e oferece suporte a documentos, chave-valor, gráfico e modelos de dados em colunas. A API do Gremlin do Azure Cosmos DB é utilizada para armazenar e operar em dados de gráficos. A API do Gremlin suporta a modelação de dados de gráficos e fornece APIs para percorrê-los.
 
 Este artigo fornece uma descrição geral da API do Gremlin do Azure Cosmos DB e explica como pode utilizá-la para armazenar gráficos enormes com milhares de milhões de vértices e margens. Pode consultar os gráficos com latência de milissegundos e desenvolver facilmente o esquema e estrutura do gráfico. Para consultar o Azure Cosmos DB, pode utilizar a linguagem de percurso em gráfico do [Apache TinkerPop](https://tinkerpop.apache.org) ou do [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 56620dc1d3e315caa3e259715ed84a539b91356d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b170a214c7c3c464f7ea645fa1dc42cce0a0580
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60610868"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951709"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Quadro de segurança: Autenticação | Atenuações 
 
@@ -41,10 +41,10 @@ ms.locfileid: "60610868"
 
 ## <a id="standard-authn-web-app"></a>Considere a utilização de um mecanismo de autenticação padrão para autenticar a aplicação Web
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -52,10 +52,10 @@ ms.locfileid: "60610868"
 
 ## <a id="handle-failed-authn"></a>Aplicativos devem suportar cenários de falha de autenticação de forma segura
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -63,10 +63,10 @@ ms.locfileid: "60610868"
 
 ## <a id="step-up-adaptive-authn"></a>Passo de enable backup ou a autenticação adaptável
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -74,10 +74,10 @@ ms.locfileid: "60610868"
 
 ## <a id="admin-interface-lockdown"></a>Certifique-se de que as interfaces administrativas estejam adequadamente bloqueados para baixo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -85,10 +85,10 @@ ms.locfileid: "60610868"
 
 ## <a id="forgot-pword-fxn"></a>Implementar Esqueceu-se as funcionalidades de palavra-passe com segurança
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -96,21 +96,21 @@ ms.locfileid: "60610868"
 
 ## <a id="pword-account-policy"></a>Certifique-se de que a política de palavra-passe e conta são implementados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
-| Detalhes | <p>Política de palavra-passe e a conta em conformidade com a política organizacional e práticas recomendadas deve ser implementada.</p><p>Se proteger contra força bruta e de adivinhação de dicionário com base em: Política de palavra-passe segura tem de ser implementada para garantir que os utilizadores criar palavra-passe complexa (por exemplo, comprimento mínimo de 12 carateres, carateres alfanuméricos e especiais).</p><p>Políticas de bloqueio de conta podem ser implementadas da seguinte forma:</p><ul><li>**Bloqueio de forma recuperável-out:** Isso pode ser uma boa opção para proteger os usuários contra ataques de força bruta. Por exemplo, sempre que o usuário insere uma palavra-passe errada três vezes o aplicativo pode bloquear a conta durante um minuto para diminuir o processo de bruta forçar sua senha tornando menos rentáveis para o atacante continuar. se fosse implementar as contramedidas de escalamento do bloqueio de disco rígidas para este exemplo, obteria um "Dos" bloqueando permanentemente as contas. Em alternativa, o aplicativo pode gerar uma OTP (senha de uma hora) e enviá-lo fora de banda (através do e-mail, sms, etc.) para o usuário. Outra abordagem seria implementar CAPTCHA após um número de limiar de tentativas falhadas é atingido.</li><li>**Bloqueio de disco rígido-out:** Este tipo de bloqueio deve ser aplicado sempre que detectar um usuário atacar seu aplicativo e o contador em contato com ele por meio de bloqueio permanentemente a conta da até que uma equipe de resposta tido tempo para fazer seus forenses. Após este processo que pode optar por dar ao utilizador criar uma conta ou tirar ainda mais ações legais contra em contato com ele. Este tipo de abordagem impede que o invasor penetrar ainda mais a sua aplicação e infraestrutura.</li></ul><p>Para se Defender contra ataques em predefinido e contas previsíveis, certifique-se de que todas as chaves e palavras-passe sejam substituíveis e são gerados ou substituídos após o tempo de instalação.</p><p>Se a aplicação tem de gerar automaticamente palavras-passe, certifique-se de que as palavras-passe geradas aleatórias e tem entropia elevada.</p>|
+| Detalhes | <p>Política de palavra-passe e a conta em conformidade com a política organizacional e práticas recomendadas deve ser implementada.</p><p>Se proteger contra força bruta e de adivinhação de dicionário com base em: Política de palavra-passe segura tem de ser implementada para garantir que os utilizadores criar palavra-passe complexa (por exemplo, comprimento mínimo de 12 carateres, carateres alfanuméricos e especiais).</p><p>Políticas de bloqueio de conta podem ser implementadas da seguinte forma:</p><ul><li>**Bloqueio de forma recuperável-out:** Isso pode ser uma boa opção para proteger os usuários contra ataques de força bruta. Por exemplo, sempre que o usuário insere uma palavra-passe errada três vezes o aplicativo pode bloquear a conta durante um minuto para diminuir o processo de bruta forçar a palavra-passe tornando menos rentáveis para o atacante continuar. Se fosse implementar as contramedidas de escalamento do bloqueio de disco rígidas para este exemplo, obteria um "DoS" bloqueando permanentemente as contas. Em alternativa, o aplicativo pode gerar uma OTP (senha de uma hora) e enviá-lo fora de banda (através do e-mail, sms, etc.) para o usuário. Outra abordagem seria implementar CAPTCHA após um número de limiar de tentativas falhadas é atingido.</li><li>**Bloqueio de disco rígido-out:** Este tipo de bloqueio deve ser aplicado sempre que detectar um usuário atacar a sua aplicação e o contador-los por meio de permanentemente bloqueio da respetiva conta até que uma equipe de resposta tinham tempo para fazer seus forenses. Depois deste processo que pode decidir dar ao usuário fazer uma cópia de sua conta ou tirar ainda mais ações legais contra eles. Este tipo de abordagem impede que o invasor penetrar ainda mais a sua aplicação e infraestrutura.</li></ul><p>Para se Defender contra ataques em predefinido e contas previsíveis, certifique-se de que todas as chaves e palavras-passe sejam substituíveis e são gerados ou substituídos após o tempo de instalação.</p><p>Se a aplicação tem de gerar automaticamente palavras-passe, certifique-se de que as palavras-passe geradas aleatórias e tem entropia elevada.</p>|
 
 ## <a id="controls-username-enum"></a>Implemente controlos para impedir a enumeração de nome de utilizador
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Aplicação Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -118,10 +118,10 @@ ms.locfileid: "60610868"
 
 ## <a id="win-authn-sql"></a>Sempre que possível, utilize a autenticação do Windows para ligar ao SQL Server
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de Dados | 
-| **Fase do SDL**               | Compilação |  
+| **Componente**               | Base de dados | 
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | OnPrem |
 | **Atributos**              | Versão do SQL - todos os |
 | **Referências**              | [SQL Server - escolher um modo de autenticação](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -129,10 +129,10 @@ ms.locfileid: "60610868"
 
 ## <a id="aad-authn-sql"></a>Sempre que possível utilizar a autenticação do Active Directory do Azure para ligar a base de dados SQL
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de Dados | 
-| **Fase do SDL**               | Compilação |  
+| **Componente**               | Base de dados | 
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | SQL Azure |
 | **Atributos**              | Versão do SQL - V12 |
 | **Referências**              | [Ligar à base de dados SQL com a autenticação do Azure Active Directory](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
@@ -140,10 +140,10 @@ ms.locfileid: "60610868"
 
 ## <a id="authn-account-pword"></a>Quando o modo de autenticação de SQL é utilizado, certifique-se de que a diretiva de conta e palavra-passe são impostas no SQL server
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de Dados | 
-| **Fase do SDL**               | Compilação |  
+| **Componente**               | Base de dados | 
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Política de palavra-passe do SQL Server](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -151,10 +151,10 @@ ms.locfileid: "60610868"
 
 ## <a id="autn-contained-db"></a>Não utilize autenticação do SQL em bases de dados contidas
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Base de Dados | 
-| **Fase do SDL**               | Compilação |  
+| **Componente**               | Base de dados | 
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | OnPrem, SQL Azure |
 | **Atributos**              | V12 de versão - MSSQL2012, versão do SQL - SQL |
 | **Referências**              | [Melhores práticas de segurança com bases de dados contidas](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -162,10 +162,10 @@ ms.locfileid: "60610868"
 
 ## <a id="authn-sas-tokens"></a>Utilizar por credenciais de autenticação do dispositivo utilizar SaS tokens
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Hub de Eventos do Azure | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Event Hubs autenticação e segurança visão geral do modelo](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
@@ -173,7 +173,7 @@ ms.locfileid: "60610868"
 
 ## <a id="multi-factor-azure-admin"></a>Ativar a multi-factor Authentication para os administradores do Azure
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Azure | 
 | **Fase do SDL**               | Implementação |  
@@ -184,7 +184,7 @@ ms.locfileid: "60610868"
 
 ## <a id="anon-access-cluster"></a>Restringir o acesso anônimo ao Cluster do Service Fabric
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Implementação |  
@@ -195,7 +195,7 @@ ms.locfileid: "60610868"
 
 ## <a id="fabric-cn-nn"></a>Certifique-se de que o certificado de cliente para nó do Service Fabric é diferente do certificado de nó para nó
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Implementação |  
@@ -206,7 +206,7 @@ ms.locfileid: "60610868"
 
 ## <a id="aad-client-fabric"></a>Utilizar o AAD para autenticar clientes para clusters do service fabric
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Implementação |  
@@ -217,7 +217,7 @@ ms.locfileid: "60610868"
 
 ## <a id="fabric-cert-ca"></a>Certifique-se de que os certificados do serviço de recursos de infraestrutura são obtidos de um aprovados certificado de autoridade (CA)
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade do Service Fabric | 
 | **Fase do SDL**               | Implementação |  
@@ -228,10 +228,10 @@ ms.locfileid: "60610868"
 
 ## <a id="standard-authn-id"></a>Utilizar cenários de autenticação padrão suportados pelo servidor de identidades
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidades | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [IdentityServer3 - o panorama geral](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -239,7 +239,7 @@ ms.locfileid: "60610868"
 
 ## <a id="override-token"></a>Substituir o cache de token do servidor de identidades padrão com uma alternativa dimensionável
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Servidor de identidades | 
 | **Fase do SDL**               | Implementação |  
@@ -250,7 +250,7 @@ ms.locfileid: "60610868"
 
 ## <a id="binaries-signed"></a>Certifique-se de que os binários da aplicação implementada são assinados digitalmente
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Limite de fidedignidade de máquina | 
 | **Fase do SDL**               | Implementação |  
@@ -261,10 +261,10 @@ ms.locfileid: "60610868"
 
 ## <a id="msmq-queues"></a>Ativar a autenticação ao ligar a filas MSMQ no WCF
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico, o .NET Framework 3 |
 | **Atributos**              | N/A |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
@@ -301,10 +301,10 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 
 ## <a id="message-none"></a>WCF – não clientCredentialType de mensagem não definido como none
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | Tipo de credencial de cliente - None |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
@@ -317,10 +317,10 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 
 ## <a id="transport-none"></a>WCF – não clientCredentialType de transporte não definido como none
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | WCF | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico, o .NET Framework 3 |
 | **Atributos**              | Tipo de credencial de cliente - None |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
@@ -333,10 +333,10 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 
 ## <a id="authn-secure-api"></a>Certifique-se de que a autenticação padrão técnicas são utilizadas para proteger as APIs da Web
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | API Web | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Autenticação e autorização na ASP.NET Web API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [serviços de autenticação externo com a API Web ASP.NET (c#)](https://www.asp.net/web-api/overview/security/external-authentication-services) |
@@ -344,10 +344,10 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 
 ## <a id="authn-aad"></a>Utilizar cenários de autenticação padrão suportados pelo Azure Active Directory
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Cenários de autenticação do Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [exemplos de código do Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [guia para programadores do Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
@@ -355,10 +355,10 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 
 ## <a id="adal-scalable"></a>Substituir o padrão cache de token ADAL com uma alternativa dimensionável
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Autenticação moderna com o Azure Active Directory para aplicações Web](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [usando o Redis como cache de token da ADAL](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -366,10 +366,10 @@ O `<netMsmqBinding/>` elemento do ficheiro de configuração de WCF abaixo Instr
 
 ## <a id="tokenreplaycache-adal"></a>Certifique-se de que TokenReplayCache é utilizado para evitar a repetição de tokens de autenticação da ADAL
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [Autenticação moderna com o Azure Active Directory para aplicações Web](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -427,10 +427,10 @@ Tenha em atenção que para testar a eficácia nesta configuração, o início d
 
 ## <a id="adal-oauth2"></a>Utilizar as bibliotecas ADAL para gerir pedidos de token de clientes de OAuth2 para AAD (ou AD no local)
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Azure AD | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -438,10 +438,10 @@ Tenha em atenção que para testar a eficácia nesta configuração, o início d
 
 ## <a id="authn-devices-field"></a>Autenticar os dispositivos ligados para o Gateway de campo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de campo de IoT | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A  |
 | **Referências**              | N/A  |
@@ -449,10 +449,10 @@ Tenha em atenção que para testar a eficácia nesta configuração, o início d
 
 ## <a id="authn-devices-cloud"></a>Certifique-se de que os dispositivos ligados ao gateway de Cloud são autenticados
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Generic, C#, Node.JS,  |
 | **Atributos**              | N/d, escolha de Gateway - IoT Hub do Azure |
 | **Referências**              | N/d, [hub IoT do Azure com .NET](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [introdução ao IoT hub e o nó JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), [proteção de IoT com SAS e certificados](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [repositório de Git](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
@@ -549,10 +549,10 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="authn-cred"></a>Utilizar credenciais de autenticação por dispositivo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Gateway de Cloud da IoT  | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | Escolha de gateway - IoT Hub do Azure |
 | **Referências**              | [Tokens de segurança do Hub IoT do Azure](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -560,10 +560,10 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="req-containers-anon"></a>Certifique-se de que são fornecidos apenas os contentores necessários e os blobs de acesso de leitura anónimo
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | StorageType - Blob |
 | **Referências**              | [Gerir o acesso de leitura anónimo a contentores e blobs](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [assinaturas de acesso partilhado, parte 1: Compreender o modelo SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
@@ -571,10 +571,10 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="limited-access-sas"></a>Conceder acesso limitado aos objetos no armazenamento do Azure com SAS ou SAP
 
-| Título                   | Detalhes      |
+| Cargo                   | Detalhes      |
 | ----------------------- | ------------ |
 | **Componente**               | Storage do Azure | 
-| **Fase do SDL**               | Compilação |  
+| **Fase do SDL**               | Criar |  
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/A |
 | **Referências**              | [Assinaturas de acesso, parte 1 de partilhado: Compreender o modelo SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [assinaturas de acesso partilhado, parte 2: Criar e utilizar um SAS com armazenamento de BLOBs](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [como delegar acesso a objetos na sua conta com assinaturas de acesso partilhado e políticas de acesso armazenadas](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |

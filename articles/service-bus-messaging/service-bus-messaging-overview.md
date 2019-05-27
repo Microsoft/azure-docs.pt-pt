@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ab658b26a44e98b073c477c1aaeeb683372ee46
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60863249"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988494"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 
@@ -37,7 +37,7 @@ O espaço de nomes é um contentor para todos os componentes de mensagens. Um ú
 
 As mensagens são enviadas e recebidas de *filas*. As filas permitem armazenar mensagens até a aplicação recetora estar disponível para receber e processá-las.
 
-![Filas](./media/service-bus-messaging-overview/about-service-bus-queue.png)
+![Fila](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
 Mensagens em filas são ordenadas e timestamped na chegada. Depois de aceite, a mensagem é guardada em segurança no armazenamento redundante. As mensagens são entregues na *pull* modo, que oferece a mensagens de pedido.
 
@@ -129,3 +129,4 @@ Para começar a utilizar as mensagens do Service Bus, consulte os seguintes arti
 * Obtenha mais informações sobre os escalões [Standard e Premium](https://azure.microsoft.com/pricing/details/service-bus/) do Azure Service Bus e os respetivos preços
 * [Desempenho e Latência do escalão Premium do Azure Service Bus](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Experimente os inícios rápidos sobre [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) ou [JMS](service-bus-java-how-to-use-jms-api-amqp.md)
+* [Gerir recursos do Service Bus com o Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

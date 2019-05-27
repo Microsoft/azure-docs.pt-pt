@@ -14,18 +14,23 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: d3f71382a3f2b15ec0f9764b9913a95c0d32b21d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b805a80330dd44ac4a65db88950393d3d4d60b7
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60591815"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65992103"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Como tópicos do barramento de serviço de utilização e as subscrições com node. js
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>Como tópicos do barramento de serviço de utilização e de subscrições com node. js e o pacote do azure-sb
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-[!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
+Neste tutorial, irá aprender a criar aplicações node. js para enviar mensagens para um tópico do Service Bus e receber mensagens de uma subscrição do Service Bus com o [azure-sb](https://www.npmjs.com/package/azure-sb) pacote. Os exemplos são escritos em JavaScript e utilizar o node. js [módulo do Azure](https://www.npmjs.com/package/azure) que usa internamente a `azure-sb` pacote.
 
-Este guia descreve como utilizar tópicos do Service Bus e as subscrições de aplicações node. js. Os cenários abrangidos incluem:
+O [azure-sb](https://www.npmjs.com/package/azure-sb) utiliza o pacote [APIs de tempo de execução de REST do Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Pode obter uma experiência mais rápida, utilizando o novo [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote que usa o mais rápido [protocolo AMQP 1.0](service-bus-amqp-overview.md). Para saber mais sobre o novo pacote, veja [como utilizar tópicos do Service Bus e as subscrições com node. js e @azure/service-bus pacote](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-topics-subscriptions-new-package), caso contrário, continue a ler para saber como utilizar os [azure](https://www.npmjs.com/package/azure) pacote.
+
+Os cenários abrangidos aqui incluem:
 
 - Criação de tópicos e subscrições 
 - Criar filtros de subscrição 
@@ -36,8 +41,8 @@ Este guia descreve como utilizar tópicos do Service Bus e as subscrições de a
 Para obter mais informações sobre tópicos e subscrições, veja [próximos passos](#next-steps) secção.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Siga os passos no [início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um barramento de serviço **espaço de nomes** e obtenha o **cadeia de ligação**.
+- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do Visual Studio ou do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Siga os passos no [início rápido: Utilizar o portal do Azure para criar um tópico do Service Bus e subscrições para o tópico](service-bus-quickstart-topics-subscriptions-portal.md) para criar um barramento de serviço **espaço de nomes** e obtenha o **cadeia de ligação**.
 
     > [!NOTE]
     > Irá criar um **tópico** e uma **subscrição** para o tópico utilizando **node. js** neste início rápido. 
@@ -330,7 +335,10 @@ serviceBusService.deleteSubscription('MyTopic', 'HighMessages', function (error)
 });
 ```
 
-## <a name="next-steps"></a>Próximos Passos
+> [!NOTE]
+> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+
+## <a name="next-steps"></a>Passos Seguintes
 Agora que aprendeu as noções básicas de tópicos do Service Bus, siga estas ligações para saber mais.
 
 * Ver [filas, tópicos e subscrições][Queues, topics, and subscriptions].

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: 422c2a8a61b1df36b452c153aa6cd78ba7e2dcef
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d267ff3a43438d9fe6e4e21f0ac023cfa6675f19
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723638"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956300"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de programador com o Azure Active Directory na gestão de API do Azure
 
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como permitir o acesso ao portal do programador para os u
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Autorizar contas de programador através do Azure AD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
-2. Selecione ![seta](./media/api-management-howto-aad/arrow.png).
+2. Seleccionar ![seta](./media/api-management-howto-aad/arrow.png).
 3. Tipo **api** na caixa de pesquisa.
 4. Selecione **dos serviços de gestão de API**.
 5. Selecionar a sua instância de serviço de Gestão de API.
@@ -61,21 +61,22 @@ Este artigo mostra-lhe como permitir o acesso ao portal do programador para os u
 14.  Depois da aplicação fica registada, copie o **ID da aplicação (cliente)** partir a **descrição geral** página. 
 15. Volte à sua instância de gestão de API. No **Adicionar fornecedor de identidade** janela, colar a **ID da aplicação (cliente)** valor para o **ID de cliente** caixa.
 16. Volte para a configuração do Azure AD, selecione **certificados e segredos** sob **gerir**. Selecione o **novo segredo do cliente** botão. Introduza um valor na **Descrição**, selecione qualquer opção para **Expires** e escolha **Add**. Copie o valor do segredo de cliente antes de sair da página. Vai precisar deles no próximo passo. 
-17. Voltar à sua instância de gestão de API, cole o segredo para o **segredo do cliente** caixa.
+17. Sob **Manage**, selecione **autenticação** e, em seguida, selecione **tokens de ID** em **concessão implícita**
+18. Voltar à sua instância de gestão de API, cole o segredo para o **segredo do cliente** caixa.
 
     > [!IMPORTANT]
     > Certifique-se atualizar o **segredo do cliente** antes da chave expirar. 
     >  
     >
 
-18. O **Adicionar fornecedor de identidade** janela também contém o **inquilinos permitidos** caixa de texto. Lá, especifique os domínios das instâncias do Azure AD aos quais pretende conceder acesso às APIs de instância de serviço de gestão de API. É possível separar vários domínios com vírgulas, espaços ou garantidamente.
+19. O **Adicionar fornecedor de identidade** janela também contém o **inquilinos permitidos** caixa de texto. Lá, especifique os domínios das instâncias do Azure AD aos quais pretende conceder acesso às APIs de instância de serviço de gestão de API. É possível separar vários domínios com vírgulas, espaços ou garantidamente.
 
 > [!NOTE]
 > É possível especificar vários domínios no **inquilinos permitidos** secção. Antes de qualquer utilizador pode iniciar sessão a partir de um domínio diferente daquele domínio original em que a aplicação foi registrada, um administrador global do domínio diferente tem de conceder permissão para a aplicação para aceder a dados do diretório. Para conceder permissão, o administrador global deve: um. Aceda a `https://<URL of your developer portal>/aadadminconsent` (por exemplo, https://contoso.portal.azure-api.net/aadadminconsent).
 > b. Escreva o nome de inquilino do Azure AD que pretende dar acesso ao domínio.
 > c. Selecione **submeter**. 
 
-19.  Depois de especificar a configuração pretendida, selecione **adicionar**.
+20.  Depois de especificar a configuração pretendida, selecione **adicionar**.
 
 Depois das alterações são guardadas, os utilizadores no Azure AD especificado instância pode iniciar sessão no portal do programador ao seguir os passos em [inicie sessão no portal do programador, utilizando uma conta do Azure AD](#log_in_to_dev_portal).
 

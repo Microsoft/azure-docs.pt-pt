@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b312f284d557c2c1344b82b9fcd570d3392077
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aff695307fc97e9f2acfd44f7434d5cbb26ef53e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381288"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950838"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinar a estratégia de adoção de ciclo de vida de identidade híbrida
 Nesta tarefa, vai definir a estratégia de gestão de identidade para a sua solução de identidade híbrida cumprir os requisitos de negócios que definiu nas [determinar as tarefas de gestão de identidade híbrida](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -36,13 +36,13 @@ Controlo de acesso é uma função fundamental de um sistema de provisionamento 
 
 Contas de empresas de TI sofisticados incluem centenas de parâmetros que definem as autoridades e esses detalhes podem ser controlados pelo seu sistema de provisionamento. Novos utilizadores podem ser identificados com os dados que fornece a partir da origem autoritativa. A capacidade de aprovação do pedido de acesso inicia os processos que aprovem (ou rejeitarem) aprovisionamento para os mesmos de recursos.
 
-| Fase de gestão do ciclo de vida | No local | Nuvem | Híbrido |
+| Fase de gestão do ciclo de vida | No local | Cloud | Híbrido |
 | --- | --- | --- | --- |
 | Aprovisionamento e gestão de conta |Ao utilizar a função de servidor Serviços de domínio do Active Directory® (AD DS), pode criar uma infraestrutura escalável, segura e gerível para a gestão de recursos e de utilizador e fornecer suporte para aplicações com diretório ativado como o Microsoft® Exchange Server. <br><br> [Pode provisionar grupos no AD DS através de um Gestor de identidade](https://technet.microsoft.com/library/ff686261.aspx) <br>[Pode aprovisionar utilizadores no AD DS](https://technet.microsoft.com/library/ff686263.aspx) <br><br> Os administradores podem utilizar o controlo de acesso para gerir o acesso de utilizador para recursos partilhados por motivos de segurança. No Active Directory, o controlo de acesso é administrado ao nível do objeto por definir diferentes níveis de acesso ou permissões, para objetos, como o controlo total, escrita, acesso de leitura ou não. Controlo de acesso no Active Directory define como diferentes usuários pode usar objetos do Active Directory. Por predefinição, as permissões em objetos no Active Directory estão definidas para a definição mais segura. |Tem de criar uma conta para cada utilizador que irá aceder a um serviço cloud da Microsoft. Também pode alterar contas de utilizador ou eliminá-los quando já não forem necessários. Por predefinição, os utilizadores não têm permissões de administrador, mas, opcionalmente, pode atribuí-las. <br><br> No Azure Active Directory, um dos principais recursos é a capacidade para gerir o acesso aos recursos. Estes recursos podem fazer parte do diretório, como no caso de permissões para gerir objetos através de funções no diretório, ou dos recursos externos ao diretório, como aplicações SaaS, serviços do Azure e sites SharePoint ou recursos no local. <br><br> Em acesso de center do Azure Active Directory da solução de gestão é o grupo de segurança. O proprietário do recurso (ou o administrador do diretório), pode atribuir um grupo para fornecer um determinado direito de acesso aos recursos que possui. Os membros do grupo serão fornecidos o acesso e o proprietário do recurso pode delegar o direito de gerir a lista de membros de um grupo para alguém – como um Gestor de departamento ou um administrador de suporte técnico<br> <br> Os grupos de gerenciamento na secção do Azure AD, fornece mais informações sobre como gerir o acesso por meio dos grupos. |Amplie as identidades do Active Directory para a cloud através de sincronização e a Federação |
 
 ## <a name="role-based-access-control"></a>Controlo de acesso baseado em funções
 Acesso baseado em funções (RBAC) utiliza funções de controle e aprovisionamento políticas para avaliar, testar e impor seus processos de negócios e regras para conceder acesso a utilizadores. Os administradores de chave a criar políticas de aprovisionamento e atribuir utilizadores a funções e que definir conjuntos de elegibilidade para os recursos para estas funções. RBAC estende a solução de gestão de identidade para utilizar processos baseados em software e reduzir a interação manual do utilizador no processo de aprovisionamento.
-RBAC do Azure AD permite que a empresa restringir o número de operações que uma pessoa individual que pode fazer uma vez que ele tem acesso ao portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os administradores de TI AC delegar o acesso ao utilizar as seguintes abordagens de gerenciamento de acesso:
+RBAC do Azure AD permite que a empresa restringir o número de operações que uma pessoa individual que pode fazer assim que tiverem acesso ao portal do Azure. Ao utilizar o RBAC para controlar o acesso ao portal, os administradores de TI AC delegar o acesso ao utilizar as seguintes abordagens de gerenciamento de acesso:
 
 * **Atribuição de função com base em grupo**: Pode atribuir acesso a grupos do Azure AD que podem ser sincronizados do Active Directory local. Isto permite-lhe aproveitar os investimentos existentes que sua organização tornou-se em ferramentas e os processos de gestão de grupos. Também pode utilizar a funcionalidade de gestão de grupo delegada do Azure AD Premium.
 * **Tire partido de funções no Azure incorporado**: Pode utilizar três funções — proprietário, Contribuidor e leitor, para garantir que os utilizadores e grupos têm permissão para realizar apenas as tarefas que precisam para realizar seus trabalhos.
@@ -86,7 +86,7 @@ A integração dos diretórios no local com o Azure AD torna os utilizadores mai
 
 A figura a seguir tem um exemplo de uma visão geral do processo de sincronização de identidade.
 
-![Sync](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Sincronizar](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Processo de sincronização de identidade
 

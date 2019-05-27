@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2e1288885476aeeba01f966b615c23c5fe51081
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d12519a2bd0a5e3951d0ca9ae51a54bd728a782b
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60261010"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987902"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Tutorial: Integração do Active Directory do Azure com o cliente de Gorila terra
 
@@ -87,7 +87,7 @@ Para configurar a integração do cliente de Gorila terra para o Azure AD, terá
 
 
 ##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuração e teste do Azure AD início de sessão único
-Nesta secção, configure e teste do Azure AD início de sessão único com ' s Land Gorilla cliente com base num utilizador de teste chamado "Eduarda Almeida".
+Nesta secção, configure e teste do Azure AD início de sessão único com ' s Land Gorilla cliente com base num utilizador de teste chamado "B. Simon".
 
 Para o início de sessão único funcione, o Azure AD precisa saber qual é o utilizador de equivalente na terra Gorilla cliente a um utilizador no Azure AD. Em outras palavras, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na terra Gorilla cliente tem de ser estabelecida.
 
@@ -97,8 +97,8 @@ Para configurar e testar o Azure AD início de sessão único com o cliente de G
 
 1. **[Configurar o Azure AD início de sessão único](#configuring-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
 1. **[Criar um utilizador de teste do Azure AD](#creating-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com o grupo limitado.
-1. **[Criar um utilizador de teste ' s Land Gorilla](#creating-a-land-gorilla-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+1. **[Criar um utilizador de teste ' s Land Gorilla](#creating-a-land-gorilla-test-user)**  - para testar o Azure AD início de sessão único com Simon B.
+1. **[Atribuir o utilizador de teste do Azure AD](#assigning-the-azure-ad-test-user)**  - para ativar a Simon B. utilizar o Azure AD início de sessão único.
 1. **[Teste de início de sessão único](#testing-single-sign-on)**  - para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do Azure AD início de sessão único
@@ -150,7 +150,7 @@ Nesta secção, pode ativar do Azure AD início de sessão único no portal de g
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure Management chamado Eduarda Almeida.
+O objetivo desta secção consiste em criar um utilizador de teste no portal do Azure Management chamado Simon B.
 
 ![Criar utilizador do Azure AD][100]
 
@@ -172,9 +172,9 @@ O objetivo desta secção consiste em criar um utilizador de teste no portal do 
  
     ![Criar um utilizador de teste do Azure AD](./media/landgorilla-tutorial/create_aaduser_04.png) 
 
-    a. Na **Name** caixa de texto, tipo **BrittaSimon**.
+    a. Na **Name** caixa de texto, tipo **Simon B.**.
 
-    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de BrittaSimon.
+    b. Na **nome de utilizador** caixa de texto, tipo a **endereço de e-mail** de Simon B.
 
     c. Selecione **mostrar palavra-passe** e indique o valor da **palavra-passe**.
 
@@ -186,11 +186,11 @@ Trabalhe em conjunto com [equipa de suporte de ' s Land Gorilla](https://www.lan
     
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuir o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único, concedendo acesso para cliente de Gorila ' s Land.
+Nesta secção, vai ativar Simon B. utilizar o Azure início de sessão único, concedendo-lhes acesso para cliente de Gorila ' s Land.
 
 ![Atribuir utilizador][200] 
 
-**Para atribuir a Eduarda Almeida a terra Gorilla cliente, execute os seguintes passos:**
+**Para atribuir Simon B. a ' s Land Gorilla cliente, execute os seguintes passos:**
 
 1. No portal de gestão do Azure, abra a vista de aplicativos e, em seguida, navegue para a vista de diretório e aceda a **aplicações empresariais** , em seguida, clique em **todos os aplicativos**.
 
@@ -208,7 +208,7 @@ Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão �
 
     ![Atribuir utilizador][203]
 
-1. No **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista utilizadores.
+1. No **utilizadores e grupos** caixa de diálogo, selecione **B. Simon** na lista utilizadores.
 
 1. Clique em **selecionar** botão **utilizadores e grupos** caixa de diálogo.
 

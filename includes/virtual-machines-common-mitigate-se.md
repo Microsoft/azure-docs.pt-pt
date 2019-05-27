@@ -5,15 +5,15 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 05/22/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: ba41f6cce5233491020a0b42f4fd40dac060be57
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d2312fac64515756f5ed2e0feb22fdc6b7205376
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65815504"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66125174"
 ---
 **Última atualização de documentos**: 14 de Maio de 2019 10 4:00 PST.
 
@@ -137,8 +137,7 @@ CPU Architecture:      x86_64
 CPU op-mode(s):        32-bit, 64-bit
 Byte Order:            Little Endian
 CPU(s):                8
-On-line CPU(s) list:   0,2,4,6
-Off-line CPU(s) list:  1,3,5,7
+On-line CPU(s) list:   0-7
 Thread(s) per core:    2
 Core(s) per socket:    4
 Socket(s):             1

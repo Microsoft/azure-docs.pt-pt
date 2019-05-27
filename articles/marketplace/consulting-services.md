@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: e13111eb241c7734e25a28fcaeea55b1c70bc267
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 225a4936bbbb8d068caa0ee2a3280c395dbd490e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64938317"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964126"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e AppSource
 Serviços no Azure Marketplace e AppSource de consultoria fornece os parceiros da Microsoft, o objetivo de ligação de clientes com os serviços para suportar e expandir a sua utilização do Azure e os objetivos de negócio. 
@@ -80,7 +80,7 @@ Parceiros devem ter uma **competência silver ou gold** na área de relevante pa
 O lançamento do serviços de consultoria entrarão em direto no geo-região específica. Primeira inicialização será: Estados Unidos, Canadá, Reino Unido e Austrália. Os catálogos em outros países/regiões serão em direto após um número significativo e apelativas seleção de ofertas de serviço foram submetidos por parceiros e aprovado pela Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Como registar-se para serviços no Azure Marketplace e AppSource de consultoria
-Comece por [registar](https://azuremarketplace.microsoft.com/sell/signup) informações da sua empresa no marketplace. Os editores podem referenciar [se tornar um publicador no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista completa dos requisitos de registo. 
+Comece por [registar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) informações da sua empresa no marketplace. Os editores podem referenciar [se tornar um publicador no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para obter uma lista completa dos requisitos de registo. 
 
 **O que para esperar após o registo** a equipa de integração irá entrar em contacto em 1 a 3 dias de negócios com um e-mail de boas-vindos, que incluirá as suas informações de início de sessão do Portal de parceiros da Cloud (CPP). [Portal de parceiros da cloud](https://cloudpartner.azure.com) é o portal de listagem de oferta onde os editores submeter informações de listagem e os envios. 
 

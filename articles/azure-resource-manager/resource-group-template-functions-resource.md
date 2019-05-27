@@ -1,23 +1,17 @@
 ---
 title: Funções de modelo do Azure Resource Manager - recursos | Documentos da Microsoft
 description: Descreve as funções para utilizar num modelo do Azure Resource Manager para recuperar valores sobre os recursos.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-ms.assetid: ''
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 04/09/2019
+ms.date: 05/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4d5e6d20cb93c339d75c12ca1c0f56eaa5cc8cdd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dcad4b988f37d46a0b843fbf905e18011bc4e313
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60783012"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65990762"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Funções de recursos para modelos Azure Resource Manager
 
@@ -175,7 +169,7 @@ Outras funções de lista têm formatos de retornados diferentes. Para ver o for
 
 Especifique o recurso com o nome de recurso ou o [resourceId função](#resourceid). Quando utilizar uma função de lista no mesmo modelo que implementa o recurso referenciado, utilize o nome do recurso.
 
-Se utilizar um **lista** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado. Obter um erro se o **lista** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso existe. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma lista com um recurso condicionalmente implementado.
+Se utilizar um **lista** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado. Obter um erro se o **lista** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso está a ser implementado. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma lista com um recurso condicionalmente implementado.
 
 ### <a name="example"></a>Exemplo
 
@@ -343,11 +337,11 @@ Cada tipo de recurso devolve as propriedades diferentes para a função de refer
 
 A função de referência obtém o estado de tempo de execução de um recurso anteriormente implementado ou um recurso implementado no modelo atual. Este artigo mostra exemplos para ambos os cenários. Ao fazer referência um recurso no modelo atual, forneça apenas o nome de recurso como um parâmetro. Ao fazer referência um recurso anteriormente implementado, forneça o ID de recurso e uma versão de API para o recurso. É possível determinar as versões de API válidas para o seu recurso no [referência de modelo](/azure/templates/).
 
-A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação.
+A função de referência pode ser apenas as propriedades de uma definição do recurso e na secção de saídas de um modelo ou a implementação. Quando utilizado com [iteração da propriedade](resource-group-create-multiple.md#property-iteration), pode usar a função de referência para `input` porque a expressão é atribuída à propriedade de recursos. Não é possível utilizá-lo com `count` porque a contagem tem de ser determinada antes da função de referência for resolvida.
 
 Ao utilizar a função de referência, é implicitamente declarar que um recurso depende outro recurso, se o recurso referenciado está aprovisionado no mesmo modelo e consultar o recurso pelo respetivo nome (ID de recurso não). Não precisa de utilizar também a propriedade dependsOn. A função não é avaliada até que o recurso referenciado seja concluída a implementação.
 
-Se utilizar o **referência** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado.  Obter um erro se o **referência** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso existe. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma referência com um recurso condicionalmente implementado.
+Se utilizar o **referência** função num recurso que condicionalmente é implementada, a função for avaliada mesmo que o recurso não está implementado.  Obter um erro se o **referência** função refere-se a um recurso que não existe. Utilize o **se** função para se certificar de que a função é avaliada apenas quando o recurso está a ser implementado. Consulte a [se função](resource-group-template-functions-logical.md#if) para um modelo de exemplo que utiliza se e uma referência com um recurso condicionalmente implementado.
 
 Para ver os nomes de propriedade e os valores para um tipo de recurso, crie um modelo que retorna o objeto na secção de saídas. Se tiver um recurso existente desse tipo, o seu modelo retorna o objeto sem ter de implementar todos os novos recursos. 
 

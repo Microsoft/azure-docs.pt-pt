@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/02/2018
-ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/17/2019
+ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60446096"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65898932"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure
 
@@ -22,11 +22,11 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 * Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-* [Um cluster e uma base de dados de teste](create-cluster-database-portal.md)
+* [Um cluster de teste e a base de dados](create-cluster-database-portal.md).
 
 * [Uma aplicação de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que gera dados e envia-os para um hub de eventos. Transferir a aplicação de exemplo para o seu sistema.
 
-* [Visual Studio 2017 Versão 15.3.2 ou superior](https://www.visualstudio.com/vs/) para executar a aplicação de exemplo
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) para executar a aplicação de exemplo.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -111,7 +111,7 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome da ligação de dados | *test-hub-connection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | Espaço de nomes do hub de eventos | Um nome de espaço de nomes exclusivo | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | Espaço de nomes do hub de Eventos | Um nome de espaço de nomes exclusivo | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | Hub de eventos | *test-hub* | O hub de eventos que criou. |
     | Grupo de consumidores | *test-group* | O grupo de consumidores definido no hub de eventos que criou. |
     | | |

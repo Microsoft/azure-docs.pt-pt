@@ -8,12 +8,12 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.openlocfilehash: c5c69ded05e5ec6d1df6bd2befb4fe89417bae06
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6d153ff0e4f32c352694f51953c6955fae7f12f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60849629"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949682"
 ---
 # <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados de geração 2 de armazenamento do Azure Data Lake ao utilizar o Azure Databricks
 
@@ -38,7 +38,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
   > [!IMPORTANT]
   > Certifique-se atribuir a função no âmbito da conta de armazenamento de geração 2 de armazenamento do Data Lake. Pode atribuir uma função para o grupo de recursos de principal ou uma subscrição, mas irá receber erros relacionados com as permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
 
-  :heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e valores de chave de autenticação para um ficheiro de texto. Precisará aqueles em breve.
+  :heavy_check_mark: Ao realizar os passos a [obter os valores para iniciar sessão](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) secção do artigo, colar o ID de inquilino, ID da aplicação e os valores de palavras-passe para um ficheiro de texto. Precisará aqueles em breve.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -62,11 +62,9 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
     |**Localização**     | Selecione **E.U.A. Oeste 2**. Pode selecionar outra região pública, se preferir.        |
     |**Escalão de Preço**     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
-    Selecione **Afixar ao dashboard** e, em seguida, clique em **Criar**.
+3. A criação da conta demora alguns minutos. Para monitorizar o estado da operação, veja a barra de progresso na parte superior.
 
-3. Demora um pouco de tempo para criar a área de trabalho. Enquanto está a ser criada a área de trabalho, o **submeter a implementação para o Azure Databricks** mosaico é apresentado no lado direito. Para ver o título, poderá ter de deslocar para a direita no seu dashboard. Há também uma barra de progresso que aparece próximo à parte superior do ecrã. Pode ver qualquer área de progresso.
-
-    ![Mosaico de implementação do Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-deployment-tile.png "Mosaico de implementação do Databricks")
+4. Selecione **Afixar ao dashboard** e, em seguida, selecione **Criar**.
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Criar um cluster do Spark no Databricks
 
@@ -111,8 +109,8 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
    ```scala
    spark.conf.set("fs.azure.account.auth.type.<storage-account-name>.dfs.core.windows.net", "OAuth")
    spark.conf.set("fs.azure.account.oauth.provider.type.<storage-account-name>.dfs.core.windows.net", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
-   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<application-id>")
-   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<authentication-key>")
+   spark.conf.set("fs.azure.account.oauth2.client.id.<storage-account-name>.dfs.core.windows.net", "<appID>")
+   spark.conf.set("fs.azure.account.oauth2.client.secret.<storage-account-name>.dfs.core.windows.net", "<password>")
    spark.conf.set("fs.azure.account.oauth2.client.endpoint.<storage-account-name>.dfs.core.windows.net", "https://login.microsoftonline.com/<tenant-id>/oauth2/token")
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
    dbutils.fs.ls("abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/")
@@ -123,7 +121,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
     > [!NOTE]
     > Este bloco de código acede diretamente o ponto de extremidade de geração 2 do Data Lake ao utilizar OAuth, mas existem outras formas de ligar a área de trabalho do Databricks à sua conta de geração 2 de armazenamento do Data Lake. Por exemplo, pode montar o sistema de ficheiros ao utilizar o OAuth ou utilize um acesso direto com a chave partilhada. <br>Para ver exemplos dessas abordagens, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no Web site do Azure Databricks.
 
-5. Este bloco de código, substitua a `storage-account-name`, `application-id`, `authentication-id`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando criou o principal de serviço. Definir o `file-system-name` valor do marcador de posição para tudo o que nome pretende dar ao sistema de ficheiros.
+5. Este bloco de código, substitua a `storage-account-name`, `appID`, `password`, e `tenant-id` valores de marcador de posição este bloco de código com os valores que recolheu quando criou o principal de serviço. Definir o `file-system-name` valor do marcador de posição para tudo o que nome pretende dar ao sistema de ficheiros.
 
     > [!NOTE]
     > Num ambiente de produção, considere armazenar a chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao seu bloco de código em vez da chave de autenticação. Depois de concluir este início rápido, consulte a [geração 2 de armazenamento do Azure Data Lake](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) artigo no site do Azure Databricks para ver exemplos dessa abordagem.

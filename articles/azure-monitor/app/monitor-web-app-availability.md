@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 6cd5413d64be2117cc5f64202ecdaaf40f35db4b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 76bbcd6fa400111514ec3496005a28ec28ae6ab7
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205380"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65977906"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorizar a disponibilidade e a capacidade de resposta de qualquer site
 Depois de implementar a aplicação Web ou o Web site em qualquer servidor, pode configurar testes para monitorizar a respetiva disponibilidade e capacidade de resposta. O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envia regularmente pedidos Web para a sua aplicação a partir de pontos em todo o mundo. Este ferramenta alerta-o se a aplicação não responder ou responder lentamente.
@@ -71,7 +71,7 @@ Abra o painel Disponibilidade e adicione um teste.
 
 * **Limiar de alerta de localização**: Recomendamos um mínimo de 3/5 localizações. A relação ideal entre o limiar de alerta de localização e o número de localizações de teste é **limiar de localização de alerta** = **número de localizações de teste** - 2, com um mínimo de cinco testar localizações.
 
-## <a name="multi-step-web-tests"></a>Testes Web com vários passos
+## <a name="multi-step-web-tests"></a>Testes Web de vários passos
 Pode monitorizar um cenário que envolva uma sequência de URLs. Por exemplo, se estiver a monitorizar um site de vendas, pode testar se a adição de artigos no carrinho de compras funciona corretamente.
 
 > [!NOTE]
@@ -175,8 +175,8 @@ Selecione **ver detalhes do teste** de um teste específico para ver o gráfico 
 
 Quando realizar tarefas de manutenção ao seu serviço, poderá querer desativar os testes de disponibilidade ou as regras de alerta associadas aos mesmos.
 
-![Desativar um teste web](./media/monitor-web-app-availability/6disable.png)
-![editar teste](./media/monitor-web-app-availability/8edittest.png)
+![Desativar um teste web](./media/monitor-web-app-availability/6disable.png)  
+![Editar teste](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>Se vir falhas
 Clique num ponto vermelho.

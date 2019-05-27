@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 49491c5283ba16c5379c1115fae597bd7fd6ea19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbb2458e73330a09124c00cebe3eb7bcaba5408d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614084"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951493"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Introdução às tabelas temporais na base de dados SQL do Azure
 
@@ -109,7 +109,7 @@ WITH (DROP_EXISTING = ON);
 ## <a name="step-2-run-your-workload-regularly"></a>Passo 2: Executar regularmente a sua carga de trabalho
 A principal vantagem de tabelas temporais é que não é necessário alterar ou ajustar o seu Web site de qualquer forma, para efetuar o registo de alterações. Depois de criado, as tabelas temporais transparente manter versões anteriores de linha sempre que efetuar modificações nos seus dados. 
 
-Para poder tirar partido de alterações automático de controlo para este cenário específico, vamos apenas atualizar coluna **PagesVisited** sempre que quando o usuário termina her/his sessão no Web site:
+Para poder tirar partido de alterações automático de controlo para este cenário específico, vamos apenas atualizar coluna **PagesVisited** sempre que um utilizador termina a sessão no Web site:
 
 ```
 UPDATE WebsiteUserInfo  SET [PagesVisited] = 5 

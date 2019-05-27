@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d158e1869cb85752b9b24e76d5227a2f7167bfcf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2871a4a0efaa40d20148ede7f0402a0dd874126c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794147"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957306"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gerir a sua conta do Azure Maps
 
@@ -21,7 +21,7 @@ Pode gerir a sua conta do Azure Maps através do portal do Azure. Depois de ter 
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-new-account"></a>Criar uma conta nova
+## <a name="create-a-new-account"></a>Criar uma nova conta
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -43,10 +43,14 @@ Verá uma página de confirmação. Pode confirmar a eliminação da sua conta, 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba como gerir uma conta do Azure Maps escalão de preço:
-    > [!div class="nextstepaction"] 
-    > [Gerir um escalão de preço](./how-to-manage-pricing-tier.md)
+Configurar a autenticação com o Azure Maps:
+> [!div class="nextstepaction"]
+> [Gerir a autenticação](how-to-manage-authentication.md)
 
-* Saiba como ver as métricas de utilização da API para a sua conta do Azure Maps:
-    > [!div class="nextstepaction"] 
-    > [Ver métricas de utilização](./how-to-view-api-usage.md)
+Saiba como gerir uma conta do Azure Maps escalão de preço:
+> [!div class="nextstepaction"] 
+> [Gerir um escalão de preço](how-to-manage-pricing-tier.md)
+
+Saiba como ver as métricas de utilização da API para a sua conta do Azure Maps:
+> [!div class="nextstepaction"] 
+> [Ver métricas de utilização](how-to-view-api-usage.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6b0285903537dafb004b5aca033b50560247c605
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: dd45be69ec29fdcd00710b7366348846f325b151
+ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204464"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65921977"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Ligar a sua aplicação da Barracuda 
 
@@ -27,14 +27,14 @@ ms.locfileid: "65204464"
 > Sentinel do Azure está atualmente em pré-visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Conector do barracuda Web Application Firewall (WAF) permite-lhe ligar facilmente os seus registos de Barracuda com o Azure sentinela, para ver os dashboards e criar alertas personalizados e a melhorar a investigação. Isso dá-lhe mais informações sobre a rede da sua organização e melhora as capacidades de operação de segurança. Sentinel do Azure tira partido da integração nativa entre **Barracuda** e o Microsoft Azure OMS para fornecer uma integração perfeita. 
+Conector do barracuda Web Application Firewall (WAF) permite-lhe ligar facilmente os seus registos de Barracuda com o Azure sentinela, para ver os dashboards e criar alertas personalizados e a melhorar a investigação. Isso dá-lhe mais informações sobre a rede da sua organização e melhora as capacidades de operação de segurança. Sentinel do Azure tira partido da integração nativa entre **Barracuda** e Microsoft Monitoring Agent para fornecer uma integração perfeita. 
 
 
 > [!NOTE]
 > Os dados serão armazenados na localização geográfica da área de trabalho no qual está a executar sentinela do Azure.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configurar e ligar o Barracuda WAF
-Barracuda Web Application Firewall pode integrar e exportar registos diretamente para o Azure sentinela através do servidor de OMS do Azure.
+Barracuda Web Application Firewall pode integrar e exportar registos diretamente para o Azure sentinela através do Microsoft Monitoring Agent.
 1. Aceda a [fluxo de configuração do Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)e siga as instruções para configurar a ligação, usando esses parâmetros:
     - **ID da área de trabalho**: Copie o valor do seu ID de área de trabalho a partir da página de conector Barracuda sentinela do Azure.
     - **Chave primária**: Copie o valor da sua chave primária a partir da página de conector Barracuda sentinela do Azure.

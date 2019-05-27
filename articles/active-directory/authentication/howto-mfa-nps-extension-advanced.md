@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bfae3b3be7812ff50ed90a61d495877141bbc7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b8ac0497b13dad6795e8dc7ffaf761fe887a9953
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60414907"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988632"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Opções de configuração avançada para a extensão NPS para multi-factor Authentication
 
@@ -40,15 +40,15 @@ Para solucionar problemas de início de sessão alternativo IDs, utilize os pass
 
 ## <a name="ip-exceptions"></a>Exceções de IP
 
-Se precisar de monitorizar a disponibilidade de servidor, como se a balanceadores de carga verificar quais servidores estão a executar antes de enviar as cargas de trabalho, não quer estas verificações até ser bloqueado por pedidos de verificação. Em vez disso, crie uma lista de endereços IP que sabe que são utilizados pelas contas de serviço e desativar os requisitos de multi-factor Authentication para essa lista. 
+Se precisar de monitorizar a disponibilidade de servidor, como se a balanceadores de carga verificar quais servidores estão a executar antes de enviar as cargas de trabalho, não quer estas verificações até ser bloqueado por pedidos de verificação. Em vez disso, crie uma lista de endereços IP que sabe que são utilizados pelas contas de serviço e desativar os requisitos de multi-factor Authentication para essa lista.
 
-Para configurar umalista aprovada de IP, aceda a `HKLM\SOFTWARE\Microsoft\AzureMfa` e configure o seguinte valor de registo: 
+Para configurar um IP na lista de permitidos, aceda a `HKLM\SOFTWARE\Microsoft\AzureMfa` e configure o seguinte valor de registo:
 
 | Name | Type | Valor predefinido | Descrição |
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | string | Vazio | Forneça uma lista de ponto e vírgula separada de endereços IP. Inclua os endereços IP das máquinas onde os pedidos de serviço têm origem, como o servidor NAS/VPN. Não são suportadas intervalos de IP e sub-redes. <br><br> Por exemplo, *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-Quando chegar uma solicitação de um endereço IP que existe na lista de permissões, verificação de dois passos é ignorada. A lista aprovada de IP é comparado com o endereço IP que é fornecido na *ratNASIPAddress* atributo do pedido RADIUS. Se um pedido RADIUS chega sem o atributo ratNASIPAddress, o seguinte aviso é registado: "Está a ser ignorada P_WHITE_LIST_WARNING::IP lista de permissões como IP de origem está em falta no pedido RADIUS no atributo NasIpAddress."
+Quando chegar uma solicitação de um endereço IP que existe no `IP_WHITELIST`, verificação de dois passos é ignorada. A lista IP é comparado com o endereço IP que é fornecido na *ratNASIPAddress* atributo do pedido RADIUS. Se um pedido RADIUS chega sem o atributo ratNASIPAddress, o seguinte aviso é registado: "Está a ser ignorada P_WHITE_LIST_WARNING::IP lista de permissões como IP de origem está em falta no pedido RADIUS no atributo NasIpAddress."
 
 ## <a name="next-steps"></a>Passos Seguintes
 

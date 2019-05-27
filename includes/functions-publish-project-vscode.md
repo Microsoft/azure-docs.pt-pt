@@ -10,11 +10,11 @@ ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: ec0425ff2188ecf1816d5f5841394c8e32f301d2
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744482"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66132236"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -27,7 +27,7 @@ Este artigo pressupõe que está a criar uma nova aplicação de funções.
 
 1. Na **Azure: As funções** área, selecione a implementar no ícone de aplicação de funções.
 
-    ![Definições da Aplicação de funções](./media/functions-publish-project-vscode/function-app-publish-project.png)
+    ![Definições da aplicação de funções](./media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Se não sessão iniciada, deverá **iniciar sessão no Azure**. Também pode **criar uma conta gratuita do Azure**. Depois de concluída com êxito de início de sessão do navegador, volte ao Visual Studio Code. 
 

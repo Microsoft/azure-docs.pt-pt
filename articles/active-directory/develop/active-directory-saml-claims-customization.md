@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 622525705979cd6a7a088c606ac167d28f8f6482
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65764652"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950996"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Personalizar afirmações emitidas no token SAML para aplicações empresariais
 
@@ -47,7 +47,7 @@ Existem duas razões possíveis porque poderá ter de editar as declarações em
 Para editar o NameID (valor de identificador de nome):
 
 1. Abra o **nomear o valor do identificador** página.
-1. Selecione o atributo ou transformação que pretende aplicar o atributo. Opcionalmente, pode especificar o formato ele mesmo da afirmação NameID ter.
+1. Selecione o atributo ou transformação que pretende aplicar o atributo. Opcionalmente, pode especificar o formato que pretende que a afirmação NameID ter.
 
    ![Edite o valor de NameID (identificador de nome)](./media/active-directory-saml-claims-customization/saml-sso-manage-user-claims.png)
 
@@ -75,7 +75,7 @@ Selecione a origem pretendida para o `NameIdentifier` (ou NameID) de afirmação
 
 | Name | Descrição |
 |------|-------------|
-| Correio Electrónico | Endereço de e-mail do utilizador |
+| Email | Endereço de e-mail do utilizador |
 | userprincipalName | Nome principal de utilizador (UPN) do utilizador |
 | onpremisessamaccount | Nome da conta SAM que tenha sido sincronizado a partir do Azure AD no local |
 | ObjectId | ObjectId do utilizador no Azure AD |

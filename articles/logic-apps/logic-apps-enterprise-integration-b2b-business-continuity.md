@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: 8d024e0bc90724892bc53f8895b270716ad0cefc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001243"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65967757"
 ---
 # <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Recuperação de desastres em várias regiões para contas de integração B2B no Azure Logic Apps
 
@@ -62,7 +62,7 @@ Continuidade do negócio numa conta de integração do Logic Apps fornece suport
 
 Durante um evento de desastre, quando a região primária não está disponível para continuidade do negócio, direcionar o tráfego para a região secundária. Uma ajuda de região secundária a uma empresa para recuperar as funções rapidamente para satisfazer o RPO/RTO acordados pelos respetivos parceiros. Também minimiza os esforços para efetuar a ativação pós-falha de uma região para outra região. 
 
-Existe uma latência esperada ao copiar os números de controlo da região primária para uma região secundária. Para evitar o envio de números de controlo gerado duplicado para parceiros durante um evento de desastre, a recomendação é de incrementar os números de controle os contratos de região secundária, utilizando [cmdlets do PowerShell](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).
+Existe uma latência esperada ao copiar os números de controlo da região primária para uma região secundária. Para evitar o envio de números de controlo gerado duplicado para parceiros durante um evento de desastre, a recomendação é de incrementar os números de controle os contratos de região secundária, utilizando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
 ## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Reverter para um evento de pós-desastre da região primária
 
@@ -70,7 +70,7 @@ Para reverter para a região primária quando estiver disponível, siga estes pa
 
 1. Pare a aceitação das mensagens de parceiros na região secundária.  
 
-2. Incrementar os números de controlo gerado para todos os contratos a região primária, utilizando [cmdlets do PowerShell](https://blogs.msdn.microsoft.com/david_burgs_blog/2017/03/09/fresh-of-the-press-new-azure-powershell-cmdlets-for-upcoming-x12-connector-disaster-recovery).  
+2. Incrementar os números de controlo gerado para todos os contratos a região primária, utilizando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
 3. Direcionar o tráfego da região secundária para a região primária.
 

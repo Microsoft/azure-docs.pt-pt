@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: raynew
-ms.openlocfilehash: c91629d24267d280edefdb7530e2614eb7be89fd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4500f4c53ed2731e9f96add97018b16d83f9d304
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704876"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955111"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware para a arquitetura da recuperação após desastre do Azure
 
@@ -45,7 +45,7 @@ A tabela seguinte e o gráfico fornecem uma visão geral dos componentes utiliza
         - **Retenção do ponto de recuperação**. Esta definição especifica a distância back no tempo no que qual pretende ir quando ocorre uma interrupção. Máximo de retenção no armazenamento premium é de 24 horas. No armazenamento standard é 72 horas. 
         - **Instantâneos consistentes com a aplicação**. Instantâneos consistentes com a aplicação pode demorar cada 1 a 12 horas, consoante as suas necessidades de aplicação. Os instantâneos são instantâneos de Blobs do Azure standard. O agente de mobilidade em execução numa VM solicita um instantâneo VSS em conformidade com esta definição e os indicadores de ponto de ponto no tempo como uma aplicação consistente no fluxo de replicação.
 
-2. Tráfego replica para o armazenamento do Azure pontos finais públicos na Internet. Em alternativa, pode utilizar o ExpressRoute do Azure com [peering público](../expressroute/expressroute-circuit-peerings.md#publicpeering). Replicar o tráfego através de uma rede privada virtual (VPN) do site a site a partir de um site no local para o Azure não é suportada.
+2. Tráfego replica para o armazenamento do Azure pontos finais públicos na Internet. Em alternativa, pode utilizar o ExpressRoute do Azure com [peering da Microsoft](../expressroute/expressroute-circuit-peerings.md#microsoftpeering). Replicar o tráfego através de uma rede privada virtual (VPN) do site a site a partir de um site no local para o Azure não é suportada.
 3. Depois de concluída a replicação inicial, começa a replicação das alterações delta para o Azure. Alterações registadas relativas a uma máquina são enviadas para o servidor de processos.
 4. Comunicação acontece da seguinte forma:
 

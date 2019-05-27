@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 71ba1266c3a6a1f063f1af4ab37a5f29752c62f0
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 2a6d670ba9f2f496cc94d2790eb6f66d46305746
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62107102"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872791"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do Azure funções c# para programadores
 
@@ -29,16 +29,16 @@ As funções do Azure suporta c# e c# script linguagens de programação. Se est
 Este artigo pressupõe que já leu os artigos seguintes:
 
 * [Guia para programadores do funções do Azure](functions-reference.md)
-* [Ferramentas do Visual Studio 2017 das funções do Azure](functions-develop-vs.md)
+* [Ferramentas do Visual Studio 2019 das funções do Azure](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
 No Visual Studio, o **as funções do Azure** modelo de projeto cria um c# classe projeto de biblioteca que contém os seguintes ficheiros:
 
 * [Host. JSON](functions-host-json.md) -armazena as definições de configuração que afetam todas as funções no projeto ao executar localmente ou no Azure.
-* [Settings](functions-run-local.md#local-settings-file) -armazena as definições da aplicação e as cadeias de ligação que são utilizadas ao executar localmente. Este ficheiro contém segredos e não é publicado na sua aplicação de função no Azure. Em vez disso, tem [adicionar as definições da aplicação à sua aplicação de função](functions-develop-vs.md#function-app-settings).
+* [Settings](functions-run-local.md#local-settings-file) -armazena as definições da aplicação e as cadeias de ligação que são utilizadas ao executar localmente. Este ficheiro contém segredos e não é publicado na sua aplicação de função no Azure. Em vez disso, [adicionar as definições da aplicação à sua aplicação de função](functions-develop-vs.md#function-app-settings).
 
-Quando compila o projeto, uma estrutura de pastas que se assemelha ao seguinte é gerado na compilação diretório de saída:
+Quando criar o projeto, uma estrutura de pastas que parece que o exemplo seguinte é gerado no diretório de saída de compilação:
 
 ```
 <framework.version>
@@ -50,7 +50,7 @@ Quando compila o projeto, uma estrutura de pastas que se assemelha ao seguinte �
  | - host.json
 ```
 
-Este diretório é o que é implementado para a aplicação de funções no Azure. As extensões de vinculação necessárias [versão 2.x](functions-versions.md) as funções de tempo de execução são [adicionada ao projeto como pacotes de NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2017).
+Este diretório é o que é implementado para a aplicação de funções no Azure. As extensões de vinculação necessárias [versão 2.x](functions-versions.md) as funções de tempo de execução são [adicionada ao projeto como pacotes de NuGet](./functions-bindings-register.md#c-class-library-with-visual-studio-2019).
 
 > [!IMPORTANT]
 > O processo de compilação cria um *Function* ficheiro para cada função. Isso *Function* ficheiro não deve ser editada diretamente. Não é possível alterar a configuração de ligação ou desativar a função ao editar este ficheiro. Para saber como desativar uma função, veja [como desativar funções](disable-function.md#functions-2x---c-class-libraries).
@@ -72,7 +72,7 @@ public static class SimpleExample
 } 
 ```
 
-O `FunctionName` atributo marca o método como um ponto de entrada da função. O nome tem de ser exclusivo dentro de um projeto, começar com uma letra e conter apenas letras, números `_` e `-`, até 127 carateres de comprimento. Modelos de projeto, muitas vezes, criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método do c# válido.
+O `FunctionName` atributo marca o método como um ponto de entrada da função. O nome tem de ser exclusivo dentro de um projeto, começar com uma letra e conter apenas letras, números `_`, e `-`, até 127 carateres de comprimento. Modelos de projeto, muitas vezes, criam um método chamado `Run`, mas o nome do método pode ser qualquer nome de método do c# válido.
 
 O atributo de Acionador Especifica o tipo de Acionador e vincula os dados de entrada para um parâmetro de método. A função de exemplo é acionada por uma mensagem de fila e a mensagem de fila é passada para o método no `myQueueItem` parâmetro.
 
@@ -181,7 +181,7 @@ O mesmo pacote é utilizado para as versões 1.x e 2.x do runtime das funções.
 </ItemGroup>
 ```
 
-Entre o `Sdk` as dependências de pacote são acionadores e enlaces. Um projeto de 1.x refere-se para 1.x acionadores e enlaces porque aquelas têm como destino o .NET Framework, embora 2.x acionadores e enlaces .NET Core de destino.
+Entre o `Sdk` as dependências de pacote são acionadores e enlaces. Um projeto de 1.x refere-se para 1.x acionadores e enlaces porque os acionadores e enlaces visam o .NET Framework, embora 2.x acionadores e enlaces .NET Core de destino.
 
 O `Sdk` pacote também depende [newtonsoft](https://www.nuget.org/packages/Newtonsoft.Json)e, no indiretamente [windowsazure. Storage](https://www.nuget.org/packages/WindowsAzure.Storage). Estas dependências, certifique-se de que o seu projeto usa as versões desses pacotes que funcionam com a versão de runtime das funções que os destinos de projeto. Por exemplo, `Newtonsoft.Json` tem a versão 11 para o .NET Framework 4.6.1, mas só é compatível com o runtime das funções que tenha como destino o .NET Framework 4.6.1 `Newtonsoft.Json` 9.0.1. Para que o código de função desse projeto também tem de utilizar `Newtonsoft.Json` 9.0.1.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 266630cb7c9601af69073a6c9beb7d7ada9b8034
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60734525"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957479"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Descrição geral do Balanceador de carga Standard do Azure
 
@@ -204,7 +204,7 @@ SKUs não são mutáveis. Siga os passos nesta secção para mover de um recurso
 >
 >Correspondência das SKUs tem de ser utilizada para os recursos do Balanceador de carga e o IP público. Não pode ter uma mistura de recursos de SKU básico e recursos de SKU padrão. Não é possível anexar máquinas virtuais autónomas, máquinas virtuais num recurso de conjunto de disponibilidade ou uma máquina virtual dos recursos do conjunto de dimensionamento para ambos os SKUs em simultâneo.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
 Balanceador de carga Standard está atualmente disponível em todas as regiões de cloud pública.
 
@@ -226,7 +226,6 @@ Para obter as informações de preços do Balanceador de Carga Standard, aceda �
 - SKUs não são mutáveis. Não pode alterar o SKU de um recurso existente.
 - Conjunto de disponibilidade de um recurso de máquina virtual autónoma, recursos ou recurso de conjunto de dimensionamento de máquina virtual pode fazer referência a um SKU, não ambos.
 - Uma regra de Balanceador de carga não pode abranger duas redes virtuais.  Front-ends e suas instâncias de back-end relacionada tem de estar localizadas na mesma rede virtual.  
-- Front-ends de Balanceador de carga não estão acessíveis através de peering de redes virtuais global.
 - [Mover as operações de subscrição](../azure-resource-manager/resource-group-move-resources.md) não são suportadas para recursos de LB de SKU padrão e o PIP.
 - Funções de trabalho de Web sem uma VNet e a outros serviços de plataforma da Microsoft pode ser acessíveis quando apenas um Standard Balanceador de carga interno é utilizado devido a um efeito colateral de como os serviços de pré-VNet e outra plataforma dos serviços de função. Tem não contar com isso como respetivos do serviço em si ou subjacentes plataforma pode alteradas sem aviso prévio. Deve sempre partem do princípio de que precisa para criar [conectividade de saída](load-balancer-outbound-connections.md) explicitamente se assim o desejar quando utilizar um Standard Balanceador de carga interno apenas.
 - O Balanceador de Carga é um produto TCP ou UDP para balanceamento de carga e encaminhamento de portas para estes dois protocolos IP específicos.  As regras de balanceamento de carga e as regras NAT de entrada são suportadas para TCP e UDP, mas não para os outros protocolos IP, incluindo o ICMP. O Balanceador de Carga não termina, não responde nem interage com o payload dos fluxos UDP ou TCP. Não é um proxy. Validação com êxito de conectividade para um front-end tem de efetuar lugar em banda com o mesmo protocolo usado numa entrada ou balanceamento regra NAT de carga (TCP ou UDP) _e_ , pelo menos, uma das suas máquinas virtuais tem de gerar uma resposta para um cliente Para ver uma resposta de um front-end.  Não receber uma resposta em banda do front-end de Balanceador de carga indica que nenhuma máquina virtual foram capaz de responder.  Não é possível interagir com um balanceador de carga front-end sem uma máquina virtual capaz de responder.  Isto também se aplica às ligações de saída, em que o [SNAT de máscara de rede](load-balancer-outbound-connections.md#snat) só é suportado para TCP e UDP; qualquer outro protocolo IP, incluindo ICMP, falhará.  Para mitigar o problema, atribua um endereço IP público ao nível da instância.

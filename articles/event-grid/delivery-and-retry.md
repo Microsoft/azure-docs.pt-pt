@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/01/2019
+ms.date: 05/15/2019
 ms.author: spelluru
-ms.openlocfilehash: 6dfa84eff8dcc104ae6f9c16262f3b1c697df6c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4bfdd3e9cdf99314dc55907ba163adc6cd39423
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562003"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952894"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega de mensagens do Event Grid e tente novamente
 
@@ -24,16 +24,18 @@ Atualmente, Event Grid envia individualmente cada evento para os subscritores. O
 
 ## <a name="retry-schedule-and-duration"></a>Agenda de repetição e a duração
 
-Grelha de eventos utiliza uma política de repetição de término exponencial para a entrega de eventos. Se um ponto final não responder ou retorna um código de falha, o Event Grid repete a entrega na agenda seguinte na base de melhor esforço:
+Grelha de eventos aguarda 30 segundos para uma resposta depois de proporcionar uma mensagem. Após 30 segundos, se o ponto final não respondeu, a mensagem é colocado em fila para repetição. Grelha de eventos utiliza uma política de repetição de término exponencial para a entrega de eventos. Grelha de eventos repete a entrega na agenda seguinte na base de melhor esforço:
 
-1. 10 segundos
-1. 30 segundos
-1. 1 minuto
-1. 5 minutos
-1. 10 minutos
-1. 30 minutos
-1. 1 hora
-1. Hora a hora para até 24 horas
+- 10 segundos
+- 30 segundos
+- 1 minuto
+- 5 minutos
+- 10 minutos
+- 30 minutos
+- Uma hora
+- Hora a hora para até 24 horas
+
+Se o ponto final de responder dentro de 3 minutos, Event Grid tentará remover o evento da fila de repetição na base de melhor esforço, mas ainda poderão ser recebidos duplicados.
 
 Grelha de eventos adiciona uma pequeno aleatoriedade para todos os passos de repetição e oportunisticamente pode ignorar determinadas repetições se um ponto final for consistentemente mau estado de funcionamento, inativo por um longo período, ou parece estar sobrecarregado.
 

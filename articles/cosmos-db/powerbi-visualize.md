@@ -4,14 +4,14 @@ description: Utilize este tutorial de Power BI para importar o JSON, criar relat
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76531de279dfe6e9b73b3895f0ef63c4c88b63cd
+ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60929828"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65978997"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB ao utilizar o conector do Power BI
 
@@ -48,7 +48,7 @@ Antes de seguir as instruções neste tutorial do Power BI, certifique-se de que
 
 Para partilhar os seus relatórios no PowerBI.com, tem de ter uma conta no PowerBI.com.  Para saber mais sobre o Power BI e Power BI Pro, veja [ https://powerbi.microsoft.com/pricing ](https://powerbi.microsoft.com/pricing).
 
-## <a name="lets-get-started"></a>Vamos começar
+## <a name="lets-get-started"></a>Vamos lá começar
 Neste tutorial, Vamos imaginar que é um geólogo estudar exterminaram em todo o mundo. Os dados de volcano são armazenados numa conta do Azure Cosmos DB e o formato de documento JSON é o seguinte:
 
     {

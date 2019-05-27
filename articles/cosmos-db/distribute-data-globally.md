@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/18/2019
-ms.openlocfilehash: b90e495e0901c0caa14d9451f365e17f6c075e2b
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.date: 05/20/2019
+ms.openlocfilehash: e58a8cd286e4d416dd5f4e6d3fddedf1897fed1c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65070790"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954163"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Distribuição de dados global com o Azure Cosmos DB - descrição geral
 
@@ -21,7 +21,7 @@ O Azure Cosmos DB é um serviço de base de dados globalmente distribuída que f
 
 Pode configurar seus bancos de dados para ser globalmente distribuídas e disponível em qualquer uma das regiões do Azure. Para reduzir a latência, coloque os dados perto de onde estão os utilizadores. Escolher as regiões necessárias depende o alcance global da sua aplicação e onde estão localizados os seus utilizadores. O cosmos DB replica de forma transparente os dados para todas as regiões à sua conta do Cosmos. Ele fornece uma única imagem do sistema de distribuídas globalmente base de dados do Cosmos do Azure e contentores que seu aplicativo pode ler e escrever localmente. 
 
-Com o Azure Cosmos DB, pode adicionar ou remover regiões associadas à sua conta em qualquer altura. Seu aplicativo não precisa ser colocada em pausa ou implantados novamente para adicionar ou remover uma região. Continua a ser de elevada disponibilidade sempre devido as capacidades multi-homing, que o serviço de forma nativa fornece.
+Com o Azure Cosmos DB, pode adicionar ou remover regiões associadas à sua conta em qualquer altura. A sua aplicação não precisa de ser colocada em pausa ou reimplementada para adicionar ou remover uma região. Continua a ser de elevada disponibilidade sempre devido as capacidades multi-homing, que o serviço de forma nativa fornece.
 
 ![Topologia de implementação de elevada disponibilidade](./media/distribute-data-globally/deployment-topology.png)
 

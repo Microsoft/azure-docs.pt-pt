@@ -2,20 +2,19 @@
 title: Este guia de início rápido mostra como utilizar uma chave simétrica para aprovisionar um dispositivo simulado para o Hub IoT do Azure com C | Microsoft Docs
 description: Neste guia de início rápido irá utilizar o SDK de dispositivo C para criar um dispositivo simulado que utiliza uma chave simétrica com o Serviço de Aprovisionamento de Dispositivos no Hub IoT do Azure
 author: wesmc7777
-ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+ms.author: wesmc
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 93fc426d9de027100e70502bcf6ea3aad2c44e10
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31e71e942d7bd3f7a9739eeb83bd3ed250bb2c61
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60363802"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65909015"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Início rápido: Aprovisionar um dispositivo simulado com chaves simétricas
 
@@ -35,7 +34,7 @@ Este artigo é orientado para uma estação de trabalho baseada no Windows. No e
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Visual Studio 2015 ou [Visual Studio 2017](https://www.visualstudio.com/vs/) com a carga de trabalho ["Desenvolvimento do ambiente de trabalho em C++"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) ativada.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 ou posterior com o ["desenvolvimento de área de trabalho com o C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) carga de trabalho ativada.
 * Versão mais recente do [Git](https://git-scm.com/download/) instalada.
 
 

@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d533e6aac9ae1a486d018414a86a9dc3fe742c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37c63e32f1ee9c404e8b84a6eb17bc6eec30a761
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294294"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956927"
 ---
 # <a name="what-is-azure-active-directory-identity-protection-refreshed"></a>O que é o Azure Active Directory Identity Protection (atualizadas)?
 
@@ -147,44 +147,44 @@ O fluxo de linha de base para a deteção de risco do Identity Protection e a re
 
 ## <a name="common-scenarios"></a>Cenários comuns 
 
-Vamos examinar o exemplo de Sarah, um funcionário da Contoso. 
+Vamos examinar o exemplo de um funcionário da Contoso. 
 
-1. Sarah tenta iniciar sessão no Exchange Online do navegador Tor. No momento de início de sessão, o Azure AD Deteta eventos de risco em tempo real. 
+1. Um funcionário tenta iniciar sessão no Exchange Online do navegador Tor. No momento de início de sessão, o Azure AD Deteta eventos de risco em tempo real. 
 
-2. Azure AD Deteta que Sara está a iniciar sessão de um endereço IP anónimo, acionar um nível de médio risco de início de sessão. 
+2. Azure AD Deteta que o empregado está a iniciar sessão de um endereço IP anónimo, acionar um nível de médio risco de início de sessão. 
 
-3. Sarah é desafiada pela linha de comandos do MFA, porque o administrador de TI da Contoso configurado a política de acesso condicional de risco de início de sessão do Identity Protection. A política requer MFA para um risco de início de sessão de média ou superior. 
+3. O funcionário é desafiado pela linha de comandos do MFA, porque o administrador de TI da Contoso configurado a política de acesso condicional de risco de início de sessão do Identity Protection. A política requer MFA para um risco de início de sessão de média ou superior. 
 
-4. Sarah passa o MFA linha de comandos e acede ao Exchange Online, e o nível de risco de utilizador de Sarah não é alterado. 
+4. O funcionário passa a linha de comandos da MFA e acede ao Exchange Online, e seu nível de risco de utilizador não é alterado. 
 
-O que aconteceu em segundo plano? A tentativa de início de sessão do navegador Tor acionada por um risco de início de sessão em tempo real no Azure AD para o endereço IP anónimo. Como o Azure AD processou o pedido, esta aplicada a política de início de sessão de risco configurada no Identity Protection, porque o nível de risco de início de sessão de Sarah cumprido o limiar (médio). Uma vez que Sarah tinha anteriormente registado para MFA, ela foi capaz de responder a e passar o desafio MFA. Sua capacidade de passar com êxito o desafio MFA sinalizado com o Azure AD que ela é provável que tenha o proprietário legítimo de identidade, e não aumente o seu nível de risco do utilizador. 
+O que aconteceu em segundo plano? A tentativa de início de sessão do navegador Tor acionada por um risco de início de sessão em tempo real no Azure AD para o endereço IP anónimo. Como o Azure AD processou o pedido, esta aplicada a política de início de sessão de risco configurada no Identity Protection, porque o nível de risco de início de sessão do funcionário cumprido o limiar (médio). Uma vez que o funcionário tinha anteriormente registado para MFA, eles eram capazes de responder a e passar o desafio MFA. A capacidade de passar com êxito o desafio MFA sinalizado com o Azure AD que era bem provável que o proprietário legítimo de identidade, e não aumente o seu nível de risco do utilizador. 
 
 
-Mas e se Sarah não era um a tentar iniciar sessão? 
+Mas e se o funcionário não era um a tentar iniciar sessão? 
 
-1. Um ator malicioso com credenciais de Sarah tenta iniciar sessão na conta do Exchange Online de Sarah do navegador Tor, uma vez que está a tentar ocultar o respetivo endereço de IP. 
+1. Um ator malicioso com credenciais do funcionário tenta iniciar sessão, à conta do Exchange Online do navegador Tor, uma vez que estão a tentar ocultar o respetivo endereço de IP. 
 
 2. Azure AD Deteta que a tentativa de início de sessão é de um endereço IP anónimo, acionar um risco de início de sessão em tempo real. 
 
 3. O ator malicioso é desafiado pela linha de comandos do MFA, porque o administrador de TI da Contoso configurado a Identity Protection início de sessão risco política de acesso condicional para exigir a MFA quando o risco de início de sessão é médio ou superior. 
 
-4. O ator malicioso falha na submissão da MFA e não consegue aceder à conta do Exchange Online de Sarah. 
+4. O ator malicioso falha na submissão da MFA e não consegue aceder à conta do Exchange Online do funcionário. 
 
-5. A MFA com falha prompt acionado um evento de risco de serem registadas, gerando o risco de utilizador de Sarah para inícios de sessão futuros. 
+5. A MFA com falha prompt acionado um evento de risco de serem registadas, gerando o risco de utilizador para inícios de sessão futuros. 
 
-Agora que um ator malicioso tentou aceder à conta de Sarah, vejamos o que acontece na próxima vez que Sarah tenta iniciar sessão. 
+Agora que um ator malicioso tentou aceder à conta de Sarah, vejamos o que acontece na próxima vez que o funcionário tenta iniciar sessão. 
 
-1. Sarah tenta iniciar sessão no Exchange Online do Outlook. No momento de início de sessão, o Azure AD Deteta eventos de risco em tempo real, bem como qualquer risco de utilizador anterior. 
+1. O funcionário tenta iniciar sessão no Exchange Online do Outlook. No momento de início de sessão, o Azure AD Deteta eventos de risco em tempo real, bem como qualquer risco de utilizador anterior. 
 
 2. O Azure AD não Deteta qualquer risco de início de sessão em tempo real, mas detecta o risco de utilizador elevada devido à atividade de risco nos últimos nos cenários anteriores.  
 
-3. Sarah é contestada por uma linha de comandos para a reposição de palavra-passe, porque Contoso do administrador de TI configurado a política de risco de utilizador do Identity Protection para exigir a alteração de palavra-passe quando um utilizador com alto risco inicia sessão. 
+3. O funcionário é contestado por uma linha de comandos para a reposição de palavra-passe, porque Contoso do administrador de TI configurado a política de risco de utilizador do Identity Protection para exigir a alteração de palavra-passe quando um utilizador com alto risco inicia sessão. 
 
-4. Uma vez que a Sara está registada para SSPR e o MFA, ela com êxito repõe sua senha. 
+4. Uma vez que o empregado está registrado para SSPR e o MFA, com êxito repõe a palavra-passe. 
 
-5. Ao repor a sua senha, credenciais de Sarah já não sejam comprometidas e sua identidade devolve um estado seguro. 
+5. Ao repor a palavra-passe, credenciais do funcionário já não sejam comprometidas e sua identidade devolve um estado seguro. 
 
-6. Eventos de risco de Sarah anteriores são resolvidos e seu nível de risco do utilizador é automaticamente reiniciado como uma resposta para mitigar o comprometimento de credenciais. 
+6. Eventos de risco do funcionário anterior são resolvidos e seu nível de risco do utilizador é automaticamente reiniciado como uma resposta para mitigar o comprometimento de credenciais. 
 
 ## <a name="how-do-i-configure-identity-protection"></a>Como posso configurar a proteção de identidade? 
 
@@ -196,7 +196,7 @@ Identity Protection suporta 3 funções no Azure AD para balancear as atividades
 
 | Função | Pode fazer | Não é possível fazer |
 | --- | --- | --- |
-| Administrador global | Acesso total ao Identity Protection, carregar Identity Protection | |
+| Administrador Global | Acesso total ao Identity Protection, carregar Identity Protection | |
 | Administrador de segurança | Acesso total ao Identity Protection | Carregar Identity Protection, repor palavras-passe para um utilizador |
 | Leitor de segurança | Acesso só de leitura ao Identity Protection | Carregar Identity Protection, remediar utilizadores, configurar políticas, repor palavras-passe| 
 

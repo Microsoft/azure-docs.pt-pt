@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e13907e96bba338648bddcc102e3b4f51887d0ea
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791503"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65949916"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na cloud – gerenciamento de seus bancos de dados individuais e agrupados na base de dados do Azure SQL
 
@@ -160,7 +160,7 @@ Para proteger os dados confidenciais em trânsito e em inatividade, a base de da
 
 ### <a name="how-can-i-limit-access-to-sensitive-data-in-my-database"></a>Como posso limitar o acesso a dados confidenciais em meu banco de dados
 
-Cada aplicativo tem um determinado bits de dados confidenciais na base de dados que tem de ser protegidos contra a ser visível para todos os utilizadores. Determinados funcionários dentro da organização precisam para ver estes dados, no entanto outros não devem ser capazes de ver estes dados. Um exemplo é salários do funcionário. Gerente precisaria acesso às informações de salário de seu relatórios diretos no entanto, os membros da Equipe individuais não devem ter acesso às informações de salário de seus colegas. Outro cenário é que os desenvolvedores de dados que podem interagir com dados confidenciais durante as fases de desenvolvimento ou teste, por exemplo, números da segurança social dos clientes. Estas informações novamente não precisem de ser expostos ao desenvolvedor. Nesses casos, seus dados confidenciais ou tem de ser mascarado ou não ser exposto em todos os. Base de dados SQL oferece duas dessas abordagens para impedir que os utilizadores não autorizados a possibilidade de visualizar os dados confidenciais:
+Cada aplicativo tem um determinado bits de dados confidenciais na base de dados que tem de ser protegidos contra a ser visível para todos os utilizadores. Determinados funcionários dentro da organização precisam para ver estes dados, no entanto outros não devem ser capazes de ver estes dados. Um exemplo é salários do funcionário. Gerente precisaria acesso às informações de salário para seus relatórios diretos no entanto, os membros da Equipe individuais não devem ter acesso às informações de salário de seus colegas. Outro cenário é que os desenvolvedores de dados que podem interagir com dados confidenciais durante as fases de desenvolvimento ou teste, por exemplo, números da segurança social dos clientes. Estas informações novamente não precisem de ser expostos ao desenvolvedor. Nesses casos, seus dados confidenciais ou tem de ser mascarado ou não ser exposto em todos os. Base de dados SQL oferece duas dessas abordagens para impedir que os utilizadores não autorizados a possibilidade de visualizar os dados confidenciais:
 
 [Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md) é uma funcionalidade de máscara de dados que permite-lhe limitar a exposição de dados confidenciais ao mascará-los para utilizadores não privilegiados na camada da aplicação. Definir uma regra de máscara que pode criar um padrão de máscara (por exemplo, para mostrar apenas últimos quatro dígitos de um nacional SSN de ID: XXX-XX-0000 e marcar o máximo proveito dele como Xs) e identificar os utilizadores a serem excluídos da regra de máscara. A máscara ocorre no momento e existem várias funções de máscara disponíveis para várias categorias de dados. Máscara de dados dinâmica permite-lhe detetar dados confidenciais na base de dados e aplicar máscara à mesma automaticamente.
 

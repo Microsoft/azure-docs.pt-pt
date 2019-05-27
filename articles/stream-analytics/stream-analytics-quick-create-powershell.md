@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58442972"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66117008"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Início rápido: Criar uma tarefa do Stream Analytics com o Azure PowerShell
 
@@ -32,7 +32,7 @@ A tarefa de exemplo lê os dados de transmissão em fluxo de um dispositivo do I
 * Algumas ações não são suportadas pelo Azure PowerShell e tem de ser concluído de utilizar a CLI do Azure versão 2.0.24 ou posterior o IoT Hub e a extensão de IoT para a CLI do Azure. [Instalar a CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) e utilize `az extension add --name azure-cli-iot-ext` para instalar a extensão de IoT.
 
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão na sua subscrição do Azure com o `Connect-AzAccount` de comandos e introduza as credenciais do Azure no browser pop-up:
 

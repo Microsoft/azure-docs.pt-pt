@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 09898ac7dd4a6f3ee9cf0ea26ded607a8673b9f6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06b3a5110bfdea2a2067979c806701011dc16f3d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61438249"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65987655"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Resolução de problemas de ficheiros do Azure no Linux
 
@@ -144,13 +144,15 @@ Para verificar se a colocação em cache está desativada, procure o **cache =**
 
 **Cache = none** indica que a colocação em cache está desativada. Voltar a montar a partilha com o comando de montagem de predefinição ou adicionando explicitamente a **cache = strict** opção para o comando de montagem para garantir que esse padrão de colocação em cache ou o modo de colocação em cache "estrito" estiver ativada.
 
-Em alguns cenários, o **serverino** pode fazer com que a opção de montagem a **ls** comando para executar stat em relação a cada entrada de diretório. Este comportamento resulta na degradação do desempenho quando está a lista um diretório grande. Pode verificar as opções de montagem em sua **etc/fstab** entrada:
+Em alguns cenários, o **serverino** pode fazer com que a opção de montagem a **ls** comando para executar stat em relação a cada entrada de diretório. Este comportamento resulta na degradação do desempenho quando está a lista um diretório grandes. Pode verificar as opções de montagem em sua **etc/fstab** entrada:
 
 `//azureuser.file.core.windows.net/cifs /cifs cifs vers=2.1,serverino,username=xxx,password=xxx,dir_mode=0777,file_mode=0777`
 
 Também pode verificar se as opções corretas estão a ser utilizadas ao executar o **sudo mount | grep cifs** comando e verificar a sua saída. Exemplo de saída é o seguinte:
 
-`//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)`
+```
+//azureuser.file.core.windows.net/cifs on /cifs type cifs (rw,relatime,vers=2.1,sec=ntlmssp,cache=strict,username=xxx,domain=X,uid=0,noforceuid,gid=0,noforcegid,addr=192.168.10.1,file_mode=0777, dir_mode=0777,persistenthandles,nounix,serverino,mapposix,rsize=1048576,wsize=1048576,actimeo=1)
+```
 
 Se o **cache = strict** ou **serverino** opção é não apresentar, desmonte e montar ficheiros do Azure novamente ao executar o comando de montagem do [documentação](../storage-how-to-use-files-linux.md). Em seguida, verificar que o **etc/fstab** entrada tem as opções corretas.
 
@@ -245,6 +247,8 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 ```
 
 Em seguida, pode criar links simbólicos como sugerido no [wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).
+
+[!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte.
 

@@ -1,5 +1,5 @@
 ---
-title: Como utilizar filas do Service Bus em node. js | Documentos da Microsoft
+title: Como utilizar as filas do Service bus do Azure em node. js | Documentos da Microsoft
 description: Saiba como utilizar filas do Service Bus no Azure a partir de uma aplicação node. js.
 services: service-bus-messaging
 documentationcenter: nodejs
@@ -14,22 +14,25 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1426b3d31159280ad9aac2dd240a5f083c40752d
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589986"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65988297"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs"></a>Como utilizar filas do Service Bus com o node. js
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Como utilizar filas do Service Bus com o node. js e o pacote do azure-sb
+> [!div class="op_multi_selector" title1="Programming language" title2="Node.js pacakge"]
+> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-[!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
+Neste tutorial, irá aprender a criar aplicações node. js para enviar mensagens para e receber mensagens a partir de um fila do Service Bus com o [azure-sb](https://www.npmjs.com/package/azure-sb) pacote. Os exemplos são escritos em JavaScript e utilizar o node. js [módulo do Azure](https://www.npmjs.com/package/azure) que usa internamente a `azure-sb` pacote.
 
-Neste tutorial, saiba como criar aplicações node. js para enviar mensagens para e receber mensagens de uma fila do Service Bus. Os exemplos são escritos em JavaScript e utilizam o módulo do Azure node. js. 
+O [azure-sb](https://www.npmjs.com/package/azure-sb) utiliza o pacote [APIs de tempo de execução de REST do Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Pode obter uma experiência mais rápida, utilizando o novo [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote que usa o mais rápido [protocolo AMQP 1.0](service-bus-amqp-overview.md). Para saber mais sobre o novo pacote, veja [como utilizar filas do Service Bus com o node. js e @azure/service-bus pacote](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), caso contrário, continue a ler para saber como utilizar os [azure](https://www.npmjs.com/package/azure) pacote.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-1. Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
+- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila.
     1. Leia o guia de introdução **descrição geral** do Service Bus **filas**. 
     2. Criar um barramento de serviço **espaço de nomes**. 
     3. Obter o **cadeia de ligação**. 
@@ -46,7 +49,7 @@ Para utilizar o Azure Service Bus, transferir e utilizar o pacote do Azure node.
 
 ### <a name="use-node-package-manager-npm-to-obtain-the-package"></a>Utilize o nó Package Manager (NPM) para obter o pacote
 1. Utilize o **Windows PowerShell para node. js** janela de comando para navegar para o **c:\\nó\\sbqueues\\WebRole1** pasta na qual criou o seu exemplo aplicação.
-2. Tipo **npm instalar azure** na janela de comando, que deve resultar numa saída semelhante ao seguinte:
+2. Tipo **npm instalar azure** na janela de comando, que deve resultar numa saída semelhante ao seguinte exemplo:
 
     ```
     azure@0.7.5 node_modules\azure
@@ -61,7 +64,7 @@ Para utilizar o Azure Service Bus, transferir e utilizar o pacote do Azure node.
         ├── xml2js@0.2.7 (sax@0.5.2)
         └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
     ```
-3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **node_modules**. Dentro dessa pasta encontrar os **azure** pacote, que contém as bibliotecas necessárias para aceder às filas do Service Bus.
+3. Pode executar manualmente o comando **ls** para verificar se foi criada uma pasta **node_modules**. Dentro dessa pasta, localize a **azure** pacote, que contém as bibliotecas necessárias para aceder às filas do Service Bus.
 
 ### <a name="import-the-module"></a>Importe o módulo
 Usando o bloco de notas ou outro editor de texto, adicione o seguinte na parte superior dos **Server. js** arquivo do aplicativo:
@@ -147,12 +150,12 @@ serviceBusService.sendQueueMessage('myqueue', message, function(error){
 });
 ```
 
-As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não existe qualquer limite no número de mensagens contidas numa fila, contudo, existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre as quotas, consulte [quotas do Service Bus][Service Bus quotas].
+As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). O cabeçalho, que inclui as propriedades da aplicação padrão e personalizadas, pode ter um tamanho máximo de 64 KB. Não tem qualquer limite no número de mensagens contidas numa fila, mas existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre as quotas, consulte [quotas do Service Bus][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
 As mensagens são recebidas a partir de um fila com o `receiveQueueMessage` método no **ServiceBusService** objeto. Por predefinição, as mensagens são eliminadas da fila como eles são lidas; No entanto, pode ler (pré-visualização) e a mensagem de bloqueio sem eliminá-lo da fila definindo o parâmetro opcional `isPeekLock` para **true**.
 
-O comportamento padrão de ler e eliminar a mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem em caso de falha. Para compreender isto, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, o sistema falha antes do respetivo processamento. Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
+O comportamento padrão de ler e eliminar a mensagem como parte da operação receive é o modelo mais simples e funciona melhor para cenários em que uma aplicação pode tolerar o não processamento de uma mensagem quando ocorre uma falha. Para compreender este comportamento, considere um cenário em que o consumidor emite o pedido de receção e, em seguida, falha antes de processá-lo. Uma vez que o Service Bus terá marcado a mensagem como consumida, em seguida, quando a aplicação reinicia e começa a consumir novamente mensagens, terá perdido a mensagem consumida antes da falha de sistema.
 
 Se o `isPeekLock` parâmetro estiver definido como **true**, a receção torna-se uma operação de duas etapas que possibilita o suporte de aplicações que não toleram mensagens em falta. Quando o Service Bus recebe um pedido, localiza a mensagem seguinte a ser consumida, bloqueia-a para impedir a respetiva receção por outros consumidores e, em seguida, devolve a mesma à aplicação. Depois da aplicação concluir o processamento da mensagem (ou armazena-lo de forma fiável para processamento futuro), ele conclui a segunda etapa do processo de receção ao chamar `deleteMessage` método e fornecer a mensagem a ser eliminada como um parâmetro. O `deleteMessage` método marca a mensagem como consumida e remove-a da fila.
 
@@ -177,11 +180,14 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Como processar falhas da aplicação e mensagens ilegíveis
-O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o `unlockMessage` método no **ServiceBusService** objeto. Isso fará com que o Service Bus desbloqueie a mensagem na fila e disponibilizá-lo ser novamente recebida, pela mesma aplicação de consumo ou por outra aplicação de consumo.
+O Service Bus fornece funcionalidades para ajudar a recuperar corretamente de erros na sua aplicação ou problemas no processamento de uma mensagem. Se uma aplicação recetora não é possível processar a mensagem por algum motivo, então pode chamar o `unlockMessage` método no **ServiceBusService** objeto. ele fará com que o Service Bus desbloqueie a mensagem na fila e disponibilizá-lo ser novamente recebida, pela mesma aplicação de consumo ou por outra aplicação de consumo.
 
-Há também um tempo limite associado à mensagem bloqueada na fila e, se a aplicação conseguir processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, se a falha da aplicação), o Service Bus irá desbloquear automaticamente a mensagem e torná-lo disponível para ser recebida novamente.
+Existe também um tempo limite associado à mensagem bloqueada na fila e se o aplicativo falhar processar a mensagem antes do tempo limite de bloqueio expira (por exemplo, no caso de falha da aplicação), em seguida, do Service Bus irá desbloquear automaticamente a mensagem e torná-lo disponível para ser recebida novamente.
 
-No caso de falha da aplicação após o processamento da mensagem, mas antes a `deleteMessage` método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Isto é frequentemente chamado *, pelo menos, uma vez processamento*, ou seja, cada mensagem será processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não conseguir tolerar o processamento duplicado, os programadores da aplicação devem acrescentar uma lógica adicional à aplicação para processar a entrega da mensagem duplicada. Tal é, frequentemente, conseguido através da propriedade **MessageId** da mensagem, que permanecerá constante nas tentativas de entrega.
+No caso de falha da aplicação após o processamento da mensagem, mas antes a `deleteMessage` método é chamado, em seguida, a mensagem será reenviada para o aplicativo quando ele for reiniciado. Essa abordagem é frequentemente designada *, pelo menos, uma vez processamento*, ou seja, cada mensagem será processada pelo menos uma vez, mas em determinadas situações a mesma mensagem poderá ser reenviada. Se o cenário não pode tolerar o processamento duplicado, em seguida, os desenvolvedores de aplicativos devem adicionar lógica adicional para a aplicação para processar a entrega de mensagens duplicadas. É, frequentemente, conseguido através da **MessageId** propriedade da mensagem, que permanecerá constante nas tentativas de entrega.
+
+> [!NOTE]
+> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
 
 ## <a name="next-steps"></a>Passos Seguintes
 Para saber mais sobre as filas, consulte os seguintes recursos.

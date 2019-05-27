@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65751524"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114832"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Armazenamento de BLOBs de blocos de desempenho Premium
 
@@ -21,7 +21,7 @@ Uma conta de armazenamento de BLOBs de bloco de desempenho de premium é otimiza
 
 ### <a name="premium-performance-filestorage-preview"></a>Desempenho Premium FileStorage (pré-visualização)
 
-Ficheiros Premium utilizam uma conta de armazenamento exclusivo denominada **FileStorage (pré-visualização)**. Este tipo de conta foi concebido para cargas de trabalho com elevada IOPS, débito elevado com baixa latência consistente. Armazenamento de ficheiros de Premium dimensiona-se com o tamanho da partilha aprovisionado.
+Ficheiros Premium utilizam uma conta de armazenamento exclusivo denominada **FileStorage (pré-visualização)** . Este tipo de conta foi concebido para cargas de trabalho com elevada IOPS, débito elevado com baixa latência consistente. Armazenamento de ficheiros de Premium dimensiona-se com o tamanho da partilha aprovisionado.
 
 |Área  |Destino  |
 |---------|---------|

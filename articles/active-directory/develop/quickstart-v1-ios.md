@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01a0f30063b5d98d23bb25fdc7f610158b92cd78
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8538a96e1919fbff9f800a785788ccaa41a68392
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545628"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66121933"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Início rápido: Iniciar sessão dos utilizadores e chamar a API do Microsoft Graph a partir de uma aplicação iOS
 
@@ -76,12 +76,13 @@ Para configurar a aplicação para obter tokens, terá de registar a aplicação
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra superior, selecione a sua conta. Na lista **Diretório**, escolha o inquilino do Active Directory onde pretende registar a aplicação.
 3. Selecione **Todos os serviços** no painel de navegação mais à esquerda e, em seguida, selecione **Azure Active Directory**.
-4. Selecione **Registos de aplicações** e, em seguida, selecione **Adicionar**.
-5. Siga as instruções para criar uma nova aplicação cliente **Nativa**.
+4. Selecione **registos de aplicações**e, em seguida, selecione **novo registo**.
+5. Siga as instruções para criar uma nova aplicação de cliente.
     * **Nome** é o nome da aplicação e descreve a sua aplicação aos utilizadores finais.
-    * **URI de Redirecionamento** é uma combinação de esquema e cadeia de caracteres que o Azure AD utiliza para devolver respostas de tokens. Introduza um valor que seja específico da sua aplicação e que se baseie nas informações do URI de redirecionamento anterior.
+    * **URI de Redirecionamento** é uma combinação de esquema e cadeia de caracteres que o Azure AD utiliza para devolver respostas de tokens. Introduza um valor que seja específico da sua aplicação e que se baseie nas informações do URI de redirecionamento anterior. Selecione também **cliente público (ambiente de trabalho e móvel)** na lista pendente.
 6. Depois de concluir o registo, o Azure AD atribui um ID exclusivo à sua aplicação. Este valor vai ser preciso nas secções seguintes, por isso, copie-o a partir do separador da aplicação.
-7. Na página **Definições**, selecione **Permissões obrigatórias > Adicionar > Microsoft Graph** e, em **Permissões delegadas**, adicione a permissão **Ler dados do diretório**. Esta permissão configura a sua aplicação para consultar utilizadores na Graph API do Azure AD.
+7. Partir do **permissões de API** página, selecione **adicionar uma permissão**. Dentro **selecionar uma API** selecionar ***Microsoft Graph***.
+8. Sob **permissões delegadas**, selecione a permissão **User.Read**, em seguida, prima **Add** para guardar. Esta permissão configura a sua aplicação para consultar utilizadores na Graph API do Azure AD.
 
 ## <a name="step-3-install-and-configure-adal"></a>Passo 3: Instale e configure a ADAL
 

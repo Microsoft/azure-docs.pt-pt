@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 05/11/2019
-ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.date: 05/20/2019
+ms.openlocfilehash: 57f2c38ce0479f43d7f24de8d1feb554517bcc69
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65823319"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951492"
 ---
 # <a name="sql-database-serverless-preview"></a>Base de dados SQL sem servidor (pré-visualização)
 
@@ -81,7 +81,22 @@ Em geral, os bancos de dados são executados numa máquina com capacidade sufici
 
 ### <a name="memory-management"></a>Gerenciamento de memória
 
-Memória para bases de dados sem servidor é recuperada mais frequentemente do que para bases de dados aprovisionadas. Este comportamento é importante para controlar os custos em sem servidor. Ao contrário de computação aprovisionada, memória do cache SQL é recuperada de um banco de dados sem servidor quando a utilização de CPU ou de cache é baixa.
+Memória para bases de dados sem servidor é recuperada mais frequentemente do que para bases de dados de computação aprovisionados. Este comportamento é importante para controlar os custos em sem servidor e pode afetar o desempenho.
+
+#### <a name="cache-reclaiming"></a>Colocar em cache reclamação
+
+Ao contrário das bases de dados de computação aprovisionada, memória do cache SQL é recuperada de um banco de dados sem servidor quando a utilização de CPU ou de cache é baixa.
+
+- Utilização da cache é considerada baixa quando o tamanho total das mais utilizada recentemente entradas de cache cai abaixo de um limite para um período de tempo.
+- Quando a recuperação de cache é disparada, o tamanho da cache de destino é reduzido de forma incremental a uma fração do tamanho anterior e apenas reclamação continua se utilização permanece baixa.
+- Quando ocorre a recuperação de cache, a política para a seleção de entradas de cache para expulsar é a mesma política de seleção como para bases de dados de computação aprovisionada quando a pressão de memória é elevada.
+- O tamanho da cache nunca é reduzido abaixo a memória mínima, conforme definido pela vCores mínima, que pode ser configurado.
+
+Sem servidor e aprovisionado de computação bases de dados, cache entradas podem ser expulsas se toda a memória disponível é utilizada.
+
+#### <a name="cache-hydration"></a>Hidratação de cache
+
+A cache SQL cresce à medida que dados são obtidos a partir do disco da mesma forma e com a mesma velocidade de e para as bases de dados aprovisionadas. Quando a base de dados estiver ocupado, a cache é permitida crescer irrestrita até ao limite máximo de memória.
 
 ## <a name="autopause-and-autoresume"></a>Autopause e autoresume
 
@@ -267,7 +282,7 @@ A quantidade de computação faturada é o número máximo de utilização de CP
 - **Montante faturado ($)**: preço unitário de vCore * máximo (min vCores, vCores utilizados, a memória mínima GB * 1/3, memória GB utilizados * 1/3) 
 - **Frequência de faturação**: Por segundo
 
-O preço unitário de vcore no custo por vcore por segundo. Consulte a [página de preços do Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter preços de unidade específica numa determinada região.
+O preço unitário de vCore no custo por vCore por segundo. Consulte a [página de preços do Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para obter preços de unidade específica numa determinada região.
 
 A quantidade de computação faturada é exposta pela métrica seguinte:
 
@@ -277,9 +292,9 @@ A quantidade de computação faturada é exposta pela métrica seguinte:
 
 Esta quantidade é calculada a cada segundo e agregada de mais de 1 minuto.
 
-Considere uma base de dados sem servidor configurado com 1 min vcore e 4 vcores máximos.  Isso corresponde a cerca de 3 GB de memória mínima e máximas de 12 GB de memória.  Suponha que o atraso de pausa automática está definido para 6 horas e a carga de trabalho de base de dados esteve ativa durante as primeiras 2 horas de período de 24 horas e caso contrário, inativos.    
+Considere uma base de dados sem servidor configurado com 1 min vCore e 4 vCores máximos.  Isso corresponde a cerca de 3 GB de memória mínima e máximas de 12 GB de memória.  Suponha que o atraso de pausa automática está definido para 6 horas e a carga de trabalho de base de dados esteve ativa durante as primeiras 2 horas de um período de 24 horas e caso contrário, inativos.    
 
-Neste caso, a base de dados é cobrada por computação e armazenamento, durante as primeiras 8 horas.  Apesar da base de dados é iniciar inativo após a hora de 2ª, ainda é faturada para computação nas horas 6 subsequentes com base na computação mínimo aprovisionada enquanto a base de dados está online.  Apenas o armazenamento é cobrado durante o restante do período de 24 horas enquanto a base de dados está em pausa.
+Neste caso, a base de dados é cobrada por computação e armazenamento, durante as primeiras 8 horas.  Apesar da base de dados é iniciar inativo após na segunda hora, ainda é faturada para computação nas horas 6 subsequentes com base na computação mínimo aprovisionada enquanto a base de dados está online.  Apenas o armazenamento é cobrado durante o restante do período de 24 horas enquanto a base de dados está em pausa.
 
 Mais precisamente, a fatura de computação neste exemplo é calculada da seguinte forma:
 
@@ -291,7 +306,7 @@ Mais precisamente, a fatura de computação neste exemplo é calculada da seguin
 |8:00-24:00|0|0|Nenhuma computação faturada ao passo que está em pausa|vCore de 0 segundos|
 |Segundos de total vCore faturados mais de 24 horas||||50400 vCore segundos|
 
-Suponha que o preço de unidade de computação é $0.000073/vCore/second.  Em seguida, a computação faturada durante este período de 24 horas é o produto das computação unidade preço e vcore segundos faturado: $0.000073/vCore/second * 50400 segundos de vCore = us $3,68
+Suponha que o preço de unidade de computação é $0.000073/vCore/second.  Em seguida, a computação faturada durante este período de 24 horas é o produto das computação unidade preço e vCore segundos faturado: $0.000073/vCore/second * 50400 segundos de vCore = us $3,68
 
 ## <a name="available-regions"></a>Regiões disponíveis
 

@@ -12,15 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc8b7c86495c2a60b07bef0a825e3872f787520
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: d8b6a5c2a29228de806088ea93e197d42bf1ab47
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550407"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962350"
 ---
 # <a name="mobile-app-that-calls-web-apis---move-to-production"></a>Aplicação móvel que chama o web APIs - mover para produção
 

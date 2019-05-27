@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: Juliako
 ms.service: media-services
 ms.topic: include
-origin.date: 11/09/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 11/09/2018
+ms.author: juliako
 ms.openlocfilehash: 4944ad81b7192bbd1614d5bb1302e6dee6deb7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60817395"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66116314"
 ---
 > [!div class="op_single_selector"]
 > * [.NET](../articles/media-services/previous/media-services-dotnet-configure-asset-delivery-policy.md)

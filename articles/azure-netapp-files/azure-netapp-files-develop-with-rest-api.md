@@ -12,18 +12,25 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 05/17/2019
 ms.author: b-juche
-ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 996fbcc7c3c9af0da9160216785ecd54840660e8
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61087256"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957035"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Programar para os ficheiros NetApp do Azure com a REST API 
 
 A API REST para o serviço de ficheiros do Azure NetApp define operações HTTP relativamente aos recursos, tais como a conta de NetApp, o conjunto de capacidade, volumes e instantâneos. Este artigo ajuda-o a começar com a API de REST de ficheiros do Azure NetApp.
+
+## <a name="azure-netapp-files-rest-api-specification"></a>Especificação de API de REST de ficheiros NetApp do Azure
+
+A especificação de REST API de ficheiros do Azure NetApp publicada através de [GitHub](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager):
+
+`https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
+
 
 ## <a name="access-the-azure-netapp-files-rest-api"></a>Aceder aos ficheiros do Azure NetApp REST API  
 

@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 05/20/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b3500ce1f1f80d975555edef56d95f2f1d27ca7
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5524576ef21830ae13526dad2d8ac8a1d0864cf1
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783759"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956885"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>SAML início de sessão único para aplicações no local com o Proxy de aplicações (pré-visualização)
 
@@ -50,8 +50,9 @@ Tenha em atenção o seguinte quando vai o tutorial:
 1. Selecione **SAML** como o método de início de sessão único.
 1. No **definido no início de sessão único com o SAML** página, edite a **configuração básica de SAML** dados e siga os passos [Enter básicas de configuração de SAML](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configurar baseado em SAML autenticação da aplicação.
 
-   * Certifique-se do **URL de resposta** corresponda ao ou é um caminho sob a **URL externo** para a aplicação no local que publicou através do Proxy de aplicações. Se seu aplicativo exigir um diferente **URL de resposta** para a configuração de SAML, adicione-a como o **primeiro** URL na lista e mantenha o **URL externo** como um URL adicional, ordenado depois do primeiro.
-   * Certifique-se de que o aplicativo também especifica o correto **URL de resposta** ou URL de serviço de consumidor de asserção para utilizar para receber o token de autenticação.
+   * Certifique-se do **URL de resposta** corresponda ao ou é um caminho sob a **URL externo** para a aplicação no local que publicou através do Proxy de aplicações. 
+   * Se seu aplicativo exigir um diferente **URL de resposta** para a configuração de SAML, adicione-a como uma **adicionais** URL na lista e marcar a caixa de verificação junto ao mesmo para designá-lo como principal  **URL de resposta** para enviar respostas SAML iniciado por IDP para.
+   * Para um fluxo iniciado por SP Certifique-se de que o aplicativo também especifica o correto **URL de resposta** ou URL de serviço de consumidor de asserção para utilizar para receber o token de autenticação.
 
      ![Introduzir dados de configuração básicos do SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 

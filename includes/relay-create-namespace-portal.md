@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: bbcf38ab54632144920b729f433c222f426d96dc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420207"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111544"
 ---
 1. Inicie sessão no [Portal do Azure][Azure portal].
 2. No menu do lado esquerdo, selecione **+ Criar um recurso**. Em seguida, selecione **Integração** > **Reencaminhamento**. Se não vir **Reencaminhamento** na lista, selecione **Ver Tudo** no canto superior direito. 
@@ -18,7 +18,7 @@ ms.locfileid: "60420207"
 5. Na caixa [Grupo de recursos](../articles/azure-resource-manager/manage-resource-groups-portal.md), selecione um grupo de recursos existente em que o espaço de nomes será colocado ou crie um novo.  
 6. Em **Localização**, selecione o país ou a região em que o espaço de nomes deverá ser alojado.
    
-    ![Create namespace][create-namespace]
+    ![Criar espaço de nomes][create-namespace]
 7. Selecione **Criar**. O sistema cria o seu espaço de nomes e ativa o mesmo. Após alguns minutos, o sistema aprovisiona recursos para a sua conta.
 
 ### <a name="get-management-credentials"></a>Obter credenciais de gestão

@@ -5,22 +5,23 @@ services: storage
 author: mhopkins-msft
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/14/2017
+ms.date: 05/15/2019
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: fdb05adaf6a4b039ef288ac8b4464f62930e3f9c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 6e8640b136c52f500de010f842ab73678acdce4f
+ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797763"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65991343"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Efetuar operações de armazenamento de filas do Azure com o Azure PowerShell
 
 Armazenamento de filas do Azure é um serviço para armazenar grandes quantidades de mensagens que podem ser acedidas em qualquer local no mundo através de HTTP ou HTTPS. Para obter informações detalhadas, consulte [introdução às filas do Azure](storage-queues-introduction.md). Este artigo que mostra como abrange operações de armazenamento de filas comuns. Saiba como:
 
 > [!div class="checklist"]
+>
 > * Criar uma fila
 > * Obter uma fila
 > * Adicione uma mensagem
@@ -53,7 +54,7 @@ $location = "eastus"
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 
-Criar um grupo de recursos com o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando. 
+Criar um grupo de recursos com o [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando.
 
 Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azure são implementados e geridos. Store o nome do grupo de recursos numa variável para utilização futura. Neste exemplo, um grupo de recursos chamado *howtoqueuesrg* é criado na *eastus* região.
 
@@ -114,7 +115,7 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
-# Add two more messages to the queue 
+# Add two more messages to the queue
 $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
   -ArgumentList "This is message 2"
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
@@ -123,15 +124,15 @@ $queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMe
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
-Se utilizar o [Explorador de armazenamento do Azure](https://storageexplorer.com), pode ligar à sua conta do Azure e ver as filas na conta de armazenamento e fazer uma busca detalhada numa fila para ver as mensagens na fila. 
+Se utilizar o [Explorador de armazenamento do Azure](https://storageexplorer.com), pode ligar à sua conta do Azure e ver as filas na conta de armazenamento e fazer uma busca detalhada numa fila para ver as mensagens na fila.
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Leia uma mensagem da fila, em seguida, eliminá-lo
 
 As mensagens são de leitura por ordem melhor: Experimente first-in-first-out. Não é garantido. Quando ler a mensagem da fila, torna-se invisível para todos os outros processos olhar para a fila. Isto garante que, se seu código não conseguir processar a mensagem devido uma falha de hardware ou software, outra instância do seu código pode obter a mesma mensagem e tente novamente.  
 
-Isso **tempo limite de invisibilidade** define o tempo que a mensagem permanece invisível antes de ser novamente disponível para processamento. A predefinição é 30 segundos. 
+Isso **tempo limite de invisibilidade** define o tempo que a mensagem permanece invisível antes de ser novamente disponível para processamento. A predefinição é 30 segundos.
 
-Seu código ler uma mensagem da fila em dois passos. Quando chama a [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) método, obterá a seguinte mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para concluir a remover a mensagem da fila, chama o [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) método. 
+Seu código ler uma mensagem da fila em dois passos. Quando chama a [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) método, obterá a seguinte mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para concluir a remover a mensagem da fila, chama o [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) método.
 
 No exemplo a seguir, leia as mensagens de fila de três depois, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia as mensagens de três novamente, a eliminar as mensagens depois de lê-los ao chamar **DeleteMessage**. Se tentar ler a fila depois das mensagens são eliminadas, $queueMessage será devolvido como NULL.
 
@@ -148,7 +149,7 @@ $queueMessage.Result
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
 $queueMessage.Result
 
-# After 10 seconds, these messages reappear on the queue. 
+# After 10 seconds, these messages reappear on the queue.
 # Read them again, but delete each one after reading it.
 # Delete the message.
 $queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
@@ -167,7 +168,7 @@ $queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Resul
 Para eliminar uma fila e todas as mensagens contidas no mesmo, chame o cmdlet Remove-AzStorageQueue. O exemplo seguinte mostra como eliminar a fila específica utilizada neste exercício, utilizando o cmdlet Remove-AzStorageQueue.
 
 ```powershell
-# Delete the queue 
+# Delete the queue
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
@@ -184,11 +185,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 Neste artigo de procedimentos, aprendeu sobre a gestão de armazenamento de fila básica com o PowerShell, incluindo como:
 
 > [!div class="checklist"]
+>
 > * Criar uma fila
 > * Obter uma fila
 > * Adicione uma mensagem
 > * Ler a mensagem seguinte
-> * Eliminar uma mensagem 
+> * Eliminar uma mensagem
 > * Eliminar uma fila
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de armazenamento do Microsoft Azure PowerShell

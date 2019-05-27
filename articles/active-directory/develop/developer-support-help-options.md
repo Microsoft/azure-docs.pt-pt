@@ -5,25 +5,24 @@ services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
 ms.author: ryanwi
-ms.reviewer: jmprieur, dadobali
+ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 0741dda0aa087f21625cabe79e51d0b9e344f7ef
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540375"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962653"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de ajuda e suporte para programadores
 

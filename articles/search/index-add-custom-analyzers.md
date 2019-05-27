@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5983c2036ff206825a82072b57ca2b9bb44ca678
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e9daebf46093e38858feff87ca5c4ba89638aa74
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021665"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951898"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Adicionar os analisadores personalizados para um índice da Azure Search
 
@@ -223,7 +223,7 @@ Para analisadores, atributos de índice variam consoante o se estiver a utilizar
 |-|-|  
 |Name|Só pode conter letras, dígitos, espaços, traços ou carateres de sublinhado, só pode começar e terminar com carateres alfanuméricos e está limitado a 128 carateres.|  
 |Type|Tem de ser "#Microsoft.Azure.Search.CustomAnalyzer".|  
-|CharFilters|Definido como um dos filtros de char predefinidos listados na [filtros de Char](#CharFilter) tabela ou um filtro de char personalizado especificado na definição do índice.|  
+|CharFilters|Definido como um dos filtros de char predefinidos listados na [filtros de Char](#char-filters-reference) tabela ou um filtro de char personalizado especificado na definição do índice.|  
 |Tokenizer|Necessário. Definido como uma destas tokenizers predefinidos listados na [Tokenizers](#Tokenizers) abaixo da tabela ou um atomizador personalizado especificado na definição do índice.|  
 |TokenFilters|Definido como um dos filtros de token predefinidos listados na [filtros do Token](#TokenFilters) tabela ou um filtro personalizado de token especificado na definição do índice.|  
 
@@ -236,8 +236,8 @@ Para analisadores, atributos de índice variam consoante o se estiver a utilizar
 |||  
 |-|-|  
 |Name|Só pode conter letras, dígitos, espaços, traços ou carateres de sublinhado, só pode começar e terminar com carateres alfanuméricos e está limitado a 128 carateres.|  
-|Type|Tipo da lista de filtros de char suportadas de filtro de char. Ver **char_filter_type** coluna na [Char filtros](#CharFilter) tabela abaixo.|  
-|Opções|Tem de ser as opções válidas de uma determinada [Char filtros](#CharFilter) tipo.|  
+|Type|Tipo da lista de filtros de char suportadas de filtro de char. Ver **char_filter_type** coluna na [Char filtros](#char-filters-reference) tabela abaixo.|  
+|Opções|Tem de ser as opções válidas de uma determinada [Char filtros](#char-filters-reference) tipo.|  
 
 ### <a name="tokenizers"></a>Tokenizers
 

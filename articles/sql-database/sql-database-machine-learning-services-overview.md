@@ -11,12 +11,12 @@ ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
 ms.date: 03/01/2019
-ms.openlocfilehash: b33561ad80207a5d649ac1fd497c9d6c7add78c6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fe472b8a19b45d7f7b00a8f858c9179d6ee51999
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723983"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951574"
 ---
 # <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Serviços do Azure SQL da base de dados Machine Learning com R (pré-visualização)
 
@@ -49,9 +49,7 @@ Pacotes de R de código-fonte aberto mais comuns são previamente instaladas no 
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | Pacotes RevoScaleR é a biblioteca principal para a dimensionável R. as funções nesta biblioteca estão entre o mais amplamente utilizadas. Transformações de dados e manipulação, resumo de estatístico, visualização e muitas formas de modelagem e análises são encontradas dessas bibliotecas. Além disso, as funções nessas bibliotecas automaticamente distribuam as cargas de trabalho em núcleos disponíveis para processar, com a capacidade de trabalhar em segmentos de dados coordenados e geridos pelo mecanismo de cálculo de paralela. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML adiciona algoritmos de machine learning para criar modelos personalizados para análise de texto, imagens de análises e análise de sentimentos. |
 
-<!-- Add this back when the new package-related article is written
-In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
--->
+Além de pacotes de previamente instalados, pode [instalar pacotes adicionais](sql-database-machine-learning-services-add-r-packages.md).
 
 <a name="signup"></a>
 

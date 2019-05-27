@@ -9,11 +9,11 @@ ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477988"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66114942"
 ---
 O armazenamento do Azure oferece vários tipos de contas de armazenamento. Cada tipo oferece suporte a recursos diferentes e tem o seu próprio modelo de preços. Considere estas diferenças antes de criar uma conta de armazenamento para determinar o tipo de conta que é melhor para as suas aplicações. Os tipos de contas de armazenamento são:
 
@@ -27,11 +27,11 @@ A tabela seguinte descreve os tipos de contas de armazenamento e as respetivas f
 
 | Tipo de conta de armazenamento | Serviços suportados                       | Escalões de desempenho suportados      | Suporte de acesso         | Opções de replicação               | Modelo de implementação<sup>1</sup> | Encriptação<sup>2</sup> |
 |----------------------|------------------------------------------|-----------------------------|--------------------------------|-----------------------------------|------------------------------|------------------------|
-| Para fins gerais V2   | BLOB, ficheiro, fila, tabela e disco       | Standard, Premium<sup>5</sup> | Frequente, esporádico, arquivo<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager             | Encriptados              |
-| Para fins gerais V1   | BLOB, ficheiro, fila, tabela e disco       | Standard, Premium<sup>5</sup> | N/A                            | LRS, GRS, RA-GRS                  | Gestor de recursos, clássico    | Encriptados              |
-| Armazenamento de BLOBs de blocos   | BLOB (blobs de blocos e de acréscimo apenas) | Premium                       | N/A                            | LRS                               | Resource Manager             | Encriptados              |
-| FileStorage (pré-visualização)   | Apenas os ficheiros | Premium                       | N/A                            | LRS                               | Resource Manager             | Encriptados              |
-| Armazenamento de blobs         | BLOB (blobs de blocos e de acréscimo apenas) | Standard                      | Frequente, esporádico, arquivo<sup>3</sup> | LRS, GRS, RA-GRS                  | Resource Manager             | Encriptados              |
+| Para fins gerais V2   | BLOB, ficheiro, fila, tabela e disco       | Standard, Premium<sup>5</sup> | Frequente, esporádico, arquivo<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager             | Encriptado              |
+| Para fins gerais V1   | BLOB, ficheiro, fila, tabela e disco       | Standard, Premium<sup>5</sup> | N/A                            | LRS, GRS, RA-GRS                  | Gestor de recursos, clássico    | Encriptado              |
+| Armazenamento de BLOBs de blocos   | BLOB (blobs de blocos e de acréscimo apenas) | Premium                       | N/A                            | LRS                               | Resource Manager             | Encriptado              |
+| FileStorage (pré-visualização)   | Apenas os ficheiros | Premium                       | N/A                            | LRS                               | Resource Manager             | Encriptado              |
+| Armazenamento de blobs         | BLOB (blobs de blocos e de acréscimo apenas) | Standard                      | Frequente, esporádico, arquivo<sup>3</sup> | LRS, GRS, RA-GRS                  | Resource Manager             | Encriptado              |
 
 <sup>1</sup>é recomendado utilizar o modelo de implementação Azure Resource Manager. Contas de armazenamento com o modelo de implementação clássica ainda podem ser criadas em alguns locais e contas clássicas existentes continuarão a ter suporte. Para obter mais informações, consulte [vs. de implementação clássica do Azure Resource Manager: Compreender os modelos de implementação e o estado dos seus recursos](../articles/azure-resource-manager/resource-manager-deployment-model.md).
 

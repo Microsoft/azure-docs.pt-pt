@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 188c17b4e8ef84f3907b63fd62bf110ee94b4d7f
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 92ca09040836dfc55a9d709b12a0ee01192d6bac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65511246"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957385"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Como gerir uma aplicação de funções no portal do Azure 
 
@@ -61,7 +61,7 @@ O resto deste tópico concentra-se as seguintes funcionalidades de serviço de a
 + [Autenticação](#auth)
 + [Definição de API](#swagger)
 
-Para obter mais informações sobre como trabalhar com definições de serviço de aplicações, consulte [configurar definições de serviço de aplicações do Azure](../app-service/web-sites-configure.md).
+Para obter mais informações sobre como trabalhar com definições de serviço de aplicações, consulte [configurar definições de serviço de aplicações do Azure](../app-service/configure-common.md).
 
 ### <a name="editor"></a>Editor do serviço de aplicações
 
@@ -124,7 +124,7 @@ Para obter mais informações sobre como trabalhar com definições de serviço 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-+ [Configurar as definições do serviço de aplicações do Azure](../app-service/web-sites-configure.md)
++ [Configurar as definições do serviço de aplicações do Azure](../app-service/configure-common.md)
 + [Implementação contínua para Funções do Azure](functions-continuous-deployment.md)
 
 

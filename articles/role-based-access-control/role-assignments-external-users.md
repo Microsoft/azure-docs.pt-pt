@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 91548a4df4a77623978ea4bcb214b76427c026a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d919453816436366c00dde506210a2ed38cc69b7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60345387"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952202"
 ---
 # <a name="manage-access-to-azure-resources-for-external-users-using-rbac"></a>Gerir o acesso aos recursos do Azure para utilizadores externos através do RBAC
 
@@ -57,7 +57,7 @@ Depois de selecionar a subscrição, o utilizador de administrador tem de clicar
 
 A próxima etapa é selecionar quem será atribuída a função RBAC para a função a ser atribuído e o utilizador. Na **função** menu suspenso, o utilizador de administrador verá apenas as funções RBAC incorporadas que estão disponíveis no Azure. Para obter mais explicações de cada função e respetivos âmbitos atribuíveis, consulte [funções incorporadas para recursos do Azure](built-in-roles.md).
 
-O utilizador de administração, em seguida, tem de adicionar o endereço de e-mail do utilizador externo. É o comportamento esperado para o utilizador externo não apareçam no inquilino existente. Depois do utilizador externo foi convidado, ele estará visível sob **subscrições > controlo de acesso (IAM)** com todos os utilizadores atuais que estão atualmente atribuídos uma função RBAC no âmbito da subscrição.
+O utilizador de administração, em seguida, tem de adicionar o endereço de e-mail do utilizador externo. É o comportamento esperado para o utilizador externo não apareçam no inquilino existente. Depois do utilizador externo foi convidado, eles serão visíveis sob **subscrições > controlo de acesso (IAM)** com todos os utilizadores atuais que estão atualmente atribuídos uma função RBAC no âmbito da subscrição.
 
 ![adicionar permissões à nova função RBAC](./media/role-assignments-external-users/3.png)
 
@@ -66,7 +66,7 @@ O utilizador de administração, em seguida, tem de adicionar o endereço de e-m
 O utilizador "chessercarlton@gmail.com" foi convidado para ser um **proprietário** para a subscrição "Avaliação gratuita". Depois de enviar o convite, o utilizador externo irá receber um e-mail de confirmação com uma ligação de ativação.
 ![convite por e-mail para a função RBAC](./media/role-assignments-external-users/5.png)
 
-A ser de fora da organização, o novo utilizador não tem quaisquer atributos existentes no diretório "Inquilino predefinido do Azure". Eles serão criados depois do utilizador externo deu consentimento serem registadas no diretório que está associado à subscrição foi atribuído uma função para ele.
+A ser de fora da organização, o novo utilizador não tem quaisquer atributos existentes no diretório "Inquilino predefinido do Azure". Eles serão criados depois do utilizador externo deu consentimento serem registadas no diretório que está associado à subscrição foi atribuídas uma função para.
 
 ![mensagem de convite de e-mail para a função RBAC](./media/role-assignments-external-users/6.png)
 

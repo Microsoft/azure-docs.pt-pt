@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 1d7bb72dab622cd0b18d1da1aa34a651e1443997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60365082"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65964255"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Como configurar o ExpressRoute Direct
 
@@ -226,7 +226,9 @@ Por predefinição, pode criar 10 circuitos na subscrição em que é o recurso 
 
 Existem larguras de banda do circuito adicionais que podem ser utilizadas no ExpressRoute Direct apenas para suportar os cenários descritos acima. Nomeadamente: 40Gbps e 100Gbps.
 
-Circuitos do Standard ou premium podem ser criados. Circuitos padrão são incluídos no custo, enquanto os circuitos premium têm um custo com base na largura de banda selecionada. Circuitos só podem ser criados como tráfego limitado, como ilimitado, não é suportado em direto do ExpressRoute.
+**SkuTier** pode ser Local, Standard ou Premium.
+
+**SkuFamily** tem de ser MeteredData apenas como ilimitado não é suportado em direto do ExpressRoute.
 
 Crie um circuito no recurso direto do ExpressRoute.
 

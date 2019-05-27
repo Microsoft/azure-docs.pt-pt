@@ -1,15 +1,15 @@
 ---
-author: dlepow
+author: laurenhughes
 ms.service: batch
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: danlep
-ms.openlocfilehash: 7d90ccf55b10eff4299692b481a25ba4cdf41b8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: lahugh
+ms.openlocfilehash: 14891acdbe9a0f810666ba54f8d63050a9330601
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60616622"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66127334"
 ---
 ## <a name="get-account-credentials"></a>Obter credenciais da conta
 

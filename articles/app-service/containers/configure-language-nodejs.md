@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: cephalin
-ms.openlocfilehash: 3074048dd4426a10e706e37e6d375ea4995fcbbb
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9422d543ad83f29d60fd7e1de51a79c3416e5b14
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919789"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956171"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Configurar uma aplicação node. js do Linux para o serviço de aplicações do Azure
 
@@ -137,7 +137,7 @@ Depois de terminar com a depuração, para o depurador selecionando **desligar**
 
 ## <a name="access-environment-variables"></a>Aceder a variáveis de ambiente
 
-No serviço de aplicações, pode [configurar definições de aplicação](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) fora do seu código de aplicação. Em seguida, pode acessá-los usando o padrão de node. js. Por exemplo aceder a uma definição de aplicação denominada `NODE_ENV`, utilize o seguinte código:
+No serviço de aplicações, pode [configurar definições de aplicação](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) fora do seu código de aplicação. Em seguida, pode acessá-los usando o padrão de node. js. Por exemplo aceder a uma definição de aplicação denominada `NODE_ENV`, utilize o seguinte código:
 
 ```javascript
 process.env.NODE_ENV
@@ -253,7 +253,7 @@ Quando um trabalho de aplicação node. js tem um comportamento diferente no ser
     - Consoante os *Package. JSON*, diferentes pacotes que podem ser instalados para o modo de produção (`dependencies` versus `devDependencies`).
     - Determinadas estruturas da web podem implementar ficheiros estáticos de forma diferente no modo de produção.
     - Determinadas estruturas da web podem utilizar scripts de inicialização personalizada quando executado no modo de produção.
-- Execute a aplicação no serviço de aplicações no modo de desenvolvimento. Por exemplo, no [Mean. js](https://meanjs.org/), pode definir a aplicação para o modo de desenvolvimento no tempo de execução por [definição da `NODE_ENV` definição de aplicação](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
+- Execute a aplicação no serviço de aplicações no modo de desenvolvimento. Por exemplo, no [Mean. js](https://meanjs.org/), pode definir a aplicação para o modo de desenvolvimento no tempo de execução por [definição da `NODE_ENV` definição de aplicação](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -17,12 +17,12 @@ ms.topic: article
 ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e665f3124296392c8138f4f2bd3632b56e53de
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 88e825ebc08b4bfbd65f81b7b2480ead9be314b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230942"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954945"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Ativar o Roaming de Estado Empresarial no Azure Active Directory
 Roaming de estado empresarial está disponível para qualquer organização com um Azure AD Premium ou Enterprise Mobility + licença Security (EMS). Para obter mais informações sobre como obter uma subscrição do Azure AD, consulte a [página de produto do Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -84,7 +84,7 @@ Eliminação explícita é quando um administrador do Azure elimina um utilizado
 Dados que não tiverem sido acedidos durante um ano ("o período de retenção") serão tratados como obsoleto e podem ser eliminados da cloud da Microsoft. O período de retenção está sujeitas a alterações, mas não será inferior a 90 dias. Os dados obsoletos podem ser um conjunto específico de definições do Windows/aplicação ou todas as definições para um utilizador. Por exemplo:
 
 * Se não existem dispositivos aceder a uma coleção de definições (por exemplo, um aplicativo é removido do dispositivo ou um grupo de definições, tais como "Tema" está desativado para todos os dispositivos de um utilizador), em seguida, essa coleção se tornam obsoleta após o período de retenção e podem ser eliminada . 
-* Se um utilizador tiver desativado a sincronização de definições em todos os seu dispositivos, em seguida, nenhum dos dados de definições serão acessados e todos os dados de definições para que o utilizador irão tornar-se obsoletos e podem ser eliminados após o período de retenção. 
+* Se um utilizador tiver desativado a sincronização de definições em todos os seus dispositivos, em seguida, nenhum dos dados de definições serão acessados, e todos os dados de definições para que o utilizador irão tornar-se obsoletos e podem ser eliminados após o período de retenção. 
 * Se o administrador do diretório do Azure AD Se desligar Roaming de estado empresarial para o diretório, em seguida, todos os utilizadores que diretório irá parar a sincronizar definições e todos os dados de definições para todos os utilizadores irão tornar-se obsoletos e podem ser eliminados após o período de retenção. 
 
 ### <a name="deleted-data-recovery"></a>Recuperação de dados eliminados

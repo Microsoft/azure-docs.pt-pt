@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: bf1d810733df4eaae17d092caba42888a63cc59f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 31909e1f13d211aa87f13547218a6967d8e195ac
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919294"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950559"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box"></a>Utilizar o portal do Azure para administrar o Azure Data Box
 
@@ -97,7 +97,7 @@ Execute os seguintes passos para editar a encomenda.
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
-Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o dispositivo é entregue ou recolhido. Outro utilizador poderá ter de manter-se informado sobre quando a cópia de dados é concluída, para poder verificar que os dados estão na conta de armazenamento do Azure antes de os eliminar da origem. Nestes casos, pode editar os detalhes de notificação.
+Poderá ter de alterar os utilizadores que pretende que recebam os e-mails de estado da encomenda. Por exemplo, um utilizador tem de manter-se informado sobre quando o dispositivo é entregue ou recolhido. Outro usuário poderá ter de se manter informado sobre o quando a cópia de dados estiver concluída, de modo que podem verificar que os dados estão na conta de armazenamento do Azure antes da partir da origem. Nestes casos, pode editar os detalhes de notificação.
 
 Execute os seguintes passos para editar os detalhes de notificação.
 
@@ -110,7 +110,7 @@ Execute os seguintes passos para editar os detalhes de notificação.
     ![Editar detalhes de notificação 2](media/data-box-portal-admin/edit-notification-details2.png)
 
 
-## <a name="download-order-history"></a>Transferir histórico de encomendas
+## <a name="download-order-history"></a>Transferir histórico de pedidos
 
 Assim que a encomenda do Data Box estiver concluída, os dados nos discos de dispositivo são apagados. Quando a limpeza do dispositivo estiver concluída, pode transferir o histórico de encomendas no portal do Azure.
 

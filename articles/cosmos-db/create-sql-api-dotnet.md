@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/05/2019
-ms.openlocfilehash: e1b5ade470e3041fc15a8f71db76a4004a33f765
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/20/2019
+ms.openlocfilehash: 432ddf6e0fea0d6de3c24dc853502dca303ce693
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142671"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954550"
 ---
 # <a name="quickstart-build-a-net-web-app-using-sql-api-account-in-azure-cosmos-db"></a>Início rápido: Criar uma aplicação de web do .NET com a conta de API de SQL no Azure Cosmos DB
 
@@ -35,8 +35,8 @@ Neste início rápido, utilize o Data Explorer no portal do Azure para criar a b
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Visual Studio 2017 com o fluxo de trabalho de desenvolvimento do Azure instalado
-- Pode transferir e utilizar o **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio. 
+Visual Studio 2019 com o fluxo de trabalho de desenvolvimento do Azure instalado
+- Pode transferir e utilizar o **gratuita** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Confirme que ativa o **desenvolvimento do Azure** durante a configuração do Visual Studio. 
 
 Uma subscrição do Azure ou a conta de avaliação gratuita do Azure Cosmos DB
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
@@ -62,8 +62,8 @@ Pode utilizar o Data Explorer no portal do Azure para criar uma base de dados e 
     
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**Id de base de dados**|ToDoList|Introduza *ToDoList* como o nome para a nova base de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita.|
-    |**Id da coleção**|Itens|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos como nomes de base de dados.|
+    |**ID da Base de Dados**|ToDoList|Introduza *ToDoList* como o nome para a nova base de dados. Nomes de base de dados tem de conter entre 1 e 255 carateres e não podem conter `/, \\, #, ?`, ou um espaço à direita.|
+    |**ID da Coleção**|Itens|Denomine a nova coleção como *Itens*. Os IDs das coleções têm os mesmos requisitos como nomes de base de dados.|
     |**Chave de partição**| /categoria| O exemplo descrito neste artigo usa */category* como a chave de partição.|
     |**Débito**|400|Deixe o débito com 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar o débito mais tarde.| 
     

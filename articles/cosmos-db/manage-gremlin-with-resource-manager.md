@@ -4,20 +4,20 @@ description: Utilize modelos Azure Resource Manager para criar e configurar a AP
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/20/2019
 ms.author: mjbrown
-ms.openlocfilehash: d1928606a22eba180ebd3f1e979362e75edaf2d7
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f62399e3a1ef2a4ceaa8bdf64196bdb634fb4b6
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077789"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65968882"
 ---
-# <a name="create-azure-cosmos-db-gremlin-api-resources-from-a-resource-manager-template"></a>Criar recursos de API do Azure Cosmos DB Gremlin a partir de um modelo do Resource Manager
+# <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Gerir recursos de API do Gremlin do Azure Cosmos DB utilizando modelos do Azure Resource Manager
 
-Saiba como criar um recursos de API do Gremlin do Azure Cosmos DB com um modelo Azure Resource Manager. O exemplo seguinte cria um Azure Cosmos DB Gremlin API a partir de um [modelo de início rápido do Azure](https://aka.ms/gremlin-arm-qs). Este modelo irá criar uma conta do Cosmos do Azure para a API do Gremlin com dois gráficos que partilham 400 débito de RU/s ao nível da base de dados.
+## Criar API do Azure Cosmos DB para a conta do MongoDB, base de dados e coleção <a id="create-resource"></a>
 
-Esta é uma cópia do modelo:
+Crie recursos do Azure Cosmos DB com um modelo Azure Resource Manager. Este modelo irá criar uma conta do Cosmos do Azure para a API do Gremlin com dois gráficos que partilham 400 débito de RU/s ao nível da base de dados. Copiar o modelo e implementar, conforme mostrado abaixo ou visite [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin/) e implementar a partir do portal do Azure. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
 
 [!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
 
@@ -47,7 +47,48 @@ az cosmosdb show --resource-group $resourceGroupName --name accountName --output
 
 O `az cosmosdb show` comando mostra a conta do Cosmos do Azure recentemente criada após ele ter sido aprovisionado. Se optar por utilizar uma versão instalada localmente da CLI do Azure em vez de usar CloudShell, consulte [Interface de linha de comandos (CLI do Azure)](/cli/azure/) artigo.
 
-No exemplo anterior, tem de referenciar um modelo armazenado no GitHub. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
+## Atualizar o débito (RU/s) num banco de dados <a id="database-ru-update"></a>
+
+O modelo seguinte irá atualizar o débito das bases de dados. Copiar o modelo e implementar, conforme mostrado abaixo ou visite [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-database-ru-update/) e implementar a partir do portal do Azure. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
+
+[!code-json[cosmosdb-gremlin-database-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json)]
+
+### <a name="deploy-database-template-via-azure-cli"></a>Implementar o modelo de banco de dados através da CLI do Azure
+
+Para implementar o modelo do Resource Manager com CLI do Azure, selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-database-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName throughput=$throughput
+```
+
+## Débito (RU/s) num gráfico de atualização <a id="graph-ru-update"></a>
+
+O modelo seguinte irá atualizar a taxa de transferência de um gráfico. Copiar o modelo e implementar, conforme mostrado abaixo ou visite [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-gremlin-graph-ru-update/) e implementar a partir do portal do Azure. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
+
+[!code-json[cosmosdb-gremlin-graph-ru-update](~/quickstart-templates/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json)]
+
+### <a name="deploy-graph-template-via-azure-cli"></a>Implementar o modelo de gráfico através da CLI do Azure
+
+Para implementar o modelo do Resource Manager com CLI do Azure, selecione **experimente** para abrir o Azure Cloud shell. Colar o script, o shell com o botão direito e, em seguida, selecione **colar**:
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the graph name: ' graphName
+read -p 'Enter the new throughput: ' throughput
+
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-gremlin-graph-ru-update/azuredeploy.json \
+   --parameters accountName=$accountName databaseName=$databaseName graphName=$graphName throughput=$throughput
+```
 
 ## <a name="next-steps"></a>Próximos Passos
 

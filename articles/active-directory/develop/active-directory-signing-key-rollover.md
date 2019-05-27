@@ -17,15 +17,15 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b47430b4bd2f7fa6811785247ae6cd4f6df6f8f5
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: f809fa856d39096a85dcc205d8211ba3551eeb48
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546132"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962862"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Iniciar o rollover da chave no Azure Active Directory
-Este artigo aborda o que precisa saber sobre as chaves públicas que são utilizadas no Azure Active Directory (Azure AD) para assinar os tokens de segurança. É importante observar que esses rollover de chaves periodicamente e, em caso de emergências, foi implementado imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de manipular o processo de rollover de chave ou estabeleça um processo periódico rollover manual de por meio de programação. Continue a ler para compreender como funcionam as chaves, como avaliar o impacto de rollover para seu aplicativo e como atualizar a sua aplicação ou estabelecer um processo de rollover manual periódica para lidar com o rollover da chave, se necessário.
+Este artigo aborda o que precisa saber sobre as chaves públicas que são utilizadas no Azure Active Directory (Azure AD) para assinar os tokens de segurança. É importante observar que essas chaves são acumuladas periodicamente e, numa emergência, foi implementadas imediatamente. Todas as aplicações que utilizam o Azure AD devem ser capazes de manipular o processo de rollover de chave ou estabeleça um processo periódico rollover manual de por meio de programação. Continue a ler para compreender como funcionam as chaves, como avaliar o impacto de rollover para seu aplicativo e como atualizar a sua aplicação ou estabelecer um processo de rollover manual periódica para lidar com o rollover da chave, se necessário.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Descrição geral das chaves de autenticação no Azure AD
 Azure AD utiliza a criptografia de chave pública criada com os padrões do setor para estabelecer confiança entre ele e os aplicativos que a utilizam. Em termos práticos, isso funciona da seguinte forma: Azure AD utiliza uma chave de assinatura que consiste num par de chaves público e privado. Quando um utilizador inicia sessão a uma aplicação que utiliza o Azure AD para autenticação, o AD do Azure cria um token de segurança que contém informações sobre o utilizador. Este token está assinado pelo Azure AD utilizando a respetiva chave privada, antes de ser enviada para a aplicação. Para verificar que o token é válido e originados do Azure AD, a aplicação tem de validar a assinatura do token com a chave pública exposta pelo Azure AD que está contido do inquilino [documento de deteção de ligação OpenID](https://openid.net/specs/openid-connect-discovery-1_0.html) ou SAML / WS-Fed [documento de metadados de Federação](azure-ad-federation-metadata.md).
@@ -43,7 +43,7 @@ Como o seu aplicativo manipula o rollover da chave depende de variáveis, como o
 * [Aplicações Web / APIs proteger os recursos através do .NET OWIN OpenID Connect, WS-Fed ou WindowsAzureActiveDirectoryBearerAuthentication middleware](#owin)
 * [Aplicações Web / APIs proteger recursos com .NET Core OpenID Connect ou JwtBearerAuthentication middleware](#owincore)
 * [Aplicações Web / APIs proteger recursos com o módulo de passport-azure-ad de node. js](#passport)
-* [Aplicações Web / APIs proteger os recursos e criados com o Visual Studio 2015 ou Visual Studio 2017](#vs2015)
+* [Aplicações Web / APIs proteger os recursos e criado com o Visual Studio 2015 ou posterior](#vs2015)
 * [Aplicações Web de proteger os recursos e criado com o Visual Studio 2013](#vs2013)
 * APIs da Web, proteger os recursos e criado com o Visual Studio 2013
 * [Aplicações Web de proteger os recursos e criado com o Visual Studio 2012](#vs2012)
@@ -128,8 +128,8 @@ passport.use(new OIDCStrategy({
 ));
 ```
 
-### <a name="vs2015"></a>Aplicações Web / APIs proteger os recursos e criados com o Visual Studio 2015 ou Visual Studio 2017
-Se seu aplicativo foi criado com um modelo de aplicação web no Visual Studio 2015 ou Visual Studio 2017 e selecionou **trabalho e contas escolares** partir a **alterar autenticação** menu, que já tem, a lógica necessária para processar automaticamente o rollover da chave. Essa lógica, incorporada no middleware da OWIN OpenID Connect, recupera e armazena em cache as chaves do documento de deteção do OpenID Connect e atualiza periodicamente.
+### <a name="vs2015"></a>Aplicações Web / APIs proteger os recursos e criado com o Visual Studio 2015 ou posterior
+Se seu aplicativo foi criado com um modelo de aplicação web no Visual Studio 2015 ou posterior e selecionou **contas de trabalho ou escola** partir a **alterar autenticação** menu, já tem as informações necessárias lógica para lidar automaticamente com o rollover da chave. Essa lógica, incorporada no middleware da OWIN OpenID Connect, recupera e armazena em cache as chaves do documento de deteção do OpenID Connect e atualiza periodicamente.
 
 Se adicionar autenticação à sua solução manualmente, seu aplicativo poderá não ter a lógica de rollover de chave necessárias. Terá de escrevê-lo por conta própria ou siga os passos em [aplicações Web / APIs utilizando qualquer outra biblioteca ou implementar manualmente a qualquer um dos protocolos suportados](#other).
 

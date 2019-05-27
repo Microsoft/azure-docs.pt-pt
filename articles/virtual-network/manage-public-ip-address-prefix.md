@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: anavin
-ms.openlocfilehash: 82ee9d04785fc0f6ac534428bf411ca0fe3204ad
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 26d8ee34c735cab8f1033a9aad897ec0b1bed524
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65601506"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952676"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Criar, alterar ou eliminar um prefixo de endereço IP público
 
@@ -50,7 +50,7 @@ Prefixos de endereços IP públicos têm um custo. Para obter detalhes, consulte
    |Subscrição|Sim|Tem de existir na mesma [subscrição](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) como o recurso que pretende associar o endereço IP público a.|
    |Grupo de recursos|Sim|Pode existir na mesma ou diferentes, [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) como o recurso que pretende associar o endereço IP público a.|
    |Name|Sim|O nome tem de ser exclusivo no grupo de recursos que selecionar.|
-   |Região|Sim|Tem de existir na mesma [região](https://azure.microsoft.com/regions)como os endereços IP públicos irá atribuir endereços do intervalo. Prefixo é atualmente é a pré-visualização nos e.u.a. centro-oeste, E.U.A. oeste, E.U.A. oeste 2, E.U.A. Central, Europa do Norte, Europa Ocidental e Sudeste asiático.|
+   |Região|Sim|Tem de existir na mesma [região](https://azure.microsoft.com/regions)como os endereços IP públicos irá atribuir endereços do intervalo.|
    |Tamanho do prefixo|Sim| O tamanho do prefixo que é necessário. R/28 ou 16 endereços IP é a predefinição.
 
 **Comandos**
@@ -73,6 +73,13 @@ Depois de criar um prefixo, tem de criar o endereços IP estáticos a partir do 
    |Name|Sim|O nome do endereço IP público tem de ser exclusivo no grupo de recursos que selecionar.|
    |Tempo limite de inatividade (minutos)|Não|O número de minutos para manter uma ligação TCP ou HTTP aberta sem depender de clientes para enviar mensagens keep-alive. |
    |Etiqueta de nome DNS|Não|Tem de ser exclusivo dentro da região do Azure, que crie o nome de no (em todas as subscrições e todos os clientes). Azure regista automaticamente o nome e endereço IP no seu DNS para que possa ligar a um recurso com o nome. Azure acrescenta uma sub-rede de predefinição como *location.cloudapp.azure.com* (onde a localização é a localização que selecionou) para o nome que indicar, para criar o nome DNS completamente qualificado. Para obter mais informações, consulte [Use Azure DNS com um endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
+
+Em alternativa, pode utilizar a CLI e PS comandos abaixo, com a-- prefixo do ip público (CLI) e recursos de endereços de parâmetros - PublicIpPrefix (PS), para criar um IP público. 
+
+|Ferramenta|Comando|
+|---|---|
+|CLI|[az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create)|
+|PowerShell|[New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress?view=azps-2.0.0)|
 
 ## <a name="view-or-delete-a-prefix"></a>Ver ou eliminar um prefixo
 
