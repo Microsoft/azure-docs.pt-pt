@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 577f370c3be0f232be4e6628dd6754c4164ab93f
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13808871d67bb47dce82c5a3493fd89b0dfe1dcd
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785265"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952854"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticação de código de acesso único por e-mail (pré-visualização)
 
@@ -64,7 +64,7 @@ Pode ver os utilizadores convidados que autenticam com códigos de acesso Monous
 > Quando um usuário redeems um código de acesso único e mais tarde obtém uma MSA, a conta do Azure AD ou a outra conta federada, este irá continuar a ser autenticadas através de um código de acesso único. Se pretender atualizar o método de autenticação, pode eliminar a conta de utilizador convidado e reinvite-los.
 
 ### <a name="example"></a>Exemplo
-Utilizador convidado alexdoe@gmail.com é convidado a Fabrikam, o que não tem o Federação Google configurar. Alex não tem uma conta Microsoft. Ele vai receber um código de acesso único para autenticação.
+Utilizador convidado alexdoe@gmail.com é convidado a Fabrikam, o que não tem o Federação Google configurar. Alex não tem uma conta Microsoft. Receberá um código de acesso único para autenticação.
 
 ## <a name="opting-in-to-the-preview"></a>Aceitar para a pré-visualização 
 Poderá demorar alguns minutos para que a ação de participação ativa entrem em vigor. Depois disso, apenas os utilizadores convidados recentemente que cumprem as condições acima irão utilizar a autenticação de código de acesso único. Utilizadores convidados que anteriormente resgatar um convite irão continuar a utilizar o mesmo método de autenticação.

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 662260c3cf37f8f8a675c522f3d3dea41153e485
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f086850ecc2f15c41ab89db34b16d6d2e4a229cb
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60853149"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956216"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Utilizar referências de Key Vault para o serviço de aplicações e as funções do Azure (pré-visualização)
 
@@ -67,7 +67,7 @@ Em alternativa:
 
 ## <a name="source-application-settings-from-key-vault"></a>Definições da aplicação de origem do Cofre de chaves
 
-Referências do Key Vault podem ser utilizadas como valores para [as definições da aplicação](web-sites-configure.md#app-settings), permitindo-lhe manter os segredos no Cofre de chaves em vez de configuração do site. Definições da aplicação em segurança são encriptadas em inatividade, mas se precisar de capacidades de gestão de segredos, deve ir para o Cofre de chaves.
+Referências do Key Vault podem ser utilizadas como valores para [as definições da aplicação](configure-common.md#configure-app-settings), permitindo-lhe manter os segredos no Cofre de chaves em vez de configuração do site. Definições da aplicação em segurança são encriptadas em inatividade, mas se precisar de capacidades de gestão de segredos, deve ir para o Cofre de chaves.
 
 Para utilizar uma referência do Cofre de chaves para uma definição de aplicação, defina a referência como o valor da definição. A aplicação pode referenciar o segredo através da respetiva chave como habitualmente. Sem alterações de código são necessárias.
 

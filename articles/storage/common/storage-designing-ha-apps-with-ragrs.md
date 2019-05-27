@@ -10,12 +10,12 @@ ms.date: 01/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c4d213a7c08162ef0b107572cfb79b6e96e271d6
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5f8d8d96e15fe3b59cb288a9a1cf6c547312fe67
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205488"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951307"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Conceber aplicações de elevada disponibilidade com RA-GRS
 
@@ -54,7 +54,7 @@ O objetivo deste artigo é mostrar-lhe como criar uma aplicação que continuar�
 
 A solução proposta parte do princípio de que é aceitável para retornar dados potencialmente obsoletos ao aplicativo de chamada. Como dados na região secundária são eventualmente consistentes, é possível que a região primária poderão ficar inacessível antes de concluir uma atualização para a região secundária a replicar.
 
-Por exemplo, suponha que seu cliente submete uma atualização com êxito, mas a região primária falha antes da atualização é propagada para a região secundária. Quando o cliente pede ler os dados novamente, ele recebe os dados obsoletos da região secundária, em vez dos dados atualizados. Ao conceber a sua aplicação, tem de decidir se isso é aceitável e, se assim for, como será a mensagem do cliente. 
+Por exemplo, suponha que seu cliente submete uma atualização com êxito, mas a região primária falha antes da atualização é propagada para a região secundária. Quando o cliente pede ler os dados de volta, eles recebem os dados obsoletos da região secundária, em vez dos dados atualizados. Ao conceber a sua aplicação, tem de decidir se isso é aceitável e, se assim for, como será a mensagem do cliente. 
 
 Mais tarde neste artigo, vamos mostrar como verificar a hora da última sincronização de dados secundários para verificar se o elemento secundário for atualizado.
 
@@ -74,7 +74,7 @@ Estas são as outras considerações, discutiremos no restante deste artigo.
 
 *   Dados eventualmente consistente e a hora da última sincronização
 
-*   Testes
+*   A testar
 
 ## <a name="running-your-application-in-read-only-mode"></a>Execução da sua aplicação no modo só de leitura
 
@@ -197,14 +197,14 @@ Para o cenário de terceiro, ao enviar pings para o ponto final de armazenamento
 
 O RA-GRS funciona ao replicar as transações da região primária para a secundária. Este processo de replicação garante que os dados na região secundária são *eventualmente consistente*. Isto significa que todas as transações na região primária, eventualmente, são apresentados na região secundária, mas que pode haver um atraso antes de serem apresentados e que não há nenhuma garantia chegam, as transações na região secundária na mesma ordem em que eles original de aplicação na região primária. Se suas transações chegarem na região secundária fora de ordem, *poderá* considere seus dados na região secundária para estar num estado inconsistente, até que o serviço captura a cópia de segurança.
 
-A tabela seguinte mostra um exemplo de como o que pode acontecer quando atualizar os detalhes de um empregado para tornar ela um membro do *administradores* função. Para efeitos deste exemplo, isto requer que Atualize o **funcionário** entidade e atualizar uma **função de administrador** entidade com uma contagem do número total de administradores. Observe como as atualizações são aplicadas fora de ordem na região secundária.
+A tabela seguinte mostra um exemplo de como o que pode acontecer quando atualizar os detalhes de um empregado para torná-los um membro do *administradores* função. Para efeitos deste exemplo, isto requer que Atualize o **funcionário** entidade e atualizar uma **função de administrador** entidade com uma contagem do número total de administradores. Observe como as atualizações são aplicadas fora de ordem na região secundária.
 
 | **tempo** | **Transação**                                            | **Replicação**                       | **Hora da última sincronização** | **Resultado** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transação r: <br> Inserir o funcionário <br> entidade no principal |                                   |                    | Transação A inserido para o primário,<br> não replicadas ainda. |
 | T1       |                                                            | Transação A <br> replicar para<br> secundária | T1 | R de transações replicada para o secundário. <br>Hora da última sincronização atualizada.    |
-| T2       | Transação b:<br>Atualizar<br> Entidade Employee<br> no principal  |                                | T1                 | Transação B escrito para o servidor primário,<br> não replicadas ainda.  |
-| T3       | Transação c:<br> Atualizar <br>administrador<br>entidade de função no<br>principal |                    | T1                 | Transação C escrito para o servidor primário,<br> não replicadas ainda.  |
+| T2       | Transação b:<br>Actualizar<br> Entidade Employee<br> no principal  |                                | T1                 | Transação B escrito para o servidor primário,<br> não replicadas ainda.  |
+| T3       | Transação c:<br> Actualizar <br>administrador<br>entidade de função no<br>principal |                    | T1                 | Transação C escrito para o servidor primário,<br> não replicadas ainda.  |
 | *T4*     |                                                       | Transação C <br>replicar para<br> secundária | T1         | Transação C replicado para o secundário.<br>LastSyncTime não atualizada porque <br>transação B não tem sido replicada ainda.|
 | *T5*     | Entidades de leitura <br>partir do secundário                           |                                  | T1                 | Obtém o valor obsoleto de funcionário <br> entidade porque ainda não a transação B <br> replicadas ainda. Obtém o novo valor<br> entidade de função de administrador porque tem de C<br> replicadas. Hora da última sincronização ainda não<br> foi atualizado porque a transação B<br> ainda não replicadas. Pode dizer o<br>entidade de função de administrador é inconsistente <br>uma vez que a entidade data/hora é após <br>a hora da última sincronização. |
 | *T6*     |                                                      | Transação B<br> replicar para<br> secundária | T6                 | *T6* – tem todas as transações por meio da C <br>foram replicados, a hora da última sincronização<br> é atualizado. |
@@ -213,7 +213,7 @@ Neste exemplo, suponha que o cliente muda para leitura da região secundária em
 
 Reconhecer que tem dados potencialmente inconsistentes, o cliente pode utilizar o valor do *hora da última sincronização* que pode obter a qualquer momento, consultando um serviço de armazenamento. Isso informa ao tempo quando os dados na região secundária eram último consistente e quando o serviço fosse aplicada a todas as transações antes desse ponto no tempo. No exemplo mostrado acima, depois do serviço insere a **funcionário** entidade na região secundária, a hora da última sincronização estiver definida como *T1*. Ele continua a é *T1* até as atualizações de serviço a **funcionário** entidade na região secundária quando é definido como *T6*. Se o cliente obtém a hora da última sincronização quando ele lê a entidade na *T5*, ele pode compará-lo com o carimbo de hora na entidade. Se o carimbo de hora na entidade é posterior à hora da última sincronização, em seguida, a entidade está num estado inconsistente potencialmente e pode levar a que quer que esteja a ação adequada para a sua aplicação. Utilizar este campo exige que saiba quando a última atualização para o primário foi concluída.
 
-## <a name="testing"></a>Testes
+## <a name="testing"></a>A testar
 
 É importante testar seu aplicativo se comporta conforme o esperado quando encontrar erros de repetição. Por exemplo, precisa testar que o aplicativo alterna para o secundário e no modo só de leitura quando Deteta um problema e muda uma quando a região primária fique disponível novamente. Para tal, precisa de uma forma para simular erros de repetição e controle a frequência com que eles ocorrem.
 

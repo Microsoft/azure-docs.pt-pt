@@ -12,15 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9978905f8ae0719f6a77ca2351f2c43bbf94ee0
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: df5b53ccdcd33e2542834769baff5b759ff7b170
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550348"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962363"
 ---
 # <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicações móveis, chamadas de APIs web
 

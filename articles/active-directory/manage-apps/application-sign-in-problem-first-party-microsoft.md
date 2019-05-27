@@ -16,12 +16,12 @@ ms.date: 09/10/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 504c1bdeb05ecb6372be0edf023c480acac8a8a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825221"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956855"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao iniciar sessão para uma aplicação da Microsoft
 
@@ -87,7 +87,7 @@ Seguem-se alguns problemas comuns pessoal se deparar com seus usuários que não
 
 - Para **Microsoft** **aplicações que não requerem uma licença**, aqui estão algumas outras coisas para verificar:
 
-  * Se a aplicação está a solicitar **permissões ao nível do usuário** (por exemplo "aceder a caixa de correio deste utilizador"), certifique-se de que o utilizador tem sessão iniciada para a aplicação e efetuou uma **deoperaçãodeconsentimentoaoníveldoutilizador** para permitir que a aplicação aceder aos seus dados.
+  * Se a aplicação está a solicitar **permissões ao nível do usuário** (por exemplo "aceder a caixa de correio deste utilizador"), certifique-se de que o utilizador tem sessão iniciada para a aplicação e efetuou uma **deoperaçãodeconsentimentoaoníveldoutilizador** para permitir que a aplicação aceder aos respetivos dados.
 
   * Se a aplicação está a solicitar **permissões ao nível do administrador** (por exemplo "aceder a caixas de correio de todos os utilizadores"), certifique-se de que um Administrador Global efetuou uma **operação de consentimento de nível de administrador no nome de todos os utilizadores** na organização.
 

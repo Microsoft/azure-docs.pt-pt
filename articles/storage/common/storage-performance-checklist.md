@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 904b9b8ba98be5e14b1d769a0e1d8c2d6084e24d
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477301"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951171"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Descrição geral
 Desde o lançamento dos serviços de armazenamento do Microsoft Azure, a Microsoft desenvolveu um número de práticas comprovadas para utilizar estes serviços num modo de alto desempenho, e este artigo serve para consolidar o mais importante numa lista de estilo de lista de verificação. A intenção deste artigo é para o ajudar a desenvolvedores de aplicativos, certifique-se de que estão a utilizar as práticas comprovadas com armazenamento do Azure e para os ajudar a identificar outras práticas comprovadas que devem considerar adotar. Este artigo não tenta abordar todos os possíveis otimização de desempenho e escalabilidade — ela exclui as que são pequenos em seu impacto ou não amplamente aplicável. Na medida em que o comportamento do aplicativo pode ser previsto durante o design, é útil para tenha isso em mente, desde o início para evitar designs que serão executadas nos problemas de desempenho.  
 
-Todos os desenvolvedores de aplicativos com o armazenamento do Azure devem separar um tempo para ler este artigo e verificar que seu aplicativo segue cada uma das práticas comprovadas, listadas abaixo.  
+Todos os desenvolvedores de aplicativos com o armazenamento do Azure devem separar um tempo para ler este artigo e verificar que a respetiva aplicação segue cada uma das práticas comprovadas, listadas abaixo.  
 
 ## <a name="checklist"></a>Lista de verificação
 Este artigo organiza as práticas comprovadas para os seguintes grupos. Práticas comprovadas aplicáveis para:  
@@ -38,8 +38,8 @@ Este artigo organiza as práticas comprovadas para os seguintes grupos. Prática
 | &nbsp; | Todos os Serviços |Redes |[A aplicação cliente encontram-se "junto" a conta de armazenamento?](#subheading4) |
 | &nbsp; | Todos os Serviços |Distribuição de Conteúdos |[Está a utilizar uma CDN para distribuição de conteúdos?](#subheading5) |
 | &nbsp; | Todos os Serviços |Acesso de cliente direto |[Está a utilizar SAS e o CORS para permitir o acesso direto ao armazenamento em vez de proxy?](#subheading6) |
-| &nbsp; | Todos os Serviços |Colocação em cache |[Raramente é sua colocação em cache dados da aplicação que são usados repetidamente e as alterações?](#subheading7) |
-| &nbsp; | Todos os Serviços |Colocação em cache |[Seu aplicativo é processamento em lote atualizações (do lado do cliente de cache-los e, em seguida, a ser carregados em conjuntos de maiores)?](#subheading8) |
+| &nbsp; | Todos os Serviços |Colocação em Cache |[Raramente é sua colocação em cache dados da aplicação que são usados repetidamente e as alterações?](#subheading7) |
+| &nbsp; | Todos os Serviços |Colocação em Cache |[Seu aplicativo é processamento em lote atualizações (do lado do cliente de cache-los e, em seguida, a ser carregados em conjuntos de maiores)?](#subheading8) |
 | &nbsp; | Todos os Serviços |Configuração do .NET |[Já configurou seu cliente para utilizar um número suficiente de ligações simultâneas](#subheading9) |
 | &nbsp; | Todos os Serviços |Configuração do .NET |[Tiver configurado o .NET para utilizar um número suficiente de threads?](#subheading10) |
 | &nbsp; | Todos os Serviços |Configuração do .NET |[Está a utilizar o .NET 4.5 ou posterior, que melhorou a coleta de lixo?](#subheading11) |
@@ -159,7 +159,7 @@ Para obter mais informações sobre SAS, consulte [assinaturas de acesso partilh
 
 Para obter mais informações sobre o CORS, consulte [suporte de Cross-Origin Resource Sharing (CORS) para os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
-### <a name="caching"></a>Colocação em cache
+### <a name="caching"></a>Colocação em Cache
 #### <a name="subheading7"></a>Obtenção de dados
 Em geral, a obtenção de dados de um serviço, uma vez é melhor do que fazê-lo duas vezes. Considere o exemplo de uma aplicação de web MVC em execução numa função da web que já obtiver um blob de 50 MB do serviço de armazenamento para servir de conteúdo a um utilizador. A aplicação, em seguida, pode obter esse mesmo blob sempre que um utilizador solicita-lo ou ele pode colocar em cache localmente para o disco e reutilizar a versão em cache para pedidos de utilizador subsequentes. Além disso, sempre que um utilizador solicita os dados, o aplicativo foi possível problema obter com um cabeçalho condicional para hora de modificação, o que seria evitar a que o blob inteiro se este não foi modificado. Pode aplicar esse mesmo padrão para trabalhar com entidades da tabela.  
 

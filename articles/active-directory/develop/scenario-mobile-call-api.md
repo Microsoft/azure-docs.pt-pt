@@ -12,15 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: dadobali
+ms.author: jmprieur
+ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d8b138a566727f9172b627b8df3353e7216fa5
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 44b6c203583a082228c2ba1f4c5f6fdb04d059be
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65550328"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962379"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>Aplicação móvel que chama a APIs - web chamar uma API web
 

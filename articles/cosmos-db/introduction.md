@@ -4,14 +4,14 @@ description: Saiba mais sobre o Azure Cosmos DB. Esta base de dados de distribui
 author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 04/08/2019
+ms.date: 05/20/2019
 ms.author: rimman
-ms.openlocfilehash: bc14f654af80cf599a797b8f16b0e98fe4b3a209
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: a338cec213b82d54b08f2a11a969ddecf72ea7e5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551006"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953914"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 

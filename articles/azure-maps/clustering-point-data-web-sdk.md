@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: d4dc6f0c8fd2dff74a1997c9dca5a31abc70c03a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6dbd4461e7b8382ec3c4075b9688de59678f98f5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795924"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957325"
 ---
 # <a name="clustering-point-data"></a>Clustering de ponto de dados
 
@@ -33,7 +33,7 @@ var datasource = new atlas.source.DataSource(null, {
     //The radius in pixels to cluster points together.
     clusterRadius: 45,
 
-    //The maximium zoom level in which clustering occurs.
+    //The maximum zoom level in which clustering occurs.
     //If you zoom in more than this, all points are rendered as symbols.
     clusterMaxZoom: 15 
 });
@@ -46,9 +46,9 @@ O `DataSource` classe também tem os seguintes métodos relacionados com o clust
 
 | Método | Tipo de retorno | Descrição |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promessa&lt;funcionalidade&lt;Geometry, qualquer&gt; \| forma&gt; | Obtém os filhos do cluster especificado no próximo nível de zoom. Esses filhos podem ser uma combinação de formas e subclusters. Os subclusters será funcionalidades com propriedades correspondentes ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promessa&lt;matriz&lt;funcionalidade&lt;Geometry, qualquer&gt; \| forma&gt;&gt; | Obtém os filhos do cluster especificado no próximo nível de zoom. Esses filhos podem ser uma combinação de formas e subclusters. Os subclusters será funcionalidades com propriedades correspondentes ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;number&gt; | Calcula um nível de zoom em que o cluster irá iniciar a expansão ou dividir. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promessa&lt;funcionalidade&lt;Geometry, qualquer&gt; \| forma&gt; | Obtém todos os pontos de um cluster. Definir o `limit` devolve um subconjunto dos pontos e utilizar o `offset` à página através dos pontos. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promessa&lt;matriz&lt;funcionalidade&lt;Geometry, qualquer&gt; \| forma&gt;&gt; | Obtém todos os pontos de um cluster. Definir o `limit` devolve um subconjunto dos pontos e utilizar o `offset` à página através dos pontos. |
 
 ## <a name="display-clusters-using-a-bubble-layer"></a>Clusters de exibição usando uma camada de bolhas
 
@@ -89,7 +89,7 @@ Quando ocorrem eventos de mouse numa camada de conter pontos de dados em cluster
 | cluster | boolean | Indica se o recurso representa um cluster. |
 | cluster_id | string | Um ID exclusivo para o cluster que pode ser utilizado com a origem de dados `getClusterExpansionZoom`, `getClusterChildren`, e `getClusterLeaves` métodos. |
 | point_count | número | O número de pontos que contém o cluster. |
-| point_count_abbreviated | string | Uma cadeia de caracteres que abbreviates o valor de point_count se é longa. (por exemplo, 4.000 torna-se 4K) |
+| point_count_abbreviated | string | Uma cadeia de caracteres que abbreviates o `point_count` valor se for longa. (por exemplo, 4.000 torna-se 4K) |
 
 Este exemplo usa uma camada de bolhas que processa os pontos de cluster e adiciona um evento de clique que quando acionado, calcular e ampliar o mapa para o próximo nível de zoom em que o cluster irá interromper a diferença com o `getClusterExpansionZoom` método da `DataSource` classe e o `cluster_id` propriedade o clicado em cluster ponto de dados. 
 

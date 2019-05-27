@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: d62632d6c28ac137095307e95dbbdab7e8573bbc
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e09eec89c683d36df49110227488a6413ed371c
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137885"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955898"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no serviço de aplicações do Azure
 <a name="Overview"></a>
@@ -99,7 +99,7 @@ Recursos marcados com um * estão planeados devem se transformar em papeizinhos 
 * Definições de dimensionamento
 * Agendadores de WebJobs
 * Restrições de IP
-* Sempre Ativo
+* Always On
 * Definições de protocolo (HTTP**S**, versão do TLS, certificados de cliente)
 * Definições de registo de diagnóstico
 * CORS
@@ -217,7 +217,7 @@ Ao usar [troca automática](#Auto-Swap), algumas aplicações podem exigir açõ
 
 Para obter mais informações sobre como personalizar o `applicationInitialization` elemento, consulte [falhas de comutação da ranhura de implementação mais comuns e como corrigi-los](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
 
-Também pode personalizar o comportamento de aquecimento com um ou mais dos seguintes procedimentos [as definições da aplicação](web-sites-configure.md):
+Também pode personalizar o comportamento de aquecimento com um ou mais dos seguintes procedimentos [as definições da aplicação](configure-common.md):
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: O caminho para enviar um ping para aquecer seu site. Adicione esta definição de aplicação, especificando um caminho personalizado que começa com uma barra como o valor. Por exemplo, `/statuscheck`. O valor predefinido é `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: Códigos de resposta HTTP válidos para a operação de aquecimento. Adicione esta definição de aplicação com uma lista separada por vírgulas de códigos HTTP. Por exemplo: `200,202` . Se o código de estado devolvido não estiver na lista, as operações de aquecimento e troca são paradas. Por predefinição, todos os códigos de resposta são válidos.

@@ -17,17 +17,17 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7711c3476ac9118406a86430e5ade238bec2c028
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 9ecc90e13f49c231d8d3ab0cff1de91443b80f21
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918629"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65950892"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de identidade para a sua solução de identidade híbrida
 A primeira etapa na criação de uma solução de identidade híbrida é determinar os requisitos para a organização de negócios que tirar partido desta solução.  Identidade híbrida é iniciado como uma função de suporte (suporta todas as outras soluções na cloud, fornecendo autenticação) e prosseguirá para fornecer recursos novos e interessantes, que desbloqueiam novas cargas de trabalho para os utilizadores.  Estas cargas de trabalho ou serviços que deseja adotar para os seus utilizadores vão ditar os requisitos para o design de identidade híbrida.  Estes serviços e cargas de trabalho precisam tirar partido de identidade híbrida no local e na cloud.  
 
-Tem de rever estes aspetos-chave da empresa para compreender o que é um requisito agora e o que a empresa planeia para o futuro. Se não tiver a visibilidade da estratégia de longo prazo para o design da identidade híbrida, é provável que sua solução não será dimensionável à medida que a empresa necessidades mudam.   T ele diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e as cargas de trabalho que estão a ser desbloqueadas para os utilizadores. Este é apenas um exemplo de todos os recursos novos que podem ser desbloqueadas e entregues com uma estratégia de identidade híbrida sólido. 
+Tem de rever estes aspetos-chave da empresa para compreender o que é um requisito agora e o que a empresa planeia para o futuro. Se não tiver a visibilidade da estratégia de longo prazo para o design da identidade híbrida, é provável que sua solução não será dimensionável à medida que a empresa necessidades mudam. O diagrama abaixo mostra um exemplo de uma arquitetura de identidade híbrida e as cargas de trabalho que estão a ser desbloqueadas para os utilizadores. Este é apenas um exemplo de todos os recursos novos que podem ser desbloqueadas e entregues com uma estratégia de identidade híbrida sólido. 
 
 Alguns componentes que fazem parte da arquitetura de identidade híbrida ![arquitetura de identidade híbrida](./media/plan-hybrid-identity-design-considerations/hybrid-identity-architechture.png)
 

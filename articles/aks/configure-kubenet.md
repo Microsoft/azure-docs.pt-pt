@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: iainfou
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 4d2ab19fafc265d70028d5ee192efc60a5a8eaff
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a4ed3ec823982bf3977edf9939d98419e1c4b01f
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073972"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956387"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilizar kubenet networking com seus próprios intervalos de endereços IP no Azure Kubernetes Service (AKS)
 
@@ -22,6 +22,9 @@ Por predefinição, o AKS clusters uso [kubenet][kubenet], e uma rede virtual do
 Com o [Interface de rede contentor do Azure (CNI)][cni-networking], cada pod obtém um endereço IP da sub-rede e podem ser acedido diretamente. Estes endereços IP tem de ser exclusivos em seu espaço de rede e devem ser planeados com antecedência. Cada nó tem um parâmetro de configuração para o número máximo de pods que suporta. O número equivalente de endereços IP por nó, em seguida, é reservado com antecedência para esse nó. Esta abordagem requer um planejamento mais e, muitas vezes conduzem à exaustão de endereço IP ou a necessidade de recriar clusters numa sub-rede maior à medida que aumentam as suas exigências de aplicativo.
 
 Este artigo mostra-lhe como utilizar *kubenet* rede a fim de criar e utilizar uma sub-rede de rede virtual para um cluster do AKS. Para obter mais informações sobre as opções de rede e considerações, consulte [conceitos de rede para o Kubernetes e o AKS][aks-network-concepts].
+
+> [!WARNING]
+> Para utilizar conjuntos de nós do Windows Server (atualmente em pré-visualização no AKS), tem de utilizar o Azure CNI. O uso do kubenet como o modelo de rede não está disponível para contentores do Windows Server.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -149,6 +152,8 @@ Os seguintes intervalos de endereços IP também são definidos como parte do cl
     * Este intervalo de endereços tem de ser suficientemente grande para acomodar o número de nós que pretende dimensionar até. Não é possível alterar este intervalo de endereços assim que o cluster é implementado, se precisar de mais endereços para outros nós.
     * O intervalo de endereços IP de pod é usado para atribuir um */24* espaço para cada nó do cluster de endereços. No exemplo a seguir, o *– pod cidr* dos *192.168.0.0/16* atribui o primeiro nó *192.168.0.0/24*, o segundo nó *192.168.1.0/24*e o nó de terceiro *192.168.2.0/24*.
     * Como as escalas de cluster ou atualizações, a plataforma do Azure continua atribuir um intervalo de endereços IP de pod para cada novo nó.
+    
+* O *– o endereço de bridge do docker* permite que os nós do AKS comunicarem com a plataforma de gestão subjacente. Este endereço IP não tem de estar no intervalo de endereços IP de rede virtual do cluster e não deve se sobrepõe a outros intervalos de endereços em utilização na sua rede.
 
 ```azurecli-interactive
 az aks create \

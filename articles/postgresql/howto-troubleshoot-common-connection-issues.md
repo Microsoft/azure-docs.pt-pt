@@ -7,12 +7,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 9026b561f52b2d43fff2d3e36ba569d7b62a4684
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 8a0fe87703c9fb471174c761a6e8296e6e7a37ec
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65069031"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65952104"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-postgresql---single-server"></a>Resolver problemas de ligação à base de dados do Azure para PostgreSQL - servidor único
 
@@ -53,7 +53,7 @@ Se a aplicação de forma permanente falhar ligar à base de dados do Azure para
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Passos para resolver problemas de conectividade persistente
 
 1. Configurar [regras de firewall](howto-manage-firewall-using-portal.md) para permitir o endereço IP cliente. Temporários testes apenas para fins, configure uma regra de firewall com 0.0.0.0 como o endereço IP inicial e 255.255.255.255 como o endereço IP final a utilizar. Esta ação irá abrir o servidor para todos os endereços IP. Se isso resolve o problema de conectividade, remover esta regra e criar uma regra de firewall para um endereço IP adequadamente limitado ou intervalo de endereços.
-2. Em todas as firewalls entre o cliente e a internet, certifique-se de que a porta 3306 está aberta para ligações de saída.
+2. Em todas as firewalls entre o cliente e a internet, certifique-se de que a porta 5432 está aberta para ligações de saída.
 3. Certifique-se de que a cadeia de ligação e outras definições de ligação.
 4. Verifique o estado de funcionamento do serviço no dashboard. Se acha que há uma falha regional, consulte [descrição geral da continuidade do negócio com a base de dados do Azure para PostgreSQL](concepts-business-continuity.md) para obter passos para recuperar para uma nova região.
 

@@ -10,12 +10,12 @@ ms.date: 01/11/2018
 ms.author: mhopkins
 ms.reviewer: cbrooks
 ms.subservice: queues
-ms.openlocfilehash: b827894c633c425220bf94be1f51c52d464bd79b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 4ff54f9ca20c101de55bec2c7acf914c17bd7709
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410456"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65951206"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como utilizar o Armazenamento de filas do PHP
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -87,7 +87,7 @@ UseDevelopmentStorage=true
 Para criar um cliente do serviço de fila do Azure, tem de utilizar o **QueueRestProxy** classe. Pode usar qualquer uma das seguintes técnicas:
 
 * Transmita a cadeia de ligação direta para o mesmo.
-* Utilize variáveis de ambiente na sua aplicação Web para armazenar a cadeia de ligação. Ver [definições de configuração de aplicação web do Azure](../../app-service/web-sites-configure.md) documento para configurar cadeias de ligação.
+* Utilize variáveis de ambiente na sua aplicação Web para armazenar a cadeia de ligação. Ver [definições de configuração de aplicação web do Azure](../../app-service/configure-common.md) documento para configurar cadeias de ligação.
 Nos exemplos aqui descritos, a cadeia de ligação é transmitida diretamente.
 
 ```php

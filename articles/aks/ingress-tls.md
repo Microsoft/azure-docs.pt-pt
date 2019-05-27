@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 10690f156e81c4adebe6cf11d651791f7c05e735
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ae1ef2c51fba9186eb75bfec421fbbb05baa4582
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073851"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65956455"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Criar um controlador de entradas HTTPS no Azure Kubernetes Service (AKS)
 
@@ -40,6 +40,8 @@ Este artigo também requer a execução da versão 2.0.59 da CLI do Azure ou pos
 
 Para criar o controlador de entrada, utilize `Helm` para instalar *entrada de nginx*. Para maior redundância, as duas réplicas dos controladores de entrada de NGINX são implementadas com o `--set controller.replicaCount` parâmetro. Para beneficiar totalmente a execução de réplicas do controlador de entrada, certificar-se de que há mais de um nó no cluster do AKS.
 
+O controlador de entrada também tem de ser agendado num nó de Linux. Nós do Windows Server (atualmente em pré-visualização no AKS) não deve ser executado o controlador de entrada. Um Seletor de nó é especificado com o `--set nodeSelector` parâmetro para informar o agendador de Kubernetes para executar o controlador de entrada do NGINX num nó baseado em Linux.
+
 > [!TIP]
 > O exemplo seguinte cria um espaço de nomes do Kubernetes para os recursos de entrada com o nome *básico de entrada*. Especifique um espaço de nomes para o seu próprio ambiente, conforme necessário. Se o cluster do AKS não RBAC ativado, adicione `--set rbac.create=false` para os comandos do Helm.
 
@@ -48,7 +50,10 @@ Para criar o controlador de entrada, utilize `Helm` para instalar *entrada de ng
 kubectl create namespace ingress-basic
 
 # Use Helm to deploy an NGINX ingress controller
-helm install stable/nginx-ingress --namespace ingress-basic --set controller.replicaCount=2
+helm install stable/nginx-ingress \
+    --namespace ingress-basic \
+    --set controller.replicaCount=2 \
+    --set nodeSelector."beta.kubernetes.io/os"=linux
 ```
 
 Durante a instalação, um endereço IP público do Azure é criado para o controlador de entrada. Este endereço IP público é estático para o tempo de vida do controlador de entrada. Se eliminar o controlador de entrada, a atribuição de endereços IP pública é perdida. Se, em seguida, criar um controlador de entrada adicionais, é atribuído um novo endereço IP público. Se pretender manter a utilização do endereço IP público, em vez disso, pode [criar um controlador de entrada com um endereço IP público estático][aks-ingress-static-tls].
@@ -249,7 +254,7 @@ metadata:
   name: tls-secret
   namespace: ingress-basic
 spec:
-  secretName: tls-secret
+  secretName: tls-secret-staging
   dnsNames:
   - demo-aks-ingress.eastus.cloudapp.azure.com
   acme:
@@ -268,7 +273,7 @@ Para criar o recurso de certificado, utilize o `kubectl apply -f certificates.ya
 ```
 $ kubectl apply -f certificates.yaml
 
-certificate.certmanager.k8s.io/tls-secret created
+certificate.certmanager.k8s.io/tls-secret-staging created
 ```
 
 ## <a name="test-the-ingress-configuration"></a>Testar a configuração de entrada

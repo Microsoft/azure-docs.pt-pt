@@ -4,14 +4,14 @@ description: Saiba mais opções de configuração de cliente para melhorar o de
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/24/2018
+ms.date: 05/20/2019
 ms.author: sngun
-ms.openlocfilehash: e03fa427227bed745b53d43aaebc4dc58ad5bb9d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: feab3ee1a21a52e8b18d59e67e8410fcbeb4ff5e
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097900"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953795"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Sugestões de desempenho para o Azure Cosmos DB e .NET
 
@@ -164,7 +164,7 @@ Portanto, se está perguntando "como posso melhorar o desempenho da minha base d
  
 1. **Excluir caminhos não utilizados de indexação para escritas mais rápidas**
 
-    Política de indexação do cosmos DB permite-lhe especificar os caminhos de documento para incluir ou excluir da indexação ao tirar partido da indexação caminhos (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). O uso de caminhos de indexação pode oferecer desempenho aprimorado de escrita e de armazenamento de índice mais baixo para cenários em que os padrões de consulta são previamente conhecidos, como os custos de indexação são correlacionados diretamente para o número de caminhos exclusivos indexados.  Por exemplo, o código seguinte mostra como excluir uma seção inteira de documentos (também conhecido como uma subárvore) da utilização de indexação a "*" caráter universal.
+    Política de indexação do cosmos DB permite-lhe especificar os caminhos de documento para incluir ou excluir da indexação ao tirar partido da indexação caminhos (IndexingPolicy.IncludedPaths e IndexingPolicy.ExcludedPaths). O uso de caminhos de indexação pode oferecer desempenho aprimorado de escrita e de armazenamento de índice mais baixo para cenários em que os padrões de consulta são previamente conhecidos, como os custos de indexação são correlacionados diretamente para o número de caminhos exclusivos indexados.  Por exemplo, o código seguinte mostra como excluir uma seção inteira de documentos (uma subárvore) da utilização de indexação a "*" caráter universal.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };

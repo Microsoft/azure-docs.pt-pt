@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 194902cfa2992e4370b68bf140ec3a5e03f364ca
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 3fcc1926d580007750e7e1f5a3de06ef6578e1b5
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597700"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65957469"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizadas de ML de experimentações no Python
 
@@ -158,11 +158,9 @@ y = dprep.read_csv(simple_example_data_root + 'y.csv').to_long(dprep.ColumnSelec
 
 Pode especificar train separado e validação definida por meio de get_data() ou diretamente no `AutoMLConfig` método.
 
-## <a name="cross-validation-split-options"></a>Opções de divisão de validação cruzada
-
 ### <a name="k-folds-cross-validation"></a>K subconjuntos de validação cruzada
 
-Utilize `n_cross_validations` definição para especificar o número de cruzada validações. O conjunto de dados de treinamento será dividido aleatoriamente em `n_cross_validations` subconjuntos de tamanho igual. Durante cada validação cruzada redondo, um dos subconjuntos será utilizado para a validação do modelo com base em com os subconjuntos restantes. Este processo repete-se para `n_cross_validations` Arredonda por excesso até que cada subconjuntos de validação é utilizado uma vez como conjunto de validação. As pontuações média em todos os `n_cross_validations` rodadas serão reportadas e o modelo correspondente será reestruturar os em todo o conjunto de dados de preparação. 
+Utilize `n_cross_validations` definição para especificar o número de cruzada validações. O conjunto de dados de treinamento será dividido aleatoriamente em `n_cross_validations` subconjuntos de tamanho igual. Durante cada validação cruzada redondo, um dos subconjuntos será utilizado para a validação do modelo com base em com os subconjuntos restantes. Este processo repete-se para `n_cross_validations` Arredonda por excesso até que cada subconjuntos de validação é utilizado uma vez como conjunto de validação. As pontuações média em todos os `n_cross_validations` rodadas serão reportadas e o modelo correspondente será reestruturar os em todo o conjunto de dados de preparação.
 
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Monte Carlo entre validação (amostragem aleatória de secundárias repetida)
 
@@ -188,7 +186,7 @@ Consulte a [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tr
 
 ## <a name="configure-your-experiment-settings"></a>Configurar as definições de experimentação
 
-Existem várias opções que pode utilizar para configurar seu automatizada experimentação do machine learning. Esses parâmetros são definidos pela Instanciação de um `AutoMLConfig` objeto. Consulte a [AutoMLConfig classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) para obter uma lista completa de parâmetros.  
+Existem várias opções que pode utilizar para configurar seu automatizada experimentação do machine learning. Esses parâmetros são definidos pela Instanciação de um `AutoMLConfig` objeto. Consulte a [AutoMLConfig classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) para obter uma lista completa de parâmetros.
 
 Alguns exemplos incluem:
 
@@ -221,7 +219,7 @@ Alguns exemplos incluem:
 
 Os três diferentes `task` valores de parâmetro determinam a lista de algoritmos para aplicar.  Utilize o `whitelist` ou `blacklist` parâmetros para modificar ainda mais iterações com os algoritmos disponíveis para incluir ou excluir. A lista de modelos suportados pode ser encontrada na [SupportedAlgorithms classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py).
 
-## <a name="primary-metric"></a>Métrica primária
+### <a name="primary-metric"></a>Métrica primária
 A métrica primária; conforme mostrado nos exemplos acima determina a métrica a ser utilizado durante a preparação de modelos para otimização. A métrica primária, que pode selecionar é determinada pelo tipo de tarefa que escolher. Segue-se uma lista de métricas disponíveis.
 
 |Classificação | Regressão | Previsão de série temporal
@@ -232,15 +230,15 @@ A métrica primária; conforme mostrado nos exemplos acima determina a métrica 
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-## <a name="data-preprocessing--featurization"></a>O pré-processamento de dados & featurization
+### <a name="data-preprocessing--featurization"></a>O pré-processamento de dados & featurization
 
-Em cada automatizada experimentação do machine learning, os seus dados estão [automaticamente dimensionado e normalizados](concept-automated-ml.md#preprocess) para ajudar a algoritmos de bom desempenho.  No entanto, também pode ativar adicional pré-processamento/featurization, como em falta imputation de valores, codificação de mensagens em fila e transformações. [Saiba mais sobre o que featurization está incluído](how-to-create-portal-experiments.md#preprocess). 
+Em cada automatizada experimentação do machine learning, os seus dados estão [automaticamente dimensionado e normalizados](concept-automated-ml.md#preprocess) para ajudar a algoritmos de bom desempenho.  No entanto, também pode ativar adicional pré-processamento/featurization, como em falta imputation de valores, codificação de mensagens em fila e transformações. [Saiba mais sobre o que featurization está incluído](how-to-create-portal-experiments.md#preprocess).
 
 Para ativar este featurization, especifique `"preprocess": True` para o [ `AutoMLConfig` classe](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
-## <a name="time-series-forecasting"></a>Previsão de série temporal
+### <a name="time-series-forecasting"></a>Previsão de série temporal
 Para o tipo de tarefa de previsão de série de tempo tem parâmetros adicionais para definir.
-1. time_column_name - este é um parâmetro necessário que define o nome da coluna na série de data/hora que contém seu treinamento dados. 
+1. time_column_name - este é um parâmetro necessário que define o nome da coluna na série de data/hora que contém seu treinamento dados.
 1. max_horizon - isso define o período de tempo que pretende prever horizontalmente com base na periodicidade dos dados de treinamento. Por exemplo se tiver dados de treinamento com detalhamento de tempo diária, até que ponto por definir em dias em que quer que o modelo para treinar para.
 1. grain_column_names - isso define o nome de colunas que contêm dados de séries de tempo individuais em seus dados de treinamento. Por exemplo, se a previsão de vendas de uma determinada marca pela loja, definiria colunas de arquivo e marca como as colunas de intervalo de agregação.
 
@@ -287,60 +285,16 @@ run = experiment.submit(automl_config, show_output=True)
 >As dependências são instaladas pela primeira vez numa máquina nova.  Pode demorar até 10 minutos antes de saída é mostrada.
 >A definição `show_output` para `True` resulta na saída a ser apresentada na consola.
 
-## <a name="exit-criteria"></a>Critérios de saída 
+### <a name="exit-criteria"></a>Critérios de saída
 Existem algumas opções pode definir para concluir a sua experimentação.
-1. Não existem critérios - se não definir qualquer sair parâmetros que a experimentação vai continuar até que nenhum progresso adicional em sua métrica primária. 
+1. Não existem critérios - se não definir qualquer sair parâmetros que a experimentação vai continuar até que nenhum progresso adicional em sua métrica primária.
 1. Número de iterações - lhe define o número de iterações de experimentação para execução. Pode opcional adicionar iteration_timeout_minutes para definir um limite de tempo em minutos por cada iteração.
 1. Saia do após um período de tempo - usando experiment_timeout_minutes nas definições do que pode definir o período de tempo em minutos uma experimentação deve continuar em execução.
 1. Sair quando for alcançada uma pontuação - usando experiment_exit_score que pode optar por executar a experimentação, depois de uma classificação com base em sua métrica principal foi atingida.
 
-## <a name="explore-model-metrics"></a>Explorar métricas de modelo
-Pode ver os resultados num widget ou inline, se estiver num bloco de notas. Ver [controlar e avaliar modelos](how-to-track-experiments.md#view-run-details) para obter mais detalhes.
+### <a name="explore-model-metrics"></a>Explorar métricas de modelo
 
-
-### <a name="classification-metrics"></a>Métricas de classificação
-As métricas seguintes são salvas em cada iteração de uma tarefa de classificação.
-
-|Métrica|Descrição|Cálculo|Parâmetros adicionais
---|--|--|--|
-AUC_Macro| AUC é a área sob a curva de característica do Recetor operacional. Macro é a média aritmética de AUC para cada classe.  | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "macro"|
-AUC_Micro| AUC é a área sob a curva de característica do Recetor operacional. Micro é computada globalmente ao combinar os positivos verdadeiros e falsos positivos de cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | média = "micro"|
-AUC_Weighted  | AUC é a área sob a curva de característica do Recetor operacional. Ponderada é a média aritmética de classificação para cada classe, ponderada pelo número de instâncias verdadeiros em cada classe| [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html)|média = "ponderado"
-accuracy|A precisão é a porcentagem de etiquetas previstas que correspondam exatamente com as etiquetas verdadeiras. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html) |Nenhuma|
-average_precision_score_macro|Precisão média resume uma curva de recolhimento de precisão como a média ponderada de precisions alcançados em cada limite, com o aumento de Lembre-se de que o limiar anterior utilizado como o peso. Macro é a média aritmética da pontuação média de precisão de cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média = "macro"|
-average_precision_score_micro|Precisão média resume uma curva de recolhimento de precisão como a média ponderada de precisions alcançados em cada limite, com o aumento de Lembre-se de que o limiar anterior utilizado como o peso. Micro é computada globalmente com o combinam os positivos verdadeiros e falsos positivos em cada limite|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média = "micro"|
-average_precision_score_weighted|Precisão média resume uma curva de recolhimento de precisão como a média ponderada de precisions alcançados em cada limite, com o aumento de Lembre-se de que o limiar anterior utilizado como o peso. Ponderada é a média aritmética da pontuação média de precisão para cada classe, ponderada pelo número de instâncias verdadeiros em cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.average_precision_score.html)|média = "ponderado"|
-balanced_accuracy|Precisão equilibrada é a média aritmética de remoção para cada classe.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "macro"|
-f1_score_macro|F1 pontuação é a média harmônica de precisão e lembre-se. Macro é a média aritmética de pontuação F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "macro"|
-f1_score_micro|F1 pontuação é a média harmônica de precisão e lembre-se. Micro é computada globalmente por contagem de total positivos verdadeiros, falsos negativos e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "micro"|
-f1_score_weighted|F1 pontuação é a média harmônica de precisão e lembre-se. Média ponderada pela frequência de classe de pontuação F1 para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|média = "ponderado"|
-log_loss|Esta é a função de perda utilizada regressão logística de (multinomial) e extensões do mesmo como redes neurais, definidas como a probabilidade de registo de negativa das etiquetas verdadeiras tendo em conta as previsões de um classificador probabilístico. Para obter um exemplo único com true Etiquetar yt na {0,1} e estimado probabilidade yp esse yt = 1, a perda de log é – P de registo (yt&#124;yp) =-(yt log(yp) + (1 - yt) registo (1 - yp))|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|Nenhuma|
-norm_macro_recall|Normalizado Macro Lembre-se de é lembrar de Macro normalizados de modo a que o desempenho aleatório tem uma pontuação igual a 0 e desempenho perfeito tem uma pontuação de 1. Isto é conseguido ao norm_macro_recall: = (recall_score_macro - R) /(1-R), em que o R é o valor esperado de recall_score_macro para predições aleatórias (ou seja, R = 0,5 para classificação binária) e R=(1/C) para problemas de classificação de classe C|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "macro" e, em seguida, (recall_score_macro - R) /(1-R), em que o R é o valor esperado de recall_score_macro para predições aleatórias (ou seja, R = 0,5 para classificação binária) e R=(1/C) para problemas de classificação de classe C|
-precision_score_macro|Precisão é a percentagem de elementos identificados como uma determinada classe, que, na verdade, estão nessa classe. Macro é a média aritmética de precisão para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "macro"|
-precision_score_micro|Precisão é a percentagem de elementos identificados como uma determinada classe, que, na verdade, estão nessa classe. Micro é computada globalmente por contagem de total positivos verdadeiros e falsos positivos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "micro"|
-precision_score_weighted|Precisão é a percentagem de elementos identificados como uma determinada classe, que, na verdade, estão nessa classe. Ponderada é a média aritmética de precisão para cada classe, ponderado por número de instâncias verdadeiros em cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|média = "ponderado"|
-recall_score_macro|Lembre-se é a percentagem de elementos, na verdade, numa determinada classe, que estão identificadas corretamente. Macro é a média aritmética de remoção para cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "macro"|
-recall_score_micro|Lembre-se é a percentagem de elementos, na verdade, numa determinada classe, que estão identificadas corretamente. Micro é computada globalmente por contagem de total positivos verdadeiros, falsos negativos|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "micro"|
-recall_score_weighted|Lembre-se é a percentagem de elementos, na verdade, numa determinada classe, que estão identificadas corretamente. Ponderada é a média aritmética de remoção para cada classe, ponderado por número de instâncias verdadeiros em cada classe|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|média = "ponderado"|
-weighted_accuracy|Precisão ponderada é precisão em que o peso para cada exemplo é igual a proporção de instâncias verdadeiras na classe de verdadeiro esse exemplo|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight é um vetor igual a proporção dessa classe para cada elemento no destino|
-
-### <a name="regression-and-time-series-forecasting-metrics"></a>Métricas de previsão de série de regressão e de tempo
-As métricas seguintes são salvas em cada iteração para uma regressão ou a tarefa de previsão.
-
-|Métrica|Descrição|Cálculo|Parâmetros adicionais
---|--|--|--|
-explained_variance|Variância explicada é a proporção ao qual um modelo matemático contas para a variação de um determinado conjunto de dados. É que a percentagem de diminuir a variação dos dados originais para a variância dos erros. Quando a média dos erros for 0, é igual a variância explicada.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|Nenhuma|
-r2_score|R2 é o coeficiente de determinação ou a redução de percentagem de erros ao quadrado, em comparação comparada um modelo de linha de base que produz a média. Quando a média dos erros for 0, é igual a variância explicada.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|Nenhuma|
-spearman_correlation|Correlação de Spearman é uma medida nonparametric de monotonicidade da relação entre dois conjuntos de dados. Ao contrário de correlação Pearson, a correlação de Spearman não partem do princípio de que ambos os conjuntos de dados normalmente são distribuídos. Como outros coeficientes de correlação, isso varia entre -1 e + 1 com 0 indicando sem correlação. Correlações de -1 ou + 1 implicam uma relação de monotónica exata. Correlações positivas implicam que como x aumenta, assim como o y. Correlações negativas implicam que como x aumenta, y diminui.|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|Nenhuma|
-mean_absolute_error|Significa erro absoluto é o valor esperado de valor absoluto de diferença entre o destino e a predição|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Nenhuma|
-normalized_mean_absolute_error|Erro de absoluto mean normalizado é mean erro absoluto dividida pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|Divida por intervalo dos dados|
-median_absolute_error|Erro de absoluto mediano é o valor mediano de todas as diferenças absolutas entre o destino e a predição. Esta perda é robusta para valores atípicos.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Nenhuma|
-normalized_median_absolute_error|Erro de absoluto mediano normalizado é mediano erro absoluto dividido pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|Divida por intervalo dos dados|
-root_mean_squared_error|Raiz significar um erro ao quadrado é a raiz quadrada da diferença ao quadrado esperada entre o destino e a predição|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Nenhuma|
-normalized_root_mean_squared_error|Raiz normalizado significar um erro ao quadrado é raiz mean erros dividido pelo intervalo dos dados|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|Divida por intervalo dos dados|
-root_mean_squared_log_error|Raiz significa de erro do registo ao quadrado é a raiz quadrada do erro logarítmica ao quadrado esperado|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Nenhuma|
-normalized_root_mean_squared_log_error|Erro de registo ao quadrado mean normalizado raiz é dividido pelo intervalo dos dados de erro do registo ao quadrado médio de raiz|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divida por intervalo dos dados|
-
+Pode ver os resultados de treinamento num widget ou inline, se estiver num bloco de notas. Ver [controlar e avaliar modelos](how-to-track-experiments.md#view-run-details) para obter mais detalhes.
 
 ## <a name="understand-automated-ml-models"></a>Compreender os modelos de ML automatizados
 
@@ -358,7 +312,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Engenharia de funcionalidades automatizadas
 
-Ver a lista de pré-processamento e [automatizada de engenharia de funcionalidades](concept-automated-ml.md#preprocess) que acontece quando pré-processar = True.  
+Ver a lista de pré-processamento e [automatizada de engenharia de funcionalidades](concept-automated-ml.md#preprocess) que acontece quando pré-processar = True.
 
 Considere este exemplo:
 + Há 4 recursos de entrada: Um (numéricos), B (numéricos), C (numéricos), 1!d (DateTime)
@@ -370,7 +324,7 @@ Utilize estes 2 APIs no primeiro passo do modelo ajustado para saber mais.  Ver 
 
 + API 1: `get_engineered_feature_names()` devolve uma lista de nomes das funcionalidades de engenharia.
 
-  Utilização: 
+  Utilização:
   ```python
   fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
@@ -382,11 +336,11 @@ Utilize estes 2 APIs no primeiro passo do modelo ajustado para saber mais.  Ver 
   Esta lista inclui todos os nomes de recursos de engenharia.
 
   >[!Note]
-  >Utilizar 'timeseriestransformer' para tarefa = "previsão", utilize outra datatransformer para a tarefa "regressão" ou "classificação". 
+  >Utilizar 'timeseriestransformer' para tarefa = "previsão", utilize outra datatransformer para a tarefa "regressão" ou "classificação".
 
 + API 2: `get_featurization_summary()` devolve featurization resumo para todas as funcionalidades de entrada.
 
-  Utilização: 
+  Utilização:
   ```python
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
@@ -417,16 +371,16 @@ Utilize estes 2 APIs no primeiro passo do modelo ajustado para saber mais.  Ver 
     'EngineeredFeatureCount': 11,
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
-  
+
    Em que:
-   
+
    |Resultado|Definição|
    |----|--------|
-   |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.| 
+   |RawFeatureName|Nome de recurso/coluna de entrada do conjunto de dados fornecido.|
    |TypeDetected|Tipo de dados detetado da funcionalidade de entrada.|
    |Removido|Indica se a funcionalidade de entrada foi removida ou utilizada.|
    |EngineeringFeatureCount|Número de funcionalidades geradas por meio de transformações de engenharia de funcionalidade automatizada.|
-   |Transformações|Lista de transformações aplicadas a recursos para gerar a engenharia de funcionalidades de entrada.|  
+   |Transformações|Lista de transformações aplicadas a recursos para gerar a engenharia de funcionalidades de entrada.|
 
 ### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Dimensionamento/normalização e o algoritmo com valores hypermeter:
 
@@ -451,108 +405,36 @@ def print_model(model, prefix=""):
         else:
             pprint(step[1].get_params())
             print()
-                
+
 print_model(fitted_model)
 ```
 
-Eis a saída de exemplo:
+Segue-se a saída de exemplo para um pipeline com um algoritmo específico (LogisticRegression com RobustScalar, neste caso).
 
-+ Pipeline com um algoritmo específico (LogisticRegression com RobustScalar neste caso):
+```
+RobustScaler
+{'copy': True,
+'quantile_range': [10, 90],
+'with_centering': True,
+'with_scaling': True}
 
-  ```
-  RobustScaler
-  {'copy': True,
-   'quantile_range': [10, 90],
-   'with_centering': True,
-   'with_scaling': True}
-  
-  LogisticRegression
-  {'C': 0.18420699693267145,
-   'class_weight': 'balanced',
-   'dual': False,
-   'fit_intercept': True,
-   'intercept_scaling': 1,
-   'max_iter': 100,
-   'multi_class': 'multinomial',
-   'n_jobs': 1,
-   'penalty': 'l2',
-   'random_state': None,
-   'solver': 'newton-cg',
-   'tol': 0.0001,
-   'verbose': 0,
-   'warm_start': False}
-  ```
-  
-+ Pipeline com a abordagem de ensemble: Neste caso, é um ensemble 2 pipelines diferentes
+LogisticRegression
+{'C': 0.18420699693267145,
+'class_weight': 'balanced',
+'dual': False,
+'fit_intercept': True,
+'intercept_scaling': 1,
+'max_iter': 100,
+'multi_class': 'multinomial',
+'n_jobs': 1,
+'penalty': 'l2',
+'random_state': None,
+'solver': 'newton-cg',
+'tol': 0.0001,
+'verbose': 0,
+'warm_start': False}
+```
 
-  ```
-  prefittedsoftvotingclassifier
-  {'estimators': ['1', '18'],
-  'weights': [0.6666666666666667,
-              0.3333333333333333]}
-
-  1 - RobustScaler
-  {'copy': True,
-   'quantile_range': [25, 75],
-   'with_centering': True,
-   'with_scaling': False}
-  
-  1 - LightGBMClassifier
-  {'boosting_type': 'gbdt',
-   'class_weight': None,
-   'colsample_bytree': 0.2977777777777778,
-   'importance_type': 'split',
-   'learning_rate': 0.1,
-   'max_bin': 30,
-   'max_depth': 5,
-   'min_child_samples': 6,
-   'min_child_weight': 5,
-   'min_split_gain': 0.05263157894736842,
-   'n_estimators': 200,
-   'n_jobs': 1,
-   'num_leaves': 176,
-   'objective': None,
-   'random_state': None,
-   'reg_alpha': 0.2631578947368421,
-   'reg_lambda': 0,
-   'silent': True,
-   'subsample': 0.8415789473684211,
-   'subsample_for_bin': 200000,
-   'subsample_freq': 0,
-   'verbose': -10}
-  
-  18 - StandardScalerWrapper
-  {'class_name': 'StandardScaler',
-   'copy': True,
-   'module_name': 'sklearn.preprocessing.data',
-   'with_mean': True,
-   'with_std': True}
-  
-  18 - LightGBMClassifier
-  {'boosting_type': 'goss',
-   'class_weight': None,
-   'colsample_bytree': 0.2977777777777778,
-   'importance_type': 'split',
-   'learning_rate': 0.07894947368421053,
-   'max_bin': 30,
-   'max_depth': 6,
-   'min_child_samples': 47,
-   'min_child_weight': 0,
-   'min_split_gain': 0.2631578947368421,
-   'n_estimators': 400,
-   'n_jobs': 1,
-   'num_leaves': 14,
-   'objective': None,
-   'random_state': None,
-   'reg_alpha': 0.5789473684210527,
-   'reg_lambda': 0.7894736842105263,
-   'silent': True,
-   'subsample': 1,
-   'subsample_for_bin': 200000,
-   'subsample_freq': 0,
-   'verbose': -10}
-  ```
-  
 <a name="explain"></a>
 
 ## <a name="explain-the-model-interpretability"></a>Explicar o modelo (interpretability)

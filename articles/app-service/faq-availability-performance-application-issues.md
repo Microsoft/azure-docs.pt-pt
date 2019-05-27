@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 3dd61ae9298a03ce0cbb9e9a5b143229c15ea9bb
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f455985d2a7d05f45100d4a88b43c688fe1a7767
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786381"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65955761"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQs de desempenho da aplicação para aplicações Web no Azure
 
@@ -161,7 +161,7 @@ Considere mudar para processos de 64 bits, para que possa tirar partido da memó
 
 Observe também que um ambiente de 64 bits requer um plano de serviço básico ou Standard. Gratuito e partilhado planos sempre executados num ambiente de 32 bits.
 
-Para obter mais informações, consulte [configurar aplicações web no serviço de aplicações](web-sites-configure.md).
+Para obter mais informações, consulte [configurar aplicações web no serviço de aplicações](configure-common.md).
 
 ## <a name="why-does-my-request-time-out-after-230-seconds"></a>Por que motivo o meu tempo limite do pedido após segundos 230?
 

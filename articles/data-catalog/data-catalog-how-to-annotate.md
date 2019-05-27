@@ -8,12 +8,12 @@ ms.assetid: 5a7e6bb2-863c-4eca-b614-1c814920d9ed
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 3a66c8c5963972828723dd74ffe560a0e2240165
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18dfd9eb66c1dc71ecb14bb748d9cdd6afeb00a7
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61001941"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65953182"
 ---
 # <a name="how-to-annotate-data-sources"></a>Como anotar origens de dados
 ## <a name="introduction"></a>Introdução
@@ -27,9 +27,9 @@ Catálogo de dados reconhece que diferentes usuários têm diferentes perspectiv
 * O administrador de banco de dados sabe a agenda de cópia de segurança para cada base de dados e os windows de processamento do ETL permitidos.
 * O proprietário do sistema sabe o processo para que os utilizadores peçam acesso à origem de dados.
 * O responsável pelos dados sabe como mapeiam os ativos e os atributos da origem de dados para o modelo de dados da empresa.
-* O analista sabe como os dados são utilizados no contexto dos processos de negócios, que ele oferece suporte.
+* O analista sabe como os dados são utilizados no contexto dos processos de negócios, que eles oferecem suporte.
 
-Cada um desses perspetivas é valiosa, e o catálogo de dados utiliza uma abordagem de crowdsourcing aos metadados permite que cada um deles ser capturado e usado para oferecer uma visão completa das origens de dados registados. Com o portal do catálogo de dados, cada utilizador pode adicionar e editar suas própria anotações, enquanto a capacidade de ver anotações fornecidas por outros utilizadores.
+Cada um desses perspetivas é valiosa, e o catálogo de dados utiliza uma abordagem de crowdsourcing aos metadados permite que cada um deles ser capturado e usado para oferecer uma visão completa das origens de dados registados. Com o portal do catálogo de dados, cada utilizador pode adicionar e editar a suas própria anotações, enquanto a capacidade de ver anotações fornecidas por outros utilizadores.
 
 ## <a name="different-types-of-annotations"></a>Diferentes tipos de anotações
 Catálogo de dados suporta os seguintes tipos de anotações:
