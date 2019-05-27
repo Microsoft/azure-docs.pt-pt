@@ -51,7 +51,7 @@
           href: sql-database-connect-query-vscode.md
         - name: .NET com o Visual Studio
           href: sql-database-connect-query-dotnet-visual-studio.md
-        - name: .NET base
+        - name: .NET Core
           href: sql-database-connect-query-dotnet-core.md
         - name: .NET com MFA do Active Directory
           href: active-directory-interactive-connect-azure-sql-db.md
@@ -754,17 +754,3 @@
       href: /azure/architecture/
     - name: Histórias dos clientes
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
-    - name: Tarefas elásticas (preteridas)
-      items:
-        - name: Tarefas elásticas (preteridas)
-          href: sql-database-elastic-jobs-overview.md
-        - name: Instalar tarefas elásticas (preterido)
-          href: sql-database-elastic-jobs-service-installation.md
-        - name: Criar tarefa - Portal (preterido)
-          href: sql-database-elastic-jobs-create-and-manage.md
-        - name: Criar tarefa - Azure PowerShell (preterido)
-          href: sql-database-elastic-jobs-powershell.md
-        - name: Criar tarefa - Aplicação de exemplo (preterido)
-          href: sql-database-elastic-jobs-getting-started.md
-        - name: Desinstalar tarefa elástica (preterido)
-          href: sql-database-elastic-jobs-uninstall.md
