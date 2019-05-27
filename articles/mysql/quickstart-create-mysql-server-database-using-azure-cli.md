@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 10acb353e282508c838bee89b131d94dcd3fa7ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877824"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160393"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-azure-cli"></a>Início rápido: Criar uma Base de Dados do Azure para o servidor MySQL com a CLI do Azure
 
@@ -47,15 +47,15 @@ Crie uma Base de Dados do Azure para o servidor MySQL com o comando **[az mysql 
 
 **Definição** | **Valor de exemplo** | **Descrição**
 ---|---|---
-nome | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+name | mydemoserver | Escolha um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor MySQL. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | myResourceGroup | Indique o nome do grupo de recursos do Azure.
 nome de SKU | GP_Gen5_2 | O nome de SKU. Segue a convenção {escalão de preço}\_{geração de computação}\_{vCores} em estenografia. Veja abaixo desta tabela para obter mais informações sobre o parâmetro de nome de SKU.
 backup-retention | 7 | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35. 
-geo-redundant-backup | Desativado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
-localização | westus | A localização do Azure para o servidor.
-ssl-enforcement | Ativado | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
+geo-redundant-backup | Desactivado | Se as cópias de segurança georredundantes devem estar ativadas para este servidor ou não. Valores permitidos: Ativado, desativado.
+location | euaoeste | A localização do Azure para o servidor.
+ssl-enforcement | Enabled | Se SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, desativado.
 storage-size | 51200 | A capacidade de armazenamento do servidor (a unidade é megabytes). O tamanho de armazenamento válido é 5120 MB no mínimo e aumenta em incrementos de 1024 MB. Consulte o documento que contém os [escalões de preço](./concepts-pricing-tiers.md) para obter mais informações sobre limites de tamanho de armazenamento. 
-versão | 5.7 | A versão principal do MySQL.
+version | 5.7 | A versão principal do MySQL.
 admin-user | myadmin | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser**, **admin**, **administrador**, **raiz**, **convidado** nem **público**.
 admin-password | *palavra-passe segura* | A palavra-passe do utilizador administrador. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números e carateres não alfanuméricos.
 
@@ -208,8 +208,8 @@ mysql>
 |---|---|---|
 |   Nome da Ligação | A Minha Ligação | Especifique uma etiqueta para esta ligação (pode ser qualquer nome) |
 | Método de Ligação | escolha Standard (TCP/IP) | Utilizar o protocolo TCP/IP para ligar à Base de Dados do Azure para MySQL> |
-| Nome de anfitrião | mydemoserver.mysql.database.azure.com | O nome de servidor que apontou anteriormente. |
-| Porta | 3306 | É utilizada a porta predefinida para MySQL. |
+| Nome do Anfitrião | mydemoserver.mysql.database.azure.com | O nome de servidor que apontou anteriormente. |
+| Port | 3306 | É utilizada a porta predefinida para MySQL. |
 | Nome de utilizador | myadmin@mydemoserver | O início de sessão de administrador do servidor que apontou anteriormente. |
 | Palavra-passe | **** | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |
 

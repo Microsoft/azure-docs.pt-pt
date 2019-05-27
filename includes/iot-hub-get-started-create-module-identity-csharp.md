@@ -9,18 +9,18 @@ ms.date: 04/26/2018
 ms.author: menchi
 ms.custom: include file
 ms.openlocfilehash: e78c9a490d2ad02fb132d62b0ab0b55f15d3d4ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60741846"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166262"
 ---
 ## <a name="create-a-module-identity"></a>Criar uma identidade de módulo
 
 Nesta secção, vai criar uma aplicação de consola .NET que cria uma identidade de dispositivo e uma identidade de módulo no registo de identidade do seu hub IoT. Não é possível ligar um dispositivo ou módulo ao hub IoT, exceto se tiver uma entrada no registo de identidade. Para obter mais informações, consulte a [secção de registo de identidade do Guia do programador do IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md). Ao executar esta aplicação de consola, será gerado um ID e uma chave exclusivos para o dispositivo e o módulo. O dispositivo e o módulo utilizam estes valores para se identificarem quando enviam mensagens do dispositivo para cloud para o Hub IoT. Os IDs são sensíveis às maiúsculas e minúsculas.
 
 
-1. **Crie um projeto do Visual Studio** - No Visual Studio, adicione um projeto Visual C# - Windows Classic Desktop à nova solução ao utilizar o modelo de projeto **Console App (.NET Framework)**. Certifique-se de que tem a versão 4.6.1 ou posterior do .NET Framework. Atribua ao projeto o nome **CreateIdentities** e atribua à solução o nome **IoTHubGetStarted**.
+1. **Crie um projeto do Visual Studio** - No Visual Studio, adicione um projeto Visual C# - Windows Classic Desktop à nova solução ao utilizar o modelo de projeto **Console App (.NET Framework)** . Certifique-se de que tem a versão 4.6.1 ou posterior do .NET Framework. Atribua ao projeto o nome **CreateIdentities** e atribua à solução o nome **IoTHubGetStarted**.
 
     ![Criar uma solução do Visual Studio](./media/iot-hub-get-started-create-module-identity-csharp/create-identities-csharp1.JPG)
 

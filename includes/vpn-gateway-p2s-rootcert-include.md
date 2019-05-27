@@ -2,19 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-origin.date: 12/11/2018
-ms.date: 12/24/2018
-ms.author: v-jay
+ms.date: 12/11/2018
+ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 4c8e7e5272f180c482ca7fdd44302f49eb888b25
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60320240"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157346"
 ---
 Utilizar um certificado de raiz que tenha sido criado com uma solução empresarial (recomendada) ou gerar um certificado autoassinado. Depois de criar o certificado de raiz, exporte os dados de certificado público (não a chave privada) como ficheiro. cer X.509 com codificação de um Base64. Em seguida, carregue os dados de certificado público para o servidor do Azure.
 

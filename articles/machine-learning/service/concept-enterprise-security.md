@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 03/10/2019
-ms.openlocfilehash: b950e7d38235d089c6236c76136d8ec2fc7a1f74
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9762b8cadde86a2e64f8fa74a4e794bdf1109ec4
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60821368"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151193"
 ---
 # <a name="enterprise-security-for-azure-machine-learning-service"></a>Segurança empresarial para o serviço Azure Machine Learning
 
@@ -83,12 +83,12 @@ Cada área de trabalho também tem um associados atribuído de sistema de identi
 
 Para obter mais informações sobre identidades geridas, consulte [geridos identidades para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 
-| Recurso | Permissões |
+| Resource | Permissões |
 | ----- | ----- |
-| Área de trabalho | Contribuinte | 
+| Área de Trabalho | Contribuinte | 
 | Conta de Armazenamento | Contribuinte de Dados do Armazenamento de Blobs | 
-| Cofre de Chaves | Acesso a todos os certificados de chaves, segredos, | 
-| Registo de Contentores do Azure | Contribuinte | 
+| Key Vault | Acesso a todos os certificados de chaves, segredos, | 
+| Azure Container Registry | Contribuinte | 
 | Grupo de recursos que contém a área de trabalho | Contribuinte | 
 | Grupo de recursos que contém o Cofre de chaves (se diferente daquela que contém a área de trabalho) | Contribuinte | 
 
@@ -101,7 +101,7 @@ O serviço de Machine Learning do Azure cria uma aplicação adicional (nome ini
 
 O serviço Azure Machine Learning depende de outros serviços do Azure para recursos de computação. Recursos de computação (destinos de computação) são utilizados para preparar e implementar modelos. Estes computação destinos podem ser criados numa rede virtual. Por exemplo, pode utilizar a máquina de Virtual de ciência de dados do Microsoft para preparar um modelo e, em seguida, implementar o modelo para o Azure Kubernetes Service (AKS).  
 
-Para obter mais informações, consulte [como a execução de experimentações e inferência numa rede virtual](how-to-enable-virtual-network.md).
+Para obter mais informações, consulte [como executar experimentações e inferência de tipos numa rede virtual](how-to-enable-virtual-network.md).
 
 ## <a name="data-encryption"></a>Encriptação de dados
 
@@ -154,7 +154,7 @@ O diagrama seguinte mostra o fluxo de trabalho de área de trabalho de criar.
 Utilizador inicia sessão no Azure AD a partir de qualquer um dos clientes de serviço suportados do Azure Machine Learning (portal do Azure com a CLI, o SDK de Python,) e solicita o token do Azure Resource Manager adequado.  Utilizador, em seguida, chama o Azure Resource Manager para criar a área de trabalho.  Fornecedor de recursos para aprovisionar a área de trabalho do serviço do Azure Resource Manager contactos do Azure Machine Learning.  Recursos adicionais são criados na subscrição do cliente durante a criação da área de trabalho:
 * Cofre de chaves (para armazenar segredos)
 * Uma conta de armazenamento do Azure (incluindo o Blob & partilha de ficheiros)
-* O Azure Container Registry (para armazenar imagens do docker para inferência e experimentação)
+* O Azure Container Registry (para armazenar imagens do docker para experimentação e de inferência de tipos de classificação /)
 * O Application Insights (para armazenar a telemetria)
 
 Outras computações anexadas a uma área de trabalho (serviço Kubernetes do Azure, etc. VM) também podem ser aprovisionadas pelos clientes, conforme necessário. 
@@ -172,7 +172,7 @@ O diagrama seguinte mostra o fluxo de trabalho de treinamento.
 * O serviço do Azure Machine Learning é chamado com o ID do instantâneo para o instantâneo de código guardado acima
 * O Azure Machine Learning, que cria o serviço executar ID (opcional) e o token de serviço do Azure Machine Learning, que é posteriormente utilizado pelos destinos de computação, como o Machine Learning computação/VM para falar com o serviço Azure Machine Learning
 * Pode escolher qualquer uma computação gerida (ex. Computação de aprendizagem da máquina) ou de computação não-gerenciada (ex. VM) para executar suas tarefas de formação. Fluxo de dados é explicado para ambos os cenários a seguir:
-* (VM/HDInsight/Local – acedidos utilizando as credenciais SSH no Key Vault na subscrição da Microsoft) O serviço do Azure Machine Learning executa código de gerenciamento no destino de computação que:
+* (VM/HDInsight – acessado usando credenciais SSH no Key Vault na subscrição da Microsoft) O serviço do Azure Machine Learning executa código de gerenciamento no destino de computação que:
     1.  Prepara o ambiente (observação: O docker é uma opção para a VM/Local também. Veja os passos para a computação do Machine Learning abaixo compreender como em execução experimentação sobre funciona de contentor do docker)
     2.  O código de downloads
     3.  Configura as variáveis de ambiente/configurações
@@ -189,7 +189,7 @@ Este passo é mostrado no fluxo gravações de computação de treinamento de on
 ![Captura de ecrã que mostra criar fluxo de trabalho de área de trabalho](./media/enterprise-readiness/training-and-metrics.png)
 
 ### <a name="creating-web-services"></a>Criação de web services
-O diagrama seguinte mostra o fluxo de trabalho de inferência no qual o modelo é implementado como um serviço web.
+O diagrama seguinte mostra o fluxo de trabalho de inferência de tipos. Inferência de tipos ou modelo de classificação, é a fase em que o modelo implementado é utilizado para predição, mais comumente nos dados de produção.
 Consulte os detalhes abaixo:
 * Utilizador regista um modelo a utilizar um cliente, como o SDK do Azure ML
 * Utilizador cria a imagem usando o modelo, o ficheiro de classificação e outras dependências de modelo

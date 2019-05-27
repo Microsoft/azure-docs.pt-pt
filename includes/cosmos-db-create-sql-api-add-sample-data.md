@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: sngun
 ms.custom: include file
-ms.openlocfilehash: 92b739424d1d6f0e1eb89d5993718f5c36162204
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 127d67cc3b5dcd0ddd585470821eb1baa08c2388
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38733779"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151379"
 ---
 Pode agora utilizar o Data Explorer para adicionar dados à sua coleção nova.
 

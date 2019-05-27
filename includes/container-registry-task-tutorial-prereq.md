@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 05/02/2019
 ms.author: danlep
 ms.openlocfilehash: 6e0175173f17ae0958522517360b94ee80f3b2f9
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544956"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148976"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 

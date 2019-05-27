@@ -9,11 +9,11 @@ ms.date: 01/15/2019
 ms.author: rezas
 ms.custom: include file
 ms.openlocfilehash: 979ca857a4410a8efd1b211afc09a0563d76a1ba
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830150"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158629"
 ---
 Se avançar para o próximo artigo recomendado, pode manter os recursos que já criou e reutilizá-los.
 

@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: c49b9d5fdc0c17f16f1c80471a00dd53625dc6e8
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: MT
+ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236938"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160486"
 ---
-# <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos
+# <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos 
 
 Com o serviço do Azure Machine Learning, pode preparar o seu modelo numa variedade de recursos ou ambientes, coletivamente denominados [ __destinos de computação__](concept-azure-machine-learning-architecture.md#compute-target). Um destino de computação pode ser um computador local ou um recurso da nuvem, como uma computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  Também pode criar destinos de computação para a implementação de modelo conforme descrito em ["onde e como implementar os seus modelos"](how-to-deploy-and-where.md).
 
@@ -38,7 +38,7 @@ Neste artigo, irá aprender a utilizar vários destinos de computação para a p
 O serviço do Azure Machine Learning tem suporte variado em destinos de computação diferentes. Inicia um ciclo de vida de desenvolvimento do modelo típico com dev/experimentação numa pequena quantidade de dados. Nesta fase, recomendamos que utilize um ambiente local. Por exemplo, seu computador local ou uma VM com base na cloud. À medida que aumentar verticalmente o seu treinamento em conjuntos de dados maiores ou fazer o treinamento distribuído, recomendamos que utilize a computação do Azure Machine Learning para criar um cluster único ou vários node que é dimensionado automaticamente sempre que submete uma execução. Também pode anexar seus próprios recursos de computação, embora o suporte para vários cenários podem variar como detalhadas abaixo:
 
 
-|Destino de treinamento de computação| Aceleração por GPU | Automatizado<br/> a otimização de hiper-parâmetros | Automatizado</br> machine learning | O Azure Machine Learning Pipelines |
+|Destino de treinamento de computação| Aceleração por GPU | Automatizado<br/> a otimização de hiper-parâmetros | Automatizado<br/> machine learning | O Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -418,6 +418,10 @@ Em alternativa, pode:
 
 * Submeter a experimentação com um `Estimator` objeto conforme mostrado na [modelos de Train ML com estimadores](how-to-train-ml-models.md). 
 * Submeter uma experimentação [com a extensão da CLI](reference-azure-machine-learning-cli.md#experiments).
+
+## <a name="github-tracking-and-integration"></a>Controlo de GitHub e integração
+
+Quando inicia um treinamento execute onde o diretório de origem é um repositório de Git local, informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, o ID de consolidação atual para o repositório é registado como parte da história.
 
 ## <a name="notebook-examples"></a>Exemplos de bloco de notas
 

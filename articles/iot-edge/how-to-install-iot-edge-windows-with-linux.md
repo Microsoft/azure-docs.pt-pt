@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: bb47a1b828084673961a6d2c5657793b4437f294
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b7386cbbe18d7e05c2fbffb96f6214b468956192
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160579"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151707"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Utilize o IoT Edge no Windows para executar contentores do Linux
 
@@ -64,6 +64,13 @@ Pode ler mais sobre as opções de instalação diferente e parâmetros no artig
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
 2. Execute o PowerShell como administrador.
+
+   >[!NOTE]
+   >Utilize uma sessão de AMD64 do PowerShell para instalar o PowerShell (x86) do IoT Edge. Se não tiver a certeza de que tipo de sessão que está a utilizar, execute o seguinte comando:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. O **Deploy IoTEdge** comando verifica se o seu computador Windows é uma versão suportada, ativa a funcionalidade de contentores e, em seguida, transfere o tempo de execução do moby (que não é utilizado para contentores do Linux) e o runtime do IoT Edge. As predefinições de comando para contentores do Windows, por isso, declare Linux como o sistema operativo do contentor pretendido. 
 

@@ -6,14 +6,14 @@ author: cherylmc
 tags: azure-resource-manager
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 5/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: fa406ac2f1e0b89a1161660a49f2a4cb6f6d6c32
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 6b66a9cf28faccf5ba22bc016297f1d53febe533
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62105924"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157397"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure uma ligação de ponto a Site a uma VNet com a autenticação de certificados nativa do Azure: Portal do Azure
 
@@ -37,7 +37,7 @@ Pode utilizar os valores seguintes para criar um ambiente de teste ou consultá-
 
 * **Nome da VNet:** VNet1
 * **Espaço de endereços:** 192.168.0.0/16<br>Para este exemplo, utilizamos apenas um espaço de endereços. Pode ter mais do que um espaço de endereços para a sua VNet.
-* **Nome da sub-rede:** FrontEnd
+* **Nome da sub-rede:** Front-End
 * **Intervalo de endereços da sub-rede:** 192.168.1.0/24
 * **Subscrição:** Se tiver mais de uma subscrição, certifique-se de que está a utilizar correta.
 * **Grupo de recursos:** TestRG
@@ -108,7 +108,7 @@ O conjunto de endereços de cliente é um conjunto de endereços IP privados que
 
 ## <a name="tunneltype"></a>7. Configurar o tipo de túnel
 
-Pode selecionar o tipo de túnel. As duas opções de túnel são SSTP e IKEv2. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP. Pode optar por ativar uma ou ambas as opções. Selecione as caixas de verificação que a sua solução requer.
+Pode selecionar o tipo de túnel. As opções de túnel são OpenVPN, SSTP e IKEv2. O cliente strongSwan no Android e Linux e o cliente VPN IKEv2 nativo em dispositivos iOS e OSX utilizarão apenas o túnel IKEv2 para estabelecer a ligação. Os clientes Windows, primeiro, experimentam o IKEv2 e, se não conseguirem estabelecer a ligação, voltam ao SSTP. Pode utilizar o cliente de OpenVPN para ligar para o tipo de túnel OpenVPN.
 
 ![Tipo de túnel](./media/vpn-gateway-howto-point-to-site-resource-manager-portal/tunneltype.png)
 

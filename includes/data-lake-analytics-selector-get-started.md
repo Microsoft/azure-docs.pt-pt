@@ -9,11 +9,11 @@ ms.topic: include
 ms.date: 05/24/2018
 ms.custom: include file
 ms.openlocfilehash: 0b4ed63fa7f84e9726e42e4de344a7003d65138c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510051"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156460"
 ---
 > [!div class="op_single_selector"]
 > * [Portal](../articles/data-lake-analytics/data-lake-analytics-get-started-portal.md)

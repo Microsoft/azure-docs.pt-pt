@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
 ms.openlocfilehash: 7806599c1a2f1396ff4b07d6f0538057654029d7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738526"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66157135"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Integrar o Azure DevTest Labs no seu pipeline de entrega de integração do Azure DevOps e
 Pode utilizar o *do Azure DevTest Labs tarefas* extensão facilmente instalado em DevOps do Azure para integrar o seu pipeline de compilação e versão de CI/CD com o Azure DevTest Labs. A extensão instala três tarefas: 
@@ -179,7 +179,7 @@ A fase seguinte é criar uma imagem da VM recentemente implementada na sua inst�
 
    d. (Opcional) Para **Descrição**, introduza uma descrição para facilitar selecionar a imagem correta mais tarde.
 
-   e. Para **VM de laboratório de origem - ID de VM de laboratório de origem**, se tiver alterado o nome predefinido da variável de ambiente que foi preenchido automaticamente com o ID do laboratório VM por tarefa anterior, editá-lo aqui. O valor predefinido é **$(labVMId)**.
+   e. Para **VM de laboratório de origem - ID de VM de laboratório de origem**, se tiver alterado o nome predefinido da variável de ambiente que foi preenchido automaticamente com o ID do laboratório VM por tarefa anterior, editá-lo aqui. O valor predefinido é **$(labVMId)** .
 
    f. Para **variáveis de saída - ID de imagem personalizada**, precisa do ID da imagem recém-criada quando pretender gerir ou eliminá-lo. O nome predefinido da variável de ambiente que é preenchido automaticamente com este ID está definido **variáveis de saída** secção. Pode editar a variável, se necessário.
 
@@ -194,7 +194,7 @@ A etapa final é eliminar a VM que tenha implementado na sua instância do Azure
 
    a. Para **subscrição do Azure RM**, selecione uma ligação no **ligações de serviço do Azure disponíveis** listar ou criar uma ligação de permissões mais restrita a sua subscrição do Azure. Para obter mais informações, consulte [ponto final de serviço do Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
-   b. Para **ID da VM de laboratório**, se tiver alterado o nome predefinido da variável de ambiente que foi preenchido automaticamente com o ID do laboratório VM por tarefa anterior, editá-lo aqui. O valor predefinido é **$(labVMId)**.
+   b. Para **ID da VM de laboratório**, se tiver alterado o nome predefinido da variável de ambiente que foi preenchido automaticamente com o ID do laboratório VM por tarefa anterior, editá-lo aqui. O valor predefinido é **$(labVMId)** .
 
 1. Introduza um nome para o pipeline de lançamento e, em seguida, guardá-lo.
 1. Criar uma nova versão, selecione a compilação mais recente e implementá-la para o ambiente único no pipeline.

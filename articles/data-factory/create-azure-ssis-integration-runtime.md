@@ -13,11 +13,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361482"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66155209"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar Runtime de integração Azure-SSIS no Azure Data Factory
 
@@ -552,7 +552,7 @@ write-host("##### Completed #####")
 write-host("If any cmdlet is unsuccessful, please consider using -Debug option for diagnostics.")
 ```
 
-## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
+## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
 Nesta secção, vai utilizar o modelo Azure Resource Manager para criar o runtime de integração Azure-SSIS. Eis um exemplo passo a passo:
 

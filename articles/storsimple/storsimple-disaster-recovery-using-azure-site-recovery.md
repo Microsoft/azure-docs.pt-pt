@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
 ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59797539"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150524"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solução de recuperação após desastre automatizada com o Azure Site Recovery para partilhas de ficheiros alojadas no StorSimple
 
@@ -184,7 +184,7 @@ Pode criar um plano de recuperação no ASR para automatizar o processo de ativa
 
      Por exemplo, se o nome do plano de recuperação é fileServerpredayRP, em seguida, sua **variáveis**, **ligações** e **certificados** separador deverá aparecer da seguinte forma depois de adicionar todos os recursos.
 
-      ![Elementos](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
+      ![Recursos](./media/storsimple-disaster-recovery-using-azure-site-recovery/image5.png)
 
 1. Carregar o módulo de Runbook de série StorSimple 8000 na conta de automatização. Utilize os passos abaixo para adicionar um módulo:
    
@@ -321,7 +321,7 @@ Durante uma reativação pós-falha, contentores de volumes do StorSimple são a
    
    ![Iniciar a reativação pós-falha](./media/storsimple-disaster-recovery-using-azure-site-recovery/image10.png)
 
-## <a name="best-practices"></a>Melhores práticas
+## <a name="best-practices"></a>Melhores Práticas
 ### <a name="capacity-planning-and-readiness-assessment"></a>Avaliação de preparação de planejamento e capacidade
 #### <a name="hyper-v-site"></a>Site Hyper-V
 Utilize o [ferramenta Planeador de capacidade de utilizador](https://www.microsoft.com/download/details.aspx?id=39057) para estruturar o servidor, armazenamento e infraestrutura de rede para o seu ambiente de réplica do Hyper-V.

@@ -14,11 +14,11 @@ ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
 ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487809"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146853"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar a primeira fábrica de dados do Azure com a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -125,8 +125,8 @@ A tabela que se segue fornece descrições para as propriedades JSON utilizadas 
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| clusterSize |O tamanho do cluster do HDInsight. |
-| timeToLive |Especifica o tempo de inatividade do cluster do HDInsight, antes de ser eliminado. |
+| ClusterSize |O tamanho do cluster do HDInsight. |
+| TimeToLive |Especifica o tempo de inatividade do cluster do HDInsight, antes de ser eliminado. |
 | linkedServiceName |Especifica a conta de armazenamento que é utilizada para armazenar os registos que são gerados pelo HDInsight |
 
 Tenha em atenção os seguintes pontos:
@@ -171,13 +171,13 @@ A tabela que se segue fornece descrições para as propriedades JSON utilizadas 
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| type |O tipo de propriedade é definido para AzureBlob, uma vez que os dados estão contidos no armazenamento de blobs do Azure. |
+| tipo |O tipo de propriedade é definido para AzureBlob, uma vez que os dados estão contidos no armazenamento de blobs do Azure. |
 | linkedServiceName |Refere-se ao StorageLinkedService que criou anteriormente. |
 | fileName |Esta propriedade é opcional. Se omitir esta propriedade, serão escolhidos todos os ficheiros em folderPath. Neste caso, apenas o input.log é processado. |
-| type |Os ficheiros de registo estão no formato de texto, pelo que vamos utilizar TextFormat. |
+| tipo |Os ficheiros de registo estão no formato de texto, pelo que vamos utilizar TextFormat. |
 | columnDelimiter |as colunas nos ficheiros de registo são delimitadas por uma vírgula (,) |
-| frequency/interval |A frequência definida para o Mês, sendo o intervalo 1, o que significa que os setores de entrada estão disponíveis mensalmente. |
-| external |Esta propriedade é definida como verdadeira se os dados de entrada não forem gerados pelo serviço Data Factory. |
+| frequência/intervalo |A frequência definida para o Mês, sendo o intervalo 1, o que significa que os setores de entrada estão disponíveis mensalmente. |
+| externo |Esta propriedade é definida como verdadeira se os dados de entrada não forem gerados pelo serviço Data Factory. |
 
 ### <a name="outputdatasetjson"></a>outputdataset.json
 

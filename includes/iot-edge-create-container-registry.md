@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kgremban
 ms.openlocfilehash: 485a76cb91e5146f59e6be592ffd9cbba68e585a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576769"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146689"
 ---
 ## <a name="create-a-container-registry"></a>Criar um registo de contentores
 

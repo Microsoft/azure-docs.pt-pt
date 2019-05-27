@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904581"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165958"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
@@ -102,11 +102,11 @@ A tabela seguinte descreve os nomes e descrições das propriedades que são esp
 
 | Propriedade              | Descrição                              | Necessário |
 | :-------------------- | :--------------------------------------- | :------- |
-| nome                  | Nome da atividade no pipeline     | Sim      |
-| descrição           | Texto que descreve o que faz a atividade.  | Não       |
+| name                  | Nome da atividade no pipeline     | Sim      |
+| description           | Texto que descreve o que faz a atividade.  | Não       |
 | tipo                  | Para a atividade personalizada, é o tipo de atividade **personalizado**. | Sim      |
 | linkedServiceName     | Serviço ligado para o Azure Batch. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.  | Sim      |
-| command               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já está disponível no nó no conjunto do Azure Batch, podem ser ignorados o resourceLinkedService e folderPath. Por exemplo, pode especificar o comando para ser `cmd /c dir`, que é suportado nativamente por nó no conjunto de Batch do Windows. | Sim      |
+| Comando               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já está disponível no nó no conjunto do Azure Batch, podem ser ignorados o resourceLinkedService e folderPath. Por exemplo, pode especificar o comando para ser `cmd /c dir`, que é suportado nativamente por nó no conjunto de Batch do Windows. | Sim      |
 | resourceLinkedService | Serviço ligado do armazenamento do Azure para a conta de armazenamento onde está armazenado o aplicativo personalizado | Não&#42;       |
 | folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - ou seja, numa estrutura de hierarquia de pastas sob *folderPath* -a estrutura de pastas atualmente é aplanada quando os ficheiros são copiados para o Azure Batch. Ou seja, todos os ficheiros são copiados para uma única pasta com sem subpastas. Para contornar este comportamento, considere a comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, descomprimi-la com código personalizado no local desejado. | Não&#42;       |
 | referenceObjects      | Uma matriz de serviços ligados e conjuntos de dados existentes. Os serviços ligados e conjuntos de dados referenciada são transmitidos para o aplicativo personalizado no formato JSON para que seu código personalizado, pode referenciar recursos do Data Factory | Não       |

@@ -9,11 +9,11 @@ ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60679834"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147917"
 ---
 *Aquecer a Cache*  
 O disco com o anfitrião só de leitura de colocação em cache são capaz de lhe dar mais elevada IOPS que o limite de disco. Para obter este máximo desempenho de leitura da cache do anfitrião, primeiro deve entender o cache do disco. Isto garante que a leitura do IOs que a ferramenta de benchmark irá orientar no volume de CacheReads, na verdade, acessa o cache e não o disco diretamente. O resultado de acertos na cache em ESP adicionais da cache única ativada disco.

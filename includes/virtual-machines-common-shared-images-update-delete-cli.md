@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b34d37fa79ccb8344fdacd99877403d61ba5f5c2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8d0f9866864ca4b02ca6238be2ac44537a586c2d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138913"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157937"
 ---
 ## <a name="update-resources"></a>Atualizar recursos
 
@@ -33,6 +33,8 @@ Versão da imagem:
 - Regiões de destino
 - Exclusão de versão mais recente
 - Data de vida de fim de
+
+Se pretender adicionar regiões de réplica, não elimine a imagem gerida de origem. A imagem gerida de origem é necessária para replicar a versão da imagem a mais regiões. 
 
 Atualizar a descrição do uso de uma galeria ([atualização do az sig](https://docs.microsoft.com/cli/azure/sig?view=azure-cli-latest#az-sig-update). 
 

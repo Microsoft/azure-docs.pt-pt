@@ -9,11 +9,11 @@ ms.topic: include
 ms.service: iot-dps
 ms.custom: include file
 ms.openlocfilehash: 7708a0169187f3be5f9a09ec8f41e64c1ae7e958
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60736051"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151795"
 ---
 > [!div class="op_single_selector"]
 > * [Java](../articles/iot-dps/quick-enroll-device-x509-java.md)

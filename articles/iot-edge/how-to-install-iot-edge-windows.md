@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: e48ab075264423479e792848af522a890736a403
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8907ae61fb03b417a74eb32e1fd09aece75d5e2c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152695"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66151726"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalar o runtime do Azure IoT Edge no Windows
 
@@ -76,6 +76,13 @@ Este exemplo demonstra uma instalação manual com contentores do Windows:
 
 2. Execute o PowerShell como administrador.
 
+   >[!NOTE]
+   >Utilize uma sessão de AMD64 do PowerShell para instalar o PowerShell (x86) do IoT Edge. Se não tiver a certeza de que tipo de sessão que está a utilizar, execute o seguinte comando:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
+
 3. O **Deploy IoTEdge** comando verifica se o seu computador Windows é uma versão suportada, ativa a funcionalidade de contentores e, em seguida, transfere o tempo de execução moby e o runtime do IoT Edge. Por predefinição através de contentores do Windows, o comando. 
 
    ```powershell
@@ -111,12 +118,19 @@ Essa segunda opção, aprovisionar o dispositivo com o serviço de aprovisioname
 
 O exemplo seguinte demonstra uma instalação automática com contentores do Windows:
 
-1. Siga os passos em [criar e aprovisionar um dispositivo de periferia de TPM simulado no Windows](how-to-auto-provision-simulated-device-windows.md) para configurar o serviço de aprovisionamento de dispositivos e obter seu **ID de âmbito**, simular um dispositivo TPM e recuperar seu  **ID de registo**, em seguida, criar uma inscrição individual. Assim que o seu dispositivo é registado no IoT hub, prossiga com estes passos de instalação.  
+1. Siga os passos em [criar e aprovisionar um dispositivo TPM IoT Edge simulado no Windows](how-to-auto-provision-simulated-device-windows.md) para configurar o serviço de aprovisionamento de dispositivos e obter seu **ID de âmbito**, simular um dispositivo TPM e recuperar seu **ID de registo**, em seguida, criar uma inscrição individual. Assim que o seu dispositivo é registado no IoT hub, prossiga com estes passos de instalação.  
 
    >[!TIP]
    >Mantenha a janela que está a executar o simulador de TPM aberta durante a instalação e teste. 
 
 2. Execute o PowerShell como administrador.
+
+   >[!NOTE]
+   >Utilize uma sessão de AMD64 do PowerShell para instalar o PowerShell (x86) do IoT Edge. Se não tiver a certeza de que tipo de sessão que está a utilizar, execute o seguinte comando:
+   >
+   >```powershell
+   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
+   >```
 
 3. O **Deploy IoTEdge** comando verifica se o seu computador Windows é uma versão suportada, ativa a funcionalidade de contentores e, em seguida, transfere o tempo de execução moby e o runtime do IoT Edge. Por predefinição através de contentores do Windows, o comando. 
 
@@ -212,7 +226,7 @@ Para obter mais informações sobre os comandos que pode utilizar para interagir
 
 ## <a name="update-an-existing-installation"></a>Atualizar uma instalação existente
 
-Se já instalou o runtime do IoT Edge num dispositivo antes e aprovisionou-o com uma identidade do IoT Hub, em seguida, pode atualizar o tempo de execução sem ter de reintroduzir as informações do dispositivo. 
+Se já instalou o runtime do IoT Edge num dispositivo antes e aprovisionou-o com uma identidade do IoT Hub, em seguida, pode atualizar o tempo de execução sem ter de reintroduzir as suas informações de dispositivo. 
 
 Para obter mais informações, consulte [atualizar o daemon de segurança de IoT Edge e o tempo de execução](how-to-update-iot-edge.md).
 
@@ -262,7 +276,7 @@ O comando de implementar IoTEdge transfere e implementa o Daemon de segurança d
 
 ### <a name="initialize-iotedge"></a>Initialize-IoTEdge
 
-O comando Initialize IoTEdge configura o IoT Edge com a sua cadeia de ligação do dispositivo e os detalhes operacionais. Muitas das informações geradas por este comando, em seguida, é armazenada no ficheiro iotedge\config.yaml. O comando de inicialização aceita estes parâmetros comuns, entre outros. Para obter a lista completa, utilize os comandos `Get-Help Initialize-IoTEdge -full`. 
+O comando Initialize IoTEdge configura o IoT Edge com a sua cadeia de ligação do dispositivo e os detalhes operacionais. Muitas das informações geradas por este comando, em seguida, é armazenada no ficheiro iotedge\config.yaml. O comando de inicialização aceita estes parâmetros comuns, entre outros. Para obter a lista completa, utilize o comando `Get-Help Initialize-IoTEdge -full`. 
 
 | Parâmetro | Valores aceites | Comentários |
 | --------- | --------------- | -------- |

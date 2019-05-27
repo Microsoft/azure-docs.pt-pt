@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 01/27/2019
 ms.author: cynthn
 ms.openlocfilehash: ac400c86af8236ff5d67b8b6fbf99f6f4b1d36c9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65404994"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158230"
 ---
 Pode tirar partido das muitas oportunidades para monitorizar as suas VMs por recolher, visualizar e analisar o diagnóstico e registos de dados. Para fazer simples [monitorização](../articles/azure-monitor/overview.md) da sua VM, pode utilizar o ecrã de descrição geral para a VM no portal do Azure. Pode usar [extensões](../articles/virtual-machines/windows/extensions-features.md) para configurar os diagnósticos nas suas VMs para recolher dados de métricos adicionais. Também pode utilizar as opções de monitorização mais avançadas, como [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) e [do Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 

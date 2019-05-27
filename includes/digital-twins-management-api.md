@@ -9,11 +9,11 @@ ms.date: 12/28/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 1bd878460f9910f2ed9c7af8e80f349815ab9ed4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60921855"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157819"
 ---
 Nos exemplos abaixo, `YOUR_MANAGEMENT_API_URL` refere-se para o URI de APIs de duplos Digital:
 

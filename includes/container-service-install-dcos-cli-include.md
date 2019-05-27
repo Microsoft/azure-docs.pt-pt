@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 05/10/2016
 ms.author: rogardle
 ms.openlocfilehash: e2601d5200f0b8ebcfb856bffb871f01b3acb215
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60557584"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148951"
 ---
 > [!NOTE]
 > Esta ação é para trabalhar com clusters de ACS baseados em DC/SO. Não é necessário efetuar este procedimento para clusters de ACS com base em Swarm.

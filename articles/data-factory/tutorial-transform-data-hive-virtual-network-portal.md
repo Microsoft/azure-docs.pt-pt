@@ -12,11 +12,11 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085036"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66165242"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformar dados na Rede Virtual do Azure com a atividade do Hive no Azure Data Factory
 Neste tutorial, vai utilizar o portal do Azure para criar um pipeline do Data Factory que transforma os dados com a Atividade do Hive num cluster HDInsight que se encontra numa Rede Virtual do Azure (VNet). Vai executar os seguintes passos neste tutorial:
@@ -39,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 - **Conta de Armazenamento do Azure**. Tem de criar um script do Hive e carregá-lo para o armazenamento do Azure. A saída do script do Hive é armazenada nesta conta de armazenamento. Neste exemplo, o cluster HDInsight utiliza esta conta de Armazenamento do Azure como armazenamento primário. 
 - **Rede Virtual do Azure.** Se não tiver uma rede virtual do Azure, crie-a seguindo [estas instruções](../virtual-network/quick-create-portal.md). Neste exemplo, o HDInsight está numa Rede Virtual do Azure. Eis um exemplo de configuração da Rede Virtual do Azure. 
 
-    ![Criar a rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
+    ![Criar rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/create-virtual-network.png)
 - **Cluster HDInsight.** Criar um cluster do HDInsight e associe-o para a rede virtual que criou no passo anterior ao seguir este artigo: [Expandir HDInsight do Azure com uma rede Virtual do Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Eis um exemplo de configuração do HDInsight numa rede virtual. 
 
     ![HDInsight numa rede virtual](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)

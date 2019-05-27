@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60570679"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66168202"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Criar um integration runtime autoalojado
 

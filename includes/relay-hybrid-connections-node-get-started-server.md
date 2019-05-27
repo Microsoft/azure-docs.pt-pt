@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv
 ms.openlocfilehash: 531866ece1c4acacb926c9e9c6598158c1aa077f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553856"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150352"
 ---
 ### <a name="create-a-nodejs-application"></a>Criar uma aplicação Node.js
 

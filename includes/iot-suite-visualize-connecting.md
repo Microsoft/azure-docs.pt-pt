@@ -9,11 +9,11 @@ ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
 ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61449750"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147718"
 ---
 ## <a name="view-device-telemetry"></a>Ver a telemetria do dispositivo
 

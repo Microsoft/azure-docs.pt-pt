@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 2d4164037f9b61b911ce5caf60d4813d94f31dd6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60622783"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157089"
 ---
 > [!div class="op_single_selector"]
 > * [AZCopy](../articles/lab-services/devtest-lab-upload-vhd-using-azcopy.md)

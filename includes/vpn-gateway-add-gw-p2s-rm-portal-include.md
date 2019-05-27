@@ -9,11 +9,11 @@ ms.date: 10/24/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 2d84a905cba503119f1b6e0f0a1a7cbbf91b3a1f
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444323"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66157310"
 ---
 1. No portal, do lado esquerdo, clique em **+ Criar um recurso** e escreva "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** no resultado da pesquisa e clique na entrada. Sobre o **gateway de rede Virtual** página, clique em **criar** na parte inferior da página. É aberta a página **Criar gateway de rede virtual**.
 2. Na página **Criar gateway de rede virtual**, preencha os valores para o gateway de rede virtual.

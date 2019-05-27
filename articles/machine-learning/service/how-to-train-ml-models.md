@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 98f7dc2e295c0c994db9a0189814b0ef2a19b758
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60818497"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66153604"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Utilizar modelos com o Azure Machine Learning utilizando estimator
 
@@ -26,7 +26,7 @@ Para facilitar a preparação de modelos de aprendizagem profunda o Azure Machin
 
 ## <a name="train-with-an-estimator"></a>Preparar com um avaliador que esteja
 
-Depois de criar a sua [área de trabalho](concept-azure-machine-learning-architecture.md#workspace) e configure a sua [ambiente de desenvolvimento](how-to-configure-environment.md), preparar um modelo no Azure Machine Learning envolve os seguintes passos:  
+Depois de criar a sua [área de trabalho](concept-workspace.md) e configure a sua [ambiente de desenvolvimento](how-to-configure-environment.md), preparar um modelo no Azure Machine Learning envolve os seguintes passos:  
 1. Criar uma [destino de computação remota](how-to-set-up-training-targets.md) (Observe que também pode utilizar o computador local como destino de computação)
 2. Carregar seu [dados de treinamento](how-to-access-data.md) para arquivo de dados (opcional)
 3. Criar sua [script de treinamento](tutorial-train-models-with-aml.md#create-a-training-script)
@@ -119,6 +119,10 @@ Por fim, submeta a tarefa de preparação:
 run = experiment.submit(estimator)
 print(run.get_portal_url())
 ```
+
+## <a name="github-tracking-and-integration"></a>Controlo de GitHub e integração
+
+Quando inicia um treinamento execute onde o diretório de origem é um repositório de Git local, informações sobre o repositório são armazenadas no histórico de execuções. Por exemplo, o ID de consolidação atual para o repositório é registado como parte da história.
 
 ## <a name="examples"></a>Exemplos
 Para um bloco de notas que mostra as noções básicas do padrão de calculadora, consulte:

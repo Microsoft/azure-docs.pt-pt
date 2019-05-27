@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587367"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158843"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>Tutorial: Criar uma função personalizada para recursos do Azure com o Azure PowerShell
 
@@ -277,4 +277,4 @@ Para atualizar a função personalizada, pode atualizar o ficheiro JSON ou utili
 ## <a name="next-steps"></a>Passos Seguintes
 
 > [!div class="nextstepaction"]
-> [Criar funções personalizadas para recursos do Azure com o Azure PowerShell](custom-roles-powershell.md)
+> [Create custom roles for Azure resources using Azure PowerShell](custom-roles-powershell.md) (Utilizar o Azure PowerShell para criar funções personalizadas para recursos do Azure)

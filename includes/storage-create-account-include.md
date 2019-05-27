@@ -9,11 +9,11 @@ ms.date: 11/20/2018
 ms.author: tamram
 ms.custom: include file
 ms.openlocfilehash: 6d22f83ff9bcec685962934e415676bf8d948db0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "65757909"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158603"
 ---
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
 

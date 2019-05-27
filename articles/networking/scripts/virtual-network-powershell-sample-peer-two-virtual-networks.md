@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 6faf875893092496ee312e93d542d24c30abd1e1
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 65f578a82cba73a21ef8be559c3b229235a073ac
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56648851"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156880"
 ---
 # <a name="peer-two-virtual-networks"></a>Configurar o peering entre duas redes virtuais
 

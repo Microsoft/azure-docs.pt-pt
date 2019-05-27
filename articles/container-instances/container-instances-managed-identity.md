@@ -9,11 +9,11 @@ ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
 ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66152331"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Como utilizar identidades geridas com o Azure Container Instances
 
@@ -170,7 +170,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-Utilize o token de acesso para autenticar para o Key Vault e ler um segredo. Certifique-se de que substitua o nome do seu Cofre de chaves no URL (*https://mykeyvault.vault.azure.net/...*):
+Utilize o token de acesso para autenticar para o Key Vault e ler um segredo. Certifique-se de que substitua o nome do seu Cofre de chaves no URL (*https://mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"

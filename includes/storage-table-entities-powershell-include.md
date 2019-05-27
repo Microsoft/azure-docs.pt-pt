@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 03/27/2019
 ms.author: tamram
 ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541388"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159752"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -70,9 +70,9 @@ Get-AzTableRow -table $cloudTable | ft
 
 Este comando produz resultados semelhantes a tabela seguinte:
 
-| ID de utilizador | o nome de utilizador | partição | rowkey |
+| userid | username | partição | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CA |
+| 1 | Chris | Partition1 | AC |
 | 3 | Christine | Partition1 | WA |
 | 2 | Jessie | Partition2 | NM |
 | 4 | Steven | Partition2 | TX |
@@ -85,9 +85,9 @@ Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 
 Os resultados ter um aspeto semelhantes a tabela seguinte:
 
-| ID de utilizador | o nome de utilizador | partição | rowkey |
+| userid | username | partição | rowkey |
 |----|---------|---------------|----|
-| 1 | Chris | Partition1 | CA |
+| 1 | Chris | Partition1 | AC |
 | 3 | Christine | Partition1 | WA |
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Obter entidades para um valor específico numa coluna de específico
@@ -101,12 +101,12 @@ Get-AzTableRow -table $cloudTable `
 
 Esta consulta devolve um registo.
 
-|Campo|valor|
+|Campo|value|
 |----|----|
-| ID de utilizador | 1 |
-| o nome de utilizador | Chris |
+| userid | 1 |
+| username | Chris |
 | PartitionKey | Partition1 |
-| RowKey      | CA |
+| RowKey      | AC |
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Obter entidades utilizando um filtro personalizado 
 
@@ -118,12 +118,12 @@ Get-AzTableRow `
 
 Esta consulta devolve um registo.
 
-|Campo|valor|
+|Campo|value|
 |----|----|
-| ID de utilizador | 1 |
-| o nome de utilizador | Chris |
+| userid | 1 |
+| username | Chris |
 | PartitionKey | Partition1 |
-| RowKey      | CA |
+| RowKey      | AC |
 
 ### <a name="updating-entities"></a>A atualização de entidades 
 
@@ -153,10 +153,10 @@ Get-AzTableRow -table $cloudTable `
 
 Os resultados mostram o registo de Jessie2.
 
-|Campo|valor|
+|Campo|value|
 |----|----|
-| ID de utilizador | 2 |
-| o nome de utilizador | Jessie2 |
+| userid | 2 |
+| username | Jessie2 |
 | PartitionKey | Partition2 |
 | RowKey      | NM |
 

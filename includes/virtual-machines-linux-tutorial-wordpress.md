@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65919809"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66161695"
 ---
 ## <a name="install-wordpress"></a>Instalar o WordPress
 

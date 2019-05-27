@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/22/2019
 ms.author: jingwang
-ms.openlocfilehash: 6af5c8cdad00802052f08be844f77d36420da3c9
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9f6edc45316eaeceb75da643ed64b39382712852
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142360"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165947"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de ficheiro suportados e codecs de compactação no Azure Data Factory
 
@@ -29,7 +29,7 @@ Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (bin
 * [Formato Avro](#avro-format)
 
 > [!TIP]
-> Saiba como a atividade de cópia mapeia os dados de origem para o sink de [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md), incluindo como os metadados é determinado com base nas suas definições do formato de ficheiro e sugestões sobre quando especificar o [conjunto de dados `structure` ](concepts-datasets-linked-services.md#dataset-structure-or-schema) secção.
+> Saiba como a atividade de cópia mapeia os dados de origem para o sink de [mapeamento de esquema na atividade de cópia](copy-activity-schema-and-type-mapping.md).
 
 ## <a name="text-format"></a>Formato de texto
 
@@ -40,7 +40,7 @@ Se quiser ler um arquivo de texto ou escrever num ficheiro de texto, defina o `t
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar para utilizar um caráter não imprimíveis raro que pode não existir nos seus dados. Por exemplo, especifica "\u0001", que representa o início do cabeçalho (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)**. <br/><br/>Para utilizar um caráter Unicode, veja [caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
+| columnDelimiter |O caráter utilizado para separar colunas num ficheiro. Pode considerar para utilizar um caráter não imprimíveis raro que pode não existir nos seus dados. Por exemplo, especifica "\u0001", que representa o início do cabeçalho (SOH). |Só é permitido um caráter. O valor **predefinido** é a **vírgula (“,”)** . <br/><br/>Para utilizar um caráter Unicode, veja [caracteres Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) para obter o código correspondente para o mesmo. |Não |
 | rowDelimiter |O caráter utilizado para separar linhas num ficheiro. |Só é permitido um caráter. O valor **predefinido** é um dos seguintes valores: **["\r\n", "\r", "\n"]** na leitura e **"\r\n"** na escrita. |Não |
 | escapeChar |O caráter especial utilizado para escapar a um delimitador de colunas no conteúdo do ficheiro de entrada. <br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: Se utilizar a vírgula (",") como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: "Olá, mundo"), pode definir "$" como caráter de escape e utilizar a cadeia "Olá$, mundo" na origem. |Não |
 | quoteChar |O caráter utilizado para colocar um valor de cadeia entre aspas. Os delimitadores de colunas e linhas dentro dos carateres de aspas são tratados como parte do valor de cadeia. Esta propriedade é aplicável a conjuntos de dados de entrada e de saída.<br/><br/>Não pode especificar simultaneamente o escapeChar e o quoteChar para uma tabela. |Só é permitido um caráter. Não existem valores predefinidos. <br/><br/>Exemplo: se utilizar a vírgula (“,”) como delimitador de colunas, mas quiser ter o caráter de vírgula no texto (exemplo: <Olá, mundo>), pode definir " (aspas duplas) como caráter de aspas e utilizar a cadeia "Olá, mundo" na origem. |Não |
@@ -409,7 +409,7 @@ O conjunto de dados de saída com o tipo **JsonFormat** é definido da seguinte 
 }
 ```
 
-## <a name="parquet-format"></a>Formato Parquet
+## <a name="parquet-format"></a>Formato parquet
 
 >[!NOTE]
 >Fábrica de dados introduzidos novos datset de formato Parquet, consulte [formato Parquet](format-parquet.md) artigo com detalhes. As seguintes configurações no conjunto de dados de arquivo de dados de ficheiros ainda é suportado como-destina-se compabitility com versões anteriores. São sugeridas para usar o novo modelo daqui em diante.

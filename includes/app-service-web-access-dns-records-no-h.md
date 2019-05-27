@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ms.openlocfilehash: d001d76bca5b9a0837349b6e05b3b0a271ea3a73
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65919376"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66136326"
 ---
 > [!NOTE]
 > Pode utilizar o DNS do Azure para configurar um nome DNS personalizado para as suas Aplicações Web do Azure. Para obter mais informações, veja [Utilizar o DNS do Azure para oferecer definições de domínio personalizado para um serviço do Azure](../articles/dns/dns-custom-domain.md#app-service-web-apps).

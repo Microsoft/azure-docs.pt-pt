@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
 ms.openlocfilehash: 1cf5bbdad555c50c418851904f36a578522843b2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165786"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159667"
 ---
 #### <a name="to-create-public-endpoints-on-the-cloud-appliance"></a>Para criar pontos finais públicos na aplicação da cloud
 
@@ -31,7 +31,7 @@ ms.locfileid: "50165786"
 
         No painel Adicionar regra de segurança de entrada:
 
-        1. Em **Nome**, escreva o seguinte nome para o ponto final: WinRMHttps.
+        1. Para o **nome**, escreva o seguinte nome para o ponto final: WinRMHttps.
         
         2. Para a **Prioridade**, selecione um número inferior a 1000 (que é a prioridade para a regra predefinida). Quanto mais elevado for o valor, mais reduzida é a prioridade.
 

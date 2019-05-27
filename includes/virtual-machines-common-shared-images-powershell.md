@@ -9,11 +9,11 @@ ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 82187b05a398c066f9da94c57cbe8a59a6ba3275
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191730"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145776"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 

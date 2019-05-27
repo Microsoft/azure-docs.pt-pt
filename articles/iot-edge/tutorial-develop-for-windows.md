@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6b629c7b8a6addbb2ef6f9ced58d4db656ad2480
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 631338c0217eb61f4f98cd06ffa16cb2500f246b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576797"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66146739"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -49,7 +49,7 @@ A tabela seguinte lista os cenários de desenvolvimento para **contentores Windo
 | - | ------------------ | ------------------ |
 | **Serviços do Azure** | Funções do Azure <br> Azure Stream Analytics |   |
 | **Idiomas** | C#(não depuração suportados) | C <br> C# |
-| **Mais informações** | [O Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [O Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Mais informações** | [O Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [O Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 Esse tutorial ensina os passos de desenvolvimento para o Visual Studio 2017. Se usaria em vez disso, Visual Studio Code, consulte as instruções em [utilizar o Visual Studio Code para desenvolver e depurar os módulos do Azure IoT Edge](how-to-vs-code-develop-module.md).
 

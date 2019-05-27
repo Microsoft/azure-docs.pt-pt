@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
-ms.translationtype: MT
+ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596979"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158947"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -242,7 +242,7 @@ O contexto de compilação é no nível de projeto/serviço por predefinição, 
 ### <a name="try"></a>Experimente:
 O que precisa ser feito:
 1. Modificar a _azds.yaml_ ficheiro para definir o contexto de compilação para o nível de solução.
-2. Modificar a _Dockerfile_ e _Dockerfile.develop_ arquivos para fazer referência ao projeto (_. csproj_) ficheiros corretamente, em relação ao novo criar contexto.
+2. Modificar a _Dockerfile_ e _Dockerfile.develop_ arquivos para fazer referência ao projeto ( _. csproj_) ficheiros corretamente, em relação ao novo criar contexto.
 3. Lugar uma _.dockerignore_ arquivo ao lado do ficheiro. sln e modifique conforme necessário.
 
 Pode encontrar um exemplo em https://github.com/sgreenmsft/buildcontextsample
@@ -374,7 +374,7 @@ Depois do controlador é reinstalado, volte a implementar seus pods.
 O utilizador aceder ao controlador de espaços de desenvolvimento do Azure tem de ter acesso para ler o administrador *kubeconfig* no cluster do AKS. Por exemplo, esta permissão está disponível na [incorporadas do Azure Kubernetes Service administrador de função de Cluster](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). O utilizador aceder ao controlador de espaços de desenvolvimento do Azure também tem de ter o *contribuinte* ou *proprietário* função RBAC para o controlador.
 
 ### <a name="try"></a>Experimente
-Estão disponíveis mais detalhes sobre como atualizar permissões de um utilizador para um cluster do AKS [aqui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+Estão disponíveis mais detalhes sobre como atualizar permissões de um utilizador para um cluster do AKS [aqui](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user-or-group).
 
 Para atualizar a função do utilizador RBAC para o controlador:
 

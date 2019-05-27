@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: spelluru
 ms.openlocfilehash: 6d1f3d6badde82a78fb143452a45ece4ff1ebb11
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589993"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147893"
 ---
 > [!div class="op_single_selector"]
 > * [NET](../articles/service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)

@@ -9,11 +9,11 @@ ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: include file
 ms.openlocfilehash: 09eaf9465ec3912dea6e1f3ee1693f6bfed50abc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787409"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66149019"
 ---
 ## <a name="push-image-to-registry"></a>Enviar imagem para o registo
 

@@ -13,11 +13,11 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
 ms.openlocfilehash: 52dee0ee60c111c56c42e0452f8f8750ea9ea4e6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167610"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Carregar dados de forma incremental da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure com informações de controlo de alterações 
 Neste tutorial, cria uma fábrica de dados do Azure com um pipeline que carrega dados delta com base em informações de **controlo de alterações** na base de dados SQL do Azure de origem para um armazenamento de blobs do Azure.  
@@ -235,7 +235,7 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 ### <a name="create-azure-sql-database-linked-service"></a>Criar o serviço ligado da Base de Dados SQL do Azure.
 Neste passo, vai ligar a sua base de dados SQL do Azure à fábrica de dados.
 
-1. Crie um ficheiro JSON com o nome **Azuresqldatabaselinkedservice** na **C:\ADFTutorials\IncCopyChangeTrackingTutorial** pasta com o seguinte conteúdo: Substitua server, database name **, &lt;user id&gt; e &lt;password&gt;** pelo nome do seu Azure SQL server, base de dados, ID de utilizador e palavra-passe antes de guardar o ficheiro. 
+1. Crie um ficheiro JSON com o nome **Azuresqldatabaselinkedservice** na **C:\ADFTutorials\IncCopyChangeTrackingTutorial** pasta com o seguinte conteúdo: Substitua **&lt;server&gt;, &lt;database name&gt;, &lt;user id&gt; e &lt;password&gt;** pelo nome do seu Azure SQL server, base de dados, ID de utilizador e palavra-passe antes de guardar o ficheiro. 
 
     ```json
     {

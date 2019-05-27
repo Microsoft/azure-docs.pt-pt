@@ -9,11 +9,11 @@ ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
 ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60420009"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164650"
 ---
 Máquinas virtuais do Azure (VMs) passar por Estados diferentes que podem ser categorizados em *aprovisionamento* e *power* Estados. O objetivo deste artigo é descrever esses Estados e realçar especificamente quando os clientes são faturados por exemplo utilização. 
 

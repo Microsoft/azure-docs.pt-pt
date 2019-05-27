@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 6635b572d11339307083b8aa2aaaba69dc731101
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 5bec627f114a20033ca4364c39c048763df36b67
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58885864"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66161428"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Introdução à geração 1 de armazenamento do Azure Data Lake com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Saiba como utilizar o Azure PowerShell para criar uma conta de geração 1 de ar
 * **Uma subscrição do Azure**. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 Este artigo utiliza uma abordagem de autenticação mais simples com o Data Lake Storage Gen1 qual lhe é pedido que introduza as credenciais de conta do Azure. O nível de acesso ao Data Lake Storage Gen1 conta e sistema de ficheiros é, então, governado pelo nível de acesso do utilizador com sessão iniciada. No entanto, existem outras abordagens para autenticar com o Data Lake Storage Gen1, que são **autenticação de utilizador final** ou **autenticação serviço a serviço**. Para obter instruções e mais informações sobre como autenticar, consulte [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticação de utilizador final) ou [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md) (Autenticação de serviço a serviço).
 
 ## <a name="create-a-data-lake-storage-gen1-account"></a>Criar uma conta de geração 1 de armazenamento do Data Lake

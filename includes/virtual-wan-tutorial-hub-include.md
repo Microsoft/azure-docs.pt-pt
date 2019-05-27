@@ -9,11 +9,11 @@ ms.date: 02/27/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 0a81d8c97b916fd15e7be5fde05e9ea25ba1151d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60457890"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150806"
 ---
 Um hub contém o gateway. Depois de criar o hub, vai ser cobrado pelo hub, mesmo que não anexe quaisquer sites. Demora 30 minutos para criar o hub e o gateway.
 
@@ -23,6 +23,6 @@ Um hub contém o gateway. Depois de criar o hub, vai ser cobrado pelo hub, mesmo
 
    * Location
    * Name
-   * Espaço de endereços privados do Hub
+   * Espaço de endereços privados do hub
 
 Clique em **Confirmar** para criar o hub. Clique em **Atualize** para ver o hub a **Hubs** página.

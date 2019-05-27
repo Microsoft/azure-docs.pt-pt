@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b5e4ad30a65b25140cfb2c80dd15d8cd28fb827b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9f760e7e693334475fb61ba9e5d44df019e78604
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419225"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147482"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montar o volume elevada disponibilidade do disco de fiável de recursos de infraestrutura de serviço com base num aplicativo de malha do Service Fabric 
 O método comum de estado persistente com aplicações de contentor é usar o armazenamento remoto, como o armazenamento de ficheiros do Azure ou a base de dados, como o Azure Cosmos DB. Isto leva a leitura significativa e latência de rede de escrita para o armazenamento remoto.
@@ -36,7 +36,7 @@ O `counterService` periodicamente lê um valor de contador de um arquivo, increm
 
 Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir esta tarefa. Para utilizar a CLI do Azure com este artigo, certifique-se de que `az --version` retorna, pelo menos, `azure-cli (2.0.43)`.  Instalar (ou atualizar) o módulo de extensão de CLI de malha do Azure Service Fabric através destas [instruções](service-fabric-mesh-howto-setup-cli.md).
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no Azure e defina a sua subscrição.
 
@@ -73,7 +73,7 @@ Tenha em atenção o nome do recurso de gateway que tem o recurso de tipo como `
 
 Assim que a aplicação é implementada com êxito, obtenha o ipAddress do recurso de gateway para a aplicação. Utilize o nome do gateway que é reparado no acima secção.
 ```azurecli-interactive
-az mesh gateway show --resource-group myResourceGroup --gateway-name counterGateway
+az mesh gateway show --resource-group myResourceGroup --name counterGateway
 ```
 
 A saída deve ter uma propriedade `ipAddress` que é o endereço IP público para o ponto final de serviço. Abri-lo a partir de um browser. Esta será apresentada uma página da web com o valor do contador que está a ser atualizado a cada segundo.

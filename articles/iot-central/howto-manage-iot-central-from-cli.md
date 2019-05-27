@@ -9,11 +9,11 @@ ms.date: 02/07/2019
 ms.topic: conceptual
 manager: philmea
 ms.openlocfilehash: 9e5d842cece316bc9c53e1e8583f40a0f222b91d
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56808625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151965"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerir o Centro de IoT a partir da CLI do Azure
 
@@ -53,8 +53,8 @@ Estes comandos primeiro criam um grupo de recursos na região Leste região dos 
 | Parâmetro         | Descrição |
 | ----------------- | ----------- |
 | resource-group    | O grupo de recursos que contém a aplicação. Este grupo de recursos tem de existir na sua subscrição. |
-| localização          | Por predefinição, este comando utiliza a localização do grupo de recursos. Atualmente, pode criar uma aplicação IoT Central no **E.U.A. Leste**, **E.U.A. oeste**, **Europa do Norte**, ou **Europa Ocidental** regiões. |
-| nome              | O nome da aplicação no portal do Azure. |
+| location          | Por predefinição, este comando utiliza a localização do grupo de recursos. Atualmente, pode criar uma aplicação IoT Central no **E.U.A. Leste**, **E.U.A. oeste**, **Europa do Norte**, ou **Europa Ocidental** regiões. |
+| name              | O nome da aplicação no portal do Azure. |
 | Subdomínio         | O subdomínio no URL da aplicação. No exemplo, o URL da aplicação é https://mysubdomain.azureiotcentral.com. |
 | sku               | Atualmente, o único valor é **S1** (escalão standard). Ver [preços do Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | modelo          | O modelo de aplicação a utilizar. Para obter mais informações, consulte a tabela seguinte: |

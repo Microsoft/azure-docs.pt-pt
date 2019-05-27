@@ -9,11 +9,11 @@ ms.date: 09/18/2018
 ms.author: dacoulte
 ms.custom: include file
 ms.openlocfilehash: 369423f762dc977db7da0432ec217906d1e7ef1c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318302"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155416"
 ---
 ### <a name="application-gateways"></a>Gateways de Aplicação
 

@@ -1,5 +1,5 @@
 ---
-title: Comparar & reproduzir dados ao longo do tempo com instantâneos
+title: Comparar & reproduzir os dados com instantâneos de conjunto de dados
 titleSuffix: Azure Machine Learning service
 description: Saiba como comparar dados ao longo do tempo e certifique-se a capacidade de reprodução com instantâneos de conjunto de dados
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
-ms.date: 05/02/2019
-ms.openlocfilehash: 51d0dcfc543834e9a8725d11fa82b566a5132a6b
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.date: 05/23/2019
+ms.openlocfilehash: 525660be0f38c9458590e52cfcd575acb4cf5444
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205007"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162061"
 ---
 # <a name="compare-data-and-ensure-reproducibility-with-snapshots-preview"></a>Comparação de dados e certifique-se a capacidade de reprodução com instantâneos (pré-visualização)
 
@@ -41,7 +41,7 @@ Para criar instantâneos de conjunto de dados, terá de um conjunto de dados de 
 
 ## <a name="create-dataset-snapshots"></a>Criar instantâneos de conjunto de dados
 
-Para criar um instantâneo de um conjunto de dados, utilize [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) do SDK do Azure Machine Learning.
+Para criar um instantâneo de um conjunto de dados, utilize [ `dataset.create_snapshot()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) do pacote azureml-conjuntos de dados do SDK do Azure Machine Learning.
 
 Por predefinição, o instantâneo armazena o perfil (estatísticas de resumo) dos dados com a versão mais recente [definição de conjunto de dados](how-to-manage-dataset-definitions.md) aplicada. Uma definição de conjunto de dados contém um registro de quaisquer passos de transformação definidos para os dados. É uma excelente forma de fazer a preparação de dados de trabalho reproduzível.
 

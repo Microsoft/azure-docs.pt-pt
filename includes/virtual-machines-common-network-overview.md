@@ -9,11 +9,11 @@ ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 8b77dceb8f5dd8def2fda493104892b13a95bccc
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58505826"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66154829"
 ---
 Quando cria uma máquina virtual (VM) do Azure, tem de criar uma [rede virtual](../articles/virtual-network/virtual-networks-overview.md) (VNet) ou de utilizar uma VNet já existente. Também tem de decidir como pretende que se faça o acesso às VMs na VNet. É importante [planear antes de criar recursos](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) e ter a certeza de que compreende os [limites dos recursos de rede](../articles/azure-subscription-service-limits.md#networking-limits).
 

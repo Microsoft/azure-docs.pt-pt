@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a366a9030104c885adb1a4f773de04cdc439044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420705ef6b2e38d147b7033d2fb3ad57bbc216ac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480498"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66159288"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Dados de Stream como entrada para o Stream Analytics
 
@@ -131,6 +131,8 @@ Stream Analytics não suporta atualmente a anular a serialização dos AVRO mens
 > [!NOTE]
 > Stream Analytics não suporta a adição de conteúdo a um arquivo de blob existente. Stream Analytics irão ver apenas uma vez cada arquivo e quaisquer alterações que ocorrem no ficheiro depois da tarefa tem de ler os dados não são processadas. É melhor prática carregar todos os dados para um ficheiro de BLOBs de uma só vez e, em seguida, adicionar outros eventos mais recentes para um arquivo de blob diferente, novo.
 > 
+
+Ao mesmo tempo a carregar um grande número de blobs pode fazer com que o Stream Analytics ignorar a ler alguns blobs em casos raros. Recomenda-se para carregar blobs, pelo menos, 2 segundos, outra para armazenamento de Blobs. Se esta opção não for viável, pode utilizar os Hubs de eventos para grandes volumes de fluxo de eventos. 
 
 ### <a name="configure-blob-storage-as-a-stream-input"></a>Configurar o armazenamento de BLOBs como um fluxo de entrada 
 

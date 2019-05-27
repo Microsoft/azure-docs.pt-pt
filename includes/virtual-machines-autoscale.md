@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 3c008e77116a9b42a2ea137069529c5e241adddd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456907"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66160062"
 ---
 Pode facilmente [Dimensionar automaticamente](../articles/azure-monitor/platform/autoscale-best-practices.md) seu [máquinas virtuais (VMs)](../articles/virtual-machines/windows/overview.md) quando utiliza [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) e o [funcionalidade de dimensionamento automático do Azure Monitor](../articles/azure-monitor/platform/autoscale-overview.md). As suas VMs tem de ser membros de um conjunto de dimensionamento para ser dimensionada automaticamente. Este artigo fornece informações que permitem-lhe compreender melhor como dimensionar as suas VMs verticalmente e horizontalmente usando métodos automática e manuais.
 
@@ -33,7 +33,7 @@ Pode ativar o dimensionamento automático ao criar o conjunto de dimensionamento
 
 ![Ativar dimensionamento automático](./media/virtual-machines-autoscale/virtual-machines-autoscale-enable.png)
  
-### <a name="metrics"></a>Métricas
+### <a name="metrics"></a>Métrica
 
 A funcionalidade de dimensionamento automático do Azure Monitor permite-lhe aumentar o número de VMs em execução cópia de segurança ou para baixo com base na [métricas](../articles/azure-monitor/platform/autoscale-common-metrics.md). Por predefinição, as VMs fornecem métricas básicas de ao nível do anfitrião para a utilização da CPU, rede e disco. Ao configurar a recolha de dados de diagnóstico com a extensão de diagnóstico, contadores de desempenho do sistema operacional convidado adicionais ficam disponíveis para o disco, da CPU e memória.
 

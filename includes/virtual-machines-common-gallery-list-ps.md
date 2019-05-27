@@ -9,11 +9,11 @@ ms.date: 11/07/2018
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: a55653c0f23be594fe65e7a322c11edc37ee1ce6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60188355"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145809"
 ---
 ## <a name="shared-image-management"></a>Gestão de imagem partilhada 
 

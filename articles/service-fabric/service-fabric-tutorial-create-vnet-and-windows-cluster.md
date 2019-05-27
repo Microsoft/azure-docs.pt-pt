@@ -16,11 +16,11 @@ ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59050011"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158102"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementar um cluster do Service Fabric em execução Windows numa rede virtual do Azure
 
@@ -89,7 +89,7 @@ No recurso **Microsoft.ServiceFabric/clusters**, é configurado um cluster Windo
 * ponto final de ligação de cliente: 19000 (configurável nos parâmetros do modelo).
 * Ponto final de gateway HTTP: 19080 (configurável nos parâmetros do modelo).
 
-### <a name="azure-load-balancer"></a>Azure Load Balancer
+### <a name="azure-load-balancer"></a>Balanceador de Carga do Azure
 
 Na **Network/loadbalancers** recurso, um balanceador de carga está configurado. Sondas e regras são configuradas para as seguintes portas:
 
@@ -159,7 +159,7 @@ O ficheiro de parâmetro [azuredeploy.parameters.json][parameters] declara vári
 |adminUserName|vmadmin| O nome de utilizador administrador para as VMs do cluster. [Requisitos de nome de utilizador para a VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm). |
 |adminPassword|Password#1234| A palavra-passe de utilizador administrador para as VMs do cluster. [Requisitos de palavra-passe para a VM](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).|
 |clusterName|mysfcluster123| O nome do cluster. Pode conter apenas letras e números. O comprimento pode ter entre 3 e 23 carateres.|
-|localização|southcentralus| A localização do cluster. |
+|location|southcentralus| A localização do cluster. |
 |certificateThumbprint|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor do thumbprint SHA-1 do certificado. Por exemplo, “6190390162C988701DB5676EB81083EA608DCCF3”.</p> |
 |certificateUrlValue|| <p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado. </p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o URL do certificado. Por exemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>O valor deve estar vazio, se criar um certificado autoassinado ou fornecer um ficheiro de certificado.</p><p>Para utilizar um certificado existente carregado anteriormente para um cofre de chaves, preencha o valor no cofre de origem. Por exemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|

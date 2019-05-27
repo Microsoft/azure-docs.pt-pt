@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: jeconnoc
 ms.custom: include file
-ms.openlocfilehash: f60b5421f2bc66cf09ede4178ce18e2394030264
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 289912e1519a68ae607ace7766e35731af0016b9
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929437"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158274"
 ---
 # <a name="platform-supported-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Migração suportada por plataforma de recursos de IaaS do clássico para o Azure Resource Manager
 Este artigo descreve como migrar a infraestrutura como um recursos de serviço (IaaS) do clássico para modelos de implementação do Resource Manager e os detalhes como ligar recursos a partir de dois modelos de implementação que coexistir na sua subscrição, utilizando a rede virtual gateways de site a site. Pode ler mais sobre [recursos do Azure Resource Manager e os benefícios](../articles/azure-resource-manager/resource-group-overview.md). 
@@ -26,7 +26,7 @@ Quase todas as funcionalidades do modelo de implementação clássica são supor
 ## <a name="supported-resources-for-migration"></a>Recursos suportados para migração
 Estes recursos de IaaS clássicos são suportados durante a migração
 
-* Virtual Machines
+* Máquinas Virtuais
 * Conjuntos de Disponibilidade
 * Serviços Cloud com Máquinas Virtuais
 * Contas de Armazenamento
@@ -131,5 +131,4 @@ As seguintes configurações não são atualmente suportadas.
 | Azure HDInsight |Redes virtuais que contêm os serviços do HDInsight |Isso não é atualmente suportado. |
 | Serviços de ciclo de vida do Microsoft Dynamics |Redes virtuais que contêm máquinas virtuais que são geridas pelo Dynamics Lifecycle Services |Isso não é atualmente suportado. |
 | Azure AD Domain Services |Redes virtuais que contêm os serviços de domínio do Azure AD |Isso não é atualmente suportado. |
-| Azure RemoteApp |Redes virtuais que contêm as implementações do Azure RemoteApp |Isso não é atualmente suportado. |
 | API Management do Azure |Redes virtuais que contenham implementações de API Management do Azure |Isso não é atualmente suportado. Para migrar a VNET de IaaS, altere a VNET da implementação da gestão de API, que não é uma nenhuma operação de tempo de inatividade. |

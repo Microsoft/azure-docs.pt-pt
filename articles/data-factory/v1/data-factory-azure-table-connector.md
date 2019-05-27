@@ -14,11 +14,11 @@ ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: aed341c50332b424a1149c129629cd451a4e5133
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146904"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para tabelas do Azure com o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -107,7 +107,7 @@ Se a coluna de tabelas do Azure é do tipo datetime:
 | azureTableRowKeyName |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não for especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
 | azureTableInsertType |O modo de inserir dados na tabela do Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com correspondentes chaves de partição e de linha têm seus valores substituído ou intercalado. <br/><br/>Para saber mais sobre o funcionamento destas definições (intercalação e substituir), veja [Insert ou entidade de intercalação](https://msdn.microsoft.com/library/azure/hh452241.aspx) e [Insert ou substituir entidade](https://msdn.microsoft.com/library/azure/hh452242.aspx) tópicos. <br/><br> Esta definição aplica-se ao nível da linha, não é o nível de tabela, e nenhuma dessas opções elimina linhas da tabela de saída que não existem na entrada. |Intercalar (predefinição)<br/>substituir |Não |
 | writeBatchSize |Insere dados na tabela do Azure quando for atingido o writeBatchSize ou writeBatchTimeout. |Número inteiro (número de linhas) |Não (predefinição: 10000) |
-| writeBatchTimeout |Insere dados na tabela do Azure quando for atingido o writeBatchSize ou writeBatchTimeout |Período de tempo<br/><br/>Exemplo: "00: 20:00" (20 minutos) |Não (seg 90 de valor predefinido para o tempo limite de padrão de cliente de armazenamento) |
+| writeBatchTimeout |Insere dados na tabela do Azure quando for atingido o writeBatchSize ou writeBatchTimeout |TimeSpan<br/><br/>Exemplo: "00: 20:00" (20 minutos) |Não (seg 90 de valor predefinido para o tempo limite de padrão de cliente de armazenamento) |
 
 ### <a name="azuretablepartitionkeyname"></a>azureTablePartitionKeyName
 Mapear uma coluna de origem para uma coluna de destino usando o tradutor de propriedade JSON antes de poder utilizar a coluna de destino como o azureTablePartitionKeyName.

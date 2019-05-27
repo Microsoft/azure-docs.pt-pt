@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 1b3353cae73bb5710dc9343f1d211266d15743a2
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
-ms.translationtype: MT
+ms.openlocfilehash: 7794cf256ed8063007b4eee7c5c928be85723982
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153200"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170203"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Tutorial: Chamar APIs serviços cognitivos num pipeline de indexação do Azure Search
 
@@ -44,13 +44,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os seguintes serviços, ferramentas e dados são utilizados neste tutorial. 
 
-[Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial.
++ [Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo. Certifique-se a conta de armazenamento na mesma região que o Azure Search.
 
-[Criar uma conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo.
++ [Dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste num conjunto de pequenos ficheiros de diferentes tipos. 
 
-[Dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consiste num conjunto de pequenos ficheiros de diferentes tipos. 
++ [Instalar o Visual Studio](https://visualstudio.microsoft.com/) para utilizar como o IDE.
 
-[Instalar o Visual Studio](https://visualstudio.microsoft.com/) para utilizar como o IDE.
++ [Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este tutorial.
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e o URL
 

@@ -9,11 +9,11 @@ ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
 ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607030"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66145900"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 

@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
 ms.openlocfilehash: b6cde8402c699a7477cd0efc79a44b3f5e150ad0
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792655"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66146315"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-diagnostics-settings"></a>Migrar o seu IoT Hub a partir de operações de monitorização para as definições de diagnóstico
 

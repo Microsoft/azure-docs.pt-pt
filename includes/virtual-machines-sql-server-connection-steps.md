@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: 4d77e9b57301bea30d8a33985071c28e972a81a6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 297317ff33d88d6390220980ef35f2538579e310
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51263905"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165533"
 ---
 ### <a name="open-tcp-ports-in-the-windows-firewall-for-the-default-instance-of-the-database-engine"></a>Abrir portas TCP na firewall do Windows para a instância predefinida do Motor de Base de Dados
 1. Ligue-se à máquina virtual com o Ambiente de Trabalho Remoto. Para obter instruções detalhadas sobre como ligar à VM, veja [Abrir uma VM do SQL com o Ambiente de Trabalho Remoto](../articles/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md#remotedesktop).
@@ -26,12 +26,12 @@ ms.locfileid: "51263905"
 6. Clique em **Seguinte**.
 7. Na caixa de diálogo **Ação**, selecione **Permitir a ligação** e, em seguida, clique em **Seguinte**.
    
-    **Nota de Segurança:** selecionar **Permitir a ligação se for segura** pode fornecer segurança adicional. Selecione esta opção se quiser configurar opções de segurança adicionais no seu ambiente.
+    **Nota de segurança:** Selecionando **permitir a conexão se for segura** pode fornecer segurança adicional. Selecione esta opção se quiser configurar opções de segurança adicionais no seu ambiente.
    
     ![Permitir Ligações](./media/virtual-machines-sql-server-connection-steps/15Allow-Connection.png)
 8. Na caixa de diálogo **Perfil**, selecione **Público**, **Privado** e **Domínio**. Clique depois em **Seguinte**.
    
-    **Nota de segurança:** selecionar **Público** permite o acesso pela Internet. Sempre que for possível, selecione um perfil mais restritivo.
+    **Nota de segurança:**  Selecionando **público** permite o acesso através da internet. Sempre que for possível, selecione um perfil mais restritivo.
    
     ![Perfil Público](./media/virtual-machines-sql-server-connection-steps/16Public-Private-Domain-Profile.png)
 9. Na caixa de diálogo **Nome**, escreva um nome e descrição para esta regra e, em seguida, clique em **Concluir**.
@@ -55,7 +55,7 @@ O Motor de Base de Dados do SQL Server não pode utilizar a Autenticação do Wi
 1. Enquanto estiver ligado à máquina virtual, na página Início, escreva **SQL Server Management Studio** e clique no ícone selecionado.
    
     Na primeira vez que abre o Management Studio, este tem de criar os utilizadores do ambiente do Management Studio. Esta operação poderá demorar alguns tempo.
-2. O Management Studio apresenta a caixa de diálogo **Ligar ao Servidor**. Na caixa **Nome do servidor**, escreva o nome da máquina virtual a ligar ao Motor de Base de Dados com o Object Explorer (em vez do nome da máquina virtual, também pode utilizar **(local)** ou um caráter de ponto como **Nome do servidor**). Selecione **autenticação do Windows**e deixe ***your_VM_name * \your_local_administrator** no **nome de utilizador** caixa. Clique em **Ligar**.
+2. O Management Studio apresenta a caixa de diálogo **Ligar ao Servidor**. Na caixa **Nome do servidor**, escreva o nome da máquina virtual a ligar ao Motor de Base de Dados com o Object Explorer (em vez do nome da máquina virtual, também pode utilizar **(local)** ou um caráter de ponto como **Nome do servidor**). Selecione **autenticação do Windows**e deixe ***your_VM_name\your_local_administrator*** no **nome de utilizador** caixa. Clique em **Ligar**.
    
     ![Ligar ao Servidor](./media/virtual-machines-sql-server-connection-steps/19Connect-to-Server.png)
 3. No Object Explorer do SQL Server Management Studio, clique com o botão direito do rato no nome da instância do SQL Server (o nome de máquina virtual) e, em seguida, clique em **Propriedades**.
@@ -74,7 +74,7 @@ O Motor de Base de Dados do SQL Server não pode utilizar a Autenticação do Wi
 Para ligar ao Motor de Base de Dados a partir de outro computador, tem de criar pelo menos um início de sessão de autenticação do SQL Server.
 
 1. No Object Explorer do SQL Server Management Studio, expanda a pasta da instância de servidor na qual quer criar o novo início de sessão.
-2. Clique com o botão direito do rato na pasta **Segurança**, aponte para **Novo** e selecione **Início de sessão...**.
+2. Clique com o botão direito do rato na pasta **Segurança**, aponte para **Novo** e selecione **Início de sessão...** .
    
     ![Novo Início de Sessão](./media/virtual-machines-sql-server-connection-steps/23New-Login.png)
 3. Na caixa de diálogo **Início de sessão - Novo**, na página **Geral**, introduza o nome do novo utilizador na caixa **Nome do início de sessão**.

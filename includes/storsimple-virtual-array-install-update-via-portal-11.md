@@ -9,11 +9,11 @@ ms.date: 07/18/2018
 ms.author: alkohli
 ms.custom: include file
 ms.openlocfilehash: 65d5a88f7b5d059deb633f062639e455c64ef2f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61408760"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66167074"
 ---
 #### <a name="to-install-updates-via-the-azure-portal"></a>Para instalar atualizações através do portal do Azure
 

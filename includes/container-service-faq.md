@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
 ms.openlocfilehash: f903828285b0d4fdc8fbd932fa7c85056e937481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60510553"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66148849"
 ---
 # <a name="deprecated-container-service-frequently-asked-questions"></a>(PRETERIDO) Perguntas mais frequentes de serviço de contentor
 

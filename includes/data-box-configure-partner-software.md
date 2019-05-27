@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: alkohli
 ms.service: databox
 ms.topic: include
-origin.date: 11/20/2018
-ms.date: 02/25/2019
+ms.date: 11/20/2018
 ms.author: alkohli
 ms.openlocfilehash: cbf6d01925e1924bc5f3c7f1e99840d479fef296
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60728413"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150709"
 ---
 Configure o software de parceiro para ligar ao cliente. Para ligar para o software de parceiro, normalmente, terá de ter as seguintes informações (podem variar) obtidas com o **Connect e a cópia** página da web local da interface do Usuário no passo anterior:
 

@@ -16,11 +16,11 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106326"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66158345"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevar o acesso para gerir todas as subscrições do Azure e grupos de gestão
 

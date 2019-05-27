@@ -13,11 +13,11 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799274"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66164485"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -85,17 +85,17 @@ A tabela seguinte lista os IPs primário e secundário do gateway para todas as 
 | Leste do Japão | 191.237.240.43 | 13.78.61.196 |
 | Oeste do Japão | 191.238.68.11 | 104.214.148.156 |
 | Coreia do Sul Central | 52.231.32.42 | |
-| Coreia do Sul | 52.231.200.86 |  |
+| Sul da Coreia do Sul | 52.231.200.86 |  |
 | EUA Centro-Norte | 23.98.55.75 | 23.96.178.199 |
 | Europa do Norte | 191.235.193.75 | 40.113.93.91 |
 | EUA Centro-Sul | 23.98.162.75 | 13.66.62.124 |
 | Sudeste Asiático | 23.100.117.95 | 104.43.15.0 |
 | Reino Unido Sul | 51.140.184.11 | |
-| Reino Unido Oeste | 51.141.8.11| |
+| Oeste do R.U. | 51.141.8.11| |
 | EUA Centro-Oeste | 13.78.145.25 | |
 | Europa Ocidental | 191.237.232.75 | 40.68.37.158 |
 | E.U.A. oeste 1 | 23.99.34.75 | 104.42.238.205 |
-| EUA Oeste 2 | 13.66.226.202 | |
+| E.U.A. Oeste 2 | 13.66.226.202 | |
 ||||
 
 \* **NOTA:** *E.U.A. Leste 2* também tem um endereço IP terciário de `52.167.104.0`.

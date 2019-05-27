@@ -11,11 +11,11 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: fe9cd6c951f9eba73cee1bea66df88f3143859b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846832"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156278"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Início rápido: Colocar em pausa e retomar a computação do Azure SQL Data Warehouse com o PowerShell
 

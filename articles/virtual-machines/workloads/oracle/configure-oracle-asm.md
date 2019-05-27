@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
 ms.openlocfilehash: 0af6e87d3e0b4b3b40b63db07384d4a33a9d43e1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998961"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66154270"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configure o Oracle ASM numa máquina virtual do Linux para o Azure  
 
@@ -530,7 +530,7 @@ Para configurar a sua instalação do Oracle ASM, conclua os seguintes passos:
 5. Na **criar grupo de disco** caixa de diálogo:
 
    - Introduza o nome do grupo de disco **FRA**.
-   - Sob **redundância**, selecione **externo (nenhum)**.
+   - Sob **redundância**, selecione **externo (nenhum)** .
    - Sob **selecionar discos do membro**, selecione **ORCL_FRA**.
    - Sob **tamanho da unidade de alocação**, selecione **4**.
    - Clique em `ok` para criar o grupo de disco.

@@ -9,11 +9,11 @@ ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
 ms.openlocfilehash: b0f93f950b55052ea8d8b31538c47226413dc82a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65149217"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66155764"
 ---
 ## <a name="access-the-media-services-api"></a>Aceder à API dos Serviços de Multimédia
 

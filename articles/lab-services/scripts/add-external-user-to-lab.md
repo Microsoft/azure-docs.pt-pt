@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
 ms.openlocfilehash: 042fa1e24ebadfb00a2d55cc97d742f198cb5662
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738356"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160608"
 ---
 # <a name="use-powershell-to-add-an-external-user-to-a-lab-in-azure-devtest-labs"></a>Utilize o PowerShell para adicionar um utilizador externo a um laboratório no Azure DevTest Labs
 

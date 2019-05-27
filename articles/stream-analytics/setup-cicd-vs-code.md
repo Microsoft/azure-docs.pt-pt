@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7fe46712d610d881c21653461d12e4f8efecb468
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: fa5a57afa379c6bbe027be80f400fc176800d289
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827879"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66158511"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-cicd-npm-package"></a>Integre e desenvolver com o pacote de npm do Stream Analytics CI/CD continuamente
 Este artigo descreve como utilizar o pacote de npm do Azure Stream Analytics CI/CD para configurar uma integração contínua e o processo de implantação.
@@ -22,10 +22,14 @@ Este artigo descreve como utilizar o pacote de npm do Azure Stream Analytics CI/
 
 Pode ativar a integração contínua e implementação para as tarefas de Azure Stream Analytics com o **asa-streamanalytics-CI/CD** pacote npm. O pacote npm fornece as ferramentas para gerar modelos Azure Resource Manager de [projetos do Stream Analytics Visual Studio Code](quick-create-vs-code.md). Ele pode ser usado no Windows, macOS e Linux sem instalar o Visual Studio Code.
 
-Assim que tiver [transferido o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd), utilize o seguinte comando para exportar os modelos Azure Resource Manager. Se o **outputPath** não for especificado, os modelos vão ser colocados a **Deploy** pasta dentro do projeto **bin** pasta.
+Assim que tiver [transferido o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd), utilize o seguinte comando para exportar os modelos Azure Resource Manager. O **scriptPath** argumento é o caminho absoluto para o **asaql** ficheiro no seu projeto. Certifique-se que os ficheiros de JobConfig.json e asaproj.json estão na mesma pasta com o ficheiro de script. Se o **outputPath** não for especificado, os modelos vão ser colocados a **Deploy** pasta dentro do projeto **bin** pasta.
 
 ```powershell
-asa-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
+azure-streamanalytics-cicd build -scriptPath <scriptFullPath> -outputPath <outputPath>
+```
+Exemplo (em macOS)
+```powershell
+azure-streamanalytics-cicd build -scriptPath "/Users/roger/projects/samplejob/script.asaql" 
 ```
 
 Quando um projeto do Stream Analytics Visual Studio Code baseia-se com êxito, ele gera os seguintes ficheiros de modelo de Gestor de recursos do Azure dois sob o **bin / [depuração/revenda] / implementar** pasta: 
@@ -38,7 +42,7 @@ Quando um projeto do Stream Analytics Visual Studio Code baseia-se com êxito, e
 
        [ProjectName].JobTemplate.parameters.json   
 
-Os parâmetros de padrão no ficheiro Parameters. JSON são nas definições no seu projeto do Visual Studio. Se pretender implementar para outro ambiente, substitua os parâmetros em conformidade.
+Os parâmetros de padrão no ficheiro Parameters. JSON são nas definições no seu projeto do Visual Studio Code. Se pretender implementar para outro ambiente, substitua os parâmetros em conformidade.
 
 > [!NOTE]
 > Para todas as credenciais, os valores predefinidos estão definidos como null. Está **necessário** para definir os valores antes de implementar para a cloud.

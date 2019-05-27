@@ -14,11 +14,11 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
 ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487928"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66156563"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote do SSIS com a atividade de procedimento armazenado no Azure Data Factory
 Este artigo descreve como invocar um pacote do SSIS de um pipeline do Azure Data Factory através de uma atividade de procedimento armazenado. 

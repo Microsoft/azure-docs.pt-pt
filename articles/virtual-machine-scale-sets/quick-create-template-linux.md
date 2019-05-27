@@ -17,11 +17,11 @@ ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.openlocfilehash: 9afc2e2362721fd2905b2a241960507aec9b15a5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310205"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66151094"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-scale-set-with-an-azure-template"></a>Início rápido: Criar um conjunto de dimensionamento de máquinas virtuais Linux com um modelo do Azure
 Um conjunto de dimensionamento de máquinas virtuais permite implementar e gerir um conjunto de máquinas virtuais idênticas e de dimensionamento automático. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com um modelo do Azure Resource Manager.
@@ -43,8 +43,8 @@ Para criar um dimensionamento com um modelo, tem de definir os recursos adequado
 | Propriedade                     | Descrição da propriedade                                  | Valor de modelo de exemplo                    |
 |------------------------------|----------------------------------------------------------|-------------------------------------------|
 | tipo                         | Tipo de recurso do Azure a criar                            | Microsoft.Compute/virtualMachineScaleSets |
-| nome                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
-| localização                     | A localização para criar o conjunto de dimensionamento                     | EUA Leste                                   |
+| name                         | O nome do conjunto de dimensionamento                                       | myScaleSet                                |
+| location                     | A localização para criar o conjunto de dimensionamento                     | EUA Leste                                   |
 | sku.name                     | O tamanho da VM para cada instância do conjunto de dimensionamento                  | Standard_A1                               |
 | sku.capacity                 | O número de instâncias de VM a criar inicialmente           | 2                                         |
 | upgradePolicy.mode           | Modo de atualização de instâncias de VM quando ocorrem alterações              | Automático                                 |

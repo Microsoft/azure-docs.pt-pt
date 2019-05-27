@@ -9,11 +9,11 @@ ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488047"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66156856"
 ---
 1. Navegue até à [Consola do Google Cloud](https://console.developers.google.com/cloud-resource-manager) e inicie sessão com as credenciais da conta Google. 
 2. Selecione **Criar Projeto** na barra de ferramentas. 

@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
 ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785389"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66159138"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controlo de acesso baseado em funções para StorSimple
 
@@ -165,7 +165,7 @@ AssignableScopes : {/subscriptions/<subscription_ID>/}
 
 Pode conceder acesso de dentro do recurso, grupo de recursos ou subscrição, que é o âmbito da atribuição de função. Ao fornecer acesso, lembre-se de que o acesso concedido no nó principal é herdada pelo elemento subordinado. Para obter mais informações, aceda a [controlo de acesso baseado em funções](../role-based-access-control/overview.md).
 
-1. Aceda a **controlo de acesso (IAM)**. Clique em **+ adicionar** no painel de controlo de acesso.
+1. Aceda a **controlo de acesso (IAM)** . Clique em **+ adicionar** no painel de controlo de acesso.
 
     ![Adicionar acesso à função RBAC](./media/storsimple-8000-role-based-access-control/rbac-add-role.png)
 

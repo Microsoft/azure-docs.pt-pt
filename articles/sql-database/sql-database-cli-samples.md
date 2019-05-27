@@ -13,11 +13,11 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/03/2019
 ms.openlocfilehash: 7a1132b5857cf6c54d0566ca29bb76ce1ef88513
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359441"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66150245"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras do Azure CLI para a Base de Dados SQL do Azure
 

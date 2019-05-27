@@ -2,19 +2,19 @@
 title: Tutorial - utilizar uma máquina virtual Linux e uma aplicação Python para armazenar segredos no Azure Key Vault | Documentos da Microsoft
 description: Neste tutorial, saiba como configurar uma aplicação Python ao ler um segredo do Cofre de chaves do Azure.
 services: key-vault
-author: mbaldwin
+author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: a5923c3d5ea7888a3737d7976caded8eef9c1661
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e5fbb4e6f6599d8f9560561fc219dbf57ac0cee1
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702112"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "66147764"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>Tutorial: Utilizar uma VM do Linux e uma aplicação de Python para armazenar segredos no Azure Key Vault
 
@@ -50,7 +50,7 @@ Quando ativar o MSI para um serviço do Azure como máquinas virtuais, o serviç
 
 Em seguida, o seu código chama um serviço de metadados locais disponível no recurso do Azure para obter um token de acesso. O código utiliza o token de acesso que obtém a partir do ponto de final MSI local para autenticar a um serviço do Azure Key Vault.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Para iniciar sessão no Azure com a CLI do Azure, introduza:
 

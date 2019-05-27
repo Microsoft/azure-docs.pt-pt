@@ -14,11 +14,11 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: 7287dc2fccf461cf23c45202336e3d92bc5a40aa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259708"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66153074"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Executar um pacote do SSIS com a atividade de executar o pacote do SSIS no Azure Data Factory
 Este artigo descreve como executar um pacote do SSIS no pipeline do Azure Data Factory (ADF) através da atividade de executar o pacote do SSIS. 
@@ -71,7 +71,7 @@ Neste passo, vai utilizar da interface do Usuário do ADF/aplicação para criar
 
    ![Definir as propriedades no separador de substituições de propriedade](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
-8. Para validar a configuração do pipeline, clique em **Validate** na barra de ferramentas. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>**.
+8. Para validar a configuração do pipeline, clique em **Validate** na barra de ferramentas. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>** .
 
 9. Publicar o pipeline no ADF clicando **publicar tudo** botão. 
 
