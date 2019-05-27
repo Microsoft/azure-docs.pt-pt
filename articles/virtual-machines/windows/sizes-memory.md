@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 05/15/2019
 ms.author: jonbeck
-ms.openlocfilehash: a81ce010e2d31a9852ca24a0ac45f6b4f60ab480
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: d21d420dd80e69f0b90c9853a9eab96d66c3df0d
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60344259"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65834140"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com otimização de memória
 

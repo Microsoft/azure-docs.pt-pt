@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 02/27/2019
-ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: HT
+ms.date: 05/22/2019
+ms.openlocfilehash: e091ec29c810fce7a39ad5aa5cc8f0ddae711752
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560585"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016394"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Limites de recursos de instância gerida da base de dados SQL do Azure de descrição geral
 
@@ -56,7 +56,7 @@ A instância gerida tem dois escalões de serviço - fins gerais e crítico para
 | Número máx. de bases de dados por instância | 100 | 100 |
 | Ficheiros de base de dados máximo por instância | Até 280 | 32.767 ficheiros por base de dados |
 | IOPS de dados/do registo (aproximado) | 500 - 7500 por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 mil - 110 K (1375/vCore) |
-| Taxa de transferência do registo | 22 MB/s por instância | 4 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
+| Taxa de transferência do registo | 3MB/s por vCore<br/>Máx. de 22 MB/s por instância | 4 MB/s por vCore<br/>Máx. de 48 MB/s por instância|
 | Débito de dados (aproximado) | 100 - 250 MB/s por arquivo<br/>\*[Depende do tamanho de ficheiro](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | Latência de e/s (aproximada) | 5-10 ms | 1-2 ms |
 | Tamanho máximo de tempDB | 192 - 1,920 GB (24 GB por vCore) | Sem restrições - limitadas pelo tamanho de armazenamento máximo da instância |
@@ -139,7 +139,7 @@ Para iniciar o processo de obtenção de uma quota maior:
 
    ![Ajuda e Suporte](media/sql-database-managed-instance-resource-limits/help-and-support.png)
 2. Na guia Noções básicas para o novo pedido de suporte:
-   - Para **tipo de problema**, selecione **limites de serviço e subscrição (cotas)**.
+   - Para **tipo de problema**, selecione **limites de serviço e subscrição (cotas)** .
    - Em **Subscrição**, selecione a sua subscrição.
    - Para **tipo de Quota**, selecione **SQL Database Managed Instance**.
    - Para **plano de suporte**, selecione o seu plano de suporte.

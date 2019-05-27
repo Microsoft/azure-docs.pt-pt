@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618061"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147850"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Que tipos de disco estão disponíveis no Azure?
 
@@ -23,7 +23,7 @@ Atualmente, o managed disks do Azure oferece quatro tipos de disco, três dos qu
 
 A tabela seguinte fornece uma comparação de ultra solid-state unidades (SSD) (pré-visualização), premium SSD, standard SSD e unidades de disco rígido standard (HDD) para discos geridos para o ajudar a decidir o que utilizar.
 
-|   | SSD Ultra (pré-visualização)   | SSD Premium   | SSD Standard   | HDD Standard   |
+|   | SSD Ultra (pré-visualização)   | Premium SSD   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho de e/s intensiva, como SAP HANA, bases de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho pesado de transação.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicações empresariais pouco usada e desenvolvimento/teste   |Acesso de cópia de segurança, não críticas, pouco frequente   |
@@ -44,6 +44,7 @@ Alguns recursos principais do Ultra SSD são:
 - Capacidade do disco: Ultra intervalos de capacidade SSD de 4 GiB até 64 TiB.
 - IOPS de disco: Ultra SSD suporta limites de IOPS de 300 IOPS/GiB até um máximo de mil 160 IOPS por disco. Para atingir o IOPS aprovisionado, certifique-se de que o IOPS de disco selecionado são menos do que o IOPS de VM. O IOPS mínimo do disco são 100 IOPS.
 - Débito de disco: Com o ultra SSD, o limite de taxa de transferência de um único disco é 256 KiB/s para cada aprovisionado IOPS, até um máximo de 2000 MBps por disco (em que MBps = 10 ^ 6 Bytes por segundo). O débito de disco mínimo é 1 MiB.
+- Ultra SSDs oferecer suporte a ajustar os atributos de desempenho de disco (IOPS e débito) em tempo de execução sem desligar o disco da máquina virtual. Assim que tiver sido emitida uma operação de redimensionamento de desempenho de disco num disco, pode demorar até uma hora para que a alteração, na verdade, entre em vigor.
 
 ### <a name="disk-size"></a>Tamanho do disco
 
@@ -58,6 +59,10 @@ Alguns recursos principais do Ultra SSD são:
 |256     |76,800         |2.000         |
 |512     |80,000         |2.000         |
 |1.024-65,536 (tamanhos neste intervalo de aumento em incrementos de 1 TiB)     |160,000         |2.000         |
+
+### <a name="transactions"></a>Transações
+
+Para os ultra SSDs, cada operação e/s inferior ou igual a 256 KiB de débito é considerada uma única operação de e/s. Operações de e/s superiores a 256 KiB de débito são consideradas várias e/SS de tamanho 256 KiB.
 
 ### <a name="preview-scope-and-limitations"></a>Âmbito de pré-visualização e limitações
 

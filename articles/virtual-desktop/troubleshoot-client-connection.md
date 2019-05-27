@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
-ms.translationtype: HT
+ms.openlocfilehash: f88dee579e44a01dc1a7404ef6a670de34063552
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65522933"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833577"
 ---
 # <a name="remote-desktop-client-connections"></a>Ligações cliente do Ambiente de Trabalho Remoto
 
@@ -28,9 +28,9 @@ Confirme que existe conectividade de internet ao abrir a outro web site; Por exe
 
 Uso **nslookup** para confirmar o DNS pode resolver o FQDN:
 
-    ```cmd
-    nslookup rdweb.wvd.microsoft.com
-    ```
+```cmd
+nslookup rdweb.wvd.microsoft.com
+```
 
 Tente ligar-se com outro cliente, como o cliente de ambiente de trabalho remoto para Windows 7 ou Windows 10 e verificação ver se é possível abrir o cliente web.
 
@@ -54,7 +54,7 @@ Tente ligar-se com outro cliente, como o cliente de ambiente de trabalho remoto 
 
 1. Reinicie o navegador.
 2. Cookies do browser clara. Ver [como eliminar ficheiros de cookie no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-3. Cache do browser clara. Ver [limpar a cache do browser para o seu navegador](https://binged.it/2RKyfdU).
+3. Limpe a cache do browser. Ver [limpar a cache do browser para o seu navegador](https://binged.it/2RKyfdU).
 4. Browser aberto no modo privado.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>Cliente Web deixa de responder ou desligada
@@ -74,7 +74,7 @@ Se o cliente Web mantém prompt de credenciais, siga estas instruções.
 1. Confirme o que URL de cliente da web está correto.
 2. Confirme que as credenciais para o ambiente de área de Trabalho Virtual do Windows associado ao URL.
 3. Cookies do browser clara. Ver [como eliminar ficheiros de cookie no Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4. Cache do browser clara. Ver [limpar a cache do browser para o seu navegador](https://binged.it/2RKyfdU).
+4. Limpe a cache do browser. Ver [limpar a cache do browser para o seu navegador](https://binged.it/2RKyfdU).
 5. Browser aberto no modo privado.
 
 ## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Cliente de ambiente de trabalho remoto para Windows 7 ou Windows 10 irá parar de responder ou não é possível abrir
@@ -111,20 +111,20 @@ Siga estas instruções de resolução de problemas gerais de códigos de erro d
 4. Usando **Get-RdsHostPool** e **Get-RdsSessionHost** cmdlets, confirme que a resolução de problemas está a ser feita no pool de anfitrião correto.
 5. Execute o comando abaixo para obter uma lista de todas as atividades com falhas de ligação de tipo para a janela de tempo especificado:
 
-    ```cmd
+    ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
 6. Utilizar o **ActivityId** da saída do cmdlet anterior, execute o comando abaixo:
 
-    ```
+    ```PowerShell
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
 7. O comando produz saída semelhante a saída mostrada abaixo. Uso **ErrorCodeSymbolic** e **ErrorMessage** para resolver a causa raiz.
 
-    ```
+    ```PowerShell
     ErrorSource       : <Source>
     ErrorOperation    : <Operation>
     ErrorCode         : <Error code>
@@ -159,7 +159,7 @@ Um utilizador pode iniciar a clientes de ambiente de trabalho remoto e é possí
 
 Confirme que o utilizador os problemas de relatórios foi atribuído a grupos de aplicações ao utilizar esta linha de comandos:
 
-```cmd
+```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 

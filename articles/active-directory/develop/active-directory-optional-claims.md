@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/27/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: 8c0e5035331cbe4f54926f0ae60ae0c5c31f6a9a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544570"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66119713"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Como: Fornecer afirmações opcionais para a sua aplicação do Azure AD
 
@@ -125,6 +125,9 @@ Este objeto OptionalClaims faz com que o token de ID devolvido ao cliente para i
 ## <a name="configuring-optional-claims"></a>Configurar afirmações opcionais
 
 Pode configurar afirmações opcionais para a sua aplicação ao modificar o manifesto do aplicativo (consulte o exemplo abaixo). Para obter mais informações, consulte a [Noções básicas sobre o artigo de manifesto de aplicação do Azure AD](reference-app-manifest.md).
+
+> [!IMPORTANT]
+> Os tokens de acesso são **sempre** gerada usando o manifesto do recurso, não no cliente.  Por isso, no pedido `...scope=https://graph.microsoft.com/user.read...` o recurso é o gráfico.  Portanto, o token de acesso é criado usando o manifesto de gráfico, não os manifesto do cliente.  Alterar o manifesto para a sua aplicação nunca fará com que os tokens do gráfico tenha uma aparência diferente.  Para validar que sua `accessToken` alterações estão em vigor, solicitar um token para a sua aplicação não outro de aplicativo.  
 
 **Esquema de exemplo:**
 

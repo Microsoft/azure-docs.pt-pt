@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 290b548f31a967d514b09e4de775b12de7703b07
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: 7499dbe1f3f0b89a11814ad1b65a52bb9ba9fd05
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65782946"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016067"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>Erro "Não é possível aceder a esta aplicação empresarial" quando utilizar uma aplicação de Proxy de aplicações
 
@@ -77,7 +77,7 @@ Para verificar a aplicação é atribuído a um grupo de conectores em funcionam
 
 1. Abra a aplicação no portal, acedendo a **do Azure Active Directory**, clicar em **aplicações empresariais**, em seguida, **todas as aplicações.** Abra a aplicação, em seguida, selecione **Proxy de aplicações** no menu à esquerda.
 
-2. Veja o campo de grupo do conector. Se não existirem não existem conectores ativos no grupo, verá um aviso. Se não vir quaisquer avisos, passarei para "verificar todas as portas necessárias estão na lista de permissões".
+2. Veja o campo de grupo do conector. Se não existirem não existem conectores ativos no grupo, verá um aviso. Se não vir quaisquer avisos, avançar para verificar todas as portas necessárias são permitidas.
 
 3. Se o problema é mostrar o grupo do conector, utilize a menu pendente para selecionar o grupo correto e confirme que já não vê quaisquer avisos. Se o grupo do conector prevista é apresentada, clique a mensagem de aviso para abrir a página com a gestão do conector.
 
@@ -87,11 +87,11 @@ Para verificar a aplicação é atribuído a um grupo de conectores em funcionam
 
    * Transferir um novo conector para esse grupo: Nesta página, pode obter a ligação para [transferir um novo conector](https://download.msappproxy.net/Subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/Connector/Download). Instale o conector num computador com a linha de visão direta para a aplicação de back-end. Normalmente, o conector é instalado no mesmo servidor que o aplicativo. Utilize a ligação de conector de transferência para transferir um conector para o computador de destino. Em seguida, clique o conector e utilize o menu pendente "conector do grupo" para se certificar de que ele pertence ao grupo certo.
 
-   * Investigar um conector inativo: Se um conector mostra como inativo, não consegue contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, passarei para "Verifique se todas as portas necessárias estão na lista de permissões".
+   * Investigar um conector inativo: Se um conector mostra como inativo, não consegue contactar o serviço. Este erro é normalmente devido a algumas portas necessárias a ser bloqueadas. Para resolver este problema, avançar para verificar todas as portas necessárias são permitidas.
 
 Depois de utilizar estes passos para garantir que a aplicação é atribuída a um grupo com a trabalhar de conectores, teste o aplicativo novamente. Se ainda não está funcionando, avance para a secção seguinte.
 
-## <a name="check-all-required-ports-are-whitelisted"></a>Verifique todas as portas necessárias estão na lista de permissões
+## <a name="check-all-required-ports-are-open"></a>Verifique todas as portas necessárias estiverem abertas
 
 Para verificar-se de que todas as necessárias portas estão abertas, consulte a documentação sobre como abrir portas. Se as portas necessárias estiverem abertas, mova para a secção seguinte.
 

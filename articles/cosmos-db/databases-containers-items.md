@@ -4,15 +4,15 @@ description: Este artigo descreve como criar e utilizar bases de dados, contento
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: ea3ba91859bbfb1a7c589cdb36e9fb87b52a89b8
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
-ms.translationtype: HT
+ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
+ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560292"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "65954221"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contentores e itens no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Pode criar uma ou várias bases de dados do Cosmos do Azure na sua conta. Uma ba
 
 | Entidades do Cosmos do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de dados | Base de dados | N/D |
+|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de dados | Base de dados | ND |
 
 > [!NOTE]
 > Com contas da API de tabela, ao criar a primeira tabela, uma base de dados predefinida é automaticamente criado na sua conta do Cosmos do Azure.
@@ -85,7 +85,7 @@ Um contentor do Cosmos do Azure tem um conjunto de propriedades definidas pelo s
 |\_gestão personalizada | Gerados pelo sistema | Endereçável URI do contentor | Sim | Não | Não | Não | Não |
 |id | Configurável pelo utilizador | Nome exclusivo definido pelo utilizador do contentor | Sim | Sim | Sim | Sim | Sim |
 |indexingPolicy | Configurável pelo utilizador | Fornece a capacidade de alterar o caminho de índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
-|TimeToLive | Configurável pelo utilizador | Fornece a capacidade de excluir itens automaticamente a partir de um contentor após um período de tempo. Para obter detalhes, consulte [TTL](time-to-live.md). | Sim | Não | Não | Não | Sim |
+|timeToLive | Configurável pelo utilizador | Fornece a capacidade de excluir itens automaticamente a partir de um contentor após um período de tempo. Para obter detalhes, consulte [TTL](time-to-live.md). | Sim | Não | Não | Não | Sim |
 |changeFeedPolicy | Configurável pelo utilizador | Utilizado para ler as alterações efetuadas aos itens num contentor. Para obter detalhes, consulte [feed de alterações](change-feed.md). | Sim | Não | Não | Não | Sim |
 |uniqueKeyPolicy | Configurável pelo utilizador | Utilizado para garantir a exclusividade de um ou mais valores numa partição lógica. Para obter mais informações, consulte [restrições de chave exclusivas](unique-keys.md). | Sim | Não | Não | Não | Sim |
 
@@ -96,9 +96,9 @@ Um contentor do Cosmos do Azure suporta as seguintes operações quando usar qua
 | Operação | CLI do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
 | Enumerar contentores numa base de dados | Sim | Sim | Sim | Sim | ND | ND |
-| Ler um contentor | Sim | Sim | Sim | Sim | ND | N/D |
-| Criar novo contentor | Sim | Sim | Sim | Sim | ND | N/D |
-| Atualizar um contentor | Sim | Sim | Sim | Sim | ND | N/D |
+| Ler um contentor | Sim | Sim | Sim | Sim | ND | ND |
+| Criar novo contentor | Sim | Sim | Sim | Sim | ND | ND |
+| Atualizar um contentor | Sim | Sim | Sim | Sim | ND | ND |
 | Eliminar um contentor | Sim | Sim | Sim | Sim | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Itens do Cosmos do Azure

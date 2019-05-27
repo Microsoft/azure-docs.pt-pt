@@ -10,18 +10,18 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d543df842464f1b69fa287c89e777a7e1512ae09
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540251"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65962616"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Como: Ativar a SSO em vária aplicações em dispositivos iOS através da ADAL
 

@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 42ab8be45d4086589f0793531003700e7552a440
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 268467796e67caf2d20fedb44d83fd455a09b83e
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744459"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66147845"
 ---
 **Transferências de dados de saída**: [Transferências de dados de saída](https://azure.microsoft.com/pricing/details/bandwidth/) faturação para utilização de largura de banda de incorrer em (dados que saem de datacenters do Azure).
 
-**Transações**: A faturação para o número de transações que executar num disco gerido standard. Para os SSDs padrão, o tamanho da unidade de e/s de 256 KiB é utilizado para o número de transações de gestão de contas. Tamanhos de e/s maiores são contabilizados como várias e/SS de tamanho 256 KiB. Para HDDs padrão, cada operação de e/s é considerada como uma única transação, independentemente do tamanho de e/s.
+**Transações**: A faturação para o número de transações que executar num disco gerido standard. Para os SSDs padrão, cada operação e/s inferior ou igual a 256 KiB de débito é considerada uma única operação de e/s. Operações de e/s superiores a 256 KiB de débito são consideradas várias e/SS de tamanho 256 KiB. Para HDDs padrão, cada operação de e/s é considerada como uma única transação, independentemente do tamanho de e/s.
 
 Para obter informações detalhadas sobre os preços do Managed Disks, incluindo os custos de transação, consulte [preços de discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
 

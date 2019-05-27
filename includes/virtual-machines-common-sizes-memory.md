@@ -5,19 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 05/16/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0b0e03b163d4de7a441bb7d2714be23b58c95028
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744456"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170365"
 ---
 Com otimização de memória oferta de tamanhos VM uma alta taxa de memória de CPU que são ótimos para servidores de base de dados relacionais, caches médias a grandes e análise dentro da memória. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento e débito de rede da largura de banda para cada tamanho neste agrupamento. 
 
-* A série M oferece a contagem de vCPU mais alta (até 128 vCPUs) e a maior capacidade de memória (até 3,8 TiB) de qualquer VM na cloud.  É ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.
+* A série Mv2 oferece a contagem de vCPU mais alta (até 208 vCPUs) e a maior capacidade de memória (até 5.7 TiB) de qualquer VM na cloud. É ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.
+ 
+* A série M oferece uma contagem de altas de vCPU (até 128 vCPUs) e uma grande quantidade de memória (até 3,8 TiB). Também é ideal para bases de dados muito grandes ou outras aplicações que tiram partido de contagens altas de vCPU e grandes quantidades de memória.
 
 * Série Dv2, série G e as DSv2/GS são ideais para aplicações que exigem vCPUs mais rápidas, melhor desempenho de armazenamento temporário ou memórias. Proporcionam uma combinação poderosa para inúmeras aplicações empresariais.
 
@@ -87,6 +89,66 @@ O armazenamento de discos de dados são cobrados em separado das máquinas virtu
 
 <sup>3</sup> instância está isolada do hardware dedicado de um único cliente.
 
+
+## <a name="mv2-series"></a>Série Mv2
+
+Armazenamento Premium: Suportadas
+
+Cache de armazenamento Premium: Suportadas
+
+Acelerador de escrita: [Suportado](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+O série Mv2 funcionalidades alto débito, baixa latência, diretamente mapeado armazenamento local de NVMe em execução num hyper-thread Intel® Xeon® Platinum 8180 M 2,5 GHz (Skylake) processador com uma frequência de base de todos os núcleos de 2,5 GHz e uma frequência de turbo máx. de 3,8 GHz. Todos os tamanhos de máquinas virtuais de série Mv2 podem utilizar discos persistentes standard e premium. Instâncias da série Mv2 são os tamanhos de VM fornece desempenho computacional incomparável para suportar grandes bancos de dados na memória e cargas de trabalho, com uma alta taxa de memória de CPU, que é ideal para servidores de base de dados relacionais, caches grandes e na memória com otimização de memória análise. 
+
+|Tamanho | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo de armazenamento temporário e em cache: IOPS / MBps (tamanho da cache em GiB) | Débito máximo de disco não colocado em cache: IOPS / MBps | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M208ms_v2<sup>1, 2</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+| Standard_M208s_v2<sup>1, 2</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40,000 / 1000 | 8 / 16000 |
+
+As VMS da série Mv2 funcionalidade Intel® Hyper-Threading Technology  
+
+<sup>1</sup> estas VMs grandes exigem um destes SO convidados suportados: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15.
+
+<sup>2</sup> VMs da série Mv2 são apenas a geração 2. Se estiver a utilizar o Linux, consulte a secção seguinte para saber como localizar e selecionar uma imagem de SUSE Linux.
+
+#### <a name="find-a-suse-image"></a>Encontrar uma imagem SUSE
+
+Para selecionar uma imagem apropriada do SUSE Linux no portal do Azure: 
+
+1. No portal do Azure, selecione **criar um recurso** 
+1. Procure "SAP do SUSE" 
+1. SLES para imagens de geração 2 SAP estão disponível como qualquer um dos pay as you go ou traga a sua própria subscrição (BYOS). Nos resultados da pesquisa, expanda a categoria de imagem pretendida:
+
+    * SUSE Linux Enterprise Server (SLES) para SAP
+    * SUSE Linux Enterprise Server (SLES) para SAP (BYOS)
+    
+1. Imagens SUSE compatíveis com a série Mv2 são prefixadas com o nome `GEN2:`. As seguintes imagens do SUSE estão disponíveis para as VMs da série Mv2:
+
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 para aplicações SAP
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 para aplicações SAP
+    * GEN2: SUSE Linux Enterprise Server (SLES) 12 SP4 para aplicações SAP (BYOS)
+    * GEN2: SUSE Linux Enterprise Server (SLES) 15 para aplicações SAP (BYOS)
+
+#### <a name="select-a-suse-image-via-azure-cli"></a>Selecionar uma imagem SUSE através da CLI do Azure
+
+Para ver uma lista da imagem SAP do SLES atualmente disponível para VMs de série Mv2, utilize o seguinte procedimento [ `az vm image list` ](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest#az-vm-image-list) comando:
+
+```azurecli
+az vm image list --output table --publisher SUSE --sku gen2 --all
+```
+
+O comando produz o atualmente disponíveis VMs de geração 2 disponíveis do SUSE para VMs de série Mv2. 
+
+Exemplo de saída:
+
+```
+Offer          Publisher  Sku          Urn                                        Version
+-------------  ---------  -----------  -----------------------------------------  ----------
+SLES-SAP       SUSE       gen2-12-sp4  SUSE:SLES-SAP:gen2-12-sp4:2019.05.13       2019.05.13
+SLES-SAP       SUSE       gen2-15      SUSE:SLES-SAP:gen2-15:2019.05.13           2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-12-sp4  SUSE:SLES-SAP-BYOS:gen2-12-sp4:2019.05.13  2019.05.13
+SLES-SAP-BYOS  SUSE       gen2-15      SUSE:SLES-SAP-BYOS:gen2-15:2019.05.13      2019.05.13
+```
 
 ## <a name="m-series"></a>Série M 
 

@@ -7,14 +7,14 @@ ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: b452485ccf235d1f245989e40840f2f0b3b2ae45
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 05/20/2019
+ms.openlocfilehash: bd1f06c93a75673f86f0c52f78cad8a60f7a1a1e
+ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544510"
+ms.lasthandoff: 05/21/2019
+ms.locfileid: "65961442"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ligar a redes virtuais do Azure do Azure Logic Apps com um ambiente de serviço de integração (ISE)
 
@@ -24,7 +24,7 @@ Para cenários em que o logic apps e as contas de integração precisam de acess
 
 Este artigo mostra como concluir estas tarefas:
 
-* Defina as portas de rede virtual do Azure para que o tráfego pode ser transferidos através de seu ambiente de serviço de integração (ISE) em sub-redes na rede virtual.
+* Certifique-se de que qualquer porta necessária uma rede virtual está aberta para que o tráfego pode ser transferidos através de seu ambiente de serviço de integração (ISE) entre as sub-redes nessa rede virtual.
 
 * Crie o seu ambiente de serviço de integração (ISE).
 
@@ -60,11 +60,13 @@ Para obter mais informações sobre os ambientes de serviço de integração, co
 
 <a name="ports"></a>
 
-## <a name="set-up-network-ports"></a>Configurar portas de rede
+## <a name="check-network-ports"></a>Verifique as portas de rede
 
-Para funcionar corretamente e mantenha-se acessível, o ambiente de serviço de integração (ISE) tem de ter as portas específicas disponíveis na sua rede virtual. Caso contrário, se qualquer uma destas portas não estão disponíveis, poderá perder o acesso ao seu ISE, que poderá parar de funcionar. Quando utiliza um ISE numa rede virtual, um problema de configuração comum é ter um ou mais portas bloqueadas. Para as ligações entre seu ISE e o sistema de destino, o conector que utiliza também pode ter seus próprios requisitos de porta. Por exemplo, se comunicar com um sistema FTP utilizando o conector FTP, certifique-se a porta a que utilizar em que o sistema FTP, como a porta 21 para o envio de comandos, está disponível.
+Quando utiliza um ambiente de serviço de integração (ISE) com uma rede virtual, um problema de configuração comum é ter um ou mais portas bloqueadas. Os conectores que utilizar para criar ligações entre seu ISE e o sistema de destino também podem ter seus próprios requisitos de porta. Por exemplo, se comunicar com um sistema FTP utilizando o conector FTP, certifique-se a porta a que utilizar em que o sistema FTP, como a porta 21 para o envio de comandos, está disponível.
 
-Para controlar o tráfego entre sub-redes da rede virtual onde implementar seu ISE, pode configurar [grupos de segurança de rede](../virtual-network/security-overview.md) para as sub-redes por [filtragem de tráfego de rede em sub-redes](../virtual-network/tutorial-filter-network-traffic.md). Estas tabelas descrevem as portas na sua rede virtual que utiliza o ISE e onde se acostumar essas portas. O [etiquetas de serviço do Gestor de recursos](../virtual-network/security-overview.md#service-tags) representa um grupo de prefixos de endereços IP que o ajudam a minimizar a complexidade ao criar regras de segurança.
+Para controlar o tráfego entre sub-redes da rede virtual onde implementar ISE, pode configurar [grupos de segurança de rede](../virtual-network/security-overview.md) por [filtragem de tráfego de rede em sub-redes](../virtual-network/tutorial-filter-network-traffic.md). No entanto, a ISE tem de ter portas específicas, abra na rede virtual que utiliza os grupos de segurança de rede. Dessa forma, seu ISE permanece acessível e pode funcionar corretamente para que não perca o acesso ao seu ISE. Caso contrário, se todas as portas necessárias estiverem indisponíveis, seu ISE deixa de funcionar.
+
+Estas tabelas descrevem as portas na sua rede virtual que utiliza o ISE e onde se acostumar essas portas. O [etiquetas de serviço do Gestor de recursos](../virtual-network/security-overview.md#service-tags) representa um grupo de prefixos de endereços IP que o ajudam a minimizar a complexidade ao criar regras de segurança.
 
 > [!IMPORTANT]
 > Para a comunicação interna dentro as sub-redes, a ISE requer que abrir todas as portas dentro dessas sub-redes.
@@ -159,7 +161,7 @@ Na caixa de pesquisa, introduza "ambiente de serviço de integração" como o fi
    1. Sobre o **adicionar sub-rede** painel, indique estas informações.
 
       * **Nome**: O nome para a sua sub-rede
-      * **Intervalo de endereços (bloco CIDR)**: Intervalo da sua sub-rede na sua rede virtual e no formato CIDR
+      * **Intervalo de endereços (bloco CIDR)** : Intervalo da sua sub-rede na sua rede virtual e no formato CIDR
 
       ![Adicionar detalhes da sub-rede](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
 
