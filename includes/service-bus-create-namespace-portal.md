@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60333582"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66111117"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Criar um espaço de nomes no portal do Azure
 Para começar a utilizar as entidades de mensagens do Service Bus no Azure, tem de, primeiro, criar um espaço de nomes que seja exclusivo em todo o Azure. Um espaço de nomes fornece um contentor de âmbito para abordar os recursos do Service Bus na sua aplicação.
@@ -35,7 +35,7 @@ Para criar um espaço de nomes:
     6. Para **localização**, selecione a região em que o seu espaço de nomes deverá ser alojado.
     7. Selecione **Criar**. O sistema cria o espaço de nomes e ativa-o. Poderá ter de aguardar alguns minutos enquanto o sistema aprovisiona recursos para a sua conta.
    
-        ![Create namespace](./media/service-bus-create-namespace-portal/create-namespace.png)
+        ![Criar espaço de nomes](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Confirme que o espaço de nomes do barramento de serviço é implementado com êxito. Para ver as notificações, selecione o **ícone de sino (alertas)** na barra de ferramentas. Selecione o **nome do grupo de recursos** na notificação, conforme mostrado na imagem. Ver o grupo de recursos que contém o espaço de nomes do service bus.
 
     ![Alerta de implementação](./media/service-bus-create-namespace-portal/deployment-alert.png)

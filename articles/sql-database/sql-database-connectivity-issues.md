@@ -13,12 +13,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/14/2018
-ms.openlocfilehash: 7d07b0a098aad472b1b4f0b9810e5b63ac3c48a2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56b4e948f4e1aab20de95a16f45ab790c7e591bb
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60202171"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66019827"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de ligação de base de dados SQL e erros transitórios
 
@@ -134,7 +134,7 @@ Se o seu programa cliente se liga a base de dados SQL utilizando a classe do .NE
 Quando está a desenvolver o [cadeia de ligação](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para a sua **SqlConnection** de objeto, coordenar os valores entre os seguintes parâmetros:
 
 - **ConnectRetryCount**:&nbsp;&nbsp;a predefinição é 1. O intervalo é de 0 a 255.
-- **ConnectRetryInterval**:&nbsp;&nbsp;predefinido é de 1 segundo. O intervalo é de 1 a 60.
+- **ConnectRetryInterval**:&nbsp;&nbsp;predefinido é de 10 segundos. O intervalo é de 1 a 60.
 - **Tempo limite da ligação**:&nbsp;&nbsp;a predefinição é 15 segundos. O intervalo é 0 e 2147483647.
 
 Especificamente, seus valores escolhidas devem tornar o verdadeiro de igualdade seguintes: Tempo limite da ligação = ConnectRetryCount * ConnectionRetryInterval

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80faf1899da0f16d25b9b7c68cb0edcbc1276632
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0e792551f4cac857f56454c67d527e01cb9c4281
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294243"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113128"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detetadas pelo Azure Active Directory Identity Protection
 
@@ -30,12 +30,10 @@ As secções seguintes fornecem uma visão geral das vulnerabilidades comunicado
 
 Essa vulnerabilidade ajuda a avaliar a implantação do multi-factor Authentication do Azure na sua organização.
 
-Para ver a contagem de utilizadores que não estão registados para a MFA, clique na Vulnerabilidade e é redirecionadas para estatísticas de dentro de pontuação de proteger a identidade.
-
 O Azure multi-factor Authentication fornece uma segunda camada de segurança para autenticação de utilizador. Ele ajuda a salvaguardar o acesso aos dados e aplicações, satisfazendo um processo de início de sessão simples. O Azure multi-factor Authentication fornece opções de verificação fácil de usar, como:
 
 * Chamada telefónica
-* Mensagem de texto
+* Mensagem SMS
 * Notificação de aplicação móvel
 * Código de verificação de OTP
 

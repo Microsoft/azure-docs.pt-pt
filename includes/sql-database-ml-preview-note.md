@@ -6,11 +6,11 @@ ms.topic: include
 ms.date: 04/10/2019
 ms.author: garye
 ms.openlocfilehash: de3cbf4411c2b10c0a5a06c4e220f3a245f5bdc3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584574"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66110230"
 ---
 > [!IMPORTANT]
 > Serviços do Aprendizado de máquina de base de dados do Azure SQL está atualmente em pré-visualização pública.

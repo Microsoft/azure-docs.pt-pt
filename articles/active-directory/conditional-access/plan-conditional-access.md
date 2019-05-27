@@ -13,12 +13,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4832055bffa72732991cb766ce88cc48c07530e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2e277f31dcf2627959b88d58f325fb4dad024a00
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301421"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001196"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Como: Planear a implementação de acesso condicional no Azure Active Directory
 
@@ -81,7 +81,7 @@ Neste momento, é um bom momento para decidir qual a um padrão de nomeação pa
  
 ![Padrão de nomenclatura](./media/plan-conditional-access/11.png)
 
-Enquanto um nome descritivo ajuda-o a manter uma descrição geral da sua implementação de acesso condicional, o número de sequência é útil se precisa fazer referência uma política numa conversa. Por exemplo, se conversa com um colega administrador no telefone, pode pedir-lhe para abrir a política EM063 resolver um problema.
+Enquanto um nome descritivo ajuda-o a manter uma descrição geral da sua implementação de acesso condicional, o número de sequência é útil se precisa fazer referência uma política numa conversa. Por exemplo, se conversa com um colega administrador no telefone, pode pedi-las para abrir a política EM063 resolver um problema.
 
 
 
@@ -131,7 +131,7 @@ Para simplificar a experiência de início de sessão dos utilizadores, pode que
 
 Casos de utilização comuns para exigir a MFA se o acesso:
 
-- [Por administradores](baseline-protection.md#require-mfa-for-admins)
+- [Por administradores](howto-baseline-protect-administrators.md)
 - [Para aplicações específicas](app-based-mfa.md) 
 - [A partir de localizações de rede, não confia](untrusted-networks.md).
 

@@ -10,18 +10,18 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 19873256f8253fff75cfd42df7b876106a9e98e5
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 70f9c34957b977aff9fc6211bf79415ed9abe255
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65464795"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016515"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Introdução ao Azure Machine Learning para Visual Studio Code
 
-Neste artigo, aprenderá a utilizar a extensão para o Azure Machine Learning para Visual Studio Code para preparar e implementar o machine learning e modelos de aprendizagem através do serviço Azure Machine Learning no Visual Studio Code.
+Neste artigo, aprenderá a utilizar a extensão para o Azure Machine Learning para Visual Studio Code para preparar e implementar modelos de aprendizagem profunda e de aprendizagem automática.
 
-O serviço Azure Machine Learning fornece suporte para experimentações que executar localmente e destinos de computação remota. Para cada fase experimental, pode manter um registo de várias execuções, muitas vezes, o que precisar tentar iterativamente técnicas diferentes, hiperparâmetros e muito mais. Pode utilizar o Azure Machine Learning para controlar métricas personalizadas e experimente execuções, ativar a capacidade de reprodução de ciência de dados e auditability.
+O [serviço Azure Machine Learning](overview-what-is-azure-ml.md) fornece suporte para destinos de computação de experimentações que executar localmente e na remoto. Para cada fase experimental, pode manter um registo de várias execuções, muitas vezes, o que precisar tentar iterativamente técnicas diferentes, hiperparâmetros e muito mais. Pode utilizar o Azure Machine Learning para controlar métricas personalizadas e experimente execuções, ativar a capacidade de reprodução de ciência de dados e auditability.
 
 Pode também implementar estes modelos para as suas necessidades de teste e produção.
 
@@ -69,13 +69,13 @@ Para instalar a extensão do Azure Machine Learning:
 
    ![Selecione o interpretador](./media/vscode-tools-for-ai/python.png)
 
-1. No canto inferior direito da janela, é apresentada uma notificação, que indica que o SDK do Azure Machine Learning está a ser instalado automaticamente. O ambiente de Python recém-criado é local e privadas e tem os pré-requisitos do Visual Studio Code para trabalhar com o serviço Azure Machine Learning.
+1. No canto inferior direito da janela, é apresentada uma notificação, indicando que o [SDK do Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) está a ser instalado automaticamente. O ambiente de Python recém-criado é local e privadas e tem os pré-requisitos do Visual Studio Code para trabalhar com o serviço Azure Machine Learning.
 
    ![Instalar o Azure Machine Learning SDK para Python](./media/vscode-tools-for-ai/runtimedependencies.png)
 
 ## <a name="get-started-with-azure-machine-learning"></a>Introdução ao Azure Machine Learning
 
-Antes de começar a formação e implementar modelos de machine learning no Visual Studio Code, tem de criar uma [Azure Machine Learning a área de trabalho de serviço](concept-azure-machine-learning-architecture.md#workspace) na cloud. Esta área de trabalho irá conter seus modelos e recursos. 
+Antes de começar a formação e implementar modelos de machine learning no Visual Studio Code, tem de criar uma [Azure Machine Learning a área de trabalho de serviço](concept-workspace.md) na cloud. Esta área de trabalho irá conter seus modelos e recursos. 
 
 Para criar uma área de trabalho e adicionar a sua primeira experiência:
 

@@ -5,11 +5,11 @@ manager: carmonm
 ms.date: 04/17/2019
 ms.topic: include
 ms.openlocfilehash: bba762fca7154067e528ebbbb0ea94c8ba7965f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62091946"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66110264"
 ---
 > [!NOTE]
 > Este artigo foi atualizado para utilizar o módulo Azure PowerShell Az novo. Pode continuar a utilizar o módulo de AzureRM, que vai continuar a receber correções de erros até que, pelo menos, Dezembro de 2020.

@@ -2,23 +2,22 @@
 title: Atributos comuns de segurança para o Azure Backup
 description: Uma lista de verificação de atributos comuns de segurança para avaliar o Azure Backup
 services: backup
-documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7bc4fd42f64bba09fd20fedf5e06dc30c3b2cc49
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 86b8ab96a94a6ffc44c304d8a0a689301560a989
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64680800"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002808"
 ---
-# <a name="common-security-attributes-for-azure-backup"></a>Atributos comuns de segurança para o Azure Backup
+# <a name="security-attributes-for-azure-backup"></a>Atributos de segurança para o Azure Backup
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos de segurança comuns incorporados no Azure Backup. 
+Este artigo documenta os atributos de segurança integrados do Azure Backup. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -47,7 +46,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | O log Analytics é suportado através de registos de diagnóstico. Ver [cargas de trabalho utilizar o Log Analytics de protegidas de cópia de segurança do Azure Monitor](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) para obter mais informações. |
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -55,14 +54,14 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Autorização| Sim | Cliente criada e funções RBAC incorporadas são usadas. Ver [Use Role-Based o controlo de acesso para gerir pontos de recuperação de cópia de segurança do Azure](/azure/backup/backup-rbac-rs-vault) para obter mais informações. |
 
 
-## <a name="audit-trail"></a>Registo de Auditoria
+## <a name="audit-trail"></a>Registo de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Auditoria e registo de plano de controlo e gestão| Sim | Todas as ações de cliente acionada no portal do Azure são registadas nos registos de atividade. |
 | Auditoria e registo de plano de dados| Não | Não é possível aceder diretamente ao plano de dados de cópia de segurança do Azure.  |
 
-## <a name="configuration-management"></a>Gestão da Configuração
+## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
