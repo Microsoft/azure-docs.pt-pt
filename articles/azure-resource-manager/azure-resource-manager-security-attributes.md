@@ -8,16 +8,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ebc39dcd9fe921c794add48cc677a799841cbb78
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: a771d4c2ae22b7bf149c13c80fe5286ef52a4545
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943631"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002263"
 ---
-# <a name="common-security-attributes-for-azure-resource-manager"></a>Atributos comuns de segurança para o Azure Resource Manager
+# <a name="security-attributes-for-azure-resource-manager"></a>Atributos de segurança para o Azure Resource Manager
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos de segurança comuns, criados para o Azure Resource Manager.
+Este artigo documenta os atributos de segurança criados para o Azure Resource Manager.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -26,7 +26,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Encriptação inativa:<ul><li>Encriptação do lado do servidor</li><li>Encriptação do lado do servidor com chaves geridas pelo cliente</li><li>Outros recursos de criptografia (por exemplo, o lado do cliente, são sempre encriptados, etc.)</ul>| Sim |  |
-| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de Vnet</li><li>Encriptação de VNet a VNet</ul>| Sim | HTTPS/TLS. |
+| Encriptação em trânsito:<ul><li>Express route encriptação</li><li>Na encriptação de VNet</li><li>Encriptação de VNet a VNet</ul>| Sim | HTTPS/TLS. |
 | Manipulação de chave de encriptação (CMK, BYOK, etc.)| N/A | O Gestor de recursos do Azure não armazena nenhum conteúdo de cliente, apenas os dados de controle. |
 | Encriptação de nível de coluna (Serviços de dados do Azure)| Sim | |
 | Chamadas de API encriptadas| Sim | |
@@ -46,7 +46,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Não | |
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -61,7 +61,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Auditoria e registo de plano de controlo e gestão| Sim | Expor todas as operações (PUT, POST, DELETE) efetuadas nos seus recursos; de escrita de registos de atividades ver [ver registos de atividades para auditar as ações em recursos](resource-group-audit.md). |
 | Auditoria e registo de plano de dados| N/A | |
 
-## <a name="configuration-management"></a>Gestão da configuração
+## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|

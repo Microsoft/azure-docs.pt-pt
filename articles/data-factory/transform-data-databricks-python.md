@@ -3,21 +3,21 @@ title: Transformar dados com o Databricks Python - Azure | Documentos da Microso
 description: Saiba como processar ou transformar dados através da execução do Databricks Python.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-ms.assetid: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
-ms.openlocfilehash: 60aafd983d1c21777276683a8685376a247d11f5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+author: gauravmalhot
+ms.author: gamal
+ms.reviewer: maghan
+manager: craigg
+ms.openlocfilehash: 3ab3ec5380fbc90dffd4f258073ad8b477e2318a
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589214"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002831"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Transforme dados executando uma atividade de Python no Azure Databricks
 
@@ -64,7 +64,7 @@ A tabela seguinte descreve as propriedades JSON utilizadas na definição de JSO
 
 |Propriedade|Descrição|Necessário|
 |---|---|---|
-|nome|Nome da atividade no pipeline.|Sim|
+|name|Nome da atividade no pipeline.|Sim|
 |description|Texto que descreve o que faz a atividade.|Não|
 |tipo|Para a atividade do Databricks Python, o tipo de atividade é DatabricksSparkPython.|Sim|
 |linkedServiceName|Nome do serviço ligado do Databricks em que a atividade de Python é executado. Para saber mais sobre este serviço ligado, veja [serviços ligados de computação](compute-linked-services.md) artigo.|Sim|

@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a6ebfc86a2489910d23faa96550f34cc979c0435
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b6323e02225be3d954e4ee91ea06952bb3ce396
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60203436"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001771"
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceções de mensagens dos Hubs de Eventos
 
@@ -91,6 +91,12 @@ Este erro pode ocorrer para um dos dois motivos:
 
 Este erro raramente deve ocorrer. Isso acontece quando o contentor em execução de código para o espaço de nomes tem pouco CPU – não mais do que alguns segundos antes do Balanceador de carga de Hubs de eventos começa.
 
+### <a name="limit-on-calls-to-the-getruntimeinformation-method"></a>Limite para chamadas para o método GetRuntimeInformation
+Os Hubs de eventos do Azure oferece suporte a até 50 chamadas por segundo para GetRuntimeInfo por segundo. Poderá receber uma exceção semelhante ao seguinte quando for atingido o limite:
+
+```
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

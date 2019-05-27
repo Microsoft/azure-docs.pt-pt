@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
 ms.author: azfuncdf, glenga
-ms.openlocfilehash: 4c7b4733d05f18d3c30e45fd08c3cf9c50354ebc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2228f3fe05e1021d0f87ce0b0d33a8287f048a8c
+ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60730604"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65872816"
 ---
 # <a name="what-are-durable-functions"></a>O que são funções duráveis?
 
@@ -49,7 +49,7 @@ Funções duráveis suporta atualmente os seguintes idiomas:
 
 Funções duráveis consistia na meta de suporte a todos [idiomas de funções do Azure](../supported-languages.md). Consulte a [lista de problemas de funções duráveis](https://github.com/Azure/azure-functions-durable-extension/issues) para o estado mais recente de trabalho para oferecer suporte a idiomas adicionais.
 
-Como as funções do Azure, existem modelos para ajudar a desenvolver funções durável usando [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md)e o [portal do Azure](durable-functions-create-portal.md).
+Como as funções do Azure, existem modelos para ajudar a desenvolver funções durável usando [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md)e o [portal do Azure](durable-functions-create-portal.md).
 
 ## <a name="billing"></a>Faturação
 
@@ -59,12 +59,12 @@ Funções duráveis são faturadas as mesmas que as funções do Azure. Para obt
 
 Pode começar a utilizar com as funções duráveis em menos de 10 minutos, concluindo um destes tutoriais de início rápido de idioma específico:
 
-* [C#utilizar o Visual Studio 2017](durable-functions-create-first-csharp.md)
+* [C#usando o Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript com o Visual Studio Code](quickstart-js-vscode.md)
 
 Em ambos os inícios rápidos, localmente criar e testar uma função durável "hello world". Em seguida, publique o código de função no Azure. A função que cria orquestra e está ligado em conjunto de chamadas para outras funções.
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 O vídeo seguinte realça as vantagens de funções duráveis:
 

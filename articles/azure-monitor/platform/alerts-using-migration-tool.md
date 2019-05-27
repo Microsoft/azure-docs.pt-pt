@@ -7,16 +7,19 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 55e6b515328df635a423e0ecf736b03e17a90b8f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 00229cca1d7fb238b330ec98cd35d0bb59bc821a
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698412"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66015626"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Utilize a ferramenta de migração voluntária para migrar as regras do alerta clássicas
 
-Como [anunciado anteriormente](monitoring-classic-retirement.md), alertas Clássicos no Azure Monitor estão a ser descontinuadas em Julho de 2019. Uma ferramenta de migração está disponível no portal do Azure para os clientes que utilizam regras de alerta clássicas e que desejam acionar a migração propriamente ditas. Este artigo explica como utilizar a ferramenta de migração para migrar voluntariamente as regras do alerta clássicas antes da migração automática começa em Julho de 2019.
+Como [anunciado anteriormente](monitoring-classic-retirement.md), alertas Clássicos no Azure Monitor estão a ser descontinuadas em Setembro de 2019 (foi originalmente de 2019 de Julho). Uma ferramenta de migração está disponível no portal do Azure para os clientes que utilizam regras de alerta clássicas e que desejam acionar a migração propriamente ditas. Este artigo explica como utilizar a ferramenta de migração para migrar voluntariamente as regras do alerta clássicas antes da migração automática é iniciado em Setembro de 2019.
+
+> [!NOTE]
+> Devido a atraso no faseada da ferramenta de migração, tem sido a data de retirada para a migração de alertas clássicos [estendido para 31 de Agosto de 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) a contar da data originalmente anunciado de 30 de Junho de 2019.
 
 ## <a name="benefits-of-new-alerts"></a>Benefícios dos novos alertas
 
@@ -78,7 +81,7 @@ Para acionar a migração de suas regras de alerta clássicas no portal do Azure
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Por que motivo a minha subscrição está listada como não pronto para a migração?
 
-A ferramenta de migração está a implementar para os clientes em fases. Nas fases iniciais, poderão ser marcadas como a maioria ou todas as subscrições **não está pronto para migração**. Por empresas de médio Abril, no entanto, todas as subscrições devem estar prontas migrar.
+A ferramenta de migração está a implementar para os clientes em fases. Nas fases iniciais, poderão ser marcadas como a maioria ou todas as subscrições **não está pronto para migração**. 
 
 Quando uma assinatura fica pronta para a migração, o proprietário da subscrição irá receber uma mensagem de e-mail a indicar que a ferramenta está disponível. Fique atento para esta mensagem.
 

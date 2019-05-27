@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 017c2fd934f35a64f26687f4a58634dda9a821a3
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501964"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002482"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -49,7 +49,7 @@ Recomenda-se para utilizar uma conta de automatização separada para a soluçã
 
 ### <a name="permissions-needed-to-deploy"></a>Permissões necessárias para implementar
 
-Existem determinadas permissões que um utilizador tem de ter para implementar o iniciar/parar VMs durante a solução de horas. Estas permissões são diferentes, se utilizar uma área de trabalho previamente criada de conta de automatização e o Log Analytics ou criar novos durante a implementação.
+Existem determinadas permissões que um utilizador tem de ter para implementar o iniciar/parar VMs durante a solução de horas. Estas permissões são diferentes, se utilizar uma área de trabalho previamente criada de conta de automatização e o Log Analytics ou criar novos durante a implementação. Se for um contribuinte da subscrição e um Administrador Global no seu inquilino do Azure Active Directory, não é necessário configurar as permissões seguintes. Se não tem esses direitos ou tem de configurar uma função personalizada, veja as permissões necessárias abaixo.
 
 #### <a name="pre-existing-automation-account-and-log-analytics-account"></a>Conta de conta de automatização já existente e o Log Analytics
 
@@ -79,41 +79,21 @@ Para implementar o iniciar/parar VMs durante a solução de horas para uma conta
 
 Para implementar o iniciar/parar VMs durante as horas de inatividade solução para uma nova conta de automatização do Log Analytics área de trabalho e o usuário que está implantando a solução tem as permissões definidas na secção anterior, bem como as seguintes permissões:
 
-- Coadministrador na subscrição - isto é necessário para criar a conta Run as clássica
-- Fazer parte do **programador da aplicação** função. Para obter mais detalhes sobre como configurar contas Run as, consulte [permissões para configurar contas Run as](manage-runas-account.md#permissions).
+- Coadministrador na subscrição - Isto só é necessário para criar a conta Run as clássica
+- Fazer parte do [do Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **programador da aplicação** função. Para obter mais detalhes sobre como configurar contas Run as, consulte [permissões para configurar contas Run as](manage-runas-account.md#permissions).
+- Contribuidor na subscrição ou as seguintes permissões.
 
 | Permissão |Scope|
 | --- | --- |
+| Microsoft.Authorization/Operations/read | Subscrição|
+| Microsoft.Authorization/permissions/read |Subscrição|
 | Microsoft.Authorization/roleAssignments/read | Subscrição |
 | Microsoft.Authorization/roleAssignments/write | Subscrição |
+| Microsoft.Authorization/roleAssignments/delete | Subscrição |
 | Microsoft.Automation/automationAccounts/connections/read | Grupo de Recursos |
 | Microsoft.Automation/automationAccounts/certificates/read | Grupo de Recursos |
 | Microsoft.Automation/automationAccounts/write | Grupo de Recursos |
 | Microsoft.OperationalInsights/workspaces/write | Grupo de Recursos |
-
-### <a name="region-mappings"></a>Mapeamentos de região
-
-Ao ativar iniciar/parar VMs fora do horário comercial, apenas determinadas regiões são suportadas para ligar uma área de trabalho do Log Analytics e uma conta de automatização.
-
-A tabela seguinte mostra os mapeamentos suportados:
-
-|**Região de área de trabalho do log Analytics**|**Região de automatização do Azure**|
-|---|---|
-|Sudeste da Austrália.|Sudeste da Austrália.|
-|CanadaCentral|CanadaCentral|
-|CentralIndia|CentralIndia|
-|EastUS<sup>1</sup>|EastUS2|
-|JapanEast|JapanEast|
-|SoutheastAsia|SoutheastAsia|
-|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
-|WestEurope|WestEurope|
-|UKSouth|UKSouth|
-|USGovVirginia|USGovVirginia|
-|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
-
-<sup>1</sup> EastUS2EUAP e EastUS mapeamentos para áreas de trabalho do Log Analytics para contas de automatização não são um mapeamento de região para região exato, mas é o mapeamento correto.
-
-<sup>2</sup> devido a restrições de capacidade a região não está disponível durante a criação de novos recursos. Isto inclui áreas de trabalho de contas de automatização e o Log Analytics. No entanto, os recursos ligados preexistentes na região devem continuar a funcionar.
 
 ## <a name="deploy-the-solution"></a>Implementar a solução
 
@@ -140,6 +120,11 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
    - Para **grupo de recursos**, pode criar um novo grupo de recursos ou selecione um existente.
    - Selecione uma **Localização**. Atualmente, as únicas localizações disponíveis são **Sudeste da Austrália**, **Canadá Central**, **Índia Central**, **E.U.A. Leste**, **Leste do Japão**, **Sudeste asiático**, **sul do Reino Unido**, **Europa Ocidental**, e **E.U.A. oeste 2**.
    - Selecione um **Escalão de preço**. Escolha o **por GB (autónomo)** opção. Registos de Monitor do Azure foi atualizado [preços](https://azure.microsoft.com/pricing/details/log-analytics/) e o escalão por GB é a única opção.
+
+   > [!NOTE]
+   > Quando ativar soluções, apenas são suportadas determinadas regiões para associar uma área de trabalho do Log Analytics e uma Conta de Automatização.
+   >
+   > Para obter uma lista dos pares de mapeamento suportados, consulte [mapeamento de região para a área de trabalho de conta de automatização e o Log Analytics](how-to/region-mappings.md).
 
 5. Depois de fornecer as informações necessárias sobre o **área de trabalho do Log Analytics** página, clique em **criar**. Pode acompanhar o progresso em **notificações** no menu, que retorna ao **Adicionar solução** página quando tiver terminado.
 6. Sobre o **Adicionar solução** página, selecione **conta de automatização**. Se estiver a criar uma nova área de trabalho do Log Analytics, pode criar uma nova conta de automatização a ser associado ele ou selecione uma conta de automatização existente que já não está ligada a uma área de trabalho do Log Analytics. Selecione uma conta de automatização existente ou clique em **criar uma conta de automatização**e, no **adicionar conta de automatização** página, forneça as seguintes informações:
@@ -433,7 +418,9 @@ Se decidir que já não tem de utilizar a solução, pode eliminá-la a partir d
 
 Para eliminar a solução, execute os seguintes passos:
 
-1. A partir da sua conta de automatização, selecione **área de trabalho** da página da esquerda.
+1. Da sua conta de automatização, sob **recursos relacionados**, selecione **ligado área de trabalho**.
+1. Selecione **vá para a área de trabalho**.
+1. Sob **gerais**, selecione **soluções**. 
 1. Sobre o **soluções** , selecione a solução **Start-Stop-VM [Workspace]**. Sobre o **VMManagementSolution [Workspace]** página, no menu, selecione **eliminar**.<br><br> ![Eliminar solução de gerenciamento VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. Na **Eliminar solução** janela, confirme que pretende eliminar a solução.
 1. Enquanto as informações são confirmadas e a solução é eliminada, pode acompanhar o progresso em **notificações** no menu. É reencaminhado para o **soluções** página depois do processo para remover a solução é iniciado.

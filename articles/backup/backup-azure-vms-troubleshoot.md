@@ -2,23 +2,23 @@
 title: Resolver erros de cópia de segurança com máquinas virtuais do Azure
 description: Resolver problemas de cópia de segurança e restauro de máquinas virtuais do Azure
 services: backup
-author: srinathv
+author: srinathvasireddy
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/08/2019
-ms.author: srinathv
-ms.openlocfilehash: 6f10d8bc7f813245a66296988e4bb3792d898e08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/22/2019
+ms.author: srinathvasireddy
+ms.openlocfilehash: 179f806fcff5ce0e384455fdc9db3b2253449eb0
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550027"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002320"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Resolver problemas das cópias de segurança de máquina virtuais do Azure
-Pode resolver erros encontrados ao utilizando o Azure Backup com as informações listadas na tabela a seguir:
+Pode resolver erros encontrados durante o uso de cópia de segurança do Azure com as informações listadas abaixo:
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Criar cópia de segurança
 
 ### <a name="copyingvhdsfrombackupvaulttakinglongtime--copying-backed-up-data-from-vault-timed-out"></a>CopyingVHDsFromBackUpVaultTakingLongTime -Copying backed up data from vault timed out
 
@@ -82,7 +82,7 @@ Reinicie os escritores VSS que estão num Estado incorreto. A partir da linha de
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Falha ao analisar a configuração para a extensão de cópia de segurança
 
 Código do erro: ExtensionConfigParsingFailure<br/>
-Mensagem de erro: Falha ao analisar a configuração da extensão de cópia de segurança.
+Mensagem de erro: Falha ao analisar a configuração para a extensão da cópia de segurança.
 
 Este erro ocorre devido a permissões alteradas no **MachineKeys** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 Execute o seguinte comando e certifique-se de que as permissões a **MachineKeys** diretório são valores padrão:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.

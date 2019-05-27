@@ -9,16 +9,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7868b52fee991d4b9323fa0b7969aeca4dc83cdb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 922273e3805004f6af068ea748c16f5675810144
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711947"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001467"
 ---
-# <a name="common-security-attributes-for-azure-storage"></a>Atributos de segurança comuns do armazenamento do Azure
+# <a name="security-attributes-for-azure-storage"></a>Atributos de segurança do armazenamento do Azure
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos de segurança comuns incorporados no armazenamento do Azure. 
+Este artigo documenta os atributos de segurança incorporados no armazenamento do Azure. 
 
 [!INCLUDE [Security Attributes Header](../../../includes/security-attributes-header.md)]
 
@@ -47,7 +47,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Métricas do Azure Monitor disponíveis agora, registos de partida da pré-visualização |
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -55,14 +55,14 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Autorização| Sim | Autorização de suporte através do RBAC, POSIX ACLs e os Tokens SAS |
 
 
-## <a name="audit-trail"></a>Registo de Auditoria
+## <a name="audit-trail"></a>Registo de auditoria
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
 | Auditoria e registo de plano de controlo e gestão | Sim | Registo de atividades do Gestor de recursos do Azure |
 | Auditoria e registo de plano de dados| Sim | Os registos de diagnóstico do serviço e o registo do Azure Monitor partida pré-visualização  |
 
-## <a name="configuration-management"></a>Gestão da Configuração
+## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|

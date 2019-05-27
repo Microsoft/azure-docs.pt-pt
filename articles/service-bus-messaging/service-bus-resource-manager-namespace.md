@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59045087"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66111259"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Criar um espaço de nomes do Service Bus com um modelo Azure Resource Manager
 Neste início rápido, vai criar um modelo do Azure Resource Manager que cria um espaço de nomes do Service Bus do tipo **Messaging** com um **padrão** SKU. O artigo também define os parâmetros que são especificados para a execução da implantação. Pode utilizar este modelo para as suas próprias implementações ou personalizá-lo para satisfazer as suas necessidades. Para obter mais informações sobre a criação de modelos, consulte [Authoring Azure Resource Manager templates][Authoring Azure Resource Manager templates] (Criar modelos do Azure Resource Manager). Para o modelo completo, consulte a [modelo de espaço de nomes do Service Bus] [ Service Bus namespace template] no GitHub.
@@ -169,7 +169,7 @@ Para implementar os recursos com o Azure PowerShell, mude para a pasta onde guar
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Utilizar a CLI do Azure para implementar o modelo
 
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 1. Execute o seguinte comando para iniciar sessão no Azure:
 

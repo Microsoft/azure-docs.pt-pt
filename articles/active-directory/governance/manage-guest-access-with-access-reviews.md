@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fc5bcdbbe821008f74e85a91889044c8975ce93
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60350971"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66113264"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gerir o acesso de convidado com o Azure AD as revisões de acesso
 
@@ -31,16 +31,13 @@ Com o Azure Active Directory (Azure AD), pode facilmente ativar colaboração en
 Também pode facilmente garantir que os utilizadores convidados têm acesso adequado. É possível pedir os convidados próprios ou um decisor para participar de uma revisão de acesso e voltar a certificar (ou provam) para o acesso dos convidados. Os revisores podem dar o seu parecer relativamente à necessidade de acesso contínuo de cada utilizador, com base nas sugestões do Azure AD. Quando uma revisão de acesso estiver concluída, pode, em seguida, fazer alterações e remover o acesso para os convidados que já não precisam dele.
 
 > [!NOTE]
-> Este documento se concentra na revisão de acesso dos utilizadores convidados. Se pretender rever o acesso de todos os utilizadores, não apenas convidados, consulte [gerir o acesso de utilizador com as revisões de acesso](manage-user-access-with-access-reviews.md). Se quiser rever a associação do utilizador a funções administrativas, como administrador global, veja [iniciar uma revisão de acesso no Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md). 
->
->
+> Este documento se concentra na revisão de acesso dos utilizadores convidados. Se pretender rever o acesso de todos os utilizadores, não apenas convidados, consulte [gerir o acesso de utilizador com as revisões de acesso](manage-user-access-with-access-reviews.md). Se quiser rever a associação do utilizador a funções administrativas, como administrador global, veja [iniciar uma revisão de acesso no Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
+- Azure AD Premium P2
 
-As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Azure Active Directory](../fundamentals/active-directory-whatis.md). Cada utilizador que interage com esta funcionalidade, incluindo para criar uma revisão, preencher uma revisão ou confirmar o acesso, precisa de uma licença. 
-
-Também pode fazer os utilizadores convidados para rever o seu próprio acesso. Para cada licença paga do Azure AD Premium P2 que são atribuídas a um dos utilizadores da sua organização, pode usar B2B convidar até cinco utilizadores convidados sob a permissão de utilizador externo. Estes utilizadores convidados também podem utilizar as funcionalidades do Azure AD Premium P2. Para obter mais informações, consulte [licenciamento de colaboração B2B do Azure AD](../b2b/licensing-guidance.md).
+Para obter mais informações, consulte [os utilizadores que têm de ter licenças?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Criar e executar uma revisão de acesso para convidados
 

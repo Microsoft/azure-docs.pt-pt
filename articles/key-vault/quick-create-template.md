@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/04/2019
+ms.date: 05/22/2019
 ms.author: jgao
-ms.openlocfilehash: b1b50858286e3a174de254ae16c64b04abc00936
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 802c0409fe3ac88f73c383958d2337be09ef7992
+ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715997"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66016466"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-resource-manager-template"></a>Início rápido: Definir e obter um segredo a partir do Azure Key Vault com o modelo do Resource Manager
 
@@ -61,10 +61,10 @@ O modelo utilizado neste início rápido é partir [modelos de início rápido d
     * **Subscrição**: selecione uma subscrição do Azure.
     * **Grupo de recursos**: selecione **criar novo**, introduza um nome exclusivo para o grupo de recursos e, em seguida, clique em **OK**. 
     * **Localização**: selecione uma localização.  Por exemplo, **E.U.A. Central**.
-    * **Nome do Key Vault**: introduza um nome exclusivo para o Cofre de chaves.  
-    * **ID do inquilino**: a função de modelo obtém automaticamente o ID do inquilino.  Não altere o valor predefinido
+    * **Nome do Key Vault**: introduza um nome para o Cofre de chaves que tem de ser globalmente exclusivo dentro da. vault.azure.net espaço de nomes.  
+    * **ID do inquilino**: a função de modelo obtém automaticamente o ID do inquilino.  Não altere o valor predefinido.
     * **Id de utilizador do AD**: introduza o seu ID de objeto de utilizador do Azure AD obtidos a partir [pré-requisitos](#prerequisites).
-    * **Nome do segredo**: introduza um nome para o segredo que armazenar no Cofre de chaves.  Por exemplo, **adminpassword**
+    * **Nome do segredo**: introduza um nome para o segredo que armazenar no Cofre de chaves.  Por exemplo, **adminpassword**.
     * **Valor secreto**: introduza o valor secreto.  Se armazenar uma palavra-passe, recomenda-se para utilizar a palavra-passe gerada que criou em pré-requisitos.
     * **Eu concordo com o estado de termos e condições acima**: Selecione.
 3. Selecione **Comprar**.

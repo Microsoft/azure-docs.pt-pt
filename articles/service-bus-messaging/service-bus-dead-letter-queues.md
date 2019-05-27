@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 05/21/2019
 ms.author: aschhab
-ms.openlocfilehash: 0364304a203e03faf69868174a45cb41850ce112
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: af67b27dacf3bb86c2dd5c878a2751e027a53acb
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60713967"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003123"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Descrição geral das filas de mensagens não entregues do Service Bus
 
@@ -102,6 +102,17 @@ while(true)
     }
 }
 ```
+
+## <a name="path-to-the-dead-letter-queue"></a>Caminho para a fila de mensagens não entregues
+Pode aceder a fila de mensagens não entregues, utilizando a seguinte sintaxe:
+
+```
+<queue path>/$deadletterqueue
+<topic path>/Subscription/<subscription path>/$deadletterqueue
+```
+
+Se estiver a utilizar o SDK de .NET, pode obter o caminho para a fila de mensagens não entregues ao utilizar o método SubscriptionClient.FormatDeadLetterPath(). Esse método usa o nome de nome/subscrição de tópico e sufixos com **/$DeadLetterQueue**.
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

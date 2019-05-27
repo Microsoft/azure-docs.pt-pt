@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 21fb2b84fd58fb7cca7551ee1cef0c79179cfa40
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467135"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002410"
 ---
 # <a name="dynamic-manifests"></a>Manifestos dinâmicos
 
@@ -26,12 +26,12 @@ Serviços de multimédia oferecem **manifestos dinâmica** com base nos filtros 
 
 A tabela seguinte mostra alguns exemplos de URLs com filtros:
 
-|Protocolo|Exemplo|
+|Protocol|Exemplo|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
 |Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
+ 
 > [!NOTE]
 > Os manifestos dinâmicos não altere o elemento e o manifesto de padrão para esse recurso. O cliente pode optar por solicitar um fluxo com ou sem filtros. 
 > 
@@ -124,7 +124,7 @@ Para obter mais informações, consulte [isso](https://azure.microsoft.com/blog/
 
 ## <a name="associate-filters-with-streaming-locator"></a>Associar filtros localizador de transmissão em fluxo
 
-Pode especificar uma lista dos filtros de ativo ou a conta, que seria aplicada para o localizador de transmissão em fluxo. O [packager dinâmica](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [manifesto dinâmico](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. Recomendamos que utilize esta funcionalidade se pretenda aplicar filtros, mas não pretende expor os nomes de filtro no URL.
+Ver [filtros: associar às localizadores de transmissão em fluxo](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 
@@ -136,7 +136,6 @@ Pode especificar uma lista dos filtros de ativo ou a conta, que seria aplicada p
     
     - Para determinar as propriedades dos roteiros num recurso [obter e examinar o arquivo de manifesto](#get-and-examine-manifest-files).
     - A fórmula para definir o filtro de elemento timestamp propriedades: <br/>startTimestamp = &lt;hora de início no manifesto&gt; +  &lt;esperado hora de início de filtro em segundos&gt;* escala temporal
-
 
 ## <a name="next-steps"></a>Passos Seguintes
 

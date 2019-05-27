@@ -9,16 +9,16 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 11977a5aa36b023e468ce6a54862b5138995c417
-ms.sourcegitcommit: e729629331ae10097a081a03029398525f4147a4
+ms.openlocfilehash: d68ffe6561da6a23c288dfabd1d3eb6b34099bb3
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/25/2019
-ms.locfileid: "64513522"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66003115"
 ---
-# <a name="common-security-attributes-for-azure-service-bus-messaging"></a>Atributos de segurança comuns para mensagens do Azure Service Bus
+# <a name="security-attributes-for-azure-service-bus-messaging"></a>Atributos de segurança de mensagens do Azure Service Bus
 
-A segurança integra todos os aspectos de um serviço do Azure. Este artigo documenta os atributos comuns de segurança integrados de mensagens do Azure Service Bus.
+Este artigo documenta os atributos de segurança integrados de mensagens do Azure Service Bus.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -47,7 +47,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 |---|---|--|
 | Monitorização de suporte (do Log analytics, o App insights, etc.) do Azure| Sim | Suportado através de [o Azure Monitor e alertas](service-bus-metrics-azure-monitor.md). |
 
-## <a name="identity-and-access-management"></a>Gestão de identidades e acessos
+## <a name="identity-and-access-management"></a>Gestão de acesso e identidades
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
@@ -63,7 +63,7 @@ A segurança integra todos os aspectos de um serviço do Azure. Este artigo docu
 | Auditoria e registo de plano de controlo e gestão| Sim | Os registos de operações estão disponíveis; ver [registos de diagnóstico do Service Bus](service-bus-diagnostic-logs.md).  |
 | Auditoria e registo de plano de dados| Não |  |
 
-## <a name="configuration-management"></a>Gestão da configuração
+## <a name="configuration-management"></a>Gestão de configuração
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|

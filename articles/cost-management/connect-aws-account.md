@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 1d87774ab667dd2d4f7f9fa7827a3ddf17c09044
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b39296e18b38180e1081866d6e8197973dc782b1
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61431777"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66002163"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Ligar uma conta do Amazon Web Services
 

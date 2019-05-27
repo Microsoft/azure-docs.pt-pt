@@ -9,12 +9,12 @@ ms.service: app-service
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d22fca27943be7ac7db8b8edd5882b9fa4ab3ab9
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 1d7ab8008e8fbdb5f851f158d14f62bdea803f11
+ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65607262"
+ms.lasthandoff: 05/22/2019
+ms.locfileid: "66001708"
 ---
 # <a name="security-attributes-for-azure-app-service"></a>Atributos de segurança para o serviço de aplicações do Azure
 
@@ -27,8 +27,8 @@ Este artigo documenta os atributos comuns de segurança incorporados no serviço
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Encriptação em repouso (por exemplo, a encriptação do lado do servidor, a encriptação do lado do servidor com chaves geridas pelo cliente e a outros recursos de criptografia) | Sim | Conteúdo do ficheiro de Web site é armazenado no armazenamento do Azure, que encripta automaticamente o conteúdo em repouso. Ver [encriptação do armazenamento do Azure para dados Inativos](../storage/common/storage-service-encryption.md).<br><br>Segredos do cliente fornecido são encriptados em inatividade. Os segredos são encriptados em inatividade enquanto armazenados em bases de dados de configuração de serviço de aplicações.<br><br>Discos ligados localmente, opcionalmente, podem ser utilizados como armazenamento temporário por Web sites (D:\local e % TMP %). Discos ligados localmente não são encriptados em inatividade. |
-| Encriptação em trânsito (por exemplo, a encriptação do ExpressRoute, na encriptação de Vnet e a encriptação de VNet a VNet)| Sim | Os clientes podem configurar sites para exigir e utilizar o HTTPS para o tráfego de entrada. Consulte a mensagem de blogue [como criar um Azure App Service apenas HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
-| A manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | Os clientes podem optar por armazenar segredos da aplicação no Key Vault e recuperá-los em tempo de execução. Ver [faz referência a utilizar o Cofre de chave para o serviço de aplicações e as funções do Azure (pré-visualização)](app-service-key-vault-references.md).|
+| Encriptação em trânsito (por exemplo, a encriptação do ExpressRoute, na encriptação de VNet e a encriptação de VNet a VNet)| Sim | Os clientes podem configurar sites para exigir e utilizar o HTTPS para o tráfego de entrada. Consulte a mensagem de blogue [como criar um Azure App Service apenas HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/). |
+| Manipulação de chave de encriptação (CMK, BYOK, etc.)| Sim | Os clientes podem optar por armazenar segredos da aplicação no Key Vault e recuperá-los em tempo de execução. Ver [faz referência a utilizar o Cofre de chave para o serviço de aplicações e as funções do Azure (pré-visualização)](app-service-key-vault-references.md).|
 | Encriptação de nível de coluna (Serviços de dados do Azure)| N/A | |
 | Chamadas de API encriptadas| Sim | Chamadas de gestão para configurar o serviço de aplicações ocorrem através de [do Azure Resource Manager](../azure-resource-manager/index.yml) chamadas através de HTTPS. |
 
@@ -37,9 +37,9 @@ Este artigo documenta os atributos comuns de segurança incorporados no serviço
 | Atributo de segurança | Sim/Não | Notas |
 |---|---|--|
 | Suporte de ponto final de serviço| Sim | Atualmente disponível em pré-visualização para o serviço de aplicações. Ver [restrições de acesso de serviço de aplicações do Azure](app-service-ip-restrictions.md). |
-| suporte de Injeção de vNET| Sim | Ambientes de serviço de aplicações são implementações privadas do serviço de aplicações dedicado de um único cliente injetado na rede virtual de um cliente. Ver [introdução aos ambientes de serviço de aplicações](environment/intro.md). |
+| Suporte de injeção de VNet| Sim | Ambientes de serviço de aplicações são implementações privadas do serviço de aplicações dedicado de um único cliente injetado na rede virtual de um cliente. Ver [introdução aos ambientes de serviço de aplicações](environment/intro.md). |
 | Suporte de isolamento de rede e Firewalling| Sim | Para a variação de multi-inquilino pública do serviço de aplicações, os clientes podem configurar as ACLs (restrições de IP) para bloquear o tráfego de entrada permitido de rede.  Ver [restrições de acesso de serviço de aplicações do Azure](app-service-ip-restrictions.md).  Os ambientes de serviço de aplicações são implementados diretamente em redes virtuais e, por conseguinte, podem ser protegidos com NSGs. |
-| Suporte para protocolo de túnel forçado | Sim | Ambientes de serviço de aplicações podem ser implementados numa rede virtual do cliente em que o protocolo de túnel forçado está configurado. Os clientes têm de seguir as instruções [configurar o ambiente de serviço de aplicações com túnel forçado](environment/forced-tunnel-support.md). |
+| Suporte de encapsulamento de forçado| Sim | Ambientes de serviço de aplicações podem ser implementados numa rede virtual do cliente em que o protocolo de túnel forçado está configurado. Os clientes têm de seguir as instruções [configurar o ambiente de serviço de aplicações com túnel forçado](environment/forced-tunnel-support.md). |
 
 ## <a name="detection"></a>Deteção
 
@@ -59,8 +59,8 @@ Este artigo documenta os atributos comuns de segurança incorporados no serviço
 
 | Atributo de segurança | Sim/Não | Notas|
 |---|---|--|
-| Planear a gestão/controlo e auditoria do registo| Sim | Todas as operações de gestão efetuadas em objetos do serviço de aplicações ocorrem através de [do Azure Resource Manager](../azure-resource-manager/index.yml). Os registos históricos essas operações estão disponíveis no portal e através da CLI; ver [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb) e [registo de atividade do monitor az](/cli/azure/monitor/activity-log). |
-| Registo e auditoria do plano de dados | Não | O plano de dados para o serviço de aplicações é uma partilha de ficheiros remoto que contêm conteúdo de site da web implantado de um cliente.  Não existe nenhum auditoria de partilha de ficheiros remota. |
+| Auditoria e registo de plano de controlo e gestão| Sim | Todas as operações de gestão efetuadas em objetos do serviço de aplicações ocorrem através de [do Azure Resource Manager](../azure-resource-manager/index.yml). Os registos históricos essas operações estão disponíveis no portal e através da CLI; ver [operações de fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftweb) e [registo de atividade do monitor az](/cli/azure/monitor/activity-log). |
+| Auditoria e registo de plano de dados | Não | O plano de dados para o serviço de aplicações é uma partilha de ficheiros remoto que contêm conteúdo de site da web implantado de um cliente.  Não existe nenhum auditoria de partilha de ficheiros remota. |
 
 ## <a name="configuration-management"></a>Gestão de configuração
 

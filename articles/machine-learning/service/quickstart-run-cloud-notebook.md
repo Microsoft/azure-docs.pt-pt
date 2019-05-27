@@ -8,24 +8,25 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 05/02/2019
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4c15b9aa0bde704ad3665375d1c1a5bb8a1d32cf
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: 3e360b019a0c275c5ce0f9986fabd5dfc847f130
+ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604120"
+ms.lasthandoff: 05/20/2019
+ms.locfileid: "66015272"
 ---
 # <a name="quickstart-use-a-cloud-based-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar um servidor de bloco de notas com base na cloud para começar a utilizar com o Azure Machine Learning
 
-Criar um servidor de bloco de notas com base na cloud e, em seguida, utilizá-lo.  Neste início rápido, vai executar código Python que efetua login valores a [área de trabalho do Azure Machine Learning serviço](concept-azure-machine-learning-architecture.md). A área de trabalho é o bloco fundamental na cloud que utilizar para testar, preparar e implementar modelos de aprendizagem automática com o Machine Learning. 
+Não é necessária instalação.  Introdução ao serviço Azure Machine Learning com um servidor gerido na cloud. Se quiser em vez disso, instale-o em seu próprio ambiente de Python, veja [início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning](quickstart-run-local-notebook.md).
 
-Este início rápido mostra como criar um recurso da nuvem na sua área de trabalho do Azure Machine Learning, configurado com o ambiente do Python necessário para executar o Azure Machine Learning. Para utilizar em vez disso, o seu próprio ambiente, consulte [início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning](quickstart-run-local-notebook.md).  
+Este início rápido mostra como pode utilizar o [Azure Machine Learning a área de trabalho de serviço](concept-azure-machine-learning-architecture.md) para controlar as suas experimentações de machine learning.  Irá criar um [bloco de notas (pré-visualização) de VM](how-to-configure-environment.md#notebookvm), uma segura e baseado na nuvem do Azure estação de trabalho que fornece um servidor de bloco de notas do Jupyter, JupyterLab e um ambiente de ML totalmente preparado. Em seguida, execute um Python notebook nesta VM que valores de registo para a área de trabalho.
 
 Neste início rápido, efetuar as seguintes ações:
 
-* Crie um novo servidor de bloco de notas com base na cloud na sua área de trabalho.
+* Criar uma área de trabalho
+* Crie uma VM do bloco de notas na área de trabalho.
 * Inicie a interface de web do Jupyter.
 * Abra um bloco de notas que contém o código para calcular o instalador de plataforma e registos de erros em cada iteração.
 * Execute o bloco de notas.
@@ -35,11 +36,11 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
-Se tiver uma área de trabalho do serviço do Azure Machine Learning, avance para o [próxima seção](#create-a-cloud-based-notebook-server). Caso contrário, crie uma agora.
+Se tiver uma área de trabalho do serviço do Azure Machine Learning, avance para o [próxima seção](#create-notebook). Caso contrário, crie uma agora.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## <a name="create-a-cloud-based-notebook-server"></a>Criar um servidor de bloco de notas com base na cloud
+## <a name="create-notebook"></a>Criar uma VM do bloco de notas
 
  Na área de trabalho, criar um recurso da nuvem para começar a utilizar blocos de notas do Jupyter. Este recurso oferece uma plataforma com base na cloud pré-configuradas com tudo o que precisa para executar o serviço Azure Machine Learning.
 
@@ -59,6 +60,7 @@ Se tiver uma área de trabalho do serviço do Azure Machine Learning, avance par
     ![Criar uma nova VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
 1. Aguarde aproximadamente 4 a 5 minutos, até que o estado muda para **em execução**.
+
 
 ## <a name="launch-jupyter-web-interface"></a>Iniciar a interface de web do Jupyter
 
@@ -143,6 +145,7 @@ Também pode manter o grupo de recursos mas eliminar uma área de trabalho únic
 
 Neste início rápido, concluir estas tarefas:
 
+* Criar uma área de trabalho
 * Crie uma VM do bloco de notas.
 * Inicie a interface de web do Jupyter.
 * Abra um bloco de notas que contém o código para calcular o instalador de plataforma e registos de erros em cada iteração.
