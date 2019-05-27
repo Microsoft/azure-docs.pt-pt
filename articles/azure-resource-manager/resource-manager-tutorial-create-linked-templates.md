@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e811d1f7fb84e2539ba9daea3eea13f5e028f997
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de2e848bd587f3b9bf2efe3fa8df3710e24243e4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389564"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241388"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos do Azure Resource Manager ligados
 
@@ -89,7 +89,7 @@ O modelo ligado cria uma conta de armazenamento. O modelo ligado pode ser utiliz
 2. Efetue as seguintes alterações:
 
     * Remover todos os parâmetros que **localização**.
-    * Adicione um parâmetro denominado **storageAccountName**. 
+    * Adicione um parâmetro denominado **storageAccountName**.
         ```json
         "storageAccountName":{
           "type": "string",
@@ -99,7 +99,7 @@ O modelo ligado cria uma conta de armazenamento. O modelo ligado pode ser utiliz
         },
         ```
         O nome da conta de armazenamento e a localização são transferidos do modelo principal para o modelo ligado como parâmetros.
-        
+
     * Remover os **variáveis** elemento e todas as definições de variável.
     * Remova todos os recursos que não seja a conta de armazenamento. Deverá remover um total de quatro recursos.
     * Atualize o valor do **nome** elemento do recurso de conta de armazenamento para:
@@ -109,7 +109,7 @@ O modelo ligado cria uma conta de armazenamento. O modelo ligado pode ser utiliz
         ```
 
     * Atualize o elemento **outputs**, para que este se assemelhe a:
-    
+
         ```json
         "outputs": {
           "storageUri": {
@@ -272,7 +272,7 @@ O modelo principal chama-se azuredeploy.json.
     Preste atenção a estes detalhes:
 
     * Um recurso `Microsoft.Resources/deployments` no modelo principal é utilizado para ligar a outro modelo.
-    * O recurso `deployments` tem um nome chamado `linkedTemplate`. Este nome é utilizado para [configurar a dependência](#configure-dependency).  
+    * O recurso `deployments` tem um nome chamado `linkedTemplate`. Este nome é utilizado para [configurar a dependência](#configure-dependency).
     * Só pode utilizar o modo de implementação [Incremental](./deployment-modes.md) ao chamar modelos ligados.
     * `templateLink/uri` contém o URI do modelo ligado. Atualize o valor para o URI que obtém ao carregar o modelo ligado (aquele com um token SAS).
     * Utilize `parameters` para passar os valores do modelo principal para o modelo ligado.
@@ -305,7 +305,7 @@ Uma vez que agora a conta de armazenamento está definida no modelo ligado, tem 
 
     ![Dependência de configuração de modelos ligados do Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
-    *linkedTemplate* é o nome do recurso de implementações.  
+    *linkedTemplate* é o nome do recurso de implementações.
 3. Atualizar **propriedades/diagnosticsProfile/bootDiagnostics/storageUri** conforme mostrado na captura de ecrã anterior.
 4. Guarde o modelo revisado.
 
@@ -334,4 +334,4 @@ Para melhorar o projeto, efetue as seguintes alterações adicionais para o proj
 Neste tutorial, modularizado um modelo para um modelo principal e um modelo ligado. Para aprender a utilizar extensões de máquina virtual para efetuar tarefas de implementação de publicação, consulte:
 
 > [!div class="nextstepaction"]
-> [Implementar extensões de máquina virtual](./deployment-manager-tutorial.md)
+> [Implementar extensões de máquina virtual](./resource-manager-tutorial-deploy-vm-extensions.md)

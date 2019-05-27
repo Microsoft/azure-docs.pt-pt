@@ -49,7 +49,7 @@ A tabela seguinte descreve as propriedades no pipeline definição JSON:
 
 | Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-| name | Nome do pipeline. Especifique um nome que represente a ação que a atividade ou o pipeline está configurado para fazer<br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
+| nome | Nome do pipeline. Especifique um nome que represente a ação que a atividade ou o pipeline está configurado para fazer<br/><ul><li>Número máximo de carateres: 260</li><li>Tem de começar com um letra, um número ou um caráter de sublinhado (\_)</li><li>Seguintes carateres não são permitidos: ".", "+","?", "/", "<",">", "*", "%", "&", ":","\\"</li></ul> |Sim |
 | description |Texto que descreve o que a atividade ou o pipeline é utilizado para | Não |
 | activities | Contém uma lista de atividades. | Sim |
 | start |Data-hora de início para o pipeline. Tem de estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, um período de tempo EST. Eis um exemplo: `2016-02-27T06:00:00**-05:00`, que é 6 AM estimativa<br/><br/>As propriedades de início e de fim especificam em conjunto o período ativo do pipeline. Apenas os setores de saída são produzidos neste período de Active Directory. |Não<br/><br/>Se especificar um valor para a propriedade final, tem de especificar o valor da propriedade de início.<br/><br/>As horas de início e de fim podem de estar vazias para criar um pipeline. Tem de especificar ambos os valores para definir um período de Active Directory para o execução do pipeline. Se não especificar horários de início e fim quando criar um pipeline, pode configurá-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
@@ -95,7 +95,7 @@ Seguinte tabela descreve as propriedades na definição JSON da atividade:
 | linkedServiceName |Nome do serviço ligado utilizado pela atividade. <br/><br/>Uma atividade pode exigir que especifique o serviço ligado que liga ao ambiente de computação necessário. |Sim para atividades do HDInsight, atividades do Azure Machine Learning e atividade de procedimento armazenado. <br/><br/>Não para todas as outras. |
 | typeProperties |Propriedades na secção typeProperties dependem do tipo da atividade. |Não |
 | política |Políticas que afetam o comportamento de runtime da atividade. Se não for especificado, são utilizadas políticas predefinidas. |Não |
-| scheduler |propriedade de "scheduler" é utilizada para definir um agendamento pretendida para a atividade. Seu subproperties são as mesmas que na [propriedade de disponibilidade num conjunto de dados](data-factory-create-datasets.md#dataset-availability). |Não |
+| Scheduler |propriedade de "scheduler" é utilizada para definir um agendamento pretendida para a atividade. Seu subproperties são as mesmas que na [propriedade de disponibilidade num conjunto de dados](data-factory-create-datasets.md#dataset-availability). |Não |
 
 ### <a name="policies"></a>Políticas
 As políticas afetam o comportamento de tempo de execução de uma atividade, especificamente quando o setor de uma tabela é processado. A tabela seguinte fornece os detalhes.
@@ -287,7 +287,7 @@ A tabela seguinte descreve as propriedades no JSON acima:
 | Propriedade | Descrição | Necessário | Predefinição |
 | --- | --- | --- | --- |
 | name | Nome do conjunto de dados. Ver [do Azure Data Factory - regras de nomenclatura](data-factory-naming-rules.md) para regras de nomenclatura. |Sim |N/D |
-| tipo | Tipo de conjunto de dados. Especifique um dos tipos suportados pelo Azure Data Factory (por exemplo: AzureBlob, AzureSqlTable). Ver [ARQUIVOS de dados](#data-stores) secção para todos os arquivos de dados e os tipos de conjunto de dados suportados pelo Data Factory. |
+| type | Tipo de conjunto de dados. Especifique um dos tipos suportados pelo Azure Data Factory (por exemplo: AzureBlob, AzureSqlTable). Ver [ARQUIVOS de dados](#data-stores) secção para todos os arquivos de dados e os tipos de conjunto de dados suportados pelo Data Factory. |
 | estrutura | Esquema do conjunto de dados. Ela contém colunas, seus tipos, etc. | Não |N/D |
 | typeProperties | Propriedades correspondentes ao tipo selecionado. Ver [ARQUIVOS de dados](#data-stores) na secção tipos suportados e as respetivas propriedades. |Sim |N/D |
 | externo | Sinalizador booleano para especificar se um conjunto de dados é produzido explicitamente por um pipeline de fábrica de dados ou não. |Não |false |
@@ -299,7 +299,7 @@ Cada coluna no **estrutura** seção contém as seguintes propriedades:
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | name |Nome da coluna. |Sim |
-| tipo |Tipo de dados da coluna.  |Não |
+| type |Tipo de dados da coluna.  |Não |
 | culture |.NET com base em cultura a ser utilizado quando o tipo especificado e é o tipo de .NET `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
 | format |Formatar a cadeia de caracteres a ser utilizado quando o tipo especificado e é o tipo de .NET `Datetime` ou `Datetimeoffset`. |Não |
 
@@ -2454,7 +2454,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como: **OnPremisesSqlServer**. |Sim |
+| type |A propriedade de tipo deve ser definida como: **OnPremisesSqlServer**. |Sim |
 | connectionString |Especifique as informações de connectionString necessárias para se ligar à base de dados de SQL Server no local, utilizando a autenticação SQL ou autenticação do Windows. |Sim |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server no local. |Sim |
 | username |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |
@@ -3317,7 +3317,7 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |Certifique-se de que a propriedade de tipo é definida como **OnPremisesFileServer**. |Sim |
+| type |Certifique-se de que a propriedade de tipo é definida como **OnPremisesFileServer**. |Sim |
 | anfitrião |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver definições de serviço e o conjunto de dados de exemplo ligada para obter exemplos. |Sim |
 | userid |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se escolher encryptedCredential) |
 | password |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se escolher encryptedCredential |
@@ -4745,7 +4745,7 @@ Para definir um conjunto de dados da Web, defina o **tipo** do conjunto de dados
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| tipo |Tipo de conjunto de dados. tem de ser definido como **WebTable** |Sim |
+| type |Tipo de conjunto de dados. tem de ser definido como **WebTable** |Sim |
 | path |Um URL relativo ao recurso que contém a tabela. |Não. Quando o caminho não for especificado, é utilizado apenas o URL especificado na definição do serviço ligado. |
 | index |O índice da tabela no recurso. Veja Get índice de uma tabela numa seção da página HTML para obter passos para obter o índice de uma tabela numa página HTML. |Sim |
 
@@ -4838,7 +4838,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como **HDInsightOnDemand**. |Sim |
+| type |A propriedade de tipo deve ser definida como **HDInsightOnDemand**. |Sim |
 | clusterSize |Número de nós de trabalho/dados no cluster. O cluster do HDInsight é criado com 2 nós principais, juntamente com o número de nós de trabalho que especificou para esta propriedade. Os nós são do tamanho Standard_D3 com 4 núcleos, para que um cluster de nó de 4 trabalho usa 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, além de 2\*4 = 8 núcleos para nós principais). Ver [clusters do Hadoop de baseados em criar Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre o escalão de Standard_D3. |Sim |
 | TimeToLive |O tempo de inatividade permitido para o cluster de HDInsight a pedido. Especifica o tempo que o cluster de HDInsight a pedido fique vivo após a conclusão de uma atividade executar se não existirem não existem outras tarefas ativas no cluster.<br/><br/>Por exemplo, se uma execução de atividade demora 6 minutos e timetolive é definido para 5 minutos, o cluster fique vivo durante 5 minutos após a execução de seis minutos de atividade de processamento. Se outra execução de atividade é executada com a janela de 6 minutos, é processada pelo mesmo cluster.<br/><br/>Criar um cluster do HDInsight a pedido é uma operação dispendiosa (podem demorar algum tempo), por isso, utilize esta definição como necessário para melhorar o desempenho de uma fábrica de dados ao reutilizar um cluster do HDInsight a pedido.<br/><br/>Se definir o valor de timetolive para 0, o cluster é eliminado assim que a atividade executada processados. Por outro lado, se definir um valor elevado, o cluster pode permanecer inativo desnecessariamente resulta em custos elevados. Por conseguinte, é importante que defina o valor apropriado com base nas suas necessidades.<br/><br/>Vários pipelines podem partilhar a mesma instância de cluster de HDInsight a pedido, se o valor da propriedade timetolive está corretamente definido |Sim |
 | version |Versão do cluster do HDInsight. Para obter detalhes, consulte [suportadas versões do HDInsight no Azure Data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Não |
@@ -4876,7 +4876,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como **HDInsight**. |Sim |
+| type |A propriedade de tipo deve ser definida como **HDInsight**. |Sim |
 | clusterUri |O URI do HDInsight cluster. |Sim |
 | username |Especifique o nome do utilizador a ser utilizado para ligar a um cluster do HDInsight existente. |Sim |
 | password |Especifique a palavra-passe da conta de utilizador. |Sim |
@@ -4909,7 +4909,7 @@ A tabela seguinte fornece descrições para as propriedades utilizadas na defini
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como **AzureBatch**. |Sim |
+| type |A propriedade de tipo deve ser definida como **AzureBatch**. |Sim |
 | nomeConta |Nome da conta do Azure Batch. |Sim |
 | accessKey |Chave de acesso para a conta do Azure Batch. |Sim |
 | poolName |Nome do conjunto de máquinas virtuais. |Sim |
@@ -5060,7 +5060,7 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |A propriedade de tipo deve ser definida como: **OnPremisesSqlServer**. |Sim |
+| type |A propriedade de tipo deve ser definida como: **OnPremisesSqlServer**. |Sim |
 | connectionString |Especifique as informações de connectionString necessárias para se ligar à base de dados de SQL Server no local, utilizando a autenticação SQL ou autenticação do Windows. |Sim |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do SQL Server no local. |Sim |
 | username |Especifique o nome de utilizador se estiver a utilizar autenticação do Windows. Exemplo: **domainname\\nome de utilizador**. |Não |

@@ -4,14 +4,14 @@ description: Saiba como gerir consistência no Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/17/2019
+ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 4a444631de4bc26881ab195333b1b798a7ee6719
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 68a1a757b5c5e4ce63d7f12a8502d57942d4ec42
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925336"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240905"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
@@ -61,7 +61,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para ver ou modificar o nível predefinido de consistência, inicie sessão no portal do Azure. Localize a conta do Cosmos do Azure e abra o **consistência predefinida** painel. Selecione o nível de consistência que pretende como a nova predefinição e, em seguida, selecione **guardar**.
+Para ver ou modificar o nível predefinido de consistência, inicie sessão no portal do Azure. Localize a conta do Cosmos do Azure e abra o **consistência predefinida** painel. Selecione o nível de consistência que pretende como a nova predefinição e, em seguida, selecione **guardar**. Portal do Azure também fornece uma visualização dos níveis de consistência diferentes com notas de música. 
 
 ![Menu de consistência no portal do Azure](./media/how-to-manage-consistency/consistency-settings.png)
 
@@ -211,7 +211,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorizar a métrica de Estagnação Limitada Probabilisticamente (PBS)
 
-Como eventual é a consistência eventual? Para o caso médio, pode oferecemos dos limites de envelhecimento relativamente ao histórico de versões e a hora. O [ **Roleta estagnação limitada (PBS)** ](https://pbs.cs.berkeley.edu/) métrica tenta quantificar a probabilidade de envelhecimento e mostra-a como uma métrica. Para ver a métrica de PBS, aceda à sua conta do Cosmos do Azure no portal do Azure. Abra o **métricas** painel e selecione o **consistência** separador. Observe o gráfico com o nome **probabilidade de leituras fortemente consistentes com base na carga de trabalho (Consulte PBS)**.
+Como eventual é a consistência eventual? Para o caso médio, pode oferecemos dos limites de envelhecimento relativamente ao histórico de versões e a hora. O [ **Roleta estagnação limitada (PBS)** ](https://pbs.cs.berkeley.edu/) métrica tenta quantificar a probabilidade de envelhecimento e mostra-a como uma métrica. Para ver a métrica de PBS, aceda à sua conta do Cosmos do Azure no portal do Azure. Abra o **métricas** painel e selecione o **consistência** separador. Observe o gráfico com o nome **probabilidade de leituras fortemente consistentes com base na carga de trabalho (Consulte PBS)** .
 
 ![Gráfico de PBS no portal do Azure](./media/how-to-manage-consistency/pbs-metric.png)
 

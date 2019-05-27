@@ -4,14 +4,14 @@ description: Saiba como configurar e gerir o tempo de duração no Azure Cosmos 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/14/2018
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: bb5997c2ae8f93068b0ad2a77b5109f6c79b9b30
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5eb57562dac498c0e5bf2960007f52ad1117ac2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61053884"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244777"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar o TTL no Azure Cosmos DB
 

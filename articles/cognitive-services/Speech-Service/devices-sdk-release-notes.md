@@ -8,17 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/07/2018
-ms.author: gracez
-ms.openlocfilehash: f915a03e2596e6439cbe184bfc8405910f56e2bd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.date: 05/22/2019
+ms.author: wellsi
+ms.openlocfilehash: fab23c86ee2e8f654ac4a9619c39d05ee4e9e4c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002296"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237939"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Notas de versão do SDK de dispositivos de voz dos serviços cognitivos
 As seguintes alterações de lista secções nas versões mais recentes.
+
+## <a name="speech-devices-sdk-151"></a>Dispositivos de voz SDK 1.5.1:
+
+*   Incluem [transcrição da conversação](conversation-transcription-service.md) no aplicativo de exemplo.
+*   Atualizar o [SDK de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente para a versão 1.5.1. Para obter mais informações, consulte seus [notas de versão](https://aka.ms/csspeech/whatsnew).
 
 ## <a name="cognitive-services-speech-devices-sdk-150-2019-may-release"></a>Dispositivos de voz dos serviços cognitivos SDK 1.5.0: Versão de Maio de 2019
 

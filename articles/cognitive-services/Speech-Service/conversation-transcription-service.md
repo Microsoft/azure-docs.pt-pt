@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: erhopf
-ms.openlocfilehash: eebe3ed15d21b08b208667a571bd59eac98a674d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: a31921e229a4bbfccd6fdd871666aad1eeef3232
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190289"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243846"
 ---
 # <a name="what-is-conversation-transcription"></a>O que é a transcrição da conversação?
 
@@ -67,6 +67,11 @@ Transcrição da conversação espera multicanais fluxos de áudio e perfis de u
 > Para obter detalhes de especificação e design, consulte [microfone de SDK de dispositivo de voz de Microsoft](https://aka.ms/cts/microphone). Para obter mais informações ou comprar um kit de desenvolvimento, consulte [obter SDK de dispositivo de voz de Microsoft](https://aka.ms/cts/getsdk).
 
 Para saber como utilizar a transcrição de conversação com o SDK de dispositivos de voz, veja [como utilizar a transcrição da conversação](https://aka.ms/cts/howto).
+
+
+## <a name="quick-start-with-a-sample-app"></a>Guia de introdução com uma aplicação de exemplo
+
+SDK de dispositivo de voz de Microsoft tem uma aplicação de exemplo de início rápido para todos os exemplos relacionados com o dispositivo. Transcrição da conversação é uma delas. Pode encontrá-lo na [guia de introdução de android SDK de dispositivo de voz](https://aka.ms/sdsdk-quickstart) com a aplicação de exemplo e seu código-fonte para sua referência.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

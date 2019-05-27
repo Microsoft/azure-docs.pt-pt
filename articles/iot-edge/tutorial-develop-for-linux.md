@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41589dccae4e1259e4dc9368d5825ba770b4bdcc
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146679"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239775"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos do Linux
 
@@ -190,7 +190,7 @@ Cada módulo pode ter vários *entrada* e *saída* filas declarado em seu códig
 
 7. Na parte inferior do ficheiro, encontre as propriedades pretendidas para o **$edgeHub** módulo. 
 
-   Uma das funções do módulo do IoT Edge hub é rotear mensagens entre todos os módulos numa implantação. Reveja os valores da **rotas** propriedade. A primeira rota **SampleModuleToIoTHub**, utiliza um caráter universal (**\***) para indicar todas as mensagens provenientes de quaisquer filas de saída no módulo SampleModule. Essas mensagens aprofundar *$ a montante*, que é um nome reservado que indica o IoT Hub. A segunda rota, sensorToSampleModule, recebe mensagens recebidas do módulo tempSensor e encaminha-os para o *input1* fila de entrada que vimos inicializado no código SampleModule. 
+   Uma das funções do módulo do IoT Edge hub é rotear mensagens entre todos os módulos numa implantação. Reveja os valores da **rotas** propriedade. A primeira rota **SampleModuleToIoTHub**, utiliza um caráter universal ( **\*** ) para indicar todas as mensagens provenientes de quaisquer filas de saída no módulo SampleModule. Essas mensagens aprofundar *$ a montante*, que é um nome reservado que indica o IoT Hub. A segunda rota, sensorToSampleModule, recebe mensagens recebidas do módulo tempSensor e encaminha-os para o *input1* fila de entrada que vimos inicializado no código SampleModule. 
 
    ![Reveja as rotas no deployment.template.json](./media/tutorial-develop-for-linux/deployment-routes.png)
 
@@ -284,7 +284,7 @@ Verificar a que as imagens de contentor criada são armazenadas no seu registo d
 
 O código de SampleModule recebe mensagens por meio da sua fila de entrada e transmite-los por meio da sua fila de saída. O manifesto de implantação declarado rotas que passados mensagens para SampleModule do tempSensor e, depois, reencaminhados mensagens SampleModule ao IoT Hub. As ferramentas de IoT do Azure para Visual Studio Code permitem-lhe ver mensagens à medida que chegam ao IoT Hub a partir dos seus dispositivos individuais. 
 
-1. No Explorador do Visual Studio Code, clique no dispositivo IoT Edge que pretende monitorizar, em seguida, selecione **iniciar mensagens D2C monitorização**. 
+1. No Explorador do Visual Studio Code, clique no dispositivo IoT Edge que pretende monitorizar, em seguida, selecione **iniciar a monitorização de evento ponto final incorporado**. 
 
 2. Assista a janela de saída no Visual Studio Code, para ver as mensagens que chegam ao IoT hub. 
 

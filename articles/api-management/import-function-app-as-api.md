@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: e5e8ffc18db902eeaa8484122e3844f35046191f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62101409"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243187"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Function App do Azure como uma API na Gestão de API do Azure
 
@@ -107,7 +107,7 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
     ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-05.png)
 
-8. Clique em **importar**.
+8. Clique em **Importar**.
 
     ![Anexar a partir da Function App](./media/import-function-app-as-api/append-04.png)
 
@@ -118,7 +118,7 @@ A importação de uma Function App do Azure gera automaticamente:
 * chave de anfitrião dentro da aplicação de função com o nome apim-{*o nome de instância do serviço de gestão de API do Azure*},
 * nome do valor dentro da instância de gestão de API do Azure com o nome {*seu nome de instância de aplicação de funções do Azure*}-chave, que contém a chave de anfitrião criado.
 
-Para APIs criadas depois de 2019 4 de Abril, a chave do anfitrião é passada em pedidos de HTTP da gestão de API para a aplicação de funções num cabeçalho. As APIs antigas passam a chave do anfitrião como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio do `PATCH Backend` [chamada à REST API](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) no *back-end* entidade associada à aplicação de função.
+Para APIs criadas depois de 2019 4 de Abril, a chave do anfitrião é passada em pedidos de HTTP da gestão de API para a aplicação de funções num cabeçalho. As APIs antigas passam a chave do anfitrião como [um parâmetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Esse comportamento pode ser alterado por meio do `PATCH Backend` [chamada à REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend/update#backendcredentialscontract) no *back-end* entidade associada à aplicação de função.
 
 > [!WARNING]
 > Remover ou alterar o valor da chave de anfitrião da Aplicação de Funções do Azure ou o valor nomeado da Gestão de API do Azure irá interromper a comunicação entre os serviços. Os valores não são sincronizados automaticamente.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: badf351f8336e501b3ee1c035fcb389a570750c0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60198018"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072856"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Adicionar uma entidade a expressões de exemplo 
 
@@ -89,25 +89,6 @@ A expressão, partindo do princípio `Does John Smith work in Seattle?`, uma exp
 
     ![Página de detalhes de captura de ecrã de objetivos, com a entidade composta](./media/luis-how-to-add-example-utterances/hr-create-composite-4.png)
 
-## <a name="add-hierarchical-entity"></a>Adicionar entidade hierárquica
-
-**Entidades hierárquicas, eventualmente, vão ser preteridas. Uso [funções de entidade](luis-concept-roles.md) para determinar subtipos de entidade, em vez de entidades hierárquicas.**
-
-Uma entidade hierárquica é uma categoria de entidades contextualmente aprendidas e conceitualmente relacionadas. No exemplo seguinte, a entidade contém localizações de origem e de destino. 
-
-Na expressão `Move John Smith from Seattle to Cairo`, Seattle é a localização de origem e Cairo é a localização de destino. Cada localização é diferente e aprendidas contextualmente de ordem das palavras e a escolha do word na expressão.
-
-1. Na página de intenção, na expressão, selecione `Seattle`, em seguida, introduza o nome da entidade `Location`e, em seguida, selecione Enter no teclado.
-
-1. Na **o tipo de entidade que pretende criar?** caixa pop-up, selecione _hierárquica_ para **tipo de entidade**, em seguida, adicione `Origin` e `Destination` como filhos, e, em seguida, selecione **feito**.
-
-    ![Página de detalhes de captura de ecrã de objetivos, com a entidade de ToLocation realçada](./media/luis-how-to-add-example-utterances/create-location-hierarchical-entity.png)
-
-1. A palavra a expressão foi identificada com a entidade de hierárquica do principal. Terá de atribuir a palavra a entidade subordinada. Voltar para a expressão na página de detalhes de intenção. Selecione o word, em seguida, na lista pendente, escolha o nome da entidade que criou e siga o menu à direita para escolher a entidade de filho correta.
-
-    >[!CAUTION]
-    >Os nomes de entidades de subordinado tem de ser exclusivos em todas as entidades numa única aplicação. Duas entidades hierárquicas diferentes não podem conter entidades subordinadas com o mesmo nome. 
-
 ## <a name="add-entitys-role-to-utterance"></a>Adicionar a função da entidade a expressão
 
 Uma função é um subtipo com nome de uma entidade, determinado pelo contexto da expressão. Pode marcar uma identidade dentro de uma expressão como a entidade ou selecionar uma função dentro dessa entidade. Qualquer entidade pode ter funções, incluindo entidades personalizadas que são adquiridos de máquina (entidades simples e entidades compostas), não são adquiridos de máquina (entidades previamente concebidas, entidades de expressão regular, entidades de lista). 
@@ -143,9 +124,6 @@ As seguintes soluções de ajudar a resolver as discrepâncias de predição de 
 |Texto sem etiqueta|sublinhado em vermelho|Previsão incorreta|As expressões atuais através desta entidade incorreta tem de ser revisto em todas as intenções. As expressões atuais tem mistaught LUIS que este texto é a entidade prevista.
 |Corretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão incorreta|Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. As expressões atuais são não é suficiente para ensinar LUIS que se trata a entidade é ou aparecem as entidades semelhantes no mesmo contexto. Entidade semelhante deve ser combinada numa única entidade então LUIS não é confuso. Outra solução é adicionar uma lista de frase para aumentar a significância das palavras. |
 |Incorretamente etiquetado texto|entidade azul, realce o sublinhado em vermelho|Previsão correta| Forneça mais expressões com a entidade etiquetada corretamente numa variedade de locais e utilizações. 
-
-> [!Note]
-> Quando é de uma caixa vermelha à volta a intenção etiquetada na linha da expressão de exemplo, um [erro de previsão de intenção](luis-how-to-add-intents.md#intent-prediction-discrepancy-errors) ocorreu. Tem de corrigi-lo. 
 
 ## <a name="other-actions"></a>Outras ações
 

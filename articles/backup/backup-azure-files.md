@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: f20cc1107476f8d65323d277a53086b8bd035a1b
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 30544a49f49714eeefbf54d70e54275d2cf9a7ef
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65518910"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243538"
 ---
 # <a name="back-up-azure-file-shares"></a>Fazer cópia de segurança das partilhas de ficheiros do Azure
 Este artigo explica como utilizar o Portal do Azure para fazer a cópia de segurança e restauro das [partilhas de ficheiros do Azure](../storage/files/storage-files-introduction.md).
@@ -32,7 +32,6 @@ Antes de fazer uma cópia de segurança de uma partilha de ficheiros do Azure, g
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Limitações da cópia de segurança da partilha de ficheiros do Azure durante a Pré-visualização
 Cópia de segurança para partilhas de ficheiros do Azure está em pré-visualização. Partilham de ficheiros do Azure em ambos os para fins gerais v1 e contas de armazenamento para fins gerais v2 são suportadas. Os seguintes cenários de cópia de segurança não são suportados nas partilhas de ficheiros do Azure:
-- Não pode proteger partilhas de ficheiros do Azure em Contas de Armazenamento com a replicação* do [armazenamento georredundante com acesso de leitura](../storage/common/storage-redundancy-grs.md) (RA-GRS).
 - Não pode proteger partilhas de ficheiros do Azure em contas de armazenamento que têm Redes Virtuais ou Firewall ativadas.
 - Não existe nenhum CLI disponível para proteger ficheiros do Azure utilizando o Azure Backup.
 - O número máximo de cópias de segurança agendadas por dia é de um.
@@ -40,8 +39,6 @@ Cópia de segurança para partilhas de ficheiros do Azure está em pré-visualiz
 - Utilize os [bloqueios de recursos](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) da conta de armazenamento para impedir a eliminação acidental de cópias de segurança do seu cofre dos Serviços de Recuperação.
 - Não elimine os instantâneos criados pelo Azure Backup. A eliminação de instantâneos pode resultar na perda de pontos de recuperação e/ou falhas de restauro.
 - Não elimine as partilhas de ficheiros que estão protegidas pelo Azure Backup. A solução atual irá eliminar todos os instantâneos tirados pelo Azure Backup, assim que a partilha de ficheiros é eliminada e, por conseguinte, perder todos os pontos de restauro
-
-\*Partilhas de Ficheiros do Azure em Contas de Armazenamento com a função de [replicação do armazenamento georredundante](../storage/common/storage-redundancy-grs.md) com acesso de leitura (RA-GRS) como GRS e cobrada a preços de GRS.
 
 Cópia de segurança para partilhas de ficheiros do Azure em contas de armazenamento com [armazenamento com redundância de zona](../storage/common/storage-redundancy-zrs.md) replicação (ZRS) está atualmente disponível apenas na Central US (CUS), Leste E.u.a. (EUS), este dos E.U.A. 2 (EUS2), Norte da Europa (m), Sudeste Asiático (SEA), Europa Ocidental (WE) e E.U.A. oeste 2 (WUS2).
 
@@ -52,7 +49,7 @@ Este tutorial parte do princípio que já estabeleceu uma partilha de ficheiros 
 
     ![Escolher a Partilha de Ficheiros do Azure como o Objetivo de cópia de segurança](./media/backup-file-shares/overview-backup-page.png)
 
-2. No **objetivo de cópia de segurança** menu, do **o que fazer quiser a cópia de segurança?**, escolha a partilha de ficheiros do Azure.
+2. No **objetivo de cópia de segurança** menu, do **o que fazer quiser a cópia de segurança?** , escolha a partilha de ficheiros do Azure.
 
     ![Escolher a Partilha de Ficheiros do Azure como o Objetivo de cópia de segurança](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -85,7 +82,7 @@ Ocasionalmente, poderá gerar um instantâneo de cópia de segurança ou um pont
 
    ![clique em Cópia de segurança para associar a partilha de ficheiros do Azure com o cofre](./media/backup-file-shares/list-of-backup-items.png)
 
-2. Na lista, selecione **Armazenamento do Azure (Ficheiros do Azure)**. É apresentada a lista de partilhas de ficheiros do Azure.
+2. Na lista, selecione **Armazenamento do Azure (Ficheiros do Azure)** . É apresentada a lista de partilhas de ficheiros do Azure.
 
    ![clique em Cópia de segurança para associar a partilha de ficheiros do Azure com o cofre](./media/backup-file-shares/list-of-azure-files-backup-items.png)
 
@@ -166,7 +163,7 @@ Para parar a proteção de uma partilha de ficheiros do Azure:
 
    ![clique em Cópia de segurança para associar a partilha de ficheiros do Azure com o cofre](./media/backup-file-shares/list-of-backup-items.png)
 
-2. Na lista **Tipo de Gestão de Cópia de Segurança**, selecione **Armazenamento do Azure (Ficheiros do Azure)**. É apresentada a lista de Itens de Cópia de Segurança para o (Armazenamento do Azure (Ficheiros do Azure)).
+2. Na lista **Tipo de Gestão de Cópia de Segurança**, selecione **Armazenamento do Azure (Ficheiros do Azure)** . É apresentada a lista de Itens de Cópia de Segurança para o (Armazenamento do Azure (Ficheiros do Azure)).
 
    ![clique no item para abrir o menu adicional](./media/backup-file-shares/azure-file-share-backup-items.png)
 

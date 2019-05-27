@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 28ba4397ca5a5fd3c281555238fc7eec8a82943d
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f712cc34a3d41ea9472bf9428606cb378eef8c18
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413675"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244264"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Tutorial: Utilizar sinalizadores de funcionalidades numa aplicação .NET Core
 
@@ -66,7 +66,7 @@ public class Startup
 }
 ```
 
-Se utilizar o filtro na sua sinalizadores de recurso, terá de incluir uma biblioteca adicional e registá-lo. O exemplo seguinte mostra como utilizar um filtro de recurso interno denominado **PercentageFilter "**.
+Se utilizar o filtro na sua sinalizadores de recurso, terá de incluir uma biblioteca adicional e registá-lo. O exemplo seguinte mostra como utilizar um filtro de recurso interno denominado **PercentageFilter "** .
 
 ```csharp
 using Microsoft.FeatureManagement;
@@ -262,6 +262,6 @@ app.UseForFeature(featureName, appBuilder => {
 
 Neste tutorial, ficou a saber como implementar sinalizadores de recurso na sua aplicação ASP.NET Core, utilizando o `Microsoft.FeatureManagement` bibliotecas. Consulte os seguintes recursos para obter mais informações sobre o suporte de gestão de recursos em ASP.NET Core e configuração de aplicações.
 
-* [Código de exemplo do sinalizador de funcionalidade do ASP.NET Core]()
-* [Documentação de Microsoft.FeatureManagement]()
+* [Código de exemplo do sinalizador de funcionalidade do ASP.NET Core](/azure/azure-app-configuration/quickstart-feature-flag-aspnet-core)
+* [Documentação de Microsoft.FeatureManagement](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement)
 * [Gerir sinalizadores de funcionalidades](./manage-feature-flags.md)

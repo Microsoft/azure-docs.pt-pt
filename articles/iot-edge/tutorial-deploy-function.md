@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2694d0f22acfb34c07220ad0145b933457961931
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5b7d903c8be74e4c0561bb4a857619c9c62f95a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64575925"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239645"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar o Azure funciona como módulos do IoT Edge
 
@@ -222,12 +222,11 @@ Pode utilizar o portal do Azure para implementar o seu módulo de função num d
 
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
-Pode ver todas as mensagens que chegam ao IoT hub através da execução **IoT Hub do Azure: Iniciar a monitorização de mensagem de D2C** na paleta de comandos.
+Pode ver todas as mensagens que chegam ao IoT hub através da execução **IoT Hub do Azure: Iniciar o ponto final para monitorização incorporado eventos** na paleta de comandos.
 
-Também pode filtrar para ver todas as mensagens que chegam ao seu hub IoT a partir de um dispositivo específico. Clique com o botão direito do rato na secção **Dispositivos do Hub IoT do Azure** e selecione **Iniciar Monitorização de Mensagens D2C**.
+Também pode filtrar para ver todas as mensagens que chegam ao seu hub IoT a partir de um dispositivo específico. Com o botão direito do dispositivo na **dispositivos do Azure IoT Hub** secção e selecione **iniciar a monitorização de evento ponto final incorporado**.
 
-Para parar a monitorização de mensagens, execute o comando **IoT Hub do Azure: Parar a monitorização de mensagens D2C** na paleta de comandos. 
-
+Para parar a monitorização de mensagens, execute o comando **IoT Hub do Azure: Parar o ponto final para monitorização incorporado eventos** na paleta de comandos. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -245,4 +244,3 @@ Continue para os próximos tutoriais para saber mais sobre outras formas em que 
 
 > [!div class="nextstepaction"]
 > [Localizar médias com um período flutuante no Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
-

@@ -9,12 +9,12 @@ ms.subservice: form-recognizer
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: pafarley
-ms.openlocfilehash: bd68e2803b3b538011cfa37378890f2cc7b22223
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 942f84723bc207c200b36a63ca7f65cb9d7dab59
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65906987"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235599"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Início rápido: Preparar um modelo de formulário reconhecedor e extrair dados de formulário com a API de REST com cURL
 
@@ -108,7 +108,7 @@ Em seguida, irá analisar um documento e extrair dele pares chave-valor e tabela
 
 1. Substitua `<Endpoint>` com o ponto final que obteve na sua chave de assinatura do reconhecedor de formulário. Pode encontrá-lo no seu recurso do reconhecedor de formulário **descrição geral** separador.
 1. Substitua `<modelID>` com o ID de modelo que recebeu na secção anterior.
-1. Substitua `<path to your form>` com o caminho do seu formulário.
+1. Substitua `<path to your form>` com o caminho do seu formulário. Por exemplo c:\temp\file.pdf. 
 1. Substitua `<file type>` com o tipo de ficheiro. Tipos suportados: pdf, imagem/jpeg, png/imagem.
 1. Substitua `<subscription key>` pela sua chave de subscrição.
 

@@ -1,7 +1,7 @@
 ---
 title: Dashboard - compreensão de idiomas
 titleSuffix: Azure Cognitive Services
-description: Corrigi intenções com o dashboard de resumo de análise, uma ferramenta de geração de relatórios visualizado.
+description: Corrigi intenções com o dashboard de análise, uma ferramenta de geração de relatórios visualizado.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/22/2019
 ms.author: diberry
-ms.openlocfilehash: a518a697369ff74689a0c4ac05af96453b6a5ca4
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 055d113a2bc77f8de1b4b881718007c869470532
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65072546"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236949"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>Como utilizar o Dashboard para melhorar a sua aplicação
 
-Encontrar e corrigir problemas com os objetivos de seu aplicativo preparado quando estiver a utilizar expressões de exemplo. O dashboard de resumo apresenta informações da aplicação global, com os destaques da objetivos que devem ser corrigidos. 
+Encontrar e corrigir problemas com os objetivos de seu aplicativo preparado quando estiver a utilizar expressões de exemplo. O dashboard apresenta as informações da aplicação global, com os destaques da objetivos que devem ser corrigidos. 
 
 Reveja o Dashboard de análise é um processo iterativo, repetido à medida que altera e melhorar o seu modelo.
 
@@ -33,16 +33,16 @@ Três problemas resolvidos no dashboard são:
 |Problema|Cor do gráfico|Explicação|
 |--|--|--|
 |Desequilíbrio de dados|-|Isto ocorre quando a quantidade de expressões de exemplo varia significativamente. Tem de ter todas as intenções _aproximadamente_ o mesmo número de expressões de exemplo -, exceto a intenção None. Ele deverá ter apenas 10% - 15% da quantidade total de expressões com na aplicação.<br><br> Se os dados são desequilibrados, mas a precisão de intenção for superior a determinado limiar, esse desequilíbrio não é reportado como um problema.<br><br>**Iniciar com este problema - poderá ser a causa raiz dos outros problemas.**|
-|Predições claras|Orange|Isto ocorre quando a intenção superior e as pontuações da intenção seguinte estão próximas o suficiente que eles podem inverte na formação seguinte, devido a [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais expressões de exemplo adicionados à intenção. |
+|Predições claras|Laranja|Isto ocorre quando a intenção superior e as pontuações da intenção seguinte estão próximas o suficiente que eles podem inverte na formação seguinte, devido a [amostragem negativa](luis-how-to-train.md#train-with-all-data) ou mais expressões de exemplo adicionados à intenção. |
 |Previsões incorretas|Vermelho|Isto ocorre quando uma expressão de exemplo não está previsto para a intenção etiquetada (a intenção é no).|
 
 Previsões corretas são representados com a azul de cor.
 
-O dashboard de resumo mostra esses problemas e indica os objetivos são afetados e sugere que deve fazer para melhorar a aplicação. 
+O dashboard mostra esses problemas e indica os objetivos são afetados e sugere que deve fazer para melhorar a aplicação. 
 
 ## <a name="before-app-is-trained"></a>Antes do aplicativo está preparado 
 
-Antes de preparar a aplicação, o dashboard de resumo não contém qualquer sugestão para correções. Treine a sua aplicação para ver estas sugestões.  
+Antes de preparar a aplicação, o dashboard não contém qualquer sugestão para correções. Treine a sua aplicação para ver estas sugestões.  
 
 ## <a name="check-your-publishing-status"></a>Verificar o estado da publicação
 
@@ -50,7 +50,7 @@ O **estado de publicação** cartão contém informações sobre o Active Direct
 
 Verifique se a versão do Active Directory é a versão que pretende corrigir. 
 
-![Os serviços externos da aplicação do dashboard de resumo mostra, publicados regiões e agregados de cliques de ponto final.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
+![Os serviços externos da aplicação do dashboard mostra, publicados regiões e agregados de cliques de ponto final.](./media/luis-how-to-use-dashboard/analytics-card-1-shows-app-summary-and-endpoint-hits.png)
 
 Isto também mostra a quaisquer serviços externos, regiões publicados e agregados de cliques de ponto final. 
 
@@ -96,7 +96,7 @@ O **desequilíbrio dados** lista intenção mostra objetivos que precisam de mai
 
 * Adicionar expressões mais à intenção, em seguida, dar formação novamente. 
 
-Não adicione expressões com a intenção None, a menos que o que é sugerido no dashboard de resumo.
+Não adicione expressões com a intenção None, a menos que o que é sugerido no dashboard.
 
 > [!Tip]
 > Utilizar a terceira seção na página, **expressões com por intenção** com o **expressões com (número)** definir, como um guia visual rápido tem de expressões com mais do que intenções.  

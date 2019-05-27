@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: b4c1de8edf04e15b540adeac01bcbf0cb1d1b8af
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b114b1c3b1c421c6e6944666e3fd928d2aced966
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65766936"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225881"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Compreensão de idiomas perguntas mais frequentes sobre (FAQ)
 
@@ -49,7 +49,7 @@ Consulte a [Bing ortográfica verificar a API V7](luis-tutorial-bing-spellcheck.
 Para editar a sua aplicação do LUIS programaticamente, utilize o [criação API](https://go.microsoft.com/fwlink/?linkid=2092087). Ver [LUIS chamar a API de criação](./luis-quickstart-node-add-utterance.md) e [criar uma aplicação do LUIS por meio de programação com node. js](./luis-tutorial-node-import-utterances-csv.md) para obter exemplos de como chamar a API de criação. A API de criação é necessário utilizar um [chave de criação](luis-concept-keys.md#authoring-key) em vez de uma chave de ponto final. A criação programática permite até 1 000 000 chamadas por mês e cinco transações por segundo. Para obter mais informações sobre as chaves a utilizar com os LUIS, consulte [gerir chaves](./luis-concept-keys.md).
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>Qual é a funcionalidade padrão que fornecia a expressão regular que corresponda?
-Anterior **funcionalidade de padrão** atualmente é preterido, substituídos pelos  **[padrões](luis-concept-patterns.md)**.
+Anterior **funcionalidade de padrão** atualmente é preterido, substituídos pelos  **[padrões](luis-concept-patterns.md)** .
 
 ### <a name="how-do-i-use-an-entity-to-pull-out-the-correct-data"></a>Como utilizo uma entidade para extrair os dados corretos?
 Ver [entidades](luis-concept-entity-types.md) e [extração de dados](luis-concept-data-extraction.md).
@@ -297,6 +297,10 @@ As seguintes funcionalidades foram lançadas na conferência de 2019 compilaçã
 * [Domínios pré-concebidos melhorados](luis-reference-prebuilt-domains.md) 
 * [Entidades de lista dinâmica](luis-migration-api-v3.md#dynamic-lists-passed-in-at-prediction-time)
 * [Entidades externas](luis-migration-api-v3.md#external-entities-passed-in-at-prediction-time)
+
+Vídeos:
+
+* [Como utilizar ia de conversação do Azure para dimensionar o seu negócio para a próxima geração](https://www.youtube.com/watch?v=_k97jd-csuk&feature=youtu.be)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

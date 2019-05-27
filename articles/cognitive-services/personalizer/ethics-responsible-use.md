@@ -9,12 +9,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-ms.openlocfilehash: 7b1e972b5516aa79d1754e32e487e17c9e68ac1d
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 437dc1fba2502602109483aa9d6f25b4265af26f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035433"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239870"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Diretrizes para implementação responsável de Personalizer
 
@@ -128,17 +128,13 @@ Seguem-se as áreas de design para implementações de responsáveis de IA. Saib
 * Arquivar informações e os ativos - como modelos, políticas de aprendizagem e outros dados – que Personalizer utiliza a funcionar, poder-se de que reproduza os resultados.
 
 ### <a name="transparency"></a>Transparência
-*Sistemas de IA deve ser Understandable*. Com Personalizer
+*Sistemas de IA deve ser Understandable*. Com Personalizer:
 
-• Dar aos usuários informações sobre como o conteúdo foi personalizado. Por exemplo, pode mostrar aos utilizadores um botão rotulado "por que estas sugestões?" a mostrar os principais recursos do utilizador e ações desempenhado um papel nos resultados de Personalizer.
-• Certifique-se de que seus termos de utilização marca mencionar que irá utilizar informações sobre utilizadores e seu comportamento para personalizar a experiência.
-
-
-* *Dê aos utilizadores obter informações sobre como o conteúdo foi personalizado.* Por exemplo, pode mostrar aos utilizadores um botão rotulado `Why These Suggestions?` que mostra os principais recursos do utilizador e ações desempenhado um papel na personalização.
-* Certifique-se de que os termos de utilização mencionam que irá utilizar informações sobre os utilizadores para personalizar a experiência.
+* *Dê aos utilizadores obter informações sobre como o conteúdo foi personalizado.* Por exemplo, pode mostrar aos utilizadores um botão rotulado `Why These Suggestions?` que mostra os principais recursos do utilizador e ações desempenhado um papel nos resultados de Personalizer.
+* Certifique-se de que seus termos de utilização marca mencionar que irá utilizar informações sobre utilizadores e seu comportamento para personalizar a experiência.
 
 ### <a name="fairness"></a>Justiça de
-* IA sistemas deve tratar todas as pessoas bastante.
+*Sistemas de IA deve tratar todas as pessoas bastante*.
 
 * Não utilize Personalizer para casos de utilização em que os resultados são a longo prazo, consequentes, ou envolvem danos reais.
 * Não utilize recursos que não são adequados para personalizar o conteúdo com ou que podem ajudar a se propagar tendências indesejadas. Por exemplo, qualquer pessoa com situações semelhantes de financeiras deverá ver as mesmas recomendações personalizadas de produtos financeiros.

@@ -12,10 +12,10 @@ ms.date: 09/18/2018
 ms.author: priyar
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: a046bec5d81d828d88716d31c84e9cbcdcea1a08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60515428"
 ---
 # <a name="bing-text-to-speech-api"></a>API do Bing texto em voz
@@ -190,7 +190,7 @@ Para obter detalhes de implementação, consulte a [Visual C#aplicação de exem
 
 A tabela seguinte identifica algumas das regiões suportadas e tipos de voz relacionados.
 
-Região | Género | Mapeamento de nome de serviço
+Região | Sexo | Mapeamento de nome de serviço
 ---------|--------|------------
 ar-por exemplo * | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)"
 ar SA | Masculino | "Microsoft Server voz texto para voz de voz (ar-SA, Naayf)"

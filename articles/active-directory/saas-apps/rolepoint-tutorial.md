@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do Active Directory do Azure com RolePoint | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e RolePoint.
+description: Neste tutorial, irá aprender como configurar o início de sessão único entre o Azure Active Directory e RolePoint.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,184 +15,188 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 96b33b8d7a52f836a5950a28b4f1f035619f185f
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: d2f854c869ead8016a5437a4e40339d9455c9ad7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65889961"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226422"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Tutorial: Integração do Active Directory do Azure com RolePoint
 
-Neste tutorial, saiba como integrar RolePoint com o Azure Active Directory (Azure AD).
-Integrar RolePoint no Azure AD fornece as seguintes vantagens:
+Neste tutorial, irá aprender como integrar RolePoint com o Azure Active Directory (Azure AD).
+Esta integração oferece estes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao RolePoint.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para RolePoint (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode utilizar o Azure AD para controlar quem tem acesso ao RolePoint.
+* Pode permitir que os utilizadores ter automaticamente sessão iniciada no RolePoint (início de sessão único) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central: portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com RolePoint, terá dos seguintes itens:
+Para configurar a integração do Azure AD com RolePoint, tem de ter:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/)
-* RolePoint logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
+* Uma subscrição de RolePoint com início de sessão único ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, irá configurar e testar o Azure AD início de sessão único num ambiente de teste.
 
-* Suporta RolePoint **SP** iniciada SSO
+* RolePoint suporta SSO iniciado por SP.
 
-## <a name="adding-rolepoint-from-the-gallery"></a>Adicionando RolePoint da Galeria
+## <a name="add-rolepoint-from-the-gallery"></a>Adicionar RolePoint a partir da Galeria
 
 Para configurar a integração do RolePoint com o Azure AD, terá de adicionar RolePoint a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar RolePoint a partir da galeria, execute os seguintes passos:**
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+    ![Selecione Azure Active Directory](common/select-azuread.png)
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+2. Aceda a **aplicações empresariais** > **todas as aplicações**:
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+3. Para adicionar uma aplicação, selecione **nova aplicação** na parte superior da janela:
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![Selecionar novo aplicativo](common/add-new-app.png)
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+4. Na caixa de pesquisa, introduza **RolePoint**. Selecione **RolePoint** nos resultados da pesquisa e, em seguida, selecione **Add**.
 
-4. Na caixa de pesquisa, escreva **RolePoint**, selecione **RolePoint** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
-
-     ![RolePoint na lista de resultados](common/search-new-app.png)
+     ![Resultados da pesquisa](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com RolePoint com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no RolePoint deve ser estabelecido.
+Nesta secção, irá configurar e testar o Azure AD início de sessão único com RolePoint com um utilizador de teste com o nome Eduarda Almeida.
+Para ativar o início de sessão único, tem de estabelecer uma relação entre um utilizador do Azure AD e o utilizador correspondente no RolePoint.
 
-Para configurar e testar o Azure AD início de sessão único com RolePoint, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com RolePoint, tem de concluir estes passos:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar RolePoint Single Sign-On](#configure-rolepoint-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste RolePoint](#create-rolepoint-test-user)**  - para ter um equivalente da Eduarda Almeida na RolePoint que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  para ativar a funcionalidade para os seus utilizadores.
+2. **[Configurar RolePoint início de sessão único](#configure-rolepoint-single-sign-on)**  no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar o Azure AD início de sessão único para o utilizador.
+5. **[Criar um utilizador de teste RolePoint](#create-a-rolepoint-test-user)**  associado a representação do Azure AD do utilizador.
+6. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, irá ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com RolePoint, execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com RolePoint, siga estes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **RolePoint** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicações do RolePoint, selecione **início de sessão único**:
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Selecione início de sessão único](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Selecione um método de início de sessão único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Ícone editar](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
+4. Na **configuração básica de SAML** diálogo caixa, siga os passos seguintes.
 
-    ![RolePoint domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
+    ![Caixa de diálogo de configuração de SAML básica](common/sp-identifier.png)
 
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://<subdomain>.rolepoint.com/login`
+    1. Na **iniciar sessão no URL** , introduza um URL neste padrão:
 
-    b. Na **identificador (ID de entidade)** caixa de texto, escreva um URL com o seguinte padrão: `https://app.rolepoint.com/<instancename>`
+       `https://<subdomain>.rolepoint.com/login`
+
+    1. Na **identificador (ID de entidade)** , introduza um URL neste padrão:
+
+       `https://app.rolepoint.com/<instancename>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o início de sessão real URL e o identificador. Aqui iremos sugerir-lhe utilizar o valor único de cadeia de caracteres no identificador de. Contacte [equipa de suporte de cliente RolePoint](mailto:info@rolepoint.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores são marcadores de posição. Tem de utilizar o URL de início de sessão real e o identificador. Sugerimos que utilize um valor de cadeia exclusiva no identificador de. Contacte os [equipa de suporte de RolePoint](mailto:info@rolepoint.com) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** caixa de diálogo no portal do Azure.
 
-5. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+5. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, selecione o **transferir** ligação junto a **XML de metadados de Federação** acordo com suas necessidades e guarde-no seu computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![Ligação de transferência do certificado](common/metadataxml.png)
 
-6. Sobre o **configurar RolePoint** secção, copie os URLs apropriados de acordo com seus requisitos.
+6. Na **configurar RolePoint** secção, copie os URLs adequados, com base nos seus requisitos:
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copie os URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    1. **URL de início de sessão**.
 
-    b. Identificador do Azure AD
+    1. **Azure AD Identifier**.
 
-    c. URL de fim de sessão
+    1. **URL de fim de sessão**.
 
-### <a name="configure-rolepoint-single-sign-on"></a>Configurar RolePoint Single Sign-On
 
-Para configurar o início de sessão único num **RolePoint** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [RolePoint a equipa de suporte](mailto:info@rolepoint.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+### <a name="configure-rolepoint-single-sign-on"></a>Configurar RolePoint início de sessão único
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+Para configurar o início de sessão único no lado do RolePoint, terá de trabalhar com o [equipa de suporte de RolePoint](mailto:info@rolepoint.com). O ficheiro XML de metadados de Federação e os URLs que recebeu do portal do Azure, envie esta equipa. Eles irá configurar RolePoint para garantir que a ligação de SAML SSO está definida corretamente em ambos os lados.
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+1. No portal do Azure, selecione **do Azure Active Directory** no painel esquerdo, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**:
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+    ![Selecione todos os utilizadores](common/users.png)
 
-    ![Novo utilizador botão](common/new-user.png)
+2. Selecione **novo utilizador** na parte superior da janela:
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+    ![Selecione o novo utilizador](common/new-user.png)
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+3. Na **utilizador** diálogo caixa, siga os passos seguintes.
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    ![Caixa de diálogo de utilizador](common/user-properties.png)
+
+    1. Na **Name** , introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com.
+    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >** . (Por exemplo, BrittaSimon@contoso.com.)
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    1. Selecione **mostrar palavra-passe**e, em seguida, anote o valor que está a **palavra-passe** caixa.
 
-    d. Clique em **Criar**.
+    1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para RolePoint.
+Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para RolePoint.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **RolePoint**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **RolePoint**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **RolePoint**.
 
-    ![A ligação de RolePoint na lista de aplicações](common/all-applications.png)
+    ![Lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No painel esquerdo, selecione **utilizadores e grupos**:
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![Selecionar utilizadores e grupos](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Selecione **adicionar utilizador**e, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![Selecione adicionar utilizador](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores e, em seguida, clique o **selecionar** na parte inferior da janela.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se um valor de função na asserção de SAML, que espera do **selecionar função** diálogo caixa, selecione a função adequada para o utilizador a partir da lista. Clique nas **selecione** na parte inferior da janela.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
 
-### <a name="create-rolepoint-test-user"></a>Criar utilizador de teste RolePoint
+### <a name="create-a-rolepoint-test-user"></a>Criar um utilizador de teste RolePoint
 
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no RolePoint. Trabalhar com [equipa de suporte de RolePoint](mailto:info@rolepoint.com) para adicionar os utilizadores na plataforma RolePoint. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Em seguida, terá de criar um utilizador com o nome Eduarda Almeida na RolePoint. Trabalhar com o [equipa de suporte de RolePoint](mailto:info@rolepoint.com) para adicionar utilizadores ao RolePoint. Os utilizadores têm de ser criado e ativado antes de poder utilizar o início de sessão único.
 
 ### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 
-Quando clica no mosaico RolePoint no painel de acesso, deve ser automaticamente sessão iniciada no RolePoint para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o mosaico RolePoint no painel de acesso, deve ser automaticamente conectado à instância RolePoint para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [aplicações de acesso e a utilização no portal minhas aplicações](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

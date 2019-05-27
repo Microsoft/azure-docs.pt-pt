@@ -1,5 +1,5 @@
 ---
-title: O que é a API de detetor de anomalias? | Microsoft Docs
+title: O que é a API do Detetor de Anomalias? | Microsoft Docs
 titleSuffix: Azure Cognitive Services
 description: Utilize algoritmos avançados da API de detetor de anomalias para identificar anomalias nos seus dados de séries de tempo.
 services: cognitive-services
@@ -10,13 +10,13 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: aahi
 ms.openlocfilehash: 48dffb8853d3def590e434c1683ecf038e2a194e
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58473281"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "64415803"
 ---
-# <a name="what-is-the-anomaly-detector-api"></a>O que é a API de detetor de anomalias?
+# <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
 A API de detetor de anomalias permite-lhe monitorizar e detetar anomalias nos seus dados de séries de tempo com o machine learning. A API de detetor de anomalias adapta-se ao automaticamente identificar e aplicar os modelos de oferta fitting aos seus dados, independentemente da indústria, o cenário ou o volume de dados. Utilizar os seus dados de séries de tempo, a API determina os limites para deteção de anomalias, valores esperados, e quais os pontos de dados são anomalias.
 

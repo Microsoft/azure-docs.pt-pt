@@ -1,18 +1,17 @@
 ---
 title: Como a partição e o modelo de dados no Azure Cosmos DB com um exemplo real
 description: Aprenda a modelar e faça a partição de um exemplo do mundo real usando a API de núcleos do Azure Cosmos DB
-author: rockboyfor
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 03/27/2019
-ms.date: 04/15/2019
-ms.author: v-yeche
-ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/23/2019
+ms.author: thweiss
+ms.openlocfilehash: c98a8187c0365abc8fdb2bedacc5216266cc5cad
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61057490"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240988"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como a partição e o modelo de dados no Azure Cosmos DB com um exemplo real
 
@@ -141,7 +140,7 @@ Obter um utilizador é feito, lendo o item correspondente do `users` contentor.
 
 ### <a name="c2-createedit-a-post"></a>[C2] Criar/editar uma postagem
 
-Tal **[C1]**, basta que escrever o `posts` contentor.
+Tal **[C1]** , basta que escrever o `posts` contentor.
 
 ![Escrever um único item para o contentor de mensagens](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -200,7 +199,7 @@ Embora a consulta principal filtrar numa chave de partição do contentor, agreg
 
 ### <a name="c4-like-a-post"></a>[C4] Como uma postagem
 
-Tal como **[C3]**, podemos criar o item correspondente no `posts` contentor.
+Tal como **[C3]** , podemos criar o item correspondente no `posts` contentor.
 
 ![Escrever um único item para o contentor de mensagens](./media/how-to-model-partition-example/V1-C2.png)
 
@@ -210,7 +209,7 @@ Tal como **[C3]**, podemos criar o item correspondente no `posts` contentor.
 
 ### <a name="q5-list-a-posts-likes"></a>[P5] Listar gostos de uma postagem
 
-Tal como **[P4]**, podemos consultar o "gostos" para essa mensagem, em seguida, agregar os nomes de utilizador.
+Tal como **[P4]** , podemos consultar o "gostos" para essa mensagem, em seguida, agregar os nomes de utilizador.
 
 ![Recuperar todos gosta para um post e agregar os dados adicionais](./media/how-to-model-partition-example/V1-Q5.png)
 
@@ -283,7 +282,7 @@ Também podemos modificar o comentário e, como itens para adicionar o nome de u
 
 O que queremos obter é que sempre que podemos adicionar um comentário ou um tipo, também incrementamos a `commentCount` ou o `likeCount` na publicação correspondente. Como nosso `posts` contentor particionado `postId`, o novo item (comentar ou, como) e seu post correspondente, estejam na mesma partição lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para executar essa operação.
 
-Agora durante a criação de um comentário (**[C3]**), em vez de apenas adicionar um novo item no `posts` contentor, chamamos o seguinte procedimento armazenado nesse contentor:
+Agora durante a criação de um comentário ( **[C3]** ), em vez de apenas adicionar um novo item no `posts` contentor, chamamos o seguinte procedimento armazenado nesse contentor:
 
 ```javascript
 function createComment(postId, comment) {
@@ -334,7 +333,7 @@ No nosso exemplo, utilizamos o feed de alterações da `users` contentor reagir 
 ```javascript
 function updateUsernames(userId, username) {
   var collection = getContext().getCollection();
-
+  
   collection.queryDocuments(
     collection.getSelfLink(),
     `SELECT * FROM p WHERE p.userId = '${userId}'`,
@@ -397,7 +396,7 @@ Situação mesmo exata quando lista os gostos.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Certificar-se a todos os pedidos são dimensionáveis
 
-Ver a nossa aprimoramentos gerais do desempenho, ainda existem duas solicitações que ainda não totalmente otimizamos: **[P3]** e **[P6]**. Eles são os pedidos que envolvem a consultas que não filtrar na chave de partição dos contentores destinam-se.
+Ver a nossa aprimoramentos gerais do desempenho, ainda existem duas solicitações que ainda não totalmente otimizamos: **[P3]** e **[P6]** . Eles são os pedidos que envolvem a consultas que não filtrar na chave de partição dos contentores destinam-se.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[P3] Lista de mensagens de um utilizador no formato curto
 
@@ -577,6 +576,3 @@ Depois desta introdução a práticas dados de modelagem e criação de partiç�
 - [Trabalhar com bancos de dados, contentores e itens](databases-containers-items.md)
 - [Criação de partições no Azure Cosmos DB](partitioning-overview.md)
 - [Alterar feed no Azure Cosmos DB](change-feed.md)
-
-<!--Update_Description: new articles on how to model partition example -->
-<!--ms.date: 04/15/2019-->

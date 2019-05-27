@@ -4,14 +4,14 @@ description: Saiba como configurar políticas de controlo de acesso IP para o su
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdf2da745cc418190f6546fffc03e2ac2c330e0e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 24ebc7eb4c9abc72a89419611e4b4b3fa2db88b4
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068722"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241970"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar a firewall do IP no Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Quando ativa a uma política de controlo de acesso IP por meio de programação,
 |------|----------|
 |Alemanha|51.4.229.218|
 |China|139.217.8.252|
-|Governo dos EUA|52.244.48.71|
+|US Gov|52.244.48.71|
 |Todas as outras regiões|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 Pode ativar o acesso ao portal do Azure ao selecionar o **permitir o acesso a partir do portal do Azure** opção, conforme mostrado na captura de ecrã seguinte: 

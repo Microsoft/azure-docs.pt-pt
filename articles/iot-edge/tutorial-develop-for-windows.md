@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 631338c0217eb61f4f98cd06ffa16cb2500f246b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 1f2e9bc93b8bea70a58f2e6a544e2088505935a9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66146739"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239746"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos Windows
 
@@ -298,7 +298,7 @@ O código de IotEdgeModule1 recebe mensagens por meio da sua fila de entrada e t
 
 1. No cloud explorer do Visual Studio, selecione o nome do dispositivo IoT Edge que implementado. 
 
-2. Na **ações** menu, selecione **iniciar mensagens D2C monitorização**.
+2. Na **ações** menu, selecione **iniciar a monitorização de evento ponto final incorporado**.
 
 3. Veja a **saída** secção no Visual Studio para ver as mensagens que chegam ao IoT hub. 
 

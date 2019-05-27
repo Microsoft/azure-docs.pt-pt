@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
 ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "64866846"
 ---
 # <a name="what-is-bing-entity-search-api"></a>O que é a API de pesquisa de entidades do Bing?

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online do SQL Server para uma instância gerida da base de dados do Azure SQL | Documentos da Microsoft'
-description: Aprenda a realizar uma migração online do SQL Server no local para uma instância gerida da base de dados do Azure SQL utilizando o serviço de migração de base de dados do Azure.
+title: 'Tutorial: Instância gerida de utilização do Azure Database Migration Service para efetuar uma migração online do SQL Server para uma base de dados do SQL do Azure | Documentos da Microsoft'
+description: Aprenda a realizar uma migração online do SQL Server no local para uma instância gerida da base de dados do Azure SQL com o Azure Database Migration Service.
 services: dms
 author: HJToland3
 ms.author: jtoland
@@ -10,29 +10,35 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 12a0ebeebbc3bdc205816c5534f59b1385cecb12
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.date: 05/22/2019
+ms.openlocfilehash: 1229ff3221deb49601dec3cd40b556ea367fc4c9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413760"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240708"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migrar o SQL Server para uma instância gerida da base de dados do Azure SQL online com o DMS
 
-Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados a partir de uma instância do SQL Server no local para um [instância gerida de base de dados do Azure SQL](../sql-database/sql-database-managed-instance.md) com período de indisponibilidade mínimo. Para métodos adicionais que podem exigir algum esforço manual, consulte o artigo [instância gerida de migração de instância do SQL Server para a base de dados do Azure SQL](../sql-database/sql-database-managed-instance-migrate.md).
+Pode utilizar o serviço de migração de base de dados do Azure para migrar as bases de dados de uma instância do SQL Server no local para um [instância gerida de base de dados do Azure SQL](../sql-database/sql-database-managed-instance.md) com período de indisponibilidade mínimo. Para métodos adicionais que podem exigir algum esforço manual, consulte o artigo [instância gerida de migração de instância do SQL Server para a base de dados do Azure SQL](../sql-database/sql-database-managed-instance-migrate.md).
 
-Neste tutorial, migra os **Adventureworks2012** base de dados de uma instância no local do SQL Server para uma instância gerida da base de dados do Azure SQL com o período de indisponibilidade mínimo ao utilizar o serviço de migração de base de dados do Azure.
+Neste tutorial, migra os **Adventureworks2012** base de dados de uma instância no local do SQL Server para uma instância gerida da base de dados do Azure SQL com o período de indisponibilidade mínimo com o Azure Database Migration Service.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> - Criar uma instância do Azure Database Migration Service.
-> - Crie um projeto de migração e inicie a migração online com o Azure Database Migration Service.
-> - Monitorizar a migração.
-> - Transfira a migração quando estiver pronto.
+>
+> * Crie uma instância do serviço de migração de base de dados do Azure.
+> * Criar um projeto de migração e começar a migração online com o Azure Database Migration Service.
+> * Monitorizar a migração.
+> * Transfira a migração quando estiver pronto.
+
+> [!IMPORTANT]
+> Para migrações online do SQL Server para uma instância gerida da base de dados do Azure SQL com o serviço de migração de base de dados do Azure, tem de fornecer a cópia de segurança completa da base de dados e partilhem de backups de log subseqüentes na rede SMB que o serviço pode usar para migrar as suas bases de dados. Serviço de migração de base de dados do Azure não inicia quaisquer cópias de segurança, mas em vez disso, utiliza cópias de segurança existentes, que pode já ter como parte do seu plano de recuperação após desastre, para a migração.
+> Certifique-se de que levar [cópias de segurança utilizando a opção WITH CHECKSUM](https://docs.microsoft.com/sql/relational-databases/backup-restore/enable-or-disable-backup-checksums-during-backup-or-restore-sql-server?view=sql-server-2017). Além disso, certifique-se de que não acrescentar várias cópias de segurança (ou seja, completo e t-log) numa mídia de backup única; Analisemos cada cópia de segurança num arquivo de cópia de segurança separado.
 
 > [!NOTE]
 > Utilizar o serviço de migração de base de dados do Azure para efetuar uma migração online requer a criação de uma instância com base no escalão de preço Premium.
+
 > [!IMPORTANT]
 > Para uma experiência de migração otimizada, a Microsoft recomenda a criação de uma instância do Azure Database Migration Service na mesma região do Azure que a base de dados de destino. Mover dados entre regiões ou geografias pode retardar o processo de migração e introduzir erros.
 
@@ -44,28 +50,29 @@ Este artigo descreve uma migração online do SQL Server para uma instância ger
 
 Para concluir este tutorial, precisa de:
 
-- Criar uma rede Virtual do Azure (VNet) para o serviço de migração de base de dados do Azure com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local, utilizando um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Saiba as topologias de rede para migrações de instância de base de dados do SQL do Azure geridos com o Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Para obter mais informações sobre como criar uma VNet, veja a [documentação das redes virtuais](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
+* Criar uma rede Virtual do Azure (VNet) para o serviço de migração de base de dados do Azure com o modelo de implementação Azure Resource Manager, que garante uma conectividade site a site aos seus servidores de origem no local, utilizando um [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Saiba as topologias de rede para migrações de instância de base de dados do SQL do Azure geridos com o Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Para obter mais informações sobre como criar uma VNet, veja a [documentação das redes virtuais](https://docs.microsoft.com/azure/virtual-network/)e especialmente os artigos de início rápido com detalhes passo a passo.
 
     > [!NOTE]
     > Durante a configuração de VNet, se utilizar o ExpressRoute com peering de rede para a Microsoft, adicione o seguinte serviço [pontos de extremidade](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) à sub-rede na qual o serviço será aprovisionado:
-    > - Ponto de extremidade de destino da base de dados (por exemplo, ponto de extremidade do SQL, ponto final do Cosmos DB etc.)
-    > - Ponto final de armazenamento
-    > - Ponto final de barramento de serviço
+    >
+    > * Ponto de extremidade de destino da base de dados (por exemplo, ponto de extremidade do SQL, ponto final do Cosmos DB etc.)
+    > * Ponto final de armazenamento
+    > * Ponto final de barramento de serviço
     >
     > Esta configuração é necessária porque o serviço de migração de base de dados do Azure não tem conectividade à internet.
 
-- Certifique-se de que as regras do grupo de segurança de rede de VNet não bloqueiam as seguintes portas de comunicação de entrada para o Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do Azure VNet NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
-- Configurar a sua Firewall do Windows para acesso ao motor de bases de dados. Veja [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-- Abrir a Firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
-- Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
-- Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração, bem como ficheiros através da porta SMB 445.
-- Criar uma instância gerida da base de dados do Azure SQL, seguindo o detalhe no artigo [criar uma instância gerida da base de dados do Azure SQL no portal do Azure](https://aka.ms/sqldbmi).
-- Certifique-se de que os inícios de sessão utilizado para ligar a origem do SQL Server e a instância gerida de destino são membros da função de servidor sysadmin.
-- Forneça uma partilha de rede SMB que contenha os ficheiros completos de cópia de segurança de base de dados e os ficheiros subsequentes de cópia de segurança de registo de transações, que o Azure Database Migration Service pode utilizar para a migração da base de dados.
-- Confirme que a conta de serviço em execução na instância do SQL Server de origem tem privilégios de escrita na partilha de rede que criou e que a conta do computador do servidor de origem tem acesso de leitura/escrita à mesma partilha.
-- Tome nota de um utilizador do Windows (e da palavra-passe) que tenha privilégio de controlo total na partilha de rede que criou anteriormente. O Azure Database Migration Service representa a credencial do utilizador para carregar os ficheiros de cópia de segurança para o contentor de armazenamento do Azure, para a operação de restauro.
-- Crie um Azure Active Directory ID de aplicação que gera a chave de ID da aplicação que pode utilizar o serviço DMS para ligar à instância de base de dados do Azure geridos de destino e o contentor de armazenamento do Azure. Para obter mais informações, veja o artigo [Utilizar o portal para criar uma aplicação e um principal de serviço do Azure Active Directory que possam aceder aos recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
-- Crie ou anote o **escalão de Desempenho Standard**, a Conta de Armazenamento do Azure, que permite ao serviço DMS carregar os ficheiros de cópia de segurança para a base de dados e utilizá-la para a migração de bases de dados.  Certifique-se de que cria a Conta de Armazenamento do Azure na mesma região do serviço DMS criado.
+* Certifique-se de que as regras do grupo de segurança de rede de VNet não bloqueiam as seguintes portas de comunicação de entrada para o Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego do Azure VNet NSG, consulte o artigo [filtrar o tráfego de rede com grupos de segurança de rede](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Configurar a sua Firewall do Windows para acesso ao motor de bases de dados. Veja [Windows Firewall for source database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
+* Abrir a Firewall do Windows para permitir ao Azure Database Migration Service aceder ao SQL Server de origem, que, por predefinição, é a porta TCP 1433.
+* Se estiver a executar várias instâncias nomeadas do SQL Server em portas dinâmicas, poderá ser útil ativar o SQL Browser Service e permitir o acesso à porta UDP 1434 através das suas firewalls, de modo a que o Azure Database Migration Service se possa ligar a uma instância nomeada no servidor de origem.
+* Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração, bem como ficheiros através da porta SMB 445.
+* Criar uma instância gerida da base de dados do Azure SQL, seguindo o detalhe no artigo [criar uma instância gerida da base de dados do Azure SQL no portal do Azure](https://aka.ms/sqldbmi).
+* Certifique-se de que os inícios de sessão utilizado para ligar a origem do SQL Server e a instância gerida de destino são membros da função de servidor sysadmin.
+* Forneça uma partilha de rede SMB que contenha os ficheiros completos de cópia de segurança de base de dados e os ficheiros subsequentes de cópia de segurança de registo de transações, que o Azure Database Migration Service pode utilizar para a migração da base de dados.
+* Confirme que a conta de serviço em execução na instância do SQL Server de origem tem privilégios de escrita na partilha de rede que criou e que a conta do computador do servidor de origem tem acesso de leitura/escrita à mesma partilha.
+* Tome nota de um utilizador do Windows (e da palavra-passe) que tenha privilégio de controlo total na partilha de rede que criou anteriormente. O Azure Database Migration Service representa a credencial do utilizador para carregar os ficheiros de cópia de segurança para o contentor de armazenamento do Azure, para a operação de restauro.
+* Crie um Azure Active Directory ID de aplicação que gera a chave de ID da aplicação que pode utilizar o serviço DMS para ligar à instância de base de dados do Azure geridos de destino e o contentor de armazenamento do Azure. Para obter mais informações, veja o artigo [Utilizar o portal para criar uma aplicação e um principal de serviço do Azure Active Directory que possam aceder aos recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+* Crie ou anote o **escalão de Desempenho Standard**, a Conta de Armazenamento do Azure, que permite ao serviço DMS carregar os ficheiros de cópia de segurança para a base de dados e utilizá-la para a migração de bases de dados.  Certifique-se de que cria a Conta de Armazenamento do Azure na mesma região do serviço DMS criado.
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registar o fornecedor de recursos Microsoft.DataMigration
 

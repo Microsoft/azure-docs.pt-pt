@@ -10,10 +10,10 @@ ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: overview
 ms.openlocfilehash: d9b253afa7414ada4db58f98cd346e223f8282b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60511470"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?

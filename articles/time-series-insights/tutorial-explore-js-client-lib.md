@@ -7,14 +7,14 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
 ms.date: 05/06/2019
-ms.author: anshan
+ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 7208c0d42cba0e7f04fc6876bf3ada9fa65a00d9
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: c6cfd2069851138d738b1533eaab74d9d7aedda6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991444"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243991"
 ---
 # <a name="tutorial-explore-the-azure-time-series-insights-javascript-client-library"></a>Tutorial: Explorar a biblioteca de cliente JavaScript do Azure Time Series Insights
 

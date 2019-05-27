@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Integração do Active Directory do Azure com Promapp | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Promapp.
+description: Neste tutorial, irá aprender como configurar o início de sessão único entre o Azure Active Directory e Promapp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,225 +15,227 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 18ee967d421eb2a170955a4b75939e5f084a65fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
-ms.translationtype: HT
+ms.openlocfilehash: e91351d4571eaa084865c5a179ed05e6c773b952
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111411"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240417"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: Integração do Active Directory do Azure com Promapp
 
-Neste tutorial, saiba como integrar Promapp com o Azure Active Directory (Azure AD).
-Integrar Promapp no Azure AD fornece as seguintes vantagens:
+Neste tutorial, irá aprender como integrar Promapp com o Azure Active Directory (Azure AD).
+Esta integração oferece estes benefícios:
 
-* Pode controlar no Azure AD que tenha acesso ao Promapp.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Promapp (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Pode utilizar o Azure AD para controlar quem tem acesso ao Promapp.
+* Pode permitir que os utilizadores ter automaticamente sessão iniciada no Promapp (início de sessão único) com as suas contas do Azure AD.
+* Pode gerir as suas contas num local central: portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [início de sessão único para aplicações no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Promapp, terá dos seguintes itens:
+Para configurar a integração do Azure AD com Promapp, tem de ter:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Promapp logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode inscrever-se para obter um [versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
+* Uma subscrição de Promapp que tem início de sessão único ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, irá configurar e testar o Azure AD início de sessão único num ambiente de teste.
 
-* Suporta Promapp **SP** e **IDP** iniciada SSO
+* Promapp suporta SSO iniciado por SP e iniciado o IdP.
 
-* Suporta Promapp **Just In Time** aprovisionamento de utilizadores
+* Promapp suporta o aprovisionamento de utilizador de just-in-time.
 
-## <a name="adding-promapp-from-the-gallery"></a>Adicionando Promapp da Galeria
+## <a name="add-promapp-from-the-gallery"></a>Adicionar Promapp a partir da Galeria
 
 Para configurar a integração do Promapp com o Azure AD, terá de adicionar Promapp a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Promapp a partir da galeria, execute os seguintes passos:**
+1. Na [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione **Azure Active Directory**:
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+    ![Selecione Azure Active Directory](common/select-azuread.png)
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+2. Aceda a **aplicações empresariais** > **todas as aplicações**:
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+    ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+3. Para adicionar uma aplicação, selecione **nova aplicação** na parte superior da janela:
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+    ![Selecionar novo aplicativo](common/add-new-app.png)
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+4. Na caixa de pesquisa, introduza **Promapp**. Selecione **Promapp** nos resultados da pesquisa e, em seguida, selecione **Add**.
 
-4. Na caixa de pesquisa, escreva **Promapp**, selecione **Promapp** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
-
-     ![Promapp na lista de resultados](common/search-new-app.png)
+     ![Resultados da pesquisa](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Promapp com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Promapp deve ser estabelecido.
+Nesta secção, irá configurar e testar o Azure AD início de sessão único com Promapp com um utilizador de teste com o nome Eduarda Almeida.
+Para ativar o início de sessão único, tem de estabelecer uma relação entre um utilizador do Azure AD e o utilizador correspondente no Promapp.
 
-Para configurar e testar o Azure AD início de sessão único com Promapp, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o Azure AD início de sessão único com Promapp, tem de concluir estes passos:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Promapp Single Sign-On](#configure-promapp-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Promapp](#create-promapp-test-user)**  - para ter um equivalente da Eduarda Almeida na Promapp que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  para ativar a funcionalidade para os seus utilizadores.
+2. **[Configurar Promapp início de sessão único](#configure-promapp-single-sign-on)**  no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar o Azure AD início de sessão único para o utilizador.
+5. **[Testar início de sessão único](#test-single-sign-on)**  para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Nesta secção, irá ativar o Azure AD início de sessão único no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com Promapp, execute os seguintes passos:
+Para configurar o Azure AD início de sessão único com Promapp, siga estes passos:
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Promapp** página de integração de aplicações, selecione **início de sessão único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicações do Promapp, selecione **início de sessão único**:
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Selecione início de sessão único](common/select-sso.png)
 
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
+2. Na **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único:
 
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
+    ![Selecione um método de início de sessão único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na **definir a segurança de início de sessão único com o SAML** página, selecione a **editar** ícone para abrir o **configuração básica de SAML** caixa de diálogo:
 
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
+    ![Ícone editar](common/edit-urls.png)
 
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
+4. Na **configuração básica de SAML** caixa de diálogo, se quiser configurar a aplicação no modo de iniciado o IdP, conclua os seguintes passos.
 
-    ![Promapp domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
+    ![Caixa de diálogo de configuração de SAML básica](common/idp-intiated.png)
 
-    a. Na **identificador** caixa de texto, escreva um URL com o seguinte padrão:
+    1. Na **identificador** , introduza um URL neste padrão:
 
-    | |
-    |--|
-    | `https://go.promapp.com/TENANTNAME/`|
-    | `https://au.promapp.com/TENANTNAME/`|
-    | `https://us.promapp.com/TENANTNAME/`|
-    | `https://eu.promapp.com/TENANTNAME/`|
-    | `https://ca.promapp.com/TENANTNAME/`|
-    | |
+       | |
+        |--|
+        | `https://go.promapp.com/TENANTNAME/`|
+        | `https://au.promapp.com/TENANTNAME/`|
+        | `https://us.promapp.com/TENANTNAME/`|
+        | `https://eu.promapp.com/TENANTNAME/`|
+        | `https://ca.promapp.com/TENANTNAME/`|
+        |   |
 
-    > [!NOTE] 
-    > Atualmente integração do Azure AD com Promapp apenas foi configurada para autenticação do serviço iniciado por exemplo, vai para um URL de Promapp inicia o processo de autenticação. No entanto, o URL de resposta é um campo obrigatório.
+       > [!NOTE]
+       > A integração do Azure AD com Promapp está atualmente configurada apenas para autenticação iniciadas pelo serviço. (Ou seja, vai para um URL de Promapp inicia o processo de autenticação.) Mas o **URL de resposta** é um campo obrigatório.
 
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
+    1. Na **URL de resposta** , introduza um URL neste padrão:
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+       `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate.aspx`
+
+5. Se quiser configurar a aplicação no modo iniciado por SP, selecione **definir URLs adicionais**. Na **iniciar sessão no URL** , introduza um URL neste padrão:
+
+      `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
 
     ![Promapp domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://<DOMAINNAME>.promapp.com/TENANTNAME/saml/authenticate`
+   
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de identificador, o URL de resposta e início de sessão real. Contacte [equipa de suporte de cliente Promapp](https://www.promapp.com/about-us/contact-us/) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Estes valores são marcadores de posição. Tem de utilizar o identificador real, URL de resposta e início de sessão no URL. Contacte os [equipa de suporte de Promapp](https://www.promapp.com/about-us/contact-us/) para obter os valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** caixa de diálogo no portal do Azure.
 
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+6. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, selecione o **transferir** ligação junto a **certificado (Base64)** acordo com suas necessidades e guarde o certificado no seu computador:
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![Ligação de transferência do certificado](common/certificatebase64.png)
 
-7. Sobre o **configurar Promapp** secção, copie os URLs apropriados de acordo com seus requisitos.
+7. Na **configurar Promapp** secção, copie os URLs adequados, com base nos seus requisitos:
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copie os URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    1. **URL de início de sessão**.
 
-    b. Identificador do Azure AD
+    1. **Azure AD Identifier**.
 
-    c. URL de fim de sessão
+    1. **URL de fim de sessão**.
 
-### <a name="configure-promapp-single-sign-on"></a>Configurar Promapp Single Sign-On
+### <a name="configure-promapp-single-sign-on"></a>Configurar Promapp início de sessão único
 
-1. Inicie sessão no site da sua empresa Promapp como administrador. 
+1. Inicie sessão no site da sua empresa Promapp como um administrador.
 
-2. No menu na parte superior, clique em **administrador**. 
+2. No menu na parte superior da janela, selecione **administrador**:
    
-    ![O Azure AD Single Sign-On][12]
+    ![Selecione o administrador][12]
 
-3. Clique em **Configurar**. 
+3. Selecione **configurar**:
    
-    ![O Azure AD Single Sign-On][13]
+    ![Selecione configurar][13]
 
-4. Sobre o **segurança** caixa de diálogo, execute os seguintes passos:
+4. Na **segurança** diálogo caixa, siga os passos seguintes.
    
-    ![O Azure AD Single Sign-On][14]
+    ![Caixa de diálogo de segurança][14]
     
-    a. Colar **URL de início de sessão**, que copiou do portal do Azure para o **URL de início de sessão de SSO** caixa de texto.
+    1. Colar o **URL de início de sessão** que copiou do portal do Azure para o **URL de início de sessão de SSO** caixa.
     
-    b. Como **SSO - modo de início de sessão único**, selecione **opcional**e, em seguida, clique em **guardar**.
+    1. Na **SSO - modo de início de sessão único** lista, selecione **opcional**. Selecione **Guardar**.
 
-    > [!NOTE]
-    > **Opcional** modo é apenas para teste. Assim que estiver satisfeito com a configuração, selecione **necessário** modo para impor a todos os utilizadores para se autenticar com o Azure AD.
+       > [!NOTE]
+       > Modo de opcional é apenas para teste. Depois que estiver satisfeito com a configuração, selecione **necessários** no **SSO - modo de início de sessão único** lista para forçar todos os utilizadores para se autenticar com o Azure AD.
 
-    c. Abra o certificado transferido no bloco de notas, copie o conteúdo de certificado sem a primeira linha (---**BEGIN CERTIFICATE**---) e a última linha (---**certificado final**---), cole-o para o  **Certificado x.509 de SSO** caixa de texto e, em seguida, clique em **guardar**.
+    1. No bloco de notas, abra o certificado que transferiu na secção anterior. Copie o conteúdo do certificado sem a primeira linha ( **---BEGIN CERTIFICATE---** ) ou a última linha ( **---END CERTIFICATE---** ). Cole o certificado de conteúdo para o **certificado x.509 de SSO** caixa e, em seguida, selecione **guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta secção, irá criar um utilizador de teste com o nome Eduarda Almeida no portal do Azure.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, selecione **do Azure Active Directory** no painel esquerdo, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**:
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Selecione todos os utilizadores](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **novo utilizador** na parte superior do ecrã:
 
-    ![Novo utilizador botão](common/new-user.png)
+    ![Selecione o novo utilizador](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Na **utilizador** diálogo caixa, siga os passos seguintes.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![Caixa de diálogo de utilizador](common/user-properties.png)
 
-    a. Na **Name** campo introduza **BrittaSimon**.
+    1. Na **Name** , introduza **BrittaSimon**.
   
-    b. Na **nome de utilizador** tipo de campo brittasimon@yourcompanydomain.extension. Por exemplo, BrittaSimon@contoso.com
+    1. Na **nome de utilizador** , introduza **BrittaSimon @\<yourcompanydomain >.\< extensão >** . (Por exemplo, BrittaSimon@contoso.com.)
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    1. Selecione **mostrar palavra-passe**e, em seguida, anote o valor que está a **palavra-passe** caixa.
 
-    d. Clique em **Criar**.
+    1. Selecione **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Promapp.
+Nesta secção, irá ativar a Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Promapp.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Promapp**.
+1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**e, em seguida, selecione **Promapp**.
 
     ![Painel de aplicações empresariais](common/enterprise-applications.png)
 
 2. Na lista de aplicações, selecione **Promapp**.
 
-    ![A ligação de Promapp na lista de aplicações](common/all-applications.png)
+    ![Lista de aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
+3. No painel esquerdo, selecione **utilizadores e grupos**:
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![Selecionar utilizadores e grupos](common/users-groups-blade.png)
 
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+4. Selecione **adicionar utilizador**e, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
+    ![Selecione adicionar utilizador](common/add-assign-user.png)
 
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
+5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores e, em seguida, clique o **selecionar** na parte inferior do ecrã.
 
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
+6. Se um valor de função na asserção de SAML, que espera do **selecionar função** diálogo caixa, selecione a função adequada para o utilizador a partir da lista. Clique nas **selecione** na parte inferior do ecrã.
 
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
+7. Na **adicionar atribuição** caixa de diálogo, selecione **atribuir**.
 
-### <a name="create-promapp-test-user"></a>Criar utilizador de teste Promapp
+### <a name="just-in-time-user-provisioning"></a>Aprovisionamento de utilizadores de just-in-time
 
-Nesta secção, um usuário chamado Eduarda Almeida é criado na Promapp. Promapp suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Promapp, é criado um novo após a autenticação.
+Promapp suporta o aprovisionamento de utilizador de just-in-time. Esta funcionalidade está ativada por predefinição. Se um utilizador já não existir no Promapp, é criado um novo após a autenticação.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único 
+### <a name="test-single-sign-on"></a>Testar início de sessão único
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Agora precisa testar a configuração do Azure AD única início de sessão utilizando o painel de acesso.
 
-Quando clica no mosaico Promapp no painel de acesso, deve ser automaticamente sessão iniciada no Promapp para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o mosaico Promapp no painel de acesso, deve ser automaticamente conectado à instância Promapp para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [aplicações de acesso e a utilização no portal minhas aplicações](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Tutoriais para integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

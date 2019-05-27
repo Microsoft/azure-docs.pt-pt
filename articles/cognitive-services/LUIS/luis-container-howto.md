@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: diberry
-ms.openlocfilehash: 59308cdadb1eda9e73b373e72112b83d93629683
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: b379ebeeec7d9309cdf150b8b90ddd006e3bcd9a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66124312"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240212"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar e executar o LUIS contentores do docker
  
@@ -36,7 +36,7 @@ Para executar o contentor de LUIS, tem de ter o seguinte:
 |--|--|
 |Motor do docker| É necessário o motor do Docker instalado num [computador anfitrião](#the-host-computer). Docker disponibiliza pacotes que configurar o ambiente do Docker num [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para obter um manual sobre noções básicas do Docker e um contentor, consulte a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker tem de ser configurado para permitir que os contentores para se ligar com e enviar dados de faturação para o Azure. <br><br> **No Windows**, Docker também tem de ser configurado para dar suporte a contentores do Linux.<br><br>|
 |Familiaridade com o Docker | Deve ter uma noção básica dos conceitos do Docker, como registos, repositórios, contentores e imagens de contentor, bem como dados de conhecimento do basic `docker` comandos.| 
-|Azure `Cognitive Services` recursos e o LUIS [aplicação em pacote](luis-how-to-start-new-app.md#export-app-for-containers) ficheiro |Para utilizar o contentor, tem de ter:<br><br>* A _dos serviços cognitivos_ o ponto final de faturação URI da chave de recursos do Azure e a faturação associada. Ambos os valores estão disponíveis nas páginas de descrição geral e as chaves para o recurso e são necessários para iniciar o contentor. Tem de adicionar o `luis/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI. <br>* Uma aplicação publicada ou preparada empacotada como uma entrada montada no contentor com o seu ID de aplicação associada. Pode obter o ficheiro em pacote a partir do portal do LUIS ou as APIs de criação. Se estiver a obter o LUIS aplicação em pacote a partir do [APIs de criação](#authoring-apis-for-package-file), também terá de sua _chave de criação_.<br><br>Estes requisitos são utilizados para transmitir os argumentos da linha de comandos para as seguintes variáveis:<br><br>**{AUTHORING_KEY}**: Esta chave é utilizada para obter a aplicação em pacote de serviço do LUIS na cloud e carregar os registos de consulta de volta para a cloud. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Este ID é utilizado para selecionar a aplicação. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: Esta chave é utilizada para iniciar o contentor. Pode encontrar a chave de ponto final em dois locais. A primeira é o portal do Azure dentro de _dos serviços cognitivos_ lista de chaves do recurso. Chave do ponto final também está disponível no portal do LUIS nas chaves e ponto final de página de definições. Não utilize a chave de arranque.<br><br>**{BILLING_ENDPOINT}**: Um exemplo é: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>O [chave e a chave de ponto final de criação](luis-boundaries.md#key-limits) com objetivos diferentes. Não utilize-os alternadamente. |
+|Azure `Cognitive Services` recursos e o LUIS [aplicação em pacote](luis-how-to-start-new-app.md#export-app-for-containers) ficheiro |Para utilizar o contentor, tem de ter:<br><br>* A _dos serviços cognitivos_ o ponto final de faturação URI da chave de recursos do Azure e a faturação associada. Ambos os valores estão disponíveis nas páginas de descrição geral e as chaves para o recurso e são necessários para iniciar o contentor. Tem de adicionar o `luis/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo a seguir BILLING_ENDPOINT_URI. <br>* Uma aplicação publicada ou preparada empacotada como uma entrada montada no contentor com o seu ID de aplicação associada. Pode obter o ficheiro em pacote a partir do portal do LUIS ou as APIs de criação. Se estiver a obter o LUIS aplicação em pacote a partir do [APIs de criação](#authoring-apis-for-package-file), também terá de sua _chave de criação_.<br><br>Estes requisitos são utilizados para transmitir os argumentos da linha de comandos para as seguintes variáveis:<br><br>**{AUTHORING_KEY}** : Esta chave é utilizada para obter a aplicação em pacote de serviço do LUIS na cloud e carregar os registos de consulta de volta para a cloud. O formato é `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Este ID é utilizado para selecionar a aplicação. O formato é `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Esta chave é utilizada para iniciar o contentor. Pode encontrar a chave de ponto final em dois locais. A primeira é o portal do Azure dentro de _dos serviços cognitivos_ lista de chaves do recurso. Chave do ponto final também está disponível no portal do LUIS nas chaves e ponto final de página de definições. Não utilize a chave de arranque.<br><br>**{BILLING_ENDPOINT}** : Um exemplo é: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>O [chave e a chave de ponto final de criação](luis-boundaries.md#key-limits) com objetivos diferentes. Não utilize-os alternadamente. |
 
 ### <a name="authoring-apis-for-package-file"></a>Criação de APIs para o ficheiro de pacote
 
@@ -136,7 +136,7 @@ Pacote da aplicação publicada está disponível a partir da **as minhas aplica
 1. Início de sessão para o LUIS [portal](https://www.luis.ai).
 1. Na lista, selecione a caixa de verificação à esquerda do nome da aplicação. 
 1. Selecione o **exportar** item da barra de ferramentas contextual acima da lista.
-1. Selecione **exportar para o contentor (GZIP)**.
+1. Selecione **exportar para o contentor (GZIP)** .
 1. Selecione o ambiente do **bloco de produção** ou **bloco de teste**.
 1. O pacote é transferido a partir do browser.
 
@@ -152,7 +152,7 @@ Pacote de preparação da aplicação está disponível a partir da **versões**
 1. Selecione **versões** na barra de navegação esquerdo.
 1. Na lista, selecione a caixa de verificação à esquerda do nome da versão.
 1. Selecione o **exportar** item da barra de ferramentas contextual acima da lista.
-1. Selecione **exportar para o contentor (GZIP)**.
+1. Selecione **exportar para o contentor (GZIP)** .
 1. O pacote é transferido a partir do browser.
 
 ![Exportar o pacote de preparação para o contentor no menu de exportação da página de versões](./media/luis-container-how-to/export-trained-package-for-container.png)
@@ -223,20 +223,24 @@ Utilize o [docker run](https://docs.docker.com/engine/reference/commandline/run/
 |{ENDPOINT_KEY} | Esta chave é utilizada para iniciar o contentor. Não utilize a chave de arranque. |
 |{BILLING_ENDPOINT} | O valor de ponto final de faturação está disponível no portal do Azure `Cognitive Services` página de descrição geral. Tem de adicionar o `luis/v2.0` encaminhamento para o URI do ponto de extremidade, conforme mostrado no exemplo seguinte: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
-Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `docker run` comando.
+Substitua estes parâmetros pelos seus próprios valores no seguinte exemplo `docker run` comando. Execute o comando na consola do Windows.
 
-```bash
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
+```console
+docker run --rm -it -p 5000:5000 ^
+--memory 4g ^
+--cpus 2 ^
+--mount type=bind,src=c:\input,target=/input ^
+--mount type=bind,src=c:\output\,target=/output ^
+mcr.microsoft.com/azure-cognitive-services/luis ^
+Eula=accept ^
+Billing={BILLING_ENDPOINT} ^
 ApiKey={ENDPOINT_KEY}
 ```
 
-> [!Note] 
-> O comando anterior utiliza o diretório a `c:` unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço. O comando docker anterior utiliza a barra invertida, `\`, como um caractere de continuação de linha. Substituir ou remover isso com base no seu [computador anfitrião](#the-host-computer) requisitos do sistema operacional. Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
+* Este exemplo utiliza o diretório de desativar o `c:` unidade para evitar conflitos de permissão no Windows. Se precisar de utilizar um diretório específico como a entrada de diretório, poderá ter de conceder o docker permissão de serviço. 
+* Não altere a ordem dos argumentos, a menos que está bastante familiarizada com contentores do docker.
+* Se estiver a utilizar um sistema operacional diferente, utilize a consola/terminal correto, a sintaxe de pasta para monta e caracteres de continuação de linha para o seu sistema. Estes exemplos partem do princípio de uma consola do Windows com um caráter de continuação de linha `^`. Como o contêiner é um sistema operativo Linux, a montagem de destino usa uma sintaxe de pasta de estilo do Linux.
+
 
 
 Este comando:
@@ -273,7 +277,7 @@ Usar o host, `https://localhost:5000`, para o contentor APIs.
 
 Configurar os parâmetros de consulta como e o que é devolvido na resposta da consulta:
 
-|Parâmetro de consulta|Type|Objetivo|
+|Parâmetro de consulta|Tipo|Objetivo|
 |--|--|--|
 |`q`|string|Expressão do utilizador.|
 |`timezoneOffset`|número|O timezoneOffset permite-lhe [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) utilizado pelo datetimeV2 a entidade pré-criados.|

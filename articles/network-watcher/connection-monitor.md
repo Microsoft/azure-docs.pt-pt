@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: aa62c06d0c12a42d34ef9b13b8b4533d197d8d19
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715812"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233893"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais no portal do Azure
 
@@ -77,7 +77,7 @@ Execute novamente os passos em [Criar a primeira VM](#create-the-first-vm), com 
 | 3 | Name                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
 | 3 | Grupo de recursos                        | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
-| 6 | Extensões                            | **Agente de Rede para Linux**                                             |
+| 6 | Extensões                            | **Agente do observador de rede para Linux**                                             |
 
 A implementação da VM demora alguns minutos. Aguarde que a VM conclua a implementação antes de continuar com os restantes passos.
 
@@ -94,12 +94,12 @@ Crie um monitor de ligação para monitorizar a comunicação através da porta 
     | Definição                  | Valor               |
     | ---------                | ---------           |
     | Name                     | myVm1-myVm2(22)     |
-    | Origem                   |                     |
+    | Source                   |                     |
     | Máquina virtual          | myVm1               |
     | Destino              |                     |
-    | Selecionar uma máquina virtual |                     |
+    | Selecione uma máquina virtual |                     |
     | Máquina virtual          | myVm2               |
-    | Porta                     | 22                  |
+    | Port                     | 22                  |
 
     ![Adicionar o Monitor de Ligação](./media/connection-monitor/add-connection-monitor.png)
 
@@ -109,7 +109,7 @@ Crie um monitor de ligação para monitorizar a comunicação através da porta 
 
     ![Monitores de ligação](./media/connection-monitor/connection-monitors.png)
 
-2. Selecione o monitor com o nome **myVm1-myVm2(22)**, conforme mostra a imagem anterior, para ver detalhes do monitor, conforme mostra a imagem seguinte:
+2. Selecione o monitor com o nome **myVm1-myVm2(22)** , conforme mostra a imagem anterior, para ver detalhes do monitor, conforme mostra a imagem seguinte:
 
     ![Detalhes do monitor](./media/connection-monitor/vm-monitor.png)
 
@@ -150,11 +150,11 @@ Por predefinição, o Azure permite a comunicação através de todas as portas 
     | Definição                 | Value          |
     | ---                     | ---            |
     | Intervalos de portas de destino | 22             |
-    | Ação                  | Negar           |
+    | Acção                  | Recusar           |
     | Prioridade                | 100            |
     | Name                    | DenySshInbound |
 
-5. Como o monitor de ligação sonda em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, **Monitor de ligação** e, em seguida, selecione novamente o monitor **myVm1-myVm2(22)**. Os resultados são diferentes agora, conforme mostra a imagem seguinte:
+5. Como o monitor de ligação sonda em intervalos de 60 segundos, aguarde alguns minutos e, em seguida, no lado esquerdo do portal, selecione **Observador de Rede**, **Monitor de ligação** e, em seguida, selecione novamente o monitor **myVm1-myVm2(22)** . Os resultados são diferentes agora, conforme mostra a imagem seguinte:
 
     ![Falha nos detalhes do monitor](./media/connection-monitor/vm-monitor-fault.png)
 

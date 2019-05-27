@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 046398af8678e708784614dfdc231778454ed945
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: ca321b8a073f709b55093fde6ff32ae876f3ef12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64576601"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238075"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um C# módulo do IoT Edge para dispositivos Windows
 
@@ -322,7 +322,7 @@ Pode utilizar a extensão de IoT Edge ferramentas para ver mensagens quando cheg
 
 1. No cloud explorer do Visual Studio, selecione o nome do seu dispositivo IoT Edge. 
 
-2. Na **ações** lista, selecione **iniciar mensagens D2C monitorização**. 
+2. Na **ações** lista, selecione **iniciar a monitorização de evento ponto final incorporado**. 
 
 3. Ver as mensagens que chegam ao IoT Hub. Pode demorar algum tempo para as mensagens chegam, uma vez que as alterações feitas no código CSharpModule Aguarde até a temperatura de máquina atinge 25 graus antes de enviar mensagens. Ele também adiciona o tipo de mensagem **alerta** para todas as mensagens que atingir esse limite de temperatura. 
 

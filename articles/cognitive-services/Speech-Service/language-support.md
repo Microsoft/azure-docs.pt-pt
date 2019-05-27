@@ -12,10 +12,10 @@ ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9b8e12220f220bd8183675d13e25bdcab02707fd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "65020847"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Suporte de idioma e região para os serviços de voz
@@ -75,7 +75,7 @@ Vozes neurais podem ser utilizados para tornar as interações com chatbots e as
 
 Para obter uma lista completa de vozes neurais e a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome abreviado de voz
+Região | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome abreviado de voz
 --------|----------|--------|---------|------------
 de-DE | Alemão (Alemanha) | Feminino | "Microsoft Server voz texto para voz de voz (de-DE, KatjaNeural)" | "de-DE-KatjaNeural"
 en-US | English (US) | Masculino | "Microsoft Server voz texto para voz de voz (en-US, GuyNeural)" | "en-US-GuyNeural"
@@ -90,7 +90,7 @@ zh-CN | Chinês (continental) | Feminino | "Microsoft Server voz texto para voz 
 
 Mais de 75 vozes standard estão disponíveis em mais de 45 idiomas e localidades, que permitem converter texto em fala sintetizada. Para obter mais informações sobre a disponibilidade regional, consulte [regiões](regions.md#standard-and-neural-voices).
 
-Região | Idioma | Género | Mapeamento de nome de serviço completo | Nome abreviado de voz
+Região | Idioma | Sexo | Mapeamento de nome de serviço completo | Nome abreviado de voz
 -------|----------|---------|----------|----------
 ar-por exemplo\* | Árabe (Egito) | Feminino | "Microsoft Server voz texto para voz de voz (ar-por exemplo, Hoda)" | "ar-por exemplo,-Hoda"
 ar SA | Árabe (Arábia Saudita) | Masculino | "Microsoft Server voz texto para voz de voz (ar-SA, Naayf)" | "ar-SA-Naayf"

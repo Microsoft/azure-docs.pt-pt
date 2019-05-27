@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 1dfa81ad7981578d4f296de1b421c7e064819718
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: 7e882a66ae5a090e1fd3a0850ff35281dc4e692d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867281"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072013"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Moeda entidade criados previamente para uma aplicação LUIS
 A entidade de moeda pré-criados Deteta a moeda de diferentes denominations e países/regiões, independentemente da cultura de aplicação do LUIS. Uma vez que já está preparada esta entidade, não é necessário adicionar expressões de exemplo que contém a moeda a dos objetivos do aplicativo. Entidade de moeda é suportada no [várias culturas](luis-reference-prebuilt-entities.md). 
@@ -25,6 +25,9 @@ A entidade de moeda pré-criados Deteta a moeda de diferentes denominations e pa
 Moeda é gerenciada a partir da [reconhecedores texto](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L26) repositório do GitHub
 
 ## <a name="resolution-for-currency-entity"></a>Resolução de entidades de moeda
+
+### <a name="api-version-2x"></a>Versão de API 2.x
+
 O exemplo seguinte mostra a resolução do **builtin.currency** entidade.
 
 ```json
@@ -56,6 +59,72 @@ O exemplo seguinte mostra a resolução do **builtin.currency** entidade.
       }
     }
   ]
+}
+```
+
+
+
+### <a name="preview-api-version-3x"></a>Versão de API de pré-visualização 3.x
+
+O seguinte JSON é com o `verbose` parâmetro definido como `false`:
+
+```json
+{
+    "query": "search for items under $10.99",
+    "prediction": {
+        "normalizedQuery": "search for items under $10.99",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.605889857
+            }
+        },
+        "entities": {
+            "money": [
+                {
+                    "number": 10.99,
+                    "unit": "Dollar"
+                }
+            ]
+        }
+    }
+}
+```
+
+O seguinte JSON é com o `verbose` parâmetro definido como `true`:
+
+```json
+{
+    "query": "search for items under $10.99",
+    "prediction": {
+        "normalizedQuery": "search for items under $10.99",
+        "topIntent": "None",
+        "intents": {
+            "None": {
+                "score": 0.605889857
+            }
+        },
+        "entities": {
+            "money": [
+                {
+                    "number": 10.99,
+                    "unit": "Dollar"
+                }
+            ],
+            "$instance": {
+                "money": [
+                    {
+                        "type": "builtin.currency",
+                        "text": "$10.99",
+                        "startIndex": 23,
+                        "length": 6,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor"
+                    }
+                ]
+            }
+        }
+    }
 }
 ```
 

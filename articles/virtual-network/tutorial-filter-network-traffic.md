@@ -1,7 +1,7 @@
 ---
 title: Filtrar o tráfego de rede - tutorial - Portal do Azure
 titlesuffix: Azure Virtual Network
-description: Neste tutorial, vai aprender a filtrar o tráfego de rede para uma sub-rede, com um grupo de segurança de rede, através do Portal do Azure.
+description: Neste tutorial, irá aprender a filtrar o tráfego de rede a uma sub-rede, com um grupo de segurança de rede, através do portal do Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: ad34c6a876ca21bc7ef32cce638240e0d23b3177
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4097d4fc46aac88cd44d21a4cdcf0d7d5093feea
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723919"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242725"
 ---
-# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede através do Portal do Azure
+# <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>Tutorial: Filtrar o tráfego de rede com um grupo de segurança de rede com o portal do Azure
 
 Pode filtrar o tráfego de rede de entrada e de saída de uma sub-rede de rede virtual com um grupo de segurança de rede. Os grupos de segurança de rede contêm regras de segurança que filtram o tráfego de rede por endereço IP, porta e protocolo. As regras de segurança são aplicadas a recursos implementados numa sub-rede. Neste tutorial, ficará a saber como:
 
@@ -35,7 +35,7 @@ Se preferir, pode concluir este tutorial com a [CLI do Azure](tutorial-filter-ne
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -113,7 +113,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | ---------               | ---------                                                                                                       |
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgWebServers** para **Grupo de segurança de aplicações**.  |
     | Intervalos de portas de destino | Introduza 80.443                                                                                                    |
-    | Protocolo                | Selecione TCP                                                                                                      |
+    | Protocol                | Selecione TCP                                                                                                      |
     | Name                    | Allow-Web-All                                                                                                   |
 
 3. Conclua o passo 2 novamente, com os seguintes valores:
@@ -122,7 +122,7 @@ Os grupos de segurança de aplicações permitem-lhe agrupar servidores com fun�
     | ---------               | ---------                                                                                                       |
     | Destino             | Selecione **Grupo de segurança de aplicações** e, em seguida, selecione **myAsgMgmtServers** para **Grupo de segurança de aplicações**. |
     | Intervalos de portas de destino | Introduza 3389                                                                                                      |
-    | Protocolo                | Selecione TCP                                                                                                      |
+    | Protocol                | Selecione TCP                                                                                                      |
     | Prioridade                | Introduza 110                                                                                                       |
     | Name                    | Allow-RDP-All                                                                                                   |
 
@@ -157,7 +157,7 @@ Crie duas VMs na rede virtual.
     |Definição|Valor|
     |---|---|
     |Rede virtual |Selecione **myVirtualNetwork**|
-    |Grupo de Segurança de Rede | Selecione **Avançadas**.|
+    |Grupo de segurança de rede | Selecione **Avançadas**.|
     |Grupo de segurança de rede (firewall)| Selecione **(novo) myVmWeb-nsg** e, em **Escolher grupo de segurança de rede**, selecione **Nenhum**. |
 
 6. Em **Criar** no **Resumo**, selecione **Criar** para iniciar a implementação da VM.

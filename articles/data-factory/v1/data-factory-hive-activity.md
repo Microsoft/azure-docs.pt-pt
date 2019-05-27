@@ -82,7 +82,7 @@ A atividade Hive do HDInsight numa fábrica de dados [pipeline](data-factory-cre
 | outputs |Saídas produzidas pela atividade do Hive |Sim |
 | linkedServiceName |Referência para o cluster de HDInsight registado como um serviço ligado no Data Factory |Sim |
 | script |Especifique o inline de script do Hive |Não |
-| scriptPath |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
+| caminho do script |Store o script do Hive num armazenamento de Blobs do Azure e forneça o caminho para o ficheiro. Utilize a propriedade "script" ou 'scriptPath'. Não podem ser utilizados em conjunto. O nome de ficheiro diferencia maiúsculas de minúsculas. |Não |
 | defines |Especifique parâmetros como pares chave/valor para a referenciar dentro do script do Hive com o 'hiveconf' |Não |
 
 ## <a name="example"></a>Exemplo
@@ -216,7 +216,7 @@ Para utilizar o script de Hive parametrizado, faça o seguinte
       }
     }
     ```
-* No Script do Hive, consulte usando o parâmetro **${hiveconf:parameterName}**. 
+* No Script do Hive, consulte usando o parâmetro **${hiveconf:parameterName}** . 
   
     ```
     DROP TABLE IF EXISTS HiveSampleIn; 

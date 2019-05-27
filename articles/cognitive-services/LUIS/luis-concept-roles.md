@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 5fa922cb91d34483256faf4dcf70569aa2f17b97
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 318e71b68bbabeeef34c75a412f9fdd5b6db754a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60813840"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073016"
 ---
 # <a name="entity-roles-for-contextual-subtypes"></a>Funções de entidade para subtipos contextuais
 
@@ -79,12 +79,6 @@ As expressões de exemplo seguintes utilizam entidades e as funções:
 |--|--|
 |Tenho interesse em saber mais sobre **Seattle**|Estou interessado em saber mais sobre {Location}|
 |Comprar um pedido de suporte de Seattle para nova York|Comprar uma permissão de {localização: Origin} para {localização: Destination}|
-
-## <a name="how-are-roles-related-to-hierarchical-entities"></a>Como o funções estão relacionadas às entidades hierárquicas?
-
-Funções estão agora disponíveis para todas as entidades em expressões de exemplo, bem como o uso anterior de padrões. Uma vez que estão disponíveis em todos os lugares, estas atualizações vem substituir a necessidade de entidades hierárquicas. Novas entidades devem ser criadas com as funções, em vez de usar entidades hierárquicas. 
-
-Entidades hierárquicas, eventualmente, vão ser preteridas.
 
 ## <a name="how-are-roles-used-in-patterns"></a>Como o funções são usadas em padrões?
 Na expressão de modelo de um padrão, as funções são usadas dentro da expressão: 

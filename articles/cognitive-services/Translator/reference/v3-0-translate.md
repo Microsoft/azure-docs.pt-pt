@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 5a2192c4555c2d84587ec8e39ce9ba94c985b541
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797012"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235820"
 ---
 # <a name="translator-text-api-30-translate"></a>Texto do Translator API 3.0: Translate
 
@@ -54,7 +54,7 @@ Parâmetros de pedido passados na seqüência de consulta são:
   </tr>
   <tr>
     <td>category</td>
-    <td><em>O parâmetro opcional</em>.<br/>Uma cadeia que especifica a categoria (domínio) da tradução. Este parâmetro é utilizado para obter as traduções de um sistema personalizado criado com <a href="../customization.md">Translator personalizado</a>. Adicione o ID de categoria do seu projeto personalizado Translator para este parâmetro para utilizar o seu sistema personalizado implementado. Valor predefinido é: <code>general</code>.</td>
+    <td><em>O parâmetro opcional</em>.<br/>Uma cadeia que especifica a categoria (domínio) da tradução. Este parâmetro é utilizado para obter as traduções de um sistema personalizado criado com <a href="../customization.md">Translator personalizado</a>. Adicione o ID de categoria do seu Translator personalizado <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">detalhes do projeto</a> para este parâmetro para utilizar seu implementado personalizado no sistema. Valor predefinido é: <code>general</code>.</td>
   </tr>
   <tr>
     <td>profanityAction</td>

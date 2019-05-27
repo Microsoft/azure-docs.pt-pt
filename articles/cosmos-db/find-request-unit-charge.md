@@ -4,20 +4,20 @@ description: Saiba como encontrar a unidade de pedido custos (RU) para qualquer 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 05/23/2019
 ms.author: thweiss
-ms.openlocfilehash: 730f0604d0c292764aaee6e0ffb8ef95d90be5f2
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 8ccb7ae9869ec01b4f26009535af613ccb1d35d0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410293"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241106"
 ---
 # <a name="find-the-request-unit-charge-in-azure-cosmos-db"></a>Encontre as cobranças de unidades de pedido no Azure Cosmos DB
 
 Este artigo apresenta as diferentes formas em que pode encontrar os [unidades de pedido](request-units.md) consumo (RU) para qualquer operação executada em relação a um contentor no Azure Cosmos DB. Atualmente, pode medir o consumo deste apenas com o portal do Azure ou ao inspecionar a resposta enviada de volta do Azure Cosmos DB através de um dos SDKs.
 
-## <a name="sql-core-api"></a>SQL API (principal)
+## <a name="sql-core-api"></a>API de SQL (Core)
 
 Se estiver a utilizar a API de SQL, tem várias opções para encontrar o consumo de RU para uma operação num contentor do Cosmos do Azure.
 

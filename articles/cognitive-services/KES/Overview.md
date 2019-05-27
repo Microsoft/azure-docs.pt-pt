@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 03/26/2016
 ms.author: paulhsu
 ms.openlocfilehash: 1f979e05c62f5df0574196d1c9bdc755c7893b78
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60814745"
 ---
 # <a name="knowledge-exploration-service"></a>Serviço de Exploração do Conhecimento
