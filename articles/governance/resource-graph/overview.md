@@ -7,12 +7,12 @@ ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 45d5cf7c4235d10e136cc96364d52aa4319bbf79
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 9d3385b688208065e5854b6358819b5afad8fe65
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137771"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162068"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Descrição geral do serviço de gráfico de recursos do Azure
 
@@ -43,7 +43,7 @@ Com o gráfico de recursos do Azure, pode:
 ## <a name="how-resource-graph-is-kept-current"></a>Como o gráfico de recursos é mantido atualizado
 
 Quando um recurso do Azure é atualizado, o gráfico de recursos é notificado pelo Resource Manager da alteração.
-Gráfico de recursos, em seguida, atualiza a respetiva base de dados. Gráfico de recursos também faz um regular _análise completa_. Esta análise garante que os dados de gráfico de recursos estão atualizados em caso de notificações em falta ou quando um recurso for atualizado fora do Resource Manager.
+Gráfico de recursos, em seguida, atualiza a respetiva base de dados. Gráfico de recursos também faz um regular _análise completa_. Esta análise garante que os dados de gráficos de recursos são a atuais se existem notificações em falta ou quando um recurso for atualizado fora do Resource Manager.
 
 ## <a name="the-query-language"></a>Linguagem de consulta
 
@@ -63,9 +63,15 @@ Para utilizar o Resource Graph, tem de possuir os direitos adequados no [Control
 
 ## <a name="throttling"></a>Limitação
 
-Como um serviço gratuito, as consultas para o gráfico de recursos são limitadas para fornecer o melhor experiência e tempo de resposta para todos os clientes. Se a organização pretende utilizar a Graph API do recurso para consultas em grande escala e frequentes, utilize o portal "Comentários" a partir da página de gráfico de recursos. Certifique-se de que forneça o seu caso comercial e selecione a caixa de verificação "Microsoft pode enviar um e-mail sobre os seus comentários" para que a equipe de entrar em contacto consigo.
+Como um serviço gratuito, as consultas para o gráfico de recursos são limitadas para fornecer o melhor experiência e tempo de resposta para todos os clientes. Se a organização pretende utilizar a Graph API do recurso para consultas em grande escala e frequentes, utilização portal "Comentários" a partir da [página do portal de gráfico de recursos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/ResourceGraph).
+Forneça o seu caso comercial e selecione a caixa de verificação "Microsoft pode enviar um e-mail sobre os seus comentários" para que a equipe de entrar em contacto consigo.
 
-Gráfico de recursos limita-se ao nível do inquilino. O serviço substitui e define o `x-ms-ratelimit-remaining-tenant-reads` cabeçalho de resposta para indicar a restante consulta disponível por utilizador no inquilino. Gráfico de recursos repõe a quota de 5 em 5 segundos em vez de cada hora. Para obter mais informações, consulte [Gestor de recursos de limitação de pedidos](../../azure-resource-manager/resource-manager-request-limits.md).
+Gráfico de recursos regula consultas no nível do usuário. A resposta do serviço contém os seguintes cabeçalhos HTTP:
+
+- `x-ms-user-quota-remaining` (int): A quota de recursos restantes para o utilizador. Este valor é mapeado para a contagem de consulta.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo de quota de um utilizador é reposto
+
+Para obter mais informações, consulte [Gestor de recursos de limitação de pedidos](../../azure-resource-manager/resource-manager-request-limits.md).
 
 ## <a name="running-your-first-query"></a>Executar a primeira consulta
 

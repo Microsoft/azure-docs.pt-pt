@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
 ms.openlocfilehash: ba4d25c749a1c1b99559ce4033fe90d671701d66
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59046483"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66170979"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurar os registos do Azure Monitor para um cluster
 
@@ -62,7 +62,7 @@ Se estiver a utilizar o Windows, continue com os seguintes passos para ligar os 
 
 3. Sobre o **registos de conta de armazenamento** página, selecione **Add** na parte superior para adicionar registos do seu cluster para a área de trabalho.
 
-4. Selecione **conta de armazenamento** para adicionar a conta apropriada criada no seu cluster. Se utilizou o nome predefinido, a conta de armazenamento for **sfdg\<resourceGroupName\>**. Também pode confirmar isto com o modelo Azure Resource Manager utilizado para implementar o seu cluster, ao verificar o valor utilizado para **applicationDiagnosticsStorageAccountName**. Se o nome não aparecer, desloque para baixo e selecione **carregar mais**. Selecione o nome de conta de armazenamento.
+4. Selecione **conta de armazenamento** para adicionar a conta apropriada criada no seu cluster. Se utilizou o nome predefinido, a conta de armazenamento for **sfdg\<resourceGroupName\>** . Também pode confirmar isto com o modelo Azure Resource Manager utilizado para implementar o seu cluster, ao verificar o valor utilizado para **applicationDiagnosticsStorageAccountName**. Se o nome não aparecer, desloque para baixo e selecione **carregar mais**. Selecione o nome de conta de armazenamento.
 
 5. Especifique o tipo de dados. Defina-o como **eventos de Service Fabric**.
 

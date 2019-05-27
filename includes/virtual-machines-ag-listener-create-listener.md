@@ -1,16 +1,15 @@
 ---
-author: rockboyfor
+author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-origin.date: 10/26/2018
-ms.date: 11/26/2018
-ms.author: v-yeche
+ms.date: 10/26/2018
+ms.author: cynthn
 ms.openlocfilehash: 394b242ab46da7821f77e8d008836753f4e358e2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62097730"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165407"
 ---
 Neste passo, vai criar manualmente o serviço de escuta do grupo de disponibilidade no Gestor de clusters de ativação pós-falha e o SQL Server Management Studio.
 
@@ -21,7 +20,7 @@ Neste passo, vai criar manualmente o serviço de escuta do grupo de disponibilid
 3. Expanda o nome do cluster e, em seguida, clique em **funções**.
 
 4. Na **funções** painel, clique com o botão direito no nome do grupo de disponibilidade e, em seguida, selecione **adicionar recursos** > **ponto de acesso de cliente**.
-
+   
     ![Adicionar o ponto de acesso de cliente para o grupo de disponibilidade](./media/virtual-machines-sql-server-configure-alwayson-availability-group-listener/IC678769.gif)
 
 5. Na **nome** caixa, criar um nome para este novo serviço de escuta, clique em **próxima** duas vezes e, em seguida, clique em **concluir**.  
@@ -31,17 +30,17 @@ Neste passo, vai criar manualmente o serviço de escuta do grupo de disponibilid
     O recurso de endereço IP para cada rede de cluster no seu cluster é apresentado. Se se tratar de uma solução apenas do Azure, apenas um recurso de endereço IP é apresentado.
 
 7. Efetue um dos seguintes procedimentos:
-
+   
    * Para configurar uma solução híbrida:
-
+     
         a. O recurso de endereço IP que corresponde à sua sub-rede no local com o botão direito e, em seguida, selecione **propriedades**. Tenha em atenção o nome do endereço IP e o nome de rede.
-
+   
         b. Selecione **endereço IP estático**, atribua um endereço IP não utilizado e, em seguida, clique em **OK**.
-
+ 
    * Para configurar uma solução apenas do Azure:
 
         a. O recurso de endereço IP que corresponde à sua sub-rede do Azure com o botão direito e, em seguida, selecione **propriedades**.
-
+       
        > [!NOTE]
        > Se o serviço de escuta falhar, mais tarde, fique online devido a um endereço IP em conflito selecionado pelo DHCP, pode configurar um endereço IP estático válido nesta janela de propriedades.
        > 
@@ -49,5 +48,4 @@ Neste passo, vai criar manualmente o serviço de escuta do grupo de disponibilid
 
        b. Da mesma **endereço IP** janela de propriedades, altere a **nome do endereço IP**.  
         Este nome é utilizado na variável $IPResourceName do script do PowerShell. Se sua solução abrange várias redes virtuais do Azure, repita este passo para cada recurso IP.
-        
-<!-- Update_Description: update meta properties -->
+

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 0ee40c3ad692deccbc185fa7f8e51dd25eeaf95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613817"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164508"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Número de domínios de falha por região
 
@@ -18,7 +18,7 @@ ms.locfileid: "60613817"
 | EUA Leste             | 3                       |
 | EUA Leste 2           | 3                       |
 | EUA Oeste             | 3                       |
-| EUA Oeste 2           | 2                       |
+| E.U.A. Oeste 2           | 2                       |
 | EUA Central          | 3                       |
 | EUA Centro-Norte    | 3                       |
 | EUA Centro-Sul    | 3                       |
@@ -39,15 +39,15 @@ ms.locfileid: "60613817"
 | Índia Central       | 2                       |
 | Oeste da Índia          | 2                       |
 | Coreia do Sul Central       | 2                       |
-| Coreia do Sul         | 2                       |
+| Sul da Coreia do Sul         | 2                       |
 |                     |                         |
 | Leste da Austrália      | 2                       |
 | Sudeste da Austrália | 2                       |
 |                     |                         |
 | Sul do Brasil        | 2                       |
 |                     |                         |
-| Gov (US) - Virginia     | 2                       |
-| Gov (US) - Texas        | 2                       |
-| Gov (US) - Arizona      | 2                       |
-| US DoD Centro      | 2                       |
+| US Gov - Virginia     | 2                       |
+| US Gov - Texas        | 2                       |
+| US Gov - Arizona      | 2                       |
+| US DoD Central      | 2                       |
 | US DoD Leste         | 2                       |

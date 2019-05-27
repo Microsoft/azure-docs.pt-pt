@@ -9,11 +9,11 @@ ms.date: 04/09/2018
 ms.author: jdial
 ms.custom: include file
 ms.openlocfilehash: 0c3bc3f2995131c7777bfc48269a17fceda33192
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742272"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170783"
 ---
 > [!div class="op_single_selector"]
 > * [Portal do Azure](../articles/virtual-network/virtual-network-multiple-ip-addresses-portal.md)

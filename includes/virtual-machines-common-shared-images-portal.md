@@ -9,11 +9,11 @@ ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
-ms.translationtype: MT
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65827063"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170376"
 ---
 ## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure 
 

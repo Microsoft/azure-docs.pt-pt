@@ -9,15 +9,15 @@ ms.date: 04/26/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 41b019635308f094741aabfeff741acee1f509c8
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64929432"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170607"
 ---
 | **Modelo/método de implementação** | **Portal do Azure** | **PowerShell** | **CLI do Azure** |
 | --- | --- | --- | --- |
-| Clássica |[Tutorial *](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md)|Suportadas | Não suportado|
+| Clássico |[Tutorial *](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-portal-classic.md)|Suportadas | Não suportado|
 | Resource Manager |[Tutorial +](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-howto-vnet-vnet-cli.md)
 | Ligações entre modelos de implementação diferentes |[Tutorial *](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md) |[Tutorial](../articles/vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md) | Não suportado |
 

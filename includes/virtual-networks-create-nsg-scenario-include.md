@@ -2,19 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 588aa260f2ece543445bfd4da7ef4682dab8334c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309968"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170306"
 ---
 ## <a name="scenario"></a>Cenário
 Para ilustrar melhor como criar NSGs, este documento usa o seguinte cenário:
@@ -31,3 +30,4 @@ Neste cenário, vai criar um NSG para cada sub-rede na **TestVNet** rede virtual
   * **web-rule**. Nega o tráfego de vinculado à internet de todos os *back-end* sub-rede.
 
 A combinação dessas regras criar um cenário do tipo de rede de Perímetro, em que a sub-rede de back-end pode apenas de receber tráfego de entrada para o SQL da sub-rede do front-end e não tem acesso à Internet, enquanto a sub-rede do front-end pode comunicar com a Internet e receber pedidos HTTP recebidos apenas.
+

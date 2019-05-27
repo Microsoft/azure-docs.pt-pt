@@ -17,11 +17,11 @@ ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58849760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66160253"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões de máquina virtual e funcionalidades para Windows
 
@@ -62,7 +62,7 @@ Para fornecer a melhor experiência possível, existem versões mínimas do agen
 O agente convidado do Windows é executado em vários sos, no entanto, a estrutura de extensões tem um limite para os sistemas operacionais que extensões. Para obter mais informações, consulte [este artigo](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
 ).
 
-Algumas extensões não são suportadas em todos os sos e pode emitir *51 de código de erro, o "SO não suportada"*. Consulte a documentação de extensão individuais para a capacidade de suporte.
+Algumas extensões não são suportadas em todos os sos e pode emitir *51 de código de erro, o "SO não suportada"* . Consulte a documentação de extensão individuais para a capacidade de suporte.
 
 #### <a name="network-access"></a>Acesso à rede
 
@@ -291,7 +291,7 @@ Para verificar qual estiver a executar a versão, consulte [detectando instalado
 
 #### <a name="extension-updates"></a>Atualizações de extensão
 
-Quando está disponível uma atualização de extensão, o agente convidado do Windows transfere e atualiza a extensão. Atualizações automáticas de extensão são *pequenas* ou *correção*. Pode optar ativamente por participar no ou opção de desativar as extensões *pequenas* atualiza quando Aprovisiona a extensão. O exemplo seguinte mostra como atualizar automaticamente as versões secundárias num modelo do Resource Manager com *autoUpgradeMinorVersion ": true,'*:
+Quando está disponível uma atualização de extensão, o agente convidado do Windows transfere e atualiza a extensão. Atualizações automáticas de extensão são *pequenas* ou *correção*. Pode optar ativamente por participar no ou opção de desativar as extensões *pequenas* atualiza quando Aprovisiona a extensão. O exemplo seguinte mostra como atualizar automaticamente as versões secundárias num modelo do Resource Manager com *autoUpgradeMinorVersion ": true,'* :
 
 ```json
     "properties": {
@@ -368,7 +368,7 @@ Os passos de resolução de problemas seguintes aplicam-se a todas as extensões
 
 ### <a name="view-extension-status"></a>Ver o estado de extensão
 
-Depois de executar uma extensão de VM em relação a uma VM, utilize [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver o estado da extensão. *Substatuses [0]* mostra que o aprovisionamento de extensão foi concluída com êxito, que significa que ele bem-sucedida implementado na VM, mas a execução da extensão dentro da VM falhou, *Substatuses [1]*.
+Depois de executar uma extensão de VM em relação a uma VM, utilize [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) para devolver o estado da extensão. *Substatuses [0]* mostra que o aprovisionamento de extensão foi concluída com êxito, que significa que ele bem-sucedida implementado na VM, mas a execução da extensão dentro da VM falhou, *Substatuses [1]* .
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -VMName "myVM" -Status

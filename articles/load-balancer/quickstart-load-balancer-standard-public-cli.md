@@ -18,11 +18,11 @@ ms.date: 01/25/2019
 ms.author: kumud
 ms.custom: mvc
 ms.openlocfilehash: a98f65db3739cf3f4771df7a2ef864008f7dbaa9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729375"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66170928"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início rápido: Criar um Standard Balanceador de carga para balancear carga de VMS com CLI do Azure
 

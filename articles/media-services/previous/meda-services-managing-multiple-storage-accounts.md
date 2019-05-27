@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.openlocfilehash: 252d5e551dad56108ad952eb0c7c3b39df0585d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57855304"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66169273"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gerir recursos de serviços de multimédia em várias contas de armazenamento  
 
@@ -35,7 +35,7 @@ Este artigo demonstra como anexar várias contas de armazenamento a uma conta de
 
 Ao anexar várias contas de armazenamento à sua conta de Media Services, aplicam-se as seguintes considerações:
 
-* A conta de Media Services e todas as contas de armazenamento associado tem de ser na mesma subscrição do Azure. Recomenda-se para utilizar contas de armazenamento na mesma localização que a conta de Media Services.
+* A conta dos Serviços de Multimédia e todas as contas de armazenamento associadas têm de estar na mesma subscrição do Azure. Recomenda-se para utilizar contas de armazenamento na mesma localização que a conta de Media Services.
 * Depois de uma conta de armazenamento é anexada à conta de Media Services especificada, não é possível desligar.
 * Conta de armazenamento primário é aquela indicada durante a hora de criação de conta de Media Services. Atualmente, não é possível alterar a conta de armazenamento predefinida. 
 * Se pretender adicionar uma conta de armazenamento de acesso esporádico para a conta de AMS, a conta de armazenamento tem de ser um tipo de Blob e definido como não principal.

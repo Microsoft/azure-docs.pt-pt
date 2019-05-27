@@ -9,11 +9,11 @@ ms.date: 04/02/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
 ms.openlocfilehash: f1f02f8b5488609a0c69a6d335c96d3cc9266c71
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744476"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170349"
 ---
 <!-- F-series, Fs-series* -->
 

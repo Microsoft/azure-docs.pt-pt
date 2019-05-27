@@ -9,11 +9,11 @@ ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
 ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842299"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171396"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Criar um servidor do Azure Database for MariaDB com a CLI do Azure
 
@@ -47,15 +47,15 @@ Crie um servidor do Azure Database for MariaDB com o comando [az mariadb server 
 
 Definição | Valor da amostra | Descrição
 ---|---|---
-nome | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
+name | **mydemoserver** | Introduza um nome exclusivo que identifique o servidor do Azure Database for MariaDB. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.
 resource-group | **myresourcegroup** | Introduza o nome do grupo de recursos do Azure.
 sku-name | **GP_Gen5_2** | O nome do SKU. Segue a convenção *escalão de preço*\_*geração de computação*\_*vCores* em estenografia. Para obter mais informações sobre o parâmetro **sku-name**, veja a secção abaixo desta tabela.
 backup-retention | **7** | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. Intervalo de: 7 para 35. 
 geo-redundant-backup | **Desativado** | Se as cópias de segurança georredundantes devem estar ativadas para este servidor. Valores permitidos: **Ativada**, **desativado**.
-localização | **westus** | A localização do Azure para o servidor.
+location | **westus** | A localização do Azure para o servidor.
 ssl-enforcement | **Ativado** | Se SSL deve ser ativado para este servidor. Valores permitidos: **Ativada**, **desativado**.
 storage-size | **51200** | A capacidade de armazenamento do servidor (a unidade é megabytes). Os tamanhos de armazenamento válidos são 5120 MB (mínimo) com aumentos em incrementos de 1024 MB. Para obter mais informações sobre os limites de tamanho de armazenamento, veja [Escalões de preço](./concepts-pricing-tiers.md). 
-versão | **10.2** | A versão do motor principal de MariaDB.
+version | **10.2** | A versão do motor principal de MariaDB.
 admin-user | **myadmin** | O nome de utilizador para o início de sessão do administrador. O parâmetro **admin-user** não pode ser **azure_superuser**, **admin**, **administrator**, **root**, **guest** ou **public**.
 admin-password | *a sua palavra-passe* | A palavra-passe do utilizador administrador. A palavra-passe tem de conter entre 8 e 128 carateres. Tem de conter carateres de três das seguintes categorias: Letras em maiúscula letras, em minúscula inglesas, números e carateres não alfanuméricos.
 
@@ -215,8 +215,8 @@ Para ligar ao servidor com a ferramenta de linha de comandos mysql:
    |---|---|---|
    | Nome da Ligação | **Ligação de demonstração** | Introduza uma etiqueta para esta ligação (pode ser qualquer nome) |
    | Método de Ligação | **Standard (TCP/IP)** | Utilizar o protocolo TCP/IP para ligar ao Azure Database for MariaDB |
-   | Nome de anfitrião | **mydemoserver.mariadb.database.azure.com** | O nome de servidor que anotou anteriormente. |
-   | Porta | **3306** | A porta predefinida para o Azure Database for MariaDB. |
+   | Nome do Anfitrião | **mydemoserver.mariadb.database.azure.com** | O nome de servidor que anotou anteriormente. |
+   | Port | **3306** | A porta predefinida para o Azure Database for MariaDB. |
    | Nome de utilizador | **myadmin\@mydemoserver** | O início de sessão de administrador do servidor que anotou anteriormente. |
    | Palavra-passe | *a sua palavra-passe* | Utilize a palavra-passe da conta de administrador que configurou anteriormente. |
 

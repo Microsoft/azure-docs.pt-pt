@@ -1,16 +1,15 @@
 ---
-author: WenJason
+author: MightyPen
 ms.service: sql-database
 ms.topic: include
-origin.date: 12/10/2018
-ms.date: 01/14/2019
-ms.author: v-jay
+ms.date: 12/10/2018
+ms.author: genemi
 ms.openlocfilehash: e30651cb0ed7d74082163a92acbc428c21018255
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553196"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66167229"
 ---
 ## <a name="c-program-example"></a>C#exemplo de programa
 
@@ -99,7 +98,7 @@ namespace csharp_db_test
             try
             {
                 var cb = new SqlConnectionStringBuilder();
-                cb.DataSource = "your_server.database.chinacloudapi.cn";
+                cb.DataSource = "your_server.database.windows.net";
                 cb.UserID = "your_user";
                 cb.Password = "your_password";
                 cb.InitialCatalog = "your_database";

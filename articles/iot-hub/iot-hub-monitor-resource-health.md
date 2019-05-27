@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59274047"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66166197"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorizar o estado de funcionamento do IoT Hub do Azure e diagnosticar problemas rapidamente
 
@@ -345,7 +345,7 @@ Aqui, `durationMs` não é calculado como o relógio do IoT Hub pode não estar 
 
 | Propriedade | Tipo | Descrição |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **messageSize** | Número inteiro | O tamanho de mensagem de dispositivo para a cloud em bytes |
+| **messageSize** | Integer | O tamanho de mensagem de dispositivo para a cloud em bytes |
 | **deviceId** | Cadeia de caracteres de alfanuméricos ASCII de 7 bits | A identidade do dispositivo |
 | **callerLocalTimeUtc** | Timestamp de UTC | Hora de criação da mensagem, conforme comunicado pelo relógio local do dispositivo |
 | **calleeLocalTimeUtc** | Timestamp de UTC | A hora da chegada de mensagens ao gateway do IoT Hub, conforme comunicado pelo relógio de lado do serviço IoT Hub |

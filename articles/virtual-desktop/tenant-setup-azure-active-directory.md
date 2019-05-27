@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 88b3ffa38eb42eef42c98920b2c3193661b1c0f5
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2c9682746201306f1b99a04462819618225caa11
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236138"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66164251"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Criar um inquilino na pré-visualização de ambiente de Trabalho Virtual do Windows
 
@@ -114,7 +114,7 @@ Depois disso, crie um novo inquilino de área de Trabalho Virtual do Windows ass
 New-RdsTenant -Name <TenantName> -AadTenantId <DirectoryID> -AzureSubscriptionId <SubscriptionID>
 ```
 
-Os valores entre parênteses devem ser substituídos com valores relevantes para a sua organização e inquilino. Por exemplo, imaginemos que está a TenantCreator de ambiente de Trabalho Virtual do Windows para a organização Contoso. O cmdlet, deverá executar teria o seguinte aspeto:
+Os valores entre parênteses devem ser substituídos com valores relevantes para a sua organização e inquilino. O nome que escolher para o novo inquilino de área de Trabalho Virtual do Windows deve ser globalmente exclusivo. Por exemplo, imaginemos que está a TenantCreator de ambiente de Trabalho Virtual do Windows para a organização Contoso. O cmdlet, deverá executar teria o seguinte aspeto:
 
 ```powershell
 New-RdsTenant -Name Contoso -AadTenantId 00000000-1111-2222-3333-444444444444 -AzureSubscriptionId 55555555-6666-7777-8888-999999999999

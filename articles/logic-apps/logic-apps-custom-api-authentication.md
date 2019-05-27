@@ -10,11 +10,11 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
 ms.openlocfilehash: 555083235aff08476e82f0daa81203b66591f3cc
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245954"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66167372"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Proteger chamadas a APIs personalizadas no Azure Logic Apps
 
@@ -190,7 +190,7 @@ Abra sua definição da aplicação lógica na vista de código, vá para o **HT
 
 | Elemento | Necessário | Descrição | 
 | ------- | -------- | ----------- | 
-| inquilino | Sim | O GUID para o inquilino do Azure AD | 
+| tenant | Sim | O GUID para o inquilino do Azure AD | 
 | Público-alvo | Sim | O GUID para o recurso de destino que pretende aceder, que é o ID de cliente desde a identidade da aplicação para a sua aplicação web ou a aplicação API | 
 | clientId | Sim | O GUID para o cliente pedir o acesso, o que é o ID de cliente desde a identidade da aplicação para a aplicação lógica | 
 | segredo | Sim | A chave ou palavra-passe desde a identidade da aplicação para o cliente que está a pedir o token de acesso | 
@@ -237,7 +237,7 @@ Na **autorização** secção, incluir esta linha:
 | Elemento | Necessário | Descrição | 
 | ------- | -------- | ----------- | 
 | tipo | Sim | O tipo de autenticação. Para certificados de cliente SSL, o valor tem de ser `ClientCertificate`. | 
-| palavra-passe | Sim | A palavra-passe para aceder ao certificado de cliente (arquivo PFX) | 
+| password | Sim | A palavra-passe para aceder ao certificado de cliente (arquivo PFX) | 
 | pfx | Sim | O conteúdo codificado em base64 do certificado de cliente (arquivo PFX) | 
 |||| 
 
@@ -254,8 +254,8 @@ Na **autorização** secção, incluir esta linha:
 | Elemento | Necessário | Descrição | 
 | ------- | -------- | ----------- | 
 | tipo | Sim | O tipo de autenticação que pretende utilizar. Para a autenticação básica, o valor tem de ser `Basic`. | 
-| o nome de utilizador | Sim | O nome de utilizador que pretende utilizar para autenticação | 
-| palavra-passe | Sim | A palavra-passe que pretende utilizar para autenticação | 
+| username | Sim | O nome de utilizador que pretende utilizar para autenticação | 
+| password | Sim | A palavra-passe que pretende utilizar para autenticação | 
 |||| 
 
 <a name="azure-ad-code"></a>

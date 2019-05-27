@@ -6,15 +6,15 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
-ms.date: 12/15/2018
+ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 8bcc72cf151b085c7f65b6c600a49642cd330bac
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 40e54daa60efedd84b32c72f29d1e2a8858c27da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248828"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162347"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>Tutorial: Configurar e utilizar métricas e registos de diagnóstico com um hub IoT
 
@@ -274,7 +274,7 @@ IoT Hub não tiver sido migrado para o [métricas no Azure Monitor](/azure/azure
 
 Anteriormente na secção de configuração de scripts, configurou um dispositivo para simular a utilização de um dispositivo IoT. Nesta secção, vai transferir uma aplicação de consola do .NET para simular um dispositivo que envia mensagens de dispositivo para cloud a um Hub IoT.  
 
-Transfira a solução para a [Simulação de Dispositivos IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Esta ligação transfere um repositório com vários aplicativos no mesmo; a solução que procura está em iot-hub/tutoriais/encaminhamento/SimulatedDevice /.
+Transfira a solução para a [Simulação de Dispositivos IoT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip). Esta ligação transfere um repositório com vários aplicativos no mesmo; a solução que procura está em iot-hub/tutoriais/encaminhamento /.
 
 Faça duplo clique no ficheiro da solução (SimulatedDevice.sln) para abrir o código no Visual Studio e, em seguida, abra Program.cs. Substitua `{iot hub hostname}` pelo nome do anfitrião do hub IoT. O formato do nome do anfitrião do hub IoT é **{iot-hub-name}.azure-devices.net**. Para este tutorial, o nome do anfitrião do hub é **ContosoTestHub.azure-devices.net**. Em seguida, substitua `{device key}` pela chave de dispositivo que guardou anteriormente quando configurou o dispositivo simulado. 
 
@@ -298,7 +298,7 @@ Execute a aplicação de consola. Aguarde alguns minutos (10 a 15). Pode ver as 
 
 ### <a name="see-the-metrics-in-the-portal"></a>Ver as métricas no portal
 
-Abra as suas métricas a partir do Dashboard. Alterar os valores de tempo para *últimos 30 minutos* com uma granularidade de tempo de *1 minuto*. Ele mostra as mensagens de telemetria enviadas e o número total de mensagens utilizada no gráfico, com os números mais recentes na parte inferior do gráfico. 
+Abra as suas métricas a partir do Dashboard. Alterar os valores de tempo para *últimos 30 minutos* com uma granularidade de tempo de *1 minuto*. Ele mostra as mensagens de telemetria enviadas e o número total de mensagens utilizada no gráfico, com os números mais recentes na parte inferior do gráfico.
 
    ![Captura de ecrã que mostra as métricas.](./media/tutorial-use-metrics-and-diags/13-metrics-populated.png)
 
@@ -385,4 +385,4 @@ Neste tutorial, aprendeu a utilizar as métricas e registos de diagnóstico, efe
 Avance para o tutorial seguinte para aprender a gerir o estado de um dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Configure os seus dispositivos a partir de um serviço de back-end](tutorial-device-twins.md)
+> [Configure os seus dispositivos a partir de um serviço de back-end](tutorial-device-twins.md)

@@ -9,11 +9,11 @@ ms.date: 04/04/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 19ad4e39ca4e402c37b2cfa69c7c306b6e5a2766
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60407793"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170146"
 ---
 1. Navegue até à página e abra-a para o seu gateway de rede virtual. Existem múltiplas formas de efetuar este procedimento. Pode navegar até ao gateway "VNet1GW" acedendo a **TestVNet1 -> Descrição geral -> Dispositivos ligados -> VNet1GW**.
 2. Na página VNet1GW, clique em **Ligações**. No topo da página Ligações, clique em **+Adicionar** para abrir a página **Adicionar ligação**.
@@ -22,7 +22,7 @@ ms.locfileid: "60407793"
 3. Na página **Adicionar ligação**, configure os valores para a ligação.
 
    - **Nome:** Nomeie a sua ligação.
-   - **Tipo de ligação:** Selecione **Site-to-site(IPSec)**.
+   - **Tipo de ligação:** Selecione **Site-to-site(IPSec)** .
    - **Gateway de rede virtual:** O valor é fixo porque está a ligar a partir deste gateway.
    - **Gateway de rede local:** Clique em **escolher um gateway de rede local** e selecione o gateway de rede local que pretende utilizar.
    - **Chave Partilhada:** Aqui, o valor tem de corresponder ao valor que está a utilizar para o seu dispositivo VPN local no local. O exemplo utiliza "abc123", mas pode e (deve) utilizar algo mais complexo. O importante é que o valor que especificar aqui seja igual ao valor especificado ao configurar o dispositivo VPN.

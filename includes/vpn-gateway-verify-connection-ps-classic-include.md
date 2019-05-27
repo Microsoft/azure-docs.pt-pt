@@ -9,11 +9,11 @@ ms.date: 10/17/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: c1b5560e16b68565c37365ac9c2cba217d9b1b90
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53444317"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66150015"
 ---
 Pode verificar se a ligação teve êxito com o cmdlet 'Get-AzureVNetConnection'.
 

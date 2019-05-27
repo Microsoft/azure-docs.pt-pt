@@ -2,21 +2,20 @@
 title: Classes de recursos para a gestão da carga de trabalho - Azure SQL Data Warehouse | Documentos da Microsoft
 description: Orientações sobre o uso de classes de recursos para gerir a simultaneidade e recursos de cálculo para consultas no armazém de dados SQL do Azure.
 services: sql-data-warehouse
-author: WenJason
-manager: digimobile
+author: ronortloff
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload management
-origin.date: 03/15/2019
-ms.date: 04/22/2019
-ms.author: v-jay
+ms.date: 05/22/2019
+ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ad8dad35013a28696e7c9cb5cc68464f3c4bf64
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75bd6e8071717ba755b71f51afcd884539049489
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475087"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165987"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Gestão da carga de trabalho com classes de recursos no Azure SQL Data Warehouse
 
@@ -80,11 +79,12 @@ As classes de dinâmica de recursos são implementadas com estas funções de ba
 
 Quando compreendendo os detalhes das classes de recursos dinâmicos em Gen1, existem alguns detalhes que adicionam complexidade adicional para compreender o respetivo comportamento:
 
-- A classe de recursos de smallrc funciona com um modelo de memória fixo, como uma classe de recursos estáticos.  Consultas de Smallrc dinamicamente não receber mais memória à medida que aumenta o nível de serviço.
+**On Gen1**
+- A classe de recursos de smallrc funciona com um modelo de memória fixo, como uma classe de recursos estáticos.  Consultas de Smallrc dinamicamente não receber mais memória à medida que aumenta o nível de serviço. 
 - Como alterar os níveis de serviço, a simultaneidade de consulta disponível pode ir ou reduzir verticalmente.
-- Níveis de serviços de dimensionamento não fornece uma alteração proporcional a memória alocada para as mesmas classes de recursos.
+- Dimensionar níveis de serviço não fornece uma alteração proporcional para a memória alocada para as mesmas classes de recursos.
 
-No **geração 2 apenas**, classes de recursos dinâmicos são verdadeiramente dinâmicas endereçamento pontos mencionados acima.  A nova regra é 3-10-22-70 para alocações de percentagem de memória para classes de recursos pequena-medium-grande-xlarge **independentemente do nível de serviço**.  A tabela a seguir tenha os detalhes consolidados da percentagens de alocação de memória e o número mínimo de consultas em simultâneo que são executados, independentemente do nível de serviço.
+**No ger2**, classes de recursos dinâmicos são verdadeiramente dinâmicas endereçamento pontos mencionados acima.  A nova regra é 3-10-22-70 para alocações de percentagem de memória para classes de recursos pequena-medium-grande-xlarge **independentemente do nível de serviço**.  A tabela a seguir tenha os detalhes consolidados da percentagens de alocação de memória e o número mínimo de consultas em simultâneo que são executados, independentemente do nível de serviço.
 
 | Classe de Recursos | Percentagem de memória | Consultas em simultâneo de min |
 |:--------------:|:-----------------:|:----------------------:|
@@ -116,7 +116,7 @@ Estas operações são regidas pelas classes de recursos:
 - SELECIONE (ao consultar tabelas de utilizador)
 - ALTER INDEX - RECOMPILAÇÃO ou REORGANIZAÇÃO
 - ALTERAR A RECRIAÇÃO DE TABELA
-- CRIAR ÍNDICE
+- CREATE INDEX
 - CRIAR O ÍNDICE COLUMNSTORE EM CLUSTER
 - CRIAR TABLE AS SELECT (CTAS)
 - Carregamento de dados
@@ -134,7 +134,7 @@ As seguintes instruções são excluídas da classes de recursos e são sempre e
 - Criar ou DROP TABLE
 - ALTERAR A TABELA... COMUTADOR, DIVIDIR ou UNIR PARTIÇÃO
 - ALTERAR A DESATIVAÇÃO DO ÍNDICE
-- REMOVER O ÍNDICE
+- DROP INDEX
 - CREATE, UPDATE ou DROP STATISTICS
 - TRUNCAR A TABELA
 - ALTERAR A AUTORIZAÇÃO
@@ -942,7 +942,6 @@ Para obter mais informações sobre a gestão de utilizadores de base de dados e
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 
 <!--MSDN references-->
-[Managing Databases and Logins in Azure SQL Database]:../sql-database/sql-database-manage-logins.md
+[Managing Databases and Logins in Azure SQL Database]:https://msdn.microsoft.com/library/azure/ee336235.aspx
 
 <!--Other Web references-->
-<!-- Update_Description: update link, wording update-->

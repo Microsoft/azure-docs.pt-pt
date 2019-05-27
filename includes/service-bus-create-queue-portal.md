@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
 ms.openlocfilehash: d1cf75d8e678bc5bd3e3036930eea42526194df1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60594357"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66171299"
 ---
 ## <a name="create-a-queue-in-the-azure-portal"></a>Criar uma fila no portal do Azure
 1. Sobre o **espaço de nomes do Service Bus** página, selecione **filas** no menu de navegação à esquerda.

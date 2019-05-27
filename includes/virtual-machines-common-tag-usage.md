@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
 ms.openlocfilehash: 17778b3edf1845d85302a0bcdf72a1ebc3919cea
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62108323"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66166087"
 ---
 ## <a name="viewing-your-tags-in-the-usage-details"></a>Ver as suas etiquetas nos detalhes de utilização
 Etiquetas colocadas em computação, rede, e recursos de armazenamento no modelo de implementação do Resource Manager serão preenchidos nos detalhes da sua utilização na [portal de faturação](https://account.windowsazure.com/).

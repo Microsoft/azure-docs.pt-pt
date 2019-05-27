@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: ramamill
 ms.openlocfilehash: 7fab3b05429e430b444c2a14213c524fbf19a01d
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149500"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66171693"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gerir o servidor de configuração para a recuperação de desastres da VM de VMware
 
@@ -154,13 +154,13 @@ Atualize o servidor da seguinte forma:
     ![Atualização](./media/vmware-azure-manage-configuration-server/update2.png)
 3. Transfira o ficheiro de instalador de atualização para o servidor de configuração.
 
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update1.png)
+    ![Actualizar](./media/vmware-azure-manage-configuration-server/update1.png)
 
 4. Clique duas vezes para executar o instalador.
 5. O instalador Deteta a versão atual em execução na máquina. Clique em **Sim** para iniciar a atualização.
 6. Quando a atualização for concluída valida a configuração do servidor.
 
-    ![Atualizar](./media/vmware-azure-manage-configuration-server/update3.png)
+    ![Actualizar](./media/vmware-azure-manage-configuration-server/update3.png)
 
 7. Clique em **concluir** para fechar o instalador.
 8. Para atualizar o resto dos componentes do Site Recovery, consulte a nossa [orientações de atualização](https://aka.ms/asr_vmware_upgrades).
@@ -183,7 +183,7 @@ Execute o ficheiro de instalação da seguinte forma:
 
 ### <a name="parameters"></a>Parâmetros
 
-|Nome do Parâmetro| Type | Descrição| Valores|
+|Nome do parâmetro| Type | Descrição| Valores|
 |-|-|-|-|
 | /ServerMode|Necessário|Especifica se a configuração e os servidores de processos devem ser instalados, ou apenas o servidor de processos|CS<br>PS|
 |/InstallLocation|Necessário|A pasta na qual os componentes são instalados| Qualquer pasta no computador|

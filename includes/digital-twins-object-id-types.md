@@ -9,11 +9,11 @@ ms.date: 12/20/2018
 ms.author: adgera
 ms.custom: include file
 ms.openlocfilehash: 40ab53c941a7ac619ebb09d381a4ae0450f26e8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60534132"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162136"
 ---
 O `objectIdType` (ou **tipo de identificador de objeto**) refere-se para o tipo de identidade, que é atribuído a uma função. Apart a partir da `DeviceId` e `UserDefinedFunctionId` tipos, os tipos de identificador de objeto correspondem às propriedades de objetos do Active Directory do Azure.
 

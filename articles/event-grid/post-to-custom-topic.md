@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
 ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182409"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "66162041"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar em tópico personalizado do Azure Event Grid
 
@@ -100,7 +100,7 @@ Após o lançamento para o ponto de final do tópico, receber uma resposta. A re
 
 |Resultado  |Resposta  |
 |---------|---------|
-|Êxito  | 200 OK  |
+|Com êxito  | 200 OK  |
 |Dados de eventos tem um formato incorreto | 400 pedido inválido |
 |Chave de acesso inválido | 401 não autorizado |
 |Ponto final incorreto | 404 Não Encontrado |

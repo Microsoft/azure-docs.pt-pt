@@ -9,17 +9,17 @@ ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
 ms.openlocfilehash: b640a3cb9382ad72bb48e06c6a7074c96409e2e4
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630982"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66162594"
 ---
 <!-- description of message routing used in the Azure CLI, PowerShell, and RM routing articles.-->
 
 Vai encaminhar mensagens para diferentes recursos com base nas propriedades anexadas à mensagem através do dispositivo simulado. As mensagens sem encaminhamento personalizado são enviadas para o ponto final predefinido (mensagens/eventos). O tutorial seguinte, enviar mensagens para o IoT Hub e vê-los encaminhados para os diferentes destinos.
 
-|valor |Resultado|
+|value |Resultado|
 |------|------|
 |level="storage" |Escrever no Armazenamento do Azure.|
 |level="critical" |Escrever numa fila do Service Bus. Uma Aplicação Lógica obtém a mensagem da fila e utiliza o Office 365 para enviar o e-mail.|

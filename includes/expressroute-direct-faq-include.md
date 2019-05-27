@@ -9,11 +9,11 @@ ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
 ms.openlocfilehash: 1bcadc18172535649a0ceb482939ca6a75477e25
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794775"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170689"
 ---
 ### <a name="what-is-expressroute-direct"></a>O que é direta do ExpressRoute?
 

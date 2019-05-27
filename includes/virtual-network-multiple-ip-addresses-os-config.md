@@ -9,11 +9,11 @@ ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
 ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65546772"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170750"
 ---
 ## <a name="os-config"></a>Adicionar endereços IP ao sistema operativo de uma VM
 

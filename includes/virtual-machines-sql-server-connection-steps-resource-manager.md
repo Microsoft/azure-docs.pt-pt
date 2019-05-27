@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
 ms.openlocfilehash: 4e79fef08af8ff73ce63ab4732c9efd77e3a5d3f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62129885"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66165633"
 ---
 ### <a name="configure-a-dns-label-for-the-public-ip-address"></a>Configurar uma Etiqueta de DNS para o endereço IP público
 

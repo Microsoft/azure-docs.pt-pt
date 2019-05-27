@@ -2,19 +2,18 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: virtual-network
-author: rockboyfor
+author: genlin
 ms.service: virtual-network
 ms.topic: include
-origin.date: 04/13/2018
-ms.date: 06/11/2018
-ms.author: v-yeche
+ms.date: 04/13/2018
+ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 40b81904daabfdad7e45571d8ab86cf32cac8964
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60743387"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66170884"
 ---
 ## <a name="scenario"></a>Cenário
 Para melhor ilustrar como criar as UDRs, este documento usa o seguinte cenário:
@@ -29,3 +28,4 @@ Neste cenário, vai criar um UDR para o *sub-rede de front-end* e outra UDR para
   * **RouteToFrontend**. Esta rota envia todo o tráfego para a sub-rede de front-end para o **FW1** máquina virtual.
 
 A combinação destas rotas garante que todo o tráfego destinado a partir de uma sub-rede para outra é encaminhado para o **FW1** máquina virtual, que está a ser utilizada como uma aplicação virtual. Terá também de ativar o IP de reencaminhamento para o **FW1** VM, para garantir que ele pode receber o tráfego destinado a outras VMs.
+
