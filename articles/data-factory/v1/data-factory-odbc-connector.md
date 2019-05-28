@@ -69,9 +69,9 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao OD
 | --- | --- | --- |
 | type |A propriedade de tipo tem de ser definida como: **OnPremisesOdbc** |Sim |
 | connectionString |A credencial de acesso de leitura não parte de cadeia de ligação e uma credencial encriptada opcional. Veja exemplos nas seções a seguir. <br/><br/>Pode especificar a cadeia de ligação com o padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, ou usar o sistema de DSN (nome da origem de dados), configurado no computador gateway com `"DSN=<name of the DSN>;"` (precisa ainda especificar a parte da credencial no serviço ligado em conformidade). |Sim |
-| Credencial |A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
+| credential |A parte de credencial de acesso da cadeia de ligação especificada no formato de valores de propriedade específicos de driver. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar ao arquivo de dados ODBC. Os valores possíveis são: Anónimo e básico. |Sim |
-| username |Especifique o nome de utilizador se estiver a utilizar autenticação básica. |Não |
+| userName |Especifique o nome de utilizador se estiver a utilizar autenticação básica. |Não |
 | password |Especifique a palavra-passe da conta de utilizador que especificou para o nome de utilizador. |Não |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao arquivo de dados ODBC. |Sim |
 
@@ -150,7 +150,7 @@ Na atividade de cópia, quando a origem é do tipo **RelationalSource** (que inc
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Sim |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Sim |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemplo JSON: Copiar dados de arquivo de dados ODBC para Blob do Azure
