@@ -184,12 +184,12 @@ O pipeline neste exemplo tem apenas uma atividade que é do tipo: HDInsightMapRe
 
 | Propriedade | Notas |
 |:--- |:--- |
-| tipo |O tipo deve ser definido como **HDInsightMapReduce**. |
+| type |O tipo deve ser definido como **HDInsightMapReduce**. |
 | className |Nome da classe é: **wordcount** |
 | jarFilePath |Caminho para o ficheiro jar que contém a classe. Se copiar/colar o código a seguir, não se esqueça de alterar o nome do cluster. |
 | jarLinkedService |Serviço ligado do armazenamento do Azure que contém o ficheiro jar. Este serviço ligado refere-se para o armazenamento que está associado ao HDInsight cluster. |
 | argumentos |O programa de wordcount leva dois argumentos, entrada e saída. O ficheiro de entrada é o arquivo de davinci.txt. |
-| frequência/intervalo |Os valores para estas propriedades corresponder o conjunto de dados de saída. |
+| frequency/interval |Os valores para estas propriedades corresponder o conjunto de dados de saída. |
 | linkedServiceName |refere-se ao serviço ligado de HDInsight tivesse criado anteriormente. |
 
 ```JSON
