@@ -50,7 +50,7 @@ As seguintes propriedades são suportadas para o serviço de Netezza ligado:
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| SecurityLevel | O nível de segurança (SSL/TLS), que o driver usa para a ligação ao arquivo de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas desprotegido** (**onlyUnSecured**): O controlador não utiliza SSL.<br/>- **Preferencial não segura (preferredUnSecured) (predefinição)**: Se o servidor fornece uma opção, o driver não utiliza SSL. <br/>- **Preferencial segura (preferredSecured)**: Se o servidor fornece uma opção, o driver utiliza SSL. <br/>- **Protegido (onlySecured) apenas**: O controlador não ligar, a menos que uma conexão SSL está disponível. | Não |
+| SecurityLevel | O nível de segurança (SSL/TLS), que o driver usa para a ligação ao arquivo de dados. Exemplo: `SecurityLevel=preferredSecured`. Os valores suportados são:<br/>- **Apenas desprotegido** (**onlyUnSecured**): O controlador não utiliza SSL.<br/>- **Preferencial não segura (preferredUnSecured) (predefinição)** : Se o servidor fornece uma opção, o driver não utiliza SSL. <br/>- **Preferencial segura (preferredSecured)** : Se o servidor fornece uma opção, o driver utiliza SSL. <br/>- **Protegido (onlySecured) apenas**: O controlador não ligar, a menos que uma conexão SSL está disponível. | Não |
 | CaCertFile | O caminho completo para o certificado SSL que é utilizado pelo servidor. Exemplo: `CaCertFile=<cert path>;`| Sim, se o SSL esteja ativado |
 
 **Exemplo**
@@ -145,7 +145,7 @@ Para copiar dados de Netezza, defina o **origem** tipo de atividade de cópia pa
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | O **tipo** propriedade da origem de atividade de cópia tem de ser definida como **NetezzaSource**. | Sim |
-| consulta | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
+| query | Utilize a consulta SQL personalizada para ler os dados. Exemplo: `"SELECT * FROM MyTable"` | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
 
