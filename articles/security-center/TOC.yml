@@ -6,6 +6,8 @@
       href: security-center-intro.md
     - name: Plataformas e funcionalidades suportadas do Centro de Segurança
       href: security-center-os-coverage.md
+    - name: Avaliação e recomendações da proteção de ponto final
+      href: security-center-endpoint-protection.md
 - name: Inícios rápidos
   expanded: true
   items:
