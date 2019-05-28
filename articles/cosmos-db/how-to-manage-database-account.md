@@ -4,14 +4,14 @@ description: Saiba como gerir contas de base de dados no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 57116327168a76f971a22b61144850199cb0cbae
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65068817"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240894"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Cosmos do Azure
 
