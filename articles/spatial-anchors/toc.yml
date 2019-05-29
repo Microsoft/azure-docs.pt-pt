@@ -55,6 +55,8 @@
       href: 'https://github.com/Azure/azure-spatial-anchors-samples'
 - name: Conceitos
   items:
+    - name: Autenticação
+      href: concepts/authentication.md
     - name: Relações de âncora
       href: concepts/anchor-relationships-way-finding.md
     - name: Diretrizes de experiência

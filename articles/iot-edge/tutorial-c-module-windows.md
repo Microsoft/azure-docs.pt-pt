@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 04/23/2019
+ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: ee64e5a49bf2825c83c74167d7eb75aa3dc59387
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 79f3b125a4cb88b3555cf13aa4d4bc5c430df166
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239825"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303899"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um módulo de C IoT Edge para dispositivos Windows
 
@@ -23,7 +23,7 @@ Utilize o Visual Studio para desenvolver o código C e implementá-la no disposi
 Pode utilizar os módulos do Azure IoT Edge para implementar código que aplica a sua lógica de negócio diretamente aos seus dispositivos IoT Edge. Este tutorial explica-lhe como criar e implementar um módulo do IoT Edge que filtra dados de sensores. Neste tutorial, ficará a saber como:    
 
 > [!div class="checklist"]
-> * Utilize o Visual Studio para criar um módulo do IoT Edge que baseia-se o SDK 2.1 do .NET Core.
+> * Utilize o Visual Studio para criar um módulo do IoT Edge com base no SDK de C.
 > * Utilize o Visual Studio e a Docker para criar uma imagem do Docker e publicá-lo para o seu registo.
 > * Implemente o módulo no seu dispositivo IoT Edge.
 > * Veja os dados gerados.
@@ -34,11 +34,11 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 ## <a name="solution-scope"></a>Âmbito de solução
 
-Este tutorial demonstra como desenvolver um módulo numa **C** usando **Visual Studio 2017**e como implementá-la para um **dispositivo de Windows**. Se estiver a desenvolver módulos para dispositivos de Linux, aceda a [desenvolver um módulo de C IoT Edge para dispositivos de Linux](tutorial-c-module.md) em vez disso. 
+Este tutorial demonstra como desenvolver um módulo numa **C** usando **2019 do Visual Studio**e como implementá-la para um **dispositivo de Windows**. Se estiver a desenvolver módulos para dispositivos de Linux, aceda a [desenvolver um módulo de C IoT Edge para dispositivos de Linux](tutorial-c-module.md) em vez disso. 
 
 Utilize a tabela seguinte para compreender as opções para desenvolver e implantar módulos de C para dispositivos Windows: 
 
-| C | Visual Studio Code | Visual Studio 2017 | 
+| C | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64** |  | ![Desenvolver módulos de C para WinAMD64 no Visual Studio](./media/tutorial-c-module/green-check.png) |
 
@@ -49,31 +49,35 @@ Antes de iniciar este tutorial, deve já leu o tutorial anterior para configurar
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * R [dispositivo de Windows com o Azure IoT Edge](quickstart.md).
 * Um registo de contentor, como [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
-* [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017), versão 15.7 ou superior, configurada com o [ferramentas do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extensão.
+* [Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/install-visual-studio) configurado com o [ferramentas do Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) extensão.
 * [Docker CE](https://docs.docker.com/install/) configurado para executar contentores do Windows.
 * O SDK do Azure IoT para C. 
 
+> [!TIP]
+> Se estiver a utilizar o Visual Studio 2017 (versão 15.7 ou superior), transfira e instale [ferramentas do Azure IoT Edge (pré-visualização)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) para VS 2017 a partir do Visual Studio marketplace
+
 ## <a name="create-a-module-project"></a>Criar um projeto de módulo
 
-Os passos seguintes criam um projeto de módulo do IoT Edge que se baseia em .NET Core 2.0 SDK com o Visual Studio e a extensão das ferramentas do Azure IoT Edge. Depois de ter um modelo de projeto criado, adicione o novo código para que o módulo filtra as mensagens com base nas respetivas propriedades comunicadas. 
+Os passos seguintes criam um projeto de módulo do IoT Edge com base no SDK de C com o Visual Studio e a extensão das ferramentas do Azure IoT Edge. Depois de ter um modelo de projeto criado, adicione o novo código para que o módulo filtra as mensagens com base nas respetivas propriedades comunicadas. 
 
 ### <a name="create-a-new-project"></a>Criar um novo projeto
 
 Crie um modelo de solução C que pode personalizar com o seu próprio código.
 
-1. Execute o Visual Studio como administrador.
+1. Inicie o Visual Studio 2019 e selecione **criar novo projeto**.
 
-2. Selecione **Ficheiro** > **Novo** > **Projeto**. 
-
-3. Na janela novo projeto, selecione o **do Azure IoT** tipo de projeto e escolha o **Azure IoT Edge** projeto. Mudar o nome do projeto e a solução para algo descritivo semelhantes **CTutorialApp**. Selecione **OK** para criar o projeto. 
+2. Na janela novo projeto, de pesquisa **IoT Edge** do projeto e escolha o **Azure IoT Edge (Windows amd64)** projeto. Clique em **Seguinte**. 
 
    ![Criar um novo projeto do Azure IoT Edge](./media/tutorial-c-module-windows/new-project.png)
+
+3. Na configurar a nova janela de projeto, mudar o nome do projeto e a solução para algo descritivo semelhantes **CTutorialApp**. Clique em **criar** para criar o projeto. 
+
+   ![Configurar um novo projeto do Azure IoT Edge](./media/tutorial-c-module-windows/configure-project.png)
 
 4. Na aplicação do IoT Edge e janela do módulo, configure o seu projeto com os seguintes valores: 
 
    | Campo | Value |
    | ----- | ----- |
-   | Plataforma de aplicações | Desmarque **Linux Amd64**e verificar **WindowsAmd64**. |
    | Seleccionar um modelo | Selecione **C módulo**. | 
    | Nome do projeto de módulo | Dê o nome **CModule** ao módulo. | 
    | Repositório de imagens do docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida com aceder a partir do valor de nome de projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagem final se parece com \<nome do registo\>.azurecr.io/cmodule. |

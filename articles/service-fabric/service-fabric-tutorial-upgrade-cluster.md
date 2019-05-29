@@ -15,21 +15,21 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bb8a635c3699828376390c489697b6315030937
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66157954"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306678"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Atualizar o runtime de um cluster do Service Fabric no Azure
 
-Este tutorial é a parte quatro de uma série e mostra-lhe como atualizar o runtime do Service Fabric num cluster do Azure Service Fabric. Esta parte do tutorial foi escrita para clusters do Service Fabric em execução no Azure e não se aplica a clusters autónomos do Service Fabric.
+Este tutorial é a parte quatro de uma série e mostra-lhe como atualizar o runtime do Service Fabric num cluster do Azure Service Fabric. Esta parte do tutorial foi escrito para clusters do Service Fabric em execução no Azure e não se aplica a autónomos do Service Fabric clusters.
 
 > [!WARNING]
 > Esta parte do tutorial requer o PowerShell. As ferramentas de CLI do Azure ainda não suportam a atualização do runtime do cluster. Em alternativa, um cluster pode ser atualizado no portal. Para obter mais informações, veja [Atualizar um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
 
-Se o cluster já estiver a executar o runtime mais recente do Service Fabric, não é necessário executar este passo. No entanto, este artigo pode ser utilizado para instalar qualquer runtime suportado num cluster do Azure Service Fabric.
+Se o cluster já está em execução o tempo de execução mais recente do Service Fabric, não precisa de efetuar este passo. No entanto, este artigo pode ser utilizado para instalar qualquer runtime suportado num cluster do Azure Service Fabric.
 
 Neste tutorial, ficará a saber como:
 
@@ -55,7 +55,7 @@ Antes de começar este tutorial:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Instale [do Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) ou [da CLI do Azure](/cli/azure/install-azure-cli).
 * Criar um segura [cluster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) no Azure
-* Configure um ambiente de desenvolvimento do Windows. Instale o [Visual Studio 2017](https://www.visualstudio.com) e as cargas de trabalho **desenvolvimento no Azure**, **desenvolvimento em ASP.NET e na Web** e **desenvolvimento em várias plataformas .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
+* Configure um ambiente de desenvolvimento do Windows. Instale [Visual Studio 2019](https://www.visualstudio.com) e o **desenvolvimento do Azure**, **desenvolvimento na web e ASP.NET**, e **desenvolvimento de Multiplataforma do .NET Core**cargas de trabalho.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
 
 ### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
@@ -69,14 +69,14 @@ Set-AzContext -SubscriptionId <guid>
 
 ## <a name="get-the-runtime-version"></a>Obter a versão de runtime
 
-Depois de ter ligado ao Azure e selecionado a subscrição que contém o cluster do Service Fabric, pode obter a versão de runtime do cluster.
+Depois de se ligar ao Azure, o selecionou a subscrição que contém o cluster do Service Fabric, pode obter a versão de runtime do cluster.
 
 ```powershell
 Get-AzServiceFabricCluster -ResourceGroupName SFCLUSTERTUTORIALGROUP -Name aztestcluster `
     | Select-Object ClusterCodeVersion
 ```
 
-Em alternativa, pode obter apenas uma lista de todos os clusters na sua subscrição com o seguinte:
+Em alternativa, apenas obter uma lista de todos os clusters na sua subscrição com o exemplo seguinte:
 
 ```powershell
 Get-AzServiceFabricCluster | Select-Object Name, ClusterCodeVersion
@@ -207,8 +207,7 @@ Neste tutorial, ficou a saber como:
 > * Atualizar o runtime do cluster
 > * Monitorizar a atualização
 
-[!div class="checklist"]
-> * Obter a versão do runtime do cluster
-> * Atualizar o runtime do cluster
-> * Monitorizar a atualização
+Avance para o tutorial seguinte:
 
+> [!div class="nextstepaction"]
+> [Eliminar um cluster](service-fabric-tutorial-delete-cluster.md)

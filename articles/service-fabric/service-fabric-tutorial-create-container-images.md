@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c081a6296e1fae89f24a2c3ddb1ae66f7a3f94aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe01d55b17c0f6f6dd6a621fbac0cf4d3a268ee3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60865294"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306772"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Tutorial: Criar imagens de contentor num cluster do Service Fabric do Linux
 
@@ -88,7 +88,7 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 ## <a name="deploy-azure-container-registry"></a>Implementar o Azure Container Registry
 
-Primeiro, execute o comando **az login** para iniciar sessão na sua conta do Azure.
+Execute primeiro o **início de sessão az** comando para iniciar sessão na sua conta do Azure.
 
 ```bash
 az login
@@ -116,9 +116,9 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 Em todo o resto deste tutorial, utilizamos "acrName" como um marcador de posição para o nome do registo de contentor que escolheu. Anote este valor.
 
-## <a name="log-in-to-your-container-registry"></a>Iniciar sessão no registo do contentor
+## <a name="sign-in-to-your-container-registry"></a>Inicie sessão no seu registo de contentor
 
-Inicie sessão na sua instância do ACR antes de enviar imagens para a mesma. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
+Inicie sessão na sua instância do ACR antes de enviar imagens a ela. Utilize o comando **az acr login** para concluir a operação. Forneça o nome exclusivo dado ao registo de contentor quando este foi criado.
 
 ```bash
 az acr login --name <acrName>

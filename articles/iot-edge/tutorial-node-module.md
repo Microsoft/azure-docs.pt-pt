@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 5147a0d164f1fac67a1c70429fc2e9b1caa00685
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 6c94ca3a82095736ef7d242987d1fbf66a825950
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244830"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306508"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver e implementar um módulo de node. js IoT Edge para dispositivos do Linux
 
@@ -39,7 +39,7 @@ Este tutorial demonstra como desenvolver um módulo numa **node. js** usando **V
 
 Utilize a tabela seguinte para compreender as opções para desenvolver e implantar módulos node. js: 
 
-| Node.js | Visual Studio Code | Visual Studio 2017 | 
+| Node.js | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilizar o VS Code para módulos do node. js no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **ARM32 do Linux** | ![Utilizar o VS Code para módulos do node. js no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |

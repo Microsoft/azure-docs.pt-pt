@@ -10,12 +10,12 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 02/08/2019
-ms.openlocfilehash: ce46a6b8d4e2bc57625f9202349718dfbaedc660
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 31246f44be5645715c5c7041d0cf9bcff9c0fa52
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553202"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303291"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>Tutorial: Criar uma base de dados relacional numa base de dados no Azure SQL da base de dados C&#x23; e o ADO.NET
 
@@ -33,7 +33,7 @@ Base de dados SQL do Azure é um relacional da base de dados-como-serviço (DBaa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma instalação do [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+Uma instalação do [Visual Studio 2019](https://www.visualstudio.com/downloads/) ou posterior.
 
 ## <a name="create-a-blank-single-database"></a>Criar uma base de dados única em branco
 

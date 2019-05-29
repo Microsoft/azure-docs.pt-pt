@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce063d8a256cbf2507e19d459aafe13150eccce7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60810445"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306940"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
 
@@ -59,7 +59,7 @@ As imagens de contentor associadas aos serviços na sua aplicação Service Fabr
 
 Utilize os seguintes passos para criar uma instância do ACR.  Se já tiver uma configuração de uma instância do ACR, pode avançar.
 
-### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 
 Inicie sessão no Azure e defina a subscrição ativa.
 
@@ -347,7 +347,7 @@ No ficheiro de parâmetros, atualize os valores dos parâmetros seguintes:
 
 |Parâmetro|Value|
 |---|---|
-|localização|A região na qual quer implementar a aplicação.  Por exemplo, "eualeste".|
+|location|A região na qual quer implementar a aplicação.  Por exemplo, "eualeste".|
 |registryPassword|A palavra-passe que obteve anteriormente em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry). Este parâmetro no modelo é uma cadeia segura e não será apresentado no estado de implementação nem nos comandos `az mesh service show`.|
 |registryUserName|O nome de utilizador que obteve em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry).|
 |registryServer|O nome do servidor do registo que obteve em [Obter credenciais para o registo](#retrieve-credentials-for-the-registry).|

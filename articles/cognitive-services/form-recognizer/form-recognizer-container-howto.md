@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: pafarley
-ms.openlocfilehash: a7159fccc9c4ef232cfca08b173e712e268343ea
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: f65375bfd826660f8583068875a1fddc545a86d7
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507813"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306536"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Instalar e executar contentores do reconhecedor de formulário
 Formulário reconhecedor aplica-se a tecnologia de aprendizagem automática para identificar e extrair pares chave-valor e tabelas de formulários. Ele associa valores e as entradas da tabela aos mesmos e, em seguida, produz dados estruturados, que inclui as relações no arquivo original. Pode chamar seu modelo de formulário reconhecedor personalizado com uma API REST simples para reduzir a complexidade e integrá-los facilmente seu processo de automatização de fluxo de trabalho ou outra aplicação. Apenas cinco documentos (ou um formulário vazio) é necessários, pelo que pode obter resultados rapidamente, com precisão e adaptado aos seus conteúdos específicos, sem muita intervenção manual ou conhecimentos de ciência de dados extensa. Não requer a etiquetagem de dados ou de anotação de dados.
@@ -282,6 +282,10 @@ O envio de contentores do reconhecedor de formulário cobrança informações pa
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](form-recognizer-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumo
 

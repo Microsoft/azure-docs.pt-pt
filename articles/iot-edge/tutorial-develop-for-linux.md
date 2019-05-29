@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 4ee3c0bf344520afee6b3a00eb49759ae1432949
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 11fa72f5853350c76b2a8d0aa4fd7b96b598b670
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239775"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303853"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-linux-devices"></a>Tutorial: Desenvolver módulos do IoT Edge para dispositivos do Linux
 
@@ -42,18 +42,18 @@ Este tutorial explica o desenvolvimento de um módulo do IoT Edge. Uma *módulo 
 
 Ao desenvolver módulos do IoT Edge, é importante compreender a diferença entre a máquina de desenvolvimento e o destino do dispositivo IoT Edge, onde o módulo, eventualmente, será implementado. O contentor que criou para armazenar seu código do módulo tem de corresponder ao sistema operativo (SO) dos *dispositivo de destino*. Por exemplo, o cenário mais comum é alguém desenvolver um módulo num computador Windows destinar a um dispositivo de Linux com o IoT Edge de destino. Nesse caso, o sistema de operativo contentor seria Linux. À medida que avança neste tutorial, tenha em atenção a diferença entre o *SO da máquina de desenvolvimento* e o *contentor SO*.
 
-Este tutorial destina-se os dispositivos de Linux com o IoT Edge. Pode utilizar o sistema operativo do computador de desenvolvimento preferido, desde que seu computador de desenvolvimento pode executar contentores do Linux. Recomendamos que utilize o Visual Studio Code para desenvolver para dispositivos de Linux, isso é o que irá utilizar neste tutorial. Pode utilizar o Visual Studio 2017, embora existam diferenças de suporte entre as duas ferramentas.
+Este tutorial destina-se os dispositivos de Linux com o IoT Edge. Pode utilizar o sistema operativo do computador de desenvolvimento preferido, desde que seu computador de desenvolvimento pode executar contentores do Linux. Recomendamos que utilize o Visual Studio Code para desenvolver para dispositivos de Linux, isso é o que irá utilizar neste tutorial. Pode utilizar o Visual Studio, embora existam diferenças de suporte entre as duas ferramentas.
 
-A tabela seguinte lista os cenários de desenvolvimento para **contentores de Linux** no Visual Studio Code e o Visual Studio 2017.
+A tabela seguinte lista os cenários de desenvolvimento para **contentores de Linux** no Visual Studio Code e o Visual Studio.
 
-|   | Visual Studio Code | Visual Studio 2017 |
+|   | Visual Studio Code | Visual Studio 2017/2019 |
 | - | ------------------ | ------------------ |
 | **Arquitetura de dispositivo do Linux** | Linux AMD64 <br> Linux ARM32 | Linux AMD64 <br> Linux ARM32 |
 | **Serviços do Azure** | Funções do Azure <br> Azure Stream Analytics <br> Azure Machine Learning |   |
 | **Idiomas** | C <br> C# <br> Java <br> Node.js <br> Python | C <br> C# |
-| **Mais informações** | [O Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [O Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
+| **Mais informações** | [O Azure IoT Edge para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) | [O Azure IoT Edge Tools para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools), [o Azure IoT Edge Tools para Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools) |
 
-Esse tutorial ensina os passos de desenvolvimento para o Visual Studio Code. Se usaria em vez disso, Visual Studio 2017, consulte as instruções em [utilizar o Visual Studio 2017 para desenvolver e depurar os módulos do Azure IoT Edge](how-to-visual-studio-develop-module.md).
+Esse tutorial ensina os passos de desenvolvimento para o Visual Studio Code. Se usaria em vez disso, Visual Studio, consulte as instruções em [utilizar o Visual Studio 2019 para desenvolver e depurar os módulos do Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

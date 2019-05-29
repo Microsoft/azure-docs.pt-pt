@@ -9,12 +9,12 @@ ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a105e59007543ffaf31b586707390954643e8bee
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 95fab84fb6472339c9d6b847f8c09139b55e1466
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66239633"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303834"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-for-linux-devices"></a>Tutorial: Desenvolver um módulo de Java IoT Edge para dispositivos do Linux
 
@@ -37,7 +37,7 @@ Este tutorial demonstra como desenvolver um módulo numa **Java** usando **Visua
 
 Utilize a tabela seguinte para compreender as opções para desenvolver e implantar módulos de Java: 
 
-| Java | Visual Studio Code | Visual Studio 2017 | 
+| Java | Visual Studio Code | Visual Studio 2017/2019 | 
 | - | ------------------ | ------------------ |
 | **Linux AMD64** | ![Utilizar o VS Code para módulos de Java no Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
 | **ARM32 do Linux** | ![Utilizar o VS Code para módulos de Java no Linux ARM32](./media/tutorial-c-module/green-check.png) |  |

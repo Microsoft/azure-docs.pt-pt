@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: 24869981595cd68eb833f7b176e17a2683127945
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: cbf6409efa2fbb56500c6919edc6c741c4a2c45a
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787917"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306764"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Criar uma aplicação de elevada disponibilidade com armazenamento de BLOBs
 
@@ -40,7 +40,7 @@ Para concluir este tutorial:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-* Instale o [2017 do Visual Studio](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
+* Instale [Visual Studio 2019](https://www.visualstudio.com/downloads/) com as seguintes cargas de trabalho:
   - **Desenvolvimento do Azure**
 
   ![Desenvolvimento do Azure (na Web e na Cloud)](media/storage-create-geo-redundant-storage/workloads.png)
@@ -82,6 +82,8 @@ Siga estes passos para criar uma conta de armazenamento georredundante com acess
    | **Deployment model** (Modelo de implementação) | Resource Manager  | O Resource Manager contém as funcionalidades mais recentes.|
    | **Account kind** (Tipo de conta) | StorageV2 | Para obter detalhes sobre os tipos de contas, veja [Tipos de contas de armazenamento](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performance** (Desempenho) | Standard | O desempenho standard é suficiente para este cenário de exemplo. |
+   | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | Esta definição é necessária para o exemplo funcionar. |
+   |**Subscrição** | A sua subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.windowsazure.com/Subscriptions) (Subscrições). |
    | **Replicação**| Armazenamento georredundante com acesso de leitura (RA-GRS) | É necessário para o exemplo funcionar. |
    |**Subscrição** | A sua subscrição |Para obter detalhes sobre as suas subscrições, veja [Subscriptions](https://account.azure.com/Subscriptions) (Subscrições). |
    |**ResourceGroup** | myResourceGroup |Para nomes de grupo de recursos válidos, veja [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Atribuição de nomes de regras e restrições). |
@@ -167,7 +169,7 @@ setx accountkey "<youraccountkey>"
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Este exemplo requer que armazene em segurança o nome e chave da conta de armazenamento. Store-las nas variáveis de ambiente locais do computador que irá executar o exemplo. Utilize a Linux ou o exemplo do Windows, consoante o sistema operativo, para criar as variáveis de ambiente. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **linha de comandos** ou shell estiver a utilizar.
+Este exemplo requer que armazene em segurança o nome e chave da conta de armazenamento. Store-las nas variáveis de ambiente locais do computador que irá executar o exemplo. Utilize a Linux ou o exemplo do Windows, consoante o sistema operativo, para criar as variáveis de ambiente. No Windows, a variável de ambiente não está disponível enquanto não recarregar a **linha de comandos** ou shell que está a utilizar.
 
 ### <a name="linux-example"></a>Exemplo do Linux
 
@@ -194,7 +196,7 @@ AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
 
 Pode encontrar estas informações no portal do Azure ao navegar para a sua conta de armazenamento e selecionar **chaves de acesso** no **definições** secção.
 
-Também tem de instalar as dependências necessárias. Para tal, abra uma linha de comandos, navegue para a pasta de exemplo, em seguida, insira `npm install`.
+Instale as dependências necessárias. Para tal, abra uma linha de comandos, navegue para a pasta de exemplo, em seguida, insira `npm install`.
 
 ---
 
@@ -220,7 +222,7 @@ No código de exemplo, o método `run_circuit_breaker` no ficheiro `circuitbreak
 
 A função de repetição do objeto de armazenamento está definida como uma política de repetição linear. A função de repetição determina se deve repetir um pedido e especifica o número de segundos a aguardar antes da repetição. Defina o valor **retry\_to\_secondary** como verdadeiro se pretender repetir o pedido para o ponto final secundário, caso o pedido inicial para o primário falhe. A aplicação de exemplo, é definida uma política de repetição personalizada na função `retry_callback` do objeto de armazenamento.
 
-Antes da transferência, são definidas as funções [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) do objeto Serviço. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
+Antes da transferência, o objeto de serviço [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) função é definida. Estas funções definem os processadores de eventos que são acionados se uma transferência for concluída com êxito ou se falhar e estiver a repetir a operação.
 
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
@@ -231,11 +233,11 @@ Para executar o exemplo, use o Maven na linha de comandos.
 
 Este exemplo cria um ficheiro de teste no seu diretório predefinido. Para os utilizadores do Windows, este diretório é **AppData\Local\Temp**. O exemplo, em seguida, apresenta as seguintes opções de comandos que pode introduzir:
 
-- Introduza **P** para executar uma operação de BLOBs colocado, isso carrega um ficheiro temporário à sua conta de armazenamento.
-- Introduza **L** para efetuar uma operação de blob de lista, isso listar os blobs atualmente no seu contentor.
-- Introduza **G** para efetuar uma operação de obtenção de blob, esta ação transfere um ficheiro da conta de armazenamento no seu computador local.
-- Introduza **1!d** para executar uma operação de eliminação do blob, esta ação elimina o blob da sua conta de armazenamento.
-- Introduza **i** para fechar o exemplo, isto também elimina todos os recursos de exemplo criado.
+- Introduza **P** para executar uma operação de BLOBs colocado, este comando carrega um ficheiro temporário à sua conta de armazenamento.
+- Introduza **L** para efetuar uma operação de blob de lista, este comando listar os blobs atualmente no seu contentor.
+- Introduza **G** para efetuar uma operação de obtenção de blob, este comando transfere um ficheiro da conta de armazenamento no seu computador local.
+- Introduza **1!d** para executar uma operação de eliminação do blob, este comando elimina o blob da conta de armazenamento.
+- Introduza **i** para fechar o exemplo, este comando também elimina todos os recursos de exemplo criado.
 
 Este exemplo mostra o resultado se executar a aplicação no Windows.
 

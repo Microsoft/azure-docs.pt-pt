@@ -27,6 +27,8 @@
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
+    - name: Blogue
+      href: 'https://azure.microsoft.com/blog/topics/cognitive-services/'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: Fornecer comentários sobre o produto

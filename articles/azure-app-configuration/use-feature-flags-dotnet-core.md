@@ -14,20 +14,20 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f712cc34a3d41ea9472bf9428606cb378eef8c18
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: b0e48a0db63eded9e9c4921d33b03af39656ce0d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66244264"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299271"
 ---
 # <a name="tutorial-use-feature-flags-in-a-net-core-app"></a>Tutorial: Utilizar sinalizadores de funcionalidades numa aplicação .NET Core
 
-As bibliotecas de gestão de recursos do .NET Core fornecem suporte idiomático para a implementação de sinalizadores de recurso num aplicativo .NET ou ASP.NET Core. Eles permitem-lhe adicionar sinalizadores de recurso ao seu código mais de forma declarativa, para que não precisa escrever todos os `if` instruções para os mesmos manualmente. Gerir a funcionalidade sinalizador ciclos de vida (por exemplo, a atualização e a cache de sinalizador Estados, garantir um Estado de sinalizador sejam imutáveis durante uma chamada de pedido) por trás da cena. Além disso, a biblioteca do ASP.NET Core oferece integrações de out-of-the-box, incluindo ações do controlador MVC, vistas, rotas e middleware.
+As bibliotecas de gestão de recursos do .NET Core fornecem suporte idiomático para a implementação de sinalizadores de recurso num aplicativo .NET ou ASP.NET Core. Eles permitem-lhe adicionar sinalizadores de recurso ao seu código mais de forma declarativa, para que não precisa escrever todos os `if` instruções para os mesmos manualmente. Gerir a funcionalidade sinalizador ciclos de vida (por exemplo, a atualização e a cache de sinalizador Estados, garantir um Estado de sinalizador sejam imutáveis durante uma chamada de pedido) em segundo plano. Além disso, a biblioteca do ASP.NET Core oferece integrações de out-of-the-box, incluindo ações do controlador MVC, vistas, rotas e middleware.
 
 O [adicionar sinalizadores de recurso para uma aplicação ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) guia de introdução mostra várias formas para adicionar os sinalizadores de recurso num aplicativo do ASP.NET Core. Este tutorial explica isso em mais detalhes. Consulte a [documentação de gestão de recursos do ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410) para uma referência completa.
 
-Neste tutorial, ficará a saber como:
+Neste tutorial, vai aprender a:
 
 > [!div class="checklist"]
 > * Adicione os sinalizadores de recurso em partes-chave da sua aplicação para controlar a disponibilidade de funcionalidades.
@@ -66,7 +66,7 @@ public class Startup
 }
 ```
 
-Se utilizar o filtro na sua sinalizadores de recurso, terá de incluir uma biblioteca adicional e registá-lo. O exemplo seguinte mostra como utilizar um filtro de recurso interno denominado **PercentageFilter "** .
+Se utilizar filtros em sua sinalizadores de recurso, terá de incluir uma biblioteca adicional e registá-lo. O exemplo seguinte mostra como utilizar um filtro de recurso interno denominado **PercentageFilter "** .
 
 ```csharp
 using Microsoft.FeatureManagement;

@@ -5,20 +5,22 @@ services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/16/2018
+ms.date: 05/16/2019
 ms.author: babanisa
-ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60562903"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305082"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar seu próprio recuperação após desastre para tópicos personalizados no Event Grid
-
 Recuperação após desastre se concentra em recuperar de uma grave perda de funcionalidade do aplicativo. Este tutorial explica como configurar a sua arquitetura de eventos para recuperar, se o serviço do Event Grid fica em mau estado de funcionamento numa região específica.
 
 Neste tutorial, irá aprender como criar uma arquitetura de ativação pós-falha do ativa-passiva para tópicos personalizados no Event Grid. Irá realizar a ativação pós-falha ao espelhamento seus tópicos e subscrições em duas regiões e, em seguida, gerir uma ativação pós-falha quando um tópico fica em mau estado de funcionamento. A arquitetura neste tutorial efetua a ativação pós-falha de todo o tráfego de novo. é importante ter em consideração, com esta configuração, a não ser recuperados eventos já em andamento, até que a região comprometida está em bom estada novamente.
+
+> [!NOTE]
+> Event Grid suporta recuperação de desastre geográfico automática (GeoDR) agora no lado do servidor. Pode ainda implementar a lógica de recuperação após desastre do lado do cliente se pretender que um maior controlo sobre o processo de ativação pós-falha. Para obter detalhes sobre GeoDR automática, consulte [recuperação de desastres do lado do servidor georreplicação no Azure Event Grid](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 

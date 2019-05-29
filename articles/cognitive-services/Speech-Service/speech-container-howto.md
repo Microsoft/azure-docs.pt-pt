@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: 2adcbad55236917685ddcdbabe4809f36ab5a730
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153057"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306557"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contentores do serviço de voz
 
@@ -107,10 +107,10 @@ A seguinte marca é um exemplo do formato de:
 
 A tabela seguinte lista as regiões suportadas para **voz em texto** no 1.1.1 versão do contentor:
 
-|Região de idioma|Etiquetas|
+|Região de idioma|Tags|
 |--|--|
 |Chinês|`zh-cn`|
-|Português |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|Inglês |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |Francês |`fr-ca`<br>`fr-fr`|
 |Alemão|`de-de`|
 |Italiano|`it-it`|
@@ -136,13 +136,13 @@ A seguinte marca é um exemplo do formato de:
 
 A tabela seguinte lista as regiões suportadas para **voz** no 1.1.0 versão do contentor:
 
-|Região de idioma|Etiquetas|Vozes suportados|
+|Região de idioma|Tags|Vozes suportados|
 |--|--|--|
 |Chinês|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao apollo|
-|Português |`en-au`|catherine<br>hayleyrus|
-|Português |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
-|Português |`en-in`|heera apollo<br>priyarus<br>ravi-apollo<br>|
-|Português |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|Inglês |`en-au`|catherine<br>hayleyrus|
+|Inglês |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
+|Inglês |`en-in`|heera apollo<br>priyarus<br>ravi-apollo<br>|
+|Inglês |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Francês|`fr-ca`|caroline<br>harmonierus|
 |Francês|`fr-fr`|hortenserus<br>Julie apollo<br>Paul apollo|
 |Alemão|`de-de`|hedda<br>heddarus<br>stefan-apollo|
@@ -281,6 +281,10 @@ O envio de contentores de voz cobrança informações para o Azure, utilizando u
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
 Para obter mais informações sobre estas opções, consulte [configurar contentores](speech-container-configuration.md).
+
+<!--blogs/samples/video coures -->
+
+[!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]
 
 ## <a name="summary"></a>Resumo
 

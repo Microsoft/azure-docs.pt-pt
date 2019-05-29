@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: aa50cbe640c928c4113fb64c1b503548a95ee0a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60718348"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302484"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar a infraestrutura AWS para alojar um cluster do Service Fabric
 
@@ -33,7 +33,7 @@ Na primeira parte da série, saiba como:
 > [!div class="checklist"]
 > * Criar um conjunto de instâncias do EC2
 > * Modificar o grupo de segurança
-> * Iniciar sessão numa das instâncias
+> * Inicie sessão para uma das instâncias
 > * Preparar a instância do Service Fabric
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,7 +42,7 @@ Para concluir este tutorial, precisa de uma conta do AWS.  Se ainda não tiver u
 
 ## <a name="create-ec2-instances"></a>Criar instâncias do EC2
 
-Inicie sessão consola do AWS > introduza **EC2** na caixa de pesquisa > **Servidores Virtuais do EC2 na Cloud**
+Inicie sessão consola do AWS > Enter **EC2** na caixa de pesquisa > **EC2 servidores virtuais na Cloud**
 
 ![Pesquisa na consola do AWS][aws-console]
 
@@ -151,7 +151,7 @@ Na primeira parte da série, aprendeu a iniciar três instâncias do EC2 e a con
 > [!div class="checklist"]
 > * Criar um conjunto de instâncias do EC2
 > * Modificar o grupo de segurança
-> * Iniciar sessão numa das instâncias
+> * Inicie sessão para uma das instâncias
 > * Preparar a instância do Service Fabric
 
 Avance para a segunda parte da série para configurar o Service Fabric no seu cluster.

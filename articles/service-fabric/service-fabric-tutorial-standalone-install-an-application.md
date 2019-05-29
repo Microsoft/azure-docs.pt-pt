@@ -1,6 +1,6 @@
 ---
 title: O tutorial instalou uma aplicação no seu cluster autónomo do Service Fabric - Azure Service Fabric | Microsoft Docs
-description: Neste tutorial, vai aprender a instalar uma aplicação num cluster autónomo do Service Fabric.
+description: Neste tutorial, saiba como instalar uma aplicação no seu cluster autónomo do Service Fabric.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 17bb5f5d8fe7ee407caf0ea5c34dc5380dbd79b0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5bc326bbc16ef93d484425f26b6f8226150c77c6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60717958"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66302429"
 ---
 # <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: Implementar uma aplicação no seu cluster autónomo do Service Fabric
 
-Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Nesta série de tutoriais, vai criar um cluster autónomo alojado no AWS e implementar uma aplicação no mesmo.
+Os clusters autónomos do Service Fabric oferecem a opção de escolher o seu ambiente e criar um cluster como parte da abordagem "qualquer SO, qualquer cloud" que o Service Fabric está a realizar. Esta série de tutoriais, criar um cluster autónomo alojado no AWS e implementar uma aplicação para o mesmo.
 
-Este tutorial é a terceira parte de uma série.  O cluster autónomo do Service Fabric oferece-lhe a opção de escolher o seu ambiente e criar um cluster como parte da nossa abordagem "qualquer SO, qualquer cloud" com o Service Fabric. Este tutorial mostra como criar a infraestrutura do AWS necessário para alojar este cluster autónomo.
+Este tutorial é a terceira parte de uma série.  Clusters autónomos do Service Fabric oferecem a opção para escolher o seu próprio ambiente e criar um cluster como parte da nossa abordagem "Qualquer sistema operacional, qualquer cloud" com o Service Fabric. Este tutorial mostra como criar a infraestrutura do AWS necessário para alojar este cluster autónomo.
 
 Na terceira parte da série, ficará a saber como:
 
@@ -38,7 +38,7 @@ Na terceira parte da série, ficará a saber como:
 
 Antes de começar este tutorial:
 
-* [Instale o Visual Studio 2017](https://www.visualstudio.com/) e as cargas de trabalho de **desenvolvimento no Azure** e **desenvolvimento na Web e em ASP.NET**.
+* [Instalar o Visual Studio 2019](https://www.visualstudio.com/) e instale o **desenvolvimento do Azure** e **desenvolvimento na web e ASP.NET** cargas de trabalho.
 * [Instale o SDK do Service Fabric](service-fabric-get-started.md)
 
 ## <a name="download-the-voting-sample-application"></a>Transferir o exemplo de aplicação de votação
