@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e994150f68c0f274c97c27fccc89f226bc8236cd
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: c0c326525f5a551ddb00a709ed0a36a68a1343db
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66000485"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356466"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hrworks-single-sign-on"></a>Tutorial: Integração do Active Directory do Azure com HRworks início de sessão único
 
@@ -53,7 +53,7 @@ Para configurar a integração de HRworks início de sessão único com o Azure 
 
 **Para adicionar HRworks início de sessão único a partir da galeria, execute os seguintes passos:**
 
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
 
     ![O botão do Azure Active Directory](common/select-azuread.png)
 
@@ -130,7 +130,7 @@ Para configurar o Azure AD início de sessão único com HRworks início de sess
 
 2. Clique em **administrador** > **Noções básicas** > **segurança** > **início de sessão único** do à esquerda do menu de barras e execute os seguintes passos:
 
-       ![Configure Single Sign-On](./media/hrworks-single-sign-on-tutorial/configure01.png)
+    ![Configurar o início de sessão único](./media/hrworks-single-sign-on-tutorial/configure01.png)
 
     a. Verifique os **utilização início de sessão único** caixa.
 

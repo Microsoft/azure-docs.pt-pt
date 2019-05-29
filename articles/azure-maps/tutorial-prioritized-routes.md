@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3e33eef430db627a82bb82e8c22ddc861d08982b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0d201baec253abee9ad8a998dd36968927a25a6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60692111"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357594"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Localizar trajetos para diferentes meios de deslocação com o Azure Maps
 
@@ -216,7 +216,7 @@ Esta secção mostra como utilizar a API do mapas route service para localizar v
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. O `atlas.service.MapsURL.newPipeline()` aceita o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instância. O `routeURL` representa um URL para o Azure Maps [rota](https://docs.microsoft.com/rest/api/maps/route) operações.
+   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar pedidos HTTP para o Azure Maps com a chave de subscrição. O `atlas.service.MapsURL.newPipeline()` aceita o `SubscriptionKeyCredential` política e cria um [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instância. O `routeURL` representa um URL para o Azure Maps [rota](https://docs.microsoft.com/rest/api/maps/route) operações.
 
 2. Depois de configurar as credenciais e o URL, adicione o seguinte JavaScript o código para construir uma rota de início para o ponto de extremidade para um camião portando USHazmatClass2 classificado carga e exibir os resultados.
 
@@ -245,7 +245,7 @@ Esta secção mostra como utilizar a API do mapas route service para localizar v
     });
     ```
 
-    Este fragmento de código acima consulta o serviço de encaminhamento de mapas do Azure através da [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) método. A linha de rota, em seguida, é extraída da coleção de funcionalidade GeoJSON da resposta que é extraída usando o `geojson.getFeatures()` método. A linha de rota, em seguida, é adicionada à origem de dados. Ele também adiciona um índice de 0 para se certificar de que é processado antes de quaisquer outras linhas na origem de dados. Isto é feito porque o cálculo do trajeto de camião será, muitas vezes, mais lento do que o cálculo de um trajeto de carro e, se a linha do trajeto de camião for adicionada à origem de dados após o trajeto de carro, será composta acima dela. Duas propriedades são adicionadas para a linha de rota de camião, uma cor de traço, que é uma boa tonalidade de azul e uma largura do traço de nove pixels.
+    Este fragmento de código acima consulta o serviço de encaminhamento de mapas do Azure através da [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) método. A linha de rota, em seguida, é extraída da coleção de funcionalidade GeoJSON da resposta que é extraída usando o `geojson.getFeatures()` método. A linha de rota, em seguida, é adicionada à origem de dados. Ele também adiciona um índice de 0 para se certificar de que é processado antes de quaisquer outras linhas na origem de dados. Isto é feito porque o cálculo do trajeto de camião será, muitas vezes, mais lento do que o cálculo de um trajeto de carro e, se a linha do trajeto de camião for adicionada à origem de dados após o trajeto de carro, será composta acima dela. Duas propriedades são adicionadas para a linha de rota de camião, uma cor de traço, que é uma boa tonalidade de azul e uma largura do traço de nove pixels.
 
 3. Adicione o seguinte código JavaScript para construir uma rota para um carro e exibir os resultados.
 
@@ -265,7 +265,7 @@ Esta secção mostra como utilizar a API do mapas route service para localizar v
     });
     ```
 
-    Este fragmento de código acima consulta o serviço de encaminhamento de mapas do Azure através da [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) método. A linha de rota, em seguida, é extraída da coleção de funcionalidade GeoJSON da resposta que é extraída usando o `geojson.getFeatures()` método. A linha de rota, em seguida, é adicionada à origem de dados. Duas propriedades são adicionadas para a linha de rota de carro, uma cor de traço, que é um tom do Roxo e uma largura do traço de cinco pixels.  
+    Este fragmento de código acima consulta o serviço de encaminhamento de mapas do Azure através da [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) método. A linha de rota, em seguida, é extraída da coleção de funcionalidade GeoJSON da resposta que é extraída usando o `geojson.getFeatures()` método. A linha de rota, em seguida, é adicionada à origem de dados. Duas propriedades são adicionadas para a linha de rota de carro, uma cor de traço, que é um tom do Roxo e uma largura do traço de cinco pixels.  
 
 4. Guarde o ficheiro **MapTruckRoute.html** e atualize o browser para ver o resultado. Para uma ligação com êxito às APIs do Maps, deverá ver um mapa semelhante ao seguinte.
 

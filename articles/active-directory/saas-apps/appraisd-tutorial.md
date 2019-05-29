@@ -5,105 +5,80 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: barbkess
+ms.reviewer: celested
 ms.assetid: db063306-4d0d-43ca-aae0-09f0426e7429
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 05/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1beb825eda7e4d6a59810aada7063863b48d8ec
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ee7e58aa6298977b279d0d538fefb24da657388
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60284428"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357008"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-appraisd"></a>Tutorial: Integração do Active Directory do Azure com Appraisd
+# <a name="tutorial-integrate-appraisd-with-azure-active-directory"></a>Tutorial: Integrar Appraisd com o Azure Active Directory
 
-Neste tutorial, saiba como integrar Appraisd com o Azure Active Directory (Azure AD).
-Integrar Appraisd no Azure AD fornece as seguintes vantagens:
+Neste tutorial, irá aprender como integrar Appraisd com o Azure Active Directory (Azure AD). Quando integrar Appraisd com o Azure AD, pode:
 
-* Pode controlar no Azure AD que tenha acesso ao Appraisd.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Appraisd (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controlar no Azure AD que tenha acesso ao Appraisd.
+* Permita que os utilizadores ser automaticamente sessão iniciada para Appraisd com as suas contas do Azure AD.
+* Gira as suas contas num local central – portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Appraisd, terá dos seguintes itens:
+Para começar, terá dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Appraisd logon único habilitado subscrição
+* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
+* Appraisd início de sessão único (SSO) ativado na subscrição.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
-
-* Suporta Appraisd **SP e IDP** iniciada SSO
+Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta Appraisd **SP e IDP** iniciada SSO.
 
 ## <a name="adding-appraisd-from-the-gallery"></a>Adicionando Appraisd da Galeria
 
 Para configurar a integração do Appraisd com o Azure AD, terá de adicionar Appraisd a partir da Galeria à sua lista de aplicações de SaaS geridas.
 
-**Para adicionar Appraisd a partir da galeria, execute os seguintes passos:**
-
-1. Na **[portal do Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
-
-    ![O botão do Azure Active Directory](common/select-azuread.png)
-
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
-
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
-
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
-
-    ![O novo botão de aplicativo](common/add-new-app.png)
-
-4. Na caixa de pesquisa, escreva **Appraisd**, selecione **Appraisd** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
-
-     ![Appraisd na lista de resultados](common/search-new-app.png)
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar nova aplicação, selecione **nova aplicação**.
+1. Na **adicionar a partir da galeria** secção, escreva **Appraisd** na caixa de pesquisa.
+1. Selecione **Appraisd** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Appraisd com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Appraisd deve ser estabelecido.
+Configurar e testar o SSO do Azure AD com Appraisd com um utilizador de teste **B. Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Appraisd.
 
-Para configurar e testar o Azure AD início de sessão único com Appraisd, tem de concluir os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com Appraisd, conclua os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Appraisd Single Sign-On](#configure-appraisd-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Appraisd](#create-appraisd-test-user)**  - para ter um equivalente da Eduarda Almeida na Appraisd que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
+2. **[Configurar Appraisd](#configure-appraisd)**  para configurar as definições de SSO no lado do aplicativo.
+3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Simon B.
+4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Simon B. utilizar o Azure AD início de sessão único.
+5. **[Criar utilizador de teste Appraisd](#create-appraisd-test-user)**  para ter um equivalente de Simon B. no Appraisd que está ligado à representação de utilizador do Azure AD.
+6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
+Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
-Para configurar o Azure AD início de sessão único com Appraisd, execute os seguintes passos:
+1. Na [portal do Azure](https://portal.azure.com/), na **Appraisd** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
+1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
+1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Appraisd** página de integração de aplicações, selecione **início de sessão único**.
+   ![Editar a configuração SAML do básico](common/edit-urls.png)
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **configuração de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
-
-    ![Appraisd domínio e URLs únicas início de sessão em informações](common/both-preintegrated-advanced-urls.png)
+4. Sobre o **configuração básica de SAML** secção, a aplicação está pré-configurada e os URLs necessários já estão previamente preenchidos com o Azure. O utilizador tem de guardar a configuração ao clicar no botão Save e execute os seguintes passos:
 
     a. Clique em **definir URLs adicionais**.
 
@@ -114,62 +89,39 @@ Para configurar o Azure AD início de sessão único com Appraisd, execute os se
     > [!NOTE]
     > Obter o valor de URL de início de sessão e estado de reencaminhamento real na página de configuração de SSO Appraisd do que é explicada mais tarde no tutorial.
 
-5. Aplicação de Appraisd espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+1. Aplicação de Appraisd espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação Appraisd espera **nameidentifier** seja mapeado com **user.mail**, por isso terá de editar o mapeamento do atributo clicando no **editar**  ícone e altere o mapeamento do atributo.
 
     ![image](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos:
+1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (Base64)** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
 
-    | Name |  Atributo de origem|
-    | ---------------| --------------- |
-    | nameidentifier | user.mail |
-    | | |
+   ![O link de download de certificado](common/certificatebase64.png)
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+1. Sobre o **configurar Appraisd** secção, copie o URL adequado com base nos seus requisitos.
 
-    ![image](common/new-save-attribute.png)
+   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    ![image](common/new-attribute-details.png)
+### <a name="configure-appraisd"></a>Configurar Appraisd
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+1. Para automatizar a configuração no Appraisd, tem de instalar **segura de aplicações meu início de sessão da extensão de browser** ao clicar em **instalar a extensão**.
 
-    c. Deixe o **espaço de nomes** em branco.
+    ![Extensão My apps](common/install-myappssecure-extension.png)
 
-    d. Selecione a origem de dado **atributo**.
+2. Depois de adicionar a extensão para o navegador, clique em **Appraisd configuração** irá direcioná-lo para o aplicativo Appraisd. A partir daí, forneça as credenciais de administrador a iniciar sessão em Appraisd. A extensão de navegador automaticamente irá configurar o aplicativo para e automatizar passos 3 a 7.
 
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+    ![Configuração do programa de configuração](common/setup-sso.png)
 
-    f. Clique em **Ok**
+3. Se desejar configurar manualmente o Appraisd, abra uma nova janela de browser e inicie sessão no site da sua empresa Appraisd como administrador e execute os seguintes passos:
 
-    g. Clique em **Guardar**.
-
-7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **certificado (Base64)** entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
-
-    ![O link de download de certificado](common/certificatebase64.png)
-
-8. Sobre o **configurar Appraisd** secção, copie os URLs apropriados de acordo com seus requisitos.
-
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-    a. URL de início de sessão
-
-    b. Azure Ad Identifier
-
-    c. URL de fim de sessão
-
-### <a name="configure-appraisd-single-sign-on"></a>Configurar Appraisd Single Sign-On
-
-1. Numa janela do browser web diferente, inicie sessão no Appraisd como um administrador de segurança.
-
-2. No canto superior direito da página, clique em **definições** ícone, em seguida, navegue até à **configuração**.
+4. No canto superior direito da página, clique em **definições** ícone, em seguida, navegue até à **configuração**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
-3. Do lado esquerdo do menu, clique em **SAML início de sessão único**.
+5. Do lado esquerdo do menu, clique em **SAML início de sessão único**.
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
-4. Sobre o **SAML 2.0 Single Sign-On configuração** página, execute os seguintes passos:
+6. Sobre o **SAML 2.0 Single Sign-On configuração** página, execute os seguintes passos:
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
@@ -177,66 +129,45 @@ Para configurar o Azure AD início de sessão único com Appraisd, execute os se
 
     b. Copiar o **URL de início de sessão iniciadas pelo serviço** valor e cole-o na **URL de início de sessão** caixa de texto no **configuração básica de SAML** no portal do Azure.
 
-5. Desloque para baixo na mesma página sob **identificar utilizadores**, execute os seguintes passos:
+7. Desloque para baixo na mesma página sob **identificar utilizadores**, execute os seguintes passos:
 
     ![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
     a. Na **URL fornecedor de identidade única Sign-On** caixa de texto, cole o valor de **URL de início de sessão**, que copiou do portal do Azure e clique em **guardar**.
 
-    b. Na **URL de emissor do fornecedor de identidade** caixa de texto, cole o valor de **identificador do Azure Ad**, que copiou do portal do Azure e clique em **guardar**.
+    b. Na **URL de emissor do fornecedor de identidade** caixa de texto, cole o valor de **do Azure AD identificador**, que copiou do portal do Azure e clique em **guardar**.
 
     c. No bloco de notas, abra o certificado com codificação base 64 que transferiu a partir do portal do Azure, copie o seu conteúdo e, em seguida, cole-o para o **certificado X.509** caixa e clique em **guardar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Simon B.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
-
-2. Selecione **novo utilizador** na parte superior do ecrã.
-
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** , insira **BrittaSimon**.
-  
-    b. Na **nome de utilizador** , digite **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
+1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Na **utilizador** propriedades, siga estes passos:
+   1. No campo **Nome**, introduza `B. Simon`.  
+   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B. Simon@contoso.com`.
+   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
 
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Appraisd.
+Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão único ao conceder acesso para Appraisd.
 
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Appraisd**.
+1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicações, selecione **Appraisd**.
+1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
 
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
+   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
-2. Na lista de aplicações, selecione **Appraisd**.
+1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
 
-    ![A ligação de Appraisd na lista de aplicações](common/all-applications.png)
+    ![A ligação de adicionar utilizador](common/add-assign-user.png)
 
-3. No menu à esquerda, selecione **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo, selecione **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. Na **utilizadores e grupos** caixa de diálogo, selecione **B. Simon** a partir da lista de utilizadores, em seguida, clique no **selecione** na parte inferior do ecrã.
+1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
+1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
 
 ### <a name="create-appraisd-test-user"></a>Criar utilizador de teste Appraisd
 
@@ -262,15 +193,13 @@ Para ativar o Azure AD os utilizadores iniciam sessão Appraisd, eles têm de se
 
     b. Na **Apelido** texto, digite o apelido do utilizador, como **simon**.
 
-    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como **Brittasimon\@contoso.com**.
+    c. Na **E-Mail** texto, introduza o e-mail do utilizador, como `B. Simon@contoso.com`.
 
     d. Clique em **Adicionar utilizador**.
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+### <a name="test-sso"></a>Teste SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-
-Quando clica no mosaico Appraisd no painel de acesso, deve ser automaticamente sessão iniciada no Appraisd para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao selecionar o mosaico Appraisd no painel de acesso, deve ser automaticamente sessão iniciada no Appraisd para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 

@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3a307c32d15aa8c7809d728d98220b0819e91c7c
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901107"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357382"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -28,7 +28,7 @@ Pode utilizar de imagem digitalizada na sua aplicação utilizando um SDK nativo
 
 Pode analisar imagens para detetar e fornecem informações sobre seus recursos do visual e características. Todos os recursos na tabela abaixo são fornecidos pela [analisar imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API.
 
-| Ação | Descrição |
+| Acção | Descrição |
 | ------ | ----------- |
 |**[Etiquetar elementos visuais](concept-tagging-images.md)**|Identificar e etiquetar recursos visuais numa imagem, a partir de um conjunto de milhares de objetos reconhecíveis, vivos, paisagens e ações. Quando as etiquetas são ambíguas ou dados de conhecimento não comuns, a resposta de API fornece "sugestões" para clarificar o significado da etiqueta no contexto de uma configuração conhecida. A identificação não se limita ao motivo principal, por exemplo, uma pessoa em primeiro plano, mas também inclui o cenário (interior ou exterior), mobiliário, ferramentas, plantas, animais, acessórios, gadgets, etc.|
 |**[Detetar objetos](concept-object-detection.md)**| Deteção de objetos é semelhante à marcação, mas a API devolve as coordenadas da caixa delimitadora para cada etiqueta aplicada. Por exemplo, se uma imagem contiver um cachorro, gato e person, a operação de deteção irá listar esses objetos, juntamente com suas coordenadas na imagem. Pode utilizar esta funcionalidade para processar mais relações entre os objetos numa imagem. Ele também permite-lhe saber quando existem várias instâncias da mesma marca numa imagem.|
@@ -46,7 +46,7 @@ Pode analisar imagens para detetar e fornecem informações sobre seus recursos 
 
 Pode usar de imagem digitalizada para extrair texto de uma imagem num meio de fluxo de carateres legível por máquina [reconhecimento ótico de carateres (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Se for necessário, OCR corrige a rotação do texto reconhecido e fornece as coordenadas de quadro de cada palavra. OCR suporta 25 idiomas e Deteta automaticamente o idioma do texto reconhecido.
 
-Também pode utilizar o [leitura API](concept-recognizing-text.md#read-api) para extrair texto de impresso e manuscrito de imagens e documentos de muito texto. A API de leitura utiliza modelos atualizados e funciona para objetos uma variedade com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, letras e quadros de comunicações. Atualmente, a API de leitura está em pré-visualização e o inglês é o único idioma suportado.
+Também pode utilizar o [leitura API](concept-recognizing-text.md#read-api) para extrair texto de impresso e manuscrito de imagens e documentos de muito texto. A API de leitura utiliza modelos atualizados e funciona para objetos uma variedade com diferentes superfícies e fundos, como recibos, cartazes, cartões de visita, letras e quadros de comunicações. Atualmente, o inglês é o único idioma suportado.
 
 ## <a name="moderate-content-in-images"></a>Moderar conteúdo em imagens
 

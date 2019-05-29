@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a2d793a1fbd68d6a71f48b556a77ddcaaaf111
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 93a1ad1f9fbc01cd06b3aaffc8a718634e8454d6
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66112159"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357037"
 ---
 # <a name="tutorial-integrate-displayr-with-azure-active-directory"></a>Tutorial: Integrar Displayr com o Azure Active Directory
 
@@ -91,11 +91,11 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
    ![O link de download de certificado](common/certificatebase64.png)
 
-1. Aplicação de Displayr espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **edite** ícone para abrir a caixa de diálogo de atributos do utilizador.
+1. Aplicação de Displayr espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos. Clique em **editar** ícone para abrir a caixa de diálogo de atributos do utilizador.
 
     ![image](common/edit-attribute.png)
 
-1. Além dos acima, o aplicativo Displayr espera mais alguns atributos a serem passados na resposta SAML. No **atributos de utilizador e afirmações** secção sobre o **afirmações de grupo (pré-visualização)** caixa de diálogo, execute os seguintes passos:
+1. Além dos acima, o aplicativo Displayr espera mais alguns atributos a serem passados na resposta SAML. No **atributos de utilizador e afirmações** secção sobre o **afirmações de grupo (pré-visualização)** caixa de diálogo, execute os seguintes passos:
 
     a. Clique nas **caneta** junto a **grupos devolvido na afirmação**.
 
@@ -133,7 +133,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     ![Configuração](./media/displayr-tutorial/config01.png)
 
-5. Mude para o **configurações** no menu superior e desloque-se para baixo na página clicando **configurar único início de sessão (SAML)**.
+5. Mude para o **configurações** no menu superior e desloque-se para baixo na página clicando **configurar único início de sessão (SAML)** .
 
     ![Configuração](./media/displayr-tutorial/config02.png)
 
