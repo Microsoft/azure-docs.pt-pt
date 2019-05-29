@@ -159,7 +159,7 @@ Quando a origem é do tipo **RelationalSource** (que inclui o OData) as seguinte
 
 | Propriedade | Descrição | Exemplo | Necessário |
 | --- | --- | --- | --- |
-| query |Utilize a consulta personalizada para ler dados. |"?$select=Name, Description&$top=5" |Não |
+| consulta |Utilize a consulta personalizada para ler dados. |"?$select=Name, Description&$top=5" |Não |
 
 ## <a name="type-mapping-for-odata"></a>Mapeamento do tipo de OData
 Conforme mencionado na [atividades de movimento de dados](data-factory-data-movement-activities.md) artigo, a atividade de cópia executa conversões de tipos automáticas de tipos de origem para o sink de tipos com a abordagem de dois passos seguintes.
