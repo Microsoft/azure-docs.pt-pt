@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acd100ccc3aafc2de1f2c7970ff9437c92156b17
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: ea65120a2a735477d048b9012e160e0cdafe8835
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65861521"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253075"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Reposição de palavras-passe do Azure AD no ecrã de início de sessão
 
@@ -29,7 +29,7 @@ Neste tutorial, vai permitir aos utilizadores repor as respetivas palavras-passe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Tem em execução, pelo menos, Windows 10, versão de Abril de 2018 atualização e os dispositivos tem de ser:
+* Tem em execução, pelo menos, Windows 10, versão de Abril de 2018 atualização (v1803) e os dispositivos tem de ser:
    * [Azure AD associado](../device-management-azure-portal.md) ou
    * [Azure híbrido associado ao AD](../device-management-hybrid-azuread-joined-devices-setup.md), com conectividade de rede para um controlador de domínio.
 * Tem de ativar o Azure de reposição de palavras-passe self-service de AD.
@@ -122,7 +122,7 @@ Ao testar esta funcionalidade com o ambiente de trabalho remoto ou uma sessão d
 
 * A reposição de palavras-passe não é suportada em Ambientes de Trabalho Remotos atualmente.
 
-Se Ctrl + Alt + Del for exigido pela política nas versões do Windows 10 antes de 1809, **Repor palavra-passe** não funcionará.
+Se a política em versões do Windows 10 antes de v1809, necessita de Ctrl + Alt + Del **Repor palavra-passe** não funcionará.
 
 Se as notificações do ecrã de bloqueio são desativadas, **Repor palavra-passe** não funcionará.
 
