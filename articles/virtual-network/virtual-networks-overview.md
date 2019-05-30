@@ -14,16 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/12/2018
 ms.author: kumud
-ms.openlocfilehash: 44094a38fff17908fd5ea851209130f89a49c988
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 23093cd8bcb5793b9e5b9abc835f64233e666ce1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707022"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241750"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
-A Rede Virtual do Azure permite a muitos tipos de recursos do Azure, como as Máquinas Virtuais (VMs) do Azure, comunicarem entre si, a Internet e redes no local de forma segura. Uma rede virtual tem um âmbito de uma única região; No entanto, várias redes virtuais a partir de regiões diferentes podem ser ligadas em conjunto com o Peering de rede Virtual.
+A Rede Virtual do Azure permite a muitos tipos de recursos do Azure, como as Máquinas Virtuais (VMs) do Azure, comunicarem entre si, a Internet e redes no local de forma segura. Uma rede virtual tem um âmbito de uma única região do Azure. Do Azure [região](https://azure.microsoft.com/global-infrastructure/regions/) é um conjunto de datacenters implementados dentro de um perímetro definido por latência e ligado através de uma rede de baixa latência dedicada regional. 
+
+Redes virtuais são constituídas por sub-redes. Uma sub-rede é um intervalo de endereços IP na sua rede virtual. Sub-redes, como redes virtuais estão no âmbito de uma única região do Azure. 
+
+Várias redes virtuais a partir de regiões diferentes podem ser ligadas em conjunto com o Peering de rede Virtual.
 
 A Rede Virtual do Azure fornece as principais capacidades seguintes:
 

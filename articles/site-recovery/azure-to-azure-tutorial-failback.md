@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 339cbf18d79053dfb0704d928b8c9251c73b3a6e
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: a3b67e9b0dc41eeb14000400912892fbf29acfe2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951781"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399488"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Reativação pós-falha de uma VM do Azure entre regiões do Azure
 
@@ -50,7 +50,7 @@ Depois de voltar a proteger as VMs, pode efetuar a ativação pós-falha para a 
 5. Após a conclusão da ativação pós-falha de teste com êxito, selecione **ativação pós-falha de teste de limpeza** para limpar os recursos criados na região de origem para a ativação pós-falha de teste.
 6. Na **itens replicados**, selecione a VM e, em seguida, selecione **ativação pós-falha**.
 7. Na **ativação pós-falha**, selecione um ponto de recuperação para efetuar a ativação pós-falha:
-    - **Versão mais recente (predefinição)**: Processa todos os dados no serviço Site Recovery e fornece o objetivo de ponto de recuperação (RPO) mais baixo.
+    - **Versão mais recente (predefinição)** : Processa todos os dados no serviço Site Recovery e fornece o objetivo de ponto de recuperação (RPO) mais baixo.
     - **Processado mais recentemente**: Reverte a VM para o ponto de recuperação mais recente que tenha sido processado pelo Site Recovery.
     - **Custom**: Efetua a ativação pós-falha para um ponto de recuperação específico. Esta opção é útil para realizar uma ativação pós-falha de teste.
 

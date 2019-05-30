@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: b25cc8c04aed8cd333ff4de5b12db6674323787d
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408747"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393608"
 ---
 # <a name="keys-and-values"></a>As chaves e valores
 
@@ -27,7 +27,7 @@ Configuração de aplicações do Azure armazena dados de configuração como pa
 
 Chaves de servem como o nome de pares chave-valor e são utilizadas para armazenar e recuperar valores correspondentes. É uma prática comum para organizar as chaves num espaço de nomes hierárquico utilizando um delimitador de caráter, tal como `/` ou `:`. Utilize uma convenção de que seja mais adequada para a sua aplicação. Configuração de aplicações trata chaves como um todo. Ele não seja analisada chaves para descobrir como seus nomes são estruturados ou impõem qualquer regra nos mesmos.
 
-A utilização do arquivo de configuração dentro de estruturas de aplicações pode ditar esquemas de nomenclatura específicas para valores de chave. Por exemplo, define a estrutura de Spring Cloud do Java `Environment` recursos que fornecem definições para uma aplicação de Spring para ser parametrizadas por variáveis que incluem *nome da aplicação* e *perfil*. As chaves para os dados de configuração relacionadas com o Spring Cloud normalmente começam com esses dois elementos separados por um delimitador.
+A utilização de dados de configuração em estruturas de aplicações pode ditar esquemas de nomenclatura específicas para valores de chave. Por exemplo, define a estrutura de Spring Cloud do Java `Environment` recursos que fornecem definições para uma aplicação de Spring para ser parametrizadas por variáveis que incluem *nome da aplicação* e *perfil*. As chaves para os dados de configuração relacionadas com o Spring Cloud normalmente começam com esses dois elementos separados por um delimitador.
 
 Chaves armazenadas em configuração de aplicações são cadeias de caracteres de maiúsculas e minúsculas, com base em unicode. As chaves *app1* e *App1* são diferentes num arquivo de configuração de aplicação. Tenha isso em mente quando utiliza as definições de configuração dentro de um aplicativo uma vez que algumas estruturas de lidar com case-insensitively chaves de configuração. Por exemplo, o sistema de configuração do ASP.NET Core trata chaves como cadeias de caracteres de maiúsculas e minúsculas. Para evitar imprevisíveis comportamentos ao consultar a configuração de aplicações dentro de uma aplicação ASP.NET Core, não utilize chaves que diferem apenas por maiúsculas/minúsculas.
 

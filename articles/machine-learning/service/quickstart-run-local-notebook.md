@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 53e495a3c2d82738e1008ead84a4124e44435c9a
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: c814f4bb0cc24350e45400d141c97d1b2eb4998d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864371"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237801"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Início rápido: Utilizar o seu próprio servidor de bloco de notas para começar a utilizar com o Azure Machine Learning
 
@@ -33,14 +33,29 @@ Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começ
 
 * Um servidor de bloco de notas do Python 3.6 com o SDK do Azure Machine Learning instalado
 * Uma área de trabalho do serviço do Azure Machine Learning
-* Um ficheiro de configuração da área de trabalho (**.azureml/config.json** ).
+* Um ficheiro de configuração da área de trabalho ( **.azureml/config.json**).
 
-Obter todos os estes pré-requisitos da [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#portal).
+Obter todos os estes pré-requisitos da [criar uma área de trabalho do serviço do Azure Machine Learning](setup-create-workspace.md#sdk).
+
 
 
 ## <a name="use-the-workspace"></a>Utilizar a área de trabalho
 
-Criar um script ou iniciar um bloco de notas no mesmo diretório do ficheiro de configuração de área de trabalho. Execute esse código que utiliza as APIs básicas do SDK para controlar execuções da experimentação.
+Criar um script ou iniciar um bloco de notas no mesmo diretório do ficheiro de configuração de área de trabalho ( **.azureml/config.json**).
+
+### <a name="attach-to-workspace"></a>Anexar a área de trabalho
+
+Este código lê as informações do arquivo de configuração para anexar à sua área de trabalho.
+
+```
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+```
+
+### <a name="log-values"></a>Valores de registo
+
+Execute esse código que utiliza as APIs básicas do SDK para controlar execuções da experimentação.
 
 1. Crie uma experimentação na área de trabalho.
 1. Inicie a sessão de um valor único para a experimentação.

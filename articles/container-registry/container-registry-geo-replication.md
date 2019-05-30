@@ -6,18 +6,18 @@ author: stevelas
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 04/10/2018
+ms.date: 05/24/2019
 ms.author: stevelas
-ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a26b261a900dfae742e00d9540e744524b781815
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868997"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384105"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Georreplicação no Azure Container Registry
 
-As empresas que pretendem uma presença local ou uma cópia de segurança de acesso frequente, optar por executar serviços a partir de várias regiões do Azure. Como melhor prática, a colocação de um registo de contentor em cada região onde as imagens são executadas permite operações de perto da rede, rápida e ativar as transferências de camada de imagem fiável. A georreplicação permite que um Azure container registry a funcionar como um registo único, que serve várias regiões com vários mestres registos regionais.
+As empresas que pretendem uma presença local ou uma cópia de segurança de acesso frequente, optar por executar serviços a partir de várias regiões do Azure. Como melhor prática, a colocação de um registo de contentor em cada região onde as imagens são executadas permite operações de perto da rede, rápida e ativar as transferências de camada de imagem fiável. A georreplicação permite que um Azure container registry a funcionar como um registo único, que serve várias regiões com vários mestres registos regionais. 
 
 Um registo georreplicado fornece as seguintes vantagens:
 
@@ -60,10 +60,11 @@ Utilizar a funcionalidade de georreplicação do Azure Container Registry, esses
 
 * Gerir um registo único em todas as regiões: `contoso.azurecr.io`
 * Gerir uma única configuração de implementações de imagens como todas as regiões utilizado o mesmo URL de imagem: `contoso.azurecr.io/public/products/web:1.2`
-* Enviar para um único registo, enquanto ACR gerencia a replicação geográfica, incluindo regionais webhooks para notificações do locais
+* Enviar por push para um único registo, enquanto ACR gerencia a georreplicação. Pode configurar regional [webhooks](container-registry-webhook.md) para notificar que eventos em réplicas específicos.
 
 ## <a name="configure-geo-replication"></a>Configurar georreplicação
-Configurar georreplicação é tão fácil quanto clicar em regiões num mapa.
+
+Configurar georreplicação é tão fácil quanto clicar em regiões num mapa. Também pode gerir os replicação geográfica usando ferramentas incluindo o [replicação de acr az](/cli/azure/acr/replication) comandos na CLI do Azure.
 
 Replicação geográfica é uma funcionalidade do [registos Premium](container-registry-skus.md) apenas. Se o seu registo não estiver ainda Premium, pode alterar de básico e Standard para Premium no [portal do Azure](https://portal.azure.com):
 
@@ -91,15 +92,19 @@ Para configurar réplicas adicionais, selecione os Hexágonos verdes para outras
 
 ACR começa a sincronizar imagens entre as réplicas configuradas. Depois de concluído, o portal reflete *pronto*. O estado da réplica no portal não são atualizados automaticamente. Utilize o botão de atualização para ver o estado atualizado.
 
+## <a name="considerations-for-using-a-geo-replicated-registry"></a>Considerações sobre a utilização de um registo georreplicado
+
+* Cada região num registo georreplicado é independente, uma vez configurada. SLAs de registo de contentor do Azure aplicam-se para cada região georreplicado.
+* Quando emitir ou solicitar imagens a partir de um registo georreplicado, Gestor de tráfego do Azure em segundo plano envia o pedido para o registro localizado na região mais próxima de si.
+* Depois de enviar uma atualização de imagem ou tag para a região mais próxima, demora algum tempo para o Azure Container Registry replicar camadas de manifestos e para as restantes regiões que optou pelo. Imagens grandes demoram mais tempo para replicar que menores. Imagens e etiquetas são sincronizadas em todas as regiões de replicação com um modelo de consistência eventual.
+* Para gerir os fluxos de trabalho que dependem de atualizações de push para um registo georreplicado, recomendamos que configure [webhooks](container-registry-webhook.md) para responder aos eventos push. Pode configurar webhooks regionais dentro de um registo georreplicado para controlar eventos de push como concluídos em todas as regiões georreplicado.
+
+
 ## <a name="geo-replication-pricing"></a>Preços de georreplicação
 
 Replicação geográfica é uma funcionalidade dos [Premium SKU](container-registry-skus.md) do registo de contentor do Azure. Quando replicar um registo para as regiões desejadas, pode incorrer tarifas de registro de Premium para cada região.
 
 No exemplo anterior, a Contoso consolidados dois registos de uma, adicionar réplicas para este dos E.U.A., Canadá Central e Europa Ocidental. Contoso pagaria Premium de quatro vezes por mês, sem qualquer configuração adicional ou gestão. Cada região agora obtém suas imagens localmente, melhorando o desempenho, confiabilidade, sem taxas de saída da rede do Oeste dos E.U.A., para o Canadá e E.U.A. Leste.
-
-## <a name="summary"></a>Resumo
-
-Com a georreplicação, pode gerenciar seus datacenters regionais como uma nuvem global. Como as imagens são utilizadas nos diversos recursos, pode beneficiar de um plano de gestão único mantendo perto da rede, rápida e extrai a imagem local confiável.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 05/08/2019
+ms.date: 05/29/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9de8fa297c2b3f89f74b17e0dac3eab007367b9b
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 650dfa7284b41407e9b128a2096548d7acfc1567
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471611"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393783"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço do Azure Search no portal
 
@@ -54,7 +54,7 @@ Requisitos do nome do serviço:
 * Evite hífenes ("-") nos primeiro 2 carateres ou como último caráter único
 * Sem hífenes consecutivos ("-") em qualquer parte
 
-## <a name="select-a-subscription"></a>Selecione uma subscrição
+## <a name="select-a-subscription"></a>Selecionar uma subscrição
 
 Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. O Azure Search pode deteção automática de tabelas do Azure e BLOBs de armazenamento, base de dados SQL e do Azure Cosmos DB para indexação através de [ *indexadores*](search-indexer-overview.md), mas apenas para serviços na mesma subscrição.
 
@@ -69,11 +69,14 @@ Se não é a combinação de recursos num único grupo, ou se os grupos de recur
 
 ## <a name="select-a-location"></a>Selecione uma localização
 
-Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. [Os preços podem ser diferentes](https://azure.microsoft.com/pricing/details/search/) por geografia.
+Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. A lista de regiões suportadas pode ser encontrada no [página de preços](https://azure.microsoft.com/pricing/details/search/). 
 
-Se estiver indexando dados fornecidos pelo Azure outro serviço (o armazenamento do Azure, Azure Cosmos DB, base de dados do Azure SQL), criar o serviço Azure Search na mesma região para evitar custos de largura de banda. Não existem custos para dados de saída quando os serviços estão na mesma região.
+Se estiver indexando dados fornecidos pelo Azure outro serviço (o armazenamento do Azure, Azure Cosmos DB, base de dados do Azure SQL), recomendamos que crie o seu serviço de pesquisa do Azure na mesma região para evitar custos de largura de banda. Não existem custos para dados de saída quando os serviços estão na mesma região.
 
 Se estiver a utilizar o possível de ia de pesquisa cognitiva, crie o seu serviço na mesma região que o recurso dos serviços cognitivos. Colocalização de serviços é um requisito para a melhoria de IA.
+
+> [!Note]
+> Índia central não está atualmente disponível para os novos serviços. Para os serviços já na Índia Central, pode aumentar verticalmente sem restrições e seu serviço é totalmente suportado nessa região. A restrição nesta região é temporária e vamos remover esta nota quando mais aplica-se.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selecionar um escalão de preço (SKU)
 

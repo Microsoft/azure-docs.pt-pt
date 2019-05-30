@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 08e8050fde6d2cf6249826911117dad9f595b6e4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2eaefcf9af6188867bfd692fad891a70fcadb076
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995688"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386508"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Procurar vídeos com a API de pesquisa de vídeos do Bing
 
@@ -45,7 +45,7 @@ Para obter vídeos de um domínio específico, utilize o operador de consulta [s
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-A resposta contém uma resposta [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) que contém uma lista de vídeos que o Bing considerou relevantes para a consulta. Cada objeto de [Vídeo](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) na lista inclui o URL, a duração, as dimensões e o formato de codificação do vídeo, entre outros atributos. O objeto de vídeo também inclui o URL de uma miniatura do vídeo e as dimensões da miniatura.
+A resposta contém uma resposta [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) que contém uma lista de vídeos que o Bing considerou relevantes para a consulta. Cada objeto de [Vídeo](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) na lista inclui o URL, a duração, as dimensões e o formato de codificação do vídeo, entre outros atributos. O objeto de vídeo também inclui o URL de uma miniatura do vídeo e as dimensões da miniatura.
 
 ```json
 {
@@ -100,7 +100,7 @@ A resposta contém uma resposta [Vídeos](https://docs.microsoft.com/rest/api/co
 
 Pode exibir todas ou um subconjunto de miniaturas de vídeos devolvido pela API de pesquisa de vídeos do Bing. Se for apresentado um subconjunto, dê ao utilizador uma opção para ver os vídeos restantes. como parte da API do Bing [utilizar e apresentam os requisitos](../UseAndDisplayRequirements.md), deverá exibir os vídeos na ordem disposta na resposta. Para obter informações sobre o redimensionamento da miniatura, veja [Redimensionar e Recortar Miniaturas](../resize-and-crop-thumbnails.md). 
 
-À medida que o utilizador coloca o cursor sobre a miniatura, pode utilizar [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-motionthumbnailurl) para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
+À medida que o utilizador coloca o cursor sobre a miniatura, pode utilizar [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) para reproduzir uma versão em miniatura do vídeo. Certifique-se de que adiciona um atributo à miniatura de movimento quando a apresentar.
 
 <!-- Removing until the images can be sanitized.
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -108,27 +108,27 @@ Pode exibir todas ou um subconjunto de miniaturas de vídeos devolvido pela API 
 
 Quando uma miniatura fosse clicada, existem três opções para ver o vídeo:
 
-- Utilize [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-hostpageurl) para ver o vídeo no site anfitrião (por exemplo, o YouTube)
-- Utilize [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-websearchurl) para ver o vídeo no browser de vídeos do Bing
-- Utilize [embdedHtml](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-embedhtml) para incorporar o vídeo na sua própria experiência 
+- Utilize [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl) para ver o vídeo no site anfitrião (por exemplo, o YouTube)
+- Utilize [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl) para ver o vídeo no browser de vídeos do Bing
+- Utilize [embdedHtml](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-embedhtml) para incorporar o vídeo na sua própria experiência 
 
 Certifique-se de que utiliza o editor e criador para adicionar um atributo ao vídeo quando o reproduzir.
 
-Para obter detalhes sobre como utilizar o [videoId](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video-videoid) para obter informações sobre o vídeo, veja [Informações de Vídeo](../video-insights.md).
+Para obter detalhes sobre como utilizar o [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid) para obter informações sobre o vídeo, veja [Informações de Vídeo](../video-insights.md).
 
 ## <a name="filtering-videos"></a>Filtrar vídeos
 
 Por predefinição, a API de Pesquisa de Vídeos devolve todos os vídeos que são relevantes para a consulta. Se quiser apenas vídeos gratuitos ou com menos de cinco minutos de duração, utilize os seguintes parâmetros de consulta de filtro:
 
-- [pricing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#pricing) – filtrar os vídeos por preço (por exemplo, vídeos gratuitos ou pelos quais tenha de pagar)
-- [resolution](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#resolution) – filtrar vídeos por resolução (por exemplo, vídeos com uma resolução de 720p ou superior)
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength) – filtrar vídeos por duração do vídeo (por exemplo, vídeos com menos de cinco minutos de duração)
-- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness) – filtrar vídeos por antiguidade (por exemplo, vídeos descobertos pelo Bing na semana anterior)
+- [pricing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) – filtrar os vídeos por preço (por exemplo, vídeos gratuitos ou pelos quais tenha de pagar)
+- [resolution](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) – filtrar vídeos por resolução (por exemplo, vídeos com uma resolução de 720p ou superior)
+- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) – filtrar vídeos por duração do vídeo (por exemplo, vídeos com menos de cinco minutos de duração)
+- [freshness](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) – filtrar vídeos por antiguidade (por exemplo, vídeos descobertos pelo Bing na semana anterior)
 
 Para obter vídeos de um domínio específico, inclua o operador de consulta [site:](https://msdn.microsoft.com/library/ff795613.aspx) na cadeia de consulta.
 
 > [!NOTE]
-> Consoante a consulta, se utilizar o operador `site:`, existe a possibilidade de a resposta incluir conteúdo para adultos, independentemente da definição [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch). Deve utilizar `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdo para adultos.
+> Consoante a consulta, se utilizar o operador `site:`, existe a possibilidade de a resposta incluir conteúdo para adultos, independentemente da definição [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). Deve utilizar `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdo para adultos.
 
 O exemplo seguinte mostra como obter vídeos gratuitos de ContosoSailing.com que tenham uma resolução de 720p ou superior e que o Bing tenha descoberto no mês anterior.
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expandir a consulta
 
-Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta foi *limpeza Gutters*, as consultas expandidas poderão ser: Limpeza de medianiz **ferramentas**, limpeza Gutters **desde o**, limpeza medianiz **máquina**, e **fácil** medianiz limpeza.
+Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta foi *limpeza Gutters*, as consultas expandidas poderão ser: Limpeza de medianiz **ferramentas**, limpeza Gutters **desde o**, limpeza medianiz **máquina**, e **fácil** medianiz limpeza.
 
 O exemplo seguinte mostra as consultas expandidas para *Limpeza de Algerozes*.
 
@@ -171,11 +171,11 @@ O exemplo seguinte mostra as consultas expandidas para *Limpeza de Algerozes*.
 }
 ```
 
-O campo `queryExpansions` contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query_obj). O campo `text` contém a consulta expandida e o campo `displayText` contém o termo de expansão. Pode utilizar os campos text (texto) e thumbnail (miniatura) para apresentar as cadeias de consulta expandidas ao utilizador no caso de a cadeia de consulta expandida ser realmente aquilo que procura. Torne a miniatura e o texto clicáveis com o URL `webSearchUrl` ou o URL `searchLink`. Utilize `webSearchUrl` para encaminhar o utilizador para os resultados de pesquisa do Bing ou `searchLink` se fornecer a sua própria página de resultados.
+O campo `queryExpansions` contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj). O campo `text` contém a consulta expandida e o campo `displayText` contém o termo de expansão. Pode utilizar os campos text (texto) e thumbnail (miniatura) para apresentar as cadeias de consulta expandidas ao utilizador no caso de a cadeia de consulta expandida ser realmente aquilo que procura. Torne a miniatura e o texto clicáveis com o URL `webSearchUrl` ou o URL `searchLink`. Utilize `webSearchUrl` para encaminhar o utilizador para os resultados de pesquisa do Bing ou `searchLink` se fornecer a sua própria página de resultados.
 
 ## <a name="pivoting-the-query"></a>Dinamizar a consulta
 
-Se o Bing puder segmentar a consulta de pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) contém o campo `pivotSuggestions`. Por exemplo, se a consulta original era *Limpeza de Algerozes*, o Bing poderá segmentar a consulta em *Limpeza* e *Algerozes*.
+Se o Bing puder segmentar a consulta de pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contém o campo `pivotSuggestions`. Por exemplo, se a consulta original era *Limpeza de Algerozes*, o Bing poderá segmentar a consulta em *Limpeza* e *Algerozes*.
 
 O exemplo seguinte mostra as sugestões de dinamização para *Limpeza de Algerozes*.
 
@@ -222,7 +222,7 @@ O exemplo seguinte mostra as sugestões de dinamização para *Limpeza de Algero
 }
 ```
 
-Para cada pivô, a resposta contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#query_obj) que contêm as consultas sugeridas. O campo `text` contém a consulta sugerida e o campo `displayText` contém o termo que substitui o pivô na consulta original. Por exemplo, Limpeza de Janelas.
+Para cada pivô, a resposta contém uma lista de objetos de [Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj) que contêm as consultas sugeridas. O campo `text` contém a consulta sugerida e o campo `displayText` contém o termo que substitui o pivô na consulta original. Por exemplo, Limpeza de Janelas.
 
 Pode utilizar os campos `text` e `thumbnail` para apresentar as cadeias de consulta expandidas ao utilizador no caso de a cadeia de consulta expandida ser realmente aquilo que procura. Torne a miniatura e o texto clicáveis com o URL `webSearchUrl` ou o URL `searchLink`. Utilize `webSearchUrl` para encaminhar o utilizador para os resultados de pesquisa do Bing ou `searchLink` se fornecer a sua própria página de resultados.
 

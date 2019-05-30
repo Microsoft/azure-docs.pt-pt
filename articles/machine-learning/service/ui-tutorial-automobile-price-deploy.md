@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 04/06/2019
-ms.openlocfilehash: fe26417c6e3a9f159e884c19d7bd7c9dc7569229
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 8512ca2fe01c772d7e4c21a5cb09303b9804899c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787840"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389210"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: Implementar um modelo de machine learning com a interface visual
 
@@ -95,7 +95,7 @@ Dados de entrada do usuário inserem seu modelo implementado por meio da **entra
 
 Pode testar um serviço web no guia de serviço da web na interface do visual.
 
-1. Aceda à secção de serviço web. Verá que o serviço web implementado com o nome **Tutorial - prever o preço do automóvel [Exp preditiva]**.
+1. Aceda à secção de serviço web. Verá que o serviço web implementado com o nome **Tutorial - prever o preço do automóvel [Exp preditiva]** .
 
      ![Captura de ecrã que mostra o separador de serviço da web com o serviço web recentemente criada realçado](./media/ui-tutorial-automobile-price-deploy/web-services.png)
 
@@ -107,7 +107,7 @@ Pode testar um serviço web no guia de serviço da web na interface do visual.
 
     ![Captura de ecrã que mostra o página de teste do serviço de web](./media/ui-tutorial-automobile-price-deploy/web-service-test.png)
 
-1. Teste de dados de entrada ou utilizar os dados de exemplo autofilled e selecione **teste** na parte inferior. O pedido de teste foi submetido para o serviço web e os resultados são mostrados na página.
+1. Teste de dados de entrada ou utilizar os dados de exemplo autofilled e selecione **teste** na parte inferior. O pedido de teste foi submetido para o serviço web e os resultados são mostrados na página. Embora um valor do preço é gerado para os dados de entrada, não é utilizado para gerar o valor de previsão.
 
 ## <a name="manage-the-web-service"></a>Gerir o serviço web
 

@@ -5,16 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5de6ba8ab64797da24039718ca7f2c0b88d1d33d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c449b74a9d6185b0616f62d31926feb6ff218cbb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60881610"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400086"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrar servidores com o Windows Server 2008 para o Azure
 
@@ -34,7 +33,7 @@ A secção de limitações e problemas conhecidos apresenta algumas limitações
 ## <a name="supported-operating-systems-and-environments"></a>Sistemas operativos e ambientes suportados
 
 
-|Sistema Operativo  | Ambiente no local  |
+|Sistema operativo  | Ambiente no local  |
 |---------|---------|
 |Windows Server 2008 SP2 - 32 bits e 64 bits (IA-32 e x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMs de VMware, VMs de Hyper-V e Servidores Físicos    |
 |Windows Server 2008 R2 SP1 - 64 bits</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMs de VMware, VMs de Hyper-V e Servidores Físicos|
@@ -118,7 +117,7 @@ Selecione e verifique os recursos de destino.
 
 ## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
 
-1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** > **+Política de Replicação**.
+1. Para criar uma nova política de replicação, clique em **Infraestrutura do Site Recovery** > **Políticas de Replicação** >  **+Política de Replicação**.
 2. Em **Criar política de replicação**, especifique um nome de política.
 3. Em **Limiar RPO**, especifique o limite do objetivo de ponto de recuperação (RPO). Se o RPO de replicação exceder este limite, será gerado um alerta.
 4. Em **Retenção do ponto de recuperação**, especifique (em horas) a duração da janela de retenção para cada ponto de recuperação. Servidores replicadas podem ser recuperadas para qualquer ponto nessa janela. É suportada uma retenção de até 24 horas para máquinas replicadas para o armazenamento premium e até 72 horas para armazenamento standard.

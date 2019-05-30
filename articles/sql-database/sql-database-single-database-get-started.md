@@ -12,12 +12,12 @@ ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2019
-ms.openlocfilehash: 18dde6b028365cc04343b6d2f461cdb8c1a2bede
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 3a0f3154142dc02a9ab48bc288c543b02fef46ea
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074358"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389078"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Início rápido: Criar uma base de dados na base de dados do SQL do Azure no portal do Azure
 
@@ -72,7 +72,7 @@ Para criar uma base de dados que contém os dados de exemplo do AdventureWorksLT
    - **Pretende utilizar o agrupamento elástico de SQL**: Selecione o **não** opção.
    - **Computação + armazenamento**: Selecione **configurar base de dados** e para este início rápido, selecione **as opções de compra baseado em vCore**
 
-     ![Opções de compras baseadas em vCore](media/sql-database-get-started-portal/create-database-vcore.png)
+     ![Opções de compra baseado em vCore](media/sql-database-get-started-portal/create-database-vcore.png)
 
    - Selecione **sem servidor**.
 
@@ -137,4 +137,4 @@ Quando tiver terminado com estes recursos, pode eliminá-los da seguinte forma:
   - [Ligar e consultar com o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Para criar uma base de dados na camada de computação aprovisionada com a CLI do Azure, veja [amostras de CLI do Azure](sql-database-cli-samples.md).
 - Para criar uma base de dados na camada de computação aprovisionada com o Azure PowerShell, veja [exemplos do Azure PowerShell](sql-database-powershell-samples.md).
-- Para criar uma base de dados na camada de computação sem servidor com o Azure Powershell, consulte [criar base de dados sem servidor com o PowerShell](sql-database-serverless.md#create-new-database-using-powershell)
+- Para criar uma base de dados na camada de computação sem servidor com o Azure Powershell, consulte [criar base de dados sem servidor com o PowerShell](sql-database-serverless.md#create-new-serverless-database-using-powershell)

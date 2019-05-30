@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 0b5e39e9cf2fc3ffe91db6587bc1ed1bab079e93
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 80fabccb8a59bcd472812698f624d49dc26c24fa
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65777330"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399121"
 ---
 # <a name="tutorial-send-transactions-using-azure-blockchain-service"></a>Tutorial: Enviar transações com o serviço do Azure Blockchain
 
@@ -35,10 +35,8 @@ Vai aprender a:
 
 * Completa [criar um membro de blockchain com o portal do Azure](create-member.md)
 * Completa [início rápido: Utilizar Truffle para ligar a uma rede de consórcio](connect-truffle.md)
-* Truffle requer várias ferramentas a serem instalados incluindo [node. js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), e [Truffle](https://github.com/trufflesuite/truffle).
-
-    Para configurar rapidamente no Windows 10, instale [Ubuntu no Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6) para um shell Unix Bash terminal, em seguida, instale [Truffle](https://github.com/trufflesuite/truffle). O Ubuntu na distribuição do Windows inclui o node. js e Git.
-
+* Instale [Truffle](https://github.com/trufflesuite/truffle). Truffle requer várias ferramentas a serem instalados incluindo [node. js](https://nodejs.org), [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+* Instale [Python 2.7.15](https://www.python.org/downloads/release/python-2715/). Python é necessária para Web3.
 * Instalar [Visual Studio Code](https://code.visualstudio.com/Download)
 * Instalar [extensão solidez de código do Visual Studio](https://marketplace.visualstudio.com/items?itemName=JuanBlanco.solidity)
 
@@ -65,9 +63,9 @@ Por padrão, tem um nó de transação. Vamos adicionar mais dois. Um de nós no
 
 Pode continuar com o tutorial enquanto os nós estão a ser aprovisionados. Quando o aprovisionamento estiver concluído, terá três nós de transação.
 
-## <a name="open-truffle-project"></a>Abrir projeto Truffle
+## <a name="open-truffle-console"></a>Abra a consola Truffle
 
-1. Abra um terminal de shell de Bash.
+1. Abra uma linha de comandos node. js ou o shell.
 1. Alterar o seu caminho para o diretório de projeto Truffle do pré-requisito [início rápido: Utilizar Truffle para ligar a uma rede de consórcio](connect-truffle.md). Por exemplo,
 
     ```bash
@@ -82,9 +80,9 @@ Pode continuar com o tutorial enquanto os nós estão a ser aprovisionados. Quan
 
     Truffle cria um blockchain de desenvolvimento local e fornece uma consola interativa.
 
-## <a name="connect-to-transaction-node"></a>Ligar ao nó de transação
+## <a name="create-ethereum-account"></a>Criar conta de Ethereum
 
-Utilize Web3 para ligar ao nó de transação de padrão e criar uma conta. Pode obter a cadeia de ligação Web3 do portal do Azure.
+Utilize Web3 para ligar ao nó de transação de padrão e criar uma conta de Ethereum. Pode obter a cadeia de ligação Web3 do portal do Azure.
 
 1. No portal do Azure, navegue até o nó de transação do padrão e selecione **nós de transação > código de exemplo > Web3**.
 1. Copiar a partir de JavaScript **HTTPS (chave de acesso 1)** ![Web3 código de exemplo](./media/send-transaction/web3-code.png)
@@ -105,7 +103,7 @@ Utilize Web3 para ligar ao nó de transação de padrão e criar uma conta. Pode
     web3.eth.personal.newAccount("1@myStrongPassword");
     ```
 
-    Tomar nota do endereço conta retornado e a palavra-passe utilizada para a próxima seção.
+    Tomar nota do endereço conta retornado e a palavra-passe. Precisa do endereço da conta Ethereum e da palavra-passe na próxima seção.
 
 1. O ambiente de desenvolvimento Truffle de saída.
 
@@ -138,101 +136,99 @@ Pode obter a chave pública na lista de nó de transação. Copie a chave públi
 1. Abra o ficheiro de configuração Truffle `truffle-config.js`.
 1. Substitua o conteúdo do ficheiro com as seguintes informações de configuração. Adicione as variáveis que contém os endereços de pontos finais e as informações de conta. Substitua as secções de colchete valores recolhidos a partir de secções anteriores.
 
-``` javascript
-var defaultnode = "<default transaction node connection string>";
-var alpha = "<alpha transaction node connection string>";
-var beta = "<beta transaction node connection string>";
-
-var myAccount = "<account address>";
-var myPassword = "<account password>";
-
-var Web3 = require("web3");
-```
-
-Adicione o código de configuração para o **module.exports** secção da configuração.
-
-```javascript
-module.exports = {
-  networks: {
-    defaultnode: {
-      provider:(() =>  {
-      const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
-
-      const web3 = new Web3(AzureBlockchainProvider);
-      web3.eth.personal.unlockAccount(myAccount, myPassword);
-
-      return AzureBlockchainProvider;
-      })(),
-
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0,
-      from: myAccount
-    },
-    alpha: {
-      provider: new Web3.providers.HttpProvider(alpha),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
-    },
-    beta: {
-      provider: new Web3.providers.HttpProvider(beta),
-      network_id: "*",
-      gas: 0,
-      gasPrice: 0
+    ``` javascript
+    var defaultnode = "<default transaction node connection string>";
+    var alpha = "<alpha transaction node connection string>";
+    var beta = "<beta transaction node connection string>";
+    
+    var myAccount = "<Ethereum account address>";
+    var myPassword = "<Ethereum account password>";
+    
+    var Web3 = require("web3");
+    
+    module.exports = {
+      networks: {
+        defaultnode: {
+          provider:(() =>  {
+          const AzureBlockchainProvider = new Web3.providers.HttpProvider(defaultnode);
+    
+          const web3 = new Web3(AzureBlockchainProvider);
+          web3.eth.personal.unlockAccount(myAccount, myPassword);
+    
+          return AzureBlockchainProvider;
+          })(),
+    
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0,
+          from: myAccount
+        },
+        alpha: {
+          provider: new Web3.providers.HttpProvider(alpha),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        },
+        beta: {
+          provider: new Web3.providers.HttpProvider(beta),
+          network_id: "*",
+          gas: 0,
+          gasPrice: 0
+        }
+      }
     }
-  }
-}
-```
+    ```
+
+1. Guardar as alterações para `truffle-config.js`.
 
 ## <a name="create-smart-contract"></a>Criar o contrato inteligente
 
-Na pasta **contratos**, crie um novo ficheiro designado `SimpleStorage.sol`. Adicione o seguinte código.
+1. Na pasta **contratos**, crie um novo ficheiro designado `SimpleStorage.sol`. Adicione o seguinte código.
 
-```solidity
-pragma solidity >=0.4.21 <0.6.0;
-
-contract SimpleStorage {
-    string public storedData;
-
-    constructor(string memory initVal) public {
-        storedData = initVal;
+    ```solidity
+    pragma solidity >=0.4.21 <0.6.0;
+    
+    contract SimpleStorage {
+        string public storedData;
+    
+        constructor(string memory initVal) public {
+            storedData = initVal;
+        }
+    
+        function set(string memory x) public {
+            storedData = x;
+        }
+    
+        function get() view public returns (string memory retVal) {
+            return storedData;
+        }
     }
+    ```
+    
+1. Na pasta **migrações**, crie um novo ficheiro designado `2_deploy_simplestorage.js`. Adicione o seguinte código.
 
-    function set(string memory x) public {
-        storedData = x;
-    }
+    ```solidity
+    var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    
+    module.exports = function(deployer) {
+    
+      // Pass 42 to the contract as the first constructor parameter
+      deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"})  
+    };
+    ```
 
-    function get() view public returns (string memory retVal) {
-        return storedData;
-    }
-}
-```
+1. Substitua os valores nos parênteses angulares.
 
-Na pasta **migrações**, crie um novo ficheiro designado `2_deploy_simplestorage.js`. Adicione o seguinte código.
+    | Value | Descrição
+    |-------|-------------
+    | \<chave pública do nó alfa\> | Chave pública do nó alfa
+    | \<Endereço da conta Ethereum\> | Endereço da conta Ethereum criado no nó de transação padrão
+    
+    Neste exemplo, o valor inicial do **storeData** valor está definido como 42.
 
-```solidity
-var SimpleStorage = artifacts.require("SimpleStorage.sol");
+    **privateFor** define os nós nos quais o contrato está disponível. Neste exemplo, conta do nó de transação de predefinição pode converter privadas transações para o **alpha** nó. Tem de adicionar as chaves públicas para todos os participantes da transação privada. Se não incluir **privateFor:** e **partir:** , as transações de contrato inteligentes sejam públicas e pode ser vistas por todos os membros de consortium.
 
-module.exports = function(deployer) {
-
-  // Pass 42 to the contract as the first constructor parameter
-  deployer.deploy(SimpleStorage, "42", {privateFor: ["<alpha node public key>"], from:"<Account address>"})  
-};
-```
-
-Substitua os valores nos parênteses angulares.
-
-| Value | Descrição
-|-------|-------------
-| \<chave pública do nó alfa\> | Chave pública do nó alfa
-| \<Endereço da conta\> | Endereço da conta criado no nó de transação de predefinição.
-
-Neste exemplo, o valor inicial do **storeData** valor está definido como 42.
-
-**privateFor** define os nós nos quais o contrato está disponível. Neste exemplo, conta do nó de transação de predefinição pode converter privadas transações para o **alpha** nó. Tem de adicionar as chaves públicas para todos os participantes da transação privada. Se não incluir **privateFor:** e **partir:**, as transações de contrato inteligentes sejam públicas e pode ser vistas por todos os membros de consortium.
-
-Guarde todos os ficheiros selecionando **ficheiro > Guardar tudo**.
+1. Guarde todos os ficheiros selecionando **ficheiro > Guardar tudo**.
 
 ## <a name="deploy-smart-contract"></a>Implementar o contrato inteligente
 
@@ -247,7 +243,7 @@ Truffle compila primeiro e, em seguida, implementa a **SimpleStorage** contrato 
 Exemplo de saída:
 
 ```
-pat@DESKTOP:/mnt/c/truffledemo$ truffle migrate --network defaultnode
+admin@desktop:/mnt/c/truffledemo$ truffle migrate --network defaultnode
 
 2_deploy_simplestorage.js
 =========================
@@ -279,190 +275,185 @@ Summary
 
 ## <a name="validate-contract-privacy"></a>Validar a privacidade do contrato
 
-Devido a privacidade de contrato, apenas podem ser consultados valores de contrato de nós que Declaramos na **privateFor**. Neste exemplo, podemos fazer consultar o nó de transação padrão porque a conta existe nesse nó. Utilizar a consola de Truffle, ligue para o nó de transação de predefinição.
+Devido a privacidade de contrato, apenas podem ser consultados valores de contrato de nós que Declaramos na **privateFor**. Neste exemplo, podemos fazer consultar o nó de transação padrão porque a conta existe nesse nó. 
 
-```bash
-truffle console --network defaultnode
-```
+1. Utilizar a consola de Truffle, ligue para o nó de transação de predefinição.
 
-Execute um comando que devolve o valor da instância do contrato.
+    ```bash
+    truffle console --network defaultnode
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Na consola do Truffle, execute código que retorna o valor da instância do contrato.
 
-Se consultar o nó de transação de predefinição for bem-sucedida, é devolvido o valor 42.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Exemplo de saída:
+    Se consultar o nó de transação de predefinição for bem-sucedida, é devolvido o valor 42. Por exemplo:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network defaultnode
-truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network defaultnode
+    truffle(defaultnode)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-Sair da consola.
+1. Sair da consola de Truffle.
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-Uma vez que declarámos **alpha** chave pública do nó no **privateFor**, podemos fazer consultar o **alpha** nó. Utilizando a consola de Truffle, ligar para o **alpha** nó.
+Uma vez que declarámos **alpha** chave pública do nó no **privateFor**, podemos fazer consultar o **alpha** nó.
 
-```bash
-truffle console --network alpha
-```
+1. Utilizando a consola de Truffle, ligar para o **alpha** nó.
 
-Execute um comando que devolve o valor da instância do contrato.
+    ```bash
+    truffle console --network alpha
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Na consola do Truffle, execute código que retorna o valor da instância do contrato.
 
-Se a consultar o **alpha** nó for bem-sucedida, o valor 42 é devolvido.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Exemplo de saída:
+    Se a consultar o **alpha** nó for bem-sucedida, o valor 42 é devolvido. Por exemplo:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network alpha
-truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-'42'
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network alpha
+    truffle(alpha)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    '42'
+    ```
 
-Sair da consola.
+1. Sair da consola de Truffle.
 
-```bash
-.exit
-```
+    ```bash
+    .exit
+    ```
 
-Uma vez que não Declaramos **beta** chave pública do nó no **privateFor**, não conseguiremos consultar o **beta** nó devido a privacidade do contrato. Utilizando a consola de Truffle, ligar para o **beta** nó.
+Uma vez que não Declaramos **beta** chave pública do nó no **privateFor**, não conseguiremos consultar o **beta** nó devido a privacidade do contrato.
 
-```bash
-truffle console --network beta
-```
+1. Utilizando a consola de Truffle, ligar para o **beta** nó.
 
-Execute um comando que devolve o valor da instância do contrato.
+    ```bash
+    truffle console --network beta
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Execute um código que retorna o valor da instância do contrato.
 
-Consultar os **beta** nó falhar, uma vez que o contrato é privado.
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Exemplo de saída:
+1. Consultar os **beta** nó falhar, uma vez que o contrato é privado. Por exemplo:
 
-```
-pat@DESKTOP-J41EP5S:/mnt/c/truffledemo$ truffle console --network beta
-truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
-Thrown:
-Error: Returned values aren't valid, did it run Out of Gas?
-    at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
-    at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
-    at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
-    at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
-```
+    ```
+    admin@desktop:/mnt/c/truffledemo$ truffle console --network beta
+    truffle(beta)> SimpleStorage.deployed().then(function(instance){return instance.get();})
+    Thrown:
+    Error: Returned values aren't valid, did it run Out of Gas?
+        at XMLHttpRequest._onHttpResponseEnd (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:345:8)
+        at XMLHttpRequest._setReadyState (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request.ts:219:8)
+        at XMLHttpRequestEventTarget.dispatchEvent (/mnt/c/truffledemo/node_modules/xhr2-cookies/xml-http-request-event-target.ts:44:13)
+        at XMLHttpRequest.request.onreadystatechange (/mnt/c/truffledemo/node_modules/web3-providers-http/src/index.js:96:13)
+    ```
 
-Sair da consola.
+1. Sair da consola de Truffle.
 
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="send-a-transaction"></a>Enviar uma transação
 
-Crie um ficheiro chamado `sampletx.js`. Guarde-o na raiz do seu projeto.
+1. Crie um ficheiro chamado `sampletx.js`. Guarde-o na raiz do seu projeto.
+1. O script a seguir define o contrato **storedData** valor da variável 65. Adicione o código para o novo ficheiro.
 
-Este script define o contrato **storedData** valor da variável 65. Adicione o código para o novo ficheiro.
+    ```javascript
+    var SimpleStorage = artifacts.require("SimpleStorage");
+    
+    module.exports = function(done) {
+      console.log("Getting deployed version of SimpleStorage...")
+      SimpleStorage.deployed().then(function(instance) {
+        console.log("Setting value to 65...");
+        return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Ethereum account address>"});
+      }).then(function(result) {
+        console.log("Transaction:", result.tx);
+        console.log("Finished!");
+        done();
+      }).catch(function(e) {
+        console.log(e);
+        done();
+      });
+    };
+    ```
 
-```javascript
-var SimpleStorage = artifacts.require("SimpleStorage");
+    Substitua os valores nos colchetes angulares, em seguida, guarde o ficheiro.
 
-module.exports = function(done) {
-  console.log("Getting deployed version of SimpleStorage...")
-  SimpleStorage.deployed().then(function(instance) {
-    console.log("Setting value to 65...");
-    return instance.set("65", {privateFor: ["<alpha node public key>"], from:"<Account address>"});
-  }).then(function(result) {
-    console.log("Transaction:", result.tx);
-    console.log("Finished!");
-    done();
-  }).catch(function(e) {
-    console.log(e);
-    done();
-  });
-};
-```
+    | Value | Descrição
+    |-------|-------------
+    | \<chave pública do nó alfa\> | Chave pública do nó alfa
+    | \<Endereço da conta Ethereum\> | Endereço da conta Ethereum criado no nó de transação de predefinição.
 
-Substitua os valores nos colchetes angulares, em seguida, guarde o ficheiro.
+    **privateFor** define os nós para o qual a transação está disponível. Neste exemplo, conta do nó de transação de predefinição pode converter privadas transações para o **alpha** nó. Tem de adicionar as chaves públicas para todos os participantes da transação privada.
 
-| Value | Descrição
-|-------|-------------
-| \<chave pública do nó alfa\> | Chave pública do nó alfa
-| \<Endereço da conta\> | Endereço da conta criado no nó de transação de predefinição.
+1. Utilize Truffle para executar o script para o nó de transação de predefinição.
 
-**privateFor** define os nós para o qual a transação está disponível. Neste exemplo, conta do nó de transação de predefinição pode converter privadas transações para o **alpha** nó. Tem de adicionar as chaves públicas para todos os participantes da transação privada.
+    ```bash
+    truffle exec sampletx.js --network defaultnode
+    ```
 
-Utilize Truffle para executar o script para o nó de transação de predefinição.
+1. Na consola do Truffle, execute código que retorna o valor da instância do contrato.
 
-```bash
-truffle exec sampletx.js --network defaultnode
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
 
-Execute um comando que devolve o valor da instância do contrato.
+    Se a transação foi concluída com êxito, é devolvido o valor de 65. Por exemplo:
+    
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+1. Sair da consola de Truffle.
 
-Se a transação foi concluída com êxito, é devolvido o valor de 65.
-
-Exemplo de saída:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Sair da consola.
-
-```bash
-.exit
-```
-
+    ```bash
+    .exit
+    ```
+    
 ## <a name="validate-transaction-privacy"></a>Validar a privacidade de transação
 
-Devido a privacidade de transação, transações só podem ser executadas em nós que Declaramos na **privateFor**. Neste exemplo, podemos realizar transações, uma vez que declarámos **alpha** chave pública do nó no **privateFor**. Utilizar Truffle para executar a transação no **alpha** nó.
+Devido a privacidade de transação, transações só podem ser executadas em nós que Declaramos na **privateFor**. Neste exemplo, podemos realizar transações, uma vez que declarámos **alpha** chave pública do nó no **privateFor**. 
 
-```bash
-truffle exec sampletx.js --network alpha
-```
+1. Utilizar Truffle para executar a transação no **alpha** nó.
 
-Execute um comando que devolve o valor da instância do contrato.
+    ```bash
+    truffle exec sampletx.js --network alpha
+    ```
+    
+1. Execute o código que retorna o valor da instância do contrato.
 
-```bash
-SimpleStorage.deployed().then(function(instance){return instance.get();})
-```
+    ```bash
+    SimpleStorage.deployed().then(function(instance){return instance.get();})
+    ```
+    
+    Se a transação foi concluída com êxito, é devolvido o valor de 65. Por exemplo:
 
-Se a transação foi concluída com êxito, é devolvido o valor de 65.
+    ```
+    Getting deployed version of SimpleStorage...
+    Setting value to 65...
+    Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
+    Finished!
+    ```
+    
+1. Sair da consola de Truffle.
 
-Exemplo de saída:
-
-```
-Getting deployed version of SimpleStorage...
-Setting value to 65...
-Transaction: 0x864e67744c2502ce75ef6e5e09d1bfeb5cdfb7b880428fceca84bc8fd44e6ce0
-Finished!
-```
-
-Sair da consola.
-
-```bash
-.exit
-```
-
-Neste tutorial, adicionou dois nós de transação para demonstrar a privacidade de contrato e de transação. Utilizou o nó de padrão para implementar um contrato de inteligente privado. Testado privacidade pela consulta de contrato de valores e transações de desempenho a desenvolver o blockchain.
+    ```bash
+    .exit
+    ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -474,6 +465,8 @@ Para eliminar o grupo de recursos:
 1. Selecione **Eliminar grupo de recursos**. Verifique a eliminação ao introduzir o nome do grupo de recursos e selecione **eliminar**.
 
 ## <a name="next-steps"></a>Passos Seguintes
+
+Neste tutorial, adicionou dois nós de transação para demonstrar a privacidade de contrato e de transação. Utilizou o nó de padrão para implementar um contrato de inteligente privado. Testado privacidade pela consulta de contrato de valores e transações de desempenho a desenvolver o blockchain.
 
 > [!div class="nextstepaction"]
 > [Desenvolver aplicações de blockchain com o serviço do Azure Blockchain](develop.md)

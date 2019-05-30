@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: b2ff67e207f8a3a2b79635b080c78021162f0ac6
-ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.openlocfilehash: 6d2b9c8dd8fb89e201cff5155b1dec0857204752
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65519240"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66400054"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrar VMs do Amazon Web Services (AWS) para o Azure
 
@@ -109,9 +109,9 @@ Na página **Objetivo da proteção**, selecione os seguintes valores:
 
 |    |  |
 |---------|-----------|
-| Onde estão localizadas as máquinas virtuais? |Escolha **no local**.|
+| Onde estão localizadas as máquinas? |Escolha **no local**.|
 | Para onde pretende replicar as máquinas? |Selecionar **Para o Azure**.|
-| As suas máquinas estão virtualizadas? |Selecione **Não virtualizadas / Outro**.|
+| As máquinas estão virtualizadas? |Selecione **Não virtualizadas / Outro**.|
 
 Quando tiver terminado, selecione **OK** para avançar para a secção seguinte.
 
@@ -163,7 +163,7 @@ Antes de poder ativar a replicação, tem de criar uma política de replicação
 
 Quando tiver terminado todas as cinco secções em **Preparar infraestrutura**, selecione **OK**.
 
-## <a name="enable-replication"></a>Ativar replicação
+## <a name="enable-replication"></a>Ativar a replicação
 
 Ative a replicação em cada VM que quer migrar. Quando a replicação for ativada, o Site Recovery instala o Serviço de mobilidade automaticamente.
 
@@ -183,7 +183,7 @@ Ative a replicação em cada VM que quer migrar. Quando a replicação for ativa
 
      |  |  |
      |-----|-----|
-     | Alvo: | Deixe a predefinição.|
+     | Destino: | Deixe a predefinição.|
      | Subscrição: | Selecione a subscrição que tem estado a utilizar.|
      | Grupo de recursos de ativação pós-falha:| Utilize o grupo de recursos que criou na secção [Preparar recursos do Azure](#prepare-azure-resources).|
      | Modelo de implementação de ativação pós-falha: | Selecione o **Resource Manager**.|
@@ -200,7 +200,7 @@ Ative a replicação em cada VM que quer migrar. Quando a replicação for ativa
 
      Selecione a conta que criou no servidor de configuração e depois selecione **OK**.
 
-   - 5: Configurar definições de replicação
+   - 5: Configurar as definições de replicação
 
      Certifique-se de que a política de replicação selecionada na lista pendente é **myReplicationPolicy** e depois selecione **OK**.
 
@@ -246,7 +246,7 @@ Execute uma ativação pós-falha real para as instâncias do EC2, para migrá-l
    - Desta forma, o processo de migração é concluído, a replicação da VM do AWS é parada e a faturação do Site Recovery para a VM também é parada.
    - Este passo limpa os dados de replicação. Não elimina as VMs migradas. 
 
-     ![Concluir migração](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Concluir a migração](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Não cancele uma ativação pós-falha que está em curso*. Antes de iniciar a ativação pós-falha, a replicação de VM é interrompida. Se cancelar uma ativação pós-falha que está em curso, a mesma parará, mas a VM não será replicada outra vez.  

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 05/29/2019
 ms.topic: quickstart
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: e1b7558ea83c8948a8984215e15040e4d929cb1b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4589a9de4c2a8fa43e4e653d4447c7a7715a6e42
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141388"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399952"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Início rápido: Criar um membro de blockchain de serviço do Azure Blockchain com a CLI do Azure
 
@@ -39,58 +39,25 @@ Crie um grupo de recursos com o comando [az group create](https://docs.microsoft
 az group create --name myResourceGroup --location eastus
 ```
 
-## <a name="create-a-blockchain-member"></a>Criar um membro de blockchain
+## <a name="create-a-blockchain-member"></a>Crie um membro de blockchain
 
-Crie um membro de blockchain no Azure Blockchain Service que executa o protocolo de contabilidade de quórum num consórcio de novo.
+Crie um membro de blockchain no Azure Blockchain Service que executa o protocolo de contabilidade de quórum num consórcio de novo. Existem vários parâmetros e as propriedades que precisa passar. Substitua os parâmetros de exemplo pelos seus valores.
 
-Existem vários parâmetros e as propriedades que precisa passar. Substitua os seguintes parâmetros com os seus valores.
+```azurecli-interactive
+az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
+```
 
 | Parâmetro | Descrição |
 |---------|-------------|
 | **resource-group** | Nome do grupo de recursos onde os recursos de serviço do Azure Blockchain são criados. Utilize o grupo de recursos que criou na secção anterior.
 | **name** | Um nome exclusivo que identifica o membro de blockchain de serviço do Azure Blockchain. O nome é utilizado para o endereço de ponto final público. Por exemplo, `myblockchainmember.blockchain.azure.com`.
 | **localização** | Região do Azure onde o membro de blockchain é criado. Por exemplo, `eastus`. Escolha a localização que estiver mais próxima dos seus utilizadores ou das suas outras aplicações do Azure.
-| **password** | A palavra-passe de conta de membro. A palavra-passe da conta de membro é utilizada para autenticar para ponto final público o membro de blockchain usando a autenticação básica.
+| **password** | A palavra-passe para o nó de transação o membro predefinido. Utilize a palavra-passe para a autenticação básica quando ligar ao ponto de extremidade no padrão transação nó pública do membro de blockchain.
 | **consortium** | Nome do consortium para aderir ou criar.
-| **consortiumManagementAccountPassword** | A palavra-passe de gestão de consortium. Isto é utilizado para ingressar num consórcio.
+| **consortiumAccountPassword** | A palavra-passe da conta de consortium também é conhecido como a palavra-passe da conta de membro. A palavra-passe da conta de membro é utilizada para encriptar a chave privada para a conta de Ethereum, que é criada para o membro. Utilizar a conta de membro e a palavra-passe da conta de membro para a gestão de consortium.
 | **skuName** | Tipo de camada. Utilize S0 Standard e B0 para o básico.
 
-```azurecli-interactive
-az resource create --resource-group myResourceGroup --name myblockchainmember --resource-type Microsoft.Blockchain/blockchainMembers --is-full-object --properties "{ \"location\": \"eastus\", \"properties\": {\"password\": \"strongMemberAccountPassword@1\", \"protocol\": \"Quorum\", \"consortium\": \"myConsortiumName\", \"consortiumManagementAccountPassword\": \"strongConsortiumManagementPassword@1\" }, \"sku\": { \"name\": \"S0\" } }"
-```
-
 Demora cerca de 10 minutos para criar o membro de blockchain e recursos de suporte.
-
-O seguinte resultado de exemplo mostra um bem-sucedida de operação de criação.
-
-```json
-{
-  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Blockchain/blockchainMembers/mymembername",
-  "kind": null,
-  "location": "eastus",
-  "name": "mymembername",
-  "properties": {
-    "ConsortiumMemberDisplayName": "mymembername",
-    "consortium": "myConsortiumName",
-    "consortiumManagementAccountAddress": "0xfe5fbb9d1036298abf415282f52397ade5d5beef",
-    "consortiumManagementAccountPassword": null,
-    "consortiumRole": "ADMIN",
-    "dns": "mymembername.blockchain.azure.com",
-    "protocol": "Quorum",
-    "provisioningState": "Succeeded",
-    "userName": "mymembername",
-    "validatorNodesSku": {
-      "capacity": 2
-    }
-  },
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "name": "S0",
-    "tier": "Standard"
-  },
-  "type": "Microsoft.Blockchain/blockchainMembers"
-}
-```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

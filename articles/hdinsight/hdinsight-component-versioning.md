@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 03/26/2019
-ms.openlocfilehash: 0b3343a9635fe4120f03e56c41797591d2f25815
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e972dfdd7694a1a43302fa5879ea22f2ecd051ad
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65793689"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298863"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes do Apache Hadoop e versões disponíveis com o HDInsight?
 
@@ -50,7 +50,7 @@ As versões de componente associadas a versões de cluster do HDInsight estão l
 | Apache Phoenix |5 |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.2 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (apenas Windows) |-|-|
 | Apache Livy |0,5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.1.1 |1.1.1.0 * (ver nota abaixo) | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1.1 |1.1, 1.0 * (ver nota abaixo) | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
@@ -78,7 +78,7 @@ As tabelas seguintes listam as versões do HDInsight. As versões HDP que corres
 
 A tabela seguinte lista as versões do HDInsight que estão disponíveis no portal do Azure, bem como outros métodos de implantação, como o PowerShell e o SDK de .NET.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data de lançamento | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |24 de setembro de 2018 | | |Sim |Sim |
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de Abril de 2017 | | |Sim |Sim |
@@ -92,7 +92,7 @@ A tabela seguinte lista as versões do HDInsight que estão disponíveis no port
 
 A tabela seguinte lista as versões do HDInsight que são **não** disponível no portal do Azure.
 
-| Versão do HDInsight | Versão HDP | SO DE VM | Data de lançamento | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
+| Versão do HDInsight | Versão HDP | SO DE VM | Data da versão | Data de expiração de suporte | Data de retirada | Elevada disponibilidade |  Disponibilidade no portal do Azure | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 3.5 <br> (Não-Spark) |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de Setembro de 2016 |5 de Setembro de 2017 |28 de junho de 2018 |Sim |Não |
 | HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de Março de 2016 |29 de Dezembro de 2016 |9 de Janeiro de 2018 |Sim |Não |
@@ -139,7 +139,7 @@ Atualmente, apenas os seguintes tipos de cluster suportam o Enterprise Security 
 
 - Hadoop (apenas no HDInsight 3.6)
 - Spark
-- Consulta Interativa
+- Interactive Query
 
 ### <a name="support-for-azure-data-lake-storage"></a>Suporte para o armazenamento do Azure Data Lake
 
@@ -243,7 +243,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
 * Suporte todas as regiões, exceto no sul do Brasil e oeste do Japão:
 
-|Tipo de cluster|Hadoop|HBase|Consulta Interativa|Storm|Spark|Servidor de ML|Kafka|
+|Tipo de cluster|Hadoop|HBase|Interactive Query|Storm|Spark|Servidor de ML|Kafka|
 |---|---|---|---|---|---|---|---|
 |Cabeça: tamanho VM predefinido|D12 v2|D12 v2|D13 v2|A3|D12 v2|D12 v2|D3v2|
 |HEAD: recomendado tamanhos de VM|D3 v2|D3 v2|D13|A4 v2|D12 v2|D12 v2|A2M v2|
@@ -275,7 +275,7 @@ As tabelas seguintes listam os tamanhos de máquina virtual (VM) padrão para os
 
 * Sul do Brasil e oeste do Japão apenas (não existem tamanhos v2):
 
-  | Tipo de cluster | Hadoop | HBase | Consulta Interativa |Storm | Spark | ML Services |
+  | Tipo de cluster | Hadoop | HBase | Interactive Query |Storm | Spark | Serviços ML |
   | --- | --- | --- | --- | --- | --- | --- |
   | Cabeça: tamanho VM predefinido |D12 |D12  | D13 |A3 |D12 |D12 |
   | HEAD: recomendado tamanhos de VM |D3,<br/> D4,<br/> D12 |D3,<br/> D4,<br/> D12  | D13,<br/> D14 |A3,<br/> A4,<br/> A5 |D12,<br/> D13,<br/> D14 |D12,<br/> D13,<br/> D14 |

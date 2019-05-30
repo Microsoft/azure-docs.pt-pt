@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9c8d1fb234efd5df297082cfc1001f28ca1656
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2b9e4f5208eb1f6abb0d6fd786630c183a04ce50
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990392"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388874"
 ---
 # <a name="tutorial-integrate-workday-with-azure-active-directory"></a>Tutorial: Integrar o dia de trabalho com o Azure Active Directory
 
@@ -88,7 +88,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     > [!NOTE]
     > Estes valores não são o real. Atualize estes valores com o URL de início de sessão real e o URL de resposta. O URL de resposta tem de ter um subdomínio por exemplo: www, wd2, wd3, wd3 impl, wd5, wd5 impl).
-    > Através de algo como `http://www.myworkday.com` funciona, mas `http://myworkday.com` não existir. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/partners-services/services/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Através de algo como `http://www.myworkday.com` funciona, mas `http://myworkday.com` não existir. Contacte [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
 
 6. A aplicação de dia de trabalho espera que as asserções SAML num formato específico, o que requer a adição de mapeamentos de atributos personalizado à sua configuração de atributos de token SAML. Captura de ecrã seguinte mostra a lista de atributos predefinidos, em que **nameidentifier** está mapeada com **user.userprincipalname**. Aplicação workday espera **nameidentifier** seja mapeado com **user.mail**, **UPN**, etc., por isso terá de editar o mapeamento do atributo clicando no  **Editar** ícone e altere o mapeamento do atributo.
 
@@ -138,7 +138,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
    > [!NOTE]
    > O valor do atributo de ambiente está associado ao valor do URL de inquilino:  
    > -Se o nome de domínio do URL de inquilino do Workday começa com impl por exemplo: *https:\//impl.workday.com/\<inquilino\>/login-saml2.flex*), o **ambiente**atributo tem de ser definido para a implementação.  
-   > – Se o nome de domínio é iniciado com algo mais, terá de contactar [equipa de suporte de cliente do Workday](https://www.workday.com/partners-services/services/support.html) para obter a correspondência **ambiente** valor.
+   > – Se o nome de domínio é iniciado com algo mais, terá de contactar [equipa de suporte de cliente do Workday](https://www.workday.com/en-us/partners-services/services/support.html) para obter a correspondência **ambiente** valor.
 
 4. Na **programa de configuração de SAML** secção, execute os seguintes passos:
 
@@ -197,7 +197,7 @@ Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
 
     ![Configuração de SSO](./media/workday-tutorial/WorkdaySSOConfiguratio.png "configuração de SSO")
 
-    a.  Na **ID do fornecedor de serviço** caixa de texto, tipo **https://www.workday.com**.
+    a.  Na **ID do fornecedor de serviço** caixa de texto, tipo **https://www.workday.com** .
 
     b. Selecione **não Deflate o pedido de autenticação iniciado por SP**.
 

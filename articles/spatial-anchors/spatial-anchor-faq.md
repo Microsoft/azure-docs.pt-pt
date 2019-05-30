@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fdde10c9ef7c035ed36b5f823a0b77e7c8b53803
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: cd004e1eb6a40648c52dd3b5aee0ec38bff8f9b3
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65964564"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304173"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Perguntas mais frequentes acerca do Azure Spatial Anchors
 
@@ -57,7 +57,7 @@ Para fornecer transparência, segue-se uma imagem de um ambiente e a cloud de po
 
 Azure âncoras geográficos respeita os [termos de contrato de serviço do Azure](https://go.microsoft.com/fwLink/?LinkID=522330&amp;amp;clcid=0x9)e o [declaração de privacidade do Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839&amp;clcid=0x409).
 
-![Um ambiente e sua cloud ponto dispersas derivada](./media/sparce-point-cloud.png)
+![Um ambiente e sua cloud ponto dispersas derivada](./media/sparse-point-cloud.png)
 *figura 1: Um ambiente e sua cloud ponto dispersas derivada*
 
 

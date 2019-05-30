@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 3959eb789102cd3d54fc7bab32e585b3c09d897b
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 7870322746d8cb647547e5c85036579611ac3292
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65792143"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303313"
 ---
 # <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Início rápido: Use o .NET e C# no Visual Studio para ligar e consultar uma base de dados SQL do Azure
 
@@ -43,7 +43,7 @@ Para concluir este guia de início rápido, necessita de:
   > [!IMPORTANT]
   > Os scripts neste artigo são escritos para utilizar a base de dados do Adventure Works. Com uma instância gerida, tem de importar a base de dados do Adventure Works para uma base de dados de instância ou modificar os scripts neste artigo para utilizar a base de dados do Wide World Importers.
 
-- [Visual Studio 2017](https://www.visualstudio.com/downloads/) da Comunidade, Professional ou Enterprise edition.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) da Comunidade, Professional ou Enterprise edition.
 
 ## <a name="get-sql-server-connection-information"></a>Obter as informações de ligação do SQL server
 
@@ -59,7 +59,7 @@ Obtenha as informações de ligação que tem de se ligar à base de dados SQL d
 
 1. No Visual Studio, selecione **arquivo** > **New** > **projeto**. 
    
-1. Na **novo projeto** caixa de diálogo, selecione **Visual C#** e, em seguida, selecione **aplicação de consola (.NET Framework)**.
+1. Na **novo projeto** caixa de diálogo, selecione **Visual C#** e, em seguida, selecione **aplicação de consola (.NET Framework)** .
    
 1. Introduza *sqltest* para o nome do projeto e, em seguida, selecione **OK**. O novo projeto é criado. 
    

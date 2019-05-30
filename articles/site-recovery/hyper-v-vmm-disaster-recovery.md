@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cccfc3d028cb2da9346e629a5aca080bedd7fee9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 067040349a5d435860492497dddbf39aad2635eb
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124152"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398410"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configurar a recuperação após desastre para VMs de Hyper-V para um site no local secundário
 
@@ -123,7 +123,7 @@ Selecione o servidor do VMM e a cloud de destino:
 
 Antes de começar, confirme que todos os anfitriões que utilizam a política têm o mesmo sistema operativo. Se os anfitriões estiverem a executar versões diferentes do Windows Server, precisa de várias políticas de replicação.
 
-1. Para criar uma nova política de replicação, clique em **Preparar a infraestrutura** > **Definições de Replicação** > **+Criar e associar**.
+1. Para criar uma nova política de replicação, clique em **Preparar a infraestrutura** > **Definições de Replicação** >  **+Criar e associar**.
 2. Em **Criar e associar política**, especifique um nome de política. O tipo de origem e de destino deve ser **Hyper-V**.
 3. Em**Versão do anfitrião de Hyper-V**, selecione o sistema operativo que está a ser executado no anfitrião.
 4. Em **Tipo de autenticação** e **Porta de autenticação**, especifique de que forma é que o tráfego é autenticado entre os servidores do anfitrião de Hyper-V principal e de recuperação.

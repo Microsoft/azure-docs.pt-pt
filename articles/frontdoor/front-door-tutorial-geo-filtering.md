@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: c04a9dff55794a3e48146e8effc3627452b3db14
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: f2b5a2bc3248c9f2ee0eb49e993fd55c7714367a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950161"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389155"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Como configurar uma política de WAF filtragem geográfica para a porta de entrada
 Este tutorial mostra como utilizar o Azure PowerShell para criar uma política de filtragem geográfica de exemplo e associá-la ao anfitrião de front-end do Front Door existente. Esta política de filtragem geográfica de exemplo irá bloquear pedidos de todos os outros países/regiões, exceto Estados Unidos.
@@ -110,6 +110,5 @@ Set-AzFrontDoor -InputObject $geoFrontDoorObjectExample[0]
 > Apenas terá de definir a propriedade de WebApplicationFirewallPolicyLink uma vez para ligar uma política de WAF para um anfitrião de front-end de porta de entrada. Atualizações à política subsequentes são aplicadas automaticamente para o anfitrião de front-end.
 
 ## <a name="next-steps"></a>Passos Seguintes
-
-- Saiba mais sobre a [segurança de camada de aplicação com o Front Door](front-door-application-security.md).
+- Saiba mais sobre [firewall de aplicações web do Azure](waf-overview.md).
 - Saiba como [criar um Front Door](quickstart-create-front-door.md).

@@ -219,18 +219,18 @@
           href: backup-azure-restore-windows-server.md
         - name: Restaurar o Estado do Sistema Windows Server
           href: backup-azure-restore-system-state.md
-        - name: Monitorizar e gerir cofres dos Serviços de Recuperação
-          href: backup-azure-manage-windows-server.md
     - name: Cofre dos Serviços de Recuperação
       items:
         - name: Descrição geral dos cofres dos Serviços de Recuperação
           href: backup-azure-recovery-services-vault-overview.md
-        - name: Atualizar um cofre do Backup para um cofre dos Serviços de Recuperação
-          href: backup-azure-upgrade-backup-to-recovery-services.md
+        - name: Criar cofre dos Serviços de Recuperação
+          href: backup-create-rs-vault.md
         - name: Eliminar um cofre dos Serviços de Recuperação
           href: backup-azure-delete-vault.md
         - name: Mover um cofre dos Serviços de Recuperação
           href: backup-azure-move-recovery-services-vault.md
+        - name: Monitorizar e gerir cofres dos Serviços de Recuperação
+          href: backup-azure-manage-windows-server.md
     - name: Resolução de problemas
       items:
         - name: VM do Azure

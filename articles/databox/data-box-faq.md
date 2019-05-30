@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/22/2019
+ms.date: 05/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 2b021975983858386cd7c847ba11a26f4feb9562
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 18c6175ede1e8459d3a9ca60f7890cc43d75e5ba
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66150467"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236285"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas Mais Frequentes
 
@@ -124,7 +124,7 @@ R. Se não conseguir aceder à palavra-passe de desbloqueio no portal do Azure, 
 ### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>P. Configuração do canal de porta é suportada na caixa de dados? E quanto a MPIO?
 R. Não suportamos a configuração do canal de porta, a configuração de Multipath e/s (MPIO) ou a configuração de vLAN no Data Box.
 
-## <a name="track-status"></a>Controlar o estado
+## <a name="track-status"></a>Acompanhar o estado
 
 ### <a name="q-how-do-i-track-the-data-box-from-when-i-placed-the-order-to-shipping-the-device-back"></a>P. Como posso fazer o acompanhamento do Data Box desde o momento em que fiz a encomenda até à devolução do dispositivo? 
 R.  Pode acompanhar o estado da encomenda do Data Box no portal do Azure. Quando cria a encomenda, também lhe é pedido que indique um e-mail para notificações. Se o tiver indicado, todas as alterações ao estado da encomenda são-lhe notificadas por e-mail. Mais informações sobre como [configurar os e-mails de notificações](data-box-portal-ui-admin.md#edit-notification-details).
@@ -184,7 +184,7 @@ R. Se o dispositivo foi entregue danificado ou se houver provas de adulteração
 R. Para o serviço Data Box, a Microsoft processa o envio de e para o datacenter do Azure. Se quiser utilizar a sua própria transportadora, pode utilizar o serviço Importar/Exportar do Azure. Para obter mais informações, aceda a [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md) (O que é o serviço Importar/Exportar do Azure?).
 
 ### <a name="q-will-my-data-box-devices-cross-country-borders-during-shipping"></a>P. Serão os meus dispositivos da caixa de dados entre limites de país durante o envio?
-R. Todos os dispositivos do Data Box são fornecidos a partir de dentro do mesmo país do seu destino e não para várias quaisquer limites internacionais. A única exceção é para pedidos da União Europeia (UE), em que dispositivos podem ser fornecidas de e para qualquer país da UE.
+R. Todos os dispositivos do Data Box são fornecidos a partir de dentro do mesmo país do seu destino e não para várias quaisquer limites internacionais. A única exceção é para pedidos da União Europeia (UE), em que dispositivos podem ser fornecidas de e para qualquer país da UE. Isto aplica-se para o Data Box e os dispositivos pesadas de caixa de dados.
 
 ### <a name="q-e-ink-display-is-not-showing-the-return-shipment-label-what-should-i-do"></a>P. O ecrã E-Ink não está a mostrar a guia de remessa da devolução. O que devo fazer?
 R. Se o ecrã E-Ink não mostrar a guia de remessa da devolução, siga os passos abaixo:

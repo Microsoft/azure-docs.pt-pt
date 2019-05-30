@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 463ace3aa9004bdffe07a16a062a4871b8daf699
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38cc9440e3cb5492ef1f45b3907fd2c00867f350
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547375"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66385018"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-python"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e Python
 
@@ -35,7 +35,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     import http.client, urllib.parse, json
     ```
 
-2. Criar variáveis para o anfitrião da API e o caminho, [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial.
+2. Criar variáveis para o anfitrião da API e o caminho, [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa parcial.
 
     ```python
     subscriptionKey = 'enter key here'
@@ -151,4 +151,4 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
 ## <a name="see-also"></a>Consulte também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
-- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

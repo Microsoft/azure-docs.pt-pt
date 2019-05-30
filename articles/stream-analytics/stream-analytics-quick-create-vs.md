@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 1a72e2874e28a2aa5b69866bd959743707ea9d99
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 9f62cd132e9aa969a804cd48d552baf9719a0eb6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62123691"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66303003"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Início rápido: Criar uma tarefa de Stream Analytics, utilizando as ferramentas do Azure Stream Analytics para Visual Studio
 
@@ -25,7 +25,7 @@ Este início rápido mostra como criar e executar uma tarefa do Stream Analytics
 
 * Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-* Instale o Visual Studio 2017, o Visual Studio 2015 ou o Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada.
+* Instale o Visual Studio 2019, Visual Studio 2015 ou Visual Studio 2013 atualização 4. As edições Enterprise (Ultimate/Premium), Professional e Community são suportadas. A edição Express não é suportada.
 
 * Siga as [instruções de instalação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) para instalar as ferramentas do Stream Analytics para Visual Studio.
 
@@ -44,7 +44,7 @@ Antes de definir a tarefa do Stream Analytics, deve preparar os dados, o que mai
    |Subscrição  | \<A sua subscrição\> |  Selecione a subscrição do Azure que pretende utilizar. |
    |Grupo de recursos   |   asaquickstart-resourcegroup  |   Selecione **Criar Novo** e introduza um novo nome de grupo de recursos para a sua conta. |
    |Região  |  \<Selecione a região mais próxima dos seus utilizadores\> | Selecione uma localização geográfica onde pode alojar o seu IoT Hub. Utilize a localização mais próxima dos seus utilizadores. |
-   |Nome do Hub IoT  | MyASAIoTHub  |   Selecione um nome para o seu IoT Hub.   |
+   |Nome do IoT Hub  | MyASAIoTHub  |   Selecione um nome para o seu IoT Hub.   |
 
    ![Criar um Hub IoT](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
 
@@ -113,8 +113,8 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
    |---------|---------|---------|
    |Alias de Entrada  |  Input   |  Introduza um nome para identificar a entrada da tarefa.   |
    |Tipo de Fonte   |  Fluxo de Dados |  Escolha a origem de entrada apropriada: Stream de dados ou dados de referência.   |
-   |Origem  |  IoT Hub |  Escolha a origem de entrada adequada.   |
-   |Recurso  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
+   |Source  |  IoT Hub |  Escolha a origem de entrada adequada.   |
+   |Resource  | Escolha a origem de dados na conta atual | Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
    |Subscrição  |  \<A sua subscrição\>   | Selecione a subscrição do Azure com o IoT Hub que criou.   |
    |IoT Hub  |  MyASAIoTHub   |  Selecione ou introduza o nome do IoT Hub. Os nomes do IoT Hub são detetados automaticamente se forem criados na mesma subscrição.   |
    
@@ -132,7 +132,7 @@ Repare nos elementos que são incluídos num projeto do Azure Stream Analytics.
    |---------|---------|---------|
    |Alias de Saída  |  Saída   |  Introduza um nome para identificar a saída da tarefa.   |
    |Sink   |  Blob Storage |  Escolha o sink adequado.    |
-   |Recurso  |  Apresente as definições da origem de dados manualmente |  Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
+   |Resource  |  Apresente as definições da origem de dados manualmente |  Opte por introduzir dados manualmente ou selecionar uma conta existente.   |
    |Subscrição  |  \<A sua subscrição\>   | Selecione a subscrição do Azure que tem a conta de armazenamento que criou. A conta de armazenamento pode estar na mesma subscrição ou numa diferente. Este exemplo assume que criou a conta de armazenamento na mesma subscrição.   |
    |Conta de Armazenamento  |  asaquickstartstorage   |  Escolha ou introduza o nome da conta de armazenamento. Os nomes de contas de armazenamento são detetados automaticamente se forem criados na mesma subscrição.   |
    |Contentor  |  container1   |  Selecione o contentor existente que criou na conta de armazenamento.   |

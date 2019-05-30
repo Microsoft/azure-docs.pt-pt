@@ -10,11 +10,11 @@ ms.custom: include file
 ms.topic: include
 ms.date: 05/06/2019
 ms.openlocfilehash: cf35651f7dd839e8792029851b9bfe278036624c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028519"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66397330"
 ---
 Uma experimentação é executada num destino de computação, um recurso de computação que está ligado à área de trabalho.  Depois de criar um destino de computação, pode ser reutilizado em execuções futuras.
 

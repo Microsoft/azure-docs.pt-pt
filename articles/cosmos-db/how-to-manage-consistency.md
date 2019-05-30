@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: rimman
-ms.openlocfilehash: 68a1a757b5c5e4ce63d7f12a8502d57942d4ec42
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5b43d822bf29ce07f292403a3a24ad8c13964038
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240905"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389126"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
 
@@ -61,7 +61,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-Para ver ou modificar o nível predefinido de consistência, inicie sessão no portal do Azure. Localize a conta do Cosmos do Azure e abra o **consistência predefinida** painel. Selecione o nível de consistência que pretende como a nova predefinição e, em seguida, selecione **guardar**. Portal do Azure também fornece uma visualização dos níveis de consistência diferentes com notas de música. 
+Para ver ou modificar o nível predefinido de consistência, inicie sessão no portal do Azure. Localize a conta do Cosmos do Azure e abra o **consistência predefinida** painel. Selecione o nível de consistência que pretende como a nova predefinição e, em seguida, selecione **guardar**. O portal do Azure também fornece uma visualização dos níveis de consistência diferentes com notas de música. 
 
 ![Menu de consistência no portal do Azure](./media/how-to-manage-consistency/consistency-settings.png)
 

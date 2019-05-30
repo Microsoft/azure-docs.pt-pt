@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60290773"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>O que são as identidades geridas para os recursos do Azure?
@@ -58,7 +58,7 @@ O diagrama seguinte mostra como é que as identidades de serviço geridas funcio
 
 ![Identidades de Serviço Geridas e VMs do Azure](media/overview/msi-vm-vmextension-imds-example.png)
 
-|  Propriedade    | Atribuído ao sistema de identidade gerida | Identidade gerida atribuída pelo utilizador |
+|  Propriedade    | Atribuído ao sistema de identidade gerida | Atribuído ao utilizador a identidade gerida |
 |------|----------------------------------|--------------------------------|
 | Criação |  Criado como parte de um recurso do Azure (por exemplo, uma máquina virtual do Azure ou serviço de aplicações do Azure) | Criado como um recurso do Azure autónomo |
 | Ciclo de vida | Partilhado ciclo de vida com o recurso do Azure criada com a identidade gerida. <br/> Quando o recurso principal é eliminado, a identidade gerida é eliminada também. | Ciclo de vida independente. <br/> Tem de ser eliminados de forma explícita. |

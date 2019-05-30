@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 05/17/2019
-ms.openlocfilehash: d5bd291758d6bb445b757b93fd91a4c2321b97db
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.date: 05/29/2019
+ms.openlocfilehash: 18ce5e9d7cff0d32021e97cd85f1e18c0309f00b
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65898932"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357673"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Início rápido: Ingerir dados de Hub de eventos no Explorador de dados do Azure
 
@@ -111,22 +111,25 @@ Agora ligue ao hub de eventos do Azure Data Explorer. Quando esta ligação est�
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome da ligação de dados | *test-hub-connection* | O nome da ligação que quer criar no Azure Data Explorer.|
-    | Espaço de nomes do hub de Eventos | Um nome de espaço de nomes exclusivo | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
+    | Espaço de nomes do hub de eventos | Um nome de espaço de nomes exclusivo | O nome que escolheu anteriormente que identifica o seu espaço de nomes. |
     | Hub de eventos | *test-hub* | O hub de eventos que criou. |
     | Grupo de consumidores | *test-group* | O grupo de consumidores definido no hub de eventos que criou. |
     | | |
 
     Tabela de destino:
 
-    Existem duas opções para o encaminhamento: *estático* e *dinâmico*. Neste início rápido, vai utilizar encaminhamento estático (o predefinido), onde especifica o nome da tabela, o formato de ficheiro e o mapeamento. Por conseguinte, deixe **meus dados incluem informações de encaminhamento** não selecionada.
-    Também pode utilizar o encaminhamento dinâmico, onde os dados incluem as informações necessárias de encaminhamento.
+    Existem duas opções para encaminhar os dados ingeridos: *estático* e *dinâmico*. 
+    Neste artigo, utilize o encaminhamento estático, onde especifica o nome da tabela, o formato de dados e o mapeamento. Por conseguinte, deixe **meus dados incluem informações de encaminhamento** não selecionada.
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
     | Formato de dados | *JSON* | Formatos suportados são Avro, CSV, JSON, o JSON de MULTILINHA, PSV, SOH, SCSV, TSV e TXT. |
-    | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**.|
+    | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**. Necessário para JSON, o JSON de MULTILINHA, AVRO e opcional para outros formatos.|
     | | |
+
+    > [!NOTE]
+    > Selecione **meus dados incluem informações de encaminhamento** para utilizar o encaminhamento dinâmico, em que seus dados incluem as informações de encaminhamento necessárias como mostra a [aplicação de exemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) comentários. Se forem definidas propriedades estáticas e dinâmicas, as propriedades dinâmicas substituem aqueles estáticos. 
 
 ## <a name="copy-the-connection-string"></a>Copiar a cadeia de ligação
 

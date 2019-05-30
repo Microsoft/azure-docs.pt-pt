@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 07d177987db1dea261520e8ee2543d871d552acb
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: abd50f4e2ca08bea2af491f4b3991278a6dc3b5e
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66240894"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399889"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Cosmos do Azure
 
@@ -41,7 +41,7 @@ az cosmosdb create \
 
 ### <a id="create-database-account-via-ps"></a>Azure PowerShell
 ```azurepowershell-interactive
-# Create an Azure Cosmos Account for Core (SQL) API
+# Create an Azure Cosmos account for Core (SQL) API
 $resourceGroupName = "myResourceGroup"
 $location = "West US"
 $accountName = "mycosmosaccount" # must be lower case.
@@ -71,7 +71,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="create-database-account-via-arm-template"></a>Modelo Azure Resource Manager
 
-Este modelo do Azure Resource Manager irá criar uma conta do Azure Cosmos DB para qualquer API suportada, configurada com duas regiões e as opções para selecionar o nível de consistência, a ativação pós-falha automática e com vários mestres. Para implementar este modelo, clique em implementar no Azure na página Leia-me, [conta criar o Azure Cosmos DB](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
+Este modelo do Azure Resource Manager irá criar uma conta do Cosmos do Azure para qualquer API suportada, configurada com duas regiões e as opções para selecionar o nível de consistência, a ativação pós-falha automática e com vários mestres. Para implementar este modelo, clique em implementar no Azure na página Leia-me, [conta do Cosmos do Azure de criar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)
 
 ## <a name="addremove-regions-from-your-database-account"></a>Adicionar/remover regiões da conta de base de dados
 
@@ -185,7 +185,7 @@ az cosmosdb update --name $accountName --resource-group $resourceGroupName --ena
 ### <a id="configure-multiple-write-regions-ps"></a>Azure PowerShell
 
 ```azurepowershell-interactive
-# Update an Azure Cosmos Account from single to multi-master
+# Update an Azure Cosmos account from single to multi-master
 
 $account = Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName -Name $accountName
@@ -200,7 +200,7 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 ### <a id="configure-multiple-write-regions-arm"></a>Modelo do Resource Manager
 
-Uma conta pode ser migrada do principal de único para múltiplos principais ao implementar o modelo do Resource Manager utilizado para criar a conta e a definição `enableMultipleWriteLocations: true`. O modelo Azure Resource Manager seguinte é um modelo de mínimo bare que irá implementar uma conta do Azure Cosmos DB para a API de SQL com uma única região e com vários mestres ativada.
+Uma conta pode ser migrada do principal de único para múltiplos principais ao implementar o modelo do Resource Manager utilizado para criar a conta e a definição `enableMultipleWriteLocations: true`. O modelo Azure Resource Manager seguinte é um modelo de mínimo bare que irá implementar uma conta do Cosmos do Azure para a API de SQL com uma única região e com vários mestres ativada.
 
 ```json
 {
@@ -239,13 +239,13 @@ Uma conta pode ser migrada do principal de único para múltiplos principais ao 
 }
 ```
 
-## <a id="automatic-failover"></a>Ativar a ativação pós-falha automática para a sua conta do Azure Cosmos DB
+## <a id="automatic-failover"></a>Ativar a ativação pós-falha automática para a sua conta do Cosmos do Azure
 
 A opção de ativação pós-falha automática permite do Azure Cosmos DB para ativação pós-falha para a região com a máxima prioridade de ativação pós-falha com nenhuma ação do utilizador deve uma região ficar indisponível. Quando a ativação pós-falha automática está ativada, a prioridade da região pode ser modificada. Conta tem de ter duas ou mais regiões para ativar a ativação pós-falha automática.
 
 ### <a id="enable-automatic-failover-via-portal"></a>Portal do Azure
 
-1. A partir da sua conta do Azure Cosmos DB, abra a **replicar dados globalmente** painel.
+1. A partir da sua conta do Cosmos do Azure, abra a **replicar dados globalmente** painel.
 
 2. Na parte superior do painel, selecione **a ativação pós-falha automática**.
 
@@ -344,7 +344,7 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 O processo para executar uma ativação pós-falha manual envolve a mudar a região de escrita da conta (a prioridade de ativação pós-falha = 0) para outra região configurada para a conta.
 
 > [!NOTE]
-> Contas de vários mestres não é possível manualmente efetuar a ativação pós-falha. Para aplicações utilizando o SDK do Azure Cosmos DB, o SDK irá detectar quando uma região fica indisponível, em seguida, redirecionar automaticamente para a região mais próxima seguinte, se utilizar a API multi homing no SDK.
+> Contas de vários mestres não é possível manualmente efetuar a ativação pós-falha. Para aplicações utilizando o SDK do Cosmos do Azure, o SDK irá detectar quando uma região fica indisponível, em seguida, redirecionar automaticamente para a região mais próxima seguinte, se utilizar a API multi homing no SDK.
 
 ### <a id="enable-manual-failover-via-portal"></a>Portal do Azure
 

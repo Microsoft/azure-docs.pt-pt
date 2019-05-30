@@ -8,26 +8,24 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: a02144914e73ca1788976d8b01ccd95d1b9e9a1b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 8f2e956603fbb9aec81b08260eade846eb6a622c
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66133062"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393337"
 ---
 Se quiser continuar para o próximo tutorial, mantenha os recursos criados neste início rápido. Pode reutilizá-los no próximo tutorial.
 
 Se tiver terminado com o aplicativo de exemplo de início rápido, elimine os recursos do Azure que criou neste início rápido para evitar encargos.
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos na mesma são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Talvez criou os recursos para alojar este exemplo um grupo de recursos existente que contém os recursos que quer manter. Pode eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
->
->
+> A eliminação de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos na mesma são eliminados permanentemente. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo um grupo de recursos contém recursos que quer manter, elimine cada recurso individualmente a partir do respetivo painel respectivo em vez de eliminar o grupo de recursos.
 
-Inicie sessão para o [portal do Azure](https://aka.ms/azconfig/portal)e selecione **grupos de recursos**.
+1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e selecione **grupos de recursos**.
+1. Na **filtrar por nome** , introduza o nome do seu grupo de recursos. As instruções para este início rápido utilizado um grupo de recursos chamado *AppConfigTestResources*.
+1. Na lista de resultados, selecione o grupo de recursos e qualquer um com o botão direito na linha ou utilizar o **reticências** ( **...** ) botão para abrir o menu de contexto.
+1. Selecione **Eliminar grupo de recursos**.
+1. É-lhe pedido que confirme a eliminação do grupo de recursos. Introduza o nome do seu grupo de recursos para confirmar e selecione **eliminar**.
 
-Na **filtrar por nome** , introduza o nome do seu grupo de recursos. As instruções para este início rápido utilizado um grupo de recursos chamado *AppConfigTestResources*. No seu grupo de recursos na lista de resultados, selecione **...**  e, em seguida, selecione **eliminar grupo de recursos**.
-
-É-lhe pedido que confirme a eliminação do grupo de recursos. Introduza o nome do seu grupo de recursos para confirmar e selecione **eliminar**.
-
-Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
+Após alguns instantes, o grupo de recursos e todos os recursos são eliminados.

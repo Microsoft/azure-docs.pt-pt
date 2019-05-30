@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2019
+ms.date: 05/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6d84a07de408cedb0e21181c70e5c1481ac62bc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589381"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225908"
 ---
 # <a name="azure-resource-manager-overview"></a>Descrição geral do Azure Resource Manager
 
@@ -55,7 +55,7 @@ O Resource Manager oferece várias vantagens:
 
 O Azure fornece quatro níveis de âmbito de gestão: [grupos de gestão](../governance/management-groups/index.md), subscrições, [grupos de recursos](#resource-groups)e recursos. A imagem seguinte mostra um exemplo destas camadas.
 
-![Âmbito](./media/resource-group-overview/scope-levels.png)
+![Scope](./media/resource-group-overview/scope-levels.png)
 
 Pode aplicar as definições de gestão em qualquer um destes níveis de âmbito. O nível que selecionar determina o quanto a definição é aplicada. Os níveis inferiores herdam as definições de níveis mais altos. Por exemplo, quando aplica um [política](../governance/policy/overview.md) para a subscrição, a política é aplicada a todos os grupos de recursos e recursos na sua subscrição. Ao aplicar uma política no grupo de recursos, o que a política é aplicada o grupo de recursos e todos os recursos. No entanto, outro grupo de recursos não tem essa atribuição de política.
 
@@ -91,7 +91,7 @@ Se a região do grupo de recursos está temporariamente indisponível, não é p
 
 Cada fornecedor de recursos oferece um conjunto de recursos e operações para trabalhar com esses recursos. Por exemplo, se pretende armazenar chaves e segredos, trabalha com o fornecedor de recursos **Microsoft.KeyVault**. Este fornecedor de recursos oferece um tipo de recurso denominado **cofres** para a criação do cofre de chaves.
 
-O nome de um tipo de recurso está no formato: **{resource-provider}/{resource-type}**. O tipo de recurso para um cofre de chaves é **keyvault/vaults**.
+O nome de um tipo de recurso está no formato: **{resource-provider}/{resource-type}** . O tipo de recurso para um cofre de chaves é **keyvault/vaults**.
 
 Antes de começar com a implementação de recursos, deve tomar conhecimento dos fornecedores de recursos disponíveis. Saber os nomes dos recursos e os fornecedores de recursos ajuda-o a definir os recursos que pretende implementar no Azure. Além disso, precisa de saber as versões de API e localizações válidas para cada tipo de recurso. Para obter mais informações, veja [Resource providers and types](resource-manager-supported-services.md) (Tipos e fornecedores de recursos).
 
@@ -174,7 +174,21 @@ Após definir o seu modelo, está pronto para implementar os recursos para o Azu
 
 Ao implementar um serviço complexo no Azure, poderá ter de implementar o serviço em várias regiões e verificar o seu estado de funcionamento antes de prosseguir para o passo seguinte. Utilize o [Gestor de Implementação do Azure](deployment-manager-overview.md) para coordenar uma implementação faseada do serviço. Ao fasear a implementação do serviço, poderá deparar-se com problemas potenciais antes de este ter sido implementado em todas as regiões. Se não precisar destas precauções, as operações de implementação na secção anterior serão a melhor opção.
 
-O Gestor de Implementação está atualmente em pré-visualização privada.
+O Gestor de Implementação está atualmente em pré-visualização pública.
+
+## <a name="resiliency-of-azure-resource-manager"></a>Resiliência do Azure Resource Manager
+
+O serviço de Gestor de recursos do Azure destina-se a resiliência e a disponibilidade contínua. Resource Manager e o controle de operações do plano (pedidos enviados para management.azure.com) na API de REST são:
+
+* Distribuídos em várias regiões. Alguns serviços são regionais.
+
+* Distribuído por zonas de disponibilidade (como regiões bem) em locais com várias zonas de disponibilidade.
+
+* Não é dependente de um centro de dados lógico único.
+
+* Nunca desativado para atividades de manutenção.
+
+Este resiliência se aplica a serviços que recebem pedidos através do Resource Manager. Por exemplo, o Key Vault se beneficia deste resiliência.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

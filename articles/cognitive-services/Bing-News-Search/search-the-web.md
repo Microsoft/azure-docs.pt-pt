@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/10/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: a28445199c47c666fb2323a70317f81f3302c765
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e02f81ef6bdf8bf4dc39b70cb7a2d9330660d1d6
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60539167"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390300"
 ---
 # <a name="what-is-the-bing-news-search-api"></a>O que é a API de Pesquisa de Notícias do Bing?
 
@@ -54,6 +54,6 @@ Para começar rapidamente com o primeiro pedido de API, experimente um início r
 
 ## <a name="see-also"></a>Consulte também
 
-* O [API de pesquisa de notícias do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference) secção de referência contém definições e informações sobre a pontos de extremidade, cabeçalhos, as respostas de API e parâmetros de consulta que pode utilizar para solicitar os resultados da pesquisa baseada em imagem.
+* O [API de pesquisa de notícias do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) secção de referência contém definições e informações sobre a pontos de extremidade, cabeçalhos, as respostas de API e parâmetros de consulta que pode utilizar para solicitar os resultados da pesquisa baseada em imagem.
 
 * Os [Requisitos de apresentação e utilização do Bing](./useanddisplayrequirements.md) especificam as utilizações aceitáveis do conteúdo e as informações obtidas por meio das APIs de Pesquisa do Bing.

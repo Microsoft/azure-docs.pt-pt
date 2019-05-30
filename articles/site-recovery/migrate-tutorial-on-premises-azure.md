@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df4f89bd1b2e3c0423f5d758cfa637e4da9e04d0
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60193906"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66396528"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas no local para o Azure
 
@@ -118,7 +118,7 @@ Execute a ativação pós-falha nos computadores que quer migrar.
 > [!WARNING]
 > **Não cancelar uma ativação pós-falha em curso**: Antes de o início da ativação pós-falha, a replicação de VM é parada. Se cancelar uma ativação pós-falha que esteja em curso, a mesma para, mas a VM não será replicada outra vez.
 
-Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Poderá reparar em tempos de ativação pós-falha superiores Para servidores físicos, máquinas do Linux do VMware, VMs do VMware que não têm o serviço DHCP ativado e VMs do VMware que não têm os controladores de arranque storvsc, vmbus, storflt, intelide e atapi.
+Em alguns cenários, a ativação pós-falha requer processamento adicional, que demora cerca de oito a dez minutos a concluir. Poderá reparar os tempos de ativação pós-falha para servidores físicos, máquinas Linux do VMware, VMs de VMware que não têm o serviço DHCP ativado e VMs de VMware que não têm os controladores de arranque: storvsc, vmbus, storflt, intelide e atapi.
 
 ## <a name="after-migration"></a>Após a migração
 
@@ -159,7 +159,7 @@ Alguns passos podem ser automatizados como parte do processo de migração atrav
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Neste tutorial, migrou VMs no local para VMs do Azure. Agora
+Neste tutorial, migrou VMs no local para VMs do Azure. agora
 
 > [!div class="nextstepaction"]
 > [Configurar a recuperação após desastre](azure-to-azure-replicate-after-migration.md) para uma região secundária do Azure para as VMs do Azure.

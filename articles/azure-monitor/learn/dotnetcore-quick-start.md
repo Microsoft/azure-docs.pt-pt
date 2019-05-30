@@ -5,17 +5,17 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: e6afd342a27fa13ae79e037e6e42e582dd9856cc
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
-ms.translationtype: HT
+ms.openlocfilehash: a4bbb43cb00eeb5a9e741016e1648ce915935eb9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015297"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236599"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET Core
 
@@ -85,7 +85,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
 2. Clique em **Mapa da aplicação** para obter um esquema visual das relações de dependência entre os componentes da aplicação. Cada componente mostra KPIs, tais como carga, desempenho, falhas e alertas.
 
-   ![Mapa da Aplicação](./media/dotnetcore-quick-start/5appmap.png)
+   ![Mapeamento de Aplicações](./media/dotnetcore-quick-start/5appmap.png)
 
 3. Clique nas **análise da aplicação** ícone ![ícone do mapa da aplicação](./media/dotnetcore-quick-start/006.png) **ver na análise**. Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
@@ -102,6 +102,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 ## <a name="video"></a>Vídeo
 
 - Externo vídeo passo a passo sobre [configuração do Application Insights com o Visual Studio e .NET Core](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) do zero.
+- Externo vídeo passo a passo sobre [configuração do Application Insights com o .NET Core e o Visual Studio Code](https://youtu.be/ygGt84GDync) do zero.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 Quando tiver terminado, teste, pode eliminar o grupo de recursos e todos os recursos relacionados. Para tal, siga os passos abaixo.

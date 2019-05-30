@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 4/16/2019
 ms.author: b-juche
-ms.openlocfilehash: 2bcd8163cb3c6071812d4d247b5b333edcfc89e5
-ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.openlocfilehash: 4ea511bec75557bc6f7d37b1724b4b0db65ba9cc
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65523031"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299434"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: Configurar o Azure NetApp Files e criar um volume NFS 
 
@@ -57,7 +57,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 
-1. Na caixa de pesquisa do portal do Azure, introduza **ficheiros do Azure NetApp** e, em seguida, selecione **NetApp serviço ficheiros do Azure (pré-visualização)** na lista que é apresentada.
+1. Na caixa de pesquisa do portal do Azure, introduza **ficheiros do Azure NetApp** e, em seguida, selecione **ficheiros do Azure NetApp** na lista que é apresentada.
 
       ![Selecione ficheiros NetApp do Azure](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 

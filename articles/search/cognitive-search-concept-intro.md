@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/02/2019
+ms.date: 05/28/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 24c6df6a06d08249f236fc36d64b4204b0103b3c
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 8af927bee11d66c473707b603951fa693f6840e3
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540904"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299036"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>O que é "pesquisa cognitiva" no Azure Search?
 
@@ -82,11 +82,11 @@ Os índices são gerados a partir de um esquema de índice que define os campos,
 | Conjunto de capacidades | Um nível superior com o nome que contém uma coleção de habilidades de recursos. Um conjunto de capacidades é o pipeline de melhoria. É invocado durante a indexação por um indexador. | [Definir um conjunto de capacidades](cognitive-search-defining-skillset.md) |
 | Competências cognitivas | Uma transformação Atómica num pipeline de melhoria. Muitas vezes, é um componente que extrai ou infere a estrutura e, portanto, aumenta a compreensão dos dados de entrada. Quase sempre, a saída é baseado em texto e o processamento é o processamento de linguagem natural ou processamento de imagens que extrai ou gera texto a partir de entradas de imagem. Saída de uma habilidade pode ser mapeada para um campo num índice ou usada como entrada para uma melhoria de downstream. Uma habilidade é predefinida e fornecida pela Microsoft ou personalizado: criados e implementados por si. | [Competências predefinidas](cognitive-search-predefined-skills.md) |
 | Extração de dados | Abrange uma ampla gama de processamento, mas relativas a pesquisa cognitiva, a habilidade de reconhecimento de entidades é mais frequentemente utilizada para extrair dados (entidade) de uma origem de que não fornece essas informações nativamente. | [Habilidade de reconhecimento de entidades](cognitive-search-skill-entity-recognition.md)| 
-| Processamento de imagem | Infere o texto a partir de uma imagem, como a capacidade de reconhecer um ponto de referência, ou extrai o texto de uma imagem. Exemplos comuns incluem OCR para elevação de caracteres de um arquivo de documentos digitalizados (JPEG), ou no reconhecimento de um nome da rua numa fotografia que contém um sinal de rua. | [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) ou [habilidade de OCR](cognitive-search-skill-ocr.md)
+| Processamento de imagens | Infere o texto a partir de uma imagem, como a capacidade de reconhecer um ponto de referência, ou extrai o texto de uma imagem. Exemplos comuns incluem OCR para elevação de caracteres de um arquivo de documentos digitalizados (JPEG), ou no reconhecimento de um nome da rua numa fotografia que contém um sinal de rua. | [Habilidade de análise de imagem](cognitive-search-skill-image-analysis.md) ou [habilidade de OCR](cognitive-search-skill-ocr.md)
 | Processamento de linguagem natural | Processamento de informações e obter informações sobre entradas de texto de texto. Deteção de idioma, análise de sentimentos e extração de expressões-chave são habilidades que se inserem o processamento de linguagem natural.  | [Chave a habilidade de extração de frase](cognitive-search-skill-keyphrases.md), [habilidade de deteção de idioma](cognitive-search-skill-language-detection.md), [habilidade de análise de sentimentos](cognitive-search-skill-sentiment.md) |
 | Abertura do documento | O processo de extração ou criar conteúdo de texto a partir de origens de que não sejam de texto durante a indexação. Reconhecimento ótico de carateres (OCR) é um exemplo, mas geralmente se refere a funcionalidade de indexador principal como o indexador extrai o conteúdo de arquivos do aplicativo. A origem de dados, fornecendo a localização do ficheiro de origem e a definição de indexador fornecendo mapeamentos de campo, são ambos os principais fatores de abertura do documento. | Consulte [indexadores](search-indexer-overview.md) |
 | Formatação | Consolidação de fragmentos de texto numa estrutura maior, ou por outro lado, dividir blocos maiores de texto num tamanho gerenciável para ainda mais processamento a jusante. | [Habilidade de Modelador](cognitive-search-skill-shaper.md), [habilidade de fusão de texto](cognitive-search-skill-textmerger.md), [habilidade de dividir texto](cognitive-search-skill-textsplit.md) |
-| Documentos plena | Uma transitória estrutura interna, não acessível diretamente no código. Documentos plena são gerados durante o processamento, mas apenas finais saídas são mantidas num índice de pesquisa. Mapeamentos de campo determinam quais elementos de dados são adicionados ao índice. | Ver [aceder a documentos plena](cognitive-search-tutorial-blob.md#access-enriched-document). |
+| Documentos plena | Uma transitória estrutura interna, gerada durante o processamento, com a saída final refletida num índice de pesquisa. Um conjunto de capacidades determina quais possível é executadas. Mapeamentos de campo determinam quais elementos de dados são adicionados ao índice. Opcionalmente, pode criar um arquivo de dados de conhecimento para manter e explore plena documentos usando ferramentas como o Explorador de armazenamento, o Power BI ou qualquer outra ferramenta que liga ao armazenamento de Blobs do Azure. | Ver [o arquivo de dados de conhecimento (pré-visualização)](knowledge-store-concept-intro.md). |
 | Indexador |  Um crawler que extrai dados pesquisáveis e metadados de uma origem de dados externa e preenche um índice com base nos mapeamentos campo a campo entre o índice e sua origem de dados de aberturas de documentos. Para possível de pesquisa cognitiva, o indexador invoca um conjunto de capacidades e contém os mapeamentos de campo associar a saída de melhoria para campos de destino no índice. A definição de indexador contém todas as instruções e referências para operações de pipeline e o pipeline é invocado quando executar o indexador. | [Indexadores](search-indexer-overview.md) |
 | Origem de Dados  | Um objeto utilizado por um indexador para ligar a uma origem de dados externas dos tipos suportados no Azure. | Consulte [indexadores](search-indexer-overview.md) |
 | Índice | Um índice de pesquisa persistente no Azure Search, criados a partir de um esquema de índice que define a estrutura de campo e a utilização. | [Índices no Azure Search](search-what-is-an-index.md) | 

@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60876244"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Descrição geral do serviço Azure esquemas
@@ -52,7 +52,7 @@ Uma política pode ser incluída como um dos muitos _artefactos_ numa definiçã
 
 Um esquema é composto por _artefactos_. Atualmente, os esquemas suportam os seguintes recursos como artefactos:
 
-|Recurso  | Opções de hierarquia| Descrição  |
+|Resource  | Opções de hierarquia| Descrição  |
 |---------|---------|---------|
 |Grupos de Recursos | Subscrição | Crie um novo grupo de recursos para utilização por outros artefactos no esquema.  Estes grupos de recursos de marcador de posição permitem-lhe organizar recursos exatamente da forma que pretende que sejam estruturados e fornece um limitador de âmbito para a política incluída e os artefactos de atribuição de funções, bem como modelos do Azure Resource Manager. |
 |Modelo Azure Resource Manager | Subscrição, Grupo de Recursos | Os modelos são utilizados para compor ambientes complexos. Ambientes de exemplo: um farm do SharePoint, a Configuração de Estado da Automatização do Azure ou uma área de trabalho do Log Analytics. |

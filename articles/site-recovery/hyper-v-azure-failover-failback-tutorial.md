@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 53b2c2945062ef348104e24a352895a14eed1a04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a4889d82ac1c837581771860f2aba86faf7650ee
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60749007"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399444"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-azure"></a>Ativação pós-falha e reativação pós-falha de VMs de Hyper-V replicadas no Azure
 
@@ -73,7 +73,7 @@ A operação de reativação pós-falha é basicamente uma ativação pós-falha
 
 1. Em **Definições** > **Itens replicados** clique na VM > **Ativação Pós-falha Planeada**.
 2. Em **Confirmar Ativação Pós-falha Planeada**, verifique a direção da ativação pós-falha (a partir do Azure) e selecione as localizações de origem e de destino.
-3. Selecione **Sincronizar dados antes da ativação pós-falha (sincronizar apenas alterações delta)**. Esta opção minimiza o período de indisponibilidade da VM porque a sincronização é efetuada sem encerrar a VM.
+3. Selecione **Sincronizar dados antes da ativação pós-falha (sincronizar apenas alterações delta)** . Esta opção minimiza o período de indisponibilidade da VM porque a sincronização é efetuada sem encerrar a VM.
 4. Iniciar a ativação pós-falha. Pode seguir o progresso da ativação pós-falha no separador **Trabalhos**.
 5. Após a conclusão da sincronização inicial dos dados e quando estiver preparado para encerrar as VM do Azure, clique em **Trabalhos** > nome-da-tarefa-de-ativação-pós-falha-planeada> **Concluir Ativação Pós-Falha**. Encerra a VM do Azure, transfere as alterações mais recentes no local e inicia a VM no local.
 6. Inicie sessão na VM no local para verificar se está disponível como previsto.

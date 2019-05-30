@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 02/01/2019
 ms.author: scottwhi
-ms.openlocfilehash: 0755688d1cc2f00ffef253b7695d9cb504f9e169
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 679a3d9efbeeb75e0aa8e3986fa85b7ecf0d77bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "64866846"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388506"
 ---
 # <a name="what-is-bing-entity-search-api"></a>O que é a API de pesquisa de entidades do Bing?
 
@@ -39,5 +39,5 @@ A API de pesquisa de entidades do Bing é um serviço RESTful web, facilitando a
 
 * Experimente o [demonstração interativa](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) para a API de pesquisa de entidades do Bing. 
 * Para começar a utilizar rapidamente com a sua primeira solicitação, experimente um [guia de introdução](quickstarts/csharp.md).
-* O [API de pesquisa de entidades do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference) secção de referência.
+* O [API de pesquisa de entidades do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference) secção de referência.
 * Os [Requisitos de apresentação e utilização do Bing](./use-display-requirements.md) especificam as utilizações aceitáveis do conteúdo e as informações obtidas por meio das APIs de Pesquisa do Bing.
