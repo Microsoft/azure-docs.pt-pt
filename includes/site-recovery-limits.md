@@ -14,11 +14,11 @@ ms.workload: TBD
 ms.date: 07/06/2015
 ms.author: lauraa
 ms.openlocfilehash: 4d4e68d99585522e773e71430b4e4f37ad7b1580
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124403"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238627"
 ---
 Os limites seguintes aplicam-se ao Azure Site Recovery.
 

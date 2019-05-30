@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 95e4e3f3acc52c230405f0c0cc4a05b03b21a386
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: be9edd0497cca894e4daa87f97b037065379127f
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153792"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66398267"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Ativação pós-falha e voltar a proteger as VMs do Azure entre regiões
 

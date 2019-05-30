@@ -1,19 +1,18 @@
 ---
 title: Trabalhar com JavaScript consulta integrada à linguagem API no Azure Cosmos DB
 description: Este artigo apresenta os conceitos de JavaScript consulta integrada à linguagem API criar procedimentos armazenados e acionadores no Azure Cosmos DB.
-author: rockboyfor
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/08/2018
-ms.date: 03/04/2019
-ms.author: v-yeche
+ms.date: 05/23/2019
+ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 101b5382eaa01ed87f05d83c82002fa1b93144b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cc1815ce4a7a9ed40848e4a67a7fd9e032c1daa1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61043243"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226196"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Consulta de JavaScript API no Azure Cosmos DB
 
@@ -70,5 +69,3 @@ Saber mais, conceitos e procedimento escrita e utilize os procedimentos armazena
 - [Como utilizar os procedimentos armazenados, disparadores, funções definidas pelo utilizador no Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 - [Referência da API do Cosmos DB JavaScript do lado do servidor do Azure](https://azure.github.io/azure-cosmosdb-js-server)
 - [JavaScript ES6 (ECMA 2015)](https://www.ecma-international.org/ecma-262/6.0/)
-
-<!-- Update_Description: update meta properties -->

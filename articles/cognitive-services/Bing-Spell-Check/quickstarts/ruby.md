@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: d488923f38a9c65cb117b4535b50bb9fdff2dbfc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a3e65f9ad8e8a9c6876d1588ecaa94531206c6f4
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61384845"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389713"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-ruby"></a>Início rápido: Verifique a ortografia com a API REST de verificação ortográfica do Bing e Ruby
 
@@ -130,4 +130,4 @@ Utilize este guia de introdução para efetuar a primeira chamada para o Bing RE
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de verificação de ortografia do Bing?](../overview.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Referência da API de Verificação de Ortografia do Bing v7)

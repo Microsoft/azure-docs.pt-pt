@@ -9,11 +9,11 @@ ms.date: 12/07/2018
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 9e9c09c1825f5c8383a708e8bd343146396f878e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554130"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238615"
 ---
 Os limites seguintes aplicam-se a cópia de segurança do Azure.
 

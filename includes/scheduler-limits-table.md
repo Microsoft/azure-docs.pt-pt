@@ -9,15 +9,15 @@ ms.date: 08/16/2016
 ms.author: deli
 ms.custom: include file
 ms.openlocfilehash: b3788ede23a423bebf96661ea88b227bfb5fdf4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60531299"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238456"
 ---
 A tabela seguinte descreve cada um dos principais quotas, limites, predefinições e limitações no agendador do Azure.
 
-| Recurso | Descrição de limite |
+| Resource | Descrição de limite |
 | -------- | ----------------- |
 | **Tamanho de tarefa** | O tamanho de tarefas máxima é de 16 000. Se um PUT ou uma operação de correção resulta num maior do que este limite de tamanho de tarefa, é devolvido um código de estado 400 de pedido inválido. | 
 | **Coleções de tarefas** | O número máximo de coleções de tarefas por subscrição do Azure é a 200.000. | 

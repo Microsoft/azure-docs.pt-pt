@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: b8f7fbe386400babac033de0efbaaabbe8832397
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8782951baccd63d3087ef0628a8fca31b9a4bc1
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240707"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390396"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-nodejs"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e o node. js
 
@@ -37,7 +37,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     let https = require ('https');
     ```
 
-2. Criar variáveis para o anfitrião de ponto final de API e o caminho, a chave de subscrição [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes)e um termo de pesquisa.
+2. Criar variáveis para o anfitrião de ponto final de API e o caminho, a chave de subscrição [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e um termo de pesquisa.
 
     ```javascript
     // Replace the subscriptionKey string value with your valid subscription key.
@@ -191,4 +191,4 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
 > [Criar uma aplicação Web de página única](../tutorials/autosuggest.md)
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
-- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

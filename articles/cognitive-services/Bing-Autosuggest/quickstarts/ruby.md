@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: c7ba0fd34c789735cd92c25a728aec346dc88fcc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ad71d9a746f61e724c1f3b5c5c6be0a3318452
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309420"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390361"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-ruby"></a>Início rápido: Sugerir consultas de pesquisa com a API de REST de sugestão automática do Bing e Ruby
 
@@ -38,7 +38,7 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
     require 'json'
     ```
 
-2. Criar variáveis para o anfitrião da API e o caminho, [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference#market-codes), a consulta de pesquisa parcial.
+2. Criar variáveis para o anfitrião da API e o caminho, [mercado código](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes), a consulta de pesquisa parcial.
 
     ```ruby
     subscriptionKey = 'enter your key here'
@@ -154,4 +154,4 @@ Utilize este início rápido para começar a fazer chamadas para a API de sugest
 ## <a name="see-also"></a>Consulte também
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
-- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference)
+- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 10fa2a409437c8cc48bcd1a674cc3832f086dcf2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
+ms.lasthandoff: 05/27/2019
 ms.locfileid: "60526008"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Base de dados do Azure para MySQL proteção avançada contra ameaças
@@ -32,7 +32,7 @@ Proteção avançada contra ameaças para a base de dados do Azure para MySQL fo
 
 ![Conceito de proteção avançada contra ameaças](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Alertas do Advanced Threat Protection 
+## <a name="advanced-threat-protection-alerts"></a>Alertas de proteção contra ameaças avançadas 
 Proteção avançada contra ameaças para a base de dados do Azure para MySQL Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados e ele pode acionar os seguintes alertas:
 - **Acesso a partir de uma localização invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso à base de dados do Azure para o servidor MySQL, onde alguém iniciou sessão para a base de dados do Azure para o servidor MySQL a partir de uma localização geográfica invulgar. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
 - **Acesso a partir do Centro de dados do Azure invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso à base de dados do Azure para o servidor MySQL, onde alguém iniciou sessão para o servidor de um centro de dados do Azure invulgar que foi visto neste servidor durante o período recente. Em alguns casos, o alerta Deteta uma ação legítima (sua nova aplicação no Azure, Power BI, base de dados para o Editor de consultas do MySQL). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).

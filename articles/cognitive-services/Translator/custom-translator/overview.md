@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: overview
-ms.openlocfilehash: d9b253afa7414ada4db58f98cd346e223f8282b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5ce73e28d25f0e517da08895764adc5a31740a7e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "60511470"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389660"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
