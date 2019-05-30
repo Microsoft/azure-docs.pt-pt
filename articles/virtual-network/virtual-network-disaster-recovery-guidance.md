@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742716"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523264"
 ---
 # <a name="virtual-network--business-continuity"></a>Rede virtual – continuidade do negócio
 
 ## <a name="overview"></a>Descrição geral
 Uma rede Virtual (VNet) é uma representação lógica da sua rede na cloud. Permite-lhe definir seu próprio espaço de endereços IP privados e segmentar a rede em sub-redes. VNets serve como um limite de fidedignidade para alojar os seus recursos de computação, como máquinas virtuais do Azure e serviços Cloud (funções da web/trabalho). Uma VNet permite a comunicação de IP privada direta entre os recursos alojados no mesmo. Pode ligar uma rede virtual a uma rede no local através de um Gateway de VPN ou ExpressRoute.
 
-Uma VNet é criada dentro do escopo de uma região. Pode criar VNets com o mesmo espaço de endereços em duas regiões diferentes (por exemplo, EUA leste e E.u.a. oeste), mas não é possível ligá-los. 
+Uma VNet é criada dentro do escopo de uma região. Pode *criar* VNets com o mesmo espaço de endereços no duas regiões diferentes (por exemplo, EUA leste e E.u.a. oeste), mas porque têm o mesmo espaço de endereços, não é possível ligá-los em conjunto. 
 
 ## <a name="business-continuity"></a>Continuidade do Negócio
 

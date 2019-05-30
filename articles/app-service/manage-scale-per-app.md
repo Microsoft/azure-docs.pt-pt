@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104574"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602325"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Alojamento de alta densidade no serviço de aplicações do Azure com o dimensionamento por aplicação
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Por predefinição, dimensionar aplicações de serviço de aplicações, tem de dimensionar os [plano do App Service](overview-hosting-plans.md) que são executados. Quando várias aplicações são executadas no mesmo plano de serviço de aplicações, cada instância de escalamento horizontal é executada todas as aplicações no plano.
+Ao utilizar o serviço de aplicações, pode dimensionar as suas aplicações através do dimensionamento do [plano do App Service](overview-hosting-plans.md) que são executados. Quando várias aplicações são executadas no mesmo plano de serviço de aplicações, cada instância de escalamento horizontal é executada todas as aplicações no plano.
 
-Pode habilitar *dimensionamento por aplicação* no serviço de aplicações planear nível. Dimensiona-se uma aplicação, independentemente do plano de serviço de aplicações que o hospeda. Dessa forma, um plano do serviço de aplicações pode ser dimensionado até 10 instâncias, mas uma aplicação pode ser definida para utilizar apenas cinco.
+*Dimensionar por aplicação* pode ser ativada ao nível do plano do serviço de aplicações para permitir dimensionar uma aplicação, independentemente do plano de serviço de aplicações que o hospeda. Dessa forma, um plano do serviço de aplicações pode ser dimensionado até 10 instâncias, mas uma aplicação pode ser definida para utilizar apenas cinco.
 
 > [!NOTE]
 > Dimensionar por aplicação só está disponível para **padrão**, **Premium**, **Premium V2** e **Isolated** escalões de preço.
 >
+
+Aplicações são alocadas ao plano de serviço de aplicações disponível com uma melhor abordagem de esforço para uma distribuição uniforme entre instâncias. Embora uma distribuição uniforme não é garantida, a plataforma será Certifique-se de que as duas instâncias da mesma aplicação não serão alojadas na mesma instância de plano de serviço de aplicações.
+
+A plataforma não depende de métricas para decidir qual a alocação de trabalho. Aplicativos são reequilibrados apenas quando instâncias são adicionadas ou removidas do plano de serviço de aplicações.
 
 ## <a name="per-app-scaling-using-powershell"></a>Por aplicação de dimensionamento com o PowerShell
 
@@ -60,10 +64,10 @@ No exemplo abaixo, a aplicação está limitada a duas instâncias, independente
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -127,20 +131,21 @@ O plano do serviço de aplicações é a configuração do **PerSiteScaling** pr
 }
 ```
 
-## <a name="recommended-configuration-for-high-density-hosting"></a>Configuração recomendada para o alojamento de alta densidade
-Por aplicação dimensionamento é uma funcionalidade que está ativada em ambas as regiões do Azure global e [ambientes de serviço de aplicações](environment/app-service-app-service-environment-intro.md). No entanto, a estratégia recomendada é utilizar ambientes do serviço de aplicações para tirar partido das respetivas funcionalidades avançadas e os maiores conjuntos de capacidade.  
+## <a name="recommended-configuration-for-high-density-hosting"></a>Configuração recomendada para alojamento de alta densidade
 
-Siga estes passos para configurar de alta densidade para as suas aplicações de alojamento:
+Por aplicação dimensionamento é uma funcionalidade que está ativada em ambas as regiões do Azure global e [ambientes de serviço de aplicações](environment/app-service-app-service-environment-intro.md). No entanto, a estratégia recomendada é utilizar ambientes do serviço de aplicações para tirar partido dos seus recursos avançados e a maior capacidade de plano de serviço de aplicações.  
 
-1. Configurar o ambiente de serviço de aplicações e escolha um conjunto de trabalho dedicado para o cenário de alojamento de alta densidade.
-2. Criar um único plano do serviço de aplicações e dimensioná-lo para utilizar a capacidade disponível no conjunto de trabalho.
-3. Definir o `PerSiteScaling` sinalizador como true no plano de serviço de aplicações.
-4. Novas aplicações são criadas e atribuídas a esse plano de serviço de aplicações com o **numberOfWorkers** definida como **1**. Utilizando esta configuração produz a mais alta densidade possível neste conjunto de trabalho.
-5. O número de trabalhadores pode ser configurado de forma independente por aplicação para conceder recursos adicionais, conforme necessário. Por exemplo:
-    - Pode definir uma aplicação de uso intenso **numberOfWorkers** ao **3** tenham maior capacidade de processamento para essa aplicação. 
-    - Aplicações de baixa utilização definiria **numberOfWorkers** ao **1**.
+Siga estes passos para configurar o alojamento de alta densidade para as suas aplicações:
 
-## <a name="next-steps"></a>Próximos Passos
+1. Designar um plano do serviço de aplicações como o plano de alta densidade e dimensione-a para a capacidade desejada.
+1. Definir o `PerSiteScaling` sinalizador como true no plano de serviço de aplicações.
+1. Novas aplicações são criadas e atribuídas a esse plano de serviço de aplicações com o **numberOfWorkers** definida como **1**.
+   - Utilizando esta configuração produz a mais alta densidade possível.
+1. O número de trabalhadores pode ser configurado de forma independente por aplicação para conceder recursos adicionais, conforme necessário. Por exemplo:
+   - Pode definir uma aplicação de uso intenso **numberOfWorkers** ao **3** tenham maior capacidade de processamento para essa aplicação.
+   - Aplicações de baixa utilização definiria **numberOfWorkers** ao **1**.
+
+## <a name="next-steps"></a>Passos Seguintes
 
 - [Descrição geral aprofundada dos planos do serviço de aplicações do Azure](overview-hosting-plans.md)
 - [Introdução ao Ambiente do Serviço de Aplicações](environment/app-service-app-service-environment-intro.md)

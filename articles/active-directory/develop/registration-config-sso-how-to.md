@@ -3,8 +3,8 @@ title: Como configurar uma nova aplicação multi-inquilino | Documentos da Micr
 description: Como configurar o início de sessão único para um aplicativo personalizado estiver a desenvolver e registar com o Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc92ff0eea2bbd55330a954746245dd4a5ee75a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 83fae56dd0cf7157575b7c5a07e33ca1888d8560
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297837"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545460"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Como configurar uma nova aplicação de multi-inquilino
 

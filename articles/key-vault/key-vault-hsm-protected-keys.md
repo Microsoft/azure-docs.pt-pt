@@ -9,18 +9,18 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: a013e0091e1a955672c1f16a4ac6300281d277b3
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1ae94718aa41c58f4d5e397942492ad8ed643ae3
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573004"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556208"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Chaves de como gerar e transferir protegida por HSM para o Azure Key Vault
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Para mais segurança, quando utiliza o Azure Key Vault, pode importar ou gerar chaves nos módulos de segurança de hardware (HSMs) que nunca deixam o limite do HSM. Este cenário é frequentemente referido como *traga a sua própria chave*, ou BYOK. Os HSMs têm a certificação FIPS 140-2 de nível 2 validada. O Azure Key Vault utiliza família de nShield da Thales de HSMs para proteger as suas chaves.
+Para mais segurança, quando utiliza o Azure Key Vault, pode importar ou gerar chaves nos módulos de segurança de hardware (HSMs) que nunca deixam o limite do HSM. Este cenário é frequentemente referido como *traga a sua própria chave*, ou BYOK. Os HSMs têm a certificação FIPS 140-2 de nível 2 validada. O Azure Key Vault utiliza nCipher nShield família de HSMs para proteger as suas chaves.
 
 Utilize as informações neste tópico para o ajudar a planejar, gerar e, em seguida, transferir as suas próprias chaves protegidas por HSM para utilizar com o Azure Key Vault.
 
@@ -34,16 +34,16 @@ Obter mais informações sobre como gerar e transferir uma chave protegida por H
 
 * Gerar a chave de uma estação de trabalho offline, o que reduz a superfície de ataque.
 * A chave for encriptada com uma chave de troca de chaves (KEK), que permanece encriptada até ser transferida para os HSMs do Azure Key Vault. Apenas a versão encriptada da sua chave deixa a estação de trabalho original.
-* O conjunto de ferramentas define as propriedades de sua chave de inquilino que liga a sua chave para o universo de segurança do Azure Key Vault. Então, depois dos HSMs do Azure Key Vault receberem e desencriptarem a chave, apenas estes HSMs podem utilizá--lo. Não é possível exportar a chave. Este vínculo é imposto pelos HSMs da Thales.
-* A chave de troca de chaves (KEK) que é utilizada para encriptar a chave é gerada dentro os HSMs do Azure Key Vault e não é exportável. Os HSMs impõem que não pode existir uma versão não encriptada da KEK fora os HSMs. Além disso, o conjunto de ferramentas inclui um atestado da Thales que a KEK não é exportável e que foi gerada num HSM genuíno que fabricado pela Thales.
-* O conjunto de ferramentas inclui um atestado da Thales que o universo de segurança do Azure Key Vault também foi gerado num HSM genuíno fabricado pela Thales. Este atestado prova que a Microsoft é utilizar hardware genuíno.
+* O conjunto de ferramentas define as propriedades de sua chave de inquilino que liga a sua chave para o universo de segurança do Azure Key Vault. Então, depois dos HSMs do Azure Key Vault receberem e desencriptarem a chave, apenas estes HSMs podem utilizá--lo. Não é possível exportar a chave. Este vínculo é imposto pelo nCipher HSMs.
+* A chave de troca de chaves (KEK) que é utilizada para encriptar a chave é gerada dentro os HSMs do Azure Key Vault e não é exportável. Os HSMs impõem que não pode existir uma versão não encriptada da KEK fora os HSMs. Além disso, o conjunto de ferramentas inclui um atestado da nCipher que a KEK não é exportável e que foi gerada num HSM genuíno que fabricado pela nCipher.
+* O conjunto de ferramentas inclui um atestado da nCipher que o universo de segurança do Azure Key Vault também foi gerado num HSM genuíno fabricado pela nCipher. Este atestado prova que a Microsoft é utilizar hardware genuíno.
 * A Microsoft utiliza KEKs separadas e separar os Universos de segurança em cada região geográfica. Essa separação garante que a chave pode ser usada apenas em centros de dados na região na qual a encriptou. Por exemplo, não pode servir-se uma chave de um cliente Europeu nos centros de dados na América do Norte ou Ásia.
 
-## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Obter mais informações sobre os HSMs da Thales e serviços Microsoft
+## <a name="more-information-about-ncipher-hsms-and-microsoft-services"></a>Obter mais informações sobre nCipher HSMs e serviços da Microsoft
 
-Da Thales e-Security é um fornecedor global líder de encriptação de dados e soluções de segurança de cibersegurança para os serviços financeiros, tecnológicos, fabrico, administração pública e setores de tecnologia. Com informações de administração pública e de 40 anos registro de rastreamento de proteger empresarial, as soluções da Thales são utilizadas por quatro das cinco maiores energia e espaço aéreo empresas. Suas soluções também são utilizadas pelo 22 países/regiões NATO e proteger mais de 80 por cento de transações de pagamento em todo o mundo.
+nCipher segurança é um fornecedor global líder de encriptação de dados e soluções de segurança de cibersegurança para os serviços financeiros, tecnológicos, fabrico, administração pública e setores de tecnologia. Com um 40 anos registro de rastreamento de proteger Corporativo e informações de administração pública, soluções de criptografia de segurança de nCipher são utilizadas por quatro das cinco maiores energia e espaço aéreo empresas. Suas soluções também são utilizadas pelo 22 países/regiões NATO e proteger mais de 80 por cento de transações de pagamento em todo o mundo.
 
-A Microsoft tem colaborado com a Thales para melhorar o estado da arte para HSMs. Estas melhorias permitem-lhe obter as vantagens típicas dos serviços alojados sem abdicar do controlo sobre as suas chaves. Especificamente, estas melhorias permitem que Microsoft gerencie os HSMs para que não é necessário. Como um serviço cloud, Azure Key Vault ajusta-se com rapidez para satisfazer picos de utilização da sua organização. Ao mesmo tempo, a chave é protegida no interior dos HSMs da Microsoft: Mantém o controlo sobre o ciclo de vida da chave uma vez que gerar a chave e transferi-la para HSMs da Microsoft.
+A Microsoft tem colaborado com nCipher segurança para melhorar o estado da arte para HSMs. Estas melhorias permitem-lhe obter as vantagens típicas dos serviços alojados sem abdicar do controlo sobre as suas chaves. Especificamente, estas melhorias permitem que Microsoft gerencie os HSMs para que não é necessário. Como um serviço cloud, Azure Key Vault ajusta-se com rapidez para satisfazer picos de utilização da sua organização. Ao mesmo tempo, a chave é protegida no interior dos HSMs da Microsoft: Mantém o controlo sobre o ciclo de vida da chave uma vez que gerar a chave e transferi-la para HSMs da Microsoft.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Implementando traga a sua própria chave (BYOK) para o Azure Key Vault
 
@@ -57,8 +57,8 @@ Consulte a tabela seguinte para obter uma lista de pré-requisitos para traga a 
 | --- | --- |
 | Uma subscrição do Azure |Para criar um Azure Key Vault, precisa de uma subscrição do Azure: [Inscreva-se a versão de avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/) |
 | A camada de serviços do Azure Key Vault Premium para suportar chaves protegidas por HSM |Para obter mais informações sobre as camadas de serviços e capacidades para Azure Key Vault, consulte a [preços do Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) Web site. |
-| HSM da Thales, smart cards e software de suporte |Tem de ter acesso a um módulo de Hardware de segurança da Thales e conhecimentos operacionais básicos dos Hmss da Thales. Ver [módulo de Hardware de segurança da Thales](https://www.thales-esecurity.com/msrms/buy) para obter a lista de modelos compatíveis ou para comprar um HSM, se não tiver uma. |
-| O seguinte hardware e software:<ol><li>Um offline x64 estação de trabalho com um sistema de operação mínimo do Windows do Windows 7 e da Thales software nShield, pelo menos, versão 11.50.<br/><br/>Se esta estação de trabalho executa o Windows 7, deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema de operativo mínimo do Windows do Windows 7 e [do Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **versão mínima 1.1.0** instalado.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha, pelo menos, 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não está ligada a uma rede. No entanto, esta recomendação não é imposta por meio de programação.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave de inquilino for para uma rede de produção, recomendamos que utilize uma segunda estação de trabalho separada para transferir o conjunto de ferramentas e carregar a chave de inquilino. Mas para fins de teste, pode utilizar a mesma estação de trabalho como primeiro.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
+| nCipher nShield HSMs, smart cards e software de suporte |Tem de ter acesso a um nCipher módulo de Hardware de segurança e conhecimentos operacionais básicos dos nCipher nShield HSMs. Ver [nCipher nShield módulo de Hardware de segurança](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/how-to-buy) para obter a lista de modelos compatíveis ou para comprar um HSM, se não tiver uma. |
+| O seguinte hardware e software:<ol><li>Um offline x64 estação de trabalho com um sistema de operação mínimo do Windows do Windows 7 e nCipher nShield software, pelo menos, versão 11.50.<br/><br/>Se esta estação de trabalho executa o Windows 7, deve [instalar o Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Uma estação de trabalho que está ligada à Internet e tem um sistema de operativo mínimo do Windows do Windows 7 e [do Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) **versão mínima 1.1.0** instalado.</li><li>Uma unidade USB ou outro dispositivo de armazenamento portátil que tenha, pelo menos, 16 MB de espaço livre.</li></ol> |Por motivos de segurança, recomendamos que a primeira estação de trabalho não está ligada a uma rede. No entanto, esta recomendação não é imposta por meio de programação.<br/><br/>Nas instruções que se seguem, esta estação de trabalho é referida como a estação de trabalho desligada.</p></blockquote><br/>Além disso, se a chave de inquilino for para uma rede de produção, recomendamos que utilize uma segunda estação de trabalho separada para transferir o conjunto de ferramentas e carregar a chave de inquilino. Mas para fins de teste, pode utilizar a mesma estação de trabalho como primeiro.<br/><br/>Nas instruções que se seguem, esta segunda estação de trabalho é referida como a estação de trabalho ligada à Internet.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Gerar e transferir a chave para o HSM do Azure Key Vault
 
@@ -162,7 +162,7 @@ KeyVault-BYOK-Tools-Australia.zip
 CD0FB7365053DEF8C35116D7C92D203C64A3D3EE2452A025223EEB166901C40A
 
 - - -
-[**Azure Government:**](https://azure.microsoft.com/features/gov/)
+[**Azure Government:** ](https://azure.microsoft.com/features/gov/)
 
 KeyVault-BYOK-Tools-USGovCloud.zip
 
@@ -232,17 +232,17 @@ Copie o pacote para uma unidade USB ou outro armazenamento portátil.
 
 Para essa segunda etapa, efetue os seguintes procedimentos na estação de trabalho que não está ligado a uma rede (Internet ou rede interna).
 
-### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Passo 2.1: Preparar a estação de trabalho desligada com o HSM da Thales
+### <a name="step-21-prepare-the-disconnected-workstation-with-ncipher-nshield-hsm"></a>Passo 2.1: Preparar a estação de trabalho desligada com nCipher nShield HSM
 
-Instalar o software de suporte nCipher (Thales) num computador Windows e, em seguida, anexe um HSM da Thales a esse computador.
+Instalar o software de suporte nCipher num computador Windows e, em seguida, anexe um HSM de nShield nCipher a esse computador.
 
-Certifique-se de que as ferramentas de Thales estão no seu caminho (**%nfast_home%\bin**). Por exemplo, escreva o seguinte:
+Certifique-se de que as ferramentas de nCipher estão no seu caminho ( **%nfast_home%\bin**). Por exemplo, escreva o seguinte:
 
   ```cmd
   set PATH=%PATH%;"%nfast_home%\bin"
   ```
 
-Para obter mais informações, consulte o guia de utilizador incluído no HSM da Thales.
+Para obter mais informações, consulte o guia de utilizador incluído com o nShield HSM.
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>Passo 2.2: Instalar o conjunto de ferramentas BYOK na estação de trabalho desligada
 
@@ -258,11 +258,11 @@ Para este passo de terceiro, efetue os seguintes procedimentos na estação de t
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Passo 3.1: Alterar o modo HSM para o "I"
 
-Se estiver a utilizar nShield da Thales Edge, para alterar o modo: 1. Utilize o botão de modo para realçar o modo necessário. 2. Dentro de alguns segundos, prima e mantenha premido o botão Limpar para alguns segundos. Se alterar o modo, LED o novo modo interrompe flashing e permanece iluminado. O LED de estado pode flash irregularmente por alguns segundos e, em seguida, pisca regularmente quando o dispositivo está pronto. Caso contrário, o dispositivo permanece no modo de atual, com o modo adequado LED ativada.
+Se estiver a utilizar nCipher nShield Edge, para alterar o modo: 1. Utilize o botão de modo para realçar o modo necessário. 2. Dentro de alguns segundos, prima e mantenha premido o botão Limpar para alguns segundos. Se alterar o modo, LED o novo modo interrompe flashing e permanece iluminado. O LED de estado pode flash irregularmente por alguns segundos e, em seguida, pisca regularmente quando o dispositivo está pronto. Caso contrário, o dispositivo permanece no modo de atual, com o modo adequado LED ativada.
 
 ### <a name="step-32-create-a-security-world"></a>Passo 3.2: Criar um universo de segurança
 
-Inicie um prompt de comando e execute o programa de novo universo da Thales.
+Inicie uma linha de comandos e execute o programa de novo mundo de nCipher.
 
    ```cmd
     new-world.exe --initialize --cipher-suite=DLf3072s256mRijndael --module=1 --acs-quorum=2/3
@@ -279,14 +279,14 @@ Em seguida, faça o seguinte:
 
 ### <a name="step-33-change-the-hsm-mode-to-o"></a>Passo 3.3: Alterar o modo HSM para ' O'
 
-Se estiver a utilizar nShield da Thales Edge, para alterar o modo: 1. Utilize o botão de modo para realçar o modo necessário. 2. Dentro de alguns segundos, prima e mantenha premido o botão Limpar para alguns segundos. Se alterar o modo, LED o novo modo interrompe flashing e permanece iluminado. O LED de estado pode flash irregularmente por alguns segundos e, em seguida, pisca regularmente quando o dispositivo está pronto. Caso contrário, o dispositivo permanece no modo de atual, com o modo adequado LED ativada.
+Se estiver a utilizar nCipher nShield Edge, para alterar o modo: 1. Utilize o botão de modo para realçar o modo necessário. 2. Dentro de alguns segundos, prima e mantenha premido o botão Limpar para alguns segundos. Se alterar o modo, LED o novo modo interrompe flashing e permanece iluminado. O LED de estado pode flash irregularmente por alguns segundos e, em seguida, pisca regularmente quando o dispositivo está pronto. Caso contrário, o dispositivo permanece no modo de atual, com o modo adequado LED ativada.
 
 ### <a name="step-34-validate-the-downloaded-package"></a>Passo 3.4: Validar o pacote transferido
 
 Este passo é opcional mas recomendado, para que possa validar o seguinte:
 
-* A chave de troca de chaves que está incluído no conjunto de ferramentas foi gerada a partir de um HSM da Thales genuíno.
-* O hash do universo de segurança que está incluído no conjunto de ferramentas foi gerado num HSM da Thales genuíno.
+* A chave de troca de chaves que está incluído no conjunto de ferramentas foi gerada a partir de um HSM de nShield nCipher original.
+* O hash do universo de segurança que está incluído no conjunto de ferramentas foi gerado num nShield nCipher original HSM.
 * A chave de troca de chaves não é exportável.
 
 > [!NOTE]
@@ -346,18 +346,18 @@ Para validar o pacote transferido:
          "%nfast_home%\python\bin\python" verifykeypackage.py -k BYOK-KEK-pkg-UK-1 -w BYOK-SecurityWorld-pkg-UK-1
 
      > [!TIP]
-     > O software da Thales inclui o python em %NFAST_HOME%\python\bin
+     > O software do nCipher nShield inclui o python em %NFAST_HOME%\python\bin
      >
      >
 2. Confirme que vê o seguinte, que indica uma validação com êxito: **Resultado: ÊXITO**
 
-Este script valida a cadeia de signatário até a chave de raiz da Thales. O hash desta chave de raiz é incorporado no script e respetivo valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Pode também confirmar este valor separadamente ao aceder a [Web site da Thales](http://www.thalesesec.com/).
+Este script valida a cadeia de signatário até a chave de raiz nShield. O hash desta chave de raiz é incorporado no script e respetivo valor deve ser **59178a47 de508c3f 291277ee 184f46c4 f1d9c639**. Pode também confirmar este valor separadamente ao aceder a [nCipher site](https://www.ncipher.com/products/key-management/cloud-microsoft-azure/validation).
 
 Agora, está pronto para criar uma nova chave.
 
 ### <a name="step-35-create-a-new-key"></a>Passo 3.5: Criar uma chave nova
 
-Gerar uma chave com a Thales **generatekey** programa.
+Gerar uma chave com o nCipher nShield **generatekey** programa.
 
 Execute o seguinte comando para gerar a chave:
 
@@ -367,14 +367,14 @@ Quando executar este comando, utilize estas instruções:
 
 * O parâmetro *proteger* tem de ser definido para o valor **módulo**, conforme mostrado. Esta ação cria uma chave protegida por módulo. O conjunto de ferramentas BYOK não suporta chaves protegidas por OCS.
 * Substitua o valor de *contosokey* para o **ident** e **plainname** com qualquer valor de cadeia de caracteres. Para minimizar as tarefas administrativas adicionais e reduzir o risco de erros, recomendamos que utilize o mesmo valor para ambos. O **ident** valor tem de conter apenas números, travessões e letras minúsculas.
-* O pubexp fica em branco (predefinição) neste exemplo, mas pode especificar valores específicos. Para obter mais informações, consulte a documentação da Thales.
+* O pubexp fica em branco (predefinição) neste exemplo, mas pode especificar valores específicos. Para obter mais informações, consulte o [nCipher documentação.](https://www.ncipher.com/resources/solution-briefs/protect-sensitive-data-rest-and-use-across-premises-and-azure-based)
 
-Este comando cria um ficheiro de chave com token na pasta %NFAST_KMDATA%\local com um nome começado por **key_simple_**, seguido da **ident** que foi especificada no comando. Por exemplo: **key_simple_contosokey**. Este ficheiro contém uma chave encriptada.
+Este comando cria um ficheiro de chave com token na pasta %NFAST_KMDATA%\local com um nome começado por **key_simple_** , seguido da **ident** que foi especificada no comando. Por exemplo: **key_simple_contosokey**. Este ficheiro contém uma chave encriptada.
 
 Fazer uma cópia de segurança deste ficheiro de chave com token numa localização segura.
 
 > [!IMPORTANT]
-> Quando transfere a chave mais tarde para o Azure Key Vault, a Microsoft não é possível exportar esta chave é com, de modo que é extremamente importante que faça backup da chave e do universo em segurança. Contacte a Thales para obter orientações e melhores práticas para fazer backup de sua chave.
+> Quando transfere a chave mais tarde para o Azure Key Vault, a Microsoft não é possível exportar esta chave é com, de modo que é extremamente importante que faça backup da chave e do universo em segurança. Contacte [nCipher](https://www.ncipher.com/about-us/contact-us) para obter orientações e melhores práticas para fazer backup de sua chave.
 >
 
 
@@ -443,7 +443,7 @@ Quando executar este comando, substitua *contosokey* com o mesmo valor que espec
 
 Quando o comando estiver concluído, verá **resultado: SUCESSO** e a cópia da sua chave com permissões reduzidas estão no ficheiro denominado key_xferacid _\<contosokey >.
 
-Pode inspeciona a através de ACLS seguintes comandos usando os utilitários da Thales:
+Pode inspeciona a através de ACLS seguintes comandos usando os utilitários do nCipher nShield:
 
 * aclprint.py:
 

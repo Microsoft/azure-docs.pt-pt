@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: 974a4341bd140da60c5e229a644657fe7ab02535
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721610"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602015"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Ativar a autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -79,7 +79,7 @@ Para ativar a autenticação do Azure AD com o uso de SMB os [portal do Azure](h
 
 1. No portal do Azure, navegue até à sua conta de armazenamento existente, ou [criar uma conta de armazenamento](../common/storage-quickstart-create-account.md).
 2. Na **configurações** secção, selecione **configuração**.
-3. Ativar **autenticação do Active Directory do Azure para ficheiros do Azure (pré-visualização)**.
+3. Ativar **autenticação do Active Directory do Azure para ficheiros do Azure (pré-visualização)** .
 
 A imagem seguinte mostra como ativar a autenticação do Azure AD através de SMB para a sua conta de armazenamento.
 
@@ -103,12 +103,6 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
     -EnableAzureFilesAadIntegrationForSMB $true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
-    -Name "<storage-account-name>" `
-    -EnableAzureFilesAadIntegrationForSMB $true```
 ```
 
 ### <a name="azure-cli"></a>CLI do Azure
@@ -124,10 +118,6 @@ Em seguida, crie um novo armazenamento de conta, em seguida, chamar [atualizaç�
 ```azurecli-interactive
 # Create a new storage account
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-az storage account update -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
 ## <a name="assign-access-permissions-to-an-identity"></a>Atribua permissões de acesso para uma identidade 

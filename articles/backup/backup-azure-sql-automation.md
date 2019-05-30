@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717900"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544597"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Criar cópias de segurança e restaurar bases de dados SQL em VMs do Azure com o PowerShell
 
@@ -110,7 +110,7 @@ O Cofre dos serviços de recuperação é um recurso do Resource Manager, para q
 3. Especifique o tipo de redundância para utilizar o armazenamento do cofre.
 
     * Pode usar [armazenamento localmente redundante](../storage/common/storage-redundancy-lrs.md) ou [armazenamento georredundante](../storage/common/storage-redundancy-grs.md).
-    * O exemplo seguinte define a **- BackupStorageRedundancy** opção para o[conjunto AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd para **testvault** definido como  **GeoRedundant**.
+    * O exemplo seguinte define a **- BackupStorageRedundancy** opção para o[conjunto AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd para **testvault** definido como  **GeoRedundant**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 É importante observar que cópia de segurança do Azure apenas controla as tarefas do utilizador acionada na cópia de segurança do SQL. Cópias de segurança agendadas (incluindo backups de log) não estão visíveis no portal/powershell. No entanto, se houver agendadas tarefas falhar, uma [alerta de cópia de segurança](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) é gerado e apresentado no portal. [Utilizar o Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) para controlar todas as tarefas agendadas e outras informações relevantes.
 
-Os usuários podem controlar as operações de ad hoc/utilizador acionado com o JobID que é devolvido na [saída](#on-demand-backup) de tarefas assíncronas, tais como cópia de segurança. Uso [Get-AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) PS cmdlet para controlar o trabalho e os respetivos detalhes.
+Os usuários podem controlar as operações de ad hoc/utilizador acionado com o JobID que é devolvido na [saída](#on-demand-backup) de tarefas assíncronas, tais como cópia de segurança. Uso [Get-AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS cmdlet para controlar o trabalho e os respetivos detalhes.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

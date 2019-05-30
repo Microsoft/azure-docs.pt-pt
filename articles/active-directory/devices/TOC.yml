@@ -22,6 +22,8 @@
   items:
     - name: Recursos de SSO para o local
       href: azuread-join-sso.md
+    - name: Estações de trabalho geridas do Azure
+      href: concept-azure-managed-workstation.md
 - name: Guias de procedimentos
   expanded: true
   items:
@@ -39,6 +41,8 @@
       href: assign-local-admin.md
     - name: Ativar o roaming de estado empresarial
       href: enterprise-state-roaming-enable.md
+    - name: Implementar estações de trabalho geridas do Azure
+      href: howto-azure-managed-workstation.md
     - name: Resolver problemas de dispositivos atuais do Windows associados ao Azure AD híbrido
       href: troubleshoot-hybrid-join-windows-current.md
     - name: Resolver problemas de dispositivos Windows legados associados ao Azure AD híbrido

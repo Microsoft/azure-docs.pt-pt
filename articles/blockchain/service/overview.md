@@ -10,19 +10,19 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: a200649493354f1264afb0df4cf74acb4a274017
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: e370916d420a7bc4cd16d021c69a2f8609093d30
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406411"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544706"
 ---
 # <a name="what-is-azure-blockchain-service"></a>O que é o serviço do Azure Blockchain?
 
 O serviço do Azure Blockchain é um serviço de contabilidade totalmente gerido que permite aos utilizadores a capacidade de aumentar e operar a redes de blockchain em escala no Azure. Ao fornecer controle unificada para o gerenciamento da infraestrutura, bem como blockchain governação de rede, o serviço do Azure Blockchain fornece:
 
 * Rede simples de implantação e operações
-* Gestão de consórcio incorporada
+* Gestão de consórcios incorporada
 * Desenvolver contratos inteligentes com ferramentas de programação familiar
 
 O serviço do Azure Blockchain foi concebido para suportar vários protocolos de contabilidade. Atualmente, ele fornece suporte para o Ethereum [quórum](https://www.jpmorgan.com/Quorum) contábeis utilizando o [IBFT](https://github.com/jpmorganchase/quorum/wiki/Quorum-Consensus) mecanismo de consenso.
@@ -55,7 +55,7 @@ Além disso, Azure Blockchain Service fornece métricas avançadas através do s
 
 Com o Azure Log Analytics, os utilizadores podem ver os registos relacionados com a razão de quórum, ou outras ligações de informações importantes, como tentativas para os nós de transação.
 
-## <a name="built-in-consortium-management"></a>Gestão de consórcio incorporada
+## <a name="built-in-consortium-management"></a>Gestão de consórcios incorporada
 
 Ao implementar o seu primeiro membro de blockchain, adere ou criar um consórcio de novo.  Um consórcio é um grupo lógico utilizado para gerir a governação e a conectividade entre os membros de blockchain que transact num processo de múltiplos intervenientes.  O serviço do Azure Blockchain fornece controles de governação interna por meio de contratos inteligentes predefinidos, que determinam o que os membros de ações no consortium podem demorar.  Esses controles de governação podem ser personalizados conforme necessário pelo administrador do consortium. Quando cria um novo consortium, o membro de blockchain é o administrador predefinido do consortium, a habilitação da capacidade convidar outras partes para associar sua consortium.  Pode associar um consórcio apenas se foi convidado anteriormente.  Ao associar um consórcio, o membro de blockchain está sujeita os controles de governação colocados em vigor pelo administrador do consórcio.
 
@@ -77,7 +77,7 @@ Precisa de ajuda ou tiver comentários?
 ## <a name="next-steps"></a>Passos Seguintes
 
 Para começar, tente um início rápido ou obter mais detalhes destes recursos.
-* [Criar um membro de blockchain com o portal do Azure](create-member.md) ou [criar um membro de blockchain com a CLI do Azure]()
+* [Criar um membro de blockchain com o portal do Azure](create-member.md) ou [criar um membro de blockchain com a CLI do Azure](create-member-cli.md)
 * Para comparações de preços e calculadoras, consulte a [página de preços](https://azure.microsoft.com/pricing/details/blockchain-service).
 * Criar a sua primeira aplicação com o [Development Kit do Azure Blockchain](https://github.com/Azure-Samples/blockchain-devkit)
 * Extensão do Azure Blockchain VSCode [Guia do utilizador](https://github.com/Microsoft/vscode-azure-blockchain-ethereum/wiki)

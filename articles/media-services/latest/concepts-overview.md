@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152638"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762315"
 ---
 # <a name="media-services-concepts"></a>Conceitos de serviços de multimédia
 
@@ -26,7 +26,7 @@ Este tópico apresenta uma breve descrição geral dos conceitos e terminologia-
 Os conceitos fundamentais descritos nos seguintes tópicos devem ser revistos antes de iniciar o desenvolvimento.
 
 > [!NOTE]
-> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
+> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 ## <a name="terminology"></a>Terminologia
 
@@ -76,7 +76,7 @@ Ao criar o **localizador de transmissão em fluxo**, além do nome do elemento, 
 
 Empacotamento dinâmico é utilizado se transmite o seu conteúdo ao vivo ou sob demanda. O diagrama seguinte mostra o streaming sob demanda com o fluxo de trabalho de empacotamento dinâmico.
 
-![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Empacotamento dinâmico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob demanda encriptado dinamicamente com o Advanced Encryption Standard (AES-128) ou / e qualquer um dos três sistemas de gestão (DRM) de direitos digitais principais: Microsoft PlayReady, Widevine da Google e Apple FairPlay. Serviços de multimédia também fornecem um serviço para entrega de chaves AES e o DRM (PlayReady, Widevine e FairPlay) licenças para os clientes autorizados.
 
@@ -101,7 +101,7 @@ Pode utilizar os serviços de multimédia **manifestos dinâmica** transmitir ap
 - [Dynamic manifests](filters-dynamic-manifest-overview.md) (Manifestos dinâmicos)
 - [Filtros](filters-concept.md)
 
-## <a name="live-streaming"></a>Transmissão em direto
+## <a name="live-streaming"></a>Transmissão em fluxo em direto
 
 Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seus clientes na cloud do Azure. Os **Eventos em Direto** são responsáveis pela ingestão e o processamento dos feeds de vídeos em direto. Quando cria um **evento em direto**, é criado um ponto de final de entrada que pode utilizar para enviar um sinal ao vivo a partir de um codificador remoto. Assim que tiver o fluxo a ser encaminhados para o **evento em direto**, pode começar o evento de transmissão em fluxo através da criação de um **Asset**, **Live saída**, e **localizador de transmissão em fluxo** . **Live saída** irá arquivar a transmissão no **Asset** e disponibilizá-la para os espetadores através da **ponto final de transmissão em fluxo**. R **evento em direto** pode ser um dos dois tipos: **pass-through** e **codificação em direto**.
 
@@ -114,7 +114,7 @@ A imagem seguinte ilustra o fluxo de trabalho do tipo de pass-through:
 
 ## <a name="monitoring"></a>Monitorização
 
-### <a name="event-grid"></a>Event Grid
+### <a name="event-grid"></a>Grelha de Eventos
 
 Para ver o progresso da tarefa, deve usar **Event Grid**. Serviços de multimédia emite também os tipos de evento em direto. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. 
 

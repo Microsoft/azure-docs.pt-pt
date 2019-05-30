@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/24/2019
 ms.author: juliako
-ms.openlocfilehash: d99e3661fd51b481a20404cfeb55157ac803c220
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 98e8c0ccd150776341e644f7565696e8fbd63e99
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706163"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556274"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Serviços de multimédia do Azure v3 perguntas mais frequentes
 
@@ -30,7 +30,7 @@ Ver [controlo de acesso baseado em funções (RBAC) para contas de serviços de 
 
 ### <a name="how-do-i-configure-media-reserved-units"></a>Como posso configurar a unidades reservadas de multimédia?
 
-Para as tarefas de Análise de áudio e de Análise de vídeo acionadas por Serviços de Multimédia v3 ou Video Indexer, é altamente recomendado que aprovisione a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
+Para a análise de áudio e tarefas de análise de vídeo que são acionados por serviços de multimédia v3 ou Video Indexer, recomenda-se elevada para aprovisionar a sua conta com 10 MRUs de S3. Se precisar de mais de 10 S3 MRUs, abra um pedido de suporte através do [portal do Azure](https://portal.azure.com/).
 
 Para obter detalhes, consulte [Dimensionar processamento de multimédia com a CLI](media-reserved-units-cli-how-to.md).
 
@@ -46,7 +46,7 @@ Ao utilizar a paginação, deve sempre utilizar a ligação seguinte enumere a c
 
 Para obter detalhes, consulte [funcionalidade lacunas em relação a v2 APIs](migrate-from-v2-to-v3.md#feature-gaps-with-respect-to-v2-apis).
 
-## <a name="live-streaming"></a>Transmissão em direto 
+## <a name="live-streaming"></a>Transmissão em fluxo em direto 
 
 ###  <a name="how-to-insert-breaksvideos-and-image-slates-during-live-stream"></a>Como inserir quebras/vídeos e slates da imagem durante a transmissão em direto?
 
@@ -81,7 +81,7 @@ Para obter mais informações, consulte:
 
 ### <a name="can-i-use-the-azure-portal-to-manage-v3-resources"></a>Pode utilizar o portal do Azure para gerir os recursos de v3?
 
-Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
+Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>Existe um conceito de AssetFile na v3?
 

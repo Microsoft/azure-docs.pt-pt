@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60599817"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602064"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalar um servidor de destino principal do Linux para reativação pós-falha
 Depois de efetuar a ativação pós-falha de máquinas virtuais para o Azure, pode efetuar a reativação pós-falha as máquinas virtuais para o site no local. Para efetuar a reativação pós-falha, terá de voltar a proteger a máquina virtual do Azure para o site no local. Para que este processo, terá de um servidor de destino mestre no local para receber o tráfego. 
@@ -67,7 +67,7 @@ Mantenha um ISO de 64 bits mínimo do Ubuntu 16.04.2 na unidade de DVD e iniciar
 
 1.  Selecione **inglês** como sua linguagem preferida e, em seguida, selecione **Enter**.
     
-    ![Selecione uma Linguagem](./media/vmware-azure-install-linux-master-target/image1.png)
+    ![Selecionar um idioma](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Selecione **instalar o servidor Ubuntu**e, em seguida, selecione **Enter**.
 
     ![Select Install Ubuntu Server](./media/vmware-azure-install-linux-master-target/image2.png)
@@ -83,7 +83,7 @@ Mantenha um ISO de 64 bits mínimo do Ubuntu 16.04.2 na unidade de DVD e iniciar
 1. Selecione **não** (a opção predefinida) e, em seguida, selecione **Enter**.
 
      ![Configurar o teclado](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selecione **inglês (EUA)** como o país de origem para o teclado e, em seguida, selecione **Enter**.
+1. Selecione **inglês (EUA)** como o país/região de origem para o teclado e, em seguida, selecione **Enter**.
 
 1. Selecione **inglês (EUA)** como o layout de teclado e, em seguida, selecione **Enter**.
 
@@ -245,7 +245,7 @@ Utilize os seguintes passos para criar um disco de retenção:
 
     ![ID de Multipath i](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formatar o disco e, em seguida, criar um sistema de ficheiros na nova unidade: **mkfs.ext4 /dev/mapeador/< id multipath do disco de retenção >**.
+3. Formatar o disco e, em seguida, criar um sistema de ficheiros na nova unidade: **mkfs.ext4 /dev/mapeador/< id multipath do disco de retenção >** .
     
     ![Sistema de ficheiros](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -262,7 +262,7 @@ Utilize os seguintes passos para criar um disco de retenção:
     
     Selecione **inserir** para começar a editar o ficheiro. Criar uma nova linha e, em seguida, insira o seguinte texto. Edite o ID de Multipath i do disco com base no ID de multipath realçado do comando anterior.
 
-     **/Dev/mapeador/ <Retention disks multipath id> /mnt/rw do ext4 do retenção 0 0**
+    **/Dev/mapeador/\<id multipath de discos de retenção >/mnt/rw do ext4 do retenção 0 0**
 
     Selecione **Esc**e, em seguida, escreva **: wq** (escrever e sair) para fechar a janela do editor.
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: e3a27ab15c72289dd28e31d832b81407a66dc754
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d6e09ec1f070f9ee0f4162524e4bd80d1f81adc3
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546271"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560646"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados de geração 1 de armazenamento do Azure Data Lake para geração 2 com o Azure Data Factory
 
@@ -46,7 +46,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
       
    ![Página Nova fábrica de dados](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_ **ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: Selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
     * **Grupo de recursos**: Selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versão**: Selecione **V2**.
@@ -132,12 +132,47 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Quando copiar grande volume de dados de arquivo de dados baseados em ficheiros, são sugeridas para:
+Para avaliar a atualização de geração 1 do Azure Data Lake Storage (ADLS) para geração 2 em geral, consulte [atualizar as soluções de análise de macrodados de geração 1 de armazenamento do Azure Data Lake para geração 2 de armazenamento do Azure Data Lake](../storage/blobs/data-lake-storage-upgrade.md). As secções seguintes apresentam as práticas recomendadas do uso do ADF para atualização de dados de geração 1 para o ger2.
 
-- Os ficheiros de partição para 10TB para fileset 30TB cada.
-- Não acionam demasiados execuções de cópia simultâneos para evitar a limitação de arquivos de dados de origem ou sink. Pode começar com uma cópia, executar e monitorizar a taxa de transferência e depois gradualmente a adicionar mais conforme necessário.
+### <a name="data-partition-for-historical-data-copy"></a>Partição de dados para cópia de dados históricos
+
+- Se o tamanho total de dados no ADLS Gen1 for inferior a **30TB** e o número de ficheiros é menor do que **1 milhão**, é possível copiar todos os dados em execução de atividade de cópia única.
+- Se tiver um tamanho maior de dados para copiar ou se pretender que a flexibilidade para gerir a migração de dados em lotes e disponibilizar cada uma delas foi concluída dentro de uma janela de tempo específico, são sugeridas para particionar os dados, caso em que ela também pode reduzir o risco de qualquer iss inesperado UE.
+
+Uma prova de conceito (uma prova de conceito) é altamente recomendada para verificar a solução ponto a ponto e testar o débito de cópia no seu ambiente. Principais etapas da prova de conceito a fazer: 
+
+1. Criar um pipeline do ADF com a atividade de cópia única para copiar várias TB de dados do ADLS Gen1 para ADLS Gen2 para obter uma cópia desempenho da linha de base, começando com [unidades de integração de dados (DIUs)](copy-activity-performance.md#data-integration-units) como 128. 
+2. Com base no débito cópia que obtenha no passo #1, calcule o tempo estimado necessário para a migração de dados inteiro. 
+3. (Opcional) Criar uma tabela de controlo e definir o filtro de ficheiros para particionar os arquivos a serem migrados. A forma de particionar os arquivos do seguinte: 
+
+    - Particionados por nome de pasta ou nome de pasta com o filtro de carateres universais (recomendável) 
+    - Particionados por última hora da modificação do ficheiro 
+
+### <a name="network-bandwidth-and-storage-io"></a>E/s armazenamento e largura de banda de rede 
+
+Pode controlar a simultaneidade de tarefas de cópia do ADF que ler os dados do ADLS Gen1 e escrever dados no ADLS ger2, para que possa gerir a utilização de e/s de armazenamento para não afetar o trabalho de negócio normal no ADLS Gen1 durante a migração.
+
+### <a name="permissions"></a>Permissões 
+
+No Data Factory, [conector de geração 1 do ADLS](connector-azure-data-lake-store.md) suporta Principal de serviço e de identidade gerido para autenticações de recursos do Azure; [Conector de geração 2 do ADLS](connector-azure-data-lake-storage.md) suporta chave, de conta Principal de serviço e de identidade gerido para autenticações de recursos do Azure. Para tornar a fábrica de dados capazes de navegar e copie que todos os ficheiros/ACLs conforme necessário, certifique-se de que alto concede permissões suficientes para a conta de fornecer para acesso/leitura/escrita de todos os ficheiros e definir ACLs se optar por. Sugerir conceder como super utilizador/proprietário função durante o período de migração. 
+
+### <a name="preserve-acls-from-data-lake-storage-gen1"></a>Preservar as ACLs do Data Lake Storage Gen1
+
+Se pretender replicar as ACLs juntamente com os ficheiros de dados ao atualizar do Data Lake Storage Gen1 para geração 2, consulte [preservar as ACLs de geração 1 de armazenamento do Data Lake](connector-azure-data-lake-storage.md#preserve-acls-from-data-lake-storage-gen1). 
+
+### <a name="incremental-copy"></a>Cópia incremental 
+
+Várias abordagens podem ser utilizadas para carregar apenas os ficheiros novos ou atualizados do ADLS Gen1:
+
+- Carregar ficheiros novos ou atualizados por tempo particionada pasta ou ficheiro nome, por exemplo, / 2019/05/13 / *;
+- Carregar ficheiros novos ou atualizados por LastModifiedDate;
+- Identificar ficheiros novos ou atualizados por nenhuma ferramenta/solução 3rd party, em seguida, passar o nome de ficheiro ou pasta ao pipeline do ADF via parâmetro ou um tabela/ficheiro.  
+
+A frequência adequada para fazer o carregamento incremental depende do número total de ficheiros no ADLS Gen1 e o volume de ficheiros novos ou atualizados para ser carregado sempre.  
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Descrição geral da atividade de cópia](copy-activity-overview.md)
-* [Conector de geração 2 de armazenamento do Data Lake do Azure](connector-azure-data-lake-storage.md)
+> [!div class="nextstepaction"]
+> [Descrição geral da atividade de cópia](copy-activity-overview.md)
+> [conector de geração 1 de armazenamento do Azure Data Lake](connector-azure-data-lake-store.md)
+> [conector de geração 2 de armazenamento do Azure Data Lake](connector-azure-data-lake-storage.md)

@@ -3,8 +3,8 @@ title: Âmbitos de plataforma do Microsoft identity, permissões e consentimento
 description: Uma descrição de autorização, o Microsoft identity platform ponto final, incluindo âmbitos, permissões e consentimento.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112082"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544873"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permissões e consentimento no ponto de final de plataforma de identidade do Microsoft
 
@@ -85,7 +85,7 @@ A implementação de plataforma de identidade Microsoft do OpenID Connect tem al
 
 Se uma aplicação realiza início de sessão usando [OpenID Connect](active-directory-v2-protocols.md), ele deve solicitar o `openid` âmbito. O `openid` âmbito mostra a página de consentimento da conta de trabalho como a permissão "Iniciar sessão" e a página de consentimento de conta pessoal Microsoft como a permissão "Visualizar seu perfil e ligar a aplicações e serviços com a sua conta Microsoft". Com esta permissão, uma aplicação pode receber um identificador exclusivo para o usuário na forma do `sub` de afirmação. Isso também permite o acesso da aplicação para o ponto final de UserInfo. O `openid` âmbito pode ser usado no Microsoft identity platform ponto final do token para adquirir os tokens de ID, que podem ser utilizados pela aplicação para autenticação.
 
-### <a name="email"></a>e-mail
+### <a name="email"></a>email
 
 O `email` âmbito pode ser utilizado com o `openid` escopo e dos outros. Fornece o acesso da aplicação para o endereço de e-mail primário do utilizador na forma do `email` de afirmação. O `email` afirmação está incluída num token apenas se um endereço de e-mail está associado com a conta de utilizador, que nem sempre é o caso. Se utiliza a `email` âmbito, a sua aplicação deve estar preparada para processar um caso em que o `email` afirmação não existe no token.
 

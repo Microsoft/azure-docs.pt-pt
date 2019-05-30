@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 3cd22b89852706ed129373fd24ca9a9d9a27d25b
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fa09185e68c8d3a70562fe50c583ff872bf91e48
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153383"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556227"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Transmissão em direto com Media Services do Azure v3
 
@@ -33,7 +33,7 @@ Serviços de multimédia do Azure permite-lhe fornecer eventos em direto aos seu
 Este artigo fornece uma descrição geral e a documentação de orientação de transmissão em fluxo em direto com serviços de multimédia e links para outros artigos relevantes.
 
 > [!NOTE]
-> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](developers-guide.md) suportados.
+> Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
 
 ## <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -67,9 +67,9 @@ Ao utilizar a codificação em direto com os Serviços de Multimédia, configura
 
 Para compreender o fluxo de trabalho de transmissão em fluxo em direto em serviços de multimédia v3, tem de primeira revisão e compreender os seguintes conceitos: 
 
-- [Streaming Endpoints](streaming-endpoint-concept.md) (Pontos Finais de Transmissão em Fluxo)
-- [Live Events and Live Outputs](live-events-outputs-concept.md) (Eventos em Direto e Saídas em Direto)
-- [Streaming Locators](streaming-locators-concept.md) (Localizadores de Transmissão em Fluxo)
+- [Pontos finais de API de transmissão em fluxo](streaming-endpoint-concept.md)
+- [Eventos e a API de saídas em direto do Live](live-events-outputs-concept.md)
+- [API de localizadores de transmissão em fluxo](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Passos gerais
 

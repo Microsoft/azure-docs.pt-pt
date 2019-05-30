@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/14/2019
 ms.author: yushwang
-ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456499"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786705"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ do VPN Gateway
 
@@ -190,7 +190,7 @@ Sim. Veja a secção [BGP](#bgp) para obter mais informações.
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>O Azure gera a mesma chave pré-partilhada IPsec/IKE para todas as minhas ligações VPN para a mesma rede virtual?
 
-Não, por predefinição, o Azure gera chaves pré-partilhadas diferentes para diferentes ligações VPN. No entanto, pode utilizar o cmdlet do PowerShell ou a API REST Definir Chave de Gateway de VPN para definir o valor da chave que preferir. A chave TEM de ser uma cadeia alfanumérica com um comprimento entre 1 a 128 carateres.
+Não, por predefinição, o Azure gera chaves pré-partilhadas diferentes para diferentes ligações VPN. No entanto, pode utilizar o cmdlet do PowerShell ou a API REST Definir Chave de Gateway de VPN para definir o valor da chave que preferir. A chave tem de ser carateres ASCII imprimíveis.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>Tenho mais largura de banda com mais Redes de VPNs do que para uma única rede virtual?
 

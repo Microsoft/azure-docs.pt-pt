@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510845"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555950"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas do Azure File Sync
 Utilize o Azure File Sync para centralizar as partilhas de ficheiros da sua organização nos ficheiros do Azure, mantendo a flexibilidade, desempenho e compatibilidade de um servidor de ficheiros no local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Pode usar qualquer protocolo disponível no Windows Server para aceder aos seus dados localmente, incluindo SMB, NFS e FTPS. Pode ter o número de caches que precisar em todo o mundo.
@@ -95,7 +95,7 @@ As seguintes funções incorporadas têm as permissões necessárias do Authoriz
 
 Para determinar se a sua função de conta de utilizador tem as permissões necessárias:  
 1. No portal do Azure, selecione **grupos de recursos**.
-2. Selecione o grupo de recursos onde está localizada a conta de armazenamento e, em seguida, selecione **controlo de acesso (IAM)**.
+2. Selecione o grupo de recursos onde está localizada a conta de armazenamento e, em seguida, selecione **controlo de acesso (IAM)** .
 3. Selecione o **atribuições de funções** separador.
 4. Selecione o **função** (por exemplo, proprietário ou Contribuidor) para a sua conta de utilizador.
 5. Na **fornecedor de recursos** lista, selecione **Microsoft Authorization**. 
@@ -105,7 +105,7 @@ Para determinar se a sua função de conta de utilizador tem as permissões nece
 <a id="server-endpoint-createjobfailed"></a>**Falha de criação de ponto final de servidor, com este erro: "MgmtServerJobFailed" (código de erro:-2134375898)**  
 Este problema ocorre se o caminho do ponto final de servidor está no volume de sistema e na cloud em camadas está ativada. Na cloud em camadas não é suportada no volume do sistema. Para criar um ponto final do servidor no volume do sistema, desative a camada ao criar o ponto final do servidor de cloud.
 
-<a id="server-endpoint-deletejobexpired"></a>**Eliminação de ponto final de servidor falha, com este erro: "MgmtServerJobExpired"**                
+<a id="server-endpoint-deletejobexpired"></a>**Eliminação de ponto final de servidor falha, com este erro: "MgmtServerJobExpired"**                 
 Este problema ocorre se o servidor está offline ou não tem conectividade de rede. Se o servidor já não estiver disponível, anular o registo do servidor no portal do que irá eliminar os pontos de extremidade do servidor. Para eliminar os pontos de extremidade do servidor, siga os passos descritos em [anular o registo de um servidor com o Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Não é possível abrir a página de propriedades do ponto final de servidor ou atualizar a política de camadas de cloud**  
@@ -300,6 +300,17 @@ Sessões de sincronização poderão falhar por vários motivos, incluindo o ser
 | **Remediação necessária** | Não |
 
 Nenhuma ação é necessária; o servidor irá tentar novamente. Se este erro persistir durante mais de duas horas, crie um pedido de suporte.
+
+<a id="-2134364043"></a>**Sincronização é bloqueada até que a deteção de alteração de conclusão do restauro de postagem**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (decimal)** | -2134364043 |
+| **Cadeia de erro** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Remediação necessária** | Não |
+
+Não é necessária nenhuma ação. Quando um ficheiro ou ficheiros partilhar (ponto final da cloud) é restaurado com o Azure Backup, sincronização é bloqueada até que a deteção de alteração for concluída na partilha de ficheiros do Azure. Deteção de alteração é executado imediatamente depois do restauro ser concluído e a duração baseia-se no número de ficheiros na partilha de ficheiros.
 
 <a id="-2134364065"></a>**Sincronização não é possível aceder à partilha de ficheiros do Azure especificada no ponto final da cloud.**  
 

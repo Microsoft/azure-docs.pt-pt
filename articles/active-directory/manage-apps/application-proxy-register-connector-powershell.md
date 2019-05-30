@@ -3,8 +3,8 @@ title: Conector de Proxy de aplicação do Azure AD de instalação silenciosa |
 description: Aborda como executar uma instalação autónoma do Azure AD de conector de Proxy de aplicações para fornecer acesso remoto seguro às suas aplicações no local.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0eb3e52dfd02bd7948f1b5ffd908ac1255118008
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292661"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782923"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Criar um script de instalação automática para o conector do Proxy de aplicações do Azure AD
 
@@ -53,7 +53,7 @@ Existem dois métodos que pode utilizar para registar o conector:
 * Registar o conector através de um token criado offline
 
 ### <a name="register-the-connector-using-a-windows-powershell-credential-object"></a>Registar o conector usando um objeto de credencial do Windows PowerShell
-1. Criar um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de utilizador administrativo e a palavra-passe para o seu diretório. Execute o seguinte comando, substituindo *\<nome de utilizador\>* e  *\<palavra-passe\>*:
+1. Criar um objeto de credenciais do Windows PowerShell `$cred` que contém um nome de utilizador administrativo e a palavra-passe para o seu diretório. Execute o seguinte comando, substituindo *\<nome de utilizador\>* e  *\<palavra-passe\>* :
    
         $User = "<username>"
         $PlainPassword = '<password>'

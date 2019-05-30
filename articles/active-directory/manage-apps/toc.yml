@@ -13,6 +13,8 @@
       href: view-applications-portal.md
 - name: Tutoriais
   items:
+    - name: Tutoriais de aplicações SaaS
+      href: 'https://docs.microsoft.com/azure/active-directory/saas-apps/'
     - name: Configurar o início de sessão único - portal
       href: configure-single-sign-on-portal.md
     - name: Adicionar uma aplicação no local - portal
@@ -77,19 +79,13 @@
       href: end-user-experiences.md
 - name: Guias de procedimentos
   items:
-    - name: Integração de aplicações na cloud
+    - name: Adicionar uma aplicação da cloud
       items:
-        - name: Adicionar uma aplicação
-          items:
-            - name: Escolher o tipo de aplicação
-              href: choose-application-type.md
-            - name: Problemas comuns – aplicações da galeria
-              href: adding-gallery-app-common-problems.md
-            - name: Problemas comuns – aplicações que não estão na galeria
-              href: adding-non-gallery-app-common-problems.md
+        - name: Escolher o tipo de aplicação
+          href: choose-application-type.md
         - name: Alterar o nome ou logótipo
           href: change-name-or-logo-portal.md
-    - name: Integração de aplicações no local
+    - name: Integrar uma aplicação no local
       items:
         - name: Configurar conectores
           href: application-proxy-configure-connectors-with-proxy-servers.md
@@ -125,7 +121,139 @@
               href: application-proxy-integrate-with-tableau.md
             - name: Integrar com o Qlik
               href: application-proxy-qlik.md
-        - name: Resolução de problemas de proxy da aplicação
+    - name: Configurar o início de sessão único
+      items:
+        - name: Configurar aplicações que não estão na galeria
+          href: configure-single-sign-on-non-gallery-applications.md
+        - name: Configurar federado – aplicações da galeria
+          href: configure-federated-single-sign-on-gallery-applications.md
+        - name: Configurar federado – aplicações que não estão na galeria
+          href: configure-federated-single-sign-on-non-gallery-applications.md
+        - name: Configurar palavra-passe – aplicações da galeria
+          href: configure-password-single-sign-on-gallery-applications.md
+        - name: Configurar palavra-passe – aplicações que não estão na galeria
+          href: configure-password-single-sign-on-non-gallery-applications.md
+        - name: Início de sessão único com o Proxy de Aplicações
+          items:
+            - name: Delegação Restrita de Kerberos (KCD)
+              href: application-proxy-configure-single-sign-on-with-kcd.md
+            - name: Colocação de palavras-passe em cofres
+              href: application-proxy-configure-single-sign-on-password-vaulting.md
+            - name: Cabeçalhos
+              href: application-proxy-configure-single-sign-on-with-ping-access.md
+            - name: SAML SSO
+              href: application-proxy-configure-single-sign-on-on-premises-apps.md
+    - name: Configurar o aprovisionamento de utilizadores
+      items:
+        - name: O tempo que o aprovisionamento demora
+          href: application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Configurar o aprovisionamento de utilizadores – aplicação da galeria
+          href: application-provisioning-config-how-to.md
+        - name: Sincronizar um atributo para mapeamento – aplicação da galeria
+          href: user-provisioning-sync-attributes-for-mapping.md
+    - name: Atribuir utilizadores e gerir o acesso às aplicações
+      items:
+        - name: Configurar o consentimento do utilizador
+          href: configure-user-consent.md
+        - name: Métodos para atribuir utilizadores e grupos a uma aplicação
+          href: methods-for-assigning-users-and-groups.md
+        - name: Atribuir um utilizador a uma aplicação
+          href: assign-user-or-group-access-portal.md
+        - name: Utilizar o acesso personalizado às aplicações
+          href: access-panel-manage-self-service-access.md
+        - name: Métodos para remover o acesso de um utilizador a uma aplicação
+          href: methods-for-removing-user-access.md
+        - name: Remover o acesso de utilizador ou grupo
+          href: remove-user-or-group-access-portal.md
+        - name: Ocultar a aplicação de um utilizador
+          href: hide-application-from-user-portal.md
+        - name: Desativar início de sessão do utilizador
+          href: disable-user-sign-in-portal.md
+        - name: Configurar a atribuição de aplicações personalizada
+          href: manage-self-service-access.md
+        - name: Deteção de Território Doméstica
+          href: configure-authentication-for-federated-users-portal.md
+    - name: Migrar aplicações para o Azure AD
+      items:
+        - name: Recursos de migração
+          href: migration-resources.md
+        - name: Migrar uma aplicação do ADFS para o Azure
+          href: migrate-adfs-apps-to-azure.md
+    - name: Resolução de problemas
+      items:
+        - name: Resolver problemas relacionados com a adição de aplicações
+          items:
+            - name: Problemas comuns – aplicações da galeria
+              href: adding-gallery-app-common-problems.md
+            - name: Problemas comuns – aplicações que não estão na galeria
+              href: adding-non-gallery-app-common-problems.md
+        - name: Resolver problemas de início de sessão do utilizador
+          items:
+            - name: Pedido de consentimento inesperado
+              href: application-sign-in-unexpected-user-consent-prompt.md
+            - name: Erro de consentimento do utilizador
+              href: application-sign-in-unexpected-user-consent-error.md
+            - name: Problemas ao iniciar sessão no portal personalizado
+              href: application-sign-in-other-problem-deeplink.md
+            - name: Problemas ao iniciar sessão no painel de acesso
+              href: application-sign-in-other-problem-access-panel.md
+            - name: Erro na página de início de sessão da aplicação
+              href: application-sign-in-problem-application-error.md
+            - name: Problema de início de sessão único com palavra-passe – aplicação que não está na galeria
+              href: application-sign-in-problem-password-sso-non-gallery.md
+            - name: Problema de início de sessão único com palavra-passe – aplicação da galeria
+              href: application-sign-in-problem-password-sso-gallery.md
+            - name: Problema ao iniciar sessão numa aplicação da Microsoft
+              href: application-sign-in-problem-first-party-microsoft.md
+            - name: Problema de início de sessão único federado – aplicação que não está na galeria
+              href: application-sign-in-problem-federated-sso-non-gallery.md
+            - name: Problema de início de sessão único federado – aplicação da galeria
+              href: application-sign-in-problem-federated-sso-gallery.md
+            - name: Problema com aplicações com programação personalizada
+              href: application-sign-in-problem-custom-dev.md
+        - name: Resolver problemas de início de sessão único
+          items:
+            - name: Problemas comuns da configuração do federado – aplicações da galeria
+              href: configure-federated-single-sign-on-gallery-applications-problems.md
+            - name: Problemas comuns da configuração do federado – aplicações que não estão na galeria
+              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
+            - name: Problemas comuns da configuração da palavra-passe – aplicações da galeria
+              href: configure-password-single-sign-on-gallery-applications-problems.md
+            - name: Problemas comuns da configuração da palavra-passe – aplicações que não estão na galeria
+              href: configure-password-single-sign-on-non-gallery-applications-problems.md
+        - name: Resolver problemas de aprovisionamento de utilizadores
+          items:
+            - name: Tempo – aplicação da galeria
+              href: application-provisioning-when-will-provisioning-finish.md
+            - name: Problema ao configurar o aprovisionamento de utilizadores – aplicação da galeria
+              href: application-provisioning-config-problem.md
+            - name: Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores – aplicação da galeria
+              href: application-provisioning-config-problem-storage-limit.md
+            - name: Os utilizadores não estão aprovisionados – aplicação da galeria
+              href: application-provisioning-config-problem-no-users-provisioned.md
+            - name: Foram aprovisionados os utilizadores errados – aplicação da galeria
+              href: application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Resolver problemas de lista e atribuição de aplicações
+          items:
+            - name: Gerir a lista de aplicações do seu inquilino
+              href: application-types.md
+            - name: Atribuição a um utilizador inesperado
+              href: ways-users-get-assigned-to-applications.md
+        - name: Resolver problemas do painel de acesso
+          items:
+            - name: Gerir a extensão do browser
+              href: manage-access-panel-browser-extension.md
+            - name: A aplicação não aparece
+              href: access-panel-troubleshoot-application-not-appearing.md
+            - name: Aparece uma aplicação inesperada
+              href: access-panel-troubleshoot-unexpected-application.md
+            - name: Não é possível iniciar sessão
+              href: access-panel-troubleshoot-web-sign-in-problem.md
+            - name: Erro ao instalar a extensão de browser
+              href: access-panel-extension-problem-installing.md
+            - name: Erro ao utilizar o acesso personalizado à aplicação
+              href: access-panel-troubleshoot-self-service-access.md
+        - name: Resolver problemas do Proxy de Aplicações
           items:
             - name: Fluxograma de resolução de problemas do conector
               href: application-proxy-debug-connectors.md
@@ -159,124 +287,6 @@
               href: application-proxy-connector-installation-problem.md
             - name: Problema ao iniciar sessão
               href: application-sign-in-problem-on-premises-application-proxy.md
-    - name: Aprovisionamento de utilizadores
-      items:
-        - name: Quanto tempo demora
-          href: application-provisioning-when-will-provisioning-finish-specific-user.md
-        - name: Tempo – aplicação da galeria
-          href: application-provisioning-when-will-provisioning-finish.md
-        - name: Configurar o aprovisionamento de utilizadores – aplicação da galeria
-          href: application-provisioning-config-how-to.md
-        - name: Problema ao configurar o aprovisionamento de utilizadores – aplicação da galeria
-          href: application-provisioning-config-problem.md
-        - name: Problema ao guardar as credenciais de administrador ao configurar o aprovisionamento de utilizadores – aplicação da galeria
-          href: application-provisioning-config-problem-storage-limit.md
-        - name: Sincronizar um atributo para mapeamento – aplicação da galeria
-          href: user-provisioning-sync-attributes-for-mapping.md
-        - name: Os utilizadores não estão aprovisionados – aplicação da galeria
-          href: application-provisioning-config-problem-no-users-provisioned.md
-        - name: Foram aprovisionados os utilizadores errados – aplicação da galeria
-          href: application-provisioning-config-problem-wrong-users-provisioned.md
-    - name: Acesso à aplicação
-      items:
-        - name: Tipos de aplicação
-          href: application-types.md
-        - name: Configurar o consentimento do utilizador
-          href: configure-user-consent.md
-        - name: Métodos para atribuir utilizadores e grupos a uma aplicação
-          href: methods-for-assigning-users-and-groups.md
-        - name: Atribuir um utilizador a uma aplicação
-          href: assign-user-or-group-access-portal.md
-        - name: Métodos para remover o acesso de um utilizador a uma aplicação
-          href: methods-for-removing-user-access.md
-        - name: Atribuição a um utilizador inesperado
-          href: ways-users-get-assigned-to-applications.md
-        - name: Remover o acesso de utilizador ou grupo
-          href: remove-user-or-group-access-portal.md
-        - name: Ocultar a aplicação de um utilizador
-          href: hide-application-from-user-portal.md
-        - name: Desativar início de sessão do utilizador
-          href: disable-user-sign-in-portal.md
-        - name: Configurar a atribuição de aplicações personalizada
-          href: manage-self-service-access.md
-        - name: Deteção de Território Doméstica
-          href: configure-authentication-for-federated-users-portal.md
-    - name: Início de sessão único
-      items:
-        - name: Configurar aplicações que não estão na galeria
-          href: configure-single-sign-on-non-gallery-applications.md
-        - name: Configurar federado – aplicações da galeria
-          href: configure-federated-single-sign-on-gallery-applications.md
-        - name: Problemas comuns da configuração do federado – aplicações da galeria
-          href: configure-federated-single-sign-on-gallery-applications-problems.md
-        - name: Configurar federado – aplicações que não estão na galeria
-          href: configure-federated-single-sign-on-non-gallery-applications.md
-        - name: Problemas comuns da configuração do federado – aplicações que não estão na galeria
-          href: configure-federated-single-sign-on-non-gallery-applications-problems.md
-        - name: Configurar palavra-passe – aplicações da galeria
-          href: configure-password-single-sign-on-gallery-applications.md
-        - name: Problemas comuns da configuração da palavra-passe – aplicações da galeria
-          href: configure-password-single-sign-on-gallery-applications-problems.md
-        - name: Configurar palavra-passe – aplicações que não estão na galeria
-          href: configure-password-single-sign-on-non-gallery-applications.md
-        - name: Problemas comuns da configuração da palavra-passe – aplicações que não estão na galeria
-          href: configure-password-single-sign-on-non-gallery-applications-problems.md
-        - name: Proxy da aplicação
-          items:
-            - name: Delegação Restrita de Kerberos (KCD)
-              href: application-proxy-configure-single-sign-on-with-kcd.md
-            - name: Colocação de palavras-passe em cofres
-              href: application-proxy-configure-single-sign-on-password-vaulting.md
-            - name: Cabeçalhos
-              href: application-proxy-configure-single-sign-on-with-ping-access.md
-            - name: SAML SSO
-              href: application-proxy-configure-single-sign-on-on-premises-apps.md
-    - name: Painel de acesso
-      items:
-        - name: Gerir a extensão do browser
-          href: manage-access-panel-browser-extension.md
-        - name: A aplicação não aparece
-          href: access-panel-troubleshoot-application-not-appearing.md
-        - name: Aparece uma aplicação inesperada
-          href: access-panel-troubleshoot-unexpected-application.md
-        - name: Não é possível iniciar sessão
-          href: access-panel-troubleshoot-web-sign-in-problem.md
-        - name: Erro ao instalar a extensão de browser
-          href: access-panel-extension-problem-installing.md
-        - name: Como utilizar o acesso personalizado à aplicação
-          href: access-panel-manage-self-service-access.md
-        - name: Erro ao utilizar o acesso personalizado à aplicação
-          href: access-panel-troubleshoot-self-service-access.md
-    - name: Migração
-      items:
-        - name: Recursos de migração
-          href: migration-resources.md
-        - name: Migrar uma aplicação do ADFS para o Azure
-          href: migrate-adfs-apps-to-azure.md
-    - name: Resolver problemas de início de sessão do utilizador
-      items:
-        - name: Pedido de consentimento inesperado
-          href: application-sign-in-unexpected-user-consent-prompt.md
-        - name: Erro de consentimento do utilizador
-          href: application-sign-in-unexpected-user-consent-error.md
-        - name: Problemas ao iniciar sessão no portal personalizado
-          href: application-sign-in-other-problem-deeplink.md
-        - name: Problemas ao iniciar sessão no painel de acesso
-          href: application-sign-in-other-problem-access-panel.md
-        - name: Erro na página de início de sessão da aplicação
-          href: application-sign-in-problem-application-error.md
-        - name: Problema de início de sessão único com palavra-passe – aplicação que não está na galeria
-          href: application-sign-in-problem-password-sso-non-gallery.md
-        - name: Problema de início de sessão único com palavra-passe – aplicação da galeria
-          href: application-sign-in-problem-password-sso-gallery.md
-        - name: Problema ao iniciar sessão numa aplicação da Microsoft
-          href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problema de início de sessão único federado – aplicação que não está na galeria
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problema de início de sessão único federado – aplicação da galeria
-          href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problema com aplicações com programação personalizada
-          href: application-sign-in-problem-custom-dev.md
 - name: Referência
   items:
     - name: Histórico de versões do Proxy de Aplicação

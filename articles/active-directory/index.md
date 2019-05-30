@@ -11,12 +11,12 @@ ms.topic: landing-page
 ms.date: 05/17/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3047ec790440b94f90416f205c51e283b446e37c
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: 974e987631aa3e87f4e8ff069c691750e34e1731
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65849831"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66307006"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -257,7 +257,7 @@ ms.locfileid: "65849831"
                                                         <p>
                                                             <a href="governance/entitlement-management-overview.md">O que é a gestão de direitos?</a><br>
                                                             <a href="governance/access-reviews-overview.md">O que são revisões de acesso?</a><br>
-                                                            <a href="conditional-access/terms-of-use.md">Pedir os Termos de Utilização</a><br>
+                                                            <a href="conditional-access/terms-of-use.md">Pedir os termos de utilização</a><br>
                                                             <a href="governance/index.yml"><i>Ver mais &gt;</i></a>
                                                         </p>
                                                         <br><br>

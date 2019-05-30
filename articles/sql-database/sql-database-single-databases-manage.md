@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bcbed12940b7766d7ffb9e67b7c63931160ba9b2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2abdb330ef3a91b66a340cfb1717cfc31baf27e8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60331745"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762772"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Criar e gerir servidores de base de dados SQL e bases de dados individuais na base de dados do Azure SQL
 

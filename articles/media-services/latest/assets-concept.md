@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235674"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551766"
 ---
 # <a name="assets"></a>Recursos
 
-Nos serviços de multimédia do Azure, um [Asset](https://docs.microsoft.com/rest/api/media/assets) contém ficheiros digitais (incluindo o vídeo, áudio, imagens, coleções de miniaturas, pistas de texto e ficheiros de legendas) e os metadados relativos a esses ficheiros. Depois dos ficheiros digitais são carregados para um elemento, eles podem ser usados nos serviços de multimédia de codificação, transmissão em fluxo, analisar fluxos de trabalho de conteúdo. Para obter mais informações, consulte a [ficheiros digitais são carregados nos ativos](#upload-digital-files-into-assets) secção abaixo.
+Nos serviços de multimédia do Azure, um [Asset](https://docs.microsoft.com/rest/api/media/assets) contém informações sobre ficheiros digitais são armazenados no armazenamento do Azure (incluindo o vídeo, áudio, imagens, coleções de miniaturas, pistas de texto e ficheiros de legendagem de áudio). 
 
 Um elemento é mapeado para um contentor de BLOBs no [conta de armazenamento do Azure](storage-account-concept.md) e os ficheiros no elemento são armazenados como blobs de blocos nesse contentor. Serviços de multimédia suportam as camadas de Blob, quando a conta utiliza para fins gerais v2 (GPv2) de armazenamento. Com a GPv2, pode mover arquivos para [acesso esporádico ou arquivo armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). **Arquivo** armazenamento é adequado para arquivamento de arquivos de origem quando já não for necessário (por exemplo, depois de ter sido codificados).
 
 O **arquivo** camada de armazenamento só é recomendada para ficheiros de origem muito grandes que já tenham sido codificados e o resultado da tarefa de codificação foi colocado num contêiner de blob de saída. Os blobs no contentor de saída que deseja associar um recurso e a utilização para transmitir em fluxo ou analisar os seus conteúdos, tem de existir uma **frequente** ou **esporádico** camada de armazenamento.
 
-> [!NOTE]
-> Propriedades de recurso do tipo Datetime são sempre em formato UTC.
-
 ## <a name="upload-digital-files-into-assets"></a>Ficheiros digitais são carregados nos ativos
 
-Um dos fluxos de trabalho comuns dos serviços de multimédia é carregar, codificar e transmitir um ficheiro. Esta seção descreve os passos gerais.
+Depois dos ficheiros digitais são carregados para o armazenamento e associados a um recurso, eles podem ser usados nos serviços de multimédia de codificação, transmissão em fluxo, analisar fluxos de trabalho de conteúdo. Um dos fluxos de trabalho comuns dos serviços de multimédia é carregar, codificar e transmitir um ficheiro. Esta seção descreve os passos gerais.
 
 > [!TIP]
 > Antes de começar a desenvolver, reveja [desenvolver com os serviços de multimédia v3 APIs](media-services-apis-overview.md) (inclui informações sobre como aceder a APIs, as convenções de nomenclatura, etc.)
@@ -54,6 +51,9 @@ Um dos fluxos de trabalho comuns dos serviços de multimédia é carregar, codif
 Para obter um exemplo de .NET completo que mostra como: criar o elemento, obter um URL de SAS gravável para contentor do recurso no armazenamento, carregue o ficheiro para o contentor no armazenamento com o URL de SAS, consulte [criar uma entrada da tarefa a partir de um ficheiro local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Criar um novo elemento
+
+> [!NOTE]
+> Propriedades de recurso do tipo Datetime são sempre em formato UTC.
 
 #### <a name="rest"></a>REST
 

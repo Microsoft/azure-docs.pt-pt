@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: bwren
-ms.openlocfilehash: ecbea91cef69c80975dd105c35f526b357033a6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fae245e4d72f7f6f7809d85da17023deb1518e5
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425967"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560858"
 ---
 # <a name="azure-monitor-log-queries"></a>Consultas de registo do Azure Monitor
 Registos de Monitor do Azure são criados no Explorador de dados do Azure e consultas de registo do Azure Monitor de utilizar uma versão da linguagem de consulta de Kusto mesmo. O [documentação de linguagem de consulta de Kusto](/azure/kusto/query) tem todos os detalhes para o idioma e deve ser o principal recurso para escrever consultas de registo do Azure Monitor. Esta página fornece links para outros recursos para aprender a escrever consultas e nas diferenças com a implementação do Azure Monitor da linguagem.
@@ -61,7 +61,7 @@ Registos de Monitor do Azure são criados no Explorador de dados do Azure e cons
 ## <a name="cheatsheets"></a>Truques e dicas
 
 -  [SQL para consultar de registo do Azure Monitor](sql-cheatsheet.md) auxilia os usuários que já estejam familiarizados com o SQL.
--  [Splunk à consulta de registo do Azure Monitor](sql-cheatsheet.md) auxilia os usuários que já estão familiarizados com Splunk.
+-  [Splunk à consulta de registo do Azure Monitor](splunk-cheatsheet.md) auxilia os usuários que já estão familiarizados com Splunk.
  
 ## <a name="next-steps"></a>Passos Seguintes
 

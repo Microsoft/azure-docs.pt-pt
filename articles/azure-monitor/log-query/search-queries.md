@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425916"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560832"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de pesquisa nos registos do Azure Monitor
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Se usar `==` em vez de `:`, os resultados incluem registos em que o *origem* coluna tem o valor exato "error", neste caso exato. Usando ":" não irá incluir registos em que *origem* tem valores como "código de erro 404" ou "Erro".
+> Se usar `==` em vez de `:`, os resultados incluem registos em que o *origem* coluna tem o valor exato "error", neste caso exato. Utilizar ':' irá incluir registos em que *origem* tem valores como "código de erro 404" ou "Erro".
 
 ## <a name="case-sensitivity"></a>Sensibilidade
 Por predefinição, a pesquisa de termo é maiúsculas de minúsculas, portanto, pesquisar "dns", poderia resultar em resultados como "DNS", "dns" ou "Dns". Para fazer a pesquisa diferenciando maiúsculas de minúsculas, use o `kind` opção:

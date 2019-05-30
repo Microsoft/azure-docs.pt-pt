@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711519"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601591"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizador no Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ O fluxo de utilizador de inscrição e início de sessão lida com experiências
 4. Introduza um endereço de e-mail válido, clique em **enviar código de verificação**e, em seguida, introduza o código de verificação que recebe.
 5. Introduza uma nova palavra-passe e confirme a palavra-passe.
 6. Introduza o nome que pretende que sejam apresentado, selecione seu país e região, introduza um código postal e, em seguida, clique em **criar**. O token é retornado para `https://jwt.ms` e deverá ser apresentada para.
-7. Agora, pode executar o fluxo de utilizador novamente e deve ser capaz de iniciar sessão com a conta que criou. O token devolvido inclui as afirmações que selecionou de nome, o país e o código postal.
+7. Agora, pode executar o fluxo de utilizador novamente e deve ser capaz de iniciar sessão com a conta que criou. O token devolvido inclui as afirmações que selecionou de nome, o país/região e o código postal.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Criar um fluxo de utilizador de edição de perfil
 

@@ -1,6 +1,6 @@
 ---
-title: Como integrar o Azure Monitor para contentores | Documentos da Microsoft
-description: Este artigo descreve como sua integração e configure o Azure Monitor para contentores, para que possa compreender o desempenho do seu contentor e quais problemas relacionados ao desempenho foram identificados.
+title: Como ativar o Azure Monitor para contentores | Documentos da Microsoft
+description: Este artigo descreve como ativar e configurar o Azure Monitor para contentores, para que possa compreender o desempenho do seu contentor e quais problemas relacionados ao desempenho foram identificados.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 10b80a9749c5698195ac5d3493ac3b07fd6e24e1
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 5e149fa96e0a62656804906b52adf10273321d17
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073314"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521906"
 ---
-# <a name="how-to-onboard-azure-monitor-for-containers"></a>Como integrar o Azure Monitor para contentores  
+# <a name="how-to-enable-azure-monitor-for-containers"></a>Como ativar o Azure Monitor para contentores  
 
 Este artigo fornece uma descrição geral das opções disponíveis para configurar o Azure Monitor para contentores para monitorizar o desempenho de cargas de trabalho que são implementadas nos ambientes do Kubernetes e alojada num [do Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0fa252fa2cdab7bb3790153f2d118fea13739852
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 56a25c95d9bc01078b3eff3729a8a693ee3cf510
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153520"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520247"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar o armazenamento do Azure firewalls e redes virtuais
 
@@ -229,7 +229,7 @@ Fornecer internet permitidos intervalos de endereços usando [notação CIDR](ht
    > [!NOTE]
    > Intervalos de endereços pequenos com "/ 31" ou "/ 32" prefixo tamanhos não são suportados. Estes intervalos devem ser configurados com regras de endereços IP individuais.
 
-Regras de rede IP só são permitidas para **internet pública** endereços IP. Reservado para redes privadas de intervalos de endereços de IP (conforme definido na [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos em regras de IP. Redes privadas incluem endereços que comecem com _10.*_, _172.16. *_ - _172.31. *_, e _192.168. *_.
+Regras de rede IP só são permitidas para **internet pública** endereços IP. Reservado para redes privadas de intervalos de endereços de IP (conforme definido na [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos em regras de IP. Redes privadas incluem endereços que comecem com _10.*_ , _172.16. *_  - _172.31. *_ , e _192.168. *_ .
 
    > [!NOTE]
    > Regras de rede IP não têm qualquer efeito nos pedidos com origem na mesma região do Azure que a conta de armazenamento. Uso [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir pedidos da mesma região.
@@ -350,16 +350,16 @@ Se ativar o **permitir confiável a serviços da Microsoft...**  exceção, os s
 
 |Serviço|Nome do fornecedor de recursos|Objetivo|
 |:------|:---------------------|:------|
-|Azure Backup|Microsoft.Backup|Executar cópias de segurança e restauros de discos não geridos em máquinas de virtuais IAAS. (não necessário para discos geridos). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup).|
+|Azure Backup|Microsoft.RecoveryServices|Executar cópias de segurança e restauros de discos não geridos em máquinas de virtuais IAAS. (não necessário para discos geridos). [Saiba mais](/azure/backup/backup-introduction-to-azure-backup).|
 |Azure Data Box|Microsoft.DataBox|Permite que a importação de dados para o Azure com o Data Box. [Saiba mais](/azure/databox/data-box-overview).|
 |Azure DevTest Labs|Microsoft.DevTestLab|Instalação de Federação e de criação de imagem personalizada. [Saiba mais](/azure/devtest-lab/devtest-lab-overview).|
 |Azure Event Grid|Microsoft.EventGrid|Ativar a publicação de eventos de armazenamento de BLOBs e permitir que o Event Grid publicar em filas do armazenamento. Saiba mais sobre [eventos de armazenamento de BLOBs](/azure/event-grid/event-sources) e [publicação para filas](/azure/event-grid/event-handlers).|
 |Azure Event Hubs|Microsoft.EventHub|Arquivar dados com a captura de Hubs de eventos. [Saiba mais](/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|Aprovisione o conteúdo inicial do sistema de ficheiros predefinido para um novo cluster do HDInsight. [Saiba mais](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).|
 |Azure Monitor|Microsoft. insights|Permite a escrita de dados para uma conta de armazenamento seguro de monitorização [Saiba mais](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
-|Redes do Azure|Microsoft.Networking|Store e analisar registos de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|
+|Redes do Azure|Microsoft.Network|Store e analisar registos de tráfego de rede. [Saiba mais](/azure/network-watcher/network-watcher-packet-capture-overview).|
 |Azure Site Recovery|Microsoft.SiteRecovery |Configure recuperação após desastre ao ativar a replicação para máquinas de virtuais de IaaS do Azure. Isto é necessário se estiver a utilizar a conta de armazenamento de cache de firewall ativada ou a conta de armazenamento de origem ou a conta de armazenamento de destino.  [Saiba mais](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication).|
-|Azure SQL Data Warehouse|Microsoft.Sql|Permite importar e exportar os cenários de instâncias específicas de bases de dados SQL com o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
+|SQL Data Warehouse do Azure|Microsoft.Sql|Permite importar e exportar os cenários de instâncias específicas de bases de dados SQL com o PolyBase. [Saiba mais](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).|
 
 ### <a name="storage-analytics-data-access"></a>Acesso de dados de análise de armazenamento
 

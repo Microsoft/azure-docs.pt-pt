@@ -3,8 +3,8 @@ title: Tipos de aplicativos para a plataforma de identidade da Microsoft | Azure
 description: Os tipos de aplicações e os cenários suportados pelo ponto de final do Microsoft identity platform (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 494a06b8-0f9b-44e1-a7a2-d728cf2077ae
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 562b45f30bf057feba38a716e040ab2efc15da90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60297161"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545366"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativos para a plataforma de identidade da Microsoft
 
@@ -59,7 +59,7 @@ Neste fluxo, a aplicação recebe tokens diretamente a partir de plataforma de i
 
 Para ver este cenário em ação, experimente um dos exemplos de código de aplicação de página única no [introdução à plataforma de identidade do Microsoft](v2-overview.md#getting-started) secção.
 
-## <a name="web-apps"></a>Web Apps
+## <a name="web-apps"></a>Aplicações Web
 
 Para aplicações web (.NET, PHP, Java, Ruby, Python, nó) que o usuário acessa por meio de um navegador, pode usar [OpenID Connect](active-directory-v2-protocols.md) para o início de sessão do utilizador. OpenID Connect, a aplicação web recebe um token de ID. Um token de ID é um token de segurança que verifica a identidade do utilizador e fornece informações sobre o utilizador na forma de afirmações:
 

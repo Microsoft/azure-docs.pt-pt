@@ -15,12 +15,12 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a310770f26a1c40682791582a05a9bb4c47a42d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: aee8ac3c2638ede559f8a1f9c51f2d6e62604998
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141032"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602266"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-pim"></a>Concluir uma revisão de acesso de funções de recursos do Azure no PIM
 Os administradores de função com privilégios, podem rever acesso privilegiado após uma [revisão de acesso foi iniciada](pim-resource-roles-start-access-review.md). O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) envia automaticamente um e-mail que solicita aos usuários para rever o acesso. Se um utilizador não receber uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-resource-roles-perform-access-review.md).
@@ -33,18 +33,18 @@ Após o período de revisão de acesso, ou depois que todos os utilizadores tive
 2. Selecione o recurso.
 
 3. Selecione o **as revisões de acesso** secção do dashboard.
-![Revisões de acesso](media/azure-pim-resource-rbac/rbac-access-review-home-list.png)
+![Revisões de acesso](media/pim-resource-roles-complete-access-review/rbac-access-review-home-list.png)
 
 4. Selecione a revisão de acesso que pretende gerir.
 
 No painel de detalhes da revisão de acesso, existem várias opções para gerir essa revisão. As opções são os seguintes:
 
-![Opções para gerir uma revisão](media/azure-pim-resource-rbac/rbac-access-review-menu.png)
+![Opções para gerir uma revisão](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
 ### <a name="stop"></a>Parar
 Todas as revisões de acesso tem uma data de fim, mas pode utilizar o **parar** botão para terminá-lo no início. Todos os utilizadores que ainda não concluiu a revisão, a esta altura não será possível terminar depois de parar a revisão. Não é possível reiniciar uma revisão depois de interrompida.
 
-### <a name="reset"></a>Repor
+### <a name="reset"></a>Redefinir
 Pode redefinir uma revisão de acesso para remover todas as decisões que são feitas no mesmo. Depois de ter de repor uma revisão de acesso, todos os utilizadores são marcados como não revistos novamente. 
 
 ### <a name="apply"></a>Aplicar
@@ -55,11 +55,11 @@ Se não estiver interessado na revisão mais, eliminá-lo. O **eliminar** botão
 
 ## <a name="results"></a>Resultados
 Sobre o **resultados** separador, ver e transferir uma lista de resultados de revisão. 
-![Separador de resultados](media/azure-pim-resource-rbac/rbac-access-review-results.png)
+![Separador de resultados](media/pim-resource-roles-complete-access-review/rbac-access-review-results.png)
 
 ## <a name="reviewers"></a>Revisores
 Ver e adicionar revisores a sua revisão de acesso existentes. Notificar os revisores para concluir as revisões.
-![Adicionar revisores](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
+![Adicionar revisores](media/pim-resource-roles-complete-access-review/rbac-access-review-reviewers.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -9,20 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547667"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560739"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carregar dados para Gen2 de armazenamento do Azure Data Lake com o Azure Data Factory
 
 Geração de armazenamento 2 do Azure Data Lake é um conjunto de recursos dedicado a análise de macrodados, incorporado ao [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md). Permite-lhe interagir com os dados através de ambos os paradigmas de armazenamento de sistema e o objeto de ficheiro.
 
-O Azure Data Factory é um serviço de integração de dados totalmente gerido com base na cloud. Pode utilizar o serviço para preencher o lake com dados a partir de um conjunto avançado de no local e os arquivos de dados com base na cloud e poupam tempo quando criar as suas soluções de análise. Para obter uma lista detalhada de conectores suportados, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
+O Azure Data Factory (ADF) é um serviço de integração de dados totalmente gerido com base na cloud. Pode utilizar o serviço para preencher o lake com dados a partir de um conjunto avançado de no local e os arquivos de dados com base na cloud e poupam tempo quando criar as suas soluções de análise. Para obter uma lista detalhada de conectores suportados, consulte a tabela de [arquivos de dados suportados](copy-activity-overview.md#supported-data-stores-and-formats).
 
 O Azure Data Factory oferece uma solução de movimento de dados de escalamento horizontal e gerida. Devido à arquitetura de escalamento horizontal do ADF, ele pode ingerir dados em alto débito. Para obter detalhes, consulte [copie o desempenho de atividade](copy-activity-performance.md).
 
@@ -47,7 +47,7 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
       
    ![Página Nova fábrica de dados](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)
  
-    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_**ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
+    * **Nome**: Introduza um nome globalmente exclusivo para a fábrica de dados do Azure. Se receber o erro "nome do Data factory \"LoadADLSDemo\" não está disponível," insira um nome diferente para a fábrica de dados. Por exemplo, poderia usar o nome  _**yourname**_ **ADFTutorialDataFactory**. Tente criar a fábrica de dados novamente. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
     * **Subscrição**: Selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
     * **Grupo de recursos**: Selecione um grupo de recursos existente na lista pendente ou selecione o **criar novo** opção e introduza o nome de um grupo de recursos. Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/resource-group-overview.md).  
     * **Versão**: Selecione **V2**.
@@ -130,13 +130,6 @@ Este artigo mostra-lhe como utilizar a ferramenta copiar dados do Data Factory p
     ![Monitorizar a atividade de detalhes da execução](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. Certifique-se de que os dados são copiados para a sua conta de geração 2 de armazenamento do Data Lake.
-
-## <a name="best-practices"></a>Melhores práticas
-
-Quando copiar grande volume de dados de arquivo de dados baseados em ficheiros, são sugeridas para:
-
-- Os ficheiros de partição para 10TB para fileset 30TB cada.
-- Não acionam demasiados execuções de cópia simultâneos para evitar a limitação de arquivos de dados de origem ou sink. Pode começar com uma cópia, executar e monitorizar a taxa de transferência e depois gradualmente a adicionar mais conforme necessário.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

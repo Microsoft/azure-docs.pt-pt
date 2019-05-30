@@ -2,8 +2,8 @@
 title: Remover os dados pessoais - Proxy de aplicações do Azure Active Directory | Documentos da Microsoft
 description: Remova dados pessoais de conectores instalados em dispositivos para o Proxy de aplicações do Azure Active Directory.
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5f3c1883f156562cfab59cb102fb0cf18b03803
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 039f8c9f114dfd3542fefa7b1a1eea8656cbb9c4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292886"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782974"
 ---
 # <a name="remove-personal-data-for-azure-active-directory-application-proxy"></a>Remover dados pessoais para o Proxy de aplicações do Azure Active Directory  
 

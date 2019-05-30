@@ -15,22 +15,22 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: c15e4080308c3e7e2ff54312cd91fa1f3d68668a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437834"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602397"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurar alertas de segurança para funções de recursos do Azure no PIM
 O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) gera alertas quando houver atividade suspeita ou não segura no seu ambiente. Quando for acionado um alerta, este aparece na página de alertas. 
 
-![Página de alertas](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
+![Página de alertas](media/pim-resource-roles-configure-alerts/rbac-alerts-page.png)
 
 ## <a name="review-alerts"></a>Rever alertas
 Selecione um alerta para ver um relatório que lista os utilizadores ou funções que acionou o alerta, juntamente com conselhos de remediação.
 
-![Relatório de alerta](media/azure-pim-resource-rbac/rbac-alert-info.png)
+![Relatório de alerta](media/pim-resource-roles-configure-alerts/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Alertas
 | Alerta | Gravidade | Acionador | Recomendação |
@@ -47,10 +47,10 @@ Selecione um alerta para ver um relatório que lista os utilizadores ou funçõe
 
 ## <a name="configure-security-alert-settings"></a>Configurar definições de alerta de segurança
 A partir da página de alertas, aceda a **definições**.
-![Definições](media/azure-pim-resource-rbac/rbac-navigate-settings.png)
+![Definições](media/pim-resource-roles-configure-alerts/rbac-navigate-settings.png)
 
 Personalize as configurações nos alertas diferentes para trabalhar com o seu ambiente e os objetivos de segurança.
-![Personalizar as definições](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+![Personalizar as definições](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

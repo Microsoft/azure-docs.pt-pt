@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238066"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761983"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Padrões de solução do Stream Analytics do Azure
 
@@ -58,7 +58,7 @@ Pode criar visualizações personalizadas de em tempo real, como o dashboard ou 
 
 A maioria dos aplicativos web e serviços da web hoje mesmo usar um padrão de solicitação/resposta para servir a camada de apresentação. O padrão de solicitação/resposta é simples de criar e podem ser facilmente dimensionados com tempo de resposta de baixa com um front-end sem estado e armazenamentos dimensionáveis, como o Cosmos DB.
 
-Volume de dados de alta cria, muitas vezes, afunilamentos de desempenho num sistema baseado em CRUD. O [padrão de solução de origem do evento](/azure/architecture/patterns/event-sourcing.md) é utilizado para resolver os afunilamentos de desempenho. Padrões temporais e informações também são difíceis e ineficiente para extrair um arquivo de dados tradicionais. Dados de grande volume modernos controlado por aplicativos, muitas vezes, adotam uma arquitetura baseada em fluxo de dados. O Azure Stream Analytics, como o motor de computação para os dados em movimento é uma maior nessa arquitetura.
+Volume de dados de alta cria, muitas vezes, afunilamentos de desempenho num sistema baseado em CRUD. O [padrão de solução de origem do evento](/azure/architecture/patterns/event-sourcing) é utilizado para resolver os afunilamentos de desempenho. Padrões temporais e informações também são difíceis e ineficiente para extrair um arquivo de dados tradicionais. Dados de grande volume modernos controlado por aplicativos, muitas vezes, adotam uma arquitetura baseada em fluxo de dados. O Azure Stream Analytics, como o motor de computação para os dados em movimento é uma maior nessa arquitetura.
 
 ![Aplicação de fornecimento de eventos do ASA](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

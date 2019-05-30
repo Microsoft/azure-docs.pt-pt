@@ -3,8 +3,8 @@ title: Aceder a aplicações de Proxy de aplicações do Azure AD no Teams | Doc
 description: Utilize o Proxy de aplicações do Azure AD para aceder à aplicação no local através do Microsoft Teams.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 660d05146e82ab85136cac715b56cb1ee89b002f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e9b043b27f624a3d9f38fb2299f9e49f0ffedda
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292971"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783428"
 ---
 # <a name="access-your-on-premises-applications-through-microsoft-teams"></a>Aceder às suas aplicações no local através do Microsoft Teams
 

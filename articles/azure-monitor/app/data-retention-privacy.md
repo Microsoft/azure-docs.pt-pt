@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204876"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518847"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
@@ -86,6 +86,9 @@ Isso seria possível com a criação de um [Plug-in de processador de telemetria
 Pontos de dados não processados (ou seja, os itens que pode consultar no Analytics e inspecionar na pesquisa) são mantidos durante 90 dias. Se precisar de manter os dados de mais do que isso, pode usar [exportação contínua](../../azure-monitor/app/export-telemetry.md) copiá-lo para uma conta de armazenamento.
 
 Dados agregados (ou seja, contagens, médias e outros dados de estatísticos que vê no Explorador de métricas) são mantidos de acordo com um intervalo de agregação de 1 minuto durante 90 dias.
+
+> [!NOTE]
+> Retenção de variável para o Application Insights está agora em pré-visualização. Sabia mais [aqui](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
 
 [Instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados durante quinze dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
 
@@ -192,7 +195,7 @@ Não é recomendável definir o seu aplicativo para utilizar apenas o TLS 1.2, a
 
 |Plataforma/linguagem | Suporte | Mais Informações |
 | --- | --- | --- |
-| Serviços de Aplicações do Azure  | Suportado, pode ser necessária configuração. | Suporte foi anunciado em Abril de 2018. Leia o anúncio para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
+| Serviços Aplicacionais do Azure  | Suportado, pode ser necessária configuração. | Suporte foi anunciado em Abril de 2018. Leia o anúncio para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Aplicações de funções do Azure | Suportado, pode ser necessária configuração. | Suporte foi anunciado em Abril de 2018. Leia o anúncio para [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Configuração suportada, varia por versão. | Para informações detalhadas de configuração para o .NET 4.7 e versões anteriores, consulte a [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Monitor de Estado | Configuração suportada, necessária | Monitor de estado depende [configuração do SO](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [configuração do .NET](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) ao suporte de TLS 1.2.
@@ -237,9 +240,9 @@ Os SDKs variam entre plataformas e existem vários componentes que podem instala
 
 | A ação | Classes de dados recolhidos (consulte a tabela seguinte) |
 | --- | --- |
-| [Adicionar o Application Insights SDK para um projeto de web do .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>utilizadores |
+| [Adicionar o Application Insights SDK para um projeto de web do .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>Utilizadores |
 | [Instale o Monitor de estado no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar o Application Insights SDK para uma aplicação web Java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>utilizadores |
+| [Adicionar o Application Insights SDK para uma aplicação web Java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>Utilizadores |
 | [Adicionar o SDK de JavaScript para a página da web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades predefinidas][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Propriedades** |
@@ -259,7 +262,7 @@ Para [SDKs para outras plataformas][platforms], veja os seus documentos.
 | Sessão |Id de sessão |
 | ServerContext |Nome da máquina, a Localidade do sistema operacional, dispositivo, sessão de utilizador, contexto de usuário, operação |
 | Inferido |localização geográfica do endereço de IP, timestamp, sistema operativo, browser |
-| Métricas |Nome da métrica e valor |
+| Métrica |Nome da métrica e valor |
 | Eventos |Nome do evento e o valor |
 | PageViews |Nome de URL e página ou o nome do ecrã |
 | Desempenho do cliente |Nome da URL/página, o tempo de carregamento do browser |

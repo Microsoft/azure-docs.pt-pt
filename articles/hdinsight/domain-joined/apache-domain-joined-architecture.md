@@ -8,12 +8,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f81aa1e493014f192dc11ca698e9793075ac26ce
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 069b3fe89183d7897cea39e2a8a1fe1bbed80bb0
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64725608"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556340"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Utilizar o pacote de segurança empresarial no HDInsight
 
@@ -66,7 +66,7 @@ Se está a ser utilizada o Federação e hashes de palavra-passe são sincroniza
 1. Instale o módulo do PowerShell do Azure AD.
 
    ```
-   Install-Module AzureAD
+   Install-Module AzureADPreview
    ```
 
 2. Introduza `Connect-AzureAD` utilizando as credenciais de administrador global (administrador de inquilino).

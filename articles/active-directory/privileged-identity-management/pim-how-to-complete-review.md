@@ -14,12 +14,12 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140995"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602156"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Concluir uma revisão de acesso de funções do Azure AD no PIM
 Os administradores de função com privilégios podem rever acesso privilegiado de uma vez um [revisão de acesso foi iniciada](pim-how-to-start-security-review.md). O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enviará automaticamente um e-mail a pedir aos utilizadores para rever o acesso. Se um utilizador não recebeu uma mensagem de e-mail, pode enviar-lhes as instruções [como realizar uma revisão de acesso](pim-how-to-perform-security-review.md).
@@ -33,7 +33,7 @@ Depois do período de revisão de acesso, ou todos os usuários tem concluído a
 
 No painel de detalhes a revisão de acesso, há um número opções para gerir essa revisão.
 
-![Botões de revisão de acesso do PIM - captura de ecrã](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![Botões de revisão de acesso do PIM - captura de ecrã](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Lembrar
 Se uma revisão de acesso está configurada para que os utilizadores rever si próprios, o **lembrar** botão envia uma notificação. 

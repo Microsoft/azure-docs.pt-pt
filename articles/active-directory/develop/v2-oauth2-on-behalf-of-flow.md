@@ -3,8 +3,8 @@ title: Plataforma de identidade da Microsoft e OAuth2.0 em-nome-de fluxo | Azure
 description: Este artigo descreve como utilizar mensagens HTTP para implementar a autenticação de serviço para serviço com o OAuth2.0 fluxo em-nome-de.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296891"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544757"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidade da Microsoft e o fluxo do OAuth 2.0 On-Behalf-Of
 

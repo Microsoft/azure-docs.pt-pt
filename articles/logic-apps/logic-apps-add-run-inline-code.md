@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160549"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602111"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Adicionar e executar fragmentos de código com o código embutido no Azure Logic Apps
 
@@ -23,7 +23,10 @@ Quando quiser executar um trecho de código na sua aplicação lógica, pode adi
 * É executado em JavaScript. Mais idiomas estará disponível em breve.
 * Estejam concluídas em cinco segundos ou menos.
 * Processa dados de até 50 MB de tamanho.
-* Utiliza a versão 8.11.1 de node. js. Para obter mais informações, consulte [objetos incorporados padrão](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Utiliza a versão 8.11.1 de node. js. Para obter mais informações, consulte [objetos incorporados padrão](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > A função de require() não é suportada pela **código embutido** ação para a execução de JavaScript.
 
 Esta ação executa o trecho de código e devolve o resultado desse trecho de código como um token com o nome **resultado**, que pode ser usado em ações subsequentes na sua aplicação lógica. Para outros cenários em que pretende criar uma função para o seu código, tente [criar e chamar uma função do Azure](../logic-apps/logic-apps-azure-functions.md) na sua aplicação lógica.
 
@@ -49,7 +52,7 @@ Neste artigo, os acionadores da aplicação exemplo lógica quando um novo e-mai
 
    * Para adicionar a ação no final do seu fluxo de trabalho, escolha **novo passo**.
 
-   * Para adicionar a ação entre os passos existentes, mova o ponteiro do mouse sobre a seta que se liga esses passos. Selecione o sinal de adição (**+**) e selecione **adicionar uma ação**.
+   * Para adicionar a ação entre os passos existentes, mova o ponteiro do mouse sobre a seta que se liga esses passos. Selecione o sinal de adição ( **+** ) e selecione **adicionar uma ação**.
 
    Este exemplo adiciona a **código embutido** ação sob o acionador do Outlook do Office 365.
 

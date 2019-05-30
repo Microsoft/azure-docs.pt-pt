@@ -3,8 +3,8 @@ title: Use plataforma de identidade Microsoft para iniciar sessão dos utilizado
 description: Autenticação de navegador sem suporte fluxos com a concessão de credenciais de palavra-passe de proprietário do recurso.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112294"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545114"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma de identidade da Microsoft e a credencial de palavra-passe de proprietário de recursos do OAuth 2.0
 
@@ -108,7 +108,7 @@ Se o utilizador ainda não forneceu o nome de utilizador correto ou a palavra-pa
 | `invalid_request` | O pedido foi construído incorretamente | O tipo de concessão não é suportado o `/common` ou `/consumers` contextos de autenticação.  Utilize `/organizations` em vez disso. |
 | `invalid_client` | A aplicação está configurada incorretamente | Isto pode acontecer se o `allowPublicClient` propriedade não está definida como verdadeiro para o [manifesto do aplicativo](reference-app-manifest.md). O `allowPublicClient` propriedade é necessária porque a concessão ROPC não tem um URI de redirecionamento. O Azure AD não consegue determinar se a aplicação é um aplicativo de cliente público ou um cliente confidencial, a menos que a propriedade está definida. ROPC só é suportada para aplicações de cliente público. |
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
 * Experimentar o ROPC na utilizando o [exemplo de aplicação de consola](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
 * Para determinar se deve utilizar o ponto final v2.0, leia sobre [limitações de plataforma de identidade do Microsoft](active-directory-v2-limitations.md).

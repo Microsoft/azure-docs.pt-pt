@@ -7,15 +7,15 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 04/11/2018
-ms.openlocfilehash: 50a67ca5c7d1fa3165889b1e59565d1a1030690d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/16/2019
+ms.openlocfilehash: be2195092cf3890f754f875ea7bccc1f717eb95b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712135"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762340"
 ---
-# <a name="what-is-apache-kafka-on-hdinsight"></a>O que é o Apache Kafka no HDInsight?
+# <a name="what-is-apache-kafka-in-azure-hdinsight"></a>O que é o Apache Kafka no HDInsight do Azure
 
 O [Apache Kafka](https://kafka.apache.org) é uma plataforma de transmissão em fluxo distribuída de código aberto que pode ser utilizada para criar aplicações e pipelines de dados de transmissão em fluxo em tempo real. O Kafka também fornece a funcionalidade de mediador de mensagem semelhante a uma fila de mensagens, onde pode publicar e subscrever fluxos de dados nomeados. 
 

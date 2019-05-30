@@ -11,21 +11,21 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 05/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 792c2bd02b666cd656f1df368a7a60db44ccf8c4
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115779"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522182"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilizar o Azure Monitor para VMs (pré-visualização) mapa para compreender os componentes da aplicação
-Visualizar os componentes da aplicação detetada em máquinas de virtuais Windows e Linux em execução no seu ambiente pode ser observado de duas formas com o Azure Monitor para as VMs, de uma máquina virtual diretamente ou através de grupos de VMs do Azure Monitor do Azure. 
+Visualizar os componentes da aplicação detetada em máquinas de virtuais Windows e Linux em execução no seu ambiente pode ser observado de duas formas com o Azure Monitor para as VMs, de uma máquina virtual diretamente ou em grupos de VMs do Azure Monitor do Azure. 
 
-Este artigo ajuda-o a compreender a experiência de entre as duas perspetivas e como utilizar a funcionalidade de mapa. Para obter informações sobre como configurar o Azure Monitor para VMs, veja [ativar o Azure Monitor para VMs](vminsights-onboard.md).
+Este artigo ajuda-o a compreender a experiência de entre as duas perspetivas e como utilizar a funcionalidade de mapa. Para obter informações sobre como configurar o Azure Monitor para VMs, veja [ativar o Azure Monitor para VMs](vminsights-enable-overview.md).
 
-## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
+## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="introduction-to-map-experience"></a>Introdução à experiência de mapa
@@ -90,12 +90,27 @@ Se o grupo inclui servidores monitorizados e permaneciam não monitorizados, pod
 Para aceder ao Azure Monitor para as VMs diretamente a partir de uma máquina virtual, faça o seguinte.
 
 1. No portal do Azure, selecione **máquinas virtuais**. 
-2. Na lista, escolha uma VM e, no **monitorização** , escolha **Insights (pré-visualização)**.  
+2. Na lista, escolha uma VM e, no **monitorização** , escolha **Insights (pré-visualização)** .  
 3. Selecione o **mapa** separador.
 
 Mapa visualiza as dependências de VMs, o que está a executar o processo grupos e os processos com ligações de rede ativa, através de um intervalo de tempo especificado.  Por predefinição, o mapa mostra os últimos 30 minutos.  Utilizar o **TimeRange** Seletor no canto superior esquerdo, pode consultar para intervalos de tempo do histórico de até uma hora para mostrar como dependências viu no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração).  
 
 ![Descrição geral direta do mapa de VM](./media/vminsights-maps/map-direct-vm-01.png)
+
+## <a name="view-map-directly-from-a-virtual-machine-scale-set"></a>Ver mapa diretamente de um dimensionamento de máquina virtual definido
+
+Para aceder ao Azure Monitor para as VMs diretamente a partir de um conjunto de dimensionamento de máquinas virtuais, execute o seguinte.
+
+1. No portal do Azure, selecione **conjuntos de dimensionamento de máquinas virtuais**.
+2. Na lista, escolha uma VM e, no **monitorização** , escolha **Insights (pré-visualização)** .  
+3. Selecione o **mapa** separador.
+
+Mapa visualiza todas as instâncias no conjunto como um nó de grupo, juntamente com as dependências do grupo de dimensionamento. O nó expandido lista as instâncias no conjunto de dimensionamento, pode percorrer dez cada vez. Para carregar um mapa de uma instância específica, selecione essa instância no mapa e, em seguida, clique nas reticências para a mesma está correta e escolha **carregar mapa do servidor**. Isso irá carregar o mapa para essa instância, permitindo que veja os grupos de processo e processos com ligações de rede do Active Directory através de um intervalo de tempo especificado. Por predefinição, o mapa mostra os últimos 30 minutos. Utilizar o **TimeRange** Seletor pode consultar para intervalos de tempo do histórico de até uma hora para mostrar como dependências viu no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração).  
+
+![Descrição geral direta do mapa de VM](./media/vminsights-maps/map-direct-vmss-01.png)
+
+>[!NOTE]
+>Também pode acessar um mapa de uma instância específica a partir da vista de instâncias para seu conjunto de dimensionamento de máquina virtual. Navegue para **instâncias** sob a **definições** secção e, em seguida, escolha **Insights (pré-visualização)** .
 
 ## <a name="view-map-from-azure-monitor"></a>Vista de mapa do Monitor do Azure
 Azure monitor, a funcionalidade de mapa fornece uma vista global das suas máquinas virtuais e as respetivas dependências.  Para acessar a funcionalidade de mapa do Azure Monitor, execute o seguinte. 
@@ -106,7 +121,7 @@ Azure monitor, a funcionalidade de mapa fornece uma vista global das suas máqui
 
 ![Monitor com várias VMS mapa descrição geral do Azure](./media/vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Partir do **área de trabalho** Seletor na parte superior da página, se tiver mais do que uma área de trabalho do Log Analytics, selecione a área de trabalho que está ativada com a solução e tem máquinas virtuais que reportam ao mesmo. O **grupo** Seletor irá devolver subscrições, grupos de recursos [grupos de computadores](../../azure-monitor/platform/computer-groups.md)e conjuntos de dimensionamento VM de computadores relacionados com a área de trabalho selecionada. A seleção de apenas aplica-se para a funcionalidade de mapa e não vão ser transferidos para o desempenho ou de mapa.
+Partir do **área de trabalho** Seletor na parte superior da página, se tiver mais do que uma área de trabalho do Log Analytics, selecione a área de trabalho que está ativada com a solução e tem máquinas virtuais que reportam ao mesmo. O **grupo** Seletor irá devolver subscrições, grupos de recursos [grupos de computadores](../../azure-monitor/platform/computer-groups.md)e conjuntos de dimensionamento de máquinas virtuais de computadores relacionados com a área de trabalho selecionada. A seleção de apenas aplica-se para a funcionalidade de mapa e não vão ser transferidos para o desempenho ou de mapa.
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Utilizar o **TimeRange** Seletor, pode consultar para intervalos de tempo do histórico de até uma hora para mostrar como dependências viu no passado (por exemplo, durante um incidente ou antes de ocorrer uma alteração).   
 

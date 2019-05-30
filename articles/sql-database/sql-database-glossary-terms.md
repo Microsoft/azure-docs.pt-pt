@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: fb628358c91d80a3117b065cadb284fd1665daa3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073676"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762705"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glossário de base de dados SQL do Azure dos termos
 
@@ -25,7 +25,7 @@ ms.locfileid: "65073676"
 |:---|:---|:---|
 |Nome do serviço do Azure|Base de dados SQL do Azure ou a base de dados SQL|[O serviço de base de dados do Azure SQL](sql-database-technical-overview.md)|
 |Escalão de computação|Sem servidor (pré-visualização)|[escalão de computação sem servidor](sql-database-serverless.md)
-||Aprovisionada|[escalão de computação sem servidor](sql-database-serverless.md)
+||Aprovisionado|[escalão de computação sem servidor](sql-database-serverless.md)
 |Opções de implementação |Base de dados individual|[Bases de dados individuais](sql-database-single-database.md)|
 ||Conjunto elástico|[Conjunto elástico](sql-database-elastic-pool.md)|
 ||Instância gerida|[Instância gerida](sql-database-managed-instance.md)|

@@ -3,16 +3,16 @@ title: Criar um modelo de construtor de imagens do Azure (pré-visualização)
 description: Saiba como criar um modelo para utilizar com o construtor de imagens do Azure.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159604"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538298"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Pré-visualização: Criar um modelo de construtor de imagens do Azure 
 
@@ -32,7 +32,7 @@ Este é o formato de modelo básico:
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -59,7 +59,7 @@ A localização é a região onde a imagem personalizada será criada. Para a pr
 - EUA Leste 2
 - EUA Centro-Oeste
 - EUA Oeste
-- EUA Oeste 2
+- E.U.A. Oeste 2
 
 
 ```json

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869519"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556316"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condições de correspondência do motor de regras CDN do Azure 
 Este artigo apresenta uma lista de descrições detalhadas das condições de correspondência disponíveis para a rede do Azure da entrega de conteúdos (CDN) [motor de regras](cdn-rules-engine.md).
@@ -101,8 +101,11 @@ Name | Objetivo
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Referência para condições de correspondência do motor de regras
+
 <a name="main"></a>
+
 ---
+
 ### <a name="always"></a>Sempre
 
 A condição de correspondência sempre aplica-se um conjunto predefinido de funcionalidades para todos os pedidos.
@@ -467,7 +470,7 @@ Informações da chave:
 ---
 ### <a name="request-method"></a>Método de pedido
 A condição de correspondência do método de pedido é cumprida apenas quando os recursos são solicitados por meio do método de pedido seleccionado. Os métodos de pedido disponíveis são:
-- GET
+- OBTER
 - CABEÇALHO 
 - POST 
 - OPÇÕES 
@@ -872,7 +875,7 @@ Name  | Value |  Resultado
 ------|-------|--------
 Utilizador  | João   | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido é "? utilizador = joe."
 Utilizador  | *     | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de utilizador.
-Email | João\* | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de E-Mail que começa com "João".
+Correio Electrónico | João\* | Este padrão é correspondido quando a cadeia de consulta para um URL de pedido contém um parâmetro de E-Mail que começa com "João".
 
 [Voltar ao início](#main)
 

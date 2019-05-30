@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744309"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561216"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrever um cluster do service fabric
 O Gestor de recursos de Cluster do Service Fabric fornece vários mecanismos para descrever um cluster. Durante o tempo de execução, o Gestor de recursos de Cluster utiliza estas informações para garantir a elevada disponibilidade dos serviços em execução no cluster. Ao impor estas regras importantes, ele também tenta otimizar o consumo de recursos dentro do cluster.
@@ -32,8 +32,8 @@ O Gestor de recursos de Cluster suporta vários recursos que descrevem um cluste
 * Propriedades de nó
 * Capacidades de nós
 
-## <a name="fault-domains"></a>Domínios de falha
-Um domínio de falha é qualquer área de falha de coordenada. Uma única máquina é um domínio de falha (uma vez que ele poderá falhar na própria, por várias razões, de fonte de alimentação falhas para falhas de unidade ao firmware do NIC ruim). As máquinas ligadas ao mesmo comutador Ethernet estão no mesmo domínio de falha, como máquinas numa única fonte de energia ou numa única localização de partilha. Uma vez que é natural para falhas de hardware para se sobrepõem, domínios de falha são inerentemente hierárquica e são representados como URIs no Service Fabric.
+## <a name="fault-domains"></a>Domínios de falhas
+Um domínio de falha é qualquer área de falha de coordenada. Uma única máquina é um domínio de falha (uma vez que ele poderá falhar na própria, por várias razões, de fonte de alimentação falhas para falhas de unidade ao firmware do NIC ruim). As máquinas ligadas ao mesmo comutador Ethernet estão no mesmo domínio de falha, como máquinas numa única fonte de energia ou numa única localização de partilha. Uma vez que é natural para falhas de hardware para se sobrepõem, domínios de falha são inerentemente hierárquicos e são representados como URIs no Service Fabric.
 
 É importante que domínios de falha estão configurados corretamente, uma vez que o Service Fabric utiliza estas informações para colocar em segurança a serviços. Service Fabric não quer colocar os serviços, de modo a que a perda de um domínio de falha (causada pela falha de algum componente) faz com que um serviço descer. No Azure o ambiente do Service Fabric utiliza as informações de domínio de falha fornecidas pelo ambiente para configurar corretamente os nós do cluster em seu nome. Autónomo do Service Fabric, os domínios de falha são definidos no momento em que o cluster está configurado 
 
@@ -95,13 +95,17 @@ Não existe nenhum limite real para o número total de falhas ou domínios de at
 ![Layouts de domínio de atualização e de falha][Image4]
 </center>
 
-Não existe que nenhum melhor responder que esquema escolha, cada um tem alguns prós e contras. Por exemplo, o modelo de 1FD:1UD é fácil de configurar. O 1 o domínio de atualização por modelo de nó é mais como o que as pessoas são utilizadas para. Durante as atualizações de cada nó é atualizada de forma independente. Isso é semelhante a como pequenos conjuntos de máquinas foram atualizados manualmente no passado. 
+Não existe que nenhum melhor responder que esquema escolha, cada um tem alguns prós e contras. Por exemplo, o modelo de 1FD:1UD é fácil de configurar. O 1 o domínio de atualização por modelo de nó é mais como o que as pessoas são utilizadas para. Durante as atualizações de cada nó é atualizada de forma independente. Isso é semelhante a como pequenos conjuntos de máquinas foram atualizados manualmente no passado.
 
 O modelo mais comuns é a matriz de FD/UD, onde o FDs e UDs formam uma tabela e nós são colocados iniciar ao longo do diagonal. Esse é o modelo utilizado por predefinição em clusters do Service Fabric no Azure. Para clusters com vários nós, tudo o que acaba se parecendo com o padrão de matriz densa acima.
 
+> [!NOTE]
+> Clusters do Service Fabric alojados no Azure não suporta a alteração a estratégia de predefinição. Apenas os clusters autónomos oferecem essa personalização.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restrições de domínio de atualização e de falha e o comportamento resultante
 ### <a name="default-approach"></a>*Abordagem de predefinição*
-Por predefinição, o Gestor de recursos do Cluster mantém Balanceados entre domínios de atualização e de falha de serviços. Isso é modelado como um [restrição](service-fabric-cluster-resource-manager-management-integration.md). Os Estados de restrição de falhas e de domínio de atualização: "Para uma partição de determinado serviço há nunca deve ser uma diferença maior que um no número de objetos do serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre quaisquer dois domínios no mesmo nível da hierarquia de". Digamos que esta restrição fornece uma garantia de "máximo diferença". A restrição de domínio de atualização e de falha impede que certos movimentos ou esquemas que violam a regra indicada acima. 
+Por predefinição, o Gestor de recursos do Cluster mantém Balanceados entre domínios de atualização e de falha de serviços. Isso é modelado como um [restrição](service-fabric-cluster-resource-manager-management-integration.md). Os Estados de restrição de falhas e de domínio de atualização: "Para uma partição de determinado serviço há nunca deve ser uma diferença maior que um no número de objetos do serviço (instâncias de serviço sem estado ou réplicas de serviço com estado) entre quaisquer dois domínios no mesmo nível da hierarquia de". Digamos que esta restrição fornece uma garantia de "máximo diferença". A restrição de domínio de atualização e de falha impede que certos movimentos ou esquemas que violam a regra indicada acima.
 
 Vamos examinar um exemplo. Vamos supor que temos um cluster connosco seis, configurada com cinco domínios de falha e cinco domínios de atualização.
 

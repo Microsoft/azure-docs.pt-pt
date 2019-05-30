@@ -3,8 +3,8 @@ title: Resolver problemas de Proxy de aplicações | Documentos da Microsoft
 description: Descreve como resolver erros no Proxy de aplicações do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8c9c6be51a30fd4e30fedc85f8d17d16324391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dbdccf3b7a3ba1b8e55befa0fdc24eeff3e403da
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292640"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782941"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Resolver problemas do Proxy de aplicações e mensagens de erro
 Se ocorrerem erros na Acessando um aplicativo publicado ou na publicação de aplicações, verifique as seguintes opções para ver se o Proxy de aplicações do Microsoft Azure AD está a funcionar corretamente:

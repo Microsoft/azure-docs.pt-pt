@@ -3,8 +3,8 @@ title: Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure
 description: Abrange as noções básicas sobre como integrar um servidor do SharePoint no local com o Proxy de aplicações do Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dc80b78bbba369e0ddb5c2c1e9fd90834dc0148
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9e491f0c452b7b51eac4e8cccab1cc7ed8430e49
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293222"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783450"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Ativar o acesso remoto ao SharePoint com o Proxy de aplicações do Azure AD
 
@@ -115,9 +115,9 @@ Para configurar o KCD, repita os passos seguintes para cada computador do conect
 Agora que configurou o KCD, está pronto para configurar o Proxy de aplicações do Azure AD.
 
 1. Publica o seu site do SharePoint com as seguintes definições. Para obter instruções passo a passo, consulte [publicar aplicações com o Proxy de aplicações do Azure AD](application-proxy-publish-azure-portal.md).
-   * **URL interno**: URL interno do SharePoint que foi escolhido anteriormente, como **<https://SharePoint/>**.
+   * **URL interno**: URL interno do SharePoint que foi escolhido anteriormente, como **<https://SharePoint/>** .
    * **Método de pré-autenticação**: Azure Active Directory
-   * **Traduzir URL nos cabeçalhos**: NO
+   * **Traduzir URL nos cabeçalhos**: NÃO
 
    >[!TIP]
    >O SharePoint usa a _cabeçalho de anfitrião_ valor para procurar o site. Também gera links com base nesse valor. O efeito líquido é que qualquer ligação que gera o SharePoint é um URL publicado que está corretamente definido para utilizar o URL externo. Definindo o valor como **Sim** também permite que o conector encaminhar a solicitação para a aplicação de back-end. No entanto, definindo o valor como **não** significa que o conector não enviará o nome de anfitrião interno. Em vez disso, o conector envia o cabeçalho de anfitrião como o URL publicado para a aplicação de back-end.

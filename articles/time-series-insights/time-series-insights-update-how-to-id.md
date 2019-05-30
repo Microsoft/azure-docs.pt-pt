@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
-ms.translationtype: MT
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695049"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519445"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Melhores práticas para a escolha de um ID de série de tempo
 
@@ -29,6 +29,7 @@ Escolher um ID de série de tempo é como escolher uma chave de partição para 
 > O ID de série de tempo é maiúsculas e minúsculas e imutável (não pode ser alterado após ser definido).
 
 Com isso em mente, selecionar o ID de série de tempo adequado, é fundamental. Quando seleciona um ID de série de tempo, considere seguir estas melhores práticas:
+
 * Escolha um nome de propriedade que tem uma vasta gama de valores e tem até mesmo os padrões de acesso. É recomendável ter uma chave de partição com muitos valores distintos (por exemplo, centenas ou milhares). Para muitos clientes, este será algo como o DeviceID ou SensorID no JSON.
 * O ID de série de tempo deve ser exclusivo no nível de nó folha da sua [modelo de série de tempo](./time-series-insights-update-tsm.md).
 * Uma cadeia de caracteres de nome de propriedade de ID de série de tempo pode ter até 128 carateres e valores de propriedade de ID de série de tempo podem ter até 1024 carateres.
@@ -41,13 +42,13 @@ Além disso, pode selecionar até *três* propriedades chave (3) como sua série
 
 Os seguintes cenários descrevem selecionar mais do que uma propriedade chave como o seu ID de série de tempo:  
 
-### <a name="scenario-1"></a>Cenário 1
+### <a name="scenario-one"></a>Cenário um
 
-* Terá de frotas de legado de ativos, cada um com uma chave exclusiva. 
-* Por exemplo, uma frota seja identificada exclusivamente pela propriedade *deviceId* e outra em que é a propriedade exclusiva *objectId*. Nenhuma das frota contém a propriedade exclusivo de outros frota. Neste exemplo, deve selecionar duas chaves, deviceId e objectId, como chaves exclusivas. 
+* Terá de frotas de legado de ativos, cada um com uma chave exclusiva.
+* Por exemplo, uma frota seja identificada exclusivamente pela propriedade *deviceId* e outra em que é a propriedade exclusiva *objectId*. Nenhuma das frota contém a propriedade exclusivo de outros frota. Neste exemplo, deve selecionar duas chaves, deviceId e objectId, como chaves exclusivas.
 * Aceitamos valores nulos, e a falta de presença de uma propriedade no payload do evento é contabilizado como um `null` valor. Isso também é a forma adequada para lidar com o envio de dados para duas origens de eventos diferentes em que os dados em cada origem de evento tem um ID de série de tempo exclusivo
 
-### <a name="scenario-2"></a>Cenário 2
+### <a name="scenario-two"></a>Cenário dois
 
 * Precisa de várias propriedades de ser exclusivo dentro do mesmo frota de ativos. 
 * Por exemplo, digamos que for um fabricante de construção inteligentes e implementar sensores em cada sala. Em cada sala, normalmente têm os mesmos valores para *sensorId*, tal como *sensor1*, *sensor2*, e *sensor3*.

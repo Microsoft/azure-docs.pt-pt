@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/6/2018
-ms.openlocfilehash: 55106f855d1f2cab82b751b306a3a289bd740e9e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9088e9ad98633b46dc3a7f0ee9002a0dd9fc5a55
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60525384"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551882"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na base de dados do Azure para MySQL
 As secções seguintes descrevem a capacidade, suporte ao mecanismo de armazenamento, o suporte de privilégio, manipulação de dados de suporte de instrução e limites funcionais no serviço de base de dados. Consulte também [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicável para o motor de base de dados MySQL.
@@ -80,6 +80,9 @@ Quando as ligações excederem o limite, poderá receber o erro seguinte:
 
 ### <a name="vnet-service-endpoints"></a>Pontos finais de serviço de VNet
 - Suporte para pontos finais de serviço da VNet é apenas para fins gerais e memória otimizada de servidores.
+
+### <a name="storage-size"></a>Tamanho de armazenamento
+- Consulte a [escalões de preço](concepts-pricing-tiers.md) para os limites de tamanho de armazenamento por escalão de preço.
 
 ## <a name="current-known-issues"></a>Atuais problemas conhecidos
 - Instância do servidor MySQL apresenta a versão de servidor incorreto depois de ligação é estabelecida. Para obter versão do motor de instância de servidor correto, utilize o `select version();` comando.

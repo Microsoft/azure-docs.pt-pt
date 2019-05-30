@@ -65,7 +65,7 @@
           href: batch-aad-auth.md
         - name: Azure AD com a Gestão do Batch
           href: batch-aad-auth-management.md
-    - name: Criar pacotes de aplicações
+    - name: Utilizar pacotes de aplicações
       href: batch-application-packages.md
     - name: Criar e gerir agrupamentos
       items:

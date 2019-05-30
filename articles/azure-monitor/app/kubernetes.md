@@ -1,6 +1,6 @@
 ---
-title: O Azure Monitor - Zero monitorização do Kubernetes alojadas aplicações da aplicação de instrumentação | Documentos da Microsoft
-description: Zero monitorização para aplicações do Kubernetes alojado de aplicações de instrumentação é uma solução de monitorização que permite-lhe recolher telemetria do Application Insights relativas a pedidos recebidos e enviados de e para pods em execução no cluster do Kubernetes por utilizando a tecnologia de malha do serviço chamado Istio.
+title: Utilize o Application Insights para monitorizar o Azure Kubernetes Service (AKS) ou outros Kubernetes alojado aplicações - Azure Monitor | Documentos da Microsoft
+description: O Azure Monitor utiliza tecnologia de malha do serviço, Istio, no seu cluster do Kubernetes para fornecer monitorização de aplicações para qualquer aplicativo do Kubernetes alojado. Isto permite-lhe recolher telemetria do Application Insights relativas a pedidos recebidos e enviados de e para pods em execução no seu cluster.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408214"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555824"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Aplicações alojada sem monitorização de aplicações de instrumentação para Kubernetes
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Sem monitorização de aplicações de instrumentação para Kubernetes alojado aplicativos
 
 > [!IMPORTANT]
 > Esta funcionalidade está atualmente em pré-visualização pública.
@@ -78,7 +78,7 @@ Aplicações em execução fora da malha de serviço não são afetadas.
 3. Editar *application-insights-istio-mixer-adapter-deployment.yaml*
     - Editar o valor deste *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* variável de ambiente para conter a chave de instrumentação do recurso do Application Insights no portal do Azure para conter a telemetria.
     - Se necessário, editar o valor deste *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* variável de ambiente para conter uma lista separada por vírgulas de espaços de nomes para os quais gostaria de ativar a monitorização. Deixe em branco para monitorizar todos os espaços de nomes.
-4. Aplicam-se *cada* ficheiro YAML encontra-se em *src/kubernetes/* ao executar o seguinte (ainda tem de ser dentro */src/kubernetes/*):
+4. Aplicam-se *cada* ficheiro YAML encontra-se em *src/kubernetes/* ao executar o seguinte (ainda tem de ser dentro */src/kubernetes/* ):
 
    ```console
    kubectl apply -f .

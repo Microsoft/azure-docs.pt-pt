@@ -4,7 +4,7 @@ description: Este artigo apresenta uma lista de todas as versões do Proxy de ap
 services: active-directory
 documentationcenter: ''
 author: msmimart
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7af05769861f98ec192789d90f8a61f5b6638d1d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441666"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783295"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de aplicações do Azure AD: Histórico de versões
 Este artigo lista as versões e os recursos do Proxy de aplicações do Azure Active Directory (Azure AD) que foram lançados. A equipa do Azure AD atualiza regularmente o Proxy de aplicações com novos recursos e funcionalidades. Conectores de Proxy de aplicação são atualizados automaticamente quando for lançada uma nova versão.
 
 Aqui está uma lista de recursos relacionados:
 
-Recurso |  Detalhes
+Resource |  Detalhes
 --------- | --------- |
 Como ativar o Proxy de aplicações | Pré-requisitos para ativar o Proxy da aplicação e instalar e registar um conector são descritas nesta [tutorial](application-proxy-add-on-premises-application.md).
 Compreender os conectores de Proxy de aplicações do Azure AD | Obter mais informações sobre [gestão de conector](application-proxy-connectors.md) e, como conectores [atualização automática](application-proxy-connectors.md#automatic-updates).

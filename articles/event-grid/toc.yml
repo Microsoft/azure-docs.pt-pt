@@ -101,6 +101,8 @@
       href: event-sources.md
     - name: Processadores de eventos
       href: event-handlers.md
+    - name: Recuperação após desastre geográfica
+      href: geo-disaster-recovery.md
 - name: Guias de procedimentos
   items:
     - name: Publicar em tópico personalizado

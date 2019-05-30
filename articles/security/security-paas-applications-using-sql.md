@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596661"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601655"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para proteger as bases de dados de PaaS no Azure
 
@@ -78,7 +78,7 @@ SQL do Azure gere problemas relacionados com chaves para TDE. Como com TDE, no l
 
 SQL do Azure fornece encriptação para colunas através de [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Isso permite que o acesso apenas aplicativos autorizados para colunas confidenciais. Usar esse tipo de criptografia limita a consultas SQL em colunas encriptadas para valores com base na igualdade.
 
-Encriptação de nível de aplicativo também deve ser utilizada para dados seletivos. Preocupações de soberania de dados, às vezes, podem ser atenuadas ao encriptar dados com uma chave que é mantida no país correto. Isto impede que a transferência de dados acidentais até mesmo causar um problema, uma vez que é impossível descriptografar os dados sem a chave, partindo do princípio de que um algoritmo forte seja usado (como AES 256).
+Encriptação de nível de aplicativo também deve ser utilizada para dados seletivos. Preocupações de soberania de dados, às vezes, podem ser atenuadas ao encriptar dados com uma chave que é mantida no país/região correto. Isto impede que a transferência de dados acidentais até mesmo causar um problema, uma vez que é impossível descriptografar os dados sem a chave, partindo do princípio de que um algoritmo forte seja usado (como AES 256).
 
 Pode usar as precauções adicionais para ajudar a proteger a base de dados, por exemplo, criando um sistema seguro, a criptografia de ativos confidenciais e a criação de uma firewall ao redor dos servidores da base de dados.
 

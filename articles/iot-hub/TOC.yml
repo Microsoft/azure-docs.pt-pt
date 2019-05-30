@@ -66,6 +66,8 @@
               href: tutorial-routing-config-message-routing-PowerShell.md
         - name: Parte 2 - Ver os resultados do encaminhamento de mensagens
           href: tutorial-routing-view-message-routing-results.md
+    - name: Melhoramentos das mensagens
+      href: tutorial-message-enrichments.md
     - name: Utilizar métricas e registos de diagnóstico
       href: tutorial-use-metrics-and-diags.md
     - name: Realizar ativação pós-falha manual
@@ -78,6 +80,8 @@
       href: tutorial-connectivity.md
 - name: Conceitos
   items:
+    - name: Descrição geral dos melhoramentos das mensagens
+      href: iot-hub-message-enrichments-overview.md
     - name: Descrição geral da gestão de dispositivos
       href: iot-hub-device-management-overview.md
     - name: Comparar o Hub IoT e os Hubs de Eventos

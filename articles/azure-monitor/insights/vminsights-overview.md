@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7d86b3fe9aeddd603d0c40b1c760cabdee42e396
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60199924"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522113"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>O que é o Azure Monitor para VMs (pré-visualização)?
 
@@ -64,4 +64,4 @@ Ao implementar o Azure Monitor para as VMs, os dados recolhidos pelas suas VMs s
 O tamanho do registo variam de acordo com os comprimentos de cadeia de caracteres de contadores de desempenho e pode ser aumentado com o número de discos lógicos e adaptadores de rede atribuídos à VM. Se já tiver uma área de trabalho e está a recolher estes contadores, é aplicada uma cobrança duplicada. Se já estiver a utilizar o mapa de serviço, a única alteração que verá é os dados de ligação adicional que são enviados para o Azure Monitor.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para compreender os requisitos e métodos que o ajudam a monitorizar as máquinas virtuais, consulte [implementar o Azure Monitor para VMs](vminsights-onboard.md).
+Para compreender os requisitos e métodos que o ajudam a monitorizar as máquinas virtuais, consulte [implementar o Azure Monitor para VMs](vminsights-enable-overview.md).

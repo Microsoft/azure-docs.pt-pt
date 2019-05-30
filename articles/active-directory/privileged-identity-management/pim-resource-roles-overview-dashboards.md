@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287579"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602496"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Utilizar um dashboard de recursos para realizar uma revisão de acesso no PIM
 
@@ -31,9 +31,9 @@ Pode utilizar um dashboard de recursos para realizar uma revisão de acesso no A
 - Dois gráficos que exibem a distribuição de atribuições de funções por tipo de atribuição.
 - Uma área de dados relativos a novas atribuições de função.
 
-![Captura de ecrã do dashboard vista de administração, com gráficos](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Captura de ecrã do dashboard vista de administração, com gráficos](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![Captura de ecrã do dashboard vista de administração, que mostra as listas de dados](media/azure-pim-resource-rbac/role-settings.png)
+![Captura de ecrã do dashboard vista de administração, que mostra as listas de dados](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 A representação gráfica de ativações de função de recursos aborda os últimos sete dias. Estes dados tem um âmbito para o recurso selecionado e exibe ativações para as funções mais comuns (proprietário, Contribuidor, administrador de acesso de utilizador) e para todas as funções combinadas.
 

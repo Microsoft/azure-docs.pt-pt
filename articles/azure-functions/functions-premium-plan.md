@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: MT
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031245"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544737"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plano Premium de funções do Azure (pré-visualização)
 
@@ -44,7 +44,7 @@ Se não existem eventos e execuções de hoje ocorrem no plano de consumo, a apl
 
 No plano Premium, pode ter a aplicação previamente começando num número de instâncias, até o tamanho mínimo de plano especificado.  Instâncias preparadas previamente também permitem-lhe pré-dimensionar uma aplicação antes de carga elevada. Como a aplicação aumenta horizontalmente, dimensiona-se em primeiro lugar para as instâncias warmed previamente. Instâncias adicionais continuam a memória intermédia de saída e quente imediatamente em preparação para a próxima operação de dimensionamento. Ao ter uma memória intermédia de instâncias preparadas previamente, pode evitar efetivamente latências de arranque a frio.  Instâncias preparadas previamente é um recurso do plano Premium e precisa ter, pelo menos, uma instância em execução e está disponível em todas as vezes que o plano ativa.
 
-Pode configurar o número de instâncias preparadas previamente no portal do Azure, selecionando **aumentar horizontalmente** no **recursos da plataforma** separador.
+Pode configurar o número de instâncias preparadas previamente no Azure portal selecionado por seu **aplicação de funções**, daqui para o **recursos da plataforma** separador e ao selecionar o **aumentar horizontalmente**opções. Na janela de edição da aplicação de função, instâncias preparadas previamente é específico para essa aplicação, mas as instâncias de mínimas e máxima são aplicáveis ao seu plano de todo.
 
 ![Definições de dimensionamento flexível](./media/functions-premium-plan/scale-out.png)
 
@@ -114,11 +114,12 @@ Seguem-se as regiões atualmente suportadas para a pré-visualização pública.
 |França Central|
 |Oeste do Japão|
 |Coreia do Sul Central|
+|EUA Centro-Norte|
 |Europa do Norte|
 |EUA Centro-Sul|
 |Sul da Índia|
 |Sudeste Asiático|
-|Reino Unido Oeste|
+|Oeste do R.U.|
 |Europa Ocidental|
 |Oeste da Índia|
 |EUA Oeste|
