@@ -9,11 +9,11 @@ ms.date: 5/3/2019
 ms.author: victorh
 ms.custom: include file
 ms.openlocfilehash: 8709d4d903bd31ff94d04ec61e226857e4190407
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150308"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238751"
 ---
 | Resource | Limite predefinido |
 | --- | --- |

@@ -4,7 +4,7 @@ description: Saiba como configurar um hub de eventos e executar um aplicativo de
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48524020940149f6c67f4859f23c03eea140454b
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: ae59e8115ca2d1ba69c8a3a099216eb3d98e2658
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991484"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237699"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Enviar eventos para um ambiente do Time Series Insights com um hub de eventos
 
@@ -100,7 +100,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 * **Saída**: Um evento.
 
-    |id|carimbo de data/hora|
+    |ID|carimbo de data/hora|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
 
@@ -123,7 +123,7 @@ A atualização do Time Series Insights utiliza instâncias para adicionar dados
 
 * **Saída**: Dois eventos.
 
-    |id|carimbo de data/hora|
+    |ID|carimbo de data/hora|
     |--------|---------------|
     |device1|2016-01-08T01:08:00Z|
     |device2|2016-01-08T01:17:00Z|

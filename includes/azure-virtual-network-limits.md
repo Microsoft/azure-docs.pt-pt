@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/15/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 8cee74696d9636a8ac1d6fcbab493f18184355e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: cb586be1a139b331c259a1197cc62e7ca4f25666
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787574"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238387"
 ---
 <a name="virtual-networking-limits-classic"></a>Os seguintes limites só se aplicam para recursos geridos através de rede a **clássico** modelo de implementação por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).
 
@@ -28,9 +28,9 @@ ms.locfileid: "65787574"
 | Regras do NSG por NSG |1,000 |1,000 |
 | Tabelas de rotas definidas pelo utilizador |200 |200 |
 | Rotas definidas pelo utilizador por tabela de rotas |400 |400 |
-| Endereços IP públicos (dinâmico) |5 |Contactar o suporte |
-| Endereços IP públicos reservados |20 |Contactar o suporte |
-| VIP público por implementação |5 |Contactar o suporte |
+| Endereços IP públicos (dinâmico) |5 |Contacte o suporte |
+| Endereços IP públicos reservados |20 |Contacte o suporte |
+| VIP público por implementação |5 |Contacte o suporte |
 | VIP privado (Balanceamento de carga interno) por implementação |1 |1 |
 | Listas de controlo de acesso de ponto final (ACLs) |50 |50 |
 
@@ -54,7 +54,7 @@ Os seguintes limites só se aplicam para recursos geridos através de rede **do 
 | Grupos de Segurança de Rede |5,000 |
 | Regras do NSG por NSG |1,000 |
 | Endereços IP e intervalos especificados para a origem ou destino num grupo de segurança |4,000 |
-| Grupos de segurança da aplicação |3.000 |
+| Grupos de segurança de aplicações |3.000 |
 | Grupos de segurança de aplicação por configuração de IP, por NIC |20 |
 | Configurações de IP por grupo de segurança de aplicações |4,000 |
 | Grupos de segurança de aplicações que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |100 |
@@ -70,7 +70,7 @@ Os seguintes limites só se aplicam para recursos geridos através de rede **do 
 | Endereços IP públicos - dinâmico | 1000 para o básico. |Contacte o suporte. |
 | Endereços IP públicos - estáticos | 1000 para o básico. |Contacte o suporte. |
 | Endereços IP públicos - estáticos | 200 para o Standard.|Contacte o suporte. |
-| Tamanho de prefixo IP público (pré-visualização) | /28 | Contacte o suporte. |
+| Tamanho de prefixo IP público | /28 | Contacte o suporte. |
 
 #### <a name="load-balancer"></a>Limites do Balanceador de carga
 Os seguintes limites só se aplicam aos recursos de rede geridos através do Azure Resource Manager por região por subscrição. Saiba como [ver a utilização de recursos atual em relação a seus limites de subscrição](../articles/networking/check-usage-against-limits.md).

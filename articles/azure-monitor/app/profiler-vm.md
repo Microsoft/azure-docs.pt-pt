@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 4cca65e2be44d2c846cd4034f0a9d7e8c7d9af28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ab30351bfff9c5bbf070a1e8a54a4919e4d2231a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130854"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226259"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Conjunto de aplicações de web de perfil em execução em máquinas virtuais do Azure ou um dimensionamento de máquinas virtuais com o Application Insights Profiler
 
@@ -31,7 +31,8 @@ Também pode implementar o Azure Application Insights Profiler estes serviços:
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Implementar o Profiler numa máquina virtual ou um conjunto de dimensionamento de máquinas virtuais
 Este artigo mostra-lhe como obter o Application Insights Profiler em execução em sua máquina virtual do Azure (VM) ou o conjunto de dimensionamento de máquina virtual do Azure. Profiler está instalado com a extensão de diagnóstico do Azure para VMs. Configurar a extensão para executar o Profiler e criar o SDK do Application Insights na sua aplicação.
 
-1. Adicionar o Application Insights SDK para sua [aplicativo ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) ou regular [aplicativo .NET](windows-services.md?toc=/azure/azure-monitor/toc.json).  
+1. Adicionar o Application Insights SDK para sua [aplicativo ASP.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
    Para ver perfis para seus pedidos, terá de enviar a telemetria de pedido para o Application Insights.
 
 1. Instale a extensão de diagnóstico do Azure na sua VM. Para exemplos de modelo do Resource Manager completo, veja:  

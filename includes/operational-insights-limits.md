@@ -9,15 +9,15 @@ ms.date: 05/16/2018
 ms.author: magoedte
 ms.custom: include file
 ms.openlocfilehash: 34f2ab8f7ccafb8b30e298cd71e09171ad8c87cb
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554146"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238586"
 ---
 Os limites seguintes aplicam-se aos recursos do Azure Log Analytics por subscrição.
 
-| Recurso | Limite predefinido | Comentários
+| Resource | Limite predefinido | Comentários
 | --- | --- | --- |
 | Número de áreas de trabalho gratuitas por subscrição | 10 | Não é possível aumentar este limite. |
 | Número de áreas de trabalho pagas por subscrição | N/A | Está limitado pelo número de recursos dentro de um grupo de recursos e o número de grupos de recursos por subscrição. | 
@@ -28,7 +28,7 @@ Os limites seguintes aplicam-se aos recursos do Azure Log Analytics por subscri�
 
 Os limites seguintes aplicam-se para cada área de trabalho do Log Analytics.
 
-|  | Gratuito | Standard | Premium | Autónomo | OMS | Por GB |
+|  | Livre | Standard | Premium | Autónomo | OMS | Por GB |
 | --- | --- | --- | --- | --- | --- |--- |
 | Volume de dados recolhido por dia |500 MB<sup>1</sup> |Nenhuma |Nenhum | Nenhum | Nenhum | Nenhuma
 | Período de retenção de dados |7 dias |1 mês |12 meses | 1 mês<sup>2</sup> | 1 mês<sup>2</sup>| 1 mês<sup>2</sup>|
@@ -37,7 +37,7 @@ Os limites seguintes aplicam-se para cada área de trabalho do Log Analytics.
 
 <sup>2</sup>o período de retenção de dados para o autónomo, OMS e planos de preços por GB, pode ser aumentado para 730 dias.
 
-| Categoria | Limites | Comentários
+| Category | Limits | Comentários
 | --- | --- | --- |
 | API do Recoletor de Dados | Tamanho máximo para um post individual é 30 MB.<br>Tamanho máximo de valores de campos é 32 KB. | Dividir volumes maiores em várias postagens.<br>Os campos com mais de 32 KB são truncados. |
 | API de Pesquisa | 5000 registos devolvidos para dados não agregados.<br>500 000 registos para dados agregados. | Dados agregados são uma pesquisa que inclui o `summarize` comando.

@@ -4,19 +4,19 @@ description: Este artigo descreve como gerir o seu ambiente do Azure Time Series
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5e350e8a9093936f1e747afda7c3192b4d8368d
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: ba7d412e9bfc29a53cd0aa47a926f60580b45490
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471717"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237644"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Criar recursos do Time Series Insights com modelos Azure Resource Manager
 
@@ -27,9 +27,9 @@ O Time Series Insights suporta os seguintes recursos:
    | Resource | Descrição |
    | --- | --- |
    | Ambiente | Um ambiente do Time Series Insights é um agrupamento lógico de eventos que são ler a partir de mediadores de eventos, armazenados e disponibilizados para consulta. Para obter mais informações, consulte [planejar seu ambiente do Azure Time Series Insights](time-series-insights-environment-planning.md) |
-   | Origem do Evento | Uma origem de evento é uma ligação para um mediador de eventos a partir do qual o Time Series Insights lê e ingere eventos para o ambiente. Origens de eventos atualmente suportados são o IoT Hub e Hub de eventos. |
+   | Origem do evento | Uma origem de evento é uma ligação para um mediador de eventos a partir do qual o Time Series Insights lê e ingere eventos para o ambiente. Origens de eventos atualmente suportados são o IoT Hub e Hub de eventos. |
    | Conjunto de dados de referência | Conjuntos de dados de referência fornecem metadados sobre os eventos no ambiente. Metadados em conjuntos de dados de referência irão ser associado a eventos durante a entrada. Conjuntos de dados de referência são definidos como recursos por suas propriedades de chave do evento. Os metadados real que compõe o conjunto de dados de referência é carregado ou modificado por meio de APIs de plano de dados. |
-   | Política de Acesso | Políticas de acesso concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e partilhar consultas guardadas e perspetivas associadas ao ambiente. Para obter mais informações, leia [conceder acesso a dados para um ambiente do Time Series Insights com o portal do Azure](time-series-insights-data-access.md) |
+   | Política de acesso | Políticas de acesso concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e partilhar consultas guardadas e perspetivas associadas ao ambiente. Para obter mais informações, leia [conceder acesso a dados para um ambiente do Time Series Insights com o portal do Azure](time-series-insights-data-access.md) |
 
 Um modelo do Resource Manager é um ficheiro JSON que define a infraestrutura e a configuração de recursos num grupo de recursos. Os seguintes documentos descrevem os arquivos de modelo em mais detalhes:
 

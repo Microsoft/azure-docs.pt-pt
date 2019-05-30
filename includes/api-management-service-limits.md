@@ -10,13 +10,13 @@ ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
 ms.openlocfilehash: fc945a7e9389c8aec48a6a1dba969fbf92002d3a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553883"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238143"
 ---
-| Recurso | Limite |
+| Resource | Limite |
 | --- | --- |
 | Número máximo de unidades de escala | 10 por região<sup>1</sup> |
 | Tamanho da cache | 5 GB por unidade<sup>2</sup> |
