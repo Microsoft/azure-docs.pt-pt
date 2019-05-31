@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: d27c0e9570959e01267d83a768ead45b48b7cea1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1520b01826de2a80d8baeccf4913fa180d385644
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60903275"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256308"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Serviços cloud do Application Insights para o Azure
 [O Application Insights] [ start] pode monitorizar [aplicações de serviço cloud do Azure](https://azure.microsoft.com/services/cloud-services/) para disponibilidade, desempenho, falhas e utilização, ao combinar dados de SDKs do Application Insights com [Diagnóstico do azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) dados dos seus serviços cloud. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -41,7 +41,7 @@ Esta opção instrui a sua aplicação em tempo de execução, dando-lhe toda a 
 
 Se esta opção é tudo o que precisa, terá concluído. 
 
-Os passos seguintes são [ver métricas da sua aplicação](../../azure-monitor/app/metrics-explorer.md), [consultar dados com o Analytics](../../azure-monitor/app/analytics.md)e talvez, configurar uma [dashboard](../../azure-monitor/app/app-insights-dashboards.md). 
+Os passos seguintes são [ver métricas da sua aplicação](../../azure-monitor/app/metrics-explorer.md), [consultar dados com o Analytics](../../azure-monitor/app/analytics.md). 
 
 Para monitorizar o desempenho no browser, pode também querer configurar [testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) e [adicionar código às suas páginas Web](../../azure-monitor/app/javascript.md).
 
@@ -61,7 +61,7 @@ A telemetria da sua aplicação é armazenada, analisada e apresentada num recur
 Cada recurso pertence a um grupo de recursos. Grupos de recursos são utilizados para gerir os custos, para conceder acesso aos membros da Equipe e para implementar atualizações numa única transação coordenada. Por exemplo, poderia [escrever um script para implementar](../../azure-resource-manager/resource-group-template-deploy.md) um serviço cloud do Azure e seus recursos numa operação de monitorização do Application Insights.
 
 ### <a name="resources-for-components"></a>Recursos para componentes
-Recomendamos que crie um recurso separado para cada componente da sua aplicação. Ou seja, vai criar um recurso para cada função da web e a função de trabalho. Pode analisar cada componente em separado, mas criar um [dashboard](../../azure-monitor/app/app-insights-dashboards.md) que junta os gráficos-chave de todos os componentes, para que possa comparar e monitorizá-las em conjunto numa única vista. 
+Recomendamos que crie um recurso separado para cada componente da sua aplicação. Ou seja, vai criar um recurso para cada função da web e a função de trabalho. Pode analisar cada componente em separado, mas criar um [dashboard](../../azure-monitor/app/overview-dashboard.md) que junta os gráficos-chave de todos os componentes, para que possa comparar e monitorizá-las em conjunto numa única vista. 
 
 Uma abordagem alternativa é enviar a telemetria de mais de uma função para o mesmo recurso, mas [adicionar uma propriedade de dimensão para cada item de telemetria](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer) que identifica a respetiva função de origem. Nesta abordagem, gráficos de métricas, como exceções, mostram, geralmente, uma agregação das contagens das várias funções, mas pode segmentá-los pelo identificador da função, conforme necessário. Também pode filtrar pesquisas pela mesma dimensão. Esta alternativa faz com que seja um pouco mais fácil ver tudo ao mesmo tempo, mas também poderia levar a alguma confusão entre as funções.
 
@@ -91,7 +91,7 @@ Se tiver optado por criar um recurso separado para cada função e, talvez um co
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar os Diagnósticos do Azure para cada função
 Defina esta opção para monitorizar a sua aplicação com o Application Insights. Para funções da web, esta opção fornece monitorização de desempenho, alertas, diagnóstico e análise de utilização. Para outras funções, pode pesquisar e monitorizar diagnósticos do Azure como o reinício, contadores de desempenho e chamadas para Trace. 
 
-1. No Explorador de soluções do Visual Studio, em  **\<YourCloudService >** > **funções**, abra as propriedades de cada função.
+1. No Explorador de soluções do Visual Studio, em  **\<YourCloudService >**  > **funções**, abra as propriedades de cada função.
 
 1. Na **Configuration**, selecione a **enviar dados de diagnóstico para o Application Insights** caixa de verificação e, em seguida, selecione o recurso do Application Insights que criou anteriormente.
 
@@ -229,7 +229,7 @@ Para obter telemetria baseada no browser, como contagens de visualizações de p
 Para tornar-se de que a sua aplicação permanece em direto e reativa, [configurar testes web][availability].
 
 ## <a name="display-everything-together"></a>Apresentar tudo em conjunto
-Para obter uma visão geral do seu sistema, pode exibir a chave de monitorização de gráficos em conjunto num [dashboard](../../azure-monitor/app/app-insights-dashboards.md). Por exemplo, pode afixar as contagens de pedidos e de falhas de cada função. 
+Para obter uma visão geral do seu sistema, pode exibir a chave de monitorização de gráficos em conjunto num [dashboard](../../azure-monitor/app/overview-dashboard.md). Por exemplo, pode afixar as contagens de pedidos e de falhas de cada função. 
 
 Se seu sistema utilizar outros serviços do Azure, como o Stream Analytics, inclua também os gráficos de monitorização. 
 

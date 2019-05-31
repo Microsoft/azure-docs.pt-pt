@@ -4,14 +4,14 @@ description: Saiba mais sobre a sintaxe SQL, conceitos de base de dados e consul
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: bbca0239053b8f3164055a07b376abc597b0348f
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 943ed63aed0f64ae6cbd62c52731c6ec73ddd0bd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954125"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388488"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Exemplos de consulta SQL para o Azure Cosmos DB
 
@@ -160,7 +160,7 @@ Os resultados são:
 
 Os exemplos anteriores mostram vários aspectos da linguagem de consulta do Cosmos DB:  
 
-* Uma vez que a API de SQL funciona em valores JSON, ele lida com entidades em forma de árvore, em vez de linhas e colunas. Pode consultar os nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3…..Nodem`, semelhante a referência de duas partes de `<table>.<column>` em ANSI SQL.
+* Uma vez que a API de SQL funciona em valores JSON, ele lida com entidades em forma de árvore, em vez de linhas e colunas. Pode consultar os nós da árvore em qualquer profundidade arbitrária, como `Node1.Node2.Node3….Nodem`, semelhante a referência de duas partes de `<table>.<column>` em ANSI SQL.
 
 * Como funciona a linguagem de consulta com os dados sem esquemas, o sistema de tipo deve ser vinculado dinamicamente. A mesma expressão poderia resultar em diferentes tipos nos itens diferentes. O resultado de uma consulta é um valor JSON válido, mas não é garantido para ser de um esquema fixo.  
 
@@ -721,7 +721,7 @@ Os resultados são:
     ]
 ```
 
-A seguinte consulta obtém família `id`s por ordem de sua data de criação de item. Item `creationDate` é um número que representa o *hora "Epoch"*, ou o tempo decorrido desde 1 de Janeiro de 1970 em segundos.
+A seguinte consulta obtém família `id`s por ordem de sua data de criação de item. Item `creationDate` é um número que representa o *hora "Epoch"* , ou o tempo decorrido desde 1 de Janeiro de 1970 em segundos.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -756,7 +756,7 @@ Esta consulta obtém a família `id` em ordem ascendente do nome de cidade. Se v
 
 ## <a id="OffsetLimitClause"></a>Cláusula de limite de deslocamento
 
-LIMITE de deslocamento é uma cláusula opcional para ignorar, dê algum número de valores da consulta. A contagem de deslocamento e a contagem de limite são necessários na cláusula de limite de deslocamento.
+LIMITE de deslocamento é uma cláusula opcional para ignorar, dê algum número de valores da consulta. A contagem de deslocamento e a contagem de limite são necessários na cláusula de limite de deslocamento. Atualmente, esta cláusula é suportada para as consultas existentes apenas uma única partição, ele ainda não suportam consultas entre partições. 
 
 Quando o limite de deslocamento é utilizado em conjunto com uma cláusula ORDER BY, o conjunto de resultados é produzido por ignorar a fazer e assumir os valores ordenados. Não se for utilizada nenhuma cláusula ORDER BY, irá resultar numa ordem determinista de valores.
 
@@ -2039,7 +2039,7 @@ O provedor LINQ incluído com o SDK de .NET de SQL suporta os seguintes operador
 
 Os exemplos seguintes mostram como traduzir alguns dos operadores de consulta padrão do LINQ para consultas do Cosmos DB.
 
-#### <a name="select-operator"></a>Selecionar operador
+#### <a name="select-operator"></a>Selecione operador
 
 A sintaxe é `input.Select(x => f(x))`, onde `f` é uma expressão escalar.
 
