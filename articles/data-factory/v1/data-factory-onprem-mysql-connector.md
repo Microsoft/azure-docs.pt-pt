@@ -69,11 +69,11 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos ao se
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | type |A propriedade de tipo tem de ser definida como: **OnPremisesMySql** |Sim |
-| servidor |Nome do servidor MySQL. |Sim |
-| base de dados |Nome da base de dados MySQL. |Sim |
+| server |Nome do servidor MySQL. |Sim |
+| database |Nome da base de dados MySQL. |Sim |
 | schema |Nome do esquema na base de dados. |Não |
 | authenticationType |Tipo de autenticação utilizado para ligar à base de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
-| o nome de utilizador |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
+| userName |Especifique o nome de utilizador para ligar à base de dados MySQL. |Sim |
 | password |Especifique a palavra-passe da conta de utilizador que especificou. |Sim |
 | gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados do MySQL no local. |Sim |
 
@@ -95,7 +95,7 @@ Quando a origem na atividade de cópia é do tipo **RelationalSource** (que incl
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Não (se **tableName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecionar * de MyTable. |Não (se **tableName** dos **conjunto de dados** for especificado) |
 
 
 ## <a name="json-example-copy-data-from-mysql-to-azure-blob"></a>Exemplo JSON: Copiar dados do MySQL para BLOBs do Azure
