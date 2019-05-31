@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a20299887de827f25e4c3306f5e78c188c9a8a7f
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 95cde28bc4789346aabd58b5f7b543e1bbc989c1
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969397"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357701"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instale a elevada disponibilidade do SAP NetWeaver numa partilha de ficheiros e de cluster ativação pós-falha de Windows para instâncias do SAP ASCS/SCS no Azure
 
@@ -291,7 +291,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ## <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance"></a>Criar um nome de anfitrião virtual para a instância do SAP ASCS/SCS em cluster
 
-Criar um nome de rede de cluster do SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]**), conforme descrito nas [criar um nome de anfitrião virtual para a instância em cluster do SAP ASCS/SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
+Criar um nome de rede de cluster do SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.6.7]** ), conforme descrito nas [criar um nome de anfitrião virtual para a instância em cluster do SAP ASCS/SCS] [ sap-high-availability-installation-wsfc-shared-disk-create-ascs-virt-host] .
 
 
 ## <a name="install-an-ascsscs-and-ers-instances-in-the-cluster"></a>Instalar uma instância do ASCS/SCS e ERS no cluster
@@ -300,7 +300,7 @@ Criar um nome de rede de cluster do SAP ASCS/SCS (por exemplo, **pr1-ascs [10.0.
 
 Instale uma instância do SAP ASCS/SCS no primeiro nó de cluster. Para instalar a instância, na ferramenta de instalação de SAP SWPM, aceda a:
 
-**\<Produto >** > **\<DBMS >** > **instalação** > **o servidor de aplicações ABAP** ( ou **Java**) > **sistema de elevada disponibilidade** > **instância ASCS/SCS** > **primeiro nó de cluster**.
+**\<Produto >**  >  **\<DBMS >**  > **instalação** > **o servidor de aplicações ABAP** ( ou **Java**) > **sistema de elevada disponibilidade** > **instância ASCS/SCS** > **primeiro nó de cluster**.
 
 ### <a name="add-a-probe-port"></a>Adicionar uma porta de sonda
 
@@ -310,12 +310,12 @@ Configure um recurso de cluster do SAP, a porta de sonda de SAP-SID-IP, com o Po
 
 Instale uma instância do SAP ASCS/SCS no segundo nó de cluster. Para instalar a instância, na ferramenta de instalação de SAP SWPM, aceda a:
 
-**\<Produto >** > **\<DBMS >** > **instalação** > **o servidor de aplicações ABAP** ( ou **Java**) > **sistema de elevada disponibilidade** > **instância ASCS/SCS** > **nó do cluster adicional** .
+**\<Produto >**  >  **\<DBMS >**  > **instalação** > **o servidor de aplicações ABAP** ( ou **Java**) > **sistema de elevada disponibilidade** > **instância ASCS/SCS** > **nó do cluster adicional** .
 
 
 ## <a name="update-the-sap-ascsscs-instance-profile"></a>Atualizar o perfil de instância do SAP ASCS/SCS
 
-Atualizar parâmetros no perfil de instância do SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_\<anfitrião >.
+Atualizar parâmetros no perfil de instância do SAP ASCS/SCS \<SID >_ASCS/SCS\<Nr >_ \<anfitrião >.
 
 
 | Nome do parâmetro | Valor do parâmetro |
@@ -324,7 +324,7 @@ Atualizar parâmetros no perfil de instância do SAP ASCS/SCS \<SID >_ASCS/SCS\<
 | enque/encni/set_so_keepalive  | **VERDADEIRO** |
 | service/ha_check_node | **1** |
 
-Reinicie a instância do SAP ASCS/SCS. Definir `KeepAlive` parâmetros em ambos os nós de cluster do SAP ASCS/SCS siga as instruções para [definir entradas de Registro em nós do cluster da instância do SAP ASCS/SCS]([high-availability-guide]:high-availability-guide.md). 
+Reinicie a instância do SAP ASCS/SCS. Definir `KeepAlive` parâmetros em ambos os nós de cluster do SAP ASCS/SCS siga as instruções para [definir entradas de Registro em nós do cluster da instância do SAP ASCS/SCS][high-availability-guide]. 
 
 ## <a name="install-a-dbms-instance-and-sap-application-servers"></a>Instalar uma instância do DBMS e servidores de aplicações SAP
 

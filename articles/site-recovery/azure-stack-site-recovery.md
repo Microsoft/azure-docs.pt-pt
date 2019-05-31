@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 11d409f904c43c0df4bbbd44fdb24531f2f989f6
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124718"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399601"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicar VMs do Azure Stack para o Azure
 
@@ -173,7 +173,7 @@ Configurar a máquina do servidor de configuração, registe-o no cofre e deteta
 
 3. Na **Adicionar servidor**, verifique se **servidor de configuração** aparece no **tipo de servidor**.
 5. Transfira o ficheiro de instalação do Site Recovery Unified Setup.
-6. Transfira a chave de registo do cofre. Terá da chave de registo ao executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
+6. Transferir a chave de registo do cofre. Terá da chave de registo ao executar a configuração unificada. A chave é válida durante cinco dias depois de gerá-la.
 
     ![Configurar a origem](./media/azure-stack-site-recovery/set-source2.png)
 
@@ -327,7 +327,7 @@ Quando o site primário estiver novamente em funcionamento, pode efetuar a reati
 4. Na **discos**, clique no nome do disco e recolher as definições.
 
     - Por exemplo, o URI do VHD utilizados no nosso teste: https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd pode ser dividida obter os seguintes parâmetros que são utilizados para transferir o VHD de entrada.
-        - Conta de Armazenamento: 502055westcentralus
+        - Conta de armazenamento: 502055westcentralus
         - Contentor: wahv9b8d2ceb284fb59287
         - Nome do VHD: copiados-3676553984.vhd
 

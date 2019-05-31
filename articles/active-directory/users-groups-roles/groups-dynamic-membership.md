@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eebb68218fd6f9cbda229aae3d9e544e87441562
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 5a0e0508babdd9ae703e38d58b079ab5fa16f68c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192440"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66397884"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -120,11 +120,11 @@ A tabela seguinte apresenta uma lista de todos os operadores suportados e sua si
 | Operador | Sintaxe |
 | --- | --- |
 | Não é igual a |-ne |
-| Igual a |-eq |
+| É igual a |-eq |
 | Não começa com |-notStartsWith |
 | Começa com |-startsWith |
 | Não contém |-notContains |
-| Contains |-contains |
+| Contém |-contains |
 | Não corresponde |-notMatch |
 | Correspondência |-match |
 | Em | -in |
@@ -353,7 +353,6 @@ Os seguintes atributos do dispositivo podem ser utilizados.
  deviceManufacturer | qualquer valor de cadeia | (device.deviceManufacturer -eq "Samsung")
  deviceModel | qualquer valor de cadeia | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Pessoal, empresa, desconhecido | (device.deviceOwnership - eq "Empresa")
- domainName | qualquer valor de cadeia | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Nome do perfil de perfil de inscrição de dispositivos da Apple ou do Windows Autopilot | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | Verdadeiro Falso | (device.isRooted - eq verdadeiro)
  managementType | MDM (para dispositivos móveis)<br>PC (para computadores geridos pelo agente de PC do Intune) | (device.managementType -eq "MDM")
@@ -372,4 +371,4 @@ Estes artigos fornecem informações adicionais sobre os grupos no Azure Active 
 * [Criar um novo grupo e adicionar membros](../fundamentals/active-directory-groups-create-azure-portal.md)
 * [Gerir definições de um grupo](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Gerir associações de um grupo](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Gerir regras dinâmicas dos utilizadores num grupo](groups-dynamic-membership.md)
+* [Gerir regras dinâmicas dos utilizadores num grupo](groups-create-rule.md)

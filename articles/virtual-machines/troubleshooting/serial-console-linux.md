@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: fe08569937dc29ecbc66da1cb2c431cca11a8580
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 52c79a0b883ff4c9ac77d7523764384b88c06a08
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65835110"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389029"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola de série do Azure para Linux
 
@@ -117,7 +117,9 @@ A consola de série pode ser desativada para um dimensionamento VM ou numa máqu
 > Para ativar ou desativar a consola de série para uma subscrição, tem de ter permissões de escrita para a subscrição. Estas permissões incluem funções de administrador ou proprietário. Funções personalizadas também podem ter permissões de escrita.
 
 ### <a name="subscription-level-disable"></a>Desativar o nível de assinatura
-A consola de série pode ser desabilitada para uma subscrição completa através da [chamada à API de REST de consola desativar](/rest/api/serialconsole/console/disableconsole). Pode utilizar o **experimentar** função disponível nesta página de documentação de API para desativar e ativar a consola de série para uma subscrição. Introduza o seu ID de subscrição **subscriptionId**, introduza **predefinido** para **predefinição**e, em seguida, selecione **executar**. Os comandos da CLI do Azure ainda não estão disponíveis.
+A consola de série pode ser desabilitada para uma subscrição completa através da [chamada à API de REST de consola desativar](/rest/api/serialconsole/console/disableconsole). Esta ação requer acesso de nível de Contribuidor ou superior para a subscrição. Pode utilizar o **experimentar** função disponível nesta página de documentação de API para desativar e ativar a consola de série para uma subscrição. Introduza o seu ID de subscrição **subscriptionId**, introduza **predefinido** para **predefinição**e, em seguida, selecione **executar**. Os comandos da CLI do Azure ainda não estão disponíveis.
+
+Para reativar a consola de série para uma subscrição, utilize o [chamada à API de REST de consola ativar](/rest/api/serialconsole/console/enableconsole).
 
 ![Experimente-o API de REST](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
@@ -182,10 +184,10 @@ Como a maioria dos erros são transitórios, repetir a ligação pode, muitas ve
 
 Erro                            |   Mitigação
 :---------------------------------|:--------------------------------------------|
-Não é possível obter as definições de diagnóstico de arranque de  *&lt;VMNAME&gt;*. Para utilizar a consola de série, certifique-se de que o diagnóstico de arranque está ativado para esta VM. | Certifique-se de que a VM tem [diagnósticos de arranque](boot-diagnostics.md) ativada.
+Não é possível obter as definições de diagnóstico de arranque de  *&lt;VMNAME&gt;* . Para utilizar a consola de série, certifique-se de que o diagnóstico de arranque está ativado para esta VM. | Certifique-se de que a VM tem [diagnósticos de arranque](boot-diagnostics.md) ativada.
 A VM está num estado parado desalocado. Iniciar a VM e repita a ligação da consola de série. | A VM deve estar num estado iniciado para aceder à consola de série.
 Não tem as permissões necessárias para usar essa VM com a consola de série. Certifique-se de que tem, pelo menos, permissões de função de contribuinte de Máquina Virtual.| O acesso de consola de série requer determinadas permissões. Para obter mais informações, consulte [pré-requisitos](#prerequisites).
-Não é possível determinar o grupo de recursos para a conta de armazenamento do diagnóstico de arranque  *&lt;STORAGEACCOUNTNAME&gt;*. Certifique-se de que o diagnóstico de arranque está ativado para esta VM e que tem acesso a esta conta de armazenamento. | O acesso de consola de série requer determinadas permissões. Para obter mais informações, consulte [pré-requisitos](#prerequisites).
+Não é possível determinar o grupo de recursos para a conta de armazenamento do diagnóstico de arranque  *&lt;STORAGEACCOUNTNAME&gt;* . Certifique-se de que o diagnóstico de arranque está ativado para esta VM e que tem acesso a esta conta de armazenamento. | O acesso de consola de série requer determinadas permissões. Para obter mais informações, consulte [pré-requisitos](#prerequisites).
 Web socket foi fechado ou não foi possível abrir. | Poderá ter de lista aprovada `*.console.azure.com`. Um mais detalhado for mas a abordagem mais é à lista de permissões a [intervalos de IP de Datacenter do Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653), que alterar bastante regularmente.
 Uma resposta de "dizer proibido" foi encontrada ao aceder à conta de armazenamento do diagnóstico de arranque desta VM. | Certifique-se de que o diagnóstico de arranque não tem uma firewall de conta. Uma conta de armazenamento do diagnóstico de arranque acessível é necessária para a consola de série função.
 
@@ -198,6 +200,7 @@ Premir **Enter** depois da faixa de ligação não causa um prompt de início de
 Texto da consola de série ocupa apenas uma parte do tamanho da tela (muitas vezes, depois de utilizar um editor de texto). | Seriais consolas não suportam a negociação sobre o tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que não vai haver nenhum sinal SIGWINCH enviado para atualizar o tamanho da tela e a VM será não têm conhecimento de tamanho de seu terminal. Instalar xterm ou um utilitário semelhante para oferecer a com o `resize` comando e, em seguida, execute `resize`.
 Colar longas seqüências de caracteres não funciona. | A consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres para evitar sobrecarregar a largura de banda da porta serial.
 Consola de série não funciona com um firewall de conta de armazenamento. | Consola de série por design não consegue trabalhar com firewalls de conta de armazenamento ativadas nesta conta de armazenamento do diagnóstico de arranque.
+Consola de série não funciona com uma conta de armazenamento com a geração 2 de armazenamento do Azure Data Lake com espaços de nomes hierárquicos. | Este é um problema conhecido com espaços de nomes hierárquicos. Para atenuar, certifique-se de que conta de armazenamento de diagnósticos de arranque da VM não é criada com a geração 2 de armazenamento do Azure Data Lake. Esta opção só pode ser definida durante a criação de conta de armazenamento. Poderá ter de criar um diagnóstico de arranque separado de conta de armazenamento sem o Azure Data Lake Storage Gen2 ativado para atenuar este problema.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes

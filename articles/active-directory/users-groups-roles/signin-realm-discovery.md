@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9f21b592f31790daa9cc4eeb217ea6e2987fc38
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: db627359b75aa0ea19e30a8d22bcacaa3409cb4a
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920522"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418192"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Deteção de realm inicial para páginas de início de sessão no Azure Active Directory
 
@@ -32,19 +32,19 @@ Para suportar um maior número de credenciais e aumentar a usabilidade, o compor
 
 Uma vantagem adicional desse trabalho é de erro melhoradas de mensagens. Aqui estão alguns exemplos de erro melhoradas, mensagens quando iniciar sessão a uma aplicação que suporta apenas a utilizadores do Azure Active Directory.
 
-1. O nome de utilizador está incorreto ou o nome de utilizador ainda não tenha sido sincronizado com o Azure AD:
+- O nome de utilizador está incorreto ou o nome de utilizador ainda não tenha sido sincronizado com o Azure AD:
   
     ![o nome de utilizador é escrito incorretamente ou não encontrado](./media/signin-realm-discovery/typo-username.png)
   
-2. O nome de domínio está escrito incorretamente:
+- O nome de domínio está escrito incorretamente:
   
     ![o nome de domínio está escrito incorretamente ou não encontrado](./media/signin-realm-discovery/typo-domain.png)
   
-3. O utilizador tenta iniciar sessão com um domínio de consumidor conhecidos:
+- O utilizador tenta iniciar sessão com um domínio de consumidor conhecidos:
   
     ![Inicie sessão com um domínio de consumidor conhecidos](./media/signin-realm-discovery/consumer-domain.png)
   
-4. A palavra-passe é escrito incorretamente, mas o nome de utilizador é preciso:  
+- A palavra-passe é escrito incorretamente, mas o nome de utilizador é preciso:  
   
     ![palavra-passe é escrito incorretamente com bom nome de utilizador](./media/signin-realm-discovery/incorrect-password.png)
   

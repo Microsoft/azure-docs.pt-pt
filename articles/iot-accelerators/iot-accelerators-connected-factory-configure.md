@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3fd160fbccfb5298cefed6a731797ca6962b997c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e059762cbbf5de2ac03a8a74397e59c9b3bdb97e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61450028"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387108"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>Configurar o acelerador de solução de fábrica ligada
 
@@ -220,7 +220,7 @@ O `<factory_configuration>` e `<production_line_configuration>` itens têm uma p
   * **Soma**: a soma de todos os valores do período de tempo.
   * **Última**: atualmente não utilizadas.
   * **Contagem de**: o número de valores no período de tempo.
-  * **Máx.**: o valor máximo no período de tempo.
+  * **Máx.** : o valor máximo no período de tempo.
   * **Min**: o valor mínimo no período de tempo.
   * **Const**: o resultado é o valor especificado pela propriedade ConstValue.
   * **SubMaxMin**: a diferença entre o máximo e o valor mínimo.
@@ -282,7 +282,7 @@ Os valores OEE/KPI para a simulação de fábrica ligada são parametrizados por
 * Os valores de nó OPC UA a serem incluídos no cálculo.
 * Como a figura é calculada entre os valores de telemetria.
 
-Fábrica ligada utiliza as fórmulas OEE, tal como publicado pelo https://www.oeefoundation.org.
+Fábrica ligada utiliza as fórmulas OEE, tal como publicado pelos [ http://www.oeefoundation.org ](http://www.oeefoundation.org).
 
 Objetos do nó OPC UA em estações de ativar a marcação para utilização no cálculo de valores OEE/KPI. O **relevância** propriedade indica para qual figura valores OEE/KPI deve ser utilizado o valor do nó OPC UA. O **OpCode** propriedade define como o valor está incluído na computação.
 

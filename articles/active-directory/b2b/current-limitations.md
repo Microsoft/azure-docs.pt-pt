@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 05/23/2017
+ms.date: 05/29/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4aae8eb29b9e90bd1cb84949e97e21ed68c04c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d1466614dfeb8fa4d3d095bae070d01c6503c5bb
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812775"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66357231"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações da colaboração B2B do Azure AD
 Colaboração do Azure Active Directory (Azure AD) B2B está sujeito às limitações descritas neste artigo.
@@ -29,6 +29,9 @@ Os fluxos de colaboração do B2B, podemos adicionar utilizadores ao diretório 
 
 ## <a name="azure-ad-directories"></a>Diretórios do Azure AD
 O Azure AD B2B está sujeito a do Azure AD limites de serviço diretório. Para obter detalhes sobre o número de diretórios, pode criar um utilizador e o número de diretórios para que um utilizador ou o utilizador convidado pode pertencer, veja [restrições e limites do serviço Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-service-limits-restrictions).
+
+## <a name="national-clouds"></a>Clouds nacionais
+[Clouds nacionais](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) são instâncias isoladas fisicamente do Azure. Colaboração B2B não é suportada através de limites em nuvem nacionais. Por exemplo, se o seu inquilino do Azure na cloud pública, global, não é possível convidar um utilizador cuja conta está numa nuvem nacional. Para colaborar com o usuário, peça-lhe para outro endereço de e-mail ou criar uma conta de utilizador de membro para os mesmos no seu diretório.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

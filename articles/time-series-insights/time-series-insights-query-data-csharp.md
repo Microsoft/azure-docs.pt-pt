@@ -4,7 +4,7 @@ description: Este artigo descreve como consultar dados a partir de um ambiente d
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e8b8d47b04d7d0b93bc699064ee414bf4429c4a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: e91c6fb4949a4902194bb95f98e49327434cdbfd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510183"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244099"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consultar dados a partir do ambiente de disponibilidade geral do Azure Time Series Insights utilizandoC#
 

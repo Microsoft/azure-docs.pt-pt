@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 5/3/2019
+ms.date: 5/30/2019
 ms.author: victorh
-ms.openlocfilehash: 84b42654ec472ea2c7c81bed545f56b647158c95
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: 75b1131f2853cb444481b9c7a6c96e28f8537538
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016011"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384678"
 ---
 # <a name="azure-firewall-faq"></a>FAQ de Firewall do Azure
 
@@ -72,6 +72,11 @@ A Firewall de aplicações Web (WAF) é um recurso do Gateway de aplicação que
 
 O serviço de Firewall do Azure complementa a funcionalidade de grupo de segurança de rede. Juntos, eles fornecem uma maior segurança de rede de "defesa em profundidade". Grupos de segurança de rede fornecem o tráfego de camada de rede distribuída filtragem para limitar o tráfego para recursos dentro de redes virtuais em cada subscrição. Firewall do Azure é uma rede totalmente com monitoração de estado e centralizada firewall como-serviço, que fornece proteção de nível de rede e de aplicativo em diferentes subscrições e redes virtuais.
 
+## <a name="are-network-security-groups-nsgs-supported-on-the-azure-firewall-subnet"></a>Grupos de segurança de rede (NSGs) são suportados na sub-rede de Firewall do Azure?
+
+Firewall do Azure é um serviço gerido com várias camadas de proteção, incluindo a proteção de plataforma com NSGs ao nível do NIC (não visíveis).  NSGs de nível de sub-rede não são necessárias na sub-rede de Firewall do Azure e estão desativados para garantir que nenhuma interrupção do serviço.
+
+
 ## <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Como posso configurar o Firewall do Azure com meus pontos finais de serviço?
 
 Para obter acesso seguro aos serviços de PaaS, recomendamos que pontos finais de serviço. Pode optar por ativar pontos finais de serviço na sub-rede de Firewall do Azure e desativá-las nas redes virtuais spoke ligada. Dessa forma se beneficia da segurança de ponto final funcionalidades - service e de registo central para todo o tráfego.
@@ -125,7 +130,7 @@ O túnel forçado não é suportado por predefinição, mas pode ser ativada com
 
 Firewall do Azure tem de ter conectividade à Internet direta. Se sua AzureFirewallSubnet aprende uma rota predefinida para a sua rede no local através do BGP, tem de substituir isso com um UDR 0.0.0.0/0 com o **NextHopType** valor definido como **Internet** manter direto Desde Conectividade Internet. Por predefinição, o Firewall do Azure não suporta o túnel forçado a uma rede no local.
 
-No entanto, se a configuração requer o túnel forçado a uma rede no local, a Microsoft suporta-lo um caso a caso. Contacte o suporte para que possamos examinar seu caso. Se aceites, vamos lista branca de sua subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
+No entanto, se a configuração requer o túnel forçado a uma rede no local, a Microsoft suporta-lo um caso a caso. Contacte o suporte para que possamos examinar seu caso. Se aceites, vamos permitir que a subscrição e certifique-se de que é mantida a conectividade de Internet de firewall necessárias.
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem qualquer firewall restrições do grupo de recursos?
 
@@ -137,7 +142,7 @@ Não. Regras NAT implicitamente adicione uma regra de rede correspondente para p
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam num destino de regra de aplicação FQDN carateres universais?
 
-Se configurar ***. contoso.com**, permite *anyvalue*. contoso.com, mas não contoso.com (o vértice do domínio). Se pretender permitir que o vértice do domínio, deve configurá-lo explicitamente como um destino FQDN.
+Se configurar * **. contoso.com**, permite *anyvalue*. contoso.com, mas não contoso.com (o vértice do domínio). Se pretender permitir que o vértice do domínio, deve configurá-lo explicitamente como um destino FQDN.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>O que faz *o estado de aprovisionamento: Falha ao* significa?
 

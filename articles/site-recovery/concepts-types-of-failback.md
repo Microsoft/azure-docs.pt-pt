@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/19/2019
 ms.author: raynew
-ms.openlocfilehash: 6f178ef1a0aec7f742bce4c2570962b995876026
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 1e5dc91018df822c72381e4a162c5af5d74ed83c
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62124123"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399478"
 ---
 # <a name="failback-after-disaster-recovery-of-vmware-vms"></a>Reativação pós-falha após a recuperação após desastre de VMs de VMware
 

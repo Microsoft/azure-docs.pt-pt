@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: b6abb0048dcc722241a2cd87354224b0fd7fa2f9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f6c00f4ada0590df91fce0c36281d0c0cac67b77
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561550"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257953"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Origens de eventos no Azure Event Grid
 
@@ -24,7 +24,7 @@ Este artigo fornece ligações para conteúdo para cada origem de evento.
 
 Subscreva eventos de subscrições do Azure para responder a alterações em recursos numa subscrição do Azure.
 
-|Título |Descrição  |
+|Cargo |Descrição  |
 |---------|---------|
 | [Tutorial: Automatização do Azure com o Event Grid e o Microsoft Teams](ensure-tags-exists-on-new-virtual-machines.md) |Crie uma máquina virtual, que envia um evento. O evento é acionado um runbook da automatização que a máquina virtual de etiquetas e aciona uma mensagem que é enviada para um canal do Microsoft Teams. |
 | [Como: assinar eventos através do portal](subscribe-through-portal.md) | Utilize o portal para subscrever eventos para uma subscrição do Azure. |
@@ -36,7 +36,7 @@ Subscreva eventos de subscrições do Azure para responder a alterações em rec
 
 Subscreva eventos de registo de contentor para responder a alterações em imagens.
 
-|Título |Descrição  |
+|Cargo |Descrição  |
 |---------|---------|
 | [Início rápido: enviar eventos de registo de contentor](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de registo de contentor. |
 | [Esquema de eventos](event-schema-container-registry.md) | Mostra os campos nos eventos de registo de contentor. |
@@ -45,7 +45,7 @@ Subscreva eventos de registo de contentor para responder a alterações em image
 
 Subscreva tópicos personalizados para responder a eventos do aplicativo.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Início rápido: criar e encaminhar eventos personalizados com a CLI do Azure](custom-event-quickstart.md) | Mostra como utilizar a CLI do Azure para enviar eventos personalizados. |
 | [Início rápido: criar e encaminhar eventos personalizados com o Azure PowerShell](custom-event-quickstart-powershell.md) | Mostra como utilizar o Azure PowerShell para enviar eventos personalizados. |
@@ -65,7 +65,7 @@ Subscreva tópicos personalizados para responder a eventos do aplicativo.
 
 Subscreva eventos de Hubs de eventos para responder a capturar eventos de ficheiro. Os Hubs de eventos podem agir como uma origem de evento ou de manipulador de eventos. Os artigos seguintes mostram como utilizar os Hubs de eventos como uma origem.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Tutorial: transmitir grandes quantidades de dados para um armazém de dados](event-grid-event-hubs-integration.md) | Quando os Hubs de eventos cria um ficheiro de captura, o Event Grid envia um evento para uma aplicação de funções. A aplicação obtém o arquivo de captura e migra os dados para um armazém de dados. |
 | [Esquema de eventos](event-schema-event-hubs.md) | Mostra os campos nos eventos de Hubs de eventos. |
@@ -74,9 +74,9 @@ Para obter exemplos dos Hubs de eventos como um manipulador de mensagens em fila
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Subscreva eventos do IoT Hub para responder a dispositivo criado, eventos de eliminado, conectados ou desconectados.
+Subscreva eventos do IoT Hub para responder a dispositivo criado, eliminada, conectados, desligado e eventos de telemetria.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Enviar notificações por e-mail sobre eventos do IoT Hub do Azure com o Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Uma aplicação lógica envia um e-mail de notificação sempre que um dispositivo é adicionado ao seu IoT Hub. |
 | [Reagir a eventos do IoT Hub com o Event Grid para realizar ações](../iot-hub/iot-hub-event-grid.md) | Descrição geral da integração do IoT Hub com o Event Grid. |
@@ -87,7 +87,7 @@ Subscreva eventos do IoT Hub para responder a dispositivo criado, eventos de eli
 
 Subscreva eventos de serviços de multimédia para responder a eventos de estado de tarefa.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Descrição geral: reagir a eventos de serviços de multimédia](../media-services/latest/reacting-to-media-services-events.md) | Descrição geral da integração dos serviços de multimédia com o Event Grid. |
 | [Tutorial: encaminhar eventos de serviços de multimédia do Azure para um ponto final web personalizado com a CLI](../media-services/latest/job-state-events-cli-how-to.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como enviar eventos a partir dos serviços de multimédia. |
@@ -97,7 +97,7 @@ Subscreva eventos de serviços de multimédia para responder a eventos de estado
 
 Subscreva eventos para responder a alterações em recursos num grupo de recursos do grupo de recursos.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Tutorial: monitorizar as alterações de máquina virtual com o Azure Event Grid e Logic Apps](monitor-virtual-machine-changes-event-grid-logic-app.md) | Uma aplicação lógica monitoriza alterações a uma máquina virtual e envia e-mails sobre essas alterações. |
 | [CLI do Azure: subscrever eventos para um grupo de recursos](./scripts/event-grid-cli-resource-group.md)| Script de exemplo que subscreve eventos para um grupo de recursos. Envia eventos para um WebHook. |
@@ -111,7 +111,7 @@ Subscreva eventos para responder a alterações em recursos num grupo de recurso
 
 Subscreva eventos do Service Bus para responder a mensagens sem um serviço de escuta ativo.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Tutorial: O Azure Service Bus para exemplos de integração do Azure Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Grelha de eventos envia mensagens de tópico do Service Bus para a função de aplicação e a aplicação lógica. |
 | [Descrição geral: O Azure Service Bus, a integração do Event Grid](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Descrição geral da integração do Service Bus com o Event Grid. |
@@ -121,7 +121,7 @@ Subscreva eventos do Service Bus para responder a mensagens sem um serviço de e
 
 Subscreva eventos de armazenamento de BLOBs para responder a eventos criados e eliminados de Blobs.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Início rápido: encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com a CLI do Azure](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar a CLI do Azure para enviar eventos de armazenamento de BLOBs para um WebHook. |
 | [Início rápido: encaminhar eventos de armazenamento de BLOBs para um ponto final web personalizado com o PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Mostra como utilizar o Azure PowerShell para enviar eventos de armazenamento de BLOBs para um WebHook. |
@@ -135,7 +135,7 @@ Subscreva eventos de armazenamento de BLOBs para responder a eventos criados e e
 ## <a name="maps"></a>Maps
 Subscreva eventos de mapas do Azure para responder a eventos do perímetro geográfico. Por exemplo, um aplicativo pode fornecer uma notificação por e-mail sempre que um dispositivo entra ou sai de um perímetro geográfico.
 
-|Título  |Descrição  |
+|Cargo  |Descrição  |
 |---------|---------|
 | [Reagir a eventos do Azure Maps com o Event Grid](../azure-maps/azure-maps-event-grid-integration.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Descrição geral da integração do Azure Maps com o Event Grid. |
 | [Tutorial: Configurar um perímetro geográfico](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Este tutorial explica-lhe os passos de noções básicas para configurar o perímetro geográfico com o Azure Maps. Utilize o Azure Event Grid para transmitir os resultados do perímetro geográfico e configurar uma notificação com base nos resultados do perímetro geográfico. |

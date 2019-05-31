@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 73c837897f4a104fabb4143d4b49fa3fbc258bb4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561783"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305019"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Tópicos de gerir e publicar eventos através de domínios de eventos
 
@@ -27,10 +27,6 @@ Para saber mais sobre os domínios de eventos, veja [compreender os domínios de
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-## <a name="install-preview-feature"></a>Instale a funcionalidade de pré-visualização
-
-[!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
-
 ## <a name="create-an-event-domain"></a>Criar um domínio de eventos
 
 Para gerir grandes conjuntos de tópicos, crie um domínio de evento.
@@ -38,10 +34,6 @@ Para gerir grandes conjuntos de tópicos, crie um domínio de evento.
 Para a CLI do Azure, utilize:
 
 ```azurecli-interactive
-# If you haven't already installed the extension, do it now.
-# This extension is required for preview features.
-az extension add --name eventgrid
-
 az eventgrid domain create \
   -g <my-resource-group> \
   --name <my-domain-name> \
@@ -51,10 +43,6 @@ az eventgrid domain create \
 Para o PowerShell, utilize:
 
 ```azurepowershell-interactive
-# If you have not already installed the module, do it now.
-# This module is required for preview features.
-Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery
-
 New-AzureRmEventGridDomain `
   -ResourceGroupName <my-resource-group> `
   -Name <my-domain-name> `
@@ -203,6 +191,23 @@ Get-AzureRmEventGridDomainKey `
 ```
 
 E, em seguida, utilizar o seu método preferido de fazer com que um HTTP POST para publicar seus eventos ao seu domínio do Event Grid.
+
+## <a name="search-lists-of-topics-or-subscriptions"></a>Listas de pesquisa de tópicos ou subscrições
+
+Para fazer a pesquisa e gerenciamento de grandes quantidades de tópicos ou subscrições, as APIs do Event Grid suportam uma paginação de lista.
+
+### <a name="using-cli"></a>Com a CLI
+
+Para utilizar Certifique-se de que está a utilizar a versão de extensão da CLI do Azure Event Grid 0.4.1 ou mais recente.
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid topic list \
+    --odata-query "contains(name, 'my-test-filter')"
+```
 
 ## <a name="next-steps"></a>Passos Seguintes
 

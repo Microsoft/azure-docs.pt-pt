@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 13f3d88ad69d2acc64b9a6469415eceaf22fa491
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33b1d7e0e44ecae4bc8a7a6bf9c7e6dfd6b0eb66
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61456464"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66386875"
 ---
 # <a name="view-model-details"></a>Ver detalhes do modelo
 
@@ -24,7 +24,7 @@ Para cada modelo do projeto, esses detalhes são exibidos.
 
 1.  Nome do modelo: Mostra o nome do modelo de um determinado modelo.
 
-2.  Estado: Mostra o estado de um determinado modelo. Seu novo treinamento terão um Estado de submetida até que ele é aceite. O estado será alterado para processamento de dados, enquanto o serviço avalia o conteúdo dos seus documentos. Depois de concluída a avaliação dos seus documentos o estado será alterado para em execução e poderá ver o número de frases que fazem parte do treinamento, incluindo o ajuste e testes conjuntos que são criadas automaticamente para. Segue-se uma lista de estado de modelo que descreve o estado dos modelos.
+2.  Status: Mostra o estado de um determinado modelo. Seu novo treinamento terão um Estado de submetida até que ele é aceite. O estado será alterado para processamento de dados, enquanto o serviço avalia o conteúdo dos seus documentos. Depois de concluída a avaliação dos seus documentos o estado será alterado para em execução e poderá ver o número de frases que fazem parte do treinamento, incluindo o ajuste e testes conjuntos que são criadas automaticamente para. Segue-se uma lista de estado de modelo que descreve o estado dos modelos.
 
     -  Submetido: Especifica que o back-end está a processar os documentos para esse modelo.
 

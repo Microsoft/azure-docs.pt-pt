@@ -1,18 +1,18 @@
 ---
 title: Criar um inquilino do Azure AD para a Azure Red Hat OpenShift | Documentos da Microsoft
 description: Eis como criar um inquilino do Azure Active Directory (Azure AD) para alojar o seu cluster do Microsoft Azure Red Hat OpenShift.
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 ms.service: container-service
 manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 04d710f4d60b776f8059d87ea4d009bed6f7f8ba
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551689"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306453"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Criar um inquilino do Azure AD para a Azure Red Hat OpenShift
 

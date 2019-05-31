@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 5ae2ca352c6d3cbe02b659a97fe3147c1a31128f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df3156688f018aee4717271557220396827dd9e2
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60947434"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306835"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar o contentor do Service Fabric com o servidor Apache Tomcat no Linux
 Apache Tomcat é uma implementação open source popular das tecnologias Java Servlet e o servidor de Java. Este artigo mostra-lhe como criar um contentor com o Apache Tomcat e uma aplicação Web simples, implementar o contentor para um cluster do Service Fabric em execução no Linux e ligar à aplicação Web.  
@@ -111,9 +111,9 @@ Siga os passos nesta secção para criar uma imagem do Docker com base numa imag
 ## <a name="push-the-tomcat-image-to-your-container-registry"></a>Enviar a imagem do Tomcat para o registo de contentor
 Agora que verificar que a imagem do Tomcat é executada num contentor no seu computador de desenvolvimento, envie-o para um repositório num registo de contentor. Este artigo utiliza o Azure Container Registry para armazenar a imagem, mas, com algumas modificações de passos, pode utilizar qualquer registo de contentor que escolher. Neste artigo, o nome do registo é considerado como *myregistry* e o nome do registo completo é myregistry.azurecr.io. Alterá-las adequadamente para o seu cenário. 
 
-1. Execute `docker login` para iniciar sessão no registo de contentores com as suas [credenciais do registo](../container-registry/container-registry-authentication.md).
+1. Execute `docker login` para iniciar sessão no registo de contentores com sua [as credenciais do registo](../container-registry/container-registry-authentication.md).
 
-   O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter atribuído um principal de serviço ao seu registo no âmbito de um cenário de automatização. Em alternativa, pode iniciar sessão com o nome de utilizador e a palavra-passe do registo.
+   O exemplo seguinte transmite o ID e a palavra-passe de um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md) do Azure Active Directory. Por exemplo, poderá ter atribuído um principal de serviço ao seu registo no âmbito de um cenário de automatização. Em alternativa, pode iniciar sessão com o nome de utilizador de registo e a palavra-passe.
 
    ```bash
    docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -144,7 +144,7 @@ Agora que já enviou a imagem de Tomcat para um registo de contentor, pode criar
    * Nome à aplicação: ServiceFabricTomcat
    * Nome do serviço de aplicações: TomcatService
    * Introduza o nome da imagem: Forneça o URL da imagem de contentor no seu registo de contentor; Por exemplo, myregistry.azurecr.io/samples/tomcattest.
-   * Comandos: Deixe em branco. Uma vez que esta imagem tem um ponto de entrada de carga de trabalho definido, não tem de especificar explicitamente comandos de entrada (os comandos são executados dentro do contentor, o que faz com que este continue em execução após o arranque).
+   * Comandos: Deixe este campo em branco. Uma vez que esta imagem tem um ponto de entrada de carga de trabalho definido, não tem de especificar explicitamente comandos de entrada (os comandos são executados dentro do contentor, o que faz com que este continue em execução após o arranque).
    * Número de instâncias da aplicação de contentor de convidado: 1
 
    ![Gerador Yeoman do Service Fabric para contentores](./media/service-fabric-get-started-tomcat/yo-generator.png)
@@ -162,7 +162,7 @@ Agora que já enviou a imagem de Tomcat para um registo de contentor, pode criar
    </Resources>
    ```
 
-11. No manifesto do aplicativo (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sob o **ServiceManifestImport** marcar, adicione o seguinte XML. Substitua a **AccountName** e **palavra-passe** no **RepositoryCredentials** etiqueta com o nome do seu registo de contentor e a palavra-passe necessária para iniciar sessão para o mesmo.
+11. No manifesto do aplicativo (*ServiceFabricTomcat/ServiceFabricTomcat/ApplicationManifest.xml*), sob o **ServiceManifestImport** marcar, adicione o seguinte XML. Substitua a **AccountName** e **palavra-passe** no **RepositoryCredentials** etiqueta com o nome do seu registo de contentor e a palavra-passe necessária para iniciar sessão na mesma.
 
    ```xml
    <Policies>

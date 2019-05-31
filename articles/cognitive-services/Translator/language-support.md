@@ -3,19 +3,19 @@ title: Suporte de idiomas - API de texto do tradutor
 titleSuffix: Azure Cognitive Services
 description: Uma lista de idiomas suportados pela API de texto do Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
-ms.author: v-jansko
-ms.openlocfilehash: 8de9d7e6aac052ca24f1eef5f99c3146029bddbb
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.author: v-pawal
+ms.openlocfilehash: 153fd5a8202ca0d919a2254449d846f8798bd10d
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690138"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382501"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Suporte de idioma e região para a API de texto do tradutor
 
@@ -49,8 +49,8 @@ A API de texto do Translator suporta os seguintes idiomas para a tradução de t
 |Búlgaro| `bg`    |Disponível Neural|  Neural|
 |Cantonês (tradicional)|   `yue`   |Apenas estatística|  Estatísticas|
 |Catalão|   `ca`    |Apenas estatística|  Estatísticas|
-|Chinês Simplificado|    `zh-Hans`   |Predefinição neural |Neural|
-|Chinês Tradicional|   `zh-Hant`   |Predefinição neural |Neural|
+|Chinês simplificado|    `zh-Hans`   |Predefinição neural |Neural|
+|Chinês tradicional|   `zh-Hant`   |Predefinição neural |Neural|
 |Croata|  `hr`    |Disponível Neural|  Neural|
 |Checo| `cs`    |Disponível Neural|  Neural|
 |Dinamarquês|    `da`    |Disponível Neural   |Neural|
@@ -125,8 +125,8 @@ O método Transliterate suporta os seguintes idiomas. Na "para/de", "<> –" ind
 | Japonês | `ja` | Japonês `Jpan` | <--> | Latim `Latn` |
 | Canarim | `kn` | Kannada `Knda` | --> | Latim `Latn` |
 | Malayalam | `ml` | Malaiala `Mlym` | --> | Latim `Latn` |
-| Marata | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
-| Odia | `or` | Oriya `Orya` | <--> | Latim `Latn` |
+| Marati | `mr` | Devanagari `Deva` | --> | Latim `Latn` |
+| Oriya | `or` | Oriya `Orya` | <--> | Latim `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latim `Latn`  |
 | Sérvio (Cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latim `Latn` |
 | Sérvio (Latim) | `sr-Latn` | Latim `Latn` | --> | Cirílico `Cyrl`|
@@ -146,7 +146,7 @@ O dicionário suporta os seguintes idiomas de ou para inglês usando os métodos
 | Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
 | Catalão      | `ca`          |
-| Chinês Simplificado      | `zh-Hans`          |
+| Chinês simplificado      | `zh-Hans`          |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Dinamarquês      | `da`          |
@@ -212,7 +212,7 @@ Os seguintes idiomas estão disponíveis para a personalização de ou para util
 | Bangla      | `bn`          |
 | Bósnio (Latim)      | `bs`          |
 | Búlgaro      | `bg`          |
-| Chinês Simplificado      | `zh-Hans`          |
+| Chinês simplificado      | `zh-Hans`          |
 | Croata      | `hr`          |
 | Checo      | `cs`          |
 | Dinamarquês      | `da`          |

@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: conceptual
-ms.openlocfilehash: 6e8406cdd265063622bc5dcebbb9f22549b3633a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fb766a8cc6ae0de2407f44982a58fcc448e4b00c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60513846"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382659"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 

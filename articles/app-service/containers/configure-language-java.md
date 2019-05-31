@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 3361013d8421cd859c834c07018356318d5e2989
-ms.sourcegitcommit: f4469b7bb1f380bf9dddaf14763b24b1b508d57c
+ms.openlocfilehash: cf9356c2792781558c4403608ff5de0e3aaddb6a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66179809"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254474"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurar uma aplicação Java do Linux para o serviço de aplicações do Azure
 
@@ -164,7 +164,7 @@ for (Object key : map.keySet()) {
     }
 ```
 
-Para terminar sessão, utilizadores e efetuar outras ações, consulte a documentação sobre [utilização de aplicação serviço de autenticação e autorização](https://docs.microsoft.com/en-us/azure/app-service/app-service-authentication-how-to). Também há documentação oficial sobre o Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) e seus métodos. O servlet seguinte métodos também estão a ser alimentados com base na configuração do serviço de aplicações:
+Para terminar sessão, utilizadores e efetuar outras ações, consulte a documentação sobre [utilização de aplicação serviço de autenticação e autorização](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to). Também há documentação oficial sobre o Tomcat [HttpServletRequest interface](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) e seus métodos. O servlet seguinte métodos também estão a ser alimentados com base na configuração do serviço de aplicações:
 
 ```java
 public boolean isSecure()
@@ -249,7 +249,7 @@ Serviço de aplicações Linux encaminha os pedidos recebidos para a porta 80, p
 
 Estas instruções aplicam-se a todas as ligações de base de dados. Precisará preencher espaços reservados com um nome de classe do controlador da base de dados escolhido e JAR do ficheiro. Fornecida é uma tabela com nomes de classes e downloads de driver para bases de dados comuns.
 
-| Base de dados   | Nome da classe de controlador                             | JDBC Driver                                                                      |
+| Base de Dados   | Nome da classe de controlador                             | JDBC Driver                                                                      |
 |------------|-----------------------------------------------|------------------------------------------------------------------------------------------|
 | PostgreSQL | `org.postgresql.Driver`                        | [Transferência](https://jdbc.postgresql.org/download.html)                                    |
 | MySQL      | `com.mysql.jdbc.Driver`                        | [Transferir](https://dev.mysql.com/downloads/connector/j/) (selecione "Independente de plataforma") |

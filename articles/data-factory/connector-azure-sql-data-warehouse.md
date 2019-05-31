@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 05/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 6d2ed8ba13fac03a60d9a0730776bc8348876b62
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 5ce838897370430c388d74c3d356497f16efdc8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66153578"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245053"
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de ou para o Azure SQL Data Warehouse com o Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -146,7 +146,7 @@ Para utilizar a autenticação de token de aplicação de serviço baseada em pr
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+4. **Conceder as permissões necessárias do principal de serviço** como faria normalmente para utilizadores SQL ou outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Se pretender utilizar o PolyBase para carregar os dados, Aprenda a [necessária a permissão de base de dados](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your application name];
@@ -196,7 +196,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos:
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. **Conceder as permissões necessárias da identidade de gerido de fábrica de dados** como faria normalmente para utilizadores SQL e outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
+3. **Conceder as permissões necessárias da identidade de gerido de fábrica de dados** como faria normalmente para utilizadores SQL e outras pessoas. Execute o seguinte código ou veja mais opções [aqui](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017). Se pretender utilizar o PolyBase para carregar os dados, Aprenda a [necessária a permissão de base de dados](#required-database-permission).
 
     ```sql
     EXEC sp_addrolemember db_owner, [your Data Factory name];
@@ -227,7 +227,7 @@ Para utilizar a autenticação de identidade gerida, siga estes passos:
 
 ## <a name="dataset-properties"></a>Propriedades do conjunto de dados
 
-Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados do Azure SQL Data Warehouse.
+Para obter uma lista completa das secções e propriedades disponíveis para definir conjuntos de dados, consulte a [conjuntos de dados](concepts-datasets-linked-services.md) artigo. Esta secção fornece uma lista das propriedades compatíveis com o conjunto de dados do Azure SQL Data Warehouse.
 
 Para copiar dados de ou para o Azure SQL Data Warehouse, são suportadas as seguintes propriedades:
 
@@ -400,9 +400,9 @@ Saiba mais sobre como utilizar o PolyBase para carregar com eficiência o SQL Da
 
 ## <a name="use-polybase-to-load-data-into-azure-sql-data-warehouse"></a>Utilize o PolyBase para carregar dados para o Azure SQL Data Warehouse
 
-Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) é uma maneira eficiente para carregar uma grande quantidade de dados para o Azure SQL Data Warehouse com um débito elevado. Verá um ganho de grandes dimensões no débito ao utilizar o PolyBase, em vez do mecanismo BULKINSERT predefinido. Ver [referência de desempenho](copy-activity-performance.md#performance-reference) para uma comparação detalhada. Para obter instruções com um caso de utilização, consulte [carregar 1 TB para o Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
+Usando [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) é uma maneira eficiente para carregar uma grande quantidade de dados para o Azure SQL Data Warehouse com um débito elevado. Verá um ganho de grandes dimensões no débito ao utilizar o PolyBase, em vez do mecanismo BULKINSERT predefinido. Ver [referência de desempenho](copy-activity-performance.md#performance-reference) para uma comparação detalhada. Para obter instruções com um caso de utilização, consulte [carregar 1 TB para o Azure SQL Data Warehouse](v1/data-factory-load-sql-data-warehouse.md).
 
-* Se os dados de origem estão na **BLOBs do Azure, a geração 1 de armazenamento do Azure Data Lake ou a geração 2 de armazenamento do Azure Data Lake**e o **formato é PolyBase compatível**, pode utilizar a atividade de cópia para invocar diretamente o PolyBase para que o Azure O SQL Data Warehouse retirar os dados de origem. Para obter detalhes, consulte  **[direcionar cópia com o PolyBase](#direct-copy-by-using-polybase)**.
+* Se os dados de origem estão na **BLOBs do Azure, a geração 1 de armazenamento do Azure Data Lake ou a geração 2 de armazenamento do Azure Data Lake**e o **formato é PolyBase compatível**, pode utilizar a atividade de cópia para invocar diretamente o PolyBase para que o Azure O SQL Data Warehouse retirar os dados de origem. Para obter detalhes, consulte  **[direcionar cópia com o PolyBase](#direct-copy-by-using-polybase)** .
 * Se seu arquivo de dados de origem e o formato originalmente não é suportada pelo PolyBase, utilize o **[cópia faseada através do PolyBase](#staged-copy-by-using-polybase)** em vez disso, a funcionalidade. A funcionalidade de cópia faseada também oferece melhor débito. Converte automaticamente os dados em formato compatível com o PolyBase. E ele armazena os dados no armazenamento de Blobs do Azure. Em seguida, carrega os dados para o SQL Data Warehouse.
 
 >[!TIP]
@@ -426,7 +426,7 @@ Se não forem cumpridos os requisitos, o Azure Data Factory verifica as definiç
     | [Geração 2 Lake armazenamento de dados do Azure](connector-azure-data-lake-storage.md) | Autenticação de chave de conta, autenticação de identidade gerida |
 
     >[!IMPORTANT]
-    >Se o seu armazenamento do Azure está configurado com o ponto final de serviço da VNet, tem de utilizar a autenticação de identidade gerida. Consulte [impacto de utilizar pontos finais de serviço de VNet com o armazenamento do Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
+    >Se o seu armazenamento do Azure está configurado com o ponto final de serviço da VNet, tem de utilizar a autenticação de identidade gerida. Consulte [impacto de utilizar pontos finais de serviço de VNet com o armazenamento do Azure](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage)
 
 2. O **formato de dados de origem** é do **Parquet**, **ORC**, ou **delimitados por texto**, com as seguintes configurações:
 

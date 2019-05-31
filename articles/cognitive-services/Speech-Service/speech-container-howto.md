@@ -10,23 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: diberry
-ms.openlocfilehash: b620cbb8e51fbe41defb6bdbdc66ba4a7e539aa0
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7a4153dd382a901db21752dd3d55a01803431791
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66306557"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388692"
 ---
 # <a name="install-and-run-speech-service-containers"></a>Instalar e executar contentores do serviço de voz
 
-Contentores de voz permitem aos clientes criar uma arquitetura de aplicativos de fala que está otimizada para tirar partido das capacidades de cloud robustas e Localidade de borda. Os contentores de dois voz suportamos agora são **voz em texto** e **voz**. 
+Contentores de voz permitem aos clientes criar uma arquitetura de aplicativos de fala que está otimizada para tirar partido das capacidades de cloud robustas e Localidade de borda. 
 
 São os contentores de dois voz **voz em texto** e **voz**. 
 
 |Função|Funcionalidades|Disponibilidade mais recente|
 |-|-|--|
-|Conversão de voz em texto| <li>Transcreve voz em tempo real contínua para texto.<li>Pode fazer a transcrição em série de voz de gravações de áudio. <li>Suporta resultados intermédios, deteção de fim de voz, formatação automática de texto e máscara de linguagem inapropriada. <li>Pode recorrer a [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) para calcular a intenção do utilizador a partir da voz transcrita.\*|1.1.1|
-|Texto em Voz| <li>Converte texto em voz com som natural. <li>Oferece vários géneros e/ou dialetos para muitos idiomas suportados. <li>Suporta a introdução de texto simples ou Speech Synthesis Markup Language (SSML). |1.1.0|
+|Conversão de voz em texto| <li>Converte contínuas em tempo real de voz ou lote gravações de áudio em texto com os resultados intermediários.|1.1.1|
+|Texto em Voz| <li>Converte texto em voz com som natural. com a introdução de texto sem formatação ou Speech Synthesis Markup Language (SSML). |1.1.0|
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -110,7 +110,7 @@ A tabela seguinte lista as regiões suportadas para **voz em texto** no 1.1.1 ve
 |Região de idioma|Tags|
 |--|--|
 |Chinês|`zh-cn`|
-|Inglês |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
+|Português |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |Francês |`fr-ca`<br>`fr-fr`|
 |Alemão|`de-de`|
 |Italiano|`it-it`|
@@ -139,10 +139,10 @@ A tabela seguinte lista as regiões suportadas para **voz** no 1.1.0 versão do 
 |Região de idioma|Tags|Vozes suportados|
 |--|--|--|
 |Chinês|`zh-cn`|huihuirus<br>kangkang-apollo<br>yaoyao apollo|
-|Inglês |`en-au`|catherine<br>hayleyrus|
-|Inglês |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
-|Inglês |`en-in`|heera apollo<br>priyarus<br>ravi-apollo<br>|
-|Inglês |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
+|Português |`en-au`|catherine<br>hayleyrus|
+|Português |`en-gb`|George apollo<br>hazelrus<br>Susan apollo|
+|Português |`en-in`|heera apollo<br>priyarus<br>ravi-apollo<br>|
+|Português |`en-us`|jessarus<br>benjaminrus<br>jessa24krus<br>zirarus<br>guy24krus|
 |Francês|`fr-ca`|caroline<br>harmonierus|
 |Francês|`fr-fr`|hortenserus<br>Julie apollo<br>Paul apollo|
 |Alemão|`de-de`|hedda<br>heddarus<br>stefan-apollo|

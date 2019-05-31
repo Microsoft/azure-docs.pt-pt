@@ -12,16 +12,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 13379111706eaa816a8fa16cfe72711b7bf4d739
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576501"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255289"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
-O [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitoriza os seus serviços e componentes de back-end após a implementação para ajudar a [detetar e diagnosticar rapidamente problemas de desempenho, entre outros](../../azure-monitor/app/detect-triage-diagnose.md). Pode utilizar o Application Insights para os serviços Node.js que estão alojados no seu datacenter, em VMs do Azure, em aplicações Web e inclusivamente noutras clouds privadas.
+[O Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora os componentes e serviços de back-end após a implementação, para o ajudar a detetar e diagnosticar rapidamente o desempenho e outros problemas. Pode utilizar o Application Insights para os serviços Node.js que estão alojados no seu datacenter, em VMs do Azure, em aplicações Web e inclusivamente noutras clouds privadas.
 
 Para receber, armazenar e explorar os seus dados de monitorização, inclua o SDK no seu código e configure um recurso do Application Insights correspondente no Azure. O SDK envia dados para esse recurso para análise e exploração adicionais.
 
@@ -202,7 +202,7 @@ server.on("listening", () => {
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* [Monitorizar a telemetria no portal](../../azure-monitor/app/app-insights-dashboards.md)
+* [Monitorizar a telemetria no portal](../../azure-monitor/app/overview-dashboard.md)
 * [Escrever consultas de análise sobre a telemetria](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

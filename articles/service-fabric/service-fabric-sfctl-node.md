@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 08ea0081c84ea31b2b71d03679b1b527cf94c075
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1e5b5876fa6277d1bad0989c543de667f75a066c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556785"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258737"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Gerir os nós que formam um cluster.
@@ -28,10 +28,10 @@ Gerir os nós que formam um cluster.
 
 |Comando|Descrição|
 | --- | --- |
-| desactivar | Desative um nó de cluster do Service Fabric com a intenção de Desativação especificada. |
-| ativar | Ative um nó de cluster do Service Fabric que está atualmente desativado. |
+| Desativar | Desative um nó de cluster do Service Fabric com a intenção de Desativação especificada. |
+| Ativar | Ative um nó de cluster do Service Fabric que está atualmente desativado. |
 | saúde | Obtém o estado de funcionamento de um nó do Service Fabric. |
-| informações | Obtém as informações sobre um nó específico no cluster do Service Fabric. |
+| Informações | Obtém as informações sobre um nó específico no cluster do Service Fabric. |
 | list | Obtém a lista de nós no cluster do Service Fabric. |
 | carregar | Obtém as informações de carga de um nó do Service Fabric. |
 | remove-state | Notifica o Service Fabric que o estado persistente num nó foi permanentemente removido ou perdido. |
@@ -180,6 +180,8 @@ Obtém as informações de carga de um nó do Service Fabric para todas as métr
 Notifica o Service Fabric que o estado persistente num nó foi permanentemente removido ou perdido.
 
 Isso implica que não é possível recuperar o estado persistente desse nó. Isso geralmente acontece se tiver sido eliminado um disco rígido, limpo ou no caso de falha de um disco rígido. O nó tem de ser para baixo para esta operação seja concluída com êxito. Esta operação permite que o Service Fabric, sabe que as réplicas nesse nó já não existem e que o Service Fabric deve pare de esperar por essas réplicas seja aberto. Não execute este cmdlet se o estado no nó não foi removido e o nó pode se levante com seu estado intacto.
+
+A partir do Service Fabric 6.5, para utilizar este cmdlet para nós de semente, altere os nós de semente para regulares (não seed) nós e, em seguida, invocar este cmdlet para remover o estado do nó. Se o cluster está em execução no Azure, depois do nó seed ficar inativo, Service Fabric irá tentar altere-o automaticamente para um nó não semente. Para que isso aconteça, certifique-se de que o número de nós não seed no tipo de nó primário é nem menos que o número de para baixo de nós de semente. Se necessário, adicione mais nós para o tipo de nó primário para atingir esse objetivo. Para cluster autónomo, se o nó de seed inferior não é esperado seja aberto com o seu estado intacto, tente remover o nó do cluster, consulte [remover nós de cluster autónomo do Service Fabric](/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes) 
 
 ### <a name="arguments"></a>Argumentos
 

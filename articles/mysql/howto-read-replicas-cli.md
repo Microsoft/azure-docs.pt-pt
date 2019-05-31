@@ -5,20 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: a9ca34953827c1f94e2696eb4f09163be335d2f4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/28/2019
+ms.openlocfilehash: ba8af55f7467e361136e4b0c57c97b4fa187cec0
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510686"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304965"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli"></a>Como criar e gerir ler réplicas na base de dados do Azure para MySQL com a CLI do Azure
 
 Neste artigo, aprenderá como criar e gerir réplicas de leitura na mesma região do Azure como o modelo na base de dados do Azure para o serviço de MySQL com a CLI do Azure.
 
-> [!NOTE]
-> Da CLI do Azure não suporta ainda a criação de réplicas numa região diferente do servidor principal. Para criar uma réplica em várias regiões, utilize o [portal do Azure]( howto-read-replicas-portal.md) em vez disso.
+> [!IMPORTANT]
+> Pode criar uma réplica de leitura na mesma região que o servidor principal ou em qualquer outra região do Azure à sua escolha. A replicação entre regiões está atualmente em pré-visualização pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,6 +43,12 @@ O `az mysql server replica create` comando requer os seguintes parâmetros:
 | resource-group |  myResourceGroup |  O grupo de recursos em que o servidor de réplica será criado para.  |
 | nome | mydemoreplicaserver | O nome do novo servidor de réplica, que é criado. |
 | source-server | mydemoserver | O nome ou ID do servidor mestre existente para replicar a partir do. |
+
+Para criar uma cruz região ler réplica, utilize o `--location` parâmetro. O exemplo da CLI abaixo cria a réplica na região E.U.A. oeste.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
 
 > [!NOTE]
 > Réplicas de leitura são criadas com a mesma configuração de servidor como o modelo. A configuração do servidor de réplica pode ser alterada depois de este ter sido criado. Recomenda-se que a configuração do servidor de réplica deve ser mantida em valores iguais ou maiores do que o principal para garantir que a réplica é capaz de acompanhar o mestre.

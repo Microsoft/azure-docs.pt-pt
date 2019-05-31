@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5b719566ce42639c0c435a8d631e12541d0a0e9d
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595579"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256629"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurar o Application Insights para o seu site ASP.NET
 
@@ -99,12 +99,10 @@ O portal é aberto na vista da telemetria da sua aplicação.
 
 No portal, clique em qualquer gráfico ou mosaico para ver mais detalhes.
 
-[Saiba mais sobre como utilizar o Application Insights no portal do Azure](../../azure-monitor/app/app-insights-dashboards.md).
-
-## <a name="step-4-publish-your-app"></a>Passo 4: Publicar a sua aplicação
+## <a name="step-4-publish-your-app"></a>Passo 4: Publicar a aplicação
 Publique a sua aplicação no seu servidor IIS ou no Azure. Veja o [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) para garantir que não existem problemas.
 
-A telemetria acumula-se no portal do Application Insights, onde pode monitorizar métricas, pesquisar a sua telemetria e configurar [dashboards](../../azure-monitor/app/app-insights-dashboards.md). Também pode utilizar a poderosa [linguagem de consulta de Kusto](/azure/kusto/query/) para analisar a utilização e o desempenho ou para encontrar eventos específicos.
+As compilações de telemetria a cópia de segurança no portal do Application Insights, onde pode monitorizar métricas, procurar a sua telemetria. Também pode utilizar a poderosa [linguagem de consulta de Kusto](/azure/kusto/query/) para analisar a utilização e o desempenho ou para encontrar eventos específicos.
 
 Também pode continuar a analisar a sua telemetria no [Visual Studio](../../azure-monitor/app/visual-studio.md) com ferramentas como a pesquisa de diagnóstico e as [tendências](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -146,7 +144,6 @@ Existem tópicos alternativos que pode ver se estiver interessado em:
 ### <a name="analysis"></a>Análise
 
 * **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Inclui informações sobre depuração com telemetria, pesquisa de diagnóstico e exploração do código.
-* **[Trabalhar com o portal do Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Inclui informações sobre dashboards, ferramentas avançadas de diagnóstico e análise, alertas, um mapa de dependência em direto da aplicação e exportação da telemetria.
 * **[Análise](../../azure-monitor/log-query/get-started-portal.md)** - a linguagem de consulta poderosa.
 
 ### <a name="alerts"></a>Alertas

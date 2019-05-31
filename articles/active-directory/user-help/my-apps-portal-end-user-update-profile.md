@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa6de024758d16b99569261e10d46f9328241427
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cf8484cdadcdb368c00351ca68e42652b475a7d4
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60483022"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66305423"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>Atualizar as suas informações de perfil e conta do portal minhas aplicações
 Pode utilizar a sua conta escolar ou profissional com baseada na web **as minhas aplicações** portal, para ver e iniciar a muitas das aplicações de base na cloud da sua organização, para atualizar algumas das suas informações de perfil e conta, para ver seu **grupos** informações e para realizar **as revisões de acesso** para as aplicações e grupos. Se não tiver acesso para o **as minhas aplicações** portal, tem de contactar o suporte técnico para obter permissão.
@@ -57,11 +57,11 @@ Atualizar e gerir o seu trabalho ou escolar informações da conta a **perfil** 
 
 - Fornece informações de verificação de segurança adicional.
 
-- Reveja os termos de utilização da sua organização.
+- Reveja os termos da sua organização de utilização.
 
 - Terminar sessão em qualquer lugar.
 
-## <a name="change-your-password"></a>Alterar a sua palavra-passe
+## <a name="change-your-password"></a>Alterar a palavra-passe
 Se pretender alterar a palavra-passe para a sua conta escolar ou profissional, pode selecionar **alterar palavra-passe** da **gerir conta** área do **perfil** página.
 
 ### <a name="to-change-your-password"></a>Para alterar a palavra-passe

@@ -1,6 +1,6 @@
 ---
 title: Os administradores de gerir utilizadores e dispositivos - MFA do Azure - Azure Active Directory
-description: Descreve como alterar as definições de utilizador, como forçar os utilizadores para repetir o processo de verificação de segurança.
+description: Como é que os administradores podem alterar as definições de utilizador, como forçar os utilizadores para repetir o processo de verificação de segurança.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d6d901c050f6d1df8b53b34f0088d3ad8b0f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04d4848a00fd645bcf23342f27fe820ccf034a8b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415150"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298845"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerir definições de utilizador com o Azure multi-factor Authentication na cloud
 
@@ -35,12 +35,20 @@ Esta definição força o utilizador para concluir o processo de registo novamen
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
 3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication.
-4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. Uma lista de opções do passo rápido são apresentados à direita.
+4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. É apresentada uma lista de opções do passo rápido à direita.
 5. Selecione **gerir definições de utilizador**.
 6. Marque a caixa **exigir que os utilizadores selecionados forneçam novamente os métodos de contacto**.
    ![Exigir que os utilizadores forneçam novamente os métodos de contacto](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
+
+As organizações podem realizar essas etapas com o PowerShell com o seguinte como guia para limpar o `StrongAuthenticationMethods` atributo:
+
+```PowerShell
+$Upn = "theuser@domain.com"
+$noMfaConfig = @()
+Set-MsolUser -UserPrincipalName $Upn -StrongAuthenticationMethods $noMfaConfig
+```
 
 ## <a name="delete-users-existing-app-passwords"></a>Eliminar utilizadores existentes de palavras-passe de aplicação
 
@@ -51,7 +59,7 @@ Esta definição elimina todas as palavras-passe de aplicação que criou um uti
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
 3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication.
-4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. Uma lista de opções do passo rápido são apresentados à direita.
+4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. É apresentada uma lista de opções do passo rápido à direita.
 5. Selecione **gerir definições de utilizador**.
 6. Marque a caixa **eliminar todas as senhas de aplicação existentes geradas pelos utilizadores selecionados**.
    ![Eliminar todas as senhas de aplicação existente](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
@@ -64,14 +72,14 @@ Um dos recursos configuráveis do multi-factor Authentication é fornecer aos ut
 
 Os utilizadores podem optar por verificação de dois passos para um número configurável de dias nos respetivos dispositivos regulares. Se uma conta for comprometida ou um dispositivo fidedigno é perdido, terá de ser capaz de remover o estado fidedigno e exigir a verificação novamente.
 
-O **restauro a autenticação multifator em todos os dispositivos memorizados** definição significa que o utilizador será desafiadas a efetuar a verificação de dois passos da próxima vez que iniciarem sessão, independentemente se optou por marcar dispositivo como confiável.
+Quando selecionado, **restauro a autenticação multifator em todos os dispositivos memorizados** os utilizadores são necessários para efetuar a verificação de dois passos da próxima vez que iniciarem sessão, mesmo se eles marcado o respetivo dispositivo como fidedigna.
 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como restaurar o MFA em todos os dispositivos suspensos para um utilizador
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No lado esquerdo, selecione **do Azure Active Directory** > **utilizadores** > **todos os utilizadores**.
 3. À direita, selecione **multi-factor Authentication** na barra de ferramentas. É aberta a página do multi-factor authentication.
-4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. Uma lista de opções do passo rápido são apresentados à direita.
+4. Selecione a caixa ao lado do utilizador ou utilizadores que pretende gerir. É apresentada uma lista de opções do passo rápido à direita.
 5. Selecione **gerir definições de utilizador**.
 6. Marque a caixa **restauro a autenticação multifator em todos os dispositivos memorizados**
    ![restauro a autenticação multifator em todos os dispositivos memorizados](./media/howto-mfa-userdevicesettings/rememberdevices.png)

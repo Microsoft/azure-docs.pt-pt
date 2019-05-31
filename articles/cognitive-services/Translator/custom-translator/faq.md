@@ -7,14 +7,14 @@ manager: christw
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: v-pawal
 ms.topic: reference
-ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 79dc5baacb19143f2b31de7f3822af382c2e6cf4
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60512928"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384048"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

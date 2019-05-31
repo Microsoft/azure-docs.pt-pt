@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 38b2244d68de25f53d59dd4eb0a6beba03f0e51d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9368abe7d3b6ad6cf6e86b503dca4fca4f18739c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60916687"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388464"
 ---
 # <a name="page-through-the-images-results"></a>Página através dos resultados de imagens
 
-Quando chama a API de pesquisa de imagens, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que são relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) campo.  
+Quando chama a API de pesquisa de imagens, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que são relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#totalestimatedmatches) campo.  
 
 A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma resposta de imagens.  
 
@@ -34,7 +34,7 @@ A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma respost
 }  
 ```  
 
-Paginar através de imagens disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset) parâmetros de consulta.  
+Paginar através de imagens disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#offset) parâmetros de consulta.  
 
 O `count` parâmetro especifica o número de resultados a devolver na resposta. O número máximo de resultados que pode solicitar na resposta é 150. A predefinição é 35. O número real entregue pode ser menor do que o pedido.
 
@@ -58,7 +58,7 @@ Host: api.cognitive.microsoft.com
 
 Pode esperar que se a página 35 imagens ao mesmo tempo, definiria a `offset` parâmetro como 0 em sua primeira solicitação de consulta e, em seguida, incrementar `offset` por 35 em cada pedido subsequente. No entanto, alguns dos resultados na resposta subsequente podem estar duplicados da resposta anterior. Por exemplo, as duas primeiras imagens na resposta podem ser o mesmo que as duas últimas imagens da resposta anterior.
 
-Para eliminar duplicados resultados, utilize o [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) campo o `Images` objeto. O `nextOffset` campo indica o `offset` a utilizar para a sua próxima solicitação. Por exemplo, se quiser página 30 imagens ao mesmo tempo, definiria `count` de 30 e `offset` para 0 na sua primeira solicitação. No seu pedido seguinte, definiria `count` de 30 e `offset` para o valor da resposta anterior `nextOffset`. A página para trás, sugerimos que mantém uma pilha dos deslocamentos anteriores e POP mais recente.
+Para eliminar duplicados resultados, utilize o [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#nextoffset) campo o `Images` objeto. O `nextOffset` campo indica o `offset` a utilizar para a sua próxima solicitação. Por exemplo, se quiser página 30 imagens ao mesmo tempo, definiria `count` de 30 e `offset` para 0 na sua primeira solicitação. No seu pedido seguinte, definiria `count` de 30 e `offset` para o valor da resposta anterior `nextOffset`. A página para trás, sugerimos que mantém uma pilha dos deslocamentos anteriores e POP mais recente.
 
 > [!NOTE]
 > Paginação aplica-se apenas a pesquisa de imagens (/ imagens/search) e não para informações de imagem ou imagens em destaque (/ imagens/tendências).

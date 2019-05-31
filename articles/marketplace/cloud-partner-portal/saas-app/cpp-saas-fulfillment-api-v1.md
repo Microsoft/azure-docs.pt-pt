@@ -8,16 +8,20 @@ ms.topic: reference
 ms.date: 03/28/2019
 ms.author: pabutler
 ROBOTS: NOINDEX
-ms.openlocfilehash: 816bdc61f85fdf171870a5b552661b816ec65e2f
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 9b80f0fd36545de94e7128080dba5e516344c107
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64943144"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257507"
 ---
 # <a name="saas-fulfillment-apis-version-1--deprecated"></a>Versão de APIs de preenchimento do SaaS 1 (preterido)
 
 Este artigo explica como criar uma oferta SaaS com as APIs. As APIs, compostas por métodos REST e pontos de extremidade, são necessárias para permitir que as assinaturas para sua oferta de SaaS tem vender seu através do Azure selecionado.  
+
+> [!IMPORTANT] 
+> SaaS oferecem funcionalidade tiver sido migrada para o [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos os novos editores tem de utilizar Centro de parceiros para novas ofertas de SaaS de criação e gestão de ofertas existentes.  Os publicadores atuais com ofertas de SaaS estão a ser batchwise migrados do Portal de parceiros da Cloud para o Centro de parceiros.  O Portal de parceiros da Cloud irá apresentar mensagens de estado para indicar quando ofertas existentes específicas foram migradas.
+> Para obter mais informações, consulte [crie uma nova oferta SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 > [!WARNING]
 > Esta versão inicial da API de preenchimento do SaaS foi preterido; em alternativa, utilize [SaaS preenchimento API V2](./cpp-saas-fulfillment-api-v2.md).  Esta API está atualmente a ser mantida apenas para servir os publicadores existentes. 
@@ -27,7 +31,7 @@ As seguintes APIs são fornecidas para o ajudar a integrar o serviço SaaS com o
 -   Resolver
 -   Subscrever
 -   Converter
--   Anular a subscrição
+-   anular a subscrição
 
 
 ## <a name="api-methods-and-endpoints"></a>Métodos da API e os pontos finais
@@ -121,7 +125,7 @@ O ponto de extremidade subscribe permite aos utilizadores iniciar uma subscriç�
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -186,7 +190,7 @@ O ponto de extremidade de alteração permite ao utilizador converter o seu plan
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -250,7 +254,7 @@ A ação de eliminação no ponto de extremidade subscribe permite que um utiliz
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -300,7 +304,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/ *{operationId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -334,7 +338,7 @@ Este ponto final permite ao utilizador controlar o estado de uma operação de a
 | ID                 | String        | ID da operação.                                                                      |
 | status             | Enum          | Estado da operação, um dos seguintes: `In Progress`, `Succeeded`, ou `Failed`.          |
 | resourceLocation   | String        | Ligação para a subscrição que foi criada ou modificada. Isto ajuda o cliente para obter a operação de mensagem de estado atualizado. Este valor não está definido para `Unsubscribe` operações. |
-| criado            | DateTime      | Hora de criação de operação em UTC.                                                           |
+| Criado            | DateTime      | Hora de criação de operação em UTC.                                                           |
 | lastModified       | DateTime      | Última atualização na operação em UTC.                                                      |
 |  |  |  |
 
@@ -368,7 +372,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/ *{subscriptionId}* ?api-version=2017-04-15**
 
 | **Nome do parâmetro**  | **Descrição**                                       |
 |---------------------|-------------------------------------------------------|
@@ -406,7 +410,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 | planId                 | String        | ID do plano nos quais o utilizador inscrito.          |
 | saasSubscriptionName   | String        | Nome da subscrição SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: Utilizador criar o recurso, mas ele não está ativado por de ISV.   <br/> - `Unsubscribed`: Utilizador anulou a subscrição.   <br/> - `Suspended`: Utilizador tem de suspender a subscrição.   <br/> - `Deactivated`:  Subscrição do Azure está suspensa.  |
-| criado                | DateTime      | Valor de timestamp de criação de subscrição em UTC. |
+| Criado                | DateTime      | Valor de timestamp de criação de subscrição em UTC. |
 | lastModified           | DateTime      | Subscrição alterar timestamp valor em UTC. |
 |  |  |  |
 
@@ -433,7 +437,7 @@ Assine a ação de Get no ponto final permite que um utilizador a obter uma subs
 | eTag               | Sim          | Ligar a um recurso para obter o estado da operação.                                                        |
 |  |  |  |
 
-### <a name="get-subscriptions"></a>Obter Subscrições
+### <a name="get-subscriptions"></a>Obter subscrições
 
 A ação de Get no ponto final de subscrições permite que um usuário recuperar todas as subscrições para todas as ofertas do ISV.
 
@@ -478,7 +482,7 @@ A ação de Get no ponto final de subscrições permite que um usuário recupera
 | planId                 | String        | ID do plano nos quais o utilizador inscrito.          |
 | saasSubscriptionName   | String        | Nome da subscrição SaaS.                |
 | saasSubscriptionStatus | Enum          | Estado da operação.  Um dos seguintes:  <br/> - `Subscribed`: A subscrição está ativa.  <br/> - `Pending`: Utilizador criar o recurso, mas ele não está ativado por de ISV.   <br/> - `Unsubscribed`: Utilizador anulou a subscrição.   <br/> - `Suspended`: Utilizador tem de suspender a subscrição.   <br/> - `Deactivated`:  Subscrição do Azure está suspensa.  |
-| criado                | DateTime      | Valor de timestamp de criação de subscrição em UTC. |
+| Criado                | DateTime      | Valor de timestamp de criação de subscrição em UTC. |
 | lastModified           | DateTime      | Subscrição alterar timestamp valor em UTC. |
 |  |  |  |
 
@@ -529,7 +533,7 @@ Um webhook de SaaS é utilizado para a notificação de alterações de forma pr
 | offerId                | String        | ID de oferta que o utilizador inscrito. É fornecido apenas com a ação "Update".        |
 | publisherId                | String        | ID de publicador da oferta SaaS         |
 | planId                 | String        | ID do plano nos quais o utilizador inscrito. É fornecido apenas com a ação "Update".          |
-| action                 | String        | A ação que está disparando esta notificação. Valores possíveis - ativar, eliminar, atualização de suspensão, o restabelecimento,          |
+| ação                 | String        | A ação que está disparando esta notificação. Valores possíveis - ativar, eliminar, atualização de suspensão, o restabelecimento,          |
 | timeStamp                 | String        | Valor de TImestamp em UTC em que esta notificação foi acionada.          |
 |  |  |  |
 

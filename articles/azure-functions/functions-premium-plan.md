@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: de1915c7efb4bd8634228f341df2c57c443dd28e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65544737"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242312"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plano Premium de funções do Azure (pré-visualização)
 
@@ -91,7 +91,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 ### <a name="available-instance-skus"></a>SKUs de instância disponível
 
-Ao criar o seu plano de dimensionamento, pode escolher entre três tamanhos de instância.  Será ser cobrado o número total de núcleos e memória consumidas por segundo.  A aplicação automaticamente pode aumentar horizontalmente para várias instâncias conforme necessário.  
+Ao criar ou dimensionar o seu plano, pode escolher entre três tamanhos de instância.  Será ser cobrado o número total de núcleos e memória consumidas por segundo.  A aplicação automaticamente pode aumentar horizontalmente para várias instâncias conforme necessário.  
 
 |SKU|Núcleos|Memória|Armazenamento|
 |--|--|--|--|
@@ -119,7 +119,7 @@ Seguem-se as regiões atualmente suportadas para a pré-visualização pública.
 |EUA Centro-Sul|
 |Sul da Índia|
 |Sudeste Asiático|
-|Oeste do R.U.|
+|Reino Unido Oeste|
 |Europa Ocidental|
 |Oeste da Índia|
 |EUA Oeste|

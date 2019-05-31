@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ca78e7a9ce44b492dafcc00c1663d54718ca7fac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9e8718d9216bb2f4a83f8e0373b4788210015b75
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64705076"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66253765"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -124,7 +124,7 @@ O **SingleSignOn** elemento contém o atributo seguinte:
 
 | Atributo | Necessário | Descrição |
 | --------- | -------- | ----------- |
-| Âmbito | Sim | O âmbito do comportamento de início de sessão único. Valores possíveis: `Suppressed`, `Tenant`, `Application`, ou `Policy`. O `Suppressed` valor indica que o comportamento suprimido. Por exemplo, no caso de uma única sessão de logon, nenhuma sessão é mantido para o utilizador e sempre é pedido ao utilizador para uma seleção de fornecedor de identidade. O `TrustFramework` valor indica que é aplicado o comportamento para todas as políticas do Framework de confiança. Por exemplo, um usuário navegar pelos dois jornadas de política para uma estrutura de confiança não é pedido para uma seleção de fornecedor de identidade. O `Tenant` valor indica que o comportamento é aplicado a todas as políticas no inquilino. Por exemplo, um usuário navegar pelos dois jornadas de política para um inquilino não é pedido para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que efetua o pedido. Por exemplo, um usuário navegar pelos dois jornadas de política para um aplicativo não é pedido para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento aplica-se apenas a uma política. Por exemplo, um usuário navegar pelos dois jornadas de política para uma estrutura de confiança é pedido para uma seleção de fornecedor de identidade quando se alterna entre as políticas. |
+| Scope | Sim | O âmbito do comportamento de início de sessão único. Valores possíveis: `Suppressed`, `Tenant`, `Application`, ou `Policy`. O `Suppressed` valor indica que o comportamento suprimido. Por exemplo, no caso de uma única sessão de logon, nenhuma sessão é mantido para o utilizador e sempre é pedido ao utilizador para uma seleção de fornecedor de identidade. O `TrustFramework` valor indica que é aplicado o comportamento para todas as políticas do Framework de confiança. Por exemplo, um usuário navegar pelos dois jornadas de política para uma estrutura de confiança não é pedido para uma seleção de fornecedor de identidade. O `Tenant` valor indica que o comportamento é aplicado a todas as políticas no inquilino. Por exemplo, um usuário navegar pelos dois jornadas de política para um inquilino não é pedido para uma seleção de fornecedor de identidade. O `Application` valor indica que o comportamento é aplicado a todas as políticas para a aplicação que efetua o pedido. Por exemplo, um usuário navegar pelos dois jornadas de política para um aplicativo não é pedido para uma seleção de fornecedor de identidade. O `Policy` valor indica que o comportamento aplica-se apenas a uma política. Por exemplo, um usuário navegar pelos dois jornadas de política para uma estrutura de confiança é pedido para uma seleção de fornecedor de identidade quando se alterna entre as políticas. |
 | KeepAliveInDays | Sim | controla o tempo que o usuário permanece com sessão iniciada. Definindo o valor como 0 desliga funcionalidade KMSI. Para obter mais informações, consulte [manter sessão iniciada](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
@@ -176,9 +176,9 @@ O **TechnicalProfile** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Nome a Apresentar | 0:1 | A cadeia de caracteres que contém o nome do perfil técnico que é apresentado aos utilizadores. |
+| displayName | 0:1 | A cadeia de caracteres que contém o nome do perfil técnico que é apresentado aos utilizadores. |
 | Descrição | 0:1 | A cadeia de caracteres que contém a descrição do perfil técnico que é apresentado aos utilizadores. |
-| Protocolo | 1:1 | O protocolo utilizado para a Federação. |
+| Protocol | 1:1 | O protocolo utilizado para a Federação. |
 | Metadados | 0:1 | A coleção de *Item* de pares chave/valor utilizadas pelo protocolo de comunicação com o ponto final no decorrer de uma transação para configurar a interação entre a entidade confiadora e outros participantes da Comunidade. |
 | OutputClaims | 0:1 | Uma lista de tipos de afirmação que são executadas como saída no perfil técnico. Cada um desses elementos contém a referência a um **ClaimType** já definidos no **ClaimsSchema** secção ou numa política a partir do qual herda este ficheiro de política. |
 | SubjectNamingInfo | 0:1 | O nome de assunto utilizado nos tokens. |
@@ -208,7 +208,7 @@ O **OutputClaim** elemento contém os seguintes atributos:
 ### <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 Com o **SubjectNameingInfo** elemento, controla o valor do requerente do token:
-- **Token JTW** – a `sub` de afirmação. Esta é uma entidade de segurança sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização seguro como, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. Para obter mais informações, consulte [Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md).
+- **JWT token** – a `sub` de afirmação. Esta é uma entidade de segurança sobre o qual o token declara informações, como o utilizador de um aplicativo. Este valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para realizar verificações de autorização seguro como, por exemplo, quando o token é utilizado para aceder a um recurso. Por predefinição, a afirmação do requerente é preenchida com o ID de objeto do utilizador no diretório. Para obter mais informações, consulte [Token, sessão e configuração de início de sessão único](active-directory-b2c-token-session-sso.md).
 - **SAML token** – a `<Subject><NameID>` elemento que identifica o elemento de assunto.
 
 O **SubjectNamingInfo** elemento contém o atributo seguinte:

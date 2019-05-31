@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 59701c31e461bbd5d73ec708504139347f6075f2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60585483"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241861"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Aumentar horizontalmente com a Base de Dados SQL do Azure
 Pode facilmente aumentar horizontalmente de bases de dados SQL do Azure com o **bases de dados elásticas** ferramentas. Essas ferramentas e recursos permitem-lhe utilizar os recursos de base de dados do **base de dados do Azure SQL** para criar soluções para cargas de trabalho transacionais e especialmente o Software como um aplicativo de serviço (SaaS). Recursos de banco de dados elásticos são compostas pela:
 
 * [Biblioteca de clientes de base de dados elástica](sql-database-elastic-database-client-library.md): A biblioteca de cliente é uma funcionalidade que permite-lhe criar e manter bancos de dados em partição horizontal.  Ver [introdução às ferramentas de bases de dados elásticas](sql-database-elastic-scale-get-started.md).
 * [Ferramenta de dividir / unir da base de dados elástica](sql-database-elastic-scale-overview-split-and-merge.md): move dados entre bases de dados em partição horizontal. Essa ferramenta é útil para mover dados de uma base de dados do multi-inquilino para uma base de dados de inquilino único (ou vice-versa). Ver [tutorial da ferramenta de dividir / unir da base de dados elásticas](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Tarefas de base de dados elásticas](sql-database-elastic-jobs-overview.md) (pré-visualização): Utilize tarefas para gerir um grande número de bases de dados SQL do Azure. Efetue facilmente operações administrativas, tais como alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou coleção de telemetria do inquilino (cliente) usando trabalhos.
+* [Tarefas de base de dados elásticas](elastic-jobs-overview.md): Utilize tarefas para gerir um grande número de bases de dados SQL do Azure. Efetue facilmente operações administrativas, tais como alterações de esquema, gestão de credenciais, atualizações de dados de referência, recolha de dados de desempenho ou coleção de telemetria do inquilino (cliente) usando trabalhos.
 * [Consulta de base de dados elástica](sql-database-elastic-query-overview.md) (pré-visualização): Permite-lhe executar uma consulta de Transact-SQL que abrange várias bases de dados. Isto permite que a conexão com ferramentas de geração de relatórios, como o Excel, Power BI, Tableau, etc.
 * [Transações elásticas](sql-database-elastic-transactions-overview.md): Esta funcionalidade permite-lhe executar transações que abrangem várias bases de dados na base de dados do Azure SQL. Transações de bases de dados elásticas estão disponíveis para aplicativos .NET usando o ADO .NET e integrar com a através de experiência de programação familiar a [classes de System. Transaction](https://msdn.microsoft.com/library/system.transactions.aspx).
 

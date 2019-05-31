@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 75c0deaa8bca94349091e3317e4ca70129bb4426
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 1a6f3fbc0160a78fb76f810257d3285725445eba
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991612"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257968"
 ---
 # <a name="expressroute-faq"></a>FAQ do ExpressRoute
 
@@ -288,7 +288,7 @@ Sim. Os custos do ExpressRoute premium aplicam-se sobre os custos de circuito do
 
 ## <a name="expressroute-local"></a>Local do ExpressRoute
 ### <a name="what-is-expressroute-local"></a>O que é o Local do ExpressRoute?
-Local do ExpressRoute é um circuito de SKU do ExpressRoute. Um recurso chave do Local é que um Local circit no ExpressRoute localização de peering dá-lhe aceder apenas a uma ou duas regiões do Azure no ou quase o mesmo metro. Por outro lado, um circuito Standard fornece acesso a todas as regiões do Azure numa área geopolítica e todas as regiões do Azure de um circuito Premium globalmente. 
+Local do ExpressRoute é um circuito de SKU do ExpressRoute. Um recurso chave do Local é que um circuito Local no ExpressRoute localização de peering dá-lhe aceder apenas a uma ou duas regiões do Azure no ou quase o mesmo metro. Por outro lado, um circuito Standard fornece acesso a todas as regiões do Azure numa área geopolítica e todas as regiões do Azure de um circuito Premium globalmente. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Quais são os benefícios do Local do ExpressRoute?
 Enquanto precisa prestar a transferência de dados de saída para o seu circuito Standard ou o Premium ExpressRoute, não tenha despesas transferência de dados de saída em separado para o seu circuito do ExpressRoute Local. Em outras palavras, o preço do ExpressRoute Local inclui taxas de transferência de dados. Local do ExpressRoute é uma solução mais econômica se tiver grande quantidade de dados a transferir e pode reunir os dados através de uma ligação privada a uma localização de peering do ExpressRoute perto de sua pretendidas regiões do Azure. 

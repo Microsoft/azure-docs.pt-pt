@@ -2,17 +2,17 @@
 title: Limitações para conjuntos de nós do Windows Server no Azure Kubernetes Service (AKS)
 description: Saiba mais sobre as limitações conhecidas ao executar conjuntos de nós do Windows Server e cargas de trabalho de aplicação no Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: tylermsft
 ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: iainfou
-ms.openlocfilehash: 3d249271995d96307722dadf6b3e012e63565e6a
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.author: twhitney
+ms.openlocfilehash: 34ece6e49332f781f688a8741db3514faf8c9a25
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65956272"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304401"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitações atuais para conjuntos de nós do Windows Server e cargas de trabalho de aplicação no Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ No Azure Kubernetes Service (AKS), pode criar um conjunto de nós que executa o 
 Este artigo descreve algumas das limitações e conceitos de SO para nós do Windows Server no AKS. Conjuntos de nós para o Windows Server estão atualmente em pré-visualização.
 
 > [!IMPORTANT]
-> Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
+> Funcionalidades de pré-visualização do AKS são self-service, participar. Eles são fornecidos para recolher comentários e bugs de nossa Comunidade. Em pré-visualização, esses recursos não se destinam a utilização de produção. Funcionalidades em pré-visualização pública enquadram-se em suporte "melhor esforço". Assistência das equipas de suporte técnico do AKS está disponível durante o horário do Pacífico fuso horário (PST) apenas. Para obter mais informações, consulte os seguintes artigos de suporte:
 >
-> Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
+> * [Políticas de suporte do AKS][aks-support-policies]
+> * [FAQ de suporte do Azure][aks-faq]
 
 ## <a name="limitations-for-windows-server-in-kubernetes"></a>Limitações para o Windows Server no Kubernetes
 
@@ -57,6 +58,8 @@ As seguintes limitações adicionais aplicam-se ao suporte de conjunto de nós d
 - Pré-visualização recursos no AKS como diretiva de rede e o dimensionamento automático de cluster, não são apoiadas para nós do servidor Windows.
 - Controladores de entrada apenas devem ser agendadas em nós do Linux com um NodeSelector.
 - Espaços de desenvolvimento do Azure está atualmente disponível apenas para conjuntos de nós baseado em Linux.
+- Grupo de contas de serviço gerida (gMSA) suporte quando os nós do Windows Server não são associados a um domínio do Active Directory não está atualmente disponível no AKS.
+    - O código fonte aberto, a montante [mecanismo de aks] [ aks-engine] projeto atualmente fornece suporte de gMSA se precisar de utilizar esta funcionalidade.
 
 ## <a name="os-concepts-that-are-different"></a>Conceitos de SO que são diferentes
 
@@ -74,11 +77,13 @@ Para começar a utilizar contentores do Windows Server no AKS, [criar um conjunt
 
 <!-- LINKS - external -->
 [upstream-limitations]: https://kubernetes.io/docs/setup/windows/#limitations
-[aks-github]: https://github.com/azure/aks/issues]
 [kubernetes]: https://kubernetes.io
+[aks-engine]: https://github.com/azure/aks-engine
 
 <!-- LINKS - internal -->
 [azure-network-models]: concepts-network.md#azure-virtual-networks
 [configure-azure-cni]: configure-azure-cni.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [windows-node-cli]: windows-container-cli.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

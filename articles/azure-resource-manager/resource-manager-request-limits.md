@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: b382b9ae35d492b4c779b8f7ee360fb378d54e08
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791365"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399721"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitar pedidos do Resource Manager
 
 Para cada subscrição do Azure e o inquilino, o Resource Manager permite até 12 000 pedidos por hora de leitura e pedidos por hora de escrita de 1200. Estes limites estão no âmbito do ID de principal fazer os pedidos e o ID de subscrição ou ID de inquilino Se os pedidos provenientes de mais do que um ID de principal, o seu limite através da subscrição ou de inquilino for superior a 12 000 e 1200 por hora.
 
-Pedidos são aplicados a sua subscrição ou o seu inquilino. Pedidos de subscrição são aqueles ID involve passando a sua subscrição, como a obtenção de grupos de recursos na sua subscrição. Pedidos de inquilino não incluem o ID da subscrição, como a obtenção de localizações do Azure válidas.
+Pedidos são aplicados a sua subscrição ou o seu inquilino. Pedidos de subscrição são aqueles que envolvem a transmitir o seu ID de subscrição, como a obtenção de grupos de recursos na sua subscrição. Pedidos de inquilino não incluem o ID da subscrição, como a obtenção de localizações do Azure válidas.
 
 Estes limites se aplicam a cada instância do Azure Resource Manager. Existem várias instâncias em cada região do Azure e Azure Resource Manager é implementado para todas as regiões do Azure.  Para que, na prática, os limites são efetivamente muito mais do que estes limites, como utilizador pedidos são normalmente servidos por muitas instâncias diferentes.
 
@@ -45,7 +45,7 @@ Pode determinar o número de pedidos restantes, examinando os cabeçalhos de res
 ## <a name="retrieving-the-header-values"></a>Recuperar os valores de cabeçalho
 A obter estes valores de cabeçalho no seu código ou script não é diferente de qualquer valor de cabeçalho a obter. 
 
-Por exemplo, no **c#**, recupera o valor de cabeçalho a partir de um **HttpWebResponse** com o nome do objeto **resposta** com o código a seguir:
+Por exemplo, no **c#** , recupera o valor de cabeçalho a partir de um **HttpWebResponse** com o nome do objeto **resposta** com o código a seguir:
 
 ```cs
 response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetValue(0)

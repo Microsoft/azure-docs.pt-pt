@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: 467586fd23332469338dabd2feb6a42ce4b17af5
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: cf818756f583974a8a9b53a9a0cce31dd93d042b
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471856"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66299305"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Resolução de problemas sem dados - Application Insights para .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alguns dos meus telemetria está em falta
@@ -25,6 +25,16 @@ ms.locfileid: "65471856"
 
 * Se vir consistentemente a fração do mesmo, é provavelmente devido a adaptável [amostragem](../../azure-monitor/app/sampling.md). Para confirmar isso, abra a pesquisa (a partir do painel de descrição geral) e observe uma instância de um pedido ou outro evento. Na parte inferior da secção de propriedades clique "..." para obter detalhes de propriedade completa. Se pedir contagem > 1, em seguida, a amostragem é numa operação.
 * Caso contrário, é possível que estiver a obter um [limite de taxa de dados](../../azure-monitor/app/pricing.md#limits-summary) para o plano de preços. Estes limites são aplicados por minuto.
+
+*Estou tendo aleatoriamente perda de dados.*
+
+* Verifique se estiver tendo perda de dados ao [canal de telemetria](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+
+* Verifique a existência de quaisquer problemas conhecidos no canal de telemetria [repositório do Github](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
+
+*Estou tendo perda de dados na aplicação de consola ou nas aplicações Web quando a aplicação estiver prestes a parar.*
+
+* Canal SDK mantém telemetria em buffer e envia-os em lotes. Se a aplicação está a encerrar, poderá ter de chamar explicitamente [Flush ()](api-custom-events-metrics.md#flushing-data). Comportamento de `Flush()` depende do real [canal](telemetry-channels.md#built-in-telemetrychannels) utilizado.
 
 ## <a name="no-data-from-my-server"></a>Não existem dados a partir do meu servidor
 *Eu Instalei a minha aplicação no meu servidor web e, agora eu não vejo qualquer telemetria do mesmo. Ele trabalhou OK no computador de desenvolvimento.*
@@ -58,7 +68,6 @@ CORREÇÃO:
 * Verifique que forneceu as credenciais de início de sessão para a conta do Azure certo.
 * No seu browser, verifique se tem acesso para o [portal do Azure](https://portal.azure.com). Abra as definições e verificar se existe qualquer restrição.
 * [Adicionar o Application Insights ao seu projeto existente](../../azure-monitor/app/asp-net.md): No Solution Explorer, clique com o botão direito do rato em seu projeto e escolha "Adicionar Application Insights."
-* Se ainda não está funcionando, siga os [procedimento manual](../../azure-monitor/app/windows-services.md) para adicionar um recurso no portal e, em seguida, adicione o SDK ao seu projeto.
 
 ## <a name="emptykey"></a>Recebo uma mensagem de erro "chave de instrumentação não pode estar vazio"
 Parece que ocorreu um erro enquanto foram a instalar o Application Insights ou talvez um adaptador de registo.

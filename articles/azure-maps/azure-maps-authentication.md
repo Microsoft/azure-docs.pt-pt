@@ -4,17 +4,17 @@ description: Autenticação para utilizar os serviços do Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9dfe4024607e106565984d6d49de94d793bf7a8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22aba19e16e4349a5b495b307c9906f7ded5a636
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60799119"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393663"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -56,7 +56,7 @@ Depois de é recebido um token do Azure AD, pode ser enviado um pedido para o Az
 
 | Cabeçalho do pedido    |    Value    |
 |:------------------|:------------|
-| x-MS-client-ID    | 30d7cc….9f55|
+| x-ms-client-id    | 30d7cc….9f55|
 | Autorização     | Bearer eyJ0e….HNIVN |
 
 > [!Note]
@@ -79,7 +79,7 @@ O Azure AD permite que controlar o acesso para a recursos protegidos pelo utiliz
 
 Mapas do Azure suporta o controlo de acesso de leitura de pessoa utilizadores do Azure AD, aplicações e serviços do Azure através de identidades geridas para recursos do Azure.
 
-![Leitor de Dados do Azure Maps (Pré-visualização)](./media/azure-maps-authentication/concept.png)
+![Leitor de dados de mapas do Azure (pré-visualização)](./media/azure-maps-authentication/concept.png)
 
 Para obter informações sobre como ver as definições de RBAC, veja [como configurar o RBAC para o Azure Maps](https://aka.ms/amrbac).
 

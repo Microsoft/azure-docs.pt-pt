@@ -6,20 +6,20 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1659ab72620b6bf91eb932f8414a0f6600350e37
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 49e8fbef7af16e109c1e9f1e0d8c9aab1a008e21
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714467"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258001"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gerir clusters do HDInsight através da IU do Apache Ambari Web
 
 [!INCLUDE [ambari-selector](../../includes/hdinsight-ambari-selector.md)]
 
-Apache Ambari simplifica a gestão e monitorização de um cluster do Apache Hadoop, fornecendo uma fácil de utilizar a IU da web e REST API. Ambari está incluído nos clusters do HDInsight baseado em Linux e é utilizado para monitorizar o cluster e fazer alterações de configuração.
+Apache Ambari simplifica a gestão e monitorização de um cluster do Apache Hadoop, fornecendo uma fácil de utilizar a IU da web e REST API. Ambari está incluído nos clusters do HDInsight e é utilizado para monitorizar o cluster e fazer alterações de configuração.
 
 Neste documento, irá aprender a utilizar a interface do Usuário da Web de Ambari com um cluster do HDInsight.
 
@@ -27,14 +27,9 @@ Neste documento, irá aprender a utilizar a interface do Usuário da Web de Amba
 
 [Apache Ambari](https://ambari.apache.org) simplifica a gestão de Hadoop, fornecendo uma interface do Usuário de web fácil de usar. Pode utilizar Ambari para gerir e monitorizar clusters do Hadoop. Os desenvolvedores podem integrar estas capacidades nas suas aplicações ao utilizar o [APIs de REST do Ambari](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
-A interface do Usuário da Web de Ambari é fornecido por predefinição com clusters do HDInsight que utilizam o sistema operativo Linux.
-
-> [!IMPORTANT]  
-> O Linux é o único sistema operativo utilizado na versão 3.4 ou superior do HDInsight. Para obter mais informações, veja [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement) (Desativação do HDInsight no Windows). 
-
 ## <a name="connectivity"></a>Conectividade
 
-A interface do Usuário da Web de Ambari está disponível no seu cluster do HDInsight em HTTPS://CLUSTERNAME.azurehdinsight.net, onde **CLUSTERNAME** é o nome do seu cluster.
+A interface do Usuário da Web de Ambari está disponível no seu cluster do HDInsight em `https://CLUSTERNAME.azurehdinsight.net`, onde `CLUSTERNAME` é o nome do seu cluster.
 
 > [!IMPORTANT]  
 > Ligar ao Ambari no HDInsight requer HTTPS. Quando lhe for pedido para a autenticação, utilize o nome da conta de administrador e a palavra-passe fornecida quando o cluster foi criado.
@@ -54,23 +49,17 @@ Quando a página é aberta, tenha em atenção a barra na parte superior. Esta b
 
 ![ambari-nav](./media/hdinsight-hadoop-manage-ambari/ambari-nav.png)
 
-* **Logótipo do Ambari** -abre o dashboard, o que pode ser utilizado para monitorizar o cluster.
-
-* **Operações de n. º de nome de cluster** -mostra o número de operações em curso do Ambari. Selecionar o nome de cluster ou **# ops** apresenta uma lista de operações em segundo plano.
-
-* **# alertas** -exibe os avisos e alertas críticos, caso haja algum, para o cluster.
-
-* **Dashboard** -apresenta o dashboard.
-
-* **Serviços** -informações e definições de configuração para os serviços do cluster.
-
-* **Anfitriões** -informações e definições de configuração para os nós do cluster.
-
-* **Alertas** -um log de informações, avisos e alertas críticos.
-
-* **Administrador** -pilha/serviços de Software que estão instalados no cluster, as informações de conta de serviço e segurança do Kerberos.
-
-* **Botão de administrador** -Ambari gestão, as definições de utilizador e de fim de sessão.
+|Item |Descrição |
+|---|---|
+|Logótipo do Ambari|É aberto o dashboard, que pode ser utilizado para monitorizar o cluster.|
+|Operações de n. º de nome de cluster|Mostra o número de operações em curso do Ambari. Selecionar o nome de cluster ou **# ops** apresenta uma lista de operações em segundo plano.|
+|# alertas|Apresenta os avisos e alertas críticos, caso haja algum, para o cluster.|
+|Dashboard|Apresenta o dashboard.|
+|Serviços|Informações e definições de configuração para os serviços do cluster.|
+|Anfitriões|Informações e definições de configuração para os nós do cluster.|
+|Alertas|Um log de informações, avisos e alertas críticos.|
+|administrador|Pilha/serviços de software que estão instalados no cluster, as informações de conta de serviço e segurança do Kerberos.|
+|Botão de administrador|Gestão de Ambari, as definições de utilizador e fim de sessão.|
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -162,31 +151,18 @@ O **anfitriões** página apresenta uma lista de todos os anfitriões do cluster
 
 2. Utilize o **ações** menu para selecionar a ação que deseja executar:
 
-   * **Iniciar todos os componentes** -iniciar todos os componentes no anfitrião.
-
-   * **Parar todos os componentes** -parar todos os componentes no anfitrião.
-
-   * **Reinicie todos os componentes** - parar e iniciar todos os componentes no anfitrião.
-
-   * **Ativar o modo de manutenção** -suprime alertas para o anfitrião. Esse modo deve ser ativado se estiver a efetuar ações que geram alertas. Por exemplo, parar e iniciar um serviço.
-
-   * **Desativar o modo de manutenção** -devolve o host para alertar normal.
-
-   * **Parar** -DataNode paradas ou NodeManagers no anfitrião.
-
-   * **Iniciar** -DataNode é iniciado ou NodeManagers no anfitrião.
-
-   * **Reiniciar** -paragens e inícios DataNode ou NodeManagers no anfitrião.
-
-   * **Desativar** -remove um anfitrião do cluster.
-
-     > [!NOTE]  
-     > Não utilize esta ação em clusters do HDInsight.
-
-   * **Recommission** -adiciona um anfitrião anteriormente desativado para o cluster.
-
-     > [!NOTE]  
-     > Não utilize esta ação em clusters do HDInsight.
+    |Item |Descrição |
+    |---|---|
+    |Iniciar todos os componentes|Inicie todos os componentes no anfitrião.|
+    |Parar todos os componentes|Pare todos os componentes no anfitrião.|
+    |Reinicie todos os componentes|Parar e iniciar todos os componentes no anfitrião.|
+    |Ativar o modo de manutenção|Suprime alertas para o anfitrião. Esse modo deve ser ativado se estiver a efetuar ações que geram alertas. Por exemplo, parar e iniciar um serviço.|
+    |Desativar o modo de manutenção|Devolve o host para alertar normal.|
+    |Parar|Interrompe DataNode ou NodeManagers no anfitrião.|
+    |Iniciar,|Inicia DataNode ou NodeManagers no anfitrião.|
+    |Reiniciar|Para e inicia DataNode ou NodeManagers no anfitrião.|
+    |Desativar|Remove um anfitrião do cluster. **Não utilize esta ação em clusters do HDInsight.**|
+    |Recommission|Adiciona um anfitrião anteriormente desativado para o cluster. **Não utilize esta ação em clusters do HDInsight.**|
 
 ### <a id="service"></a>Serviços
 
@@ -223,10 +199,9 @@ Para configurar um serviço, utilize os seguintes passos:
 
 3. Utilize os campos apresentados para modificar a configuração e, em seguida, selecione **guardar**. Ou selecione uma configuração anterior e, em seguida, selecione **tornar atual** reverter para as definições anteriores.
 
-## <a name="ambari-views"></a>Vistas Ambari
+## <a name="ambari-views"></a>Vistas do Ambari
 
 As vistas Ambari permitem que os desenvolvedores conectar os elementos de interface do Usuário a IU Web do Ambari, utilizando o [Framework de vistas do Apache Ambari](https://cwiki.apache.org/confluence/display/AMBARI/Views). HDInsight fornece as seguintes vistas com tipos de clusters do Hadoop:
-
 
 * Vista do Hive: A vista do Hive permite-lhe executar consultas do Hive diretamente a partir do seu navegador da web. Pode guardar consultas, ver os resultados, salvar os resultados para o armazenamento de cluster ou transferir os resultados para o seu sistema local. Para obter mais informações sobre como utilizar as vistas do Hive, consulte [utilização Apache Hive modos de exibição com o HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md).
 

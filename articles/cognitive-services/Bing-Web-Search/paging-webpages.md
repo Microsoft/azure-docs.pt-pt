@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: fa02c0913329ec740e3066b05b2e44a36ad379ce
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: a038dc2706c7cb128751630f8997851409886290
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797811"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384816"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Como paginar através de resultados da API de pesquisa Web do Bing
 
-Quando chama a API de pesquisa Web, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) campo.  
+Quando chama a API de pesquisa Web, o Bing devolve uma lista de resultados. A lista é um subconjunto do número total de resultados que podem ser relevantes para a consulta. Para obter o número total de resultados disponíveis, acessar o objeto de resposta [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) campo.  
 
 A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma resposta de Web.  
 
@@ -35,7 +35,7 @@ A exemplo a seguir mostra o `totalEstimatedMatches` campo que inclui uma respost
 }  
 ```
 
-Para a página por meio de páginas da Web disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) parâmetros de consulta.  
+Para a página por meio de páginas da Web disponíveis, utilize o [contagem](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#count) e [deslocamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#offset) parâmetros de consulta.  
 
 O `count` parâmetro especifica o número de resultados a devolver na resposta. O número máximo de resultados que pode solicitar na resposta é 50. A predefinição é 10. O número real entregue pode ser menor do que o pedido.
 
@@ -59,7 +59,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-A API de pesquisa Web devolve resultados que incluem páginas da Web e podem incluir imagens, vídeos e notícias. Quando a página resultados da pesquisa, são de paginação da [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) resposta e não as outras respostas, como imagens ou de notícias. Por exemplo, se definir `count` a 50, recebe 50 resultados de página Web, mas a resposta pode incluir resultados para as outras respostas também. Por exemplo, a resposta pode incluir a 15 imagens e 4 artigos de notícias. Também é possível que os resultados podem incluir notícias na primeira página, mas não na segunda página, ou vice versa.   
+A API de pesquisa Web devolve resultados que incluem páginas da Web e podem incluir imagens, vídeos e notícias. Quando a página resultados da pesquisa, são de paginação da [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) resposta e não as outras respostas, como imagens ou de notícias. Por exemplo, se definir `count` a 50, recebe 50 resultados de página Web, mas a resposta pode incluir resultados para as outras respostas também. Por exemplo, a resposta pode incluir a 15 imagens e 4 artigos de notícias. Também é possível que os resultados podem incluir notícias na primeira página, mas não na segunda página, ou vice versa.   
 
 Se especificar a `responseFilter` parâmetro de consulta e não incluem páginas da Web na lista de filtro, não utilize o `count` e `offset` parâmetros. 
 

@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 83ae5f923130ecb46b7b94cd8112ee45ae13e3f4
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: e4799ca099d608c3b8ecd16612b790f5654df7dd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65236254"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66390424"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurar a sua experiência de pesquisa personalizada do Bing
 
@@ -27,7 +27,7 @@ Quando definir as partes da web, utilize o seguinte:
 
 | Nome do setor | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Domínio     | Um setor de domínio inclui todo o conteúdo encontrado dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. A omissão `www.` faz com que o Bing para pesquisar também subdomínios do domínio. Por exemplo, se especificar `microsoft.com`, o Bing devolve também os resultados da `support.microsoft.com` ou `technet.microsoft.com`. |
+| Domain     | Um setor de domínio inclui todo o conteúdo encontrado dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. A omissão `www.` faz com que o Bing para pesquisar também subdomínios do domínio. Por exemplo, se especificar `microsoft.com`, o Bing devolve também os resultados da `support.microsoft.com` ou `technet.microsoft.com`. |
 | Subpáginas    | Um setor de subpáginas inclui todo o conteúdo encontrado na subpáginas e caminhos abaixo dele. Pode especificar um máximo de dois subpáginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Página Web    | Um setor de página da Web pode incluir apenas essa página da Web numa pesquisa personalizada. Opcionalmente, pode especificar se pretende incluir subpáginas.                                                                                                                                                                                  |
 
@@ -40,7 +40,7 @@ Quando cria a instância de pesquisa personalizada, pode especificar os setores 
 
 Se souber os setores de que pretende incluir na sua instância de pesquisa personalizada, adicioná-los à sua instância **Active Directory** lista. 
 
-Se não tiver a certeza de que setores para incluir, pode enviar consultas de pesquisa para o Bing na **pré-visualização** painel e selecione os setores de que pretende. Para tal: 
+Se não tiver a certeza de que setores para incluir, pode enviar consultas de pesquisa para o Bing na **pré-visualização** painel e selecione os setores de que pretende. Para efetuar este procedimento: 
 
 1. Selecione "Bing" na lista pendente, no painel de pré-visualização e introduza uma consulta de pesquisa
 
@@ -74,7 +74,7 @@ Depois de Adicionar WebSlices para o **Active Directory** listar, a pesquisa per
 
 ## <a name="search-for-images-and-videos"></a>Pesquisa de imagens e vídeos
 
-Pode pesquisar por imagens e vídeos da mesma forma para o conteúdo da web, utilizando o [API de pesquisa de imagens de personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference) ou o [API de pesquisa de vídeos de personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference). Pode exibir esses resultados com o [hospedado da interface do Usuário](hosted-ui.md), ou as APIs. 
+Pode pesquisar por imagens e vídeos da mesma forma para o conteúdo da web, utilizando o [API de pesquisa de imagens de personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou o [API de pesquisa de vídeos de personalizada do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). Pode exibir esses resultados com o [hospedado da interface do Usuário](hosted-ui.md), ou as APIs. 
 
 Essas APIs são semelhantes às não personalizado [pesquisa de imagens Bing](../Bing-Image-Search/overview.md) e [pesquisa de vídeos do Bing](../Bing-Video-Search/search-the-web.md) APIs, mas pesquisar toda a web e não requerem o `customConfig` parâmetro de consulta. Consulte estes conjuntos de documentação para obter mais informações sobre como trabalhar com imagens e vídeos. 
 
@@ -83,7 +83,7 @@ Essas APIs são semelhantes às não personalizado [pesquisa de imagens Bing](..
 Pode testar a sua instância de pesquisa ao utilizar o painel de visualização no lado direito do portal para enviar consultas de pesquisa e ver os resultados. 
 
 1. Abaixo da caixa de pesquisa, selecione **minha instância**. É possível comparar os resultados de sua experiência de pesquisa para o Bing, selecionando **Bing**. 
-2. Selecione um filtro de pesquisa segura e que mercado para pesquisa (consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters)).
+2. Selecione um filtro de pesquisa segura e que mercado para pesquisa (consulte [parâmetros de consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)).
 3. Introduza uma consulta e prima enter ou clique no ícone de pesquisa para ver os resultados da configuração atual. Pode alterar seu tipo de pesquisa é executar clicando **Web**, **imagem**, ou **vídeo** para obter resultados correspondentes. 
 
 <a name="adjustrank"></a>
@@ -95,7 +95,7 @@ O portal permite-lhe ajustar a classificação de pesquisa de conteúdo a partir
 |            |                                                                                                                                                                      |
 |------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Bloquear      | Move o domínio, subpáginas ou página Web para a lista de bloqueado. Bing irá excluir conteúdo o site selecionado de aparecer nos resultados da pesquisa.                    |
-| Aumentar      | Aumenta a conteúdo a partir do domínio ou subpáginas superior nos resultados da pesquisa.                                                                                        |
+| Boost      | Aumenta a conteúdo a partir do domínio ou subpáginas superior nos resultados da pesquisa.                                                                                        |
 | Despromover     | Despromove das conteúdo a partir do domínio ou subpáginas inferior nos resultados da pesquisa. Selecione se pretende despromover o conteúdo do domínio ou subpage a que pertence a página Web. |
 | Afixar ao início | Move o domínio, subpáginas ou página Web para o **Pinned** lista. Isso força a página Web a aparecer como o resultado da pesquisa superior para uma determinada consulta de pesquisa.                   |
 
@@ -131,9 +131,9 @@ Por predefinição, páginas Web apenas é afixada a parte superior dos resultad
 
 | Value | Descrição                                                                          |
 |---------------|----------------------------------------------------------------------------------|
-| Começa por | O pin é uma correspondência, se a cadeia de consulta do usuário começa com a cadeia de consulta do pin |
-| Termina com   | O pin é uma correspondência, se a cadeia de consulta do utilizador termina com a cadeia de consulta o pin.  |
-| contém    | O pin é uma correspondência, se a cadeia de consulta do utilizador contém a cadeia de consulta o pin.   |
+| Começa com | O pin é uma correspondência, se a cadeia de consulta do usuário começa com a cadeia de consulta do pin |
+| termina com   | O pin é uma correspondência, se a cadeia de consulta do utilizador termina com a cadeia de consulta o pin.  |
+| Contém    | O pin é uma correspondência, se a cadeia de consulta do utilizador contém a cadeia de consulta o pin.   |
 
 
 Para alterar a condição de correspondência do pin, clique no ícone de edição do pin. Na **condição de correspondência de consulta** coluna, clique na lista pendente e selecione a nova condição a utilizar. Em seguida, clique em salvar ícone para guardar a alteração.

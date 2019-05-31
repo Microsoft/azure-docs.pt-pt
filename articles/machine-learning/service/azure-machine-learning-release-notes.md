@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3acaf86123f2cab871bc2f99cc873a73015875e2
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: 2dd397e879dd76cabd119a3cbedff34041be2d13
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65989850"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298489"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de versão de serviço do Azure Machine Learning
 
@@ -24,6 +24,21 @@ Neste artigo, saiba mais sobre as versões de serviço do Azure Machine Learning
 + O Azure Machine Learning [ **SDK de preparação de dados**](https://aka.ms/data-prep-sdk)
 
 Ver [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre erros conhecidos e soluções alternativas.
+
+## <a name="2019-05-28"></a>2019-05-28
+
+### <a name="azure-machine-learning-data-prep-sdk-v114"></a>SDK v1.1.4 de preparação de dados do Azure Machine Learning
+
++ **Novos recursos**
+  + Agora, pode utilizar as seguintes funções de linguagem de expressão para extrair e analisar os valores datetime em novas colunas.
+    + `RegEx.extract_record()` extrai os elementos de datetime para uma nova coluna.
+    + `create_datetime()` cria objetos de datetime a partir de elementos de datetime separado.
+  + Ao chamar `get_profile()`, agora, pode ver que colunas quantile etiquetadas como (estimativa) para indicar claramente que os valores são aproximações.
+  + Agora, pode utilizar * * globbing durante a leitura do armazenamento de Blobs do Azure.
+    + Por exemplo `dprep.read_csv(path='https://yourblob.blob.core.windows.net/yourcontainer/**/data/*.csv')`
+
++ **Correções de erros**
+  + Foi corrigido um bug relacionado à leitura de um ficheiro Parquet de uma origem remota (BLOBs do Azure).
 
 ## <a name="2019-05-14"></a>2019-05-14
 
@@ -328,11 +343,11 @@ Nota: SDK de Python de preparação de dados já não instalará `numpy` e `pand
 + Novo arrastar e soltar a experiência de criação de gráficos para relatórios. Os utilizadores podem arrastar uma coluna ou o atributo do poço para a área de gráfico em que o sistema irá selecionar automaticamente um tipo de gráfico adequada para o utilizador com base no tipo de dados. Os utilizadores podem alterar o tipo de gráfico para outros tipos de aplicável ou adicionar atributos adicionais.
 
     Tipos de gráfico com suporte:
-    - Gráfico de Linhas
+    - Gráfico de linhas
     - Histograma
     - Gráfico de barras empilhadas
     - Gráfico de caixa
-    - Gráfico de Dispersão
+    - Dispersão
     - Gráfico de bolhas
 + Agora o portal do gera dinamicamente relatórios para experimentações. Quando um utilizador submete uma execução de uma experimentação, será automaticamente gerado um relatório com métricas com sessão iniciada e gráficos para permitir que a comparação entre diferentes execuções. 
 

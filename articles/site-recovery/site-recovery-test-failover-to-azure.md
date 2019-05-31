@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: 6d8ad71894444b3759e506c50244b592ac1f8aac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67cbd37becb1fe87a7f4f554f574b6e5219c9243
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471490"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399942"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Executar um teste de recuperação após desastre para o Azure 
 
@@ -26,7 +26,7 @@ Execute uma ativação pós-falha de teste para validar os replicação e a estr
 ## <a name="run-a-test-failover"></a>Executar uma ativação pós-falha de teste
 Este procedimento descreve como executar uma ativação pós-falha de teste para um plano de recuperação. Se quiser executar uma ativação pós-falha para uma única VM, siga os passos descritos [aqui](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Ativação pós-falha de teste](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. No Site Recovery no portal do Azure, clique em **planos de recuperação** > *recoveryplan_name* > **ativação pós-falha de teste**.
@@ -49,7 +49,7 @@ Este procedimento descreve como executar uma ativação pós-falha de teste para
 8. Em **Notas**, registe e guarde todas as observações associadas à ativação pós-falha de teste.
 
 
-![Ativação Pós-falha de Teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Ativação pós-falha de teste](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Quando uma ativação pós-falha de teste é acionada, ocorre o seguinte:
 

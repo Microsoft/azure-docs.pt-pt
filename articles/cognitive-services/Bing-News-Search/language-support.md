@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799336"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66384973"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Suporte de idioma e região para a API de pesquisa de notícias do Bing
 
@@ -37,20 +37,20 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Áustria|Alemão|Alemanha-AT|
 |Suíça|Alemão|Alemanha-CH|
 |Alemanha|Alemão|de-DE|
-|Austrália|Inglês|EN-AU|
-|Canadá|Inglês|en-CA|
-|Reino Unido|Inglês|en-GB|
-|Indonésia|Inglês|en-ID|
-|Irlanda|Inglês|EN-IE|
-|Índia|Inglês|EN-IN|
-|Malásia|Inglês|en-MY|
-|Nova Zelândia|Inglês|EN-NZ|
-|República das Filipinas|Inglês|en-PH|
-|Singapura|Inglês|en-SG|
-|Estados Unidos|Inglês|en-US|
-|Inglês|Geral|en-WW|
-|Inglês|Geral|en-XA|
-|África do Sul|Inglês|en-ZA|
+|Austrália|Português|EN-AU|
+|Canadá|Português|en-CA|
+|Reino Unido|Português|en-GB|
+|Indonésia|Português|en-ID|
+|Irlanda|Português|EN-IE|
+|Índia|Português|EN-IN|
+|Malásia|Português|en-MY|
+|Nova Zelândia|Português|EN-NZ|
+|República das Filipinas|Português|en-PH|
+|Singapura|Português|en-SG|
+|Estados Unidos|Português|en-US|
+|Português|Geral|en-WW|
+|Português|Geral|en-XA|
+|África do Sul|Português|en-ZA|
 |Argentina|Espanhol|es-AR|
 |Chile|Espanhol|es-CL|
 |Espanha|Espanhol|es-ES|
@@ -64,7 +64,7 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |Suíça|Francês|FR-CH|
 |França|Francês|FR-FR|  
 |Itália|Italiano|it-IT|
-|R.A.E. Hong Kong|Chinês tradicional|zh-HK|  
+|RAE de Hong Kong|Chinês tradicional|zh-HK|  
 |Taiwan|Chinês tradicional|zh-TW|
 |Japão|Japonês|ja-JP|  
 |Coreia|Coreano|ko-KR|  
@@ -84,10 +84,10 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Alemanha|Alemão|de-DE|
-|Austrália|Inglês|EN-AU|
-|Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|en-US|
-|Inglês|Geral|en-WW|
+|Austrália|Português|EN-AU|
+|Reino Unido|Português|en-GB|
+|Estados Unidos|Português|en-US|
+|Português|Geral|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
 |Estados Unidos|Espanhol|es-US|
@@ -106,11 +106,11 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 |País/região|Idioma|Código do mercado|  
 |---------------------|--------------|-----------------|
 |Alemanha|Alemão|de-DE|
-|Austrália|Inglês|EN-AU|
-|Reino Unido|Inglês|en-GB|
-|Estados Unidos|Inglês|en-US|
-|Canadá|Inglês|en-CA|
-|Índia|Inglês|EN-IN|
+|Austrália|Português|EN-AU|
+|Reino Unido|Português|en-GB|
+|Estados Unidos|Português|en-US|
+|Canadá|Português|en-CA|
+|Índia|Português|EN-IN|
 |França|Francês|FR-FR|
 |Canadá|Francês|fr-CA|
 |Brasil|Português|pt-BR|
@@ -122,30 +122,30 @@ Para obter uma lista de país/região códigos que especifique no `cc` parâmetr
 
 Seguem-se os códigos de país/região que pode especificar o `cc` parâmetro de consulta. A lista está sujeita a alterações.  
 
-|País/região|Indicativo|  
+|País/região|Indicativo do país|  
 |---------------------|------------------|  
 |Argentina|AR|  
 |Austrália|AU|  
 |Áustria|AT|  
 |Bélgica|BE|  
 |Brasil|BR|  
-|Canadá|AC|  
+|Canadá|CA|  
 |Chile|CL|  
 |Dinamarca|DK|  
 |Finlândia|FI|  
 |França|FR|  
 |Alemanha|DE|  
-|R.A.E. Hong Kong|HK|  
+|RAE de Hong Kong|HK|  
 |Índia|IN|  
 |Indonésia|ID|  
-|Itália|it|  
+|Itália|TI|  
 |Japão|JP|  
 |Coreia|KR|  
 |Malásia|MY|  
 |México|MX|  
 |Países Baixos|NL|  
 |Nova Zelândia|NZ|  
-|Noruega|NÃO|  
+|Noruega|NO|  
 |República Popular da China|CN|  
 |Polónia|PL|  
 |Portugal|PT|  
@@ -162,4 +162,4 @@ Seguem-se os códigos de país/região que pode especificar o `cc` parâmetro de
 |Estados Unidos|EUA|
 
 ## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações sobre os pontos de extremidade de pesquisa do Bing notícias, consulte [referência da API de pesquisa de notícias v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference).
+Para obter mais informações sobre os pontos de extremidade de pesquisa do Bing notícias, consulte [referência da API de pesquisa de notícias v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).

@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/11/2018
+ms.date: 05/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 0d1e269a1818f013bc14842bc541216d7f31bc84
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 69b83590fb9b25c68d231b732b985ba633bb6884
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60311139"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399208"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefactos personalizados para a máquina virtual do DevTest Labs
 
@@ -53,7 +53,7 @@ O exemplo seguinte mostra as secções que compõem a estrutura básica de um fi
       }
     }
 
-| Nome do elemento | Necessário? | Descrição |
+| Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
 | $schema |Não |Localização do ficheiro de esquema JSON. O ficheiro de esquema JSON pode ajudar a testar a validade do arquivo de definição. |
 | título |Sim |Nome do artefacto apresentado no laboratório. |
@@ -76,9 +76,9 @@ Para definir os parâmetros, utilize a seguinte estrutura:
       }
     }
 
-| Nome do elemento | Necessário? | Descrição |
+| Nome do elemento | Obrigatório? | Descrição |
 | --- | --- | --- |
-| tipo |Sim |Tipo de valor do parâmetro. Veja a seguir uma lista de tipos permitidos. |
+| type |Sim |Tipo de valor do parâmetro. Veja a seguir uma lista de tipos permitidos. |
 | displayName |Sim |Nome do parâmetro que é apresentado a um utilizador no laboratório. |
 | description |Sim |Descrição do parâmetro que é apresentado no laboratório. |
 
@@ -89,14 +89,39 @@ Tipos permitidos são:
 * bool (qualquer JSON booleanos válidos)
 * matriz (qualquer matriz JSON válido)
 
+## <a name="secrets-as-secure-strings"></a>Segredos como cadeias de caracteres seguras
+Declare segredos como cadeias de caracteres seguras. Aqui é a sintaxe para declarar um parâmetro de cadeia segura dentro do `parameters` secção do **artifactfile.json** ficheiro:
+
+```json
+
+    "securestringParam": {
+      "type": "securestring",
+      "displayName": "Secure String Parameter",
+      "description": "Any text string is allowed, including spaces, and will be presented in UI as masked characters.",
+      "allowEmpty": false
+    },
+```
+
+Para o artefacto de comando de instalação, execute o script do PowerShell que usa a cadeia de caracteres de segura criada com o comando de ConvertTo-SecureString. 
+
+```json
+  "runCommand": {
+    "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./artifact.ps1 -StringParam ''', parameters('stringParam'), ''' -SecureStringParam (ConvertTo-SecureString ''', parameters('securestringParam'), ''' -AsPlainText -Force) -IntParam ', parameters('intParam'), ' -BoolParam:$', parameters('boolParam'), ' -FileContentsParam ''', parameters('fileContentsParam'), ''' -ExtraLogLines ', parameters('extraLogLines'), ' -ForceFail:$', parameters('forceFail'), '\"')]"
+  }
+```
+
+Para o artifactfile.json de exemplo completo e o artifact.ps1 (script do PowerShell), consulte [esta amostra no GitHub](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts/windows-test-paramtypes).
+
+Outro ponto importante a ser observado é não iniciar segredos para a consola como saída é capturada para a depuração do utilizador. 
+
 ## <a name="artifact-expressions-and-functions"></a>Expressões de artefacto e funções
 Pode utilizar expressões e funções para construir o artefacto de comando de instalação.
 As expressões são colocadas entre parênteses Retos ([e]) e são avaliadas quando o artefacto que está instalado. As expressões podem aparecer em qualquer lugar num valor de cadeia de caracteres do JSON. Expressões sempre retornam um valor JSON diferente. Se precisar de utilizar uma cadeia literal que começa com um colchete ([]), tem de utilizar dois Retos ([[).
-Normalmente, usar expressões com as funções para construir um valor. Tal como no JavaScript, chamadas de função são formatadas como **functionName (arg1, arg2, arg3)**.
+Normalmente, usar expressões com as funções para construir um valor. Tal como no JavaScript, chamadas de função são formatadas como **functionName (arg1, arg2, arg3)** .
 
 A lista seguinte mostra as funções comuns:
 
-* **parameters(parameterName)**: Devolve um valor de parâmetro que é fornecido quando o comando de artefacto é executado.
+* **parameters(parameterName)** : Devolve um valor de parâmetro que é fornecido quando o comando de artefacto é executado.
 * **concat (arg1, arg2, arg3,...)** : Combina vários valores de cadeia de caracteres. Essa função pode ter vários argumentos.
 
 O exemplo seguinte mostra como utilizar expressões e funções para construir um valor:

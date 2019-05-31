@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 0de4da5792553b8e61ce8116988dc0d0b2c55488
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 3f4ef7f333525d7408d0345b917102cddb295386
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66130990"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255473"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentar aplicações web no tempo de execução com o Monitor de estado do Application Insights
 
@@ -177,7 +177,7 @@ Elimine qualquer um desses arquivos encontrados no diretório da aplicação:
 
 * Consulte adicional [resolução de problemas][qna].
 
-## <a name="system-requirements"></a>Requisitos do Sistema
+## <a name="system-requirements"></a>Requisitos de Sistema
 Suporte de SO para o Monitor de Estado do Application Insights no Servidor:
 
 * Windows Server 2008
@@ -321,7 +321,6 @@ Ver a telemetria:
 * [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorizar o desempenho e a utilização
 * [Pesquise eventos e registos][diagnostic] para diagnosticar problemas
 * [Análise](../../azure-monitor/app/analytics.md) para obter mais informações avançadas consultas
-* [Criar dashboards](../../azure-monitor/app/app-insights-dashboards.md)
 
 Adicionar mais telemetria:
 

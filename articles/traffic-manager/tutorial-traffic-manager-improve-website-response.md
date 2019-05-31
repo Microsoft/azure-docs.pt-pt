@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
 ms.author: allensu
-ms.openlocfilehash: 8f64e3aa7cbe5441df1861b3176cc7e2072afa2a
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
-ms.translationtype: HT
+ms.openlocfilehash: 304beeae02da5836ba88a56d7166fc681e263501
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991977"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258363"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>Tutorial: Melhorar a resposta do Web site utilizando o Gestor de tráfego
 
@@ -41,7 +41,7 @@ Para ver o Gestor de Tráfego em ação, este tutorial requer que implemente o s
 - duas instâncias do Web sites basic em execução em diferentes regiões do Azure - **E.U.A. Leste** e **Europa Ocidental**.
 - dois VMs de teste para testar o Gestor de tráfego - uma VM na **E.U.A. Leste** e a segunda VM na **Europa Ocidental**. O teste de VMs são usados para ilustrar como o Gestor de tráfego encaminha o tráfego de utilizador para o site no qual está em execução na mesma região pois ele fornece a latência mais baixa.
 
-### <a name="sign-in-to-azure"></a>Inicie sessão no  Azure
+### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -54,7 +54,7 @@ Nesta secção, vai criar duas instâncias do site que fornecem os dois pontos f
 
 #### <a name="create-vms-for-running-websites"></a>Criar VMs para a execução de sites
 
-Nesta secção, irá criar duas VMs, *myIISVMEastUS* e *myIISVMWEurope*, nas regiões **E.U.A. Leste** e **Europa Ocidental** do Azure.
+Nesta secção, vai criar duas VMs *myIISVMEastUS* e *myIISVMWestEurope* no **E.U.A. Leste** e **Europa Ocidental** regiões do Azure.
 
 1. No canto superior, esquerda do portal do Azure, selecione **criar um recurso** > **computação** > **2019 do Windows Server Datacenter**.
 2. Na **criar uma máquina virtual**, escreva ou selecione os seguintes valores no **Noções básicas** separador:
@@ -70,14 +70,14 @@ Nesta secção, irá criar duas VMs, *myIISVMEastUS* e *myIISVMWEurope*, nas reg
 3. Selecione o **gerenciamento** separador ou selecione **seguinte: Discos**, em seguida, **seguinte: Networking**, em seguida, **seguinte: Gestão**. Sob **monitorização**, defina **diagnósticos de arranque** para **desativar**.
 4. Selecione **Rever + criar**.
 5. Reveja as definições e, em seguida, clique em **criar**.  
-6. Siga os passos para criar uma segunda VM denominada *myIISVMWEurope*, com um **grupo de recursos** nome do *myResourceGroupTM2*, um **localização** dos *Europa Ocidental*e todas as outras definições igual *myIISVMEastUS*.
+6. Siga os passos para criar uma segunda VM denominada *myIISVMWestEurope*, com um **grupo de recursos** nome do *myResourceGroupTM2*, um **localização**dos *Europa Ocidental*e todas as outras definições igual *myIISVMEastUS*.
 7. A criação das VMs demora alguns minutos. Não prossiga com os restantes passos até que ambas as VMs tenham sido criadas.
 
    ![Criar uma VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Instalar o IIS e personalizar a página Web predefinida
 
-Nesta secção, instale o servidor do IIS nas duas VMs - *myIISVMEastUS* & *myIISVMWEurope* e, em seguida, atualize a página predefinida do site. Quando visitar o site de um browser, a página personalizada do site mostra o nome da VM à qual se está a ligar.
+Nesta secção, instalar o servidor IIS em duas VMs *myIISVMEastUS* e *myIISVMWestEurope*e, em seguida, atualize a página de Web site predefinido. Quando visitar o site de um browser, a página personalizada do site mostra o nome da VM à qual se está a ligar.
 
 1. Selecione **Todos os recursos** no menu do lado esquerdo e, na lista de recursos, clique na *myIISVMEastUS* que se encontra localizada no grupo de recursos *myResourceGroupTM1*.
 2. Na página **Descrição geral**, clique em **Ligar** e, em seguida, em **Ligar à máquina virtual**, selecione **Transferir ficheiro RDP**.
@@ -100,11 +100,11 @@ Nesta secção, instale o servidor do IIS nas duas VMs - *myIISVMEastUS* & *myII
 
      ![Instalar o IIS e personalizar a página Web](./media/tutorial-traffic-manager-improve-website-response/deployiis.png)
 8. Feche a ligação RDP a *myIISVMEastUS*.
-9. Repita os passos 1 a 8 através da criação de uma ligação RDP à VM *myIISVMWEurope* dentro do grupo de recursos *myResourceGroupTM2* para instalar o IIS e personalizar a página predefinida do site.
+9. Repita os passos 1 a 8 com através da criação de uma ligação RDP com a VM *myIISVMWestEurope* dentro do *myResourceGroupTM2* grupo de recursos para instalar o IIS e personalizar a sua página da web padrão.
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Configurar os nomes DNS para as VMs que executam o IIS
 
-O Gestor de Tráfego encaminha o tráfego do utilizador, baseando-se no nome DNS dos pontos finais do serviço. Nesta secção, vai configurar os nomes DNS para os servidores IIS - *myIISVMEastUS* e *myIISVMWEurope*.
+O Gestor de Tráfego encaminha o tráfego do utilizador, baseando-se no nome DNS dos pontos finais do serviço. Nesta secção, vai configurar os nomes DNS para os servidores IIS - *myIISVMEastUS* e *myIISVMWestEurope*.
 
 1. Clique em **Todos os recursos** no menu do lado esquerdo e, na lista de recursos, selecione *myIISVMEastUS* que se encontra localizado no grupo de recursos *myResourceGroupTM1*.
 2. Na página **Descrição geral**, em **Nome DNS**, selecione **Configurar**.
@@ -113,7 +113,7 @@ O Gestor de Tráfego encaminha o tráfego do utilizador, baseando-se no nome DNS
 
 ### <a name="create-test-vms"></a>Criar VMs de teste
 
-Nesta secção, vai criar uma VM (*mVMEastUS* e *myVMWestEurope*) em cada região do Azure (**E.U.A. Leste** e **Europa Ocidental**. Irá utilizar estas VMs para testar a forma como o Gestor de Tráfego encaminha o tráfego para o servidor do IIS mais próximo quando navega até ao site.
+Nesta secção, vai criar uma VM (*myVMEastUS* e *myVMWestEurope*) em cada região do Azure (**E.U.A. Leste** e **Europa Ocidental**). Irá utilizar estas VMs para testar a forma como o Gestor de Tráfego encaminha o tráfego para o servidor do IIS mais próximo quando navega até ao site.
 
 1. No canto superior, esquerda do portal do Azure, selecione **criar um recurso** > **computação** > **2019 do Windows Server Datacenter**.
 2. Na **criar uma máquina virtual**, escreva ou selecione os seguintes valores no **Noções básicas** separador:
@@ -152,7 +152,7 @@ Crie um perfil do Gestor de tráfego que direciona o tráfego de utilizadores, e
 
 ## <a name="add-traffic-manager-endpoints"></a>Adicionar pontos finais do Gestor de Tráfego
 
-Adicione as duas VMs com o IIS servidores – *myIISVMEastUS* & *myIISVMWEurope* para encaminhar o tráfego de utilizador para o ponto final mais próximo ao usuário.
+Adicione as duas VMs com o IIS servidores – *myIISVMEastUS* & *myIISVMWestEurope* para encaminhar o tráfego de utilizador para o ponto final mais próximo ao usuário.
 
 1. Na barra de pesquisa do portal, procure o nome do perfil do Gestor de Tráfego que criou na secção anterior e selecione-o nos resultados apresentados.
 2. Em **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais** e em **Adicionar**.
@@ -166,7 +166,7 @@ Adicione as duas VMs com o IIS servidores – *myIISVMEastUS* & *myIISVMWEurope*
     | Recurso de destino          | **Escolha um endereço IP público** para mostrar a lista de recursos com endereços IP públicos na mesma subscrição. Em **Recurso**, selecione o endereço IP público com o nome *myIISVMEastUS-ip*. Este é o endereço IP público da VM do servidor do IIS na região E.U.A. Leste.|
     |        |           |
 
-4. Repita os passos 2 e 3 para adicionar outro ponto final com o nome *myWestEuropeEndpoint* para o endereço IP público *myIISVMWEurope-ip* que está associado a VM com o nome do servidor IIS *myIISVMWEurope* .
+4. Repita os passos 2 e 3 para adicionar outro ponto final com o nome *myWestEuropeEndpoint* para o endereço IP público *myIISVMWestEurope-ip* que está associado a VM com o nome do servidor IIS  *myIISVMWestEurope*.
 5. Quando a adição de ambos os pontos finais estiver concluída, estes são apresentados em **Perfil do Gestor de Tráfego**, juntamente com o respetivo estado de monitorização como **Online**.
 
     ![Adicionar um ponto final do Gestor de Tráfego](./media/tutorial-traffic-manager-improve-website-response/traffic-manager-endpoint.png)
@@ -178,7 +178,7 @@ Nesta secção, vai testar a forma como o Gestor de tráfego encaminha o tráfeg
 1. Determine o nome DNS do perfil do seu Gestor de Tráfego.
 2. Veja o Gestor de Tráfego em ação da forma que se segue:
     - Da VM de teste (*myVMEastUS*) que se encontra no **E.U.A. Leste** região, num browser, navegue para o nome DNS do perfil do Traffic Manager.
-    - Da VM de teste (*myVMEastUS*) que se encontra no **Europa Ocidental** região, num browser, navegue para o nome DNS do perfil do Traffic Manager.
+    - Da VM de teste (*myVMWestEurope*) que se encontra no **Europa Ocidental** região, num browser, navegue para o nome DNS do perfil do Traffic Manager.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Determinar o nome DNS do perfil do Gestor de Tráfego
 
@@ -205,7 +205,7 @@ Nesta seção, pode ver o Gestor de Tráfego em ação.
 
    ![Testar o perfil do Gestor de Tráfego](./media/tutorial-traffic-manager-improve-website-response/eastus-traffic-manager-test.png)
 
-2. Em seguida, ligar à VM *myVMWestEurope* localizado na **Europa Ocidental** utilize os passos 1 a 5 e navegue para o nome de domínio de perfil do Gestor de tráfego desta VM. Uma vez que a VM localizado em **Europa Ocidental**, agora é encaminhados para o Web site alojado no mais próximo do servidor do IIS *myIISVMWEurope* que se encontra no **Europa Ocidental**.
+2. Em seguida, ligar à VM *myVMWestEurope* localizado na **Europa Ocidental** utilize os passos 1 a 5 e navegue para o nome de domínio de perfil do Gestor de tráfego desta VM. Uma vez que a VM localizado em **Europa Ocidental**, agora é encaminhados para o Web site alojado no mais próximo do servidor do IIS *myIISVMWestEurope* que se encontra no **Europa Ocidental**.
 
    ![Testar o perfil do Gestor de Tráfego](./media/tutorial-traffic-manager-improve-website-response/westeurope-traffic-manager-test.png)
 

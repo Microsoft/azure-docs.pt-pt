@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2269eac0790e61dbf0ce893bbb737cb22d58d497
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: d4e1ad106b928c41bd6940d7c3713b5fb34afe3a
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002482"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389115"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Iniciar/parar VMs durante a solução de horário comercial na automatização do Azure
 
@@ -71,7 +71,8 @@ Para implementar o iniciar/parar VMs durante a solução de horas para uma conta
 | Microsoft.OperationsManagement/solutions/write | Grupo de Recursos |
 | Microsoft.OperationalInsights/workspaces/* | Grupo de Recursos |
 | Microsoft.Insights/diagnosticSettings/write | Grupo de Recursos |
-| Microsoft.Insights/ActionGroups/WriteMicrosoft.Insights/ActionGroups/read | Grupo de Recursos |
+| Microsoft.Insights/ActionGroups/Write | Grupo de Recursos |
+| Microsoft.Insights/ActionGroups/read | Grupo de Recursos |
 | Microsoft.Resources/subscriptions/resourceGroups/read | Grupo de Recursos |
 | Microsoft.Resources/deployments/* | Grupo de Recursos |
 
@@ -138,7 +139,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
 
    Aqui, lhe for pedido para:
    - Especifique a **nomes de ResourceGroup de destino**. Estes valores são os nomes de grupo de recursos que contêm as VMs a ser geridas por esta solução. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). Se quiser segmentar todas as VMs em todos os grupos de recursos da subscrição, a utilização de um caráter universal é suportada. Este valor é armazenado no **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** variáveis.
-   - Especifique a **lista de exclusões de VM (cadeia)**. Este valor é o nome de um ou mais máquinas virtuais do grupo de recursos de destino. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). A utilização de um caráter universal é suportada. Este valor é armazenado no **External_ExcludeVMNames** variável.
+   - Especifique a **lista de exclusões de VM (cadeia)** . Este valor é o nome de um ou mais máquinas virtuais do grupo de recursos de destino. Pode introduzir mais de um nome e separar cada um com uma vírgula (valores não diferenciam maiúsculas de minúsculas). A utilização de um caráter universal é suportada. Este valor é armazenado no **External_ExcludeVMNames** variável.
    - Selecione um **agenda**. Este valor é uma data e hora recorrente para iniciar e parar as VMs em grupos de recursos de destino. Por predefinição, a agenda está configurada para 30 minutos a partir de agora. Selecionar uma região diferente não está disponível. Para configurar a agenda para o seu fuso horário específico depois de configurar a solução, consulte [modificar a agenda de arranque e encerramento](#modify-the-startup-and-shutdown-schedules).
    - Para receber **notificações por E-Mail** de um grupo de ação, aceite o valor predefinido **Sim** e fornecer um endereço de e-mail válido. Se selecionou **não** mas decidir posteriormente que pretende receber notificações por e-mail, pode atualizar o [grupo de ação](../azure-monitor/platform/action-groups.md) que é criada com endereços de e-mail válidos separados por vírgulas. Também tem de ativar as seguintes regras de alerta:
 
@@ -147,7 +148,7 @@ Execute os seguintes passos para adicionar a iniciar/parar VMs durante a soluç�
      - Sequenced_StartStop_Parent
 
      > [!IMPORTANT]
-     > O valor predefinido para **nomes de ResourceGroup de destino** é um **&ast;**. Isto destina-se todas as VMs numa subscrição. Se não pretender que a solução para todas as VMs na sua subscrição, que este valor tem de ser atualizado para uma lista de nomes de grupo de recursos antes de ativar as agendas de destino.
+     > O valor predefinido para **nomes de ResourceGroup de destino** é um **&ast;** . Isto destina-se todas as VMs numa subscrição. Se não pretender que a solução para todas as VMs na sua subscrição, que este valor tem de ser atualizado para uma lista de nomes de grupo de recursos antes de ativar as agendas de destino.
 
 8. Depois de ter configurado as definições iniciais necessárias para a solução, clique em **OK** para fechar a **parâmetros** página e selecione **criar**. Depois de todas as definições são validadas, a solução é implementada na sua subscrição. Este processo pode demorar vários segundos a concluir, e pode acompanhar o progresso em **notificações** no menu.
 
@@ -250,9 +251,9 @@ Incluir todos os runbooks do principal do _WhatIf_ parâmetro. Quando definido c
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | Chamada do runbook principal. Este runbook cria alertas numa base por recurso para o cenário de AutoStop.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: VERDADEIRO ou FALSO  | Cria ou atualiza as regras de alerta do Azure nas VMs nos grupos de subscrição ou ao recurso de destino. <br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_.<br> *WhatIf* valida a lógica de runbook sem executar.|
-|AutoStop_Disable | nenhum | Desativa AutoStop alertas e a agenda predefinida.|
+|AutoStop_Disable | Nenhum | Desativa AutoStop alertas e a agenda predefinida.|
 |AutoStop_StopVM_Child | WebHookData | Chamada do runbook principal. Regras de alerta chamam este runbook para parar a VM.|
-|Bootstrap_Main | nenhum | Utilizado uma vez para definir configurações de arranque do sistema, tais como webhookURI, que normalmente não são acessíveis a partir do Azure Resource Manager. Este runbook é removido automaticamente após a implementação com êxito.|
+|Bootstrap_Main | Nenhum | Utilizado uma vez para definir configurações de arranque do sistema, tais como webhookURI, que normalmente não são acessíveis a partir do Azure Resource Manager. Este runbook é removido automaticamente após a implementação com êxito.|
 |ScheduledStartStop_Child | VMName <br> Ação: Iniciar ou parar <br> ResourceGroupName | Chamada do runbook principal. Executa uma ação iniciar ou parar para a parada agendada.|
 |ScheduledStartStop_Parent | Ação: Iniciar ou parar <br>VMList <br> WhatIf: VERDADEIRO ou FALSO | Esta definição afeta todas as VMs na subscrição. Editar a **External_Start_ResourceGroupNames** e **External_Stop_ResourceGroupNames** ser executado somente sobre esses grupos de recursos de destino. Também pode excluir VMs específicas ao atualizar o **External_ExcludeVMNames** variável.<br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_.<br> _WhatIf_ valida a lógica de runbook sem executar.|
 |SequencedStartStop_Parent | Ação: Iniciar ou parar <br> WhatIf: VERDADEIRO ou FALSO<br>VMList| Criar etiquetas com o nome **sequencestart** e **sequencestop** em cada VM para o qual pretende que a atividade de início/paragem de sequência. Esses nomes de marca diferenciam maiúsculas de minúsculas. O valor da etiqueta deve ser um número inteiro positivo (1, 2, 3) que corresponde à ordem na qual pretende iniciar ou parar. <br> VMList: Lista separada por vírgulas de VMs. Por exemplo, _vm1, vm2, vm3_. <br> _WhatIf_ valida a lógica de runbook sem executar. <br> **Nota**: As VMs devem estar em grupos de recursos definidos como External_Start_ResourceGroupNames External_Stop_ResourceGroupNames e External_ExcludeVMNames em variáveis de automatização do Azure. Têm de ter as etiquetas adequadas para ações entrem em vigor.|
@@ -327,7 +328,7 @@ A automatização cria dois tipos de registos na área de trabalho do Log Analyt
 |Category | Classificação do tipo de dados. Para a Automatização, o valor é JobStreams.|
 |JobId | GUID que é o ID do trabalho do runbook.|
 |operationName | Especifica o tipo de operação efetuada no Azure. Para a automatização, o valor é o trabalho.|
-|GrupoRecursos | Especifica o nome do grupo de recursos do trabalho do runbook.|
+|ResourceGroup | Especifica o nome do grupo de recursos do trabalho do runbook.|
 |resourceId | Especifica o ID de recurso no Azure. Para a Automatização, o valor é a conta de Automatização associada ao runbook.|
 |ResourceProvider | Especifica o serviço do Azure que fornece os recursos que pode implementar e gerir. Para a Automatização, o valor é Automatização do Azure.|
 |ResourceType | Especifica o tipo de recurso no Azure. Para a Automatização, o valor é a conta de Automatização associada ao runbook.|
@@ -421,7 +422,7 @@ Para eliminar a solução, execute os seguintes passos:
 1. Da sua conta de automatização, sob **recursos relacionados**, selecione **ligado área de trabalho**.
 1. Selecione **vá para a área de trabalho**.
 1. Sob **gerais**, selecione **soluções**. 
-1. Sobre o **soluções** , selecione a solução **Start-Stop-VM [Workspace]**. Sobre o **VMManagementSolution [Workspace]** página, no menu, selecione **eliminar**.<br><br> ![Eliminar solução de gerenciamento VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
+1. Sobre o **soluções** , selecione a solução **Start-Stop-VM [Workspace]** . Sobre o **VMManagementSolution [Workspace]** página, no menu, selecione **eliminar**.<br><br> ![Eliminar solução de gerenciamento VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
 1. Na **Eliminar solução** janela, confirme que pretende eliminar a solução.
 1. Enquanto as informações são confirmadas e a solução é eliminada, pode acompanhar o progresso em **notificações** no menu. É reencaminhado para o **soluções** página depois do processo para remover a solução é iniciado.
 

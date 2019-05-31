@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/28/2018
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9da9c6c438aac2c160a9ec7bc658e5d7b4ea207e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: cf1a6ffa61b41af5abd20dac13b85024001d2ed2
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64715184"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66394001"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight com o portal do Azure
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -42,7 +42,7 @@ O portal do Azure expõe a maior parte das propriedades do cluster. Ao utilizar 
    
     ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "criar um novo cluster no portal do Azure")
 
-1. Sobre o **HDInsight** página, selecione **personalizado (tamanho, definições, aplicações)**.
+1. Sobre o **HDInsight** página, selecione **personalizado (tamanho, definições, aplicações)** .
 
 1. Selecione **Noções básicas de 1**. Em seguida, introduza as seguintes informações.
 
@@ -92,7 +92,7 @@ O portal do Azure expõe a maior parte das propriedades do cluster. Ao utilizar 
      Selecione **seguinte** para mover para a página seguinte.
 
 
-6. Partir **4 aplicações (opcional)**, selecione todas as aplicações que pretende. Microsoft, fornecedores independentes de software (ISVs) ou pode desenvolver esses aplicativos. Para obter mais informações, consulte [instalar aplicações durante a criação do cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
+6. Partir **4 aplicações (opcional)** , selecione todas as aplicações que pretende. Microsoft, fornecedores independentes de software (ISVs) ou pode desenvolver esses aplicativos. Para obter mais informações, consulte [instalar aplicações durante a criação do cluster](hdinsight-apps-install-applications.md#install-applications-during-cluster-creation).
 
     Selecione **seguinte** para mover para a página seguinte.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 024e007a34f71256d5cd148720412a0c57bb74ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2936b94d7ba791b1a4e5a9b95aca3ca3ecdb5904
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240529"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66383440"
 ---
 # <a name="get-trending-images-from-the-web"></a>Obter imagens populares da web
 
@@ -39,7 +39,7 @@ A API de imagens populares atualmente suporta apenas os mercados seguintes:
 - EN-AU (inglês, Austrália)  
 - zh-CN (Chinese, China)
 
-A resposta contém um [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) objeto que apresenta uma lista de imagens por categoria. Utilize a categoria `title` para agrupar as imagens na sua experiência de utilizador. As categorias podem ser alterados diariamente.  
+A resposta contém um [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#trendingimages) objeto que apresenta uma lista de imagens por categoria. Utilize a categoria `title` para agrupar as imagens na sua experiência de utilizador. As categorias podem ser alterados diariamente.  
 
 ```json
 {
@@ -90,7 +90,7 @@ A resposta contém um [TrendingImages](https://docs.microsoft.com/rest/api/cogni
 
 Cada mosaico contém uma imagem e opções para obter imagens relacionadas. Para obter as imagens relacionadas, pode utilizar a consulta `text` para chamar o [API de pesquisa de imagens](./search-the-web.md) e apresentar as imagens relacionadas por conta própria. Em alternativa, pode utilizar o URL na `webSearchUrl` para levar o usuário a página resultados do Bing imagens pesquisa, que contém as imagens relacionadas.
 
-Se chamar a API de pesquisa de imagens para obter as imagens relacionadas, definir o [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) parâmetro para o ID de consulta o `id` campo. Especificação do ID garante que a resposta contém a imagem (é a primeira imagem na resposta) e suas imagens relacionadas. Além disso, defina o [p](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) parâmetro no texto da consulta a `query` do objeto `text` campo.
+Se chamar a API de pesquisa de imagens para obter as imagens relacionadas, definir o [id](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#id) parâmetro para o ID de consulta o `id` campo. Especificação do ID garante que a resposta contém a imagem (é a primeira imagem na resposta) e suas imagens relacionadas. Além disso, defina o [p](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference) parâmetro no texto da consulta a `query` do objeto `text` campo.
 
 O exemplo seguinte mostra como utilizar o ID da imagem para obter imagens relacionadas do SR. Smith na resposta da API de imagens populares anterior.
 

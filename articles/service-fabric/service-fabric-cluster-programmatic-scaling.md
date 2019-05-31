@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 128f28d2a8b97feb3d20c34b7468b60c446a78a6
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62111308"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306936"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Dimensionar um cluster do Service Fabric através de programação 
 
@@ -33,7 +33,7 @@ Um desafio de escrever um serviço para processar o dimensionamento é que o ser
 
 Um principal de serviço pode ser criado com os seguintes passos:
 
-1. Inicie sessão na CLI do Azure (`az login`) como um utilizador com acesso ao dimensionamento da máquina virtual definido
+1. Entrar para a CLI do Azure (`az login`) como um utilizador com acesso ao dimensionamento da máquina virtual definido
 2. Criar principal com o tipo de serviço `az ad sp create-for-rbac`
     1. Anote o appId (chamado de "ID de cliente" em outro lugar), o nome, a palavra-passe e o inquilino para utilização posterior.
     2. Também precisará de ID da subscrição, que pode ser vista com `az account list`

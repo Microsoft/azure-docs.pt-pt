@@ -7,16 +7,20 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: 4efd9556e255709204654cf0acbf1b08fa2c1fc0
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
-ms.translationtype: MT
+ms.openlocfilehash: d240fd7097f0dc284377063df72efd888c09adb6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872143"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258102"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versão de APIs de preenchimento do SaaS 2 
 
 Este artigo fornece detalhes sobre a API que permite que fornecedores independentes de software (ISVs) para vender as suas aplicações SaaS no Azure Marketplace e AppSource. Esta API é que um requisito para transactable SaaS oferece no Azure Marketplace e AppSource.
+
+> [!IMPORTANT] 
+> SaaS oferecem funcionalidade tiver sido migrada para o [Microsoft Partner Center](https://partner.microsoft.com/dashboard/directory).  Todos os novos editores tem de utilizar Centro de parceiros para novas ofertas de SaaS de criação e gestão de ofertas existentes.  Os publicadores atuais com ofertas de SaaS estão a ser batchwise migrados do Portal de parceiros da Cloud para o Centro de parceiros.  O Portal de parceiros da Cloud irá apresentar mensagens de estado para indicar quando ofertas existentes específicas foram migradas.
+> Para obter mais informações, consulte [crie uma nova oferta SaaS](../../partner-center-portal/create-new-saas-offer.md).
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>Gerir o ciclo de vida de subscrição de SaaS
 
@@ -35,7 +39,7 @@ Quando um cliente inicia uma compra, o ISV recebe essas informações num códig
 
 ![Chamadas de API para o aprovisionamento de um serviço SaaS.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Aprovisionado
+#### <a name="provisioned"></a>Aprovisionada
 
 Este estado é o estado estável de um serviço aprovisionado.
 
@@ -61,7 +65,7 @@ Este estado indica que o pagamento de um cliente ainda não foi recebido. Por po
 - A subscrição têm de ser mantida num Estado recuperável que pode restaurar todas as funcionalidades sem qualquer perda de dados ou configurações. 
 - Pode esperar obter um pedido de restabelecimento para esta subscrição através do preenchimento de API ou um pedido de desprovisionamento no final do período de tolerância. 
 
-#### <a name="unsubscribed"></a>Com subscrição anulada 
+#### <a name="unsubscribed"></a>Anulada 
 
 Subscrições atingir esse Estado em resposta a um pedido de cliente explícita ou como uma resposta para o não pagamento das tributos que se. A expectativa do ISV é que os dados do cliente são mantidos para a recuperação no pedido para um mínimo de X dias e, em seguida, eliminados. 
 
@@ -127,7 +131,7 @@ Response body:
 ```
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Pedido incorreto. x-ms-marketplace-token está em falta, com formato incorreto ou expirado.
@@ -136,7 +140,7 @@ Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
 
 Código: 500<br>
-Erro Interno do Servidor
+Erro de servidor interno
 
 ```json
 {
@@ -152,7 +156,7 @@ Erro Interno do Servidor
 A API de subscrição suporta as seguintes operações de HTTPS: **Obtenha**, **Post**, **Patch**, e **eliminar**.
 
 
-#### <a name="list-subscriptions"></a>Listar subscrições
+#### <a name="list-subscriptions"></a>Lista de subscrições
 
 Apresenta uma lista de todas as subscrições de SaaS para um publicador.
 
@@ -270,13 +274,13 @@ Response Body:
 ```
 
 Código: 404<br>
-Não Encontrado<br> 
+Não foi encontrado<br> 
 
 Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
 
 Código: 500<br>
-Erro Interno do Servidor<br>
+Erro de servidor interno<br>
 
 ```json
 {
@@ -325,13 +329,13 @@ Corpo da resposta:
 ```
 
 Código: 404<br>
-Não Encontrado<br> 
+Não foi encontrado<br> 
 
 Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual. <br> 
 
 Código: 500<br>
-Erro Interno do Servidor<br>
+Erro de servidor interno<br>
 
 ```json
 { 
@@ -376,7 +380,7 @@ Código: 200<br>
 Ativa a subscrição.<br>
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Falhas de validação de pedido incorreto
@@ -385,7 +389,7 @@ Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
 
 Código: 500<br>
-Erro Interno do Servidor
+Erro de servidor interno
 
 ```json
 {
@@ -439,7 +443,7 @@ Código: 202<br>
 O pedido para alterar o plano foi aceite. O ISV é esperado para consultar a localização de operação para determinar uma êxito/falha. <br>
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Falhas de validação de pedido incorreto.
@@ -451,7 +455,7 @@ Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
 
 Código: 500<br>
-Erro Interno do Servidor
+Erro de servidor interno
 
 ```json
 {
@@ -505,7 +509,7 @@ Código: 202<br>
 Aceite. O pedido para alterar a quantidade de ter sido aceite. O ISV é esperado para consultar a localização de operação para determinar uma êxito/falha. <br>
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Falhas de validação de pedido incorreto.
@@ -517,7 +521,7 @@ Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
 
 Código: 500<br>
-Erro Interno do Servidor
+Erro de servidor interno
 
 ```json
 {
@@ -556,7 +560,7 @@ Código: 202<br>
 Anular a subscrição a chamada de ISV iniciada para indicar uma subscrição de SaaS.<br>
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Eliminar uma subscrição com **elimine** não está no `allowedCustomerOperations`.
@@ -565,7 +569,7 @@ Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
 
 Código: 500<br>
-Erro Interno do Servidor
+Erro de servidor interno
 
 ```json
 {
@@ -624,7 +628,7 @@ Payload de resposta:
 ```
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Falhas de validação de pedido incorreto
@@ -633,7 +637,7 @@ Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
 
 Código: 500<br>
-Erro Interno do Servidor
+Erro de servidor interno
 
 ```json
 {
@@ -687,7 +691,7 @@ Response body:
 ```
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Falhas de validação de pedido incorreto
@@ -695,7 +699,7 @@ Falhas de validação de pedido incorreto
 Código: 403<br>
 Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou o pedido está a tentar aceder a uma aquisição que não pertence ao publicador atual.
  
-Código: 500<br> Erro Interno do Servidor
+Código: 500<br> Erro de servidor interno
 
 ```json
 {
@@ -745,7 +749,7 @@ Atualize o estado de uma operação para indicar êxito/falha com os valores for
 Código: 200<br> Chamada para o informar de conclusão de uma operação no lado do ISV. Por exemplo, esta resposta pode assinalar a alteração dos planos/postos de trabalho.
 
 Código: 404<br>
-Não Encontrado
+Não foi encontrado
 
 Código: 400<br>
 Falhas de validação de pedido incorreto
@@ -756,7 +760,7 @@ Não autorizado. Não foi fornecido o token de autenticação, é inválido, ou 
 Código: 409<br>
 Conflito. Por exemplo, uma transação mais recente já foi cumprida
 
-Código: 500<br> Erro Interno do Servidor
+Código: 500<br> Erro de servidor interno
 
 ```json
 {

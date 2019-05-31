@@ -4,14 +4,14 @@ description: Utilize a CLI do Azure para gerir a conta do Azure Cosmos DB, base 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 4/8/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 1d19e58b2d1381725de490b68d9e4d00a2ca4cb6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 144515fef9da714ab80f15bb39757ed2283c6dd0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66151201"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243383"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Gerir recursos do Cosmos do Azure com a CLI do Azure
 

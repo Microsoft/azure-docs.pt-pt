@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dc208f3231882a0726733c897e70557c657cddf3
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6e627de5b22a67051961e70bab56b2d931129281
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024514"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244807"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Como trabalhar com a pesquisa resulta no Azure Search
 Este artigo fornece orientações sobre como implementar elementos padrão de uma página de resultados de pesquisa, como contagens de totais, obtenção de documento, ordens de classificação e navegação. Opções relacionadas com a página que contribuem com dados ou informações para os resultados da pesquisa são especificadas através da [pesquisar no documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) pedidos enviados para o serviço de pesquisa do Azure. 
 
-Na API do REST, pedidos de incluir um comando GET, caminho e os parâmetros de consulta que informam o serviço, o que está a ser requerido e como a formular a resposta. No SDK do .NET, é a API equivalente [DocumentSearchResult classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult?view=azure-dotnet).
+Na API do REST, pedidos de incluir um comando GET, caminho e os parâmetros de consulta que informam o serviço, o que está a ser requerido e como a formular a resposta. No SDK do .NET, é a API equivalente [DocumentSearchResult classe](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
 Vários exemplos de código incluem uma interface de front-end da web, que pode ser encontrado aqui: [Aplicação de demonstração de tarefas da cidade de nova York](https://azjobsdemo.azurewebsites.net/) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 

@@ -1,5 +1,5 @@
 ---
-title: Importância da carga de trabalho | Documentos da Microsoft
+title: Importância de carga de trabalho do armazém de dados SQL do Azure | Documentos da Microsoft
 description: Documentação de orientação para a definição importância para consultas no armazém de dados SQL do Azure.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 05/01/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 92990b68969e754ee126b6cd5a22ecfa700c0494
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 0147977307ec22134777d6c3e8242a4191362ada
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002890"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233831"
 ---
-# <a name="sql-data-warehouse-workload-importance"></a>Importância da carga de trabalho de armazém de dados SQL
+# <a name="azure-sql-data-warehouse-workload-importance"></a>Importância de carga de trabalho do armazém de dados SQL do Azure
 
 Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução para pedidos do SQL Data Warehouse.
 

@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 24ea6b2b44518b4cf75389585caf42ff6bc6722f
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ce3b7a29f6f57b2bc309c719dbbab6c4574f0a46
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191075"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306496"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Utilizar a encriptação dinâmica e o serviço de entrega de licenças do DRM
 
@@ -74,21 +74,21 @@ Para começar a utilizar as APIs dos Serviços de Multimédia com o .NET, tem de
 
 ## <a name="create-an-output-asset"></a>Criar um elemento de saída  
 
-A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação.  
+A saída [Asset](assets-concept.md) armazena o resultado da tarefa de codificação.  
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateOutputAsset)]
  
 ## <a name="get-or-create-an-encoding-transform"></a>Obter ou criar uma Transformação de codificação
 
-Ao criar uma nova instância [Transformação](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**, conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. 
+Ao criar uma nova instância [Transformação](transforms-jobs-concept.md), tem de especificar o que pretende produzir como uma saída. O parâmetro exigido é uma `transformOutput` de objeto, conforme mostrado no código abaixo. Cada TransformOutput contém um **predefinir**. Configuração predefinida descreve as instruções passo a passo de operações de processamento de vídeo e/ou áudio que devem ser usados para gerar o TransformOutput pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. 
 
-Antes de criar uma nova [Transformação](https://docs.microsoft.com/rest/api/media/transforms), em primeiro lugar deve verificar se já existe uma com o método **Get**, conforme mostrado no código que se segue.  Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
+Antes de criar uma nova **Transformação**, em primeiro lugar deve verificar se já existe uma com o método **Get**, conforme mostrado no código que se segue.  Nos Serviços de Multimédia v3, os métodos **Get** nas entidades devolverão um valor **nulo** se a entidade não existir (uma verificação não sensível a maiúsculas e minúsculas no nome).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#EnsureTransformExists)]
 
 ## <a name="submit-job"></a>Submeter Tarefa
 
-Conforme mencionado acima, o objeto [Transformação](https://docs.microsoft.com/rest/api/media/transforms) é a receita e uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização da saída.
+Conforme mencionado acima, o objeto **Transformação** é a receita e uma [Tarefa](transforms-jobs-concept.md) é o pedido real para os Serviços de Multimédia aplicarem essa **Transformação** a um determinado conteúdo de áudio ou vídeo de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização da saída.
 
 Neste tutorial, vamos criar a entrada da tarefa, com base num ficheiro que é ingerido diretamente a partir de um [URL de origem HTTPs](job-input-from-http-how-to.md).
 
@@ -96,17 +96,17 @@ Neste tutorial, vamos criar a entrada da tarefa, com base num ficheiro que é in
 
 ## <a name="wait-for-the-job-to-complete"></a>Aguardar a conclusão da Tarefa
 
-A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da [Tarefa](https://docs.microsoft.com/rest/api/media/jobs). Utilizar uma consulta não é uma prática recomendada para produzir aplicações devido à potencial latência. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid. Veja [Route events to a custom web endpoint](job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
+A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. O exemplo de código abaixo mostra como consultar o serviço para saber o estado da **Tarefa**. Utilizar uma consulta não é uma prática recomendada para produzir aplicações devido à potencial latência. A consulta poderá ser limitada se for sobreutilizada numa conta. Em alternativa, os programadores devem utilizar o Event Grid. Veja [Route events to a custom web endpoint](job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
 
 O **tarefa** normalmente atravessa os seguintes Estados: **Agendado**, **em fila**, **processamento**, **concluído** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver prestes a ser cancelada, obterá **A cancelar** e **Cancelada** quando terminar.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#WaitForJobToFinish)]
 
-## <a name="create-a-contentkeypolicy"></a>Criar um ContentKeyPolicy
+## <a name="create-a-content-key-policy"></a>Criar uma política de chave de conteúdo
 
-Uma chave de conteúdo fornece acesso seguro aos seus Elementos. Terá de criar uma política de chave de conteúdo que configura a forma como a chave de conteúdo é entregue aos clientes finais. A chave de conteúdo está associada ao StreamingLocator. Os Serviços de Multimédia também fornecem o serviço de entrega de chaves que é responsável pelo fornecimento de chaves e licenças de encriptação aos utilizadores autorizados. 
+Uma chave de conteúdo fornece acesso seguro aos seus Elementos. Tem de criar uma [política de chave de conteúdo](content-key-policy-concept.md) quando encriptar o conteúdo com um DRM. A política configura a forma como a chave de conteúdo é entregue para clientes finais. A chave de conteúdo está associada um localizador de transmissão em fluxo. Os Serviços de Multimédia também fornecem o serviço de entrega de chaves que é responsável pelo fornecimento de chaves e licenças de encriptação aos utilizadores autorizados. 
 
-Tem de definir os requisitos (restrições) na política de chave de conteúdo que têm de ser cumpridos para fornecer as chaves com a configuração especificada. Neste exemplo, definimos as configurações e os requisitos seguintes:
+Tem de definir os requisitos (restrições) sobre o **conteúdo de chave de política** que têm de ser cumpridos para fornecer as chaves com a configuração especificada. Neste exemplo, definimos as configurações e os requisitos seguintes:
 
 * Configuração 
 
@@ -120,19 +120,19 @@ Quando uma transmissão em fluxo é pedida por um leitor, os Serviços de Multim
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 
-## <a name="create-a-streaminglocator"></a>Criar um StreamingLocator
+## <a name="create-a-streaming-locator"></a>Criar um localizador de transmissão em fluxo
 
 Depois de concluída a codificação e de a política de chave de conteúdo estar definida, o passo seguinte consiste em disponibilizar o vídeo no Elemento de saída para reprodução pelos clientes. Isto pode ser conseguido em dois passos: 
 
-1. Criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators)
+1. Criar um [localizador de transmissão em fluxo](streaming-locators-concept.md)
 2. Crie os URLs de transmissão em fluxo que os clientes podem utilizar. 
 
-O processo de criação do **StreamingLocator** denomina-se publicação. Por predefinição, o **StreamingLocator** é válido imediatamente depois de efetuar as chamadas de API e dura até serem eliminadas, a menos que configure as horas de início e de fim opcionais. 
+O processo de criação da **localizador de transmissão em fluxo** é chamado de publicação. Por predefinição, o **localizador de transmissão em fluxo** é válido, imediatamente após fazer as chamadas à API e dura até serem eliminada, a menos que configure o início opcional e de horas de fim. 
 
-Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), tem de especificar o **StreamingPolicyName** pretendido. Neste tutorial, estamos a utilizar uma das StreamingPolicies predefinidas, que diz aos Serviços de Multimédia do Azure como publicar o conteúdo para transmissão em fluxo. Neste exemplo, definimos StreamingLocator.StreamingPolicyName como a política "Predefined_MultiDrmCencStreaming". Esta política indica que pretende que sejam geradas e definidas no localizador duas chaves de conteúdo (envelope e CENC). Por conseguinte, são aplicadas as encriptação de envelope, do PlayReady e do Widevine (a chave é entregue ao cliente para reprodução, com base nas licenças DRM configuradas). Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming". 
+Ao criar um **localizador de transmissão em fluxo**, tem de especificar o desejado `StreamingPolicyName`. Neste tutorial, estamos a utilizar um da transmissão em fluxo políticas predefinidas, que informa ao Media Services do Azure como publicar o conteúdo de transmissão em fluxo. Neste exemplo, definimos StreamingLocator.StreamingPolicyName como a política "Predefined_MultiDrmCencStreaming". Os PlayReady e Widevine encriptações são aplicadas, a chave é entregue ao cliente de reprodução com base em licenças DRM configuradas. Se também quiser encriptar a sua transmissão em fluxo com CBCS (FairPlay), utilize "Predefined_MultiDrmStreaming". 
 
 > [!IMPORTANT]
-> Quando utilizar uma [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, deve conceber um conjunto limitado dessas políticas para a sua conta dos Serviços de Multimédia e utilizá-las novamente para os StreamingLocators sempre que são necessárias as mesmas opções de encriptação e os mesmos protocolos. A conta dos Serviços de Multimédia tem uma quota para o número de entradas de StreamingPolicy. Não deve criar uma nova StreamingPolicy para cada StreamingLocator.
+> Quando utilizar um personalizado [política de transmissão em fluxo](streaming-policy-concept.md), deve criar um conjunto limitado dessas políticas para a sua conta de serviço de suporte de dados e utilizá-los novamente para sua StreamingLocators sempre que as mesmas opções de encriptação e protocolos necessários. A conta dos Serviços de Multimédia tem uma quota para o número de entradas de StreamingPolicy. Não deve criar uma nova StreamingPolicy para cada StreamingLocator.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CreateStreamingLocator)]
 
@@ -140,13 +140,13 @@ Ao criar um [StreamingLocator](https://docs.microsoft.com/rest/api/media/streami
         
 Neste tutorial, vamos especificar que a política de chave de conteúdo tem uma restrição de token. A política de token restrito tem de ser acompanhada por um token emitido por um serviço de tokens seguro (STS). Os Serviços de Multimédia suportam tokens nos formatos [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) e é o que vamos configurar no exemplo.
 
-O ContentKeyIdentifierClaim é utilizado no ContentKeyPolicy, o que significa que o token apresentado ao serviço de entrega de chaves tem de conter o identificador do ContentKey. No exemplo, não especificamos uma chave de conteúdo ao criar o StreamingLocator, pois o sistema cria uma chave aleatória. Para gerar o token de teste, temos de obter o ContentKeyId a colocar na afirmação ContentKeyIdentifierClaim.
+O ContentKeyIdentifierClaim é utilizado no ContentKeyPolicy, o que significa que o token apresentado ao serviço de entrega de chaves tem de conter o identificador do ContentKey. No exemplo, nós não especificamos uma chave de conteúdo ao criar o localizador de transmissão em fluxo, o sistema cria uma aleatória para nós. Para gerar o token de teste, temos de obter o ContentKeyId a colocar na afirmação ContentKeyIdentifierClaim.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetToken)]
 
 ## <a name="build-a-streaming-url"></a>Compilar um URL de transmissão em fluxo
 
-Agora que o [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URLs de transmissão. Para criar um URL, terá de concatenar o nome do anfitrião do [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) e o caminho do **StreamingLocator**. Neste exemplo, é utilizado o **StreamingEndpoint** *predefinido*. Quando cria uma conta dos Serviços de Multimédia pela primeira vez, este **StreamingEndpoint** *predefinido* vai estar no estado parado, por isso terá de chamar **Iniciar**.
+Agora que o [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, pode obter os URLs de transmissão. Para compilar um URL, terá de concatenar os [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) nome de anfitrião e o **localizador de transmissão em fluxo** caminho. Neste exemplo, o *predefinição* **ponto final de transmissão em fluxo** é utilizado. Quando cria pela primeira vez uma conta de serviço de suporte de dados, isso *predefinição* **ponto final de transmissão em fluxo** estará num estado parado, por isso terá de chamar **iniciar**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 

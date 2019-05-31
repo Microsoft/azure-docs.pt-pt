@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.author: v-rada
-ms.openlocfilehash: adc78b176afb0a43a7e1e3a7bb882282a914761d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: v-pawal
+ms.openlocfilehash: 530e87a84899b9659acd19f90c7c30ad3da3e7ba
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60509923"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66382315"
 ---
 # <a name="what-are-trainings-and-models"></a>Quais são os modelos e treinamentos?
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04-04-2019
-ms.author: barbaraselden
+ms.date: 04/04/2019
+ms.author: baselden
 ms.reviewer: ''
-ms.openlocfilehash: d8686b9296c8b1d7c5232e2e46a0e66a9896656b
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 04a2e9968e8716818637a34adea86de88e1f848c
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66113012"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388312"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planear uma implementação do Proxy de aplicações do Azure AD
 
@@ -280,7 +280,7 @@ Microsoft defende o princípio de conceder os menores privilégios possíveis pa
 
 | Função de negócio| Tarefas de negócios| Funções do Azure AD |
 |---|---|---|
-| Ajudar o administrador de suporte técnico | Normalmente, limitadas para qualificar utilizador final reportados problemas e efetuar tarefas limitadas, como alterar as senhas de usuários, invalidando tokens de atualização e monitorização do Estado de funcionamento do serviço. | Administrador de Suporte Técnico |
+| Ajudar o administrador de suporte técnico | Normalmente, limitadas para qualificar utilizador final reportados problemas e efetuar tarefas limitadas, como alterar as senhas de usuários, invalidando tokens de atualização e monitorização do Estado de funcionamento do serviço. | Administrador de suporte técnico |
 | Administrador de identidade| Problemas relacionados com a sessão de AD Azure de leitura em relatórios e os registos de auditoria para depurar o Proxy de aplicações.| Leitor de segurança |
 | Proprietário da aplicação| Criar e gerir todos os aspetos de aplicações empresariais, registos de aplicação e as definições de proxy da aplicação.| Administrador da aplicação |
 | Administrador de infraestrutura | Proprietário de Rollover de certificado | Administrador da aplicação |

@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 5850b683189136eac70451075933b0c57ecc37cd
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 8fdae1e12e56dcbcb56941726b0c089ad59b8fc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920452"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254657"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Melhorar o desempenho de aplicações do Azure com o Assistente do Azure
 
@@ -25,7 +25,7 @@ Recomendações de desempenho do Assistente do Azure ajudam a melhorar a velocid
 
 O Azure Advisor identifica perfis do Gestor de tráfego com um valor de TTL mais configurado e recomenda configurar o valor de TTL para 20 segundos ou 60 segundos, dependendo se o perfil está configurado para [rápida ativação pós-falha](https://azure.microsoft.com/roadmap/fast-failover-and-tcp-probing-in-azure-traffic-manager/).
 
-## <a name="improve-database-performance-with-sql-db-advisor"></a>Melhore o desempenho da base de dados com o Assistente da BD SQL
+## <a name="improve-database-performance-with-sql-db-advisor"></a>Melhore o desempenho de base de dados com o Assistente da BD SQL
 
 O assistente fornece-lhe uma vista consolidada consistente de recomendações para todos os seus recursos do Azure. Ele se integra com o Assistente de base de dados SQL para lhe oferecer recomendações para melhorar o desempenho da base de dados do SQL Azure. Assistente da base de dados SQL avalia o desempenho das suas bases de dados do SQL Azure, ao analisar o histórico de utilização. Em seguida, oferece recomendações que melhor se adequam para executar a carga de trabalho normal da base de dados.
 
@@ -93,6 +93,22 @@ O Assistente do Azure tira partido da heurística com base na carga de trabalho,
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>Dimensionar o seu servidor Azure MySQL, PostgreSQL do Azure ou Azure MariaDB para um SKU superior para impedir que as restrições de ligação
 Cada nova ligação ao seu servidor de base de dados ocupa alguma memória. Degrada o desempenho do servidor de base de dados se ligações ao seu servidor estão a falhar devido uma [limite superior](https://docs.microsoft.com/azure/postgresql/concepts-limits) na memória. O Assistente do Azure irá identificar os servidores em execução com muitas falhas de ligação e recomendável fazer a atualização de limites de ligações do seu servidor para fornecer mais memória para o servidor ao aumentar verticalmente a computação ou utilizar a memória otimizada SKUs, que tem mais computação por núcleo.
+
+## <a name="scale-your-cache-to-a-different-size-or-sku-to-improve-cache-and-application-performance"></a>Dimensionar a sua Cache para um tamanho diferente ou SKU para melhorar a Cache e o desempenho da aplicação
+
+Instâncias de cache têm um melhor desempenho quando não está em execução sob pressão de memória elevada, carga do servidor de elevada ou largura de banda de rede de alta que pode fazer com que eles deixar de responder, a experiência de perda de dados ou fique indisponível. O assistente irá identificar instâncias de Cache nestas condições e recomendamos a aplicar as práticas recomendadas para reduzir a pressão de memória, a carga do servidor ou a largura de banda de rede ou a dimensionar para um tamanho diferente ou um SKU com mais capacidade.
+
+## <a name="add-regions-with-traffic-to-your-azure-cosmos-db-account"></a>Adicionar regiões com o tráfego para a sua conta do Azure Cosmos DB
+
+O assistente irá detetar as contas do Azure Cosmos DB que existe tráfego a partir de uma região que não esteja atualmente configurada e recomendamos adicionar essa região. Isto irá melhorar a latência para pedidos provenientes de nessa região e irá garantir a disponibilidade em caso de falhas de região. [Saiba mais sobre a distribuição de dados global com o Azure Cosmos DB](https://aka.ms/cosmos/globaldistribution)
+
+## <a name="configure-your-azure-cosmos-db-indexing-policy-with-customer-included-or-excluded-paths"></a>Configurar o Azure Cosmos DB política de indexação com o cliente incluídos ou excluídos caminhos
+
+O Assistente do Azure identificará os contentores do Cosmos DB que estiver a utilizar a política de indexação predefinida, mas poderiam se beneficiar de uma política de indexação personalizada com base no padrão de carga de trabalho. A predefinição de política de indexação indexa todas as propriedades, mas utilizando uma política de indexação personalizada com caminhos de excluídas ou incluídos explícitos utilizados em filtros de consulta pode reduzir o RUs e armazenamento consumidos para indexação. [Saiba mais sobre como modificar as políticas de índice](https://aka.ms/cosmosdb/modify-index-policy)
+
+## <a name="configure-your-azure-cosmos-db-query-page-size-maxitemcount-to--1"></a>Configurar o tamanho de página de consulta (MaxItemCount) de Azure Cosmos DB como -1 
+
+O Assistente do Azure identificará os contentores do Azure Cosmos DB que estiver a utilizar o tamanho da página de consulta de 100 e recomendada a utilização de um tamanho de página de -1 para análises mais rápidos. [Saiba mais sobre o número de itens de máx.](https://aka.ms/cosmosdb/sql-api-query-metrics-max-item-count)
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Como acessar as recomendações de desempenho no Advisor
 

@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 12/11/2017
+ms.date: 05/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 15152196e45265985c8abb409523982bd4c5d427
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2cb99cfe765e1d3444f362e591812f5088c78c0e
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697409"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393141"
 ---
 # <a name="get-started-with-an-apache-hadoop-sandbox-an-emulator-on-a-virtual-machine"></a>Introdução à área de segurança do Apache Hadoop, um emulador numa máquina virtual
 
@@ -24,19 +24,16 @@ Saiba como instalar o Apache Hadoop sandbox da Hortonworks numa máquina virtual
 * [Oracle VirtualBox](https://www.virtualbox.org/). Transfira e instale-o a partir [aqui](https://www.virtualbox.org/wiki/Downloads).
 
 
-
 ## <a name="download-and-install-the-virtual-machine"></a>Transfira e instale a máquina virtual
-1. Navegue para o [Hortonworks downloads](https://hortonworks.com/downloads/#sandbox).
+1. Navegue para o [Cloudera transfere](https://www.cloudera.com/downloads/hortonworks-sandbox/hdp.html).
 
-2. Clique em **BAIXAR para VIRTUALBOX** para transferir a Sandbox da Hortonworks mais recente numa VM. São-lhe pedido para registar com a Hortonworks antes de inicia a transferência. Demora uma ou duas horas para transferir consoante a velocidade da rede.
+2. Clique em **VIRTUALBOX** sob **Escolher tipo de instalação** para transferir a Sandbox da Hortonworks mais recente numa VM. Inicie sessão ou preencher o formulário de interesse do produto.
 
-    ![Imagem de ligação para transferir a Sandbox da Hortonworks para VirtualBox](./media/apache-hadoop-emulator-get-started/download-sandbox.png)
-3. A partir da mesma página da web, clique nas **importar na caixa Virtual** ligação para transferir o PDF com as instruções de instalação para a máquina virtual.
+1. Clique no botão **SANDBOX HDP (versão mais RECENTE)** para iniciar o download.
 
-Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
+Para obter instruções sobre como configurar a proteção de segurança, consulte [instalar o guia de implantação de área restrita e](https://hortonworks.com/tutorial/sandbox-deployment-and-install-guide/section/1/).
 
-![Arquivo de Sandbox da Hortonworks](./media/apache-hadoop-emulator-get-started/hortonworks-sandbox-archive.png)
-
+Para transferir um sandbox de versão mais antiga do HDP, consulte os links em **versões mais antigas**.
 
 ## <a name="start-the-virtual-machine"></a>Iniciar a máquina virtual
 
@@ -52,7 +49,7 @@ Para transferir um sandbox de versão mais antiga do HDP, expanda o arquivo:
 1. Do **começar** passo da página de Sandbox da Hortonworks, selecione **opções avançadas de vista**. Utilize as informações desta página para iniciar sessão para a área de segurança através de SSH. Utilize o nome e a palavra-passe fornecida.
 
    > [!NOTE]
-   > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseada na web, fornecido pela máquina virtual em **http://localhost:4200/**.
+   > Se não tiver um cliente SSH instalado, pode utilizar o SSH baseada na web, fornecido pela máquina virtual em **http://localhost:4200/** .
 
     Na primeira vez que se liga através de SSH, lhe for pedido para alterar a palavra-passe para a conta raiz. Introduza uma palavra-passe nova, o que utilizar quando iniciar sessão através de SSH.
 

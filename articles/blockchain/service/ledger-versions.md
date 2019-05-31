@@ -10,26 +10,32 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 63c9a8b9e266dacbb0fb6faba50fb44ac9a4b46e
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 53f65ec91a1e0f1e5a6322f0125bf83cd3e400b2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65027889"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399110"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versões suportadas de contabilidade de serviço do Azure Blockchain
 
-O serviço do Azure Blockchain usa com base Ethereum [quórum](https://github.com/jpmorganchase/quorum/wiki) contábeis concebido para o processamento de transações privadas dentro de um grupo de participantes conhecidos, identificado como um consórcio no serviço do Azure Blockchain.
+O serviço do Azure Blockchain usa com base Ethereum [quórum](https://www.goquorum.com/developers) contábeis concebido para o processamento de transações privadas dentro de um grupo de participantes conhecidos, identificado como um consórcio no serviço do Azure Blockchain.
 
 Atualmente, suporta o serviço do Azure Blockchain [quórum versão 2.2.1 do buildship](https://github.com/jpmorganchase/quorum/releases/tag/v2.2.1) e [Gestor de transações de Tessera](https://github.com/jpmorganchase/tessera).
 
 ## <a name="managing-updates-and-upgrades"></a>Gerenciando atualizações e atualizações
 
-Controle de versão no quórum é feito por meio de uma versão principal, a versão de ponto principal e uma versão ponto irrelevante. Por exemplo, se o quórum versão 2.0.1, 2 é uma versão principal, 0 é uma versão do ponto de principais e 1 é a versão do ponto irrelevante. O serviço automaticamente cria patches para versões de ponto do razão. Atualmente, não são suportadas versões de principais e principal ponto de atualização.
+Versões de patch e controle de versão no quórum é feito por meio de um principal, secundária. Por exemplo, se a versão de quórum 2.0.1, tipo de versão seria ser classificado da seguinte forma:
+
+|Principais | Pequenas  | Patch  |
+| :--- | :----- | :----- |
+| 2 | 0 | 1 | 
+
+O serviço do Azure Blockchain atualiza automaticamente as versões de patch do quórum para membros em execução existentes em 30 dias a ser disponibilizada de quórum.
 
 ## <a name="availability-of-new-ledger-versions"></a>Disponibilidade de novas versões de contabilidade
 
-O serviço do Azure Blockchain fornece as versões mais recentes do razão no prazo de 60 dias de indisponibilidade do fabricante contábeis. Um máximo de quatro pontos principais lançamentos são fornecidos para consortia à sua escolha quando um novo membro e um consórcio de aprovisionamento.
+O serviço do Azure Blockchain fornece o mais recente versão principal e secundária da razão de quórum no prazo de 60 dias de indisponibilidade do fabricante de quórum. Um máximo de quatro versões secundárias são fornecidos para consortia à sua escolha quando um novo membro e um consórcio de aprovisionamento. Versão de atualização para uma versão principal ou secundária não é atualmente suportada.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

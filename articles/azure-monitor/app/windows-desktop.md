@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: mbullwin
-ms.openlocfilehash: 95ff8d1a70325357fee4bc24fd96c1a1c7a73845
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 567163a5d5ce37eeffb5ef2bc6f9adb7c5b027ec
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371483"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255729"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>Monitorização de utilização e desempenho de aplicações de Ambiente de Trabalho do Windows Clássico
 
@@ -37,7 +37,7 @@ As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o 
    
     Se utilizar o ApplicationInsights.config, certifique-se de que as propriedades no Explorador de Soluções estão definidas para **Ação de Compilação = Conteúdo, Copiar para o Diretório de Saída = Copiar**.
 5. [Utilize a API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar telemetria.
-6. Execute a aplicação e veja a telemetria no recurso que criou no Portal do Azure.
+6. Executar a sua aplicação e ver a telemetria no recurso que criou no portal do Azure.
 
 ## <a name="telemetry"></a>Código de exemplo
 ```csharp
@@ -77,7 +77,7 @@ As aplicações alojadas no local, no Azure e noutras clouds podem tirar todo o 
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Criar um dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+* [Criar um dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/app/metrics-explorer.md)
 * [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)

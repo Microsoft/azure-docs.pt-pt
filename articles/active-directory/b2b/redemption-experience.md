@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d00808295d39247729f6e843ac59ad7b23407148
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 99fe386ec75e60a16f3095f22dccc3852883f8aa
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65785422"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304519"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate de convite de colaboração do Azure Active Directory B2B
 
@@ -56,7 +56,7 @@ Para obter informações sobre como, como um administrador inquilino pode ligar 
 
 ## <a name="terms-of-use"></a>Termos de utilização
 
-Pode apresentar termos de utilização para o utilizador convidado durante o processo de resgate inicial ao utilizar os termos de AD do Azure da funcionalidade de utilização. No Azure Active Directory, pode aceder a esta funcionalidade sob **Manage** > **relações organizacionais** > **termos de utilização** ou em **Security** > **acesso condicional** > **termos de utilização**. Para obter detalhes, consulte [do Azure AD termos de funcionalidade utilização](../conditional-access/terms-of-use.md).
+Pode apresentar termos de utilização para o utilizador convidado durante o processo de resgate inicial ao utilizar os termos do Azure AD da funcionalidade de utilização. No Azure Active Directory, pode aceder a esta funcionalidade sob **Manage** > **relações organizacionais** > **termos de utilização** ou em **Security** > **acesso condicional** > **termos de utilização**. Para obter detalhes, consulte [termos do Azure AD de utilização da funcionalidade](../conditional-access/terms-of-use.md).
 
 ![Captura de ecrã que mostra os novos termos de utilização](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 

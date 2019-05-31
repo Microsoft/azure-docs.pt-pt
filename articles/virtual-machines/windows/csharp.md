@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: ce05d097aa69aa1aadb8450e40722448bc5a7de0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 55b73f5f4e6998eb1eb8c5ebc873fa20f8722a3e
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61402046"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304577"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Criar e gerir VMs do Windows no Azure com c# #
 
@@ -41,7 +41,7 @@ Demora cerca de 20 minutos para realizar estes passos.
 
 1. Se ainda não o fez, instale [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Selecione **desenvolvimento no ambiente de trabalho .NET** na página de cargas de trabalho e, em seguida, clique **instalar**. Em resumo, pode ver que **ferramentas de desenvolvimento do .NET Framework 4 4.6** é selecionado automaticamente para. Se já tiver instalado o Visual Studio, pode adicionar a carga de trabalho do .NET com o Iniciador do Visual Studio.
 2. No Visual Studio, clique em **Ficheiro** > **Novo** > **Projeto**.
-3. Na **modelos** > **em Visual C#**, selecione **aplicação de consola (.NET Framework)**, introduza *myDotnetProject* para o nome dos projeto, selecione a localização do projeto e, em seguida, clique em **OK**.
+3. Na **modelos** > **em Visual C#** , selecione **aplicação de consola (.NET Framework)** , introduza *myDotnetProject* para o nome dos projeto, selecione a localização do projeto e, em seguida, clique em **OK**.
 
 ## <a name="install-the-package"></a>Instalar o pacote
 
@@ -80,12 +80,12 @@ Antes de começar este passo, certifique-se de que tem acesso a uma [principal d
 4. Defina uma variável de ambiente no Windows com o nome AZURE_AUTH_LOCATION com o caminho completo para o ficheiro de autorização que criou. Por exemplo, pode ser utilizado o seguinte comando do PowerShell:
 
     ```
-    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2017\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
+    [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
     ```
 
 ### <a name="create-the-management-client"></a>Criar o cliente de gestão
 
-1. Abra o ficheiro Program.cs para o projeto que criou e, em seguida, a adicioná-las com instruções para as instruções existentes na parte superior do ficheiro:
+1. Abra o ficheiro Program.cs para o projeto que criou. Em seguida, adicioná-las com instruções para as instruções existentes na parte superior do ficheiro:
 
     ```
     using Microsoft.Azure.Management.Compute.Fluent;
@@ -365,7 +365,7 @@ Console.ReadLine();
 
 ### <a name="add-a-data-disk-to-the-vm"></a>Adicionar um disco de dados à VM
 
-Para adicionar um disco de dados para a máquina virtual, adicione este código ao método Main para adicionar um disco de dados é de 2 GB de tamanho, han um LUN de 0 e um tipo de colocação em cache do ReadWrite:
+Para adicionar um disco de dados para a máquina virtual, adicione este código ao método Main. Este exemplo adiciona um disco de dados é de 2 GB de tamanho, han um LUN de 0 e um tipo de colocação em cache do ReadWrite:
 
 ```
 Console.WriteLine("Adding data disk to vm...");

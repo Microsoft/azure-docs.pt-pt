@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 243a388ee59a1a550f80882b0af61e1f1db008ca
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 9d5e06c3d72d87a87b41a52ed4df369ebc04dccd
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65977445"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66387086"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>Cenário de monitor em funções duráveis - exemplo de observador de Meteorologia
 
@@ -42,7 +42,7 @@ Este exemplo monitora condições de Meteorologia atual de uma localização e a
 
 Este exemplo envolve usar a API de subterrânea Meteorologia para verificar condições de Meteorologia atual para uma localização.
 
-A primeira coisa que precisa é uma conta Weather Underground. Pode criar uma gratuitamente na [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Assim que tiver uma conta, terá de adquirir uma chave de API. Pode fazê-lo ao visitar [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api), em seguida, a seleção de definições de chave. O plano de Stratus Developer é gratuito e suficientes para executar este exemplo.
+A primeira coisa que precisa é uma conta Weather Underground. Pode criar uma gratuitamente na [ https://www.wunderground.com/signup ](https://www.wunderground.com/signup). Assim que tiver uma conta, terá de adquirir uma chave de API. Pode fazê-lo ao visitar [ https://www.wunderground.com/weather/api ](https://www.wunderground.com/weather/api/?MR=1), em seguida, a seleção de definições de chave. O plano de Stratus Developer é gratuito e suficientes para executar este exemplo.
 
 Depois de ter uma chave de API, adicione as seguintes **definição de aplicação** à sua aplicação de função.
 

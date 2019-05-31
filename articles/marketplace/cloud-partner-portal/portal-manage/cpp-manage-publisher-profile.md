@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: pabutler
-ms.openlocfilehash: 6ca0eb23dad218262eff5d80543628df273022c9
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: c97bf10daa8f062cc833c7d7c5f7b0ca4835ca6f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942245"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257543"
 ---
 # <a name="manage-your-azure-marketplace-and-appsource-publisher-profile"></a>Gerir o seu perfil de publicador do Azure Marketplace e AppSource
 
@@ -49,7 +49,7 @@ Também pode ligar a sua conta existente do Centro de desenvolvimento com o seu 
 > [!NOTE]
 > Registo de conta do Centro de programadores é obrigatório para publicação paga mercado local SKUs.
 
-Se não tiver uma conta do Centro de programadores, pode criar uma conta conforme descrito em [registar no Dev Center](../../register-dev-center.md).  Em seguida, adicione o endereço de e-mail registrado como proprietário no Portal de parceiros da Cloud para sua oferta. Um proprietário só pode adicionar o endereço de e-mail registrado para o seu perfil de publicação do **utilizador** secção. Em seguida, inicie sessão no portal com o mesmo endereço de e-mail e ligar a sua conta do Dev Center.
+Se não tiver uma conta do Centro de programadores, pode criar uma conta conforme descrito em [registar no Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center).  Em seguida, adicione o endereço de e-mail registrado como proprietário no Portal de parceiros da Cloud para sua oferta. Um proprietário só pode adicionar o endereço de e-mail registrado para o seu perfil de publicação do **utilizador** secção. Em seguida, inicie sessão no portal com o mesmo endereço de e-mail e ligar a sua conta do Dev Center.
 
 ![Detalhes do perfil do publicador - descrição de perfil do publicador](./media/publisherprofiledescription.png)
 

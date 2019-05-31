@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 51fd1195942a7bae86bb4cc0af9df3146d6e45c2
-ms.sourcegitcommit: d73c46af1465c7fd879b5a97ddc45c38ec3f5c0d
+ms.openlocfilehash: 8e711c0586ce63d4293e2fb0914bbe884b55971f
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65921920"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389955"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa com o formato de evento comum
 
@@ -44,6 +44,8 @@ A ligação entre sentinela do Azure e a sua aplicação de CEF acontece em trê
 2. O agente de Syslog recolhe os dados e envia-os em segurança para o Log Analytics, onde é analisado e enriquecida.
 3. O agente armazena os dados numa área de trabalho do Log Analytics, para que possa ser consultada conforme necessário, com a análise, regras de correlação e dashboards.
 
+> [!NOTE]
+> O agente pode recolher registos de várias origens, mas tem de estar instalado no computador de proxy dedicada.
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Passo 1: Ligar à sua aplicação de CEF por meio de VM do Azure dedicada
 
@@ -61,7 +63,7 @@ Em alternativa, pode implementar o agente manualmente numa VM do Azure existente
 1. No portal do Azure sentinela, clique em **conectores de dados** e selecione o tipo de aplicação. 
 
 1. Sob **configuração do agente Linux Syslog**:
-   - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM do Linux dedicado que é conectado automaticamente à sua área de trabalho, é. A VM é um **padrão D2s v3 (2 vCPUs, 8 GB de memória)** e tem um endereço IP público.
+   - Escolher **implementação automática** se pretender criar uma nova máquina que está pré-instalado com o agente do Azure sentinela e inclui todo o necessário de configuração, conforme descrito acima. Selecione **implementação automática** e clique em **implementação automática do agente**. Isto leva-o para a página de compra para uma VM do Linux dedicado que é conectado automaticamente à sua área de trabalho. A VM é um **padrão D2s v3 (2 vCPUs, 8 GB de memória)** e tem um endereço IP público.
       1. Na **implementação personalizada** página, forneça os detalhes da sua e escolha um nome de utilizador e uma palavra-passe e se concordar com os termos e condições, comprar a VM.
       1. Configure a aplicação para enviar registos utilizando as definições indicadas na página de ligação. Para o conector de formato de evento comum genérica, utilize estas definições:
          - Protocolo = UDP
@@ -118,6 +120,13 @@ Se não estiver a utilizar o Azure, implemente manualmente o agente de Azure sen
   
  Para utilizar o esquema relevante no Log Analytics para os eventos CEF, procure `CommonSecurityLog`.
 
+## <a name="step-2-forward-common-event-format-cef-logs-to-syslog-agent"></a>Passo 2: Reencaminhar registos Common Event Format (CEF) para o agente do Syslog
+
+Defina a sua solução de segurança para enviar mensagens do Syslog no formato CEF para o agente do Syslog. Certifique-se de que utilizar os mesmos parâmetros que são apresentados na sua configuração de agente. Normalmente, são:
+
+- Porta 514
+- Recurso local4
+
 ## <a name="step-3-validate-connectivity"></a>Passo 3: Validar a conectividade
 
 Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no Log Analytics. 
@@ -128,7 +137,7 @@ Pode demorar mais de 20 minutos até que os seus registos começam a aparecer no
 
 3. Certifique-se de que estão em conformidade com os registos enviados [RFC 5424](https://tools.ietf.org/html/rfc542).
 
-4. No computador que executa o agente de Syslog, certifique-se de que estas portas 514, 25226 são abertos e está a escutar, utilizando o comando `netstat -a -n:`. Para obter mais informações sobre como utilizar este comando, consulte [netstat(8) - página de homem de Linux](https://linux.die.netman/8/netstat). Se estiver a escutar corretamente, verá isto:
+4. No computador que executa o agente de Syslog, certifique-se de que estas portas 514, 25226 são abertos e está a escutar, utilizando o comando `netstat -a -n:`. Para obter mais informações sobre como utilizar este comando, consulte [netstat(8) - página de homem de Linux](https://linux.die.net/man/8/netstat). Se estiver a escutar corretamente, verá isto:
 
    ![Portas de Sentinel do Azure](./media/connect-cef/ports.png) 
 

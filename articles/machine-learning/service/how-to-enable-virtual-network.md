@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: c1006aa21b3009bb7508c7a24ab501d39737261c
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 48c59ddc1e203030bd967911d536930cb94761d3
+ms.sourcegitcommit: 8e76be591034b618f5c11f4e66668f48c090ddfd
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65978228"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66356182"
 ---
 # <a name="securely-run-experiments-and-inference-inside-an-azure-virtual-network"></a>Executar com segurança experimentações e inferência dentro de uma rede virtual do Azure
 
@@ -141,7 +141,7 @@ Quando adiciona as rotas definidas pelo utilizador, definir a rota para cada pre
 
 ![Rota definida pelo utilizador do exemplo para um prefixo de endereço](./media/how-to-enable-virtual-network/user-defined-route.png)
 
-Para obter mais informações, consulte a [criar um conjunto do Batch do Azure numa rede virtual](/azure/batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) artigo.
+Para obter mais informações, consulte a [criar um conjunto do Batch do Azure numa rede virtual](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling) artigo.
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>Criar a computação do Machine Learning numa rede virtual
 
@@ -221,7 +221,7 @@ Para utilizar uma máquina virtual ou o cluster Azure HDInsight numa rede virtua
 
     * __Etiqueta de serviço de origem__: Select __AzureMachineLearning__.
 
-    * __Intervalos de portas de origem__: Selecione __*__.
+    * __Intervalos de portas de origem__: Selecione __*__ .
 
     * __Destino__: Selecione __qualquer__.
 

@@ -15,12 +15,12 @@ ms.date: 03/17/2017
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 898f0974a6a29abde5c84d611adc8d50c3873141
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2b08dfd87910cbb9f23f6b108a970d160612e1a7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372791"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255895"
 ---
 # <a name="analyzing-trends-in-visual-studio"></a>Analisar Tendências no Visual Studio
 A ferramenta Application Insights Trends visualiza como eventos de telemetria importantes da sua aplicação Web alteram ao longo do tempo, ajudando-o a identificar rapidamente problemas e anomalias. Ao ligá-lo a informações mais detalhadas de diagnóstico, o Trends pode ajudá-lo a melhorar o desempenho da aplicação, identificar as causas de exceções e descobrir conhecimentos aprofundados dos seus eventos personalizados.
@@ -94,7 +94,7 @@ Para anular a aplicação de um destes filtros, clique no botão **Remover filtr
 ![Vários filtros](./media/visual-studio-trends/TrendsFiltering2-750.png)
 
 ## <a name="find-anomalies"></a>Localizar anomalias
-A ferramenta Trends pode realçar bolhas de eventos que são anómalos em comparação com outras bolhas na mesma série de tempo. Na lista pendente Tipo de vista, selecione **Contagens no registo de tempo (realçar anomalias)** ou **Percentagens no registo de tempo (realçar anomalias)**. As bolhas vermelhas são anómalas. Anomalias são definidas como bolhas com contagens/percentagens que excedem 2,1 vezes o desvio padrão das contagens/percentagens que ocorreram anteriormente dois períodos de tempo (48 horas se estiver a ver as últimas 24 horas, etc.).
+A ferramenta Trends pode realçar bolhas de eventos que são anómalos em comparação com outras bolhas na mesma série de tempo. Na lista pendente Tipo de vista, selecione **Contagens no registo de tempo (realçar anomalias)** ou **Percentagens no registo de tempo (realçar anomalias)** . As bolhas vermelhas são anómalas. Anomalias são definidas como bolhas com contagens/percentagens que excedem 2,1 vezes o desvio padrão das contagens/percentagens que ocorreram anteriormente dois períodos de tempo (48 horas se estiver a ver as últimas 24 horas, etc.).
 
 ![Os pontos coloridos indicam anomalias](./media/visual-studio-trends/TrendsAnomalies-750.png)
 
@@ -108,5 +108,5 @@ A ferramenta Trends pode realçar bolhas de eventos que são anómalos em compar
 | --- | --- |
 | **[Trabalhar com o Application Insights no Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Procure telemetria, veja dados no CodeLens e configure o Application Insights. Tudo isto no Visual Studio. |![Clique com o botão direito do rato no projeto e escolha Application Insights, Pesquisa](./media/visual-studio-trends/34.png) |
 | **[Adicionar mais dados](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorize a utilização, a disponibilidade, as dependências e as exceções. Integre rastreios a partir de arquiteturas de registo. Grave a telemetria personalizada. |![Visual Studio](./media/visual-studio-trends/64.png) |
-| **[Trabalhar com o portal do Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Dashboards, ferramentas de diagnóstico e análise poderosas, alertas, mapa de dependência em direto da aplicação e exportação de telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
+| **[Trabalhar com o portal do Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Dashboards, ferramentas de diagnóstico e análise poderosas, alertas, mapa de dependência em direto da aplicação e exportação de telemetria. |![Visual Studio](./media/visual-studio-trends/62.png) |
 

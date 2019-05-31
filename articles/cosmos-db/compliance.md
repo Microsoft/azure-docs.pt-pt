@@ -4,15 +4,15 @@ description: Este artigo descreve coberturas de certificação para ofertas de c
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 05/23/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: af1b3dba0ac73ef30a4be20cab795ce6de595970
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606281"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239708"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformidade no Azure Cosmos DB 
 
@@ -20,7 +20,7 @@ O Azure Cosmos DB está disponível em todas as regiões do Azure. Microsoft dis
 
 * **Azure público** nuvem, o que está disponível globalmente.
 
-* **O Azure na China** está disponível através de uma parceria única entre a Microsoft e a 21Vianet, um dos maiores fornecedores de internet no país.
+* **O Azure China 21Vianet** está disponível através de uma parceria única entre a Microsoft e a 21Vianet, um dos maiores fornecedores de internet no país.
 
 * **O Azure Alemanha** fornece serviços através de um modelo de consignação de dados, o que garante que o cliente dados permanecem na Alemanha sob o controle do T-Systems International GmbH, uma subsidiária da Deutsche telecomunicações, que funcionam como os dados na Alemanha.
 
@@ -36,15 +36,32 @@ O Azure Cosmos DB está continuamente a expandir sua cobertura de certificação
 
 | **Globalmente aplicável** | **Governo dos Estados Unidos da América** | **Setor específico** | **Região ou país específico** |
 | --- | --- | --- | --- |
-| Certificação em ESTRELA da CSA<br/><br/>Atestado em ESTRELA da CSA<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG nível 2<br/><br/>FedRAMP Moderado<br/><br/>GxP (FDA 21 CFR parte 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Austrália IRAP, programa não classificado<br/><br/>C5 da Alemanha<br/><br/>Nível MTCS em Singapura 3<br/><br/>Spain ENS High|
+| Certificação em ESTRELA da CSA | DoD SRG nível 2 | HIPAA BAA | Austrália IRAP, programa não classificado |
+| Atestado em ESTRELA da CSA | FedRAMP Moderado | HITRUST | C5 da Alemanha|
+| ISO 20000-1:2011 | GxP (FDA 21 CFR parte 11) | PCI DSS | Nível MTCS em Singapura 3 |
+| ISO 22301:2012 | | | Spain ENS High|
+| ISO 27001:2013| | | |
+| ISO 27017:2015 | | | |
+| ISO 27018:2014 | | | |
+| ISO 9001:2015 | | | |
+| SOC 1, 2, 3 | | | |
 
 Para saber mais sobre cada uma dessas ofertas de conformidade e como eles beneficiá-lo, veja [conformidade de descrição geral do Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) página.
 
 A tabela seguinte lista as certificações suportadas pelo Azure Cosmos DB no Azure Government:
 
-| **Globalmente aplicável** | **Governo dos Estados Unidos da América** | **Setor específico** | **Região ou país específico** |
+| **Globalmente aplicável** | **Governo dos Estados Unidos da América** | **Setor específico** | 
 | --- | --- | --- | --- |
-| Certificação em ESTRELA da CSA<br/><br/>Atestado em ESTRELA da CSA<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG nível 2<br/><br/>DoD SRG nível 5<br/><br/>CJIS<br/><br/>FedRAMP Elevado<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Austrália IRAP, programa não classificado<br/><br/>C5 da Alemanha<br/><br/>Nível MTCS em Singapura 3<br/><br/>Spain ENS High|
+| Certificação em ESTRELA da CSA | CJIS| HIPAA BAA | 
+| Atestado em ESTRELA da CSA| DoD SRG nível 2| HITRUST  | 
+| ISO 20000-1:2011 | DoD SRG nível 4 | PCI DSS | 
+| ISO 9001:2012 | DoD SRG nível 5 | | 
+| ISO 27001:2013 | FedRAMP Elevado | |
+| ISO 9001:2015 | IRS 1075|  |
+| ISO 27017:2014 | NIST CSF | |
+| ISO 27018:2015 | NIST SP 800-171 | |
+| SOC 1, 2, 3 | | |
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

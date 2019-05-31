@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 7d607b4370d51ea2605fae6543bd3336853b0806
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 574dd9fd6189b6d0f1e5d455146d6d083ad7ff77
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65954221"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389472"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Trabalhar com bancos de dados, contentores e itens no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Pode criar uma ou várias bases de dados do Cosmos do Azure na sua conta. Uma ba
 
 | Entidades do Cosmos do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- |
-|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de dados | Base de dados | ND |
+|Base de dados do Cosmos do Azure | Base de Dados | Espaço de chaves | Base de Dados | Base de Dados | N/D |
 
 > [!NOTE]
 > Com contas da API de tabela, ao criar a primeira tabela, uma base de dados predefinida é automaticamente criado na sua conta do Cosmos do Azure.
@@ -54,6 +54,9 @@ Quando cria um contentor do Cosmos do Azure, configure o débito dos seguintes m
 * **Modo de débito dedicado**: O débito aprovisionado num contêiner é reservado exclusivamente para esse contentor e, conta com os SLAs. Para obter mais informações, consulte [como aprovisionar o débito num contentor Azure Cosmos](how-to-provision-container-throughput.md).
 
 * **Modo de débito aprovisionado partilhado**: Estes contentores partilham o débito aprovisionado com os outros contentores na mesma base de dados (excluindo os contentores que tenham sido configuradas com um débito aprovisionado dedicado). Em outras palavras, o débito aprovisionado na base de dados é partilhado entre todos os contentores de "taxa de transferência partilhada". Para obter mais informações, consulte [como aprovisionar o débito numa base de dados do Azure Cosmos](how-to-provision-database-throughput.md).
+
+> [!NOTE]
+> Pode configurar o débito dedicado e partilhado apenas quando se cria a base de dados e o contentor. Para mudar do modo débito dedicado para o modo de taxa de transferência partilhada (e vice-versa) depois do contentor é criado, deve criar um contentor novo e migrar os dados para o novo contentor. É possível migrar os dados utilizando o funcionalidade do feed de alterações do Azure Cosmos DB.
 
 Um contentor do Cosmos do Azure pode dimensionar de forma elástica, se cria contentores usando modos de débito aprovisionado partilhados ou dedicados.
 
@@ -83,7 +86,7 @@ Um contentor do Cosmos do Azure tem um conjunto de propriedades definidas pelo s
 |\_etag | Gerados pelo sistema | Etiqueta de entidade utilizada para controlo de simultaneidade otimista | Sim | Não | Não | Não | Não |
 |\_ts | Gerados pelo sistema | Última timestamp atualizado do contentor | Sim | Não | Não | Não | Não |
 |\_gestão personalizada | Gerados pelo sistema | Endereçável URI do contentor | Sim | Não | Não | Não | Não |
-|id | Configurável pelo utilizador | Nome exclusivo definido pelo utilizador do contentor | Sim | Sim | Sim | Sim | Sim |
+|ID | Configurável pelo utilizador | Nome exclusivo definido pelo utilizador do contentor | Sim | Sim | Sim | Sim | Sim |
 |indexingPolicy | Configurável pelo utilizador | Fornece a capacidade de alterar o caminho de índice, o tipo de índice e o modo de índice | Sim | Não | Não | Não | Sim |
 |timeToLive | Configurável pelo utilizador | Fornece a capacidade de excluir itens automaticamente a partir de um contentor após um período de tempo. Para obter detalhes, consulte [TTL](time-to-live.md). | Sim | Não | Não | Não | Sim |
 |changeFeedPolicy | Configurável pelo utilizador | Utilizado para ler as alterações efetuadas aos itens num contentor. Para obter detalhes, consulte [feed de alterações](change-feed.md). | Sim | Não | Não | Não | Sim |
@@ -96,9 +99,9 @@ Um contentor do Cosmos do Azure suporta as seguintes operações quando usar qua
 | Operação | CLI do Azure | SQL API | API de Cassandra | API do Azure Cosmos DB para MongoDB | API do Gremlin | API de Tabela |
 | --- | --- | --- | --- | --- | --- | --- |
 | Enumerar contentores numa base de dados | Sim | Sim | Sim | Sim | ND | ND |
-| Ler um contentor | Sim | Sim | Sim | Sim | ND | ND |
-| Criar novo contentor | Sim | Sim | Sim | Sim | ND | ND |
-| Atualizar um contentor | Sim | Sim | Sim | Sim | ND | ND |
+| Ler um contentor | Sim | Sim | Sim | Sim | ND | N/D |
+| Criar um novo contentor | Sim | Sim | Sim | Sim | ND | N/D |
+| Atualizar um contentor | Sim | Sim | Sim | Sim | ND | N/D |
 | Eliminar um contentor | Sim | Sim | Sim | Sim | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Itens do Cosmos do Azure

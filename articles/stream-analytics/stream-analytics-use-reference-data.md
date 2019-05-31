@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2400f80c67527027aee3a98baaa869c5c66d46ee
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 93c65429ef7581f4a7d2e268034e4056d6f000c8
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64573635"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66393127"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para pesquisas no Stream Analytics
 Dados de referência (também conhecido como uma tabela de pesquisa) são um conjunto finito de dados que é estático ou de variação lenta por natureza, utilizado para efetuar uma pesquisa ou para correlacionar com seu fluxo de dados. Por exemplo, um cenário de IoT, poderia armazenar metadados sobre sensores (que não são alterados frequentemente) em dados de referência e associe-o com fluxos de dados de IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para alcançar o processamento de fluxo de baixa latência. Para tornar usar dados de referência na sua tarefa do Azure Stream Analytics, geralmente utilizará um [associação de dados de referência](https://msdn.microsoft.com/library/azure/dn949258.aspx) na sua consulta. 
@@ -34,11 +34,11 @@ Para configurar os seus dados de referência, tem primeiro de criar uma entrada 
 |Alias de Entrada   | Um nome amigável que será utilizado na consulta de trabalho para fazer referência a esta entrada.   |
 |Conta de Armazenamento   | O nome da conta de armazenamento onde estão localizados os blobs. Se estiver na mesma subscrição que a tarefa do Stream Analytics, pode selecioná-lo a partir da lista pendente.   |
 |Chave da Conta de Armazenamento   | A chave secreta associada à conta de armazenamento. Isso é preenchido automaticamente se a conta de armazenamento está na mesma subscrição que a tarefa de Stream Analytics.   |
-|Contentor de Armazenamento   | Os contentores oferecem um agrupamento lógico para blobs armazenados no serviço de Blobs do Microsoft Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob.   |
+|Contentor de armazenamento   | Os contentores oferecem um agrupamento lógico para blobs armazenados no serviço de Blobs do Microsoft Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob.   |
 |Padrão do Caminho   | O caminho utilizado para localizar os blobs no contentor especificado. No caminho, pode optar por especificar uma ou mais instâncias das 2 variáveis seguintes:<BR>{date}, {time}<BR>Exemplo 1: products/{date}/{time}/product-list.csv<BR>Exemplo 2: products/{date}/product-list.csv<BR>Exemplo 3: produto-list.csv<BR><br> Se o blob não existir no caminho especificado, a tarefa do Stream Analytics aguardará indefinidamente para o blob para se tornar disponível.   |
 |Formato de data [opcional]   | Se tiver utilizado a {date} dentro do padrão de caminho que especificou, em seguida, pode selecionar o formato de data em que os blobs são organizados na lista suspensa dos formatos suportados.<BR>Exemplo: AAAA/MM/DD, aaaa/MM/AAAA, etc.   |
 |Formato de hora [opcional]   | Se tiver utilizado a {time} dentro do padrão de caminho que especificou, em seguida, pode selecionar o formato de hora em que os blobs são organizados na lista suspensa dos formatos suportados.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
-|Formato de serialização de eventos   | Para se certificar de que as suas consultas funcionam do modo esperado, o Stream Analytics precisa de saber que formato de serialização está a utilizar para os fluxos de dados recebidos. Para os dados de referência, os formatos suportados são CSV e JSON.  |
+|Formato de serialização de eventos   | Para se certificar de que as suas consultas funcionam como esperado, o Stream Analytics precisa de saber que formato de serialização está a utilizar para fluxos de dados recebidos. Para os dados de referência, os formatos suportados são CSV e JSON.  |
 |Codificação   | UTF-8 é o único formato de codificação suportado neste momento.  |
 
 ### <a name="static-reference-data"></a>Dados de referência estáticos
@@ -72,7 +72,7 @@ O Azure Stream Analytics analisa automaticamente para blobs de dados de referên
 3. Os blobs de dados de referência são **não** ordenados por tempo de "Última modificação" do blob, mas apenas pelo tempo e a data especificada no blob dê um nome com a {date} e {time} substituições.
 3. Para evitar a necessidade de número grande de lista de blobs, considere eliminar blobs muito antigos para o qual processamento já não será feito. Tenha em atenção que o ASA pode ir a ter Reprocessar uma pequena quantidade em alguns cenários, como um reinício.
 
-## <a name="azure-sql-database-preview"></a>Base de dados SQL do Azure (pré-visualização)
+## <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 
 Dados de referência de base de dados SQL do Azure são obtidos pela sua tarefa do Stream Analytics e são armazenados como um instantâneo na memória para processamento. O instantâneo dos seus dados de referência também é armazenado num contentor numa conta de armazenamento que especificou nas definições de configuração. O contentor é criada automaticamente quando a tarefa é iniciada. Se a tarefa está parada ou entra num Estado com falhas, os contentores criada automaticamente são eliminados quando a tarefa for reiniciada.  
 
@@ -94,8 +94,8 @@ Para configurar os seus dados de referência de base de dados SQL, tem primeiro 
 |Nome de utilizador|O nome de utilizador associada à sua base de dados do SQL do Azure.|
 |Palavra-passe|A palavra-passe associada à sua base de dados do SQL do Azure.|
 |Atualizar periodicamente|Esta opção permite-lhe escolher uma taxa de atualização. Escolher "Ativado" permitirá que especifique a taxa de atualização no DD:HH:MM.|
-|Consulta de instantâneos|Esta é a opção de consulta padrão que obtém os dados de referência da base de dados SQL.|
-|Consulta delta|Para cenários avançados com grandes conjuntos de dados e uma pequena taxa de atualização, optar por adicionar uma consulta de delta.|
+|Consulta do instantâneo|Esta é a opção de consulta padrão que obtém os dados de referência da base de dados SQL.|
+|Consulta de delta|Para cenários avançados com grandes conjuntos de dados e uma pequena taxa de atualização, optar por adicionar uma consulta de delta.|
 
 ## <a name="size-limitation"></a>Limite de tamanho
 

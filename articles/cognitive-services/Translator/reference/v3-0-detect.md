@@ -3,25 +3,25 @@ title: API de texto do Translator detetar método
 titlesuffix: Azure Cognitive Services
 description: Use o método detetar de API de texto do Translator.
 services: cognitive-services
-author: v-pawal
+author: rajdeep-in
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
-ms.author: v-jansko
-ms.openlocfilehash: ea8fe989dd0ef7026957153fb5c9836742d008dd
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.author: v-pawal
+ms.openlocfilehash: 275cf91eb3bf72a612882164c24e4773edcad0f2
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65797500"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389807"
 ---
 # <a name="translator-text-api-30-detect"></a>Texto do Translator API 3.0: Detect
 
 Identifica o idioma de um pedaço de texto.
 
-## <a name="request-url"></a>URL do pedido
+## <a name="request-url"></a>URL do Pedido
 
 Enviar um `POST` pedido para:
 
@@ -138,7 +138,7 @@ Um resposta JSON de exemplo é:
 Seguem-se os possíveis códigos de estado HTTP que retorna um pedido. 
 
 <table width="100%">
-  <th width="20%">Código de Estado</th>
+  <th width="20%">Código de estado</th>
   <th>Descrição</th>
   <tr>
     <td>200</td>

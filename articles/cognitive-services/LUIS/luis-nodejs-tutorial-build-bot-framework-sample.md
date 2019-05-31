@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 27ebe827e97c8361c7f93a125f09aa9e339a6a14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8bd6a9df9518cb1b2312b525e8876629a2189bd2
+ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197060"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66399605"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>Bot de LUIS em node. js com o Bot Framework 3.x e bot de aplicação Web do Azure
 
 Com Node.js, crie um chatbot integrado na compreensão de idioma (LUIS). Este chatbot utiliza o domínio de HomeAutomation criados previamente para implementar rapidamente uma solução de bot. O bot baseia-se com o Bot Framework 3.x e bot de aplicação Web do Azure.
+
+R [Bot Framework 4.x com tutorial de LUIS](luis-nodejs-tutorial-bf-v4.md) também está disponível.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
@@ -236,7 +238,7 @@ bot.dialog('TurnOff',
 ```
 ## <a name="test-the-bot"></a>Testar o bot
 
-No Portal do Azure, selecione no **teste na Web Chat** para testar o bot. Experimente as mensagens do tipo like "ligar as luzes" e "desativar a minha heater" invocar dos objetivos que adicionou à mesma.
+No portal do Azure, selecione no **teste na Web Chat** para testar o bot. Experimente as mensagens do tipo like "ligar as luzes" e "desativar a minha heater" invocar dos objetivos que adicionou à mesma.
    ![Testar HomeAutomation bot em Web Chat](./media/luis-tutorial-node-bot/bot-service-chat-results.png)
 
 > [!TIP]

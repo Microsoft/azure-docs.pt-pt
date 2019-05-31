@@ -5,18 +5,18 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 05/24/2019
 ms.author: danlep
-ms.openlocfilehash: 0a3d2d0e858dc052095c0a58287970d10c06f0ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 18ac3fcb2797b24c9d5e5f05968eed4bf8732af7
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787273"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66389458"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Utilizar webhooks de registo de contentor do Azure
 
-Um registo de contentor do Azure armazena e gerencia imagens privadas do Docker container, semelhantes à forma como o Docker Hub armazena imagens do Docker públicas. Ele também pode alojar repositórios para [executar Helm gráficos](container-registry-helm-repos.md) (pré-visualização), um empacotamento Formatar para implementar aplicações no Kubernetes. Pode utilizar webhooks para acionar eventos quando determinadas ações em um dos seus repositórios do registo. Webhooks pode responder a eventos ao nível do registo ou elas podem ser confinadas para uma etiqueta de repositório específico.
+Um registo de contentor do Azure armazena e gerencia imagens privadas do Docker container, semelhantes à forma como o Docker Hub armazena imagens do Docker públicas. Ele também pode alojar repositórios para [executar Helm gráficos](container-registry-helm-repos.md) (pré-visualização), um empacotamento Formatar para implementar aplicações no Kubernetes. Pode utilizar webhooks para acionar eventos quando determinadas ações em um dos seus repositórios do registo. Webhooks pode responder a eventos ao nível do registo ou elas podem ser confinadas para uma etiqueta de repositório específico. Com um [georreplicado](container-registry-geo-replication.md) registro, configura cada webhook para responder a eventos numa réplica regional específico.
 
 Para obter detalhes sobre pedidos de webhook, veja [referência de esquema de webhook do Azure Container Registry](container-registry-webhook-reference.md).
 
@@ -35,12 +35,13 @@ Para obter detalhes sobre pedidos de webhook, veja [referência de esquema de we
 
 | Value | Descrição |
 |---|---|
-| Name | O nome que pretende dar para o webhook. Pode conter apenas letras e números e tem de ser 5 a 50 carateres de comprimento. |
+| Nome do Webhook | O nome que pretende dar para o webhook. Pode conter apenas letras e números e tem de ser 5 a 50 carateres de comprimento. |
+| Location | Para uma [georreplicado](container-registry-geo-replication.md) registo, especifique a região do Azure da réplica de registo. 
 | URI de serviço | O URI onde o webhook deve enviar as notificações de POST. |
 | Cabeçalhos personalizados | Cabeçalhos que pretende passar juntamente com o pedido POST. Eles devem estar na "chave: valor" formato. |
 | Ações de Acionador | Ações que acionam o webhook. As ações incluem o push de imagem, a eliminação de imagem, push de gráfico do Helm, eliminação de gráfico do Helm e quarentena de imagem. Pode escolher uma ou mais ações para acionar o webhook. |
 | Estado | O estado do webhook depois de criado. Ele é habilitado por padrão. |
-| Âmbito | O âmbito em que o webhook funciona. Se não for especificado, o escopo é para todos os eventos no registo. Pode ser especificado para um repositório ou uma etiqueta com o formato "repositório: etiqueta" ou "repositório: *" para todas as etiquetas no repositório. |
+| Scope | O âmbito em que o webhook funciona. Se não for especificado, o escopo é para todos os eventos no registo. Pode ser especificado para um repositório ou uma etiqueta com o formato "repositório: etiqueta" ou "repositório: *" para todas as etiquetas no repositório. |
 
 Formulário de webhook de exemplo:
 

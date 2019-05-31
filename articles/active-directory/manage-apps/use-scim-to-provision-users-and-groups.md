@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 5/06/2019
+ms.date: 05/06/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad90cd66d922c29887aaa8094e798edb28022b27
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: e5c2d987a1556513e36fc0a81e903d9eefdcae68
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66015463"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388164"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Sistema de gestão de identidade entre domínios (SCIM) a utilizar para aprovisionar automaticamente os utilizadores e grupos do Azure Active Directory a aplicações
 
@@ -200,7 +200,7 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 
 * Os utilizadores podem ser consultados ao `userName` ou `email[type eq "work"]` atributos.  
 
-#### <a name="create-user"></a>Criar Utilizador
+#### <a name="create-user"></a>Criar utilizador
 
 ###### <a name="request"></a>Pedir
 *POST /utilizadores*
@@ -437,7 +437,7 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 }
 ```
 
-#### <a name="delete-user"></a>Eliminar Utilizador
+#### <a name="delete-user"></a>Eliminar utilizador
 
 ##### <a name="request"></a>Pedir
 *Eliminar /Users/5171a35d82074e068ce2 HTTP/1.1.*
@@ -486,7 +486,7 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 }
 ```
 
-#### <a name="get-group"></a>Obter Grupo
+#### <a name="get-group"></a>Obter grupo
 
 ##### <a name="request"></a>Pedir
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
@@ -594,7 +594,7 @@ Esta seção fornece exemplo SCIM pedidos emitidos pelo cliente do Azure AD SCIM
 ##### <a name="response"></a>Resposta
 *HTTP/1.1 204 nenhum conteúdo*
 
-#### <a name="delete-group"></a>Eliminar Grupo
+#### <a name="delete-group"></a>Eliminar grupo
 
 ##### <a name="request"></a>Pedir
 *Eliminar /Groups/cdb1ce18f65944079d37 HTTP/1.1.*

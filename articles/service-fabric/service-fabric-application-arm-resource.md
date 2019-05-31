@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: e2e1b2ae354d26c3d9729e3a3fdf39bee43647ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db515454c68fe3a7eb1a4616c3278d9fc93ddb2c
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60621467"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258672"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gerir aplicações e serviços como recursos do Azure Resource Manager
 
@@ -258,6 +258,17 @@ O fragmento seguinte mostra os diferentes tipos de recursos que podem ser gerido
    > O *apiVersion* tem de ser definido como `"2017-07-01-preview"`. Também é possível implementar este modelo independentemente do cluster, desde que o cluster já foi implementado.
 
 5. Implemente! 
+
+## <a name="remove-service-fabric-resource-provider-application-resource"></a>Remover recurso da aplicação do fornecedor de recursos do Service Fabric
+O seguinte irá acionar o pacote de aplicação para ser não aprovisionado do cluster, e isso vai limpar o espaço em disco usado:
+```powershell
+Get-AzureRmResource -ResourceId /subscriptions/{sid}/resourceGroups/{rg}/providers/Microsoft.ServiceFabric/clusters/{cluster}/applicationTypes/{apptType}/versions/{version} -ApiVersion "2017-07-01-preview" | Remove-AzureRmResource -Force -ApiVersion "2017-07-01-preview"
+```
+Simplesmente remover Microsoft.ServiceFabric/clusters/application a partir do seu modelo ARM será não anular o aprovisionamento da aplicação
+
+>[!NOTE]
+> Assim que a remoção estiver concluída não deve ver a versão do pacote no SFX ou ARM mais. Não é possível eliminar o recurso de versão do tipo de aplicação que a aplicação está em execução com; ARM/SFRP irá impedir que isso. Se tentar anular o aprovisionamento do pacote em execução, o tempo de execução SF irá impedi-lo.
+
 
 ## <a name="manage-an-existing-application-via-resource-manager"></a>Gerir uma aplicação existente através do Resource Manager
 

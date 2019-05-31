@@ -2,18 +2,18 @@
 title: Recursos suportados para a Azure Red Hat OpenShift | Documentos da Microsoft
 description: Compreenda as regiões do Azure e tamanhos de máquinas virtuais são suportados pelo Microsoft Azure Red Hat OpenShift.
 services: container-service
-author: tylermsft
-ms.author: twhitney
+author: jimzim
+ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/15/2019
-ms.openlocfilehash: 5182a5e325bd7883af1a7d102d3e02b277a5089e
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c226227797802ab58d1bcbaadb7e97e780b30560
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788705"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306219"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Recursos do Azure de Red Hat OpenShift
 

@@ -5,14 +5,14 @@ services: container-service
 author: zr-msft
 ms.service: container-service
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 05/23/2019
 ms.author: zarhoads
-ms.openlocfilehash: 2fcdb72fa2717659e78e6f767bdc73b0d7be0886
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 76a5391cbe142851d9b1f60ea9346af2e7a35d6a
+ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60465041"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66392148"
 ---
 # <a name="install-applications-with-helm-in-azure-kubernetes-service-aks"></a>Instalar aplicações com Helm no Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,10 @@ Este artigo mostra-lhe como configurar e utilizar o Helm num cluster do Kubernet
 
 Este artigo pressupõe que tem um cluster do AKS existente. Se precisar de um cluster do AKS, consulte o guia de introdução do AKS [com a CLI do Azure] [ aks-quickstart-cli] ou [no portal do Azure][aks-quickstart-portal].
 
-Também tem a CLI do Helm instalado, o cliente que é executado no sistema de desenvolvimento e permite-lhe iniciar, parar e gerir aplicações com Helm. Se utilizar o Azure Cloud Shell, o Helm CLI já está instalado. Para obter instruções de instalação na sua plataforma de local, veja [instalar o Helm][helm-install].
+Também tem a CLI do Helm instalado, que é o cliente que é executado no sistema de desenvolvimento. Permite-lhe iniciar, parar e gerir aplicações com Helm. Se utilizar o Azure Cloud Shell, o Helm CLI já está instalado. Para obter instruções de instalação na sua plataforma de local, veja [instalar o Helm][helm-install].
+
+> [!IMPORTANT]
+> Helm destina-se para ser executado em nós do Linux. Se tiver nós do Windows Server no seu cluster, certifique-se de que os Helm pods apenas estão agendados para serem executadas em nós do Linux. Também tem de garantir que quaisquer gráficos do Helm que instalar também estão agendados para execução em nós de corretos. Os comandos neste artigo utilizam [seletores de nó] [ k8s-node-selector] para se certificar-se de que pods são agendadas para os nós corretos, mas nem todos os gráficos do Helm podem expor um Seletor de nó. Também pode considerar utilizar outras opções no seu cluster, tal como [taints][taints].
 
 ## <a name="create-a-service-account"></a>Criar uma conta de serviço
 
@@ -70,7 +73,7 @@ Com um cluster de Kubernetes habilitados no RBAC, pode controlar o nível de ace
 Para implementar um Tiller básico para um cluster do AKS, utilize o [helm init] [ helm-init] comando. Se o cluster não for RBAC ativada, remova o `--service-account` argumento e o valor. Se tiver configurado o TLS/SSL para Tiller e Helm, ignore este passo de inicialização básico e em vez disso, forneça o necessário `--tiller-tls-` conforme mostrado no exemplo seguinte.
 
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 Se configurou o TLS/SSL entre o Helm e Tiller fornecem o `--tiller-tls-*` parâmetros e os nomes dos seus próprios certificados, conforme mostrado no exemplo a seguir:
@@ -82,7 +85,8 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --service-account tiller \
+    --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 ## <a name="find-helm-charts"></a>Encontrar gráficos Helm
@@ -141,78 +145,62 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## <a name="run-helm-charts"></a>Executar gráficos Helm
 
-Para instalar os gráficos com Helm, utilize o [helm install] [ helm-install] de comando e especifique o nome do gráfico para instalar. Para ver isso em ação, vamos instalar uma implementação básica do Wordpress com um gráfico Helm. Se tiver configurado o TLS/SSL, adicione o `--tls` parâmetro a utilizar o certificado de cliente do Helm.
+Para instalar os gráficos com Helm, utilize o [helm install] [ helm-install] de comando e especifique o nome do gráfico para instalar. Para ver a instalação de um gráfico do Helm em ação, vamos instalar uma implementação de nginx básico com um gráfico Helm. Se tiver configurado o TLS/SSL, adicione o `--tls` parâmetro a utilizar o certificado de cliente do Helm.
 
 ```console
-helm install stable/wordpress
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 O resultado de exemplo condensado seguinte mostra o estado de implementação dos recursos do Kubernetes criados pelo gráfico Helm:
 
 ```
-$ helm install stable/wordpress
+$ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
-NAME:   wishful-mastiff
-LAST DEPLOYED: Wed Mar  6 19:11:38 2019
+NAME:   flailing-alpaca
+LAST DEPLOYED: Thu May 23 12:55:21 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
-==> v1beta1/Deployment
-NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-wishful-mastiff-wordpress  1        1        1           0          1s
-
-==> v1beta1/StatefulSet
-NAME                     DESIRED  CURRENT  AGE
-wishful-mastiff-mariadb  1        1        1s
+==> v1/ConfigMap
+NAME                                      DATA  AGE
+flailing-alpaca-nginx-ingress-controller  1     0s
 
 ==> v1/Pod(related)
-NAME                                        READY  STATUS   RESTARTS  AGE
-wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
-wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
-
-==> v1/Secret
-NAME                       TYPE    DATA  AGE
-wishful-mastiff-mariadb    Opaque  2     2s
-wishful-mastiff-wordpress  Opaque  2     2s
-
-==> v1/ConfigMap
-NAME                           DATA  AGE
-wishful-mastiff-mariadb        1     2s
-wishful-mastiff-mariadb-tests  1     2s
-
-==> v1/PersistentVolumeClaim
-NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-wishful-mastiff-wordpress  Pending  default  2s
+NAME                                                            READY  STATUS             RESTARTS  AGE
+flailing-alpaca-nginx-ingress-controller-56666dfd9f-bq4cl       0/1    ContainerCreating  0         0s
+flailing-alpaca-nginx-ingress-default-backend-66bc89dc44-m87bp  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
-wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
+NAME                                           TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)                     AGE
+flailing-alpaca-nginx-ingress-controller       LoadBalancer  10.0.109.7  <pending>    80:31219/TCP,443:32421/TCP  0s
+flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none>       80/TCP                      0s
 ...
 ```
 
-Demora um minuto ou dois para o *EXTERNAL-IP* endereço do serviço Wordpress para ser preenchido e permitem-lhe aceder ao mesmo com um navegador da web.
+Demora um minuto ou dois para o *EXTERNAL-IP* endereço do serviço de controlador de entradas de nginx para ser preenchido e permitem-lhe aceder ao mesmo com um navegador da web.
 
 ## <a name="list-helm-releases"></a>Lista de versões do Helm
 
-Para ver uma lista das versões instaladas no seu cluster, utilize o [o comando helm list] [ helm-list] comando. O exemplo seguinte mostra a versão Wordpress implementada no passo anterior. Se tiver configurado o TLS/SSL, adicione o `--tls` parâmetro a utilizar o certificado de cliente do Helm.
+Para ver uma lista das versões instaladas no seu cluster, utilize o [o comando helm list] [ helm-list] comando. O exemplo seguinte mostra a versão de entrada do nginx implementada no passo anterior. Se tiver configurado o TLS/SSL, adicione o `--tls` parâmetro a utilizar o certificado de cliente do Helm.
 
 ```console
 $ helm list
 
-NAME                REVISION    UPDATED                     STATUS      CHART            APP VERSION    NAMESPACE
-wishful-mastiff   1         Wed Mar  6 19:11:38 2019    DEPLOYED    wordpress-2.1.3  4.9.7          default
+NAME                REVISION    UPDATED                     STATUS      CHART                 APP VERSION   NAMESPACE
+flailing-alpaca   1         Thu May 23 12:55:21 2019    DEPLOYED    nginx-ingress-1.6.13    0.24.1      default
 ```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando implementa um gráfico Helm, um número de recursos do Kubernetes é criado. Estes recursos incluem pods, implementações e serviços. Para limpar esses recursos, utilize o `helm delete` comando e especifique o nome do seu lançamento, como encontrada no anterior `helm list` comando. O exemplo seguinte elimina a versão com o nome *wishful mastiff*:
+Quando implementa um gráfico Helm, um número de recursos do Kubernetes é criado. Esses recursos incluem pods, implementações e serviços. Para limpar esses recursos, utilize o `helm delete` comando e especifique o nome do seu lançamento, como encontrada no anterior `helm list` comando. O exemplo seguinte elimina a versão com o nome *flailing alpaca*:
 
 ```console
-$ helm delete wishful-mastiff
+$ helm delete flailing-alpaca
 
-release "wishful-mastiff" deleted
+release "flailing-alpaca" deleted
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
@@ -239,3 +227,5 @@ Para obter mais informações sobre como gerir implementações de aplicações 
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
 [install-azure-cli]: /cli/azure/install-azure-cli
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
+[taints]: operator-best-practices-advanced-scheduler.md

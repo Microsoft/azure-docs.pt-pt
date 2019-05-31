@@ -5,12 +5,12 @@ author: sread
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: be94cf0367f93f14249239fce5e09c8635a01136
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 7afe29cb98a294b2a30020ad48f8b27264386746
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62125479"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304806"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar a Micro foco CICS BankDemo para Micro foco Enterprise Developer 4.0 no Azure
 
@@ -20,13 +20,13 @@ CICs significa para o sistema de controlo de informações do cliente, a platafo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma VM com [Enterprise Developer](set-up-micro-focus-azure.md). Tenha em atenção que o desenvolvedor de Enterprise tem uma instância completa do Enterprise Server no mesmo para efeitos de desenvolvimento e teste. Esta é a instância do servidor de Enterprise utilizado para a demonstração.
+- Uma VM com [Enterprise Developer](set-up-micro-focus-azure.md). Tenha em atenção que o desenvolvedor de Enterprise tem uma instância completa do Enterprise Server no mesmo para efeitos de desenvolvimento e teste. Esta instância é a instância do servidor de Enterprise utilizado para a demonstração.
 
 - [SQL Server 2017 Express edition](https://www.microsoft.com/sql-server/sql-server-editions-express). Transfira e instale-a na VM de programador empresarial. Enterprise Server exige uma base de dados para o gerenciamento de regiões do CICS, e o aplicativo BankDemo também utiliza uma base de dados do SQL Server chamado BANKDEMO. Esta demonstração supõe que estiver a utilizar o SQL Server Express para ambas as bases de dados. Ao instalar, selecione a instalação básica.
 
 - [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) (SSMS). SSMS é utilizado para gerir as bases de dados e executar um script T-SQL. Transfira e instale-a na VM de programador empresarial.
 
-- [Visual Studio 2017](https://azure.microsoft.com/downloads/) com o service pack mais recente ou [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), que pode ser baixado gratuitamente.
+- [Visual Studio 2019](https://azure.microsoft.com/downloads/) com o service pack mais recente ou [Visual Studio Community](https://visualstudio.microsoft.com/vs/community/), que pode ser baixado gratuitamente.
 
 - Rumba a área de trabalho ou outro emulador 3270 direcionado.
 
@@ -38,7 +38,7 @@ Depois de instalar Enterprise Developer 4.0 na VM, tem de configurar a instânci
 
 2. Clique a **pesquisa** ícone junto aos **iniciar** botão e o tipo **funcionalidades do Windows**. O Gestor de servidor adicionar funções e funcionalidades assistente é aberto.
 
-3. Selecione **função de servidor Web (IIS)** e, em seguida, verifique o seguinte:
+3. Selecione **função de servidor Web (IIS)** e, em seguida, verifique as seguintes opções:
 
     - Ferramentas de gestão Web
     - Compatibilidade de gestão do IIS 6 (selecione todas as funcionalidades disponíveis)
@@ -46,7 +46,7 @@ Depois de instalar Enterprise Developer 4.0 na VM, tem de configurar a instânci
     - Ferramentas e Scripts de gestão do IIS
     - Serviço de gestão do IIS
 
-4. Selecione **serviços da World Wide Web**e verifique o seguinte:
+4. Selecione **serviços da World Wide Web**e verifique as seguintes opções:
 
      Recursos de desenvolvimento do aplicativo:
     - Extensibilidade .NET
@@ -59,12 +59,12 @@ Depois de instalar Enterprise Developer 4.0 na VM, tem de configurar a instânci
 
 5. Selecione **serviço de ativação de processos do Windows** e todos os respetivos subordinados.
 
-6. Para **funcionalidades**, verifique **Microsoft .NET framework 3.5.1**e verifique o seguinte:
+6. Para **funcionalidades**, verifique **Microsoft .NET framework 3.5.1**e verifique as seguintes opções:
 
     - Windows Communication Foundation HTTP Activation
     - Ativação não HTTP do Windows Communication Foundation
 
-7. Para **funcionalidades**, verifique **Microsoft .NET framework 4.6**e verifique o seguinte:
+7. Para **funcionalidades**, verifique **Microsoft .NET framework 4.6**e verifique as seguintes opções:
 
    - Ativação de Pipe nomeado
    - Ativação de TCP
@@ -88,7 +88,7 @@ Depois de instalar Enterprise Developer 4.0 na VM, tem de configurar a instânci
 
 ## <a name="configure-the-local-system-account-for-sql-server"></a>Configurar a conta sistema local para o SQL Server
 
-Alguns processos de Enterprise Server tem de conseguir iniciar sessão no servidor de SQL e criar bases de dados e outros objetos. Estes processos utilizam a conta de sistema local, para que a autoridade do administrador do sistema tem de dar a essa conta.
+Alguns processos de Enterprise Server tem de conseguir iniciar sessão no SQL Server e criar bases de dados e outros objetos. Estes processos utilizam a conta de sistema local, para que a autoridade do administrador do sistema tem de dar a essa conta.
 
 1. Iniciar o **SSMS** e clique em **Connect** para ligar ao servidor SQLEXPRESS local através da autenticação do Windows. Deve estar disponível na **nome do servidor** lista.
 
@@ -197,7 +197,7 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 
      ![Novo ecrã de definição de recurso XA de base de dados](media/09-demo-xa.png)
 
-6. Clique nas reticências (**...** ) para abrir o Assistente de cadeia de ligação. Para **nome do servidor**, tipo **(local)\\SQLEXPRESS**. Para **início de sessão**, selecione **autenticação do Windows**. Para o nome de base de dados, escreva **BANKDEMO**
+6. Clique nas reticências ( **...** ) para abrir o Assistente de cadeia de ligação. Para **nome do servidor**, tipo **(local)\\SQLEXPRESS**. Para **início de sessão**, selecione **autenticação do Windows**. Para o nome de base de dados, escreva **BANKDEMO**
 
      ![Ecrã de cadeia de ligação de edição](media/10-demo-string.png)
 
@@ -208,7 +208,7 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 > [!NOTE]
 > A primeira etapa é importante: Tem de definir a região a utilizar a definição do recurso XA que acabou de criar.
 
-1. Navegue para o **BANDEMO CICS região** sob a **regiões contentor**e, em seguida, selecione **Editar ficheiro de arranque de região** do **ações** painel. Desloque para baixo para as propriedades SQL e introduza **bankdemo** para o **nome do recurso XA** , ou utilize o botão de reticências para selecioná-lo.
+1. Navegue para o **BANDEMO CICS região** sob a **regiões contentor**e, em seguida, selecione **Editar ficheiro de arranque de região** do **ações** painel. Desloque para baixo para as propriedades SQL e introduza **bankdemo** para o **nome do recurso XA**, ou utilize o botão de reticências para selecioná-lo.
 
 2. Clique nas **guardar** ícone para guardar as alterações.
 
@@ -216,13 +216,13 @@ A consulta deve ser executado sem erros. Quando estiver terminado, terá a base 
 
 4. Na parte inferior a **região iniciar/parar** caixa que aparece no painel do meio, selecione **iniciar**. Após alguns segundos, a região é iniciado.
 
-     ![Caixa de SQL iniciar/parar](/media/11-demo-sql.png)
+     ![Caixa de SQL iniciar/parar](media/11-demo-sql.png)
 
      ![Região do CICS BANKDEMO - ecrã de introdução](media/12-demo-cics.png)
 
 ## <a name="create-a-listener"></a>Criar um serviço de escuta
 
-Tem de criar um serviço de escuta de sessões de TN3270 que aceder à aplicação BankDemo.
+Crie um serviço de escuta de sessões de TN3270 que aceder à aplicação BankDemo.
 
 1. No painel esquerdo, expanda **editores de configuração** e selecione **serviço de escuta**.
 
@@ -236,7 +236,7 @@ Tem de criar um serviço de escuta de sessões de TN3270 que aceder à aplicaç�
 
 6. Adicionar um canal de TN3270 clicando **região BANKDEMO** e selecionando **canal adicionar**.
 
-7. Para **Name**, introduza **TN3270**. Para **porta**, introduza **9024**. (Observe que a aplicação de ESDEMO utiliza a porta 9230 por isso terá de utilizar uma porta diferente.)
+7. Para **Name**, introduza **TN3270**. Para **porta**, introduza **9024**. O aplicativo ESDEMO utiliza a porta 9230 por isso terá de utilizar uma porta diferente.
 
 8. Para guardar o ficheiro, clique nas **salvar** ícone ou escolha **ficheiro** \> **guardar**.
 
@@ -247,13 +247,13 @@ Tem de criar um serviço de escuta de sessões de TN3270 que aceder à aplicaç�
 
 ## <a name="configure-rumba-to-access-the-bankdemo-application"></a>Configurar Rumba para aceder à aplicação BankDemo
 
-O último ponto que precisa fazer é configurar uma sessão de 3270 usando Rumba, um emulador 3270. Este passo permite-lhe aceder à aplicação de BankDemo através do serviço de escuta que acabou de criar.
+O último ponto que precisa fazer é configurar uma sessão de 3270 usando Rumba, um emulador 3270. Este passo permite-lhe aceder à aplicação de BankDemo através do serviço de escuta que criou.
 
 1. Partir do Windows **iniciar** menu, iniciar Rumba Desktop.
 
 2. Sob o **conexões** item de menu, selecione **TN3270**.
 
-3. Clique em **inserir** e escreva **127.0.0.1** para o endereço IP e **9024** para a porta definido pelo utilizador.
+3. Clique em **inserir** e escreva **127.0.0.1** para o endereço IP e **9024** para a porta definidos pelo utilizador.
 
 4. Na parte inferior da caixa de diálogo, clique em **Connect**. É apresentado um ecrã preto do CICS.
 

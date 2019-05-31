@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 05/05/2019
-ms.openlocfilehash: a70a887ccb19d9c1cbdb5f8ebf6aa8d4b25a0dfd
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0628d5c07d7258cc4d68727c364e65bd81c78e8e
+ms.sourcegitcommit: 3d4121badd265e99d1177a7c78edfa55ed7a9626
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65161074"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66388984"
 ---
 # <a name="azure-devops-task-for-azure-data-explorer"></a>Tarefa de DevOps do Azure para o Explorador de dados do Azure
 
@@ -53,7 +53,7 @@ Criar as seguintes pastas de exemplo (*funções*, *políticas*, *tabelas*) no s
 
 1. O **novo pipeline de versões** é aberta a janela. Na **Pipelines** separador a **selecionar um modelo** painel, selecione **tarefa vazia**.
 
-     ![Seleccionar um modelo](media/devops/select-template.png)
+     ![Selecione um modelo](media/devops/select-template.png)
 
 1. Selecione **estágio** botão. Na **estágio** painel, adicione o **nome da fase**. Selecione **guardar** para guardar o seu pipeline.
 
@@ -67,7 +67,7 @@ Criar as seguintes pastas de exemplo (*funções*, *políticas*, *tabelas*) no s
 
     ![Criar variável](media/devops/create-variable.png)
 
-    Para localizar seu Endpoint_URL, a página de descrição geral do seu **Cluster de Explorador de dados do Azure** no Azure portal contém o URI de cluster do Explorador de dados do Azure. Construir o URI no seguinte formato `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Por exemplo, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    Para localizar seu Endpoint_URL, a página de descrição geral do seu **Cluster de Explorador de dados do Azure** no Azure portal contém o URI de cluster do Explorador de dados do Azure. Construir o URI no seguinte formato `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  Por exemplo, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![URI de cluster de Explorador de dados do Azure](media/devops/adx-cluster-uri.png)
 
@@ -85,7 +85,7 @@ Criar as seguintes pastas de exemplo (*funções*, *políticas*, *tabelas*) no s
 
 1. Clique em **Kusto comando** à esquerda e atualizar a tarefa com as seguintes informações:
     * **Nome a apresentar**: Nome da tarefa
-    * **Caminho do ficheiro**: Na **tabelas** de tarefas, especificar */Tables/*.csl, uma vez que os ficheiros de criação de tabela estão no *tabela* pasta.
+    * **Caminho do ficheiro**: Na **tabelas** de tarefas, especificar */Tables/* .csl, uma vez que os ficheiros de criação de tabela estão no *tabela* pasta.
     * **URL de ponto final**: introduza o `EndPoint URL`variável criada no passo anterior.
     * Selecione **ponto final de serviço de utilização** e selecione **+ novo**.
 
