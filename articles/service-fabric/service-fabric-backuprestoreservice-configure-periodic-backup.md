@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/01/2018
+ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: 31c5feac577dc5e9e0eed9ced9ccfe25c12d3086
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60310476"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237364"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Noções básicas sobre a configuração de cópia de segurança periódica no Azure Service Fabric
 
@@ -137,9 +137,6 @@ Uma política de cópia de segurança inclui as seguintes configurações:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!IMPORTANT]
-> Devido a um problema no tempo de execução, certifique-se de que a duração da retenção na política de retenção está configurada para ser inferior a 24 dias caso contrário, ele iria resultar no serviço de restauração de cópia de segurança de mensagens em fila para entrar em ativação pós-falha de réplica do quórum perda post.
 
 ## <a name="enable-periodic-backup"></a>Ativar cópia de segurança periódica
 Depois de definir a política de cópia de segurança para atender a requisitos de cópia de segurança de dados, a política de cópia de segurança deve ser adequadamente associada a um _aplicativo_, ou _service_, ou um _partição_.

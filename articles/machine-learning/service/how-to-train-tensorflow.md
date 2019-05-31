@@ -10,18 +10,20 @@ ms.author: minxia
 author: mx-iao
 ms.date: 05/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: f3d675d0eac1255974995fd7717192ec6a21bac1
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
-ms.translationtype: HT
+ms.openlocfilehash: 314917ce91407206d786b191df118893696ac82c
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66400219"
+ms.locfileid: "66417124"
 ---
-# <a name="use-azure-machine-learning-service-to-train-and-register-tensorflow-models"></a>Utilizar o serviço Azure Machine Learning para treinar e registe-se de modelos do TensorFlow
+# <a name="train-and-register-tensorflow-models-at-scale-with-azure-machine-learning-service"></a>Dar formação e registar o TensorFlow modelos à escala com o serviço Azure Machine Learning
 
 Este artigo mostra-lhe como dar formação e registar um modelo de TensorFlow usando o serviço Azure Machine Learning. Vamos utilizar o popular [conjunto de dados MNIST](http://yann.lecun.com/exdb/mnist/) para classificar manuscritos dígitos a utilizar uma rede neural profunda criada no TensorFlow.
 
-Com o serviço Azure Machine Learning, poderá rapidamente aumentar horizontalmente as tarefas de formação do código-fonte aberto com recursos de computação na cloud elástica. Também será capaz de controlar suas execuções de preparação, modelos de versão, implementar modelos e muito mais. Quer esteja a desenvolver um modelo do TensorFlow desde o início ou trazem um modelo existente para a cloud, serviço Azure Machine Learning está aqui para ajudar a criar modelos prontos para produção.
+Com o serviço Azure Machine Learning, poderá rapidamente aumentar horizontalmente as tarefas de formação do código-fonte aberto com recursos de computação na cloud elástica. Também será capaz de controlar suas execuções de preparação, modelos de versão, implementar modelos e muito mais. 
+
+Quer esteja a desenvolver um modelo do TensorFlow desde o início ou trazem um modelo existente para a cloud, pode criar modelos prontos para produção com o serviço Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

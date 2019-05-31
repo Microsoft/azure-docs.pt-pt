@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 2fba8b0056c80a62837682a6820b68f71fba9ea8
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
-ms.translationtype: HT
+ms.openlocfilehash: 0307dc5c83782119f6c10279563b8b9f0a999d28
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65952946"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236888"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados do SQL Server em VMs do Azure
 
@@ -49,7 +49,7 @@ Para todas as operações, uma VM do SQL Server necessitam de conectividade para
 
 Estabelecer conectividade ao utilizar uma das seguintes opções:
 
-- **Permitir que os intervalos IP do datacenter do Azure**. Esta opção permite [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no download. Para aceder a um grupo de segurança de rede (NSG), utilize o cmdlet Set-AzureNetworkSecurityRule. Se tiver a lista de permissões apenas específico da região IPs, irá também precisar à lista de permissões do Azure Active Directory (Azure AD) etiqueta de serviço para ativar a autenticação.
+- **Permitir que os intervalos IP do datacenter do Azure**. Esta opção permite [intervalos de IP](https://www.microsoft.com/download/details.aspx?id=41653) no download. Para aceder a um grupo de segurança de rede (NSG), utilize o cmdlet Set-AzureNetworkSecurityRule. Se está protegido apenas específico da região IPs de lista de destinatários, também terá de atualizar a lista de destinatários seguros da etiqueta de serviço do Azure Active Directory (Azure AD) para ativar a autenticação.
 
 - **Permitir o acesso utilizando as etiquetas de NSG**. Se utilizar NSGs para restringir a conectividade, esta opção acrescenta uma regra para o seu NSG que permita o acesso de saída para o Azure Backup usando a marca de AzureBackup. Para além desta etiqueta, também precisará correspondente [regras](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para o Azure AD e o armazenamento do Azure para permitir a ligação para a autenticação e transferência de dados. A etiqueta de AzureBackup só está atualmente disponível no PowerShell. Para criar uma regra ao utilizar a tag de AzureBackup:
 
@@ -96,7 +96,8 @@ Evite a utilizar os seguintes elementos em nomes de base de dados:
   * À direita e espaços à esquerda
   * Marcas de exclamação (!!!) à direita
   * Fechar Parênteses Retos (])
-  * A partir do F:\
+  * Ponto e vírgula ";"
+  * Reencaminhar barra "/"
 
 Aliasing está disponível para carateres não suportados, mas recomendamos que evite-los. Para obter mais informações, consulte [Noções Básicas sobre o Modelo de Dados do Serviço Tabela](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -162,7 +163,7 @@ Como detetar as bases de dados em execução numa VM:
 
      * Para proteger mais de 50 bases de dados, configure várias cópias de segurança.
      * Para habilitar [ ](#enable-auto-protection) toda a instância ou o grupo de disponibilidade Always On. Na **AUTOPROTECT** na lista pendente, selecione **ON**e, em seguida, selecione **OK**.
-     
+
     > [!NOTE]
     > O [proteção automática](#enable-auto-protection) funcionalidade não só permite a proteção em todos os bancos de dados existentes ao mesmo tempo, mas também automaticamente protege bases de dados novas adicionados a essa instância ou o grupo de disponibilidade.  
 

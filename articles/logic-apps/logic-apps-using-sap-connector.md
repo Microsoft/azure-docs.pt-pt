@@ -10,16 +10,16 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 05/09/2019
 tags: connectors
-ms.openlocfilehash: 3fb39103fc9cb0f38bca56dcaeea4837ff4dfabe
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: bccefec80ef3afd6d312bb1048d3be5d8e708728
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541499"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258158"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar a sistemas SAP a partir do Azure Logic Apps
 
-Este artigo mostra como pode aceder aos recursos SAP no local de dentro de uma aplicação lógica utilizando o conector SAP. O conector funciona com as versões clássicas do SAP, como a R/3 e sistemas ECC no local. O conector também permite a integração com sistemas SAP HANA com base em mais recentes do SAP, como o S/4 HANA, independentemente de onde estão alojadas - no local ou na cloud. O conector SAP suporta a integração de dados ou de mensagem de e para sistemas baseados em SAP NetWeaver através do documento de intermediários (IDoc) ou Business Application Programming Interface (BAPI) ou a chamada de função remota (RFC).
+Este artigo mostra como pode aceder aos recursos SAP no local de dentro de uma aplicação lógica utilizando o conector SAP. O conector trabalha com as versões clássicas do SAP como o R/3 e sistemas ECC no local. O conector também permite a integração com sistemas SAP HANA com base em mais recentes do SAP, como o S/4 HANA, independentemente de onde estão alojadas - no local ou na cloud. O conector SAP suporta a integração de dados ou de mensagem de e para sistemas baseados em SAP NetWeaver através do documento de intermediários (IDoc) ou Business Application Programming Interface (BAPI) ou a chamada de função remota (RFC).
 
 O conector SAP utiliza a [biblioteca de conectores de .NET de SAP (NCo)](https://support.sap.com/en/product/connectors/msnet.html) e fornece essas operações ou ações:
 
@@ -27,7 +27,7 @@ O conector SAP utiliza a [biblioteca de conectores de .NET de SAP (NCo)](https:/
 * **Receber do SAP**: Recebe IDoc tRFC, chamar funções BAPI sobre tRFC ou chamar RFC/tRFC em sistemas SAP.
 * **Gerar esquemas**: Gere esquemas para os artefactos SAP para IDoc, BAPI ou RFC.
 
-Para todas as operações anteriores, o conector SAP suporta a autenticação básica através do nome de utilizador e da palavra-passe. O conector também suporta [comunicações de rede seguro (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), que podem ser utilizadas para SAP NetWeaver início de sessão único ou para os recursos de segurança adicional fornecidos por um produto de segurança externas.
+Para todas as operações acima, o conector SAP suporta a autenticação básica através do nome de utilizador e palavra-passe. O conector também suporta [comunicações de rede seguro (SNC)](https://help.sap.com/doc/saphelp_nw70/7.0.31/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true), que podem ser utilizadas para SAP NetWeaver início de sessão único ou para os recursos de segurança adicional fornecidos por um produto de segurança externas.
 
 O conector SAP integra-se com os sistemas SAP no local através da [gateway de dados no local](../logic-apps/logic-apps-gateway-connection.md). Em cenários de envio, por exemplo, ao enviar uma mensagem a partir das aplicações lógicas a um sistema SAP, o gateway de dados age como um cliente RFC e encaminha os pedidos recebidos de aplicações lógicas para SAP.
 Da mesma forma, em cenários de receção, o gateway de dados age como um servidor RFC que recebe pedidos do SAP e a encaminha para a aplicação lógica.
@@ -119,6 +119,8 @@ No Azure Logic Apps, um [ação](../logic-apps/logic-apps-overview.md#logic-app-
       Se o **tipo de início de sessão** estiver definida como **grupo**, essas propriedades, que são apresentados normalmente opcionais, são necessárias:
 
       ![Criar a ligação ao servidor SAP mensagem](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
+
+      Por predefinição, a rigidez de tipos é utilizado para verificar a existência de valores inválidos ao efetuar a validação de XML no esquema. Esse comportamento pode ajudar a detectar problemas anteriormente. O **escrever seguro** opção está disponível para compatibilidade com versões anteriores e só verifica o comprimento da cadeia. Saiba mais sobre o [ **escrever seguro** opção](#safe-typing).
 
    1. Quando tiver terminado, escolha **Create** (Criar).
 
@@ -225,6 +227,8 @@ Este exemplo utiliza uma aplicação lógica que aciona quando receber uma mensa
 
       ![Criar a ligação ao servidor SAP mensagem](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)  
 
+      Por predefinição, a rigidez de tipos é utilizado para verificar a existência de valores inválidos ao efetuar a validação de XML no esquema. Esse comportamento pode ajudar a detectar problemas anteriormente. O **escrever seguro** opção está disponível para compatibilidade com versões anteriores e só verifica o comprimento da cadeia. Saiba mais sobre o [ **escrever seguro** opção](#safe-typing).
+
 1. Forneça os parâmetros necessários com base na configuração do sistema SAP.
 
    Opcionalmente, pode fornecer uma ou mais ações de SAP. Esta lista de ações Especifica as mensagens que o acionador recebe a partir do seu servidor SAP através do gateway de dados. Uma lista vazia, especifica que o acionador recebe todas as mensagens. Se a lista tiver mais do que uma mensagem, o acionador recebe apenas as mensagens especificadas na lista. Quaisquer outras mensagens enviadas a partir do seu servidor SAP são rejeitadas pelo gateway.
@@ -306,7 +310,11 @@ Na barra de ferramentas do estruturador, escolha **Guardar**.
 
       ![Criar a ligação ao servidor SAP mensagem](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png)
 
-   1. Quando tiver terminado, escolha **Create** (Criar). O Logic Apps configura e testa a ligação, certificar-se de que a ligação funciona corretamente.
+      Por predefinição, a rigidez de tipos é utilizado para verificar a existência de valores inválidos ao efetuar a validação de XML no esquema. Esse comportamento pode ajudar a detectar problemas anteriormente. O **escrever seguro** opção está disponível para compatibilidade com versões anteriores e só verifica o comprimento da cadeia. Saiba mais sobre o [ **escrever seguro** opção](#safe-typing).
+
+   1. Quando tiver terminado, escolha **Create** (Criar). 
+   
+      O Logic Apps configura e testa a ligação, certificar-se de que a ligação funciona corretamente.
 
 1. Forneça o caminho para o artefacto para o qual pretende gerar o esquema.
 
@@ -402,6 +410,53 @@ Para ativar SNC para seus pedidos de ou para o sistema SAP, selecione o **utiliz
 
    > [!NOTE]
    > As variáveis de ambiente SNC_LIB SNC_LIB_64 não devem ser definidas na máquina em que tiver o gateway de dados e biblioteca SNC. Se definido, eles seriam têm precedência sobre o valor de biblioteca SNC transmitido através do conector.
+
+<a name="safe-typing"></a>
+
+## <a name="safe-typing"></a>Escrever seguro
+
+Por predefinição, quando cria a ligação de SAP, rigidez de tipos é utilizado para verificar a existência de valores inválidos ao efetuar a validação de XML no esquema. Esse comportamento pode ajudar a detectar problemas anteriormente. O **escrever seguro** opção está disponível para compatibilidade com versões anteriores e só verifica o comprimento da cadeia. Se escolher **escrever seguro**, o tipo DATS e o tipo de TIMS no SAP são tratados como cadeias de caracteres e não como seus equivalentes em XML, `xs:date` e `xs:time` onde `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Escrever seguro afeta o comportamento para todos os geração de esquema, a mensagem de envio para o payload "foi enviado" e "foi recebida" resposta tanto o acionador. 
+
+Quando a tipagem forte é utilizada (**escrever seguro** não ativado), o esquema mapeia os tipos de DATS e TIMS para tipos XML mais simples:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true" type="xs:date"/>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true" type="xs:time"/>
+```
+
+Ao enviar mensagens usando rigidez de tipos, a resposta DATS e TIMS está em conformidade para o formato de tipo XML correspondente:
+
+```xml
+<DATE>9999-12-31</DATE>
+<TIME>23:59:59</TIME>
+```
+
+Quando **escrever seguro** é ativado, o esquema mapeia o DATS e tipos de TIMS em XML cadeias de caracteres campos com restrições de comprimento apenas, por exemplo:
+
+```xml
+<xs:element minOccurs="0" maxOccurs="1" name="UPDDAT" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="8" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+<xs:element minOccurs="0" maxOccurs="1" name="UPDTIM" nillable="true">
+  <xs:simpleType>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="6" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:element>
+```
+
+Ao enviar mensagens com **escrever seguro** ativada, a resposta DATS e TIMS aspeto deste exemplo:
+
+```xml
+<DATE>99991231</DATE>
+<TIME>235959</TIME>
+```
+
 
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
 
