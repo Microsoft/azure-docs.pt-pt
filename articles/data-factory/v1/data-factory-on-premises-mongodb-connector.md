@@ -67,10 +67,10 @@ A tabela seguinte fornece uma descrição para elementos JSON específicos **OnP
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | type |A propriedade de tipo tem de ser definida como: **OnPremisesMongoDb** |Sim |
-| servidor |Nome anfitrião ou endereço IP do servidor do MongoDB. |Sim |
-| porta |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Opcional, valor de predefinido: 27017 |
+| server |Nome anfitrião ou endereço IP do servidor do MongoDB. |Sim |
+| port |Porta TCP que o servidor do MongoDB utiliza para escutar ligações de cliente. |Opcional, valor de predefinido: 27017 |
 | authenticationType |Básico ou anónimo. |Sim |
-| o nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada autenticação básica). |
+| username |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada autenticação básica). |
 | password |A palavra-passe do utilizador. |Sim (se for utilizada autenticação básica). |
 | authSource |Nome da base de dados do MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada autenticação básica). predefinição: utiliza a conta de administrador e a base de dados especificada, utilizando a propriedade databaseName. |
 | databaseName |Nome da base de dados do MongoDB que pretende aceder. |Sim |
@@ -84,7 +84,7 @@ O **typeProperties** secção é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| CollectionName |Nome da coleção na base de dados do MongoDB. |Sim |
+| collectionName |Nome da coleção na base de dados do MongoDB. |Sim |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa das secções e propriedades disponíveis para a definição de atividades, consulte a [criar Pipelines](data-factory-create-pipelines.md) artigo. Propriedades, tais como o nome, descrição, entrada e saída de tabelas e a política estão disponíveis para todos os tipos de atividades.
@@ -95,7 +95,7 @@ Quando a origem é do tipo **MongoDbSource** as seguintes propriedades estão di
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta de SQL-92. Por exemplo: selecionar * de MyTable. |Não (se **collectionName** dos **conjunto de dados** for especificado) |
+| query |Utilize a consulta personalizada para ler dados. |Cadeia de consulta de SQL-92. Por exemplo: selecionar * de MyTable. |Não (se **collectionName** dos **conjunto de dados** for especificado) |
 
 
 
