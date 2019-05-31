@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 6ada4a25f24a6dcbb1ebd54daad15b37127f7a21
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 980dc850537b7419e4ee48391acd5ba971fb3fed
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154193"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66306718"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de resolução de problemas de Explorador de armazenamento do Azure
 
@@ -30,11 +30,11 @@ Se estiver a ter problemas em aceder a recursos de armazenamento utilizando o RB
 
 Contacte o administrador de conta do Azure se tiver a certeza de que tem as funções adequadas ou permissões.
 
-#### <a name="read-listget-storage-accounts"></a>Leitura: Listar/Obter Conta(s) de Armazenamento
+#### <a name="read-listget-storage-accounts"></a>Leitura: Listar/obter conta (s) de armazenamento
 
 Tem de ter permissão para contas de armazenamento da lista. Pode obter esta permissão, que está a ser atribuída a função de "Leitor de".
 
-#### <a name="list-storage-account-keys"></a>Listar Chaves de Conta de Armazenamento
+#### <a name="list-storage-account-keys"></a>Listar chaves de conta de armazenamento
 
 Explorador de armazenamento também pode utilizar chaves de conta para autenticar pedidos. Pode obter acesso às chaves com as funções mais poderosas, como a função de "Contribuinte".
 
@@ -88,13 +88,13 @@ Se tiver a certeza de onde o certificado é proveniente, pode experimentar estas
 5. Quando encontrar certificados autoassinados, para cada um, copie e cole tudo entre incluindo **---BEGIN CERTIFICATE---** ao **---END CERTIFICATE---** para um novo ficheiro. cer.
 6. Abra o Explorador de armazenamento, clique em **edite** > **certificados SSL** > **importar certificados**e, em seguida, utilize o Seletor de ficheiros para localizar, selecionar, e Abra os ficheiros. cer que criou.
 
-Se não conseguir encontrar nenhum certificado autoassinado utilizando os passos anteriores, contacte-nos por meio da ferramenta de comentários para obter mais ajuda. Em alternativa, pode optar por iniciar o Explorador de armazenamento a partir da linha de comandos com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, o Explorador de armazenamento irão ignorar erros de certificado.
+Se não conseguir encontrar nenhum certificado autoassinado utilizando os passos anteriores, contacte-nos por meio da ferramenta de comentários para obter mais ajuda. Também pode optar por iniciar o Explorador de armazenamento a partir da linha de comandos com o `--ignore-certificate-errors` sinalizador. Quando iniciado com esse sinalizador, o Explorador de armazenamento irão ignorar erros de certificado.
 
 ## <a name="sign-in-issues"></a>Problemas de início de sessão
 
 ### <a name="blank-sign-in-dialog"></a>Diálogo de início de sessão em branco
 
-Em branco início de sessão caixas de diálogo são causadas frequentemente por ADFS solicitando o Explorador de armazenamento para executar um redirecionamento, que não é suportado por Bombardeador. Para contornar este problema, pode tentar utilizar o fluxo de código de dispositivo para início de sessão. Para tal, siga estes passos:
+Em branco início de sessão caixas de diálogo são causadas frequentemente por ADFS solicitando o Explorador de armazenamento para executar um redirecionamento, que não é suportado por Bombardeador. Para contornar este problema, pode tentar utilizar o fluxo de código de dispositivo para início de sessão. Para fazer isso, conclua os seguintes passos:
 
 1. Menu: Pré-visualização -> "Utilizar código sessão de dispositivo".
 2. Abra a caixa de diálogo Ligar (quer através de "Adicionar conta" no painel de conta ou o ícone de plug na barra vertical do lado esquerdo).
@@ -109,7 +109,7 @@ Se tiver problemas de inscrição para a conta que pretende utilizar como browse
 
 ### <a name="reauthentication-loop-or-upn-change"></a>Ciclo de reautenticação ou alteração UPN
 
-Se estiver num loop de reautenticação, ou tiver alterado o UPN de uma das suas contas, experimente o seguinte:
+Se estiver num loop de reautenticação ou tiver alterado o UPN de uma das suas contas, tente os seguintes passos:
 
 1. Remover todas as contas e, em seguida, feche o Explorador de armazenamento
 2. Eliminar o. Pasta de IdentityService partir do seu computador. No Windows, a pasta está localizada em `C:\users\<username>\AppData\Local`. Para Mac e Linux, pode encontrar a pasta na raiz do seu diretório do utilizador.
@@ -131,7 +131,7 @@ O macOS Keychain, às vezes, pode chegar a um Estado que provoca problemas para 
     ![image](./media/storage-explorer-troubleshooting/unlockingkeychain.png)
 
 5. Inicie o Explorador de armazenamento.
-6. Um pop-up deverá aparecer dizendo algo como "hub de serviço pretende aceder a keychain". Quando, introduza a palavra-passe da conta do administrador de Mac e clique em **sempre permitir** (ou **permitir** se **permitir sempre** não está disponível).
+6. Um pop-up deverá aparecer dizendo algo como "hub de serviço pretende aceder a keychain". Quando, introduza a palavra-passe da conta do administrador de Mac e clique em **sempre permitir** (ou **permitir** se **permitir sempre** não estiver disponível).
 7. Tente iniciar sessão.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Início de sessão resolução de problemas passos gerais
@@ -140,7 +140,7 @@ O macOS Keychain, às vezes, pode chegar a um Estado que provoca problemas para 
 * Reinicie o Explorador de armazenamento
 * Se a janela de autenticação está em branco, aguarde, pelo menos, um minuto antes de fechar a caixa de diálogo de autenticação.
 * Certifique-se de que o proxy e as definições estão configuradas corretamente para o seu computador e o Explorador de armazenamento de certificado.
-* Se estiver no Windows e ter acesso ao Visual Studio 2017 na mesma máquina e iniciar sessão, tente iniciar sessão no Visual Studio 2017. Após um êxito início de sessão para o Visual Studio 2017, deve ser capaz de abrir o Explorador de armazenamento e ver a sua conta no painel de conta.
+* Se estiver no Windows e ter acesso ao Visual Studio 2019 na mesma máquina e de início de sessão, tente iniciar sessão no Visual Studio 2019. Após um êxito início de sessão para o Visual Studio 2019, pode abrir o Explorador de armazenamento e ver a sua conta no painel de conta.
 
 Se nenhum desses métodos funcionam [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -152,9 +152,9 @@ Se não é possível obter as suas subscrições depois de entrar com êxito, te
 * Certifique-se de que iniciou sessão com o Azure correto ambiente (do Azure, Azure China 21Vianet, Azure Alemanha, Azure US Government ou ambiente personalizado).
 * Se estiver atrás de um proxy, certifique-se de que configurou o proxy do Explorador de armazenamento corretamente.
 * Tente remover e adicionar novamente a conta.
-* Se existir uma ligação de "Obter mais informações", procure e consulte as mensagens de erro estão a ser reportadas para os inquilinos que estão a falhar. Se não souber ao certo o que fazer com o mensagens de erro, consulte, em seguida, não hesite em [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
+* Se existir uma ligação de "Obter mais informações", procure e consulte as mensagens de erro estão a ser reportadas para os inquilinos que estão a falhar. Se you'ren possível-se de que o que fazer com o erro de mensagens que consulte, em seguida, não hesite em [abra um problema no GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
-## <a name="cannot-remove-attached-account-or-storage-resource"></a>Não é possível remover o recurso de conta ou armazenamento anexado
+## <a name="cant-remove-attached-account-or-storage-resource"></a>Não é possível remover o recurso de conta ou armazenamento anexado
 
 Se não é possível remover um recurso de armazenamento através da IU ou conta anexada, pode eliminar manualmente todos os recursos anexados ao eliminar as seguintes pastas:
 
@@ -180,7 +180,7 @@ Em primeiro lugar, certifique-se de que as seguintes informações que introduzi
 
 ### <a name="common-solutions"></a>Soluções comuns
 
-Se ainda ocorrerem problemas, tente os seguintes métodos de resolução de problemas:
+Se ainda estiver a ter problemas, tente os seguintes métodos de resolução de problemas:
 
 * Se consegue ligar à Internet sem utilizar o proxy, certifique-se de que o Explorador de armazenamento funciona sem as definições de proxy ativadas. Se for este o caso, pode haver um problema com as suas definições de proxy. Contactar o administrador de proxy para identificar os problemas.
 * Certifique-se de que outros aplicativos usando o servidor proxy funcionam conforme esperado.
@@ -190,11 +190,11 @@ Se ainda ocorrerem problemas, tente os seguintes métodos de resolução de prob
 
 ### <a name="tools-for-diagnosing-issues"></a>Ferramentas para diagnosticar problemas
 
-Se tiver ferramentas de rede, como o Fiddler para Windows, podem ser capazes de diagnosticar os problemas da seguinte forma:
+Se tiver ferramentas de rede, como o Fiddler para Windows, pode diagnosticar os problemas da seguinte forma:
 
 * Se tem que trabalhar através do seu proxy, poderá ter de configurar a sua ferramenta de rede para ligar através do proxy.
 * Verificar o número de porta utilizado pela sua ferramenta de rede.
-* Introduza o URL de local host e o número de porta de rede da ferramenta, como definições de proxy no Explorador de armazenamento. Se for feito corretamente, sua ferramenta de rede inicia o registo de pedidos de rede feitos pelo Explorador de armazenamento para a gestão e pontos finais de serviço. Por exemplo, introduza https://cawablobgrs.blob.core.windows.net/ o ponto final do blob num navegador e receberá uma resposta é semelhante ao seguinte, o que sugere o recurso existe, embora não é possível acessá-lo.
+* Introduza o URL de local host e o número de porta de rede da ferramenta, como definições de proxy no Explorador de armazenamento. Se for feito corretamente, sua ferramenta de rede inicia o registo de pedidos de rede feitos pelo Explorador de armazenamento para a gestão e pontos finais de serviço. Por exemplo, introduza https://cawablobgrs.blob.core.windows.net/ para o ponto final do blob num navegador e receberá uma resposta é semelhante ao seguinte, o que sugere o recurso existe, embora não é possível acessá-lo.
 
 ![Exemplo de código](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -203,13 +203,13 @@ Se tiver ferramentas de rede, como o Fiddler para Windows, podem ser capazes de 
 Se as definições de proxy estão corretas, poderá ter de contactar o seu administrador de servidor proxy, e
 
 * Certifique-se de que o proxy não bloqueia o tráfego para pontos finais do Azure de gestão ou recurso.
-* Verifique se o protocolo de autenticação utilizado pelo seu servidor proxy. Explorador de armazenamento não suporta atualmente os proxies NTLM.
+* Verifique se o protocolo de autenticação utilizado pelo seu servidor proxy. Explorador de armazenamento atualmente não suporta os proxies NTLM.
 
 ## <a name="unable-to-retrieve-children-error-message"></a>Mensagem de erro "Não é possível obter subordinados"
 
-Se estiver ligado ao Azure através de um proxy, certifique-se de que as definições de proxy estão corretas. Se é concedido acesso a um recurso do proprietário da subscrição ou conta, certifique-se de que tem de leitura ou lista de permissões para esse recurso.
+Se estiver ligado ao Azure através de um proxy, certifique-se de que as definições de proxy estão corretas. Se estiver concedido acesso a um recurso do proprietário da subscrição ou conta, certifique-se de que tem de leitura ou lista de permissões para esse recurso.
 
-## <a name="connection-string-does-not-have-complete-configuration-settings"></a>Cadeia de ligação não tem definições de configuração concluída
+## <a name="connection-string-doesnt-have-complete-configuration-settings"></a>Cadeia de ligação não têm definições de configuração concluída
 
 Se receber esta mensagem de erro, é possível que não tem as permissões necessárias para obter as chaves para a sua conta de armazenamento. Para confirmar se for este o caso, aceda ao portal e localize a sua conta de armazenamento. Pode rapidamente fazê-lo ao clicar com o botão direito no nó para a sua conta de armazenamento e clicar em "Abrir no Portal". Depois de o fazer, aceda ao painel "Chaves de acesso". Se não tiver permissões para ver as chaves, em seguida, verá uma página com a mensagem "Não tem acesso". Para contornar este problema, pode obter a chave de conta de outra pessoa e anexar com nome e a chave, ou pode pedir a alguém para uma SAS para a conta de armazenamento e utilizá-lo para anexar a conta de armazenamento.
 

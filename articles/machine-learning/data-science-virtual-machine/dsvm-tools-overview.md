@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1defaea3743ebb8ddb688cef28efb7eee8ecb07c
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 0a503b82c07da62b5c5c768d8e1c92cb19e75aee
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597095"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236467"
 ---
 # <a name="get-to-know-your-data-science-virtual-machine"></a>Conheça a sua máquina de Virtual de ciência de dados
 
@@ -30,7 +30,7 @@ A Máquina Virtual de ciência de dados (DSVM) inclui uma lista extensa de ciên
 A DSVM também inclui vários exemplos de código e orientações passo a passo na forma de blocos de notas do Jupyter que pode ser executado localmente. Também há documentação para estes exemplos ajudar a compreensão. 
 
 > [!NOTE]
-> Pode usar [blocos de notas do Azure](/azure/notebooks/azure-notebooks-overview.md) para criar, executar e partilhar os blocos de notas do Jupyter na cloud. Pode [anexar uma VM de ciência de dados para blocos de notas do Azure](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) para expandir o poder de computação disponíveis.
+> Pode usar [blocos de notas do Azure](/azure/notebooks/azure-notebooks-overview) para criar, executar e partilhar os blocos de notas do Jupyter na cloud. Pode [anexar uma VM de ciência de dados para blocos de notas do Azure](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier) para expandir o poder de computação disponíveis.
 
 As ferramentas, plataformas, utilitários e exemplos que estão incluídos na VM de ciência de dados são organizados nas seguintes secções:
 

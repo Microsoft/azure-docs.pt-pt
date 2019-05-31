@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 4086b73313d563afaecad9b6a9289905d7085004
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 4af2e97e8ace432c37a770f1930514dd19e30944
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66142645"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235758"
 ---
 # <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Pré-visualizar - criar e gerir vários conjuntos de nós de um cluster no Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ No Azure Kubernetes Service (AKS), nós da configuração do mesmo são agrupado
 Este artigo mostra-lhe como criar e gerir vários conjuntos de nós num cluster do AKS. Esta funcionalidade encontra-se em pré-visualização.
 
 > [!IMPORTANT]
-> Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
+> Funcionalidades de pré-visualização do AKS são self-service, participar. Eles são fornecidos para recolher comentários e bugs de nossa Comunidade. Em pré-visualização, esses recursos não se destinam a utilização de produção. Funcionalidades em pré-visualização pública enquadram-se em suporte "melhor esforço". Assistência das equipas de suporte técnico do AKS está disponível durante o horário do Pacífico fuso horário (PST) apenas. Para obter mais informações, consulte os seguintes artigos de suporte:
 >
-> Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
+> * [Políticas de suporte do AKS][aks-support-policies]
+> * [FAQ de suporte do Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -72,6 +73,7 @@ As seguintes limitações aplicam-se ao criar e gerir clusters do AKS que oferec
 * Vários conjuntos de nós só estão disponíveis nos clusters criados após ter registrado com êxito a *MultiAgentpoolPreview* e *VMSSPreview* funcionalidades para a sua subscrição. Não é possível adicionar ou gerir conjuntos de nós com um cluster do AKS existente criado antes desses recursos foram registados com êxito.
 * Não é possível eliminar o primeiro conjunto de nós.
 * Não é possível utilizar o suplemento de encaminhamento de aplicação de HTTP.
+* Não é possível utilizar um modelo do Resource Manager existente tal como acontece com a maioria das operações de conjuntos de nós de adicionar/atualizar/eliminar. Em vez disso, [utilizar um modelo do Resource Manager separado](#manage-node-pools-using-a-resource-manager-template) fazer alterações em conjuntos de nós num cluster do AKS.
 
 Enquanto esta funcionalidade está em pré-visualização, aplicam-se as seguintes limitações adicionais:
 
@@ -328,6 +330,95 @@ Events:
 
 Apenas os pods que tenham este taint aplicada podem ser agendados em nós *gpunodepool*. Quaisquer outro pod teria de ser agendada do *nodepool1* conjunto de nós. Se criar conjuntos de nós adicionais, pode utilizar taints adicionais e tolerations para limitar os pods podem ser agendadas a esses recursos de nó.
 
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>Gerir conjuntos de nós com um modelo do Resource Manager
+
+Quando utiliza um modelo Azure Resource Manager para criar e recursos gerenciados, normalmente, é possível atualizar as definições no seu modelo e Reimplementar para atualizar o recurso. Com nodepools no AKS, o perfil de nodepool inicial não pode ser atualizado depois de criar o cluster do AKS. Este comportamento significa que não é possível atualizar um modelo do Resource Manager existente, faça uma alteração para os conjuntos de nós e voltar a implementar. Em vez disso, tem de criar um modelo do Resource Manager separado, que atualiza os conjuntos de agentes para um cluster do AKS existente.
+
+Criar um modelo como `aks-agentpools.json` e cole o manifesto de exemplo seguinte. Este modelo de exemplo configura as seguintes definições:
+
+* Atualizações a *Linux* com o nome de conjunto de agentes *myagentpool* a execução de três nós.
+* Define os nós no conjunto de nós para executar a versão do Kubernetes *1.12.8*.
+* Define o tamanho do nó como *Standard_DS2_v2*.
+
+Edite estes valores conforme necessário para atualizar, adicionar ou eliminar conjuntos de nós, conforme necessário:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "clusterName": {
+      "type": "string",
+      "metadata": {
+        "description": "The name of your existing AKS cluster."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "The location of your existing AKS cluster."
+      }
+    },
+    "agentPoolName": {
+      "type": "string",
+      "defaultValue": "myagentpool",
+      "metadata": {
+        "description": "The name of the agent pool to create or update."
+      }
+    },
+    "vnetSubnetId": {
+      "type": "string",
+      "defaultValue": "",
+      "metadata": {
+        "description": "The Vnet subnet resource ID for your existing AKS cluster."
+      }
+    }
+  },
+  "variables": {
+    "apiVersion": {
+      "aks": "2019-04-01"
+    },
+    "agentPoolProfiles": {
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-04-01",
+      "type": "Microsoft.ContainerService/managedClusters/agentPools",
+      "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
+      "location": "[parameters('location')]",
+      "properties": {
+            "maxPods": "[variables('agentPoolProfiles').maxPods]",
+            "osDiskSizeGB": "[variables('agentPoolProfiles').osDiskSizeGB]",
+            "count": "[variables('agentPoolProfiles').agentCount]",
+            "vmSize": "[variables('agentPoolProfiles').agentVmSize]",
+            "osType": "[variables('agentPoolProfiles').osType]",
+            "storageProfile": "ManagedDisks",
+      "type": "VirtualMachineScaleSets",
+            "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
+            "orchestratorVersion": "1.12.8"
+      }
+    }
+  ]
+}
+```
+
+Implementar este modelo com o [criar a implementação do grupo az] [ az-group-deployment-create] de comando, conforme mostrado no exemplo a seguir. São-lhe pedido para o nome do cluster AKS e a localização existente:
+
+```azurecli-interactive
+az group deployment create \
+    --resource-group myResourceGroup \
+    --template-file aks-agentpools.json
+```
+
+Pode demorar alguns minutos a atualizar o seu cluster do AKS consoante as definições de agrupamento de nó e operações que define no modelo do Resource Manager.
+
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Neste artigo, criou um cluster do AKS que inclui nós baseada em GPU. Para reduzir custos desnecessários, pode querer eliminar os *gpunodepool*, ou o cluster do AKS inteiro.
@@ -351,7 +442,6 @@ Neste artigo, aprendeu como criar e gerir vários conjuntos de nós num cluster 
 Para criar e utilizar conjuntos de nós de contentor do Windows Server, consulte [criar um contentor do Windows Server no AKS][aks-windows].
 
 <!-- EXTERNAL LINKS -->
-[aks-github]: https://github.com/azure/aks/issues
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-taint]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#taint
@@ -379,3 +469,6 @@ Para criar e utilizar conjuntos de nós de contentor do Windows Server, consulte
 [supported-versions]: supported-kubernetes-versions.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/10/2019
-ms.openlocfilehash: 53f9f67397e1484559ee8243a52ad8339df930bc
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.date: 05/23/2019
+ms.openlocfilehash: e824ac81f1336644fa70cc24539284feacee3199
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65990205"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244538"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -120,7 +120,7 @@ Para passar destes limites no processamento normal ou executar o teste de carga 
 
 Aqui estão os limites para uma única solicitação HTTP ou uma chamada síncrona de conector:
 
-#### <a name="timeout"></a>Tempo Limite (excedido)
+#### <a name="timeout"></a>Tempo limite
 
 Algumas operações de conector fazem chamadas assíncronas ou escutam os pedidos de webhook, portanto, o tempo limite para essas operações pode ser maior do que estes limites. Para obter mais informações, consulte os detalhes técnicos para o conector específico e também [acionadores de fluxo de trabalho e as ações](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action).
 
@@ -182,15 +182,15 @@ Aqui estão os limites no número de artefactos para cada conta de integração.
 > [!NOTE] 
 > Utilize o escalão gratuito apenas para cenários de exploratórios, não os cenários de produção. Este escalão restringe o débito e a utilização e não tem nenhum contrato de nível de serviço (SLA).
 
-| Artefacto | Gratuito | Básico | Standard |
+| Artefacto | Livre | Básica | Standard |
 |----------|------|-------|----------|
-| Contratos comerciais de EDI | 10 | 1 | 500 |
-| Parceiros comerciais EDI | 25 | 2 | 500 |
-| Mapas | 25 | 500 | 1,000 |
+| Contratos comerciais de EDI | 10 | 1 | 1,000 |
+| Parceiros comerciais EDI | 25 | 2 | 1,000 |
+| Maps | 25 | 500 | 1,000 |
 | Esquemas | 25 | 500 | 1,000 |
-| Assemblagens | 10 | 25 | 50 |
+| Assemblagens | 10 | 25 | 1,000 |
 | Certificados | 25 | 2 | 500 |
-| Configurações de batch | 5 | 1 | 50 |
+| Configurações de lote | 5 | 1 | 50 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
@@ -280,9 +280,9 @@ O Logic Apps não suporta a ligação direta para contas de armazenamento do Azu
 | Europa Ocidental | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
 | Oeste da Índia | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | EUA Oeste | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
-| E.U.A. Oeste 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
+| EUA Oeste 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
 | Reino Unido Sul | 51.140.78.71, 51.140.79.109, 51.140.84.39, 51.140.155.81 |
-| Oeste do R.U. | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
+| Reino Unido Oeste | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
 <a name="outbound"></a>
@@ -312,9 +312,9 @@ O Logic Apps não suporta a ligação direta para contas de armazenamento do Azu
 | Europa Ocidental | 13.95.147.65, 23.97.210.126, 23.97.211.179, 23.97.218.130, 40.68.209.23, 40.68.222.65, 51.144.182.201, 104.45.9.52 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | Oeste da Índia | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.161.203, 104.211.189.218 |
 | EUA Oeste | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 |40.112.243.160 - 40.112.243.175, 104.40.51.248, 104.42.122.49 |
-| E.U.A. Oeste 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157 |
+| EUA Oeste 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 | 13.66.140.128 - 13.66.140.143, 13.66.218.78, 13.66.219.14, 13.66.220.135, 13.66.221.19, 13.66.225.219, 52.183.78.157 |
 | Reino Unido Sul | 51.140.28.225, 51.140.73.85, 51.140.74.14, 51.140.78.44, 51.140.137.190, 51.140.142.28, 51.140.153.135, 51.140.158.24 | 51.140.80.51, 51.140.148.0 - 51.140.148.15 |
-| Oeste do R.U. | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
+| Reino Unido Oeste | 51.141.45.238, 51.141.47.136, 51.141.54.185, 51.141.112.112, 51.141.113.36, 51.141.114.77, 51.141.118.119, 51.141.119.63 | 51.140.211.0 - 51.140.211.15, 51.141.47.105 |
 ||||
 
 ## <a name="next-steps"></a>Passos Seguintes  

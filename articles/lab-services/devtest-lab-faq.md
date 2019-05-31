@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 91c598bde0912cffb8aa1dd7ba022c86a9084faa
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a46d816c04d9f5629c2ee9538016d42c53f9a331
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713010"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244394"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ de Azure DevTest Labs
 Obtenha respostas para algumas das perguntas mais comuns sobre o Azure DevTest Labs.
 
-## <a name="blog-post"></a>Mensagem do blogue
+## <a name="blog-post"></a>Mensagem de blogue
 O blog da equipe de laboratórios DevTest foi preterido a partir de 20 de Março de 2019. 
 
 ### <a name="where-can-i-track-feature-updates-from-now-on"></a>Onde posso rastrear as atualizações de funcionalidades de agora em diante?
@@ -280,7 +280,7 @@ Para obter uma explicação mais aprofundada, veja [comparar imagens personaliza
 
 Para automatizar a carregar arquivos VHD para criar imagens personalizadas, tem duas opções:
 
-- Uso [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) para copiar ou carregar ficheiros VHD para a conta de armazenamento associada ao laboratório.
+- Uso [AzCopy](../storage/common/storage-use-azcopy-v10.md) para copiar ou carregar ficheiros VHD para a conta de armazenamento associada ao laboratório.
 - Uso [Explorador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md). Explorador de armazenamento é uma aplicação autónoma que é executado no Windows, OS X e Linux.
 
 Para localizar a conta de armazenamento de destino associada ao seu laboratório:

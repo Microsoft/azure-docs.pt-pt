@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: c0fe63e395ee08cb65e9bbbadc4ce1f03032ce95
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4c2b774c304e46f9fc68f3beaf64218e614ecad1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60878251"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234061"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação de utilizador final com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -45,12 +45,12 @@ Este artigo fala sobre como criar uma **aplicação nativa do Azure AD para aute
   
     ![Obter o domínio do AAD](./media/data-lake-store-end-user-authenticate-using-active-directory/get-aad-domain.png)
 
-* O ID de inquilino do Azure. Para obter instruções sobre como obter o ID de inquilino, consulte [obter o ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* O ID de inquilino do Azure. Para obter instruções sobre como obter o ID de inquilino, consulte [obter o ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="end-user-authentication"></a>Autenticação de utilizador final
 Esse mecanismo de autenticação é a abordagem recomendada se pretender que um utilizador final para iniciar sessão na sua aplicação através do Azure AD. Seu aplicativo, em seguida, é possível aceder a recursos do Azure com o mesmo nível de acesso que o usuário final que iniciou sessão. O utilizador final tem de fornecer as credenciais periodicamente por ordem para a sua aplicação manter o acesso.
 
-O resultado de ter o início de sessão do utilizador final é que seu aplicativo recebe um token de acesso e um token de atualização. O token de acesso anexado a cada pedido efetuado a geração 1 de armazenamento do Data Lake ou o Data Lake Analytics e é válido durante uma hora por predefinição. O token de atualização pode ser utilizado para obter um novo token de acesso e é válido para duas semanas por predefinição. Pode usar duas abordagens diferentes para início de sessão do utilizador final.
+O resultado de ter o utilizador final iniciar sessão é que seu aplicativo recebe um token de acesso e um token de atualização. O token de acesso anexado a cada pedido efetuado a geração 1 de armazenamento do Data Lake ou o Data Lake Analytics e é válido durante uma hora por predefinição. O token de atualização pode ser utilizado para obter um novo token de acesso e é válido para duas semanas por predefinição. Pode usar duas abordagens diferentes para início de sessão do utilizador final.
 
 ### <a name="using-the-oauth-20-pop-up"></a>Usando o pop-up de OAuth 2.0
 Seu aplicativo pode acionar uma pop-up, de autorização de OAuth 2.0 em que o utilizador final pode introduzir as respetivas credenciais. Este pop-up também funciona com o processo de autenticação do Azure AD dois fatores (2FA), se necessário. 
@@ -82,7 +82,7 @@ Ao seguir as instruções na ligação, certifique-se de que seleciona **nativo*
 
 ## <a name="step-2-get-application-id-and-redirect-uri"></a>Passo 2: Obtenha o ID da aplicação e URI de redirecionamento
 
-Ver [obter o ID da aplicação](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key) para obter o ID da aplicação.
+Ver [obter o ID da aplicação](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in) para obter o ID da aplicação.
 
 Para obter o URI de redirecionamento, siga os passos abaixo.
 

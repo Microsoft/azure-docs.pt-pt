@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 59973d9530bf1c3ab3e77290b25e50860f9de0ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6138a9ff6bb6d34b09c49fa7b5dbb67cbf5eb1b6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712870"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244909"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Compreender a forma como o trabalho de alertas de métrica no Azure Monitor
 
@@ -29,7 +29,7 @@ Digamos que tenha criado uma regra de alerta de métrica de limiar estática sim
 - (O recurso do Azure que pretende monitorizar) do recurso de destino: myVM
 - Métrica: Percentagem da CPU
 - Tipo de condição: Estático
-- Agregação de tempo (estatística que é executada sobre os valores de métrica não processados. Suporte de tempo as agregações são Min, Max, Avg, Total): Média
+- Agregação de tempo (estatística que é executada sobre os valores de métrica não processados. Agregações de hora suportados são Min, Máx, média, Total, contagem): Média
 - Período (a vista de olhos back-janela ao longo do que métrica valores são verificados): Durante os últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são cumpridas): 1 min
 - Operador: Maior Que
@@ -44,7 +44,7 @@ Digamos que tenha criado uma regra alerta métrica de limiares dinâmicos simple
 - (O recurso do Azure que pretende monitorizar) do recurso de destino: myVM
 - Métrica: Percentagem da CPU
 - Tipo de condição: Dinâmica
-- Agregação de tempo (estatística que é executada sobre os valores de métrica não processados. Suporte de tempo as agregações são Min, Max, Avg, Total): Média
+- Agregação de tempo (estatística que é executada sobre os valores de métrica não processados. Agregações de hora suportados são Min, Máx, média, Total, contagem): Média
 - Período (a vista de olhos back-janela ao longo do que métrica valores são verificados): Durante os últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são cumpridas): 1 min
 - Operador: Maior Que

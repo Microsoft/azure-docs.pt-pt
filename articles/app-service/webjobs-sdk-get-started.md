@@ -13,18 +13,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 6f743f7ea7fda368fc5895646145f553f3fb50fb
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 20bb8d5380f5a905a827dfb12dcc032e327267e0
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65864844"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418242"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introdução ao SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano
 
-Este artigo mostra como utilizar o Visual Studio 2019 para criar um projeto do SDK de WebJobs do Azure, executá-lo localmente e, em seguida, implementá-la [App Service do Azure](overview.md). O projeto que criou é uma aplicação de consola .NET Core, que utiliza a versão 3.x do SDK do WebJobs. Se estiver interessado na versão 2.x, que usa o .NET Framework, consulte [desenvolver e implementar o WebJobs com o Visual Studio - serviço de aplicações do Azure](webjobs-dotnet-deploy-vs.md).
+Este artigo mostra como utilizar o Visual Studio 2019 para criar um projeto do SDK de WebJobs do Azure, executá-lo localmente e, em seguida, implementá-la [App Service do Azure](overview.md). Versão 3.x do SDK do WebJobs suporta aplicações de consola .NET Core e o .NET Framework. Para saber mais sobre como trabalhar com o WebJobs SDK, veja [como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano](webjobs-sdk-how-to.md).
 
-Para saber mais sobre como trabalhar com o WebJobs SDK, veja [como utilizar o SDK de WebJobs do Azure para processamento condicionada por eventos em segundo plano](webjobs-sdk-how-to.md).
+Este artigo mostra-lhe como implementar WebJobs como uma aplicação de consola .NET Core. Para implementar o WebJobs como uma aplicação de consola do .NET Framework, consulte [aplicações de consola do WebJobs como o .NET Framework](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps). Se estiver interessado na versão do SDK do WebJobs 2.x, que suporta apenas o .NET Framework, consulte [desenvolver e implementar o WebJobs com o Visual Studio - serviço de aplicações do Azure](webjobs-dotnet-deploy-vs.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Para saber mais sobre como trabalhar com o WebJobs SDK, veja [como utilizar o SD
 
 1. No Visual Studio, selecione **criar um novo projeto**.
 
-2. Selecione **consola de aplicação (.NET Core)**.
+2. Selecione **consola de aplicação (.NET Core)** .
 
 3. Nomeie o projeto *WebJobsSDKSample*e, em seguida, selecione **criar**.
 
@@ -203,7 +203,7 @@ O emulador de armazenamento do Azure que é executada localmente não tem todos 
 
 1. Open **Explorador de servidores** no Visual studio e iniciar sessão no Azure. Com o botão direito a **Azure** nó e, em seguida, selecione **ligar a subscrição do Microsoft Azure**.
 
-   ![Inicie sessão no  Azure](./media/webjobs-sdk-get-started/sign-in.png)
+   ![Iniciar sessão no Azure](./media/webjobs-sdk-get-started/sign-in.png)
 
 1. Sob o **Azure** nó **Explorador de servidores**, com o botão direito **armazenamento**e, em seguida, selecione **conta de armazenamento criar**.
 
@@ -217,7 +217,7 @@ O emulador de armazenamento do Azure que é executada localmente não tem todos 
 
    ![Criar conta de armazenamento](./media/webjobs-sdk-get-started/create-storage-account.png)
 
-1. Sob o **armazenamento** nó **Explorador de servidores**, selecione a nova conta de armazenamento. Na **propriedades** janela, selecione as reticências (**...** ) na direita dos **cadeia de ligação** campo de valor.
+1. Sob o **armazenamento** nó **Explorador de servidores**, selecione a nova conta de armazenamento. Na **propriedades** janela, selecione as reticências ( **...** ) na direita dos **cadeia de ligação** campo de valor.
 
    ![Botão de reticências de cadeia de ligação](./media/webjobs-sdk-get-started/conn-string-ellipsis.png)
 
@@ -338,7 +338,7 @@ Nesta secção, efetue as seguintes tarefas para configurar o Application Insigh
 
 1. Na **cadeias de ligação** caixa, adicione a seguinte entrada.
 
-   |Name  |Cadeia de ligação  |Tipo de Base de Dados|
+   |Name  |Cadeia de ligação  |Tipo de base de dados|
    |---------|---------|------|
    |AzureWebJobsStorage | {Armazenamento cadeia de ligação que copiou anteriormente}|Personalizado|
 

@@ -5,17 +5,18 @@ services: active-directory
 author: rolyon
 ms.service: role-based-access-control
 ms.topic: include
-ms.date: 05/22/2018
+ms.date: 05/13/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: e58778e60eff93847e55126f3c42733cec1afdaf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f8576c8486fb25d645eaf67448d2d7e0b9f5071f
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553995"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238697"
 ---
-| Recurso | Limite |
+| Resource | Limite |
 | --- | --- |
 | [Atribuições de funções de recursos do Azure por subscrição do Azure](../articles/role-based-access-control/overview.md) | 2.000 |
-| [Funções personalizadas para recursos do Azure por inquilino](../articles/role-based-access-control/custom-roles.md) | 2.000 |
+| [Funções personalizadas para recursos do Azure por inquilino](../articles/role-based-access-control/custom-roles.md) | 5,000 |
+| [Funções personalizadas para recursos do Azure por inquilino](../articles/role-based-access-control/custom-roles.md)<br/>(nuvens especializadas, como o Azure Government, Azure Alemanha e Azure China 21Vianet) | 2.000 |

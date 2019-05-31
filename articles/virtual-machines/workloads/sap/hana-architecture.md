@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 05/25/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 80ef63cdd9de8cb2340fe15d761402bb9f00fae9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d077487f85c789bcdfea3d91e29ee0d44ce82de0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60795952"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239451"
 ---
 # <a name="sap-hana-large-instances-architecture-on-azure"></a>Arquitetura do SAP HANA (instâncias grandes) no Azure
 
@@ -34,7 +34,7 @@ A arquitetura geral do SAP HANA no Azure (instâncias grandes) fornece uma confi
 
 A arquitetura mostrada é dividida em três seções:
 
-- **certo**: Mostra uma infraestrutura no local que executa aplicações de diferentes nos dados centra-se para que os utilizadores finais podem aceder LOB do departamento de aplicações, como o SAP. O ideal é que isso no local infraestrutura, em seguida, está ligada ao Azure com o [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **certo**: Mostra uma infraestrutura no local que executa aplicações de diferentes nos dados centra-se para que os utilizadores finais podem aceder LOB do departamento de aplicações, como o SAP. O ideal é que isso no local infraestrutura está ligada ao Azure com o [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 - **Centro de**: Mostra o IaaS do Azure e, neste caso, utilize de VMs para alojar SAP ou outras aplicações que utilizam SAP HANA como um sistema do DBMS. Menor HANA nas instâncias que funcionam com a memória que fornecem VMs é implementada em VMs em conjunto com a sua camada de aplicativo. Para obter mais informações sobre as máquinas virtuais, consulte [máquinas virtuais](https://azure.microsoft.com/services/virtual-machines/).
 
@@ -45,11 +45,11 @@ A arquitetura mostrada é dividida em três seções:
   -  [Utilizar o SAP em máquinas de virtuais do Windows](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
   -  [Utilize soluções SAP em máquinas virtuais do Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Left**: Mostra o hardware com certificação TDI do SAP HANA no carimbo de data / instâncias grandes do Azure. As unidades de instância grande do HANA são ligadas às redes virtuais da sua subscrição ao utilizar a mesma tecnologia como a conectividade no local para o Azure.
+- **Left**: Mostra o hardware com certificação TDI do SAP HANA no carimbo de data / instâncias grandes do Azure. As unidades de instância grande do HANA são ligadas às redes virtuais da sua subscrição do Azure ao utilizar a mesma tecnologia como a conectividade no local para o Azure. A partir de Maio de 2019 tem introduziu uma otimização que permite a comunicação entre as unidades de instância grande do HANA e as VMs do Azure sem o envolvimento do ExpressRoute Gateway. Essa otimização chamada ExpressRoute caminho rápido é apresentada nesta arquitetura (linhas vermelhas). 
 
 O carimbo de instâncias grandes do Azure em si combina os seguintes componentes:
 
-- **Computação**: Servidores que são baseados em processadores Intel Xeon E7-8890v3 ou Intel Xeon E7-8890v4 que fornecem a capacidade de computação necessária e são a certificação do SAP HANA.
+- **Computação**: Servidores que se baseiam em diferente geração de processadores Intel Xeon que fornecem a capacidade de computação necessária e são a certificação do SAP HANA.
 - **Rede**: Uma infraestrutura de rede de alta velocidade unificada que interliga a computação, armazenamento e componentes de rede local.
 - **Armazenamento**: Uma infraestrutura de armazenamento que é acessada através de um recurso de infraestrutura de rede unificada. A capacidade de armazenamento específico que é fornecida depende do SAP HANA específicas sobre a configuração do Azure (instâncias grandes) que é implementada. Maior capacidade de armazenamento está disponível a um custo mensal adicional.
 

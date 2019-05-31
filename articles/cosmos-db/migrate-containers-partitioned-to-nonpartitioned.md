@@ -4,14 +4,14 @@ description: Saiba como migrar todos os existentes não-particionada contentores
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: e8aaee8cb7df794652b2c560c5250921c1a4e060
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 8ba9489496a8f9e3703702e344684b4028a002cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160639"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241929"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar os contentores não-particionada para contentores particionadas
 

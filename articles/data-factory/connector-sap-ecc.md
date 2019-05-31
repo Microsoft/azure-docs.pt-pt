@@ -3,22 +3,21 @@ title: Copiar dados do SAP ECC com o Azure Data Factory | Documentos da Microsof
 description: Saiba como copiar dados do SAP ECC para arquivos de dados de sink suportado através de uma atividade de cópia num pipeline do Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: WenJason
-manager: digimobile
+author: linda33wj
+manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-origin.date: 04/26/2018
-ms.date: 04/22/2019
-ms.author: v-jay
-ms.openlocfilehash: d86264b632daa09a899fae28e73e117b16322617
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 04/26/2018
+ms.author: jingwang
+ms.openlocfilehash: 7c75793a696137a1d4cc24fa94877a7fb4e4247a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128122"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243913"
 ---
 # <a name="copy-data-from-sap-ecc-using-azure-data-factory"></a>Copiar dados do SAP ECC com o Azure Data Factory
 
@@ -33,6 +32,9 @@ Especificamente, este conector de SAP ECC suporta:
 - Copiar dados do SAP ECC no SAP NetWeaver versão 7.0 e superior. 
 - Copiar dados a partir de todos os objetos expostos por serviços OData do SAP ECC (por exemplo, SAP/exibições de tabela, BAPI, Extratores de dados, etc.) ou dados/IDOCs enviados para o SAP PI, que podem ser enviadas como OData através de adaptadores relativos.
 - Cópia de dados usando a autenticação básica.
+
+>[!TIP]
+>Para copiar dados do SAP ECC por meio de tabela/vista do SAP, pode usar [SAP tabela](connector-sap-table.md) conector que apresenta um desempenho melhor e dimensionável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -163,7 +165,7 @@ Quando se copiam dados a partir do SAP ECC, são utilizados os seguintes mapeame
 | Tipo de dados do OData | Tipo de dados intermediárias de fábrica de dados |
 |:--- |:--- |
 | Edm.Binary | String |
-| Edm.Boolean | Bool |
+| Edm.Boolean | Booleano |
 | Edm.Byte | String |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |

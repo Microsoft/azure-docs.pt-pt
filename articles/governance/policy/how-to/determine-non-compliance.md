@@ -7,12 +7,12 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6e3e01ca9bd459aa6c6aca8dfaacb98b1267fada
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: fb7f238bb5c04bb03ee500b1b953895cc88c0596
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979353"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298932"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -87,23 +87,27 @@ A matriz seguinte mapeia cada possível _motivo_ para o responsável [condição
 
 |Reason | Condição |
 |-|-|
-|O valor atual tem de conter o valor de destino como uma chave. |containsKey ou **não** notContainsKey |
-|O valor atual tem de conter o valor de destino. |contém ou **não** notContains |
-|O valor atual tem de ser igual ao valor de destino. |é igual a ou **não** notEquals |
-|O valor atual tem de existir. |Existe |
-|O valor atual tem de estar no valor de destino. |em ou **não** notIn |
-|O valor atual tem de ser como o valor de destino. |como ou **não** notLike |
-|O valor atual tem de ser sensível às maiúsculas e minúsculas para corresponder ao valor de destino. |corresponder ou **não** notMatch |
-|O valor atual tem de ser insensível às maiúsculas e minúsculas para corresponder ao valor de destino. |matchInsensitively ou **não** notMatchInsensitively |
-|O valor atual não pode conter o valor de destino como uma chave. |notContainsKey ou **não** containsKey|
-|O valor atual não pode conter o valor de destino. |notContains ou **não** contém |
-|O valor atual não pode ser igual ao valor de destino. |notEquals ou **não** é igual a |
-|O valor atual não pode existir. |**não** existe  |
-|O valor atual não pode estar no valor de destino. |notIn ou **não** no |
-|O valor atual não pode ser como o valor de destino. |notLike ou **não** como |
-|O valor atual não pode ser sensível às maiúsculas e minúsculas para corresponder ao valor de destino. |notMatch ou **não** corresponder |
-|O valor atual não pode ser insensível às maiúsculas e minúsculas para corresponder ao valor de destino. |notMatchInsensitively ou **não** matchInsensitively |
-|Não existem recursos relacionados que correspondem aos detalhes de efeito na definição de política. |Um recurso do tipo definido na **then.details.type** e esteja relacionado com o recurso definido no **se** parte da regra de política não existe. |
+|Valor atual tem de conter o valor de destino como uma chave. |containsKey ou **não** notContainsKey |
+|Valor atual tem de conter o valor de destino. |contém ou **não** notContains |
+|Valor atual tem de ser igual ao valor de destino. |é igual a ou **não** notEquals |
+|Valor atual tem de ser inferior ao valor de destino. |menos ou **não** greaterOrEquals |
+|Valor atual tem de ser maior ou igual ao valor de destino. |greaterOrEquals ou **não** menos |
+|Valor atual tem de ser maior que o valor de destino. |maior ou **não** lessOrEquals |
+|Valor atual tem de ser menor ou igual ao valor de destino. |lessOrEquals ou **não** maior |
+|Valor atual tem de existir. |Existe |
+|Valor atual tem de ser o valor de destino. |em ou **não** notIn |
+|Valor atual tem de ser como o valor de destino. |como ou **não** notLike |
+|Valor atual tem o valor de destino de correspondência de maiúsculas e minúsculas. |corresponder ou **não** notMatch |
+|Valor atual tem o valor de destino de correspondência de maiúsculas e minúsculas. |matchInsensitively ou **não** notMatchInsensitively |
+|Valor atual não tem de conter o valor de destino como uma chave. |notContainsKey ou **não** containsKey|
+|Valor atual não tem de conter o valor de destino. |notContains ou **não** contém |
+|Valor atual não tem de ser igual ao valor de destino. |notEquals ou **não** é igual a |
+|Valor atual não tem de existir. |**não** existe  |
+|Valor atual não tem de ser o valor de destino. |notIn ou **não** no |
+|Valor atual não tem de ser como o valor de destino. |notLike ou **não** como |
+|Valor atual tem correspondência não diferencia maiúsculas de minúsculas, o valor de destino. |notMatch ou **não** corresponder |
+|Valor atual tem correspondência não maiúsculas de minúsculas, o valor de destino. |notMatchInsensitively ou **não** matchInsensitively |
+|Não existem recursos relacionados correspondem os detalhes de efeito na definição de política. |Um recurso do tipo definido na **then.details.type** e esteja relacionado com o recurso definido no **se** parte da regra de política não existe. |
 
 ## <a name="compliance-details-for-guest-configuration"></a>Detalhes de conformidade para a configuração de convidado
 

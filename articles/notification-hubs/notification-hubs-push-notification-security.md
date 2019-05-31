@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 05/23/2019
 ms.author: jowargo
-ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 2ba3be0d51758cf7afd9f85258403bf79ca8401f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239422"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Modelo de segurança dos Hubs de notificação do Azure
 
@@ -45,11 +45,11 @@ Assim como outras entidades, as operações de Hub de notificação são permiti
 
 | Afirmação   | Descrição                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Vigiar  | Criar/atualizar, ler e eliminar registos únicos | Criar/atualizar registo<br><br>Registo de leitura<br><br>Ler todos os registos para um identificador<br><br>Eliminar registo |
+| Escutar  | Criar/atualizar, ler e eliminar registos únicos | Criar/atualizar registo<br><br>Registo de leitura<br><br>Ler todos os registos para um identificador<br><br>Eliminar registo |
 | Enviar    | Enviar mensagens para o hub de notificação                | Enviar mensagem |
 | Gerir  | CRUDs sobre os Hubs de notificação (incluindo a atualizar credenciais PNS e chaves de segurança) e registos de leitura com base em etiquetas |Hubs de notificação de criar/atualizar/ler/eliminar<br><br>Registos de leitura por etiqueta |
 
-Os Hubs de notificação aceitam declarações concedidas ao tokens de controlo de acesso do Microsoft Azure e tokens de assinatura gerados com chaves partilhadas configuradas diretamente no Hub de notificação.
+Os Notification Hubs aceita a assinatura de tokens gerados com partilhado configuradas diretamente no Hub de notificação de chaves.
 
 Não é possível enviar uma notificação para mais do que um espaço de nomes. Espaços de nomes são contentores lógicos nos hubs de notificação e não estão envolvidos com o envio de notificações.
 As políticas de acesso de nível de espaço de nomes (credenciais) podem ser utilizadas para operações de nível de espaço de nomes, por exemplo: listagem dos hubs de notificação, criar ou eliminar os hubs de notificação, etc. Apenas as políticas de acesso ao nível do hub permitiria que enviar notificações.

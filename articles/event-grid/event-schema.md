@@ -8,18 +8,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4a795221790a9d56bcbfe30a50b0c838fb8d9e56
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60561567"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304238"
 ---
 # <a name="azure-event-grid-event-schema"></a>Esquema de eventos do Azure Event Grid
 
 Este artigo descreve as propriedades e o esquema que estão presentes para todos os eventos. Os eventos consistem num conjunto de propriedades de cadeia de caracteres necessárias cinco e um objeto de dados necessários. As propriedades são comuns a todos os eventos de qualquer fabricante. O objeto de dados tem propriedades que são específicas para cada editor. Para os tópicos de sistema, estas propriedades são específicas para o fornecedor de recursos, como o armazenamento do Azure ou Event Hubs do Azure.
 
-Origens de eventos enviam eventos para o Azure Event Grid numa matriz, o que pode ter vários objetos de evento. Eventos para um tópico do event grid no lançamento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB. Se um evento ou a matriz é maior do que os limites de tamanho, receber a resposta **413 Payload demasiado grande**.
+Origens de eventos enviam eventos para o Azure Event Grid numa matriz, o que pode ter vários objetos de evento. Eventos para um tópico do event grid no lançamento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB (disponibilidade geral) ou 1 MB (pré-visualização). Se um evento ou a matriz é maior do que os limites de tamanho, receber a resposta **413 Payload demasiado grande**.
+
+> [!NOTE]
+> Um evento de tamanho até 64 KB é abordado pelo contrato de nível de serviço do disponibilidade geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos mais de 64 KB são cobrados em incrementos de 64 KB. 
 
 Grelha de eventos envia os eventos para os assinantes numa matriz com um único evento. Este comportamento poderá mudar no futuro.
 
@@ -83,13 +86,13 @@ Todos os eventos possuem os mesmos dados de nível superior seguintes:
 | Propriedade | Tipo | Descrição |
 | -------- | ---- | ----------- |
 | tópico | string | Caminho de recurso completo para a origem do evento. Este campo não é gravável. Event Grid fornece este valor. |
-| assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
+| Assunto | string | Caminho definidos pelo publicador para o assunto de evento. |
 | eventType | string | Um dos tipos de eventos registrados para esta origem de evento. |
 | eventTime | string | O tempo que o evento é gerado com base no fuso horário UTC do fornecedor. |
 | ID | string | Identificador exclusivo para o evento. |
-| dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
-| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
+| Dados | objeto | Dados de eventos específicos para o fornecedor de recursos. |
+| dataVersion | string | A versão de esquema do objeto de dados. O publicador define a versão do esquema. |
+| metadataVersion | string | A versão de esquema dos metadados do evento. Grelha de eventos define o esquema das propriedades de nível superior. Event Grid fornece este valor. |
 
 Para saber mais sobre as propriedades no objeto de dados, veja a origem do evento:
 

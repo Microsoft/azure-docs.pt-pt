@@ -13,31 +13,31 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2018
+ms.date: 05/30/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 12cd1caa4cb96dbd5862776589d4a34aeb294ca1
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7a390c5231f715ce778c0cc267211b8bfb5934d2
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689727"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418410"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrar VMs do Azure para discos geridos no Azure
 
-Managed Disks do Azure simplifica a gestão de armazenamento, eliminando a necessidade de gerir separadamente contas de armazenamento.  Também pode migrar as VMs do Azure existentes para os Managed Disks para beneficiar de confiabilidade de VMs num conjunto de disponibilidade. Ele garante que os discos de VMs diferentes no conjunto de disponibilidade é suficientemente isolados uns dos outros para evitar único ponto de falhas. Coloca automaticamente discos de VMs diferentes no conjunto de disponibilidade em unidades de escala de armazenamento diferentes (carimbos de data /) que limita o impacto das falhas de unidade de escala de armazenamento únicas provocadas por hardware e de falhas de software.
+Managed Disks do Azure simplifica a gestão de armazenamento, eliminando a necessidade de gerir separadamente contas de armazenamento.  Também pode migrar as VMs do Azure existentes para os Managed Disks para beneficiar de confiabilidade de VMs num conjunto de disponibilidade. Ele garante que os discos de VMs diferentes no conjunto de disponibilidade estão suficientemente isolados uns dos outros para evitar único ponto de falhas. Coloca automaticamente discos de VMs diferentes no conjunto de disponibilidade em unidades de escala de armazenamento diferentes (carimbos de data /) que limita o impacto das falhas de unidade de escala de armazenamento únicas provocadas por hardware e de falhas de software.
 Com base nas suas necessidades, pode escolher entre quatro tipos de opções de armazenamento. Para saber mais sobre os tipos de disco disponível, consulte nosso artigo [selecione um tipo de disco](disks-types.md)
 
-## <a name="migrate-scenarios"></a>Cenários de migração
+## <a name="migration-scenarios"></a>Cenários de migração
 
 Pode migrar para Managed Disks nos seguintes cenários:
 
-| **Migre...**                                            | **Hiperligação para a documentação**                                                                                                                                                                                                                                                                  |
-|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Converter VMs autónomas e VMs num conjunto de disponibilidade para discos geridos   | [Converter VMs para utilizar discos geridos](convert-unmanaged-to-managed-disks.md) |
-| Uma VM única de clássico para Resource Manager em discos geridos     | [Criar uma VM a partir de um VHD clássico](create-vm-specialized-portal.md)  | 
-| Todas as VMs numa vNet de clássico para Resource Manager em discos geridos     | [Migrar recursos de IaaS da implementação clássica para Resource Manager](migration-classic-resource-manager-ps.md) e, em seguida, [converter uma VM de discos não geridos para managed disks](convert-unmanaged-to-managed-disks.md) | 
-
+|Cenário  |Artigo  |
+|---------|---------|
+|Converter VMs autónomas e VMs num conjunto de disponibilidade para discos geridos     |[Converter VMs para utilizar discos geridos](convert-unmanaged-to-managed-disks.md)         |
+|Converter uma VM única de clássico para Resource Manager em discos geridos     |[Criar uma VM a partir de um VHD clássico](create-vm-specialized-portal.md)         |
+|Converter todas as VMs numa vNet de clássico para Resource Manager em discos geridos     |[Migrar recursos de IaaS da implementação clássica para Resource Manager](migration-classic-resource-manager-ps.md) e, em seguida, [converter uma VM de discos não geridos para managed disks](convert-unmanaged-to-managed-disks.md)         |
+|Atualizar VMs com discos não geridos standard para VMs com discos geridos premium     | Primeiro, [converter uma máquina virtual do Windows de discos não geridos para managed disks](convert-unmanaged-to-managed-disks.md). Em seguida, [atualizar o tipo de armazenamento de um disco gerido](convert-disk-storage.md).         |
 
 ## <a name="next-steps"></a>Passos Seguintes
 

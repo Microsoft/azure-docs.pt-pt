@@ -11,17 +11,66 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/8/2019
+ms.date: 5/23/2019
 ms.author: raiye
-ms.openlocfilehash: f63b707f72b6966615d09ef0b86ce3d056a39249
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 4c0f364e596fbe2bf9083cbcf521902523c92a70
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465555"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241312"
 ---
 # <a name="azure-guest-os"></a>SO convidado do Azure
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado do que está a utilizar. Atualizações sempre transitar para o determinado [família] [ family-explain] eles foram introduzidos no.
+
+## <a name="may-2019-guest-os"></a>SO de convidado de Maio de 2019
+
+>[!NOTE]
+>O SO de convidado pode está atualmente a ser lançado para VMs do serviço Cloud que estão configurados para as atualizações automáticas. Quando a implementação estiver concluída, esta versão será disponibilizada das atualizações manuais nos ficheiros de configuração e o portal do Azure. Os patches seguintes estão incluídos no SO convidado pode. Esta lista está sujeita a alterações.
+
+| Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
+| --- | --- | --- | --- | --- |
+|  Rel 05 de 19   |  [4498206 ]  |  Pode Rollup do IE   |  2,86, 3.73, 4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4505050 ]  |  Pode Rollup do IE   |  2,86, 3.73, 4.66  |  18 de Maio de 2019  |
+|  Rel 05 de 19   |  [4497932 ]  |  Pode Flash Update   |  3.73, 4.66, 5.31  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4499175 ]  |  Pode Rollup de segurança   |  2.86  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495612 ]  |  Pode Rollup de segurança .NET 3.5   |  2.86  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495593 ]  |  Pode Rollup de segurança .NET 4.5.2   |  2.86  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4499158 ]  |  Pode Rollup de segurança   |  3.73  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495607 ]  |  Pode Rollup de segurança .NET 3.5   |  3.73  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495591 ]  |  Pode Rollup de segurança .NET 4.5.2   |  3.73  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4492872 ]  |  Agregação do IE   |  3.73  |  16 de Abril de 2019  |
+|  Rel 05 de 19   |  [4499165 ]  |  Agregação de segurança de Março   |  4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495615 ]  |  Pode Rollup de segurança .NET 3.5   |  4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495589 ]  |  Pode Rollup de segurança .NET 4.5.2   |  4.66  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4498947 ]  |  Maio SSU   |  5.31  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4494175 ]  |  Talvez a ativação do microcódigo Update   |  5.31  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4505052 ]  |  Pode Rollup de segurança   |  5.31  |  19 de Maio de 2019  |
+|  Rel 05 de 19   |  [4499728 ]  |  Maio SSU   |  6.7  |  19 de Maio de 2019  |
+|  Rel 05 de 19   |  [4505056 ]  |  Pode Rollup de segurança   |  6.7  |  19 de Maio de 2019  |
+|  Rel 05 de 19   |  [4494174 ]  |  Talvez a ativação do microcódigo Update   |  6.7  |  14 de Maio de 2019  |
+|  Rel 05 de 19   |  [4495590 ]  |  Pode Rollup de segurança .NET   |  6.7  |  14 de Maio de 2019  |
+
+[KB4493510]: https://support.microsoft.com/kb/KB4493510
+[KB4493472]: https://support.microsoft.com/kb/KB4493472
+[KB4493451]: https://support.microsoft.com/kb/KB4493451
+[KB4493446]: https://support.microsoft.com/kb/KB4493446
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## <a name="april-2019-guest-os"></a>SO de convidado de Abril de 2019
 
@@ -113,15 +162,15 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 | Rel 19-02 | [4487026] | Segurança do Windows | 5.28 | 12 de Fevereiro de 2019 |
 | Rel 19-02 | [4487044] | Segurança do Windows | 6.4 | 12 de Fevereiro de 2019 |
 | Rel 19-02 | [4483452] | O .NET 3.5, 4.7.2 segurança | 6.4 | 12 de Fevereiro de 2019 |
-| N/A | [4480970] | Rollup de Janeiro sem segurança | 2.83 | 8 de Janeiro de 2019 |
-| N/A | [4483483] | Rollup de Janeiro sem segurança .NET 3.5.1  | 2.83 | 8 de Janeiro de 2019 |
-| N/A | [4480059] | Rollup de Janeiro sem segurança .NET 4.5.2  | 2.83 | 8 de Janeiro de 2019 |
-| N/A | [4480975] | Rollup de Janeiro sem segurança | 3.70 | 8 de Janeiro de 2019 |
-| N/A | [4480061] | Rollup de Janeiro sem segurança .NET 3.5 | 3.70 | 8 de Janeiro de 2019 |
-| N/A | [4480058] | Rollup de Janeiro sem segurança .NET 4.5.2 | 3.70 | 8 de Janeiro de 2019 |
-| N/A | [4480963] | Rollup de Janeiro sem segurança | 4.63 | 8 de Janeiro de 2019 |
-| N/A | [4480064] | Rollup de Janeiro sem segurança .NET 3.5 | 4.63 | 8 de Janeiro de 2019 |
-| N/A | [4480057] | Rollup de Janeiro sem segurança .NET 4.5.2 | 4.63 | 8 de Janeiro de 2019 |
+| N/A | [4480970] | Rollup de Janeiro sem segurança | 2.83 | 8 de janeiro de 2019 |
+| N/A | [4483483] | Rollup de Janeiro sem segurança .NET 3.5.1  | 2.83 | 8 de janeiro de 2019 |
+| N/A | [4480059] | Rollup de Janeiro sem segurança .NET 4.5.2  | 2.83 | 8 de janeiro de 2019 |
+| N/A | [4480975] | Rollup de Janeiro sem segurança | 3.70 | 8 de janeiro de 2019 |
+| N/A | [4480061] | Rollup de Janeiro sem segurança .NET 3.5 | 3.70 | 8 de janeiro de 2019 |
+| N/A | [4480058] | Rollup de Janeiro sem segurança .NET 4.5.2 | 3.70 | 8 de janeiro de 2019 |
+| N/A | [4480963] | Rollup de Janeiro sem segurança | 4.63 | 8 de janeiro de 2019 |
+| N/A | [4480064] | Rollup de Janeiro sem segurança .NET 3.5 | 4.63 | 8 de janeiro de 2019 |
+| N/A | [4480057] | Rollup de Janeiro sem segurança .NET 4.5.2 | 4.63 | 8 de janeiro de 2019 |
 
 [4486474]: https://support.microsoft.com/kb/4486474
 [4487038]: https://support.microsoft.com/kb/4487038
@@ -151,20 +200,20 @@ As tabelas seguintes mostram as atualizações do Microsoft Security Response Ce
 
 | Categoria do Produto | Artigo principal KB | Descrição da vulnerabilidade | SO convidado | Data introduzida pela primeira vez |
 | --- | --- | --- | --- | --- |
-| Rel 19-01 | [4480116] | Segurança do Windows 10 | 6.3 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480961] | Segurança do Windows 10 | 5.27 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480964] | Segurança do Windows | 4.62 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480972] | Segurança do Windows | 3.69 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480960] | Segurança do Windows | 2.82 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480056] | Segurança do .NET | 6.3 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480074] | Segurança do .NET 4.x | 4.62 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480075] | Segurança do .NET 4.x | 3.69 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480076] | Segurança do .NET 4.x | 2.82 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480086] | Segurança do .NET 3.x | 4.62 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480083] | Segurança do .NET 3.x | 3.69 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480085] | Segurança do .NET 3.x | 2.82 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | 8 de Janeiro de 2019 |
-| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 de Janeiro de 2019 |
+| Rel 19-01 | [4480116] | Segurança do Windows 10 | 6.3 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480961] | Segurança do Windows 10 | 5.27 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480964] | Segurança do Windows | 4.62 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480972] | Segurança do Windows | 3.69 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480960] | Segurança do Windows | 2.82 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480056] | Segurança do .NET | 6.3 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480074] | Segurança do .NET 4.x | 4.62 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480075] | Segurança do .NET 4.x | 3.69 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480076] | Segurança do .NET 4.x | 2.82 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480086] | Segurança do .NET 3.x | 4.62 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480083] | Segurança do .NET 3.x | 3.69 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480085] | Segurança do .NET 3.x | 2.82 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27, 6.3 | 8 de janeiro de 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | 8 de janeiro de 2019 |
 | N/A | [4471318] | Rollup de Dezembro sem segurança | 2.82 | 11 de Dezembro de 2018 |
 | N/A | [4470641] | Agregação de não-segurança de Dezembro .NET 3.x | 2.82 | 11 de Dezembro de 2018 |
 | N/A | [4470637] | Agregação de não-segurança de Dezembro .NET 4.x | 2.82 | 11 de Dezembro de 2018 |

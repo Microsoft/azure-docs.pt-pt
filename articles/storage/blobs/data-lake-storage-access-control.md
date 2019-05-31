@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 5ad7ef714147616fe55a9b978d501b974323e251
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 5adba958ed3bcb9efbf66c079b541e11ceed570c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949570"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243598"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controlo de acesso na geração 2 de armazenamento do Azure Data Lake
 
@@ -26,9 +26,9 @@ Geração de armazenamento 2 do Azure Data Lake implementa um modelo de controle
 
 RBAC utiliza as atribuições de funções para aplicar efetivamente os conjuntos de permissões para *entidades de segurança*. R *entidade de segurança* é um objeto que representa um utilizador, o grupo, o principal de serviço ou a identidade gerida que é definida no Azure Active Directory (AD) que está a pedir acesso aos recursos do Azure.
 
-Normalmente, esses recursos do Azure estão restritos a recursos de nível superior (por exemplo: Contas de armazenamento do Azure). No caso do armazenamento do Azure e, consequentemente, geração 2 de armazenamento do Azure Data Lake, esse mecanismo foi expandido para o recurso de sistema de ficheiros.
+Normalmente, esses recursos do Azure estão restritos a recursos de nível superior (por exemplo: Contas de armazenamento do Azure). No caso do armazenamento do Azure e, consequentemente, geração 2 de armazenamento do Azure Data Lake, esse mecanismo foi expandido para o recurso de (sistema de ficheiros) do contentor.
 
-Para saber como atribuir funções para principais de segurança no âmbito da sua conta de armazenamento, veja [autenticar o acesso ao Azure os blobs e filas com o Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Para saber como atribuir funções para principais de segurança no âmbito da sua conta de armazenamento, veja [conceder acesso a dados BLOBs e filas do Azure com o RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>O impacto de atribuições de funções em listas de controlo de acesso de nível de ficheiro e de diretório
 
@@ -49,7 +49,7 @@ SAS tokens incluem permissões concedidas como parte do token. As permissões in
 
 ## <a name="access-control-lists-on-files-and-directories"></a>Listas de controlo de acesso em arquivos e diretórios
 
-Pode associar uma entidade de segurança com um nível de acesso de arquivos e diretórios. Essas associações são registradas num *lista de controlo de acesso (ACL)*. Cada ficheiro e de diretório na sua conta de armazenamento tem uma lista de controlo de acesso.
+Pode associar uma entidade de segurança com um nível de acesso de arquivos e diretórios. Essas associações são registradas num *lista de controlo de acesso (ACL)* . Cada ficheiro e de diretório na sua conta de armazenamento tem uma lista de controlo de acesso.
 
 Se atribuído uma função a uma entidade de segurança ao nível armazenamento de conta, pode utilizar listas de controlo de acesso para conceder que esse principal de segurança elevados acesso a ficheiros específicos e diretórios.
 
@@ -77,8 +77,6 @@ ACLs padrão são um modelo de ACLs associados a um diretório que determinam o 
 
 Ambos ACLs de acesso e ACLs predefinidas têm a mesma estrutura.
 
-Ambos ACLs de acesso e ACLs predefinidas têm a mesma estrutura.
-
 > [!NOTE]
 > Alterar a predefinição ACL num elemento principal não afetam o ACL de acesso ou default ACL de itens subordinados que já existem.
 
@@ -92,6 +90,9 @@ As permissões num objeto de sistema de ficheiros são **leitura**, **escrever**
 | **Escrita (W)** | Pode escrever ou acrescentar a um ficheiro | Requer **escrever** e **Execute** para criar itens subordinados num diretório |
 | **Execução (X)** | Não tem qualquer significado no contexto de geração 2 de armazenamento do Data Lake | É necessário para atravessar os itens subordinados de um diretório |
 
+> [!NOTE]
+> Se estiver a conceder permissões ao utilizar apenas ACLs (sem RBAC), em seguida, para conceder uma leitura de principal de serviço ou o acesso de escrita para um ficheiro, terá de fornecer o principal de serviço **Execute** permissões para o sistema de ficheiros e cada pasta dos hierarquia de pastas que levam para o ficheiro.
+
 #### <a name="short-forms-for-permissions"></a>Formatos curtos para as permissões
 
 O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe um formato numérico mais condensado, em que **Leitura=4**, **Escrita=2** e **Execução=1**, cuja respetiva soma representa as permissões. Abaixo, encontram-se alguns exemplos.
@@ -101,7 +102,7 @@ O **RWX** é utilizado para indicar **Leitura + Escrita + Execução**. Existe u
 | 7            | `RWX`        | Leitura + Escrita + Execução |
 | 5            | `R-X`        | Leitura + Execução         |
 | 4            | `R--`        | Leitura                   |
-| 0            | `---`        | Não existem permissões         |
+| 0            | `---`        | Sem permissões         |
 
 #### <a name="permissions-inheritance"></a>Herança de permissões
 

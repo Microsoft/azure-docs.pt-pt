@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4834688496330210b273f40f1d6f11230a6ae1c8
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485500"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234131"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Aplicações multi-inquilino com ferramentas de base de dados elástica e segurança ao nível da linha
 
@@ -228,7 +228,7 @@ RLS é implementada no Transact-SQL. Uma função definida pelo utilizador defin
     - Um predicado de bloco impede que as linhas que não cumpram o filtro de ser INSERTed ou atualizada.
     - Se sessão\_contexto não tiver sido definido, a função devolve NULL e não existem linhas são visíveis ou capaz de ser inserido.
 
-Para ativar a RLS em todas as partições horizontais, execute o seguinte T-SQL com o Visual Studio (SSDT), SSMS ou o script do PowerShell incluído no projeto. Ou se estiver a utilizar [tarefas elásticas da base de dados](sql-database-elastic-jobs-overview.md), pode automatizar a execução desse T-SQL em todas as partições horizontais.
+Para ativar a RLS em todas as partições horizontais, execute o seguinte T-SQL com o Visual Studio (SSDT), SSMS ou o script do PowerShell incluído no projeto. Ou se estiver a utilizar [tarefas elásticas da base de dados](elastic-jobs-overview.md), pode automatizar a execução desse T-SQL em todas as partições horizontais.
 
 ```sql
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.

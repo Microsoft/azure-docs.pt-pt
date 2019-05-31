@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Ativar a sincronização de hash
 description: Introdução aos Serviços de Domínio do Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 5a32a0df-a3ca-4ebe-b980-91f58f8030fc
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2018
-ms.author: ergreenl
-ms.openlocfilehash: ad905f93a8c4b03fd6ccc9edb93b52f23bcb2c58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/10/2019
+ms.author: mstephen
+ms.openlocfilehash: 734e4bad970229ea8eb770d586062b098e586353
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417490"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234900"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Ativar a sincronização de hash de palavras-passe com o Azure Active Directory Domain Services
 Em tarefas anteriores, ativou o Azure Active Directory Domain Services do seu inquilino do Azure Active Directory (Azure AD). A tarefa seguinte consiste em ativar a sincronização de hashes de palavras-passe necessária para a autenticação NT LAN Manager (NTLM) e Kerberos com os Serviços de Domínio do Azure AD. Assim que a sincronização de hash de palavras-passe estiver configurada, os utilizadores podem iniciar sessão no domínio gerido com as credenciais da empresa.
@@ -32,7 +32,7 @@ Os passos envolvidos são diferentes para contas de utilizador apenas na cloud v
 | **Tipo de conta de utilizador** | **Passos a realizar** |
 | --- |---|
 | **Contas de utilizador da cloud criadas no Azure AD** |**&#x2713;** [Siga as instruções neste artigo](active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts) |
-| **Contas de utilizador sincronizadas a partir de um diretório no local** |**&#x2713;**: [sincronizar as hashes de palavras-passe das contas de utilizador sincronizadas a partir do seu AD no local com o seu domínio gerido](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
+| **Contas de utilizador sincronizadas a partir de um diretório no local** |**&#x2713;** : [sincronizar as hashes de palavras-passe das contas de utilizador sincronizadas a partir do seu AD no local com o seu domínio gerido](active-directory-ds-getting-started-password-sync-synced-tenant.md) | 
 
 <br>
 
@@ -82,6 +82,6 @@ Uns minutos depois de ter alterado a palavra-passe, a nova palavra-passe pode se
 * [Como atualizar a sua própria palavra-passe](../active-directory/user-help/active-directory-passwords-update-your-own-password.md)
 * [Introdução à Gestão de Palavras-passe no Azure AD](../active-directory/authentication/quickstart-sspr.md)
 * [Ativar a sincronização de hashes de palavras-passe com o Azure Active Directory Domain Services de um inquilino do Azure AD sincronizado](active-directory-ds-getting-started-password-sync-synced-tenant.md)
-* [Administrar um domínio gerido pelo Azure Active Directory Domain Services](active-directory-ds-admin-guide-administer-domain.md)
+* [Gerir um domínio do Azure AD Domain Services](manage-domain.md)
 * [Associar uma máquina virtual do Windows a um domínio gerido do Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Associar uma máquina virtual do Red Hat Enterprise Linux a um domínio gerido do Azure Active Directory Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c72ac62b55b2b08be5aaad563933bcb2b703cba9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787195"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245067"
 ---
 # <a name="azure-monitor-overview"></a>Descrição geral do Azure Monitor
 
@@ -83,7 +83,7 @@ Dados de monitorização só é útil se ele pode aumentar a visibilidade sobre 
 [Monitor do Azure para VMs](insights/vminsights-overview.md) monitoriza as suas máquinas virtuais do Azure (VM) em escala ao analisar o desempenho e estado de funcionamento do Windows e VMs do Linux, incluindo os respetivos diferentes processos e interconectadas dependências em outros recursos e externo processos. A solução inclui suporte para monitorização do desempenho e dependências de aplicações para as VMs alojadas no local ou de outro fornecedor de cloud.  
 
 
-![VM Insights](media/overview/vm-insights.png)
+![Informações VM](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Soluções de monitorização
 [Soluções de monitorização](insights/solutions.md) no Azure Monitor são empacotados conjuntos de lógica que fornecem informações para uma determinada aplicação ou serviço. Eles incluem lógica para a recolha de dados de monitorização para a aplicação ou serviço, [consultas](log-query/log-query-overview.md) analisar esses dados, e [vistas](../log-analytics/log-analytics-view-designer.md) para visualização. Soluções de monitorização são [disponibilizados pela Microsoft](insights/solutions-inventory.md) e parceiros para fornecer monitorização para vários serviços do Azure e outras aplicações.

@@ -10,12 +10,12 @@ ms.subservice: load data
 ms.date: 04/26/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a8ca3b52d181578e6b35090489b7133a94b55cbd
-ms.sourcegitcommit: 16cb78a0766f9b3efbaf12426519ddab2774b815
+ms.openlocfilehash: ac0f8cb4d9069d2ef7ce48939ad2dd1c92732d1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65852074"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242969"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carregar dados de táxis de Nova Iorque ao Azure SQL Data Warehouse
 
@@ -590,7 +590,7 @@ A carregar com o PolyBase e realizar a autenticação através de identidades ge
   
 1. **Polybase a conectividade à conta de armazenamento do Azure:**
     
-   1. Criar a sua credencial com âmbito de base de dados com **IDENTITY = "Identidade do serviço gerido"**:
+   1. Criar a sua credencial com âmbito de base de dados com **IDENTITY = "Identidade do serviço gerido"** :
 
        ```SQL
        CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -640,7 +640,7 @@ Fez tudo isto:
 > * Viu o progresso dos dados à medida que são carregados
 > * Criou estatísticas dos dados recentemente carregados
 
-Avance para a descrição geral da migração para saber como migrar uma base de dados existente para o SQL Data Warehouse.
+Avance para a descrição geral do desenvolvimento para saber como migrar uma base de dados existente para o SQL Data Warehouse.
 
 > [!div class="nextstepaction"]
->[Saiba como migrar uma base de dados existente para o SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)
+>[Decisões de design para migrar uma base de dados existente para o SQL Data Warehouse](sql-data-warehouse-overview-migrate.md)

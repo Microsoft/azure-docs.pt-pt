@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0e62c27885e2f6d5097194e1b9d869e167c4a4c
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61363766"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304976"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Utilizar dados de referência de uma base de dados SQL para uma tarefa do Azure Stream Analytics (pré-visualização)
 
@@ -59,16 +59,14 @@ Utilize os seguintes passos para adicionar a base de dados SQL do Azure como uma
 
 ### <a name="visual-studio-prerequisites"></a>Pré-requisitos do Visual Studio
 
-1. Se estiver a utilizar o Visual Studio 2017, atualize a 15.8.2 ou superior. Tenha em atenção que 16.0 e acima não são suportadas neste momento.
-
-2. [Instalar as ferramentas do Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md). São suportadas as seguintes versões do Visual Studio:
+1. [Instalar as ferramentas do Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio-install.md). São suportadas as seguintes versões do Visual Studio:
 
    * Visual Studio 2015
-   * Visual Studio 2017
+   * Visual Studio 2019
 
-3. Familiarizar-se com o [ferramentas do Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md) início rápido.
+2. Familiarizar-se com o [ferramentas do Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md) início rápido.
 
-4. Criar uma conta de armazenamento.
+3. Criar uma conta de armazenamento.
 
 ### <a name="create-a-sql-database-table"></a>Criar uma tabela de base de dados SQL
 
@@ -118,7 +116,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Abra o ficheiro SQL no editor e escrever a consulta SQL.
 
-5. Se estiver a utilizar o Visual Studio 2017 e tiver instalado as ferramentas de dados do SQL Server, pode testar a consulta ao clicar em **Execute**. Uma janela do assistente será exibida para o ajudar a ligar à base de dados SQL e o resultado da consulta irão aparecer na janela na parte inferior.
+5. Se estiver a utilizar o Visual Studio 2019 e tiver instalado as ferramentas de dados do SQL Server, pode testar a consulta ao clicar em **Execute**. Uma janela do assistente será exibida para o ajudar a ligar à base de dados SQL e o resultado da consulta irão aparecer na janela na parte inferior.
 
 ### <a name="specify-storage-account"></a>Especifique a conta de armazenamento
 
@@ -130,7 +128,7 @@ Open **JobConfig.json** para especificar a conta de armazenamento para o armazen
 
 Antes de implementar a tarefa para o Azure, pode testar a lógica de consulta localmente com dados de entrada em direto. Para obter mais informações sobre esta funcionalidade, consulte [testar localmente, utilizando ferramentas do Azure Stream Analytics para Visual Studio (pré-visualização) de dados dinâmicos](stream-analytics-live-data-local-testing.md). Quando terminar de teste, clique em **submeter para o Azure**. Referência a [criar do Stream Analytics com as ferramentas do Azure Stream Analytics para Visual Studio](stream-analytics-quick-create-vs.md) início rápido para saber como iniciar a tarefa.
 
-## <a name="delta-query"></a>Consulta delta
+## <a name="delta-query"></a>Consulta de delta
 
 Ao utilizar a consulta de delta [tabelas temporais na base de dados do Azure SQL](../sql-database/sql-database-temporal-tables.md) são recomendadas.
 
@@ -159,7 +157,7 @@ Ao utilizar a consulta de delta [tabelas temporais na base de dados do Azure SQL
  
 2. Crie a consulta de delta. 
    
-   Esta consulta obtém todas as linhas na base de dados do SQL que foram inseridas ou eliminadas dentro de uma hora de início  **\@deltaStartTime**e uma hora de fim  **\@deltaEndTime**. A consulta de delta tem de devolver as mesmas colunas como a consulta do instantâneo, bem como a coluna  **_operação_**. Esta coluna define se a linha é inserida ou eliminada entre  **\@deltaStartTime** e  **\@deltaEndTime**. As linhas resultantes são sinalizadas como **1** se os registos foram inseridos, ou **2** se eliminada. 
+   Esta consulta obtém todas as linhas na base de dados do SQL que foram inseridas ou eliminadas dentro de uma hora de início  **\@deltaStartTime**e uma hora de fim  **\@deltaEndTime**. A consulta de delta tem de devolver as mesmas colunas como a consulta do instantâneo, bem como a coluna  **_operação_** . Esta coluna define se a linha é inserida ou eliminada entre  **\@deltaStartTime** e  **\@deltaEndTime**. As linhas resultantes são sinalizadas como **1** se os registos foram inseridos, ou **2** se eliminada. 
 
    Para os registos que foram atualizados, a tabela temporal faz contábeis capturando uma operação de inserção e eliminação. O tempo de execução do Stream Analytics, em seguida, aplicará os resultados da consulta delta para o instantâneo anterior para manter os dados de referência atualizadas. Um exemplo de consulta delta é mostrada abaixo:
 
@@ -174,6 +172,9 @@ Ao utilizar a consulta de delta [tabelas temporais na base de dados do Azure SQL
    ```
  
    Tenha em atenção que o tempo de execução do Stream Analytics pode executar periodicamente a consulta do instantâneo para além da consulta delta para armazenar os pontos de verificação.
+
+## <a name="test-your-query"></a>Testar a consulta
+   É importante verificar a sua consulta está a devolver o conjunto de dados esperado que a tarefa do Stream Analytics irá utilizar como dados de referência. Para testar a sua consulta, vá para a entrada na secção de topologia da tarefa no portal. Em seguida, pode selecionar dados de exemplo na sua referência de base de dados SQL de entrada. Depois do exemplo de fica disponível, pode transferir o ficheiro e verificar se os dados que está a ser devolvidos é como esperado. Se quiser um otimizar suas iterações de desenvolvimento e teste, recomenda-se para utilizar o [ferramentas do Stream Analytics para Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Pode também qualquer outra ferramenta de sua preferência para primeiro certifique-se que a consulta está a devolver os resultados certos da sua base de dados do Azure SQL e, em seguida, usá-lo na sua tarefa do Stream Analytics. 
 
 ## <a name="faqs"></a>FAQs
 
@@ -193,10 +194,6 @@ A combinação de ambas estas métricas pode ser utilizada para inferir se a tar
 **Irá exigir um tipo especial de base de dados do Azure SQL?**
 
 O Azure Stream Analytics irá funcionar com qualquer tipo de base de dados do Azure SQL. No entanto, é importante compreender que a taxa de atualização definidas para a sua entrada de dados de referência pode afetar a carga de consulta. Para utilizar a opção de consulta delta, é recomendado utilizar tabelas temporais na base de dados do Azure SQL.
-
-**Pode, entrada de dados de referência de base de dados SQL de entrada de exemplo?**
-
-Esta funcionalidade não está disponível.
 
 **Por que do Azure Stream Analytics armazenar instantâneos na conta de armazenamento do Azure?**
 

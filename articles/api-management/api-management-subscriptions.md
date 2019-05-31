@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afd43bbf6f52f498ad8f56d5a48b960d45d84137
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60693558"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243249"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Subscrições na gestão de API do Azure
 
@@ -42,7 +42,7 @@ As assinaturas podem ser associadas a vários âmbitos: produto, todas as APIs o
 
 ### <a name="subscriptions-for-a-product"></a>Subscrições para um produto
 
-Tradicionalmente, as subscrições na gestão de API sempre foram associadas um único [produto da API](api-management-terminology.md) âmbito. Os desenvolvedores encontrar a lista de produtos no Portal do programador. Em seguida, eles poderia submeter pedidos de subscrição para os produtos que gostaria de usar. Depois de um pedido de subscrição é aprovado, automaticamente ou pelos publicadores de API, o programador pode utilizar as chaves na mesma para aceder a todas as APIs no produto.
+Tradicionalmente, as subscrições na gestão de API sempre foram associadas um único [produto da API](api-management-terminology.md) âmbito. Os desenvolvedores encontrar a lista de produtos no Portal do programador. Em seguida, eles poderia submeter pedidos de subscrição para os produtos que gostaria de usar. Depois de um pedido de subscrição é aprovado, automaticamente ou pelos publicadores de API, o programador pode utilizar as chaves na mesma para aceder a todas as APIs no produto. No momento, o portal do programador mostra apenas as subscrições de âmbito do produto na seção de perfil do usuário. 
 
 ![Assinaturas do produto](./media/api-management-subscriptions/product-subscription.png)
 

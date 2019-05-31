@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2018
+ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: b5467711f06380ca61b4a9d5150b66c3f945c08c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 73dd46d1ca0a20748d7a3a7838c499f0c659253d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141079"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241667"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Proteger uma API com OAuth 2.0 com o Azure Active Directory e gestão de API
 
@@ -44,17 +44,19 @@ Aqui está uma rápida visão geral dos passos:
 
 Para proteger uma API com o Azure AD, a primeira etapa é registar uma aplicação no Azure AD que representa a API. 
 
-1. Navegue para o inquilino do Azure AD e, em seguida, navegue até **registos de aplicações (Legado)**.
+1. Navegue para o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página. 
 
-2. Selecione **Novo registo de aplicação**. 
+2. Selecione **novo registo**. 
 
-3. Forneça um nome da aplicação. (Neste exemplo, o nome é `backend-app`.)  
+1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação: 
+    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `backend-app`. 
+    - Na **tipos de conta suportados** secção, selecione **contas em qualquer diretório organizacional**. 
 
-4. Escolher **aplicação Web / API** como o **tipo de aplicação**. 
+1. Deixe o **URI de redirecionamento** secção branco por agora.
 
-5. Para **URL de início de sessão**, pode utilizar `https://localhost` como um marcador de posição.
+1. Selecione **Registar** para criar a aplicação. 
 
-6. Selecione **Criar**.
+1. Na aplicação **descrição geral** página, encontre o **ID de aplicação (cliente)** valor e registe-a para utilizar mais tarde.
 
 Quando a aplicação é criada, anote o **ID da aplicação**, para utilização num passo subsequente. 
 
@@ -62,23 +64,25 @@ Quando a aplicação é criada, anote o **ID da aplicação**, para utilização
 
 Todas as aplicações de cliente que chama a API tem de ser registado como uma aplicação no Azure AD também. Neste exemplo, o aplicativo de cliente de exemplo é a consola de Programador no portal do Programador de gestão de API. Eis como registar-se de outra aplicação no Azure AD para representar a consola de programador.
 
-1. Enquanto estiver no **registos de aplicações (Legado)**, selecione **novo registo de aplicação**. 
+1. Navegue para o [portal do Azure – registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) página. 
 
-2. Forneça um nome da aplicação. (Neste exemplo, o nome é `client-app`.)
+1. Selecione **novo registo**.
 
-3. Escolher **aplicação Web / API** como o **tipo de aplicação**.  
+1. Quando a **página Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação: 
+    - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `client-app`. 
+    - Na **tipos de conta suportados** secção, selecione **contas em qualquer diretório organizacional**. 
 
-4. Para **URL de início de sessão**, pode utilizar `https://localhost` como um marcador de posição, ou utilize o início de sessão no URL da sua instância de gestão de API. (Neste exemplo, o URL é `https://contoso5.portal.azure-api.net/signin`.)
+1. Na **URI de redirecionamento** secção, selecione `Web` e introduza o URL `https://contoso5.portal.azure-api.net/signin`
 
-5. Selecione **Criar**.
+1. Selecione **Registar** para criar a aplicação. 
 
-Quando a aplicação é criada, anote o **ID da aplicação**, para utilização num passo subsequente. 
+1. Na aplicação **descrição geral** página, encontre o **ID de aplicação (cliente)** valor e registe-a para utilizar mais tarde.
 
 Agora, crie um segredo do cliente para esta aplicação, para utilização num passo subsequente.
 
-1. Selecione **configurações** novamente e aceda à **chaves**.
+1. Na lista de páginas para a sua aplicação de cliente, selecione **certificados e segredos**e selecione **novo segredo do cliente**.
 
-2. Sob **palavras-passe**, forneça um **descrição da chave**. Escolha quando a chave deve expirar e selecione **guardar**.
+2. Sob **adicionar um segredo de cliente**, forneça um **Descrição**. Escolha quando a chave deve expirar e selecione **adicionar**.
 
 Anote o valor da chave. 
 
@@ -86,17 +90,17 @@ Anote o valor da chave.
 
 Agora que se registrou duas aplicações para representar a API e a consola de programador, tem de conceder permissões para permitir que a aplicação de cliente chamar a aplicação de back-end.  
 
-1. Navegue até **registos de aplicação (Legado)**. 
+1. Navegue para **registos das aplicações**. 
 
-2. Selecione `client-app`e aceda à **definições**.
+2. Selecione `client-app`e na lista de páginas da aplicação, aceda a **permissões API**.
 
-3. Selecione **permissões obrigatórias** > **Add**.
+3. Selecione **adicionar uma permissão**.
 
-4. Selecione **selecionar uma API**e procure `backend-app`.
+4. Sob **selecionar uma API**, localize e selecione `backend-app`.
 
-5. Sob **permissões delegadas**, selecione `Access backend-app`. 
+5. Sob **permissões delegadas**, selecione as permissões adequadas para `backend-app`.
 
-6. Selecione **selecionar**e, em seguida, selecione **feito**. 
+6. Selecione **adicionar permissões** 
 
 > [!NOTE]
 > Se **do Azure Active Directory** não está listado em permissões para outras aplicações, selecionadas **Add** para adicioná-lo a partir da lista.
@@ -107,7 +111,7 @@ Neste ponto, ter criado as suas aplicações no Azure AD e concedeu permissões 
 
 Neste exemplo, a consola de programador é a aplicação de cliente. Os passos seguintes descrevem como ativar a autorização de utilizador de OAuth 2.0 na consola do programador. 
 
-1. No Portal do Azure, navegue para a instância de gestão de API.
+1. No portal do Azure, navegue para a instância de gestão de API.
 
 2. Selecione **OAuth 2.0** > **adicionar**.
 

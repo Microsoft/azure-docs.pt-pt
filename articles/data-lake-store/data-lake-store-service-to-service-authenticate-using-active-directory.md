@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3fbf2f2540e8f1ca84aad2759b9a1fc790e4065d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60197011"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241362"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticação do serviço para serviço com Gen1 de armazenamento do Azure Data Lake com o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -48,9 +48,9 @@ Ao seguir as instruções na ligação anterior, certifique-se de que seleciona 
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Passo 2: Obter ID da aplicação, a chave de autenticação e o ID do inquilino
 Quando iniciar sessão programaticamente, precisa do ID para a sua aplicação. Se o aplicativo for executado sob suas próprias credenciais, também precisa de uma chave de autenticação.
 
-* Para obter instruções sobre como obter a chave de autenticação e o ID de aplicação (também denominada o segredo do cliente) para a sua aplicação, consulte [chave de ID e a autenticação da aplicação Get](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Para obter instruções sobre como obter a chave de autenticação e o ID de aplicação (também denominada o segredo do cliente) para a sua aplicação, consulte [chave de ID e a autenticação da aplicação Get](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-* Para obter instruções sobre como obter o ID de inquilino, consulte [obter ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+* Para obter instruções sobre como obter o ID de inquilino, consulte [obter ID de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Passo 3: Atribuir a aplicação do Azure AD para a pasta ou ficheiro de conta de geração 1 de armazenamento do Azure Data Lake
 

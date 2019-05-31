@@ -3,16 +3,16 @@ title: Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos
 description: Problemas comuns e soluções alternativas e passos de diagnóstico, ao utilizar o acionador do Azure Cosmos DB com as funções do Azure
 author: ealsur
 ms.service: cosmos-db
-ms.date: 04/16/2019
+ms.date: 05/23/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e8f0b9c8bf1bfb846f13306f58bcb1721ed6b422
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 66eff6ee603ced03a8f4d75d4569752e0b11a6e7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510533"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242518"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar e resolver problemas ao utilizar o acionador do Azure Cosmos DB nas funções do Azure
 

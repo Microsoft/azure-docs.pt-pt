@@ -1,7 +1,7 @@
 ---
 title: 'Início rápido: Python e APIs REST - Azure Search'
 description: Criar, carregar e consultar um índice com o Python, blocos de notas do Jupyter e a API de REST do Azure Search.
-ms.date: 05/15/2019
+ms.date: 05/23/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: a79a5fe1632eeabee670274ebbb19c4c34bd84d2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 99b4ec0be8e9fa631c5081edd42474ea89dc5dc3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66117343"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244778"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-jupyter-python-notebooks"></a>Início rápido: Criar um índice da Azure Search utilizando blocos de notas do Jupyter Python
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Os seguintes serviços e ferramentas são utilizadas neste início rápido.
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section), fornecendo o Python 3.x e blocos de notas do Jupyter.
 
-+ [Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode usar um serviço gratuito para este início rápido. 
++ [Criar um serviço Azure Search](search-create-service-portal.md) ou [localizar um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) na subscrição atual. Pode utilizar o escalão gratuito para este início rápido. 
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e o URL
 
@@ -52,7 +52,7 @@ Todos os pedidos requerem uma chave de api em cada pedido enviado ao seu serviç
 
 ## <a name="connect-to-azure-search"></a>Ligar ao Azure Search
 
-Abra um bloco de notas do Jupyter e verificar a ligação da sua estação de trabalho local, solicitando uma lista de índices em seu serviço. No Windows com Anaconda3, pode utilizar Anaconda navegador para iniciar um bloco de notas.
+Nesta tarefa, iniciar um bloco de notas do Jupyter e certifique-se de que pode ligar para o Azure Search. Vai fazê-lo ao solicitar uma lista de índices do seu serviço. No Windows com Anaconda3, pode utilizar Anaconda navegador para iniciar um bloco de notas.
 
 1. Crie um novo bloco de notas do Python3.
 
@@ -73,7 +73,7 @@ Abra um bloco de notas do Jupyter e verificar a ligação da sua estação de tr
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-1. Na terceira célula, formule a solicitação. Este pedido GET destina-se a coleção de índices de seu serviço de pesquisa e seleciona a propriedade name.
+1. Na terceira célula, formule a solicitação. Este pedido GET destina-se a coleção de índices de seu serviço de pesquisa e seleciona a propriedade name de índices existentes.
 
    ```python
    url = endpoint + "indexes" + api_version + "&$select=name"
@@ -82,20 +82,20 @@ Abra um bloco de notas do Jupyter e verificar a ligação da sua estação de tr
    pprint(index_list)
    ```
 
-1. Execute cada passo. Se existirem a índices, a resposta contém uma lista de índices. A captura de ecrã abaixo, o serviço inclui um índice de azureblob e um índice de realestate-us-sample.
+1. Execute cada passo. Se existirem a índices, a resposta contém uma lista de nomes de índice. A captura de ecrã abaixo, o serviço já tem um índice de azureblob e um índice de realestate-us-sample.
 
    ![Script de Python no bloco de notas do Jupyter com HTTP pedidos para o Azure Search](media/search-get-started-python/connect-azure-search.png "pedidos de script de Python no bloco de notas do Jupyter com HTTP para o Azure Search")
 
-   Uma coleção de índice vazio retorna essa resposta: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Por outro lado, uma coleção de índice vazio retorna essa resposta: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 > [!Tip]
 > Num serviço gratuito, está limitado a três índices, indexadores e origens de dados. Este início rápido cria uma de cada uma. Certifique-se de que tem espaço para criar novos objetos antes de qualquer continuarmos.
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-A menos que estiver a utilizar o portal, tem de existir um índice no serviço antes de carregar dados. Este passo utiliza a [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para enviar um esquema de índice para o serviço
+A menos que estiver a utilizar o portal, tem de existir um índice no serviço antes de carregar dados. Este passo utiliza a [criar API REST do índice](https://docs.microsoft.com/rest/api/searchservice/create-index) para enviar um esquema de índice para o serviço.
 
-A coleção de campos define a estrutura de um *documento*. Elementos necessários de um índice incluem um nome e uma coleção de campos. Cada campo tem um nome, tipo e atributos que determinam como são utilizadas (por exemplo, se é texto completo pesquisável, filtrável ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos do tipo `Edm.String` tem de ser designado como o *chave* para a identidade do documento.
+Elementos necessários de um índice incluem um nome, uma coleção de campos e uma chave. A coleção de campos define a estrutura de um *documento*. Cada campo tem um nome, tipo e atributos que determinam como o campo é utilizado (por exemplo, se é texto completo pesquisável, filtrável ou recuperável nos resultados da pesquisa). Dentro de um índice, um dos campos do tipo `Edm.String` tem de ser designado como o *chave* para a identidade do documento.
 
 Este índice com o nome "Hotéis-py" e tem as definições de campo apresentado abaixo. É um subconjunto de uma maior [índice de hotéis](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/Hotels_IndexDefinition.JSON) utilizado em outra orientações passo a passo. Podemos cortados neste início rápido para fins de brevidade.
 
@@ -127,7 +127,7 @@ Este índice com o nome "Hotéis-py" e tem as definições de campo apresentado 
     }
     ```
 
-2. Em outra célula, formule a solicitação. Isto, COLOQUE pedido destina-se a coleção de índices de seu serviço de pesquisa e cria um índice com base no esquema de índice que indicou no passo anterior.
+2. Em outra célula, formule a solicitação. Isto, COLOQUE pedido destina-se a coleção de índices de seu serviço de pesquisa e cria um índice com base no esquema de índice fornecidas na célula anterior.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -138,12 +138,12 @@ Este índice com o nome "Hotéis-py" e tem as definições de campo apresentado 
 
 3. Execute cada passo.
 
-   A resposta inclui a representação JSON do esquema. Captura de ecrã seguinte corta partes do esquema de índice para que pode ver mais da resposta.
+   A resposta inclui a representação JSON do esquema. Captura de ecrã seguinte mostra apenas uma parte da resposta.
 
     ![O pedido para criar um índice](media/search-get-started-python/create-index.png "pedido para criar um índice")
 
 > [!Tip]
-> Para efeitos de verificação, poderia também Verifique a lista de índices no portal do ou volte a executar o pedido de ligação de serviço para ver os *hotéis-py* índice listados na coleção de índices.
+> Outra forma de verificar a criação de índices é verificar a lista de índices no portal.
 
 <a name="load-documents"></a>
 
@@ -211,6 +211,7 @@ Para enviar documentos, utilize um pedido de HTTP POST ao ponto final do URL de 
             "StateProvince": "GA",
             "PostalCode": "30326",
             "Country": "USA"
+            }
         },
         {
         "@search.action": "upload",
@@ -229,11 +230,11 @@ Para enviar documentos, utilize um pedido de HTTP POST ao ponto final do URL de 
             "StateProvince": "TX",
             "PostalCode": "78216",
             "Country": "USA"
-       }
-      }
-     ]
+            }
+        }
+    ]
     }
-    ```
+    ```   
 
 2. Em outra célula, formule a solicitação. Este pedido POST destina-se a coleção de documentos do índice de hotéis-py e envia os documentos fornecidos no passo anterior.
 
@@ -246,26 +247,7 @@ Para enviar documentos, utilize um pedido de HTTP POST ao ponto final do URL de 
 
 3. Execute cada passo para enviar documentos para um índice no seu serviço de pesquisa. Os resultados devem ter um aspeto semelhantes ao seguinte exemplo. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#Collection(Microsoft.Azure.Search.V2019_05_06.IndexResult)",
-    'value': [{'errorMessage': None,
-            'key': '1',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '2',
-            'status': True,
-            'statusCode': 201},
-           {'errorMessage': None,
-            'key': '3',
-            'status': True,
-            'statusCode': 201}]},
-           {'errorMessage': None,
-            'key': '4',
-            'status': True,
-            'statusCode': 201}]}
-     ```
-
+    ![Enviar documentos para um índice](media/search-get-started-python/load-index.png "enviar documentos para um índice")
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
@@ -278,7 +260,7 @@ Este passo mostra-lhe como consultar um índice com o [API REST do Search docume
    searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
    ```
 
-2. Formule um pedido. Este pedido GET destina-se a coleção de documentos do índice de hotéis-py e anexa a consulta que especificou no passo anterior.
+2. Em outra célula, formule um pedido. Este pedido GET destina-se a coleção de documentos do índice de hotéis-py e anexa a consulta que especificou no passo anterior.
 
    ```python
    url = endpoint + "indexes/hotels-py/docs" + api_version + searchstring
@@ -287,32 +269,29 @@ Este passo mostra-lhe como consultar um índice com o [API REST do Search docume
    pprint(query)
    ```
 
-   Resultados devem ser semelhantes à saída seguinte. Os resultados são unranked (search.score = 1,0) porque não fornecemos quaisquer critérios de correspondência com.
+3. Execute cada passo. Resultados devem ser semelhantes à saída seguinte. 
 
-   ```
-   {'@odata.context': "https://mydemo.search.windows.net/indexes('hotels-py')/$metadata#docs(*)",
-    '@odata.count': 3,
-    'value': [{'@search.score': 1.0,
-               'HotelId': '1',
-               'HotelName': 'Secret Point Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '2',
-               'HotelName': 'Twin Dome Motel'},
-              {'@search.score': 1.0,
-               'HotelId': '3',
-               'HotelName': 'Triple Landscape Hotel'},
-              {'@search.score': 1.0,
-               'HotelId': '4',
-               'HotelName': 'Sublime Cliff Hotel'}]}
+    ![Pesquisar um índice](media/search-get-started-python/search-index.png "pesquisar um índice")
+
+4. Experimente alguns outros exemplos de consulta para ter uma noção do que a sintaxe. Pode substituir o searchstring com os exemplos seguintes e, em seguida, volte a executar o pedido de pesquisa. 
+
+   Aplica um filtro: 
+
+   ```python
+   searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'
    ```
 
-3. Experimente alguns outros exemplos de consulta para ter uma noção do que a sintaxe. Pode aplicar um filtro, efetuar os dois resultados principais ou ordenar por um campo específico.
+   Siga os dois resultados principais:
 
-   + `searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description'`
+   ```python
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+   ```
 
-   + `searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'`
+    Ordenar por um campo específico:
 
-   + `searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'`
+   ```python
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+   ```
 
 ## <a name="clean-up"></a>Limpeza 
 

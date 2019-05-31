@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9ee8800d84d1090f97fb72980123f59d5aa0375
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
-ms.translationtype: HT
+ms.openlocfilehash: cf8e7fed30a9b25b2960e3321eca5c4398911f35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65783485"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236254"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao utilizar o Proxy de aplicações do Azure Active Directory
 
@@ -102,7 +102,7 @@ Latência não é comprometida, porque o tráfego estiver fluindo através de um
 
 Embora o foco deste artigo é o posicionamento de conector, também pode alterar a colocação da aplicação para obter melhores características de latência.
 
-Cada vez mais, as organizações estão movendo suas redes para ambientes hospedados. Isto permite-lhes colocar seus aplicativos num ambiente de hospedagem que também faz parte da respetiva rede empresarial e ainda estar dentro do domínio. Neste caso, os padrões discutidos nas seções anteriores podem ser aplicados para o novo local de aplicativo. Se estiver Considerando esta opção, veja [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md).
+Cada vez mais, as organizações estão movendo suas redes para ambientes hospedados. Isto permite-lhes colocar seus aplicativos num ambiente de hospedagem que também faz parte da respetiva rede empresarial e ainda estar dentro do domínio. Neste caso, os padrões discutidos nas seções anteriores podem ser aplicados para o novo local de aplicativo. Se estiver Considerando esta opção, veja [Azure AD Domain Services](../../active-directory-domain-services/overview.md).
 
 Além disso, considere a organizar seus conectores usando [grupos de conectores](application-proxy-connector-groups.md) para aplicações de destino que estão em diferentes locais e redes. 
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 0b14180c894977d822aa30ea5f46a2e21e247dc1
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dd2e68c820a8c9e503a3539fd50bf3fba68e3949
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64942322"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257532"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 para pré-requisitos de envolvimento do cliente
 
@@ -40,7 +40,7 @@ O Dynamics 365 para a aplicação de envolvimento do cliente deve estar em confo
 
 Os requisitos comerciais incluem as seguinte obrigações de procedimentos, contratuais e legais:
 
-* Tem de estar registado no [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou ser um publicador de Marketplace na nuvem registados. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](../../become-publisher.md).  (Para o terceiro passo, em vez disso, utilize o [formulário de nomeação do parceiro de AppSource](https://appsource.microsoft.com/partners/signup)). 
+* Tem de estar registado no [Microsoft Partner Network (MPN)](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx) ou ser um publicador de Marketplace na nuvem registados. Se não estiver registrado, siga os passos em [se tornar um publicador de Marketplace da Cloud](https://docs.microsoft.com/azure/marketplace/become-publisher).  (Para o terceiro passo, em vez disso, utilize o [formulário de nomeação do parceiro de AppSource](https://appsource.microsoft.com/partners/signup)). 
 
     >[!NOTE]
     >Deve utilizar a mesma conta de registo do Microsoft Developer Center para iniciar sessão no Portal de parceiros de nuvem. Deve ter apenas uma conta Microsoft para as ofertas do Azure Marketplace. Esta conta não deve ser específica de ofertas ou serviços individuais.

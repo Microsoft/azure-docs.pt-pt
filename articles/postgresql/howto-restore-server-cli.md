@@ -1,20 +1,20 @@
 ---
-title: Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL
-description: Saiba como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL com a CLI do Azure.
+title: Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL - servidor único
+description: Saiba como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/01/2018
-ms.openlocfilehash: 3415910426d365ea2dc17e7515871c1bf4841fd3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/06/2019
+ms.openlocfilehash: 85fb00ad221ae982e4d3ddc9d2d5d20dd4f2793d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60419926"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65069102"
 ---
-# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL com a CLI do Azure
+# <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-postgresql---single-server-using-the-azure-cli"></a>Como criar cópias de segurança e restaurar um servidor na base de dados do Azure para PostgreSQL - único servidor com a CLI do Azure
 
 ## <a name="backup-happens-automatically"></a>Cópia de segurança ocorre automaticamente
 Base de dados do Azure para servidores PostgreSQL são uma cópia de segurança periodicamente para ativar funcionalidades de restauro. Ao utilizar esta funcionalidade pode restaurar o servidor e todas as suas bases de dados para um anterior ponto anterior no tempo, num servidor novo.

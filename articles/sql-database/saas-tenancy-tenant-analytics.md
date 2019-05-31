@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 0be39aaf5526ea288764fc72d6c498cca2d659b7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6115d7f70c2c75898b18a27af298a44ca87ca1bd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61486502"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240876"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Análise de entre inquilinos com extraídos dados - aplicação de inquilino único
  
@@ -241,5 +241,5 @@ Parabéns!
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - Adicionais [tutoriais que se baseiam na aplicação Wingtip SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
-- [Tarefas elásticas](sql-database-elastic-jobs-overview.md).
+- [Tarefas elásticas](elastic-jobs-overview.md).
 - [Análise de entre inquilinos com dados extraídos - aplicação multi-inquilino](saas-multitenantdb-tenant-analytics.md)

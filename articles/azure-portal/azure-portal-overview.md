@@ -5,16 +5,16 @@ services: azure-portal
 keywords: ''
 author: kfollis
 ms.author: kfollis
-ms.date: 03/22/2019
+ms.date: 05/24/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: bff6fe697912bca0bc55501a74a01a92b1330521
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: de04b461d8e2d2dce9a88052a86fbe5d163fafec
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60551400"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244188"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure
 
@@ -23,6 +23,8 @@ Este artigo apresenta o portal do Azure, identifica os elementos de página do p
 ## <a name="what-is-the-azure-portal"></a>O que é o portal do Azure?
 
 O portal do Azure é uma consola baseada na web e unificada que fornece uma alternativa para ferramentas de linha de comandos. Com o portal do Azure, pode gerir a sua subscrição do Azure através de uma interface gráfica do usuário. Pode criar, gerir e monitorize tudo, desde aplicações web simples com implementações na cloud complexas, criar dashboards personalizados para uma vista organizada dos recursos e configurar as opções de acessibilidade para a melhor experiência.
+
+O portal do Azure destina-se a resiliência e a disponibilidade contínua. Ele tem uma presença em cada datacenter do Azure, tornando resiliente a falhas de centro de dados individuais e também evita slow-downs rede sendo perto dos utilizadores. O portal do Azure atualiza continuamente e requer sem períodos de indisponibilidade para atividades de manutenção.
 
 ## <a name="azure-home"></a>Página inicial do Azure
 
@@ -66,7 +68,6 @@ Podemos pré-preenchido seus favoritos na barra lateral com ligações para serv
 
 > [!TIP]
 > A maneira mais rápida de encontrar um recurso, serviço ou documentação é usar *pesquisa* no cabeçalho do global. Use os links de trilha para voltar para páginas anteriores.
->
 >
 
 ## <a name="next-steps"></a>Passos Seguintes

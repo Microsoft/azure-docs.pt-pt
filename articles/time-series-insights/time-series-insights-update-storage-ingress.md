@@ -2,7 +2,7 @@
 title: Armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights | Documentos da Microsoft
 description: Noções básicas sobre o armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: cebe22dddf9ef382c4eceb799e05cbaab30aedaa
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 8587fb0138309040232b6e0abc0f3eb17cc3093a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65951099"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244064"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e de entrada na pré-visualização do Azure Time Series Insights
 
@@ -110,7 +110,7 @@ A pré-visualização do Time Series Insights fornece consultas de elevado desem
 
 É importante selecionar um ID de série de tempo adequado, porque se trata de uma propriedade imutável. Para obter mais informações, consulte [escolha IDs de série de tempo](./time-series-insights-update-how-to-id.md).
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 ### <a name="your-storage-account"></a>Sua conta de armazenamento
 
@@ -156,8 +156,8 @@ A pré-visualização do Time Series Insights suporta as mesmas origens de event
 
 Origens de eventos suportados incluem:
 
-- Hub IoT do Azure
-- Hubs de Eventos do Azure
+- Azure IoT Hub
+- Azure Event Hubs
   
   > [!NOTE]
   > Instâncias de Hub de eventos do Azure suportam Kafka.
@@ -175,7 +175,7 @@ A pré-visualização do Time Series Insights indexa dados através de uma estra
 > * Durante a pré-visualização, espere um período mais longo antes dos dados ficam disponíveis.
 > * Se tiver qualquer uma latência significativa, certifique-se de que contacte-nos.
 
-### <a name="scale"></a>Dimensionamento
+### <a name="scale"></a>Escala
 
 A pré-visualização do Time Series Insights suporta um dimensionamento de entrada inicial de até 1 Byte de megabytes por segundo (Mbps) por ambiente. Suporte avançado de dimensionamento está em curso. Planeamos atualizar a nossa documentação para refletir esses avanços.
 

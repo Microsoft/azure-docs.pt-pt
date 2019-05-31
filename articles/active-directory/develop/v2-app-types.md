@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ec10359c6f684b1d7fb008946b7ceca2ed626ba
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: cd7055794860398ecc6296d0174a691e7fac4450
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545366"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235257"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativos para a plataforma de identidade da Microsoft
 
@@ -51,7 +51,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplicações de página única (JavaScript)
 
-Muitas aplicações modernas têm um aplicação de página única front-end que é principalmente escrito em JavaScript. Muitas vezes, ele é escrito usando uma estrutura como AngularJS, ember ou Durandal.js. O ponto de extremidade de plataforma de identidade Microsoft suporta estas aplicações com o [fluxo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
+Muitas aplicações modernas têm um aplicação de página única front-end que é principalmente escrito em JavaScript. Muitas vezes, ele é escrito usando uma estrutura como o Angular, React ou Vue. O ponto de extremidade de plataforma de identidade Microsoft suporta estas aplicações com o [fluxo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
 
 Neste fluxo, a aplicação recebe tokens diretamente a partir de plataforma de identidades da Microsoft autorizar o ponto de extremidade, sem quaisquer trocas de servidor a servidor. Todos os lógica de autenticação e sessão de processamento necessário colocar inteiramente no cliente JavaScript, sem os redirecionamentos de página extra.
 
@@ -59,7 +59,7 @@ Neste fluxo, a aplicação recebe tokens diretamente a partir de plataforma de i
 
 Para ver este cenário em ação, experimente um dos exemplos de código de aplicação de página única no [introdução à plataforma de identidade do Microsoft](v2-overview.md#getting-started) secção.
 
-## <a name="web-apps"></a>Aplicações Web
+## <a name="web-apps"></a>Web Apps
 
 Para aplicações web (.NET, PHP, Java, Ruby, Python, nó) que o usuário acessa por meio de um navegador, pode usar [OpenID Connect](active-directory-v2-protocols.md) para o início de sessão do utilizador. OpenID Connect, a aplicação web recebe um token de ID. Um token de ID é um token de segurança que verifica a identidade do utilizador e fornece informações sobre o utilizador na forma de afirmações:
 

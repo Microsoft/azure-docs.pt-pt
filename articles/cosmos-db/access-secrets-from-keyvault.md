@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 05/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 36b0a2f18cf2917251a87405456980811af1bc3d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 157ccd284c25cb5c7275aa942823ade2a40795cc
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60894839"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66239859"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Chaves do Azure Cosmos seguras com o Azure Key Vault 
 
@@ -67,7 +67,7 @@ Os seguintes passos são necessários para armazenar e ler as chaves de acesso d
 
 5. Assim que a aplicação é implementada. A partir do portal do Azure, navegue para a aplicação web que implementou e ativar a **identidade do serviço gerido** desta aplicação.  
 
-   ![Identidade de serviço gerida](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
+   ![Identidade do serviço gerido](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
 
 Se quiser executar o aplicativo agora, verá o seguinte erro, como qualquer permissão para esta aplicação não tiver dado no Cofre de chaves.
 

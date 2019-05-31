@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Introdução | Documentos da Mic
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: ergreenl
-ms.openlocfilehash: 734fb5ce641d48800cef68ea79cdb258e44ac267
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: a4a515f3d669794d5bcdd8fa506a8d3b846db987
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60417766"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234946"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
@@ -36,7 +36,7 @@ O assistente cria automaticamente o grupo administrativo no diretório do Azure 
 
 1. Para configurar a associação de grupo, clique em **administradores do AAD DC**.
 
-    ![Configurar associação a um grupo](./media/getting-started/domain-services-blade-admingroup.png)
+    ![Configurar a associação de grupo](./media/getting-started/domain-services-blade-admingroup.png)
 
 2. Clique nas **adicionar membros** botão para adicionar utilizadores de diretório do Azure AD para o grupo de administrador.
 
@@ -44,7 +44,7 @@ O assistente cria automaticamente o grupo administrativo no diretório do Azure 
 
 ## <a name="configure-synchronization"></a>Configurar a sincronização
 
-O Azure AD Domain Services permite a sincronização completa de todos os utilizadores e grupos disponíveis no Azure AD, ou pode selecionar o âmbito de sincronização para sincronizar apenas os grupos específicos. Se escolher a sincronização completa, irá **não** pode escolher o âmbito de sincronização num momento posterior. Para saber mais sobre a sincronização de âmbito, visite o [artigo de sincronização de âmbito do Azure AD Domain Services](active-directory-ds-scoped-synchronization.md).
+O Azure AD Domain Services permite a sincronização completa de todos os utilizadores e grupos disponíveis no Azure AD, ou pode selecionar o âmbito de sincronização para sincronizar apenas os grupos específicos. Se escolher a sincronização completa, irá **não** pode escolher o âmbito de sincronização num momento posterior. Para saber mais sobre a sincronização de âmbito, visite o [artigo de sincronização de âmbito do Azure AD Domain Services](scoped-synchronization.md).
 
 ### <a name="full-synchronization"></a>Sincronização completa
 
@@ -98,7 +98,7 @@ O processo de aprovisionamento do seu domínio gerido pode demorar até uma hora
 
 ## <a name="need-help"></a>Precisa de ajuda?
 
-Pode demorar uma hora ou dois para ambos os controladores de domínio para o seu domínio gerido ser aprovisionado. Se a implementação falhou ou está bloqueada no estado "Pendente" há mais de duas horas, fique à vontade para [contacte a equipa de produto para obter ajuda](active-directory-ds-contact-us.md).
+Pode demorar uma hora ou dois para ambos os controladores de domínio para o seu domínio gerido ser aprovisionado. Se a implementação falhou ou está bloqueada no estado "Pendente" há mais de duas horas, fique à vontade para [contacte a equipa de produto para obter ajuda](contact-us.md).
 
 ## <a name="next-step"></a>Passo seguinte
 

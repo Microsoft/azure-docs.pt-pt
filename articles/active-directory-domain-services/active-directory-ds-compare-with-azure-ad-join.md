@@ -3,7 +3,7 @@ title: Comparar a associação do Azure AD e o Azure Active Directory Domain Ser
 description: Decidir entre a associação do Azure AD e serviços de domínio do Azure AD
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: 31a71d36-58c1-4839-b958-80da0c6a77eb
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/26/2017
-ms.author: ergreenl
-ms.openlocfilehash: d4f50ea89f2623d387fb77acb09e609def547468
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/20/2019
+ms.author: mstephen
+ms.openlocfilehash: eaa8cb54a46b1ff3c2c0f7c40c824f6ddcca16b9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60359437"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234968"
 ---
 # <a name="choose-between-azure-active-directory-join-and-azure-active-directory-domain-services"></a>Escolha entre a associação do Azure Active Directory e Azure Active Directory Domain Services
 Este artigo descreve as diferenças entre a associação do Azure Active Directory (AD) e o Azure AD Domain Services e o ajuda a que escolher, com base nos seus casos de uso.
@@ -32,7 +32,7 @@ Também pode associar dispositivos ao Azure AD pertencentes à empresa de organi
 * Início de sessão único (SSO) para aplicativos a serem protegidos pelo Azure AD
 * Em conformidade com a política de roaming empresarial as definições de utilizador em todos os dispositivos.
 * Acesso para a Windows Store para empresas com as suas credenciais empresariais.
-* Windows Hello para empresas
+* Windows Hello para Empresas
 * Acesso restrito a aplicações e recursos de dispositivos em conformidade com a política empresarial.
 
 | **Tipo de dispositivo** | **Plataformas de dispositivos** | **Mecanismo** |
@@ -59,21 +59,21 @@ Num computador associado a um domínio, autenticação de utilizador ocorre atra
 | Dispositivo controlado por | Azure AD | Domínio gerido de serviços de domínio do AD do Azure |
 | Representação no diretório | Objetos de dispositivo no diretório do Azure AD. | Objetos de computador no domínio gerido DS do AAD. |
 | Autenticação | Protocolos OAuth/OpenID Connect com base em | Kerberos, protocolos NTLM |
-| Gestão | Software de gestão de dispositivos móveis (MDM), como o Intune | Política de Grupo |
+| Gestão | Software de gestão de dispositivos móveis (MDM), como o Intune | Política de grupo |
 | Redes | Funciona através da internet | Requer máquinas na mesma rede virtual que o domínio gerido.|
 | Ótimo para... | Dispositivos móveis ou ambiente de trabalho do utilizador final | Máquinas de virtuais de servidor implementadas no Azure |
 
 
 ## <a name="next-steps"></a>Passos Seguintes
 ### <a name="learn-more-about-azure-ad-domain-services"></a>Saiba mais sobre o Azure AD Domain Services
-* [Descrição geral dos serviços de domínio do Azure AD](active-directory-ds-overview.md)
+* [Descrição geral dos serviços de domínio do Azure AD](overview.md)
 * [Funcionalidades](active-directory-ds-features.md)
-* [Cenários de implementação](active-directory-ds-scenarios.md)
-* [Descubra se o Azure AD Domain Services se adequa aos seus casos de uso](active-directory-ds-comparison.md)
-* [Compreender como o Azure AD Domain Services sincroniza com o seu diretório do Azure AD](active-directory-ds-synchronization.md)
+* [Cenários de implementação](scenarios.md)
+* [Descubra se o Azure AD Domain Services se adequa aos seus casos de uso](comparison.md)
+* [Compreender como o Azure AD Domain Services sincroniza com o seu diretório do Azure AD](synchronization.md)
 
 ### <a name="learn-more-about-azure-ad-join"></a>Saiba mais sobre a associação do Azure AD
 * [Introduction to device management in Azure Active Directory](../active-directory/device-management-introduction.md) (Introdução à gestão de dispositivos no Azure Active Directory)
 
 ### <a name="get-started-with-azure-ad-domain-services"></a>Introdução ao Azure AD Domain Services
-* [Ativar os serviços de domínio do Azure AD no portal do Azure](active-directory-ds-getting-started.md)
+* [Ativar os serviços de domínio do Azure AD no portal do Azure](create-instance.md)

@@ -7,14 +7,14 @@ manager: barbkess
 editor: ''
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/24/2019
 ms.author: barclayn
-ms.openlocfilehash: 9346f3f9bd9395ac863af87d05724a76ae83fb2f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dba1fe91a635f467f4a3aeeaa048897065822869
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702336"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236646"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Redundância e disponibilidade de Cofre de chaves do Azure
 
@@ -25,6 +25,8 @@ O conteúdo do seu Cofre de chaves é replicado dentro da região e para uma reg
 Caso de falham de componentes individuais no serviço Cofre de chaves, componentes alternativos dentro da região entrar para atender sua solicitação para se certificar de que não existe nenhuma degradação de funcionalidade. Não é necessário efetuar qualquer ação para acionar esta. Ele ocorre automaticamente e será transparente para.
 
 No evento raro que toda uma região do Azure não está disponível, os pedidos que fazem do Azure Key Vault nessa região são automaticamente encaminhados (*a ativação pós-falha*) para uma região secundária. Quando a região primária estiver novamente disponível, os pedidos são encaminhados novamente (*realizarão a reativação pós-falha*) para a região primária. Novamente, não é necessário efetuar qualquer ação porque isto ocorre automaticamente.
+
+Através deste design de elevada disponibilidade, o Azure Key Vault requer sem períodos de indisponibilidade para atividades de manutenção.
 
 Existem algumas limitações a ter em consideração:
 
@@ -41,7 +43,7 @@ Existem algumas limitações a ter em consideração:
   * Encapsular
   * Anular a moldagem
   * Verificar
-  * Assinar
+  * Início de sessão
   * Cópia de segurança
 * Após uma ativação pós-falha é realizarão a reativação, todos os tipos de pedido (incluindo leitura *e* pedidos de escrita) estão disponíveis.
 

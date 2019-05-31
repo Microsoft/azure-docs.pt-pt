@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: 5eb2ba509983918a55370ae0deafd019e03f53d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7a52d05c77d0aeb8ebeba196df60e59f0647fea9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60740289"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66233923"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de dados do Azure para MariaDB escalões de preço
 
@@ -51,19 +51,25 @@ O armazenamento que Aprovisiona é a quantidade de capacidade de armazenamento d
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
 | IOPS | Variável |3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS |
 
-É possível adicionar a capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornece uma garantia IOPS. Nos fins gerais e com a otimização de memória escalões de preço, o IOPS dimensionar-se com o tamanho de armazenamento aprovisionado numa proporção de 3:1.
+Pode adicionar a capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumentar o armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho. O escalão básico não fornece uma garantia IOPS. Nos fins gerais e com a otimização de memória escalões de preço, o IOPS dimensionar-se com o tamanho de armazenamento aprovisionado numa proporção de 3:1.
 
 Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da CLI do Azure. As métricas relevantes para monitorizar estão [limite de armazenamento, percentagem de armazenamento, armazenamento utilizado e por cento de e/s](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
 
-O servidor está marcado como sendo só de leitura quando a quantidade de armazenamento gratuito alcançar a menor das opções de 5 GB ou 5% do armazenamento aprovisionado. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Como alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento gratuito chegar a menos de 250 MB.  
+Servidores com menos do que 100 GB aprovisionado armazenamento são marcados como só de leitura, se o armazenamento livre é inferior a 512MB ou 5% do tamanho do armazenamento aprovisionado. Servidores com mais de 100 GB aprovisionado armazenamento são marcadas como leitura apenas quando o armazenamento livre é inferior a 5 GB.
+
+Por exemplo, se aprovisionou 110 GB de armazenamento e a utilização real é feito por 105 GB, o servidor está marcado como só de leitura. Em alternativa, se aprovisionou 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento livre atinge menos de 512 MB.
 
 Apesar de o serviço tentar tornar o servidor só de leitura, todos os novos pedidos de transação de escrita são bloqueados e as transações ativas existentes continuam a executar. Quando o servidor estiver definido como só de leitura, todas as subsequentes operações de escrita e de transação falham. As consultas de leitura continuam a trabalhar sem interrupções. Depois de aumentar o armazenamento aprovisionado, o servidor fica pronto para aceitar novamente as transações de escrita.
 
-Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. 
+Recomendamos que ative armazenamento aumento automático ou configurar um alerta para notificá-lo quando o seu armazenamento de servidor está prestes a atingir o limiar por isso, pode evitar que o estado só de leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-metric.md).
 
-Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-metric.md).
+### <a name="storage-auto-grow"></a>Aumento automático do armazenamento
+
+Se o aumento automático de armazenamento é ativada, o armazenamento aumenta automática, sem afetar a carga de trabalho. Para servidores com menos do que 100 GB aprovisionado de armazenamento, o tamanho de armazenamento aprovisionado é aumentado em 5 GB, assim que o armazenamento livre é inferior o maior de 1 GB ou 10% do armazenamento aprovisionado. Para servidores com mais de 100 GB de armazenamento de aprovisionamento, o tamanho de armazenamento aprovisionado é aumentado por 5% quando o espaço de armazenamento livre é inferior a 5% do tamanho do armazenamento aprovisionado. Limites de armazenamento máximos, conforme especificado acima aplicam-se.
+
+Por exemplo, se aprovisionou 1000 GB de armazenamento e a utilização real é feito por 950 GB, o tamanho de armazenamento do servidor é aumentada para 1050 GB. Em alternativa, se aprovisionou 10 GB de armazenamento, o tamanho de armazenamento é aumento para 15 GB quando menos de 1 GB de armazenamento é gratuito.
 
 ## <a name="backup"></a>Cópia de segurança
 

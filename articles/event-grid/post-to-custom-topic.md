@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: fc8877ed23b408ea041de67018a71cc203c5e8c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
+ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162041"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66304218"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publicar em tópico personalizado do Azure Event Grid
 
@@ -76,7 +76,10 @@ Para tópicos personalizados, os dados de nível superior contém os mesmos camp
 ]
 ```
 
-Para obter uma descrição destas propriedades, consulte [esquema de eventos do Azure Event Grid](event-schema.md). Eventos para um tópico do event grid no lançamento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB.
+Para obter uma descrição destas propriedades, consulte [esquema de eventos do Azure Event Grid](event-schema.md). Eventos para um tópico do event grid no lançamento, a matriz pode ter um tamanho total de até 1 MB. Cada evento na matriz está limitado a 64 KB (disponibilidade geral) ou 1 MB (pré-visualização).
+
+> [!NOTE]
+> Um evento de tamanho até 64 KB é abordado pelo contrato de nível de serviço do disponibilidade geral (GA) (SLA). O suporte para um evento de tamanho até 1 MB está atualmente em pré-visualização. Eventos mais de 64 KB são cobrados em incrementos de 64 KB. 
 
 Por exemplo, um esquema de dados de evento válido é:
 
@@ -100,7 +103,7 @@ Após o lançamento para o ponto de final do tópico, receber uma resposta. A re
 
 |Resultado  |Resposta  |
 |---------|---------|
-|Com êxito  | 200 OK  |
+|Êxito  | 200 OK  |
 |Dados de eventos tem um formato incorreto | 400 pedido inválido |
 |Chave de acesso inválido | 401 não autorizado |
 |Ponto final incorreto | 404 Não Encontrado |

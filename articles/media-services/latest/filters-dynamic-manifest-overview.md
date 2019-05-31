@@ -11,32 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 05/22/2019
 ms.author: juliako
-ms.openlocfilehash: ac440be4444ca0d62f7ffde2b8b65e41dcba6683
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: 041a73cd2840e0b6a1840e15629d9c0e284e9890
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002410"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225512"
 ---
-# <a name="dynamic-manifests"></a>Manifestos dinâmicos
+# <a name="pre-filtering-manifests-with-dynamic-packager"></a>Pré-filtrar manifestos com Packager dinâmico
 
-Serviços de multimédia oferecem **manifestos dinâmica** com base nos filtros predefinidos. Depois de definir filtros (consulte [definir filtros](filters-concept.md)), os clientes poderá usá-las para transmitir uma representação em específica ou de clips secundárias do seu vídeo. Eles deve especificar filtros no URL de transmissão em fluxo. Filtros podem ser aplicados a velocidade de transmissão adaptável, protocolos de transmissão em fluxo: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming. 
+Ao entregar conteúdo aos dispositivos de transmissão em fluxo de velocidade adaptável, muitas vezes, precisa publicar várias versões de um manifesto para capacidades específicas de dispositivo de destino ou de largura de banda de rede disponível. O [Packager dinâmica](dynamic-packaging-overview.md) permite-lhe especificar filtros que podem filtrar os codecs específico, resoluções e velocidades de transmissão e áudio controlam combinações no momento eliminando a necessidade de criar várias cópias. Só precisa publicar um novo URL com um conjunto específico de filtros configurados para os dispositivos de destino (iOS, Android, SmartTV ou navegadores) e as capacidades de rede (cenários de largura de banda alta, móveis ou largura de banda baixa). Neste caso, os clientes podem manipular a transmissão em fluxo do seu conteúdo através da seqüência de caracteres de consulta (especificando disponíveis [filtros de elemento ou filtros de conta](filters-concept.md)) e utilizar filtros para secções específicas do fluxo de um fluxo.
 
-A tabela seguinte mostra alguns exemplos de URLs com filtros:
+Alguns cenários de entrega requerem que faça-se de que um cliente não conseguir aceder roteiros específicos. Por exemplo, talvez não queira publicar um manifesto que contém as faixas de HD para um escalão de assinante específico. Em alternativa, pode querer remover roteiros específico velocidade de transmissão adaptável (ABR) para reduzir o custo da entrega de um dispositivo específico que não se beneficiaria de roteiros adicionais. Neste caso podia associar uma lista dos filtros previamente criadas com o seu [localizador de transmissão em fluxo](streaming-locators-concept.md) após a criação. Nesse caso, os clientes não podem manipular como o conteúdo é transmitido, é definido pelos **localizador de transmissão em fluxo**.
 
-|Protocol|Exemplo|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
- 
+Pode combinar a filtragem por meio de especificando [filtros no localizador de transmissão em fluxo](filters-concept.md#associating-filters-with-streaming-locator) + filtros específicos de dispositivo adicionais que o cliente especifica no URL. Isso pode ser útil restringir pistas adicionais, como fluxos de metadados ou eventos, idiomas de áudio ou faixas de áudio descritivas. 
+
+Esta capacidade de especificar filtros diferentes no seu fluxo, fornece um poderoso **dinâmica manifestar** solução de manipulação para vários cenários de casos de utilização para os seus dispositivos de destino de destino. Este tópico explica os conceitos relacionados com **manifestos dinâmica** e fornece exemplos de cenários em que pode querer utilizar esta funcionalidade.
+
 > [!NOTE]
-> Os manifestos dinâmicos não altere o elemento e o manifesto de padrão para esse recurso. O cliente pode optar por solicitar um fluxo com ou sem filtros. 
+> Os manifestos dinâmicos não altere o elemento e o manifesto de padrão para esse recurso. 
 > 
-
-Este tópico explica os conceitos relacionados com **manifestos dinâmica** e fornece exemplos de cenários em que pode querer utilizar esta funcionalidade.
 
 ## <a name="manifests-overview"></a>Descrição geral de manifestos
 
@@ -55,6 +51,16 @@ No exemplo do REST, veja [carregar, codificar e transmitir ficheiros com REST](s
 Pode utilizar o [página de demonstração do leitor de multimédia do Azure](https://aka.ms/amp) para monitorizar a velocidade de transmissão de um fluxo de vídeo. A página de demonstração exibe as informações de diagnóstico do **diagnóstico** separador:
 
 ![Diagnóstico do leitor de multimédia do Azure][amp_diagnostics]
+ 
+### <a name="examples-urls-with-filters-in-query-string"></a>Exemplos: URLs com filtros na cadeia de consulta
+
+Filtros podem ser aplicados a velocidade de transmissão adaptável, protocolos de transmissão em fluxo: HLS, MPEG-DASH e Smooth Streaming. A tabela seguinte mostra alguns exemplos de URLs com filtros:
+
+|Protocol|Exemplo|
+|---|---|
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Transmissão em Fluxo Uniforme|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## <a name="rendition-filtering"></a>Filtragem de representação
 
@@ -121,10 +127,6 @@ Para combinar os filtros, tem de definir os nomes de filtro para a manifesto/lis
 Pode combinar os filtros de até três. 
 
 Para obter mais informações, consulte [isso](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
-
-## <a name="associate-filters-with-streaming-locator"></a>Associar filtros localizador de transmissão em fluxo
-
-Ver [filtros: associar às localizadores de transmissão em fluxo](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="considerations-and-limitations"></a>Considerações e limitações
 

@@ -1,19 +1,19 @@
 ---
-title: Criar e gerir a base de dados para pontos finais de serviço do PostgreSQL VNet e regras no portal do Azure
-description: Criar e gerir a base de dados para pontos finais de serviço do PostgreSQL VNet e regras no portal do Azure
+title: Criar e gerir pontos finais de serviço de VNet e regras no banco de dados do Azure para PostgreSQL - servidor único com o portal do Azure
+description: Criar e gerir pontos finais de serviço de VNet e regras de base de dados do Azure para PostgreSQL - servidor único com o portal do Azure
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/23/2018
-ms.openlocfilehash: 0f11894e939f589134720f22deb99390e14db9fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 9da46ae905457f6f6b1786a2161e224d397d0507
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421682"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65073179"
 ---
-# <a name="create-and-manage-azure-database-for-postgresql-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a base de dados para pontos finais de serviço do PostgreSQL VNet e regras de VNet com o portal do Azure
+# <a name="create-and-manage-vnet-service-endpoints-and-vnet-rules-in-azure-database-for-postgresql---single-server-by-using-the-azure-portal"></a>Criar e gerir pontos finais de serviço de VNet e regras de VNet na base de dados do Azure para PostgreSQL - único servidor com o portal do Azure
 Pontos finais de serviços de rede (VNet) virtual e regras de estendem o espaço de endereços privados de uma rede Virtual à sua base de dados do Azure para o servidor PostgreSQL. Para uma visão geral da base de dados do Azure para PostgreSQL VNet pontos finais de serviço, incluindo as limitações, consulte [base de dados do Azure para pontos finais de serviço de VNet de servidor PostgreSQL](concepts-data-access-and-security-vnet.md). Pontos finais de serviço de VNet estão disponíveis em todas as regiões suportadas para a base de dados do Azure para PostgreSQL.
 
 > [!NOTE]

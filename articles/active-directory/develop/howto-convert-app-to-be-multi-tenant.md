@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/12/2019
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2e6a5ecd704aabb4994337cb7b7df9e84677348d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540461"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235283"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Como: Iniciar sessão a qualquer utilizador do Azure Active Directory utilizando o padrão de aplicação multi-inquilino
 
@@ -45,7 +45,7 @@ Vamos examinar cada etapa detalhadamente. Também pode ir diretamente para [esta
 
 ## <a name="update-registration-to-be-multi-tenant"></a>Atualizar o registo ser multi-inquilino
 
-Por predefinição, os registos de aplicação/API web no Azure AD são único inquilino. Pode efetuar o registo do multi-inquilino ao detetar o **com múltiplos inquilinos** alternar o **propriedades** painel do seu registo de aplicação no [portal do Azure] [ AZURE-portal] e defini-la como **Sim**.
+Por predefinição, os registos de aplicação/API web no Azure AD são único inquilino. Pode fazer o registo do multi-inquilino ao detetar o **tipos de conta suportados** alternar o **autenticação** painel do seu registo de aplicação no [portal do Azure] [ AZURE-portal] e defini-la como **contas em qualquer diretório organizacional**.
 
 Antes de um aplicativo pode ser feito a multi-inquilino, o Azure AD requer o URI de ID de aplicação do aplicativo para ser globalmente exclusivo. O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Relativamente às aplicações de inquilino único, basta que o URI do ID da Aplicação seja exclusivo nesse inquilino. Nas aplicações multi-inquilinos, tem de ser globalmente exclusivo, para que o Azure AD consiga encontrar a aplicação em todos os inquilinos. Para aplicar a exclusividade global, o URI do ID da App tem de ter um nome de anfitrião que corresponda a um domínio verificado do inquilino do Azure AD.
 
@@ -115,7 +115,7 @@ Esta experiência de consentimento é afetada pelas permissões solicitadas pela
 
 Algumas permissões podem ser permitidas por um utilizador normal, enquanto outras precisam de consentimento de um administrador de inquilino. 
 
-### <a name="admin-consent"></a>Consentimento de admin
+### <a name="admin-consent"></a>Consentimento de administrador
 
 Permissões só de aplicação necessitam sempre de consentimento de um administrador de inquilino. Se a aplicação solicite uma permissão só de aplicação e um utilizador tenta iniciar sessão na aplicação, é apresentada uma mensagem de erro dizendo que o utilizador não é capaz de dar consentimento.
 
@@ -150,7 +150,7 @@ Isso é demonstrado num cliente nativo de várias camado chamada de exemplo de w
 
 Um caso semelhante acontece se as diferentes camadas de um aplicativo são registadas em inquilinos diferentes. Por exemplo, considere o caso de criação de um aplicativo de cliente nativo que chama a API do Office 365 Exchange Online. Para desenvolver a nativas da aplicação e mais tarde para o aplicativo nativo executar no inquilino de um cliente, o Exchange Online principal de serviço tem de estar presente. Neste caso, o desenvolvedor e o cliente tem de comprar Exchange Online para o serviço principal a ser criada em seus inquilinos.
 
-Se se trata de uma API criada por uma organização diferente da Microsoft, o desenvolvedor da API tem de fornecer uma forma para seus clientes dar consentimento o aplicativo em inquilinos dos clientes. É a estrutura recomendada para o desenvolvedor de terceiros criar a API de forma que ele também pode funcionar como um cliente web para implementar a inscrição. Para tal:
+Se se trata de uma API criada por uma organização diferente da Microsoft, o desenvolvedor da API tem de fornecer uma forma para seus clientes dar consentimento o aplicativo em inquilinos dos clientes. É a estrutura recomendada para o desenvolvedor de terceiros criar a API de forma que ele também pode funcionar como um cliente web para implementar a inscrição. Para efetuar este procedimento:
 
 1. Siga as secções anteriores para garantir que a API implementa os requisitos de registo/código de aplicação multi-inquilino.
 2. Além de expor âmbitos/funções a API, certifique-se de que inclui o registo a "iniciar sessão e ler o perfil de usuário" permissão (fornecido por predefinição).

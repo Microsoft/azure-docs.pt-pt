@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 05/14/2019
-ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: af14d5eb521d531f86433712a0d6c325ae7a1cd6
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790151"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258633"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Uma descrição geral das capacidades de segurança da base de dados do Azure SQL
 
@@ -78,7 +78,7 @@ Segurança ao nível da linha permite aos clientes controlar o acesso às linhas
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-## <a name="threat-protection"></a>Proteção conta ameaças
+## <a name="threat-protection"></a>Proteção contra ameaças
 
 Base de dados SQL protege os dados dos clientes, fornecendo capacidades de deteção de ameaças e auditoria.
 
@@ -150,6 +150,10 @@ Para obter mais informações, consulte [começar com dados de deteção e class
 ### <a name="compliance"></a>Conformidade
 
 Além das funcionalidades acima e que podem ajudar a sua aplicação a cumprir diversos requisitos de segurança, a base de dados do Azure SQL também participa em auditorias regulares e foi certificada por uma série de normas de conformidade. Para obter mais informações, consulte a [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) onde é possível encontrar a lista mais recente das certificações de conformidade de base de dados SQL.
+
+### <a name="feature-restrictions"></a>Restrições de funcionalidades
+
+Funcionalidade de restrições de ajudar a impedir que algumas formas de injeção de SQL de vazamento de informações sobre a base de dados, mesmo quando a injeção de SQL é efetuada com êxito. Para obter mais informações, consulte [restrições de recurso de base de dados do Azure SQL](sql-database-feature-restrictions.md).
 
 ## <a name="next-steps"></a>Passos Seguintes
 

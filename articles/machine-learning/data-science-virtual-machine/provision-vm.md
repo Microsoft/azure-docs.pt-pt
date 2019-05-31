@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 64642da88850e9a0a17173bc50ae9e750cab55a2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65596495"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235088"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Aprovisionar uma máquina de Virtual de ciência dados Windows no Azure
 
@@ -106,7 +106,7 @@ Para criar uma instância DSVM:
 
 Depois da VM é criada e aprovisionada, pode ambiente de trabalho remoto para o mesmo com as credenciais de conta de administrador que configurou no anterior **Noções básicas** secção. Está pronto para começar a utilizar as ferramentas que são instaladas e configuradas na VM. Muitas das ferramentas podem ser acedidas através de mosaicos do menu Iniciar e ícones de área de trabalho.
 
-Também pode anexar uma VM de ciência de dados para blocos de notas do Azure para executar blocos de notas do Jupyter na VM e ignorar as limitações da camada de serviços gratuita. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Também pode anexar uma VM de ciência de dados para blocos de notas do Azure para executar blocos de notas do Jupyter na VM e ignorar as limitações da camada de serviços gratuita. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Ferramentas instaladas numa máquina Virtual Microsoft Data Science
 
@@ -139,12 +139,12 @@ Podemos empacotar vários blocos de notas de exemplo em Python e R. Depois de ac
 * Serviços do Machine Learning do SQL Server, na base de dados analytics
 * Python
 * Microsoft Cognitive ToolKit
-* TensorFlow
+* Tensorflow
 * Outras tecnologias do Azure
 
 Pode encontrar a ligação para os exemplos na home page do bloco de notas depois de autenticar para o bloco de notas do Jupyter com a palavra-passe que criou no passo anterior.
 
-### <a name="visual-studio-community-2017"></a>Visual Studio Community 2017
+### <a name="visual-studio-community-2017"></a>Comunidade do Visual Studio 2017
 
 A DSVM inclui o Visual Studio Community. Esta é uma versão gratuita do IDE popular da Microsoft que pode utilizar para fins de avaliação e pequenas equipes. Consulte a [termos de licenciamento](https://www.visualstudio.com/support/legal/mt171547).
 

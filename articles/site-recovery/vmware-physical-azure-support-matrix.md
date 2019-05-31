@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 514aaaf7a274e60a17bbae62b3c62e7cf3668e7a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540591"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237306"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para o Azure
 
@@ -46,7 +46,7 @@ RAM | 16 GB
 Número de discos | 3 discos<br/><br/> Discos incluem o disco de SO, disco de cache do servidor de processo e unidade de retenção para a reativação pós-falha.
 Espaço livre em disco | 600 GB de espaço necessário para a cache do servidor de processo.
 Espaço livre em disco | 600 GB de espaço necessário para a unidade de retenção.
-Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 |
+Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 com experiência de utilização |
 Região do sistema operativo | Inglês (en-us)
 PowerCLI | [PowerCLI 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1 "PowerCLI 6.0") não é necessário para o servidor de configuração com as versões de [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery).
 Funções do Windows Server | Não ative: <br/> - Active Directory Domain Services <br/>- Serviços de Informação da Internet <br/> - Hyper-V |
@@ -151,7 +151,7 @@ Várias NICs de rede de convidado/servidor | Sim.
 Azure ExpressRoute | Sim
 ILB | Sim
 ELB | Sim
-Gestor de Tráfego do Azure | Sim
+Traffic Manager do Azure | Sim
 Multi-NIC | Sim
 Endereço IP reservado | Sim
 IPv4 | Sim
@@ -195,7 +195,7 @@ Inicialização EFI/UEFI do servidor/convidado | Suportada ao migrar VMs de VMwa
 | Azure Data Box | Não
 
 
-## <a name="azure-storage"></a>Armazenamento do Azure
+## <a name="azure-storage"></a>Storage do Azure
 
 **Componente** | **Suportado**
 --- | ---
@@ -232,11 +232,11 @@ Tamanho de disco do sistema operativo | Até 2048 GB. | Falha na verificação s
 Número de discos do sistema operativo | 1 | Falha na verificação se não suportado.
 Número de discos de dados | 64 ou menos. | Falha na verificação se não suportado.
 Tamanho do disco de dados | Até 4095 GB | Falha na verificação se não suportado.
-Placas de rede | São suportados vários adaptadores. |
+Adaptadores de rede | São suportados vários adaptadores. |
 VHD partilhado | Não suportado. | Falha na verificação se não suportado.
 Disco FC | Não suportado. | Falha na verificação se não suportado.
 BitLocker | Não suportado. | O BitLocker tem de ser desativado antes de ativar a replicação para uma máquina. |
-Nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
+o nome da VM | Entre 1 e 63 carateres.<br/><br/> Limitado a letras, números e hífenes.<br/><br/> O nome do computador deve começar e terminar com uma letra ou número. |  Atualize o valor nas propriedades da máquina no Site Recovery.
 
 ## <a name="azure-site-recovery-churn-limits"></a>Limites de alterações a dados do Azure Site Recovery
 

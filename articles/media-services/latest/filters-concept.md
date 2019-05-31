@@ -11,18 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: bfe4bbae7953479f9b5b5ce9653fb3b8d4b2d092
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66002387"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225417"
 ---
 # <a name="filters"></a>Filtros
 
-Quando a entrega de conteúdo aos clientes (eventos de transmissão em direto ou vídeo a pedido) o cliente poderá ter mais flexibilidade do que o que é descrito no arquivo de manifesto do recurso padrão. Serviços de multimédia do Azure permite-lhe definir os filtros de conta e filtros de recurso para o seu conteúdo. 
+Quando a entrega de conteúdo aos clientes (eventos de transmissão em direto ou vídeo a pedido) o cliente poderá ter mais flexibilidade do que o que é descrito no arquivo de manifesto do recurso padrão. Serviços de multimédia do Azure oferecem [manifestos dinâmica](filters-dynamic-manifest-overview.md) com base nos filtros predefinidos. 
 
 Os filtros são regras do lado do servidor que permitem que os clientes podem fazer coisas como: 
 
@@ -32,24 +32,16 @@ Os filtros são regras do lado do servidor que permitem que os clientes podem fa
 - Entrega apenas as representações especificadas e/ou faixas de idioma especificado que são suportadas pelo dispositivo que é utilizado para reproduzir o conteúdo ("filtragem de representação"). 
 - Ajuste a janela de apresentação (DVR) a fim de fornecer uma duração limitada da janela DVR no player de ("Ajuste janela apresentação").
 
-Serviços de multimédia oferecem [manifestos dinâmica](filters-dynamic-manifest-overview.md) com base nos filtros predefinidos. Depois de definir filtros, os clientes podem utilizá-los o URL de transmissão em fluxo. Filtros podem ser aplicados a velocidade de transmissão adaptável, protocolos de transmissão em fluxo: Apple HTTP Live Streaming (HLS), MPEG-DASH e Smooth Streaming.
+Serviços de multimédia permite-lhe criar **filtros de conta** e **filtros ativos** para o seu conteúdo. Além disso, pode associar os filtros previamente criados com uma **localizador de transmissão em fluxo**.
 
-A tabela seguinte mostra alguns exemplos de URLs com filtros:
+## <a name="defining-filters"></a>Definir filtros
 
-|Protocol|Exemplo|
-|---|---|
-|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`<br/>Para HLS v3, utilize: `format=m3u8-aapl-v3`.|
-|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
-
-## <a name="define-filters"></a>Definir filtros
-
-Existem dois tipos de filtros ativos: 
+Existem dois tipos de filtros: 
 
 * [Filtros de conta](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - podem ser aplicados a qualquer recurso na conta de Media Services do Azure, têm uma duração da conta.
 * [Filtros ativos](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - apenas pode ser aplicado a um recurso com a qual o filtro foi associado após a criação, ter um tempo de vida do ativo. 
 
-[Filtro de contas](https://docs.microsoft.com/rest/api/media/accountfilters) e [Asset filtro](https://docs.microsoft.com/rest/api/media/assetfilters) tipos têm exatamente as mesmas propriedades para definir/descrever o filtro. Exceto quando criar o **filtro de elemento**, tem de especificar o nome do elemento com a qual pretende associar o filtro.
+**Filtros de conta** e **Asset filtros** tipos têm exatamente as mesmas propriedades para definir/descrever o filtro. Exceto quando criar o **filtro de elemento**, tem de especificar o nome do elemento com a qual pretende associar o filtro.
 
 Dependendo do seu cenário, decidir que tipo de um filtro é mais adequada (filtro de elemento ou filtro de conta). Filtros de conta são adequados para perfis de dispositivo (filtragem de representação) onde os filtros ativos poderia ser usados para cortar um recurso específico.
 
@@ -145,14 +137,22 @@ O exemplo seguinte define um filtro de transmissão em direto:
 }
 ```
 
-## <a name="associate-filters-with-streaming-locator"></a>Associar filtros localizador de transmissão em fluxo
+## <a name="associating-filters-with-streaming-locator"></a>Filtros de associação com o localizador de transmissão em fluxo
 
-Pode especificar uma lista de [filtros de conta ou asset](filters-concept.md), que seria se aplicam a seu [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [Packager dinâmica](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [dinâmica manifestar](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. Recomendamos que utilize esta funcionalidade se pretenda aplicar filtros, mas não pretende expor os nomes de filtro no URL.
+Pode especificar uma lista de [filtros de conta ou asset](filters-concept.md) no seu [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). O [Packager dinâmica](dynamic-packaging-overview.md) aplica-se esta lista de filtros em conjunto com o seu cliente especifica no URL. Esta combinação gera uma [dinâmica manifestar](filters-dynamic-manifest-overview.md), que se baseia em filtros no URL + filtros que especificar no localizador de transmissão em fluxo. 
 
 Veja os exemplos seguintes:
 
 * [Associar filtros localizador de transmissão em fluxo - .NET](filters-dynamic-manifest-dotnet-howto.md#associate-filters-with-streaming-locator)
 * [Associar filtros localizador de transmissão em fluxo - CLI](filters-dynamic-manifest-cli-howto.md#associate-filters-with-streaming-locator)
+
+## <a name="updating-filters"></a>A atualizar filtros
+ 
+**Os localizadores de transmissão em fluxo** não são atualizáveis enquanto filtros podem ser atualizados. 
+
+Não é recomendado para atualizar a definição de filtros associados a um ativamente publicados **localizador de transmissão em fluxo**, especialmente quando a CDN está ativada. Transmissão em fluxo de servidores e as CDNs pode ter caches internos que podem resultar em dados em cache obsoletos a serem retornados. 
+
+Se a definição do filtro precisa ser alterado, considere criar um novo filtro e adicioná-lo para o **localizador de transmissão em fluxo** URL ou publicar uma nova **localizador de transmissão em fluxo** que referencia o filtro diretamente.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
 keywords: 'Docker, o Kubernetes, o Azure, o AKS, o serviço Kubernetes do Azure, contentores, Helm, a malha de serviço, roteamento de malha do serviço, kubectl, k8s '
-ms.openlocfilehash: 39ef23d04dc1cf1b48297ecf8f0accfef4935cd2
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 693abccd7e54a1dfef92cd57a715ac96bfd56a8c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66158947"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234009"
 ---
 # <a name="troubleshooting-guide"></a>Guia de resolução de problemas
 
@@ -404,3 +404,8 @@ Crie um controlador com um nome alternativo:
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
 ```
+
+## <a name="enabling-dev-spaces-failing-when-windows-node-pools-are-added-to-an-aks-cluster"></a>Ativar espaços de desenvolvimento a falhar quando conjuntos de nós do Windows são adicionados a um cluster do AKS
+
+### <a name="reason"></a>Reason
+Atualmente, os espaços de desenvolvimento do Azure destina-se para execução no Linux pods e nós apenas. Neste momento, não é possível ativar os espaços de desenvolvimento do Azure num cluster do AKS com um conjunto de nós do Windows.

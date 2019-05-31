@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d02642b0c069124ddcfbef1ea655438c906739a
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: d369891624256e98ba8d46168cc9c10c41d37b8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65545659"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235227"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto da aplicação do Azure Active Directory
 
@@ -50,7 +50,7 @@ Para configurar o manifesto do aplicativo:
 
 | Chave  | Tipo de valor | Descrição  | Valor de exemplo |
 |---------|---------|---------|---------|
-| `accessTokenAcceptedVersion` | Int32 que pode ser nulo | Especifica a versão de token de acesso esperada pelo recurso. Isso altera a versão e formato do JWT produzidos independentes do ponto final ou cliente utilizado para pedir o token de acesso.<br/><br/>O ponto final utilizado, a versão 1.0 ou versão 2.0, é escolhido pelo cliente e afeta apenas a versão do id_tokens. Recursos tem de configurar explicitamente `accesstokenAcceptedVersion` para indicar o formato do token de acesso de suporte.<br/><br/>Valores possíveis para `accesstokenAcceptedVersion` são 1, 2 ou nulo. Se o valor for nulo, ela é padronizada como 1, o que corresponde ao ponto final do v1.0. | `2` |
+| `accessTokenAcceptedVersion` | Int32 que pode ser nulo | Especifica a versão de token de acesso esperada pelo recurso. Isso altera a versão e formato do JWT produzidos independentes do ponto final ou cliente utilizado para pedir o token de acesso.<br/><br/>O ponto final utilizado, a versão 1.0 ou versão 2.0, é escolhido pelo cliente e afeta apenas a versão do id_tokens. Recursos tem de configurar explicitamente `accesstokenAcceptedVersion` para indicar o formato do token de acesso de suporte.<br/><br/>Valores possíveis para `accesstokenAcceptedVersion` são 1, 2 ou nulo. Se o valor for nulo, ela é padronizada como 1, o que corresponde ao ponto final do v1.0. <br/><br/>Se `signInAudience` é `AzureADandPersonalMicrosoftAccount`, o valor tem de ser `2`  | `2` |
 | `addIns` | Coleção | Define o comportamento personalizado que um serviço de consumo pode utilizar para chamar uma aplicação em contextos específicos. Por exemplo, aplicações que podem processar fluxos de arquivos podem definir a propriedade de suplementos para sua funcionalidade de "FileHandler". Isto permitirá serviços como o Office 365, chamar o aplicativo no contexto de um documento que o utilizador está a trabalhar. | <code>{<br>&nbsp;&nbsp;&nbsp;"id":"968A844F-7A47-430C-9163-07AE7C31D407"<br>&nbsp;&nbsp;&nbsp;"type": "FileHandler",<br>&nbsp;&nbsp;&nbsp;"properties": [<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{"key": "version", "value": "2" }<br>&nbsp;&nbsp;&nbsp;]<br>}</code>|
 | `allowPublicClient` | Boolean | Especifica o tipo de aplicação de contingência. Azure AD infere o tipo de aplicação da replyUrlsWithType por predefinição. Existem determinados cenários em que o Azure AD não é possível determinar o tipo de aplicação de cliente (por exemplo, [ROPC](https://tools.ietf.org/html/rfc6749#section-4.3) fluxo onde o pedido HTTP acontece sem um redirecionamento de URL). Nesses casos, do Azure AD interpretará o tipo de aplicação com base no valor desta propriedade. Se este valor é definido como verdadeiro o tipo de aplicação de contingência está definido como cliente público, como uma aplicação instalada em execução num dispositivo móvel. O valor predefinido é false, que significa que o tipo de aplicação de contingência é um cliente confidencial, tais como a aplicação web. | `false` |
 | `availableToOtherTenants` | Boolean | VERDADEIRO se a aplicação é partilhada com outros inquilinos; caso contrário, FALSO. <br><br> _Nota: Trata-se disponível apenas na experiência de registos (legada) de aplicação. Substituído por `signInAudience` no [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência._ | |
@@ -59,7 +59,7 @@ Para configurar o manifesto do aplicativo:
 | `displayName` | String | O nome a apresentar para a aplicação. <br><br> _Nota: Trata-se disponível apenas na experiência de registos (legada) de aplicação. Substituído por `name` no [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência._ | `"MyRegisteredApp"` |
 | `errorUrl` | String | não suportado. | |
 | `groupMembershipClaims` | String | Configura o `groups` afirmação emitida num utilizador ou o token de acesso de OAuth 2.0 que a aplicação espera. Para definir este atributo, utilize um dos seguintes valores de cadeia válida:<br/><br/>- `"None"`<br/>- `"SecurityGroup"` (para grupos de segurança e funções do Azure AD)<br/>- `"All"` (Isto irá obter todos os grupos de segurança, grupos de distribuição e funções de diretório do Azure AD que o utilizador com sessão iniciada é membro. | `"SecurityGroup"` |
-| `homepage` | String | O URL da home page da aplicação. <br><br> _Nota: Trata-se disponível apenas na experiência de registos (legada) de aplicação. Substituído por `signInUrl` no [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência._ | `"https://MyRegisteredApp"` |
+| `homepage` | String | O URL para a home page da aplicação. <br><br> _Nota: Trata-se disponível apenas na experiência de registos (legada) de aplicação. Substituído por `signInUrl` no [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência._ | `"https://MyRegisteredApp"` |
 | `objectId` | String | O identificador exclusivo para a aplicação no diretório. <br><br> _Nota: Trata-se disponível apenas na experiência de registos (legada) de aplicação. Substituído por `id` no [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) experiência._ | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `optionalClaims` | String | As afirmações opcionais devolvidas no token pelo serviço de token de segurança para esta aplicação específica.<br>Neste momento, as aplicações que suportam contas pessoais e do Azure AD (registado através do portal de registo de aplicação) não é possível utilizar afirmações opcionais. No entanto, as aplicações registadas para apenas Azure AD com o ponto final v2.0 podem obter as afirmações opcionais que solicitados no manifesto. Para mais informações, veja [afirmações opcionais](active-directory-optional-claims.md). | `null` |
 | `id` | String | O identificador exclusivo para a aplicação no diretório. Este ID não é o identificador utilizado para identificar a aplicação em qualquer transação de protocolo. Ele é usado para fazer referência ao objeto em consultas de diretório. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
@@ -101,7 +101,7 @@ Um manifesto de aplicação tem vários atributos que são conhecidos como cole�
 O manifesto do aplicativo representa o esquema do modelo de aplicativo subjacente no Azure AD. À medida que o esquema subjacente evolui, o editor de manifesto será atualizado para refletir o novo esquema de tempos em tempos. Como resultado, poderá reparar novos atributos a aparecer no manifesto do aplicativo. Em raras ocasiões, pode observar uma alteração sintática ou semântica nos atributos existentes ou pode ser um atributo que existia anteriormente já não são suportadas. Por exemplo, verá novos atributos no [registos das aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) que é conhecido com um nome diferente na experiência de registos (legada) de aplicação.
 
 
-| Registos de aplicações (Legado)| Registos das aplicações           |
+| Registos de aplicações (Legado)| Registos de aplicações           |
 |---------------------------|-----------------------------|
 | `availableToOtherTenants` | `signInAudience`            |
 | `displayName`             | `name`                      |
@@ -119,7 +119,7 @@ Ao tentar carregar um manifesto anteriormente transferido, verá um dos seguinte
 - "**Falha ao atualizar a aplicação de xxxxxx. Detalhe do erro: Um ou mais valores de propriedade especificados são inválidas. [].** "
 - "**Falha ao atualizar a aplicação de xxxxxx. Detalhe do erro: Não é permitido definir availableToOtherTenants nesta versão de api para atualização. [].** "
 - "**Falha ao atualizar a aplicação de xxxxxx. Detalhe do erro: Atualizações à propriedade 'replyUrls' não é permitida para esta aplicação. Utilize a propriedade de "replyUrlsWithType" em vez disso. [].** "
-- "**Falha ao atualizar a aplicação de xxxxxx. Detalhe do erro: Foi encontrado um valor sem um nome de tipo e sem tipo esperado está disponível. Quando o modelo for especificado, cada valor no payload tem de ter um tipo que pode ser especificado no payload, explicitamente pelo chamador ou implicitamente inferido a partir do valor principal. []**"
+- "**Falha ao atualizar a aplicação de xxxxxx. Detalhe do erro: Foi encontrado um valor sem um nome de tipo e sem tipo esperado está disponível. Quando o modelo for especificado, cada valor no payload tem de ter um tipo que pode ser especificado no payload, explicitamente pelo chamador ou implicitamente inferido a partir do valor principal. []** "
 
 Quando vir um desses erros, recomendamos o seguinte:
 

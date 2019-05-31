@@ -1,18 +1,18 @@
 ---
-title: Criar vista e gerir alertas de registo de atividades no Azure Monitor
-description: Como criar alertas de registo de atividade a partir do Portal do Azure, o modelo de recurso e o PowerShell.
+title: Criar, ver e gerir atividade alertas de registo no Azure Monitor
+description: Como criar alertas do registo de atividade com o portal do Azure, um modelo Azure Resource Manager e o Azure PowerShell.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: f25321fa5a13ed5a39a62a4115bb0bc10306d36f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66130035"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244964"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas de registo de atividade através do Azure Monitor  
 
@@ -97,7 +97,7 @@ Utilize o seguinte procedimento:
     Pode ativar, desativar, editar ou eliminar uma regra. Saiba mais sobre a gestão de regras de registo de atividade.
 
 
-Em alternativa, uma analogia simple para condições de noções básicas sobre em que as regras de alerta podem ser criadas no registo de atividades, é explorar ou filtrar eventos via [registo de atividades no portal do Azure](../../azure-monitor/platform/activity-logs-overview.md#query-the-activity-log-in-the-azure-portal). No Azure Monitor - registo de atividades, um pode filtrar ou localizar evento necessários e, em seguida, criar um alerta com o **Adicionar alerta de registo de atividade** botão; em seguida, siga passos 4 e posteriores conforme indicado acima do tutorial.
+Em alternativa, uma analogia simple para condições de noções básicas sobre em que as regras de alerta podem ser criadas no registo de atividades, é explorar ou filtrar eventos via [registo de atividades no portal do Azure](activity-log-view.md#azure-portal). No Azure Monitor - registo de atividades, um pode filtrar ou localizar evento necessários e, em seguida, criar um alerta com o **Adicionar alerta de registo de atividade** botão; em seguida, siga passos 4 e posteriores conforme indicado acima do tutorial.
     
  ![ Adicionar alerta do registo de atividades](media/alerts-activity-log/add-activity-log.png)
     
@@ -201,7 +201,7 @@ O json de exemplo acima podem ser salvas como (Digamos) sampleActivityLogAlert.j
 > Poderá demorar até 5 minutos a uma nova atividade log regra de alerta fique ativo
 
 ## <a name="rest-api"></a>API REST 
-[O Azure Monitor - API de alertas do Log de atividade](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) é uma REST API e totalmente compatível com a API de REST do Azure Resource Manager. Por conseguinte, pode ser utilizada através do Powershell com o cmdlet do Gestor de recursos, bem como a CLI do Azure.
+[O Azure Monitor - API de alertas de registo de atividades](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) é uma REST API e totalmente compatível com a API de REST do Azure Resource Manager. Por conseguinte, pode ser utilizada através do Powershell com o cmdlet do Gestor de recursos, bem como a CLI do Azure.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActi
 
 em que o sampleActivityLogAlert.parameters.json contém os valores fornecidos para os parâmetros necessários para a criação de regra de alerta.
 
-### <a name="use-activity-log-powershell-cmdlets"></a>Utilizar cmdlets do PowerShell do registo de atividade
+### <a name="use-activity-log-powershell-cmdlets"></a>Utilizar cmdlets do PowerShell do registo de atividades
 
 Alertas de registo de atividade tem dedicados cmdlets do PowerShell disponíveis:
 

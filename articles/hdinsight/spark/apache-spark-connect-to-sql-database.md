@@ -7,17 +7,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/15/2018
-ms.openlocfilehash: 84946083146517146ad9aeb48693230aaaaf7943
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/21/2019
+ms.openlocfilehash: 3812cf55a26a12ef110b8acf14edd0e8bfd36851
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64701184"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236523"
 ---
 # <a name="use-hdinsight-spark-cluster-to-read-and-write-data-to-azure-sql-database"></a>Utilizar o cluster do HDInsight Spark para ler e escrever dados para a base de dados SQL do Azure
 
-Saiba como ligar um cluster do Apache Spark no HDInsight do Azure com uma base de dados SQL do Azure e, em seguida, ler, escrever e transmitir dados para a base de dados SQL. As instruções neste artigo utilizam uma [bloco de notas do Jupyter](https://jupyter.org/) para executar os fragmentos de código Scala. No entanto, pode criar uma aplicação autónoma em Scala ou Python e executar as mesmas tarefas. 
+Saiba como ligar um cluster do Apache Spark no HDInsight do Azure com uma base de dados SQL do Azure e, em seguida, ler, escrever e transmitir dados para a base de dados SQL. As instruções neste artigo utilizam uma [bloco de notas do Jupyter](https://jupyter.org/) para executar os fragmentos de código Scala. No entanto, pode criar uma aplicação autónoma em Scala ou Python e executar as mesmas tarefas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,7 +36,7 @@ Saiba como ligar um cluster do Apache Spark no HDInsight do Azure com uma base d
 Comece por criar um [bloco de notas do Jupyter](https://jupyter.org/) associada ao cluster do Spark. Utilize este bloco de notas para executar os fragmentos de código usados neste artigo. 
 
 1. Partir do [portal do Azure](https://portal.azure.com/), abra o seu cluster.
-1. Selecione **bloco de notas do Jupyter** por baixo **dashboards de clusters** no lado direito.  Se não vir **dashboards de clusters**, clique em **descrição geral** no menu à esquerda, no painel. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
+1. Selecione **bloco de notas do Jupyter** por baixo **dashboards de clusters** no lado direito.  Se não vir **dashboards de clusters**, selecione **descrição geral** no menu à esquerda. Se lhe for solicitado, introduza as credenciais de administrador do cluster.
 
     ![Bloco de notas do Jupyter no Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "bloco de notas do Jupyter no Spark")
    
@@ -164,7 +164,7 @@ Nesta secção, vamos transmitir dados para o **hvactable** que já criou na bas
 
 1. Como primeiro passo, certifique-se de que não há registros na **hvactable**. Com o SSMS, execute a seguinte consulta na tabela.
 
-       DELETE FROM [dbo].[hvactable]
+       TRUNCATE TABLE [dbo].[hvactable]
 
 1. Crie um novo bloco de notas do Jupyter no cluster do HDInsight Spark. Numa célula de código, cole o fragmento seguinte e, em seguida, prima **SHIFT + ENTER**:
 
@@ -174,7 +174,7 @@ Nesta secção, vamos transmitir dados para o **hvactable** que já criou na bas
        import org.apache.spark.sql.streaming._
        import java.sql.{Connection,DriverManager,ResultSet}
 
-1. Podemos transmitir dados a partir da **Hvac** no hvactable. Ficheiro de Hvac está disponível no cluster em */HdiSamples/HdiSamples/SensorSampleData/HVAC/*. No trecho a seguir, vamos primeiro o esquema dos dados a ser transmitidos em fluxo. Em seguida, vamos criar um pacote de dados de transmissão em fluxo usando esse esquema. Cole o fragmento numa célula de código e prima **SHIFT + ENTER** para executar.
+1. Podemos transmitir dados a partir da **Hvac** no hvactable. Ficheiro de Hvac está disponível no cluster em `/HdiSamples/HdiSamples/SensorSampleData/HVAC/`. No trecho a seguir, vamos primeiro o esquema dos dados a ser transmitidos em fluxo. Em seguida, vamos criar um pacote de dados de transmissão em fluxo usando esse esquema. Cole o fragmento numa célula de código e prima **SHIFT + ENTER** para executar.
 
        val userSchema = spark.read.option("header", "true").csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv").schema
        val readStreamDf = spark.readStream.schema(userSchema).csv("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/") 

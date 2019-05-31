@@ -1,5 +1,5 @@
 ---
-title: Limites de memória e simultaneidade - Azure SQL Data Warehouse | Documentos da Microsoft
+title: Limites de memória e simultaneidade no Azure SQL Data Warehouse | Documentos da Microsoft
 description: Ver os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 024b3f9c6d1fdd0d4bcb1126e4577387a6415a59
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 3bc1fef1842911e9b2cfb65b3c8cc72e4b615010
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65873477"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241272"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de memória e simultaneidade para o Azure SQL Data Warehouse
 Ver os limites de memória e simultaneidade alocados para os vários níveis de desempenho e classes de recursos no Azure SQL Data Warehouse. Para obter mais informações e para aplicar estas capacidades ao seu plano de gestão da carga de trabalho, consulte [classes de recursos para a gestão da carga de trabalho](resource-classes-for-workload-management.md). 
@@ -25,7 +25,7 @@ Existem atualmente duas gerações disponíveis com o SQL Data Warehouse – Gen
 ## <a name="data-warehouse-capacity-settings"></a>Definições de capacidade do armazém de dados
 As tabelas seguintes mostram a capacidade máxima para o armazém de dados em diferentes níveis de desempenho. Para alterar o nível de desempenho, consulte [dimensionar a computação - portal](quickstart-scale-compute-portal.md).
 
-### <a name="gen2"></a>Ger2
+### <a name="gen2"></a>Gen2
 
 Geração 2 fornece 2,5 vezes mais memória por consulta do que a geração 1. Esta memória extra ajuda a geração 2 fornecer seu rápido desempenho.  Os níveis de desempenho para o intervalo de geração 2 de DW100c a DW30000c. 
 
@@ -50,7 +50,7 @@ Geração 2 fornece 2,5 vezes mais memória por consulta do que a geração 1. E
 
 A DWU de geração 2 máximo é DW30000c, que tem 60 nós de computação e de uma distribuição por nó de computação. Por exemplo, um armazém de dados de 600 TB em DW30000c processa aproximadamente 10 TB por nó de computação.
 
-### <a name="gen1"></a>Ger1
+### <a name="gen1"></a>Gen1
 
 Os níveis de serviço para o intervalo de geração 1 de DW100 a DW6000. 
 
@@ -72,7 +72,7 @@ Os níveis de serviço para o intervalo de geração 1 de DW100 a DW6000.
 ## <a name="concurrency-maximums"></a>Valores máximos de simultaneidade
 Para garantir que cada consulta tem recursos suficientes para executar com eficiência, o SQL Data Warehouse controla a utilização de recursos através da atribuição de blocos de simultaneidade para cada consulta. O sistema coloca consultas numa fila com base na importância e blocos de simultaneidade. Consultas de aguardar na fila até que existem suficientes ranhuras de simultaneidade disponíveis. [Importância](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) e blocos de simultaneidade e determinam a priorização de CPU. Para obter mais informações, consulte [analisar sua carga de trabalho](analyze-your-workload.md)
 
-### <a name="gen2"></a>Ger2
+### <a name="gen2"></a>Gen2
  
 **Classes estáticas**
 
@@ -127,13 +127,13 @@ A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simult
 
 
 
-#### <a name="gen1"></a>Ger1
+#### <a name="gen1"></a>Gen1
 
 Classes estáticas
 
 A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simultaneidade para cada [classe de recursos estáticos](resource-classes-for-workload-management.md) nos **Gen1**.
 
-| Nível de serviço  | Consultas em simultâneo máximas | Ranhuras de simultaneidade máximo | Ranhuras utilizadas pelo staticrc10 | Ranhuras utilizadas pelo staticrc20 | Ranhuras utilizadas pelo staticrc30 | Ranhuras utilizadas pelo staticrc40 | Ranhuras utilizadas pelo staticrc50 | Ranhuras utilizadas pelo staticrc60 | Ranhuras utilizadas pelo staticrc70 | Ranhuras utilizadas pelo staticrc80 |
+| Nível de serviço | Consultas em simultâneo máximas | Ranhuras de simultaneidade máximo | Ranhuras utilizadas pelo staticrc10 | Ranhuras utilizadas pelo staticrc20 | Ranhuras utilizadas pelo staticrc30 | Ranhuras utilizadas pelo staticrc40 | Ranhuras utilizadas pelo staticrc50 | Ranhuras utilizadas pelo staticrc60 | Ranhuras utilizadas pelo staticrc70 | Ranhuras utilizadas pelo staticrc80 |
 |:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
 | DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
@@ -156,7 +156,7 @@ Classes de dinâmica de recursos
 
 A tabela seguinte mostra as consultas em simultâneo máximas e blocos de simultaneidade para cada [classe de recursos dinâmica](resource-classes-for-workload-management.md) nos **Gen1**.
 
-| Nível de serviço  | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
+| Nível de serviço | Consultas em simultâneo máximas | Ranhuras de simultaneidade disponíveis | Ranhuras utilizadas pelo smallrc | Ranhuras utilizadas pelo mediumrc | Ranhuras utilizadas pelo largerc | Ranhuras utilizadas pelo xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
 | DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
 | DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |

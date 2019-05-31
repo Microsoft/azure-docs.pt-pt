@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: d693af5ddd0b94734dfa065bef8a1f3a5de09ccc
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 5a9fdebc8db0c2a1acc20a894f80cfcc87fb89d5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597133"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236496"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Aprovisionar a máquina de Virtual de ciência de dados para Linux (Ubuntu)
 
@@ -121,7 +121,7 @@ Pode acessar a DSVM em Ubuntu com três métodos:
 1. X2Go para sessões de gráficos
 1. JupyterHub e JupyterLab para blocos de notas do Jupyter
 
-Também pode anexar uma VM de ciência de dados para blocos de notas do Azure para executar blocos de notas do Jupyter na VM e ignorar as limitações da camada de serviços gratuita. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Também pode anexar uma VM de ciência de dados para blocos de notas do Azure para executar blocos de notas do Jupyter na VM e ignorar as limitações da camada de serviços gratuita. Para obter mais informações, consulte [gerir e configurar projetos de blocos de notas - camada de computação](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ### <a name="ssh"></a>SSH
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 572f8694d31728a3ca570f6ddb60475e13d71e80
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60415793"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235595"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registo de informações de segurança combinados (pré-visualização)
 
@@ -24,7 +24,7 @@ Antes do registo combinado, o utilizadores registados métodos de autenticação
 
 ![A mostrar meu perfil registado informações de segurança para um utilizador](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-Antes de ativar a nova experiência, reveja esta documentação voltada para o administrador e a documentação e focada no usuário para se certificar de que compreende a funcionalidade e o efeito desta funcionalidade. Base seu treinamento sobre a documentação do utilizador para preparar os seus utilizadores para a nova experiência e ajudar a garantir uma implementação com êxito.
+Antes de ativar a nova experiência, reveja esta documentação voltada para o administrador e a documentação e focada no usuário para se certificar de que compreende a funcionalidade e o efeito desta funcionalidade. Seu treinamento deve basear a [documentação do utilizador](../user-help/user-help-security-info-overview.md) para preparar os seus utilizadores para a nova experiência e ajuda a garantir uma implementação com êxito.
 
 O Azure AD combinados registo não está atualmente disponível para clouds nacionais, como o Azure US Government, Azure Alemanha ou Azure China 21Vianet de informações de segurança.
 
@@ -49,7 +49,7 @@ Combinados registo suporta os seguintes métodos de autenticação e ações:
 | Microsoft Authenticator | Sim (máximo de 5) | Não | Sim |
 | Outra aplicação de autenticador | Sim (máximo de 5) | Não | Sim |
 | Token de hardware | Não | Não | Sim |
-| Telefone | Sim | Sim | Sim |
+| Phone | Sim | Sim | Sim |
 | Telefone alternativo | Sim | Sim | Sim |
 | Telefone do escritório | Não | Não | Não |
 | Email | Sim | Sim | Sim |
@@ -84,20 +84,20 @@ Registo combinado respeita as políticas de multi-factor Authentication e SSPR, 
 
 Seguem-se vários cenários em que poderá ser pedido aos utilizadores para registar ou atualizar suas informações de segurança:
 
-* Registo de autenticação Multifator imposto através da proteção de identidade: É pedido aos utilizadores para se registar durante o início de sessão. Eles se registram os métodos de multi-factor Authentication e os métodos SSPR (se o utilizador está ativado para SSPR).
-* Registo de autenticação Multifator imposto através de por utilizador multi-factor Authentication: É pedido aos utilizadores para se registar durante o início de sessão. Eles se registram os métodos de multi-factor Authentication e os métodos SSPR (se o utilizador está ativado para SSPR).
-* Registo de autenticação Multifator imposto através de acesso condicional ou outras políticas: É pedido aos utilizadores se registem ao utilizarem um recurso que requer o multi-factor Authentication. Eles se registram os métodos de multi-factor Authentication e os métodos SSPR (se o utilizador está ativado para SSPR).
-* Registo SSPR imposto: É pedido aos utilizadores para se registar durante o início de sessão. Eles se registram apenas os métodos SSPR.
-* Atualização SSPR imposta: Os utilizadores têm de rever as suas informações de segurança num intervalo definido pelo administrador. Os utilizadores são apresentados as informações e podem confirmar as informações atuais ou fazer alterações, se necessário.
+- Registo de autenticação Multifator imposto através da proteção de identidade: É pedido aos utilizadores para se registar durante o início de sessão. Eles se registram os métodos de multi-factor Authentication e os métodos SSPR (se o utilizador está ativado para SSPR).
+- Registo de autenticação Multifator imposto através de por utilizador multi-factor Authentication: É pedido aos utilizadores para se registar durante o início de sessão. Eles se registram os métodos de multi-factor Authentication e os métodos SSPR (se o utilizador está ativado para SSPR).
+- Registo de autenticação Multifator imposto através de acesso condicional ou outras políticas: É pedido aos utilizadores se registem ao utilizarem um recurso que requer o multi-factor Authentication. Eles se registram os métodos de multi-factor Authentication e os métodos SSPR (se o utilizador está ativado para SSPR).
+- Registo SSPR imposto: É pedido aos utilizadores para se registar durante o início de sessão. Eles se registram apenas os métodos SSPR.
+- Atualização SSPR imposta: Os utilizadores têm de rever as suas informações de segurança num intervalo definido pelo administrador. Os utilizadores são apresentados as informações e podem confirmar as informações atuais ou fazer alterações, se necessário.
 
 Quando o registo é imposto, os utilizadores são apresentados o número mínimo de métodos necessários para estar em conformidade com as políticas de multi-factor Authentication e SSPR, da maioria pelo menos, proteger.
 
 Por exemplo:
 
-* Um utilizador está ativado para SSPR. A política da SSPR necessários dois métodos para repor e tiver ativado o código de aplicação móvel, e-mail e telefone.
-   * Este utilizador é necessária para registar os dois métodos.
-      * O utilizador é apresentado a aplicação de autenticação e phone por predefinição.
-      * O utilizador pode optar por registar e-mail em vez de aplicação authenticator ou telefone.
+- Um utilizador está ativado para SSPR. A política da SSPR necessários dois métodos para repor e tiver ativado o código de aplicação móvel, e-mail e telefone.
+   - Este utilizador é necessária para registar os dois métodos.
+      - O utilizador é apresentado a aplicação de autenticação e phone por predefinição.
+      - O utilizador pode optar por registar e-mail em vez de aplicação authenticator ou telefone.
 
 Este fluxograma descreve os métodos são mostrados a um utilizador quando interrompido Registre durante o início de sessão:
 

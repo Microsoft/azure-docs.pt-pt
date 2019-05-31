@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
-ms.translationtype: HT
+ms.openlocfilehash: 26251ebd3c83f6cd44203e1d3cc5f1b523a0d8d9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65602015"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237782"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Ativar a autenticação do Azure Active Directory através de SMB para ficheiros do Azure (pré-visualização)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -47,13 +47,13 @@ Antes de ativar o Azure AD através de SMB para ficheiros do Azure, certifique-s
 
 2.  **Ative os serviços de domínio do Azure AD no inquilino do Azure AD.**
 
-    Para suportar a autenticação com credenciais do Azure AD, tem de ativar o Azure AD Domain Services para o seu inquilino do Azure AD. Se não o administrador de inquilino do Azure AD, contacte o administrador e siga as orientações passo a passo para [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/active-directory-ds-getting-started.md).
+    Para suportar a autenticação com credenciais do Azure AD, tem de ativar o Azure AD Domain Services para o seu inquilino do Azure AD. Se não o administrador de inquilino do Azure AD, contacte o administrador e siga as orientações passo a passo para [ativar o Azure Active Directory Domain Services no portal do Azure](../../active-directory-domain-services/create-instance.md).
 
     Normalmente, demora cerca de 15 minutos para uma implementação de serviços de domínio do Azure AD concluir. Certifique-se de que mostra o estado de funcionamento dos seus serviços de domínio do Azure AD **em execução**, com a sincronização de hash de palavra-passe ativada, antes de avançar para o passo seguinte.
 
 3.  **Associação ao domínio dos serviços de uma VM do Azure com o domínio do Azure AD.**
 
-    Para aceder a uma partilha de ficheiros com credenciais do Azure AD a partir de uma VM, a VM tem de ser associado ao Azure AD Domain Services. Para obter mais informações sobre como associação a domínios uma VM, consulte [associar uma máquina de virtual do Windows Server a um domínio gerido](../../active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal.md).
+    Para aceder a uma partilha de ficheiros com credenciais do Azure AD a partir de uma VM, a VM tem de ser associado ao Azure AD Domain Services. Para obter mais informações sobre como associação a domínios uma VM, consulte [associar uma máquina de virtual do Windows Server a um domínio gerido](../../active-directory-domain-services/join-windows-vm.md).
 
     > [!NOTE]
     > Autenticação do Azure AD através de SMB com ficheiros do Azure só é suportada em VMs do Azure em execução em versões de SO acima Windows 7 ou Windows Server 2008 R2.

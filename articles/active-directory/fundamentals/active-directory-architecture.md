@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/23/2018
+ms.date: 05/23/2019
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12819bdc20dea57a8a114bb4ff311f828be8b15a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3ba36825805ff54165a3e6c4e221550cc30b07d3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60249781"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235187"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>O que é a arquitetura do Azure Active Directory?
 O Azure Active Directory (Azure AD) permite-lhe gerir de forma segura o acesso dos seus utilizadores aos serviços e recursos do Azure. Incluído com o Azure AD está um conjunto completo de capacidades de gestão de identidades. Para obter informações sobre as funcionalidades do Azure AD, veja [What is Azure Active Directory?](active-directory-whatis.md) (O que é o Azure Active Directory?)
@@ -30,14 +30,14 @@ A arquitetura geograficamente distribuída do Azure AD combina alargadas de moni
 
 Este artigo cobre os elementos da arquitetura seguintes:
  *  Design da arquitetura do serviço
- *  Facilidade de utilização 
+ *  Escalabilidade
  *  Disponibilidade contínua
  *  Datacenters
 
 ### <a name="service-architecture-design"></a>Design da arquitetura do serviço
 A forma mais comum para criar um acessível e sistema utilizável, providos de dados é efetuada através de blocos modulares independentes ou unidades de escala. Para a camada de dados do Azure AD, são chamadas de unidades de escala *partições*. 
 
-A camada de dados tem vários serviços front-end que proporcionam a capacidade de leitura/escrita. O diagrama abaixo mostra como os componentes de uma partição de diretório único são entregues ao longo de datacenters distribuídos geograficamente. 
+A camada de dados tem vários serviços front-end que proporcionam a capacidade de leitura/escrita. O diagrama abaixo mostra como os componentes de uma partição de diretório único são entregues ao longo de datacenters geograficamente distribuídos. 
 
   ![Diagrama de partição de diretório único](./media/active-directory-architecture/active-directory-architecture.png)
 
@@ -49,7 +49,7 @@ A *réplica primária* recebe todas as *escritas* da partição a que pertence. 
 
 **Réplicas secundárias**
 
-Todas as *leituras* do diretório são servidas a partir de *réplicas secundárias*, que estão em datacenters localizados fisicamente em diferentes geografias. Existem muitas réplicas secundárias, uma vez que os dados são replicados de forma assíncrona. Leituras de diretório, tais como pedidos de autenticação, são servidas a partir de centros de dados que estão próximos dos clientes. As réplicas secundárias são responsáveis pela escalabilidade das leituras.
+Todos os diretórios *lê* são servidas a partir *réplicas secundárias*, que estão em datacenters localizados fisicamente em diferentes geografias. Existem muitas réplicas secundárias, uma vez que os dados são replicados de forma assíncrona. Leituras de diretório, tais como pedidos de autenticação, são servidas a partir de centros de dados que estão próximos dos clientes. As réplicas secundárias são responsáveis pela escalabilidade das leituras.
 
 ### <a name="scalability"></a>Escalabilidade
 
@@ -61,7 +61,7 @@ As aplicações de diretório ligam-se aos datacenters mais próximos. Esta liga
 
 ### <a name="continuous-availability"></a>Disponibilidade contínua
 
-A disponibilidade (ou tempo de atividade) define a capacidade de um sistema de funcionar sem interrupções. A chave para elevada disponibilidade do Azure AD é que os serviços podem alternar rapidamente o tráfego em vários centros de dados distribuída geograficamente. Cada datacenter é independente, o que possibilita os modos de falha de descorrelação.
+A disponibilidade (ou tempo de atividade) define a capacidade de um sistema de funcionar sem interrupções. A chave para elevada disponibilidade do Azure AD é que os serviços podem alternar rapidamente o tráfego em vários datacenters distribuídos geograficamente. Cada datacenter é independente, que permite aos modos de falha de descorrelação. Através deste design de elevada disponibilidade, o Azure AD requer sem períodos de indisponibilidade para as atividades de manutenção.
 
 O design de partições do Azure AD é simplificado quando comparado com o AD empresarial, com um design de mestre único que inclui um processo de ativação pós-falha de réplicas primárias determinístico e cuidadosamente orquestrado.
 
@@ -73,21 +73,21 @@ As operações de leitura (que superam em muito as escritas) só vão para as r�
 
 **Durabilidade de dados**
 
-As escritas são consolidadas de forma duradoura a, pelo menos, dois datacenters antes de serem reconhecidas. Isto acontece ao consolidar primeiro as escritas no datacenter primário e, depois, replicá-las imediatamente em, pelo menos, num outro. Esta ação de escrita garante que um potencial perda catastrófica de dados no Datacenter que aloja o primário não resulta em perda de dados.
+As escritas são consolidadas de forma a, pelo menos, dois datacenters antes de serem reconhecidas. Isso acontece por primeiro ao consolidar a operação de escrita principal e, em seguida, replicar imediatamente a operação de escrita para pelo menos um outro datacenter. Esta ação de escrita garante que um potencial perda catastrófica do datacenter que aloja o primário não resulta em perda de dados.
 
 Azure AD mantém um zero [objetivo de tempo de recuperação (RTO)](https://en.wikipedia.org/wiki/Recovery_time_objective) para não perder os dados em ativações pós-falha. Isto inclui:
 -  Emissão de tokens e leituras de diretório
 -  Permitir que apenas cerca de 5 minutos RTO para escritas de diretório
 
-### <a name="data-centers"></a>Datacenters
+### <a name="datacenters"></a>Datacenters
 
-As réplicas do Azure AD são armazenadas nos datacenters localizados em todo o mundo. Para obter mais informações, veja [Datacenters do Azure](https://azure.microsoft.com/overview/datacenters).
+As réplicas do Azure AD são armazenadas nos datacenters localizados em todo o mundo. Para obter mais informações, consulte [infraestrutura global do Azure](https://azure.microsoft.com/global-infrastructure/).
 
-O Azure AD funciona em datacenters que têm as características seguintes:
+O Azure AD funciona em datacenters com as seguintes características:
 
- * Autenticação, Graph e outros serviços do AD residem por trás do serviço de Gateway. O Gateway gere o balanceamento de carga destes serviços. Ele irá efetuar a ativação pós-falha automaticamente se todos os servidores de mau estado de funcionamento forem detetados utilizar sondas de estado de funcionamento transacionais. Com base nestas sondas de estado de funcionamento, o Gateway encaminha dinamicamente o tráfego para os datacenters em bom estado de funcionamento.
- * Relativamente a *leituras*, o diretório tem réplicas secundárias e serviços front-end correspondentes numa configuração ativo-ativo e em funcionamento em vários datacenters. Em caso de falha de um datacenter inteiro, o tráfego é encaminhado automaticamente para outro datacenter.
- *  Para *escreve*, o diretório realizará a ativação pós-falha de réplica (mestre) primária em centros de dados por meio de planeada (primária nova é sincronizada com a primária antiga) ou os procedimentos de emergência de ativação pós-falha. A durabilidade dos dados é obtida mediante a replicação de uma consolidação com, pelo menos, dois datacenters.
+ * Autenticação, Graph e outros serviços do AD residem por trás do serviço de Gateway. O Gateway gere o balanceamento de carga destes serviços. Ele irá efetuar a ativação pós-falha automaticamente se todos os servidores de mau estado de funcionamento forem detetados utilizar sondas de estado de funcionamento transacionais. Com base nestas sondas de estado de funcionamento, o Gateway dinamicamente encaminha o tráfego para os datacenters em bom estado.
+ * Para *lê*, o diretório tem réplicas secundárias e serviços de front-end correspondentes numa configuração ativa-ativa a funcionar em vários datacenters. Em caso de falha de um datacenter completo, o tráfego é encaminhado automaticamente para outro datacenter.
+ *  Para *escreve*, o diretório realizará a ativação pós-falha de réplica (mestre) primária em centros de dados por meio de planeada (primária nova é sincronizada com a primária antiga) ou os procedimentos de emergência de ativação pós-falha. Durabilidade de dados é obtida ao replicar uma consolidação para, pelo menos, dois datacenters.
 
 **Consistência de dados**
 

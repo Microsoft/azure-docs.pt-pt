@@ -4,19 +4,19 @@ description: Este artigo descreve as duas definições que controlam a retençã
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e3336df30873b40d2b8a464d1f866b524f76776d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65790418"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237001"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Compreender a retenção de dados no Azure Time Series Insights
 
@@ -63,7 +63,7 @@ Considere um ambiente configurado também o comportamento de retenção **Contin
 
 Sempre que a taxa de entrada diária deste ambiente excede de 0.166 GB por dia, não não possível armazenar dados durante 180 dias, uma vez que alguns dados obtém removidos. Considere este mesmo ambiente durante um período de tempo ocupado. Assumir a que taxa de entrada do ambiente pode aumentar para um GB 0.189 média por dia. Em que período de tempo ocupado, cerca de 158 dias de dados são retidos (30GB/0.189 = 158,73 dias de retenção). Neste momento é menor que o intervalo de tempo de retenção de dados pretendido.
 
-## <a name="pause-ingress"></a>Entrada de pausa
+## <a name="pause-ingress"></a>Entrada de colocação em pausa
 
 - O **colocar em pausa entrada** definição foi concebida para garantir que os dados não são removidos se os limites de tamanho e a contagem são percebidos antes do período de retenção.  
 - **Colocar em pausa entrada** fornece mais tempo para os utilizadores aumentar a capacidade de seus ambientes, antes dos dados são removidos devido a violar do período de retenção

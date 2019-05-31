@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 395a231fcf43378a51e22427254abb196a46081e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a3f441a0dd7f7b9f402390e853bd1c28f282f653
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64709014"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245100"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Voltar a preparar e implementar um modelo de machine learning
 
@@ -49,7 +49,7 @@ Utilize os seguintes passos para implementar um serviço da web reparametrizaç�
     Agora, implementar a experimentação de preparação como um serviço web reparametrização que produz um modelo preparado e resultados de avaliação do modelo.
 
 1. Na parte inferior da tela de experimentação, clique em **no serviço Web**
-1. Selecione **implementar serviço da Web [novo]**. O portal de serviços da Web do Azure Machine Learning abre-se para o **implementar serviço Web** página.
+1. Selecione **implementar serviço da Web [novo]** . O portal de serviços da Web do Azure Machine Learning abre-se para o **implementar serviço Web** página.
 1. Escreva um nome para o seu serviço web e escolha um plano de pagamento.
 1. Selecione **Implementar**.
 
@@ -59,7 +59,7 @@ Neste exemplo, estamos a utilizar c# para criar o aplicativo de reparametrizaç�
 
 Utilize os seguintes passos para chamar as APIs de reparametrização:
 
-1. Criar um C# consola de aplicação no Visual Studio: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)**.
+1. Criar um C# consola de aplicação no Visual Studio: **Novos** > **projeto** > **Visual C#**   >  **ambiente de trabalho clássico do Windows**  >   **Aplicação da consola (.NET Framework)** .
 1. Inicie sessão no portal de serviços Web Machine Learning.
 1. Clique no serviço de web que está trabalhando com.
 1. Clique em **consumir**.
@@ -89,7 +89,7 @@ O código de exemplo BES carrega um ficheiro de uma unidade local (por exemplo, 
 1. Na lista de contas de armazenamento, selecione um para armazenar o modelo retrained.
 1. Na coluna de navegação esquerda, clique em **chaves de acesso**.
 1. Copie e guarde o **chave de acesso primária**.
-1. Na coluna de navegação esquerda, clique em **contentores**.
+1. Na coluna de navegação esquerda, clique em **Blobs**.
 1. Selecione um contentor existente, ou criar um novo e guarde o nome.
 
 Localize a *StorageAccountName*, *StorageAccountKey*, e *StorageContainerName* declarações e atualize os valores que guardou a partir do portal.

@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 93b5aeafafdc6ab7ee233f6360bb5e09f45b387f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.date: 05/28/2019
+ms.openlocfilehash: ddff9ffb00f4167cb8f64a75b129711467de739d
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708833"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66297051"
 ---
 # <a name="connect-to-apache-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Ligar ao Apache Kafka no HDInsight através de uma rede Virtual do Azure
 
@@ -197,8 +197,10 @@ Utilize os passos nesta secção para criar a seguinte configuração:
     New-AzStorageAccount `
         -ResourceGroupName $resourceGroupName `
         -Name $storageName `
-        -Type Standard_GRS `
-        -Location $location
+        -SkuName Standard_GRS `
+        -Location $location `
+        -Kind StorageV2 `
+        -EnableHttpsTrafficOnly 1
 
     # Get the storage account keys and create a context
     $defaultStorageKey = (Get-AzStorageAccountKey -ResourceGroupName $resourceGroupName `
@@ -240,7 +242,7 @@ Utilize os passos nesta secção para criar a seguinte configuração:
 
 Por predefinição, o Apache Zookeeper devolve o nome de domínio de mediadores Kafka para clientes. Esta configuração não funciona com o cliente de software VPN, pois não poderá utilizar a resolução de nomes de entidades na rede virtual. Para esta configuração, utilize os seguintes passos para configurar o Kafka para anunciar os endereços IP em vez de nomes de domínio:
 
-1. Um browser, aceda à https://CLUSTERNAME.azurehdinsight.net. Substitua __CLUSTERNAME__ com o nome do cluster do Kafka no HDInsight.
+1. Um browser, aceda à `https://CLUSTERNAME.azurehdinsight.net`. Substitua `CLUSTERNAME` com o nome do cluster do Kafka no HDInsight.
 
     Quando lhe for pedido, utilize o nome de utilizador HTTPS e a palavra-passe para o cluster. A interface do Usuário de Web do Ambari do cluster é apresentado.
 
@@ -320,7 +322,9 @@ Para validar a conectividade ao Kafka, utilize os seguintes passos para criar e 
 
 2. Utilize o seguinte para instalar o [kafka-python](https://kafka-python.readthedocs.io/) cliente:
 
-        pip install kafka-python
+    ```bash
+    pip install kafka-python
+    ```
 
 3. Para enviar dados para o Kafka, utilize o seguinte código de Python:
 

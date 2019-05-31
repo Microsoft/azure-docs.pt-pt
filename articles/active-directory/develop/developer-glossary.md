@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/13/2019
+ms.date: 05/21/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c989b690e9537dcaaf3710996474a1b8b99826b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
-ms.translationtype: HT
+ms.openlocfilehash: 314d7a8e8cf6837e2b22446ba23fee03d539bf35
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65962749"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235356"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossário de programador do Microsoft identity platform
 
@@ -64,7 +64,7 @@ Para permitir que um aplicativo integrar com e delegar funções de gestão de a
 
 Ver [integrar aplicações com o Azure Active Directory] [ AAD-Integrating-Apps] para obter mais detalhes.
 
-## <a name="authentication"></a>autenticação
+## <a name="authentication"></a>Autenticação
 
 O ato de desafiador uma entidade para credenciais legítimas, fornecendo a base para a criação de uma entidade de segurança a ser utilizado para controlo de acesso e identidade. Durante uma [concessão de autorização de OAuth2](#authorization-grant) por exemplo, a autenticação de terceiros é preencher a função do [proprietário do recurso](#resource-owner) ou [aplicação cliente](#client-application), consoante o concessão utilizado.
 
@@ -95,7 +95,7 @@ Conforme definido pela [Framework de autorização de OAuth2][OAuth2-Role-Def], 
 
 No caso de integração de aplicações do Microsoft identity platform, plataforma de identidade da Microsoft implementa a função de servidor de autorização para aplicações do Azure AD e o serviço Microsoft APIs, por exemplo [Microsoft Graph APIs] [Microsoft-Graph].
 
-## <a name="claim"></a>afirmação
+## <a name="claim"></a>Afirmação
 
 Uma [token de segurança](#security-token) contém afirmações, que fornecem asserções cerca de uma entidade (como um [aplicação de cliente](#client-application) ou [proprietário do recurso](#resource-owner)) a outra entidade (como o [servidor do recurso](#resource-server)). As declarações são pares nome/valor que fatos sobre o assunto do token de reencaminhamento (por exemplo, a entidade de segurança que foi autenticada pela [servidor de autorização](#authorization-server)). As ações presentes num determinado token dependem de várias variáveis, incluindo o tipo de token, o tipo de credencial utilizada para autenticar o assunto, a configuração da aplicação, etc.
 
@@ -142,7 +142,7 @@ A [aplicação de cliente](#client-application) obtiver acesso a um [servidor re
 
 Eles também surgir durante a [consentimento](#consent) processo, dando o administrador ou proprietário do recurso a oportunidade para conceder/negar o acesso de cliente para recursos no seu inquilino.
 
-Solicitações de permissão são configuradas no "Aplicativos" / separador "Definições" a [portal do Azure][AZURE-portal], sob "Permissões obrigatórias", selecionando o "Permissões delegadas" e "a aplicação pretendida Permissões"(esse último requer a associação a função de Administrador Global). Porque uma [cliente público](#client-application) segura não é possível manter as credenciais, ele só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar o delegado e de aplicações permissões. O cliente [objeto application](#application-object) armazena as permissões declaradas no seu [propriedade requiredResourceAccess][AAD-Graph-App-Entity].
+Solicitações de permissão são configuradas no **permissões de API** página para uma aplicação no [portal do Azure][AZURE-portal], selecionando o pretendida "permissões delegadas" e " Permissões de aplicação"(esse último requer a associação a função de Administrador Global). Porque uma [cliente público](#client-application) segura não é possível manter as credenciais, ele só pode solicitar permissões delegadas, enquanto um [cliente confidencial](#client-application) tem a capacidade de solicitar o delegado e de aplicações permissões. O cliente [objeto application](#application-object) armazena as permissões declaradas no seu [propriedade requiredResourceAccess][AAD-Graph-App-Entity].
 
 ## <a name="resource-owner"></a>proprietário do recurso
 
@@ -182,7 +182,7 @@ Quando Registre-se/atualizar uma aplicação no [portal do Azure][AZURE-portal],
 
 Para obter mais informações, consulte [objetos de Principal de serviço de aplicação e][AAD-App-SP-Objects].
 
-## <a name="sign-in"></a>iniciar sessão
+## <a name="sign-in"></a>início de sessão
 
 O processo de um [aplicação de cliente](#client-application) iniciar autenticação do utilizador final e a captura de relacionados com o estado, para efeitos de aquisição de um [token de segurança](#security-token) e a sessão do aplicativo para esse Estado de controlo de âmbito. Pode incluir artefactos, tais como informações de perfil do usuário e informações derivam de afirmações de token de estado.
 

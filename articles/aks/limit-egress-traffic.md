@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/14/2019
 ms.author: iainfou
-ms.openlocfilehash: de0ba13a527569e446a44c275b7323d4487f53b6
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 13fbb20cde454a0aaab156a74a9fbcbac2d90d07
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65780303"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418126"
 ---
 # <a name="preview---limit-egress-traffic-for-cluster-nodes-and-control-access-to-required-ports-and-services-in-azure-kubernetes-service-aks"></a>Pré-visualização - o tráfego de saída de limite de nós de cluster e controlar o acesso a portas necessárias e serviços no Azure Kubernetes Service (AKS)
 
@@ -21,9 +21,10 @@ Por predefinição, os clusters do AKS têm irrestrito acesso à internet de sa�
 Este artigo detalha quais portas de rede e os nomes de domínio completamente qualificado (FQDN) são obrigatórios e opcionais se restringir o tráfego de saída num cluster do AKS.  Esta funcionalidade encontra-se em pré-visualização.
 
 > [!IMPORTANT]
-> Funcionalidades de pré-visualização do AKS são self-service e participar. Pré-visualizações são fornecidas para recolher comentários e bugs de nossa Comunidade. No entanto, não são suportados pelo suporte técnico do Azure. Se cria um cluster ou adicionar esses recursos em clusters existentes, esse cluster não é suportado até que a funcionalidade não se encontra em pré-visualização e é formado para disponibilidade geral (GA).
+> Funcionalidades de pré-visualização do AKS são self-service, participar. Eles são fornecidos para recolher comentários e bugs de nossa Comunidade. Em pré-visualização, esses recursos não se destinam a utilização de produção. Funcionalidades em pré-visualização pública enquadram-se em suporte "melhor esforço". Assistência das equipas de suporte técnico do AKS está disponível durante o horário do Pacífico fuso horário (PST) apenas. Para obter mais informações, consulte os seguintes artigos de suporte:
 >
-> Se tiver problemas com funcionalidades de pré-visualização [abra um problema no repositório GitHub do AKS] [ aks-github] com o nome da funcionalidade de pré-visualização no título do bug.
+> * [Políticas de suporte do AKS][aks-support-policies]
+> * [FAQ de suporte do Azure][aks-faq]
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -68,11 +69,11 @@ No AKS, existem dois conjuntos de endereços e portas:
 As seguintes portas de saída / regras de rede são necessárias para um cluster do AKS:
 
 * A porta TCP *443*
-* A porta TCP *9000*
+* A porta TCP *9000* e a porta TCP *22* para o pod frontal de túnel comunicar com o fim do túnel no servidor de API.
 
 O seguinte FQDN / regras de aplicações são necessárias:
 
-| FQDN                      | Port      | Utilização      |
+| FQDN                      | Port      | Utilizar      |
 |---------------------------|-----------|----------|
 | *.azmk8s.io               | HTTPS:443 | Este endereço é o ponto de final do servidor de API. |
 | aksrepos.azurecr.io       | HTTPS:443 | Este endereço é necessário para imagens de acesso no Azure Container Registry (ACR). |
@@ -90,7 +91,7 @@ As seguintes portas de saída / regras de rede não são necessárias para clust
 
 O seguinte FQDN / regras de aplicações são recomendadas para clusters do AKS funcionar corretamente:
 
-| FQDN                                    | Port      | Utilização      |
+| FQDN                                    | Port      | Utilizar      |
 |-----------------------------------------|-----------|----------|
 | *.ubuntu.com                            | HTTP:80   | Este endereço permite que os nós de cluster do Linux transferir as atualizações e patches de segurança necessário. |
 | packages.microsoft.com                  | HTTPS:443 | Este endereço é o repositório de pacotes do Microsoft utilizado para armazenados em cache *apt-get* operações. |
@@ -105,9 +106,6 @@ O seguinte FQDN / regras de aplicações são recomendadas para clusters do AKS 
 
 Neste artigo, aprendeu quais portas e endereços para permitir que se restringir o tráfego de saída para o cluster. Também pode definir como os pods próprios podem comunicar e que restrições eles têm dentro do cluster. Para obter mais informações, consulte [proteger o tráfego entre pods através de políticas de rede no AKS][network-policy].
 
-<!-- LINKS - external -->
-[aks-github]: https://github.com/azure/aks/issues]
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -118,3 +116,5 @@ Neste artigo, aprendeu quais portas e endereços para permitir que se restringir
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [aks-upgrade]: upgrade-cluster.md
+[aks-support-policies]: support-policies.md
+[aks-faq]: faq.md

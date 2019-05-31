@@ -10,12 +10,12 @@ ms.date: 09/18/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 96d4c2c8d6c2dd7722b7377dd7a0ffd42acd3126
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9520cbb9973071bf1c52266d7718837607c1d10f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572514"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66256136"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Métricas com base em log e pré-agregados no Application Insights
 
@@ -34,7 +34,7 @@ Ao mesmo tempo, recolha um conjunto completo de eventos pode ser impraticável (
 
 ## <a name="pre-aggregated-metrics"></a>Métricas agregadas previamente
 
-Além das métricas baseadas no registo, no Outono de 2018, a equipe do Application Insights foi fornecido uma pré-visualização pública de métricas que estão armazenadas num repositório especializado otimizada para a série de tempo. A nova métrica já não é mantida como eventos individuais com muitas das propriedades. Em vez disso, eles são armazenados como uma série de tempo pré-agregados e apenas com dimensões de chave. Isso torna a nova métrica superior no momento da consulta: obter dados acontece muito mais rápido e requer menos poder de computação. Isso permite conseqüentemente novos cenários de tal como [perto de alertas em tempo real em dimensões de métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)e mais dinâmica [dashboards](https://docs.microsoft.com/azure/application-insights/app-insights-dashboards)e muito mais.
+Além das métricas baseadas no registo, no Outono de 2018, a equipe do Application Insights foi fornecido uma pré-visualização pública de métricas que estão armazenadas num repositório especializado otimizada para a série de tempo. A nova métrica já não é mantida como eventos individuais com muitas das propriedades. Em vez disso, eles são armazenados como uma série de tempo pré-agregados e apenas com dimensões de chave. Isso torna a nova métrica superior no momento da consulta: obter dados acontece muito mais rápido e requer menos poder de computação. Isso permite conseqüentemente novos cenários de tal como [perto de alertas em tempo real em dimensões de métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts)e mais dinâmica [dashboards](https://docs.microsoft.com/azure/azure-monitor/app/overview-dashboard)e muito mais.
 
 > [!IMPORTANT]
 > Métricas, com base em log tanto pré-agregados coexistam no Application Insights. Para diferenciar os dois, no Application Insights UX as métricas pré-agregados são agora denominadas "Métricas Standard (pré-visualização)", enquanto as métricas tradicionais dos eventos foram renomeadas para "métricas baseadas no registo".

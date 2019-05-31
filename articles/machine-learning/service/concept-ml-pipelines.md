@@ -1,7 +1,7 @@
 ---
 title: 'Pipelines: otimizar os fluxos de trabalho do machine learning'
 titleSuffix: Azure Machine Learning service
-description: Neste artigo, saiba mais sobre o machine learning pipelines, que pode criar com o Azure Machine Learning SDK para Python e as vantagens da utilização de pipelines. Os pipelines de machine learning (ML) são utilizados por cientistas de dados para compilar, otimizar e gerir os respetivos fluxos de trabalho de machine learning.
+description: Neste artigo, saiba mais sobre o machine learning pipelines, que pode criar com o Azure Machine Learning SDK para Python e as vantagens da utilização de pipelines. Pipelines (ML) de aprendizado de máquina são utilizados por cientistas de dados para criar, otimizar e gerir os seus fluxos de trabalho de aprendizagem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ ms.author: sanpil
 author: sanpil
 ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 3e3fe64baca6e61c7eee214b84fd1ccdc88d3629
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65801069"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237809"
 ---
-# <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Criar machine learning pipelines com o serviço Azure Machine Learning
+# <a name="build-reusable-ml-pipelines-in-azure-machine-learning-service"></a>Criar pipelines de ML reutilizáveis no serviço Azure Machine Learning
 
 Neste artigo, saiba mais sobre o machine learning pipelines, que pode criar com o Azure Machine Learning SDK para Python e as vantagens da utilização de pipelines.
 
@@ -64,7 +64,7 @@ As principais vantagens para a criação de pipelines para de aprendizagem para 
 
 |Principais vantagens|Descrição|
 |:-------:|-----------|
-|**Autónoma&nbsp;é executado**|Agende alguns passos para executar em paralelo ou em sequência de uma forma automática e fiável. Uma vez que a preparação de dados e a Modelagem podem últimos dias ou semanas, pode agora se concentrar em outras tarefas enquanto seu pipeline está em execução. |
+|**Autónoma&nbsp;é executado**|Agende algumas etapas para executar em paralelo ou na sequência de forma fiável e autónoma. Uma vez que a preparação de dados e a Modelagem podem últimos dias ou semanas, pode agora se concentrar em outras tarefas enquanto seu pipeline está em execução. |
 |**Mista e diversificada de computação**|Utilize vários pipelines que são fiável coordenados entre computações heterogêneas e dimensionáveis e de armazenamento. Pode executar os passos de pipeline individuais nos destinos de computação diferentes, como o HDInsight, VMs de ciência de dados de GPU e Databricks. Isso faz uso eficiente de opções de computação disponíveis.|
 |**Capacidade de reutilização**|Pode templatize pipelines para cenários específicos, como reparametrização e classificação de lote. Dispará-los de sistemas externos por meio de chamadas REST simples.|
 |**Controlo de versões e controlo**|Em vez de controlar manualmente os dados e o resultado caminhos como iterar, utilizam os SDK de pipelines explicitamente o nome e versão seus dados de origens, entradas e saídas. Também pode gerir scripts e dados em separado para uma maior produtividade.|

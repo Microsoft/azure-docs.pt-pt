@@ -15,12 +15,12 @@ ms.date: 07/07/2017
 ms.pm_owner: daviste;NumberByColors
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: b22f52ce9aa7f57e5b6638eef580a2675d5c9b1f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1b2f429129c0bb9098f4f5029cb07ce06bc5db13
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60372571"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255125"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depurar seus aplicativos com o Azure Application Insights no Visual Studio
 No Visual Studio (versão 2015 e posterior), pode analisar o desempenho e diagnosticar problemas de depuração e produção na sua aplicação Web ASP.NET, com a telemetria do [Application Insights do Azure](../../azure-monitor/app/app-insights-overview.md).
@@ -105,5 +105,5 @@ Também poderá ser útil se tiver alguma [telemetria personalizada](../../azure
 |  |  |
 | --- | --- |
 | **[Adicionar mais dados](../../azure-monitor/app/asp-net-more.md)**<br/>Monitorize a utilização, a disponibilidade, as dependências e as exceções. Integre rastreios a partir de arquiteturas de registo. Grave a telemetria personalizada. |![Visual Studio](./media/visual-studio/64.png) |
-| **[Trabalhar com o portal do Application Insights](../../azure-monitor/app/app-insights-dashboards.md)**<br/>Ver dashboards, ferramentas de diagnósticos e análise poderosas, alertas, mapa de dependência em direto da aplicação e dados de telemetria exportado. |![Visual Studio](./media/visual-studio/62.png) |
+| **[Trabalhar com o portal do Application Insights](../../azure-monitor/app/overview-dashboard.md)**<br/>Ver dashboards, ferramentas de diagnósticos e análise poderosas, alertas, mapa de dependência em direto da aplicação e dados de telemetria exportado. |![Visual Studio](./media/visual-studio/62.png) |
 

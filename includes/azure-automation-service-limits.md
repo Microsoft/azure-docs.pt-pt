@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 04929de241ff36e4d67f24907747d89a16a73898
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2823a33b25812a69ad463433bacd9710655c9176
+ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64733799"
+ms.lasthandoff: 05/23/2019
+ms.locfileid: "66238836"
 ---
 #### <a name="process-automation"></a>Automatização de processos
 
-| Recurso | Limite máximo |Notas|
+| Resource | Limite máximo |Notas|
 | --- | --- |---|
 | Número máximo de novas tarefas que podem ser submetidos a cada 30 segundos por conta de automatização do Azure (nonscheduled tarefas) |100 |Quando este limite for atingido, os pedidos subsequentes para criar uma tarefa falharem. O cliente recebe uma resposta de erro.|
 | Número máximo de tarefas em execução em simultâneo na mesma instância de tempo por conta de automatização (nonscheduled tarefas) |200 |Quando este limite for atingido, os pedidos subsequentes para criar uma tarefa falharem. O cliente recebe uma resposta de erro.|
@@ -41,7 +41,7 @@ ms.locfileid: "64733799"
 
 <sup>1</sup>uma área de segurança é um ambiente compartilhado que pode ser utilizado por várias tarefas. Tarefas que utilizam a mesma área de segurança são ligadas pelas limitações de recursos da área de segurança.
 
-#### <a name="change-tracking-and-inventory"></a>Controlo de alterações e inventário
+#### <a name="change-tracking-and-inventory"></a>Controlo de Alterações e Inventário
 
 A tabela seguinte mostra os limites de item controladas por máquina para o controlo de alterações.
 
@@ -53,3 +53,11 @@ A tabela seguinte mostra os limites de item controladas por máquina para o cont
 |Pacotes de Linux|1,250||
 |Serviços|250||
 |Daemon|250||
+
+#### <a name="update-management"></a>Gestão de Atualizações
+
+A tabela seguinte mostra os limites para gerenciamento de atualizações.
+
+| **Recurso** | **Limite**| **Notas** |
+|---|---|---|
+|Número de máquinas por implementação da atualização|1000||

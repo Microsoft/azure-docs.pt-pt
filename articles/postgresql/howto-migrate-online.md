@@ -1,19 +1,19 @@
 ---
-title: Migração de período de indisponibilidade mínimo para a base de dados do Azure para PostgreSQL
-description: Este artigo descreve como efetuar uma migração de período de indisponibilidade mínimo de uma base de dados do PostgreSQL à base de dados do Azure para PostgreSQL com o Azure Database Migration Service.
+title: Migração de período de indisponibilidade mínimo à base de dados do Azure para PostgreSQL - servidor único
+description: Este artigo descreve como efetuar uma migração de período de indisponibilidade mínimo de uma base de dados do PostgreSQL à base de dados do Azure para PostgreSQL - único servidor com o Azure Database Migration Service.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/07/2018
-ms.openlocfilehash: ceb64781dc7e5243f785ad239c24e5f21b0481ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: 93cd390889c023adf1c30a8470e1c2298598439e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421240"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067518"
 ---
-# <a name="minimal-downtime-migration-to-azure-database-for-postgresql"></a>Migração de período de indisponibilidade mínimo para a base de dados do Azure para PostgreSQL
+# <a name="minimal-downtime-migration-to-azure-database-for-postgresql---single-server"></a>Migração de período de indisponibilidade mínimo à base de dados do Azure para PostgreSQL - servidor único
 Pode efetuar as migrações de PostgreSQL para o banco de dados do Azure para PostgreSQL com o período de indisponibilidade mínimo utilizando recém-lançado **capacidade de sincronização contínua** para o [Azure Database Migration Service](https://aka.ms/get-dms) (DMS) . Esta funcionalidade limita a quantidade de tempo de inatividade que é incorrido pela aplicação.
 
 ## <a name="overview"></a>Descrição geral

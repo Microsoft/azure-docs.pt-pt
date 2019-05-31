@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 514f0c193dbbca6d8583c9f93feadee3415f163c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 451a2d6e658c08823d1629270bb7503ebd236c02
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494614"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66255683"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -56,22 +56,7 @@ ms.locfileid: "60494614"
                                                 </a>
                                             </li>
                                             <li>
-                                                <a href="">
-                                                    <div class="cardSize">
-                                                        <div class="cardPadding">
-                                                            <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </li>
+                                           </li>
                                         </ul>
                                     </li>
                                     <li>
@@ -79,7 +64,13 @@ ms.locfileid: "60494614"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Inícios rápidos</h3>
+                                                        <h3>Novidades</h3>
+                                                        <p>
+                                                            <a href="./app/kubernetes.md">Monitorizar aplicações do Kubernetes</a><br>
+                                                            <a href="./app/status-monitor-v2-overview.md">V2 de Monitor de estado para aplicações IIS</a><br>
+                                                        </p>
+                                                        <br><br>
+                                                        <h3>Guias de Introdução</h3>
                                                         <p>
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">Núcleo do ASP.NET</a><br>
@@ -115,7 +106,7 @@ ms.locfileid: "60494614"
                                                             <a href="./app/proactive-potential-memory-leak.md">Vazamentos de memória</a><br>
                                                             <a href="./app/proactive-low-utilization-cloud-resources.md">Baixa utilização da CPU</a><br>
                                                             <a href="./app/proactive-application-security-detection-pack.md">Problemas de segurança</a><br>
-                                                            <a href="./app/proactive-cloud-services.md">Azure Cloud Services</a><br>
+                                                            <a href="./app/proactive-cloud-services.md">Serviços em Nuvem do Azure</a><br>
                                                             <a href="./app/proactive-arm-config.md">Gerir deteção inteligente com modelos</a>
                                                         </p>
                                                         <br><br>
@@ -192,7 +183,7 @@ ms.locfileid: "60494614"
                                                     <div class="cardText">
                                                         <h3>Análise de comportamento do utilizador</h3>
                                                         <p>
-                                                            <a href="./app/usage-overview.md">Descrição geral</a><br>
+                                                            <a href="./app/usage-overview.md">Descrição Geral</a><br>
                                                             <a href="./app/usage-send-user-context.md">Enviar o contexto de utilizador IDs</a><br>
                                                             <a href="./app/usage-segmentation.md">Os utilizadores, sessões e eventos</a><br>
                                                             <a href="./app/usage-funnels.md">Funis</a><br>
@@ -225,7 +216,7 @@ ms.locfileid: "60494614"
                                                         <br><br>
                                                         <h3>Modelo de dados</h3>
                                                         <p>
-                                                            <a href="./app/data-model.md">Descrição geral</a><br>
+                                                            <a href="./app/data-model.md">Descrição Geral</a><br>
                                                             <a href="./app/data-model-request-telemetry.md">Pedido</a><br>
                                                             <a href="./app/data-model-dependency-telemetry.md">Dependência</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">Exceção</a><br>

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 8f5c1755462d2bbd28dd7f8db427cda141817588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a14e03c21de0b5388040943fbe5e9434271b567f
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61472241"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258825"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso do Service Bus com assinaturas de acesso partilhado
 
@@ -86,7 +86,9 @@ SHA-256('https://<yournamespace>.servicebus.windows.net/'+'\n'+ 1438205742)
 
 O token contém os valores não protegido por hash, para que o destinatário pode Reprocessar o hash com os mesmos parâmetros, verificar se o emissor está na posse de uma chave de assinatura válida.
 
-O URI do recurso é o URI completo do recurso do Service Bus para o qual o acesso seja solicitado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`, ou seja, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. O URI tem de ser [codificada de percentagem](https://msdn.microsoft.com/library/4fkewx0t.aspx).
+O URI do recurso é o URI completo do recurso do Service Bus para o qual o acesso seja solicitado. Por exemplo, `http://<namespace>.servicebus.windows.net/<entityPath>` ou `sb://<namespace>.servicebus.windows.net/<entityPath>`, ou seja, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
+
+**O URI tem de ser [codificada de percentagem](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
 
 A regra de autorização de acesso partilhado utilizada na assinatura deve ser configurada na entidade especificada por este URI ou por uma das respetivas classes principais hierárquicas. Por exemplo, `http://contoso.servicebus.windows.net/contosoTopics/T1` ou `http://contoso.servicebus.windows.net` no exemplo anterior.
 
@@ -259,7 +261,7 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | Configurar a regra de autorização num espaço de nomes |Gerir |Qualquer endereço de espaço de nomes |
 | **Registo de serviço** | | |
 | Enumerar políticas privada |Gerir |Qualquer endereço de espaço de nomes |
-| Começar a escutar num espaço de nomes |Vigiar |Qualquer endereço de espaço de nomes |
+| Começar a escutar num espaço de nomes |Escutar |Qualquer endereço de espaço de nomes |
 | Enviar mensagens para um serviço de escuta num espaço de nomes |Enviar |Qualquer endereço de espaço de nomes |
 | **fila** | | |
 | Criar uma fila |Gerir |Qualquer endereço de espaço de nomes |
@@ -268,13 +270,13 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | Obter a descrição da fila |Gerir |Qualquer endereço de fila válido |
 | Configurar regra de autorização de uma fila |Gerir |Qualquer endereço de fila válido |
 | Enviar para o para a fila |Enviar |Qualquer endereço de fila válido |
-| Receber mensagens de uma fila |Vigiar |Qualquer endereço de fila válido |
-| Abandonar ou concluir mensagens depois de receber a mensagem no modo de bloqueio de pré-visualização |Vigiar |Qualquer endereço de fila válido |
-| Diferir a uma mensagem para uma recuperação posterior |Vigiar |Qualquer endereço de fila válido |
-| Uma mensagem de mensagens não entregues |Vigiar |Qualquer endereço de fila válido |
-| Obter o Estado associado a uma sessão de fila de mensagens |Vigiar |Qualquer endereço de fila válido |
-| Definir o Estado associado a uma sessão de fila de mensagens |Vigiar |Qualquer endereço de fila válido |
-| Agendar uma mensagem para entrega posterior; Por exemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Vigiar | Qualquer endereço de fila válido
+| Receber mensagens de uma fila |Escutar |Qualquer endereço de fila válido |
+| Abandonar ou concluir mensagens depois de receber a mensagem no modo de bloqueio de pré-visualização |Escutar |Qualquer endereço de fila válido |
+| Diferir a uma mensagem para uma recuperação posterior |Escutar |Qualquer endereço de fila válido |
+| Uma mensagem de mensagens não entregues |Escutar |Qualquer endereço de fila válido |
+| Obter o Estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
+| Definir o Estado associado a uma sessão de fila de mensagens |Escutar |Qualquer endereço de fila válido |
+| Agendar uma mensagem para entrega posterior; Por exemplo, [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Escutar | Qualquer endereço de fila válido
 | **Tópico** | | |
 | Criar um tópico |Gerir |Qualquer endereço de espaço de nomes |
 | Eliminar um tópico |Gerir |Qualquer endereço de tópico válido |
@@ -287,11 +289,11 @@ A tabela seguinte mostra os direitos de acesso necessários para várias operaç
 | Eliminar subscrição |Gerir |../myTopic/subscriptions/mySubscription |
 | Enumerar subscrições |Gerir |../myTopic/subscrições |
 | Obter a descrição da subscrição |Gerir |../myTopic/subscriptions/mySubscription |
-| Abandonar ou concluir mensagens depois de receber a mensagem no modo de bloqueio de pré-visualização |Vigiar |../myTopic/subscriptions/mySubscription |
-| Diferir a uma mensagem para uma recuperação posterior |Vigiar |../myTopic/subscriptions/mySubscription |
-| Uma mensagem de mensagens não entregues |Vigiar |../myTopic/subscriptions/mySubscription |
-| Obter o Estado associado a uma sessão de tópico |Vigiar |../myTopic/subscriptions/mySubscription |
-| Definir o Estado associado a uma sessão de tópico |Vigiar |../myTopic/subscriptions/mySubscription |
+| Abandonar ou concluir mensagens depois de receber a mensagem no modo de bloqueio de pré-visualização |Escutar |../myTopic/subscriptions/mySubscription |
+| Diferir a uma mensagem para uma recuperação posterior |Escutar |../myTopic/subscriptions/mySubscription |
+| Uma mensagem de mensagens não entregues |Escutar |../myTopic/subscriptions/mySubscription |
+| Obter o Estado associado a uma sessão de tópico |Escutar |../myTopic/subscriptions/mySubscription |
+| Definir o Estado associado a uma sessão de tópico |Escutar |../myTopic/subscriptions/mySubscription |
 | **Regras** | | |
 | Criar uma regra |Gerir |../myTopic/subscriptions/mySubscription |
 | Eliminar uma regra |Gerir |../myTopic/subscriptions/mySubscription |

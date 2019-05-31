@@ -11,26 +11,27 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 04/26/2019
 ms.author: magoedte
-ms.openlocfilehash: bbd7c733c7c089328d2fbe016426fe9de3a6b5ce
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 46ac6794272728069d50479f8cd097185bfeeb1a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494631"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072395"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Como posso configurar alertas para problemas de desempenho no Azure Monitor para contentores
 Monitor do Azure para contentores monitora o desempenho de cargas de trabalho de contentor que são implementadas no Azure Container Instances, ou para Kubernetes clusters geridos que estão alojados no Azure Kubernetes Service (AKS).
 
 Este artigo descreve como ativar alertas nas seguintes situações:
 
-* Quando a utilização da CPU ou memória em nós do cluster excede um limiar definido
-* Quando a utilização da CPU ou memória em qualquer contentor dentro de um controlador excede um limiar definido em comparação com um limite que está definido no recurso correspondente
-* *NotReady* contagens de nó de estado
-*  *Falha*, *pendente*, *desconhecido*, *executar*, ou *bem-sucedido* contagens de pod fase
+- Quando a utilização da CPU ou memória em nós do cluster excede um limiar
+- Quando a utilização da CPU ou memória em qualquer contentor dentro de um controlador de excede um limiar em comparação com um limite que está definido no recurso correspondente
+- *NotReady* contagens de nó de estado
+- *Falha*, *pendente*, *desconhecido*, *executar*, ou *bem-sucedido* contagens de pod fase
+- Quando o espaço livre em disco em nós do cluster excede um limiar 
 
-Para o alertar para elevada da CPU ou a utilização da memória em nós de cluster, utilize as consultas que são fornecidas para criar um alerta de métrica ou um alerta de medida da métrica. Alertas de métricas têm uma latência inferior à alertas de registo. Mas os alertas de registo fornecem consultas avançadas e sofisticação maior. Consultas de comparam um datetime ao presente através de alertas de registo do *agora* operador e vai fazer uma cópia de uma hora. (O Monitor do azure para contentores armazena todas as datas no formato de hora Universal Coordenada (UTC).)
+Para o alertar para elevada da CPU ou de utilização da memória ou de baixa espaço livre em disco em nós de cluster, utilize as consultas que são fornecidas para criar um alerta de métrica ou um alerta de medida da métrica. Alertas de métricas têm uma latência inferior à alertas de registo. Mas os alertas de registo fornecem consultas avançadas e sofisticação maior. Consultas de comparam um datetime ao presente através de alertas de registo do *agora* operador e vai fazer uma cópia de uma hora. (O Monitor do azure para contentores armazena todas as datas no formato de hora Universal Coordenada (UTC).)
 
 Se não estiver familiarizado com alertas do Azure Monitor, consulte [descrição geral dos alertas no Microsoft Azure](../platform/alerts-overview.md) antes de começar. Para saber mais sobre os alertas que utilizam consultas de registo, veja [alertas de registo no Azure Monitor](../platform/alerts-unified-log.md). Para mais informações sobre alertas de métricas, veja [alertas de métricas no Azure Monitor](../platform/alerts-metric-overview.md).
 
@@ -255,6 +256,33 @@ let endDateTime = now();
 >[!NOTE]
 >Para o alertar sobre determinadas fases de pod, tal como *pendente*, *com falhas*, ou *desconhecido*, modificar a última linha da consulta. Por exemplo, para alertar relativamente *FailedCount* utilizar: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
+A seguinte consulta devolve discos de nós de cluster que excedam 90% de espaço livre utilizada. Para obter o ID de cluster, primeiro execute a seguinte consulta e copie o valor da `ClusterId` propriedade:
+
+```kusto
+InsightsMetrics
+| extend Tags = todynamic(Tags)            
+| project ClusterId = Tags['container.azm.ms/clusterId']   
+| distinct tostring(ClusterId)   
+``` 
+
+```kusto
+let clusterId = '<cluster-id>';
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+InsightsMetrics
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| where Origin == 'container.azm.ms/telegraf'            
+| where Namespace == 'disk'            
+| extend Tags = todynamic(Tags)            
+| project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
+| where ClusterId =~ clusterId       
+| where DiskMetricName == 'used_percent'
+| summarize AggregatedValue = max(DiskMetricValue) by bin(TimeGenerated, trendBinSize)
+| where AggregatedValue >= 90
+```
+
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 Siga estes passos para criar um alerta de registo no Azure Monitor, utilizando as regras de pesquisa de registo que foi fornecida anteriormente.  
 
@@ -272,9 +300,9 @@ Siga estes passos para criar um alerta de registo no Azure Monitor, utilizando a
 8. Configure o alerta da seguinte forma:
 
     1. Na lista pendente **Com base em**, selecione **Unidades métricas**. Uma medida da métrica cria um alerta para cada objeto na consulta que contém um valor superior ao nosso limiar especificado.
-    1. Para **condição**, selecione **superior**e introduza **75** como uma linha de base inicial **limiar**. Ou introduza um valor diferente que atende a seus critérios.
+    1. Para **condição**, selecione **superior**e introduza **75** como uma linha de base inicial **limiar** para os alertas de utilização da CPU e memória . Para o alerta de espaço em disco insuficiente, introduza **90**. Ou introduza um valor diferente que atende a seus critérios.
     1. Na **acionar alerta com base no** secção, selecione **falhas consecutivas**. Na lista pendente, selecione **maior**e introduza **2**.
-    1. Para configurar um alerta para o contentor da CPU ou de utilização da memória, em **agregada no**, selecione **ContainerName**. 
+    1. Para configurar um alerta para o contentor da CPU ou de utilização da memória, em **agregada no**, selecione **ContainerName**. Para configurar de alerta de disco de baixo do nó de cluster, selecione **ClusterId**.
     1. No **Evaluated com base no** secção, defina o **período** valor **60 minutos**. A regra será executado a cada 5 minutos e devolver os registos que foram criados na última hora da hora atual. Definir o período de tempo como contas uma janela ampla potencial latência de dados. Também garante que a consulta retorna dados para evitar falso negativo em que o alerta nunca é acionado.
 
 9. Selecione **feito** para concluir a regra de alerta.

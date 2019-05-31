@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ba5e0f696f54f46fb14086b542dc3b2e64155975
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60777394"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244943"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos de registo de atividades do Azure
-O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](./diagnostic-logs-schema.md) é fornecido no final do artigo.
+O **registo de atividades do Azure** é um registo que fornece informações sobre quaisquer eventos de nível de assinatura que ocorreram no Azure. Este artigo descreve o esquema de eventos por categoria de dados. O esquema dos dados é diferente dependendo se estiver lendo os dados no portal, PowerShell, CLI, ou diretamente através da API de REST versus [os dados para armazenamento ou Hubs de eventos com um perfil de registo de transmissão em fluxo](activity-log-export.md). Os exemplos abaixo mostram o esquema, disponibilizada através do portal, PowerShell, CLI e REST API. Um mapeamento dessas propriedades para o [esquema de registos de diagnóstico do Azure](diagnostic-logs-schema.md) é fornecido no final do artigo.
 
 ## <a name="administrative"></a>Administrativa
 Esta categoria contém o registo de todos os criar, operações de atualização, eliminação e ação executada através do Resource Manager. Os exemplos dos tipos de eventos que veria nesta categoria incluem "Criar máquina virtual" e "Eliminar grupo de segurança rede" todas as ações executadas por um utilizador ou aplicação com o Resource Manager é modelada como uma operação num tipo de recurso específico. Se o tipo de operação de escrita, eliminação ou ação, os registos de início e de êxito ou falha dessa operação é registada na categoria administrativa. A categoria administrativa também inclui todas as alterações ao controlo de acesso baseado em funções numa subscrição.
@@ -113,7 +113,7 @@ Esta categoria contém o registo de todos os criar, operações de atualização
 | Nome do elemento | Descrição |
 | --- | --- |
 | Autorização |Blob de propriedades RBAC do evento. Normalmente, inclui as propriedades de "action", "função" e "escopo". |
-| chamador |Endereço de e-mail do utilizador que efetuou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. |
+| Autor da chamada |Endereço de e-mail do utilizador que efetuou a operação, a afirmação UPN ou a afirmação SPN com base na disponibilidade. |
 | canais |Um dos seguintes valores: "Admin", "Operação" |
 | afirmações |O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
 | correlationId |Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
@@ -216,7 +216,7 @@ Esta categoria contém o registo de quaisquer eventos de estado de funcionamento
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -232,7 +232,7 @@ Esta categoria contém o registo de quaisquer eventos de estado de funcionamento
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -242,7 +242,7 @@ Esta categoria contém o registo de quaisquer eventos de estado de funcionamento
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -352,7 +352,7 @@ Esta categoria contém o registo de todas as ativações de alertas do Azure. Um
 ### <a name="property-descriptions"></a>Descrições das propriedades
 | Nome do elemento | Descrição |
 | --- | --- |
-| chamador | Sempre Microsoft.Insights/alertRules |
+| Autor da chamada | Sempre Microsoft.Insights/alertRules |
 | canais | Sempre "Admin, operação" |
 | afirmações | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, de mecanismo de alerta. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
@@ -462,7 +462,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com a operaç
 ### <a name="property-descriptions"></a>Descrições das propriedades
 | Nome do elemento | Descrição |
 | --- | --- |
-| chamador | Always Microsoft.Insights/autoscaleSettings |
+| Autor da chamada | Always Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Admin, operação" |
 | afirmações | Blob JSON com o tipo SPN (nome principal de serviço) ou recurso, do motor de dimensionamento automático. |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
@@ -744,7 +744,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 | Nome do elemento | Descrição |
 | --- | --- |
 | Autorização | Matriz de propriedades RBAC do evento. Para novos recursos, esta é a ação e o âmbito do pedido que disparou a avaliação. Para obter recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
-| chamador | Para novos recursos, a identidade que iniciou uma implementação. Para os recursos existentes, o GUID da RP de informações de política do Microsoft Azure. |
+| Autor da chamada | Para novos recursos, a identidade que iniciou uma implementação. Para os recursos existentes, o GUID da RP de informações de política do Microsoft Azure. |
 | canais | Eventos de política utilizam apenas o canal de "Operação". |
 | afirmações | O token JWT utilizado pelo Active Directory para autenticar o utilizador ou aplicação para efetuar esta operação no Resource Manager. |
 | correlationId | Normalmente, um GUID no formato de cadeia de caracteres. Eventos que partilham uma correlationId pertencem à mesma ação de uber. |
@@ -789,7 +789,7 @@ Quando o registo de atividades do Azure para uma conta de armazenamento ou o esp
 | correlationId | correlationId |  |
 | identidade | Propriedades de autorização e afirmações |  |
 | Nível | Nível |  |
-| localização | N/A | Localização de onde o evento foi processado. *Esta não é a localização do recurso, mas em vez disso, em que o evento foi processado. Esta propriedade será removida numa atualização futura.* |
+| location | N/A | Localização de onde o evento foi processado. *Esta não é a localização do recurso, mas em vez disso, em que o evento foi processado. Esta propriedade será removida numa atualização futura.* |
 | Propriedades | properties.eventProperties |  |
 | properties.eventCategory | category | Se properties.eventCategory não estiver presente, a categoria é "Administração" |
 | properties.eventName | eventName |  |
@@ -798,6 +798,6 @@ Quando o registo de atividades do Azure para uma conta de armazenamento ou o esp
 
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Saiba mais sobre o registo de Atividades (anteriormente conhecido como registos de auditoria)](../../azure-monitor/platform/activity-logs-overview.md)
-* [O registo de atividades do Azure para os Hubs de eventos do Stream](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Saiba mais sobre o registo de atividades](activity-logs-overview.md)
+* [Exportar o registo de atividades para o armazenamento do Azure ou os Hubs de eventos](activity-log-export.md)
 

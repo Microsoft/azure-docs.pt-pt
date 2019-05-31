@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 0832010707fc9b5d5f435aac29940db6905d18d7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057810fa8030321f9a94085f66bc1ea93dbc3830
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60330011"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238930"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desativar, ativar ou eliminar pontos finais
 
@@ -52,7 +52,7 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. No painel **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais**. 
-4. Clique no ponto final que pretende desativar e, em seguida, no painel **Ponto final** que é apresentado, clique em **Editar**.
+4. Clique no ponto final que pretende desativar.
 5. No painel **Ponto final**, altere o estado do ponto final para **Desativado** e, em seguida, clique em **Guardar**.
 6. Os clientes continuam a enviar tráfego para o ponto final com a duração do Tempo de Vida (TTL). Pode alterar o TTL na página Configuração do perfil do Gestor de Tráfego.
 
@@ -61,7 +61,7 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. No painel **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais**. 
-4. Clique no ponto final que pretende desativar e, em seguida, no painel **Ponto final** que é apresentado, clique em **Editar**.
+4. Clique no ponto final que pretende ativar.
 5. No painel **Ponto final**, altere o estado do ponto final para **Ativado** e, em seguida, clique em **Guardar**.
 6. Os clientes continuam a enviar tráfego para o ponto final com a duração do Tempo de Vida (TTL). Pode alterar o TTL na página Configuração do perfil do Gestor de Tráfego.
 
@@ -70,8 +70,8 @@ Também pode desativar pontos finais individuais que fazem parte de um perfil do
 1. Num browser, inicie sessão no [portal do Azure](https://portal.azure.com).
 2. Na barra de pesquisa do portal, procure o nome do **perfil do Gestor de Tráfego** que pretende modificar e, em seguida, clique no perfil do Gestor de Tráfego nos resultados apresentados.
 3. No painel **Perfil do Gestor de Tráfego** , na secção **Definições**, clique em **Pontos Finais**. 
-4. Clique no ponto final que pretende desativar e, em seguida, no painel **Ponto final** que é apresentado, clique em **Editar**.
-5. No painel **Ponto final**, altere o estado do ponto final para **Ativado** e, em seguida, clique em **Guardar**.
+4. Clique no ponto final que pretende eliminar.
+5. Na **ponto final** painel, clique em **eliminar**
 
 
 ## <a name="next-steps"></a>Passos Seguintes

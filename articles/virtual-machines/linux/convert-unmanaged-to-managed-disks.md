@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7c1167a6170cdc0b897c57a51c417a9312b6f41a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: eb6a5ed74073a1a31fc9bb1972266e76c7bc2782
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65794157"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418478"
 ---
 # <a name="convert-a-linux-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual Linux de discos não geridos para managed disks
 
@@ -34,6 +34,7 @@ Este artigo mostra-lhe como converter VMs com a CLI do Azure. Se precisar de ins
 
 [!INCLUDE [virtual-machines-common-convert-disks-considerations](../../../includes/virtual-machines-common-convert-disks-considerations.md)]
 
+* Os VHDs originais e a conta de armazenamento utilizada pela VM antes da conversão não são eliminados. Continuam a incorrer em custos. Para evitar a cobrança destes artefactos, elimine os blobs de VHD originais depois de verificar que a conversão está concluída. Se precisa localizar esses discos desanexados para eliminá-los, consulte nosso artigo [localize e elimine desanexados discos geridos e não geridos do Azure](find-unattached-disks.md).
 
 ## <a name="convert-single-instance-vms"></a>Converter VMs de instância única
 Esta secção abrange como converter VMs do Azure de instância única de discos não geridos para discos geridos. (Se forem as suas VMs num conjunto de disponibilidade, consulte a secção seguinte.) Pode utilizar este processo para converter as VMs de discos de discos de discos geridos premium, ou para standard (HDD) não geridos premium (SSD) não gerido para discos geridos standard.

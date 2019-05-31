@@ -1,19 +1,19 @@
 ---
-title: Proteção avançada contra ameaças - base de dados do Azure para PostgreSQL
+title: Servidor único do Advanced Threat Protection - base de dados do Azure para PostgreSQL-
 description: Proteção contra ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a base de dados.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 5/6/2019
+ms.openlocfilehash: a69a8b651188b9566fdbec4bc6de09a8fec164c7
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60421338"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067457"
 ---
-# <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL
+# <a name="advanced-threat-protection-for-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL - servidor único
 
 A Proteção Avançada Contra Ameaças para Base de Dados do Azure para PostgreSQL deteta atividades anómalas que indicam tentativas potencialmente perigosas e invulgares para aceder ou explorar as suas bases de dados.
 
@@ -28,7 +28,7 @@ Proteção avançada contra ameaças faz parte da oferta de segurança de dados 
 
 ## <a name="set-up-threat-detection"></a>Configurar a deteção de ameaças
 1. Iniciar o portal do Azure no [ https://portal.azure.com ](https://portal.azure.com).
-2. Navegue para a página de configuração da base de dados do Azure para o servidor PostgreSQL que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (pré-visualização)**.
+2. Navegue para a página de configuração da base de dados do Azure para o servidor PostgreSQL que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (pré-visualização)** .
 3. Sobre o **Advanced Threat Protection (pré-visualização)** página de configuração:
 
    - Ative a proteção avançada contra ameaças no servidor.
@@ -46,7 +46,7 @@ Receber uma notificação por e-mail após a deteção de atividades anómalas d
 
     Ameaças ativas de modo de exibição:
 
-    ![Ameaças ativas](./media/howto-database-threat-protection-portal/active-threats.png)
+    ![ameaças ativas](./media/howto-database-threat-protection-portal/active-threats.png)
 
 2. Clique num alerta específico para obter detalhes adicionais e ações para esta ameaça a investigar e remediar ameaças futuras.
     

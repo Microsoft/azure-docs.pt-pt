@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/29/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 66ec923f12c59d606056d48c09f1ba346e9a4d32
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 291ec651061b7a8a3ea3c0645a6bd6581d529ef6
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170376"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66245007"
 ---
-## <a name="sign-in-to-azure"></a>Inicie sessão no  Azure 
+## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure 
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
@@ -56,7 +56,6 @@ Crie a definição de imagem de galeria dentro da sua galeria. Neste exemplo, a 
 1. Quando a implementação estiver concluída, selecione **Ir para recurso**.
 
 
-
 ## <a name="create-an-image-version"></a>Criar uma versão de imagem
 
 Crie uma versão de imagem a partir de uma imagem gerida. Neste exemplo, é a versão da imagem *1.0.0* e ele é replicado para ambas *e.u.a. Centro-Oeste* e *Centro-Sul* centros de dados. Ao escolher as regiões de destino para replicação, lembre-se de que também tem de incluir o *origem* região como um destino para replicação.
@@ -75,3 +74,20 @@ Carateres permitidos para a versão da imagem são números e pontos finais. Tem
 1. Quando a implementação estiver concluída, selecione **Ir para recurso**.
 
 Pode demorar algum tempo para replicar a imagem para todas as regiões de destino.
+
+## <a name="share-the-gallery"></a>Partilhar a Galeria
+
+Recomendamos que também partilha o acesso ao nível da Galeria de imagens. O seguinte explica-lhe partilhar a galeria que acabou de criar.
+
+1. Abra o [Portal do Azure](https://portal.azure.com).
+1. No menu à esquerda, selecione **grupos de recursos**. 
+1. Na lista de grupos de recursos, selecione **myGalleryRG**. É aberto o painel do seu grupo de recursos.
+1. No menu à esquerda dos **myGalleryRG** página, selecione **controlo de acesso (IAM)** . 
+1. Sob **adicionar uma atribuição de função**, selecione **Add**. O **adicionar uma atribuição de função** painel será aberto. 
+1. Sob **função**, selecione **leitor**.
+1. Sob **atribuir acesso aos**, deixe a predefinição **utilizador, grupo ou principal de serviço do Azure AD**.
+1. Sob **selecione**, escreva o endereço de e-mail da pessoa que gostaria de convidar.
+1. Se o usuário estiver fora da sua organização, verá a mensagem **este utilizador será enviado um e-mail que lhes permite colaborar com a Microsoft.** Selecione o utilizador com o endereço de e-mail e, em seguida, clique em **guardar**.
+
+Se o usuário estiver fora da sua organização, receberá um convite por e-mail para aderir a organização. O utilizador tem de aceitar o convite, em seguida, vai poder ver a Galeria e todas as definições de imagem e as versões em sua lista de recursos.
+

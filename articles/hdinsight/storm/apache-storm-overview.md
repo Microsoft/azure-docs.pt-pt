@@ -7,14 +7,14 @@ keywords: apache storm use cases,storm cluster,what is apache storm
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 02/27/2018
+ms.date: 05/24/2019
 ms.author: hrasheed
-ms.openlocfilehash: 5688056bc0d371c780bce02254769792e9a95696
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42aaa91906319133fd2864cd836447fcf3ca3a07
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696099"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66257787"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>O que é o Apache Storm no Azure HDInsight?
 
@@ -47,7 +47,7 @@ O Storm no HDInsight oferece as funcionalidades seguintes:
 
 Para obter uma lista de empresas que utiliza o Apache Storm como solução de análise em tempo real, veja [Companies using Apache Storm](https://storm.apache.org/documentation/Powered-By.html) (Empresas que Utilizam o Apache Storm).
 
-Para começar a utilizar o Storm, veja [introdução ao Apache Storm no HDInsight][gettingstarted].
+Para começar a utilizar o Storm, veja [introdução ao Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md).
 
 ## <a name="how-does-apache-storm-work"></a>Como funciona o Apache Storm
 
@@ -75,7 +75,7 @@ Pode criar um cluster novo do Storm no HDInsight em minutos. Para obter mais inf
 
 ## <a name="ease-of-use"></a>Facilidade de utilização
 
-* __Conectividade Secure Shell (SSH)__: Pode aceder a nós principais do cluster do Storm através da Internet ao utilizar SSH. Pode executar comandos diretamente no seu cluster através de SSH.
+* __Conectividade Secure Shell (SSH)__ : Pode aceder a nós principais do cluster do Storm através da Internet ao utilizar SSH. Pode executar comandos diretamente no seu cluster através de SSH.
 
   Para obter mais informações, veja [Utilizar SSH com o HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -177,10 +177,5 @@ Para uma topologia de exemplo que demonstra como configurar o registo, veja o ex
 
 Saiba mais sobre as soluções de análise em tempo real com Apache Storm no HDInsight:
 
-* [Introdução ao Apache Storm no HDInsight][gettingstarted]
+* [Introdução ao Apache Storm no HDInsight](apache-storm-tutorial-get-started-linux.md)
 * [Topologias de exemplo para Apache Storm no HDInsight](apache-storm-example-topology.md)
-
-[stormtrident]: https://storm.apache.org/documentation/Trident-API-Overview.html
-[samoa]: https://yahooeng.tumblr.com/post/65453012905/introducing-samoa-an-open-source-platform-for-mining
-[apachetutorial]: https://storm.apache.org/documentation/Tutorial.html
-[gettingstarted]: apache-storm-tutorial-get-started-linux.md

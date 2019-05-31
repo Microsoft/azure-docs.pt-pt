@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Introdução | Documentos da Mic
 description: Ativar o Azure Active Directory Domain Services no portal do Azure
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/23/2018
-ms.author: ergreenl
-ms.openlocfilehash: 3020d7b29f19ec2ab578acbebac8db8ea320a844
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.date: 05/22/2019
+ms.author: mstephen
+ms.openlocfilehash: 65cc63b32afcc565f1901c4df2893ad103ec0da3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103579"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234915"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Ativar o Azure Active Directory Domain Services no portal do Azure
 
 
 ## <a name="before-you-begin"></a>Antes de começar
-Consulte [Networking considerations for Azure Active Directory Domain Services (Considerações sobre o funcionamento em rede do Azure Active Directory Domain Services)](active-directory-ds-networking.md).
+Consulte [Networking considerations for Azure Active Directory Domain Services (Considerações sobre o funcionamento em rede do Azure Active Directory Domain Services)](network-considerations.md).
 
 
 ## <a name="task-2-configure-network-settings"></a>Tarefa 2: configurar as definições de rede
@@ -41,7 +41,7 @@ A tarefa de configuração seguinte é criar uma rede virtual do Azure e uma sub
 3. Escolha a rede virtual em que o Azure AD Domain Services deve ser ativado. Pode escolher uma rede virtual existente ou crie um novo.
 
    > [!TIP]
-   > **Não é possível mover o seu domínio gerido para uma rede virtual diferente depois de ativar o Azure AD Domain Services.** Escolha a rede virtual correta para ativar o seu domínio gerido. Depois de criar um domínio gerido, é possível movê-lo para uma rede virtual diferente, sem eliminar o domínio gerido. Recomendamos que reveja os [considerações para o Azure Active Directory Domain Services de redes](active-directory-ds-networking.md) antes de continuar.  
+   > **Não é possível mover o seu domínio gerido para uma rede virtual diferente depois de ativar o Azure AD Domain Services.** Escolha a rede virtual correta para ativar o seu domínio gerido. Depois de criar um domínio gerido, é possível movê-lo para uma rede virtual diferente, sem eliminar o domínio gerido. Recomendamos que reveja os [considerações para o Azure Active Directory Domain Services de redes](network-considerations.md) antes de continuar.  
    >
 
 4. **Crie rede virtual:** Clique em **criar novo** para criar uma nova rede virtual. Utilize uma sub-rede dedicada para o Azure AD Domain Services. Por exemplo, crie uma sub-rede com o nome "DomainServices', tornando mais fácil para os outros administradores compreender o que é implementado na sub-rede. Clique em **OK** quando terminar.
@@ -57,7 +57,7 @@ A tarefa de configuração seguinte é criar uma rede virtual do Azure e uma sub
 
    > [!NOTE]
    > **Diretrizes para selecionar uma sub-rede**
-   > 1. Utilize uma sub-rede dedicada para o Azure AD Domain Services. Não implemente quaisquer outras máquinas virtuais para esta sub-rede. Esta configuração permite-lhe configurar grupos de segurança de rede (NSGs) para as suas máquinas virtuais/cargas de trabalho sem interromper o seu domínio gerido. Para obter detalhes, consulte [considerações para o Azure Active Directory Domain Services de redes](active-directory-ds-networking.md).
+   > 1. Utilize uma sub-rede dedicada para o Azure AD Domain Services. Não implemente quaisquer outras máquinas virtuais para esta sub-rede. Esta configuração permite-lhe configurar grupos de segurança de rede (NSGs) para as suas máquinas virtuais/cargas de trabalho sem interromper o seu domínio gerido. Para obter detalhes, consulte [considerações para o Azure Active Directory Domain Services de redes](network-considerations.md).
    > 2. Não selecione a sub-rede do Gateway para implementar os serviços de domínio do Azure AD, porque não é uma configuração suportada.
    > 3. A sub-rede que selecionou tem de ter, pelo menos, 3 a 5 endereços IP disponíveis no seu espaço de endereços.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 86ad6fce34f323d94f7b9c318ba81f547360d4df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d221b828624e649a0d04a89c4394fe5a7fa857dd
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61038516"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237327"
 ---
 # <a name="networking"></a>Redes
 
@@ -71,6 +71,8 @@ Ampliar a infraestrutura é necessária para ativar o Accelerated Networking num
 * Para executar cargas de trabalho do Windows contentor, utilize [abrir o modo de funcionamento em rede](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode) para facilitar a comunicação de serviço para serviço.
 
 * Utilizar como um proxy inverso [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) ou o [proxy inverso do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) para expor portas de aplicação comuns, como 80 ou 443.
+
+* Para contentores do Windows alojadas em máquinas gapped por ondas eletromagnéticas, que não é possível extrair bases camadas de armazenamento na cloud do Azure, substituir o comportamento de camada externa, utilizando o [– permitir-nondistributable-artefactos](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) sinalizador no daemon do Docker.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

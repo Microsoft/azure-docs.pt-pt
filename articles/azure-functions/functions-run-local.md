@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: fe483f00c5711c2b2b62add32e951d26f732de2f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 3c8d64f34f01e4339b27bdeba455fac143ad53ff
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66131409"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241165"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com as funções do Azure, as ferramentas de núcleo
 
@@ -186,8 +186,8 @@ O ficheiro Settings armazena as definições da aplicação, as cadeias de liga�
   },
   "Host": {
     "LocalHttpPort": 7071,
-    "CORS": "*"
-    "CORSCredentials": true
+    "CORS": "*",
+    "CORSCredentials": false
   },
   "ConnectionStrings": {
     "SQLConnectionString": "<sqlclient-connection-string>"
@@ -318,12 +318,12 @@ O `host` comando apenas é necessária na versão 1.x.
 | **`--cors-credentials`** | Permitir pedidos autenticados de várias origens (ou seja, cookies e o cabeçalho de autenticação) versão 2.x apenas. |
 | **`--cors`** | Uma lista separada por vírgulas de origens CORS, sem espaços. |
 | **`--language-worker`** | Argumentos para configurar a função de trabalho do idioma. Versão 2.x apenas. |
-| **`--nodeDebugPort -n`** | A porta para o depurador de nó utilizar. Predefinição: Um valor de Launch ou 5858. Versão 1.x apenas. |
+| **`--nodeDebugPort -n`** | A porta para o depurador de nó utilizar. predefinição: Um valor de Launch ou 5858. Versão 1.x apenas. |
 | **`--password`** | A palavra-passe ou um ficheiro que contém a palavra-passe para um ficheiro. pfx. Só é utilizada com `--cert`. Versão 2.x apenas. |
 | **`--port -p`** | A porta local a escutar. Valor predefinido: 7071. |
 | **`--pause-on-error`** | Colocar em pausa para entrada adicional antes de sair do processo. Utilizado apenas quando iniciar as ferramentas de núcleo de um ambiente de desenvolvimento integrado (IDE).|
 | **`--script-root --prefix`** | Utilizado para especificar o caminho para a raiz da aplicação de função que está a ser executado ou implantado. Isto é utilizado para os projetos compilados que geram ficheiros de projeto para uma subpasta. Por exemplo, quando criar uma biblioteca de classes do c# arquivos de projeto, o Host. JSON, Settings e Function são gerados numa *raiz* subpasta com um caminho como `MyProject/bin/Debug/netstandard2.0`. Neste caso, defina o prefixo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta é a raiz da aplicação de função quando em execução no Azure. |
-| **`--timeout -t`** | O tempo limite para o anfitrião de funções iniciar, em segundos. Predefinição: 20 segundos.|
+| **`--timeout -t`** | O tempo limite para o anfitrião de funções iniciar, em segundos. predefinição: 20 segundos.|
 | **`--useHttps`** | Vincular `https://localhost:{port}` em vez da `http://localhost:{port}`. Por predefinição, esta opção cria um certificado fidedigno no seu computador.|
 
 Para um classe biblioteca projeto c# (arquivo. csproj), tem de incluir o `--build` opção para gerar o ficheiro. dll de biblioteca.

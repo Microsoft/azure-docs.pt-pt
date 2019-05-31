@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 04/05/2019
+ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee54d37050991763e60a6feb96c75d80384a42ac
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c17835a4155e97395e8ae1b8e9ba6d2a42433f71
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726663"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298734"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações em nós de computação com pacotes de aplicações do Batch
 
@@ -142,7 +142,7 @@ Clique em **Aplicações** > **Adicionar**.
 
 O **nova aplicação** janela fornece os seguintes campos para especificar as definições da sua nova aplicação e o pacote de aplicação.
 
-**Id da aplicação**
+**ID da aplicação**
 
 Este campo especifica o ID da sua nova aplicação, o que está sujeita a regras de validação de ID de lote do Azure standard. As regras para fornecer um ID de aplicação são os seguintes:
 
@@ -176,7 +176,7 @@ Para adicionar uma versão de pacote de aplicação para um aplicativo existente
 
 ![Adicionar o painel de pacote de aplicações no portal do Azure][8]
 
-Como pode ver, os campos corresponderem do **nova aplicação** janela, mas o **id de aplicação** caixa está desativada. Como fez para a nova aplicação, especifique a **versão** para o novo pacote, navegue até sua **pacote de aplicação** . zip de ficheiros, em seguida, clique em **OK** para carregar o pacote.
+Como pode ver, os campos corresponderem do **nova aplicação** janela, mas o **ID de aplicação** caixa está desativada. Como fez para a nova aplicação, especifique a **versão** para o novo pacote, navegue até sua **pacote de aplicação** . zip de ficheiros, em seguida, clique em **OK** para carregar o pacote.
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou eliminar um pacote de aplicação
 Para atualizar ou eliminar um pacote de aplicação existente, abra os detalhes para a aplicação, clique em **pacotes**, clique nas **reticências** na linha do pacote de aplicação que pretende modificar e, selecione a ação que pretende executar.

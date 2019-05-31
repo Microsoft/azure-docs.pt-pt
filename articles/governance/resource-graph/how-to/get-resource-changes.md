@@ -8,12 +8,12 @@ ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4e28ca15197f89caeaeaca0aabb648755b8235f1
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
+ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551546"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236515"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -29,7 +29,7 @@ Deteção de alteração e os detalhes são valiosos para os seguintes cenários
 - Manter um banco de dados de gestão de configuração, conhecido como CMDB, atualizado. Em vez de atualizar todos os recursos e seus conjuntos de propriedades completa numa frequência agendada, obtenha apenas o que foi alterado.
 - Noções básicas sobre as outras propriedades que possam ter sido alteradas quando um recurso alterou o estado de conformidade. Avaliação destas propriedades adicionais pode fornecer informações sobre outras propriedades que poderão ter de ser geridos através de uma definição de política do Azure.
 
-Este artigo mostra como recolher estas informações através do SDK do gráfico de recursos. Para ver estas informações no portal do Azure, veja o Azure Policy [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history-preview) ou o registo de atividades do Azure [histórico de alterações](../../../azure-monitor/platform/activity-logs-overview.md#view-change-history).
+Este artigo mostra como recolher estas informações através do SDK do gráfico de recursos. Para ver estas informações no portal do Azure, veja o Azure Policy [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history-preview) ou o registo de atividades do Azure [histórico de alterações](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
 
 > [!NOTE]
 > Detalhes da alteração no gráfico de recursos são as propriedades do Gestor de recursos. Para controlar as alterações numa máquina virtual, consulte da automatização do Azure [controlo de alterações](../../../automation/automation-change-tracking.md) ou o Azure Policy [configuração de convidado para VMs](../../policy/concepts/guest-configuration.md).
@@ -44,7 +44,7 @@ O primeiro passo para ver o que foi alterado num recurso é encontrar os eventos
 O **resourceChanges** ponto final requer dois parâmetros no corpo do pedido:
 
 - **resourceId**: O recurso do Azure para verificar as alterações.
-- **interval**: Uma propriedade com o _começar_ e _final_ datas para quando verificar a existência de um evento de alteração utilizando o **Zulu fuso horário (Z)**.
+- **interval**: Uma propriedade com o _começar_ e _final_ datas para quando verificar a existência de um evento de alteração utilizando o **Zulu fuso horário (Z)** .
 
 Corpo do pedido de exemplo:
 

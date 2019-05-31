@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: 7ef8715f23d21a23dc3f37b192314b922847d3e1
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 85d6ed80da93f90e6dc0feaee7081ee3f36f1bf9
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805910"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242694"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>Escolha uma análise em tempo real e a tecnologia de processamento no Azure de transmissão em fluxo
 
@@ -25,7 +25,7 @@ O Azure Stream Analytics é o serviço recomendado para o stream analytics no Az
 * Dashboards para visualização de dados
 * Em tempo real [alertas](stream-analytics-set-up-alerts.md) de padrões temporais e geográficos ou de anomalias
 * Extrair, Transformar, Carregar (ETL)
-* [Padrão de origem do evento](/azure/architecture/patterns/event-sourcing.md)
+* [Padrão de origem do evento](/azure/architecture/patterns/event-sourcing)
 * [IoT Edge](stream-analytics-edge.md)
 
 A adição de um Azure Stream Analytics tarefa ao seu aplicativo é a forma mais rápida de obter análise de transmissão a cópia de segurança e em execução no Azure, utilizando a linguagem SQL que já conhece. O Azure Stream Analytics é um serviço de tarefa, para que não temos de clusters de gestão do tempo, e não precisa se preocupar sobre o tempo de inatividade com um SLA de 99,9% no nível de tarefa. Faturação também é feita no nível tarefa tornando os custos com inicialização baixa (uma unidade transmissão em fluxo), mas escaláveis (até 192 unidades de transmissão em fluxo). É muito mais económica para executar algumas tarefas do Stream Analytics que executamos e mantemos um cluster.

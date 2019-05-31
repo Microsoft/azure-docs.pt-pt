@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: d0124d6656167af3942e0d054b4e1fa7a2b48e8b
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: ad1a5b69e4ec7b44c0e61a5ddd2c06633464d31a
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65410054"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234988"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ajuste de desempenho para as VMs do Azure
 
@@ -79,7 +79,7 @@ Tenha em atenção que a aumentar a MTU necessariamente não irá criar uma rede
 
 #### <a name="azure-and-vm-mtu"></a>O Azure e a MTU da VM
 
-A predefinição MTU para VMs do Azure é 1.500 bytes. A pilha de rede Virtual do Azure irá tentar fragmentados um pacote em bytes 1.400. Mas a pilha de rede Virtual irão permitir pacotes até 2,006 bytes quando o bit de fragmento não estiver definido no cabeçalho IP.
+A predefinição MTU para VMs do Azure é 1.500 bytes. A pilha de rede Virtual do Azure irá tentar fragmentados um pacote em bytes 1.400.
 
 Tenha em atenção que a pilha de rede Virtual não é, inerentemente ineficiente porque ele fragmentos pacotes em bytes 1.400, apesar das VMs têm um MTU de 1.500. Uma grande percentagem dos pacotes de rede são muito menor do que 1.400 ou 1.500 bytes.
 
@@ -237,7 +237,7 @@ Estas são as definições de TCP em vigor para `AutoTuningLevel`:
 | | | | |
 |-|-|-|-|
 |**AutoTuningLevel**|**Fator de dimensionamento**|**Multiplicador de dimensionamento**|**Fórmula para<br/>calcular o tamanho máximo da janela**|
-|Desactivado|Nenhuma|Nenhuma|Tamanho da janela|
+|Desativado|Nenhuma|Nenhuma|Tamanho da janela|
 |Restringido|4|2^4|Tamanho da janela * (2 ^ 4)|
 |Altamente restritos|2|2^2|Tamanho da janela * (2 ^ 2)|
 |Normal|8|2^8|Tamanho da janela * (2 ^ 8)|
@@ -256,7 +256,7 @@ Uma vez que uma MTU maior significa um MSS maiores, deve estar imaginando se aum
 
 ### <a name="accelerated-networking-and-receive-side-scaling"></a>Accelerated networking e dimensionamento do lado da receção
 
-#### <a name="accelerated-networking"></a>Funcionamento em rede acelerado
+#### <a name="accelerated-networking"></a>Redes aceleradas
 
 Funções de rede de máquina virtual tem sido historicamente CPU intensiva em VM do convidado e anfitrião de hipervisor /. Cada pacote que transits através do anfitrião do é processado no software através do anfitrião da CPU, incluindo todos os encapsulamento da rede virtual e descapsulação. Para que mais o tráfego que atravessa o anfitrião, maior será a CPU de carga. E se a CPU do anfitrião está ocupada com outras operações, que também irá afetar o débito de rede e a latência. Azure resolve esse problema com o funcionamento em rede acelerado.
 
@@ -264,7 +264,7 @@ Funcionamento em rede acelerado fornece a latência de rede ultralow consistente
 
 Funcionamento em rede acelerado melhora o desempenho ao permitir que a VM para ignorar o host e estabelecer um datapath diretamente com SmartNIC um anfitrião do convidado. Aqui estão alguns dos benefícios de funcionamento em rede acelerado:
 
-- **Menor latência / superior pacotes por segundo (pps)**: Remover o comutador virtual do datapath elimina o tempo gasto de pacotes no anfitrião para processamento de diretiva e aumenta o número de pacotes que podem ser processadas na VM.
+- **Menor latência / superior pacotes por segundo (pps)** : Remover o comutador virtual do datapath elimina o tempo gasto de pacotes no anfitrião para processamento de diretiva e aumenta o número de pacotes que podem ser processadas na VM.
 
 - **Reduzido distorção**: Processamento de comutador virtual depende da quantidade de política que tem de ser aplicadas e a carga de trabalho da CPU que está a fazer o processamento. Descarregar a imposição de política para o hardware remove essa variabilidade fornecendo pacotes diretamente à VM, eliminando a comunicação de anfitrião de VM e todas as interrupções de software e Alternâncias de contexto.
 

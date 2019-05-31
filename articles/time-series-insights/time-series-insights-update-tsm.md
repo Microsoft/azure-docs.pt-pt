@@ -2,7 +2,7 @@
 title: Pré-visualização do modelo de série de tempo no Azure Time Series Insights | Documentos da Microsoft
 description: Modelo de série de tempo de noções básicas sobre o Azure Time Series Insights.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: a9de28c96c2833033a3811835f57cffcccdf4619
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 3e6e8ae76c0ae6f688dd4a039b34c52af16b6e0f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190340"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244015"
 ---
 # <a name="time-series-model"></a>Modelo de Série de Tempo
 
@@ -126,7 +126,7 @@ Considere o exemplo seguinte, em que tem a hierarquia H1 *criando*, *piso*, e *s
 
 Consoante a *campos de instância*, os valores de atributos de hierarquia e aparecem como mostrado na tabela a seguir:
 
-| ID de Série de Tempo | Campos de instância |
+| ID de série de tempo | Campos de instância |
 | --- | --- |
 | ID1 | "Criar" = "1000", "piso" = "10", "espaço" = "55"  |
 | ID2 | "Criar" = "1000", "espaço" = "55" |

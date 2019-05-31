@@ -15,12 +15,12 @@ ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b808654baded5bbe721866441a8d1115eff7bcaa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 842d3146bf1927871e29eb750cde09e9029b7c12
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60308918"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242092"
 ---
 # <a name="view-activity-logs-for-rbac-changes-to-azure-resources"></a>Ver registos de atividade para alterações RBAC para recursos do Azure
 
@@ -32,7 +32,7 @@ Seguem-se as operações relacionadas com o RBAC que estão registadas no regist
 
 - Criar atribuição de função
 - Eliminar atribuição de função
-- Criar ou atualizar uma definição de função personalizada
+- Criar ou atualizar a definição de função personalizada
 - Eliminar definição de função personalizada
 
 ## <a name="azure-portal"></a>Portal do Azure
@@ -46,7 +46,7 @@ O registo de atividades no portal do tem vários filtros. Seguem-se os filtros d
 |Filtro  |Value  |
 |---------|---------|
 |Categoria de eventos     | <ul><li>Administrativa</li></ul>         |
-|Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar uma definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
+|Operação     | <ul><li>Criar atribuição de função</li> <li>Eliminar atribuição de função</li> <li>Criar ou atualizar a definição de função personalizada</li> <li>Eliminar definição de função personalizada</li></ul>      |
 
 
 Para obter mais informações sobre os registos de atividade, consulte [visualizar eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json).
@@ -121,9 +121,9 @@ Aqui estão as etapas básicas para começar a utilizar:
 
 1. [Criar uma área de trabalho do Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
 
-1. [Configurar a solução Log Analytics da atividade](../azure-monitor/platform/collect-activity-logs.md#configuration) sua área de trabalho.
+1. [Configurar a solução Log Analytics da atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution) sua área de trabalho.
 
-1. [Ver os registos de atividade](../azure-monitor/platform/collect-activity-logs.md#using-the-solution). Uma forma rápida de navegar para a página de descrição geral de solução do Log Analytics da atividade é clicar o **do Log Analytics** opção.
+1. [Ver os registos de atividade](../azure-monitor/platform/activity-log-collect.md#activity-logs-analytics-monitoring-solution). Uma forma rápida de navegar para a página de descrição geral de solução do Log Analytics da atividade é clicar o **do Log Analytics** opção.
 
    ![Opção de registos de Monitor do Azure no portal](./media/change-history-report/azure-log-analytics-option.png)
 
@@ -151,4 +151,4 @@ AzureActivity
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Ver eventos no registo de atividades](/azure/azure-resource-manager/resource-group-audit?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json)
-* [Monitorizar a atividade de subscrição com o registo de atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)
+* [Monitorizar a Atividade de Subscrição com o Registo de Atividades do Azure](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)

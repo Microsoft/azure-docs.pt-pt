@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.openlocfilehash: be592cb6bb7c041fab0a2f96a338f4f4bb0ff00a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2d70e1b5434b2fb263d1f4587888d4758fac2828
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510931"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225365"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas de leitura na base de dados do Azure para MySQL
 
@@ -42,8 +42,7 @@ Se um servidor principal tiver não existem servidores de réplica existente, o 
 
 Quando inicia o fluxo de trabalho de réplica de criar, é criada uma base de dados do Azure em branco para o servidor MySQL. O novo servidor é preenchido com os dados que estava no servidor principal. Hora de criação depende da quantidade de dados sobre o modelo global e o tempo desde o último backup completo semanal. O tempo pode variar de alguns minutos a várias horas.
 
-> [!NOTE]
-> Se não tiver um conjunto de alerta de armazenamento a cópia de segurança nos seus servidores, recomendamos que o faça. O alerta informa-o quando um servidor está a atingir o seu limite de armazenamento, o que irá afetar a replicação.
+Cada réplica está ativada para o armazenamento [aumento automático](concepts-pricing-tiers.md#storage-auto-grow). O recurso de auto-grow permite que a réplica para manter-se com os dados replicados para ele e impedir que uma interrupção na replicação causada por fora de erros de armazenamento.
 
 Saiba como [criar uma réplica de leitura no portal do Azure](howto-read-replicas-portal.md).
 
@@ -69,7 +68,7 @@ Esta métrica é calculada usando o `seconds_behind_master` métricas disponíve
 
 Defina um alerta para o informar de quando o desfasamento de atinge um valor que não é aceitável para a sua carga de trabalho.
 
-## <a name="stop-replication"></a>Parar replicação
+## <a name="stop-replication"></a>Parar a replicação
 
 Pode parar a replicação entre um mestre e uma réplica. Depois de parar a replicação entre um servidor principal e uma réplica de leitura, a réplica torna-se um servidor autónomo. Os dados no servidor autónomo são os dados que estava disponíveis na réplica no momento, que o comando de replicação de paragem foi iniciado. O servidor autónomo não fique atualizado com o servidor mestre.
 

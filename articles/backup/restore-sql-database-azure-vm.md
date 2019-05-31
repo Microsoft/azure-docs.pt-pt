@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 05/22/2019
 ms.author: raynew
-ms.openlocfilehash: 1712e46494796e563c26316b4f45d968872c304f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8ade598e4f1b6331367e8bd04ad59951ef5de8f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60781804"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242377"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restaurar bases de dados do SQL Server em VMs do Azure
 
@@ -41,6 +41,7 @@ Antes de restaurar uma base de dados, tenha em atenção o seguinte:
     - Apenas o nome de cliente especificado pode abrir a ligação.
 - Para todas as bases de dados do sistema (modelo, mestra, msdb), pare o serviço de agente do SQL Server antes de acionar o restauro.
 - Feche todas as aplicações que poderão tentar tomar uma ligação a qualquer uma destas bases de dados.
+- Se tiver várias instâncias em execução num servidor, todas as instâncias de devem estar ativado e em execução, caso contrário, o servidor não iria aparecer na lista de servidores de destino para restaurar a base de dados.
 
 ## <a name="restore-a-database"></a>Restaurar uma base de dados
 
@@ -152,6 +153,13 @@ Se tiver selecionado **completa e diferencial** como o tipo de restauro, efetue 
 1. Acompanhar o progresso de restauro no **notificações** área, ou controlá-lo ao selecionar **restaurar trabalhos** no menu da base de dados.
 
     ![Restaurar o progresso da tarefa](./media/backup-azure-sql-database/restore-job-notification.png)
+
+### <a name="restore-databases-with-large-number-of-files"></a>Restaurar bases de dados com grande número de ficheiros
+
+Se o tamanho de cadeia de caracteres total dos ficheiros numa base de dados é maior do que uma [determinada limite](backup-sql-server-azure-troubleshoot.md#files-size-limit-beyond-which-restore-happens-to-default-path), cópia de segurança do Azure armazena a lista de ficheiros de base de dados num componente de pit diferentes, de modo a que não será capaz de definir o caminho de restauro de destino durante a restauração operação. Em vez disso, os ficheiros serão restaurados para o caminho predefinido SQL.
+
+  ![Restaurar a base de dados com ficheiros grandes](./media/backup-azure-sql-database/restore-large-files.jpg)
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

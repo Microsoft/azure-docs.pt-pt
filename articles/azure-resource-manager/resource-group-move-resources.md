@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1ae1afe103d4c52a2a7d921ef4f34dc030f3c6f7
-ms.sourcegitcommit: 4c2b9bc9cc704652cc77f33a870c4ec2d0579451
+ms.openlocfilehash: 4b836faef4630f6bee914478aecaed1bb4db7d71
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65872643"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66225893"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -54,7 +54,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * A Cache do Azure para Redis - se a Cache do Azure para a instância de Redis está configurada com uma rede virtual, a instância não pode ser movida para uma subscrição diferente. Ver [limitações de redes virtuais](#virtual-networks-limitations).
 * Azure Cosmos DB
 * Azure Data Explorer
-* Base de Dados do Azure para MariaDB
+* Azure Database for MariaDB
 * Base de Dados do Azure para MySQL
 * Base de Dados do Azure para PostgreSQL
 * DevOps do Azure - siga os passos para [alterar a subscrição do Azure utilizada para faturação](/azure/devops/organizations/billing/change-azure-subscription?view=azure-devops).
@@ -85,7 +85,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Hubs IoT
 * Não é possível mover o Cofre de chaves - cofres de chave utilizada para encriptação de disco para grupos de recursos na mesma subscrição ou em várias subscrições.
 * Podem ser movidas balanceadores de carga - Balanceador de carga de SKU básico. Não é possível mover o Balanceador de carga de SKU Standard.
-* Logic Apps
+* Aplicações Lógicas
 * Machine Learning - Machine Learning Studio, serviços web podem ser movidos para um grupo de recursos na mesma subscrição, mas não uma subscrição diferente. Outros recursos de aprendizagem automática podem ser movidos entre subscrições.
 * Managed Disks - Managed Disks em zonas de disponibilidade não podem ser movidos para uma subscrição diferente
 * Identidade gerida - atribuído ao utilizador
@@ -107,7 +107,7 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que podem ser mo
 * Serviço SignalR
 * Não é possível mover o armazenamento - contas de armazenamento em regiões diferentes na mesma operação. Em vez disso, a utilizar operações separadas para cada região.
 * Armazenamento (clássica) – consulte [limitações da implementação clássica](#classic-deployment-limitations)
-* Serviço de Sincronização de Armazenamento
+* Serviço de sincronização de armazenamento
 * Estado do Stream Analytics - Analytics Stream tarefas não podem ser movidas quando em execução.
 * Servidor de base de dados SQL - base de dados e o servidor tem de estar no mesmo grupo de recursos. Quando move um SQL server, todas as suas bases de dados também são movidas. Este comportamento aplica-se às bases de dados do Azure SQL Database e o Azure SQL Data Warehouse.
 * Time Series Insights
@@ -130,10 +130,10 @@ A lista seguinte fornece um resumo geral dos serviços do Azure que não pode se
 * Azure Firewall
 * Serviço de Kubernetes do Azure (AKS)
 * Azure Migrate
-* Ficheiros NetApp do Azure
+* Azure NetApp Files
 * Certificados - certificados de serviço de aplicações podem ser movidos, mas tem de certificados carregados [limitações](#app-service-limitations).
 * Aplicativos clássicos
-* Instâncias de Contentores
+* Container Instances
 * Serviço de Contentor
 * Data Box
 * Espaços de desenvolvimento
@@ -323,7 +323,7 @@ A operação pode ser executada durante vários minutos.
 
 ### <a name="recovery-services-limitations"></a>Limitações de serviços de recuperação
 
- Para mover um cofre dos serviços de recuperação, tem de se inscrever num [pré-visualização pública limitada](../backup/backup-azure-move-recovery-services-vault.md).
+ Para mover um cofre dos serviços de recuperação, siga estes passos: [Mover recursos para um novo grupo de recursos ou subscrição](../backup/backup-azure-move-recovery-services-vault.md).
 
 Atualmente, pode mover um cofre de serviços de recuperação por região, ao mesmo tempo. Não é possível mover a cofres de cópias de segurança de ficheiros do Azure, o Azure File Sync ou o SQL em máquinas virtuais IaaS.
 

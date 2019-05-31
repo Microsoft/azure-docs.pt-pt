@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2ba74961eb549afd2fcf7c10f2d8b981e389a2c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f63aebb9a9bbefe84ac36b92cd69e0d93de0ab76
+ms.sourcegitcommit: 8c49df11910a8ed8259f377217a9ffcd892ae0ae
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60381693"
+ms.lasthandoff: 05/29/2019
+ms.locfileid: "66298762"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Resolução de problemas de erros durante a sincronização
 Erros podem ocorrer quando os dados de identidade são sincronizados a partir do Windows Server Active Directory (AD DS) para o Azure Active Directory (Azure AD). Este artigo fornece uma visão geral dos diferentes tipos de erros de sincronização, alguns dos possíveis cenários que fazem com que esses erros e potenciais formas para corrigir os erros. Este artigo inclui os tipos de erro comuns e talvez não abranjam todos os erros possíveis.
@@ -190,7 +190,7 @@ Para um utilizador sincronizado, o sufixo de UserPrincipalName foi alterado de u
 
 #### <a name="example"></a>Exemplo
 1. BOB Smith, uma conta para Contoso.com, é adicionado como um novo utilizador no Active Directory com o UserPrincipalName bob@contoso.com
-2. BOB move para uma divisão diferente de Contoso.com chamado Fabrikam.com e seu UserPrincipalName é alterado para bob@fabrikam.com
+2. BOB move para uma divisão diferente de Contoso.com chamado Fabrikam.com e seus UserPrincipalName é alterado para bob@fabrikam.com
 3. Os domínios contoso.com e fabrikam.com são domínios federados com o Azure Active Directory.
 4. UserPrincipalName do Bob não for atualizado e resulta num erro de sincronização "FederatedDomainChangeError".
 
@@ -221,7 +221,7 @@ Quando um atributo excede o limite de tamanho permitido, o limite de comprimento
 ### <a name="how-to-fix"></a>Como corrigir
 1. Certifique-se de que o atributo causando o erro está dentro da limitação permitida.
 
-## <a name="existing-admin-role-conflict"></a>Conflito de Função de Administrador Existente
+## <a name="existing-admin-role-conflict"></a>Conflito de função de administrador existente
 
 ### <a name="description"></a>Descrição
 Uma **conflito de função de administrador existente** irá ocorrer num objeto de utilizador durante a sincronização quando esse objeto de utilizador tem:

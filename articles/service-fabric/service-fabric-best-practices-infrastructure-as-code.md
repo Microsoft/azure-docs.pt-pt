@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 2dfe1493c6611fb69a417895aaa1028ad5881b9c
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66159934"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237424"
 ---
 # <a name="infrastructure-as-code"></a>Infraestrutura como código
 
@@ -95,6 +95,47 @@ for root, dirs, files in os.walk(self.microservices_app_package_path):
         microservices_sfpkg.write(os.path.join(root, file), os.path.join(root_folder, file))
 
 microservices_sfpkg.close()
+```
+
+## <a name="azure-virtual-machine-operating-system-automatic-upgrade-configuration"></a>Configuração de atualização automática da sistema operativo a Máquina Virtual do Azure 
+A atualização de suas máquinas virtuais é uma operação iniciada pelo utilizador e é recomendado que utilize [Máquina Virtual de dimensionamento definido automática atualização do sistema operativo](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para gerenciamento de patches do host; de clusters do Azure Service Fabric Patch Orchestration Application é uma solução alternativa que destina-se estiverem alojados fora do Azure, embora POA pode ser utilizado no Azure, com custos gerais de hospedagem POA no Azure que está a ser um motivo comum para dar preferência a Máquina Virtual a atualização automática do sistema operativo ao longo do POA. Seguem-se as propriedades do modelo de computação Máquina Virtual de dimensionamento definido do Resource Manager para ativar a atualização de SO automática:
+
+```json
+"upgradePolicy": {
+   "mode": "Automatic",
+   "automaticOSUpgradePolicy": {
+        "enableAutomaticOSUpgrade": true,
+        "disableAutomaticRollback": false
+    }
+},
+```
+Ao utilizar as atualizações automáticas de SO com o Service Fabric, a nova imagem de sistema operacional é lançada um domínio de atualização em simultâneo para manter uma elevada disponibilidade dos serviços em execução no Service Fabric. Para utilizar as atualizações automáticas de SO no Service Fabric cluster tem de ser configurado para utilizar o escalão de durabilidade Silver ou superior.
+
+Certifique-se de que a seguinte chave de registo é definido como falso para impedir que as máquinas de host windows iniciar coordenadas atualizações: HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU.
+
+Seguem-se as propriedades do modelo de computação Máquina Virtual de dimensionamento definido do Resource Manager para definir a chave de registo WindowsUpdate como false:
+```json
+"osProfile": {
+        "computerNamePrefix": "{vmss-name}",
+        "adminUsername": "{your-username}",
+        "secrets": [],
+        "windowsConfiguration": {
+          "provisionVMAgent": true,
+          "enableAutomaticUpdates": false
+        }
+      },
+```
+
+## <a name="azure-service-fabric-cluster-upgrade-configuration"></a>Configuração de atualização de Cluster do Azure Service Fabric
+Segue-se a propriedade de modelo do Resource Manager para ativar a atualização automática do cluster do Service Fabric:
+```json
+"upgradeMode": "Automatic",
+```
+Para atualizar manualmente o cluster, transfira a distribuição do cab/deb a uma máquina virtual de cluster e, em seguida, invoque o PowerShell seguinte:
+```powershell
+Copy-ServiceFabricClusterPackage -Code -CodePackagePath <"local_VM_path_to_msi"> -CodePackagePathInImageStore ServiceFabric.msi -ImageStoreConnectionString "fabric:ImageStore"
+Register-ServiceFabricClusterPackage -Code -CodePackagePath "ServiceFabric.msi"
+Start-ServiceFabricClusterUpgrade -Code -CodePackageVersion <"msi_code_version">
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes

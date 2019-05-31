@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 349896a7114fba83d852b8bc066f4f7eb0a070ba
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e1fc405951789305b0df86fd0f7b91890fb45c06
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550295"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242627"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas de lote, alertas e registos para a avaliação de diagnóstico e monitorização
 
@@ -109,7 +109,7 @@ Outras opções de destino para os registos de diagnóstico:
 
     ![Diagnóstico do batch](media/batch-diagnostics/diagnostics-portal.png)
 
-Outras opções para ativar a recolha de registos incluem: utilizar o Azure Monitor no portal para configurar as definições de diagnóstico, utilize um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md), ou utilizar o Azure PowerShell ou a CLI do Azure. ver [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md#how-to-enable-collection-of-diagnostic-logs).
+Outras opções para ativar a recolha de registos incluem: utilizar o Azure Monitor no portal para configurar as definições de diagnóstico, utilize um [modelo do Resource Manager](../azure-monitor/platform/diagnostic-logs-stream-template.md), ou utilizar o Azure PowerShell ou a CLI do Azure. ver [recolher e consumir dados de registo dos seus recursos do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Registos do diagnóstico de acesso no armazenamento

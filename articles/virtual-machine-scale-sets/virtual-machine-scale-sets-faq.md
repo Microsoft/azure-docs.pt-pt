@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: b5af6c5007130d71f94e1fa748adc333a8d08a48
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 0674d8c98f4bf37bbf9417de60ff4c60910d802a
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64689327"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258293"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQs de conjuntos de dimensionamento de máquina virtual do Azure
 
@@ -621,11 +621,11 @@ Tem alguma flexibilidade em como lidar com alertas para limites especificados. P
 
 ## <a name="patching-and-operations"></a>A aplicação de patches e de operações
 
-### <a name="how-do-i-create-a-scale-set-in-an-existing-resource-group"></a>Como posso criar um conjunto de dimensionamento no grupo de recursos existente?
+### <a name="can-i-create-a-scale-set-in-an-existing-resource-group"></a>Pode criar conjuntos de dimensionamento no grupo de recursos existente?
 
-Criar conjuntos de dimensionamento num recurso existente grupo ainda não é possível a partir do portal do Azure, mas pode especificar um grupo de recursos existente quando implementar um conjunto de dimensionamento de um modelo Azure Resource Manager. Também pode especificar um grupo de recursos existente ao criar o conjunto de dimensionamento com o Azure PowerShell ou CLI.
+Sim, pode criar conjuntos de dimensionamento no grupo de recursos existente.
 
-### <a name="can-we-move-a-scale-set-to-another-resource-group"></a>É possível mover um conjunto de dimensionamento para outro grupo de recursos?
+### <a name="can-i-move-a-scale-set-to-another-resource-group"></a>Pode mover um conjunto de dimensionamento para outro grupo de recursos?
 
 Sim, pode mover recursos do conjunto de dimensionamento para uma nova subscrição ou grupo de recursos.
 

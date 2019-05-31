@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 05/27/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0061fb7946e4c35f855d1a409cb9bc210c73641a
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 891f9fbd26b53b392ac84ed9d420b58558cd20c2
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65228303"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258420"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Pré-visualização de acumular Sentinel do Azure
 
@@ -41,7 +41,7 @@ Depois de ligar as origens de dados, escolha a partir de uma galeria de criado c
 - Inicie a sessão de área de trabalho de análise. Saiba como [criar uma área de trabalho do Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
 
 -  Para ativar o Azure sentinela, terá de permissões de contribuinte à subscrição na qual reside a área de trabalho de sentinela do Azure. 
-- Para utilizar o Azure sentinela, precisa de permissões de Contribuidor ou visualizador no grupo de recursos que pertence a área de trabalho
+- Para utilizar o Azure sentinela, precisa de permissões de contribuinte ou leitor no grupo de recursos que pertence a área de trabalho
 - Permissões adicionais que poderão ser necessária para ligar a origens de dados específicos
  
 ## Ativar Sentinel do Azure <a name="enable"></a>
@@ -54,7 +54,7 @@ Depois de ligar as origens de dados, escolha a partir de uma galeria de criado c
 1. Clique em **+ adicionar**.
 1. Selecione a área de trabalho que pretende utilizar ou criar um novo. É possível executar o Azure sentinela em mais do que uma área de trabalho, mas os dados são isolados para um único espaço de trabalho.
 
-   ![procurar](./media/quickstart-onboard/choose-workspace.png)
+   ![Pesquisa](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - **Localização da área de trabalho** é importante compreender que todos os dados que os transmitir para o Azure sentinela é armazenado na localização geográfica da área de trabalho que selecionou.  

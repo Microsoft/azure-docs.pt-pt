@@ -11,18 +11,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3edc1c2bd328cd6e7b7991ff2b5438b8899a0ce7
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 59a35e44c78ea86f3b02eb4ad99dc1fd8fcb4870
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66160486"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236627"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configurar destinos de computação de preparação de modelos 
 
 Com o serviço do Azure Machine Learning, pode preparar o seu modelo numa variedade de recursos ou ambientes, coletivamente denominados [ __destinos de computação__](concept-azure-machine-learning-architecture.md#compute-target). Um destino de computação pode ser um computador local ou um recurso da nuvem, como uma computação do Azure Machine Learning, Azure HDInsight ou uma máquina virtual remota.  Também pode criar destinos de computação para a implementação de modelo conforme descrito em ["onde e como implementar os seus modelos"](how-to-deploy-and-where.md).
 
-Pode criar e gerir um destino de computação com o SDK do Azure Machine Learning, o portal do Azure ou a CLI do Azure. Se tiver de destinos de computação que foram criados por meio de outro serviço (por exemplo, um cluster do HDInsight), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
+Pode criar e gerir um destino de computação com o SDK do Azure Machine Learning, portal do Azure, a extensão da CLI do Azure ou do Azure Machine Learning VS Code. Se tiver de destinos de computação que foram criados por meio de outro serviço (por exemplo, um cluster do HDInsight), pode utilizá-los ao anexá-las para a área de trabalho do serviço do Azure Machine Learning.
  
 Neste artigo, irá aprender a utilizar vários destinos de computação para a preparação de modelos.  Os passos para todos os destinos de computação siga o mesmo fluxo de trabalho:
 1. __Criar__ um destino de computação se ainda não tiver uma.
@@ -38,7 +38,7 @@ Neste artigo, irá aprender a utilizar vários destinos de computação para a p
 O serviço do Azure Machine Learning tem suporte variado em destinos de computação diferentes. Inicia um ciclo de vida de desenvolvimento do modelo típico com dev/experimentação numa pequena quantidade de dados. Nesta fase, recomendamos que utilize um ambiente local. Por exemplo, seu computador local ou uma VM com base na cloud. À medida que aumentar verticalmente o seu treinamento em conjuntos de dados maiores ou fazer o treinamento distribuído, recomendamos que utilize a computação do Azure Machine Learning para criar um cluster único ou vários node que é dimensionado automaticamente sempre que submete uma execução. Também pode anexar seus próprios recursos de computação, embora o suporte para vários cenários podem variar como detalhadas abaixo:
 
 
-|Destino de treinamento de computação| Aceleração por GPU | Automatizado<br/> a otimização de hiper-parâmetros | Automatizado<br/> machine learning | O Azure Machine Learning Pipelines |
+|Destino de treinamento de computação| Aceleração por GPU | Automatizada<br/> a otimização de hiper-parâmetros | Automatizada<br/> machine learning | O Azure Machine Learning Pipelines |
 |----|:----:|:----:|:----:|:----:|
 |[Computador local](#local)| Talvez | &nbsp; | ✓ | &nbsp; |
 |[Computação do Azure Machine Learning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -377,6 +377,10 @@ Pode acessar os destinos de computação associados à área de trabalho utiliza
 
 Para obter mais informações, consulte [gestão de recursos](reference-azure-machine-learning-cli.md#resource-management).
 
+## <a name="set-up-compute-with-vs-code"></a>Configurar computação com o VS Code
+
+Pode aceder, criar e gerir os destinos de computação associados à área de trabalho utilizando o [extensão do VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) para o serviço Azure Machine Learning.
+
 ## <a id="submit"></a>Submeter treinamento executar
 
 Depois de criar uma configuração de execução, usá-lo para executar a sua experimentação.  O padrão de código para submeter uma execução de treinamento é o mesmo para todos os tipos de destinos de computação:
@@ -416,8 +420,9 @@ Mude a mesma experiência a executar num destino de computação diferentes com 
 
 Em alternativa, pode:
 
-* Submeter a experimentação com um `Estimator` objeto conforme mostrado na [modelos de Train ML com estimadores](how-to-train-ml-models.md). 
+* Submeter a experimentação com um `Estimator` objeto conforme mostrado na [modelos de Train ML com estimadores](how-to-train-ml-models.md).
 * Submeter uma experimentação [com a extensão da CLI](reference-azure-machine-learning-cli.md#experiments).
+* Submeter uma experimentação através da [extensão do VS Code](how-to-vscode-tools.md#train-and-tune-models).
 
 ## <a name="github-tracking-and-integration"></a>Controlo de GitHub e integração
 

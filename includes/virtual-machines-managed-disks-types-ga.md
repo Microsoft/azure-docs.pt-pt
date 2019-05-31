@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 30df480eb314594cbc4d949302aff11e6d764b6f
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: c7b73cad200666db9e926d8e808eaa4a8dccffb2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66147829"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66249112"
 ---
-## <a name="premium-ssd"></a>Premium SSD
+## <a name="premium-ssd"></a>SSD Premium
 
 Premium do Azure SSDs fornecer suporte de disco de elevado desempenho e baixa latência para máquinas virtuais (VMs) com entrada/saída (e/s)-cargas de trabalho intensivas. Para tirar partido da velocidade e o desempenho de discos de armazenamento premium, pode migrar os discos de VM existentes para o Premium SSDs. Premium SSDs são adequadas para aplicações de produção de missão crítica. SSD Premium só pode ser utilizado com a série VM que estão premium compatível com o armazenamento.
 
@@ -24,7 +24,7 @@ Para saber mais sobre os tipos VM individuais e os tamanhos no Azure para Window
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
-Quando aprovisiona um disco de armazenamento premium, ao contrário do armazenamento standard, haverá a garantia de capacidade, IOPS e débito desse disco. Por exemplo, se criar um disco de P50, Azure Aprovisiona a capacidade de armazenamento de 4095 GB, 7.500 IOPS e débito de 250-MB/s desse disco. Seu aplicativo pode usar toda ou parte da capacidade e desempenho. Os discos SSD Premium foram concebidos para fornecer o destino desempenho 99,9% do tempo.
+Quando aprovisiona um disco de armazenamento premium, ao contrário do armazenamento standard, haverá a garantia de capacidade, IOPS e débito desse disco. Por exemplo, se criar um disco de P50, Azure Aprovisiona a capacidade de armazenamento de 4095 GB, 7.500 IOPS e débito de 250-MB/s desse disco. Seu aplicativo pode usar toda ou parte da capacidade e desempenho. Os discos SSD Premium foram concebidos para fornecer latências de milissegundo de dígito baixa e IOPS e débito descrito na tabela anterior 99,9% do tempo de destino.
 
 ### <a name="transactions"></a>Transações
 
@@ -37,7 +37,7 @@ SSDs padrão do Azure são uma opção de armazenamento económico, otimizada pa
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-ssd-sizes](disk-storage-standard-ssd-sizes.md)]
 
-SSDs padrão foram concebidos para fornecer latências de milissegundo de dígito na maioria das operações de e/s e para disponibilizar o IOPS e débito até aos limites descrito na tabela anterior 99% do tempo. IOPS e o débito real podem variar, às vezes, consoante os padrões de tráfego. SSDs padrão irão proporcionar um desempenho mais consistente que os discos HDD com menor latência.
+SSDs padrão foram concebidos para fornecer latências de milissegundo de dígito e o IOPS e débito até aos limites descrito na tabela anterior 99% do tempo. IOPS e o débito real podem variar, às vezes, consoante os padrões de tráfego. SSDs padrão irão proporcionar um desempenho mais consistente que os discos HDD com menor latência.
 
 ### <a name="transactions"></a>Transações
 
@@ -45,7 +45,7 @@ Para os SSDs padrão, cada operação e/s inferior ou igual a 256 KiB de débito
 
 ## <a name="standard-hdd"></a>HDD Standard
 
-HDDs de padrão do Azure fornecem suporte de disco fiável e económica para as VMs executar cargas de trabalho insensível à latência. Também suporta blobs, tabelas, filas e ficheiros. Com o armazenamento standard, os dados são armazenados em unidades de disco rígido (HDDs). Ao trabalhar com VMs, pode utilizar os discos standard SSD e HDD para cenários de desenvolvimento/teste e menos cargas de trabalho críticas. Standard HDDs estão disponíveis em todas as regiões do Azure e podem ser utilizados com todas as VMs do Azure.
+HDDs de padrão do Azure fornecem suporte de disco fiável e económica para as VMs executar cargas de trabalho insensível à latência. Com o armazenamento standard, os dados são armazenados em unidades de disco rígido (HDDs). Discos de latência, IOPS e débito de HDD padrão podem variar amplamente em comparação com discos baseados em SSD. Ao trabalhar com VMs, pode utilizar os discos standard de HDD para cenários de desenvolvimento/teste e menos cargas de trabalho críticas. Standard HDDs estão disponíveis em todas as regiões do Azure e podem ser utilizados com todas as VMs do Azure.
 
 ### <a name="disk-size"></a>Tamanho do disco
 [!INCLUDE [disk-storage-standard-hdd-sizes](disk-storage-standard-hdd-sizes.md)]

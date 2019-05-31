@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: fb829cc5f1eef9c151a70a6479e419076e1c3b24
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
+ms.openlocfilehash: 5123ee3f65744f3d0c255712efe990b01be58e26
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66170328"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66420785"
 ---
 Armazenamento de tamanhos de VM otimizados oferecem débito de disco elevados e e/s e são ideais para macrodados, SQL, NoSQL bases de dados, armazenamento de dados e grandes bancos de dados transacionais.  Os exemplos incluem Cassandra, MongoDB, Cloudera e Redis. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como armazenamento local débito e de rede da largura de banda para cada tamanho otimizada.
 
@@ -37,11 +37,11 @@ Cache de armazenamento Premium: Não suportado
 
 | Tamanho          | vCPU | Memória (GiB) | Disco temporário<sup>1</sup> (GiB) | Discos NVMe<sup>2</sup> | Débito de disco de NVMe<sup>3</sup> (IOPS de leitura / MBps) | Max não colocado em cache o débito de disco de dados (IOPs/MBps)<sup>4</sup> | Discos de dados de máx. | NICs. Máx. / esperado de largura de banda de rede (Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400,000 / 2,000 | 8,000/160 | 16 | 2 / 3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800,000 / 4,000 | 16,000/320 | 32 | 4 / 6,400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 M / 8.000    | 32,000/640 | 32 | 8 / 12,800 | 
-| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16.000   | 64,000/1,280 | 32 | 8 / 16,600+ |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3,8 M / 20.000   | 80,000/1,400 | 32 | 8 / 16,000+ |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000 | 8000/160 | 16 | 2 / 3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1,5 M / 8000    | 32000/640 | 32 | 8 / 12800 |
+| Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9 M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
+| Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3,8 M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
 <sup>1</sup> VMs da série Lsv2 tem um disco de recursos temporário com base de SCSI padrão para utilização do ficheiro de paginação/troca de SO (d no Windows, /dev/sdb no Linux). Este disco fornece 80 GiB de armazenamento, de 4.000 IOPS e velocidade para cada 8 vCPUs (por exemplo, Standard_L80s_v2 fornece GiB 800 40.000 IOPS e 800 MBPS) de transferência de 80 MBps. Isto garante que as unidades de nvme, algo podem ser completamente dedicadas para a utilização de aplicações. Este disco é Efêmera e todos os dados serão perdidos em Parar/desalocar.
 
@@ -50,6 +50,18 @@ Cache de armazenamento Premium: Não suportado
 <sup>3</sup> a tecnologia Hyper-V NVMe Direct fornece acesso otimizado para unidades de NVMe locais em segurança mapeado para o espaço VM do convidado.  Obter o máximo de desempenho, é necessário usar a compilação mais recente do WS2019 ou Ubuntu 18.04 ou 16.04 no Azure Marketplace.  Desempenho de gravação varia com base no tamanho de e/s, a carga de unidade e a utilização de capacidade.
 
 <sup>4</sup> VMs da série Lsv2 não oferecem cache do anfitrião para o disco de dados como não se beneficiem as cargas de trabalho Lsv2.  No entanto, as VMs de Lsv2 pode acomodar a opção de disco de SO efémero de VM do Azure (até 30 GiB).
+
+<sup>5</sup> VMs com mais de 64 vCPUs exigem um destes sistemas de operativos convidados suportados:
+- Windows Server 2016 ou posterior
+- Ubuntu 16.04 LTS ou posterior, com o Azure ajustado kernel (4.15 kernel ou posterior)
+- SLES 12 SP2 ou posterior
+- Versão RHEL ou CentOS 6.7 até 6.10, com o pacote LIS disponibilizadas pela Microsoft 4.3.1 (ou posterior) instalado
+- Versão RHEL ou CentOS 7.3, com o pacote de disponibilizadas pela Microsoft LIS 4.2.1 (ou posterior) instalado
+- Versão RHEL ou CentOS 7.4 ou posterior
+- Oracle Linux com UEK4 ou posterior
+- Debian 9 com o kernel de backports, Debian, 10 ou posterior
+- CoreOS com um kernel 4.14 ou posterior
+
 
 ## <a name="size-table-definitions"></a>Definições da tabela de dimensionamento
 

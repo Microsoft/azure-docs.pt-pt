@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: erikre
-ms.openlocfilehash: 52612419599ef69e7476c660b52f9e6e36946825
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5722e05e5a5e3a57b4d12b70b14f8674364f824b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60615565"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244823"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Descrição geral de APIs de relatórios para os clientes empresariais
 As APIs de relatórios permitem que os clientes do Azure do Enterprise programaticamente extrair dados de faturas e de consumo para ferramentas de análise de dados preferencial. Os clientes empresariais iniciaram uma [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) com o Azure para tornar negociados compromissos monetários e obter acesso aos preços personalizados para recursos do Azure.
@@ -36,29 +36,31 @@ As APIs de relatórios permitem que os clientes do Azure do Enterprise programat
 ## <a name="consumption-apis"></a>APIs de consumo
 Um ponto de final de Swagger está disponível [aqui](https://consumption.azure.com/swagger/ui/index) para as APIs descrito abaixo que deverá ativar fácil introspeção da API e a capacidade de gerar SDKs de cliente a utilizar [AutoRest](https://github.com/Azure/AutoRest) ou [Swagger CodeGen](https://swagger.io/swagger-codegen/). Dados a partir de 1 de Maio de 2014 estão disponíveis através desta API. 
 
-* **Saldo e o resumo** – a [saldo e o resumo de API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) oferece um resumo mensal de informações sobre os saldos, novas compras, os encargos de serviços do Azure Marketplace, ajustes e custos de utilização excedida.
+* **Saldo e o resumo** – a [saldo e o resumo de API](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) oferece um resumo mensal de informações sobre os saldos, novas compras, os encargos de serviços do Azure Marketplace, ajustes e custos de utilização excedida.
 
-* **Detalhes de utilização** – a [API de detalhes de utilização](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) oferece uma análise detalhada diária das quantidades consumidas e estimativa de custos por uma inscrição. O resultado também inclui informações sobre instâncias, medidores e departamentos. A API pode ser consultada por período de faturação ou por uma data de início e de fim especificada. 
+* **Detalhes de utilização** – a [API de detalhes de utilização](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) oferece uma análise detalhada diária das quantidades consumidas e estimativa de custos por uma inscrição. O resultado também inclui informações sobre instâncias, medidores e departamentos. A API pode ser consultada por período de faturação ou por uma data de início e de fim especificada. 
 
-* **Cobrança de Marketplace Store** – a [API de encargos do Marketplace Store](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) devolve a divisão de encargos do marketplace com base na utilização por dia para o período de faturação especificado ou datas de início e de fim (taxas de uma vez não são incluídas).
+* **Cobrança de Marketplace Store** – a [API de encargos do Marketplace Store](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) devolve a divisão de encargos do marketplace com base na utilização por dia para o período de faturação especificado ou datas de início e de fim (taxas de uma vez não são incluídas).
 
-* **Folha de preços** – a [API da folha de preços](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a taxa aplicável para cada contador para a inscrição e o período de faturação determinado. 
+* **Folha de preços** – a [API da folha de preços](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) fornece a taxa aplicável para cada contador para a inscrição e o período de faturação determinado.
 
-## <a name="data-freshness"></a>Atualização de Dados
+* **Reservado detalhes da instância** – a [API de utilização de instância reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) devolve a compra de utilização da instância reservada. O [API os custos de instância reservada](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) mostra as transações de faturas feitas. 
+
+## <a name="data-freshness"></a>Atualização dos dados
 Etags vai ser devolvidas na resposta de toda a API acima. Uma alteração na Etag indica que os dados tiverem sido atualizados.  As chamadas subseqüentes para a mesma API usando os mesmos parâmetros, passa a Etag capturada com a chave "If-None-Match" no cabeçalho de pedido de http. O código de estado de resposta seria "NotModified" se os dados não tiverem sido atualizados de qualquer outra e não existem dados vão ser devolvidos. API irá devolver o conjunto de dados completo para o período necessário sempre que houver uma alteração de etag.
 
 ## <a name="helper-apis"></a>APIs auxiliares
- **Lista de períodos de faturação** – a [API de períodos de faturação](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devolve uma lista de períodos de faturação que tem dados de consumo para a inscrição especificada por ordem cronológica reversa. Cada período contém uma propriedade que aponta para a rota de API para os quatro conjuntos de dados - BalanceSummary, UsageDetails, encargos do Marketplace e folha de preços.
+ **Lista de períodos de faturação** – a [API de períodos de faturação](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) devolve uma lista de períodos de faturação que tem dados de consumo para a inscrição especificada por ordem cronológica reversa. Cada período contém uma propriedade que aponta para a rota de API para os quatro conjuntos de dados - BalanceSummary, UsageDetails, encargos do Marketplace e folha de preços.
 
 
 ## <a name="api-response-codes"></a>Códigos de resposta de API   
-|Código de estado de resposta|Mensagem|Descrição|
+|Código de estado de resposta|Message|Descrição|
 |-|-|-|
-|200| OK|Sem erros|
+|200| OK|Nenhum erro|
 |401| Não autorizado| Chave de API não encontrado, inválido, expirou etc.|
-|404| Indisponível| Ponto final de relatório não foi encontrado|
+|404| Não disponível| Ponto final de relatório não foi encontrado|
 |400| Pedido Inválido| Parâmetros inválidos – intervalos de datas, números EA etc.|
-|500| Erro do Servidor| Erro inesperado ao processar o pedido| 
+|500| Erro de servidor| Erro inesperado ao processar o pedido| 
 
 
 

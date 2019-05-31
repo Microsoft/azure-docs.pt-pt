@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: c7c10608d90f7659b108d2d8c80038f59396de2d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 07e8fce5fd8db5d2070b8e382a0eba2ae7187b0d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61485256"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242779"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>Gerir esquema numa aplicação SaaS que utiliza bases de dados SQL em partição horizontal multi-inquilinos
 
@@ -31,7 +31,7 @@ Este tutorial explora dois cenários a seguir:
 - Implemente atualizações de dados de referência para todos os inquilinos.
 - Reconstrua um índice na tabela que contém os dados de referência.
 
-O [tarefas elásticas](sql-database-elastic-jobs-overview.md) funcionalidade de base de dados SQL do Azure é utilizada para executar estas operações em bases de dados do inquilino. As tarefas também operam na base de dados do inquilino 'template'. A aplicação Wingtip Tickets de exemplo, esta base de dados do modelo é copiado para Aprovisionar uma nova base de dados do inquilino.
+O [tarefas elásticas](elastic-jobs-overview.md) funcionalidade de base de dados SQL do Azure é utilizada para executar estas operações em bases de dados do inquilino. As tarefas também operam na base de dados do inquilino 'template'. A aplicação Wingtip Tickets de exemplo, esta base de dados do modelo é copiado para Aprovisionar uma nova base de dados do inquilino.
 
 Neste tutorial, ficará a saber como:
 
@@ -57,7 +57,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gestão de esquemas SaaS
 
-O modelo de base de dados em partição horizontal multi-inquilino utilizado neste exemplo permite que uma base de dados de inquilinos conter um ou mais inquilinos. Este exemplo explora o potencial para utilizar uma combinação de um inquilino de muitos um inquilino bancos de dados e ativar um *híbrida* modelo de gestão do inquilino. Gerenciamento de alterações a estas bases de dados pode ser complicado. [Tarefas elásticas](sql-database-elastic-jobs-overview.md) facilitam a administração e gestão de grandes quantidades de base de dados. Tarefas permitem-lhe de forma segura e fiável executar scripts do Transact-SQL como tarefas, em relação a um grupo de bases de dados do inquilino. As tarefas são independentes da interação do utilizador ou de uma entrada. Este método pode ser utilizado para implementar alterações de esquema ou dados de referência comuns, em todos os inquilinos numa aplicação. Tarefas elásticas também podem ser utilizadas para manter uma cópia do modelo dourada da base de dados. O modelo é utilizado para criar novos inquilinos ao assegurar sempre o esquema mais recente e dados de referência estão em utilização.
+O modelo de base de dados em partição horizontal multi-inquilino utilizado neste exemplo permite que uma base de dados de inquilinos conter um ou mais inquilinos. Este exemplo explora o potencial para utilizar uma combinação de um inquilino de muitos um inquilino bancos de dados e ativar um *híbrida* modelo de gestão do inquilino. Gerenciamento de alterações a estas bases de dados pode ser complicado. [Tarefas elásticas](elastic-jobs-overview.md) facilitam a administração e gestão de grandes quantidades de base de dados. Tarefas permitem-lhe de forma segura e fiável executar scripts do Transact-SQL como tarefas, em relação a um grupo de bases de dados do inquilino. As tarefas são independentes da interação do utilizador ou de uma entrada. Este método pode ser utilizado para implementar alterações de esquema ou dados de referência comuns, em todos os inquilinos numa aplicação. Tarefas elásticas também podem ser utilizadas para manter uma cópia do modelo dourada da base de dados. O modelo é utilizado para criar novos inquilinos ao assegurar sempre o esquema mais recente e dados de referência estão em utilização.
 
 ![ecrã](media/saas-multitenantdb-schema-management/schema-management.png)
 
@@ -161,8 +161,7 @@ Observe os seguintes itens no *onlinereindex. SQL* script:
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 -->
-* [Managing scaled-out cloud databases (Gerir bases de dados de escalamento horizontal na cloud)](sql-database-elastic-jobs-overview.md)
-* [Create and manage scaled-out cloud databases (Criar e gerir bases de dados de escalamento horizontal na cloud)](sql-database-elastic-jobs-create-and-manage.md)
+* [Managing scaled-out cloud databases (Gerir bases de dados de escalamento horizontal na cloud)](elastic-jobs-overview.md)
 
 ## <a name="next-steps"></a>Passos Seguintes
 

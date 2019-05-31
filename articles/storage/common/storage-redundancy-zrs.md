@@ -9,12 +9,12 @@ ms.date: 10/24/2018
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 3d4c40e172352fc2d92ea5523cad2aebe5468e1e
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 111167584fb2e0e2ee5977e0e24b3ebf07b170c1
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65961434"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66238011"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Armazenamento com redundância de zona (ZRS): Aplicações de armazenamento do Azure de elevada disponibilidade
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -32,10 +32,10 @@ O ZRS está disponível em geral nas seguintes regiões:
 - França Central
 - Leste do Japão
 - Reino Unido Sul
-- Centro dos E.U.A.
-- Leste dos E.U.A.
-- E.U.A Leste 2
-- Oeste dos E.U.A 2
+- Centro dos EUA
+- E.U.A Leste
+- Este dos EUA 2
+- E.U.A. Oeste 2
 
 A Microsoft continua a ativar o ZRS em mais regiões do Azure. Verifique os [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) página regularmente para obter informações sobre novas regiões.
 
@@ -49,7 +49,7 @@ O ZRS não pode proteger os seus dados contra um desastre regional em que vária
 ## <a name="converting-to-zrs-replication"></a>Converter para replicação ZRS
 Migrar para ou do LRS, GRS e RA-GRS é simples. Utilize o portal do Azure ou a API de fornecedor de recursos de armazenamento para alterar o tipo de redundância da sua conta. Azure irá, em seguida, replicar os seus dados em conformidade. 
 
-Migrar dados de ou para ZRS requerem uma estratégia diferente. A migração de ZRS envolve o movimento físico dos dados de um carimbo de armazenamento única para vários carimbos de data / dentro de uma região.
+Migrar dados para o ZRS requerem uma estratégia diferente. A migração de ZRS envolve o movimento físico dos dados de um carimbo de armazenamento única para vários carimbos de data / dentro de uma região.
 
 Existem duas opções principais para migração para o ZRS: 
 

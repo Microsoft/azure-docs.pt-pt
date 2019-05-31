@@ -2,16 +2,16 @@
 title: Como alterar, eliminar ou gerir os seus grupos de gestão - governação do Azure
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia de grupo de gestão.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 04/04/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: b3798ec7578530e04ec9e00086fffaec9a58a7cd
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 028b4cbf62bf9ed0b3b38f54d3b787a8c1368da0
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65950198"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242958"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os recursos com grupos de gestão
 
@@ -206,10 +206,12 @@ Uma das razões para criar um grupo de gestão é agrupar subscrições. Apenas 
 Para mover a subscrição, todas as permissões RBAC seguintes tem de ser verdadeiras:
 
 - Função de "Proprietário" na subscrição filho.
-- Função "Proprietário", "Contribuinte" ou "Contribuinte do grupo de gestão" no group.* de gestão do destino principal
-- Função "Proprietário", "Contribuinte" ou "Contribuinte do grupo de gestão" no group.* de gestão principal existente
+- Função "Proprietário", "Contribuinte" ou "Contribuinte do grupo de gestão" no grupo de gestão de destino principal.
+- Função "Proprietário", "Contribuinte" ou "Contribuinte do grupo de gestão" no grupo de gestão principal existente.
 
-*: A menos que o grupo de gestão principal existente ou o destino é o grupo de gestão de raiz. Uma vez que o grupo de gestão de raiz é a predefinição de destino iguais para todos os novos grupos de gestão e subscrições, os utilizadores não precisam de permissões no mesmo para mover um item.
+Se o grupo de gestão principal existente ou o destino for o grupo de gestão de raiz, os requisitos de permissões não se aplicam. Uma vez que o grupo de gestão de raiz é a predefinição de destino iguais para todos os novos grupos de gestão e subscrições, não precisa de permissões no mesmo para mover um item.
+
+Se a função de proprietário da subscrição é herdada do grupo de gestão atual, seus destinos de mudança são limitados. Só pode mover a subscrição para outro grupo de gestão em que tem a função de proprietário. É possível movê-lo para um grupo de gestão em que for Contribuidor porque perderia a propriedade da subscrição. Se estiver atribuído diretamente para a função de proprietário da subscrição (não herdado do grupo de gestão), pode movê-lo a qualquer grupo de gestão em que for Contribuidor.
 
 Para ver quais as permissões que tem no portal do Azure, selecione a gestão de grupo e, em seguida, selecione **IAM**. Para saber mais sobre as funções do RBAC, veja [gerir o acesso e permissões com RBAC](../../role-based-access-control/overview.md).
 
@@ -325,7 +327,7 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 ![Registos de atividades com grupos de gestão](media/al-mg.png)
 
-Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
+Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"** .
 
 ## <a name="referencing-management-groups-from-other-resource-providers"></a>Grupos de gestão de referenciação de outros fornecedores de recursos
 

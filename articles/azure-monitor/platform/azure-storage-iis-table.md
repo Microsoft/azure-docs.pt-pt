@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: a4e0432260cfb9ee11ed318305fb967d160de835
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 901544886e0a0c90c29e83fc71f7a7a25ffc6862
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66129684"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244890"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Utilizar o armazenamento de Blobs do Azure para armazenamento de tabelas IIS e o Azure para eventos com o Azure Monitor
+# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Recolher registos de diagnóstico do Azure a partir do armazenamento do Azure
 
 O Azure Monitor pode ler os registos para os seguintes serviços que escrever diagnósticos no armazenamento de tabelas ou de registos do IIS escritos para armazenamento de BLOBs:
 

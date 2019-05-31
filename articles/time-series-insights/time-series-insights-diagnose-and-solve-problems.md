@@ -4,19 +4,19 @@ description: Este artigo descreve como diagnosticar, solucionar problemas e reso
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 05/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7be2652355e3b9830d4a5198ba71c0f4a78858dd
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 68d46b54bf066724d8f3474f421d2d1f751b75e3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471678"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235048"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no seu ambiente do Time Series Insights
 
@@ -104,13 +104,13 @@ Certifique-se de que o nome da propriedade timestamp e o valor está em conformi
 
 A maneira mais fácil para garantir que seu nome de propriedade timestamp é capturado e a funcionar corretamente é utilizar o Explorador do Time Series Insights. No Explorador do Time Series Insights, com o gráfico, selecione um período de tempo após introduzir o nome da propriedade timestamp. Com o botão direito a seleção e, em seguida, selecione o **explorar eventos** opção.
 
-No cabeçalho da coluna primeiro deve ser o nome da propriedade timestamp. Junto a palavra **Timestamp**, deverá ver **($ts)**.
+No cabeçalho da coluna primeiro deve ser o nome da propriedade timestamp. Junto a palavra **Timestamp**, deverá ver **($ts)** .
 
 Não verá os seguintes valores:
 
-- *(abc)*: Indica que o Time Series Insights é ler os valores de dados como cadeias de caracteres.
+- *(abc)* : Indica que o Time Series Insights é ler os valores de dados como cadeias de caracteres.
 - *Ícone de calendário*: Indica que o Time Series Insights é ler o valor de dados como *datetime*.
-- *#*: Indica que o Time Series Insights está a ler os valores de dados como um número inteiro.
+- *#* : Indica que o Time Series Insights está a ler os valores de dados como um número inteiro.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

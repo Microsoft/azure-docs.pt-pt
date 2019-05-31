@@ -4,14 +4,14 @@ description: Saiba como proteger dados do Azure Cosmos DB ao utilizar políticas
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/23/2019
 ms.author: govindk
-ms.openlocfilehash: c5c103fcb7f80533f6f34cb51fd661364d77d6ef
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9398eb4038afcd17788e750fcb5c27c76e9f3f44
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60891956"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241084"
 ---
 # <a name="ip-firewall-in-azure-cosmos-db"></a>Firewall do IP no Azure Cosmos DB
 

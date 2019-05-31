@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: e2580a57f943ad8da16cfbaeda2ee35d0f4bb691
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: ed534f910fa1e44d3d53ab61ee86378eba788036
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073187"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240389"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Escalões de preço na base de dados do Azure para PostgreSQL - servidor único
 
@@ -36,51 +36,9 @@ Para escolher um escalão de preço, utilize a tabela seguinte como ponto de par
 
 Depois de criar um servidor, o número de vCores, geração de hardware e preços do escalão (exceto para e do Basic) pode ser alterado ou reduzir verticalmente em segundos. Também independente pode ajustar a quantidade de armazenamento de cópia de segurança e o período de retenção de cópia de segurança ou reduza verticalmente sem períodos de indisponibilidade de aplicação. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. Para obter mais informações, consulte a [Dimensionar recursos](#scale-resources) secção.
 
-
 ## <a name="compute-generations-and-vcores"></a>Gerações de computação e vCores
 
-Computação foram fornecidos recursos como vCores, que representam a CPU lógica do hardware subjacente. Atualmente, pode escolher entre duas gerações de computação, geração 4 e 5 de fins. Geração 4 CPUs lógicas baseiam-se no Intel E5-2673 v3 processadores de 2,4 GHz (Haswell). Geração 5 CPUs lógicas baseiam-se no Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores. Gen 4 e 5 de fins estão disponíveis nas seguintes regiões (o "X" denota disponível). 
-
-| **Região do Azure** | **Geração 4** | **Geração 5** |
-|:---|:----------:|:--------------------:|
-| EUA Central |  | X |
-| EUA Leste |  | X |
-| EUA Leste 2 |  | X |
-| EUA Centro-Norte |  | X |
-| EUA Centro-Sul |  | X |
-| EUA Oeste |  | X |
-| EUA Oeste 2 |  | X |
-| Sul do Brasil |  | X |
-| Canadá Central |  | X |
-| Leste do Canadá |  | X |
-| Europa do Norte |  | X |
-| Europa Ocidental |  | X |
-| França Central |  | X |
-| Reino Unido Sul |  | X |
-| Reino Unido Oeste |  | X |
-| Ásia Oriental |  | X |
-| Sudeste Asiático |  | X |
-| Leste da Austrália |  | X |
-| Austrália Central |  | X |
-| Austrália Central 2 |  | X |
-| Sudeste da Austrália |  | X |
-| Índia Central |  | X |
-| Sul da Índia |  | X |
-| Oeste da Índia |  | X |
-| Leste do Japão |  | X |
-| Oeste do Japão |  | X |
-| Coreia do Sul Central |  | X |
-| Coreia do Sul |  | X |
-| Leste da China 1 | X |  |
-| Leste da China 2 |  | X |
-| Norte da China 1 | X |  |
-| Norte da China 2 |  | X |
-| Alemanha Central |  | X |
-| US DoD Centro  | X |  |
-| US DoD Leste  | X |  |
-| Gov (US) - Arizona |  | X |
-| Gov (US) - Texas |  | X |
-| Gov (US) - Virginia |  | X |
+Computação foram fornecidos recursos como vCores, que representam a CPU lógica do hardware subjacente. 1 de Leste da China, China Norte 1, US DoD Central e US DoD East CPUs lógicas de geração 4 baseados em Intel E5-2673 v3 de utilizar processadores de 2,4 GHz (Haswell). Todas as outras regiões utilizam CPUs lógicas de geração 5 baseados em Intel E5-2673 v4 (Broadwell) 2.3 GHz processadores.
 
 ## <a name="storage"></a>Armazenamento
 
@@ -93,19 +51,27 @@ O armazenamento que Aprovisiona é a quantidade de capacidade de armazenamento d
 | Tamanho de incremento de armazenamento | 1 GB | 1 GB | 1 GB |
 | IOPS | Variável |3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Mínimo de 100 IOPS<br/>Max 6000 IOPS |
 
-É possível adicionar a capacidade de armazenamento adicional durante e após a criação do servidor. O escalão básico não fornece uma garantia IOPS. Nos fins gerais e com a otimização de memória escalões de preço, o IOPS dimensionar-se com o tamanho de armazenamento aprovisionado numa proporção de 3:1.
+Pode adicionar a capacidade de armazenamento adicional durante e após a criação do servidor e permitir que o sistema aumentar o armazenamento automaticamente com base no consumo de armazenamento da sua carga de trabalho. O escalão básico não fornece uma garantia IOPS. Nos fins gerais e com a otimização de memória escalões de preço, o IOPS dimensionar-se com o tamanho de armazenamento aprovisionado numa proporção de 3:1.
 
 Pode monitorizar o consumo de e/s no portal do Azure ou através dos comandos da CLI do Azure. As métricas relevantes para monitorizar estão [limite de armazenamento, percentagem de armazenamento, armazenamento utilizado e por cento de e/s](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>For atingido o limite de armazenamento
 
-O servidor está marcado como sendo só de leitura quando a quantidade de armazenamento gratuito alcançar a menor das opções de 5 GB ou 5% do armazenamento aprovisionado. Por exemplo, se aprovisionou 100 GB de armazenamento e a utilização real é feito por GB 95, o servidor está marcado como só de leitura. Como alternativa, se tiver aprovisionado 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento gratuito chegar a menos de 250 MB.  
+Servidores com menos do que 100 GB aprovisionado armazenamento são marcados como só de leitura, se o armazenamento livre é inferior a 512MB ou 5% do tamanho do armazenamento aprovisionado. Servidores com mais de 100 GB aprovisionado armazenamento são marcadas como leitura apenas quando o armazenamento livre é inferior a 5 GB.
+
+Por exemplo, se aprovisionou 110 GB de armazenamento e a utilização real é feito por 105 GB, o servidor está marcado como só de leitura. Em alternativa, se aprovisionou 5 GB de armazenamento, o servidor é marcado como só de leitura quando o armazenamento livre atinge menos de 512 MB.
 
 Quando o servidor está definido só de leitura, todas as sessões existentes estão ligado à Internet e as transações não confirmadas são revertidas. Quaisquer operações de escrita subsequentes e a transação consolida a ativação. Todas as consultas de leitura subsequentes irão funcionar sem interrupções.  
 
 Pode aumentar a quantidade de armazenamento aprovisionado para o seu servidor ou iniciar uma nova sessão nos dados de modo e soltar de leitura / escrita de reclamar armazenamento gratuito. Executar `SET SESSION CHARACTERISTICS AS TRANSACTION READ WRITE;` define a sessão atual para ler o modo de escrita. Para evitar danos em dados, executa quaisquer operações de escrita quando o servidor ainda está no estado só de leitura.
 
-Recomendamos que configure um alerta para ser notificado quando o armazenamento de servidor está prestes a atingir o limiar para que pode evitar que o estado só de leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
+Recomendamos que ative armazenamento aumento automático ou configurar um alerta para notificá-lo quando o seu armazenamento de servidor está prestes a atingir o limiar por isso, pode evitar que o estado só de leitura. Para obter mais informações, consulte a documentação sobre [como configurar um alerta](howto-alert-on-metric.md).
+
+### <a name="storage-auto-grow"></a>Aumento automático do armazenamento
+
+Se o aumento automático de armazenamento é ativada, o armazenamento aumenta automática, sem afetar a carga de trabalho. Para servidores com menos do que 100 GB aprovisionado de armazenamento, o tamanho de armazenamento aprovisionado é aumentado em 5 GB, assim que o armazenamento livre é inferior o maior de 1 GB ou 10% do armazenamento aprovisionado. Para servidores com mais de 100 GB de armazenamento de aprovisionamento, o tamanho de armazenamento aprovisionado é aumentado por 5% quando o espaço de armazenamento livre é inferior a 5% do tamanho do armazenamento aprovisionado. Limites de armazenamento máximos, conforme especificado acima aplicam-se.
+
+Por exemplo, se aprovisionou 1000 GB de armazenamento e a utilização real é feito por 950 GB, o tamanho de armazenamento do servidor é aumentada para 1050 GB. Em alternativa, se aprovisionou 10 GB de armazenamento, o tamanho de armazenamento é aumento para 15 GB quando menos de 1 GB de armazenamento é gratuito.
 
 ## <a name="backup"></a>Cópia de segurança
 

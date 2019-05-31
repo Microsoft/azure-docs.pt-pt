@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/22/2018
+ms.date: 05/23/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: be0de7e809565fce4171401760d11ef9de45724e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541673"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236108"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrições de acesso de serviço de aplicações do Azure #
 
@@ -54,7 +54,7 @@ Pode clicar em **[+] adicionar** para adicionar uma nova regra de restrição de
 
 Ao criar uma regra, tem de selecionar permitir/recusar e também o tipo de regra. Também tem de fornecer o valor de prioridade e o que está a restringir o acesso a.  Opcionalmente, pode adicionar um nome e uma descrição para a regra.  
 
-Para definir um endereço IP com base em regra, selecione um tipo de IPv4 ou IPv6. A notação de endereço IP tem de ser especificada na notação CIDR para endereços IPv4 e IPv6. Para especificar um endereço exato, pode usar algo como 1.2.3.4/32 onde os quatro primeiros octetos representam o seu endereço IP e /32 é a máscara. A notação de CIDR de IPv4 para todos os endereços é 0.0.0.0/0. Para saber mais sobre a notação CIDR, leia [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). 
+Para definir um endereço IP com base em regra, selecione um tipo de IPv4 ou IPv6. A notação de endereço IP tem de ser especificada na notação CIDR para endereços IPv4 e IPv6. Para especificar um endereço exato, pode usar algo como 1.2.3.4/32 onde os quatro primeiros octetos representam o seu endereço IP e /32 é a máscara. A notação de CIDR de IPv4 para todos os endereços é 0.0.0.0/0. Para saber mais sobre a notação CIDR, leia [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 ![Adicionar uma regra de restrição de acesso de VNet](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
@@ -79,6 +79,14 @@ Para eliminar uma regra, clique no **...**  na sua regra e clique em **remover**
 Além de ser capaz de controlar o acesso à sua aplicação, também pode restringir o acesso ao site scm utilizado pela sua aplicação. O site do scm é web implementar ponto final e também a consola Kudu. Em separado pode atribuir as restrições de acesso ao scm site da aplicação ou utilizar o mesmo definido para a aplicação e o site do scm. Quando seleciona a caixa para têm as mesmas restrições que a sua aplicação, tudo o que é blanked horizontalmente. Se desmarcar a caixa, são aplicadas a quaisquer definições que tinha anteriormente no site do scm. 
 
 ![restrições de acesso de lista](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+
+## <a name="blocking-a-single-ip-address"></a>Bloqueio de um único endereço IP ##
+
+Ao adicionar a sua primeira regra de restrição de IP, o serviço irá adicionar explícita **recusar tudo** regra com prioridade 2147483647. Na prática, o explícita **recusar tudo** regra será a última regra executada e irá bloquear o acesso para qualquer endereço IP que não é explicitamente permitido utilizando um **permitir** regra.
+
+Para o cenário em que os usuários querem bloquear explicitamente um único endereço IP ou o bloco de endereços IP, mas permitir tudo o que mais acesso, é necessário adicionar explícita **permitir todas as** regra.
+
+![endereço de ip único bloco](media/app-service-ip-restrictions/block-single-address.png)
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipulação programática de regras de restrição de acesso ##
 

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 05/24/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 33d0e5f92d5de104530882b204b1f196360511b2
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65826743"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236449"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de uma subscrição do Azure para outra conta
 
@@ -102,7 +102,9 @@ Transferência de subscrição Self-Service está disponível para ofertas ou ti
 
 ### <a name="whoisaa"></a> Quem é o administrador de conta da subscrição?
 
-O administrador de conta é a pessoa que inscreveu ou comprou a subscrição do Azure. Eles estão autorizados a aceder a [Centro de contas](https://account.azure.com/Subscriptions) e realizar várias tarefas de gestão, como criar subscrições, cancelar subscrições, alterar a faturação de uma subscrição ou alterar o administrador de serviço. Se não tiver a certeza de quem é o administrador de conta de uma subscrição, utilize os seguintes passos para descobrir.
+O administrador de conta é a pessoa que inscreveu ou comprou a subscrição do Azure. Eles estão autorizados a aceder a [Centro de contas](https://account.azure.com/Subscriptions) e realizar várias tarefas de gestão, como criar subscrições, cancelar subscrições, alterar a faturação de uma subscrição ou alterar o administrador de serviço. Para obter mais informações sobre permissões e funções de administrador de compreensão, consulte [permissões da função de administrador no Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+
+Se não tiver a certeza de quem é o administrador de conta de uma subscrição, utilize os seguintes passos para descobrir.
 
 1. Visite a [página de Subscrições no portal do Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Selecione a subscrição que pretende verificar e, em seguida, procure em **definições**.

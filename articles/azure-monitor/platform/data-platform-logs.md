@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 897f2eef0a52838d6190cb85a6a7f4492250935b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60809161"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66244860"
 ---
 # <a name="logs-in-azure-monitor"></a>Registos no Azure Monitor
 
@@ -79,7 +79,7 @@ O Azure Monitor pode recolher dados de registo de uma variedade de origens no Az
 | Dados | Descrição |
 |:---|:---|
 | Registos de auditoria do Azure Active Directory | Configurado através de definições de diagnóstico para cada diretório. Ver [registos de integrar o Azure AD com os registos do Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).  |
-| Registos de atividade | Armazenados em separado por predefinição e pode ser utilizado para perto de alertas em tempo real. Instale a solução Log Analytics da atividade escrever a área de trabalho do Log Analytics. Ver [recolher e analisar registos de atividades do Azure no Log Analytics](collect-activity-logs.md). |
+| Registos de atividade | Armazenados em separado por predefinição e pode ser utilizado para perto de alertas em tempo real. Instale a solução de análise para a área de trabalho do Log Analytics de escrita de registo de atividades. Ver [recolher e analisar registos de atividades do Azure no Log Analytics](activity-log-collect.md). |
 
 ### <a name="azure-resources"></a>Recursos do Azure
 

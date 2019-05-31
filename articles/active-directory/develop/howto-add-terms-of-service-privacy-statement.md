@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2242c6fc46f5556de0b0dd63659670e9c3f998d
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
-ms.translationtype: HT
+ms.openlocfilehash: 399f72c7819378ddc1566c2bdde94801b2c71687
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65540191"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235304"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar os termos de serviço e declaração de privacidade de uma aplicação
 
@@ -56,33 +56,20 @@ Exemplos: `https://myapp.com/terms-of-service` e `https://myapp.com/privacy-stat
 
 Quando os termos de serviço e declaração de privacidade encontram prontos, pode adicionar ligações a estes documentos na sua aplicação com um dos seguintes métodos:
 
-* [Através do portal do Azure](#registered-in-azure-portal)
-* [No Portal de registo de aplicação ou centro de desenvolvimento](#registered-in-app-reg-portal)
+* [Através do portal do Azure](#azure-portal)
 * [Usando o objeto de aplicação JSON](#app-object-json)
 * [Usando a versão beta de MSGraph REST API](#msgraph-beta-rest-api)
 
-### <a name="registered-in-azure-portal"></a>Se tiver registado a sua aplicação no portal do Azure
-
-Se tiver registado a sua aplicação no portal do Azure, siga estes passos.
+### <a name="azure-portal"></a>No portal do Azure
+Siga estes passos no portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Navegue para o **registos das aplicações** secção e selecione a sua aplicação.
-3. Abra o **propriedades** secção da aplicação.
+3. Abra o **marca** painel.
 4. Preencha os **URL de termos de serviço** e **URL de declaração de privacidade** campos.
 5. Guarde as alterações.
 
     ![Secção de propriedades de aplicação com os termos de serviço e a privacidade URLs de instrução](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
-
-### <a name="registered-in-app-reg-portal"></a>Se tiver registado a sua aplicação no Portal de registo de aplicação
-
-Siga estes passos, se tiver registado a sua aplicação no Portal de registo de aplicação ou no Dev Center.
-
-1. Inicie sessão para o [Portal de registo de aplicação](https://apps.dev.microsoft.com/).
-2. Selecione a sua aplicação e desloque-se para o **perfil** secção.
-3. Preencha os **URL de termos de serviço** e **URL de declaração de privacidade** campos.
-4. Guarde as alterações.
-
-    ![Seção de perfil de aplicação com os termos de URLs de declaração de serviço e de privacidade](./media/howto-add-terms-of-service-privacy-statement/app-registration-portal-profile-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>Usando o objeto de aplicação JSON
 

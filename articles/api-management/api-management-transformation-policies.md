@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: apimpm
-ms.openlocfilehash: b3f86147eb91e874d5317204ca05fb45628414d3
-ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
+ms.openlocfilehash: 28720098206c7afdefacbd47de283b2ef8d5a606
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65833418"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243247"
 ---
 # <a name="api-management-transformation-policies"></a>Políticas de transformação de gestão de API
 Este tópico fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -78,7 +78,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|aplicar|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> Aplique - sempre - sempre a conversão.<br />converter o - json de tipo de conteúdo - apenas se o cabeçalho de resposta Content-Type indica a presença de JSON.|Sim|N/A|
+|Aplicam-se|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> Aplique - sempre - sempre a conversão.<br />converter o - json de tipo de conteúdo - apenas se o cabeçalho de resposta Content-Type indica a presença de JSON.|Sim|N/A|
 |consider-accept-header|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se JSON é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
 |data de análise|Quando definido como `false` valores de data simplesmente são copiados durante a transformação|Não|true|
 
@@ -123,7 +123,7 @@ Este tópico fornece uma referência para as seguintes políticas de gestão de 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |tipo|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> javascript-amigável - o JSON convertido tem uma forma amigável aos desenvolvedores JavaScript.<br />-direto - o JSON convertido reflete a estrutura do documento XML original.|Sim|N/A|
-|aplicar|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> -sempre - converta sempre.<br />converter o-conteúdo tipo-xml - apenas se o cabeçalho de resposta Content-Type indica a presença de XML.|Sim|N/A|
+|Aplicam-se|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> -sempre - converta sempre.<br />converter o-conteúdo tipo-xml - apenas se o cabeçalho de resposta Content-Type indica a presença de XML.|Sim|N/A|
 |consider-accept-header|O atributo tem de ser definido para um dos seguintes valores.<br /><br /> aplica - verdadeiro - conversão se XML é solicitado no pedido. o cabeçalho Accept.<br />-FALSO - aplique sempre conversão.|Não|true|
 
 ### <a name="usage"></a>Utilização
@@ -215,7 +215,7 @@ ou
 ```
 
 > [!NOTE]
-> Entidades de back-end podem ser geridas através da gestão [API](https://docs.microsoft.com/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
+> Entidades de back-end podem ser geridas através da gestão [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### <a name="example"></a>Exemplo
 
@@ -270,7 +270,7 @@ Neste exemplo de política encaminha o pedido para um serviço fabric back-end, 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
 |base-url|Novo back-end base URL do serviço.|Um dos `base-url` ou `backend-id` tem de estar presente.|N/A|
-|id de back-end|Identificador do back-end para encaminhar para. (Geridas através de entidades de back-end [API](https://docs.microsoft.com/rest/api/apimanagement/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um dos `base-url` ou `backend-id` tem de estar presente.|N/A|
+|id de back-end|Identificador do back-end para encaminhar para. (Geridas através de entidades de back-end [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) e [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|Um dos `base-url` ou `backend-id` tem de estar presente.|N/A|
 |sf-partition-key|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Utilizado para resolver uma partição específica do serviço de resolução do nome.|Não|N/A|
 |sf-replica-type|Apenas aplicável quando o back-end é um serviço do Service Fabric e é especificado com o "back-end-id". Controla se o pedido deve ir para a réplica primária ou secundária de uma partição. |Não|N/A|
 |sf-resolve-condition|Apenas aplicável quando o back-end é um serviço do Service Fabric. Identificando se a chamada ao back-end do Service Fabric tem de ser repetido com a nova resolução de condição.|Não|N/A|
@@ -405,7 +405,7 @@ O `set-body` política pode ser configurada para utilizar o [líquidos](https://
 
 |Name|Descrição|Necessário|Predefinição|
 |----------|-----------------|--------------|-------------|
-|modelo|Utilizado para alterar o modo de modelos que a política de corpo de conjunto será executada no. Atualmente o único valor suportado é:<br /><br />-líquidos - definir a política de corpo irá utilizar o mecanismo de modelagem de líquidos |Não||
+|Modelo|Utilizado para alterar o modo de modelos que a política de corpo de conjunto será executada no. Atualmente o único valor suportado é:<br /><br />-líquidos - definir a política de corpo irá utilizar o mecanismo de modelagem de líquidos |Não||
 
 Para aceder a informações sobre o pedido e resposta, o modelo de fluidos pode vincular a um objeto de contexto com as seguintes propriedades: <br />
 <pre>context.
@@ -651,7 +651,7 @@ OriginalUrl.
 
 |Atributo|Descrição|Necessário|Predefinição|
 |---------------|-----------------|--------------|-------------|
-|modelo|O URL do serviço web reais com quaisquer parâmetros de cadeia de caracteres de consulta. Quando utilizar expressões, o valor inteiro tem de ser uma expressão.|Sim|N/A|
+|Modelo|O URL do serviço web reais com quaisquer parâmetros de cadeia de caracteres de consulta. Quando utilizar expressões, o valor inteiro tem de ser uma expressão.|Sim|N/A|
 |copy-unmatched-params|Especifica se os parâmetros de consulta no pedido de entrada não está presente no modelo de URL original são adicionados para a URL definida pelo modelo de escrever novamente|Não|true|
 
 ### <a name="usage"></a>Utilização
@@ -715,7 +715,7 @@ OriginalUrl.
 |Name|Descrição|Necessário|
 |----------|-----------------|--------------|
 |xsl-transform|Elemento raiz.|Sim|
-|parâmetro|Utilizado para definir variáveis usadas na transformação|Não|
+|Parâmetro|Utilizado para definir variáveis usadas na transformação|Não|
 |xsl:stylesheet|Elemento de folha de estilo de raiz. Todos os elementos e atributos definidos no siga o padrão [especificação XSLT](https://www.w3.org/TR/xslt)|Sim|
 
 ### <a name="usage"></a>Utilização

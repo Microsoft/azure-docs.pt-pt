@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/30/2018
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a1e3c2facc10b68fe4b33d4cd0531f181b1e813
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: df9c3ecbec6dccd9ba8db2b375cfab3276005098
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60581127"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65072993"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>O Azure Container Instances e orquestradores de contentor
 
@@ -56,7 +56,7 @@ Em vez de aumentar horizontalmente o número de máquinas virtuais no seu cluste
 
 ## <a name="sample-implementation-virtual-nodes-for-azure-kubernetes-service-aks"></a>Implementação de exemplo: nós virtuais para o Azure Kubernetes Service (AKS)
 
-Rapidamente, dimensionar cargas de trabalho de aplicação num [do Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster (AKS), pode usar *nós virtuais* criado dinamicamente no Azure Container Instances. Atualmente em pré-visualização, nós virtuais de ativar a comunicação de rede entre os pods que são executados no ACI e o cluster do AKS. 
+Rapidamente, dimensionar cargas de trabalho de aplicação num [do Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster (AKS), pode usar *nós virtuais* criado dinamicamente no Azure Container Instances. Nós virtuais de ativar a comunicação de rede entre os pods que são executados no ACI e o cluster do AKS. 
 
 Nós virtuais suportam atualmente as instâncias de contentor do Linux. Comece connosco virtuais utilizando o [CLI do Azure](https://go.microsoft.com/fwlink/?linkid=2047538) ou [portal do Azure](https://go.microsoft.com/fwlink/?linkid=2047545).
 

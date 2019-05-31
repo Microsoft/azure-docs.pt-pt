@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 398b7a78c9bc13631e15c8725efb8cc0fba3f127
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 62261e46dc4744597acd10c32f0a835f4a597d4d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65806480"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66243963"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Expandir o suporte para o SQL Server 2008 e SQL Server 2008 R2 com o Azure
 
@@ -56,9 +56,9 @@ Para migrações em massa, recomendamos [do Azure Site Recovery](/azure/site-rec
 
 SQL Server requer instantâneos consistentes com aplicações do Azure Site Recovery para garantir a recuperação; e o Azure Site Recovery suporta instantâneos consistentes com a aplicação com o intervalo mínimo de 1 hora. O RPO mínimo possível para o SQL Server com as migrações do Azure Site Recovery é de 1 hora e o RTO é de 2 horas mais tempo de recuperação do SQL Server.
 
-### <a name="database-migration-service"></a>Serviço de Migração de Base de Dados
+### <a name="database-migration-service"></a>Serviço de Migração de Bases de Dados
 
-O [Database Migration Service](/dms/dms-overview) é uma opção para os clientes se migrar do local para a VM do Azure com a atualização do SQL Server para SQL Server 2012 e superior.
+O [Database Migration Service](/azure/dms/dms-overview) é uma opção para os clientes se migrar do local para a VM do Azure com a atualização do SQL Server para SQL Server 2012 e superior.
 
 ## <a name="disaster-recovery"></a>Recuperação após desastre
 

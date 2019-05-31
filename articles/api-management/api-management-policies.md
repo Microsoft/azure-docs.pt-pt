@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: ad57f86e221a98461fcd1dc11b92f5665d6128d0
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e27829fe5ebf57552ef4e97a2bfc7b6aefd81dc8
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65786450"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66254404"
 ---
 # <a name="api-management-policies"></a>Políticas de API Management
 Esta secção fornece uma referência para as seguintes políticas de gestão de API. Para informações sobre como adicionar e configurar as políticas, consulte [políticas de gestão de API](api-management-howto-policies.md).  
@@ -39,12 +39,15 @@ Esta secção fornece uma referência para as seguintes políticas de gestão de
     -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) -impõe a existência e a validade de um JWT extraído de um cabeçalho de HTTP especificado ou um parâmetro de consulta especificada.  
 -   [Políticas avançadas](api-management-advanced-policies.md#AdvancedPolicies)  
     -   [Controlar o fluxo](api-management-advanced-policies.md#choose) - condicionalmente aplica-se as declarações de política com base na avaliação de expressões booleanas.  
-    -   [Reencaminhar pedido](api-management-advanced-policies.md#ForwardRequest) -reencaminha o pedido para o serviço de back-end.  
-    -   [Registo para o Hub de eventos](api-management-advanced-policies.md#log-to-eventhub) -envia mensagens no formato especificado para um destino de mensagem definido por uma entidade de registo.  
+    -   [Reencaminhar pedido](api-management-advanced-policies.md#ForwardRequest) -reencaminha o pedido para o serviço de back-end.
+    -   [Limitar a simultaneidade](api-management-advanced-policies.md#LimitConcurrency) -impede entre as políticas de execução em mais do que o número especificado de pedidos de cada vez.
+    -   [Registo para o Hub de eventos](api-management-advanced-policies.md#log-to-eventhub) -envia mensagens no formato especificado para um destino de mensagem definido por uma entidade de registo.
+    -   [Simular a resposta](api-management-advanced-policies.md#mock-response) -anulações de execução do pipeline e devolver uma resposta simulada diretamente para o chamador.
     -   [Repita](api-management-advanced-policies.md#Retry) -repete a execução das declarações a política circunscritas, se e até que a condição é cumprida. A execução será repetida em intervalos de tempo especificados e até especificado o número de tentativas.  
     -   [Devolver a resposta](api-management-advanced-policies.md#ReturnResponse) -anulações de execução do pipeline e devolve a resposta especificada diretamente para o chamador.  
     -   [Enviar pedido unidirecional](api-management-advanced-policies.md#SendOneWayRequest) -envia um pedido para o URL especificado sem aguardar uma resposta.  
-    -   [Enviar pedido](api-management-advanced-policies.md#SendRequest) -envia um pedido para o URL especificado.  
+    -   [Enviar pedido](api-management-advanced-policies.md#SendRequest) -envia um pedido para o URL especificado.
+    -   [Definir o HTTP proxy](api-management-advanced-policies.md#SetHttpProxy) -permite-lhe a pedidos de rota reencaminhado através de um proxy HTTP.
     -   [Definir variável](api-management-advanced-policies.md#set-variable) -manter um valor numa variável de contexto nomeado para acesso posterior.  
     -   [Definir o método de pedido](api-management-advanced-policies.md#SetRequestMethod) -permite-lhe alterar o método HTTP para um pedido.  
     -   [Definir o código de estado](api-management-advanced-policies.md#SetStatus) -altera o código de estado HTTP para o valor especificado.  

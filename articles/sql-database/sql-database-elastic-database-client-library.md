@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: c0d50f3a66d940618f2bc421537b113120a2eaca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1c6e77f3afc90a8c018296db80253d8b9a22159e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61475869"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234114"
 ---
 # <a name="building-scalable-cloud-databases"></a>Criar bases de dados de nuvem escaláveis
 
-Aumentar horizontalmente de bases de dados pode ser facilmente feito usando ferramentas dimensionáveis e funcionalidades para a base de dados do Azure SQL. Em particular, pode utilizar o **biblioteca de clientes de bases de dados elásticas** para criar e gerir bases de dados de escalamento horizontal. Esta funcionalidade permite-lhe desenvolver facilmente aplicações em partição horizontal, com centenas – ou até mesmo milhares – de bases de dados SQL do Azure. [Tarefas elásticas](sql-database-elastic-jobs-powershell.md) , em seguida, pode ser utilizado para o ajudar a facilidade de gestão destas bases de dados.
+Aumentar horizontalmente de bases de dados pode ser facilmente feito usando ferramentas dimensionáveis e funcionalidades para a base de dados do Azure SQL. Em particular, pode utilizar o **biblioteca de clientes de bases de dados elásticas** para criar e gerir bases de dados de escalamento horizontal. Esta funcionalidade permite-lhe desenvolver facilmente aplicações em partição horizontal, com centenas – ou até mesmo milhares – de bases de dados SQL do Azure.
 
 Para transferir:
 
@@ -54,7 +54,7 @@ Ampliar aplicativos usando *fragmentação* apresenta desafios para tanto o dese
 - **Gestão de mapas de partições horizontais**: É criada uma base de dados especial chamado o "Gestor de mapas de partições horizontais". Gestão de mapas de partições horizontais é a capacidade para uma aplicação Gerir metadados sobre suas partições horizontais. Os programadores podem utilizar esta funcionalidade para registrar as bases de dados como as partições horizontais, descrevem os mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para essas bases de dados e manter esses metadados, como o número e composição de bases de dados se desenvolve para refletir as alterações de capacidade. Sem a biblioteca de cliente da base de dados elástica, terá de gastar muito tempo escrevendo o código de gestão quando a implementação da fragmentação. Para obter detalhes, consulte [gestão de mapas de partições horizontais](sql-database-elastic-scale-shard-map-management.md).
 
 - **Encaminhamento dependente de dados**: Imagine um pedido para o aplicativo. Com base no valor da chave de fragmentação da solicitação, o aplicativo precisa determinar a base de dados correta com base no valor da chave. Em seguida, abre-se uma ligação à base de dados para processar o pedido. Encaminhamento dependente de dados fornece a capacidade de abrir ligações com uma única chamada simples para o mapa de fragmentação da aplicação. Encaminhamento dependente de dados era a outra área de código de infraestrutura que agora é abrangido por funcionalidade na biblioteca de cliente da base de dados elásticas. Para obter detalhes, consulte [encaminhamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
-- **Consultas de vários fragmentos (MSQ)**: Consultas de vários fragmentos funcionam quando uma solicitação envolve várias (ou todos os) as partições horizontais. Uma consulta de vários fragmentos executa o mesmo código de T-SQL em todas as partições horizontais ou um conjunto de partições horizontais. Os resultados de partições horizontais participantes são mesclados num resultado geral do conjunto com a semântica UNION ALL. A funcionalidade conforme exposto por meio da biblioteca de cliente lida com várias tarefas, incluindo: gerenciamento de conexões, gerenciamento de threads, processamento de falhas e os resultados intermediários de processamento. MSQ pode consultar até centenas de partições horizontais. Para obter detalhes, consulte [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
+- **Consultas de vários fragmentos (MSQ)** : Consultas de vários fragmentos funcionam quando uma solicitação envolve várias (ou todos os) as partições horizontais. Uma consulta de vários fragmentos executa o mesmo código de T-SQL em todas as partições horizontais ou um conjunto de partições horizontais. Os resultados de partições horizontais participantes são mesclados num resultado geral do conjunto com a semântica UNION ALL. A funcionalidade conforme exposto por meio da biblioteca de cliente lida com várias tarefas, incluindo: gerenciamento de conexões, gerenciamento de threads, processamento de falhas e os resultados intermediários de processamento. MSQ pode consultar até centenas de partições horizontais. Para obter detalhes, consulte [consultas de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 
 Em geral, os clientes que utilizam as ferramentas de bases de dados elásticas podem esperar obter todas as funcionalidades T-SQL ao submeter as operações de partição horizontal-local em vez de operações de entre partições horizontais que têm suas próprias semânticas.
 

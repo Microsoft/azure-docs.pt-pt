@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 69f36773b702d9f0059e0cd27dbb864ccd7f7b2b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3bbab82831fba389cd4bf172e7ea762d5971579b
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60527624"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241848"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Como integrar a gestão de API do Azure com o Azure Application Insights
 
@@ -51,7 +51,7 @@ Antes de poder utilizar o Azure Application Insights, tem primeiro de criar uma 
     ![O agente de log do App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> Nos bastidores, uma [Logger](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) entidade é criada na sua instância de gestão de API, que contém a chave de instrumentação da instância do Application Insights.
+> Nos bastidores, uma [Logger](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate) entidade é criada na sua instância de gestão de API, que contém a chave de instrumentação da instância do Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Ativar o registo do Application Insights para a sua API
 
@@ -70,7 +70,7 @@ Antes de poder utilizar o Azure Application Insights, tem primeiro de criar uma 
 > Substituindo o valor predefinido **0** no **primeiros bytes do corpo** campo pode diminuir significativamente o desempenho das suas APIs.
 
 > [!NOTE]
-> Nos bastidores, uma [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) "Application insights" com o nome de entidade é criada no nível da API.
+> Nos bastidores, uma [diagnóstico](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/diagnostic/createorupdate) "Application insights" com o nome de entidade é criada no nível da API.
 
 | Nome da definição                        | Tipo de valor                        | Descrição                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

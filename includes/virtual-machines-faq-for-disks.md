@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0ad006ca966cfcc2c817ae4e8bfd3dc2d477259e
-ms.sourcegitcommit: 778e7376853b69bbd5455ad260d2dc17109d05c1
-ms.translationtype: HT
+ms.openlocfilehash: 0e361edfea6365c3d3fe072e12bb303e71bb8d63
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/23/2019
-ms.locfileid: "66145900"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66248827"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas mais frequentes acerca dos discos de VM de IaaS do Azure e discos geridos e não geridos premium
 
@@ -141,19 +141,9 @@ Para discos geridos não é possível mudar o nome-los. No entanto, pode mudar o
 
 A criação de partições de GPT pode ser usada apenas em discos de dados, não os discos de SO. Discos de SO tem de utilizar o estilo de partição MBR.
 
-## <a name="uploading-to-a-managed-disk"></a>A carregar para um disco gerido
+**Que tipos de disco suportam instantâneos?**
 
-**Pode carregar dados para um disco gerido existente?**
-
-Não, carregamento só pode ser utilizado durante a criação de um disco novo vazio com o **ReadyToUpload** estado.
-
-**Posso anexar um disco a uma VM enquanto estiverem num Estado de carregamento?**
-
-Não.
-
-**Pode tirar um instantâneo de um disco gerido num Estado de carregamento?**
-
-Não.
+Premium SSD, standard SSD e standard SSD suportam instantâneos, sem qualquer limite de tamanho. Portanto, pode (até 32 TiB) de discos grandes de instantâneo. Ultra SSDs não suportam instantâneos.
 
 ## <a name="standard-ssd-disks"></a>Discos SSD Standard
 
@@ -201,7 +191,7 @@ Não, os discos Standard SSDs só estão disponíveis como Managed Disks.
 **SSD os discos Standard suportam "SLA de VM de instância única"?**
 Não, SSDs padrão não tem SLA de VM de instância única. Utilize discos de Premium SSD para VM SLA de instância única.
 
-## <a name="migrate-to-managed-disks"></a>Migrar para Managed Disks
+## <a name="migrate-to-managed-disks"></a>Migrar para o Managed Disks
 
 **Existe qualquer impacto da migração sobre o desempenho de Managed Disks?**
 
@@ -353,7 +343,7 @@ Sim.
 
 **Quais são os maiores tamanhos de disco suportados pelo serviço de cópia de segurança do Azure e o Azure Site Recovery?**
 
-O maior tamanho de disco suportado pelo Azure Backup e o serviço Azure Site Recovery é 4 TiB. Suporte para os discos maiores, até 32 TiB será adicionado em breve.
+O maior tamanho de disco suportado pelo Azure Backup e o serviço Azure Site Recovery é 4 TiB. Suporte para os discos maiores, até 32 TiB ainda não está disponível.
 
 **O que são VM recomendado tamanhos para tamanhos de disco maiores (> 4 TiB) para discos Standard HDD e Standard SSD para alcançar otimizado de disco IOPS e largura de banda?**
 

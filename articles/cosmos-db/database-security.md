@@ -4,14 +4,14 @@ description: Saiba como o Azure Cosmos DB fornece segurança de dados e proteç�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5007e19e8e9bb9baf59dc0bfb70150d98115c8f6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: b82f7fed2407da86c036237a2de10363c4706d67
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65070770"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241139"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Segurança no Azure Cosmos DB - descrição geral
 

@@ -5,17 +5,17 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/29/2018
+ms.date: 04/26/2019
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 3773a3e121c3b0162b83ea075601b7386228e4d5
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 0d6c578186dab9622ce650f535e11d505efcecb3
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64876202"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "65067624"
 ---
-# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Alertas de métricas com limiares dinâmicos no Azure Monitor (pré-visualização pública)
+# <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métricas com limiares dinâmicos no Azure Monitor
 
 Alerta de métrica com a detecção de limiares dinâmicos tira partido da avançada de machine learning (ML) para obter informações sobre comportamento de históricos dos métricas, identificar padrões e anomalias que indicam problemas de serviço possíveis. Fornece suporte de uma interface do Usuário simple e operações em escala, permitindo que os utilizadores configurar regras de alerta através da API do Azure Resource Manager, de forma totalmente automatizada.
 
@@ -153,7 +153,7 @@ Os itens seguintes são as práticas recomendadas sobre como configurar alertas 
 
 4. Assim que tiver selecionado um recurso de destino, clique em **adicionar condição**.
 
-5. Selecione o **'Tempo de execução do pedido HTTP'**.
+5. Selecione o **'Tempo de execução do pedido HTTP'** .
 
 6. Opcionalmente, refinar a métrica ao ajustar **período** e **agregação**. Ele não é recomendado para utilizar o tipo de agregação "Maximum" para este tipo de métrica, que é menos representativos de comportamento. Para o limiar 'Máximo' de estático do tipo agregação talvez mais apropriado.
 

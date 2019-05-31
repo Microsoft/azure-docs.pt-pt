@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 05/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 8522b1d0a8f8466870966d3f11ce66f7bf15672b
-ms.sourcegitcommit: db3fe303b251c92e94072b160e546cec15361c2c
+ms.openlocfilehash: cb7ace20fd0a59dafff3d7f8240f54c3c8e12492
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66016373"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66226404"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights para aplicações ASP.NET Core
 
@@ -138,7 +138,7 @@ Suporte para [contadores de desempenho](https://azure.microsoft.com/documentatio
 
 [Registos de ILogger](https://docs.microsoft.com/azure/azure-monitor/app/ilogger) de gravidade `Warning` ou acima estão automaticamente capturada a partir do SDK versão 2.7.0-beta3 ou superior.
 
-### <a name="live-metrics"></a>Métricas Dinâmicas
+### <a name="live-metrics"></a>Métricas em direto
 
 Pode demorar alguns minutos para a telemetria começar a aparecer no portal. Para verificar rapidamente se tudo estiver funcionando, é melhor usar [métricas em direto](https://docs.microsoft.com/azure/application-insights/app-insights-live-stream), enquanto efetuar pedidos para a aplicação em execução.
 
@@ -383,6 +383,7 @@ using Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel;
 ## <a name="video"></a>Vídeo
 
 - Externo vídeo passo a passo sobre [configuração do Application Insights com o Visual Studio e .NET Core](https://www.youtube.com/watch?v=NoS9UhcR4gA&t) do zero.
+- Externo vídeo passo a passo sobre [configuração do Application Insights com o .NET Core e o Visual Studio Code](https://youtu.be/ygGt84GDync) do zero.
 
 ## <a name="next-steps"></a>Passos Seguintes
 * [Explore os fluxos de utilizador](../../azure-monitor/app/usage-flows.md) para compreender a forma como os utilizadores navegam pela aplicação.

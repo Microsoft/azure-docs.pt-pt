@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: ''
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: acba9d2c87d2fb23e48ac24cec22388044702bac
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604455"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240139"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Abra um pedido de suporte do Azure Data Box 
 
-Este artigo aplica-se para o Azure Data Box e o disco do Azure Data Box, o que são geridos pelo serviço do Azure Data Box. Se encontrar algum problema com o seu serviço do Azure Data Box, pode criar um pedido de serviço para obter suporte técnico. Este artigo orienta-o através de:
+Este artigo aplica-se para o Azure Data Box, pesadas de caixa de dados do Azure e disco do Azure Data Box, tudo o que são geridos pelo serviço do Azure Data Box. Se encontrar algum problema com o seu serviço do Azure Data Box, pode criar um pedido de serviço para obter suporte técnico. Este artigo orienta-o através de:
 
 * Como criar um pedido de suporte.
 * Como gerir uma pedido de vida de suporte no portal.
 
-## <a name="create-a-support-request"></a>Criar um pedido de apoio
+## <a name="create-a-support-request"></a>Criar um pedido de suporte
 
 Execute os seguintes passos para criar um pedido de suporte:
 
@@ -34,11 +34,11 @@ Execute os seguintes passos para criar um pedido de suporte:
     
     1. Partir do **tipo de problema** lista pendente, selecione **técnica**.
     2. Escolha a sua **Subscrição**.
-    3. Sob **serviço**, verifique **todos os serviços**. Na lista pendente, selecione **pré-visualização do Data Box -**. 
+    3. Sob **serviço**, verifique **todos os serviços**. Na lista pendente, selecione **Data Box**. 
     4. Especificar seus **plano de suporte**.
     5. Clique em **Seguinte**.
 
-        ![Noções Básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
+        ![Noções básicas](./media/data-box-disk-contact-microsoft-support/data-box-disk-support1.png)
 
 3. Na **novo pedido de suporte**, selecione **passo 2 problema**. Na **problema**, siga os passos abaixo:
     
@@ -59,7 +59,7 @@ Execute os seguintes passos para criar um pedido de suporte:
    2. Na **informações de contacto**, fornecer seu nome, e-mail, contato opcional, país/região. Selecione **guardar alterações de contactos para futuros pedidos de suporte**.
    3. Clique em **Criar**.
    
-       ![Informação de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Informações de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
       Support da Microsoft utiliza estas informações para contactá-lo para obter mais informações, diagnóstico e resolução.
       Depois de ter submetido o seu pedido, um engenheiro de suporte irá contactá-lo assim que possível para continuar com o seu pedido.
@@ -84,3 +84,5 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 ## <a name="next-steps"></a>Passos Seguintes
 
 Saiba como [resolver problemas relacionados com o disco Data Box](data-box-disk-troubleshoot.md).
+Saiba como [resolver problemas relacionados com o Data Box](data-box-troubleshoot.md).
+Saiba como [resolver problemas relacionados com o armazenamento de BLOBs de caixa de dados](data-box-troubleshoot-rest.md).

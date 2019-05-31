@@ -6,14 +6,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 81be4d5809fe8a3f36f7364b15e19d0046a8b5cd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c910ed9f1160d30e1d4bda2e85b029eb2ad85b02
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714001"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237161"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>Planeamento da capacidade para clusters do HDInsight
 
@@ -104,9 +104,9 @@ Identificar o problema num cluster local de nó único pode voltar a executar ta
 
 Depois de determinar o tamanho VM do cluster de destino, o dimensionamento e o tipo, verifique os limites de capacidade de quota atual da sua subscrição. Quando atingir um limite de cota, poderá não conseguir implementar novos clusters ou aumente horizontalmente clusters existentes ao adicionar mais nós de trabalho. O limite de quota único é a quota de núcleos de CPU que existe no nível de região para cada subscrição. Por exemplo, a sua subscrição pode ter o limite de 30 núcleos na região E.U.A. Leste. Se precisar de pedir um aumento de quota, execute os seguintes passos:
 
-1. Ir para o portal do Azure
-1. Clique em **ajuda e suporte** no lado esquerdo da parte inferior da página.
-1. Clique em **novo pedido de suporte**.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Selecione **ajuda + suporte** no lado esquerdo da parte inferior da página.
+1. Selecione no **novo pedido de suporte**.
 1. Sobre o **novo pedido de suporte** página, em **Noções básicas** separador, selecione as seguintes opções:
    - **Tipo de problema**: **Limites do serviço e subscrição (cotas)**
    - **Subscrição**: a subscrição que pretende modificar
@@ -114,10 +114,10 @@ Depois de determinar o tamanho VM do cluster de destino, o dimensionamento e o t
     
      ![Criar um pedido de suporte para aumentar a quota de núcleos de HDInsight](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Clique em **Seguinte**.
-1. Sobre o **detalhes** página, introduza uma descrição do problema, selecione a gravidade do problema e selecione o método de contacto pretendido.
-1. Clique em **seguinte: Rever + criar**.
-1. Sobre o **rever + criar** separador, clique em **criar**.
+1. Selecione **seguinte: Soluções >>** .
+1. Sobre o **detalhes** página, introduza uma descrição do problema, selecione a gravidade do problema, seu método preferencial de contacto e outros campos obrigatórios.
+1. Selecione **seguinte: Rever + criar >>** .
+1. Sobre o **rever + criar** separador, selecione **criar**.
 
 > [!NOTE]  
 > Se precisar de aumentar a quota de núcleos de HDInsight numa região privada, [submeter um pedido de lista branca](https://aka.ms/canaryintwhitelist).

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 742f1359d928aa05a8b8d36bde2ccf022db93b79
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564855"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418248"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação após desastre de VMs de VMware e servidores físicos para um site secundário
 
@@ -30,7 +30,7 @@ Este artigo resume o que é suportado quando utiliza a [do Azure Site Recovery](
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-vCenter Server | vCenter 5.5, 6.0 e 6.5<br/><br/> Se executar 6.0 ou 6.5, tenha em atenção que apenas 5.5 funcionalidades são suportadas.
+servidor vCenter | vCenter 5.5, 6.0 e 6.5<br/><br/> Se executar 6.0 ou 6.5, tenha em atenção que apenas 5.5 funcionalidades são suportadas.
 
 
 ## <a name="replicated-vm-support"></a>Replicados suporte VM
@@ -101,7 +101,7 @@ Múltiplos caminhos (o MPIO) | N/A
 
 ## <a name="vaults"></a>Cofres
 
-**Ação** | **Suportado** 
+**ação** | **Suportado** 
 --- | --- 
 Cofres de movimentação entre grupos de recursos (dentro ou entre subscrições) | Não 
 Mover o armazenamento, rede, as VMs do Azure entre grupos de recursos (dentro ou entre subscrições) | Não 

@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: d1751c47ad4507260d9f8d6ea44fcb32ed0e7338
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e0b41850c149ff7095333cf77b780dec1f03b882
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61347434"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66234419"
 ---
-# <a name="azure-data-factoryfilter-transformation"></a>Transformação de FactoryFilter de dados do Azure
+# <a name="azure-data-factory-filter-transformation"></a>Transformação de filtro de fábrica de dados do Azure
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 

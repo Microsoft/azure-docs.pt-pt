@@ -4,20 +4,23 @@ description: Utilizar modelos Azure Resource Manager para criar e configurar o A
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 05/24/2019
 ms.author: mjbrown
-ms.openlocfilehash: a3798ac0c73c7bc6c4012dbb089275254f4c3504
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 5683fd072961c7793d8f4bbeb9ecc16a93dd7373
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65968832"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66242594"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Gerir recursos de API do Azure Cosmos DB SQL (núcleos), utilizando modelos do Azure Resource Manager
 
 ## Criar um Azure Cosmos conta, base de dados e um contentor <a id="create-resource"></a>
 
 Crie recursos do Azure Cosmos DB com um modelo Azure Resource Manager. Este modelo irá criar uma conta do Cosmos do Azure com dois contentores que partilhem 400 débito de RU/s ao nível da base de dados. Copiar o modelo e implementar, conforme mostrado abaixo ou visite [Galeria de início rápido do Azure](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) e implementar a partir do portal do Azure. Também pode transferir o modelo para o computador local ou criar um novo modelo e especifique o caminho local com o `--template-file` parâmetro.
+
+> [!NOTE]
+> Atualmente não é possível implementar Functions(UDFs) de definidas pelo usuário, procedimentos armazenados e acionadores utilizando modelos do Resource Manager. 
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
 

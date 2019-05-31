@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: raynew
-ms.openlocfilehash: 593a82221ec94e43d50b7382ba89053d5f68864a
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: e96aafe61c0d8547ffca9e97bfd9e90c9529155f
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65805925"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66237272"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurar a recuperação após desastre à escala da VMware VMs/servidores físicos
 
@@ -188,7 +188,7 @@ Depois de iniciar a replicação para o primeiro batch de VMs, começar a monito
 1. Designa um administrador de recuperação após desastre para monitorizar o estado de funcionamento das máquinas replicadas.
 2. [Monitorizar eventos](site-recovery-monitor-and-troubleshoot.md) para itens replicados e a infraestrutura.
 3. [Monitorizar o estado de funcionamento](vmware-physical-azure-monitor-process-server.md) dos seus servidores de processo de escalamento horizontal.
-4. Inscreva-se para obter [notificações por e-mail](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot.md#subscribe-to-email-notifications) eventos, para uma monitorização mais fácil.
+4. Inscreva-se para obter [notificações por e-mail](https://docs.microsoft.com/azure/site-recovery/site-recovery-monitor-and-troubleshoot#subscribe-to-email-notifications) eventos, para uma monitorização mais fácil.
 5. Conduzir regular [testes de recuperação após desastre](site-recovery-test-failover-to-azure.md), para se certificar de que está tudo a funcionar conforme esperado.
 
 

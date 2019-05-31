@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b562214d4bf8fd83f740e114a6d77200b4611649
-ms.sourcegitcommit: 13cba995d4538e099f7e670ddbe1d8b3a64a36fb
+ms.openlocfilehash: e7eebc68ae8a55d636f3bc85e179bd7d6813be8d
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66003225"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235563"
 ---
 # <a name="baseline-policy-block-legacy-authentication-preview"></a>Política de linha de base: Bloco antigos de autenticação (pré-visualização)
 
 Conceder acesso fácil aos seus utilizadores para as suas aplicações na cloud, Azure Active Directory (Azure AD) oferece suporte a uma ampla variedade de protocolos de autenticação, incluindo a autenticação. Autenticação é um termo que se refere a um pedido de autenticação feito por:
 
 * Clientes com Office antigos que não utilizam autenticação moderna (por exemplo, cliente do Office 2010)
-* Qualquer cliente que utiliza protocolos de email herdados, como o IMAP/SMPT/POP3
+* Qualquer cliente que utiliza protocolos de email herdados, como o IMAP/SMTP/POP3
 
 Hoje em dia, a maioria de todos os comprometer início de sessão tentativas provenientes da autenticação. Autenticação de legado não suporta a autenticação multifator (MFA). Mesmo que tenha uma política MFA ativada no seu diretório, um ator indevido pode autenticar com um protocolo de legado e ignorar o MFA.
 
@@ -74,13 +74,13 @@ Se estiver a utilizar o MacOS, recomendamos que Atualize para o Office para Mac 
 
 Para clientes do Outlook com base no Windows utilizar a autenticação moderna, Exchange Online têm de ser autenticação moderna também ativada. Se a autenticação moderna está desativada para o Exchange Online, os clientes do Outlook com base em Windows que suportam autenticação moderna (Outlook 2013 ou posterior) irá utilizar a autenticação básica para ligar a caixas de correio do Exchange Online.
 
-SharePoint Online está ativado para padrão de autenticação moderna. Para diretórios criados após 1 de Agosto de 2017, a autenticação moderna está ativada por predefinição no Exchange Online. No entanto, se tivesse desabilitado anteriormente autenticação moderna ou está a utilizar um diretório criado antes desta data, siga os passos no seguinte artigo para [ativar autenticação moderna no Exchange Online](https://docs.microsoft.com/en-us/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+SharePoint Online está ativado para padrão de autenticação moderna. Para diretórios criados após 1 de Agosto de 2017, a autenticação moderna está ativada por predefinição no Exchange Online. No entanto, se tivesse desabilitado anteriormente autenticação moderna ou está a utilizar um diretório criado antes desta data, siga os passos no seguinte artigo para [ativar autenticação moderna no Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Passo 4: Skype para Empresas
 
 Para impedir que os pedidos de autenticação legada feitos pelo Skype para empresas, é necessário ativar a autenticação moderna do Skype para empresas Online. Para diretórios criados após 1 de Agosto de 2017, a autenticação moderna do Skype para empresas está ativada por predefinição.
 
-Para ativar a autenticação moderna no Skype para empresas, sugerimos que faz a transição para o Microsoft Teams, que suporta a autenticação moderna por predefinição. No entanto, se conseguir tr neste momento, terá de ativar a autenticação moderna do Skype para empresas Online, para que o Skype para clientes empresariais começa com autenticação moderna. Siga estes passos no artigo [Skype para topologias de negócio com autenticação moderna](https://docs.microsoft.com/en-us/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), para obter passos para ativar a autenticação moderna para o Skype para empresas.
+Para ativar a autenticação moderna no Skype para empresas, sugerimos que faz a transição para o Microsoft Teams, que suporta a autenticação moderna por predefinição. No entanto, se conseguir tr neste momento, terá de ativar a autenticação moderna do Skype para empresas Online, para que o Skype para clientes empresariais começa com autenticação moderna. Siga estes passos no artigo [Skype para topologias de negócio com autenticação moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported), para obter passos para ativar a autenticação moderna para o Skype para empresas.
 
 Além de permitir a autenticação moderna do Skype para empresas Online, recomendamos a moderna autenticação estar ativada para o Exchange Online ao ativar a autenticação moderna do Skype para empresas. Este processo ajudará a sincronizar o estado da autenticação moderna, no Exchange Online e Skype para empresas online e irá impedir que vários pedidos de início de sessão para o Skype para clientes empresariais.
 
@@ -105,11 +105,11 @@ Passos para ativar a autenticação moderna encontrar nos seguintes artigos:
 
 A política **política de linha de base: Bloco antigos de autenticação (pré-visualização)** vem pré-configurada e será apresentada na parte superior ao navegar para o painel de acesso condicional no portal do Azure.
 
-Para ativar esta política e proteger os seus administradores:
+Para ativar esta política e proteger a sua organização:
 
 1. Inicie sessão para o **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
 1. Navegue até **do Azure Active Directory** > **acesso condicional**.
-1. Na lista de políticas, selecione **política de linha de base: Bloco antigos de autenticação (pré-visualização)**.
+1. Na lista de políticas, selecione **política de linha de base: Bloco antigos de autenticação (pré-visualização)** .
 1. Definir **ativar política** ao **utilizar a política imediatamente**.
 1. Adicionar exclusões utilizador ao clicar em **usuários** > **selecionar utilizadores excluídos** e escolher os utilizadores que têm de ser excluídos. Clique em **selecionar** , em seguida, **feito**.
 1. Clique em **guardar**.

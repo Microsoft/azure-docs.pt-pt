@@ -12,18 +12,18 @@ ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: b2aa3eb6a117bbbdcf9c4aa44161dc25ddea2f1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eb461367d58f7cadeccd434c0e4ab452b7fc640e
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61484394"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66241920"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerir esquema de uma aplicação SaaS com o padrão de base de dados por inquilino com a base de dados do Azure SQL
  
 À medida que um aplicativo de banco de dados evolui, as alterações inevitavelmente tem de ser feitas nos dados de referência ou de esquema de base de dados.  Tarefas de manutenção de base de dados também são necessários periodicamente. Gerir uma aplicação que utiliza a base de dados por padrão de inquilino exige que aplicar estas alterações ou as tarefas de manutenção numa frota de bases de dados do inquilino.
 
-Este tutorial explora dois cenários – implementar atualizações de dados de referência para todos os inquilinos e recompilar um índice na tabela que contém os dados de referência. O [tarefas elásticas](sql-database-elastic-jobs-overview.md) funcionalidade é utilizada para executar essas ações em todas as bases de dados do inquilino e na base de dados modelo utilizado para criar o novo inquilino bases de dados.
+Este tutorial explora dois cenários – implementar atualizações de dados de referência para todos os inquilinos e recompilar um índice na tabela que contém os dados de referência. O [tarefas elásticas](elastic-jobs-overview.md) funcionalidade é utilizada para executar essas ações em todas as bases de dados do inquilino e na base de dados modelo utilizado para criar o novo inquilino bases de dados.
 
 Neste tutorial, ficará a saber como:
 
@@ -46,7 +46,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gestão de esquemas SaaS
 
-A base de dados por padrão de inquilino isola efetivamente os dados de inquilino, mas aumenta o número de bases de dados para gerir e manter. [Tarefas elásticas](sql-database-elastic-jobs-overview.md) facilitam a administração e gestão de bases de dados SQL. As tarefas permitem-lhe de forma segura e fiável, executar tarefas (scripts T-SQL) em relação a um grupo de bases de dados. Tarefas podem implementar o esquema e alterações de dados de referência comuns em todas as bases de dados de inquilinos numa aplicação. Tarefas elásticas também podem ser utilizadas para manter uma *modelo* base de dados utilizado para criar novos inquilinos ao assegurar que sempre tem os dados de referência e esquema mais recente.
+A base de dados por padrão de inquilino isola efetivamente os dados de inquilino, mas aumenta o número de bases de dados para gerir e manter. [Tarefas elásticas](elastic-jobs-overview.md) facilitam a administração e gestão de bases de dados SQL. As tarefas permitem-lhe de forma segura e fiável, executar tarefas (scripts T-SQL) em relação a um grupo de bases de dados. Tarefas podem implementar o esquema e alterações de dados de referência comuns em todas as bases de dados de inquilinos numa aplicação. Tarefas elásticas também podem ser utilizadas para manter uma *modelo* base de dados utilizado para criar novos inquilinos ao assegurar que sempre tem os dados de referência e esquema mais recente.
 
 ![ecrã](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -133,5 +133,4 @@ Em seguida, tente o [relatórios Ad hoc tutorial](saas-tenancy-cross-tenant-repo
 ## <a name="additional-resources"></a>Recursos adicionais
 
 * [Tutoriais adicionais criados após a implementação da aplicação Wingtip Tickets SaaS da base de dados por inquilino](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Managing scaled-out cloud databases (Gerir bases de dados de escalamento horizontal na cloud)](sql-database-elastic-jobs-overview.md)
-* [Create and manage scaled-out cloud databases (Criar e gerir bases de dados de escalamento horizontal na cloud)](sql-database-elastic-jobs-create-and-manage.md)
+* [Managing scaled-out cloud databases (Gerir bases de dados de escalamento horizontal na cloud)](elastic-jobs-overview.md)

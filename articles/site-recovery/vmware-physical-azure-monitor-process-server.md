@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
+ms.date: 05/30/2019
 ms.author: raynew
-ms.openlocfilehash: f3ba08bc1d557d53bca2421b5052f496c740b185
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4ff52e737438210296b8f2201d5e66e1d38b7bc9
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969339"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66418278"
 ---
 # <a name="monitor-the-process-server"></a>Monitorizar o servidor de processos
 
@@ -53,15 +53,15 @@ O servidor de processos gera um número de alertas de estado de funcionamento, r
 
 **Tipo de alerta** | **Detalhes**
 --- | ---
-![Bom Estado de Funcionamento][green] | Servidor de processos está ligado e bom estado de funcionamento.
+![Bom estado de funcionamento][green] | Servidor de processos está ligado e bom estado de funcionamento.
 ![Aviso][yellow] | Utilização da CPU > 80% para os últimos 15 minutos
 ![Aviso][yellow] | Utilização de memória > 80% para os últimos 15 minutos
 ![Aviso][yellow] | Pasta de cache de espaço livre < 30% nos últimos 15 minutos
 ![Aviso][yellow] | Não estão a executar serviços do servidor de processos nos últimos 15 minutos
-![Crítica][red] | Utilização da CPU > 95% para os últimos 15 minutos
-![Crítica][red] | Memória utilização > 95% para os últimos 15 minutos
-![Crítica][red] | Pasta de cache de espaço livre < 25% para os últimos 15 minutos
-![Crítica][red] | Nenhum heartbeat do servidor de processos para 15 minutos.
+![Crítico][red] | Utilização da CPU > 95% para os últimos 15 minutos
+![Crítico][red] | Memória utilização > 95% para os últimos 15 minutos
+![Crítico][red] | Pasta de cache de espaço livre < 25% para os últimos 15 minutos
+![Crítico][red] | Nenhum heartbeat do servidor de processos para 15 minutos.
 
 ![chave da tabela](./media/vmware-physical-azure-monitor-process-server/table-key.png)
 

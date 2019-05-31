@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 14f76a716447e09299cfa18d6758245706c7b481
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bbb67845922dd9a3b2a78f76bf25d73bace98a82
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556529"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66240122"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementar e explorar uma aplicação SaaS multi-inquilino que utiliza o padrão de base de dados por inquilino com a base de dados SQL
 
@@ -75,7 +75,7 @@ Escolha os nomes de agora e anotá-las.
 
 1. Para monitorizar o estado de implementação, selecione **notificações** (o ícone de campainha à direita da caixa de pesquisa). Implementar a aplicação Wingtip Tickets SaaS demora cerca de cinco minutos.
 
-   ![Implementação efetuada com êxito](media/saas-dbpertenant-get-started-deploy/succeeded.png)
+   ![Implementação concluída com êxito](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>Transferir e os scripts de gestão da Wingtip Tickets de desbloqueio
 
@@ -129,8 +129,8 @@ Utiliza a aplicação Wingtip [*Gestor de tráfego do Azure* ](../traffic-manag
 
     | Parte do URL        | Descrição       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | As partes de eventos da aplicação Wingtip.<br /><br /> *-dpt* distingue as *da base de dados por inquilino* implementação da Wingtip Tickets de outras implementações. Os exemplos são o *único* aplicação por inquilino (*-sa*) ou *base de dados multi-inquilino* (*- mt*) implementações. |
-    | .*&lt;user&gt;* | *af1* no exemplo. |
+    | http://events.wingtip-dpt | As partes de eventos da aplicação Wingtip.<br /><br /> *-dpt* distingue as *da base de dados por inquilino* implementação da Wingtip Tickets de outras implementações. Os exemplos são o *único* aplicação por inquilino ( *-sa*) ou *base de dados multi-inquilino* ( *- mt*) implementações. |
+    | . *&lt;user&gt;* | *af1* no exemplo. |
     | .trafficmanager.net/ | Gestor de tráfego, o URL de base. |
     | fabrikamjazzclub | Identifica o inquilino com o nome Fabrikam Jazz Club. |
     | &nbsp; | &nbsp; |
@@ -182,7 +182,7 @@ Se quiser controlar e monitorizar as tarefas em segundo plano, utilize os seguin
     - Por predefinição, as tarefas em segundo plano é executado para 120 minutos.
     - Cada tarefa faz com que uma carga de CPU com base na base de dados de um inquilino, executando *sp_CpuLoadGenerator*. A intensidade e a duração da carga varia consoante `$DemoScenario`.
     - *sp_CpuLoadGenerator* loops em torno de uma instrução SQL SELECT que faz com que uma carga de CPU elevada. O intervalo de tempo entre problemas de SELECT varia de acordo com os valores de parâmetro para criar uma carga de CPU controlável. Níveis de carga e os intervalos são randomizados para simular cargas mais realistas.
-    - Este ficheiro. SQL é armazenado abaixo *WingtipTenantDB\\dbo\\StoredProcedures\\*.
+    - Este ficheiro. SQL é armazenado abaixo *WingtipTenantDB\\dbo\\StoredProcedures\\* .
 
 4. Se `$OneTime = $false`, o gerador de carga inicia as tarefas em segundo plano e, em seguida, continua a ser executado. Cada 10 segundos, que monitoriza para quaisquer novos inquilinos aprovisionados. Se definir `$OneTime = $true`, o LoadGenerator inicia as tarefas em segundo plano e, em seguida, pára em execução em primeiro plano. Para este tutorial, deixe `$OneTime = $false`.
 
@@ -221,14 +221,14 @@ Atualize o Hub de eventos para tornar o novo inquilino são apresentados na list
 
 Agora que começou a executar uma carga na coleção de inquilinos, vamos analisar alguns dos recursos que foram implementados.
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até à sua lista de servidores SQL. Em seguida, abra a **catálogo-dpt -&lt;USUÁRIO&gt;** server.
+1. Na [portal do Azure](https://portal.azure.com), navegue até à sua lista de servidores SQL. Em seguida, abra a **catálogo-dpt -&lt;USUÁRIO&gt;**  server.
     - O servidor de catálogo contém duas bases de dados **tenantcatalog** e **basetenantdb** (um modelo base de dados que é copiado para criar novos inquilinos).
 
    ![Bases de Dados](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Volte à sua lista de servidores SQL.
 
-3. Abra o **tenants1-dpt -&lt;USUÁRIO&gt;** servidor que contém as bases de dados do inquilino.
+3. Abra o **tenants1-dpt -&lt;USUÁRIO&gt;**  servidor que contém as bases de dados do inquilino.
 
 4. Consulte os seguintes itens:
 
@@ -254,7 +254,7 @@ Dois gráficos ilustram a que os conjuntos elásticos e base de dados SQL são a
 
 - Para obter mais informações, consulte adicionais [tutoriais que têm por base o aplicativo de banco de dados por inquilino Wingtip Tickets SaaS](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - Para saber mais sobre conjuntos elásticos, veja [o que é um conjunto elástico de SQL do Azure?](sql-database-elastic-pool.md).
-- Para saber mais sobre as tarefas elásticas, consulte [gerir bases de dados de cloud aumentadas horizontalmente](sql-database-elastic-jobs-overview.md).
+- Para saber mais sobre as tarefas elásticas, consulte [gerir bases de dados de cloud aumentadas horizontalmente](elastic-jobs-overview.md).
 - Para saber mais sobre aplicações SaaS multi-inquilino, veja [padrões de Design para aplicações SaaS multi-inquilino](saas-tenancy-app-design-patterns.md).
 
 ## <a name="next-steps"></a>Passos Seguintes

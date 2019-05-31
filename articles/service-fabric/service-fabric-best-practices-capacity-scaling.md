@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: c72392e46805049703300dd6f60fc7bf08b9053b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9bddb6552b11dd506ee3e2c1c416c15da11048b7
+ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235773"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66258741"
 ---
 # <a name="capacity-planning-and-scaling"></a>Planejamento de capacidade e dimensionamento
 
@@ -70,6 +70,9 @@ Com as propriedades de nó e restrições de posicionamento declaradas, efetue a
 2. Executar `Get-ServiceFabricNode` para se certificar de que o nó foi transferido para desativado. Caso contrário, aguarde até que o nó está desabilitado. Isto pode demorar algumas horas para cada nó. Não continue até que o nó foi transferido para desativado.
 3. Diminua o número de VMs por um nesse tipo de nó. A instância VM mais elevada agora será removida.
 4. Repita os passos 1 a 3 conforme necessário, mas nunca reduzir verticalmente o número de instâncias, os tipos de nó primário, de menos do que o que justifica o escalão de fiabilidade. Ver [planear a capacidade de cluster do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) para obter uma lista de instâncias recomendadas.
+
+> [!NOTE]
+> É um cenário suportado para quando efetuar uma operações de dimensionamento vertical: Eu possível migrar meu Cluster do Service Fabric e o aplicativo de disco não gerido para os Managed Disks sem períodos de indisponibilidade de aplicação. Ao aprovisionar uma nova máquina virtual de conjuntos de dimensionamento com discos geridos e efetuar uma atualização de aplicação com restrições de posicionamento que visam aprovisionado capacidade. cluster do Service Fabric pode agendar sua carga de trabalho na capacidade de nó de cluster aprovisionado que é implementada por domínio de atualização sem períodos de indisponibilidade de aplicação. [Azure SKU básico de balanceadores de carga](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) pontos finais de conjunto de back-end podem ser uma máquinas virtuais num único conjunto de disponibilidade ou conjunto de dimensionamento de máquina virtual. Isso significa que não é possível utilizar um balanceador de carga de SKU básico se mover a sua aplicação de sistemas do Service Fabric entre conjuntos de dimensionamento, sem causar inaccessibility temporária de seus recursos de infraestrutura do serviço de cluster ponto final de gestão, mesmo que o cluster e a sua aplicação ainda em execução; normalmente utilizador aprovisionar um balanceador de carga de SKU padrão, quando efetuar uma alternância de endereço IP (VIP) virtual entre recursos de LB de SKU básico e padrão de SKU de LB, para minimizar qualquer futuro aproximadamente 30 segundos são isso inaccessibility necessário para a troca de VIP.
 
 ## <a name="horizontal-scaling"></a>Dimensionamento horizontal
 

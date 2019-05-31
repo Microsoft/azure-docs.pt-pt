@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 05/09/2019
 ms.author: crdun
-ms.openlocfilehash: 959c1ff8b199320105f650a7eb62a04bedb03b3b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: be579b631fd910c56f2c360d6aace5b8d35c22e5
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412790"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66236005"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Criar uma aplicação do Windows com um back-end do Azure
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, precisa do seguinte:
 
 * Uma conta ativa do Azure. Se não tiver uma conta, pode inscrever-se para uma versão de avaliação do Azure e obter até 10 Mobile Apps gratuitas, que pode continuar a utilizar mesmo após o final do período de avaliação. Para obter mais detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * Windows 10.
-* [Comunidade do Visual Studio].
+* Visual Studio Community 2017.
 * Familiaridade com o desenvolvimento de aplicações do UWP. Visite o [documentação da UWP](https://docs.microsoft.com/windows/uwp/) para saber como [mãos à obra](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) para criar aplicações do UWP.
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Criar um novo back-end da Aplicação Móvel do Azure
@@ -48,42 +48,29 @@ Siga estes passos para criar um novo back-end da Aplicação Móvel.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-Acabou de aprovisionar um back-end da Aplicação Móvel do Azure que pode ser utilizado pelas suas aplicações cliente móveis. Em seguida, deve transferir um projeto de servidor para um back-end simples de uma “lista de tarefas” e publicá-lo no Azure.
-
-## <a name="configure-the-server-project"></a>Configurar o projeto de servidor
-
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Criar uma ligação de base de dados e configurar o projeto de cliente e servidor
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="download-and-run-the-client-project"></a>Transferir e executar o projeto de cliente
+## <a name="run-the-client-project"></a>Execute o projeto de cliente
 
-Depois de configurar o back-end da Aplicação Móvel, pode criar uma nova aplicação de cliente ou modificar uma aplicação existente para se ligar ao Azure. Nesta secção, vai transferir um projeto de exemplo de aplicação UWP personalizado para se ligar ao back-end da Aplicação Móvel.
+1. Abra o projeto do UWP.
 
-1. De volta ao painel **Início Rápido** do back-end da Aplicação Móvel, clique em **Criar uma nova aplicação** > **Transferir**, em seguida, extraia os ficheiros do projeto comprimido para o computador local.
+2. Vá para o [portal do Azure](https://portal.azure.com/) e navegue para a aplicação móvel que criou. Sobre o `Overview` painel, procure o URL que é o ponto final público para a sua aplicação móvel. Exemplo - sitename para meu nome de aplicação "test123" será https://test123.azurewebsites.net.
 
-    ![Transferir o projeto de início rápido do Windows](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
+3. Abra o ficheiro `App.xaml.cs` nesta pasta - windows-uwp-cs/ZUMOAPPNAME /. O nome da aplicação é `ZUMOAPPNAME`.
 
-2. Abra o projeto UWP e prima a tecla F5 para implementar e executar a aplicação.
-3. Na aplicação, digite um texto significativo, tal como *Concluir o tutorial*, na caixa de texto **Inserir um Item da Lista a Fazer** e, em seguida, clique no botão **Guardar**.
+4. Na `App` classe, substitua `ZUMOAPPURL` parâmetro com o ponto final público acima.
+
+    `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
+
+    torna-se
+    
+    `public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");`
+
+5. Prima a tecla F5 para implementar e executar a aplicação.
+
+6. Na aplicação, digite um texto significativo, tal como *Concluir o tutorial*, na caixa de texto **Inserir um Item da Lista a Fazer** e, em seguida, clique no botão **Guardar**.
 
     ![Ambiente de trabalho completo do início rápido do Windows](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
     Esta ação permite enviar um pedido POST para o novo back-end da aplicação móvel que está alojado no Azure.
-
-> [!TIP]
-> Pode adicionar o projeto de aplicação UWP para a mesma solução como o projeto de servidor, se estiver a utilizar o back-end .NET. Isto torna mais fácil a depuração e o teste da aplicação e do back-end na mesma solução Visual Studio. Para adicionar um projeto de aplicação UWP à solução de back-end, tem de estar a utilizar o Visual Studio 2017 ou posterior.
-
-## <a name="next-steps"></a>Passos Seguintes
-
-* [Adicionar autenticação à aplicação](app-service-mobile-windows-store-dotnet-get-started-users.md)  
-  Saiba como autenticar os utilizadores da aplicação com um fornecedor de identidade.
-* [Adicionar notificações push à aplicação](app-service-mobile-windows-store-dotnet-get-started-push.md)  
-  Saiba como adicionar suporte de notificações push à aplicação e configurar o back-end da Aplicação Móvel para utilizar Notification Hubs do Azure para enviar notificações push.
-* [Permitir sincronização offline para a sua aplicação](app-service-mobile-windows-store-dotnet-get-started-offline-data.md)  
-  Saiba como adicionar suporte offline à aplicação utilizando um back-end de Aplicação Móvel. A sincronização offline permite que os utilizadores finais interajam com uma aplicação móvel &mdash; visualizar, adicionar ou modificar dados &mdash;, mesmo quando não existe qualquer ligação de rede.
-
-<!-- Anchors. -->
-<!-- Images. -->
-<!-- URLs. -->
-[Mobile App SDK]: https://go.microsoft.com/fwlink/?LinkId=257545
-[Azure portal]: https://portal.azure.com/
-[Comunidade do Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203
