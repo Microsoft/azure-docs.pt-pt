@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
 ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
-ms.sourcegitcommit: d89032fee8571a683d6584ea87997519f6b5abeb
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/30/2019
+ms.lasthandoff: 05/31/2019
 ms.locfileid: "65785668"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar a partir da API de voz do Translator para o serviço de voz

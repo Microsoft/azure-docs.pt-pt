@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-ms.openlocfilehash: b42d376be0d26c8ced60344793dbc8f7dd4a3d53
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
-ms.translationtype: HT
+ms.openlocfilehash: 24e0a0ae2a6af964d3ed87d1817de6e5f403c9b1
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66303768"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416345"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps-and-microsoft-flow"></a>Referência de funções para a linguagem de definição de fluxo de trabalho no Azure Logic Apps e Microsoft Flow
 
@@ -246,7 +246,8 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Criar uma matriz com os valores que correspondem ao nome da chave no *dados de formulário* ou *formulário codificado* saídas da ação. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Devolver um valor único que corresponde ao nome da chave numa ação *dados de formulário* ou *saída de formulário codificado*. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | Quando dentro de uma ação de repetição numa matriz, retorna o item atual na matriz durante a iteração da ação de atual. |
-| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Quando dentro de um para cada ou fazer até o loop, retorno o item atual do ciclo especificado.|
+| [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | Quando dentro de um Foreach ou até que o loop, retornar o item atual de ciclo especificado.|
+| [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | Quando dentro de um loop do Until, devolva o valor de índice de iteração atual. Pode utilizar esta função dentro aninhadas até loops. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Devolva o "URL de retorno de chamada" que chama um acionador ou ação. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devolve o corpo de uma parte específica na saída de uma ação que tem várias partes. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Devolva o valor para um parâmetro que é descrito na sua definição de fluxo de trabalho. |
@@ -2278,6 +2279,96 @@ Neste exemplo obtém o item atual a partir de cada ciclo especificado:
 
 ```
 items('myForEachLoopName')
+```
+
+<a name="iterationIndexes"></a>
+
+### <a name="iterationindexes"></a>iterationIndexes
+
+Devolva o valor de índice para a iteração atual dentro de um loop do Until. Pode utilizar esta função dentro aninhadas até loops. 
+
+```
+iterationIndexes('<loopName>')
+```
+
+| Parâmetro | Necessário | Tipo | Descrição | 
+| --------- | -------- | ---- | ----------- | 
+| <*loopName*> | Sim | String | O nome para o loop do Until | 
+||||| 
+
+| Valor de retorno | Type | Descrição | 
+| ------------ | ---- | ----------- | 
+| <*index*> | Integer | O valor de índice para a iteração atual dentro especificado até que o loop | 
+|||| 
+
+*Exemplo* 
+
+Este exemplo cria uma variável de contador e incrementos essa variável por um durante cada iteração num loop do Until até o valor do contador atinge cinco. O exemplo também cria uma variável que controle o índice atual para cada iteração. No loop do Until, durante cada interação, o exemplo incrementa o contador e, em seguida, atribui o valor do contador para o valor de índice atual e, em seguida, incrementa o contador. Em qualquer altura, pode determinar o número de iteração atual, recuperando o valor de índice atual.
+
+```
+{
+   "actions": {
+      "Create_counter_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [ 
+               {
+                  "name": "myCounter",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {}
+      },
+      "Create_current_index_variable": {
+         "type": "InitializeVariable",
+         "inputs": {
+            "variables": [
+               {
+                  "name": "myCurrentLoopIndex",
+                  "type": "Integer",
+                  "value": 0
+               }
+            ]
+         },
+         "runAfter": {
+            "Create_counter_variable": [ "Succeeded" ]
+         }
+      },
+      "Until": {
+         "type": "Until",
+         "actions": {
+            "Assign_current_index_to_counter": {
+               "type": "SetVariable",
+               "inputs": {
+                  "name": "myCurrentLoopIndex",
+                  "value": "@variables('myCounter')"
+               },
+               "runAfter": {
+                  "Increment_variable": [ "Succeeded" ]
+               }
+            },
+            "Increment_variable": {
+               "type": "IncrementVariable",
+               "inputs": {
+                  "name": "myCounter",
+                  "value": 1
+               },
+               "runAfter": {}
+            }
+         },
+         "expression": "@equals(variables('myCounter'), 5),
+         "limit": {
+            "count": 60,
+            "timeout": "PT1H"
+         },
+         "runAfter": {
+            "Create_current_index_variable": [ "Succeeded" ]
+         }
+      }
+   }
+}
 ```
 
 <a name="json"></a>

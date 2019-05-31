@@ -1,9 +1,9 @@
 ---
-title: Criar um certificado de secure LDAP para um Azure AD Domain Services gerir domínio | Documentos da Microsoft
+title: Criar uma. Ficheiro PFX com o certificado de secure LDAP (LDAPS) para um domínio do Azure AD Domain Services
 description: Criar um certificado de secure LDAP para um Azure AD Domain Services gerir domínio
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: MikeStephens-MS
 manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
@@ -13,22 +13,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2017
-ms.author: ergreenl
-ms.openlocfilehash: 801ba3b84ba9956ca8d13916ac4d90060a7f4037
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.author: mstephen
+ms.openlocfilehash: b79418c6e64727e4fdf13b3f4f267d84fcf5da85
+ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60418562"
+ms.lasthandoff: 05/27/2019
+ms.locfileid: "66235033"
 ---
 # <a name="create-a-pfx-file-with-the-secure-ldap-ldaps-certificate-for-a-managed-domain"></a>Criar uma. Ficheiro PFX com o certificado de secure LDAP (LDAPS) para um domínio gerido
 
 ## <a name="before-you-begin"></a>Antes de começar
-Concluída [tarefa 1: obter um certificado para o LDAP seguro](active-directory-ds-admin-guide-configure-secure-ldap.md).
 
+Concluída [tarefa 1: obter um certificado para o LDAP seguro](configure-ldaps.md).
 
 ## <a name="task-2-export-the-secure-ldap-certificate-to-a-pfx-file"></a>Tarefa 2: Exportar o certificado de secure LDAP para um. Ficheiro PFX
+
 Antes de começar esta tarefa, obter o certificado de secure LDAP de uma autoridade de certificação pública ou criar um certificado autoassinado.
 
 Para exportar o certificado LDAPS para um. Ficheiro PFX:
@@ -96,6 +97,6 @@ Para exportar o certificado LDAPS para um. Ficheiro PFX:
 
     ![Exportar certificado concluído](./media/active-directory-domain-services-admin-guide/secure-ldap-exported-as-pfx.png)
 
-
 ## <a name="next-step"></a>Passo seguinte
+
 [Tarefa 3: Ativar o LDAP seguro para o domínio gerido](active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md)

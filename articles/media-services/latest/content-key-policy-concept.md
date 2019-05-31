@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a1d2cc50b405df2c71d94e74973b3291a4e908cb
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
-ms.translationtype: HT
+ms.openlocfilehash: 04808dda193a3a472813cda852a1a2f24d00e112
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393476"
+ms.locfileid: "66417997"
 ---
 # <a name="content-key-policies"></a>Políticas de Chave de Conteúdo
 
@@ -25,7 +25,7 @@ Com os serviços de multimédia, pode fornecer seu conteúdo ao vivo e sob deman
 
 Para especificar opções de encriptação no seu fluxo, tem de criar uma [política de transmissão em fluxo](streaming-policy-concept.md) e associá-lo com sua [localizador de transmissão em fluxo](streaming-locators-concept.md). Criar a [política de chave de conteúdo](https://docs.microsoft.com/rest/api/media/contentkeypolicies) para configurar como a chave de conteúdo (que fornece acesso seguro à sua [ativos](assets-concept.md)) é entregue para clientes finais. Tem de definir os requisitos (restrições) na política de chave de conteúdo que devem ser satisfeitas para que as chaves com a configuração especificada para ser distribuída aos clientes. Esta política de chave de conteúdo não é necessária para clara de transmissão em fluxo ou transferência. 
 
-Normalmente, associar seu **política de chave de conteúdo** com o seu **localizador de transmissão em fluxo**. Em alternativa, pode especificar a política de chave de conteúdo dentro de uma política de transmissão em fluxo (ao criar uma política personalizada para cenários avançados de transmissão em fluxo). 
+Normalmente, associar seu **política de chave de conteúdo** com o seu [localizador de transmissão em fluxo](streaming-locators-concept.md). Em alternativa, pode especificar a política de chave de conteúdo dentro de um [política de transmissão em fluxo](streaming-policy-concept.md) (quando criar uma política personalizada de transmissão em fluxo para cenários avançados). 
 
 Recomenda-se para permitir que os serviços de multimédia para gerar automaticamente chaves de conteúdo. Normalmente, usaria uma chave de longa duração e verificar a existência de políticas com **obter**. Para obter a chave, terá de chamar um método de ação separada para obter segredos ou as credenciais, consulte o exemplo a seguir.
 

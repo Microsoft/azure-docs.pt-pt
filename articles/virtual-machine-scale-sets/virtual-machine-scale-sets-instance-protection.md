@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 6c271c2c9feb1520951b2a8e301da4878970d60a
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
-ms.translationtype: HT
+ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
+ms.sourcegitcommit: c05618a257787af6f9a2751c549c9a3634832c90
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66259426"
+ms.lasthandoff: 05/30/2019
+ms.locfileid: "66416543"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Proteção de instâncias de dimensionamento de máquina virtual do Azure definir instances (pré-visualização)
 Conjuntos de dimensionamento de máquina virtual do Azure permitem elasticidade melhor das cargas de trabalho por meio [dimensionamento automático](virtual-machine-scale-sets-autoscale-overview.md), pelo que pode configurar quando a sua infraestrutura aumenta horizontalmente e quando ele reduz horizontalmente. Conjuntos de dimensionamento também permitem-lhe gerir centralmente, configurar e atualizar um grande número de VMs através de diferentes [política de atualização](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) definições. Pode configurar uma atualização no modelo de conjunto de dimensionamento e a nova configuração é aplicada automaticamente a cada instância de conjunto de dimensionamento se tiver definido a política de atualização automática ou a implementar.
@@ -30,7 +30,7 @@ Como seu aplicativo processa o tráfego, pode haver situações em que pretende 
 Este artigo descreve como pode aplicar e utilizar as capacidades de proteção de instância diferente com instâncias de conjunto de dimensionamento.
 
 > [!NOTE]
->Proteção de instância está atualmente em pré-visualização pública. Nenhum procedimento participar é necessária para utilizar a funcionalidade de pré-visualização pública descrita abaixo. Pré-visualização de proteção de instância só é suportado com a versão de 2019-03-01 de API e superior.
+>Proteção de instância está atualmente em pré-visualização pública. Nenhum procedimento participar é necessária para utilizar a funcionalidade de pré-visualização pública descrita abaixo. Pré-visualização de proteção de instância só é suportado com a versão de 2019-03-01 de API e em conjuntos de dimensionamento com discos geridos.
 
 ## <a name="types-of-instance-protection"></a>Tipos de proteção de instância
 Conjuntos de dimensionamento fornecem dois tipos de funcionalidades de proteção da instância:
