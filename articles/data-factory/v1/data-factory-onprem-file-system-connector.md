@@ -73,8 +73,8 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados do Azure com
 
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| tipo |Certifique-se de que a propriedade de tipo é definida como **OnPremisesFileServer**. |Sim |
-| anfitrião |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos. |Sim |
+| type |Certifique-se de que a propriedade de tipo é definida como **OnPremisesFileServer**. |Sim |
+| host |Especifica o caminho de raiz da pasta que pretende copiar. Utilizar o caráter de escape "\" para carateres especiais na cadeia de caracteres. Ver [exemplo ligado as definições de serviço e o conjunto de dados](#sample-linked-service-and-dataset-definitions) para obter exemplos. |Sim |
 | userid |Especifica o ID de utilizador que tem acesso ao servidor. |Não (se escolher encryptedCredential) |
 | password |Especifique a palavra-passe para o utilizador (ID de utilizador). |Não (se escolher encryptedCredential |
 | encryptedCredential |Especifique as credenciais encriptadas que pode obter ao executar o cmdlet New-AzDataFactoryEncryptValue. |Não (se optar por especificar o ID de utilizador e palavra-passe em texto simples) |
